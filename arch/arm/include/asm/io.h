@@ -67,10 +67,10 @@ extern void __raw_readsl(const void __iomem *addr, void *data, int longlen);
 int _ret; \
 void *_addr = (void *)(a); \
 _ret = uncached_logk(LOGK_WRITEL, _addr); \
-ETB_WAYPOINT; \
-__raw_write##_t##_no_log((v), _addr); \
-if (_ret) \
-	LOG_BARRIER; \
+do { } while (0); \
+	__raw_write##_t##_no_log((v), _addr); \
+	if (_ret) \
+		do { } while (0); \
 })
 
 
@@ -95,11 +95,11 @@ unsigned _t __a; \
 void *_addr = (void *)(a); \
 int _ret; \
 _ret = uncached_logk(LOGK_READL, _addr); \
-ETB_WAYPOINT; \
-__a = __raw_read##_l##_no_log(_addr);\
-if (_ret) \
-	LOG_BARRIER; \
-	__a; \
+do { } while (0); \
+	__a = __raw_read##_l##_no_log(_addr);\
+	if (_ret) \
+		do { } while (0); \
+			__a; \
 })
 
 
