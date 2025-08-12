@@ -22,7 +22,6 @@
 #define __ASM_ARM_IO_H
 
 #ifdef __KERNEL__
-
 #include <linux/types.h>
 #include <asm/byteorder.h>
 #include <asm/memory.h>
@@ -36,6 +35,19 @@
 
 #ifndef LOG_BARRIER
 #define LOG_BARRIER do { } while (0)
+#endif
+
+/* Adicione estas linhas também: */
+#ifndef LOGK_READL
+#define LOGK_READL 0
+#endif
+
+#ifndef LOGK_WRITEL
+#define LOGK_WRITEL 0
+#endif
+
+#ifndef uncached_logk
+#define uncached_logk(type, addr) (0)
 #endif
 
 /*
