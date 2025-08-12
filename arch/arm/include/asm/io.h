@@ -80,10 +80,10 @@ do { } while (0); \
 #define __raw_writell_no_log(v, a)	(__chk_io_ptr(a), *(volatile unsigned long long __force *)(a) = (v))
 
 
-#define __raw_writeb(v, a)	__raw_write_logged((v), (a), b)
-#define __raw_writew(v, a)	__raw_write_logged((v), (a), w)
-#define __raw_writel(v, a)	__raw_write_logged((v), (a), l)
-#define __raw_writell(v, a)	__raw_write_logged((v), (a), ll)
+#define __raw_writeb(v, a)	__raw_writeb_no_log(v, a)
+#define __raw_writew(v, a)	__raw_writew_no_log(v, a)
+#define __raw_writel(v, a)	__raw_writel_no_log(v, a)
+#define __raw_writell(v, a)	__raw_writell_no_log(v, a)
 
 #define __raw_readb_no_log(a)		(__chk_io_ptr(a), *(volatile unsigned char __force  *)(a))
 #define __raw_readw_no_log(a)		(__chk_io_ptr(a), *(volatile unsigned short __force *)(a))
@@ -103,10 +103,10 @@ do { } while (0); \
 })
 
 
-#define __raw_readb(a)		__raw_read_logged((a), b, char)
-#define __raw_readw(a)		__raw_read_logged((a), w, short)
-#define __raw_readl(a)		__raw_read_logged((a), l, int)
-#define __raw_readll(a)		__raw_read_logged((a), ll, long long)
+#define __raw_readb(a)		__raw_readb_no_log(a)
+#define __raw_readw(a)		__raw_readw_no_log(a)
+#define __raw_readl(a)		__raw_readl_no_log(a)
+#define __raw_readll(a)		__raw_readll_no_log(a)
 
 /*
  * Architecture ioremap implementation.
