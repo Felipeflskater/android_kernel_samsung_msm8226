@@ -9,9 +9,14 @@
 #define NULL ((void *)0)
 
 enum {
-	false	= 0,
-	true	= 1
+	__kernel_false = 0,
+	__kernel_true  = 1
 };
+
+#ifndef __cplusplus
+#define false __kernel_false
+#define true  __kernel_true
+#endif
 
 #undef offsetof
 #ifdef __compiler_offsetof

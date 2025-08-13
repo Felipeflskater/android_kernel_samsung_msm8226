@@ -246,6 +246,11 @@ HOSTCC       = gcc
 HOSTCXX      = g++
 HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
 HOSTCXXFLAGS = -O2
+# Força C11 para evitar C23 (GCC 15+)
+HOSTCFLAGS += -std=gnu11
+HOSTCXXFLAGS += -std=gnu++11
+KBUILD_HOSTCFLAGS += -std=gnu11
+KBUILD_HOSTCXXFLAGS += -std=gnu++11
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
