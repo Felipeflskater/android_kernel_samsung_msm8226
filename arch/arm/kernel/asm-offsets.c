@@ -64,7 +64,9 @@ int main(void)
   DEFINE(VFP_CPU,		offsetof(union vfp_state, hard.cpu));
 #endif
 
-// DEFINE(TI_THUMBEE_STATE,	offsetof(struct thread_info, thumbee_state));
+#ifdef CONFIG_ARM_THUMBEE
+  DEFINE(TI_THUMBEE_STATE, offsetof(struct thread_info, thumbee_state));
+#endif
 
 #ifdef CONFIG_IWMMXT
   DEFINE(TI_IWMMXT_STATE,	offsetof(struct thread_info, fpstate.iwmmxt));
