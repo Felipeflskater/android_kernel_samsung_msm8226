@@ -13,9 +13,9 @@
  * GNU General Public License for more details.
  *
  */
-
-#ifndef __ASM_ARCH_MSM_IRQS_H
-#define __ASM_ARCH_MSM_IRQS_H
+#include <mach/msm-irqs.h>
+//#ifndef __ASM_ARCH_MSM_IRQS_H
+//#define __ASM_ARCH_MSM_IRQS_H
 
 /*
  * 0-15:  STI/SGI (software triggered/generated interrupts)

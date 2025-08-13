@@ -19,7 +19,10 @@
  * deal with unrepresentable constant logarithms
  */
 extern __attribute__((const, noreturn))
-int ____ilog2_NaN(void);
+static inline int ____ilog2_NaN(void)
+{
+	return 0;
+}
 
 /*
  * non-constant log of base 2 calculators
