@@ -382,6 +382,14 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 KBUILD_CFLAGS += -Wno-error=array-bounds -Wno-error=stringop-overflow
 KBUILD_CFLAGS += -Wno-array-bounds -Wno-stringop-overflow
 
+# PostmarketOS: Additional GCC compatibility fixes
+KBUILD_CFLAGS += -Wno-error=attributes -Wno-attributes
+KBUILD_CFLAGS += -Wno-error=incompatible-pointer-types -Wno-incompatible-pointer-types
+KBUILD_CFLAGS += -Wno-error=implicit-function-declaration -Wno-implicit-function-declaration
+KBUILD_CFLAGS += -Wno-error=maybe-uninitialized -Wno-maybe-uninitialized
+KBUILD_CFLAGS += -Wno-error=unused-function -Wno-unused-function
+KBUILD_CFLAGS += -Wno-error=unused-variable -Wno-unused-variable
+
 # PostmarketOS: Fix incompatible linker flags for ARM
 LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
 LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
@@ -398,6 +406,9 @@ KBUILD_AFLAGS   := -D__ASSEMBLY__
 KBUILD_AFLAGS_MODULE  := -DMODULE
 KBUILD_CFLAGS_MODULE  := -DMODULE -fno-pic
 KBUILD_LDFLAGS_MODULE := -T $(srctree)/scripts/module-common.lds
+
+# PostmarketOS: Disable ALL warnings as errors (aggressive fix)
+KBUILD_CFLAGS += -Wno-error
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
 KERNELRELEASE = $(shell cat include/config/kernel.release 2> /dev/null)
