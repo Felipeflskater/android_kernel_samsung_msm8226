@@ -405,6 +405,81 @@ KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 KBUILD_AFLAGS_MODULE  := -DMODULE
 KBUILD_CFLAGS_MODULE  := -DMODULE -fno-pic
+
+# PostmarketOS: Aggressive GCC 15.x compatibility
+KBUILD_CFLAGS += -Wno-error
+KBUILD_CFLAGS += -D'true=1' -D'false=0'
+KBUILD_AFLAGS += -Wa,--no-warn
+
+# PostmarketOS: Additional warning suppressions
+KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
+KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
+
+# PostmarketOS: Fix incompatible linker flags for ARM
+LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out -O1, $(LDFLAGS))
+LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
+
+# PostmarketOS: ARM architecture definitions
+KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
+KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
+KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
+
+# PostmarketOS: Disable problematic optimizations for old kernels
+KBUILD_CFLAGS += -fno-delete-null-pointer-checks
+KBUILD_CFLAGS += -fno-strict-overflow
+
+
+# PostmarketOS: Aggressive GCC 15.x compatibility
+KBUILD_CFLAGS += -Wno-error
+KBUILD_CFLAGS += -D'true=1' -D'false=0'
+KBUILD_AFLAGS += -Wa,--no-warn
+
+# PostmarketOS: Additional warning suppressions
+KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
+KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
+
+# PostmarketOS: Fix incompatible linker flags for ARM
+LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out -O1, $(LDFLAGS))
+LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
+
+# PostmarketOS: ARM architecture definitions
+KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
+KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
+KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
+
+# PostmarketOS: Disable problematic optimizations for old kernels
+KBUILD_CFLAGS += -fno-delete-null-pointer-checks
+KBUILD_CFLAGS += -fno-strict-overflow
+
+
+# PostmarketOS: Aggressive GCC 15.x compatibility
+KBUILD_CFLAGS += -Wno-error
+KBUILD_CFLAGS += -D'true=1' -D'false=0'
+KBUILD_AFLAGS += -Wa,--no-warn
+
+# PostmarketOS: Additional warning suppressions
+KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
+KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
+
+# PostmarketOS: Fix incompatible linker flags for ARM
+LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out -O1, $(LDFLAGS))
+LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
+
+# PostmarketOS: ARM architecture definitions
+KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
+KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
+KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
+
+# PostmarketOS: Disable problematic optimizations for old kernels
+KBUILD_CFLAGS += -fno-delete-null-pointer-checks
+KBUILD_CFLAGS += -fno-strict-overflow
+
 KBUILD_LDFLAGS_MODULE := -T $(srctree)/scripts/module-common.lds
 
 # PostmarketOS: Disable ALL warnings as errors (aggressive fix)

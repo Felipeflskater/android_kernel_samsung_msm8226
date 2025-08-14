@@ -216,8 +216,8 @@ EXPORT_SYMBOL(panic);
 
 struct tnt {
 	u8	bit;
-	char	true;
-	char	false;
+	char true_char;
+	char false_char;
 };
 
 static const struct tnt tnts[] = {
@@ -267,7 +267,7 @@ const char *print_tainted(void)
 		for (i = 0; i < ARRAY_SIZE(tnts); i++) {
 			const struct tnt *t = &tnts[i];
 			*s++ = test_bit(t->bit, &tainted_mask) ?
-					t->true : t->false;
+					t->true_char : t->false_char;
 		}
 		*s = 0;
 	} else
