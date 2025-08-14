@@ -378,6 +378,20 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks
+# PostmarketOS: Relax warnings for GCC 15.2.0 compatibility
+KBUILD_CFLAGS += -Wno-error=array-bounds -Wno-error=stringop-overflow
+KBUILD_CFLAGS += -Wno-array-bounds -Wno-stringop-overflow
+
+# PostmarketOS: Fix incompatible linker flags for ARM
+LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
+LDFLAGS := $(filter-out -O1, $(LDFLAGS))
+LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
+
+# PostmarketOS: ARM architecture definitions
+KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
+KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
+KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
 KBUILD_AFLAGS   := -D__ASSEMBLY__

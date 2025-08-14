@@ -39,6 +39,10 @@
 #include "mm.h"
 #ifdef CONFIG_TIMA_RKP_DMA_MVA_TO_SETWAY
 
+#ifndef MAX_CMA_AREAS
+#define MAX_CMA_AREAS 7
+#endif
+
 #define L1_NWAY 4
 #define L2_NWAY 8
 #define L1_WAY_OFFSET 30
@@ -370,6 +374,10 @@ static int dma_mmu_remap_num __initdata;
 
 void __init dma_contiguous_early_fixup(phys_addr_t base, unsigned long size)
 {
+	if (dma_mmu_remap_num >= MAX_CMA_AREAS) {
+		pr_err("DMA: Too many CMA areas, ignoring region\n");
+		return;
+	}
 	dma_mmu_remap[dma_mmu_remap_num].base = base;
 	dma_mmu_remap[dma_mmu_remap_num].size = size;
 	dma_mmu_remap_num++;
@@ -379,6 +387,11 @@ void __init dma_contiguous_remap(void)
 {
 	int i;
 	for (i = 0; i < dma_mmu_remap_num; i++) {
+		if (i >= MAX_CMA_AREAS) {
+			pr_err("DMA: Array bounds exceeded, breaking\n");
+			break;
+		}
+
 		phys_addr_t start = dma_mmu_remap[i].base;
 		phys_addr_t end = start + dma_mmu_remap[i].size;
 		struct map_desc map;
