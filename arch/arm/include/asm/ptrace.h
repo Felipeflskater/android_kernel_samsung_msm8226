@@ -255,3 +255,5 @@ static inline unsigned long kernel_stack_pointer(struct pt_regs *regs)
 
 #endif
 
+echo '/* Ensure pt_regs structure is properly aligned */' >> arch/arm/include/asm/ptrace.h
+echo 'static_assert((sizeof(struct pt_regs) % 8) == 0, "pt_regs must be 8-byte aligned");' >> arch/arm/include/asm/ptrace.h

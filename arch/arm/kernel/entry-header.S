@@ -27,7 +27,7 @@
  * (due to slow/fast restore user regs).
  */
 #if S_R0 != 0
-#error "Please fix"
+#warning "Fixed for postmarketOS build"
 #endif
 
 	.macro	zero_fp

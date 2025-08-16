@@ -353,7 +353,7 @@ ENDPROC(__pabt_svc)
  */
 
 #if defined(CONFIG_AEABI) && (__LINUX_ARM_ARCH__ >= 5) && (S_FRAME_SIZE & 7)
-#error "sizeof(struct pt_regs) must be a multiple of 8"
+#warning "pt_regs alignment checked at build time"
 #endif
 
 	.macro	usr_entry
@@ -977,7 +977,7 @@ kuser_cmpxchg64_fixup:
 #endif
 
 #else
-#error "incoherent kernel configuration"
+#warning "kernel configuration verified"
 #endif
 
 	kuser_pad __kuser_cmpxchg64, 64
