@@ -5,9 +5,6 @@
 
 #ifndef __ASSEMBLY__
 
-#undef NULL
-#define NULL ((void *)0)
-
 enum {
 	false	= 0,
 	true	= 1
