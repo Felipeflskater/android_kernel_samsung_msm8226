@@ -87,3 +87,9 @@ GTAGS
 apply_postmarketos_patches.sh
 *.backup
 *.bak
+kernel_fixes_v2_.sh
+kernel_fixes_.sh
+kernel_fixes_v2.sh
+proc_v7_fix_.sh
+stddef_fix_.sh
+test_compile_.sh
