@@ -50,12 +50,12 @@ tmp2	.req	r5
  * Wait until master clock is ready (after switching master clock source)
  */
 	.macro wait_mckrdy
-	mov	tmp2, #MCKRDY_TIMEOUT
+	mov	tmp2, @ MCKRDY_TIMEOUT
 1:	sub	tmp2, tmp2, #1
 	cmp	tmp2, #0
 	beq	2f
-	ldr	tmp1, [pmc, #AT91_PMC_SR]
-	tst	tmp1, #AT91_PMC_MCKRDY
+	ldr	tmp1, [pmc, @ AT91_PMC_SR]
+	tst	tmp1, @ AT91_PMC_MCKRDY
 	beq	1b
 2:
 	.endm
@@ -64,12 +64,12 @@ tmp2	.req	r5
  * Wait until master oscillator has stabilized.
  */
 	.macro wait_moscrdy
-	mov	tmp2, #MOSCRDY_TIMEOUT
+	mov	tmp2, @ MOSCRDY_TIMEOUT
 1:	sub	tmp2, tmp2, #1
 	cmp	tmp2, #0
 	beq	2f
-	ldr	tmp1, [pmc, #AT91_PMC_SR]
-	tst	tmp1, #AT91_PMC_MOSCS
+	ldr	tmp1, [pmc, @ AT91_PMC_SR]
+	tst	tmp1, @ AT91_PMC_MOSCS
 	beq	1b
 2:
 	.endm
@@ -78,12 +78,12 @@ tmp2	.req	r5
  * Wait until PLLA has locked.
  */
 	.macro wait_pllalock
-	mov	tmp2, #PLLALOCK_TIMEOUT
+	mov	tmp2, @ PLLALOCK_TIMEOUT
 1:	sub	tmp2, tmp2, #1
 	cmp	tmp2, #0
 	beq	2f
-	ldr	tmp1, [pmc, #AT91_PMC_SR]
-	tst	tmp1, #AT91_PMC_LOCKA
+	ldr	tmp1, [pmc, @ AT91_PMC_SR]
+	tst	tmp1, @ AT91_PMC_LOCKA
 	beq	1b
 2:
 	.endm
@@ -92,12 +92,12 @@ tmp2	.req	r5
  * Wait until PLLB has locked.
  */
 	.macro wait_pllblock
-	mov	tmp2, #PLLBLOCK_TIMEOUT
+	mov	tmp2, @ PLLBLOCK_TIMEOUT
 1:	sub	tmp2, tmp2, #1
 	cmp	tmp2, #0
 	beq	2f
-	ldr	tmp1, [pmc, #AT91_PMC_SR]
-	tst	tmp1, #AT91_PMC_LOCKB
+	ldr	tmp1, [pmc, @ AT91_PMC_SR]
+	tst	tmp1, @ AT91_PMC_LOCKB
 	beq	1b
 2:
 	.endm
@@ -125,7 +125,7 @@ ENTRY(at91_slow_clock)
 	mov	tmp1, #0
 	mcr	p15, 0, tmp1, c7, c10, 4
 
-	cmp	memctrl, #AT91_MEMCTRL_MC
+	cmp	memctrl, @ AT91_MEMCTRL_MC
 	bne	ddr_sr_enable
 
 	/*
@@ -133,32 +133,32 @@ ENTRY(at91_slow_clock)
 	 */
 	/* Put SDRAM in self-refresh mode */
 	mov	tmp1, #1
-	str	tmp1, [sdramc, #AT91RM9200_SDRAMC_SRR]
+	str	tmp1, [sdramc, @ AT91RM9200_SDRAMC_SRR]
 	b	sdr_sr_done
 
 	/*
 	 * DDRSDR Memory controller
 	 */
 ddr_sr_enable:
-	cmp	memctrl, #AT91_MEMCTRL_DDRSDR
+	cmp	memctrl, @ AT91_MEMCTRL_DDRSDR
 	bne	sdr_sr_enable
 
 	/* prepare for DDRAM self-refresh mode */
-	ldr	tmp1, [sdramc, #AT91_DDRSDRC_LPR]
+	ldr	tmp1, [sdramc, @ AT91_DDRSDRC_LPR]
 	str	tmp1, .saved_sam9_lpr
-	bic	tmp1, #AT91_DDRSDRC_LPCB
-	orr	tmp1, #AT91_DDRSDRC_LPCB_SELF_REFRESH
+	bic	tmp1, @ AT91_DDRSDRC_LPCB
+	orr	tmp1, @ AT91_DDRSDRC_LPCB_SELF_REFRESH
 
 	/* figure out if we use the second ram controller */
 	cmp	ramc1, #0
-	ldrne	tmp2, [ramc1, #AT91_DDRSDRC_LPR]
+	ldrne	tmp2, [ramc1, @ AT91_DDRSDRC_LPR]
 	strne	tmp2, .saved_sam9_lpr1
-	bicne	tmp2, #AT91_DDRSDRC_LPCB
-	orrne	tmp2, #AT91_DDRSDRC_LPCB_SELF_REFRESH
+	bicne	tmp2, @ AT91_DDRSDRC_LPCB
+	orrne	tmp2, @ AT91_DDRSDRC_LPCB_SELF_REFRESH
 
 	/* Enable DDRAM self-refresh mode */
-	str	tmp1, [sdramc, #AT91_DDRSDRC_LPR]
-	strne	tmp2, [ramc1, #AT91_DDRSDRC_LPR]
+	str	tmp1, [sdramc, @ AT91_DDRSDRC_LPR]
+	strne	tmp2, [ramc1, @ AT91_DDRSDRC_LPR]
 
 	b	sdr_sr_done
 
@@ -167,23 +167,23 @@ ddr_sr_enable:
 	 */
 sdr_sr_enable:
 	/* Enable SDRAM self-refresh mode */
-	ldr	tmp1, [sdramc, #AT91_SDRAMC_LPR]
+	ldr	tmp1, [sdramc, @ AT91_SDRAMC_LPR]
 	str	tmp1, .saved_sam9_lpr
 
-	bic	tmp1, #AT91_SDRAMC_LPCB
-	orr	tmp1, #AT91_SDRAMC_LPCB_SELF_REFRESH
-	str	tmp1, [sdramc, #AT91_SDRAMC_LPR]
+	bic	tmp1, @ AT91_SDRAMC_LPCB
+	orr	tmp1, @ AT91_SDRAMC_LPCB_SELF_REFRESH
+	str	tmp1, [sdramc, @ AT91_SDRAMC_LPR]
 
 sdr_sr_done:
 	/* Save Master clock setting */
-	ldr	tmp1, [pmc, #AT91_PMC_MCKR]
+	ldr	tmp1, [pmc, @ AT91_PMC_MCKR]
 	str	tmp1, .saved_mckr
 
 	/*
 	 * Set the Master clock source to slow clock
 	 */
-	bic	tmp1, tmp1, #AT91_PMC_CSS
-	str	tmp1, [pmc, #AT91_PMC_MCKR]
+	bic	tmp1, tmp1, @ AT91_PMC_CSS
+	str	tmp1, [pmc, @ AT91_PMC_MCKR]
 
 	wait_mckrdy
 
@@ -194,48 +194,48 @@ sdr_sr_done:
 	 * See AT91RM9200 errata #27 and #28 for details.
 	 */
 	mov	tmp1, #0
-	str	tmp1, [pmc, #AT91_PMC_MCKR]
+	str	tmp1, [pmc, @ AT91_PMC_MCKR]
 
 	wait_mckrdy
 #endif
 
 	/* Save PLLA setting and disable it */
-	ldr	tmp1, [pmc, #AT91_CKGR_PLLAR]
+	ldr	tmp1, [pmc, @ AT91_CKGR_PLLAR]
 	str	tmp1, .saved_pllar
 
-	mov	tmp1, #AT91_PMC_PLLCOUNT
-	orr	tmp1, tmp1, #(1 << 29)		/* bit 29 always set */
-	str	tmp1, [pmc, #AT91_CKGR_PLLAR]
+	mov	tmp1, @ AT91_PMC_PLLCOUNT
+	orr	tmp1, tmp1, @ (1 << 29)		/* bit 29 always set */
+	str	tmp1, [pmc, @ AT91_CKGR_PLLAR]
 
 	/* Save PLLB setting and disable it */
-	ldr	tmp1, [pmc, #AT91_CKGR_PLLBR]
+	ldr	tmp1, [pmc, @ AT91_CKGR_PLLBR]
 	str	tmp1, .saved_pllbr
 
-	mov	tmp1, #AT91_PMC_PLLCOUNT
-	str	tmp1, [pmc, #AT91_CKGR_PLLBR]
+	mov	tmp1, @ AT91_PMC_PLLCOUNT
+	str	tmp1, [pmc, @ AT91_CKGR_PLLBR]
 
 	/* Turn off the main oscillator */
-	ldr	tmp1, [pmc, #AT91_CKGR_MOR]
-	bic	tmp1, tmp1, #AT91_PMC_MOSCEN
-	str	tmp1, [pmc, #AT91_CKGR_MOR]
+	ldr	tmp1, [pmc, @ AT91_CKGR_MOR]
+	bic	tmp1, tmp1, @ AT91_PMC_MOSCEN
+	str	tmp1, [pmc, @ AT91_CKGR_MOR]
 
 	/* Wait for interrupt */
 	mcr	p15, 0, tmp1, c7, c0, 4
 
 	/* Turn on the main oscillator */
-	ldr	tmp1, [pmc, #AT91_CKGR_MOR]
-	orr	tmp1, tmp1, #AT91_PMC_MOSCEN
-	str	tmp1, [pmc, #AT91_CKGR_MOR]
+	ldr	tmp1, [pmc, @ AT91_CKGR_MOR]
+	orr	tmp1, tmp1, @ AT91_PMC_MOSCEN
+	str	tmp1, [pmc, @ AT91_CKGR_MOR]
 
 	wait_moscrdy
 
 	/* Restore PLLB setting */
 	ldr	tmp1, .saved_pllbr
-	str	tmp1, [pmc, #AT91_CKGR_PLLBR]
+	str	tmp1, [pmc, @ AT91_CKGR_PLLBR]
 
-	tst	tmp1, #(AT91_PMC_MUL &  0xff0000)
+	tst	tmp1, @ (AT91_PMC_MUL &  0xff0000)
 	bne	1f
-	tst	tmp1, #(AT91_PMC_MUL & ~0xff0000)
+	tst	tmp1, @ (AT91_PMC_MUL & ~0xff0000)
 	beq	2f
 1:
 	wait_pllblock
@@ -243,11 +243,11 @@ sdr_sr_done:
 
 	/* Restore PLLA setting */
 	ldr	tmp1, .saved_pllar
-	str	tmp1, [pmc, #AT91_CKGR_PLLAR]
+	str	tmp1, [pmc, @ AT91_CKGR_PLLAR]
 
-	tst	tmp1, #(AT91_PMC_MUL &  0xff0000)
+	tst	tmp1, @ (AT91_PMC_MUL &  0xff0000)
 	bne	3f
-	tst	tmp1, #(AT91_PMC_MUL & ~0xff0000)
+	tst	tmp1, @ (AT91_PMC_MUL & ~0xff0000)
 	beq	4f
 3:
 	wait_pllalock
@@ -261,10 +261,10 @@ sdr_sr_done:
 	 * See AT91RM9200 errata #27 and #28 for details.
 	 */
 	ldr	tmp1, .saved_mckr
-	tst	tmp1, #AT91_PMC_PRES
+	tst	tmp1, @ AT91_PMC_PRES
 	beq	2f
-	and	tmp1, tmp1, #AT91_PMC_PRES
-	str	tmp1, [pmc, #AT91_PMC_MCKR]
+	and	tmp1, tmp1, @ AT91_PMC_PRES
+	str	tmp1, [pmc, @ AT91_PMC_MCKR]
 
 	wait_mckrdy
 #endif
@@ -273,7 +273,7 @@ sdr_sr_done:
 	 * Restore master clock setting
 	 */
 2:	ldr	tmp1, .saved_mckr
-	str	tmp1, [pmc, #AT91_PMC_MCKR]
+	str	tmp1, [pmc, @ AT91_PMC_MCKR]
 
 	wait_mckrdy
 
@@ -281,22 +281,22 @@ sdr_sr_done:
 	 * at91rm9200 Memory controller
 	 * Do nothing - self-refresh is automatically disabled.
 	 */
-	cmp	memctrl, #AT91_MEMCTRL_MC
+	cmp	memctrl, @ AT91_MEMCTRL_MC
 	beq	ram_restored
 
 	/*
 	 * DDRSDR Memory controller
 	 */
-	cmp	memctrl, #AT91_MEMCTRL_DDRSDR
+	cmp	memctrl, @ AT91_MEMCTRL_DDRSDR
 	bne	sdr_en_restore
 	/* Restore LPR on AT91 with DDRAM */
 	ldr	tmp1, .saved_sam9_lpr
-	str	tmp1, [sdramc, #AT91_DDRSDRC_LPR]
+	str	tmp1, [sdramc, @ AT91_DDRSDRC_LPR]
 
 	/* if we use the second ram controller */
 	cmp	ramc1, #0
 	ldrne	tmp2, .saved_sam9_lpr1
-	strne	tmp2, [ramc1, #AT91_DDRSDRC_LPR]
+	strne	tmp2, [ramc1, @ AT91_DDRSDRC_LPR]
 
 	b	ram_restored
 
@@ -306,7 +306,7 @@ sdr_sr_done:
 sdr_en_restore:
 	/* Restore LPR on AT91 with SDRAM */
 	ldr	tmp1, .saved_sam9_lpr
-	str	tmp1, [sdramc, #AT91_SDRAMC_LPR]
+	str	tmp1, [sdramc, @ AT91_SDRAMC_LPR]
 
 ram_restored:
 	/* Restore registers, and return */

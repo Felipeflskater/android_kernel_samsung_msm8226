@@ -26,7 +26,7 @@
 		ldr	\irqstat, [\base, #0]		@ get status
                 ldr     \irqnr, [\base, #0x10]          @ mask with enable register
                 ands    \irqstat, \irqstat, \irqnr
-		mov	\irqnr, #IRQ_INTC0_START
+		mov	\irqnr, @ IRQ_INTC0_START
 		cmp	\irqstat, #0
 		bne	1001f
 
@@ -34,7 +34,7 @@
 		ldr	\irqstat, [\base, #0]		@ get status
                 ldr     \irqnr, [\base, #0x10]          @ mask with enable register
                 ands    \irqstat, \irqstat, \irqnr
-		mov	\irqnr, #IRQ_INTC1_START
+		mov	\irqnr, @ IRQ_INTC1_START
 		cmp	\irqstat, #0
 		bne	1001f
 
@@ -46,7 +46,7 @@
 		cmp	\irqstat, #0
 		beq	1002f
 
-		mov	\irqnr, #IRQ_SINTC_START        @ something is set, so fixup return value
+		mov	\irqnr, @ IRQ_SINTC_START        @ something is set, so fixup return value
 
 1001:
 		movs	\tmp, \irqstat, lsl #16

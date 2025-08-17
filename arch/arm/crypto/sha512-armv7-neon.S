@@ -283,7 +283,7 @@ ENTRY(sha512_transform_neon)
 	/* Load context to d0-d7 */
 	vld1.64 {RA-RD}, [%r0]!;
 	vld1.64 {RE-RH}, [%r0];
-	sub %r0, #(4*8);
+	sub %r0, @ (4*8);
 
 	/* Load input to w[16], d16-d31 */
 	/* NOTE: Assumes that on ARMv7 unaligned accesses are always allowed. */
@@ -374,7 +374,7 @@ ENTRY(sha512_transform_neon)
 	/* Load context */
 	vld1.64 {RT0-RT3}, [%r0]!;
 	vld1.64 {RT4-RT7}, [%r0];
-	sub %r0, #(4*8);
+	sub %r0, @ (4*8);
 
 #ifdef __ARMEL__
 	vrev64.8 RW1213q, RW1213q;
@@ -395,7 +395,7 @@ ENTRY(sha512_transform_neon)
 	sub RK, $(8*80);
 	vst1.64 {RE-RH}, [%r0]; /* Store the last half of context */
 	mov %lr, #0;
-	sub %r0, #(4*8);
+	sub %r0, @ (4*8);
 
 	b .Loop;
 
@@ -418,7 +418,7 @@ ENTRY(sha512_transform_neon)
 	vadd_rg_RT0(RA);
 	vld1.64 {RW4-RW7}, [%r0];
 	vadd_rg_RT1(RA);
-	sub %r0, #(4*8);
+	sub %r0, @ (4*8);
 
 	vadd.u64 RA, RW0;
 	vadd.u64 RB, RW1;

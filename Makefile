@@ -1705,3 +1705,19 @@ KBUILD_CFLAGS += -fno-strict-aliasing
 # Host flags
 HOSTCFLAGS += -fno-PIE -no-pie -fno-stack-protector
 HOSTLDFLAGS += -no-pie
+
+# Flags adicionais para correção dos novos erros
+KBUILD_CFLAGS += -Wno-error=format-security
+KBUILD_CFLAGS += -Wno-endif-labels
+KBUILD_CFLAGS += -fno-strict-aliasing
+
+# Assembly flags - menos restritivo para compatibilidade
+KBUILD_AFLAGS += -Wa,--no-warn
+
+# Flags adicionais para correção dos novos erros
+KBUILD_CFLAGS += -Wno-error=format-security
+KBUILD_CFLAGS += -Wno-endif-labels
+KBUILD_CFLAGS += -fno-strict-aliasing
+
+# Assembly flags - menos restritivo para compatibilidade
+KBUILD_AFLAGS += -Wa,--no-warn

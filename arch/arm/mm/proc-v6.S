@@ -82,8 +82,8 @@ ENTRY(cpu_v6_do_idle)
 ENTRY(cpu_v6_dcache_clean_area)
 #ifndef TLB_CAN_READ_FROM_L1_CACHE
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, #D_CACHE_LINE_SIZE
-	subs	r1, r1, #D_CACHE_LINE_SIZE
+	add	r0, r0, @ D_CACHE_LINE_SIZE
+	subs	r1, r1, @ D_CACHE_LINE_SIZE
 	bhi	1b
 #endif
 	mov	pc, lr
@@ -101,9 +101,9 @@ ENTRY(cpu_v6_dcache_clean_area)
 ENTRY(cpu_v6_switch_mm)
 #ifdef CONFIG_MMU
 	mov	r2, #0
-	ldr	r1, [r1, #MM_CONTEXT_ID]	@ get mm->context.id
-	ALT_SMP(orr	r0, r0, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r0, r0, #TTB_FLAGS_UP)
+	ldr	r1, [r1, @ MM_CONTEXT_ID]	@ get mm->context.id
+	ALT_SMP(orr	r0, r0, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r0, r0, @ TTB_FLAGS_UP)
 	mcr	p15, 0, r2, c7, c5, 6		@ flush BTAC/BTB
 	mcr	p15, 0, r2, c7, c10, 4		@ drain write buffer
 	mcr	p15, 0, r0, c2, c0, 0		@ set TTB 0
@@ -161,8 +161,8 @@ ENTRY(cpu_v6_do_resume)
 	ldmia	r0, {r4 - r9}
 	mcr	p15, 0, r4, c13, c0, 0	@ FCSE/PID
 	mcr	p15, 0, r5, c3, c0, 0	@ Domain ID
-	ALT_SMP(orr	r1, r1, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r1, r1, #TTB_FLAGS_UP)
+	ALT_SMP(orr	r1, r1, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r1, r1, @ TTB_FLAGS_UP)
 	mcr	p15, 0, r1, c2, c0, 0	@ Translation table base 0
 	mcr	p15, 0, r6, c2, c0, 1	@ Translation table base 1
 	mcr	p15, 0, r7, c1, c0, 1	@ auxiliary control register
@@ -211,10 +211,10 @@ __v6_setup:
 #ifdef CONFIG_MMU
 	mcr	p15, 0, r0, c8, c7, 0		@ invalidate I + D TLBs
 	mcr	p15, 0, r0, c2, c0, 2		@ TTB control register
-	ALT_SMP(orr	r4, r4, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r4, r4, #TTB_FLAGS_UP)
-	ALT_SMP(orr	r8, r8, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r8, r8, #TTB_FLAGS_UP)
+	ALT_SMP(orr	r4, r4, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r4, r4, @ TTB_FLAGS_UP)
+	ALT_SMP(orr	r8, r8, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r8, r8, @ TTB_FLAGS_UP)
 	mcr	p15, 0, r8, c2, c0, 1		@ load TTB1
 #endif /* CONFIG_MMU */
 	mcr	p15, 0, r0, c7, c10, 4		@ drain write buffer and
@@ -239,9 +239,9 @@ __v6_setup:
 	mrc	p15, 0, r5, c0, c0, 0		@ get processor id
 	teq	r5, r6				@ check for the faulty core
 	mrceq	p15, 0, r5, c1, c0, 1		@ load aux control reg
-	orreq	r5, r5, #(1 << 31)		@ set the undocumented bit 31
+	orreq	r5, r5, @ (1 << 31)		@ set the undocumented bit 31
 	mcreq	p15, 0, r5, c1, c0, 1		@ write aux control reg
-	orreq	r0, r0, #(1 << 21)		@ low interrupt latency configuration
+	orreq	r0, r0, @ (1 << 21)		@ low interrupt latency configuration
 #endif
 	mov	pc, lr				@ return to head.S:__ret
 
@@ -251,7 +251,7 @@ __v6_setup:
 	 * rrrr rrrx xxx0 0101 xxxx xxxx x111 xxxx < forced
 	 *         0 110       0011 1.00 .111 1101 < we want
 	 */
-	.type	v6_crval, #object
+	.type	v6_crval, @ object
 v6_crval:
 	crval	clear=0x01e0fb7f, mmuset=0x00c0387d, ucset=0x00c0187c
 
@@ -266,12 +266,12 @@ v6_crval:
 	string	cpu_elf_name, "v6"
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+	.section ".proc.info.init", @ alloc, @ execinstr
 
 	/*
 	 * Match any ARMv6 processor core.
 	 */
-	.type	__v6_proc_info, #object
+	.type	__v6_proc_info, @ object
 __v6_proc_info:
 	.long	0x0007b000
 	.long	0x0007f000

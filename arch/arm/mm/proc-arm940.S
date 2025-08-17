@@ -93,7 +93,7 @@ ENTRY(arm940_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(arm940_flush_kern_cache_all)
-	mov	r2, #VM_EXEC
+	mov	r2, @ VM_EXEC
 	/* FALLTHROUGH */
 
 /*
@@ -111,15 +111,15 @@ ENTRY(arm940_flush_user_cache_range)
 #ifdef CONFIG_CPU_DCACHE_WRITETHROUGH
 	mcr	p15, 0, ip, c7, c6, 0		@ flush D cache
 #else
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 4	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 4	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c14, 2		@ clean/flush D index
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
 	subs	r1, r1, #1 << 4
 	bcs	1b				@ segments 3 to 0
 #endif
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
 	mov	pc, lr
@@ -161,8 +161,8 @@ ENTRY(arm940_coherent_user_range)
  */
 ENTRY(arm940_flush_kern_dcache_area)
 	mov	ip, #0
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 4	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 4	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c14, 2		@ clean/flush D index
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
@@ -183,8 +183,8 @@ ENTRY(arm940_flush_kern_dcache_area)
  */
 arm940_dma_inv_range:
 	mov	ip, #0
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 4	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 4	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c6, 2		@ flush D entry
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
@@ -206,8 +206,8 @@ arm940_dma_clean_range:
 ENTRY(cpu_arm940_dcache_clean_area)
 	mov	ip, #0
 #ifndef CONFIG_CPU_DCACHE_WRITETHROUGH
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 4	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 4	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c10, 2		@ clean D entry
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
@@ -228,8 +228,8 @@ ENTRY(cpu_arm940_dcache_clean_area)
  */
 ENTRY(arm940_dma_flush_range)
 	mov	ip, #0
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 4	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 4	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:
 #ifndef CONFIG_CPU_DCACHE_WRITETHROUGH
 	mcr	p15, 0, r3, c7, c14, 2		@ clean/flush D entry
@@ -251,7 +251,7 @@ ENTRY(arm940_dma_flush_range)
  */
 ENTRY(arm940_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, #DMA_TO_DEVICE
+	cmp	r2, @ DMA_TO_DEVICE
 	beq	arm940_dma_clean_range
 	bcs	arm940_dma_inv_range
 	b	arm940_dma_flush_range
@@ -275,7 +275,7 @@ ENDPROC(arm940_dma_unmap_area)
 
 	__CPUINIT
 
-	.type	__arm940_setup, #function
+	.type	__arm940_setup, @ function
 __arm940_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c5, 0		@ invalidate I cache
@@ -356,9 +356,9 @@ __arm940_setup:
 
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+	.section ".proc.info.init", @ alloc, @ execinstr
 
-	.type	__arm940_proc_info,#object
+	.type	__arm940_proc_info, @ object
 __arm940_proc_info:
 	.long	0x41009400
 	.long	0xff00fff0

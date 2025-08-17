@@ -73,14 +73,14 @@ ENTRY(vfp_support_entry)
 
 	VFPFMRX	r1, FPEXC		@ Is the VFP enabled?
 	DBGSTR1	"fpexc %08x", r1
-	tst	r1, #FPEXC_EN
+	tst	r1, @ FPEXC_EN
 	bne	look_for_VFP_exceptions	@ VFP is already enabled
 
 	DBGSTR1 "enable %x", r10
 	ldr	r3, vfp_current_hw_state_address
-	orr	r1, r1, #FPEXC_EN	@ user FPEXC has the enable bit set
+	orr	r1, r1, @ FPEXC_EN	@ user FPEXC has the enable bit set
 	ldr	r4, [r3, r11, lsl #2]	@ vfp_current_hw_state pointer
-	bic	r5, r1, #FPEXC_EX	@ make sure exceptions are disabled
+	bic	r5, r1, @ FPEXC_EX	@ make sure exceptions are disabled
 	cmp	r4, r10			@ this thread owns the hw context?
 #ifndef CONFIG_SMP
 	@ For UP, checking that this thread owns the hw context is
@@ -101,10 +101,10 @@ ENTRY(vfp_support_entry)
 	VFPFSTMIA r4, r5		@ save the working registers
 	VFPFMRX	r5, FPSCR		@ current status
 #ifndef CONFIG_CPU_FEROCEON
-	tst	r1, #FPEXC_EX		@ is there additional state to save?
+	tst	r1, @ FPEXC_EX		@ is there additional state to save?
 	beq	1f
 	VFPFMRX	r6, FPINST		@ FPINST (only if FPEXC.EX is set)
-	tst	r1, #FPEXC_FP2V		@ is there an FPINST2 to read?
+	tst	r1, @ FPEXC_FP2V		@ is there an FPINST2 to read?
 	beq	1f
 	VFPFMRX	r8, FPINST2		@ FPINST2 if needed (and present)
 1:
@@ -123,14 +123,14 @@ vfp_reload_hw:
 	@ case the saved state is newer than the hardware context.
 	@ Check this by looking at the CPU number which the state was
 	@ last loaded onto.
-	ldr	ip, [r10, #VFP_CPU]
+	ldr	ip, [r10, @ VFP_CPU]
 	teq	ip, r11
 	beq	vfp_hw_state_valid
 
 vfp_reload_hw:
 	@ We're loading this threads state into the VFP hardware. Update
 	@ the CPU number which contains the most up to date VFP context.
-	str	r11, [r10, #VFP_CPU]
+	str	r11, [r10, @ VFP_CPU]
 
 	VFPFMXR	FPEXC, r5		@ enable VFP, disable any pending
 					@ exceptions, so we can get at the
@@ -144,10 +144,10 @@ vfp_reload_hw:
 					@ FPEXC is in a safe state
 	ldmia	r10, {r1, r5, r6, r8}	@ load FPEXC, FPSCR, FPINST, FPINST2
 #ifndef CONFIG_CPU_FEROCEON
-	tst	r1, #FPEXC_EX		@ is there additional state to restore?
+	tst	r1, @ FPEXC_EX		@ is there additional state to restore?
 	beq	1f
 	VFPFMXR	FPINST, r6		@ restore FPINST (only if FPEXC.EX is set)
-	tst	r1, #FPEXC_FP2V		@ is there an FPINST2 to write?
+	tst	r1, @ FPEXC_FP2V		@ is there an FPINST2 to write?
 	beq	1f
 	VFPFMXR	FPINST2, r8		@ FPINST2 if needed (and present)
 1:
@@ -156,35 +156,35 @@ vfp_reload_hw:
 
 @ The context stored in the VFP hardware is up to date with this thread
 vfp_hw_state_valid:
-	tst	r1, #FPEXC_EX
+	tst	r1, @ FPEXC_EX
 	bne	process_exception	@ might as well handle the pending
 					@ exception before retrying branch
 					@ out before setting an FPEXC that
 					@ stops us reading stuff
 	VFPFMXR	FPEXC, r1		@ Restore FPEXC last
 	sub	r2, r2, #4		@ Retry current instruction - if Thumb
-	str	r2, [sp, #S_PC]		@ mode it's two 16-bit instructions,
+	str	r2, [sp, @ S_PC]		@ mode it's two 16-bit instructions,
 					@ else it's one 32-bit instruction, so
 					@ always subtract 4 from the following
 					@ instruction address.
 #ifdef CONFIG_PREEMPT_COUNT
 	get_thread_info	r10
-	ldr	r4, [r10, #TI_PREEMPT]	@ get preempt count
+	ldr	r4, [r10, @ TI_PREEMPT]	@ get preempt count
 	sub	r11, r4, #1		@ decrement it
-	str	r11, [r10, #TI_PREEMPT]
+	str	r11, [r10, @ TI_PREEMPT]
 #endif
 	mov	pc, r9			@ we think we have handled things
 
 
 look_for_VFP_exceptions:
 	@ Check for synchronous or asynchronous exception
-	tst	r1, #FPEXC_EX | FPEXC_DEX
+	tst	r1, @ FPEXC_EX | FPEXC_DEX
 	bne	process_exception
 	@ On some implementations of the VFP subarch 1, setting FPSCR.IXE
 	@ causes all the CDP instructions to be bounced synchronously without
 	@ setting the FPEXC.EX bit
 	VFPFMRX	r5, FPSCR
-	tst	r5, #FPSCR_IXE
+	tst	r5, @ FPSCR_IXE
 	bne	process_exception
 
 #ifdef CONFIG_ARCH_MSM_KRAIT
@@ -196,9 +196,9 @@ look_for_VFP_exceptions:
 	cmp     r2, r4
 	bne skip
 
-	tst	r5, #FPSCR_LENGTH_MASK
+	tst	r5, @ FPSCR_LENGTH_MASK
 	beq	skip
-	orr	r1, r1, #FPEXC_DEX
+	orr	r1, r1, @ FPEXC_DEX
 	b process_exception
 skip:
 #endif
@@ -209,9 +209,9 @@ skip:
 	DBGSTR	"not VFP"
 #ifdef CONFIG_PREEMPT_COUNT
 	get_thread_info	r10
-	ldr	r4, [r10, #TI_PREEMPT]	@ get preempt count
+	ldr	r4, [r10, @ TI_PREEMPT]	@ get preempt count
 	sub	r11, r4, #1		@ decrement it
-	str	r11, [r10, #TI_PREEMPT]
+	str	r11, [r10, @ TI_PREEMPT]
 #endif
 	mov	pc, lr
 
@@ -237,10 +237,10 @@ ENTRY(vfp_save_state)
 	DBGSTR1	"save VFP state %p", r0
 	VFPFSTMIA r0, r2		@ save the working registers
 	VFPFMRX	r2, FPSCR		@ current status
-	tst	r1, #FPEXC_EX		@ is there additional state to save?
+	tst	r1, @ FPEXC_EX		@ is there additional state to save?
 	beq	1f
 	VFPFMRX	r3, FPINST		@ FPINST (only if FPEXC.EX is set)
-	tst	r1, #FPEXC_FP2V		@ is there an FPINST2 to read?
+	tst	r1, @ FPEXC_FP2V		@ is there an FPINST2 to read?
 	beq	1f
 	VFPFMRX	r12, FPINST2		@ FPINST2 if needed (and present)
 1:

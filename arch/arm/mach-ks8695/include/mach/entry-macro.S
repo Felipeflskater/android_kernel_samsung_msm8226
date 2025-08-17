@@ -19,7 +19,7 @@
 	.endm
 
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
-		ldr	\irqstat, [\base, #KS8695_INTMS]	@ Mask Status register
+		ldr	\irqstat, [\base, @ KS8695_INTMS]	@ Mask Status register
 
 		teq	\irqstat, #0
 		beq	1001f

@@ -14,8 +14,8 @@
 #define RESET_DATA(x)	((TEGRA_RESET_##x)*4)
 
 	.macro mov32, reg, val
-	movw	\reg, #:lower16:\val
-	movt	\reg, #:upper16:\val
+	movw	\reg, @ :lower16:\val
+	movt	\reg, @ :upper16:\val
 	.endm
 
         .section ".text.head", "ax"
@@ -106,7 +106,7 @@ ENTRY(__tegra_cpu_reset_handler)
 
 #ifdef CONFIG_SMP
 	/* Does the OS know about this CPU? */
-	ldr	r7, [r12, #RESET_DATA(MASK_PRESENT)]
+	ldr	r7, [r12, @ RESET_DATA(MASK_PRESENT)]
 	tst	r7, r11 			@ if !present
 	bleq	__die				@ CPU not present (to OS)
 #endif
@@ -114,15 +114,15 @@ ENTRY(__tegra_cpu_reset_handler)
 #ifdef CONFIG_ARCH_TEGRA_2x_SOC
 	/* Are we on Tegra20? */
 	mov32	r6, TEGRA_APB_MISC_BASE
-	ldr	r0, [r6, #APB_MISC_GP_HIDREV]
+	ldr	r0, [r6, @ APB_MISC_GP_HIDREV]
 	and	r0, r0, #0xff00
-	cmp	r0, #(0x20 << 8)
+	cmp	r0, @ (0x20 << 8)
 	bne	1f
 	/* If not CPU0, don't let CPU0 reset CPU1 now that CPU1 is coming up. */
 	mov32	r6, TEGRA_PMC_BASE
 	mov	r0, #0
 	cmp	r10, #0
-	strne	r0, [r6, #PMC_SCRATCH41]
+	strne	r0, [r6, @ PMC_SCRATCH41]
 1:
 #endif
 
@@ -133,7 +133,7 @@ ENTRY(__tegra_cpu_reset_handler)
 	 */
 	cmp	r10, #0
 	bleq	__die				@ CPU0 cannot be here
-	ldr	lr, [r12, #RESET_DATA(STARTUP_SECONDARY)]
+	ldr	lr, [r12, @ RESET_DATA(STARTUP_SECONDARY)]
 	cmp	lr, #0
 	bleq	__die				@ no secondary startup handler
 	bx	lr
@@ -147,15 +147,15 @@ ENTRY(__tegra_cpu_reset_handler)
 __die:
 	sub	lr, lr, #4
 	mov32	r7, TEGRA_PMC_BASE
-	str	lr, [r7, #PMC_SCRATCH41]
+	str	lr, [r7, @ PMC_SCRATCH41]
 
 	mov32	r7, TEGRA_CLK_RESET_BASE
 
 	/* Are we on Tegra20? */
 	mov32	r6, TEGRA_APB_MISC_BASE
-	ldr	r0, [r6, #APB_MISC_GP_HIDREV]
+	ldr	r0, [r6, @ APB_MISC_GP_HIDREV]
 	and	r0, r0, #0xff00
-	cmp	r0, #(0x20 << 8)
+	cmp	r0, @ (0x20 << 8)
 	bne	1f
 
 #ifdef CONFIG_ARCH_TEGRA_2x_SOC
@@ -168,21 +168,21 @@ __die:
 	mov32	r6, TEGRA_FLOW_CTRL_BASE
 
 	cmp	r10, #0
-	moveq	r1, #FLOW_CTRL_HALT_CPU0_EVENTS
-	moveq	r2, #FLOW_CTRL_CPU0_CSR
+	moveq	r1, @ FLOW_CTRL_HALT_CPU0_EVENTS
+	moveq	r2, @ FLOW_CTRL_CPU0_CSR
 	movne	r1, r10, lsl #3
-	addne	r2, r1, #(FLOW_CTRL_CPU1_CSR-8)
-	addne	r1, r1, #(FLOW_CTRL_HALT_CPU1_EVENTS-8)
+	addne	r2, r1, @ (FLOW_CTRL_CPU1_CSR-8)
+	addne	r1, r1, @ (FLOW_CTRL_HALT_CPU1_EVENTS-8)
 
 	/* Clear CPU "event" and "interrupt" flags and power gate
 	   it when halting but not before it is in the "WFI" state. */
 	ldr	r0, [r6, +r2]
-	orr	r0, r0, #FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
-	orr	r0, r0, #FLOW_CTRL_CSR_ENABLE
+	orr	r0, r0, @ FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
+	orr	r0, r0, @ FLOW_CTRL_CSR_ENABLE
 	str	r0, [r6, +r2]
 
 	/* Unconditionally halt this CPU */
-	mov	r0, #FLOW_CTRL_WAITEVENT
+	mov	r0, @ FLOW_CTRL_WAITEVENT
 	str	r0, [r6, +r1]
 	ldr	r0, [r6, +r1]			@ memory barrier
 

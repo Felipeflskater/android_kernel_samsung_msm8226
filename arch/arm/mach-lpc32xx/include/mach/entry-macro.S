@@ -30,7 +30,7 @@
  * as set if an interrupt is pending.
  */
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
-	ldr	\irqstat, [\base, #LPC32XX_INTC_MASKED_STATUS_OFS]
+	ldr	\irqstat, [\base, @ LPC32XX_INTC_MASKED_STATUS_OFS]
 	clz	\irqnr, \irqstat
 	rsb	\irqnr, \irqnr, #31
 	teq	\irqstat, #0

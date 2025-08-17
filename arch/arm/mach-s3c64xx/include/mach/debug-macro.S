@@ -25,8 +25,8 @@
 		ldr	\rp, = S3C_PA_UART
 		ldr	\rv, = (S3C_VA_UART + S3C_PA_UART & 0xfffff)
 #if CONFIG_DEBUG_S3C_UART != 0
-		add	\rp, \rp, #(0x400 * CONFIG_DEBUG_S3C_UART)
-		add	\rv, \rv, #(0x400 * CONFIG_DEBUG_S3C_UART)
+		add	\rp, \rp, @ (0x400 * CONFIG_DEBUG_S3C_UART)
+		add	\rv, \rv, @ (0x400 * CONFIG_DEBUG_S3C_UART)
 #endif
 	.endm
 

@@ -76,10 +76,10 @@ ENTRY(memset)
 	and	r8, ip, #31
 	rsb	r8, r8, #32
 	sub	r2, r2, r8
-	movs	r8, r8, lsl #(32 - 4)
+	movs	r8, r8, lsl @ (32 - 4)
 	stmcsia	ip!, {r4, r5, r6, r7}
 	stmmiia	ip!, {r4, r5}
-	tst	r8, #(1 << 30)
+	tst	r8, @ (1 << 30)
 	mov	r8, r1
 	strne	r1, [ip], #4
 

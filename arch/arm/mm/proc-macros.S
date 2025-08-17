@@ -11,19 +11,19 @@
  * vma_vm_mm - get mm pointer from vma pointer (vma->vm_mm)
  */
 	.macro	vma_vm_mm, rd, rn
-	ldr	\rd, [\rn, #VMA_VM_MM]
+	ldr	\rd, [\rn, @ VMA_VM_MM]
 	.endm
 
 /*
  * vma_vm_flags - get vma->vm_flags
  */
 	.macro	vma_vm_flags, rd, rn
-	ldr	\rd, [\rn, #VMA_VM_FLAGS]
+	ldr	\rd, [\rn, @ VMA_VM_FLAGS]
 	.endm
 
 	.macro	tsk_mm, rd, rn
-	ldr	\rd, [\rn, #TI_TASK]
-	ldr	\rd, [\rd, #TSK_ACTIVE_MM]
+	ldr	\rd, [\rn, @ TI_TASK]
+	ldr	\rd, [\rd, @ TSK_ACTIVE_MM]
 	.endm
 
 /*
@@ -32,15 +32,15 @@
 	.macro	act_mm, rd
 	bic	\rd, sp, #8128
 	bic	\rd, \rd, #63
-	ldr	\rd, [\rd, #TI_TASK]
-	ldr	\rd, [\rd, #TSK_ACTIVE_MM]
+	ldr	\rd, [\rd, @ TI_TASK]
+	ldr	\rd, [\rd, @ TSK_ACTIVE_MM]
 	.endm
 
 /*
  * mmid - get context id from mm pointer (mm->context.id)
  */
 	.macro	mmid, rd, rn
-	ldr	\rd, [\rn, #MM_CONTEXT_ID]
+	ldr	\rd, [\rn, @ MM_CONTEXT_ID]
 	.endm
 
 /*
@@ -139,33 +139,33 @@
 	str	r1, [r0], #2048			@ linux version
 
 	bic	r3, r1, #0x000003fc
-	bic	r3, r3, #PTE_TYPE_MASK
+	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
-	orr	r3, r3, #PTE_EXT_AP0 | 2
+	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
 	adr	ip, \pfx\()_mt_table
-	and	r2, r1, #L_PTE_MT_MASK
+	and	r2, r1, @ L_PTE_MT_MASK
 	ldr	r2, [ip, r2]
 
-	eor	r1, r1, #L_PTE_DIRTY
-	tst	r1, #L_PTE_DIRTY|L_PTE_RDONLY
-	orrne	r3, r3, #PTE_EXT_APX
+	eor	r1, r1, @ L_PTE_DIRTY
+	tst	r1, @ L_PTE_DIRTY|L_PTE_RDONLY
+	orrne	r3, r3, @ PTE_EXT_APX
 
-	tst	r1, #L_PTE_USER
-	orrne	r3, r3, #PTE_EXT_AP1
+	tst	r1, @ L_PTE_USER
+	orrne	r3, r3, @ PTE_EXT_AP1
 #ifdef CONFIG_CPU_USE_DOMAINS
 	@ allow kernel read/write access to read-only user pages
-	tstne	r3, #PTE_EXT_APX
-	bicne	r3, r3, #PTE_EXT_APX | PTE_EXT_AP0
+	tstne	r3, @ PTE_EXT_APX
+	bicne	r3, r3, @ PTE_EXT_APX | PTE_EXT_AP0
 #endif
 
-	tst	r1, #L_PTE_XN
-	orrne	r3, r3, #PTE_EXT_XN
+	tst	r1, @ L_PTE_XN
+	orrne	r3, r3, @ PTE_EXT_XN
 
 	orr	r3, r3, r2
 
-	tst	r1, #L_PTE_YOUNG
-	tstne	r1, #L_PTE_PRESENT
+	tst	r1, @ L_PTE_YOUNG
+	tstne	r1, @ L_PTE_PRESENT
 	moveq	r3, #0
 
 	str	r3, [r0]
@@ -190,25 +190,25 @@
 	.macro	armv3_set_pte_ext wc_disable=1
 	str	r1, [r0], #2048			@ linux version
 
-	eor	r3, r1, #L_PTE_PRESENT | L_PTE_YOUNG | L_PTE_DIRTY
+	eor	r3, r1, @ L_PTE_PRESENT | L_PTE_YOUNG | L_PTE_DIRTY
 
-	bic	r2, r1, #PTE_SMALL_AP_MASK	@ keep C, B bits
-	bic	r2, r2, #PTE_TYPE_MASK
-	orr	r2, r2, #PTE_TYPE_SMALL
+	bic	r2, r1, @ PTE_SMALL_AP_MASK	@ keep C, B bits
+	bic	r2, r2, @ PTE_TYPE_MASK
+	orr	r2, r2, @ PTE_TYPE_SMALL
 
-	tst	r3, #L_PTE_USER			@ user?
-	orrne	r2, r2, #PTE_SMALL_AP_URO_SRW
+	tst	r3, @ L_PTE_USER			@ user?
+	orrne	r2, r2, @ PTE_SMALL_AP_URO_SRW
 
-	tst	r3, #L_PTE_RDONLY | L_PTE_DIRTY	@ write and dirty?
-	orreq	r2, r2, #PTE_SMALL_AP_UNO_SRW
+	tst	r3, @ L_PTE_RDONLY | L_PTE_DIRTY	@ write and dirty?
+	orreq	r2, r2, @ PTE_SMALL_AP_UNO_SRW
 
-	tst	r3, #L_PTE_PRESENT | L_PTE_YOUNG	@ present and young?
+	tst	r3, @ L_PTE_PRESENT | L_PTE_YOUNG	@ present and young?
 	movne	r2, #0
 
 	.if	\wc_disable
 #ifdef CONFIG_CPU_DCACHE_WRITETHROUGH
-	tst	r2, #PTE_CACHEABLE
-	bicne	r2, r2, #PTE_BUFFERABLE
+	tst	r2, @ PTE_CACHEABLE
+	bicne	r2, r2, @ PTE_BUFFERABLE
 #endif
 	.endif
 	str	r2, [r0]		@ hardware version
@@ -233,21 +233,21 @@
 	.macro	xscale_set_pte_ext_prologue
 	str	r1, [r0]			@ linux version
 
-	eor	r3, r1, #L_PTE_PRESENT | L_PTE_YOUNG | L_PTE_DIRTY
+	eor	r3, r1, @ L_PTE_PRESENT | L_PTE_YOUNG | L_PTE_DIRTY
 
-	bic	r2, r1, #PTE_SMALL_AP_MASK	@ keep C, B bits
-	orr	r2, r2, #PTE_TYPE_EXT		@ extended page
+	bic	r2, r1, @ PTE_SMALL_AP_MASK	@ keep C, B bits
+	orr	r2, r2, @ PTE_TYPE_EXT		@ extended page
 
-	tst	r3, #L_PTE_USER			@ user?
-	orrne	r2, r2, #PTE_EXT_AP_URO_SRW	@ yes -> user r/o, system r/w
+	tst	r3, @ L_PTE_USER			@ user?
+	orrne	r2, r2, @ PTE_EXT_AP_URO_SRW	@ yes -> user r/o, system r/w
 
-	tst	r3, #L_PTE_RDONLY | L_PTE_DIRTY	@ write and dirty?
-	orreq	r2, r2, #PTE_EXT_AP_UNO_SRW	@ yes -> user n/a, system r/w
+	tst	r3, @ L_PTE_RDONLY | L_PTE_DIRTY	@ write and dirty?
+	orreq	r2, r2, @ PTE_EXT_AP_UNO_SRW	@ yes -> user n/a, system r/w
 						@ combined with user -> user r/w
 	.endm
 
 	.macro	xscale_set_pte_ext_epilogue
-	tst	r3, #L_PTE_PRESENT | L_PTE_YOUNG	@ present and young?
+	tst	r3, @ L_PTE_PRESENT | L_PTE_YOUNG	@ present and young?
 	movne	r2, #0				@ no -> fault
 
 	str	r2, [r0, #2048]!		@ hardware version
@@ -257,7 +257,7 @@
 	.endm
 
 .macro define_processor_functions name:req, dabort:req, pabort:req, nommu=0, suspend=0
-	.type	\name\()_processor_functions, #object
+	.type	\name\()_processor_functions, @ object
 	.align 2
 ENTRY(\name\()_processor_functions)
 	.word	\dabort
@@ -295,7 +295,7 @@ ENTRY(\name\()_processor_functions)
 
 .macro define_cache_functions name:req
 	.align 2
-	.type	\name\()_cache_fns, #object
+	.type	\name\()_cache_fns, @ object
 ENTRY(\name\()_cache_fns)
 	.long	\name\()_flush_icache_all
 	.long	\name\()_flush_kern_cache_all
@@ -314,7 +314,7 @@ ENTRY(\name\()_cache_fns)
 .endm
 
 .macro define_tlb_functions name:req, flags_up:req, flags_smp
-	.type	\name\()_tlb_fns, #object
+	.type	\name\()_tlb_fns, @ object
 ENTRY(\name\()_tlb_fns)
 	.long	\name\()_flush_user_tlb_range
 	.long	\name\()_flush_kern_tlb_range

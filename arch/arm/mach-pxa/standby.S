@@ -20,9 +20,9 @@
 #ifdef CONFIG_PXA27x
 ENTRY(pxa_cpu_standby)
 	ldr	r0, =PSSR
-	mov	r1, #(PSSR_PH | PSSR_STS)
-	mov	r2, #PWRMODE_STANDBY
-	mov	r3, #UNCACHED_PHYS_0	@ Read mem context in.
+	mov	r1, @ (PSSR_PH | PSSR_STS)
+	mov	r2, @ PWRMODE_STANDBY
+	mov	r3, @ UNCACHED_PHYS_0	@ Read mem context in.
 	ldr	ip, [r3]
 	b	1f
 
@@ -66,47 +66,47 @@ ENTRY(pm_enter_standby_start)
 	nop
 	.endr
 
-	ldr	r0, [r1, #PXA3_DDR_HCAL]	@ Clear (and wait for) HCEN
-	bic	r0, r0, #PXA3_DDR_HCAL_HCEN
-	str	r0, [r1, #PXA3_DDR_HCAL]
-1:	ldr	r0, [r1, #PXA3_DDR_HCAL]
-	tst	r0, #PXA3_DDR_HCAL_HCEN
+	ldr	r0, [r1, @ PXA3_DDR_HCAL]	@ Clear (and wait for) HCEN
+	bic	r0, r0, @ PXA3_DDR_HCAL_HCEN
+	str	r0, [r1, @ PXA3_DDR_HCAL]
+1:	ldr	r0, [r1, @ PXA3_DDR_HCAL]
+	tst	r0, @ PXA3_DDR_HCAL_HCEN
 	bne	1b
 
-	ldr	r0, [r1, #PXA3_RCOMP]		@ Initiate RCOMP
-	orr	r0, r0, #PXA3_RCOMP_SWEVAL
-	str	r0, [r1, #PXA3_RCOMP]
+	ldr	r0, [r1, @ PXA3_RCOMP]		@ Initiate RCOMP
+	orr	r0, r0, @ PXA3_RCOMP_SWEVAL
+	str	r0, [r1, @ PXA3_RCOMP]
 
-	mov	r0, #~0				@ Clear interrupts
-	str	r0, [r1, #PXA3_DMCISR]
+	mov	r0, @ ~0				@ Clear interrupts
+	str	r0, [r1, @ PXA3_DMCISR]
 
-	ldr	r0, [r1, #PXA3_DMCIER]		@ set DMIER[EDLP]
-	orr	r0, r0, #PXA3_DMCIER_EDLP
-	str	r0, [r1, #PXA3_DMCIER]
+	ldr	r0, [r1, @ PXA3_DMCIER]		@ set DMIER[EDLP]
+	orr	r0, r0, @ PXA3_DMCIER_EDLP
+	str	r0, [r1, @ PXA3_DMCIER]
 
-	ldr	r0, [r1, #PXA3_DDR_HCAL]	@ clear HCRNG, set HCPROG, HCEN
-	bic	r0, r0, #PXA3_DDR_HCAL_HCRNG
-	orr	r0, r0, #PXA3_DDR_HCAL_HCEN | PXA3_DDR_HCAL_HCPROG
-	str	r0, [r1, #PXA3_DDR_HCAL]
+	ldr	r0, [r1, @ PXA3_DDR_HCAL]	@ clear HCRNG, set HCPROG, HCEN
+	bic	r0, r0, @ PXA3_DDR_HCAL_HCRNG
+	orr	r0, r0, @ PXA3_DDR_HCAL_HCEN | PXA3_DDR_HCAL_HCPROG
+	str	r0, [r1, @ PXA3_DDR_HCAL]
 
-1:	ldr	r0, [r1, #PXA3_DMCISR]
-	tst	r0, #PXA3_DMCIER_EDLP
+1:	ldr	r0, [r1, @ PXA3_DMCISR]
+	tst	r0, @ PXA3_DMCIER_EDLP
 	beq	1b
 
-	ldr	r0, [r1, #PXA3_MDCNFG]		@ set PXA3_MDCNFG[DMCEN]
-	orr	r0, r0, #PXA3_MDCNFG_DMCEN
-	str	r0, [r1, #PXA3_MDCNFG]
-1:	ldr	r0, [r1, #PXA3_MDCNFG]
-	tst	r0, #PXA3_MDCNFG_DMCEN
+	ldr	r0, [r1, @ PXA3_MDCNFG]		@ set PXA3_MDCNFG[DMCEN]
+	orr	r0, r0, @ PXA3_MDCNFG_DMCEN
+	str	r0, [r1, @ PXA3_MDCNFG]
+1:	ldr	r0, [r1, @ PXA3_MDCNFG]
+	tst	r0, @ PXA3_MDCNFG_DMCEN
 	beq	1b
 
-	ldr	r0, [r1, #PXA3_DDR_HCAL]	@ set PXA3_DDR_HCAL[HCRNG]
+	ldr	r0, [r1, @ PXA3_DDR_HCAL]	@ set PXA3_DDR_HCAL[HCRNG]
 	orr	r0, r0, #2 @ HCRNG
-	str	r0, [r1, #PXA3_DDR_HCAL]
+	str	r0, [r1, @ PXA3_DDR_HCAL]
 
-	ldr	r0, [r1, #PXA3_DMCIER]		@ Clear the interrupt
+	ldr	r0, [r1, @ PXA3_DMCIER]		@ Clear the interrupt
 	bic	r0, r0, #0x20000000
-	str	r0, [r1, #PXA3_DMCIER]
+	str	r0, [r1, @ PXA3_DMCIER]
 
 	mov	pc, lr
 ENTRY(pm_enter_standby_end)

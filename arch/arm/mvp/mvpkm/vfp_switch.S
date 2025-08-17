@@ -56,7 +56,7 @@ SaveVFP:
 	 * The host (or guest) may have left data in the data registers that
 	 * must be preserved.
 	 */
-	orr	r2, r5, #CPACR_CP10_CP11_PRIV_ONLY
+	orr	r2, r5, @ CPACR_CP10_CP11_PRIV_ONLY
 	mcr_p15	COPROC_ACCESS_CONTROL, r2
         isb
 
@@ -65,14 +65,14 @@ SaveVFP:
 	 * Also enable VFP access with FPEXC_EN.
 	 */
 	fmrx	r1, fpexc		@ get existing FPEXC system register
-	orr	r6, r1, #ARM_VFP_SYSTEM_REG_FPEXC_EX|ARM_VFP_SYSTEM_REG_FPEXC_FP2V|ARM_VFP_SYSTEM_REG_FPEXC_EN
+	orr	r6, r1, @ ARM_VFP_SYSTEM_REG_FPEXC_EX|ARM_VFP_SYSTEM_REG_FPEXC_FP2V|ARM_VFP_SYSTEM_REG_FPEXC_EN
 #if !defined(MVP_HOST_CODE_forceon)
 	fmxr	fpexc, r6		@ set FPEXC.EX, .FP2V and .EN
 	fmrx	r6, fpexc		@ read them back
-	tst	r6, #ARM_VFP_SYSTEM_REG_FPEXC_EX @ see if either one is valid
+	tst	r6, @ ARM_VFP_SYSTEM_REG_FPEXC_EX @ see if either one is valid
 	beq	1000f			@ neither, skip it all
 	fmrx	r3, FPINST		@ FPINST is valid, save it
-	tst	r6, #ARM_VFP_SYSTEM_REG_FPEXC_FP2V @ see if FPINST2 is valid
+	tst	r6, @ ARM_VFP_SYSTEM_REG_FPEXC_FP2V @ see if FPINST2 is valid
 	beq	1000f
 	fmrx	r4, FPINST2		@ FPINST2 is valid, save it
 1000:
@@ -104,7 +104,7 @@ SaveVFP:
 	 * be expensive coprocessor accesses.
 	 */
 	fmrx	r1, MVFR0		@ Read Media and VFP Feature Register 0
-	and	r1, r1, #ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
+	and	r1, r1, @ ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
 	cmp	r1, #2			@ 32 x 64bit registers?
 	bne	2000f
 	vstmia	r0!, {d16-d31}
@@ -159,10 +159,10 @@ LoadVFP:
 					@ ... because FPEXC.EX, .FP2V and .EN
 					@     are forced set by init code in
 					@     mvpd.c SetupMonitor()
-	tst	r6, #ARM_VFP_SYSTEM_REG_FPEXC_EX @ see if either one is valid
+	tst	r6, @ ARM_VFP_SYSTEM_REG_FPEXC_EX @ see if either one is valid
 	beq	1000f			@ neither, skip it all
 	fmxr	FPINST, r3		@ FPINST is valid, save it
-	tst	r6, #ARM_VFP_SYSTEM_REG_FPEXC_FP2V @ see if FPINST2 is valid
+	tst	r6, @ ARM_VFP_SYSTEM_REG_FPEXC_FP2V @ see if FPINST2 is valid
 	beq	1000f
 	fmxr	FPINST2, r4		@ FPINST2 is valid, save it
 1000:
@@ -179,7 +179,7 @@ LoadVFP:
 	 * be expensive coprocessor accesses.
 	 */
 	fmrx	r3, MVFR0		@ Read Media and VFP Feature Register 0
-	and	r3, r3, #ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
+	and	r3, r3, @ ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
 	cmp	r3, #2			@ 32 x 64bit registers?
 	bne	2000f
 	vldmia	r0!, {d16-d31}
@@ -197,8 +197,8 @@ LoadVFP:
 	 * VFP access.
 	 */
 	mrc_p15	COPROC_ACCESS_CONTROL, r0
-	bic	r0, r0, #CPACR_CP10_CP11_MASK
-	and	r5, r5, #CPACR_CP10_CP11_MASK
+	bic	r0, r0, @ CPACR_CP10_CP11_MASK
+	and	r5, r5, @ CPACR_CP10_CP11_MASK
 	orr	r0, r0, r5
 	mcr_p15	COPROC_ACCESS_CONTROL, r0
         isb

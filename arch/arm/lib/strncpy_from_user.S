@@ -37,7 +37,7 @@ ENDPROC(__strncpy_from_user)
 	.align	0
 9001:	mov	r3, #0
 	strb	r3, [r0, #0]	@ null terminate
-	mov	r0, #-EFAULT
+	mov	r0, @ -EFAULT
 	mov	pc, lr
 	.popsection
 

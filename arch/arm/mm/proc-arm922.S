@@ -140,17 +140,17 @@ ENTRY(arm922_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(arm922_flush_kern_cache_all)
-	mov	r2, #VM_EXEC
+	mov	r2, @ VM_EXEC
 	mov	ip, #0
 __flush_whole_cache:
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 5	@ 8 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 5	@ 8 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c14, 2		@ clean+invalidate D index
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
 	subs	r1, r1, #1 << 5
 	bcs	1b				@ segments 7 to 0
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
 	mov	pc, lr
@@ -168,16 +168,16 @@ __flush_whole_cache:
 ENTRY(arm922_flush_user_cache_range)
 	mov	ip, #0
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, #CACHE_DLIMIT
+	cmp	r3, @ CACHE_DLIMIT
 	bhs	__flush_whole_cache
 
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
 	mov	pc, lr
 
@@ -205,10 +205,10 @@ ENTRY(arm922_coherent_kern_range)
  *	- end	- virtual end address
  */
 ENTRY(arm922_coherent_user_range)
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -226,7 +226,7 @@ ENTRY(arm922_coherent_user_range)
 ENTRY(arm922_flush_kern_dcache_area)
 	add	r1, r0, r1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -248,13 +248,13 @@ ENTRY(arm922_flush_kern_dcache_area)
  * (same as v4wb)
  */
 arm922_dma_inv_range:
-	tst	r0, #CACHE_DLINESIZE - 1
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	tst	r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
-	tst	r1, #CACHE_DLINESIZE - 1
+	tst	r1, @ CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -271,9 +271,9 @@ arm922_dma_inv_range:
  * (same as v4wb)
  */
 arm922_dma_clean_range:
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -288,9 +288,9 @@ arm922_dma_clean_range:
  *	- end	- virtual end address
  */
 ENTRY(arm922_dma_flush_range)
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -304,7 +304,7 @@ ENTRY(arm922_dma_flush_range)
  */
 ENTRY(arm922_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, #DMA_TO_DEVICE
+	cmp	r2, @ DMA_TO_DEVICE
 	beq	arm922_dma_clean_range
 	bcs	arm922_dma_inv_range
 	b	arm922_dma_flush_range
@@ -331,8 +331,8 @@ ENDPROC(arm922_dma_unmap_area)
 ENTRY(cpu_arm922_dcache_clean_area)
 #ifndef CONFIG_CPU_DCACHE_WRITETHROUGH
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, #CACHE_DLINESIZE
-	subs	r1, r1, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
+	subs	r1, r1, @ CACHE_DLINESIZE
 	bhi	1b
 #endif
 	mov	pc, lr
@@ -357,8 +357,8 @@ ENTRY(cpu_arm922_switch_mm)
 @ && Re-written to use Index Ops.
 @ && Uses registers r1, r3 and ip
 
-	mov	r1, #(CACHE_DSEGMENTS - 1) << 5	@ 4 segments
-1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, @ (CACHE_DSEGMENTS - 1) << 5	@ 4 segments
+1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c14, 2		@ clean & invalidate D index
 	subs	r3, r3, #1 << 26
 	bcs	2b				@ entries 63 to 0
@@ -389,7 +389,7 @@ ENTRY(cpu_arm922_set_pte_ext)
 
 	__CPUINIT
 
-	.type	__arm922_setup, #function
+	.type	__arm922_setup, @ function
 __arm922_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -411,7 +411,7 @@ __arm922_setup:
 	 * ..11 0001 ..11 0101
 	 * 
 	 */
-	.type	arm922_crval, #object
+	.type	arm922_crval, @ object
 arm922_crval:
 	crval	clear=0x00003f3f, mmuset=0x00003135, ucset=0x00001130
 
@@ -427,9 +427,9 @@ arm922_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+	.section ".proc.info.init", @ alloc, @ execinstr
 
-	.type	__arm922_proc_info,#object
+	.type	__arm922_proc_info, @ object
 __arm922_proc_info:
 	.long	0x41009220
 	.long	0xff00fff0

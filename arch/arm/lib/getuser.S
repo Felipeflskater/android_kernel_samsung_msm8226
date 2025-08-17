@@ -97,7 +97,7 @@ __get_user_bad8:
 	mov	r3, #0
 __get_user_bad:
 	mov	r2, #0
-	mov	r0, #-EFAULT
+	mov	r0, @ -EFAULT
 	mov	pc, lr
 ENDPROC(__get_user_bad)
 ENDPROC(__get_user_bad8)

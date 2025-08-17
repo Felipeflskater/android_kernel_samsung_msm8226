@@ -102,8 +102,8 @@ __mmu_off:
 
 __MoveCode:	sub	r4, r4, #1
 	
-__Copy:		ldr	r2, [r0], #-4
-		str	r2, [r1], #-4
+__Copy:		ldr	r2, [r0], @ -4
+		str	r2, [r1], @ -4
 		teq	r1, r3
 		bne	__Copy
 

@@ -15,7 +15,7 @@
 
 		.macro	addruart, rp, rv, tmp
 		mov	\rp, #0x00100000
-		orr	\rv, \rp, #io_p2v(0x40000000)	@ virtual
+		orr	\rv, \rp, @ io_p2v(0x40000000)	@ virtual
 		orr	\rp, \rp, #0x40000000		@ physical
 		.endm
 

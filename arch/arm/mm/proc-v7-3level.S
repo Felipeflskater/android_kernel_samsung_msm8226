@@ -47,9 +47,9 @@
  */
 ENTRY(cpu_v7_switch_mm)
 #ifdef CONFIG_MMU
-	ldr	r1, [r1, #MM_CONTEXT_ID]	@ get mm->context.id
+	ldr	r1, [r1, @ MM_CONTEXT_ID]	@ get mm->context.id
 	and	r3, r1, #0xff
-	mov	r3, r3, lsl #(48 - 32)		@ ASID
+	mov	r3, r3, lsl @ (48 - 32)		@ ASID
 	mcrr	p15, 0, r0, r3, c2		@ set TTB 0
 	isb
 #endif
@@ -65,10 +65,10 @@ ENDPROC(cpu_v7_switch_mm)
  */
 ENTRY(cpu_v7_set_pte_ext)
 #ifdef CONFIG_MMU
-	tst	r2, #L_PTE_PRESENT
+	tst	r2, @ L_PTE_PRESENT
 	beq	1f
 	tst	r3, #1 << (55 - 32)		@ L_PTE_DIRTY
-	orreq	r2, #L_PTE_RDONLY
+	orreq	r2, @ L_PTE_RDONLY
 1:	strd	r2, r3, [r0]
 	mcr	p15, 0, r0, c7, c10, 1		@ flush_pte
 #endif
@@ -104,11 +104,11 @@ ENDPROC(cpu_v7_set_pte_ext)
 	ldr	\tmp, =swapper_pg_dir		@ swapper_pg_dir virtual address
 	cmp	\ttbr1, \tmp			@ PHYS_OFFSET > PAGE_OFFSET? (branch below)
 	mrc	p15, 0, \tmp, c2, c0, 2		@ TTB control register
-	orr	\tmp, \tmp, #TTB_EAE
-	ALT_SMP(orr	\tmp, \tmp, #TTB_FLAGS_SMP)
-	ALT_UP(orr	\tmp, \tmp, #TTB_FLAGS_UP)
-	ALT_SMP(orr	\tmp, \tmp, #TTB_FLAGS_SMP << 16)
-	ALT_UP(orr	\tmp, \tmp, #TTB_FLAGS_UP << 16)
+	orr	\tmp, \tmp, @ TTB_EAE
+	ALT_SMP(orr	\tmp, \tmp, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	\tmp, \tmp, @ TTB_FLAGS_UP)
+	ALT_SMP(orr	\tmp, \tmp, @ TTB_FLAGS_SMP << 16)
+	ALT_UP(orr	\tmp, \tmp, @ TTB_FLAGS_UP << 16)
 	/*
 	 * TTBR0/TTBR1 split (PAGE_OFFSET):
 	 *   0x40000000: T0SZ = 2, T1SZ = 0 (not used)
@@ -120,7 +120,7 @@ ENDPROC(cpu_v7_set_pte_ext)
 	 * mapping set up in TTBR0.
 	 */
 	bhi	9001f				@ PHYS_OFFSET > PAGE_OFFSET?
-	orr	\tmp, \tmp, #(((PAGE_OFFSET >> 30) - 1) << 16) @ TTBCR.T1SZ
+	orr	\tmp, \tmp, @ (((PAGE_OFFSET >> 30) - 1) << 16) @ TTBCR.T1SZ
 #if defined CONFIG_VMSPLIT_2G
 	/* PAGE_OFFSET == 0x80000000, T1SZ == 1 */
 	add	\ttbr1, \ttbr1, #1 << 4		@ skip two L1 entries
@@ -143,7 +143,7 @@ ENDPROC(cpu_v7_set_pte_ext)
 	 *   11    0 110    1  0011 1100 .111 1101 < we want
 	 */
 	.align	2
-	.type	v7_crval, #object
+	.type	v7_crval, @ object
 v7_crval:
 	crval	clear=0x0120c302, mmuset=0x30c23c7d, ucset=0x00c01c7c
 

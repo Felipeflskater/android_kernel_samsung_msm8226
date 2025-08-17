@@ -118,8 +118,8 @@ ENTRY(cpu_sa110_do_idle)
 	.align	5
 ENTRY(cpu_sa110_dcache_clean_area)
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, #DCACHELINESIZE
-	subs	r1, r1, #DCACHELINESIZE
+	add	r0, r0, @ DCACHELINESIZE
+	subs	r1, r1, @ DCACHELINESIZE
 	bhi	1b
 	mov	pc, lr
 
@@ -135,7 +135,7 @@ ENTRY(cpu_sa110_dcache_clean_area)
 	.align	5
 ENTRY(cpu_sa110_switch_mm)
 #ifdef CONFIG_MMU
-	str	lr, [sp, #-4]!
+	str	lr, [sp, @ -4]!
 	bl	v4wb_flush_kern_cache_all	@ clears IP
 	mcr	p15, 0, r0, c2, c0, 0		@ load page table pointer
 	mcr	p15, 0, ip, c8, c7, 0		@ invalidate I & D TLBs
@@ -161,7 +161,7 @@ ENTRY(cpu_sa110_set_pte_ext)
 
 	__CPUINIT
 
-	.type	__sa110_setup, #function
+	.type	__sa110_setup, @ function
 __sa110_setup:
 	mov	r10, #0
 	mcr	p15, 0, r10, c7, c7		@ invalidate I,D caches on v4
@@ -184,7 +184,7 @@ __sa110_setup:
 	 * ..01 0001 ..11 1101
 	 * 
 	 */
-	.type	sa110_crval, #object
+	.type	sa110_crval, @ object
 sa110_crval:
 	crval	clear=0x00003f3f, mmuset=0x0000113d, ucset=0x00001130
 
@@ -201,9 +201,9 @@ sa110_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+	.section ".proc.info.init", @ alloc, @ execinstr
 
-	.type	__sa110_proc_info,#object
+	.type	__sa110_proc_info, @ object
 __sa110_proc_info:
 	.long	0x4401a100
 	.long	0xfffffff0

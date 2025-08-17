@@ -29,13 +29,13 @@
 	 * 3. INTLVLA is updated to contain priority of accepted interrupt
 	 * 4. Accepted interrupt vector is stored in INTFLGA and INTEVTA
 	 */
-	ldr     \irqnr, [\base, #INTFLGA_OFFS]
+	ldr     \irqnr, [\base, @ INTFLGA_OFFS]
 
 	/* Restore INTLVLA with the value saved in INTLVLB.
 	 * This is required to support interrupt priorities properly.
 	 */
-	ldrb	\tmp, [\base, #INTLVLB_OFFS]
-	strb    \tmp, [\base, #INTLVLA_OFFS]
+	ldrb	\tmp, [\base, @ INTLVLB_OFFS]
+	strb    \tmp, [\base, @ INTLVLA_OFFS]
 
 	/* Handle invalid vector number case */
 	cmp	\irqnr, #0

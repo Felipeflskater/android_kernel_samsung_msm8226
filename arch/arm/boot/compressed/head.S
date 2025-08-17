@@ -79,48 +79,48 @@
 
 		.macro	kphex,val,len
 		mov	r0, \val
-		mov	r1, #\len
+		mov	r1, @ \len
 		bl	phex
 		.endm
 
 		.macro	debug_reloc_start
 #ifdef DEBUG
-		kputc	#'\n'
+		kputc @ '\n'
 		kphex	r6, 8		/* processor id */
-		kputc	#':'
+		kputc @ ':'
 		kphex	r7, 8		/* architecture id */
 #ifdef CONFIG_CPU_CP15
-		kputc	#':'
+		kputc @ ':'
 		mrc	p15, 0, r0, c1, c0
 		kphex	r0, 8		/* control reg */
 #endif
-		kputc	#'\n'
+		kputc @ '\n'
 		kphex	r5, 8		/* decompressed kernel start */
-		kputc	#'-'
+		kputc @ '-'
 		kphex	r9, 8		/* decompressed kernel end  */
-		kputc	#'>'
+		kputc @ '>'
 		kphex	r4, 8		/* kernel execution address */
-		kputc	#'\n'
+		kputc @ '\n'
 #endif
 		.endm
 
 		.macro	debug_reloc_end
 #ifdef DEBUG
 		kphex	r5, 8		/* end of kernel */
-		kputc	#'\n'
+		kputc @ '\n'
 		mov	r0, r4
 		bl	memdump		/* dump 256 bytes at start of kernel */
 #endif
 		.endm
 
-		.section ".start", #alloc, #execinstr
+		.section ".start", @ alloc, @ execinstr
 /*
  * sort out different calling conventions
  */
 		.align
 		.arm				@ Always enter in ARM state
 start:
-		.type	start,#function
+		.type	start, @ function
 		.rept	7
 		mov	r0, r0
 		.endr
@@ -172,7 +172,7 @@ not_angel:
 		@ determine final kernel image address
 		mov	r4, pc
 		and	r4, r4, #0xf8000000
-		add	r4, r4, #TEXT_OFFSET
+		add	r4, r4, @ TEXT_OFFSET
 #else
 		ldr	r4, =zreladdr
 #endif
@@ -270,7 +270,7 @@ restart:	adr	r0, LC0
 		 * of RAM and hope for the best.
 		 */
 		cmp	r0, #1
-		sub	r0, r4, #TEXT_OFFSET
+		sub	r0, r4, @ TEXT_OFFSET
 		add	r0, r0, #0x100
 		mov	r1, r6
 		sub	r2, sp, r6
@@ -344,7 +344,7 @@ dtb_check_done:
 		 * the relocation code added. This avoids overwriting
 		 * ourself when the offset is small.
 		 */
-		add	r10, r10, #((reloc_code_end - restart + 256) & ~255)
+		add	r10, r10, @ ((reloc_code_end - restart + 256) & ~255)
 		bic	r10, r10, #255
 
 		/* Get start of code we want to copy and align it down. */
@@ -472,7 +472,7 @@ not_relocated:	mov	r0, #0
  THUMB(		bx	r4	)		@ entry point is always ARM
 
 		.align	2
-		.type	LC0, #object
+		.type	LC0, @ object
 LC0:		.word	LC0			@ r1
 		.word	__bss_start		@ r2
 		.word	_end			@ r3
@@ -505,12 +505,12 @@ copy_compressed:
 		PUSH {r1, r2, r4, r8, r9, r10}
 
 		// source address - zImage load address
-		movw r1, #:lower16:FIPS_KERNEL_RAM_BASE
-		movt r1, #:upper16:FIPS_KERNEL_RAM_BASE
+		movw r1, @ :lower16:FIPS_KERNEL_RAM_BASE
+		movt r1, @ :upper16:FIPS_KERNEL_RAM_BASE
 
 		// destination address - location where zImage copy will be made
-		movw r9, #:lower16:CONFIG_CRYPTO_FIPS_INTEG_COPY_ADDRESS
-	        movt r9, #:upper16:CONFIG_CRYPTO_FIPS_INTEG_COPY_ADDRESS
+		movw r9, @ :lower16:CONFIG_CRYPTO_FIPS_INTEG_COPY_ADDRESS
+	        movt r9, @ :upper16:CONFIG_CRYPTO_FIPS_INTEG_COPY_ADDRESS
 
 1:
 		// makes the copy of zImage
@@ -670,7 +670,7 @@ __arm926ejs_mmu_cache_on:
 __armv4_mmu_cache_on:
 		mov	r12, lr
 #ifdef CONFIG_MMU
-		mov	r6, #CB_BITS | 0x12	@ U
+		mov	r6, @ CB_BITS | 0x12	@ U
 		bl	__setup_mmu
 		mov	r0, #0
 		mcr	p15, 0, r0, c7, c10, 4	@ drain write buffer
@@ -692,7 +692,7 @@ __armv7_mmu_cache_on:
 #ifdef CONFIG_MMU
 		mrc	p15, 0, r11, c0, c1, 4	@ read ID_MMFR0
 		tst	r11, #0xf		@ VMSA
-		movne	r6, #CB_BITS | 0x02	@ !XN
+		movne	r6, @ CB_BITS | 0x02	@ !XN
 		blne	__setup_mmu
 		mov	r0, #0
 		mcr	p15, 0, r0, c7, c10, 4	@ drain write buffer
@@ -721,7 +721,7 @@ __armv7_mmu_cache_on:
 
 __fa526_cache_on:
 		mov	r12, lr
-		mov	r6, #CB_BITS | 0x12	@ U
+		mov	r6, @ CB_BITS | 0x12	@ U
 		bl	__setup_mmu
 		mov	r0, #0
 		mcr	p15, 0, r0, c7, c7, 0	@ Invalidate whole cache
@@ -736,7 +736,7 @@ __fa526_cache_on:
 
 __arm6_mmu_cache_on:
 		mov	r12, lr
-		mov	r6, #CB_BITS | 0x12	@ U
+		mov	r6, @ CB_BITS | 0x12	@ U
 		bl	__setup_mmu
 		mov	r0, #0
 		mcr	p15, 0, r0, c7, c0, 0	@ invalidate whole cache v3
@@ -752,7 +752,7 @@ __common_mmu_cache_on:
 #ifndef DEBUG
 		orr	r0, r0, #0x000d		@ Write buffer, mmu
 #endif
-		mov	r1, #-1
+		mov	r1, @ -1
 		mcr	p15, 0, r3, c2, c0, 0	@ load page table pointer
 		mcr	p15, 0, r1, c3, c0, 0	@ load domain access control
 		b	1f
@@ -791,7 +791,7 @@ call_cache_fn:	adr	r12, proc_types
  ARM(		addeq	pc, r12, r3		) @ call cache function
  THUMB(		addeq	r12, r3			)
  THUMB(		moveq	pc, r12			) @ call cache function
-		add	r12, r12, #PROC_ENTRY_SIZE
+		add	r12, r12, @ PROC_ENTRY_SIZE
 		b	1b
 
 /*
@@ -809,7 +809,7 @@ call_cache_fn:	adr	r12, proc_types
  * defined.
  */
 		.align	2
-		.type	proc_types,#object
+		.type	proc_types, @ object
 proc_types:
 		.word	0x41560600		@ ARM6/610
 		.word	0xffffffe0
@@ -1206,7 +1206,7 @@ __armv3_mpu_cache_flush:
  */
 #ifdef DEBUG
 		.align	2
-		.type	phexbuf,#object
+		.type	phexbuf, @ object
 phexbuf:	.space	12
 		.size	phexbuf, . - phexbuf
 
@@ -1221,7 +1221,7 @@ phex:		adr	r3, phexbuf
 		mov	r0, r0, lsr #4
 		cmp	r2, #10
 		addge	r2, r2, #7
-		add	r2, r2, #'0'
+		add	r2, r2, @ '0'
 		strb	r2, [r3, r1]
 		b	1b
 
@@ -1234,8 +1234,8 @@ puts:		loadsp	r3, r1
 		mov	r1, #0x00020000
 3:		subs	r1, r1, #1
 		bne	3b
-		teq	r2, #'\n'
-		moveq	r2, #'\r'
+		teq	r2, @ '\n'
+		moveq	r2, @ '\r'
 		beq	2b
 		teq	r0, #0
 		bne	1b
@@ -1255,22 +1255,22 @@ memdump:	mov	r12, r0
 		add	r0, r0, r12
 		mov	r1, #8
 		bl	phex
-		mov	r0, #':'
+		mov	r0, @ ':'
 		bl	putc
-1:		mov	r0, #' '
+1:		mov	r0, @ ' '
 		bl	putc
 		ldr	r0, [r12, r11, lsl #2]
 		mov	r1, #8
 		bl	phex
 		and	r0, r11, #7
 		teq	r0, #3
-		moveq	r0, #' '
+		moveq	r0, @ ' '
 		bleq	putc
 		and	r0, r11, #7
 		add	r11, r11, #1
 		teq	r0, #7
 		bne	1b
-		mov	r0, #'\n'
+		mov	r0, @ '\n'
 		bl	putc
 		cmp	r11, #64
 		blt	2b

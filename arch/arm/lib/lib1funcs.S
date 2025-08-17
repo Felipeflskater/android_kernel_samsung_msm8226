@@ -112,20 +112,20 @@ Boston, MA 02111-1307, USA.  */
 
 #else
 
-	cmp	\divisor, #(1 << 16)
+	cmp	\divisor, @ (1 << 16)
 	movhs	\divisor, \divisor, lsr #16
 	movhs	\order, #16
 	movlo	\order, #0
 
-	cmp	\divisor, #(1 << 8)
+	cmp	\divisor, @ (1 << 8)
 	movhs	\divisor, \divisor, lsr #8
 	addhs	\order, \order, #8
 
-	cmp	\divisor, #(1 << 4)
+	cmp	\divisor, @ (1 << 4)
 	movhs	\divisor, \divisor, lsr #4
 	addhs	\order, \order, #4
 
-	cmp	\divisor, #(1 << 2)
+	cmp	\divisor, @ (1 << 2)
 	addhi	\order, \order, #3
 	addls	\order, \order, \divisor, lsr #1
 
@@ -355,7 +355,7 @@ Ldiv0:
 UNWIND(.fnstart)
 UNWIND(.pad #4)
 UNWIND(.save {lr})
-	str	lr, [sp, #-8]!
+	str	lr, [sp, @ -8]!
 	bl	__div0
 	mov	r0, #0			@ About as wrong as it could be.
 	ldr	pc, [sp], #8

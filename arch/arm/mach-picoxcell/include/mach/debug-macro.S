@@ -20,13 +20,13 @@
 		.endm
 
 		.macro	senduart,rd,rx
-		str	\rd, [\rx, #UART_TX << UART_SHIFT]
+		str	\rd, [\rx, @ UART_TX << UART_SHIFT]
 		.endm
 
 		.macro	busyuart,rd,rx
-1002:		ldr	\rd, [\rx, #UART_LSR << UART_SHIFT]
-		and	\rd, \rd, #UART_LSR_TEMT | UART_LSR_THRE
-		teq	\rd, #UART_LSR_TEMT | UART_LSR_THRE
+1002:		ldr	\rd, [\rx, @ UART_LSR << UART_SHIFT]
+		and	\rd, \rd, @ UART_LSR_TEMT | UART_LSR_THRE
+		teq	\rd, @ UART_LSR_TEMT | UART_LSR_THRE
 		bne	1002b
 		.endm
 

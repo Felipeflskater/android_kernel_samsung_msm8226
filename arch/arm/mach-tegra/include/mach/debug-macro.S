@@ -40,17 +40,17 @@
 		bne	100f			@ no; go load the addresses
 		mov	\rv, #0			@ yes; record init is done
 		str	\rv, [\tmp]
-		mov	\rp, #TEGRA_IRAM_BASE	@ See if cookie is in IRAM
-		ldr	\rv, [\rp, #TEGRA_IRAM_DEBUG_UART_OFFSET]
-		movw	\rp, #TEGRA_IRAM_DEBUG_UART_COOKIE & 0xffff
-		movt	\rp, #TEGRA_IRAM_DEBUG_UART_COOKIE >> 16
+		mov	\rp, @ TEGRA_IRAM_BASE	@ See if cookie is in IRAM
+		ldr	\rv, [\rp, @ TEGRA_IRAM_DEBUG_UART_OFFSET]
+		movw	\rp, @ TEGRA_IRAM_DEBUG_UART_COOKIE & 0xffff
+		movt	\rp, @ TEGRA_IRAM_DEBUG_UART_COOKIE >> 16
 		cmp	\rv, \rp		@ Cookie present?
 		bne	100f			@ No, use default UART
-		mov	\rp, #TEGRA_IRAM_BASE	@ Load UART address from IRAM
-		ldr	\rv, [\rp, #TEGRA_IRAM_DEBUG_UART_OFFSET + 4]
+		mov	\rp, @ TEGRA_IRAM_BASE	@ Load UART address from IRAM
+		ldr	\rv, [\rp, @ TEGRA_IRAM_DEBUG_UART_OFFSET + 4]
 		str	\rv, [\tmp, #4]		@ Store in tegra_uart_phys
-		sub	\rv, \rv, #IO_APB_PHYS	@ Calculate virt address
-		add	\rv, \rv, #IO_APB_VIRT
+		sub	\rv, \rv, @ IO_APB_PHYS	@ Calculate virt address
+		add	\rv, \rv, @ IO_APB_VIRT
 		str	\rv, [\tmp, #8]		@ Store in tegra_uart_virt
 		b	100f
 
@@ -74,16 +74,16 @@
 
 		.macro	senduart, rd, rx
 		tst	\rx, #0x0000ff00
-		strneb	\rd, [\rx, #UART_TX << UART_SHIFT]
+		strneb	\rd, [\rx, @ UART_TX << UART_SHIFT]
 1001:
 		.endm
 
 		.macro	busyuart, rd, rx
 		tst	\rx, #0x0000ff00
 		beq	1002f
-1001:		ldrb	\rd, [\rx, #UART_LSR << UART_SHIFT]
-		and	\rd, \rd, #UART_LSR_TEMT | UART_LSR_THRE
-		teq	\rd, #UART_LSR_TEMT | UART_LSR_THRE
+1001:		ldrb	\rd, [\rx, @ UART_LSR << UART_SHIFT]
+		and	\rd, \rd, @ UART_LSR_TEMT | UART_LSR_THRE
+		teq	\rd, @ UART_LSR_TEMT | UART_LSR_THRE
 		bne	1001b
 1002:
 		.endm
@@ -92,8 +92,8 @@
 #ifdef FLOW_CONTROL
 		tst	\rx, #0x0000ff00
 		beq	1002f
-1001:		ldrb	\rd, [\rx, #UART_MSR << UART_SHIFT]
-		tst	\rd, #UART_MSR_CTS
+1001:		ldrb	\rd, [\rx, @ UART_MSR << UART_SHIFT]
+		tst	\rd, @ UART_MSR_CTS
 		beq	1001b
 1002:
 #endif

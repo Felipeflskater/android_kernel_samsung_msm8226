@@ -20,17 +20,17 @@
 	.endm
 
 	.macro	senduart, rd, rx
-		str	\rd, [\rx, #KS8695_URTH]	@ Write to Transmit Holding Register
+		str	\rd, [\rx, @ KS8695_URTH]	@ Write to Transmit Holding Register
 	.endm
 
 	.macro	busyuart, rd, rx
-1001:		ldr	\rd, [\rx, #KS8695_URLS]	@ Read Line Status Register
-		tst	\rd, #URLS_URTE			@ Holding & Shift registers empty?
+1001:		ldr	\rd, [\rx, @ KS8695_URLS]	@ Read Line Status Register
+		tst	\rd, @ URLS_URTE			@ Holding & Shift registers empty?
 		beq	1001b
 	.endm
 
 	.macro	waituart, rd, rx
-1001:		ldr	\rd, [\rx, #KS8695_URLS]	@ Read Line Status Register
-		tst	\rd, #URLS_URTHRE		@ Holding Register empty?
+1001:		ldr	\rd, [\rx, @ KS8695_URLS]	@ Read Line Status Register
+		tst	\rd, @ URLS_URTHRE		@ Holding Register empty?
 		beq	1001b
 	.endm

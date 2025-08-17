@@ -31,7 +31,7 @@
 		 * We handle PCIA and PCIB here so we don't have an
 		 * extra layer of code just to check these two bits.
 		 */
-		cmp	\irqnr, #IRQ_IXP2000_PCI
+		cmp	\irqnr, @ IRQ_IXP2000_PCI
 		bne	1001f
 
 		mov	\base, #0xfe000000
@@ -40,14 +40,14 @@
 		orr	\base, \base, #0x00000058
 		ldr	\irqstat, [\base]
 
-		mov	\tmp, #(1<<26)
+		mov	\tmp, @ (1<<26)
 		tst	\irqstat, \tmp
-		movne	\irqnr, #IRQ_IXP2000_PCIA
+		movne	\irqnr, @ IRQ_IXP2000_PCIA
 		bne	1001f
 
-		mov	\tmp, #(1<<27)
+		mov	\tmp, @ (1<<27)
 		tst	\irqstat, \tmp
-		movne	\irqnr, #IRQ_IXP2000_PCIB
+		movne	\irqnr, @ IRQ_IXP2000_PCIB
 
 1001:
 		.endm

@@ -124,8 +124,8 @@ ENTRY(cpu_v7_do_resume)
 	mcr	p15, 0, r6, c3, c0, 0	@ Domain ID
 #endif
 #ifndef CONFIG_ARM_LPAE
-	ALT_SMP(orr	r1, r1, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r1, r1, #TTB_FLAGS_UP)
+	ALT_SMP(orr	r1, r1, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r1, r1, @ TTB_FLAGS_UP)
 #endif
 #ifndef	CONFIG_TIMA_RKP_EMUL_CP15_INSTR
 	mcr	p15, 0, r1, c2, c0, 0	@ TTB 0
@@ -175,7 +175,7 @@ ENDPROC(cpu_v7_do_resume)
  */
 __v7_ca5mp_setup:
 __v7_ca9mp_setup:
-	mov	r10, #(1 << 0)			@ TLB ops broadcasting
+	mov	r10, @ (1 << 0)			@ TLB ops broadcasting
 	b	1f
 __v7_ca7mp_setup:
 __v7_ca15mp_setup:
@@ -183,9 +183,9 @@ __v7_ca15mp_setup:
 1:
 #ifdef CONFIG_SMP
 	ALT_SMP(mrc	p15, 0, r0, c1, c0, 1)
-	ALT_UP(mov	r0, #(1 << 6))		@ fake it for UP
-	tst	r0, #(1 << 6)			@ SMP/nAMP mode enabled?
-	orreq	r0, r0, #(1 << 6)		@ Enable SMP/nAMP mode
+	ALT_UP(mov	r0, @ (1 << 6))		@ fake it for UP
+	tst	r0, @ (1 << 6)			@ SMP/nAMP mode enabled?
+	orreq	r0, r0, @ (1 << 6)		@ Enable SMP/nAMP mode
 	orreq	r0, r0, r10			@ Enable CPU-specific SMP bits
 	mcreq	p15, 0, r0, c1, c0, 1
 #endif
@@ -211,21 +211,21 @@ __v7_setup:
 #ifdef CONFIG_ARM_ERRATA_430973
 	teq	r5, #0x00100000			@ only present in r1p*
 	mrceq	p15, 0, r10, c1, c0, 1		@ read aux control register
-	orreq	r10, r10, #(1 << 6)		@ set IBE to 1
+	orreq	r10, r10, @ (1 << 6)		@ set IBE to 1
 	mcreq	p15, 0, r10, c1, c0, 1		@ write aux control register
 #endif
 #ifdef CONFIG_ARM_ERRATA_458693
 	teq	r6, #0x20			@ only present in r2p0
 	mrceq	p15, 0, r10, c1, c0, 1		@ read aux control register
-	orreq	r10, r10, #(1 << 5)		@ set L1NEON to 1
-	orreq	r10, r10, #(1 << 9)		@ set PLDNOP to 1
+	orreq	r10, r10, @ (1 << 5)		@ set L1NEON to 1
+	orreq	r10, r10, @ (1 << 9)		@ set PLDNOP to 1
 	mcreq	p15, 0, r10, c1, c0, 1		@ write aux control register
 #endif
 #ifdef CONFIG_ARM_ERRATA_460075
 	teq	r6, #0x20			@ only present in r2p0
 	mrceq	p15, 1, r10, c9, c0, 2		@ read L2 cache aux ctrl register
 	tsteq	r10, #1 << 22
-	orreq	r10, r10, #(1 << 22)		@ set the Write Allocate disable bit
+	orreq	r10, r10, @ (1 << 22)		@ set the Write Allocate disable bit
 	mcreq	p15, 1, r10, c9, c0, 2		@ write the L2 cache aux ctrl register
 #endif
 	b	3f
@@ -302,8 +302,8 @@ __v7_setup:
 
 #ifndef CONFIG_ARM_THUMBEE
 	mrc	p15, 0, r0, c0, c1, 0		@ read ID_PFR0 for ThumbEE
-	and	r0, r0, #(0xf << 12)		@ ThumbEE enabled field
-	teq	r0, #(1 << 12)			@ check if ThumbEE is present
+	and	r0, r0, @ (0xf << 12)		@ ThumbEE enabled field
+	teq	r0, @ (1 << 12)			@ check if ThumbEE is present
 	bne	1f
 	mov	r5, #0
 	mcr	p14, 6, r5, c1, c0, 0		@ Initialize TEEHBR to 0
@@ -318,8 +318,8 @@ __v7_setup:
 	orr	r6, r6, #1 << 25		@ big-endian page tables
 #endif
 #ifdef CONFIG_SWP_EMULATE
-	orr     r5, r5, #(1 << 10)              @ set SW bit in "clear"
-	bic     r6, r6, #(1 << 10)              @ clear it in "mmuset"
+	orr     r5, r5, @ (1 << 10)              @ set SW bit in "clear"
+	bic     r6, r6, @ (1 << 10)              @ clear it in "mmuset"
 #endif
    	mrc	p15, 0, r0, c1, c0, 0		@ read control register
 	bic	r0, r0, r5			@ clear bits them
@@ -343,7 +343,7 @@ __v7_setup_stack:
 	string	cpu_elf_name, "v7"
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+.section ".proc.info.init", @ alloc, @ execinstr
 
 	/*
 	 * Standard v7 proc info content
@@ -371,7 +371,7 @@ __v7_setup_stack:
 	/*
 	 * ARM Ltd. Cortex A5 processor.
 	 */
-	.type   __v7_ca5mp_proc_info, #object
+	.type   __v7_ca5mp_proc_info, @ object
 __v7_ca5mp_proc_info:
 	.long	0x410fc050
 	.long	0xff0ffff0
@@ -381,7 +381,7 @@ __v7_ca5mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A9 processor.
 	 */
-	.type   __v7_ca9mp_proc_info, #object
+	.type   __v7_ca9mp_proc_info, @ object
 __v7_ca9mp_proc_info:
 	.long	0x410fc090
 	.long	0xff0ffff0
@@ -392,7 +392,7 @@ __v7_ca9mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A7 processor.
 	 */
-	.type	__v7_ca7mp_proc_info, #object
+	.type	__v7_ca7mp_proc_info, @ object
 __v7_ca7mp_proc_info:
 	.long	0x410fc070
 	.long	0xff0ffff0
@@ -402,7 +402,7 @@ __v7_ca7mp_proc_info:
 	/*
 	 * ARM Ltd. Cortex A15 processor.
 	 */
-	.type	__v7_ca15mp_proc_info, #object
+	.type	__v7_ca15mp_proc_info, @ object
 __v7_ca15mp_proc_info:
 	.long	0x410fc0f0
 	.long	0xff0ffff0
@@ -412,7 +412,7 @@ __v7_ca15mp_proc_info:
 	/*
 	 * Qualcomm Inc. Krait processors.
 	 */
-	.type	__krait_proc_info, #object
+	.type	__krait_proc_info, @ object
 __krait_proc_info:
 	.long	0x510f0400		@ Required ID value
 	.long	0xff0ffc00		@ Mask for ID
@@ -422,7 +422,7 @@ __krait_proc_info:
 	/*
 	 * Match any ARMv7 processor core.
 	 */
-	.type	__v7_proc_info, #object
+	.type	__v7_proc_info, @ object
 __v7_proc_info:
 	.long	0x000f0000		@ Required ID value
 	.long	0x000f0000		@ Mask for ID

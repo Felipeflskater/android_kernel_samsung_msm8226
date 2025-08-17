@@ -91,7 +91,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r4,r10,ror#2
 	add	r7,r7,r9			@ E+=X[i]
 	eor	r10,r10,r6,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r7,r7,r10			@ E+=F_00_19(B,C,D)
 #if __ARM_ARCH__<7
 	ldrb	r10,[r1,#2]
@@ -116,7 +116,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r3,r10,ror#2
 	add	r6,r6,r9			@ E+=X[i]
 	eor	r10,r10,r5,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r6,r6,r10			@ E+=F_00_19(B,C,D)
 #if __ARM_ARCH__<7
 	ldrb	r10,[r1,#2]
@@ -141,7 +141,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r7,r10,ror#2
 	add	r5,r5,r9			@ E+=X[i]
 	eor	r10,r10,r4,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r5,r5,r10			@ E+=F_00_19(B,C,D)
 #if __ARM_ARCH__<7
 	ldrb	r10,[r1,#2]
@@ -166,7 +166,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r6,r10,ror#2
 	add	r4,r4,r9			@ E+=X[i]
 	eor	r10,r10,r3,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r4,r4,r10			@ E+=F_00_19(B,C,D)
 #if __ARM_ARCH__<7
 	ldrb	r10,[r1,#2]
@@ -191,7 +191,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r5,r10,ror#2
 	add	r3,r3,r9			@ E+=X[i]
 	eor	r10,r10,r7,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r3,r3,r10			@ E+=F_00_19(B,C,D)
 	cmp	r14,sp
 	bne	.L_00_15		@ [((11+4)*5+2)*3]
@@ -219,7 +219,7 @@ ENTRY(sha1_block_data_order)
 	and	r10,r4,r10,ror#2
 	add	r7,r7,r9			@ E+=X[i]
 	eor	r10,r10,r6,ror#2		@ F_00_19(B,C,D)
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	add	r7,r7,r10			@ E+=F_00_19(B,C,D)
 	ldr	r9,[r14,#15*4]
 	ldr	r10,[r14,#13*4]
@@ -232,7 +232,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r6,r6,r7,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r3,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r6,r6,r9			@ E+=X[i]
@@ -249,7 +249,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r5,r5,r6,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r7,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r5,r5,r9			@ E+=X[i]
@@ -266,7 +266,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r4,r4,r5,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r6,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r4,r4,r9			@ E+=X[i]
@@ -283,7 +283,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r3,r3,r4,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r5,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r3,r3,r9			@ E+=X[i]
@@ -304,7 +304,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r7,r7,r3,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	eor r10,r4,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r7,r7,r9			@ E+=X[i]
@@ -320,7 +320,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r6,r6,r7,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	eor r10,r3,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r6,r6,r9			@ E+=X[i]
@@ -336,7 +336,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r5,r5,r6,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	eor r10,r7,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r5,r5,r9			@ E+=X[i]
@@ -352,7 +352,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r4,r4,r5,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	eor r10,r6,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r4,r4,r9			@ E+=X[i]
@@ -368,7 +368,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r3,r3,r4,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	eor r10,r5,r10,ror#2					@ F_xx_xx
 						@ F_xx_xx
 	add	r3,r3,r9			@ E+=X[i]
@@ -393,7 +393,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r7,r7,r3,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r4,r10,ror#2					@ F_xx_xx
 	and r11,r5,r6					@ F_xx_xx
 	add	r7,r7,r9			@ E+=X[i]
@@ -410,7 +410,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r6,r6,r7,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r3,r10,ror#2					@ F_xx_xx
 	and r11,r4,r5					@ F_xx_xx
 	add	r6,r6,r9			@ E+=X[i]
@@ -427,7 +427,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r5,r5,r6,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r7,r10,ror#2					@ F_xx_xx
 	and r11,r3,r4					@ F_xx_xx
 	add	r5,r5,r9			@ E+=X[i]
@@ -444,7 +444,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r4,r4,r5,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r6,r10,ror#2					@ F_xx_xx
 	and r11,r7,r3					@ F_xx_xx
 	add	r4,r4,r9			@ E+=X[i]
@@ -461,7 +461,7 @@ ENTRY(sha1_block_data_order)
 	mov	r9,r9,ror#31
 	add	r3,r3,r4,ror#27			@ E+=ROR(A,27)
 	eor	r9,r9,r11,ror#31
-	str	r9,[r14,#-4]!
+	str	r9,[r14, @ -4]!
 	and r10,r5,r10,ror#2					@ F_xx_xx
 	and r11,r6,r7					@ F_xx_xx
 	add	r3,r3,r9			@ E+=X[i]

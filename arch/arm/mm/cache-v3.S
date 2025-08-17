@@ -112,7 +112,7 @@ ENTRY(v3_dma_flush_range)
  *	- dir	- DMA direction
  */
 ENTRY(v3_dma_unmap_area)
-	teq	r2, #DMA_TO_DEVICE
+	teq	r2, @ DMA_TO_DEVICE
 	bne	v3_dma_flush_range
 	/* FALLTHROUGH */
 

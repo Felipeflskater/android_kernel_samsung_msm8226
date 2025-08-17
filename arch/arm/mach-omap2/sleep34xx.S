@@ -193,7 +193,7 @@ save_context_wfi:
 	 * strongly ordered and would not hit the cache.
 	 */
 	mrc	p15, 0, r0, c1, c0, 0
-	bic	r0, r0, #(1 << 2)	@ Disable the C bit
+	bic	r0, r0, @ (1 << 2)	@ Disable the C bit
 	mcr	p15, 0, r0, c1, c0, 0
 	isb
 
@@ -322,7 +322,7 @@ is_dll_in_lock_mode:
 wait_dll_lock_timed:
 	ldr	r4, wait_dll_lock_counter
 	add	r4, r4, #1
-	str	r4, [r7, #wait_dll_lock_counter - kick_counter]
+	str	r4, [r7, @ wait_dll_lock_counter - kick_counter]
 	ldr	r4, sdrc_dlla_status
 	/* Wait 20uS for lock */
 	mov	r6, #8
@@ -340,10 +340,10 @@ kick_dll:
 	ldr	r4, sdrc_dlla_ctrl
 	ldr	r5, [r4]
 	mov	r6, r5
-	bic	r6, #(1<<3)		@ disable dll
+	bic	r6, @ (1<<3)		@ disable dll
 	str	r6, [r4]
 	dsb
-	orr	r6, r6, #(1<<3)		@ enable dll
+	orr	r6, r6, @ (1<<3)		@ enable dll
 	str	r6, [r4]
 	dsb
 	ldr	r4, kick_counter
@@ -354,8 +354,8 @@ kick_dll:
 exit_nonoff_modes:
 	/* Re-enable C-bit if needed */
 	mrc	p15, 0, r0, c1, c0, 0
-	tst	r0, #(1 << 2)		@ Check C bit enabled?
-	orreq	r0, r0, #(1 << 2)	@ Enable the C bit if cleared
+	tst	r0, @ (1 << 2)		@ Check C bit enabled?
+	orreq	r0, r0, @ (1 << 2)	@ Enable the C bit if cleared
 	mcreq	p15, 0, r0, c1, c0, 0
 	isb
 
@@ -439,7 +439,7 @@ ENTRY(omap3_restore_3630)
 	bne	omap3_restore	@ Fall through to OMAP3 common code
 	/* Disable RTA before giving control */
 	ldr	r1, control_mem_rta
-	mov	r2, #OMAP36XX_RTA_DISABLE
+	mov	r2, @ OMAP36XX_RTA_DISABLE
 	str	r2, [r1]
 ENDPROC(omap3_restore_3630)
 
@@ -492,7 +492,7 @@ skipl2dis:
 #ifdef CONFIG_OMAP3_L2_AUX_SECURE_SAVE_RESTORE
 	/* Restore L2 aux control register */
 					@ set service ID for PPA
-	mov	r0, #CONFIG_OMAP3_L2_AUX_SECURE_SERVICE_SET_ID
+	mov	r0, @ CONFIG_OMAP3_L2_AUX_SECURE_SERVICE_SET_ID
 	mov	r12, r0			@ copy service ID in r12
 	mov	r1, #0			@ set task ID for ROM code in r1
 	mov	r2, #4			@ set some flags in r2, r6

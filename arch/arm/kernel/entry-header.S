@@ -51,25 +51,25 @@
 	@
 	.macro	store_user_sp_lr, rd, rtemp, offset = 0
 	mrs	\rtemp, cpsr
-	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch to the SYS mode
 
-	str	sp, [\rd, #\offset]		@ save sp_usr
-	str	lr, [\rd, #\offset + 4]		@ save lr_usr
+	str	sp, [\rd, @ \offset]		@ save sp_usr
+	str	lr, [\rd, @ \offset + 4]		@ save lr_usr
 
-	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch back to the SVC mode
 	.endm
 
 	.macro	load_user_sp_lr, rd, rtemp, offset = 0
 	mrs	\rtemp, cpsr
-	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch to the SYS mode
 
-	ldr	sp, [\rd, #\offset]		@ load sp_usr
-	ldr	lr, [\rd, #\offset + 4]		@ load lr_usr
+	ldr	sp, [\rd, @ \offset]		@ load sp_usr
+	ldr	lr, [\rd, @ \offset + 4]		@ load lr_usr
 
-	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch back to the SVC mode
 	.endm
 
@@ -85,8 +85,8 @@
 	.endm
 
 	.macro	restore_user_regs, fast = 0, offset = 0
-	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
-	ldr	lr, [sp, #\offset + S_PC]!	@ get pc
+	ldr	r1, [sp, @ \offset + S_PSR]	@ get calling cpsr
+	ldr	lr, [sp, @ \offset + S_PC]!	@ get pc
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 #if defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_32v6K)
 	@ We must avoid clrex due to Cortex-A15 erratum #830321
@@ -99,7 +99,7 @@
 	.endif
 	mov	r0, r0				@ ARMv5T and earlier require a nop
 						@ after ldm {}^
-	add	sp, sp, #S_FRAME_SIZE - S_PC
+	add	sp, sp, @ S_FRAME_SIZE - S_PC
 	movs	pc, lr				@ return & move spsr_svc into cpsr
 	.endm
 
@@ -116,11 +116,11 @@
 	.endm
 #else	/* CONFIG_THUMB2_KERNEL */
 	.macro	svc_exit, rpsr
-	ldr	lr, [sp, #S_SP]			@ top of the stack
-	ldrd	r0, r1, [sp, #S_LR]		@ calling lr and pc
+	ldr	lr, [sp, @ S_SP]			@ top of the stack
+	ldrd	r0, r1, [sp, @ S_LR]		@ calling lr and pc
 
 	@ We must avoid clrex due to Cortex-A15 erratum #830321
-	strex	r2, r1, [sp, #S_LR]		@ clear the exclusive monitor
+	strex	r2, r1, [sp, @ S_LR]		@ clear the exclusive monitor
 
 	stmdb	lr!, {r0, r1, \rpsr}		@ calling lr and rfe context
 	ldmia	sp, {r0 - r12}
@@ -132,9 +132,9 @@
 	.macro	restore_user_regs, fast = 0, offset = 0
 	mov	r2, sp
 	load_user_sp_lr r2, r3, \offset + S_SP	@ calling sp, lr
-	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
-	ldr	lr, [sp, #\offset + S_PC]	@ get pc
-	add	sp, sp, #\offset + S_SP
+	ldr	r1, [sp, @ \offset + S_PSR]	@ get calling cpsr
+	ldr	lr, [sp, @ \offset + S_PC]	@ get pc
+	add	sp, sp, @ \offset + S_SP
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 
 	@ We must avoid clrex due to Cortex-A15 erratum #830321
@@ -145,7 +145,7 @@
 	.else
 	ldmdb	sp, {r0 - r12}			@ get calling r0 - r12
 	.endif
-	add	sp, sp, #S_FRAME_SIZE - S_SP
+	add	sp, sp, @ S_FRAME_SIZE - S_SP
 	movs	pc, lr				@ return & move spsr_svc into cpsr
 	.endm
 

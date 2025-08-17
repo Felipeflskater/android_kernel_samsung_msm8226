@@ -49,9 +49,9 @@ ENTRY(s3c2410_cpu_suspend)
 	ldr	r8, [r5]		@ get MISCCR (and ensure in TLB)
 	ldr	r9, [r6]		@ get CLKCON (and ensure in TLB)
 
-	orr	r7, r7, #S3C2410_REFRESH_SELF	@ SDRAM sleep command
-	orr	r8, r8, #S3C2410_MISCCR_SDSLEEP @ SDRAM power-down signals
-	orr	r9, r9, #S3C2410_CLKCON_POWER	@ power down command
+	orr	r7, r7, @ S3C2410_REFRESH_SELF	@ SDRAM sleep command
+	orr	r8, r8, @ S3C2410_MISCCR_SDSLEEP @ SDRAM power-down signals
+	orr	r9, r9, @ S3C2410_CLKCON_POWER	@ power down command
 
 	teq	pc, #0			@ first as a trial-run to load cache
 	bl	s3c2410_do_sleep

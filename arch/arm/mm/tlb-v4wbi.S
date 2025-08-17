@@ -38,10 +38,10 @@ ENTRY(v4wbi_flush_user_tlb_range)
 	vma_vm_flags r2, r2
 	bic	r0, r0, #0x0ff
 	bic	r0, r0, #0xf00
-1:	tst	r2, #VM_EXEC
+1:	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, r0, c8, c5, 1		@ invalidate I TLB entry
 	mcr	p15, 0, r0, c8, c6, 1		@ invalidate D TLB entry
-	add	r0, r0, #PAGE_SZ
+	add	r0, r0, @ PAGE_SZ
 	cmp	r0, r1
 	blo	1b
 	mov	pc, lr
@@ -53,7 +53,7 @@ ENTRY(v4wbi_flush_kern_tlb_range)
 	bic	r0, r0, #0xf00
 1:	mcr	p15, 0, r0, c8, c5, 1		@ invalidate I TLB entry
 	mcr	p15, 0, r0, c8, c6, 1		@ invalidate D TLB entry
-	add	r0, r0, #PAGE_SZ
+	add	r0, r0, @ PAGE_SZ
 	cmp	r0, r1
 	blo	1b
 	mov	pc, lr

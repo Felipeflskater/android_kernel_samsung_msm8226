@@ -41,7 +41,7 @@ ENTRY(__aeabi_ulcmp)
 
 	cmp	xh, yh
 	cmpeq	xl, yl
-	movlo	r0, #-1
+	movlo	r0, @ -1
 	moveq	r0, #0
 	movhi	r0, #1
 	mov	pc, lr

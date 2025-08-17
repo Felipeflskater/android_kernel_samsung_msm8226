@@ -25,11 +25,11 @@
 		and	\tmp, \tmp, #0xf0
 		teq	\tmp, #0xf0		@@ A15
 		ldreq	\rp, =EXYNOS5_PA_UART
-		movne	\rp, #EXYNOS4_PA_UART	@@ EXYNOS4
+		movne	\rp, @ EXYNOS4_PA_UART	@@ EXYNOS4
 		ldr	\rv, =S3C_VA_UART
 #if CONFIG_DEBUG_S3C_UART != 0
-		add	\rp, \rp, #(0x10000 * CONFIG_DEBUG_S3C_UART)
-		add	\rv, \rv, #(0x10000 * CONFIG_DEBUG_S3C_UART)
+		add	\rp, \rp, @ (0x10000 * CONFIG_DEBUG_S3C_UART)
+		add	\rv, \rv, @ (0x10000 * CONFIG_DEBUG_S3C_UART)
 #endif
 	.endm
 

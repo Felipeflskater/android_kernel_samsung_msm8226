@@ -107,7 +107,7 @@ ENTRY(cpu_xsc3_proc_fin)
 	.align	5
 	.pushsection	.idmap.text, "ax"
 ENTRY(cpu_xsc3_reset)
-	mov	r1, #PSR_F_BIT|PSR_I_BIT|SVC_MODE
+	mov	r1, @ PSR_F_BIT|PSR_I_BIT|SVC_MODE
 	msr	cpsr_c, r1			@ reset CPSR
 	mrc	p15, 0, r1, c1, c0, 0		@ ctrl register
 	bic	r1, r1, #0x3900			@ ..VIZ..S........
@@ -168,11 +168,11 @@ ENTRY(xsc3_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(xsc3_flush_kern_cache_all)
-	mov	r2, #VM_EXEC
+	mov	r2, @ VM_EXEC
 	mov	ip, #0
 __flush_whole_cache:
 	clean_d_cache r0, r1
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate L1 I cache and BTB
 	mcrne	p15, 0, ip, c7, c10, 4		@ data write barrier
 	mcrne	p15, 0, ip, c7, c5, 4		@ prefetch flush
@@ -192,16 +192,16 @@ __flush_whole_cache:
 ENTRY(xsc3_flush_user_cache_range)
 	mov	ip, #0
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, #MAX_AREA_SIZE
+	cmp	r3, @ MAX_AREA_SIZE
 	bhs	__flush_whole_cache
 
-1:	tst	r2, #VM_EXEC
+1:	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, r0, c7, c5, 1		@ invalidate L1 I line
 	mcr	p15, 0, r0, c7, c14, 1		@ clean/invalidate L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 6		@ invalidate BTB
 	mcrne	p15, 0, ip, c7, c10, 4		@ data write barrier
 	mcrne	p15, 0, ip, c7, c5, 4		@ prefetch flush
@@ -223,9 +223,9 @@ ENTRY(xsc3_flush_user_cache_range)
 ENTRY(xsc3_coherent_kern_range)
 /* FALLTHROUGH */
 ENTRY(xsc3_coherent_user_range)
-	bic	r0, r0, #CACHELINESIZE - 1
+	bic	r0, r0, @ CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -246,7 +246,7 @@ ENTRY(xsc3_coherent_user_range)
 ENTRY(xsc3_flush_kern_dcache_area)
 	add	r1, r0, r1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean/invalidate L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -267,13 +267,13 @@ ENTRY(xsc3_flush_kern_dcache_area)
  *	- end	 - virtual end address
  */
 xsc3_dma_inv_range:
-	tst	r0, #CACHELINESIZE - 1
-	bic	r0, r0, #CACHELINESIZE - 1
+	tst	r0, @ CACHELINESIZE - 1
+	bic	r0, r0, @ CACHELINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean L1 D line
-	tst	r1, #CACHELINESIZE - 1
+	tst	r1, @ CACHELINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean L1 D line
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ data write barrier
@@ -288,9 +288,9 @@ xsc3_dma_inv_range:
  *	- end	 - virtual end address
  */
 xsc3_dma_clean_range:
-	bic	r0, r0, #CACHELINESIZE - 1
+	bic	r0, r0, @ CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ data write barrier
@@ -305,9 +305,9 @@ xsc3_dma_clean_range:
  *	- end	 - virtual end address
  */
 ENTRY(xsc3_dma_flush_range)
-	bic	r0, r0, #CACHELINESIZE - 1
+	bic	r0, r0, @ CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean/invalidate L1 D line
-	add	r0, r0, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ data write barrier
@@ -321,7 +321,7 @@ ENTRY(xsc3_dma_flush_range)
  */
 ENTRY(xsc3_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, #DMA_TO_DEVICE
+	cmp	r2, @ DMA_TO_DEVICE
 	beq	xsc3_dma_clean_range
 	bcs	xsc3_dma_inv_range
 	b	xsc3_dma_flush_range
@@ -345,8 +345,8 @@ ENDPROC(xsc3_dma_unmap_area)
 
 ENTRY(cpu_xsc3_dcache_clean_area)
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean L1 D line
-	add	r0, r0, #CACHELINESIZE
-	subs	r1, r1, #CACHELINESIZE
+	add	r0, r0, @ CACHELINESIZE
+	subs	r1, r1, @ CACHELINESIZE
 	bhi	1b
 	mov	pc, lr
 
@@ -397,11 +397,11 @@ cpu_xsc3_mt_table:
 ENTRY(cpu_xsc3_set_pte_ext)
 	xscale_set_pte_ext_prologue
 
-	tst	r1, #L_PTE_SHARED		@ shared?
-	and	r1, r1, #L_PTE_MT_MASK
+	tst	r1, @ L_PTE_SHARED		@ shared?
+	and	r1, r1, @ L_PTE_MT_MASK
 	adr	ip, cpu_xsc3_mt_table
 	ldr	ip, [ip, r1]
-	orrne	r2, r2, #PTE_EXT_COHERENT	@ interlock: mask in coherent bit
+	orrne	r2, r2, @ PTE_EXT_COHERENT	@ interlock: mask in coherent bit
 	bic	r2, r2, #0x0c			@ clear old C,B bits
 	orr	r2, r2, ip
 
@@ -448,9 +448,9 @@ ENDPROC(cpu_xsc3_do_resume)
 
 	__CPUINIT
 
-	.type	__xsc3_setup, #function
+	.type	__xsc3_setup, @ function
 __xsc3_setup:
-	mov	r0, #PSR_F_BIT|PSR_I_BIT|SVC_MODE
+	mov	r0, @ PSR_F_BIT|PSR_I_BIT|SVC_MODE
 	msr	cpsr_c, r0
 	mcr	p15, 0, ip, c7, c7, 0		@ invalidate L1 caches and BTB
 	mcr	p15, 0, ip, c7, c10, 4		@ data write barrier
@@ -464,7 +464,7 @@ __xsc3_setup:
 
 	mrc	p15, 0, r0, c1, c0, 1		@ get auxiliary control reg
 	and	r0, r0, #2			@ preserve bit P bit setting
-	orr	r0, r0, #(1 << 10)		@ enable L2 for LLR cache
+	orr	r0, r0, @ (1 << 10)		@ enable L2 for LLR cache
 	mcr	p15, 0, r0, c1, c0, 1		@ set auxiliary control reg
 
 	adr	r5, xsc3_crval
@@ -473,7 +473,7 @@ __xsc3_setup:
 #ifdef CONFIG_CACHE_XSC3L2
 	mrc	p15, 1, r0, c0, c0, 1		@ get L2 present information
 	ands	r0, r0, #0xf8
-	orrne	r6, r6, #(1 << 26)		@ enable L2 if present
+	orrne	r6, r6, @ (1 << 26)		@ enable L2 if present
 #endif
 
 	mrc	p15, 0, r0, c1, c0, 0		@ get control register
@@ -484,7 +484,7 @@ __xsc3_setup:
 
 	.size	__xsc3_setup, . - __xsc3_setup
 
-	.type	xsc3_crval, #object
+	.type	xsc3_crval, @ object
 xsc3_crval:
 	crval	clear=0x04002202, mmuset=0x00003905, ucset=0x00001900
 
@@ -501,10 +501,10 @@ xsc3_crval:
 
 	.align
 
-	.section ".proc.info.init", #alloc, #execinstr
+	.section ".proc.info.init", @ alloc, @ execinstr
 
 .macro xsc3_proc_info name:req, cpu_val:req, cpu_mask:req
-	.type	__\name\()_proc_info,#object
+	.type	__\name\()_proc_info, @ object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

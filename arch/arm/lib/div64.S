@@ -157,20 +157,20 @@ UNWIND(.fnstart)
 #else
 
 	mov	yl, r4
-	cmp	r4, #(1 << 16)
+	cmp	r4, @ (1 << 16)
 	mov	ip, #0
 	movhs	yl, yl, lsr #16
 	movhs	ip, #16
 
-	cmp	yl, #(1 << 8)
+	cmp	yl, @ (1 << 8)
 	movhs	yl, yl, lsr #8
 	addhs	ip, ip, #8
 
-	cmp	yl, #(1 << 4)
+	cmp	yl, @ (1 << 4)
 	movhs	yl, yl, lsr #4
 	addhs	ip, ip, #4
 
-	cmp	yl, #(1 << 2)
+	cmp	yl, @ (1 << 2)
 	addhi	ip, ip, #3
 	addls	ip, ip, yl, lsr #1
 
@@ -198,7 +198,7 @@ UNWIND(.pad #4)
 UNWIND(.save {lr})
 Ldiv0_64:
 	@ Division by 0:
-	str	lr, [sp, #-8]!
+	str	lr, [sp, @ -8]!
 	bl	__div0
 
 	@ as wrong as it could be...

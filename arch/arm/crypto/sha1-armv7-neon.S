@@ -89,12 +89,12 @@
 	ldr RT3, [sp, WK_offs(i)]; \
 		pre1(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	bic RT0, d, b; \
-	add e, e, a, ror #(32 - 5); \
+	add e, e, a, ror @ (32 - 5); \
 	and RT1, c, b; \
 		pre2(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	add RT0, RT0, RT3; \
 	add e, e, RT1; \
-	ror b, #(32 - 30); \
+	ror b, @ (32 - 30); \
 		pre3(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	add e, e, RT0;
 
@@ -103,11 +103,11 @@
 	ldr RT3, [sp, WK_offs(i)]; \
 		pre1(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	eor RT0, d, b; \
-	add e, e, a, ror #(32 - 5); \
+	add e, e, a, ror @ (32 - 5); \
 	eor RT0, RT0, c; \
 		pre2(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	add e, e, RT3; \
-	ror b, #(32 - 30); \
+	ror b, @ (32 - 30); \
 		pre3(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	add e, e, RT0; \
 
@@ -117,12 +117,12 @@
 		pre1(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	eor RT0, b, c; \
 	and RT1, b, c; \
-	add e, e, a, ror #(32 - 5); \
+	add e, e, a, ror @ (32 - 5); \
 		pre2(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	and RT0, RT0, d; \
 	add RT1, RT1, RT3; \
 	add e, e, RT0; \
-	ror b, #(32 - 30); \
+	ror b, @ (32 - 30); \
 		pre3(i16,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28); \
 	add e, e, RT1;
 
@@ -148,7 +148,7 @@
 /********* Precalc macros for rounds 0-15 *************************************/
 
 #define W_PRECALC_00_15() \
-	add       RWK, sp, #(WK_offs(0));			\
+	add       RWK, sp, @ (WK_offs(0));			\
 	\
 	vld1.32   {tmp0, tmp1}, [RDATA]!;			\
 	vrev32.8  W0, tmp0;		/* big => little */	\
@@ -167,7 +167,7 @@
 	vld1.32   {tmp0, tmp1}, [RDATA]!;			\
 
 #define WPRECALC_00_15_1(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
-	add       RWK, sp, #(WK_offs(0));			\
+	add       RWK, sp, @ (WK_offs(0));			\
 
 #define WPRECALC_00_15_2(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
 	vrev32.8  W0, tmp0;		/* big => little */	\
@@ -210,7 +210,7 @@
 	vext.8    W, W_m16, W_m12, #8;		\
 
 #define WPRECALC_16_31_1(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
-	add       RWK, sp, #(WK_offs(i));	\
+	add       RWK, sp, @ (WK_offs(i));	\
 	vext.8    tmp0, W_m04, tmp0, #4;	\
 
 #define WPRECALC_16_31_2(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
@@ -225,7 +225,7 @@
 	vshl.u32  tmp0, W, #1;			\
 
 #define WPRECALC_16_31_5(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
-	vext.8    tmp1, tmp1, W, #(16-12);	\
+	vext.8    tmp1, tmp1, W, @ (16-12);	\
 	vshr.u32  W, W, #31;			\
 
 #define WPRECALC_16_31_6(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
@@ -263,7 +263,7 @@
 	veor W, tmp0; \
 
 #define WPRECALC_32_79_4(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
-	add RWK, sp, #(WK_offs(i&~3)); \
+	add RWK, sp, @ (WK_offs(i&~3)); \
 
 #define WPRECALC_32_79_5(i,W,W_m04,W_m08,W_m12,W_m16,W_m20,W_m24,W_m28) \
 	vshl.u32 tmp1, W, #2; \
@@ -307,8 +307,8 @@ ENTRY(sha1_transform_neon)
   mov ROLDSTACK, sp;
 
   /* Align stack. */
-  sub RT0, sp, #(16*4);
-  and RT0, #(~(16-1));
+  sub RT0, sp, @ (16*4);
+  and RT0, @ (~(16-1));
   mov sp, RT0;
 
   vld1.32 {qK1-qK2}, [RT3]!; /* Load K1,K2 */
@@ -586,7 +586,7 @@ ENTRY(sha1_transform_neon)
   /* Update the chaining variables. */
   ldm RSTATE, {RT0-RT3};
   add _a, RT0;
-  ldr RT0, [RSTATE, #state_h4];
+  ldr RT0, [RSTATE, @ state_h4];
   add _b, RT1;
   add _c, RT2;
   add _d, RT3;
@@ -619,7 +619,7 @@ ENTRY(sha1_transform_neon)
   /* Update the chaining variables. */
   ldm RSTATE, {RT0-RT3};
   add _a, RT0;
-  ldr RT0, [RSTATE, #state_h4];
+  ldr RT0, [RSTATE, @ state_h4];
   add _b, RT1;
   add _c, RT2;
   add _d, RT3;

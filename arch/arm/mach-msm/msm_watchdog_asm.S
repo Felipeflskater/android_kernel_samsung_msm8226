@@ -33,36 +33,36 @@ ENTRY(msm_wdog_fiq_start)
 	@ get the USR r0-r7
 	stmia	r8!, {r0-r7}
 	mov	r4, r8
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | SYSTEM_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | SYSTEM_MODE
 	msr	cpsr_c, r5	@ select SYSTEM mode
 	stmia	r4!, {r8-r14}
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | IRQ_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | IRQ_MODE
 	msr	cpsr_c, r5	@ select IRQ mode
 	mrs	r5, spsr
 	str	r5, [r4], #4
 	stmia	r4!, {r13-r14}
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | SVC_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | SVC_MODE
 	msr	cpsr_c, r5	@ select SVC mode
 	mrs	r5, spsr
 	str	r5, [r4], #4
 	stmia	r4!, {r13-r14}
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | ABT_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | ABT_MODE
 	msr	cpsr_c, r5	@ select ABT mode
 	mrs	r5, spsr
 	str	r5, [r4], #4
 	stmia	r4!, {r13-r14}
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | UND_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | UND_MODE
 	msr	cpsr_c, r5	@ select UND mode
 	mrs	r5, spsr
 	str	r5, [r4], #4
 	stmia	r4!, {r13-r14}
-	mov	r5, #PSR_I_BIT | PSR_F_BIT | FIQ_MODE
+	mov	r5, @ PSR_I_BIT | PSR_F_BIT | FIQ_MODE
 	msr	cpsr_c, r5	@ select FIQ mode
 	mrs	r5, spsr
 	str	r5, [r4], #4
 	stmia	r4!, {r8-r14}
 	dsb
-	mov	r5, #PSR_F_BIT | SVC_MODE
+	mov	r5, @ PSR_F_BIT | SVC_MODE
 	msr	cpsr_c, r5	@ select SVC mode
 	ldr	r2, Lwatchdog_bark_fin
 	blx	r2
@@ -78,7 +78,7 @@ ENTRY(msm_wdog_fiq_length)
 /* setup the stack */
 ENTRY(msm_wdog_fiq_setup)
 	mrs	r3, cpsr
-	msr	cpsr_c, #(FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
+	msr	cpsr_c, @ (FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
 	mov	r8, r0
 	msr	cpsr_c, r3
 	bx	lr

@@ -80,14 +80,14 @@ ENTRY(v4wb_flush_kern_cache_all)
 __flush_whole_cache:
 	ldr	r3, =flush_base
 	ldr	r1, [r3, #0]
-	eor	r1, r1, #CACHE_DSIZE
+	eor	r1, r1, @ CACHE_DSIZE
 	str	r1, [r3, #0]
-	add	r2, r1, #CACHE_DSIZE
+	add	r2, r1, @ CACHE_DSIZE
 1:	ldr	r3, [r1], #32
 	cmp	r1, r2
 	blo	1b
 #ifdef FLUSH_BASE_MINICACHE
-	add	r2, r2, #FLUSH_BASE_MINICACHE - FLUSH_BASE
+	add	r2, r2, @ FLUSH_BASE_MINICACHE - FLUSH_BASE
 	sub	r1, r2, #512			@ only 512 bytes
 1:	ldr	r3, [r1], #32
 	cmp	r1, r2
@@ -109,18 +109,18 @@ __flush_whole_cache:
 ENTRY(v4wb_flush_user_cache_range)
 	mov	ip, #0
 	sub	r3, r1, r0			@ calculate total size
-	tst	r2, #VM_EXEC			@ executable region?
+	tst	r2, @ VM_EXEC			@ executable region?
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 
-	cmp	r3, #CACHE_DLIMIT		@ total size >= limit?
+	cmp	r3, @ CACHE_DLIMIT		@ total size >= limit?
 	bhs	__flush_whole_cache		@ flush whole D cache
 
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
-	tst	r2, #VM_EXEC
+	tst	r2, @ VM_EXEC
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain write buffer
 	mov	pc, lr
 
@@ -161,10 +161,10 @@ ENTRY(v4wb_coherent_kern_range)
  *	- end	 - virtual end address
  */
 ENTRY(v4wb_coherent_user_range)
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	ip, #0
@@ -185,13 +185,13 @@ ENTRY(v4wb_coherent_user_range)
  *	- end	 - virtual end address
  */
 v4wb_dma_inv_range:
-	tst	r0, #CACHE_DLINESIZE - 1
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	tst	r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
-	tst	r1, #CACHE_DLINESIZE - 1
+	tst	r1, @ CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain write buffer
@@ -206,9 +206,9 @@ v4wb_dma_inv_range:
  *	- end	 - virtual end address
  */
 v4wb_dma_clean_range:
-	bic	r0, r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, @ CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, #CACHE_DLINESIZE
+	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain write buffer
@@ -235,7 +235,7 @@ v4wb_dma_clean_range:
  */
 ENTRY(v4wb_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, #DMA_TO_DEVICE
+	cmp	r2, @ DMA_TO_DEVICE
 	beq	v4wb_dma_clean_range
 	bcs	v4wb_dma_inv_range
 	b	v4wb_dma_flush_range

@@ -1,4 +1,4 @@
-	.type	initrd_start,#object
+	.type	initrd_start, @ object
 	.globl	initrd_start
 initrd_start:
 	.incbin	INITRD

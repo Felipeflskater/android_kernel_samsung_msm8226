@@ -54,8 +54,8 @@ ENTRY(stext)
 	beq	__error_p				@ yes, error 'p'
 
 	adr	lr, BSYM(__after_proc_init)	@ return (PIC) address
- ARM(	add	pc, r10, #PROCINFO_INITFUNC	)
- THUMB(	add	r12, r10, #PROCINFO_INITFUNC	)
+ ARM(	add	pc, r10, @ PROCINFO_INITFUNC	)
+ THUMB(	add	r12, r10, @ PROCINFO_INITFUNC	)
  THUMB(	mov	pc, r12				)
 ENDPROC(stext)
 
@@ -69,23 +69,23 @@ __after_proc_init:
 	 * the CPU init function.
 	 */
 #ifdef CONFIG_ALIGNMENT_TRAP
-	orr	r0, r0, #CR_A
+	orr	r0, r0, @ CR_A
 #else
-	bic	r0, r0, #CR_A
+	bic	r0, r0, @ CR_A
 #endif
 #ifdef CONFIG_CPU_DCACHE_DISABLE
-	bic	r0, r0, #CR_C
+	bic	r0, r0, @ CR_C
 #endif
 #ifdef CONFIG_CPU_BPREDICT_DISABLE
-	bic	r0, r0, #CR_Z
+	bic	r0, r0, @ CR_Z
 #endif
 #ifdef CONFIG_CPU_ICACHE_DISABLE
-	bic	r0, r0, #CR_I
+	bic	r0, r0, @ CR_I
 #endif
 #ifdef CONFIG_CPU_HIGH_VECTOR
-	orr	r0, r0, #CR_V
+	orr	r0, r0, @ CR_V
 #else
-	bic	r0, r0, #CR_V
+	bic	r0, r0, @ CR_V
 #endif
 	mcr	p15, 0, r0, c1, c0, 0		@ write control reg
 #endif /* CONFIG_CPU_CP15 */

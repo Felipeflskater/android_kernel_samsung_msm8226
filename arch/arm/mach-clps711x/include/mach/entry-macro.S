@@ -18,18 +18,18 @@
 #endif
 
 		.macro	get_irqnr_and_base, irqnr, stat, base, mask
-		mov	\base, #CLPS7111_BASE
-		ldr	\stat, [\base, #INTSR1]
-		ldr	\mask, [\base, #INTMR1]
+		mov	\base, @ CLPS7111_BASE
+		ldr	\stat, [\base, @ INTSR1]
+		ldr	\mask, [\base, @ INTMR1]
 		mov	\irqnr, #4
 		mov	\mask, \mask, lsl #16
 		and	\stat, \stat, \mask, lsr #16
 		movs	\stat, \stat, lsr #4
 		bne	1001f
 
-		add	\base, \base, #INTSR2 - INTSR1
-		ldr	\stat, [\base, #INTSR1]
-		ldr	\mask, [\base, #INTMR1]
+		add	\base, \base, @ INTSR2 - INTSR1
+		ldr	\stat, [\base, @ INTSR1]
+		ldr	\mask, [\base, @ INTMR1]
 		mov	\irqnr, #16
 		mov	\mask, \mask, lsl #16
 		and	\stat, \stat, \mask, lsr #16

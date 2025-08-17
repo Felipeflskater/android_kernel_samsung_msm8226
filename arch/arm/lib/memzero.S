@@ -46,7 +46,7 @@ ENTRY(__memzero)
  * We need an extra register for this loop - save the return address and
  * use the LR
  */
-	str	lr, [sp, #-4]!		@ 1
+	str	lr, [sp, @ -4]!		@ 1
 	mov	ip, r2			@ 1
 	mov	lr, r2			@ 1
 
@@ -88,7 +88,7 @@ ENTRY(__memzero)
 
 	rsb	ip, ip, #32
 	sub	r1, r1, ip
-	movs	ip, ip, lsl #(32 - 4)
+	movs	ip, ip, lsl @ (32 - 4)
 	stmcsia	r0!, {r4, r5, r6, r7}
 	stmmiia	r0!, {r4, r5}
 	movs	ip, ip, lsl #2

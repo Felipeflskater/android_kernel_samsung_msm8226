@@ -33,7 +33,7 @@ __XScale_start:
 		mcr	p15, 0, r0, c1, c0, 0
 
 #ifdef CONFIG_ARCH_IXP2000
-		mov	r1, #-1
+		mov	r1, @ -1
 		mov	r0, #0xd6000000
 		str	r1, [r0, #0x14]
 		str	r1, [r0, #0x18]

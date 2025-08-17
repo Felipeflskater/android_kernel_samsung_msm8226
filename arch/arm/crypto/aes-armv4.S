@@ -152,7 +152,7 @@ ENTRY(AES_encrypt)
 	stmdb   sp!,{r1,r4-r12,lr}
 	mov	r12,r0		@ inp
 	mov	r11,r2
-	sub	r10,r3,#AES_encrypt-AES_Te	@ Te
+	sub	r10,r3, @ AES_encrypt-AES_Te	@ Te
 #if __ARM_ARCH__<7
 	ldrb	r0,[r12,#3]	@ load input data in endian-neutral
 	ldrb	r4,[r12,#2]	@ manner...
@@ -244,7 +244,7 @@ ENDPROC(AES_encrypt)
 .type   _armv4_AES_encrypt,%function
 .align	2
 _armv4_AES_encrypt:
-	str	lr,[sp,#-4]!		@ push lr
+	str	lr,[sp, @ -4]!		@ push lr
 	ldmia	r11!,{r4-r7}
 	eor	r0,r0,r4
 	ldr	r12,[r11,#240-16]
@@ -302,12 +302,12 @@ _armv4_AES_encrypt:
 	eor	r1,r1,r8,ror#16
 	ldr	r3,[r10,r3,lsl#2]	@ Te0[s3>>24]
 	eor	r2,r2,r9,ror#8
-	ldr	r4,[r11,#-12]
+	ldr	r4,[r11, @ -12]
 	eor	r3,r3,r6,ror#8
 
-	ldr	r5,[r11,#-8]
+	ldr	r5,[r11, @ -8]
 	eor	r0,r0,r7
-	ldr	r6,[r11,#-4]
+	ldr	r6,[r11, @ -4]
 	and	r7,lr,r0
 	eor	r1,r1,r4
 	and	r8,lr,r0,lsr#8
@@ -383,10 +383,10 @@ ENTRY(private_AES_set_encrypt_key)
 _armv4_AES_set_encrypt_key:
 	adr	r3,_armv4_AES_set_encrypt_key
 	teq	r0,#0
-	moveq	r0,#-1
+	moveq	r0, @ -1
 	beq	.Labrt
 	teq	r2,#0
-	moveq	r0,#-1
+	moveq	r0, @ -1
 	beq	.Labrt
 
 	teq	r1,#128
@@ -394,11 +394,11 @@ _armv4_AES_set_encrypt_key:
 	teq	r1,#192
 	beq	.Lok
 	teq	r1,#256
-	movne	r0,#-1
+	movne	r0, @ -1
 	bne	.Labrt
 
 .Lok:	stmdb   sp!,{r4-r12,lr}
-	sub	r10,r3,#_armv4_AES_set_encrypt_key-AES_Te-1024	@ Te4
+	sub	r10,r3, @ _armv4_AES_set_encrypt_key-AES_Te-1024	@ Te4
 
 	mov	r12,r0		@ inp
 	mov	lr,r1			@ bits
@@ -433,10 +433,10 @@ _armv4_AES_set_encrypt_key:
 	orr	r3,r3,r4,lsl#8
 	str	r0,[r11],#16
 	orr	r3,r3,r5,lsl#16
-	str	r1,[r11,#-12]
+	str	r1,[r11, @ -12]
 	orr	r3,r3,r6,lsl#24
-	str	r2,[r11,#-8]
-	str	r3,[r11,#-4]
+	str	r2,[r11, @ -8]
+	str	r3,[r11, @ -4]
 #else
 	ldr	r0,[r12,#0]
 	ldr	r1,[r12,#4]
@@ -449,9 +449,9 @@ _armv4_AES_set_encrypt_key:
 	rev	r3,r3
 #endif
 	str	r0,[r11],#16
-	str	r1,[r11,#-12]
-	str	r2,[r11,#-8]
-	str	r3,[r11,#-4]
+	str	r1,[r11, @ -12]
+	str	r2,[r11, @ -8]
+	str	r3,[r11, @ -4]
 #endif
 
 	teq	lr,#128
@@ -479,11 +479,11 @@ _armv4_AES_set_encrypt_key:
 	eor	r1,r1,r0			@ rk[5]=rk[1]^rk[4]
 	str	r0,[r11],#16
 	eor	r2,r2,r1			@ rk[6]=rk[2]^rk[5]
-	str	r1,[r11,#-12]
+	str	r1,[r11, @ -12]
 	eor	r3,r3,r2			@ rk[7]=rk[3]^rk[6]
-	str	r2,[r11,#-8]
+	str	r2,[r11, @ -8]
 	subs	r12,r12,#1
-	str	r3,[r11,#-4]
+	str	r3,[r11, @ -4]
 	bne	.L128_loop
 	sub	r2,r11,#176
 	b	.Ldone
@@ -505,7 +505,7 @@ _armv4_AES_set_encrypt_key:
 	orr	r9,r9,r5,lsl#16
 	str	r8,[r11],#8
 	orr	r9,r9,r6,lsl#24
-	str	r9,[r11,#-4]
+	str	r9,[r11, @ -4]
 #else
 	ldr	r8,[r12,#16]
 	ldr	r9,[r12,#20]
@@ -514,7 +514,7 @@ _armv4_AES_set_encrypt_key:
 	rev	r9,r9
 #endif
 	str	r8,[r11],#8
-	str	r9,[r11,#-4]
+	str	r9,[r11, @ -4]
 #endif
 
 	teq	lr,#192
@@ -543,20 +543,20 @@ _armv4_AES_set_encrypt_key:
 	eor	r1,r1,r0			@ rk[7]=rk[1]^rk[6]
 	str	r0,[r11],#24
 	eor	r2,r2,r1			@ rk[8]=rk[2]^rk[7]
-	str	r1,[r11,#-20]
+	str	r1,[r11, @ -20]
 	eor	r3,r3,r2			@ rk[9]=rk[3]^rk[8]
-	str	r2,[r11,#-16]
+	str	r2,[r11, @ -16]
 	subs	r12,r12,#1
-	str	r3,[r11,#-12]
+	str	r3,[r11, @ -12]
 	subeq	r2,r11,#216
 	beq	.Ldone
 
-	ldr	r7,[r11,#-32]
-	ldr	r8,[r11,#-28]
+	ldr	r7,[r11, @ -32]
+	ldr	r8,[r11, @ -28]
 	eor	r7,r7,r3			@ rk[10]=rk[4]^rk[9]
 	eor	r9,r8,r7			@ rk[11]=rk[5]^rk[10]
-	str	r7,[r11,#-8]
-	str	r9,[r11,#-4]
+	str	r7,[r11, @ -8]
+	str	r9,[r11, @ -4]
 	b	.L192_loop
 
 .Lnot192:
@@ -576,7 +576,7 @@ _armv4_AES_set_encrypt_key:
 	orr	r9,r9,r5,lsl#16
 	str	r8,[r11],#8
 	orr	r9,r9,r6,lsl#24
-	str	r9,[r11,#-4]
+	str	r9,[r11, @ -4]
 #else
 	ldr	r8,[r12,#24]
 	ldr	r9,[r12,#28]
@@ -585,7 +585,7 @@ _armv4_AES_set_encrypt_key:
 	rev	r9,r9
 #endif
 	str	r8,[r11],#8
-	str	r9,[r11,#-4]
+	str	r9,[r11, @ -4]
 #endif
 
 	mov	r12,#14
@@ -612,11 +612,11 @@ _armv4_AES_set_encrypt_key:
 	eor	r1,r1,r0			@ rk[9]=rk[1]^rk[8]
 	str	r0,[r11],#32
 	eor	r2,r2,r1			@ rk[10]=rk[2]^rk[9]
-	str	r1,[r11,#-28]
+	str	r1,[r11, @ -28]
 	eor	r3,r3,r2			@ rk[11]=rk[3]^rk[10]
-	str	r2,[r11,#-24]
+	str	r2,[r11, @ -24]
 	subs	r12,r12,#1
-	str	r3,[r11,#-20]
+	str	r3,[r11, @ -20]
 	subeq	r2,r11,#256
 	beq	.Ldone
 
@@ -630,20 +630,20 @@ _armv4_AES_set_encrypt_key:
 	orr	r5,r5,r7,lsl#8
 	ldrb	r9,[r10,r9]
 	orr	r5,r5,r8,lsl#16
-	ldr	r4,[r11,#-48]
+	ldr	r4,[r11, @ -48]
 	orr	r5,r5,r9,lsl#24
 
-	ldr	r7,[r11,#-44]
-	ldr	r8,[r11,#-40]
+	ldr	r7,[r11, @ -44]
+	ldr	r8,[r11, @ -40]
 	eor	r4,r4,r5			@ rk[12]=rk[4]^...
-	ldr	r9,[r11,#-36]
+	ldr	r9,[r11, @ -36]
 	eor	r7,r7,r4			@ rk[13]=rk[5]^rk[12]
-	str	r4,[r11,#-16]
+	str	r4,[r11, @ -16]
 	eor	r8,r8,r7			@ rk[14]=rk[6]^rk[13]
-	str	r7,[r11,#-12]
+	str	r7,[r11, @ -12]
 	eor	r9,r9,r8			@ rk[15]=rk[7]^rk[14]
-	str	r8,[r11,#-8]
-	str	r9,[r11,#-4]
+	str	r8,[r11, @ -8]
+	str	r9,[r11, @ -4]
 	b	.L256_loop
 
 .Ldone:	mov	r0,#0
@@ -653,7 +653,7 @@ ENDPROC(private_AES_set_encrypt_key)
 
 .align	5
 ENTRY(private_AES_set_decrypt_key)
-	str	lr,[sp,#-4]!            @ push lr
+	str	lr,[sp, @ -4]!            @ push lr
 #if 0
 	@ kernel does both of these in setkey so optimise this bit out by
 	@ expecting the key to already have the enc_key work done (see aes_glue.c)
@@ -680,14 +680,14 @@ ENTRY(private_AES_set_decrypt_key)
 	ldr	r5,[r8,#4]
 	ldr	r6,[r8,#8]
 	ldr	r9,[r8,#12]
-	str	r0,[r8],#-16
+	str	r0,[r8], @ -16
 	str	r1,[r8,#16+4]
 	str	r2,[r8,#16+8]
 	str	r3,[r8,#16+12]
 	str	r4,[r7],#16
-	str	r5,[r7,#-12]
-	str	r6,[r7,#-8]
-	str	r9,[r7,#-4]
+	str	r5,[r7, @ -12]
+	str	r6,[r7, @ -8]
+	str	r9,[r7, @ -4]
 	teq	r7,r8
 	bne	.Linv
 	ldr	r0,[r11,#16]!		@ prefetch tp1
@@ -847,7 +847,7 @@ ENTRY(AES_decrypt)
 	stmdb   sp!,{r1,r4-r12,lr}
 	mov	r12,r0		@ inp
 	mov	r11,r2
-	sub	r10,r3,#AES_decrypt-AES_Td		@ Td
+	sub	r10,r3, @ AES_decrypt-AES_Td		@ Td
 #if __ARM_ARCH__<7
 	ldrb	r0,[r12,#3]	@ load input data in endian-neutral
 	ldrb	r4,[r12,#2]	@ manner...
@@ -939,7 +939,7 @@ ENDPROC(AES_decrypt)
 .type   _armv4_AES_decrypt,%function
 .align	2
 _armv4_AES_decrypt:
-	str	lr,[sp,#-4]!		@ push lr
+	str	lr,[sp, @ -4]!		@ push lr
 	ldmia	r11!,{r4-r7}
 	eor	r0,r0,r4
 	ldr	r12,[r11,#240-16]
@@ -998,11 +998,11 @@ _armv4_AES_decrypt:
 	ldr	r3,[r10,r3,lsl#2]	@ Td0[s3>>24]
 	eor	r2,r2,r9,ror#24
 
-	ldr	r4,[r11,#-12]
+	ldr	r4,[r11, @ -12]
 	eor	r0,r0,r7
-	ldr	r5,[r11,#-8]
+	ldr	r5,[r11, @ -8]
 	eor	r3,r3,r6,ror#8
-	ldr	r6,[r11,#-4]
+	ldr	r6,[r11, @ -4]
 	and	r7,lr,r0,lsr#16
 	eor	r1,r1,r4
 	and	r8,lr,r0,lsr#8

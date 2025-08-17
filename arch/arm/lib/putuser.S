@@ -84,7 +84,7 @@ ENTRY(__put_user_8)
 ENDPROC(__put_user_8)
 
 __put_user_bad:
-	mov	r0, #-EFAULT
+	mov	r0, @ -EFAULT
 	mov	pc, lr
 ENDPROC(__put_user_bad)
 

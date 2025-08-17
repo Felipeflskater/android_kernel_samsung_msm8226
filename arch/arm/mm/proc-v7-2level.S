@@ -46,9 +46,9 @@
 ENTRY(cpu_v7_switch_mm)
 #ifdef CONFIG_MMU
 	mov	r2, #0
-	ldr	r1, [r1, #MM_CONTEXT_ID]	@ get mm->context.id
-	ALT_SMP(orr	r0, r0, #TTB_FLAGS_SMP)
-	ALT_UP(orr	r0, r0, #TTB_FLAGS_UP)
+	ldr	r1, [r1, @ MM_CONTEXT_ID]	@ get mm->context.id
+	ALT_SMP(orr	r0, r0, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	r0, r0, @ TTB_FLAGS_UP)
 #ifdef CONFIG_ARM_ERRATA_430973
 	mcr	p15, 0, r2, c7, c5, 6		@ flush BTAC/BTB
 #endif
@@ -125,30 +125,30 @@ ENTRY(cpu_v7_timal2group_set_pte_ext)
 	stmfd	sp!,{r3}
 
 	bic	r3, r1, #0x000003f0
-	bic	r3, r3, #PTE_TYPE_MASK
+	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
-	orr	r3, r3, #PTE_EXT_AP0 | 2
+	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
 	tst	r1, #1 << 4
-	orrne	r3, r3, #PTE_EXT_TEX(1)
+	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
-	eor	r1, r1, #L_PTE_DIRTY
-	tst	r1, #L_PTE_RDONLY | L_PTE_DIRTY
-	orrne	r3, r3, #PTE_EXT_APX
+	eor	r1, r1, @ L_PTE_DIRTY
+	tst	r1, @ L_PTE_RDONLY | L_PTE_DIRTY
+	orrne	r3, r3, @ PTE_EXT_APX
 
-	tst	r1, #L_PTE_USER
-	orrne	r3, r3, #PTE_EXT_AP1
+	tst	r1, @ L_PTE_USER
+	orrne	r3, r3, @ PTE_EXT_AP1
 #ifdef CONFIG_CPU_USE_DOMAINS
 	@ allow kernel read/write access to read-only user pages
-	tstne	r3, #PTE_EXT_APX
-	bicne	r3, r3, #PTE_EXT_APX | PTE_EXT_AP0
+	tstne	r3, @ PTE_EXT_APX
+	bicne	r3, r3, @ PTE_EXT_APX | PTE_EXT_AP0
 #endif
 
-	tst	r1, #L_PTE_XN
-	orrne	r3, r3, #PTE_EXT_XN
+	tst	r1, @ L_PTE_XN
+	orrne	r3, r3, @ PTE_EXT_XN
 
-	tst	r1, #L_PTE_YOUNG
-	tstne	r1, #L_PTE_PRESENT
+	tst	r1, @ L_PTE_YOUNG
+	tstne	r1, @ L_PTE_PRESENT
 	moveq	r3, #0
 
 	/* grouped operations*/
@@ -228,30 +228,30 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 # ifdef CONFIG_MMU
         stmfd   sp!, {r1}	//added for tima
 	bic	r3, r1, #0x000003f0
-	bic	r3, r3, #PTE_TYPE_MASK
+	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
-	orr	r3, r3, #PTE_EXT_AP0 | 2
+	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
 	tst	r1, #1 << 4
-	orrne	r3, r3, #PTE_EXT_TEX(1)
+	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
-	eor	r1, r1, #L_PTE_DIRTY
-	tst	r1, #L_PTE_RDONLY | L_PTE_DIRTY
-	orrne	r3, r3, #PTE_EXT_APX
+	eor	r1, r1, @ L_PTE_DIRTY
+	tst	r1, @ L_PTE_RDONLY | L_PTE_DIRTY
+	orrne	r3, r3, @ PTE_EXT_APX
 
-	tst	r1, #L_PTE_USER
-	orrne	r3, r3, #PTE_EXT_AP1
+	tst	r1, @ L_PTE_USER
+	orrne	r3, r3, @ PTE_EXT_AP1
 #ifdef CONFIG_CPU_USE_DOMAINS
 	@ allow kernel read/write access to read-only user pages
-	tstne	r3, #PTE_EXT_APX
-	bicne	r3, r3, #PTE_EXT_APX | PTE_EXT_AP0
+	tstne	r3, @ PTE_EXT_APX
+	bicne	r3, r3, @ PTE_EXT_APX | PTE_EXT_AP0
 #endif
 
-	tst	r1, #L_PTE_XN
-	orrne	r3, r3, #PTE_EXT_XN
+	tst	r1, @ L_PTE_XN
+	orrne	r3, r3, @ PTE_EXT_XN
 
-	tst	r1, #L_PTE_YOUNG
-	tstne	r1, #L_PTE_PRESENT
+	tst	r1, @ L_PTE_YOUNG
+	tstne	r1, @ L_PTE_PRESENT
 	moveq	r3, #0
 
 	/*next part is added for tima*/
@@ -340,30 +340,30 @@ ENTRY(cpu_v7_set_pte_ext)
 #ifdef CONFIG_MMU
 	str	r1, [r0]			@ linux version
 	bic	r3, r1, #0x000003f0
-	bic	r3, r3, #PTE_TYPE_MASK
+	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
-	orr	r3, r3, #PTE_EXT_AP0 | 2
+	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
 	tst	r1, #1 << 4
-	orrne	r3, r3, #PTE_EXT_TEX(1)
+	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
-	eor	r1, r1, #L_PTE_DIRTY
-	tst	r1, #L_PTE_RDONLY | L_PTE_DIRTY
-	orrne	r3, r3, #PTE_EXT_APX
+	eor	r1, r1, @ L_PTE_DIRTY
+	tst	r1, @ L_PTE_RDONLY | L_PTE_DIRTY
+	orrne	r3, r3, @ PTE_EXT_APX
 
-	tst	r1, #L_PTE_USER
-	orrne	r3, r3, #PTE_EXT_AP1
+	tst	r1, @ L_PTE_USER
+	orrne	r3, r3, @ PTE_EXT_AP1
 #ifdef CONFIG_CPU_USE_DOMAINS
 	@ allow kernel read/write access to read-only user pages
-	tstne	r3, #PTE_EXT_APX
-	bicne	r3, r3, #PTE_EXT_APX | PTE_EXT_AP0
+	tstne	r3, @ PTE_EXT_APX
+	bicne	r3, r3, @ PTE_EXT_APX | PTE_EXT_AP0
 #endif
 
-	tst	r1, #L_PTE_XN
-	orrne	r3, r3, #PTE_EXT_XN
+	tst	r1, @ L_PTE_XN
+	orrne	r3, r3, @ PTE_EXT_XN
 
-	tst	r1, #L_PTE_YOUNG
-	tstne	r1, #L_PTE_PRESENT
+	tst	r1, @ L_PTE_YOUNG
+	tstne	r1, @ L_PTE_PRESENT
 	moveq	r3, #0
 
  ARM(	str	r3, [r0, #2048]! )
@@ -423,10 +423,10 @@ ENDPROC(cpu_v7_set_pte_ext)
 #else 
 	mcr	p15, 0, \zero, c2, c0, 2	@ TTB control register
 #endif
-	ALT_SMP(orr	\ttbr0, \ttbr0, #TTB_FLAGS_SMP)
-	ALT_UP(orr	\ttbr0, \ttbr0, #TTB_FLAGS_UP)
-	ALT_SMP(orr	\ttbr1, \ttbr1, #TTB_FLAGS_SMP)
-	ALT_UP(orr	\ttbr1, \ttbr1, #TTB_FLAGS_UP)
+	ALT_SMP(orr	\ttbr0, \ttbr0, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	\ttbr0, \ttbr0, @ TTB_FLAGS_UP)
+	ALT_SMP(orr	\ttbr1, \ttbr1, @ TTB_FLAGS_SMP)
+	ALT_UP(orr	\ttbr1, \ttbr1, @ TTB_FLAGS_UP)
 	mcr	p15, 0, \ttbr1, c2, c0, 1	@ load TTB1
 	.endm
 
@@ -439,7 +439,7 @@ ENDPROC(cpu_v7_set_pte_ext)
 	 *    1    0 110       0011 1100 .111 1101 < we want
 	 */
 	.align	2
-	.type	v7_crval, #object
+	.type	v7_crval, @ object
 v7_crval:
 	crval	clear=0x0120c302, mmuset=0x10c03c7d, ucset=0x00c01c7c
 

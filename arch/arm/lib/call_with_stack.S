@@ -28,8 +28,8 @@
  * the new stack.
  */
 ENTRY(call_with_stack)
-	str	sp, [r2, #-4]!
-	str	lr, [r2, #-4]!
+	str	sp, [r2, @ -4]!
+	str	lr, [r2, @ -4]!
 
 	mov	sp, r2
 	mov	r2, r0

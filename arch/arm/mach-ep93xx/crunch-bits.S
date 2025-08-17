@@ -76,7 +76,7 @@ ENTRY(crunch_task_enable)
 	str	r1, [r8, #0x80]
 
 	ldr	r3, =crunch_owner
-	add	r0, r10, #TI_CRUNCH_STATE	@ get task crunch save area
+	add	r0, r10, @ TI_CRUNCH_STATE	@ get task crunch save area
 	ldr	r2, [sp, #60]			@ current task pc value
 	ldr	r1, [r3]			@ get current crunch owner
 	str	r0, [r3]			@ this task now owns crunch
@@ -91,104 +91,104 @@ ENTRY(crunch_task_enable)
 	beq	crunch_load			@ no owner, skip save
 
 crunch_save:
-	cfstr64		mvdx0, [r1, #CRUNCH_MVDX0]	@ save 64b registers
-	cfstr64		mvdx1, [r1, #CRUNCH_MVDX1]
-	cfstr64		mvdx2, [r1, #CRUNCH_MVDX2]
-	cfstr64		mvdx3, [r1, #CRUNCH_MVDX3]
-	cfstr64		mvdx4, [r1, #CRUNCH_MVDX4]
-	cfstr64		mvdx5, [r1, #CRUNCH_MVDX5]
-	cfstr64		mvdx6, [r1, #CRUNCH_MVDX6]
-	cfstr64		mvdx7, [r1, #CRUNCH_MVDX7]
-	cfstr64		mvdx8, [r1, #CRUNCH_MVDX8]
-	cfstr64		mvdx9, [r1, #CRUNCH_MVDX9]
-	cfstr64		mvdx10, [r1, #CRUNCH_MVDX10]
-	cfstr64		mvdx11, [r1, #CRUNCH_MVDX11]
-	cfstr64		mvdx12, [r1, #CRUNCH_MVDX12]
-	cfstr64		mvdx13, [r1, #CRUNCH_MVDX13]
-	cfstr64		mvdx14, [r1, #CRUNCH_MVDX14]
-	cfstr64		mvdx15, [r1, #CRUNCH_MVDX15]
+	cfstr64		mvdx0, [r1, @ CRUNCH_MVDX0]	@ save 64b registers
+	cfstr64		mvdx1, [r1, @ CRUNCH_MVDX1]
+	cfstr64		mvdx2, [r1, @ CRUNCH_MVDX2]
+	cfstr64		mvdx3, [r1, @ CRUNCH_MVDX3]
+	cfstr64		mvdx4, [r1, @ CRUNCH_MVDX4]
+	cfstr64		mvdx5, [r1, @ CRUNCH_MVDX5]
+	cfstr64		mvdx6, [r1, @ CRUNCH_MVDX6]
+	cfstr64		mvdx7, [r1, @ CRUNCH_MVDX7]
+	cfstr64		mvdx8, [r1, @ CRUNCH_MVDX8]
+	cfstr64		mvdx9, [r1, @ CRUNCH_MVDX9]
+	cfstr64		mvdx10, [r1, @ CRUNCH_MVDX10]
+	cfstr64		mvdx11, [r1, @ CRUNCH_MVDX11]
+	cfstr64		mvdx12, [r1, @ CRUNCH_MVDX12]
+	cfstr64		mvdx13, [r1, @ CRUNCH_MVDX13]
+	cfstr64		mvdx14, [r1, @ CRUNCH_MVDX14]
+	cfstr64		mvdx15, [r1, @ CRUNCH_MVDX15]
 
 #ifdef __ARMEB__
 #error fix me for ARMEB
 #endif
 
 	cfmv32al	mvfx0, mvax0			@ save 72b accumulators
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX0L]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX0L]
 	cfmv32am	mvfx0, mvax0
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX0M]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX0M]
 	cfmv32ah	mvfx0, mvax0
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX0H]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX0H]
 	cfmv32al	mvfx0, mvax1
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX1L]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX1L]
 	cfmv32am	mvfx0, mvax1
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX1M]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX1M]
 	cfmv32ah	mvfx0, mvax1
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX1H]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX1H]
 	cfmv32al	mvfx0, mvax2
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX2L]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX2L]
 	cfmv32am	mvfx0, mvax2
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX2M]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX2M]
 	cfmv32ah	mvfx0, mvax2
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX2H]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX2H]
 	cfmv32al	mvfx0, mvax3
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX3L]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX3L]
 	cfmv32am	mvfx0, mvax3
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX3M]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX3M]
 	cfmv32ah	mvfx0, mvax3
-	cfstr32		mvfx0, [r1, #CRUNCH_MVAX3H]
+	cfstr32		mvfx0, [r1, @ CRUNCH_MVAX3H]
 
 	cfmv32sc	mvdx0, dspsc			@ save status word
-	cfstr64		mvdx0, [r1, #CRUNCH_DSPSC]
+	cfstr64		mvdx0, [r1, @ CRUNCH_DSPSC]
 
 	teq		r0, #0				@ anything to load?
-	cfldr64eq	mvdx0, [r1, #CRUNCH_MVDX0]	@ mvdx0 was clobbered
+	cfldr64eq	mvdx0, [r1, @ CRUNCH_MVDX0]	@ mvdx0 was clobbered
 	moveq		pc, lr
 
 crunch_load:
-	cfldr64		mvdx0, [r0, #CRUNCH_DSPSC]	@ load status word
+	cfldr64		mvdx0, [r0, @ CRUNCH_DSPSC]	@ load status word
 	cfmvsc32	dspsc, mvdx0
 
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX0L]	@ load 72b accumulators
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX0L]	@ load 72b accumulators
 	cfmval32	mvax0, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX0M]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX0M]
 	cfmvam32	mvax0, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX0H]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX0H]
 	cfmvah32	mvax0, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX1L]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX1L]
 	cfmval32	mvax1, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX1M]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX1M]
 	cfmvam32	mvax1, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX1H]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX1H]
 	cfmvah32	mvax1, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX2L]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX2L]
 	cfmval32	mvax2, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX2M]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX2M]
 	cfmvam32	mvax2, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX2H]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX2H]
 	cfmvah32	mvax2, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX3L]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX3L]
 	cfmval32	mvax3, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX3M]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX3M]
 	cfmvam32	mvax3, mvfx0
-	cfldr32		mvfx0, [r0, #CRUNCH_MVAX3H]
+	cfldr32		mvfx0, [r0, @ CRUNCH_MVAX3H]
 	cfmvah32	mvax3, mvfx0
 
-	cfldr64		mvdx0, [r0, #CRUNCH_MVDX0]	@ load 64b registers
-	cfldr64		mvdx1, [r0, #CRUNCH_MVDX1]
-	cfldr64		mvdx2, [r0, #CRUNCH_MVDX2]
-	cfldr64		mvdx3, [r0, #CRUNCH_MVDX3]
-	cfldr64		mvdx4, [r0, #CRUNCH_MVDX4]
-	cfldr64		mvdx5, [r0, #CRUNCH_MVDX5]
-	cfldr64		mvdx6, [r0, #CRUNCH_MVDX6]
-	cfldr64		mvdx7, [r0, #CRUNCH_MVDX7]
-	cfldr64		mvdx8, [r0, #CRUNCH_MVDX8]
-	cfldr64		mvdx9, [r0, #CRUNCH_MVDX9]
-	cfldr64		mvdx10, [r0, #CRUNCH_MVDX10]
-	cfldr64		mvdx11, [r0, #CRUNCH_MVDX11]
-	cfldr64		mvdx12, [r0, #CRUNCH_MVDX12]
-	cfldr64		mvdx13, [r0, #CRUNCH_MVDX13]
-	cfldr64		mvdx14, [r0, #CRUNCH_MVDX14]
-	cfldr64		mvdx15, [r0, #CRUNCH_MVDX15]
+	cfldr64		mvdx0, [r0, @ CRUNCH_MVDX0]	@ load 64b registers
+	cfldr64		mvdx1, [r0, @ CRUNCH_MVDX1]
+	cfldr64		mvdx2, [r0, @ CRUNCH_MVDX2]
+	cfldr64		mvdx3, [r0, @ CRUNCH_MVDX3]
+	cfldr64		mvdx4, [r0, @ CRUNCH_MVDX4]
+	cfldr64		mvdx5, [r0, @ CRUNCH_MVDX5]
+	cfldr64		mvdx6, [r0, @ CRUNCH_MVDX6]
+	cfldr64		mvdx7, [r0, @ CRUNCH_MVDX7]
+	cfldr64		mvdx8, [r0, @ CRUNCH_MVDX8]
+	cfldr64		mvdx9, [r0, @ CRUNCH_MVDX9]
+	cfldr64		mvdx10, [r0, @ CRUNCH_MVDX10]
+	cfldr64		mvdx11, [r0, @ CRUNCH_MVDX11]
+	cfldr64		mvdx12, [r0, @ CRUNCH_MVDX12]
+	cfldr64		mvdx13, [r0, @ CRUNCH_MVDX13]
+	cfldr64		mvdx14, [r0, @ CRUNCH_MVDX14]
+	cfldr64		mvdx15, [r0, @ CRUNCH_MVDX15]
 
 	mov	pc, lr
 
@@ -202,13 +202,13 @@ ENTRY(crunch_task_disable)
 	stmfd	sp!, {r4, r5, lr}
 
 	mrs	ip, cpsr
-	orr	r2, ip, #PSR_I_BIT		@ disable interrupts
+	orr	r2, ip, @ PSR_I_BIT		@ disable interrupts
 	msr	cpsr_c, r2
 
 	ldr	r4, =(EP93XX_APB_VIRT_BASE + 0x00130000)	@ syscon addr
 
 	ldr	r3, =crunch_owner
-	add	r2, r0, #TI_CRUNCH_STATE	@ get task crunch save area
+	add	r2, r0, @ TI_CRUNCH_STATE	@ get task crunch save area
 	ldr	r1, [r3]			@ get current crunch owner
 	teq	r1, #0				@ any current owner?
 	beq	1f				@ no: quit
@@ -248,11 +248,11 @@ ENTRY(crunch_task_disable)
  */
 ENTRY(crunch_task_copy)
 	mrs	ip, cpsr
-	orr	r2, ip, #PSR_I_BIT		@ disable interrupts
+	orr	r2, ip, @ PSR_I_BIT		@ disable interrupts
 	msr	cpsr_c, r2
 
 	ldr	r3, =crunch_owner
-	add	r2, r0, #TI_CRUNCH_STATE	@ get task crunch save area
+	add	r2, r0, @ TI_CRUNCH_STATE	@ get task crunch save area
 	ldr	r3, [r3]			@ get current crunch owner
 	teq	r2, r3				@ does this task own it...
 	beq	1f
@@ -261,7 +261,7 @@ ENTRY(crunch_task_copy)
 	msr	cpsr_c, ip			@ restore interrupt mode
 	mov	r0, r1
 	mov	r1, r2
-	mov	r2, #CRUNCH_SIZE
+	mov	r2, @ CRUNCH_SIZE
 	b	memcpy
 
 1:	@ this task owns crunch regs -- grab a copy from there
@@ -281,11 +281,11 @@ ENTRY(crunch_task_copy)
  */
 ENTRY(crunch_task_restore)
 	mrs	ip, cpsr
-	orr	r2, ip, #PSR_I_BIT		@ disable interrupts
+	orr	r2, ip, @ PSR_I_BIT		@ disable interrupts
 	msr	cpsr_c, r2
 
 	ldr	r3, =crunch_owner
-	add	r2, r0, #TI_CRUNCH_STATE	@ get task crunch save area
+	add	r2, r0, @ TI_CRUNCH_STATE	@ get task crunch save area
 	ldr	r3, [r3]			@ get current crunch owner
 	teq	r2, r3				@ does this task own it...
 	beq	1f
@@ -293,7 +293,7 @@ ENTRY(crunch_task_restore)
 	@ this task doesn't own crunch regs -- use its save area
 	msr	cpsr_c, ip			@ restore interrupt mode
 	mov	r0, r2
-	mov	r2, #CRUNCH_SIZE
+	mov	r2, @ CRUNCH_SIZE
 	b	memcpy
 
 1:	@ this task owns crunch regs -- load them directly

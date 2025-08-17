@@ -52,7 +52,7 @@
 #ifdef MULTI_PABORT
 	ldr	ip, .LCprocfns
 	mov	lr, pc
-	ldr	pc, [ip, #PROCESSOR_PABT_FUNC]
+	ldr	pc, [ip, @ PROCESSOR_PABT_FUNC]
 #else
 	bl	CPU_PABORT_HANDLER
 #endif
@@ -73,7 +73,7 @@
 #ifdef MULTI_DABORT
 	ldr	ip, .LCprocfns
 	mov	lr, pc
-	ldr	pc, [ip, #PROCESSOR_DABT_FUNC]
+	ldr	pc, [ip, @ PROCESSOR_DABT_FUNC]
 #else
 	bl	CPU_DABORT_HANDLER
 #endif
@@ -89,12 +89,12 @@
  * Invalid mode handlers
  */
 	.macro	inv_entry, reason
-	sub	sp, sp, #S_FRAME_SIZE
+	sub	sp, sp, @ S_FRAME_SIZE
  ARM(	stmib	sp, {r1 - lr}		)
  THUMB(	stmia	sp, {r0 - r12}		)
- THUMB(	str	sp, [sp, #S_SP]		)
- THUMB(	str	lr, [sp, #S_LR]		)
-	mov	r1, #\reason
+ THUMB(	str	sp, [sp, @ S_SP]		)
+ THUMB(	str	lr, [sp, @ S_LR]		)
+	mov	r1, @ \reason
 	.endm
 
 __pabt_invalid:
@@ -126,8 +126,8 @@ common_invalid:
 	zero_fp
 
 	ldmia	r0, {r4 - r6}
-	add	r0, sp, #S_PC		@ here for interlock avoidance
-	mov	r7, #-1			@  ""   ""    ""        ""
+	add	r0, sp, @ S_PC		@ here for interlock avoidance
+	mov	r7, @ -1			@  ""   ""    ""        ""
 	str	r4, [sp]		@ save preserved r0
 	stmia	r0, {r5 - r7}		@ lr_<exception>,
 					@ cpsr_<exception>, "old_r0"
@@ -149,7 +149,7 @@ ENDPROC(__und_invalid)
 	.macro	svc_entry, stack_hole=0
  UNWIND(.fnstart		)
  UNWIND(.save {r0 - pc}		)
-	sub	sp, sp, #(S_FRAME_SIZE + \stack_hole - 4)
+	sub	sp, sp, @ (S_FRAME_SIZE + \stack_hole - 4)
 #ifdef CONFIG_THUMB2_KERNEL
  SPFIX(	str	r0, [sp]	)	@ temporarily saved
  SPFIX(	mov	r0, sp		)
@@ -162,11 +162,11 @@ ENDPROC(__und_invalid)
 	stmia	sp, {r1 - r12}
 
 	ldmia	r0, {r3 - r5}
-	add	r7, sp, #S_SP - 4	@ here for interlock avoidance
-	mov	r6, #-1			@  ""  ""      ""       ""
-	add	r2, sp, #(S_FRAME_SIZE + \stack_hole - 4)
+	add	r7, sp, @ S_SP - 4	@ here for interlock avoidance
+	mov	r6, @ -1			@  ""  ""      ""       ""
+	add	r2, sp, @ (S_FRAME_SIZE + \stack_hole - 4)
  SPFIX(	addeq	r2, r2, #4	)
-	str	r3, [sp, #-4]!		@ save the "real" r0 copied
+	str	r3, [sp, @ -4]!		@ save the "real" r0 copied
 					@ from the exception stack
 
 	mov	r3, lr
@@ -199,9 +199,9 @@ __dabt_svc:
 	disable_irq_notrace
 
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -215,11 +215,11 @@ __irq_svc:
 
 #ifdef CONFIG_PREEMPT
 	get_thread_info tsk
-	ldr	r8, [tsk, #TI_PREEMPT]		@ get preempt count
-	ldr	r0, [tsk, #TI_FLAGS]		@ get flags
+	ldr	r8, [tsk, @ TI_PREEMPT]		@ get preempt count
+	ldr	r0, [tsk, @ TI_FLAGS]		@ get flags
 	teq	r8, #0				@ if preempt count != 0
 	movne	r0, #0				@ force flags to 0
-	tst	r0, #_TIF_NEED_RESCHED
+	tst	r0, @ _TIF_NEED_RESCHED
 	blne	svc_preempt
 #endif
 
@@ -238,8 +238,8 @@ ENDPROC(__irq_svc)
 svc_preempt:
 	mov	r8, lr
 1:	bl	preempt_schedule_irq		@ irq en/disable is done inside
-	ldr	r0, [tsk, #TI_FLAGS]		@ get new tasks TI_FLAGS
-	tst	r0, #_TIF_NEED_RESCHED
+	ldr	r0, [tsk, @ TI_FLAGS]		@ get new tasks TI_FLAGS
+	tst	r0, @ _TIF_NEED_RESCHED
 	moveq	pc, r8				@ go again
 	b	1b
 #endif
@@ -251,9 +251,9 @@ __und_fault:
 	@ subtract 4.  Otherwise, it is Thumb, and the PC will be
 	@ pointing at the second half of the Thumb instruction.  We
 	@ have to subtract 2.
-	ldr	r2, [r0, #S_PC]
+	ldr	r2, [r0, @ S_PC]
 	sub	r2, r2, r1
-	str	r2, [r0, #S_PC]
+	str	r2, [r0, @ S_PC]
 	b	do_undefinstr
 ENDPROC(__und_fault)
 
@@ -275,15 +275,15 @@ __und_svc:
 	@  r0 - instruction
 	@
 #ifndef CONFIG_THUMB2_KERNEL
-	ldr	r0, [r4, #-4]
+	ldr	r0, [r4, @ -4]
 #else
 	mov	r1, #2
-	ldrh	r0, [r4, #-2]			@ Thumb instruction at LR - 2
+	ldrh	r0, [r4, @ -2]			@ Thumb instruction at LR - 2
 	cmp	r0, #0xe800			@ 32-bit instruction if xx >= 0
 	blo	__und_svc_fault
 	ldrh	r9, [r4]			@ bottom 16 bits
 	add	r4, r4, #2
-	str	r4, [sp, #S_PC]
+	str	r4, [sp, @ S_PC]
 	orr	r0, r9, r0, lsl #16
 #endif
 	adr	r9, BSYM(__und_svc_finish)
@@ -304,11 +304,11 @@ __und_svc_finish:
 	@
 	@ restore SPSR and restart the instruction
 	@
-	ldr	r5, [sp, #S_PSR]		@ Get SVC cpsr
+	ldr	r5, [sp, @ S_PSR]		@ Get SVC cpsr
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -327,9 +327,9 @@ __pabt_svc:
 	disable_irq_notrace
 
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, #PSR_I_BIT
+	tst	r5, @ PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -359,13 +359,13 @@ ENDPROC(__pabt_svc)
 	.macro	usr_entry
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)	@ don't unwind the user space
-	sub	sp, sp, #S_FRAME_SIZE
+	sub	sp, sp, @ S_FRAME_SIZE
  ARM(	stmib	sp, {r1 - r12}	)
  THUMB(	stmia	sp, {r0 - r12}	)
 
 	ldmia	r0, {r3 - r5}
-	add	r0, sp, #S_PC		@ here for interlock avoidance
-	mov	r6, #-1			@  ""  ""     ""        ""
+	add	r0, sp, @ S_PC		@ here for interlock avoidance
+	mov	r6, @ -1			@  ""  ""     ""        ""
 
 	str	r3, [sp]		@ save the "real" r0 copied
 					@ from the exception stack
@@ -407,7 +407,7 @@ ENDPROC(__pabt_svc)
 	@ if it was interrupted in a critical region.  Here we
 	@ perform a quick test inline since it should be false
 	@ 99.9999% of the time.  The rest is done out of line.
-	cmp	r4, #TASK_SIZE
+	cmp	r4, @ TASK_SIZE
 	blhs	kuser_cmpxchg64_fixup
 #endif
 #endif
@@ -453,7 +453,7 @@ __und_usr:
 	@
 	adr	r9, BSYM(ret_from_exception)
 
-	tst	r3, #PSR_T_BIT			@ Thumb mode?
+	tst	r3, @ PSR_T_BIT			@ Thumb mode?
 	bne	__und_usr_thumb
 	sub	r4, r2, #4			@ ARM instr at LR - 4
 1:	ldrt	r0, [r4]
@@ -482,7 +482,7 @@ __und_usr_thumb:
 #define NEED_CPU_ARCHITECTURE
 	ldr	r5, .LCcpu_architecture
 	ldr	r5, [r5]
-	cmp	r5, #CPU_ARCH_ARMv7
+	cmp	r5, @ CPU_ARCH_ARMv7
 	blo	__und_usr_fault_16		@ 16bit undefined instruction
 /*
  * The following code won't get run unless the running CPU really is v7, so
@@ -496,7 +496,7 @@ __und_usr_thumb:
 	blo	__und_usr_fault_16		@ 16bit undefined instruction
 3:	ldrht	r0, [r2]
 	add	r2, r2, #2			@ r2 is PC + 2, make it PC + 4
-	str	r2, [sp, #S_PC]			@ it's a 2x16bit instr, update
+	str	r2, [sp, @ S_PC]			@ it's a 2x16bit instr, update
 	orr	r0, r0, r5, lsl #16
 	adr	lr, BSYM(__und_usr_fault_32)
 	@ r0 = the two 16-bit Thumb instructions which caused the exception
@@ -577,8 +577,8 @@ call_fpe:
 	bne	2b
 	get_thread_info r10
 	mov	r7, #1
-	strb	r7, [r10, #TI_USED_CP + 10]	@ mark CP#10 as used
-	strb	r7, [r10, #TI_USED_CP + 11]	@ mark CP#11 as used
+	strb	r7, [r10, @ TI_USED_CP + 10]	@ mark CP#10 as used
+	strb	r7, [r10, @ TI_USED_CP + 11]	@ mark CP#11 as used
 	b	do_vfp				@ let VFP handler handle this
 1:
 #endif
@@ -593,14 +593,14 @@ call_fpe:
 	and	r8, r0, #0x00000f00		@ mask out CP number
  THUMB(	lsr	r8, r8, #8		)
 	mov	r7, #1
-	add	r6, r10, #TI_USED_CP
+	add	r6, r10, @ TI_USED_CP
  ARM(	strb	r7, [r6, r8, lsr #8]	)	@ set appropriate used_cp[]
  THUMB(	strb	r7, [r6, r8]		)	@ set appropriate used_cp[]
 #ifdef CONFIG_IWMMXT
 	@ Test if we need to give access to iWMMXt coprocessors
-	ldr	r5, [r10, #TI_FLAGS]
-	rsbs	r7, r8, #(1 << 8)		@ CP 0 or 1 only
-	movcss	r7, r5, lsr #(TIF_USING_IWMMXT + 1)
+	ldr	r5, [r10, @ TI_FLAGS]
+	rsbs	r7, r8, @ (1 << 8)		@ CP 0 or 1 only
+	movcss	r7, r5, lsr @ (TIF_USING_IWMMXT + 1)
 	bcs	iwmmxt_task_enable
 #endif
  ARM(	add	pc, pc, r8, lsr #6	)
@@ -668,7 +668,7 @@ call_fpe:
 
 do_fpe:
 	ldr	r4, .LCfp
-	add	r10, r10, #TI_FPSTATE		@ r10 = workspace
+	add	r10, r10, @ TI_FPSTATE		@ r10 = workspace
 	ldr	pc, [r4]			@ Call FP module USR entry point
 
 /*
@@ -729,29 +729,29 @@ ENDPROC(ret_from_exception)
 ENTRY(__switch_to)
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)
-	add	ip, r1, #TI_CPU_SAVE
+	add	ip, r1, @ TI_CPU_SAVE
  ARM(	stmia	ip!, {r4 - sl, fp, sp, lr} )	@ Store most regs on stack
  THUMB(	stmia	ip!, {r4 - sl, fp}	   )	@ Store most regs on stack
  THUMB(	str	sp, [ip], #4		   )
  THUMB(	str	lr, [ip], #4		   )
-	ldr	r4, [r2, #TI_TP_VALUE]
-	ldr	r5, [r2, #TI_TP_VALUE + 4]
+	ldr	r4, [r2, @ TI_TP_VALUE]
+	ldr	r5, [r2, @ TI_TP_VALUE + 4]
 #ifdef CONFIG_CPU_USE_DOMAINS
-	ldr	r6, [r2, #TI_CPU_DOMAIN]
+	ldr	r6, [r2, @ TI_CPU_DOMAIN]
 #endif
 	switch_tls r1, r4, r5, r3, r7
 #if defined(CONFIG_CC_STACKPROTECTOR) && !defined(CONFIG_SMP)
-	ldr	r7, [r2, #TI_TASK]
+	ldr	r7, [r2, @ TI_TASK]
 	ldr	r8, =__stack_chk_guard
-	ldr	r7, [r7, #TSK_STACK_CANARY]
+	ldr	r7, [r7, @ TSK_STACK_CANARY]
 #endif
 #ifdef CONFIG_CPU_USE_DOMAINS
 	mcr	p15, 0, r6, c3, c0, 0		@ Set domain register
 #endif
 	mov	r5, r0
-	add	r4, r2, #TI_CPU_SAVE
+	add	r4, r2, @ TI_CPU_SAVE
 	ldr	r0, =thread_notify_head
-	mov	r1, #THREAD_NOTIFY_SWITCH
+	mov	r1, @ THREAD_NOTIFY_SWITCH
 	bl	atomic_notifier_call_chain
 #if defined(CONFIG_CC_STACKPROTECTOR) && !defined(CONFIG_SMP)
 	str	r7, [r8]
@@ -811,8 +811,8 @@ __kuser_helper_start:
  *
  *  Definition and user space usage example:
  *
- *      #define __kernel_helper_gtod_timezone (*(unsigned int*)0xffff0f20)
- *      #define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f28)
+ * @ define __kernel_helper_gtod_timezone (*(unsigned int*)0xffff0f20)
+ * @ define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f28)
  *
  *      unsigned int prelock, postlock ;
  *      do {
@@ -824,7 +824,7 @@ __kuser_helper_start:
  *
  * 0xffff0f20-3: tz_minuteswest
  * 0xffff0f24-7: tz_dsttime
- * 0xffff0f28-b: sequence #.
+ * 0xffff0f28-b: sequence @ .
  * 0xffff0f30-3: offset into CONFIG_USER_ACCESSIBLE_TIMER_BASE to get the timer.
  * 0xffff0f34-7: Feature flag
  * 0xffff0f38-b: wall-to-mononic: tv_sec
@@ -853,8 +853,8 @@ __kuser_gtod_timezone: @0xffff0f20
  *
  *  Definition and user space usage example:
  *
- *      #define __kernel_helper_gtod_timeval (*(unsigned int*)0xffff0f40)
- *      #define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f48)
+ * @ define __kernel_helper_gtod_timeval (*(unsigned int*)0xffff0f40)
+ * @ define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f48)
  *
  *      unsigned int prelock, postlock ;
  *      struct gtod {
@@ -959,10 +959,10 @@ kuser_cmpxchg64_fixup:
 	@ 1b = first critical insn, 2b = last critical insn.
 	@ If r4 >= 1b and r4 <= 2b then saved pc_usr is set to 1b.
 	mov	r7, #0xffff0fff
-	sub	r7, r7, #(0xffff0fff - (0xffff0f60 + (1b - __kuser_cmpxchg64)))
+	sub	r7, r7, @ (0xffff0fff - (0xffff0f60 + (1b - __kuser_cmpxchg64)))
 	subs	r8, r4, r7
-	rsbcss	r8, r8, #(2b - 1b)
-	strcs	r7, [sp, #S_PC]
+	rsbcss	r8, r8, @ (2b - 1b)
+	strcs	r7, [sp, @ S_PC]
 #if __LINUX_ARM_ARCH__ < 6
 	bcc	kuser_cmpxchg32_fixup
 #endif
@@ -971,7 +971,7 @@ kuser_cmpxchg64_fixup:
 
 #else
 #warning "NPTL on non MMU needs fixing"
-	mov	r0, #-1
+	mov	r0, @ -1
 	adds	r0, r0, #0
 	usr_ret	lr
 #endif
@@ -1030,16 +1030,16 @@ kuser_cmpxchg32_fixup:
 	@ 1b = first critical insn, 2b = last critical insn.
 	@ If r4 >= 1b and r4 <= 2b then saved pc_usr is set to 1b.
 	mov	r7, #0xffff0fff
-	sub	r7, r7, #(0xffff0fff - (0xffff0fc0 + (1b - __kuser_cmpxchg)))
+	sub	r7, r7, @ (0xffff0fff - (0xffff0fc0 + (1b - __kuser_cmpxchg)))
 	subs	r8, r4, r7
-	rsbcss	r8, r8, #(2b - 1b)
-	strcs	r7, [sp, #S_PC]
+	rsbcss	r8, r8, @ (2b - 1b)
+	strcs	r7, [sp, @ S_PC]
 	mov	pc, lr
 	.previous
 
 #else
 #warning "NPTL on non MMU needs fixing"
-	mov	r0, #-1
+	mov	r0, @ -1
 	adds	r0, r0, #0
 	usr_ret	lr
 #endif
@@ -1062,7 +1062,7 @@ kuser_cmpxchg32_fixup:
 	kuser_pad __kuser_cmpxchg, 32
 
 __kuser_get_tls:				@ 0xffff0fe0
-	ldr	r0, [pc, #(16 - 8)]	@ read TLS, set in kuser_get_tls_init
+	ldr	r0, [pc, @ (16 - 8)]	@ read TLS, set in kuser_get_tls_init
 	usr_ret	lr
 	mrc	p15, 0, r0, c13, c0, 3	@ 0xffff0fe8 hardware TLS code
 	kuser_pad __kuser_get_tls, 16
@@ -1098,7 +1098,7 @@ __kuser_helper_end:
 
 vector_\name:
 	.if \correction
-	sub	lr, lr, #\correction
+	sub	lr, lr, @ \correction
 	.endif
 
 	@
@@ -1113,7 +1113,7 @@ vector_\name:
 	@ Prepare for SVC32 mode.  IRQs remain disabled.
 	@
 	mrs	r0, cpsr
-	eor	r0, r0, #(\mode ^ SVC_MODE | PSR_ISETSTATE)
+	eor	r0, r0, @ (\mode ^ SVC_MODE | PSR_ISETSTATE)
 	msr	spsr_cxsf, r0
 
 	@

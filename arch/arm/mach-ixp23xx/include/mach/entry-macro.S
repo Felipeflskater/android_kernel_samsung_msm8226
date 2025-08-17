@@ -13,19 +13,19 @@
 		subne	\irqnr, \irqnr, #1	@ convert to 0 based
 
 #if 0
-		cmp	\irqnr, #IRQ_IXP23XX_PCI_INT_RPH
+		cmp	\irqnr, @ IRQ_IXP23XX_PCI_INT_RPH
 		bne	1001f
-		mov	\irqnr, #IRQ_IXP23XX_INTA
+		mov	\irqnr, @ IRQ_IXP23XX_INTA
 
 		ldr	\irqnr, =0xf5000030
 
-		mov	\tmp, #(1<<26)
+		mov	\tmp, @ (1<<26)
 		tst	\irqnr, \tmp
-		movne	\irqnr, #IRQ_IXP23XX_INTB
+		movne	\irqnr, @ IRQ_IXP23XX_INTB
 
-		mov	\tmp, #(1<<27)
+		mov	\tmp, @ (1<<27)
 		tst	\irqnr, \tmp
-		movne	\irqnr, #IRQ_IXP23XX_INTA
+		movne	\irqnr, @ IRQ_IXP23XX_INTA
 1001:
 #endif
 		.endm

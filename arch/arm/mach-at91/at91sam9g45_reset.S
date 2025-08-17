@@ -26,13 +26,13 @@ at91sam9g45_restart:
 			ldr	r1, [r4]
 
 			mov	r2, #1
-			mov	r3, #AT91_DDRSDRC_LPCB_POWER_DOWN
+			mov	r3, @ AT91_DDRSDRC_LPCB_POWER_DOWN
 			ldr	r4, =AT91_RSTC_KEY | AT91_RSTC_PERRST | AT91_RSTC_PROCRST
 
 			.balign	32				@ align to cache line
 
-			str	r2, [r0, #AT91_DDRSDRC_RTR]	@ disable DDR0 access
-			str	r3, [r0, #AT91_DDRSDRC_LPR]	@ power down DDR0
-			str	r4, [r1, #AT91_RSTC_CR]		@ reset processor
+			str	r2, [r0, @ AT91_DDRSDRC_RTR]	@ disable DDR0 access
+			str	r3, [r0, @ AT91_DDRSDRC_LPR]	@ power down DDR0
+			str	r4, [r1, @ AT91_RSTC_CR]		@ reset processor
 
 			b	.

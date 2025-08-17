@@ -24,7 +24,7 @@
 #define HW_ICOLL_STAT_OFFSET	0x70
 
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
-	ldr	\irqnr, [\base, #HW_ICOLL_STAT_OFFSET]
+	ldr	\irqnr, [\base, @ HW_ICOLL_STAT_OFFSET]
 	cmp	\irqnr, #0x7F
 	strne	\irqnr, [\base]
 	moveqs	\irqnr, #0

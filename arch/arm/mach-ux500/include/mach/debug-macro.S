@@ -15,7 +15,7 @@
 #endif
 
 /*
- * DEBUG_LL only works if only one SOC is built in.  We don't use #else below
+ * DEBUG_LL only works if only one SOC is built in.  We don't use @ else below
  * in order to get "__UX500_UART redefined" warnings if more than one SOC is
  * built, so that there's some hint during the build that something is wrong.
  */

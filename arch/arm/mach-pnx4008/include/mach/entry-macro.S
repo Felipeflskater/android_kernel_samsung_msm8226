@@ -31,7 +31,7 @@
 		.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
 /* decode the MIC interrupt numbers */
 		ldr	\base, =IO_ADDRESS(PNX4008_INTCTRLMIC_BASE)
-		ldr	\irqstat, [\base, #INTRC_STAT]
+		ldr	\irqstat, [\base, @ INTRC_STAT]
 
 		cmp	\irqstat,#1<<16
 		movhs	\irqnr,#16
@@ -64,11 +64,11 @@
 /* decoding status after compare : eq is 30 (SIC1) , ne is 31 (SIC2) */
 /* set the base IRQ number */
 		ldreq	\base, =IO_ADDRESS(PNX4008_INTCTRLSIC1_BASE)
-		moveq  \irqnr,#SIC1_BASE_INT
+		moveq  \irqnr, @ SIC1_BASE_INT
 		ldrne	\base, =IO_ADDRESS(PNX4008_INTCTRLSIC2_BASE)
-		movne   \irqnr,#SIC2_BASE_INT
-		ldr	\irqstat, [\base, #INTRC_STAT]
-		ldr	\tmp,	  [\base, #INTRC_TYPE]
+		movne   \irqnr, @ SIC2_BASE_INT
+		ldr	\irqstat, [\base, @ INTRC_STAT]
+		ldr	\tmp,	  [\base, @ INTRC_TYPE]
 /* and with inverted mask : low priority interrupts  */
 		and	\irqstat,\irqstat,\tmp
 		b	1004f
@@ -80,11 +80,11 @@
 /* read the correct SIC */
 /* set the base IRQ number  */
 		ldrne	\base, =IO_ADDRESS(PNX4008_INTCTRLSIC1_BASE)
-		movne   \irqnr,#SIC1_BASE_INT
+		movne   \irqnr, @ SIC1_BASE_INT
 		ldreq	\base, =IO_ADDRESS(PNX4008_INTCTRLSIC2_BASE)
-		moveq   \irqnr,#SIC2_BASE_INT
-		ldr	\irqstat, [\base, #INTRC_STAT]
-		ldr	\tmp,	  [\base, #INTRC_TYPE]
+		moveq   \irqnr, @ SIC2_BASE_INT
+		ldr	\irqstat, [\base, @ INTRC_STAT]
+		ldr	\tmp,	  [\base, @ INTRC_TYPE]
 /* and with inverted mask : low priority interrupts  */
 		bic	\irqstat,\irqstat,\tmp
 

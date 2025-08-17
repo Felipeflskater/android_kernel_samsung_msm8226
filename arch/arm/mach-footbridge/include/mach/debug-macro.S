@@ -33,11 +33,11 @@
 
 		.macro	addruart, rp, rv, tmp
 		.if	dc21285_low
-		mov	\rp, #dc21285_low
+		mov	\rp, @ dc21285_low
 		.else
 		mov	\rp, #0
 		.endif
-		orr	\rv, \rp, #dc21285_high
+		orr	\rv, \rp, @ dc21285_high
 		orr	\rp, \rp, #0x42000000
 		.endm
 

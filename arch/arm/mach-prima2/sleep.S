@@ -30,26 +30,26 @@ ENTRY(sirfsoc_finish_suspend)
 
 	@ Read the power control register and set the
 	@ sleep force bit.
-	add	r0, r6, #SIRFSOC_PWRC_PDN_CTRL
+	add	r0, r6, @ SIRFSOC_PWRC_PDN_CTRL
 	bl	__sirfsoc_rtc_iobrg_readl
-	orr	r0,r0,#SIRFSOC_PWR_SLEEPFORCE
-	add	r1, r6, #SIRFSOC_PWRC_PDN_CTRL
+	orr	r0,r0, @ SIRFSOC_PWR_SLEEPFORCE
+	add	r1, r6, @ SIRFSOC_PWRC_PDN_CTRL
 	bl	sirfsoc_rtc_iobrg_pre_writel
 	mov	r1, #0x1
 
 	@ read the MEM ctl register and set the self
 	@ refresh bit
 
-	ldr	r2, [r5, #DENALI_CTL_22_OFF]
+	ldr	r2, [r5, @ DENALI_CTL_22_OFF]
 	orr	r2, r2, #0x1
 
 	@ Following code has to run from cache since
 	@ the RAM is going to self refresh mode
 	.align 5
-	str	r2, [r5, #DENALI_CTL_22_OFF]
+	str	r2, [r5, @ DENALI_CTL_22_OFF]
 
 1:
-	ldr	r4, [r5, #DENALI_CTL_112_OFF]
+	ldr	r4, [r5, @ DENALI_CTL_112_OFF]
 	tst	r4, #0x1
 	bne	1b
 

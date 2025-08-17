@@ -162,7 +162,7 @@ skip_cs1_params:
 	isb				@ prevent speculative exec past here
 	cmp	r3, #1			@ if increasing SDRC clk rate,
 	bleq	configure_sdrc		@ program the SDRC regs early (for RFR)
-	cmp	r1, #SDRC_UNLOCK_DLL	@ set the intended DLL state
+	cmp	r1, @ SDRC_UNLOCK_DLL	@ set the intended DLL state
 	bleq	unlock_dll
 	blne	lock_dll
 	bl	sdram_in_selfrefresh	@ put SDRAM in self refresh, idle SDRC
@@ -170,7 +170,7 @@ skip_cs1_params:
 	mov	r12, r2
 	bl	wait_clk_stable		@ wait for SDRC to stabilize
 	bl	enable_sdrc		@ take SDRC out of idle
-	cmp	r1, #SDRC_UNLOCK_DLL	@ wait for DLL status to change
+	cmp	r1, @ SDRC_UNLOCK_DLL	@ wait for DLL status to change
 	bleq	wait_dll_unlock
 	blne	wait_dll_lock
 	cmp	r3, #1			@ if increasing SDRC clk rate,
@@ -184,34 +184,34 @@ return_to_sdram:
 unlock_dll:
 	ldr	r11, omap3_sdrc_dlla_ctrl
 	ldr	r12, [r11]
-	bic	r12, r12, #FIXEDDELAY_MASK
-	orr	r12, r12, #FIXEDDELAY_DEFAULT
-	orr	r12, r12, #DLLIDLE_MASK
+	bic	r12, r12, @ FIXEDDELAY_MASK
+	orr	r12, r12, @ FIXEDDELAY_DEFAULT
+	orr	r12, r12, @ DLLIDLE_MASK
 	str	r12, [r11]		@ (no OCP barrier needed)
 	bx	lr
 lock_dll:
 	ldr	r11, omap3_sdrc_dlla_ctrl
 	ldr	r12, [r11]
-	bic	r12, r12, #DLLIDLE_MASK
+	bic	r12, r12, @ DLLIDLE_MASK
 	str	r12, [r11]		@ (no OCP barrier needed)
 	bx	lr
 sdram_in_selfrefresh:
 	ldr	r11, omap3_sdrc_power	@ read the SDRC_POWER register
 	ldr	r12, [r11]		@ read the contents of SDRC_POWER
 	mov	r9, r12			@ keep a copy of SDRC_POWER bits
-	orr 	r12, r12, #SRFRONIDLEREQ_MASK	@ enable self refresh on idle
+	orr 	r12, r12, @ SRFRONIDLEREQ_MASK	@ enable self refresh on idle
 	str 	r12, [r11]		@ write back to SDRC_POWER register
 	ldr	r12, [r11]		@ posted-write barrier for SDRC
 idle_sdrc:
 	ldr	r11, omap3_cm_iclken1_core	@ read the CM_ICLKEN1_CORE reg
 	ldr	r12, [r11]
-	bic	r12, r12, #EN_SDRC_MASK		@ disable iclk bit for SDRC
+	bic	r12, r12, @ EN_SDRC_MASK		@ disable iclk bit for SDRC
 	str 	r12, [r11]
 wait_sdrc_idle:
 	ldr 	r11, omap3_cm_idlest1_core
 	ldr 	r12, [r11]
-	and 	r12, r12, #ST_SDRC_MASK		@ check for SDRC idle
-	cmp 	r12, #ST_SDRC_MASK
+	and 	r12, r12, @ ST_SDRC_MASK		@ check for SDRC idle
+	cmp 	r12, @ ST_SDRC_MASK
 	bne 	wait_sdrc_idle
 	bx 	lr
 configure_core_dpll:
@@ -219,7 +219,7 @@ configure_core_dpll:
 	ldr	r12, [r11]
 	ldr	r10, core_m2_mask_val	@ modify m2 for core dpll
 	and	r12, r12, r10
-	orr	r12, r12, r0, lsl #CORE_DPLL_CLKOUT_DIV_SHIFT
+	orr	r12, r12, r0, lsl @ CORE_DPLL_CLKOUT_DIV_SHIFT
 	str	r12, [r11]
 	ldr	r12, [r11]		@ posted-write barrier for CM
 	bx	lr
@@ -230,12 +230,12 @@ wait_clk_stable:
 enable_sdrc:
 	ldr 	r11, omap3_cm_iclken1_core
 	ldr	r12, [r11]
-	orr 	r12, r12, #EN_SDRC_MASK		@ enable iclk bit for SDRC
+	orr 	r12, r12, @ EN_SDRC_MASK		@ enable iclk bit for SDRC
 	str 	r12, [r11]
 wait_sdrc_idle1:
 	ldr 	r11, omap3_cm_idlest1_core
 	ldr	r12, [r11]
-	and 	r12, r12, #ST_SDRC_MASK
+	and 	r12, r12, @ ST_SDRC_MASK
 	cmp	r12, #0
 	bne	wait_sdrc_idle1
 restore_sdrc_power_val:
@@ -245,14 +245,14 @@ restore_sdrc_power_val:
 wait_dll_lock:
 	ldr	r11, omap3_sdrc_dlla_status
 	ldr	r12, [r11]
-	and 	r12, r12, #LOCKSTATUS_MASK
-	cmp	r12, #LOCKSTATUS_MASK
+	and 	r12, r12, @ LOCKSTATUS_MASK
+	cmp	r12, @ LOCKSTATUS_MASK
 	bne	wait_dll_lock
 	bx	lr
 wait_dll_unlock:
 	ldr	r11, omap3_sdrc_dlla_status
 	ldr	r12, [r11]
-	and	r12, r12, #LOCKSTATUS_MASK
+	and	r12, r12, @ LOCKSTATUS_MASK
 	cmp	r12, #0x0
 	bne	wait_dll_unlock
 	bx	lr

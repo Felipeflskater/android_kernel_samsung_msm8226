@@ -67,10 +67,10 @@ ENTRY(omap4_finish_suspend)
 	 * SCTLR.C bit.
 	 */
 	bl	omap4_get_sar_ram_base
-	ldr	r9, [r0, #OMAP_TYPE_OFFSET]
+	ldr	r9, [r0, @ OMAP_TYPE_OFFSET]
 	cmp	r9, #0x1			@ Check for HS device
 	bne	skip_secure_l1_clean
-	mov	r0, #SCU_PM_NORMAL
+	mov	r0, @ SCU_PM_NORMAL
 	mov	r1, #0xFF			@ clean seucre L1
 	stmfd   r13!, {r4-r12, r14}
 	ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
@@ -85,7 +85,7 @@ skip_secure_l1_clean:
 	 * strongly ordered and would not hit the cache.
 	 */
 	mrc	p15, 0, r0, c1, c0, 0
-	bic	r0, r0, #(1 << 2)		@ Disable the C bit
+	bic	r0, r0, @ (1 << 2)		@ Disable the C bit
 	mcr	p15, 0, r0, c1, c0, 0
 	isb
 
@@ -106,13 +106,13 @@ skip_secure_l1_clean:
 	 */
 	bl	omap4_get_sar_ram_base
 	mov	r8, r0
-	ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+	ldr	r9, [r8, @ OMAP_TYPE_OFFSET]
 	cmp	r9, #0x1			@ Check for HS device
 	bne	scu_gp_set
 	mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
 	ands	r0, r0, #0x0f
-	ldreq	r0, [r8, #SCU_OFFSET0]
-	ldrne	r0, [r8, #SCU_OFFSET1]
+	ldreq	r0, [r8, @ SCU_OFFSET0]
+	ldrne	r0, [r8, @ SCU_OFFSET1]
 	mov	r1, #0x00
 	stmfd   r13!, {r4-r12, r14}
 	ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
@@ -122,15 +122,15 @@ skip_secure_l1_clean:
 scu_gp_set:
 	mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
 	ands	r0, r0, #0x0f
-	ldreq	r1, [r8, #SCU_OFFSET0]
-	ldrne	r1, [r8, #SCU_OFFSET1]
+	ldreq	r1, [r8, @ SCU_OFFSET0]
+	ldrne	r1, [r8, @ SCU_OFFSET1]
 	bl	omap4_get_scu_base
 	bl	scu_power_mode
 skip_scu_gp_set:
 	mrc	p15, 0, r0, c1, c1, 2		@ Read NSACR data
-	tst	r0, #(1 << 18)
+	tst	r0, @ (1 << 18)
 	mrcne	p15, 0, r0, c1, c0, 1
-	bicne	r0, r0, #(1 << 6)		@ Disable SMP bit
+	bicne	r0, r0, @ (1 << 6)		@ Disable SMP bit
 	mcrne	p15, 0, r0, c1, c0, 1
 	isb
 	dsb
@@ -149,36 +149,36 @@ skip_scu_gp_set:
 	mov	r8, r0
 	mrc	p15, 0, r5, c0, c0, 5		@ Read MPIDR
 	ands	r5, r5, #0x0f
-	ldreq	r0, [r8, #L2X0_SAVE_OFFSET0]	@ Retrieve L2 state from SAR
-	ldrne	r0, [r8, #L2X0_SAVE_OFFSET1]	@ memory.
+	ldreq	r0, [r8, @ L2X0_SAVE_OFFSET0]	@ Retrieve L2 state from SAR
+	ldrne	r0, [r8, @ L2X0_SAVE_OFFSET1]	@ memory.
 	cmp	r0, #3
 	bne	do_WFI
 #ifdef CONFIG_PL310_ERRATA_727915
 	mov	r0, #0x03
-	mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+	mov	r12, @ OMAP4_MON_L2X0_DBG_CTRL_INDEX
 	DO_SMC
 #endif
 	bl	omap4_get_l2cache_base
 	mov	r2, r0
 	ldr	r0, =0xffff
-	str	r0, [r2, #L2X0_CLEAN_INV_WAY]
+	str	r0, [r2, @ L2X0_CLEAN_INV_WAY]
 wait:
-	ldr	r0, [r2, #L2X0_CLEAN_INV_WAY]
+	ldr	r0, [r2, @ L2X0_CLEAN_INV_WAY]
 	ldr	r1, =0xffff
 	ands	r0, r0, r1
 	bne	wait
 #ifdef CONFIG_PL310_ERRATA_727915
 	mov	r0, #0x00
-	mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+	mov	r12, @ OMAP4_MON_L2X0_DBG_CTRL_INDEX
 	DO_SMC
 #endif
 l2x_sync:
 	bl	omap4_get_l2cache_base
 	mov	r2, r0
 	mov	r0, #0x0
-	str	r0, [r2, #L2X0_CACHE_SYNC]
+	str	r0, [r2, @ L2X0_CACHE_SYNC]
 sync:
-	ldr	r0, [r2, #L2X0_CACHE_SYNC]
+	ldr	r0, [r2, @ L2X0_CACHE_SYNC]
 	ands	r0, r0, #0x1
 	bne	sync
 #endif
@@ -191,8 +191,8 @@ do_WFI:
 	 * no low power state was attempted.
 	 */
 	mrc	p15, 0, r0, c1, c0, 0
-	tst	r0, #(1 << 2)			@ Check C bit enabled?
-	orreq	r0, r0, #(1 << 2)		@ Enable the C bit
+	tst	r0, @ (1 << 2)			@ Check C bit enabled?
+	orreq	r0, r0, @ (1 << 2)		@ Enable the C bit
 	mcreq	p15, 0, r0, c1, c0, 0
 	isb
 
@@ -203,16 +203,16 @@ do_WFI:
 	 * system deadlock.
 	 */
 	mrc	p15, 0, r0, c1, c0, 1
-	tst	r0, #(1 << 6)			@ Check SMP bit enabled?
-	orreq	r0, r0, #(1 << 6)
+	tst	r0, @ (1 << 6)			@ Check SMP bit enabled?
+	orreq	r0, r0, @ (1 << 6)
 	mcreq	p15, 0, r0, c1, c0, 1
 	isb
 	bl	omap4_get_sar_ram_base
 	mov	r8, r0
-	ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+	ldr	r9, [r8, @ OMAP_TYPE_OFFSET]
 	cmp	r9, #0x1			@ Check for HS device
 	bne	scu_gp_clear
-	mov	r0, #SCU_PM_NORMAL
+	mov	r0, @ SCU_PM_NORMAL
 	mov	r1, #0x00
 	stmfd   r13!, {r4-r12, r14}
 	ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
@@ -221,7 +221,7 @@ do_WFI:
 	b	skip_scu_gp_clear
 scu_gp_clear:
 	bl	omap4_get_scu_base
-	mov	r1, #SCU_PM_NORMAL
+	mov	r1, @ SCU_PM_NORMAL
 	bl	scu_power_mode
 skip_scu_gp_clear:
 	isb
@@ -251,14 +251,14 @@ ENTRY(omap4_cpu_resume)
 	 * OMAP446X GP devices - SMP bit access is enabled on both CPUs.
 	 */
 	ldr	r8, =OMAP44XX_SAR_RAM_BASE
-	ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+	ldr	r9, [r8, @ OMAP_TYPE_OFFSET]
 	cmp	r9, #0x1			@ Skip if GP device
 	bne	skip_ns_smp_enable
 	mrc     p15, 0, r0, c0, c0, 5
 	ands    r0, r0, #0x0f
 	beq	skip_ns_smp_enable
 ppa_actrl_retry:
-	mov     r0, #OMAP4_PPA_CPU_ACTRL_SMP_INDEX
+	mov     r0, @ OMAP4_PPA_CPU_ACTRL_SMP_INDEX
 	adr	r3, ppa_zero_params		@ Pointer to parameters
 	mov	r1, #0x0			@ Process ID
 	mov	r2, #0x4			@ Flag
@@ -270,8 +270,8 @@ ppa_actrl_retry:
 	b	ppa_actrl_retry
 enable_smp_bit:
 	mrc	p15, 0, r0, c1, c0, 1
-	tst	r0, #(1 << 6)			@ Check SMP bit enabled?
-	orreq	r0, r0, #(1 << 6)
+	tst	r0, @ (1 << 6)			@ Check SMP bit enabled?
+	orreq	r0, r0, @ (1 << 6)
 	mcreq	p15, 0, r0, c1, c0, 1
 	isb
 skip_ns_smp_enable:
@@ -285,17 +285,17 @@ skip_ns_smp_enable:
 	 * of MPUSS OFF wakeup path.
 	 */
 	ldr	r2, =OMAP44XX_L2CACHE_BASE
-	ldr	r0, [r2, #L2X0_CTRL]
+	ldr	r0, [r2, @ L2X0_CTRL]
 	and	r0, #0x0f
 	cmp	r0, #1
 	beq	skip_l2en			@ Skip if already enabled
 	ldr	r3, =OMAP44XX_SAR_RAM_BASE
-	ldr	r1, [r3, #OMAP_TYPE_OFFSET]
+	ldr	r1, [r3, @ OMAP_TYPE_OFFSET]
 	cmp	r1, #0x1			@ Check for HS device
 	bne     set_gp_por
 	ldr     r0, =OMAP4_PPA_L2_POR_INDEX
 	ldr     r1, =OMAP44XX_SAR_RAM_BASE
-	ldr     r4, [r1, #L2X0_PREFETCH_CTRL_OFFSET]
+	ldr     r4, [r1, @ L2X0_PREFETCH_CTRL_OFFSET]
 	adr     r3, ppa_por_params
 	str     r4, [r3, #0x04]
 	mov	r1, #0x0			@ Process ID
@@ -306,12 +306,12 @@ skip_ns_smp_enable:
 	b	set_aux_ctrl
 set_gp_por:
 	ldr     r1, =OMAP44XX_SAR_RAM_BASE
-	ldr     r0, [r1, #L2X0_PREFETCH_CTRL_OFFSET]
+	ldr     r0, [r1, @ L2X0_PREFETCH_CTRL_OFFSET]
 	ldr	r12, =OMAP4_MON_L2X0_PREFETCH_INDEX	@ Setup L2 PREFETCH
 	DO_SMC
 set_aux_ctrl:
 	ldr     r1, =OMAP44XX_SAR_RAM_BASE
-	ldr	r0, [r1, #L2X0_AUXCTRL_OFFSET]
+	ldr	r0, [r1, @ L2X0_AUXCTRL_OFFSET]
 	ldr	r12, =OMAP4_MON_L2X0_AUXCTRL_INDEX	@ Setup L2 AUXCTRL
 	DO_SMC
 	mov	r0, #0x1
