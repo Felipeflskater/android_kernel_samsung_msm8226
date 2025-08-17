@@ -1,3 +1,4 @@
+#include <linux/kernel_bool_fix.h>
 #ifndef _LINUX_STDDEF_H
 #define _LINUX_STDDEF_H
 

@@ -1688,3 +1688,20 @@ FORCE:
 # Declare the contents of the .PHONY variable as phony.  We keep that
 # information in a variable so we can use it in if_changed and friends.
 .PHONY: $(PHONY)
+# Flags adicionais para compatibilidade GCC 14+ com kernel 3.4.x
+KBUILD_CFLAGS += -Wno-error=incompatible-pointer-types
+KBUILD_CFLAGS += -Wno-error=int-conversion
+KBUILD_CFLAGS += -Wno-error=discarded-qualifiers
+KBUILD_CFLAGS += -Wno-error=array-bounds
+KBUILD_CFLAGS += -Wno-error=stringop-overflow
+KBUILD_CFLAGS += -Wno-error=stringop-truncation
+KBUILD_CFLAGS += -Wno-error=format-security
+KBUILD_CFLAGS += -Wno-error=implicit-function-declaration
+KBUILD_CFLAGS += -Wno-error=implicit-int
+KBUILD_CFLAGS += -std=gnu89
+KBUILD_CFLAGS += -fno-stack-protector
+KBUILD_CFLAGS += -fno-strict-aliasing
+
+# Host flags
+HOSTCFLAGS += -fno-PIE -no-pie -fno-stack-protector
+HOSTLDFLAGS += -no-pie
