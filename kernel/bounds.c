@@ -1,4 +1,5 @@
 #include <linux/postmarketos-compat.h>
+#include <linux/postmarketos-compat.h>
 /*
  * Generate definitions needed by the preprocessor.
  * This code generates raw asm output which is post-processed

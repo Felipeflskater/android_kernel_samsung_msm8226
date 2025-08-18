@@ -21,23 +21,23 @@
  */
 
 #ifdef CONFIG_UX500_SOC_DB5500
-#define __UX500_UART(n)	U5500_UART##n##_BASE
+#define __UX500_UART(n)U5500_UART##n##_BASE
 #endif
 
 #ifdef CONFIG_UX500_SOC_DB8500
-#define __UX500_UART(n)	U8500_UART##n##_BASE
+#define __UX500_UART(n)U8500_UART##n##_BASE
 #endif
 
 #ifndef __UX500_UART
 #error Unknown SOC
 #endif
 
-#define UX500_UART(n)	__UX500_UART(n)
-#define UART_BASE	UX500_UART(CONFIG_UX500_DEBUG_UART)
+#define UX500_UART(n)__UX500_UART(n)
+#define UART_BASEUX500_UART(CONFIG_UX500_DEBUG_UART)
 
-	.macro	addruart, rp, rv, tmp
-	ldr	\rp, =UART_BASE				@ no, physical address
-	ldr	\rv, =IO_ADDRESS(UART_BASE)		@ yes, virtual address
-	.endm
+.macroaddruart, rp, rv, tmp
+ldr\rp, =UART_BASE@ no, physical address
+ldr\rv, =IO_ADDRESS(UART_BASE)@ yes, virtual address
+.endm
 
 #include <asm/hardware/debug-pl01x.S>
