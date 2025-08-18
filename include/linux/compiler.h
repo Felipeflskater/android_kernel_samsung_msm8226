@@ -367,3 +367,24 @@ static __always_inline void __write_once_size(volatile void *p, void *res, int s
 #define ACCESS_ONCE(x) (*(volatile typeof(x) *)&(x))
 
 #endif /* __LINUX_COMPILER_H */
+
+/* Sparse annotations para kernel 3.4.x */
+#ifndef __user
+# ifdef __CHECKER__
+#  define __user		__attribute__((noderef, address_space(1)))
+# else
+#  define __user
+# endif
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# ifdef __CHECKER__
+#  define __iomem		__attribute__((noderef, address_space(2)))
+# else
+#  define __iomem
+# endif
+#endif
