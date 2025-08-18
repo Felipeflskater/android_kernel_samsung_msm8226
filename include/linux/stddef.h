@@ -5,10 +5,21 @@
 
 #ifndef __ASSEMBLY__
 
-enum {
-	false	= 0,
-	true	= 1
-};
+/* Proteção robusta contra redefinições de false/true */
+#ifndef __cplusplus
+#undef false
+#undef true
+#ifndef _Bool
+typedef unsigned char _Bool;
+#endif
+#define bool _Bool
+#define false 0
+#define true 1
+#else
+/* Em C++, usar os valores nativos */
+const bool false = 0;
+const bool true = 1;
+#endif
 
 #undef offsetof
 #ifdef __compiler_offsetof
