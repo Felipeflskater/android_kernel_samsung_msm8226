@@ -30,10 +30,10 @@ movpc, lr
 ENDPROC(cpu_v7_proc_init)
 
 ENTRY(cpu_v7_proc_fin)
-mrcp15, 0, r0, c1, c0, 0@ ctrl register
+mrc p15, 0, r0, c1, c0, 0@ ctrl register
 bicr0, r0, #0x1000@ ...i............
 bicr0, r0, #0x0006@ .............ca.
-mcrp15, 0, r0, c1, c0, 0@ disable caches
+mcr p15, 0, r0, c1, c0, 0@ disable caches
 movpc, lr
 ENDPROC(cpu_v7_proc_fin)
 
@@ -52,10 +52,10 @@ ENDPROC(cpu_v7_proc_fin)
 .align5
 .pushsection.idmap.text, "ax"
 ENTRY(cpu_v7_reset)
-mrcp15, 0, r1, c1, c0, 0@ ctrl register
+mrc p15, 0, r1, c1, c0, 0@ ctrl register
 bicr1, r1, #0x1@ ...............m
  THUMB(bicr1, r1, #1 << 30 )@ SCTLR.TE (Thumb exceptions)
-mcrp15, 0, r1, c1, c0, 0@ disable MMU
+mcr p15, 0, r1, c1, c0, 0@ disable MMU
 mcr     p15, 0, ip, c8, c7, 0           @ invalidate I & D,flush TLB
 mcr     p15, 0, ip, c7, c5, 6           @ flush BTC
 dsb
@@ -80,7 +80,7 @@ ENDPROC(cpu_v7_do_idle)
 ENTRY(cpu_v7_dcache_clean_area)
 #ifndef TLB_CAN_READ_FROM_L1_CACHE
 dcache_line_size r2, r3
-1:mcrp15, 0, r0, c7, c10, 1@ clean D entry
+1:mcr p15, 0, r0, c7, c10, 1@ clean D entry
 addr0, r0, r2
 subsr1, r1, r2
 bhi1b
@@ -98,64 +98,64 @@ stringcpu_v7_name, "ARMv7 Processor"
 #ifdef CONFIG_ARM_CPU_SUSPEND
 ENTRY(cpu_v7_do_suspend)
 stmfdsp!, {r4 - r11, lr}
-mrcp15, 0, r4, c13, c0, 0@ FCSE/PID
-mrcp15, 0, r5, c13, c0, 3@ User r/o thread ID
+mrc p15, 0, r4, c13, c0, 0@ FCSE/PID
+mrc p15, 0, r5, c13, c0, 3@ User r/o thread ID
 stmiar0!, {r4 - r5}
-mrcp15, 0, r6, c3, c0, 0@ Domain ID
-mrcp15, 0, r7, c2, c0, 1@ TTB 1
-mrcp15, 0, r11, c2, c0, 2@ TTB control register
-mrcp15, 0, r8, c1, c0, 0@ Control register
-mrcp15, 0, r9, c1, c0, 1@ Auxiliary control register
-mrcp15, 0, r10, c1, c0, 2@ Co-processor access control
+mrc p15, 0, r6, c3, c0, 0@ Domain ID
+mrc p15, 0, r7, c2, c0, 1@ TTB 1
+mrc p15, 0, r11, c2, c0, 2@ TTB control register
+mrc p15, 0, r8, c1, c0, 0@ Control register
+mrc p15, 0, r9, c1, c0, 1@ Auxiliary control register
+mrc p15, 0, r10, c1, c0, 2@ Co-processor access control
 stmiar0, {r6 - r11}
 ldmfdsp!, {r4 - r11, pc}
 ENDPROC(cpu_v7_do_suspend)
 
 ENTRY(cpu_v7_do_resume)
 movip, #0
-mcrp15, 0, ip, c8, c7, 0@ invalidate TLBs
-mcrp15, 0, ip, c7, c5, 0@ invalidate I cache
-mcrp15, 0, ip, c13, c0, 1@ set reserved context ID
-ldmiar0!, {r4 - r5}
-mcrp15, 0, r4, c13, c0, 0@ FCSE/PID
-mcrp15, 0, r5, c13, c0, 3@ User r/o thread ID
-ldmiar0, {r6 - r11}
+mcr p15, 0, ip, c8, c7, 0@ invalidate TLBs
+mcr p15, 0, ip, c7, c5, 0@ invalidate I cache
+mcr p15, 0, ip, c13, c0, 1@ set reserved context ID
+ldmia r0!, {r4 - r5}
+mcr p15, 0, r4, c13, c0, 0@ FCSE/PID
+mcr p15, 0, r5, c13, c0, 3@ User r/o thread ID
+ldmia r0, {r6 - r11}
 #ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
-mcrp15, 0, r6, c3, c0, 0@ Domain ID
+mcr p15, 0, r6, c3, c0, 0@ Domain ID
 #endif
 #ifndef CONFIG_ARM_LPAE
-ALT_SMP(orrr1, r1, @ TTB_FLAGS_SMP)
-ALT_UP(orrr1, r1, @ TTB_FLAGS_UP)
+ALT_SMP(orr r1, r1, @ TTB_FLAGS_SMP)
+ALT_UP(orr r1, r1, @ TTB_FLAGS_UP)
 #endif
-#ifndefCONFIG_TIMA_RKP_EMUL_CP15_INSTR
-mcrp15, 0, r1, c2, c0, 0@ TTB 0
+#ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
+mcr p15, 0, r1, c2, c0, 0@ TTB 0
 #endif
-mcrp15, 0, r7, c2, c0, 1@ TTB 1
-#ifndefCONFIG_TIMA_RKP_EMUL_CP15_INSTR
-mcrp15, 0, r11, c2, c0, 2@ TTB control register
+mcr p15, 0, r7, c2, c0, 1@ TTB 1
+#ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
+mcr p15, 0, r11, c2, c0, 2@ TTB control register
 #endif
 
 #ifdef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
-movr4, r0
-ldrr0, =0x3f806221
-smc#1
+mov r4, r0
+ldr r0, =0x3f806221
+smc #1
 movr0, r4
 /* Flush TLB */
 mcr    p15, 0, r0, c8, c3, 0
 dsb
 #endif
 
-mrcp15, 0, r4, c1, c0, 1@ Read Auxiliary control register
-teqr4, r9@ Is it already set?
-mcrnep15, 0, r9, c1, c0, 1@ No, so write it
-mcrp15, 0, r10, c1, c0, 2@ Co-processor access control
-ldrr4, =PRRR@ PRRR
-ldrr5, =NMRR@ NMRR
-mcrp15, 0, r4, c10, c2, 0@ write PRRR
-mcrp15, 0, r5, c10, c2, 1@ write NMRR
+mrc p15, 0, r4, c1, c0, 1@ Read Auxiliary control register
+teq r4, r9@ Is it already set?
+mcrne p15, 0, r9, c1, c0, 1@ No, so write it
+mcr p15, 0, r10, c1, c0, 2@ Co-processor access control
+ldr r4, =PRRR@ PRRR
+ldr r5, =NMRR@ NMRR
+mcr p15, 0, r4, c10, c2, 0@ write PRRR
+mcr p15, 0, r5, c10, c2, 1@ write NMRR
 isb
 dsb
-movr0, r8@ control register
+mov r0, r8@ control register
 bcpu_resume_mmu
 ENDPROC(cpu_v7_do_resume)
 #endif
@@ -182,7 +182,7 @@ __v7_ca15mp_setup:
 movr10, #0
 1:
 #ifdef CONFIG_SMP
-ALT_SMP(mrcp15, 0, r0, c1, c0, 1)
+ALT_SMP(mrc p15, 0, r0, c1, c0, 1)
 ALT_UP(movr0, @ (1 << 6))@ fake it for UP
 tstr0, @ (1 << 6)@ SMP/nAMP mode enabled?
 orreqr0, r0, @ (1 << 6)@ Enable SMP/nAMP mode
@@ -195,7 +195,7 @@ stmiar12, {r0-r5, r7, r9, r11, lr}
 blv7_flush_dcache_all
 ldmiar12, {r0-r5, r7, r9, r11, lr}
 
-mrcp15, 0, r0, c0, c0, 0@ read main ID register
+mrc p15, 0, r0, c0, c0, 0@ read main ID register
 andr10, r0, #0xff000000@ ARM?
 teqr10, #0x41000000
 bne3f
@@ -265,14 +265,14 @@ mcrltp15, 0, r10, c15, c0, 1@ write diagnostic register
 #endif
 
 3:movr10, #0
-mcrp15, 0, r10, c7, c5, 0@ I+BTB cache invalidate
+mcr p15, 0, r10, c7, c5, 0@ I+BTB cache invalidate
 #ifdef CONFIG_MMU
-mcrp15, 0, r10, c8, c7, 0@ invalidate I + D TLBs
+mcr p15, 0, r10, c8, c7, 0@ invalidate I + D TLBs
 v7_ttb_setup r10, r4, r8, r5@ TTBCR, TTBRx setup
-ldrr5, =PRRR@ PRRR
+ldr r5, =PRRR@ PRRR
 ldrr6, =NMRR@ NMRR
-mcrp15, 0, r5, c10, c2, 0@ write PRRR
-mcrp15, 0, r6, c10, c2, 1@ write NMRR
+mcr p15, 0, r5, c10, c2, 0@ write PRRR
+mcr p15, 0, r6, c10, c2, 1@ write NMRR
 #endif
 dsb@ Complete invalidations
 
@@ -301,7 +301,7 @@ mcr     p15, 3, r0, c15, c0, 2
 #endif
 
 #ifndef CONFIG_ARM_THUMBEE
-mrcp15, 0, r0, c0, c1, 0@ read ID_PFR0 for ThumbEE
+mrc p15, 0, r0, c0, c1, 0@ read ID_PFR0 for ThumbEE
 andr0, r0, @ (0xf << 12)@ ThumbEE enabled field
 teqr0, @ (1 << 12)@ check if ThumbEE is present
 bne1f
@@ -321,7 +321,7 @@ orrr6, r6, #1 << 25@ big-endian page tables
 orr     r5, r5, @ (1 << 10)              @ set SW bit in "clear"
 bic     r6, r6, @ (1 << 10)              @ clear it in "mmuset"
 #endif
-   mrcp15, 0, r0, c1, c0, 0@ read control register
+   mrc p15, 0, r0, c1, c0, 0@ read control register
 bicr0, r0, r5@ clear bits them
 orrr0, r0, r6@ set them
  THUMB(orrr0, r0, #1 << 30)@ Thumb exceptions
