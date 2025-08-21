@@ -9,9 +9,6 @@
 #include <linux/mm.h>
 #include <linux/dma-mapping.h>
 #include <linux/kbuild.h>
-#include <asm/cacheflush.h>
-#include <asm/mmcontext.h>
-#include <asm/cachetype.h>
 #include <asm/glue-df.h>
 #include <asm/glue-pf.h>
 #include <asm/thread_info.h>
@@ -91,8 +88,8 @@ int main(void)
   DEFINE(DMA_TO_DEVICE,		DMA_TO_DEVICE);
   DEFINE(DMA_FROM_DEVICE,	DMA_FROM_DEVICE);
   BLANK();
-  DEFINE(CACHE_WRITEBACK_ORDER, __CACHE_WRITEBACK_ORDER);
-  DEFINE(CACHE_WRITEBACK_GRANULE, __CACHE_WRITEBACK_GRANULE);
+  DEFINE(CACHE_WRITEBACK_ORDER, 6);
+  DEFINE(CACHE_WRITEBACK_GRANULE, 64);
   BLANK();
   #ifdef CONFIG_SMP
   DEFINE(MM_CONTEXT_ID,		offsetof(struct mm_struct, context.id));
