@@ -9,6 +9,9 @@
 #include <linux/mm.h>
 #include <linux/dma-mapping.h>
 #include <linux/kbuild.h>
+#include <asm/cacheflush.h>
+#include <asm/mmcontext.h>
+#include <asm/cachetype.h>
 #include <asm/glue-df.h>
 #include <asm/glue-pf.h>
 #include <asm/thread_info.h>
