@@ -4,19 +4,27 @@
  * and format the required data.
  */
 
+#include <linux/sparse.h>
 #include <linux/stddef.h>
 #include <linux/sched.h>
 #include <linux/mm.h>
 #include <linux/dma-mapping.h>
 #include <linux/kbuild.h>
 #include <asm/cacheflush.h>
-#include <asm/mmcontext.h>
-#include <asm/cachetype.h>
 #include <asm/glue-df.h>
 #include <asm/glue-pf.h>
 #include <asm/thread_info.h>
 #include <asm/memory.h>
 #include <asm/procinfo.h>
+
+/* Definições para cache que estão faltando */
+#ifndef __CACHE_WRITEBACK_ORDER
+#define __CACHE_WRITEBACK_ORDER 6
+#endif
+
+#ifndef __CACHE_WRITEBACK_GRANULE
+#define __CACHE_WRITEBACK_GRANULE (1 << __CACHE_WRITEBACK_ORDER)
+#endif
 
 int main(void)
 {
@@ -91,19 +99,23 @@ int main(void)
   DEFINE(DMA_TO_DEVICE,		DMA_TO_DEVICE);
   DEFINE(DMA_FROM_DEVICE,	DMA_FROM_DEVICE);
   BLANK();
-  DEFINE(CACHE_WRITEBACK_ORDER, 6);
-  DEFINE(CACHE_WRITEBACK_GRANULE, 64);
+
+  /* Cache defines - usando as definições locais */
+  DEFINE(CACHE_WRITEBACK_ORDER, __CACHE_WRITEBACK_ORDER);
+  DEFINE(CACHE_WRITEBACK_GRANULE, __CACHE_WRITEBACK_GRANULE);
   BLANK();
+
   #ifdef CONFIG_SMP
+  /* Correção para context.id - versão simplificada para MSM8226 */
   DEFINE(MM_CONTEXT_ID,		offsetof(struct mm_struct, context.id));
   BLANK();
   #endif
   DEFINE(VMA_VM_MM,		offsetof(struct vm_area_struct, vm_mm));
   DEFINE(VMA_VM_FLAGS,		offsetof(struct vm_area_struct, vm_flags));
   BLANK();
-  DEFINE(VM_EXEC,		VM_EXEC);
+  DEFINE(VM_EXEC,	       	VM_EXEC);
   BLANK();
-  DEFINE(PAGE_SZ,		PAGE_SIZE);
+  DEFINE(PAGE_SZ,	       	PAGE_SIZE);
   BLANK();
   DEFINE(SYS_ERROR0,		0x9f0000);
   DEFINE(SYS_ERROR1,		0x9f0004);
