@@ -355,11 +355,11 @@ ALT_UP(.longPMD_TYPE_SECT | PMD_SECT_AP_WRITE | PMD_SECT_AP_READ | \
 PMD_SECT_AF | PMD_FLAGS_UP | \mm_mmuflags)
 .longPMD_TYPE_SECT | PMD_SECT_AP_WRITE | \
 PMD_SECT_AP_READ | PMD_SECT_AF | \io_mmuflags
-W(b)\initfunc
+b\initfunc
 .long cpu_arch_name
 .long cpu_elf_name
 .longHWCAP_SWP | HWCAP_HALF | HWCAP_THUMB | HWCAP_FAST_MULT | \
-HWCAP_EDSP | HWCAP_TLS | \hwcaps
+HWCAP_EDSP | \hwcaps
 .long cpu_v7_name
 .long v7_processor_functions
 .long v7wbi_tlb_fns
@@ -423,6 +423,17 @@ __v7_proc __v7_setup, hwcaps = HWCAP_IDIV
  * Match any ARMv7 processor core.
  */
 .type __v7_proc_info, @ object
+	/*
+	 * Qualcomm MSM8226 - Samsung Matisse3G
+	 */
+	.type   __msm8226_proc_info, #object
+__msm8226_proc_info:
+	.long	0x410fc070		/* Cortex-A7 r0p0 */
+	.long	0xff0ffff0
+	__v7_proc __v7_setup, hwcaps = HWCAP_IDIV
+	.size	__msm8226_proc_info, . - __msm8226_proc_info
+
+
 __v7_proc_info:
 .long 0x000f0000@ Required ID value
 .long 0x000f0000@ Mask for ID
