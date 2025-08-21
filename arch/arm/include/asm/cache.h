@@ -25,4 +25,13 @@
 
 #define __read_mostly __attribute__((__section__(".data..read_mostly")))
 
+/* Cache writeback definitions for asm-offsets.c - postmarketOS compatibility */
+#ifndef __CACHE_WRITEBACK_ORDER
+#define __CACHE_WRITEBACK_ORDER 6
+#endif
+
+#ifndef __CACHE_WRITEBACK_GRANULE  
+#define __CACHE_WRITEBACK_GRANULE (1 << __CACHE_WRITEBACK_ORDER)
+#endif
+
 #endif
