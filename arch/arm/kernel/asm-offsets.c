@@ -4,13 +4,18 @@
  * and format the required data.
  */
 
-#include <linux/sparse.h>
 #include <linux/stddef.h>
 #include <linux/sched.h>
 #include <linux/mm.h>
+#include <linux/dma-mapping.h>
 #include <linux/kbuild.h>
+#include <asm/cacheflush.h>
+#include <asm/cachetype.h>
+#include <asm/glue-df.h>
+#include <asm/glue-pf.h>
 #include <asm/thread_info.h>
 #include <asm/memory.h>
+#include <asm/procinfo.h>
 
 int main(void)
 {
@@ -27,6 +32,21 @@ int main(void)
   DEFINE(TI_USED_CP,		offsetof(struct thread_info, used_cp));
   DEFINE(TI_TP_VALUE,		offsetof(struct thread_info, tp_value));
   DEFINE(TI_FPSTATE,		offsetof(struct thread_info, fpstate));
+  #ifdef CONFIG_VFP
+  DEFINE(TI_VFPSTATE,		offsetof(union thread_union, thread.vfpstate));
+  #ifdef CONFIG_SMP
+  DEFINE(VFP_CPU,		offsetof(union vfp_state, hard.cpu));
+  #endif
+  #endif
+  #ifdef CONFIG_ARM_THUMBEE
+  DEFINE(TI_THUMBEE_STATE,	offsetof(struct thread_info, thumbee_state));
+  #endif
+  #ifdef CONFIG_IWMMXT
+  DEFINE(TI_IWMMXT_STATE,	offsetof(struct thread_info, fpstate.iwmmxt));
+  #endif
+  #ifdef CONFIG_CRUNCH
+  DEFINE(TI_CRUNCH_STATE,	offsetof(struct thread_info, fpstate.crunch));
+  #endif
   BLANK();
   DEFINE(S_R0,			offsetof(struct pt_regs, ARM_r0));
   DEFINE(S_R1,			offsetof(struct pt_regs, ARM_r1));
@@ -48,5 +68,54 @@ int main(void)
   DEFINE(S_OLD_R0,		offsetof(struct pt_regs, ARM_ORIG_r0));
   DEFINE(S_FRAME_SIZE,		sizeof(struct pt_regs));
   BLANK();
+  #ifdef CONFIG_CACHE_L2X0
+  DEFINE(L2X0_R_PHY_BASE,	offsetof(struct l2x0_regs, phy_base));
+  DEFINE(L2X0_R_AUX_CTRL,	offsetof(struct l2x0_regs, aux_ctrl));
+  DEFINE(L2X0_R_TAG_LATENCY,	offsetof(struct l2x0_regs, tag_latency));
+  DEFINE(L2X0_R_DATA_LATENCY,	offsetof(struct l2x0_regs, data_latency));
+  DEFINE(L2X0_R_FILTER_START,	offsetof(struct l2x0_regs, filter_start));
+  DEFINE(L2X0_R_FILTER_END,	offsetof(struct l2x0_regs, filter_end));
+  DEFINE(L2X0_R_PREFETCH_CTRL,	offsetof(struct l2x0_regs, prefetch_ctrl));
+  DEFINE(L2X0_R_PWR_CTRL,	offsetof(struct l2x0_regs, pwr_ctrl));
+  BLANK();
+  #endif
+  #ifdef CONFIG_HIBERNATION
+  DEFINE(HIBERN_PBE_ADDR,	offsetof(struct pbe, address));
+  DEFINE(HIBERN_PBE_ORIG,	offsetof(struct pbe, orig_address));
+  DEFINE(HIBERN_PBE_NEXT,	offsetof(struct pbe, next));
+  DEFINE(SWSUSP_ARCH_REGS_SIZE, sizeof(struct swsusp_arch_regs));
+  BLANK();
+  #endif
+  DEFINE(DMA_BIDIRECTIONAL,	DMA_BIDIRECTIONAL);
+  DEFINE(DMA_TO_DEVICE,		DMA_TO_DEVICE);
+  DEFINE(DMA_FROM_DEVICE,	DMA_FROM_DEVICE);
+  BLANK();
+  DEFINE(CACHE_WRITEBACK_ORDER, __CACHE_WRITEBACK_ORDER);
+  DEFINE(CACHE_WRITEBACK_GRANULE, __CACHE_WRITEBACK_GRANULE);
+  BLANK();
+  #ifdef CONFIG_SMP
+  DEFINE(MM_CONTEXT_ID,		offsetof(struct mm_struct, context.id));
+  BLANK();
+  #endif
+  DEFINE(VMA_VM_MM,		offsetof(struct vm_area_struct, vm_mm));
+  DEFINE(VMA_VM_FLAGS,		offsetof(struct vm_area_struct, vm_flags));
+  BLANK();
+  DEFINE(VM_EXEC,		VM_EXEC);
+  BLANK();
+  DEFINE(PAGE_SZ,		PAGE_SIZE);
+  BLANK();
+  DEFINE(SYS_ERROR0,		0x9f0000);
+  DEFINE(SYS_ERROR1,		0x9f0004);
+  BLANK();
+  #ifdef CONFIG_KUSER_HELPERS
+  DEFINE(KUSER_HELPERS_START,	0xffff0000);
+  #endif
+  BLANK();
+  #ifdef CONFIG_ARM_MPU
+  DEFINE(MPU_RNR,		MPU_RNR);
+  DEFINE(MPU_RBAR,		MPU_RBAR);
+  DEFINE(MPU_RASR,		MPU_RASR);
+  DEFINE(MPU_RBAR_VALID,	MPU_RBAR_VALID);
+  #endif
   return 0;
 }

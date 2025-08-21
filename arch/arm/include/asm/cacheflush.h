@@ -20,6 +20,18 @@
 #define CACHE_COLOUR(vaddr)	((vaddr & (SHMLBA - 1)) >> PAGE_SHIFT)
 
 /*
+ * Cache writeback order and granule definitions
+ * Required for asm-offsets generation
+ */
+#ifndef __CACHE_WRITEBACK_ORDER
+#define __CACHE_WRITEBACK_ORDER    6
+#endif
+
+#ifndef __CACHE_WRITEBACK_GRANULE
+#define __CACHE_WRITEBACK_GRANULE  (1 << __CACHE_WRITEBACK_ORDER)
+#endif
+
+/*
  * This flag is used to indicate that the page pointed to by a pte is clean
  * and does not require cleaning before returning it to the user.
  */
