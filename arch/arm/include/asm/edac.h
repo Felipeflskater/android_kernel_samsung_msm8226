@@ -24,7 +24,10 @@
  */
 static inline void atomic_scrub(void *va, u32 size)
 {
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 6
+#endif
 	unsigned int *virt_addr = va;
 	unsigned int temp, temp2;
 	unsigned int i;

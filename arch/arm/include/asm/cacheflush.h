@@ -234,9 +234,15 @@ extern void copy_to_user_page(struct vm_area_struct *, struct page *,
      (defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_V6K))) || \
 	defined(CONFIG_SMP_ON_UP)
 #define __flush_icache_preferred	__cpuc_flush_icache_all
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #elif __LINUX_ARM_ARCH__ >= 7 && defined(CONFIG_SMP)
+#endif
 #define __flush_icache_preferred	__flush_icache_all_v7_smp
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #elif __LINUX_ARM_ARCH__ == 6 && defined(CONFIG_ARM_ERRATA_411920)
+#endif
 #define __flush_icache_preferred	__cpuc_flush_icache_all
 #else
 #define __flush_icache_preferred	__flush_icache_all_generic

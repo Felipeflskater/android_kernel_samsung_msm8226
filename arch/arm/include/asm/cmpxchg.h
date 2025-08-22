@@ -30,14 +30,20 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size
 #ifdef swp_is_buggy
 	unsigned long flags;
 #endif
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 6
+#endif
 	unsigned int tmp;
 #endif
 
 	smp_mb();
 
 	switch (size) {
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 6
+#endif
 	case 1:
 		asm volatile("@	__xchg1\n"
 		"1:	ldrexb	%0, [%3]\n"
@@ -105,7 +111,10 @@ static inline unsigned long __xchg(unsigned long x, volatile void *ptr, int size
 
 #include <asm-generic/cmpxchg-local.h>
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ < 6
+#endif
 /* min ARCH < ARMv6 */
 
 #ifdef CONFIG_SMP
@@ -290,6 +299,9 @@ static inline unsigned long long __cmpxchg64_mb(volatile void *ptr,
 
 #endif
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #endif	/* __LINUX_ARM_ARCH__ >= 6 */
+#endif
 
 #endif /* __ASM_ARM_CMPXCHG_H */

@@ -6,18 +6,30 @@
 
 #define nop() __asm__ __volatile__("mov\tr0,r0\t@ nop\n\t");
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 7 ||		\
+#endif
+#ifndef __LINUX_ARM_ARCH__
+#endif
 	(__LINUX_ARM_ARCH__ == 6 && defined(CONFIG_CPU_32v6K))
+#endif
 #define sev()	__asm__ __volatile__ ("sev" : : : "memory")
 #define wfe()	__asm__ __volatile__ ("wfe" : : : "memory")
 #define wfi()	__asm__ __volatile__ ("wfi" : : : "memory")
 #endif
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 7
+#endif
 #define isb() __asm__ __volatile__ ("isb" : : : "memory")
 #define dsb() __asm__ __volatile__ ("dsb" : : : "memory")
 #define dmb() __asm__ __volatile__ ("dmb" : : : "memory")
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #elif defined(CONFIG_CPU_XSC3) || __LINUX_ARM_ARCH__ == 6
+#endif
 #define isb() __asm__ __volatile__ ("mcr p15, 0, %0, c7, c5, 4" \
 				    : : "r" (0) : "memory")
 #define dsb() __asm__ __volatile__ ("mcr p15, 0, %0, c7, c10, 4" \

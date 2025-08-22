@@ -203,7 +203,10 @@ pmd_populate(struct mm_struct *mm, pmd_t *pmdp, pgtable_t ptep)
 	extern pmdval_t user_pmd_table;
 	pmdval_t prot;
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 	if (__LINUX_ARM_ARCH__ >= 6 && !IS_ENABLED(CONFIG_ARM_LPAE))
+#endif
 		prot = user_pmd_table;
 	else
 		prot = _PAGE_USER_TABLE;

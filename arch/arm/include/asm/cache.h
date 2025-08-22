@@ -19,7 +19,10 @@
 /*
  * With EABI on ARMv5 and above we must have 64-bit aligned slab pointers.
  */
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if defined(CONFIG_AEABI) && (__LINUX_ARM_ARCH__ >= 5)
+#endif
 #define ARCH_SLAB_MINALIGN 8
 #endif
 

@@ -93,3 +93,5 @@ kernel_fixes_v2.sh
 proc_v7_fix_.sh
 stddef_fix_.sh
 test_compile_.sh
+MATISSE3G_PATCH_REPORT_20250820_222417.md
+fix_postmarketos_patch.sh

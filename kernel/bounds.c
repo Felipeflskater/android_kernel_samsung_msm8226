@@ -1,6 +1,3 @@
-#include <linux/postmarketos-compat.h>
-#include <linux/postmarketos-compat.h>
-#include <linux/postmarketos-compat.h>
 /*
  * Generate definitions needed by the preprocessor.
  * This code generates raw asm output which is post-processed
@@ -8,17 +5,25 @@
  */
 
 #define __GENERATING_BOUNDS_H
-/* Include headers that define the enum constants of interest */
+/* Include only essential headers */
 #include <linux/page-flags.h>
 #include <linux/mmzone.h>
 #include <linux/kbuild.h>
 #include <linux/page_cgroup.h>
+#include <linux/log2.h>
 
 void foo(void)
 {
 	/* The enum constants to put into include/generated/bounds.h */
 	DEFINE(NR_PAGEFLAGS, __NR_PAGEFLAGS);
 	DEFINE(MAX_NR_ZONES, __MAX_NR_ZONES);
-	DEFINE(NR_PCG_FLAGS, __NR_PCG_FLAGS);
-	/* End of constants */
+#ifdef CONFIG_SMP
+	DEFINE(NR_CPUS_BITS, ilog2(CONFIG_NR_CPUS));
+#endif
+#ifdef CONFIG_LSM
+	DEFINE(LSM_MMAP_MIN_ADDR, CONFIG_LSM_MMAP_MIN_ADDR);
+#endif
+#ifdef CONFIG_CGROUP_MEM_RES_CTLR
+	DEFINE(MEMCG_SLABINFO_SIZE, sizeof(struct memcg_cache_params));
+#endif
 }

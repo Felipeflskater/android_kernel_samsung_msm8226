@@ -8,7 +8,10 @@
 /*
  * CPU interrupt mask handling.
  */
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 6
+#endif
 
 static inline unsigned long arch_local_irq_save(void)
 {

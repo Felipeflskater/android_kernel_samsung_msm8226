@@ -27,7 +27,10 @@ struct mod_arch_specific {
 /*
  * Add the ARM architecture version to the version magic string
  */
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #define MODULE_ARCH_VERMAGIC_ARMVSN "ARMv" __stringify(__LINUX_ARM_ARCH__) " "
+#endif
 
 /* Add __virt_to_phys patching state as well */
 #ifdef CONFIG_ARM_PATCH_PHYS_VIRT

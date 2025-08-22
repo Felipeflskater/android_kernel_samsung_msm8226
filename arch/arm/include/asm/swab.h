@@ -23,7 +23,10 @@
 #endif
 
 #if defined(__KERNEL__)
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 6
+#endif
 
 static inline __attribute_const__ __u32 __arch_swahb32(__u32 x)
 {
@@ -43,7 +46,10 @@ static inline __attribute_const__ __u32 __arch_swab32(__u32 x)
 #endif
 #endif
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if !defined(__KERNEL__) || __LINUX_ARM_ARCH__ < 6
+#endif
 static inline __attribute_const__ __u32 __arch_swab32(__u32 x)
 {
 	__u32 t;

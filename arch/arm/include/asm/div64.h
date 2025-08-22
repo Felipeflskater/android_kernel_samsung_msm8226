@@ -74,7 +74,10 @@
 ({									\
 	unsigned int __r, __b = (base);					\
 	if (!__builtin_constant_p(__b) || __b == 0 ||			\
+#ifndef __LINUX_ARM_ARCH__
+#endif
 	    (__LINUX_ARM_ARCH__ < 4 && (__b & (__b - 1)) != 0)) {	\
+#endif
 		/* non-constant divisor (or zero): slow path */		\
 		__r = __do_div_asm(n, __b);				\
 	} else if ((__b & (__b - 1)) == 0) {				\

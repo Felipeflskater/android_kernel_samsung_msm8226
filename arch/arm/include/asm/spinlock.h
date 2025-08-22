@@ -1,7 +1,10 @@
 #ifndef __ASM_SPINLOCK_H
 #define __ASM_SPINLOCK_H
 
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ < 6
+#endif
 #error SMP not supported on pre-ARMv6 CPUs
 #endif
 
@@ -65,7 +68,10 @@ extern int msm_krait_need_wfe_fixup;
 
 static inline void dsb_sev(void)
 {
+#ifndef __LINUX_ARM_ARCH__
+#endif
 #if __LINUX_ARM_ARCH__ >= 7
+#endif
 	__asm__ __volatile__ (
 		"dsb\n"
 		SEV
