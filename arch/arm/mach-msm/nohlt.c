@@ -17,7 +17,8 @@
 #include <linux/module.h>
 #include <linux/debugfs.h>
 #include <linux/fs.h>
-#include <asm/system.h>
+#include <asm/barrier.h>
+#include <asm/cmpxchg.h>
 
 static int set_nohalt(void *data, u64 val)
 {
