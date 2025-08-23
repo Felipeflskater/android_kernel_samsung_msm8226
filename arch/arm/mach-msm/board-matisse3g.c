@@ -7,6 +7,7 @@
 #include <mach/msm_smd.h>
 #include <mach/restart.h>
 
+
 extern void msm8226_init_gpiomux(void);
 static void __init matisse3g_init(void)
 {
