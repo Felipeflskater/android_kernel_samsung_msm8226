@@ -9,9 +9,7 @@
  * CPU interrupt mask handling.
  */
 #ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 6
-#endif
 
 static inline unsigned long arch_local_irq_save(void)
 {
@@ -123,7 +121,6 @@ static inline void arch_local_irq_disable(void)
 	: "memory", "cc");					\
 	})
 
-#endif
 
 /*
  * Save the current interrupt enable state.
@@ -154,5 +151,4 @@ static inline int arch_irqs_disabled_flags(unsigned long flags)
 	return flags & PSR_I_BIT;
 }
 
-#endif
 #endif
