@@ -18,6 +18,12 @@
 # define __percpu	__attribute__((noderef, address_space(3)))
 #ifdef CONFIG_SPARSE_RCU_POINTER
 # define __rcu		__attribute__((noderef, address_space(4)))
+#ifndef __user
+# define __user		__attribute__((noderef, address_space(1)))
+#endif
+#ifndef __user
+# define __user		__attribute__((noderef, address_space(1)))
+#endif
 #else
 # define __rcu
 #endif
@@ -387,4 +393,102 @@ static __always_inline void __write_once_size(volatile void *p, void *res, int s
 # else
 #  define __iomem
 # endif
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# define __iomem __attribute__((noderef, address_space(2)))
+#endif
+
+#ifndef __percpu
+# define __percpu __attribute__((noderef, address_space(3)))
+#endif
+
+#ifndef __rcu
+# define __rcu
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# define __iomem __attribute__((noderef, address_space(2)))
+#endif
+
+#ifndef __percpu
+# define __percpu __attribute__((noderef, address_space(3)))
+#endif
+
+#ifndef __rcu
+# define __rcu
+#endif
+
+/* Correções para problemas de compilação */
+#ifndef __user
+# ifdef __CHECKER__
+#  define __user __attribute__((noderef, address_space(1)))
+# else
+#  define __user
+# endif
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# ifdef __CHECKER__
+#  define __iomem __attribute__((noderef, address_space(2)))
+# else
+#  define __iomem
+# endif
+#endif
+
+#ifndef __percpu
+# ifdef __CHECKER__
+#  define __percpu __attribute__((noderef, address_space(3)))
+# else
+#  define __percpu
+# endif
+#endif
+
+#ifndef __rcu
+# define __rcu
+#endif
+
+/* Correções para problemas de compilação */
+#ifndef __user
+# ifdef __CHECKER__
+#  define __user __attribute__((noderef, address_space(1)))
+# else
+#  define __user
+# endif
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# ifdef __CHECKER__
+#  define __iomem __attribute__((noderef, address_space(2)))
+# else
+#  define __iomem
+# endif
+#endif
+
+#ifndef __percpu
+# ifdef __CHECKER__
+#  define __percpu __attribute__((noderef, address_space(3)))
+# else
+#  define __percpu
+# endif
+#endif
+
+#ifndef __rcu
+# define __rcu
 #endif
