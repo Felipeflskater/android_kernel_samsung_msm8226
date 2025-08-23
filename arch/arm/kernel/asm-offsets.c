@@ -9,6 +9,7 @@
 #include <linux/mm.h>
 #include <linux/kbuild.h>
 #include <asm/thread_info.h>
+#include <asm/procinfo.h>
 
 /* Garantir que offsetof está definido */
 #ifndef offsetof
