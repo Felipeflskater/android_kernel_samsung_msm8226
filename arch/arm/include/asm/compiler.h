@@ -9,6 +9,9 @@
  * will cause compilation to stop on mismatch.
  * (for details, see gcc PR 15089)
  */
+#define __user		__attribute__((address_space(1)))
+#define __kernel	__attribute__((address_space(0)))
+
 #define __asmeq(x, y)  ".ifnc " x "," y " ; .err ; .endif\n\t"
 
 

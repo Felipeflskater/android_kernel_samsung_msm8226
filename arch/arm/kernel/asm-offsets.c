@@ -8,8 +8,10 @@
 #include <linux/sched.h>
 #include <linux/mm.h>
 #include <linux/kbuild.h>
-#include <asm/thread_info.h>
+#include <linux/dma-mapping.h>
 #include <asm/procinfo.h>
+#include <asm/mach/arch.h>
+#include <asm/thread_info.h>
 
 /* Garantir que offsetof está definido */
 #ifndef offsetof
