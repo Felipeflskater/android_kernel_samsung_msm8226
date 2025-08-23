@@ -27,12 +27,12 @@
  * (due to slow/fast restore user regs).
  */
 #if S_R0 != 0
-#warning "Fixed for postmarketOS build"
+@ warning "Fixed for postmarketOS build"
 #endif
 
 	.macro	zero_fp
 #ifdef CONFIG_FRAME_POINTER
-	mov	fp, #0
+	mov	fp, @ 0
 #endif
 	.endm
 
@@ -77,8 +77,8 @@
 	.macro	svc_exit, rpsr
 	msr	spsr_cxsf, \rpsr
 #if defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_32v6K)
-	@ We must avoid clrex due to Cortex-A15 erratum #830321
-	sub	r0, sp, #4			@ uninhabited address
+	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
+	sub	r0, sp, @ 4			@ uninhabited address
 	strex	r1, r2, [r0]			@ clear the exclusive monitor
 #endif
 	ldmia	sp, {r0 - pc}^			@ load r0 - pc, cpsr
@@ -89,7 +89,7 @@
 	ldr	lr, [sp, @ \offset + S_PC]!	@ get pc
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 #if defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_32v6K)
-	@ We must avoid clrex due to Cortex-A15 erratum #830321
+	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
 	strex	r1, r2, [sp]			@ clear the exclusive monitor
 #endif
 	.if	\fast
@@ -104,8 +104,8 @@
 	.endm
 
 	.macro	get_thread_info, rd
-	mov	\rd, sp, lsr #13
-	mov	\rd, \rd, lsl #13
+	mov	\rd, sp, lsr @ 13
+	mov	\rd, \rd, lsl @ 13
 	.endm
 
 	@
@@ -119,13 +119,13 @@
 	ldr	lr, [sp, @ S_SP]			@ top of the stack
 	ldrd	r0, r1, [sp, @ S_LR]		@ calling lr and pc
 
-	@ We must avoid clrex due to Cortex-A15 erratum #830321
+	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
 	strex	r2, r1, [sp, @ S_LR]		@ clear the exclusive monitor
 
 	stmdb	lr!, {r0, r1, \rpsr}		@ calling lr and rfe context
 	ldmia	sp, {r0 - r12}
 	mov	sp, lr
-	ldr	lr, [sp], #4
+	ldr	lr, [sp], @ 4
 	rfeia	sp!
 	.endm
 
@@ -137,7 +137,7 @@
 	add	sp, sp, @ \offset + S_SP
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 
-	@ We must avoid clrex due to Cortex-A15 erratum #830321
+	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
 	strex	r1, r2, [sp]			@ clear the exclusive monitor
 
 	.if	\fast
@@ -151,8 +151,8 @@
 
 	.macro	get_thread_info, rd
 	mov	\rd, sp
-	lsr	\rd, \rd, #13
-	mov	\rd, \rd, lsl #13
+	lsr	\rd, \rd, @ 13
+	mov	\rd, \rd, lsl @ 13
 	.endm
 
 	@

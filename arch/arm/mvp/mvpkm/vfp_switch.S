@@ -16,7 +16,7 @@
  * this program; see the file COPYING.  If not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-#line 5
+@ line 5
 
 #include "arm_defs.h"
 #include "platdefx.h"
@@ -105,7 +105,7 @@ SaveVFP:
 	 */
 	fmrx	r1, MVFR0		@ Read Media and VFP Feature Register 0
 	and	r1, r1, @ ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
-	cmp	r1, #2			@ 32 x 64bit registers?
+	cmp	r1, @ 2			@ 32 x 64bit registers?
 	bne	2000f
 	vstmia	r0!, {d16-d31}
 2000:
@@ -180,7 +180,7 @@ LoadVFP:
 	 */
 	fmrx	r3, MVFR0		@ Read Media and VFP Feature Register 0
 	and	r3, r3, @ ARM_VFP_SYSTEM_REG_MVFR0_A_SIMD_MASK  @ A_SIMD field
-	cmp	r3, #2			@ 32 x 64bit registers?
+	cmp	r3, @ 2			@ 32 x 64bit registers?
 	bne	2000f
 	vldmia	r0!, {d16-d31}
 2000:

@@ -13,4 +13,7 @@
 #define COMMENT(x) \
         __asm__ __volatile__("\n->#" x)
 
+#define SIZE(sym, str) \
+        DEFINE(sym, sizeof(struct str))
+
 #endif

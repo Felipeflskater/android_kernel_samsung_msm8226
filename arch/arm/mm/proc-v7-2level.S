@@ -45,7 +45,7 @@
  */
 ENTRY(cpu_v7_switch_mm)
 #ifdef CONFIG_MMU
-	mov	r2, #0
+	mov	r2, @ 0
 	ldr	r1, [r1, @ MM_CONTEXT_ID]	@ get mm->context.id
 	ALT_SMP(orr	r0, r0, @ TTB_FLAGS_SMP)
 	ALT_UP(orr	r0, r0, @ TTB_FLAGS_UP)
@@ -54,8 +54,8 @@ ENTRY(cpu_v7_switch_mm)
 #endif
 #ifdef CONFIG_PID_IN_CONTEXTIDR
 	mrc     p15, 0, r2, c13, c0, 1          @ read current context ID
-	bic     r2, r2, #0xff                   @ extract the PID
-	and     r1, r1, #0xff
+	bic     r2, r2, @ 0xff                   @ extract the PID
+	and     r1, r1, @ 0xff
 	orr     r1, r1, r2                      @ insert the PID into r1
 #endif
 #ifdef CONFIG_TIMA_RKP
@@ -66,7 +66,7 @@ ENTRY(cpu_v7_switch_mm)
         mov     r2, r0
        /* r0: command */
         ldr     r0, =0x3f803221
-        smc     #1
+        smc     @ 1
        /* Restore r0 and r2 */
         ldmfd   sp!, {r2, r11}
 #ifdef CONFIG_TIMA_RKP_30
@@ -103,7 +103,7 @@ ENTRY(cpu_v7_timal2group_set_pte_commit)
 	stmfd   sp!,{r0}
 	mov	r11, r3       
 	ldr     r0, =0x3f811221        @cmd_id=0x11
-	smc     #1
+	smc     @ 1
 	pop	{r0}
 	pop     {r0-r3, r11}
 	mov	pc, lr
@@ -124,12 +124,12 @@ ENTRY(cpu_v7_timal2group_set_pte_ext)
         stmfd	sp!,{r1}
 	stmfd	sp!,{r3}
 
-	bic	r3, r1, #0x000003f0
+	bic	r3, r1, @ 0x000003f0
 	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
 	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
-	tst	r1, #1 << 4
+	tst	r1, @ 1 << 4
 	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
 	eor	r1, r1, @ L_PTE_DIRTY
@@ -149,21 +149,21 @@ ENTRY(cpu_v7_timal2group_set_pte_ext)
 
 	tst	r1, @ L_PTE_YOUNG
 	tstne	r1, @ L_PTE_PRESENT
-	moveq	r3, #0
+	moveq	r3, @ 0
 
 	/* grouped operations*/
 	/*pop back the buffer pointer to r2*/
 	pop	{r2}
 	pop	{r1}
 
-	mov	r5, #0
+	mov	r5, @ 0
 	ldr     r4, [r0]
 	cmp     r1, r4	/* r1 has linux pte value */
 	bne	1f
-	ldr     r4, [r0, #2048]
+	ldr     r4, [r0, @ 2048]
 	cmp     r3, r4	/* r3 has arm pte value */
 	bne	1f
-	mov	r5, #5
+	mov	r5, @ 5
 	b 	2f
 1:
 	//ldr	r0, =0xdeadbee1
@@ -172,13 +172,13 @@ ENTRY(cpu_v7_timal2group_set_pte_ext)
 	/* flush cache after the str */
 	mcr     p15, 0, r2, c7, c14, 1          
 	//ldr	r1, =0xdeadbee2
-	add	r2, r2, #4
+	add	r2, r2, @ 4
 	/* r1 has the linux pte value */
 	str	r1, [r2]
 	/* flush cache after the str */
 	mcr     p15, 0, r2, c7, c14, 1  
 	//ldr	r3, =0xdeadbee3
-	add	r2, r2, #4
+	add	r2, r2, @ 4
 	/* r3 has the arm pte value */
 	str	r3, [r2]
 	/* flush cache after the str */
@@ -206,7 +206,7 @@ ENTRY(cpu_v7_tima_iommu_opt)
 	stmfd   sp!,{r0}
 	mov	r11, r3       
 	ldr     r0, =0x3f820221        @cmd_id=0x20
-	smc     #1
+	smc     @ 1
 	pop	{r0}
 	pop     {r0-r3, r11}
 	mov	pc, lr
@@ -225,14 +225,14 @@ ENDPROC(cpu_v7_tima_iommu_opt)
  */
 #ifdef CONFIG_TIMA_RKP_L2_TABLES
 ENTRY(cpu_v7_tima_set_pte_ext)
-# ifdef CONFIG_MMU
+@  ifdef CONFIG_MMU
         stmfd   sp!, {r1}	//added for tima
-	bic	r3, r1, #0x000003f0
+	bic	r3, r1, @ 0x000003f0
 	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
 	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
-	tst	r1, #1 << 4
+	tst	r1, @ 1 << 4
 	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
 	eor	r1, r1, @ L_PTE_DIRTY
@@ -252,7 +252,7 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 
 	tst	r1, @ L_PTE_YOUNG
 	tstne	r1, @ L_PTE_PRESENT
-	moveq	r3, #0
+	moveq	r3, @ 0
 
 	/*next part is added for tima*/
 	/** Check if the kernel is re-writing the same value!
@@ -261,7 +261,7 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 	ldr     r2, [r0]
 	cmp     r1, r2
 	bne	1f
-	ldr     r2, [r0, #2048]
+	ldr     r2, [r0, @ 2048]
 	cmp     r3, r2
 	beq 	4f
 1:
@@ -276,14 +276,14 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 #ifndef	CONFIG_TIMA_RKP_COHERENT_TT
 	mcr     p15, 0, r0, c7, c14, 1          @ flush_linux_pte
 #endif
-	add     r0, r0, #2048
+	add     r0, r0, @ 2048
 #ifndef	CONFIG_TIMA_RKP_COHERENT_TT
 	mcr     p15, 0, r0, c7, c14, 1          @ flush_arm_pte
 	dsb
 	isb
 #endif
 	ldr     r0, =0x3f807221
-	smc     #1
+	smc     @ 1
 	pop	{r0}
 	/** Cache invalidate again to ensure no 
 	 *  values re-cached by speculative fetching
@@ -299,12 +299,12 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 	beq	2f     
 	stmfd	sp!, {r0}
 	ldr	r0, =0x3f80f221		@cmd_id=0x0f
-	smc	#1	
+	smc	@ 1	
 	pop	{r0}
 2:
 #endif
 
-	add	r0, r0, #2048
+	add	r0, r0, @ 2048
 #ifndef	CONFIG_TIMA_RKP_COHERENT_TT
 	mcr     p15, 0, r0, c7, c6,  1
 	dsb
@@ -320,7 +320,7 @@ ENTRY(cpu_v7_tima_set_pte_ext)
 	beq	3f
 	stmfd	sp!, {r0}
 	ldr	r0, =0x3f80f221		@cmd_id=0x0f
-	smc	#1
+	smc	@ 1
 	pop	{r0}
 3:
 #endif
@@ -339,12 +339,12 @@ ENDPROC(cpu_v7_tima_set_pte_ext)
 ENTRY(cpu_v7_set_pte_ext)
 #ifdef CONFIG_MMU
 	str	r1, [r0]			@ linux version
-	bic	r3, r1, #0x000003f0
+	bic	r3, r1, @ 0x000003f0
 	bic	r3, r3, @ PTE_TYPE_MASK
 	orr	r3, r3, r2
 	orr	r3, r3, @ PTE_EXT_AP0 | 2
 
-	tst	r1, #1 << 4
+	tst	r1, @ 1 << 4
 	orrne	r3, r3, @ PTE_EXT_TEX(1)
 
 	eor	r1, r1, @ L_PTE_DIRTY
@@ -364,10 +364,10 @@ ENTRY(cpu_v7_set_pte_ext)
 
 	tst	r1, @ L_PTE_YOUNG
 	tstne	r1, @ L_PTE_PRESENT
-	moveq	r3, #0
+	moveq	r3, @ 0
 
- ARM(	str	r3, [r0, #2048]! )
- THUMB(	add	r0, r0, #2048 )
+ ARM(	str	r3, [r0, @ 2048]! )
+ THUMB(	add	r0, r0, @ 2048 )
  THUMB(	str	r3, [r0] )
 	mcr	p15, 0, r0, c7, c10, 1		@ flush_pte
 #endif
@@ -419,7 +419,7 @@ ENDPROC(cpu_v7_set_pte_ext)
 	.macro	v7_ttb_setup, zero, ttbr0, ttbr1, tmp
 #ifdef	CONFIG_TIMA_RKP_EMUL_CP15_INSTR 
 	ldr	r0, =0x3f805221
-	smc	#1
+	smc	@ 1
 #else 
 	mcr	p15, 0, \zero, c2, c0, 2	@ TTB control register
 #endif

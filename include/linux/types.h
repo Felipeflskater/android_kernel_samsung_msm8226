@@ -260,3 +260,14 @@ struct rcu_head {
 #endif	/* __KERNEL__ */
 #endif /*  __ASSEMBLY__ */
 #endif /* _LINUX_TYPES_H */
+
+/* Tipos adicionais */
+#ifndef bool
+typedef _Bool bool;
+#define true 1
+#define false 0
+#endif
+
+#ifndef size_t
+typedef unsigned long size_t;
+#endif

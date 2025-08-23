@@ -22,11 +22,11 @@
  * The total size of the data cache.
  */
 #if defined(CONFIG_CPU_SA110)
-# define CACHE_DSIZE	16384
+@  define CACHE_DSIZE	16384
 #elif defined(CONFIG_CPU_SA1100)
-# define CACHE_DSIZE	8192
+@  define CACHE_DSIZE	8192
 #else
-# error Unknown cache size
+@  error Unknown cache size
 #endif
 
 /*
@@ -56,7 +56,7 @@ flush_base:
  *	Unconditionally clean and invalidate the entire icache.
  */
 ENTRY(v4wb_flush_icache_all)
-	mov	r0, #0
+	mov	r0, @ 0
 	mcr	p15, 0, r0, c7, c5, 0		@ invalidate I cache
 	mov	pc, lr
 ENDPROC(v4wb_flush_icache_all)
@@ -75,21 +75,21 @@ ENTRY(v4wb_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(v4wb_flush_kern_cache_all)
-	mov	ip, #0
+	mov	ip, @ 0
 	mcr	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 __flush_whole_cache:
 	ldr	r3, =flush_base
-	ldr	r1, [r3, #0]
+	ldr	r1, [r3, @ 0]
 	eor	r1, r1, @ CACHE_DSIZE
-	str	r1, [r3, #0]
+	str	r1, [r3, @ 0]
 	add	r2, r1, @ CACHE_DSIZE
-1:	ldr	r3, [r1], #32
+1:	ldr	r3, [r1], @ 32
 	cmp	r1, r2
 	blo	1b
 #ifdef FLUSH_BASE_MINICACHE
 	add	r2, r2, @ FLUSH_BASE_MINICACHE - FLUSH_BASE
-	sub	r1, r2, #512			@ only 512 bytes
-1:	ldr	r3, [r1], #32
+	sub	r1, r2, @ 512			@ only 512 bytes
+1:	ldr	r3, [r1], @ 32
 	cmp	r1, r2
 	blo	1b
 #endif
@@ -107,7 +107,7 @@ __flush_whole_cache:
  *	- flags	- vma_area_struct flags describing address space
  */
 ENTRY(v4wb_flush_user_cache_range)
-	mov	ip, #0
+	mov	ip, @ 0
 	sub	r3, r1, r0			@ calculate total size
 	tst	r2, @ VM_EXEC			@ executable region?
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
@@ -167,7 +167,7 @@ ENTRY(v4wb_coherent_user_range)
 	add	r0, r0, @ CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
-	mov	ip, #0
+	mov	ip, @ 0
 	mcr	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
 	mov	pc, lr

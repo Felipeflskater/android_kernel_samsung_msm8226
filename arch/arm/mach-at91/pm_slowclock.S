@@ -23,7 +23,7 @@
  * FIXME either or both the SDRAM controllers (EB0, EB1) might be in use;
  * handle those cases both here and in the Suspend-To-RAM support.
  */
-#warning Assuming EB1 SDRAM controller is *NOT* used
+@ warning Assuming EB1 SDRAM controller is *NOT* used
 #endif
 
 /*
@@ -51,8 +51,8 @@ tmp2	.req	r5
  */
 	.macro wait_mckrdy
 	mov	tmp2, @ MCKRDY_TIMEOUT
-1:	sub	tmp2, tmp2, #1
-	cmp	tmp2, #0
+1:	sub	tmp2, tmp2, @ 1
+	cmp	tmp2, @ 0
 	beq	2f
 	ldr	tmp1, [pmc, @ AT91_PMC_SR]
 	tst	tmp1, @ AT91_PMC_MCKRDY
@@ -65,8 +65,8 @@ tmp2	.req	r5
  */
 	.macro wait_moscrdy
 	mov	tmp2, @ MOSCRDY_TIMEOUT
-1:	sub	tmp2, tmp2, #1
-	cmp	tmp2, #0
+1:	sub	tmp2, tmp2, @ 1
+	cmp	tmp2, @ 0
 	beq	2f
 	ldr	tmp1, [pmc, @ AT91_PMC_SR]
 	tst	tmp1, @ AT91_PMC_MOSCS
@@ -79,8 +79,8 @@ tmp2	.req	r5
  */
 	.macro wait_pllalock
 	mov	tmp2, @ PLLALOCK_TIMEOUT
-1:	sub	tmp2, tmp2, #1
-	cmp	tmp2, #0
+1:	sub	tmp2, tmp2, @ 1
+	cmp	tmp2, @ 0
 	beq	2f
 	ldr	tmp1, [pmc, @ AT91_PMC_SR]
 	tst	tmp1, @ AT91_PMC_LOCKA
@@ -93,8 +93,8 @@ tmp2	.req	r5
  */
 	.macro wait_pllblock
 	mov	tmp2, @ PLLBLOCK_TIMEOUT
-1:	sub	tmp2, tmp2, #1
-	cmp	tmp2, #0
+1:	sub	tmp2, tmp2, @ 1
+	cmp	tmp2, @ 0
 	beq	2f
 	ldr	tmp1, [pmc, @ AT91_PMC_SR]
 	tst	tmp1, @ AT91_PMC_LOCKB
@@ -122,7 +122,7 @@ ENTRY(at91_slow_clock)
 	 */
 
 	/* Drain write buffer */
-	mov	tmp1, #0
+	mov	tmp1, @ 0
 	mcr	p15, 0, tmp1, c7, c10, 4
 
 	cmp	memctrl, @ AT91_MEMCTRL_MC
@@ -132,7 +132,7 @@ ENTRY(at91_slow_clock)
 	 * at91rm9200 Memory controller
 	 */
 	/* Put SDRAM in self-refresh mode */
-	mov	tmp1, #1
+	mov	tmp1, @ 1
 	str	tmp1, [sdramc, @ AT91RM9200_SDRAMC_SRR]
 	b	sdr_sr_done
 
@@ -150,7 +150,7 @@ ddr_sr_enable:
 	orr	tmp1, @ AT91_DDRSDRC_LPCB_SELF_REFRESH
 
 	/* figure out if we use the second ram controller */
-	cmp	ramc1, #0
+	cmp	ramc1, @ 0
 	ldrne	tmp2, [ramc1, @ AT91_DDRSDRC_LPR]
 	strne	tmp2, .saved_sam9_lpr1
 	bicne	tmp2, @ AT91_DDRSDRC_LPCB
@@ -191,9 +191,9 @@ sdr_sr_done:
 	/*
 	 * Set the Master Clock PRES and MDIV fields.
 	 *
-	 * See AT91RM9200 errata #27 and #28 for details.
+	 * See AT91RM9200 errata @ 27 and @ 28 for details.
 	 */
-	mov	tmp1, #0
+	mov	tmp1, @ 0
 	str	tmp1, [pmc, @ AT91_PMC_MCKR]
 
 	wait_mckrdy
@@ -258,7 +258,7 @@ sdr_sr_done:
 	 * First set PRES if it was not 0,
 	 * than set CSS and MDIV fields.
 	 *
-	 * See AT91RM9200 errata #27 and #28 for details.
+	 * See AT91RM9200 errata @ 27 and @ 28 for details.
 	 */
 	ldr	tmp1, .saved_mckr
 	tst	tmp1, @ AT91_PMC_PRES
@@ -294,7 +294,7 @@ sdr_sr_done:
 	str	tmp1, [sdramc, @ AT91_DDRSDRC_LPR]
 
 	/* if we use the second ram controller */
-	cmp	ramc1, #0
+	cmp	ramc1, @ 0
 	ldrne	tmp2, .saved_sam9_lpr1
 	strne	tmp2, [ramc1, @ AT91_DDRSDRC_LPR]
 

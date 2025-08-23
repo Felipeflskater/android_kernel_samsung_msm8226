@@ -9,6 +9,6 @@
 #define NULL ((void *)0)
 #endif
 #endif
-#endif /* __ASSEMBLY__ */
+#endif
 
-#endif /* _UAPI_LINUX_STDDEF_H */
+#endif
