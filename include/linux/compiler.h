@@ -492,3 +492,40 @@ static __always_inline void __write_once_size(volatile void *p, void *res, int s
 #ifndef __rcu
 # define __rcu
 #endif
+
+/* Correções Matisse3G para GCC moderno */
+#ifndef __user
+# ifdef __CHECKER__
+#  define __user __attribute__((noderef, address_space(1)))
+# else
+#  define __user
+# endif
+#endif
+
+#ifndef __kernel
+# define __kernel
+#endif
+
+#ifndef __iomem
+# ifdef __CHECKER__
+#  define __iomem __attribute__((noderef, address_space(2)))
+# else
+#  define __iomem
+# endif
+#endif
+
+#ifndef __percpu
+# ifdef __CHECKER__
+#  define __percpu __attribute__((noderef, address_space(3)))
+# else
+#  define __percpu
+# endif
+#endif
+
+#ifndef __rcu
+# define __rcu
+#endif
+
+#ifndef __attribute_const__
+# define __attribute_const__ __attribute__((__const__))
+#endif
