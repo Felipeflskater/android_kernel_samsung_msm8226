@@ -13,6 +13,9 @@
 #include <asm/mach/arch.h>
 #include <asm/thread_info.h>
 
+#ifndef __user
+#define __user
+#endif
 /* Garantir que offsetof está definido */
 #ifndef offsetof
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
