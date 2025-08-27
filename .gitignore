@@ -99,3 +99,5 @@ fix_postmarketos_patch.sh
 fix_arm_headers.sh
 scan_user_macro_script.sh
 vfp_debug_script.sh
+fix_kernel_build.sh
+verify_fixes.sh

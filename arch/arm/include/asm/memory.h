@@ -35,7 +35,7 @@
  * TASK_SIZE - the maximum size of a user space task.
  * TASK_UNMAPPED_BASE - the lower boundary of the mmap VM area
  */
-#define PAGE_OFFSET		UL(CONFIG_PAGE_OFFSET)
+#define PAGE_OFFSET             UL(0xC0000000)
 #define TASK_SIZE		(UL(CONFIG_PAGE_OFFSET) - UL(0x01000000))
 #define TASK_UNMAPPED_BASE	(UL(CONFIG_PAGE_OFFSET) / 3)
 
@@ -192,7 +192,7 @@ static inline unsigned long __phys_to_virt(unsigned long x)
 #ifdef PLAT_PHYS_OFFSET
 #define PHYS_OFFSET	PLAT_PHYS_OFFSET
 #else
-#define PHYS_OFFSET	UL(CONFIG_PHYS_OFFSET)
+#define PHYS_OFFSET             UL(0x00000000)
 #endif
 #endif
 
