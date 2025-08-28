@@ -12,11 +12,8 @@
 #ifndef _ASMARM_TIMEX_H
 #define _ASMARM_TIMEX_H
 
-#ifdef CONFIG_ARCH_MSM
-#define CLOCK_TICK_RATE		1000000
-#else
-#include <mach/timex.h>
-#endif
+/* MSM8226 Timer - Direct definition to avoid mach/timex.h dependency */
+#define CLOCK_TICK_RATE 1000000
 
 typedef unsigned long cycles_t;
 #define get_cycles()	({ cycles_t c; read_current_timer(&c) ? 0 : c; })
