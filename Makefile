@@ -374,6 +374,7 @@ LINUXINCLUDE    := -I$(srctree)/arch/$(hdr-arch)/include \
 KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
+KBUILD_CFLAGS += -Wno-macro-redefined
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
@@ -402,9 +403,11 @@ KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
 KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
+KBUILD_CFLAGS += -Wno-macro-redefined
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 KBUILD_AFLAGS_MODULE  := -DMODULE
 KBUILD_CFLAGS_MODULE  := -DMODULE -fno-pic
+KBUILD_CFLAGS += -Wno-macro-redefined
 
 # PostmarketOS: Aggressive GCC 15.x compatibility
 KBUILD_CFLAGS += -Wno-error
