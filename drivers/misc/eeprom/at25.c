@@ -118,7 +118,7 @@ at25_ee_read(
 	 */
 	status = spi_sync(at25->spi, &m);
 	dev_dbg(&at25->spi->dev,
-		"read %Zd bytes at %d --> %d\n",
+		"read %zd bytes at %d --> %d\n",
 		count, offset, (int) status);
 
 	mutex_unlock(&at25->lock);
@@ -369,7 +369,7 @@ static int at25_probe(struct spi_device *spi)
 	if (chip->setup)
 		chip->setup(&at25->mem, chip->context);
 
-	dev_info(&spi->dev, "%Zd %s %s eeprom%s, pagesize %u\n",
+	dev_info(&spi->dev, "%zd %s %s eeprom%s, pagesize %u\n",
 		(at25->bin.size < 1024)
 			? at25->bin.size
 			: (at25->bin.size / 1024),

@@ -130,7 +130,7 @@ static int omninet_attach(struct usb_serial *serial)
 
 	od = kmalloc(sizeof(struct omninet_data), GFP_KERNEL);
 	if (!od) {
-		dev_err(&port->dev, "%s- kmalloc(%Zd) failed.\n",
+		dev_err(&port->dev, "%s- kmalloc(%zd) failed.\n",
 			__func__, sizeof(struct omninet_data));
 		return -ENOMEM;
 	}

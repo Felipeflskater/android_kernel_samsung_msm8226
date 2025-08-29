@@ -681,7 +681,7 @@ err_put_ctx:
 err:
 	kfree(buf);
 out:
-	dprintk("RPC:       gss_pipe_downcall returning %Zd\n", err);
+	dprintk("RPC:       gss_pipe_downcall returning %zd\n", err);
 	return err;
 }
 

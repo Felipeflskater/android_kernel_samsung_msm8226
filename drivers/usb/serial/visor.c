@@ -352,7 +352,7 @@ static int palm_os_3_probe(struct usb_serial *serial,
 
 	transfer_buffer = kmalloc(sizeof(*connection_info), GFP_KERNEL);
 	if (!transfer_buffer) {
-		dev_err(dev, "%s - kmalloc(%Zd) failed.\n", __func__,
+		dev_err(dev, "%s - kmalloc(%zd) failed.\n", __func__,
 			sizeof(*connection_info));
 		return -ENOMEM;
 	}
@@ -449,7 +449,7 @@ static int palm_os_4_probe(struct usb_serial *serial,
 
 	transfer_buffer =  kmalloc(sizeof(*connection_info), GFP_KERNEL);
 	if (!transfer_buffer) {
-		dev_err(dev, "%s - kmalloc(%Zd) failed.\n", __func__,
+		dev_err(dev, "%s - kmalloc(%zd) failed.\n", __func__,
 			sizeof(*connection_info));
 		return -ENOMEM;
 	}

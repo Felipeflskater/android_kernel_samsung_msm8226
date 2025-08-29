@@ -1844,7 +1844,7 @@ static int ftdi_sio_port_probe(struct usb_serial_port *port)
 
 	priv = kzalloc(sizeof(struct ftdi_private), GFP_KERNEL);
 	if (!priv) {
-		dev_err(&port->dev, "%s- kmalloc(%Zd) failed.\n", __func__,
+		dev_err(&port->dev, "%s- kmalloc(%zd) failed.\n", __func__,
 					sizeof(struct ftdi_private));
 		return -ENOMEM;
 	}

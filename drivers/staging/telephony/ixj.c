@@ -7141,8 +7141,8 @@ static int ixj_get_status_proc(char *buf)
 	IXJ *j;
 	len = 0;
 	len += sprintf(buf + len, "\nDriver version %i.%i.%i", IXJ_VER_MAJOR, IXJ_VER_MINOR, IXJ_BLD_VER);
-	len += sprintf(buf + len, "\nsizeof IXJ struct %Zd bytes", sizeof(IXJ));
-	len += sprintf(buf + len, "\nsizeof DAA struct %Zd bytes", sizeof(DAA_REGS));
+	len += sprintf(buf + len, "\nsizeof IXJ struct %zd bytes", sizeof(IXJ));
+	len += sprintf(buf + len, "\nsizeof DAA struct %zd bytes", sizeof(DAA_REGS));
 	len += sprintf(buf + len, "\nUsing old telephony API");
 	len += sprintf(buf + len, "\nDebug Level %d\n", ixjdebug);
 

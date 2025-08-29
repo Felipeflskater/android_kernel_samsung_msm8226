@@ -466,7 +466,7 @@ static void __init read_obp_translations(void)
 		prom_halt();
 	}
 	if (unlikely(n > sizeof(prom_trans))) {
-		prom_printf("prom_mappings: Size %Zd is too big.\n", n);
+		prom_printf("prom_mappings: Size %zd is too big.\n", n);
 		prom_halt();
 	}
 

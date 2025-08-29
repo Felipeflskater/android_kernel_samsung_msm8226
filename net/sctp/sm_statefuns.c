@@ -6062,7 +6062,7 @@ static int sctp_eat_data(const struct sctp_association *asoc,
 			SCTP_DEBUG_PRINTK("Reneging for tsn:%u\n", tsn);
 			deliver = SCTP_CMD_RENEGE;
 		} else {
-			SCTP_DEBUG_PRINTK("Discard tsn: %u len: %Zd, "
+			SCTP_DEBUG_PRINTK("Discard tsn: %u len: %zd, "
 					  "rwnd: %d\n", tsn, datalen,
 					  asoc->rwnd);
 			return SCTP_IERROR_IGNORE_TSN;

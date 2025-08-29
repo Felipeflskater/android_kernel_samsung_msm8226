@@ -2319,7 +2319,7 @@ static int __init eni_init(void)
 	struct sk_buff *skb; /* dummy for sizeof */
 
 	if (sizeof(skb->cb) < sizeof(struct eni_skb_prv)) {
-		printk(KERN_ERR "eni_detect: skb->cb is too small (%Zd < %Zd)\n",
+		printk(KERN_ERR "eni_detect: skb->cb is too small (%zd < %zd)\n",
 		    sizeof(skb->cb),sizeof(struct eni_skb_prv));
 		return -EIO;
 	}

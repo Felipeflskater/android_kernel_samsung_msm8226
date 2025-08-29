@@ -1229,7 +1229,7 @@ static inline void xs_tcp_read_common(struct rpc_xprt *xprt,
 		return;
 	}
 
-	dprintk("RPC:       XID %08x read %Zd bytes\n",
+	dprintk("RPC:       XID %08x read %zd bytes\n",
 			ntohl(transport->tcp_xid), r);
 	dprintk("RPC:       xprt = %p, tcp_copied = %lu, tcp_offset = %u, "
 			"tcp_reclen = %u\n", xprt, transport->tcp_copied,

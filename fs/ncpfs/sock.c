@@ -618,7 +618,7 @@ skipdata:;
 					goto skipdata2;
 				}
 				if (datalen > req->datalen + 8) {
-					printk(KERN_ERR "ncpfs: tcp: Unexpected reply len %d (expected at most %Zd)\n", datalen, req->datalen + 8);
+					printk(KERN_ERR "ncpfs: tcp: Unexpected reply len %d (expected at most %zd)\n", datalen, req->datalen + 8);
 					server->rcv.state = 3;
 					goto skipdata;
 				}

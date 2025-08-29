@@ -474,7 +474,7 @@ static int ssu100_attach(struct usb_serial *serial)
 
 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
 	if (!priv) {
-		dev_err(&port->dev, "%s- kmalloc(%Zd) failed.\n", __func__,
+		dev_err(&port->dev, "%s- kmalloc(%zd) failed.\n", __func__,
 			sizeof(*priv));
 		return -ENOMEM;
 	}
