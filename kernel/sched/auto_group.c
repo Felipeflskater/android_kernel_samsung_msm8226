@@ -187,7 +187,7 @@ static int __init setup_autogroup(char *str)
 	return 1;
 }
 
-__setup("noautogroup", setup_autogroup);
+/* DISABLED: __setup("noautogroup", setup_autogroup); */
 
 #ifdef CONFIG_PROC_FS
 

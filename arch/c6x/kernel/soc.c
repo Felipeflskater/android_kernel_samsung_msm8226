@@ -50,7 +50,7 @@ static int __init get_mac_addr_from_cmdline(char *str)
 	}
 	return 1;
 }
-__setup("emac_addr=", get_mac_addr_from_cmdline);
+/* DISABLED: __setup("emac_addr=", get_mac_addr_from_cmdline); */
 
 /*
  * Setup the MAC address for SoC ethernet devices.

@@ -272,4 +272,4 @@ static int __init acpi_backlight(char *str)
 	}
 	return 1;
 }
-__setup("acpi_backlight=", acpi_backlight);
+/* DISABLED: __setup("acpi_backlight=", acpi_backlight); */

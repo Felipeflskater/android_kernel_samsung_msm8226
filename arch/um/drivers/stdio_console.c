@@ -199,5 +199,5 @@ static int console_chan_setup(char *str)
 	line_setup(vt_conf, MAX_TTYS, &def_conf, str, "console");
 	return 1;
 }
-__setup("con", console_chan_setup);
+/* DISABLED: __setup("con", console_chan_setup); */
 __channel_help(console_chan_setup, "con");

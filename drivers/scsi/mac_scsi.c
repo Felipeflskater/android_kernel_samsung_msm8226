@@ -211,7 +211,7 @@ static int __init mac_scsi_setup(char *str) {
 	return 1;
 }
 
-__setup("mac5380=", mac_scsi_setup);
+/* DISABLED: __setup("mac5380=", mac_scsi_setup); */
 
 /*
  * Function : int macscsi_detect(struct scsi_host_template * tpnt)

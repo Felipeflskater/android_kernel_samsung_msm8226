@@ -169,7 +169,7 @@ cmdl_force_cpei(char *str)
 	return 1;
 }
 
-__setup("force_cpei=", cmdl_force_cpei);
+/* DISABLED: __setup("force_cpei=", cmdl_force_cpei); */
 
 static int __init
 nointroute (char *str)
@@ -179,7 +179,7 @@ nointroute (char *str)
 	return 1;
 }
 
-__setup("nointroute", nointroute);
+/* DISABLED: __setup("nointroute", nointroute); */
 
 static void fix_b0_for_bsp(void)
 {
@@ -561,7 +561,7 @@ decay (char *str)
 	return 1;
 }
 
-__setup("decay=", decay);
+/* DISABLED: __setup("decay=", decay); */
 
 /*
  * Initialize the logical CPU number to SAPICID mapping

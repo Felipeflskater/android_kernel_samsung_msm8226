@@ -99,7 +99,7 @@ int profile_setup(char *str)
 	}
 	return 1;
 }
-__setup("profile=", profile_setup);
+/* DISABLED: __setup("profile=", profile_setup); */
 
 
 int __ref profile_init(void)

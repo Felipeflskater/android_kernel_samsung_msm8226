@@ -504,7 +504,7 @@ static int __init fb_console_setup(char *this_opt)
 	return 1;
 }
 
-__setup("fbcon=", fb_console_setup);
+/* DISABLED: __setup("fbcon=", fb_console_setup); */
 #endif
 
 static int search_fb_in_map(int idx)

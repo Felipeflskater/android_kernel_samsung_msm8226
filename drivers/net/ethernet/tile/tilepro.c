@@ -2487,6 +2487,6 @@ static int __init network_cpus_setup(char *str)
 
 	return 0;
 }
-__setup("network_cpus=", network_cpus_setup);
+/* DISABLED: __setup("network_cpus=", network_cpus_setup); */
 
 #endif

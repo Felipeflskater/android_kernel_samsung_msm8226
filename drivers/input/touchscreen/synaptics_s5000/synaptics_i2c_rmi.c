@@ -3971,7 +3971,7 @@ static int __init sec_tsp_mode(char *mode)
  
 	return 1;
 }
-__setup("lcd_id=0x", sec_tsp_mode);
+/* DISABLED: __setup("lcd_id=0x", sec_tsp_mode); */
 
 #ifdef CONFIG_SEC_TSP_FACTORY
  unsigned int bootmode;

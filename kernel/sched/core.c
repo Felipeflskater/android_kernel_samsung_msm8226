@@ -6229,7 +6229,7 @@ static int __init isolated_cpu_setup(char *str)
 	return 1;
 }
 
-__setup("isolcpus=", isolated_cpu_setup);
+/* DISABLED: __setup("isolcpus=", isolated_cpu_setup); */
 
 #ifdef CONFIG_NUMA
 
@@ -6568,7 +6568,7 @@ static int __init setup_relax_domain_level(char *str)
 
 	return 1;
 }
-__setup("relax_domain_level=", setup_relax_domain_level);
+/* DISABLED: __setup("relax_domain_level=", setup_relax_domain_level); */
 
 static void set_domain_attribute(struct sched_domain *sd,
 				 struct sched_domain_attr *attr)

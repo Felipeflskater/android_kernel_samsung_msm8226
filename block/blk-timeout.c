@@ -16,7 +16,7 @@ static int __init setup_fail_io_timeout(char *str)
 {
 	return setup_fault_attr(&fail_io_timeout, str);
 }
-__setup("fail_io_timeout=", setup_fail_io_timeout);
+/* DISABLED: __setup("fail_io_timeout=", setup_fail_io_timeout); */
 
 int blk_should_fake_timeout(struct request_queue *q)
 {

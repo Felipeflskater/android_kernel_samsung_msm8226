@@ -134,7 +134,7 @@ static int __init set_cmdline_ftrace(char *str)
 	ring_buffer_expanded = 1;
 	return 1;
 }
-__setup("ftrace=", set_cmdline_ftrace);
+/* DISABLED: __setup("ftrace=", set_cmdline_ftrace); */
 
 static int __init set_ftrace_dump_on_oops(char *str)
 {
@@ -150,7 +150,7 @@ static int __init set_ftrace_dump_on_oops(char *str)
 
         return 0;
 }
-__setup("ftrace_dump_on_oops", set_ftrace_dump_on_oops);
+/* DISABLED: __setup("ftrace_dump_on_oops", set_ftrace_dump_on_oops); */
 
 unsigned long long ns2usecs(cycle_t nsec)
 {
@@ -435,7 +435,7 @@ static int __init set_buf_size(char *str)
 	trace_buf_size = buf_size;
 	return 1;
 }
-__setup("trace_buf_size=", set_buf_size);
+/* DISABLED: __setup("trace_buf_size=", set_buf_size); */
 
 static int __init set_tracing_thresh(char *str)
 {
@@ -450,7 +450,7 @@ static int __init set_tracing_thresh(char *str)
 	tracing_thresh = threshhold * 1000;
 	return 1;
 }
-__setup("tracing_thresh=", set_tracing_thresh);
+/* DISABLED: __setup("tracing_thresh=", set_tracing_thresh); */
 
 unsigned long nsecs_to_usecs(unsigned long nsecs)
 {

@@ -82,7 +82,7 @@ static int __init setup_smt_snooze_delay(char *str)
 
 	return 1;
 }
-__setup("smt-snooze-delay=", setup_smt_snooze_delay);
+/* DISABLED: __setup("smt-snooze-delay=", setup_smt_snooze_delay); */
 
 #endif /* CONFIG_PPC64 */
 

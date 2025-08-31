@@ -1169,7 +1169,7 @@ static int __init acpi_os_name_setup(char *str)
 
 }
 
-__setup("acpi_os_name=", acpi_os_name_setup);
+/* DISABLED: __setup("acpi_os_name=", acpi_os_name_setup); */
 
 #define	OSI_STRING_LENGTH_MAX 64	/* arbitrary */
 #define	OSI_STRING_ENTRIES_MAX 16	/* arbitrary */
@@ -1301,7 +1301,7 @@ static int __init osi_setup(char *str)
 	return 1;
 }
 
-__setup("acpi_osi=", osi_setup);
+/* DISABLED: __setup("acpi_osi=", osi_setup); */
 
 /* enable serialization to combat AE_ALREADY_EXISTS errors */
 static int __init acpi_serialize_setup(char *str)
@@ -1313,7 +1313,7 @@ static int __init acpi_serialize_setup(char *str)
 	return 1;
 }
 
-__setup("acpi_serialize", acpi_serialize_setup);
+/* DISABLED: __setup("acpi_serialize", acpi_serialize_setup); */
 
 /* Check of resource interference between native drivers and ACPI
  * OperationRegions (SystemIO and System Memory only).
@@ -1352,7 +1352,7 @@ static int __init acpi_enforce_resources_setup(char *str)
 	return 1;
 }
 
-__setup("acpi_enforce_resources=", acpi_enforce_resources_setup);
+/* DISABLED: __setup("acpi_enforce_resources=", acpi_enforce_resources_setup); */
 
 /* Check for resource conflicts between ACPI OperationRegions and native
  * drivers */

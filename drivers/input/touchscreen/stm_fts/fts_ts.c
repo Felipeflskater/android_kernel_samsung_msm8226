@@ -1413,7 +1413,7 @@ static int __init fts_read_lcd_id(char *mode)
 
 	return 0;
 }
-__setup("lcd_id=0x", fts_read_lcd_id);
+/* DISABLED: __setup("lcd_id=0x", fts_read_lcd_id); */
 #endif
 
 static int fts_probe(struct i2c_client *client, const struct i2c_device_id *idp)

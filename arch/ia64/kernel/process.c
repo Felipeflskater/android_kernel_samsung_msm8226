@@ -220,7 +220,7 @@ static int __init nohalt_setup(char * str)
 	pal_halt = can_do_pal_halt = 0;
 	return 1;
 }
-__setup("nohalt", nohalt_setup);
+/* DISABLED: __setup("nohalt", nohalt_setup); */
 
 void
 update_pal_halt_status(int status)

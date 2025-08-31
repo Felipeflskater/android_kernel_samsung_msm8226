@@ -138,7 +138,7 @@ static int __init five_v_on_setup(char *ignore)
 	five_v_on = 1;
 	return 1;
 }
-__setup("five_v_on", five_v_on_setup);
+/* DISABLED: __setup("five_v_on", five_v_on_setup); */
 
 
 static int __init badge4_init(void)

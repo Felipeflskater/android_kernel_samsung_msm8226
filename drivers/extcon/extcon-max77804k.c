@@ -233,7 +233,7 @@ static int get_if_pmic_inifo(char *str)
 		__FILE__, __func__, switch_sel, if_pmic_rev);
 	return if_muic_info;
 }
-__setup("pmic_info=", get_if_pmic_inifo);
+/* DISABLED: __setup("pmic_info=", get_if_pmic_inifo); */
 
 int get_switch_sel(void)
 {
@@ -2195,7 +2195,7 @@ static int __init get_lpm_mode(char *str)
 	}
 	return 0;
 }
-__setup("androidboot.baseband=", get_lpm_mode);
+/* DISABLED: __setup("androidboot.baseband=", get_lpm_mode); */
 
 static int __devinit max77804k_muic_probe(struct platform_device *pdev)
 {

@@ -282,4 +282,4 @@ static int __init setup_nmi_watchdog(char *str)
 
 	return 0;
 }
-__setup("nmi_watchdog=", setup_nmi_watchdog);
+/* DISABLED: __setup("nmi_watchdog=", setup_nmi_watchdog); */

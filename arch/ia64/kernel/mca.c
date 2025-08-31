@@ -1768,7 +1768,7 @@ ia64_mca_disable_cpe_polling(char *str)
 	return 1;
 }
 
-__setup("disable_cpe_poll", ia64_mca_disable_cpe_polling);
+/* DISABLED: __setup("disable_cpe_poll", ia64_mca_disable_cpe_polling); */
 
 static struct irqaction cmci_irqaction = {
 	.handler =	ia64_mca_cmc_int_handler,

@@ -32,7 +32,7 @@ static int __init file_caps_disable(char *str)
 	file_caps_enabled = 0;
 	return 1;
 }
-__setup("no_file_caps", file_caps_disable);
+/* DISABLED: __setup("no_file_caps", file_caps_disable); */
 
 /*
  * More recent versions of libcap are available from:

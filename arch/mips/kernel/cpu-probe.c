@@ -124,7 +124,7 @@ static int __init wait_disable(char *s)
 	return 1;
 }
 
-__setup("nowait", wait_disable);
+/* DISABLED: __setup("nowait", wait_disable); */
 
 static int __cpuinitdata mips_fpu_disabled;
 
@@ -136,7 +136,7 @@ static int __init fpu_disable(char *s)
 	return 1;
 }
 
-__setup("nofpu", fpu_disable);
+/* DISABLED: __setup("nofpu", fpu_disable); */
 
 int __cpuinitdata mips_dsp_disabled;
 
@@ -148,7 +148,7 @@ static int __init dsp_disable(char *s)
 	return 1;
 }
 
-__setup("nodsp", dsp_disable);
+/* DISABLED: __setup("nodsp", dsp_disable); */
 
 void __init check_wait(void)
 {

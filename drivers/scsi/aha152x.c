@@ -3978,7 +3978,7 @@ static int __init aha152x_setup(char *str)
 
 	return 1;
 }
-__setup("aha152x=", aha152x_setup);
+/* DISABLED: __setup("aha152x=", aha152x_setup); */
 #endif
 
 #endif /* !PCMCIA */

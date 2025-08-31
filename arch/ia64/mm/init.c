@@ -607,7 +607,7 @@ nolwsys_setup (char *s)
 	return 1;
 }
 
-__setup("nolwsys", nolwsys_setup);
+/* DISABLED: __setup("nolwsys", nolwsys_setup); */
 
 void __init
 mem_init (void)

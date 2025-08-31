@@ -121,7 +121,7 @@ static int __init eukrea_cpuimx25_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-__setup("otg_mode=", eukrea_cpuimx25_otg_mode);
+/* DISABLED: __setup("otg_mode=", eukrea_cpuimx25_otg_mode); */
 
 static void __init eukrea_cpuimx25_init(void)
 {

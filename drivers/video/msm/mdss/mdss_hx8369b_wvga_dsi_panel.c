@@ -1702,7 +1702,7 @@ static int __init detect_lcd_panel_vendor(char* read_id)
 
 	return 1;
 }
-__setup("lcd_id=0x", detect_lcd_panel_vendor);
+/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */
 
 #endif
 int mdss_dsi_panel_init(struct device_node *node,

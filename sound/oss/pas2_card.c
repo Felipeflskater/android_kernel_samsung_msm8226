@@ -451,5 +451,5 @@ static int __init setup_pas2(char *str)
 	return 1;
 }
 
-__setup("pas2=", setup_pas2);
+/* DISABLED: __setup("pas2=", setup_pas2); */
 #endif

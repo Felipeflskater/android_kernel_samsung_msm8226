@@ -549,5 +549,5 @@ static int __init adb_probe_sync_enable (char *str) {
 	return 1;
 }
 
-__setup("adb_sync", adb_probe_sync_enable);
+/* DISABLED: __setup("adb_sync", adb_probe_sync_enable); */
 #endif /* CONFIG_ADB */

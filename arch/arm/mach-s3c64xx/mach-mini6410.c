@@ -255,7 +255,7 @@ static int __init mini6410_features_setup(char *str)
 	return 1;
 }
 
-__setup("mini6410=", mini6410_features_setup);
+/* DISABLED: __setup("mini6410=", mini6410_features_setup); */
 
 #define FEATURE_SCREEN (1 << 0)
 

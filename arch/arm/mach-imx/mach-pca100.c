@@ -311,7 +311,7 @@ static int __init pca100_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-__setup("otg_mode=", pca100_otg_mode);
+/* DISABLED: __setup("otg_mode=", pca100_otg_mode); */
 
 /* framebuffer info */
 static struct imx_fb_videomode pca100_fb_modes[] = {

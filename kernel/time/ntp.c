@@ -1003,7 +1003,7 @@ static int __init ntp_tick_adj_setup(char *str)
 	return 1;
 }
 
-__setup("ntp_tick_adj=", ntp_tick_adj_setup);
+/* DISABLED: __setup("ntp_tick_adj=", ntp_tick_adj_setup); */
 
 void __init ntp_init(void)
 {

@@ -127,7 +127,7 @@ static int __init setup_tick_nohz(char *str)
 	return 1;
 }
 
-__setup("nohz=", setup_tick_nohz);
+/* DISABLED: __setup("nohz=", setup_tick_nohz); */
 
 /**
  * tick_nohz_update_jiffies - update jiffies when idle was interrupted

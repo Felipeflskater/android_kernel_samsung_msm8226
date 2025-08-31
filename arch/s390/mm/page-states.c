@@ -34,7 +34,7 @@ static int __init cmma(char *str)
 		return 1;
 	return 0;
 }
-__setup("cmma=", cmma);
+/* DISABLED: __setup("cmma=", cmma); */
 
 void __init cmma_init(void)
 {

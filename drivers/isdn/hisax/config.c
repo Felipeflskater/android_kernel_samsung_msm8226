@@ -453,7 +453,7 @@ static int __init HiSax_setup(char *line)
 	return 1;
 }
 
-__setup("hisax=", HiSax_setup);
+/* DISABLED: __setup("hisax=", HiSax_setup); */
 #endif /* MODULES */
 
 #if CARD_TELES0

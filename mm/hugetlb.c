@@ -1985,14 +1985,14 @@ static int __init hugetlb_nrpages_setup(char *s)
 
 	return 1;
 }
-__setup("hugepages=", hugetlb_nrpages_setup);
+/* DISABLED: __setup("hugepages=", hugetlb_nrpages_setup); */
 
 static int __init hugetlb_default_setup(char *s)
 {
 	default_hstate_size = memparse(s, &s);
 	return 1;
 }
-__setup("default_hugepagesz=", hugetlb_default_setup);
+/* DISABLED: __setup("default_hugepagesz=", hugetlb_default_setup); */
 
 static unsigned int cpuset_mems_nr(unsigned int *array)
 {

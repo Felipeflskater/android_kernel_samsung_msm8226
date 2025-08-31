@@ -992,7 +992,7 @@ static int __init set_initfree(char *str)
 	}
 	return 1;
 }
-__setup("initfree=", set_initfree);
+/* DISABLED: __setup("initfree=", set_initfree); */
 
 static void free_init_pages(char *what, unsigned long begin, unsigned long end)
 {

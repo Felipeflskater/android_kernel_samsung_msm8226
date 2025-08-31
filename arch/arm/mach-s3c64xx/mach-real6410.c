@@ -236,7 +236,7 @@ static int __init real6410_features_setup(char *str)
 	return 1;
 }
 
-__setup("real6410=", real6410_features_setup);
+/* DISABLED: __setup("real6410=", real6410_features_setup); */
 
 #define FEATURE_SCREEN (1 << 0)
 

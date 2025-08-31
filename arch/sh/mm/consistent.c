@@ -106,7 +106,7 @@ static int __init memchunk_setup(char *str)
 {
 	return 1; /* accept anything that begins with "memchunk." */
 }
-__setup("memchunk.", memchunk_setup);
+/* DISABLED: __setup("memchunk.", memchunk_setup); */
 
 static void __init memchunk_cmdline_override(char *name, unsigned long *sizep)
 {

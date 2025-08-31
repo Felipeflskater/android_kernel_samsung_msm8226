@@ -63,7 +63,7 @@ static int __init pcm037_variant_setup(char *str)
 }
 
 /* Supported values: "pcm970" (default) and "eet" */
-__setup("pcm037_variant=", pcm037_variant_setup);
+/* DISABLED: __setup("pcm037_variant=", pcm037_variant_setup); */
 
 enum pcm037_board_variant pcm037_variant(void)
 {
@@ -570,7 +570,7 @@ static int __init pcm037_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-__setup("otg_mode=", pcm037_otg_mode);
+/* DISABLED: __setup("otg_mode=", pcm037_otg_mode); */
 
 static struct regulator_consumer_supply dummy_supplies[] = {
 	REGULATOR_SUPPLY("vdd33a", "smsc911x"),

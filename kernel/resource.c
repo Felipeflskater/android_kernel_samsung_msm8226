@@ -1112,7 +1112,7 @@ static int __init reserve_setup(char *str)
 	return 1;
 }
 
-__setup("reserve=", reserve_setup);
+/* DISABLED: __setup("reserve=", reserve_setup); */
 
 /*
  * Check if the requested addr and size spans more than any slot in the
@@ -1213,4 +1213,4 @@ static int __init strict_iomem(char *str)
 	return 1;
 }
 
-__setup("iomem=", strict_iomem);
+/* DISABLED: __setup("iomem=", strict_iomem); */

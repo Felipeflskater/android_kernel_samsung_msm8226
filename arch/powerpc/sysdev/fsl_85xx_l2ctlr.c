@@ -69,8 +69,8 @@ static int __init get_offset_from_cmdline(char *str)
 	return 1;
 }
 
-__setup("cache-sram-size=", get_size_from_cmdline);
-__setup("cache-sram-offset=", get_offset_from_cmdline);
+/* DISABLED: __setup("cache-sram-size=", get_size_from_cmdline); */
+/* DISABLED: __setup("cache-sram-offset=", get_offset_from_cmdline); */
 
 static int __devinit mpc85xx_l2ctlr_of_probe(struct platform_device *dev)
 {

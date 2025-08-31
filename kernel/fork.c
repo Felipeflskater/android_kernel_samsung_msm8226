@@ -513,7 +513,7 @@ static int __init coredump_filter_setup(char *s)
 	return 1;
 }
 
-__setup("coredump_filter=", coredump_filter_setup);
+/* DISABLED: __setup("coredump_filter=", coredump_filter_setup); */
 
 #include <linux/init_task.h>
 

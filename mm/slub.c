@@ -1208,7 +1208,7 @@ out:
 	return 1;
 }
 
-__setup("slub_debug", setup_slub_debug);
+/* DISABLED: __setup("slub_debug", setup_slub_debug); */
 
 static unsigned long kmem_cache_flags(unsigned long objsize,
 	unsigned long flags, const char *name,
@@ -3224,7 +3224,7 @@ static int __init setup_slub_min_order(char *str)
 	return 1;
 }
 
-__setup("slub_min_order=", setup_slub_min_order);
+/* DISABLED: __setup("slub_min_order=", setup_slub_min_order); */
 
 static int __init setup_slub_max_order(char *str)
 {
@@ -3234,7 +3234,7 @@ static int __init setup_slub_max_order(char *str)
 	return 1;
 }
 
-__setup("slub_max_order=", setup_slub_max_order);
+/* DISABLED: __setup("slub_max_order=", setup_slub_max_order); */
 
 static int __init setup_slub_min_objects(char *str)
 {
@@ -3243,7 +3243,7 @@ static int __init setup_slub_min_objects(char *str)
 	return 1;
 }
 
-__setup("slub_min_objects=", setup_slub_min_objects);
+/* DISABLED: __setup("slub_min_objects=", setup_slub_min_objects); */
 
 static int __init setup_slub_nomerge(char *str)
 {
@@ -3251,7 +3251,7 @@ static int __init setup_slub_nomerge(char *str)
 	return 1;
 }
 
-__setup("slub_nomerge", setup_slub_nomerge);
+/* DISABLED: __setup("slub_nomerge", setup_slub_nomerge); */
 
 static struct kmem_cache *__init create_kmalloc_cache(const char *name,
 						int size, unsigned int flags)

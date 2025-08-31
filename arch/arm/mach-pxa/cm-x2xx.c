@@ -376,7 +376,7 @@ static int __init cmx2xx_set_display(char *str)
    has limitied line length for kernel command line, and also it will
    break compatibitlty with proprietary releases already in field.
 */
-__setup("monitor=", cmx2xx_set_display);
+/* DISABLED: __setup("monitor=", cmx2xx_set_display); */
 
 static void __init cmx2xx_init_display(void)
 {

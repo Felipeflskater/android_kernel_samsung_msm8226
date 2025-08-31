@@ -1770,7 +1770,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 
 	return 1;
 }
-__setup("lcd_id=0x", get_lcd_id_cmdline);
+/* DISABLED: __setup("lcd_id=0x", get_lcd_id_cmdline); */
 #endif
 #endif	/* CONFIG_FB_MSM_MDSS_MDP3 */
 

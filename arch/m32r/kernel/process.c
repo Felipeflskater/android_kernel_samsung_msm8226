@@ -130,7 +130,7 @@ static int __init idle_setup (char *str)
 	return 1;
 }
 
-__setup("idle=", idle_setup);
+/* DISABLED: __setup("idle=", idle_setup); */
 
 void show_regs(struct pt_regs * regs)
 {

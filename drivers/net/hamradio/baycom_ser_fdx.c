@@ -710,7 +710,7 @@ static int __init baycom_ser_fdx_setup(char *str)
 	return 1;
 }
 
-__setup("baycom_ser_fdx=", baycom_ser_fdx_setup);
+/* DISABLED: __setup("baycom_ser_fdx=", baycom_ser_fdx_setup); */
 
 #endif /* MODULE */
 /* --------------------------------------------------------------------- */

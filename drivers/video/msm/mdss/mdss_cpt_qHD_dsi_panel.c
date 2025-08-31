@@ -1686,7 +1686,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "lcd_id=0x", get_lcd_id_cmdline );
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
 int mdss_dsi_panel_init(struct device_node *node,
 	struct mdss_dsi_ctrl_pdata *ctrl_pdata,
 	bool cmd_cfg_cont_splash)

@@ -735,7 +735,7 @@ static int cpqarray_setup(char *str)
 	return 1;
 }
 
-__setup("smart2=", cpqarray_setup);
+/* DISABLED: __setup("smart2=", cpqarray_setup); */
 
 #endif
 

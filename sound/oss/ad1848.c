@@ -3064,6 +3064,6 @@ static int __init setup_ad1848(char *str)
 	return 1;
 }
 
-__setup("ad1848=", setup_ad1848);	
+/* DISABLED: __setup("ad1848=", setup_ad1848);	 */
 #endif
 MODULE_LICENSE("GPL");

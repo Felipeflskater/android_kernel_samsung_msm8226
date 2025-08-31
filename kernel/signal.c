@@ -1194,7 +1194,7 @@ static int __init setup_print_fatal_signals(char *str)
 	return 1;
 }
 
-__setup("print-fatal-signals=", setup_print_fatal_signals);
+/* DISABLED: __setup("print-fatal-signals=", setup_print_fatal_signals); */
 
 int
 __group_send_sig_info(int sig, struct siginfo *info, struct task_struct *p)

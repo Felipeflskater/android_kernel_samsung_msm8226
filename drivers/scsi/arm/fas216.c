@@ -137,7 +137,7 @@ static int __init fas216_log_setup(char *str)
 	return 1;
 }
 
-__setup("fas216_logging=", fas216_log_setup);
+/* DISABLED: __setup("fas216_logging=", fas216_log_setup); */
 
 static inline unsigned char fas216_readb(FAS216_Info *info, unsigned int reg)
 {

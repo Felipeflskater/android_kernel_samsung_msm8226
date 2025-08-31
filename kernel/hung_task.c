@@ -54,7 +54,7 @@ static int __init hung_task_panic_setup(char *str)
 
 	return 1;
 }
-__setup("hung_task_panic=", hung_task_panic_setup);
+/* DISABLED: __setup("hung_task_panic=", hung_task_panic_setup); */
 
 static int
 hung_task_panic(struct notifier_block *this, unsigned long event, void *ptr)

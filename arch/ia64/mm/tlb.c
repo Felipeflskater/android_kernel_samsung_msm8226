@@ -157,7 +157,7 @@ set_nptcg(char *str)
 	return 1;
 }
 
-__setup("nptcg=", set_nptcg);
+/* DISABLED: __setup("nptcg=", set_nptcg); */
 
 /*
  * Maximum number of simultaneous ptc.g purges in the system can

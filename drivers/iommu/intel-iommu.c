@@ -482,7 +482,7 @@ static int __init intel_iommu_setup(char *str)
 	}
 	return 0;
 }
-__setup("intel_iommu=", intel_iommu_setup);
+/* DISABLED: __setup("intel_iommu=", intel_iommu_setup); */
 
 static struct kmem_cache *iommu_domain_cache;
 static struct kmem_cache *iommu_devinfo_cache;

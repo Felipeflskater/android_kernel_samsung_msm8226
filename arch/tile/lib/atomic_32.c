@@ -256,7 +256,7 @@ static int __init noatomichash(char *str)
 	pr_warning("noatomichash is deprecated.\n");
 	return 1;
 }
-__setup("noatomichash", noatomichash);
+/* DISABLED: __setup("noatomichash", noatomichash); */
 #endif
 
 void __init __init_atomic_per_cpu(void)

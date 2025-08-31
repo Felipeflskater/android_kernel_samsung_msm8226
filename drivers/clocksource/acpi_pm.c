@@ -79,7 +79,7 @@ static int __init acpi_pm_good_setup(char *__str)
 	acpi_pm_good = 1;
 	return 1;
 }
-__setup("acpi_pm_good", acpi_pm_good_setup);
+/* DISABLED: __setup("acpi_pm_good", acpi_pm_good_setup); */
 
 static cycle_t acpi_pm_read_slow(struct clocksource *cs)
 {
@@ -247,4 +247,4 @@ static int __init parse_pmtmr(char *arg)
 
 	return 1;
 }
-__setup("pmtmr=", parse_pmtmr);
+/* DISABLED: __setup("pmtmr=", parse_pmtmr); */

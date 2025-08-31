@@ -176,7 +176,7 @@ static int __init ofpci_debug(char *str)
 	return 1;
 }
 
-__setup("ofpci_debug=", ofpci_debug);
+/* DISABLED: __setup("ofpci_debug=", ofpci_debug); */
 
 static unsigned long pci_parse_of_flags(u32 addr0)
 {

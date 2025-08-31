@@ -1237,7 +1237,7 @@ static int __init power_normal_off(char *val)
 	pr_info("%s, normal_off:%d\n", __func__, normal_off);
         return 1;
 }
-__setup("normal_off=", power_normal_off);
+/* DISABLED: __setup("normal_off=", power_normal_off); */
 
 bool kernel_sec_set_normal_pwroff(int value)
 {
@@ -2824,7 +2824,7 @@ static int __init sec_dbg_setup(char *str)
 	return 1;
 }
 
-__setup("sec_dbg=", sec_dbg_setup);
+/* DISABLED: __setup("sec_dbg=", sec_dbg_setup); */
 
 
 static void sec_user_fault_dump(void)

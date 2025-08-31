@@ -872,7 +872,7 @@ static int mconsole_setup(char *str)
 	return 1;
 }
 
-__setup("mconsole=", mconsole_setup);
+/* DISABLED: __setup("mconsole=", mconsole_setup); */
 
 __uml_help(mconsole_setup,
 "mconsole=notify:<socket>\n"

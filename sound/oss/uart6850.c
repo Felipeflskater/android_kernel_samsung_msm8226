@@ -356,6 +356,6 @@ static int __init setup_uart6850(char *str)
 
 	return 1;
 }
-__setup("uart6850=", setup_uart6850);
+/* DISABLED: __setup("uart6850=", setup_uart6850); */
 #endif
 MODULE_LICENSE("GPL");

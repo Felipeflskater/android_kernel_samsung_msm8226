@@ -134,7 +134,7 @@ static int __init enable_tmem(char *s)
 	tmem_enabled = true;
 	return 1;
 }
-__setup("tmem", enable_tmem);
+/* DISABLED: __setup("tmem", enable_tmem); */
 
 #ifdef CONFIG_CLEANCACHE
 static int xen_tmem_destroy_pool(u32 pool_id)
@@ -233,7 +233,7 @@ static int __init no_cleancache(char *s)
 	use_cleancache = false;
 	return 1;
 }
-__setup("nocleancache", no_cleancache);
+/* DISABLED: __setup("nocleancache", no_cleancache); */
 
 static struct cleancache_ops __initdata tmem_cleancache_ops = {
 	.put_page = tmem_cleancache_put_page,
@@ -359,7 +359,7 @@ static int __init no_frontswap(char *s)
 	use_frontswap = false;
 	return 1;
 }
-__setup("nofrontswap", no_frontswap);
+/* DISABLED: __setup("nofrontswap", no_frontswap); */
 
 static struct frontswap_ops __initdata tmem_frontswap_ops = {
 	.store = tmem_frontswap_store,

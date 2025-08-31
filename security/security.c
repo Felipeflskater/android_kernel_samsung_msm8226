@@ -79,7 +79,7 @@ static int __init choose_lsm(char *str)
 	strncpy(chosen_lsm, str, SECURITY_NAME_MAX);
 	return 1;
 }
-__setup("security=", choose_lsm);
+/* DISABLED: __setup("security=", choose_lsm); */
 
 /**
  * security_module_enable - Load given security module on boot ?

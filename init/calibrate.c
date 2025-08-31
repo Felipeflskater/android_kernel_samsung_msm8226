@@ -19,7 +19,7 @@ static int __init lpj_setup(char *str)
 	return 1;
 }
 
-__setup("lpj=", lpj_setup);
+/* DISABLED: __setup("lpj=", lpj_setup); */
 
 #ifdef ARCH_HAS_READ_CURRENT_TIMER
 

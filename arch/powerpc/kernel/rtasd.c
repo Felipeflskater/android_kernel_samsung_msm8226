@@ -541,7 +541,7 @@ static int __init surveillance_setup(char *str)
 
 	return 1;
 }
-__setup("surveillance=", surveillance_setup);
+/* DISABLED: __setup("surveillance=", surveillance_setup); */
 
 static int __init rtasmsgs_setup(char *str)
 {
@@ -552,4 +552,4 @@ static int __init rtasmsgs_setup(char *str)
 
 	return 1;
 }
-__setup("rtasmsgs=", rtasmsgs_setup);
+/* DISABLED: __setup("rtasmsgs=", rtasmsgs_setup); */

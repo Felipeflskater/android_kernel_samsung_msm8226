@@ -1651,7 +1651,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "lcd_id=0x", get_lcd_id_cmdline );
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
 
 #if defined(DDI_VIDEO_ENHANCE_TUNING)
 #define MAX_FILE_NAME 128

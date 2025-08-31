@@ -50,7 +50,7 @@ static int __cpuinit x##_setup(char *opts)			\
 	x##_disabled = 1;				\
 	return 1;					\
 }							\
-__setup("no" __stringify(x), x##_setup);
+/* DISABLED: __setup("no" __stringify(x), x##_setup); */
 
 onchip_setup(fpu);
 onchip_setup(dsp);

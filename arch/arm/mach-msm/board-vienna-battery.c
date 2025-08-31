@@ -707,7 +707,7 @@ static int __init sec_bat_current_boot_mode(char *mode)
 
 	return 1;
 }
-__setup("androidboot.boot_recovery=", sec_bat_current_boot_mode);
+/* DISABLED: __setup("androidboot.boot_recovery=", sec_bat_current_boot_mode); */
 
 static void charger_gpio_init(void)
 {

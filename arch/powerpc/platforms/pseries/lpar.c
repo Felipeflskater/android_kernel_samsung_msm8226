@@ -449,7 +449,7 @@ static int __init disable_bulk_remove(char *str)
 	return 1;
 }
 
-__setup("bulk_remove=", disable_bulk_remove);
+/* DISABLED: __setup("bulk_remove=", disable_bulk_remove); */
 
 void __init hpte_init_lpar(void)
 {
@@ -487,7 +487,7 @@ static int __init cmo_free_hint(char *str)
 	return 0;
 }
 
-__setup("cmo_free_hint=", cmo_free_hint);
+/* DISABLED: __setup("cmo_free_hint=", cmo_free_hint); */
 
 static void pSeries_set_page_state(struct page *page, int order,
 				   unsigned long state)

@@ -45,7 +45,7 @@ static int __init evm_set_fixmode(char *str)
 		evm_fixmode = 1;
 	return 0;
 }
-__setup("evm=", evm_set_fixmode);
+/* DISABLED: __setup("evm=", evm_set_fixmode); */
 
 static int evm_find_protected_xattrs(struct dentry *dentry)
 {

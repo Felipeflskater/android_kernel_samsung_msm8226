@@ -62,7 +62,7 @@ static int __init pat_debug_setup(char *str)
 	pat_debug_enable = 1;
 	return 0;
 }
-__setup("debugpat", pat_debug_setup);
+/* DISABLED: __setup("debugpat", pat_debug_setup); */
 
 static u64 __read_mostly boot_pat_state;
 

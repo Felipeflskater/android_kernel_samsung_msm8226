@@ -353,7 +353,7 @@ static __init int agp_setup(char *s)
 		agp_try_unsupported_boot = 1;
 	return 1;
 }
-__setup("agp=", agp_setup);
+/* DISABLED: __setup("agp=", agp_setup); */
 #endif
 
 MODULE_AUTHOR("Dave Jones <davej@redhat.com>");

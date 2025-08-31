@@ -28,7 +28,7 @@ static int __init kstack_setup(char *s)
 {
 	return !strict_strtoul(s, 0, &kstack_depth_to_print);
 }
-__setup("kstack=", kstack_setup);
+/* DISABLED: __setup("kstack=", kstack_setup); */
 
 void show_stack(struct task_struct *task, unsigned long *sp)
 {

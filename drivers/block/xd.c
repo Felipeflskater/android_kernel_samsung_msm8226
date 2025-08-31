@@ -1114,8 +1114,8 @@ static int __init xd_manual_geo_init (char *str)
 	return 1;
 }
 
-__setup ("xd=", xd_setup);
-__setup ("xd_geo=", xd_manual_geo_init);
+/* DISABLED: __setup ("xd=", xd_setup); */
+/* DISABLED: __setup ("xd_geo=", xd_manual_geo_init); */
 
 #endif /* MODULE */
 

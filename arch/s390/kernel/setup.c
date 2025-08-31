@@ -134,7 +134,7 @@ static int __init condev_setup(char *str)
 	return 1;
 }
 
-__setup("condev=", condev_setup);
+/* DISABLED: __setup("condev=", condev_setup); */
 
 static void __init set_preferred_console(void)
 {
@@ -164,7 +164,7 @@ static int __init conmode_setup(char *str)
         return 1;
 }
 
-__setup("conmode=", conmode_setup);
+/* DISABLED: __setup("conmode=", conmode_setup); */
 
 static void __init conmode_default(void)
 {

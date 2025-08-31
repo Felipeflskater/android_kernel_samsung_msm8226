@@ -3091,7 +3091,7 @@ static int __init set_dhash_entries(char *str)
 	dhash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("dhash_entries=", set_dhash_entries);
+/* DISABLED: __setup("dhash_entries=", set_dhash_entries); */
 
 static void __init dcache_init_early(void)
 {

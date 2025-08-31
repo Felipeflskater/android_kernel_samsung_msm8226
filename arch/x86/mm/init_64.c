@@ -95,7 +95,7 @@ static int __init nonx32_setup(char *str)
 		force_personality32 |= READ_IMPLIES_EXEC;
 	return 1;
 }
-__setup("noexec32=", nonx32_setup);
+/* DISABLED: __setup("noexec32=", nonx32_setup); */
 
 /*
  * When memory was added/removed make sure all the processes MM have

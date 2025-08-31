@@ -53,7 +53,7 @@ static int __init pcie_port_setup(char *str)
 
 	return 1;
 }
-__setup("pcie_ports=", pcie_port_setup);
+/* DISABLED: __setup("pcie_ports=", pcie_port_setup); */
 
 /* global data */
 

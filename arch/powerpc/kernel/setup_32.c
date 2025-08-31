@@ -184,7 +184,7 @@ int __init ppc_setup_l2cr(char *str)
 	}
 	return 1;
 }
-__setup("l2cr=", ppc_setup_l2cr);
+/* DISABLED: __setup("l2cr=", ppc_setup_l2cr); */
 
 /* Checks "l3cr=xxxx" command-line option */
 int __init ppc_setup_l3cr(char *str)
@@ -196,7 +196,7 @@ int __init ppc_setup_l3cr(char *str)
 	}
 	return 1;
 }
-__setup("l3cr=", ppc_setup_l3cr);
+/* DISABLED: __setup("l3cr=", ppc_setup_l3cr); */
 
 #ifdef CONFIG_GENERIC_NVRAM
 

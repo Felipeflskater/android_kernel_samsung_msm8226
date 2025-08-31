@@ -445,7 +445,7 @@ static int __init debug_guardpage_minorder_setup(char *buf)
 	printk(KERN_INFO "Setting debug_guardpage_minorder to %lu\n", res);
 	return 0;
 }
-__setup("debug_guardpage_minorder=", debug_guardpage_minorder_setup);
+/* DISABLED: __setup("debug_guardpage_minorder=", debug_guardpage_minorder_setup); */
 
 static inline void set_page_guard_flag(struct page *page)
 {
@@ -1650,7 +1650,7 @@ static int __init setup_fail_page_alloc(char *str)
 {
 	return setup_fault_attr(&fail_page_alloc.attr, str);
 }
-__setup("fail_page_alloc=", setup_fail_page_alloc);
+/* DISABLED: __setup("fail_page_alloc=", setup_fail_page_alloc); */
 
 static int should_fail_alloc_page(gfp_t gfp_mask, unsigned int order)
 {
@@ -5651,7 +5651,7 @@ static int __init set_hashdist(char *str)
 	hashdist = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("hashdist=", set_hashdist);
+/* DISABLED: __setup("hashdist=", set_hashdist); */
 #endif
 
 /*

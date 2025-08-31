@@ -432,7 +432,7 @@ int noirqdebug_setup(char *str)
 	return 1;
 }
 
-__setup("noirqdebug", noirqdebug_setup);
+/* DISABLED: __setup("noirqdebug", noirqdebug_setup); */
 module_param(noirqdebug, bool, 0644);
 MODULE_PARM_DESC(noirqdebug, "Disable irq lockup detection when true");
 
@@ -445,7 +445,7 @@ static int __init irqfixup_setup(char *str)
 	return 1;
 }
 
-__setup("irqfixup", irqfixup_setup);
+/* DISABLED: __setup("irqfixup", irqfixup_setup); */
 module_param(irqfixup, int, 0644);
 
 static int __init irqpoll_setup(char *str)
@@ -458,4 +458,4 @@ static int __init irqpoll_setup(char *str)
 	return 1;
 }
 
-__setup("irqpoll", irqpoll_setup);
+/* DISABLED: __setup("irqpoll", irqpoll_setup); */

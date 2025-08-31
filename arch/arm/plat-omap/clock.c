@@ -190,7 +190,7 @@ static int __init omap_clk_setup(char *str)
 
 	return 1;
 }
-__setup("mpurate=", omap_clk_setup);
+/* DISABLED: __setup("mpurate=", omap_clk_setup); */
 
 /* Used for clocks that always have same value as the parent clock */
 unsigned long followparent_recalc(struct clk *clk)

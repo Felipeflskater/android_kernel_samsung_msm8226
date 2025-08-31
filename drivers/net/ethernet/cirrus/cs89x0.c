@@ -276,7 +276,7 @@ static int __init dma_fn(char *str)
 	return 1;
 }
 
-__setup("cs89x0_dma=", dma_fn);
+/* DISABLED: __setup("cs89x0_dma=", dma_fn); */
 #endif	/* !defined(MODULE) && (ALLOW_DMA != 0) */
 
 #ifndef MODULE
@@ -290,7 +290,7 @@ static int __init media_fn(char *str)
 	return 1;
 }
 
-__setup("cs89x0_media=", media_fn);
+/* DISABLED: __setup("cs89x0_media=", media_fn); */
 
 
 #ifndef CONFIG_CS89x0_PLATFORM

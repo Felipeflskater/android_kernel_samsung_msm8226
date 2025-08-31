@@ -42,7 +42,7 @@ static __init int no_ipi_broadcast(char *str)
 		no_broadcast ? "No IPI Broadcast" : "IPI Broadcast");
 	return 1;
 }
-__setup("no_ipi_broadcast=", no_ipi_broadcast);
+/* DISABLED: __setup("no_ipi_broadcast=", no_ipi_broadcast); */
 
 static int __init print_ipi_mode(void)
 {

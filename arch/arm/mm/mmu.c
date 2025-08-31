@@ -180,7 +180,7 @@ static int __init noalign_setup(char *__unused)
 	set_cr(cr_alignment);
 	return 1;
 }
-__setup("noalign", noalign_setup);
+/* DISABLED: __setup("noalign", noalign_setup); */
 
 #ifndef CONFIG_SMP
 void adjust_cr(unsigned long mask, unsigned long set)

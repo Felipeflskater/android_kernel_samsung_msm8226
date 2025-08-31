@@ -854,7 +854,7 @@ static int __init noaliencache_setup(char *s)
 	use_alien_caches = 0;
 	return 1;
 }
-__setup("noaliencache", noaliencache_setup);
+/* DISABLED: __setup("noaliencache", noaliencache_setup); */
 
 static int __init slab_max_order_setup(char *str)
 {
@@ -865,7 +865,7 @@ static int __init slab_max_order_setup(char *str)
 
 	return 1;
 }
-__setup("slab_max_order=", slab_max_order_setup);
+/* DISABLED: __setup("slab_max_order=", slab_max_order_setup); */
 
 #ifdef CONFIG_NUMA
 /*

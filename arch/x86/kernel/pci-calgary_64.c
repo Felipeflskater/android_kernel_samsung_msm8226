@@ -1531,7 +1531,7 @@ static int __init calgary_parse_options(char *p)
 	}
 	return 1;
 }
-__setup("calgary=", calgary_parse_options);
+/* DISABLED: __setup("calgary=", calgary_parse_options); */
 
 static void __init calgary_fixup_one_tce_space(struct pci_dev *dev)
 {

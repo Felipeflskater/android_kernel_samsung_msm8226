@@ -79,7 +79,7 @@ int __init reboot_setup(char *str)
 	return 1;
 }
 
-__setup("reboot=", reboot_setup);
+/* DISABLED: __setup("reboot=", reboot_setup); */
 
 void machine_halt(void)
 {

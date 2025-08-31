@@ -965,7 +965,7 @@ static int __init usb_id_pin_rework_setup(char *support)
 
 	return 1;
 }
-__setup("usb_id_pin_rework=", usb_id_pin_rework_setup);
+/* DISABLED: __setup("usb_id_pin_rework=", usb_id_pin_rework_setup); */
 
 static void pmic_id_detect(struct work_struct *w)
 {

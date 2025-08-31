@@ -75,7 +75,7 @@ static int __init fpe_setup(char *line)
 	return 1;
 }
 
-__setup("fpe=", fpe_setup);
+/* DISABLED: __setup("fpe=", fpe_setup); */
 #endif
 
 extern void paging_init(struct machine_desc *desc);

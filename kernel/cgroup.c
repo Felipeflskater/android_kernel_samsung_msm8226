@@ -4843,7 +4843,7 @@ static int __init cgroup_disable(char *str)
 	}
 	return 1;
 }
-__setup("cgroup_disable=", cgroup_disable);
+/* DISABLED: __setup("cgroup_disable=", cgroup_disable); */
 
 /*
  * Functons for CSS ID.

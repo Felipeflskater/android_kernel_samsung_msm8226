@@ -721,7 +721,7 @@ static int __init wd7000_setup(char *str)
 	return 1;
 }
 
-__setup("wd7000=", wd7000_setup);
+/* DISABLED: __setup("wd7000=", wd7000_setup); */
 
 static inline void any2scsi(unchar * scsi, int any)
 {

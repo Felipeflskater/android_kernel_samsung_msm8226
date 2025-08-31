@@ -426,7 +426,7 @@ static int __init pnpbios_setup(char *str)
 	return 1;
 }
 
-__setup("pnpbios=", pnpbios_setup);
+/* DISABLED: __setup("pnpbios=", pnpbios_setup); */
 
 /* PnP BIOS signature: "$PnP" */
 #define PNP_SIGNATURE   (('$' << 0) + ('P' << 8) + ('n' << 16) + ('P' << 24))

@@ -32,7 +32,7 @@ static int __init ccw_timeout_log_setup(char *unused)
 	return 1;
 }
 
-__setup("ccw_timeout_log", ccw_timeout_log_setup);
+/* DISABLED: __setup("ccw_timeout_log", ccw_timeout_log_setup); */
 
 static void ccw_timeout_log(struct ccw_device *cdev)
 {

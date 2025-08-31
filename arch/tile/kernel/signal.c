@@ -386,7 +386,7 @@ static int __init crashinfo(char *str)
 	pr_info("%s crash reports will be generated on the console\n", word);
 	return 1;
 }
-__setup("crashinfo", crashinfo);
+/* DISABLED: __setup("crashinfo", crashinfo); */
 
 static void dump_mem(void __user *address)
 {

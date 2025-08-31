@@ -30,7 +30,7 @@ static int __init delayacct_setup_disable(char *str)
 	delayacct_on = 0;
 	return 1;
 }
-__setup("nodelayacct", delayacct_setup_disable);
+/* DISABLED: __setup("nodelayacct", delayacct_setup_disable); */
 
 void delayacct_init(void)
 {

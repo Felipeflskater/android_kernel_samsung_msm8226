@@ -64,7 +64,7 @@ static int __init checkreqprot_setup(char *str)
 		selinux_checkreqprot = checkreqprot ? 1 : 0;
 	return 1;
 }
-__setup("checkreqprot=", checkreqprot_setup);
+/* DISABLED: __setup("checkreqprot=", checkreqprot_setup); */
 
 static DEFINE_MUTEX(sel_mutex);
 

@@ -840,8 +840,8 @@ static __init int dma_debug_entries_cmdline(char *str)
 	return 0;
 }
 
-__setup("dma_debug=", dma_debug_cmdline);
-__setup("dma_debug_entries=", dma_debug_entries_cmdline);
+/* DISABLED: __setup("dma_debug=", dma_debug_cmdline); */
+/* DISABLED: __setup("dma_debug_entries=", dma_debug_entries_cmdline); */
 
 static void check_unmap(struct dma_debug_entry *ref)
 {
@@ -1362,4 +1362,4 @@ static int __init dma_debug_driver_setup(char *str)
 
 	return 1;
 }
-__setup("dma_debug_driver=", dma_debug_driver_setup);
+/* DISABLED: __setup("dma_debug_driver=", dma_debug_driver_setup); */

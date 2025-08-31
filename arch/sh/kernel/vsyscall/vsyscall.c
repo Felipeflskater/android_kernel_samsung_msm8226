@@ -31,7 +31,7 @@ static int __init vdso_setup(char *s)
 	vdso_enabled = simple_strtoul(s, NULL, 0);
 	return 1;
 }
-__setup("vdso=", vdso_setup);
+/* DISABLED: __setup("vdso=", vdso_setup); */
 
 /*
  * These symbols are defined by vsyscall.o to mark the bounds

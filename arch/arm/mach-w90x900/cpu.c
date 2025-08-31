@@ -196,7 +196,7 @@ static int __init nuc900_set_cpufreq(char *str)
 	return 1;
 }
 
-__setup("cpufreq=", nuc900_set_cpufreq);
+/* DISABLED: __setup("cpufreq=", nuc900_set_cpufreq); */
 
 /*Init NUC900 evb io*/
 

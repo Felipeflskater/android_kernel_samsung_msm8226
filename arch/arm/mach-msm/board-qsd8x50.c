@@ -261,7 +261,7 @@ static int __init board_serialno_setup(char *serialno)
 	android_usb_pdata.serial_number = serialno;
 	return 1;
 }
-__setup("androidboot.serialno=", board_serialno_setup);
+/* DISABLED: __setup("androidboot.serialno=", board_serialno_setup); */
 #endif
 
 static struct platform_device smc91x_device = {

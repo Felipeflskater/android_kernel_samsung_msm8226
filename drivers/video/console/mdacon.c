@@ -194,7 +194,7 @@ static int __init mdacon_setup(char *str)
 	return 1;
 }
 
-__setup("mdacon=", mdacon_setup);
+/* DISABLED: __setup("mdacon=", mdacon_setup); */
 #endif
 
 static int mda_detect(void)

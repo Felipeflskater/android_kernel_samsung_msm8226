@@ -521,7 +521,7 @@ static int __init setup_hrtimer_hres(char *str)
 	return 1;
 }
 
-__setup("highres=", setup_hrtimer_hres);
+/* DISABLED: __setup("highres=", setup_hrtimer_hres); */
 
 /*
  * hrtimer_high_res_enabled - query, if the highres mode is enabled

@@ -1334,7 +1334,7 @@ static int __init cca_setup(char *str)
 	return 1;
 }
 
-__setup("cca=", cca_setup);
+/* DISABLED: __setup("cca=", cca_setup); */
 
 static void __cpuinit coherency_setup(void)
 {
@@ -1387,7 +1387,7 @@ static int __init setcoherentio(char *str)
 	return 1;
 }
 
-__setup("coherentio", setcoherentio);
+/* DISABLED: __setup("coherentio", setcoherentio); */
 #endif
 
 void __cpuinit r4k_cache_init(void)

@@ -35,7 +35,7 @@ static int __init hash_setup(char *str)
 		ima_hash = "md5";
 	return 1;
 }
-__setup("ima_hash=", hash_setup);
+/* DISABLED: __setup("ima_hash=", hash_setup); */
 
 /*
  * ima_rdwr_violation_check

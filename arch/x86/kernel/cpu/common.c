@@ -148,14 +148,14 @@ static int __init x86_xsave_setup(char *s)
 	setup_clear_cpu_cap(X86_FEATURE_XSAVEOPT);
 	return 1;
 }
-__setup("noxsave", x86_xsave_setup);
+/* DISABLED: __setup("noxsave", x86_xsave_setup); */
 
 static int __init x86_xsaveopt_setup(char *s)
 {
 	setup_clear_cpu_cap(X86_FEATURE_XSAVEOPT);
 	return 1;
 }
-__setup("noxsaveopt", x86_xsaveopt_setup);
+/* DISABLED: __setup("noxsaveopt", x86_xsaveopt_setup); */
 
 #ifdef CONFIG_X86_32
 static int cachesize_override __cpuinitdata = -1;
@@ -166,7 +166,7 @@ static int __init cachesize_setup(char *str)
 	get_option(&str, &cachesize_override);
 	return 1;
 }
-__setup("cachesize=", cachesize_setup);
+/* DISABLED: __setup("cachesize=", cachesize_setup); */
 
 static int __init x86_fxsr_setup(char *s)
 {
@@ -174,14 +174,14 @@ static int __init x86_fxsr_setup(char *s)
 	setup_clear_cpu_cap(X86_FEATURE_XMM);
 	return 1;
 }
-__setup("nofxsr", x86_fxsr_setup);
+/* DISABLED: __setup("nofxsr", x86_fxsr_setup); */
 
 static int __init x86_sep_setup(char *s)
 {
 	setup_clear_cpu_cap(X86_FEATURE_SEP);
 	return 1;
 }
-__setup("nosep", x86_sep_setup);
+/* DISABLED: __setup("nosep", x86_sep_setup); */
 
 /* Standard macro to see if a specific flag is changeable */
 static inline int flag_is_changeable_p(u32 flag)
@@ -243,7 +243,7 @@ static int __init x86_serial_nr_setup(char *s)
 	disable_x86_serial_nr = 0;
 	return 1;
 }
-__setup("serialnumber", x86_serial_nr_setup);
+/* DISABLED: __setup("serialnumber", x86_serial_nr_setup); */
 #else
 static inline int flag_is_changeable_p(u32 flag)
 {
@@ -265,7 +265,7 @@ static __init int setup_disable_smep(char *arg)
 	disable_smep = 1;
 	return 1;
 }
-__setup("nosmep", setup_disable_smep);
+/* DISABLED: __setup("nosmep", setup_disable_smep); */
 
 static __cpuinit void setup_smep(struct cpuinfo_x86 *c)
 {
@@ -968,14 +968,14 @@ static __init int setup_show_msr(char *arg)
 		show_msr = num;
 	return 1;
 }
-__setup("show_msr=", setup_show_msr);
+/* DISABLED: __setup("show_msr=", setup_show_msr); */
 
 static __init int setup_noclflush(char *arg)
 {
 	setup_clear_cpu_cap(X86_FEATURE_CLFLSH);
 	return 1;
 }
-__setup("noclflush", setup_noclflush);
+/* DISABLED: __setup("noclflush", setup_noclflush); */
 
 void __cpuinit print_cpu_info(struct cpuinfo_x86 *c)
 {
@@ -1021,7 +1021,7 @@ static __init int setup_disablecpuid(char *arg)
 
 	return 1;
 }
-__setup("clearcpuid=", setup_disablecpuid);
+/* DISABLED: __setup("clearcpuid=", setup_disablecpuid); */
 
 #ifdef CONFIG_X86_64
 struct desc_ptr idt_descr = { NR_VECTORS * 16 - 1, (unsigned long) idt_table };

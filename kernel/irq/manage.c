@@ -909,7 +909,7 @@ static void irq_setup_forced_threading(struct irqaction *new)
  * allocate special interrupts that are part of the architecture.
  */
 static int
-__setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
+/* DISABLED: __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new) */
 {
 	struct irqaction *old, **old_ptr;
 	const char *old_name = NULL;

@@ -39,7 +39,7 @@ static int __init trapped_io_setup(char *__unused)
 	trapped_io_disable = 1;
 	return 1;
 }
-__setup("noiotrap", trapped_io_setup);
+/* DISABLED: __setup("noiotrap", trapped_io_setup); */
 
 int register_trapped_io(struct trapped_io *tiop)
 {

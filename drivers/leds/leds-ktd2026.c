@@ -46,8 +46,8 @@ static int __init jig_power_on_value_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "jig_power_on=0x", jig_power_on_value_cmdline );
-__setup( "batt_id_value=0x", get_batt_id_value_cmdline );
+/* DISABLED: __setup( "jig_power_on=0x", jig_power_on_value_cmdline ); */
+/* DISABLED: __setup( "batt_id_value=0x", get_batt_id_value_cmdline ); */
 #endif
 #endif
 

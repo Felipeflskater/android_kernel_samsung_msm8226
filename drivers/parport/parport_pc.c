@@ -3537,7 +3537,7 @@ static int __init parse_parport_params(void)
 	return io[0] == PARPORT_DISABLE;
 }
 
-__setup("parport=", parport_setup);
+/* DISABLED: __setup("parport=", parport_setup); */
 
 /*
  * Acceptable parameters:
@@ -3545,7 +3545,7 @@ __setup("parport=", parport_setup);
  * parport_init_mode=[spp|ps2|epp|ecp|ecpepp]
  */
 #ifdef CONFIG_PCI
-__setup("parport_init_mode=", parport_init_mode_setup);
+/* DISABLED: __setup("parport_init_mode=", parport_init_mode_setup); */
 #endif
 #endif
 

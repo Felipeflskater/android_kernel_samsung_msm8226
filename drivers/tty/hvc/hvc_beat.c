@@ -129,6 +129,6 @@ static void __exit hvc_beat_exit(void)
 module_init(hvc_beat_init);
 module_exit(hvc_beat_exit);
 
-__setup("hvc_beat=", hvc_beat_config);
+/* DISABLED: __setup("hvc_beat=", hvc_beat_config); */
 
 console_initcall(hvc_beat_console_init);

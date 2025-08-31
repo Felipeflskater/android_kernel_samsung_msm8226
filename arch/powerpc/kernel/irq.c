@@ -630,5 +630,5 @@ static int __init setup_noirqdistrib(char *str)
 	return 1;
 }
 
-__setup("noirqdistrib", setup_noirqdistrib);
+/* DISABLED: __setup("noirqdistrib", setup_noirqdistrib); */
 #endif /* CONFIG_PPC64 */

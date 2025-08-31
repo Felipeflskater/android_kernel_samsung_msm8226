@@ -62,7 +62,7 @@ static int __init olpc_ec_timeout_set(char *str)
 			ec_timeout);
 	return 1;
 }
-__setup("olpc_ec_timeout=", olpc_ec_timeout_set);
+/* DISABLED: __setup("olpc_ec_timeout=", olpc_ec_timeout_set); */
 
 /*
  * These {i,o}bf_status functions return whether the buffers are full or not.

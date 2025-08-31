@@ -1801,6 +1801,6 @@ static int __init setup_mpu401(char *str)
 	return 1;
 }
 
-__setup("mpu401=", setup_mpu401);
+/* DISABLED: __setup("mpu401=", setup_mpu401); */
 #endif
 MODULE_LICENSE("GPL");

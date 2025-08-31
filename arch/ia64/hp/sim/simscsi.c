@@ -93,7 +93,7 @@ simscsi_setup (char *s)
 	return 1;
 }
 
-__setup("simscsi=", simscsi_setup);
+/* DISABLED: __setup("simscsi=", simscsi_setup); */
 
 static void
 simscsi_interrupt (unsigned long val)

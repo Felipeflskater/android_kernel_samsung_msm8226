@@ -164,7 +164,7 @@ static int __init set_reset_devices(char *str)
 	return 1;
 }
 
-__setup("reset_devices", set_reset_devices);
+/* DISABLED: __setup("reset_devices", set_reset_devices); */
 
 static const char * argv_init[MAX_INIT_ARGS+2] = { "init", NULL, };
 const char * envp_init[MAX_INIT_ENVS+2] = { "HOME=/", "TERM=linux", NULL, };
@@ -354,7 +354,7 @@ static int __init init_setup(char *str)
 		argv_init[i] = NULL;
 	return 1;
 }
-__setup("init=", init_setup);
+/* DISABLED: __setup("init=", init_setup); */
 
 static int __init rdinit_setup(char *str)
 {
@@ -366,7 +366,7 @@ static int __init rdinit_setup(char *str)
 		argv_init[i] = NULL;
 	return 1;
 }
-__setup("rdinit=", rdinit_setup);
+/* DISABLED: __setup("rdinit=", rdinit_setup); */
 
 #ifndef CONFIG_SMP
 static const unsigned int setup_max_cpus = NR_CPUS;

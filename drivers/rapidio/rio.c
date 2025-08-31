@@ -1169,7 +1169,7 @@ static int rio_hdid_setup(char *str)
 	return 1;
 }
 
-__setup("riohdid=", rio_hdid_setup);
+/* DISABLED: __setup("riohdid=", rio_hdid_setup); */
 
 int rio_register_mport(struct rio_mport *port)
 {

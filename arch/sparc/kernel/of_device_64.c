@@ -723,4 +723,4 @@ static int __init of_debug(char *str)
 	return 1;
 }
 
-__setup("of_debug=", of_debug);
+/* DISABLED: __setup("of_debug=", of_debug); */

@@ -226,7 +226,7 @@ static int __init omap_i2c_bus_setup(char *str)
 
 	return 1;
 }
-__setup("i2c_bus=", omap_i2c_bus_setup);
+/* DISABLED: __setup("i2c_bus=", omap_i2c_bus_setup); */
 
 /*
  * Register busses defined in command line but that are not registered with

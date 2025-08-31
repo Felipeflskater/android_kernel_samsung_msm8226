@@ -1804,7 +1804,7 @@ wd33c93_setup(char *str)
 
 	return 1;
 }
-__setup("wd33c93=", wd33c93_setup);
+/* DISABLED: __setup("wd33c93=", wd33c93_setup); */
 
 /* check_setup_args() returns index if key found, 0 if not
  */

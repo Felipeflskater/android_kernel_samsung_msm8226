@@ -1934,5 +1934,5 @@ static int __init max_loop_setup(char *str)
 	return 1;
 }
 
-__setup("max_loop=", max_loop_setup);
+/* DISABLED: __setup("max_loop=", max_loop_setup); */
 #endif

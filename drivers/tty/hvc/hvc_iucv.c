@@ -1333,5 +1333,5 @@ static	int __init hvc_iucv_config(char *val)
 
 
 device_initcall(hvc_iucv_init);
-__setup("hvc_iucv=", hvc_iucv_config);
+/* DISABLED: __setup("hvc_iucv=", hvc_iucv_config); */
 core_param(hvc_iucv_allow, hvc_iucv_filter, vmidfilter, 0640);

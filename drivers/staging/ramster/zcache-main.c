@@ -3172,7 +3172,7 @@ static int __init ramster_nofrontswap_selfshrink_setup(char *s)
 	return 1;
 }
 
-__setup("noselfshrink", ramster_nofrontswap_selfshrink_setup);
+/* DISABLED: __setup("noselfshrink", ramster_nofrontswap_selfshrink_setup); */
 
 static void selfshrink_process(struct work_struct *work)
 {
@@ -3215,7 +3215,7 @@ static int __init enable_ramster(char *s)
 	ramster_enabled = 1;
 	return 1;
 }
-__setup("ramster", enable_ramster);
+/* DISABLED: __setup("ramster", enable_ramster); */
 
 /* allow independent dynamic disabling of cleancache and frontswap */
 
@@ -3243,7 +3243,7 @@ static int __init no_frontswap(char *s)
 	return 1;
 }
 
-__setup("nofrontswap", no_frontswap);
+/* DISABLED: __setup("nofrontswap", no_frontswap); */
 
 static int __init zcache_init(void)
 {

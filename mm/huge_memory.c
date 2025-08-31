@@ -609,7 +609,7 @@ out:
 		       "transparent_hugepage= cannot parse, ignored\n");
 	return ret;
 }
-__setup("transparent_hugepage=", setup_transparent_hugepage);
+/* DISABLED: __setup("transparent_hugepage=", setup_transparent_hugepage); */
 
 static void prepare_pmd_huge_pte(pgtable_t pgtable,
 				 struct mm_struct *mm)

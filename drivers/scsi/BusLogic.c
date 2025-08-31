@@ -3612,7 +3612,7 @@ static void __exit BusLogic_exit(void)
 		BusLogic_ReleaseHostAdapter(ha);
 }
 
-__setup("BusLogic=", BusLogic_Setup);
+/* DISABLED: __setup("BusLogic=", BusLogic_Setup); */
 
 #ifdef MODULE
 static struct pci_device_id BusLogic_pci_tbl[] __devinitdata = {

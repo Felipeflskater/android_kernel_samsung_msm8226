@@ -31,4 +31,4 @@ static int fips_enable(char *str)
 	return 1;
 }
 
-__setup("fips=", fips_enable);
+/* DISABLED: __setup("fips=", fips_enable); */

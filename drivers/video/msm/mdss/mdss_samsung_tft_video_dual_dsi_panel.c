@@ -1048,7 +1048,7 @@ static int __init mdss_panel_current_hw_rev(char *rev)
 	return 1;
 }
 
-__setup("samsung.board_rev=", mdss_panel_current_hw_rev);
+/* DISABLED: __setup("samsung.board_rev=", mdss_panel_current_hw_rev); */
 
 static int __init current_boot_mode(char *mode)
 {
@@ -1065,7 +1065,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-__setup("androidboot.boot_recovery=", current_boot_mode);
+/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -1100,4 +1100,4 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "lcd_id=0x", get_lcd_id_cmdline );
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */

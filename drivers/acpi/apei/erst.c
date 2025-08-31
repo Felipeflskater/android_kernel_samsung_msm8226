@@ -911,7 +911,7 @@ static int __init setup_erst_disable(char *str)
 	return 0;
 }
 
-__setup("erst_disable", setup_erst_disable);
+/* DISABLED: __setup("erst_disable", setup_erst_disable); */
 
 static int erst_check_table(struct acpi_table_erst *erst_tab)
 {

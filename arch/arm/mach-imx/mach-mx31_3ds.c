@@ -668,7 +668,7 @@ static int __init mx31_3ds_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-__setup("otg_mode=", mx31_3ds_otg_mode);
+/* DISABLED: __setup("otg_mode=", mx31_3ds_otg_mode); */
 
 static const struct imxuart_platform_data uart_pdata __initconst = {
 	.flags = IMXUART_HAVE_RTSCTS,

@@ -1458,7 +1458,7 @@ static __init int setup_trace_event(char *str)
 
 	return 1;
 }
-__setup("trace_event=", setup_trace_event);
+/* DISABLED: __setup("trace_event=", setup_trace_event); */
 
 static __init int event_trace_init(void)
 {

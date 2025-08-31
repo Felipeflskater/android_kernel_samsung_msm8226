@@ -1340,7 +1340,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-__setup("androidboot.boot_recovery=", current_boot_mode);
+/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -6166,7 +6166,7 @@ static int __init lcd_panel_info(char *mode)
 				"k FHD LSI" : "k FHD MAG");
 	return 1;
 }
-__setup("Panelres=", lcd_panel_info);
+/* DISABLED: __setup("Panelres=", lcd_panel_info); */
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -6202,7 +6202,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "lcd_id=0x", get_lcd_id_cmdline );
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
 
 MODULE_DESCRIPTION("Samsung DSI panel driver");
 MODULE_AUTHOR("JYHONG <jyhong@samsung.com>/ KRCHO <kr0124.cho@samsung.com>");

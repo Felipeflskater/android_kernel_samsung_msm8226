@@ -1488,7 +1488,7 @@ static int dmasound_setup(char *str)
 	return 1;
 }
 
-__setup("dmasound=", dmasound_setup);
+/* DISABLED: __setup("dmasound=", dmasound_setup); */
 
 #endif /* !MODULE */
 

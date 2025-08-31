@@ -114,7 +114,7 @@ static int __init disable_randmaps(char *s)
 	randomize_va_space = 0;
 	return 1;
 }
-__setup("norandmaps", disable_randmaps);
+/* DISABLED: __setup("norandmaps", disable_randmaps); */
 
 unsigned long zero_pfn __read_mostly;
 unsigned long highest_memmap_pfn __read_mostly;

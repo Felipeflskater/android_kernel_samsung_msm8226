@@ -477,6 +477,6 @@ static int __init setup_uart401(char *str)
 	return 1;
 }
 
-__setup("uart401=", setup_uart401);
+/* DISABLED: __setup("uart401=", setup_uart401); */
 #endif
 MODULE_LICENSE("GPL");

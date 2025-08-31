@@ -710,7 +710,7 @@ static int __init apm_setup(char *str)
 	return 1;
 }
 
-__setup("apm=", apm_setup);
+/* DISABLED: __setup("apm=", apm_setup); */
 #endif
 
 /**

@@ -106,8 +106,8 @@ static int __init hlt_setup(char *__unused)
 	return 1;
 }
 
-__setup("nohlt", nohlt_setup);
-__setup("hlt", hlt_setup);
+/* DISABLED: __setup("nohlt", nohlt_setup); */
+/* DISABLED: __setup("hlt", hlt_setup); */
 
 extern void call_with_stack(void (*fn)(void *), void *arg, void *sp);
 typedef void (*phys_reset_t)(unsigned long);
@@ -303,7 +303,7 @@ int __init reboot_setup(char *str)
 	return 1;
 }
 
-__setup("reboot=", reboot_setup);
+/* DISABLED: __setup("reboot=", reboot_setup); */
 
 void machine_shutdown(void)
 {

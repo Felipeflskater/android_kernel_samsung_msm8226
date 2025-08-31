@@ -535,7 +535,7 @@ static int sec_bat_is_lpm_check(char *str)
 
 	return poweroff_charging;
 }
-__setup("androidboot.mode=", sec_bat_is_lpm_check);
+/* DISABLED: __setup("androidboot.mode=", sec_bat_is_lpm_check); */
 
 /* SAMSUNG charging specification */
 #ifdef SEC_CHARGER_CODE

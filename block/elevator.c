@@ -179,7 +179,7 @@ static int __init elevator_setup(char *str)
 	return 1;
 }
 
-__setup("elevator=", elevator_setup);
+/* DISABLED: __setup("elevator=", elevator_setup); */
 
 static struct kobj_type elv_ktype;
 

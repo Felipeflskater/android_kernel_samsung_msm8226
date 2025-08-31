@@ -8281,7 +8281,7 @@ static int __init ncr53c8xx_setup(char *str)
 	return sym53c8xx__setup(str);
 }
 
-__setup("ncr53c8xx=", ncr53c8xx_setup);
+/* DISABLED: __setup("ncr53c8xx=", ncr53c8xx_setup); */
 #endif
 
 

@@ -33,7 +33,7 @@ static int __init setup_debug_locks_verbose(char *str)
 	return 1;
 }
 
-__setup("debug_locks_verbose=", setup_debug_locks_verbose);
+/* DISABLED: __setup("debug_locks_verbose=", setup_debug_locks_verbose); */
 
 #define FAILURE		0
 #define SUCCESS		1

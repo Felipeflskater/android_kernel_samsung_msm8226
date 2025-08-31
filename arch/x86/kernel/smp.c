@@ -291,7 +291,7 @@ static int __init nonmi_ipi_setup(char *str)
         return 1;
 }
 
-__setup("nonmi_ipi", nonmi_ipi_setup);
+/* DISABLED: __setup("nonmi_ipi", nonmi_ipi_setup); */
 
 struct smp_ops smp_ops = {
 	.smp_prepare_boot_cpu	= native_smp_prepare_boot_cpu,

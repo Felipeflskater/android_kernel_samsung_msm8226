@@ -309,7 +309,7 @@ static int __init force_ep80219_setup(char *str)
 	return 1;
 }
 
-__setup("force_ep80219", force_ep80219_setup);
+/* DISABLED: __setup("force_ep80219", force_ep80219_setup); */
 
 MACHINE_START(IQ31244, "Intel IQ31244")
 	/* Maintainer: Intel Corp. */

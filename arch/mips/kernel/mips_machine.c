@@ -62,7 +62,7 @@ __init int mips_machtype_setup(char *id)
 	return 1;
 }
 
-__setup("machtype=", mips_machtype_setup);
+/* DISABLED: __setup("machtype=", mips_machtype_setup); */
 
 __init void mips_machine_setup(void)
 {

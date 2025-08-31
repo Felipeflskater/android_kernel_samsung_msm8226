@@ -1105,7 +1105,7 @@ static int __init isapnp_setup_disable(char *str)
 	return 1;
 }
 
-__setup("noisapnp", isapnp_setup_disable);
+/* DISABLED: __setup("noisapnp", isapnp_setup_disable); */
 
 /* format is: isapnp=rdp,reset,skip_pci_scan,verbose */
 
@@ -1117,4 +1117,4 @@ static int __init isapnp_setup_isapnp(char *str)
 	return 1;
 }
 
-__setup("isapnp=", isapnp_setup_isapnp);
+/* DISABLED: __setup("isapnp=", isapnp_setup_isapnp); */

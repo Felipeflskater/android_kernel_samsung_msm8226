@@ -1070,7 +1070,7 @@ static int kgdbts_option_setup(char *opt)
 	return 0;
 }
 
-__setup("kgdbts=", kgdbts_option_setup);
+/* DISABLED: __setup("kgdbts=", kgdbts_option_setup); */
 
 static int configure_kgdbts(void)
 {

@@ -335,7 +335,7 @@ static inline int __init setup_x86_mrst_timer(char *arg)
 	}
 	return 0;
 }
-__setup("x86_mrst_timer=", setup_x86_mrst_timer);
+/* DISABLED: __setup("x86_mrst_timer=", setup_x86_mrst_timer); */
 
 /*
  * Parsing GPIO table first, since the DEVS table will need this table

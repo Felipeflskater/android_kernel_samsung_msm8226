@@ -31,14 +31,14 @@ static int __init nohlt_setup(char *__unused)
 	hlt_counter = 1;
 	return 1;
 }
-__setup("nohlt", nohlt_setup);
+/* DISABLED: __setup("nohlt", nohlt_setup); */
 
 static int __init hlt_setup(char *__unused)
 {
 	hlt_counter = 0;
 	return 1;
 }
-__setup("hlt", hlt_setup);
+/* DISABLED: __setup("hlt", hlt_setup); */
 
 static inline int hlt_works(void)
 {

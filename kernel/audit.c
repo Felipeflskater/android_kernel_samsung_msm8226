@@ -1024,7 +1024,7 @@ static int __init audit_enable(char *str)
 	return 1;
 }
 
-__setup("audit=", audit_enable);
+/* DISABLED: __setup("audit=", audit_enable); */
 
 static void audit_buffer_free(struct audit_buffer *ab)
 {

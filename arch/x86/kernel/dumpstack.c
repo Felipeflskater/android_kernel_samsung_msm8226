@@ -326,4 +326,4 @@ static int __init code_bytes_setup(char *s)
 
 	return 1;
 }
-__setup("code_bytes=", code_bytes_setup);
+/* DISABLED: __setup("code_bytes=", code_bytes_setup); */

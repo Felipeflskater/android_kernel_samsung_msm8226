@@ -573,7 +573,7 @@ int fdomain_setup(char *str)
 	return 1;
 }
 
-__setup("fdomain=", fdomain_setup);
+/* DISABLED: __setup("fdomain=", fdomain_setup); */
 
 
 static void do_pause(unsigned amount)	/* Pause for amount*10 milliseconds */

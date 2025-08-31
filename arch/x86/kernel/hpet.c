@@ -104,14 +104,14 @@ static int __init hpet_setup(char *str)
 	}
 	return 1;
 }
-__setup("hpet=", hpet_setup);
+/* DISABLED: __setup("hpet=", hpet_setup); */
 
 static int __init disable_hpet(char *str)
 {
 	boot_hpet_disable = 1;
 	return 1;
 }
-__setup("nohpet", disable_hpet);
+/* DISABLED: __setup("nohpet", disable_hpet); */
 
 static inline int is_hpet_capable(void)
 {

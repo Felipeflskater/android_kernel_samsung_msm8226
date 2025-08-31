@@ -175,11 +175,11 @@ static int __init MTD_New_Partition(char *line)
 	return 1;
 }
 
-__setup("MTD_Region=", MTD_New_Region);
-__setup("MTD_Partition=", MTD_New_Partition);
+/* DISABLED: __setup("MTD_Region=", MTD_New_Region); */
+/* DISABLED: __setup("MTD_Partition=", MTD_New_Partition); */
 
 /* Backwards-spelling-compatibility */
-__setup("MTD_Partion=", MTD_New_Partition);
+/* DISABLED: __setup("MTD_Partion=", MTD_New_Partition); */
 
 static int __init init_fortunet(void)
 {

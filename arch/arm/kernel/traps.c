@@ -60,7 +60,7 @@ static int __init user_debug_setup(char *str)
 	get_option(&str, &user_debug);
 	return 1;
 }
-__setup("user_debug=", user_debug_setup);
+/* DISABLED: __setup("user_debug=", user_debug_setup); */
 #endif
 
 static void dump_mem(const char *, const char *, unsigned long, unsigned long);

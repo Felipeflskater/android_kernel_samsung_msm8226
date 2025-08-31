@@ -203,7 +203,7 @@ static int __init setup_hest_disable(char *str)
 	return 0;
 }
 
-__setup("hest_disable", setup_hest_disable);
+/* DISABLED: __setup("hest_disable", setup_hest_disable); */
 
 void __init acpi_hest_init(void)
 {

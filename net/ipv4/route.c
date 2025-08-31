@@ -3481,7 +3481,7 @@ static int __init set_rhash_entries(char *str)
 	rhash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("rhash_entries=", set_rhash_entries);
+/* DISABLED: __setup("rhash_entries=", set_rhash_entries); */
 
 int __init ip_rt_init(void)
 {

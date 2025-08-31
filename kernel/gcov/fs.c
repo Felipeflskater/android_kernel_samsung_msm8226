@@ -83,7 +83,7 @@ static int __init gcov_persist_setup(char *str)
 
 	return 1;
 }
-__setup("gcov_persist=", gcov_persist_setup);
+/* DISABLED: __setup("gcov_persist=", gcov_persist_setup); */
 
 /*
  * seq_file.start() implementation for gcov data files. Note that the

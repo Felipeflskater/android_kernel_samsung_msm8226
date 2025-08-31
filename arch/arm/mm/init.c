@@ -1015,7 +1015,7 @@ static int __init keepinitrd_setup(char *__unused)
 	return 1;
 }
 
-__setup("keepinitrd", keepinitrd_setup);
+/* DISABLED: __setup("keepinitrd", keepinitrd_setup); */
 #endif
 
 #ifdef CONFIG_MSM_KRAIT_WFE_FIXUP

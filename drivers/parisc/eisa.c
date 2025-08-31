@@ -451,5 +451,5 @@ static int __init eisa_irq_setup(char *str)
 	return 1;
 }
 
-__setup("eisa_irq_edge=", eisa_irq_setup);
+/* DISABLED: __setup("eisa_irq_edge=", eisa_irq_setup); */
 

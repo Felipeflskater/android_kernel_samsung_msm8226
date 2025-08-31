@@ -983,7 +983,7 @@ static int __init pcie_aspm_disable(char *str)
 	return 1;
 }
 
-__setup("pcie_aspm=", pcie_aspm_disable);
+/* DISABLED: __setup("pcie_aspm=", pcie_aspm_disable); */
 
 void pcie_no_aspm(void)
 {

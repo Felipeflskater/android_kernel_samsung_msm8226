@@ -1649,7 +1649,7 @@ static int __init set_ihash_entries(char *str)
 	ihash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("ihash_entries=", set_ihash_entries);
+/* DISABLED: __setup("ihash_entries=", set_ihash_entries); */
 
 /*
  * Initialize the waitqueues and inode hash table.

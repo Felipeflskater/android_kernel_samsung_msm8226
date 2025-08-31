@@ -120,7 +120,7 @@ dasd_call_setup(char *str)
 	return 1;
 }
 
-__setup ("dasd=", dasd_call_setup);
+/* DISABLED: __setup ("dasd=", dasd_call_setup); */
 #endif	/* #ifndef MODULE */
 
 #define	DASD_IPLDEV	"ipldev"

@@ -2101,7 +2101,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-__setup("androidboot.boot_recovery=", current_boot_mode);
+/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -4818,7 +4818,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-__setup( "lcd_id=0x", get_lcd_id_cmdline );
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
 
 #if defined(CONFIG_DUAL_LCD)
 static int __init lcd_sel_status(char *mode)
@@ -4827,7 +4827,7 @@ static int __init lcd_sel_status(char *mode)
 	LCD_DEBUG("lcd_sel=%d", msd.dstat.lcd_sel);
 	return 1;
 }
-__setup("lcd_sel=", lcd_sel_status);
+/* DISABLED: __setup("lcd_sel=", lcd_sel_status); */
 #endif
 
 #if (defined(CONFIG_FB_MSM_MDSS_MAGNA_OCTA_VIDEO_720P_PT_PANEL)\
@@ -4854,7 +4854,7 @@ static int __init get_oled_id_cmdline(char *mode)
 	LCD_DEBUG("oled_id=%d", fresco_oled_id);
 	return 1;
 }
-__setup("oled_id=", get_oled_id_cmdline);
+/* DISABLED: __setup("oled_id=", get_oled_id_cmdline); */
 #endif
 
 static int __init mdss_panel_current_hw_rev(char *rev)
@@ -4871,7 +4871,7 @@ static int __init mdss_panel_current_hw_rev(char *rev)
 	return 1;
 }
 
-__setup("samsung.board_rev=", mdss_panel_current_hw_rev);
+/* DISABLED: __setup("samsung.board_rev=", mdss_panel_current_hw_rev); */
 
 MODULE_DESCRIPTION("Samsung DSI panel driver");
 MODULE_AUTHOR("Krishna Kishor Jha <krishna.jha@samsung.com>");

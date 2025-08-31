@@ -254,7 +254,7 @@ static int __init nojitter_setup(char *str)
 	return 1;
 }
 
-__setup("nojitter", nojitter_setup);
+/* DISABLED: __setup("nojitter", nojitter_setup); */
 
 
 void __devinit

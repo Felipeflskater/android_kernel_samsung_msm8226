@@ -437,7 +437,7 @@ static int __init sec_log_setup(char *str)
 	return 1;
 }
 
-__setup("sec_log=", sec_log_setup);
+/* DISABLED: __setup("sec_log=", sec_log_setup); */
 
 #else
 
@@ -520,7 +520,7 @@ static int __init boot_delay_setup(char *str)
 		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
 	return 1;
 }
-__setup("boot_delay=", boot_delay_setup);
+/* DISABLED: __setup("boot_delay=", boot_delay_setup); */
 
 static void boot_delay_msec(void)
 {
@@ -1362,7 +1362,7 @@ static int __init console_setup(char *str)
 	console_set_on_cmdline = 1;
 	return 1;
 }
-__setup("console=", console_setup);
+/* DISABLED: __setup("console=", console_setup); */
 
 /**
  * add_preferred_console - add a device to the list of preferred consoles.
@@ -1409,7 +1409,7 @@ static int __init console_suspend_disable(char *str)
 	console_suspend_enabled = 0;
 	return 1;
 }
-__setup("no_console_suspend", console_suspend_disable);
+/* DISABLED: __setup("no_console_suspend", console_suspend_disable); */
 module_param_named(console_suspend, console_suspend_enabled,
 		bool, S_IRUGO | S_IWUSR);
 MODULE_PARM_DESC(console_suspend, "suspend console during suspend"

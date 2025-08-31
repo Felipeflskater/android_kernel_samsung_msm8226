@@ -103,3 +103,5 @@ fix_kernel_build.sh
 verify_fixes.sh
 arch/arm/include/asm/timex.h.backup.20250827_221655
 fix_timex_script.sh
+*.context_backup
+*.log

@@ -240,7 +240,7 @@ static int __init synaptics_read_lcd_id(char *mode)
 
 	return 0;
 }
-__setup("lcd_id=0x", synaptics_read_lcd_id);
+/* DISABLED: __setup("lcd_id=0x", synaptics_read_lcd_id); */
 #endif
 
 #ifdef CONFIG_OF

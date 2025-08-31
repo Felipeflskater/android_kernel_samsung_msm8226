@@ -626,7 +626,7 @@ static __init int ddebug_setup_query(char *str)
 	return 1;
 }
 
-__setup("ddebug_query=", ddebug_setup_query);
+/* DISABLED: __setup("ddebug_query=", ddebug_setup_query); */
 
 /*
  * File_ops->write method for <debugfs>/dynamic_debug/conrol.  Gathers the

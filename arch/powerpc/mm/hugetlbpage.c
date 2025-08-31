@@ -815,7 +815,7 @@ static int __init hugepage_setup_sz(char *str)
 
 	return 1;
 }
-__setup("hugepagesz=", hugepage_setup_sz);
+/* DISABLED: __setup("hugepagesz=", hugepage_setup_sz); */
 
 #ifdef CONFIG_PPC_FSL_BOOK3E
 struct kmem_cache *hugepte_cache;

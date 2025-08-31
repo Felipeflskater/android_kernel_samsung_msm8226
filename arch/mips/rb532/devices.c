@@ -337,6 +337,6 @@ static int __init setup_kmac(char *s)
 	return 0;
 }
 
-__setup("kmac=", setup_kmac);
+/* DISABLED: __setup("kmac=", setup_kmac); */
 
 arch_initcall(plat_setup_devices);

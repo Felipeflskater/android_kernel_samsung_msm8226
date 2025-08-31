@@ -23,7 +23,7 @@ static int __init spin_retry_setup(char *str)
 	spin_retry = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("spin_retry=", spin_retry_setup);
+/* DISABLED: __setup("spin_retry=", spin_retry_setup); */
 
 void arch_spin_lock_wait(arch_spinlock_t *lp)
 {

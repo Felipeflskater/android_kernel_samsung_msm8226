@@ -387,4 +387,4 @@ static int __init pnpacpi_setup(char *str)
 	return 1;
 }
 
-__setup("pnpacpi=", pnpacpi_setup);
+/* DISABLED: __setup("pnpacpi=", pnpacpi_setup); */

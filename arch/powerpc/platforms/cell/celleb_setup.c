@@ -85,7 +85,7 @@ static int __init celleb_machine_type_hack(char *ptr)
 	return 0;
 }
 
-__setup("celleb_machine_type_hack=", celleb_machine_type_hack);
+/* DISABLED: __setup("celleb_machine_type_hack=", celleb_machine_type_hack); */
 
 static void celleb_progress(char *s, unsigned short hex)
 {

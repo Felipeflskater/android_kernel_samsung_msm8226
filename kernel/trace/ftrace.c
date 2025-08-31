@@ -3428,14 +3428,14 @@ static int __init set_ftrace_notrace(char *str)
 	strncpy(ftrace_notrace_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-__setup("ftrace_notrace=", set_ftrace_notrace);
+/* DISABLED: __setup("ftrace_notrace=", set_ftrace_notrace); */
 
 static int __init set_ftrace_filter(char *str)
 {
 	strncpy(ftrace_filter_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-__setup("ftrace_filter=", set_ftrace_filter);
+/* DISABLED: __setup("ftrace_filter=", set_ftrace_filter); */
 
 #ifdef CONFIG_FUNCTION_GRAPH_TRACER
 static char ftrace_graph_buf[FTRACE_FILTER_SIZE] __initdata;
@@ -3446,7 +3446,7 @@ static int __init set_graph_function(char *str)
 	strlcpy(ftrace_graph_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-__setup("ftrace_graph_filter=", set_graph_function);
+/* DISABLED: __setup("ftrace_graph_filter=", set_graph_function); */
 
 static void __init set_ftrace_early_graph(char *buf)
 {

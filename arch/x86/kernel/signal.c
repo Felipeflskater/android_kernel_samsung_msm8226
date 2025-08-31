@@ -274,7 +274,7 @@ static const struct {
 };
 
 static int
-__setup_frame(int sig, struct k_sigaction *ka, sigset_t *set,
+/* DISABLED: __setup_frame(int sig, struct k_sigaction *ka, sigset_t *set, */
 	      struct pt_regs *regs)
 {
 	struct sigframe __user *frame;

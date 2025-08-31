@@ -1850,7 +1850,7 @@ static int __init mcheck_enable(char *str)
 	}
 	return 1;
 }
-__setup("mce", mcheck_enable);
+/* DISABLED: __setup("mce", mcheck_enable); */
 
 int __init mcheck_init(void)
 {
@@ -2303,7 +2303,7 @@ static int __init mcheck_disable(char *str)
 	mce_disabled = 1;
 	return 1;
 }
-__setup("nomce", mcheck_disable);
+/* DISABLED: __setup("nomce", mcheck_disable); */
 
 #ifdef CONFIG_DEBUG_FS
 struct dentry *mce_get_debugfs_dir(void)

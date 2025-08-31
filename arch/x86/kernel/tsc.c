@@ -102,7 +102,7 @@ int __init notsc_setup(char *str)
 }
 #endif
 
-__setup("notsc", notsc_setup);
+/* DISABLED: __setup("notsc", notsc_setup); */
 
 static int no_sched_irq_time;
 
@@ -115,7 +115,7 @@ static int __init tsc_setup(char *str)
 	return 1;
 }
 
-__setup("tsc=", tsc_setup);
+/* DISABLED: __setup("tsc=", tsc_setup); */
 
 #define MAX_RETRIES     5
 #define SMI_TRESHOLD    50000

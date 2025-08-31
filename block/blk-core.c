@@ -1578,7 +1578,7 @@ static int __init setup_fail_make_request(char *str)
 {
 	return setup_fault_attr(&fail_make_request, str);
 }
-__setup("fail_make_request=", setup_fail_make_request);
+/* DISABLED: __setup("fail_make_request=", setup_fail_make_request); */
 
 static bool should_fail_request(struct hd_struct *part, unsigned int bytes)
 {

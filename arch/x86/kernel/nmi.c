@@ -80,7 +80,7 @@ static int __init setup_unknown_nmi_panic(char *str)
 	unknown_nmi_panic = 1;
 	return 1;
 }
-__setup("unknown_nmi_panic", setup_unknown_nmi_panic);
+/* DISABLED: __setup("unknown_nmi_panic", setup_unknown_nmi_panic); */
 
 #define nmi_to_desc(type) (&nmi_desc[type])
 

@@ -1895,7 +1895,7 @@ static int __init vmcmd_on_reboot_setup(char *str)
 	on_reboot_trigger.action = &vmcmd_action;
 	return 1;
 }
-__setup("vmreboot=", vmcmd_on_reboot_setup);
+/* DISABLED: __setup("vmreboot=", vmcmd_on_reboot_setup); */
 
 static int __init vmcmd_on_panic_setup(char *str)
 {
@@ -1906,7 +1906,7 @@ static int __init vmcmd_on_panic_setup(char *str)
 	on_panic_trigger.action = &vmcmd_action;
 	return 1;
 }
-__setup("vmpanic=", vmcmd_on_panic_setup);
+/* DISABLED: __setup("vmpanic=", vmcmd_on_panic_setup); */
 
 static int __init vmcmd_on_halt_setup(char *str)
 {
@@ -1917,7 +1917,7 @@ static int __init vmcmd_on_halt_setup(char *str)
 	on_halt_trigger.action = &vmcmd_action;
 	return 1;
 }
-__setup("vmhalt=", vmcmd_on_halt_setup);
+/* DISABLED: __setup("vmhalt=", vmcmd_on_halt_setup); */
 
 static int __init vmcmd_on_poff_setup(char *str)
 {
@@ -1928,7 +1928,7 @@ static int __init vmcmd_on_poff_setup(char *str)
 	on_poff_trigger.action = &vmcmd_action;
 	return 1;
 }
-__setup("vmpoff=", vmcmd_on_poff_setup);
+/* DISABLED: __setup("vmpoff=", vmcmd_on_poff_setup); */
 
 static int on_panic_notify(struct notifier_block *self,
 			   unsigned long event, void *data)

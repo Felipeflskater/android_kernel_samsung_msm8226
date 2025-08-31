@@ -746,4 +746,4 @@ static int __init acpi_no_auto_ssdt_setup(char *s) {
         return 1;
 }
 
-__setup("acpi_no_auto_ssdt", acpi_no_auto_ssdt_setup);
+/* DISABLED: __setup("acpi_no_auto_ssdt", acpi_no_auto_ssdt_setup); */

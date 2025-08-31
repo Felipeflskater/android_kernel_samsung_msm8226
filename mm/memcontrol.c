@@ -5720,6 +5720,6 @@ static int __init enable_swap_account(char *s)
 		really_do_swap_account = 0;
 	return 1;
 }
-__setup("swapaccount=", enable_swap_account);
+/* DISABLED: __setup("swapaccount=", enable_swap_account); */
 
 #endif

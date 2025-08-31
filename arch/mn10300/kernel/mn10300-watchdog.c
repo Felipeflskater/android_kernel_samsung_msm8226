@@ -99,7 +99,7 @@ static int __init setup_watchdog(char *str)
 	return 1;
 }
 
-__setup("watchdog=", setup_watchdog);
+/* DISABLED: __setup("watchdog=", setup_watchdog); */
 
 void __init watchdog_go(void)
 {

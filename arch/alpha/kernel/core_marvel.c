@@ -436,7 +436,7 @@ marvel_specify_io7(char *str)
 
 	return 1;
 }
-__setup("io7=", marvel_specify_io7);
+/* DISABLED: __setup("io7=", marvel_specify_io7); */
 
 void __init
 marvel_init_arch(void)

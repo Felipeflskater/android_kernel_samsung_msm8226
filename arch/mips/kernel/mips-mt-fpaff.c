@@ -192,7 +192,7 @@ static int __init fpaff_thresh(char *str)
 	get_option(&str, &fpaff_threshold);
 	return 1;
 }
-__setup("fpaff=", fpaff_thresh);
+/* DISABLED: __setup("fpaff=", fpaff_thresh); */
 
 /*
  * FPU Use Factor empirically derived from experiments on 34K

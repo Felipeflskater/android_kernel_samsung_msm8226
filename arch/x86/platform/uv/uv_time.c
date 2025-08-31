@@ -361,7 +361,7 @@ static int __init uv_enable_evt_rtc(char *str)
 
 	return 1;
 }
-__setup("uvrtcevt", uv_enable_evt_rtc);
+/* DISABLED: __setup("uvrtcevt", uv_enable_evt_rtc); */
 
 static __init void uv_rtc_register_clockevents(struct work_struct *dummy)
 {

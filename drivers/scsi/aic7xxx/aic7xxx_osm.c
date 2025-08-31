@@ -1089,7 +1089,7 @@ aic7xxx_setup(char *s)
 	return 1;
 }
 
-__setup("aic7xxx=", aic7xxx_setup);
+/* DISABLED: __setup("aic7xxx=", aic7xxx_setup); */
 
 uint32_t aic7xxx_verbose;
 

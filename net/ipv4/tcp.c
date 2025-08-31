@@ -3382,7 +3382,7 @@ static int __init set_thash_entries(char *str)
 	thash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-__setup("thash_entries=", set_thash_entries);
+/* DISABLED: __setup("thash_entries=", set_thash_entries); */
 
 void tcp_init_mem(struct net *net)
 {

@@ -62,7 +62,7 @@ static int __init hardlockup_panic_setup(char *str)
 		watchdog_enabled = 0;
 	return 1;
 }
-__setup("nmi_watchdog=", hardlockup_panic_setup);
+/* DISABLED: __setup("nmi_watchdog=", hardlockup_panic_setup); */
 #endif
 
 unsigned int __read_mostly softlockup_panic =
@@ -74,14 +74,14 @@ static int __init softlockup_panic_setup(char *str)
 
 	return 1;
 }
-__setup("softlockup_panic=", softlockup_panic_setup);
+/* DISABLED: __setup("softlockup_panic=", softlockup_panic_setup); */
 
 static int __init nowatchdog_setup(char *str)
 {
 	watchdog_enabled = 0;
 	return 1;
 }
-__setup("nowatchdog", nowatchdog_setup);
+/* DISABLED: __setup("nowatchdog", nowatchdog_setup); */
 
 /* deprecated */
 static int __init nosoftlockup_setup(char *str)
@@ -89,7 +89,7 @@ static int __init nosoftlockup_setup(char *str)
 	watchdog_enabled = 0;
 	return 1;
 }
-__setup("nosoftlockup", nosoftlockup_setup);
+/* DISABLED: __setup("nosoftlockup", nosoftlockup_setup); */
 /*  */
 
 /*

@@ -24,7 +24,7 @@ static int __init no_halt(char *s)
 	return 1;
 }
 
-__setup("no-hlt", no_halt);
+/* DISABLED: __setup("no-hlt", no_halt); */
 
 static int __init no_387(char *s)
 {
@@ -33,7 +33,7 @@ static int __init no_387(char *s)
 	return 1;
 }
 
-__setup("no387", no_387);
+/* DISABLED: __setup("no387", no_387); */
 
 static double __initdata x = 4195835.0;
 static double __initdata y = 3145727.0;

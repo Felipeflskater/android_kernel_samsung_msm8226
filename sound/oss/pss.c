@@ -1264,5 +1264,5 @@ static int __init setup_pss(char *str)
 	return 1;
 }
 
-__setup("pss=", setup_pss);
+/* DISABLED: __setup("pss=", setup_pss); */
 #endif

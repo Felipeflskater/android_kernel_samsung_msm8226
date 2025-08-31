@@ -1761,8 +1761,8 @@ static int __init parse_amd_iommu_options(char *str)
 	return 1;
 }
 
-__setup("amd_iommu_dump", parse_amd_iommu_dump);
-__setup("amd_iommu=", parse_amd_iommu_options);
+/* DISABLED: __setup("amd_iommu_dump", parse_amd_iommu_dump); */
+/* DISABLED: __setup("amd_iommu=", parse_amd_iommu_options); */
 
 IOMMU_INIT_FINISH(amd_iommu_detect,
 		  gart_iommu_hole_init,

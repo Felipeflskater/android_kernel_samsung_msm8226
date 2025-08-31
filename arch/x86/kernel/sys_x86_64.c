@@ -79,7 +79,7 @@ static int __init control_va_addr_alignment(char *str)
 
 	return 1;
 }
-__setup("align_va_addr", control_va_addr_alignment);
+/* DISABLED: __setup("align_va_addr", control_va_addr_alignment); */
 
 SYSCALL_DEFINE6(mmap, unsigned long, addr, unsigned long, len,
 		unsigned long, prot, unsigned long, flags,

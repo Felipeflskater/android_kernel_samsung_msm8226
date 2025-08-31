@@ -1373,7 +1373,7 @@ static int __init plip_setup(char *str)
 	return 1;
 }
 
-__setup("plip=", plip_setup);
+/* DISABLED: __setup("plip=", plip_setup); */
 
 #endif /* !MODULE */
 

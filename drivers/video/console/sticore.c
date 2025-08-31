@@ -280,7 +280,7 @@ static int __devinit sti_setup(char *str)
  *	<x> is a number between 0 and MAX_STI_ROMS, with 0 as the default 
  *	STI screen.
  */
-__setup("sti=", sti_setup);
+/* DISABLED: __setup("sti=", sti_setup); */
 #endif
 
 
@@ -338,7 +338,7 @@ static int __devinit sti_font_setup(char *str)
  *		a font with this height and width, but if no suitable font is
  *		found, sticon will use the default 8x8 font.
  */
-__setup("sti_font=", sti_font_setup);
+/* DISABLED: __setup("sti_font=", sti_font_setup); */
 #endif
 
 

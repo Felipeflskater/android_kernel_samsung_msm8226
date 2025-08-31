@@ -1567,7 +1567,7 @@ static int __init get_array_value(char *str)
 	}
 	return 0;
 }
-__setup("array=", get_array_value);
+/* DISABLED: __setup("array=", get_array_value); */
 #endif
 
 

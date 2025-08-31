@@ -28,7 +28,7 @@ static int __init pciehp_setup(char *str)
 
 	return 1;
 }
-__setup("pcie_hp=", pciehp_setup);
+/* DISABLED: __setup("pcie_hp=", pciehp_setup); */
 
 /**
  * release_pcie_device - free PCI Express port service device structure

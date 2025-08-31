@@ -81,7 +81,7 @@ static int __init sapphire_disablesdcard_setup(char *str)
 	return 1;
 }
 
-__setup("board_sapphire.disable_sdcard=", sapphire_disablesdcard_setup);
+/* DISABLED: __setup("board_sapphire.disable_sdcard=", sapphire_disablesdcard_setup); */
 
 static struct vreg *vreg_sdslot;	/* SD slot power */
 

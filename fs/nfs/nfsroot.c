@@ -115,7 +115,7 @@ static int __init nfs_root_debug(char *__unused)
 	return 1;
 }
 
-__setup("nfsrootdebug", nfs_root_debug);
+/* DISABLED: __setup("nfsrootdebug", nfs_root_debug); */
 #endif
 
 /*
@@ -152,7 +152,7 @@ static int __init nfs_root_setup(char *line)
 	return 1;
 }
 
-__setup("nfsroot=", nfs_root_setup);
+/* DISABLED: __setup("nfsroot=", nfs_root_setup); */
 
 static int __init root_nfs_copy(char *dest, const char *src,
 				     const size_t destlen)

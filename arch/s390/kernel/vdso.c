@@ -68,7 +68,7 @@ static int __init vdso_setup(char *s)
 	}
 	return !rc;
 }
-__setup("vdso=", vdso_setup);
+/* DISABLED: __setup("vdso=", vdso_setup); */
 
 /*
  * The vdso data page

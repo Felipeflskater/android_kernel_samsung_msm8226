@@ -413,5 +413,5 @@ static int __init iop3xx_init_atu_setup(char *str)
 	return 1;
 }
 
-__setup("iop3xx_init_atu", iop3xx_init_atu_setup);
+/* DISABLED: __setup("iop3xx_init_atu", iop3xx_init_atu_setup); */
 

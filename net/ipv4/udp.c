@@ -2174,7 +2174,7 @@ static int __init set_uhash_entries(char *str)
 		uhash_entries = UDP_HTABLE_SIZE_MIN;
 	return 1;
 }
-__setup("uhash_entries=", set_uhash_entries);
+/* DISABLED: __setup("uhash_entries=", set_uhash_entries); */
 
 void __init udp_table_init(struct udp_table *table, const char *name)
 {

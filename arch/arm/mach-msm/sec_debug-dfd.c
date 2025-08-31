@@ -74,7 +74,7 @@ static int __init setup_dfd_panic_disable(char *str)
 	dfd_panic = 0;
 	return 1;
 }
-__setup("dfd_panic_disable", setup_dfd_panic_disable);
+/* DISABLED: __setup("dfd_panic_disable", setup_dfd_panic_disable); */
 
 /* the caller must hold the dfd_list_lock */
 static void *circ_buf_lookup(struct dfd_node_list *circ_buf, void *addr)

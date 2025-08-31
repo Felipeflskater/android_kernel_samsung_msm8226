@@ -107,7 +107,7 @@ setup_io_tlb_npages(char *str)
 
 	return 1;
 }
-__setup("swiotlb=", setup_io_tlb_npages);
+/* DISABLED: __setup("swiotlb=", setup_io_tlb_npages); */
 /* make io_tlb_overflow tunable too? */
 
 unsigned long swiotlb_nr_tbl(void)

@@ -48,7 +48,7 @@ static int __init powersave_off(char *arg)
 	cpuidle_disable = IDLE_POWERSAVE_OFF;
 	return 0;
 }
-__setup("powersave=off", powersave_off);
+/* DISABLED: __setup("powersave=off", powersave_off); */
 
 /*
  * The body of the idle task.

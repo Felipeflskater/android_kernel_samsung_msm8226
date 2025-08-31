@@ -140,7 +140,7 @@ static __init int setup_apicpmtimer(char *s)
 	notsc_setup(NULL);
 	return 0;
 }
-__setup("apicpmtimer", setup_apicpmtimer);
+/* DISABLED: __setup("apicpmtimer", setup_apicpmtimer); */
 #endif
 
 int x2apic_mode;

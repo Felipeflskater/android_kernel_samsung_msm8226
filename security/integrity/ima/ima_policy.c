@@ -84,7 +84,7 @@ static int __init default_policy_setup(char *str)
 	ima_use_tcb = 1;
 	return 1;
 }
-__setup("ima_tcb", default_policy_setup);
+/* DISABLED: __setup("ima_tcb", default_policy_setup); */
 
 /**
  * ima_match_rules - determine whether an inode matches the measure rule.

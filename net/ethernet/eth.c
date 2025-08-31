@@ -60,7 +60,7 @@
 #include <net/dsa.h>
 #include <asm/uaccess.h>
 
-__setup("ether=", netdev_boot_setup);
+/* DISABLED: __setup("ether=", netdev_boot_setup); */
 
 /**
  * eth_header - create the Ethernet header

@@ -2008,7 +2008,7 @@ static int __init cmdline_parse_stack_guard_gap(char *p)
 
 	return 0;
 }
-__setup("stack_guard_gap=", cmdline_parse_stack_guard_gap);
+/* DISABLED: __setup("stack_guard_gap=", cmdline_parse_stack_guard_gap); */
 
 /*
  * Note how expand_stack() refuses to expand the stack all the way to

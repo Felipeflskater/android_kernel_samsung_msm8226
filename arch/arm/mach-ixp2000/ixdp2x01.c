@@ -224,7 +224,7 @@ static int __init ixdp2x01_clock_setup(char *str)
 	return 1;
 }
 
-__setup("ixdp2x01_clock=", ixdp2x01_clock_setup);
+/* DISABLED: __setup("ixdp2x01_clock=", ixdp2x01_clock_setup); */
 
 static void __init ixdp2x01_timer_init(void)
 {
