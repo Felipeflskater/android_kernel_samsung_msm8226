@@ -70,7 +70,7 @@ struct sync_timeline *sync_timeline_create(const struct sync_timeline_ops *ops,
 
 	return obj;
 }
-EXPORT_SYMBOL(sync_timeline_create);
+/* DISABLED: EXPORT_SYMBOL(sync_timeline_create); */
 
 static void sync_timeline_free(struct kref *kref)
 {
@@ -100,7 +100,7 @@ void sync_timeline_destroy(struct sync_timeline *obj)
 
 	kref_put(&obj->kref, sync_timeline_free);
 }
-EXPORT_SYMBOL(sync_timeline_destroy);
+/* DISABLED: EXPORT_SYMBOL(sync_timeline_destroy); */
 
 static void sync_timeline_add_pt(struct sync_timeline *obj, struct sync_pt *pt)
 {
@@ -162,7 +162,7 @@ void sync_timeline_signal(struct sync_timeline *obj)
 		kref_put(&pt->fence->kref, sync_fence_free);
 	}
 }
-EXPORT_SYMBOL(sync_timeline_signal);
+/* DISABLED: EXPORT_SYMBOL(sync_timeline_signal); */
 
 struct sync_pt *sync_pt_create(struct sync_timeline *parent, int size)
 {
@@ -181,7 +181,7 @@ struct sync_pt *sync_pt_create(struct sync_timeline *parent, int size)
 
 	return pt;
 }
-EXPORT_SYMBOL(sync_pt_create);
+/* DISABLED: EXPORT_SYMBOL(sync_pt_create); */
 
 void sync_pt_free(struct sync_pt *pt)
 {
@@ -194,7 +194,7 @@ void sync_pt_free(struct sync_pt *pt)
 
 	kfree(pt);
 }
-EXPORT_SYMBOL(sync_pt_free);
+/* DISABLED: EXPORT_SYMBOL(sync_pt_free); */
 
 /* call with pt->parent->active_list_lock held */
 static int _sync_pt_has_signaled(struct sync_pt *pt)
@@ -307,7 +307,7 @@ struct sync_fence *sync_fence_create(const char *name, struct sync_pt *pt)
 
 	return fence;
 }
-EXPORT_SYMBOL(sync_fence_create);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_create); */
 
 static int sync_fence_copy_pts(struct sync_fence *dst, struct sync_fence *src)
 {
@@ -411,19 +411,19 @@ err:
 	fput(file);
 	return NULL;
 }
-EXPORT_SYMBOL(sync_fence_fdget);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_fdget); */
 
 void sync_fence_put(struct sync_fence *fence)
 {
 	fput(fence->file);
 }
-EXPORT_SYMBOL(sync_fence_put);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_put); */
 
 void sync_fence_install(struct sync_fence *fence, int fd)
 {
 	fd_install(fd, fence->file);
 }
-EXPORT_SYMBOL(sync_fence_install);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_install); */
 
 static int sync_fence_get_status(struct sync_fence *fence)
 {
@@ -484,7 +484,7 @@ err:
 	kfree(fence);
 	return NULL;
 }
-EXPORT_SYMBOL(sync_fence_merge);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_merge); */
 
 static void sync_fence_signal_pt(struct sync_pt *pt)
 {
@@ -544,7 +544,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(sync_fence_wait_async);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_wait_async); */
 
 int sync_fence_cancel_async(struct sync_fence *fence,
 			     struct sync_fence_waiter *waiter)
@@ -573,7 +573,7 @@ int sync_fence_cancel_async(struct sync_fence *fence,
 	spin_unlock_irqrestore(&fence->waiter_list_lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(sync_fence_cancel_async);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_cancel_async); */
 
 static bool sync_fence_check(struct sync_fence *fence)
 {
@@ -651,7 +651,7 @@ void sync_fence_log(struct sync_fence *fence)
 		sync_pt_log(pt);
 	}
 }
-EXPORT_SYMBOL(sync_fence_log);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_log); */
 
 int sync_fence_wait(struct sync_fence *fence, long timeout)
 {
@@ -693,7 +693,7 @@ int sync_fence_wait(struct sync_fence *fence, long timeout)
 
 	return 0;
 }
-EXPORT_SYMBOL(sync_fence_wait);
+/* DISABLED: EXPORT_SYMBOL(sync_fence_wait); */
 
 static void sync_fence_free(struct kref *kref)
 {

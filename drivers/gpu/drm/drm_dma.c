@@ -159,4 +159,4 @@ void drm_core_reclaim_buffers(struct drm_device *dev,
 	}
 }
 
-EXPORT_SYMBOL(drm_core_reclaim_buffers);
+/* DISABLED: EXPORT_SYMBOL(drm_core_reclaim_buffers); */

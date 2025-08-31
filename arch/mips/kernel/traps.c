@@ -122,7 +122,7 @@ static int __init set_raw_show_trace(char *str)
 	raw_show_trace = 1;
 	return 1;
 }
-/* DISABLED: __setup("raw_show_trace", set_raw_show_trace); */
+/* DISABLED: __setup("raw_show_trace", set_raw_show_trace); */ */
 #endif
 
 static void show_backtrace(struct task_struct *task, const struct pt_regs *regs)
@@ -212,7 +212,7 @@ void dump_stack(void)
 	show_backtrace(current, &regs);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static void show_code(unsigned int __user *pc)
 {
@@ -1173,14 +1173,14 @@ static int __init nol1parity(char *s)
 	l1parity = 0;
 	return 1;
 }
-/* DISABLED: __setup("nol1par", nol1parity); */
+/* DISABLED: __setup("nol1par", nol1parity); */ */
 static int __initdata l2parity = 1;
 static int __init nol2parity(char *s)
 {
 	l2parity = 0;
 	return 1;
 }
-/* DISABLED: __setup("nol2par", nol2parity); */
+/* DISABLED: __setup("nol2par", nol2parity); */ */
 
 /*
  * Some MIPS CPUs can enable/disable for cache parity detection, but do
@@ -1504,7 +1504,7 @@ int cp0_compare_irq_shift;
  * Performance counter IRQ or -1 if shared with timer
  */
 int cp0_perfcount_irq;
-EXPORT_SYMBOL_GPL(cp0_perfcount_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(cp0_perfcount_irq); */
 
 static int __cpuinitdata noulri;
 
@@ -1515,7 +1515,7 @@ static int __init ulri_disable(char *s)
 
 	return 1;
 }
-/* DISABLED: __setup("noulri", ulri_disable); */
+/* DISABLED: __setup("noulri", ulri_disable); */ */
 
 void __cpuinit per_cpu_trap_init(void)
 {
@@ -1664,7 +1664,7 @@ static int __init set_rdhwr_noopt(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("rdhwr_noopt", set_rdhwr_noopt); */
+/* DISABLED: __setup("rdhwr_noopt", set_rdhwr_noopt); */ */
 
 void __init trap_init(void)
 {

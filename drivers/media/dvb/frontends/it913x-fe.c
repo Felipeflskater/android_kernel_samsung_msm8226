@@ -1008,7 +1008,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-EXPORT_SYMBOL(it913x_fe_attach);
+/* DISABLED: EXPORT_SYMBOL(it913x_fe_attach); */
 
 static struct dvb_frontend_ops it913x_fe_ofdm_ops = {
 	.delsys = { SYS_DVBT },

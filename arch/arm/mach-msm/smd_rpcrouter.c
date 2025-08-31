@@ -531,7 +531,7 @@ int msm_rpc_add_board_dev(struct rpc_board_dev *devices, int num)
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_rpc_add_board_dev);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_add_board_dev); */
 
 static void rpcrouter_register_board_dev(struct rr_server *server)
 {
@@ -1257,7 +1257,7 @@ void msm_rpc_setup_req(struct rpc_request_hdr *hdr, uint32_t prog,
 	hdr->vers = cpu_to_be32(vers);
 	hdr->procedure = cpu_to_be32(proc);
 }
-EXPORT_SYMBOL(msm_rpc_setup_req);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_setup_req); */
 
 struct msm_rpc_endpoint *msm_rpc_open(void)
 {
@@ -1282,7 +1282,7 @@ int msm_rpc_close(struct msm_rpc_endpoint *ept)
 		return -EINVAL;
 	return msm_rpcrouter_destroy_local_endpoint(ept);
 }
-EXPORT_SYMBOL(msm_rpc_close);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_close); */
 
 static int msm_rpc_write_pkt(
 	struct rr_header *hdr,
@@ -1687,7 +1687,7 @@ int msm_rpc_write(struct msm_rpc_endpoint *ept, void *buffer, int count)
 
 	return count;
 }
-EXPORT_SYMBOL(msm_rpc_write);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_write); */
 
 /*
  * NOTE: It is the responsibility of the caller to kfree buffer
@@ -1727,7 +1727,7 @@ int msm_rpc_read(struct msm_rpc_endpoint *ept, void **buffer,
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_read);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_read); */
 
 int msm_rpc_call(struct msm_rpc_endpoint *ept, uint32_t proc,
 		 void *_request, int request_size,
@@ -1737,7 +1737,7 @@ int msm_rpc_call(struct msm_rpc_endpoint *ept, uint32_t proc,
 				  _request, request_size,
 				  NULL, 0, timeout);
 }
-EXPORT_SYMBOL(msm_rpc_call);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_call); */
 
 int msm_rpc_call_reply(struct msm_rpc_endpoint *ept, uint32_t proc,
 		       void *_request, int request_size,
@@ -1808,7 +1808,7 @@ int msm_rpc_call_reply(struct msm_rpc_endpoint *ept, uint32_t proc,
 	kfree(reply);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_call_reply);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_call_reply); */
 
 
 static inline int ept_packet_available(struct msm_rpc_endpoint *ept)
@@ -1949,7 +1949,7 @@ int msm_rpc_is_compatible_version(uint32_t server_version,
 		((server_version & RPC_VERSION_MINOR_MASK) >=
 		 (client_version & RPC_VERSION_MINOR_MASK));
 }
-EXPORT_SYMBOL(msm_rpc_is_compatible_version);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_is_compatible_version); */
 
 static struct rr_server *msm_rpc_get_server(uint32_t prog, uint32_t vers,
 					    uint32_t accept_compatible,
@@ -2057,14 +2057,14 @@ struct msm_rpc_endpoint *msm_rpc_connect_compatible(uint32_t prog,
 {
 	return __msm_rpc_connect(prog, vers, 1, flags);
 }
-EXPORT_SYMBOL(msm_rpc_connect_compatible);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_connect_compatible); */
 
 struct msm_rpc_endpoint *msm_rpc_connect(uint32_t prog,
 			 uint32_t vers, unsigned flags)
 {
 	return __msm_rpc_connect(prog, vers, 0, flags);
 }
-EXPORT_SYMBOL(msm_rpc_connect);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_connect); */
 
 /* TODO: permission check? */
 int msm_rpc_register_server(struct msm_rpc_endpoint *ept,

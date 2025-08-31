@@ -3332,13 +3332,13 @@ int amd_iommu_register_ppr_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&ppr_notifier, nb);
 }
-EXPORT_SYMBOL(amd_iommu_register_ppr_notifier);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_register_ppr_notifier); */
 
 int amd_iommu_unregister_ppr_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&ppr_notifier, nb);
 }
-EXPORT_SYMBOL(amd_iommu_unregister_ppr_notifier);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_unregister_ppr_notifier); */
 
 void amd_iommu_domain_direct_map(struct iommu_domain *dom)
 {
@@ -3359,7 +3359,7 @@ void amd_iommu_domain_direct_map(struct iommu_domain *dom)
 
 	spin_unlock_irqrestore(&domain->lock, flags);
 }
-EXPORT_SYMBOL(amd_iommu_domain_direct_map);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_domain_direct_map); */
 
 int amd_iommu_domain_enable_v2(struct iommu_domain *dom, int pasids)
 {
@@ -3406,7 +3406,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(amd_iommu_domain_enable_v2);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_domain_enable_v2); */
 
 static int __flush_pasid(struct protection_domain *domain, int pasid,
 			 u64 address, bool size)
@@ -3485,7 +3485,7 @@ int amd_iommu_flush_page(struct iommu_domain *dom, int pasid,
 
 	return ret;
 }
-EXPORT_SYMBOL(amd_iommu_flush_page);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_flush_page); */
 
 static int __amd_iommu_flush_tlb(struct protection_domain *domain, int pasid)
 {
@@ -3507,7 +3507,7 @@ int amd_iommu_flush_tlb(struct iommu_domain *dom, int pasid)
 
 	return ret;
 }
-EXPORT_SYMBOL(amd_iommu_flush_tlb);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_flush_tlb); */
 
 static u64 *__get_gcr3_pte(u64 *root, int level, int pasid, bool alloc)
 {
@@ -3587,7 +3587,7 @@ int amd_iommu_domain_set_gcr3(struct iommu_domain *dom, int pasid,
 
 	return ret;
 }
-EXPORT_SYMBOL(amd_iommu_domain_set_gcr3);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_domain_set_gcr3); */
 
 int amd_iommu_domain_clear_gcr3(struct iommu_domain *dom, int pasid)
 {
@@ -3601,7 +3601,7 @@ int amd_iommu_domain_clear_gcr3(struct iommu_domain *dom, int pasid)
 
 	return ret;
 }
-EXPORT_SYMBOL(amd_iommu_domain_clear_gcr3);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_domain_clear_gcr3); */
 
 int amd_iommu_complete_ppr(struct pci_dev *pdev, int pasid,
 			   int status, int tag)
@@ -3620,7 +3620,7 @@ int amd_iommu_complete_ppr(struct pci_dev *pdev, int pasid,
 
 	return iommu_queue_command(iommu, &cmd);
 }
-EXPORT_SYMBOL(amd_iommu_complete_ppr);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_complete_ppr); */
 
 struct iommu_domain *amd_iommu_get_v2_domain(struct pci_dev *pdev)
 {
@@ -3636,7 +3636,7 @@ struct iommu_domain *amd_iommu_get_v2_domain(struct pci_dev *pdev)
 
 	return domain->iommu_domain;
 }
-EXPORT_SYMBOL(amd_iommu_get_v2_domain);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_get_v2_domain); */
 
 void amd_iommu_enable_device_erratum(struct pci_dev *pdev, u32 erratum)
 {
@@ -3648,7 +3648,7 @@ void amd_iommu_enable_device_erratum(struct pci_dev *pdev, u32 erratum)
 	dev_data = get_dev_data(&pdev->dev);
 	dev_data->errata |= (1 << erratum);
 }
-EXPORT_SYMBOL(amd_iommu_enable_device_erratum);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_enable_device_erratum); */
 
 int amd_iommu_device_info(struct pci_dev *pdev,
                           struct amd_iommu_device_info *info)
@@ -3691,4 +3691,4 @@ int amd_iommu_device_info(struct pci_dev *pdev,
 
 	return 0;
 }
-EXPORT_SYMBOL(amd_iommu_device_info);
+/* DISABLED: EXPORT_SYMBOL(amd_iommu_device_info); */

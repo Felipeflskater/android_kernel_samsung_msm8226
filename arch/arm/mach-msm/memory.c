@@ -79,7 +79,7 @@ void write_to_strongly_ordered_memory(void)
 #else
 void write_to_strongly_ordered_memory(void) { }
 #endif
-EXPORT_SYMBOL(write_to_strongly_ordered_memory);
+/* DISABLED: EXPORT_SYMBOL(write_to_strongly_ordered_memory); */
 
 /* These cache related routines make the assumption (if outer cache is
  * available) that the associated physical memory is contiguous.
@@ -231,7 +231,7 @@ void *allocate_contiguous_ebi(unsigned long size,
 	return allocate_contiguous_memory(size, get_ebi_memtype(),
 		align, cached);
 }
-EXPORT_SYMBOL(allocate_contiguous_ebi);
+/* DISABLED: EXPORT_SYMBOL(allocate_contiguous_ebi); */
 
 phys_addr_t allocate_contiguous_ebi_nomap(unsigned long size,
 	unsigned long align)
@@ -239,7 +239,7 @@ phys_addr_t allocate_contiguous_ebi_nomap(unsigned long size,
 	return _allocate_contiguous_memory_nomap(size, get_ebi_memtype(),
 		align, __builtin_return_address(0));
 }
-EXPORT_SYMBOL(allocate_contiguous_ebi_nomap);
+/* DISABLED: EXPORT_SYMBOL(allocate_contiguous_ebi_nomap); */
 
 unsigned int msm_ttbr0;
 

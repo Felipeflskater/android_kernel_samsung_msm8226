@@ -248,7 +248,7 @@ int nf_nat_icmp_reply_translation(struct sk_buff *skb,
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(nf_nat_icmp_reply_translation);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_icmp_reply_translation); */
 
 static int __init nf_nat_l3proto_ipv4_init(void)
 {

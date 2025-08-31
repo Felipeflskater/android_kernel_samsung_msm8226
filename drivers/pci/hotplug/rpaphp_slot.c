@@ -112,7 +112,7 @@ int rpaphp_deregister_slot(struct slot *slot)
 	dbg("%s - Exit: rc[%d]\n", __func__, retval);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(rpaphp_deregister_slot);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpaphp_deregister_slot); */
 
 int rpaphp_register_slot(struct slot *slot)
 {

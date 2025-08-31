@@ -80,7 +80,7 @@ const struct spi_device_id *spi_get_device_id(const struct spi_device *sdev)
 
 	return spi_match_id(sdrv->id_table, sdev);
 }
-EXPORT_SYMBOL_GPL(spi_get_device_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_get_device_id); */
 
 static int spi_match_device(struct device *dev, struct device_driver *drv)
 {
@@ -225,7 +225,7 @@ struct bus_type spi_bus_type = {
 	.uevent		= spi_uevent,
 	.pm		= &spi_pm,
 };
-EXPORT_SYMBOL_GPL(spi_bus_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_bus_type); */
 
 
 static int spi_drv_probe(struct device *dev)
@@ -265,7 +265,7 @@ int spi_register_driver(struct spi_driver *sdrv)
 		sdrv->driver.shutdown = spi_drv_shutdown;
 	return driver_register(&sdrv->driver);
 }
-EXPORT_SYMBOL_GPL(spi_register_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_register_driver); */
 
 /*-------------------------------------------------------------------------*/
 
@@ -328,7 +328,7 @@ struct spi_device *spi_alloc_device(struct spi_master *master)
 	device_initialize(&spi->dev);
 	return spi;
 }
-EXPORT_SYMBOL_GPL(spi_alloc_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_alloc_device); */
 
 /**
  * spi_add_device - Add spi_device allocated with spi_alloc_device
@@ -397,7 +397,7 @@ done:
 	mutex_unlock(&spi_add_lock);
 	return status;
 }
-EXPORT_SYMBOL_GPL(spi_add_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_add_device); */
 
 /**
  * spi_new_device - instantiate one new SPI device
@@ -449,7 +449,7 @@ struct spi_device *spi_new_device(struct spi_master *master,
 
 	return proxy;
 }
-EXPORT_SYMBOL_GPL(spi_new_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_new_device); */
 
 static void spi_match_master_to_boardinfo(struct spi_master *master,
 				struct spi_board_info *bi)
@@ -637,7 +637,7 @@ struct spi_message *spi_get_next_queued_message(struct spi_master *master)
 
 	return next;
 }
-EXPORT_SYMBOL_GPL(spi_get_next_queued_message);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_get_next_queued_message); */
 
 /**
  * spi_finalize_current_message() - the current message is complete
@@ -662,7 +662,7 @@ void spi_finalize_current_message(struct spi_master *master)
 	if (mesg->complete)
 		mesg->complete(mesg->context);
 }
-EXPORT_SYMBOL_GPL(spi_finalize_current_message);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_finalize_current_message); */
 
 static int spi_start_queue(struct spi_master *master)
 {
@@ -851,7 +851,7 @@ struct spi_master *spi_alloc_master(struct device *dev, unsigned size)
 
 	return master;
 }
-EXPORT_SYMBOL_GPL(spi_alloc_master);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_alloc_master); */
 
 /**
  * spi_register_master - register SPI master controller
@@ -935,7 +935,7 @@ int spi_register_master(struct spi_master *master)
 done:
 	return status;
 }
-EXPORT_SYMBOL_GPL(spi_register_master);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_register_master); */
 
 static int __unregister(struct device *dev, void *null)
 {
@@ -969,7 +969,7 @@ void spi_unregister_master(struct spi_master *master)
 	dummy = device_for_each_child(&master->dev, NULL, __unregister);
 	device_unregister(&master->dev);
 }
-EXPORT_SYMBOL_GPL(spi_unregister_master);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_unregister_master); */
 
 int spi_master_suspend(struct spi_master *master)
 {
@@ -985,7 +985,7 @@ int spi_master_suspend(struct spi_master *master)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(spi_master_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_master_suspend); */
 
 int spi_master_resume(struct spi_master *master)
 {
@@ -1000,7 +1000,7 @@ int spi_master_resume(struct spi_master *master)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(spi_master_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_master_resume); */
 
 static int __spi_master_match(struct device *dev, void *data)
 {
@@ -1033,7 +1033,7 @@ struct spi_master *spi_busnum_to_master(u16 bus_num)
 	/* reference got in class_find_device */
 	return master;
 }
-EXPORT_SYMBOL_GPL(spi_busnum_to_master);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_busnum_to_master); */
 
 
 /*-------------------------------------------------------------------------*/
@@ -1092,7 +1092,7 @@ int spi_setup(struct spi_device *spi)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(spi_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_setup); */
 
 static int __spi_async(struct spi_device *spi, struct spi_message *message)
 {
@@ -1169,7 +1169,7 @@ int spi_async(struct spi_device *spi, struct spi_message *message)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(spi_async);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_async); */
 
 /**
  * spi_async_locked - version of spi_async with exclusive bus usage
@@ -1215,7 +1215,7 @@ int spi_async_locked(struct spi_device *spi, struct spi_message *message)
 	return ret;
 
 }
-EXPORT_SYMBOL_GPL(spi_async_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_async_locked); */
 
 
 /*-------------------------------------------------------------------------*/
@@ -1281,7 +1281,7 @@ int spi_sync(struct spi_device *spi, struct spi_message *message)
 {
 	return __spi_sync(spi, message, 0);
 }
-EXPORT_SYMBOL_GPL(spi_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_sync); */
 
 /**
  * spi_sync_locked - version of spi_sync with exclusive bus usage
@@ -1303,7 +1303,7 @@ int spi_sync_locked(struct spi_device *spi, struct spi_message *message)
 {
 	return __spi_sync(spi, message, 1);
 }
-EXPORT_SYMBOL_GPL(spi_sync_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_sync_locked); */
 
 /**
  * spi_bus_lock - obtain a lock for exclusive SPI bus usage
@@ -1334,7 +1334,7 @@ int spi_bus_lock(struct spi_master *master)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spi_bus_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_bus_lock); */
 
 /**
  * spi_bus_unlock - release the lock for exclusive SPI bus usage
@@ -1357,7 +1357,7 @@ int spi_bus_unlock(struct spi_master *master)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spi_bus_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_bus_unlock); */
 
 /* portable code must never pass more than 32 bytes */
 #define	SPI_BUFSIZ	max(32,SMP_CACHE_BYTES)
@@ -1436,7 +1436,7 @@ int spi_write_then_read(struct spi_device *spi,
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(spi_write_then_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_write_then_read); */
 
 /*-------------------------------------------------------------------------*/
 

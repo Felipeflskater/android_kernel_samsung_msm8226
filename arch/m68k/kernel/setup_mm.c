@@ -50,29 +50,29 @@
 #endif
 
 unsigned long m68k_machtype;
-EXPORT_SYMBOL(m68k_machtype);
+/* DISABLED: EXPORT_SYMBOL(m68k_machtype); */
 unsigned long m68k_cputype;
-EXPORT_SYMBOL(m68k_cputype);
+/* DISABLED: EXPORT_SYMBOL(m68k_cputype); */
 unsigned long m68k_fputype;
 unsigned long m68k_mmutype;
-EXPORT_SYMBOL(m68k_mmutype);
+/* DISABLED: EXPORT_SYMBOL(m68k_mmutype); */
 #ifdef CONFIG_VME
 unsigned long vme_brdtype;
-EXPORT_SYMBOL(vme_brdtype);
+/* DISABLED: EXPORT_SYMBOL(vme_brdtype); */
 #endif
 
 int m68k_is040or060;
-EXPORT_SYMBOL(m68k_is040or060);
+/* DISABLED: EXPORT_SYMBOL(m68k_is040or060); */
 
 extern unsigned long availmem;
 
 int m68k_num_memory;
-EXPORT_SYMBOL(m68k_num_memory);
+/* DISABLED: EXPORT_SYMBOL(m68k_num_memory); */
 int m68k_realnum_memory;
-EXPORT_SYMBOL(m68k_realnum_memory);
+/* DISABLED: EXPORT_SYMBOL(m68k_realnum_memory); */
 unsigned long m68k_memoffset;
 struct mem_info m68k_memory[NUM_MEMINFO];
-EXPORT_SYMBOL(m68k_memory);
+/* DISABLED: EXPORT_SYMBOL(m68k_memory); */
 
 struct mem_info m68k_ramdisk;
 
@@ -86,34 +86,34 @@ void (*mach_get_hardware_list) (struct seq_file *m);
 /* machine dependent timer functions */
 unsigned long (*mach_gettimeoffset) (void);
 int (*mach_hwclk) (int, struct rtc_time*);
-EXPORT_SYMBOL(mach_hwclk);
+/* DISABLED: EXPORT_SYMBOL(mach_hwclk); */
 int (*mach_set_clock_mmss) (unsigned long);
 unsigned int (*mach_get_ss)(void);
 int (*mach_get_rtc_pll)(struct rtc_pll_info *);
 int (*mach_set_rtc_pll)(struct rtc_pll_info *);
-EXPORT_SYMBOL(mach_get_ss);
-EXPORT_SYMBOL(mach_get_rtc_pll);
-EXPORT_SYMBOL(mach_set_rtc_pll);
+/* DISABLED: EXPORT_SYMBOL(mach_get_ss); */
+/* DISABLED: EXPORT_SYMBOL(mach_get_rtc_pll); */
+/* DISABLED: EXPORT_SYMBOL(mach_set_rtc_pll); */
 void (*mach_reset)( void );
 void (*mach_halt)( void );
 void (*mach_power_off)( void );
 long mach_max_dma_address = 0x00ffffff; /* default set to the lower 16MB */
 #ifdef CONFIG_HEARTBEAT
 void (*mach_heartbeat) (int);
-EXPORT_SYMBOL(mach_heartbeat);
+/* DISABLED: EXPORT_SYMBOL(mach_heartbeat); */
 #endif
 #ifdef CONFIG_M68K_L2_CACHE
 void (*mach_l2_flush) (int);
 #endif
 #if defined(CONFIG_INPUT_M68K_BEEP) || defined(CONFIG_INPUT_M68K_BEEP_MODULE)
 void (*mach_beep)(unsigned int, unsigned int);
-EXPORT_SYMBOL(mach_beep);
+/* DISABLED: EXPORT_SYMBOL(mach_beep); */
 #endif
 #if defined(CONFIG_ISA) && defined(MULTI_ISA)
 int isa_type;
 int isa_sex;
-EXPORT_SYMBOL(isa_type);
-EXPORT_SYMBOL(isa_sex);
+/* DISABLED: EXPORT_SYMBOL(isa_type); */
+/* DISABLED: EXPORT_SYMBOL(isa_sex); */
 #endif
 
 extern int amiga_parse_bootinfo(const struct bi_record *);
@@ -549,5 +549,5 @@ static int __init adb_probe_sync_enable (char *str) {
 	return 1;
 }
 
-/* DISABLED: __setup("adb_sync", adb_probe_sync_enable); */
+/* DISABLED: __setup("adb_sync", adb_probe_sync_enable); */ */
 #endif /* CONFIG_ADB */

@@ -24,14 +24,14 @@ int sock_diag_check_cookie(void *sk, __u32 *cookie)
 	else
 		return 0;
 }
-EXPORT_SYMBOL_GPL(sock_diag_check_cookie);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_check_cookie); */
 
 void sock_diag_save_cookie(void *sk, __u32 *cookie)
 {
 	cookie[0] = (u32)(unsigned long)sk;
 	cookie[1] = (u32)(((unsigned long)sk >> 31) >> 1);
 }
-EXPORT_SYMBOL_GPL(sock_diag_save_cookie);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_save_cookie); */
 
 int sock_diag_put_meminfo(struct sock *sk, struct sk_buff *skb, int attrtype)
 {
@@ -52,7 +52,7 @@ int sock_diag_put_meminfo(struct sock *sk, struct sk_buff *skb, int attrtype)
 rtattr_failure:
 	return -EMSGSIZE;
 }
-EXPORT_SYMBOL_GPL(sock_diag_put_meminfo);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_put_meminfo); */
 
 void sock_diag_register_inet_compat(int (*fn)(struct sk_buff *skb, struct nlmsghdr *nlh))
 {
@@ -60,7 +60,7 @@ void sock_diag_register_inet_compat(int (*fn)(struct sk_buff *skb, struct nlmsgh
 	inet_rcv_compat = fn;
 	mutex_unlock(&sock_diag_table_mutex);
 }
-EXPORT_SYMBOL_GPL(sock_diag_register_inet_compat);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_register_inet_compat); */
 
 void sock_diag_unregister_inet_compat(int (*fn)(struct sk_buff *skb, struct nlmsghdr *nlh))
 {
@@ -68,7 +68,7 @@ void sock_diag_unregister_inet_compat(int (*fn)(struct sk_buff *skb, struct nlms
 	inet_rcv_compat = NULL;
 	mutex_unlock(&sock_diag_table_mutex);
 }
-EXPORT_SYMBOL_GPL(sock_diag_unregister_inet_compat);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_unregister_inet_compat); */
 
 int sock_diag_register(struct sock_diag_handler *hndl)
 {
@@ -86,7 +86,7 @@ int sock_diag_register(struct sock_diag_handler *hndl)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(sock_diag_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_register); */
 
 void sock_diag_unregister(struct sock_diag_handler *hnld)
 {
@@ -100,7 +100,7 @@ void sock_diag_unregister(struct sock_diag_handler *hnld)
 	sock_diag_handlers[family] = NULL;
 	mutex_unlock(&sock_diag_table_mutex);
 }
-EXPORT_SYMBOL_GPL(sock_diag_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_unregister); */
 
 static inline struct sock_diag_handler *sock_diag_lock_handler(int family)
 {
@@ -189,10 +189,10 @@ int sock_diag_destroy(struct sock *sk, int err)
 
 	return sk->sk_prot->diag_destroy(sk, err);
 }
-EXPORT_SYMBOL_GPL(sock_diag_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_destroy); */
 
 struct sock *sock_diag_nlsk;
-EXPORT_SYMBOL_GPL(sock_diag_nlsk);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_diag_nlsk); */
 
 static int __init sock_diag_init(void)
 {

@@ -40,7 +40,7 @@ int msm_dump_table_register(struct msm_client_dump *client_entry)
 	dmac_flush_range(table, table + sizeof(struct msm_dump_table));
 	return 0;
 }
-EXPORT_SYMBOL(msm_dump_table_register);
+/* DISABLED: EXPORT_SYMBOL(msm_dump_table_register); */
 
 static int __init init_memory_dump(void)
 {

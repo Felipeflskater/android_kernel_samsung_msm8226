@@ -78,9 +78,9 @@
 unsigned int cpu_frequency[CONFIG_NR_CPUS];
 unsigned int cpu_volt[CONFIG_NR_CPUS];
 char cpu_state[CONFIG_NR_CPUS][VAR_NAME_MAX];
-EXPORT_SYMBOL(cpu_frequency);
-EXPORT_SYMBOL(cpu_volt);
-EXPORT_SYMBOL(cpu_state);
+/* DISABLED: EXPORT_SYMBOL(cpu_frequency); */
+/* DISABLED: EXPORT_SYMBOL(cpu_volt); */
+/* DISABLED: EXPORT_SYMBOL(cpu_state); */
 #endif
 
 /* onlyjazz.ed26 : make the restart_reason global to enable it early
@@ -759,8 +759,8 @@ void sec_debug_save_last_ns(unsigned long long last_ns)
 	if(secdbg_log)
 		atomic64_set(&(secdbg_log->last_ns), last_ns);
 }
-EXPORT_SYMBOL(sec_debug_save_last_pet);
-EXPORT_SYMBOL(sec_debug_save_last_ns);
+/* DISABLED: EXPORT_SYMBOL(sec_debug_save_last_pet); */
+/* DISABLED: EXPORT_SYMBOL(sec_debug_save_last_ns); */
 
 #ifdef CONFIG_HOTPLUG_CPU
 static void pull_down_other_cpus(void)
@@ -1209,7 +1209,7 @@ bool kernel_sec_set_debug_level(int level)
 
 	return 1;
 }
-EXPORT_SYMBOL(kernel_sec_set_debug_level);
+/* DISABLED: EXPORT_SYMBOL(kernel_sec_set_debug_level); */
 
 int kernel_sec_get_debug_level(void)
 {
@@ -1227,7 +1227,7 @@ int kernel_sec_get_debug_level(void)
 	}
 	return sec_dbg_level;
 }
-EXPORT_SYMBOL(kernel_sec_get_debug_level);
+/* DISABLED: EXPORT_SYMBOL(kernel_sec_get_debug_level); */
 
 #ifdef CONFIG_SEC_MONITOR_BATTERY_REMOVAL
 static unsigned normal_off = 0;
@@ -1237,7 +1237,7 @@ static int __init power_normal_off(char *val)
 	pr_info("%s, normal_off:%d\n", __func__, normal_off);
         return 1;
 }
-/* DISABLED: __setup("normal_off=", power_normal_off); */
+/* DISABLED: __setup("normal_off=", power_normal_off); */ */
 
 bool kernel_sec_set_normal_pwroff(int value)
 {
@@ -1247,7 +1247,7 @@ bool kernel_sec_set_normal_pwroff(int value)
 
 	return 1;
 }
-EXPORT_SYMBOL(kernel_sec_set_normal_pwroff);
+/* DISABLED: EXPORT_SYMBOL(kernel_sec_set_normal_pwroff); */
 
 static int sec_get_normal_off(void *data, u64 *val)
 {
@@ -1504,7 +1504,7 @@ void sec_debug_hw_reset(void)
 	while (1)
 		;
 }
-EXPORT_SYMBOL(sec_debug_hw_reset);
+/* DISABLED: EXPORT_SYMBOL(sec_debug_hw_reset); */
 
 #ifdef CONFIG_SEC_PERIPHERAL_SECURE_CHK
 void sec_peripheral_secure_check_fail(void)
@@ -1521,7 +1521,7 @@ void sec_peripheral_secure_check_fail(void)
         while (1)
                 ;
 }
-EXPORT_SYMBOL(sec_peripheral_secure_check_fail);
+/* DISABLED: EXPORT_SYMBOL(sec_peripheral_secure_check_fail); */
 #endif
 
 #ifdef CONFIG_SEC_DEBUG_LOW_LOG
@@ -1608,7 +1608,7 @@ int sec_debug_dump_stack(void)
 	flush_cache_all();
 	return 0;
 }
-EXPORT_SYMBOL(sec_debug_dump_stack);
+/* DISABLED: EXPORT_SYMBOL(sec_debug_dump_stack); */
 
 #ifdef CONFIG_TOUCHSCREEN_MMS252// debug for tsp ghost touch
 extern void dump_tsp_log(void);
@@ -2824,7 +2824,7 @@ static int __init sec_dbg_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("sec_dbg=", sec_dbg_setup); */
+/* DISABLED: __setup("sec_dbg=", sec_dbg_setup); */ */
 
 
 static void sec_user_fault_dump(void)
@@ -2942,7 +2942,7 @@ void sec_param_restart_reason(const char *cmd)
 	printk(KERN_NOTICE "%s: Write PARAM_RESTART_REASON 0x%x to param \n",__func__,param_restart_reason);
 	sec_set_param(param_index_restart_reason, &param_restart_reason);
 }
-EXPORT_SYMBOL(sec_param_restart_reason);
+/* DISABLED: EXPORT_SYMBOL(sec_param_restart_reason); */
 #endif
 
 #ifdef CONFIG_USER_RESET_DEBUG

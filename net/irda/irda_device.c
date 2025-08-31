@@ -135,7 +135,7 @@ void irda_device_set_media_busy(struct net_device *dev, int status)
 		irlap_stop_mbusy_timer(self);
 	}
 }
-EXPORT_SYMBOL(irda_device_set_media_busy);
+/* DISABLED: EXPORT_SYMBOL(irda_device_set_media_busy); */
 
 
 /*
@@ -297,7 +297,7 @@ struct net_device *alloc_irdadev(int sizeof_priv)
 {
 	return alloc_netdev(sizeof_priv, "irda%d", irda_device_setup);
 }
-EXPORT_SYMBOL(alloc_irdadev);
+/* DISABLED: EXPORT_SYMBOL(alloc_irdadev); */
 
 #ifdef CONFIG_ISA_DMA_API
 /*
@@ -321,5 +321,5 @@ void irda_setup_dma(int channel, dma_addr_t buffer, int count, int mode)
 
 	release_dma_lock(flags);
 }
-EXPORT_SYMBOL(irda_setup_dma);
+/* DISABLED: EXPORT_SYMBOL(irda_setup_dma); */
 #endif

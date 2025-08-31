@@ -98,7 +98,7 @@ int mlx4_register_interface(struct mlx4_interface *intf)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mlx4_register_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_register_interface); */
 
 void mlx4_unregister_interface(struct mlx4_interface *intf)
 {
@@ -113,7 +113,7 @@ void mlx4_unregister_interface(struct mlx4_interface *intf)
 
 	mutex_unlock(&intf_mutex);
 }
-EXPORT_SYMBOL_GPL(mlx4_unregister_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unregister_interface); */
 
 void mlx4_dispatch_event(struct mlx4_dev *dev, enum mlx4_dev_event type, int port)
 {
@@ -184,4 +184,4 @@ void *mlx4_get_protocol_dev(struct mlx4_dev *dev, enum mlx4_protocol proto, int 
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(mlx4_get_protocol_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_get_protocol_dev); */

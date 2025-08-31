@@ -607,7 +607,7 @@ fail:
 	gpio_free(EP93XX_GPIO_LINE_EGPIO14);
 	return err;
 }
-EXPORT_SYMBOL(ep93xx_pwm_acquire_gpio);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_pwm_acquire_gpio); */
 
 void ep93xx_pwm_release_gpio(struct platform_device *pdev)
 {
@@ -619,7 +619,7 @@ void ep93xx_pwm_release_gpio(struct platform_device *pdev)
 		ep93xx_devcfg_clear_bits(EP93XX_SYSCON_DEVCFG_PONG);
 	}
 }
-EXPORT_SYMBOL(ep93xx_pwm_release_gpio);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_pwm_release_gpio); */
 
 
 /*************************************************************************
@@ -740,7 +740,7 @@ fail_gpio_c:
 	}
 	return err;
 }
-EXPORT_SYMBOL(ep93xx_keypad_acquire_gpio);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_keypad_acquire_gpio); */
 
 void ep93xx_keypad_release_gpio(struct platform_device *pdev)
 {
@@ -755,7 +755,7 @@ void ep93xx_keypad_release_gpio(struct platform_device *pdev)
 	ep93xx_devcfg_set_bits(EP93XX_SYSCON_DEVCFG_KEYS |
 			       EP93XX_SYSCON_DEVCFG_GONK);
 }
-EXPORT_SYMBOL(ep93xx_keypad_release_gpio);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_keypad_release_gpio); */
 
 /*************************************************************************
  * EP93xx I2S audio peripheral handling
@@ -812,13 +812,13 @@ int ep93xx_i2s_acquire(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(ep93xx_i2s_acquire);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_i2s_acquire); */
 
 void ep93xx_i2s_release(void)
 {
 	ep93xx_devcfg_clear_bits(EP93XX_SYSCON_DEVCFG_I2S_MASK);
 }
-EXPORT_SYMBOL(ep93xx_i2s_release);
+/* DISABLED: EXPORT_SYMBOL(ep93xx_i2s_release); */
 
 /*************************************************************************
  * EP93xx AC97 audio peripheral handling

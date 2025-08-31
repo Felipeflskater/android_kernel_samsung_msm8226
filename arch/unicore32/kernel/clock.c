@@ -72,29 +72,29 @@ struct clk *clk_get(struct device *dev, const char *id)
 
 	return clk;
 }
-EXPORT_SYMBOL(clk_get);
+/* DISABLED: EXPORT_SYMBOL(clk_get); */
 
 void clk_put(struct clk *clk)
 {
 }
-EXPORT_SYMBOL(clk_put);
+/* DISABLED: EXPORT_SYMBOL(clk_put); */
 
 int clk_enable(struct clk *clk)
 {
 	return 0;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 unsigned long clk_get_rate(struct clk *clk)
 {
 	return clk->rate;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 struct {
 	unsigned long rate;
@@ -212,7 +212,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 #endif
 	return 0;
 }
-EXPORT_SYMBOL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
 
 int clk_register(struct clk *clk)
 {
@@ -223,7 +223,7 @@ int clk_register(struct clk *clk)
 		(clk->rate)/1000000, (clk->rate)/10000 % 100);
 	return 0;
 }
-EXPORT_SYMBOL(clk_register);
+/* DISABLED: EXPORT_SYMBOL(clk_register); */
 
 void clk_unregister(struct clk *clk)
 {
@@ -231,7 +231,7 @@ void clk_unregister(struct clk *clk)
 	list_del(&clk->node);
 	mutex_unlock(&clocks_mutex);
 }
-EXPORT_SYMBOL(clk_unregister);
+/* DISABLED: EXPORT_SYMBOL(clk_unregister); */
 
 struct {
 	unsigned long prate;

@@ -277,7 +277,7 @@ int crypto_sha256_update(struct shash_desc *desc, const u8 *data,
 
 	return 0;
 }
-EXPORT_SYMBOL(crypto_sha256_update);
+/* DISABLED: EXPORT_SYMBOL(crypto_sha256_update); */
 
 static int sha256_final(struct shash_desc *desc, u8 *out)
 {

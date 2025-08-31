@@ -14,33 +14,33 @@
 #include <asm/ftrace.h>
 
 /* string functions */
-EXPORT_SYMBOL(strlen);
-EXPORT_SYMBOL(__strlen_user);
-EXPORT_SYMBOL(__strnlen_user);
-EXPORT_SYMBOL(strncmp);
+/* DISABLED: EXPORT_SYMBOL(strlen); */
+/* DISABLED: EXPORT_SYMBOL(__strlen_user); */
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user); */
+/* DISABLED: EXPORT_SYMBOL(strncmp); */
 
 /* mem* functions */
 extern void *__memscan_zero(void *, size_t);
 extern void *__memscan_generic(void *, int, size_t);
 extern void *__bzero(void *, size_t);
 
-EXPORT_SYMBOL(memscan);
-EXPORT_SYMBOL(__memscan_zero);
-EXPORT_SYMBOL(__memscan_generic);
-EXPORT_SYMBOL(memcmp);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memmove);
-EXPORT_SYMBOL(__bzero);
+/* DISABLED: EXPORT_SYMBOL(memscan); */
+/* DISABLED: EXPORT_SYMBOL(__memscan_zero); */
+/* DISABLED: EXPORT_SYMBOL(__memscan_generic); */
+/* DISABLED: EXPORT_SYMBOL(memcmp); */
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
+/* DISABLED: EXPORT_SYMBOL(__bzero); */
 
 /* Moving data to/from/in userspace. */
-EXPORT_SYMBOL(__strncpy_from_user);
+/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user); */
 
 /* Networking helper routines. */
-EXPORT_SYMBOL(csum_partial);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
 
 #ifdef CONFIG_MCOUNT
-EXPORT_SYMBOL(_mcount);
+/* DISABLED: EXPORT_SYMBOL(_mcount); */
 #endif
 
 /*
@@ -74,39 +74,39 @@ extern unsigned _Umul(unsigned, unsigned);
 extern unsigned _Urem(unsigned, unsigned);
 
 /* Networking helper routines. */
-EXPORT_SYMBOL(__csum_partial_copy_sparc_generic);
+/* DISABLED: EXPORT_SYMBOL(__csum_partial_copy_sparc_generic); */
 
 /* Special internal versions of library functions. */
-EXPORT_SYMBOL(__copy_1page);
-EXPORT_SYMBOL(__memmove);
-EXPORT_SYMBOL(bzero_1page);
+/* DISABLED: EXPORT_SYMBOL(__copy_1page); */
+/* DISABLED: EXPORT_SYMBOL(__memmove); */
+/* DISABLED: EXPORT_SYMBOL(bzero_1page); */
 
 /* string functions */
-EXPORT_SYMBOL(__strncmp);
+/* DISABLED: EXPORT_SYMBOL(__strncmp); */
 
 /* Moving data to/from/in userspace. */
-EXPORT_SYMBOL(__copy_user);
+/* DISABLED: EXPORT_SYMBOL(__copy_user); */
 
 /* Used by asm/spinlock.h */
 #ifdef CONFIG_SMP
-EXPORT_SYMBOL(___rw_read_enter);
-EXPORT_SYMBOL(___rw_read_try);
-EXPORT_SYMBOL(___rw_read_exit);
-EXPORT_SYMBOL(___rw_write_enter);
+/* DISABLED: EXPORT_SYMBOL(___rw_read_enter); */
+/* DISABLED: EXPORT_SYMBOL(___rw_read_try); */
+/* DISABLED: EXPORT_SYMBOL(___rw_read_exit); */
+/* DISABLED: EXPORT_SYMBOL(___rw_write_enter); */
 #endif
 
-EXPORT_SYMBOL(__ashrdi3);
-EXPORT_SYMBOL(__ashldi3);
-EXPORT_SYMBOL(__lshrdi3);
-EXPORT_SYMBOL(__muldi3);
-EXPORT_SYMBOL(__divdi3);
+/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
+/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__muldi3); */
+/* DISABLED: EXPORT_SYMBOL(__divdi3); */
 
-EXPORT_SYMBOL(_Rem);
-EXPORT_SYMBOL(_Urem);
-EXPORT_SYMBOL(_Mul);
-EXPORT_SYMBOL(_Umul);
-EXPORT_SYMBOL(_Div);
-EXPORT_SYMBOL(_Udiv);
+/* DISABLED: EXPORT_SYMBOL(_Rem); */
+/* DISABLED: EXPORT_SYMBOL(_Urem); */
+/* DISABLED: EXPORT_SYMBOL(_Mul); */
+/* DISABLED: EXPORT_SYMBOL(_Umul); */
+/* DISABLED: EXPORT_SYMBOL(_Div); */
+/* DISABLED: EXPORT_SYMBOL(_Udiv); */
 #endif
 
 /*
@@ -114,52 +114,52 @@ EXPORT_SYMBOL(_Udiv);
  */
 #ifdef CONFIG_SPARC64
 /* Networking helper routines. */
-EXPORT_SYMBOL(csum_partial_copy_nocheck);
-EXPORT_SYMBOL(__csum_partial_copy_from_user);
-EXPORT_SYMBOL(__csum_partial_copy_to_user);
-EXPORT_SYMBOL(ip_fast_csum);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+/* DISABLED: EXPORT_SYMBOL(__csum_partial_copy_from_user); */
+/* DISABLED: EXPORT_SYMBOL(__csum_partial_copy_to_user); */
+/* DISABLED: EXPORT_SYMBOL(ip_fast_csum); */
 
 /* Moving data to/from/in userspace. */
-EXPORT_SYMBOL(___copy_to_user);
-EXPORT_SYMBOL(___copy_from_user);
-EXPORT_SYMBOL(___copy_in_user);
-EXPORT_SYMBOL(__clear_user);
+/* DISABLED: EXPORT_SYMBOL(___copy_to_user); */
+/* DISABLED: EXPORT_SYMBOL(___copy_from_user); */
+/* DISABLED: EXPORT_SYMBOL(___copy_in_user); */
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */
 
 /* RW semaphores */
-EXPORT_SYMBOL(__down_read);
-EXPORT_SYMBOL(__down_read_trylock);
-EXPORT_SYMBOL(__down_write);
-EXPORT_SYMBOL(__down_write_trylock);
-EXPORT_SYMBOL(__up_read);
-EXPORT_SYMBOL(__up_write);
-EXPORT_SYMBOL(__downgrade_write);
+/* DISABLED: EXPORT_SYMBOL(__down_read); */
+/* DISABLED: EXPORT_SYMBOL(__down_read_trylock); */
+/* DISABLED: EXPORT_SYMBOL(__down_write); */
+/* DISABLED: EXPORT_SYMBOL(__down_write_trylock); */
+/* DISABLED: EXPORT_SYMBOL(__up_read); */
+/* DISABLED: EXPORT_SYMBOL(__up_write); */
+/* DISABLED: EXPORT_SYMBOL(__downgrade_write); */
 
 /* Atomic counter implementation. */
-EXPORT_SYMBOL(atomic_add);
-EXPORT_SYMBOL(atomic_add_ret);
-EXPORT_SYMBOL(atomic_sub);
-EXPORT_SYMBOL(atomic_sub_ret);
-EXPORT_SYMBOL(atomic64_add);
-EXPORT_SYMBOL(atomic64_add_ret);
-EXPORT_SYMBOL(atomic64_sub);
-EXPORT_SYMBOL(atomic64_sub_ret);
+/* DISABLED: EXPORT_SYMBOL(atomic_add); */
+/* DISABLED: EXPORT_SYMBOL(atomic_add_ret); */
+/* DISABLED: EXPORT_SYMBOL(atomic_sub); */
+/* DISABLED: EXPORT_SYMBOL(atomic_sub_ret); */
+/* DISABLED: EXPORT_SYMBOL(atomic64_add); */
+/* DISABLED: EXPORT_SYMBOL(atomic64_add_ret); */
+/* DISABLED: EXPORT_SYMBOL(atomic64_sub); */
+/* DISABLED: EXPORT_SYMBOL(atomic64_sub_ret); */
 
 /* Atomic bit operations. */
-EXPORT_SYMBOL(test_and_set_bit);
-EXPORT_SYMBOL(test_and_clear_bit);
-EXPORT_SYMBOL(test_and_change_bit);
-EXPORT_SYMBOL(set_bit);
-EXPORT_SYMBOL(clear_bit);
-EXPORT_SYMBOL(change_bit);
+/* DISABLED: EXPORT_SYMBOL(test_and_set_bit); */
+/* DISABLED: EXPORT_SYMBOL(test_and_clear_bit); */
+/* DISABLED: EXPORT_SYMBOL(test_and_change_bit); */
+/* DISABLED: EXPORT_SYMBOL(set_bit); */
+/* DISABLED: EXPORT_SYMBOL(clear_bit); */
+/* DISABLED: EXPORT_SYMBOL(change_bit); */
 
 /* Special internal versions of library functions. */
-EXPORT_SYMBOL(_clear_page);
-EXPORT_SYMBOL(clear_user_page);
-EXPORT_SYMBOL(copy_user_page);
+/* DISABLED: EXPORT_SYMBOL(_clear_page); */
+/* DISABLED: EXPORT_SYMBOL(clear_user_page); */
+/* DISABLED: EXPORT_SYMBOL(copy_user_page); */
 
 /* RAID code needs this */
 void VISenter(void);
-EXPORT_SYMBOL(VISenter);
+/* DISABLED: EXPORT_SYMBOL(VISenter); */
 
 extern void xor_vis_2(unsigned long, unsigned long *, unsigned long *);
 extern void xor_vis_3(unsigned long, unsigned long *, unsigned long *,
@@ -168,10 +168,10 @@ extern void xor_vis_4(unsigned long, unsigned long *, unsigned long *,
 		unsigned long *, unsigned long *);
 extern void xor_vis_5(unsigned long, unsigned long *, unsigned long *,
 		unsigned long *, unsigned long *, unsigned long *);
-EXPORT_SYMBOL(xor_vis_2);
-EXPORT_SYMBOL(xor_vis_3);
-EXPORT_SYMBOL(xor_vis_4);
-EXPORT_SYMBOL(xor_vis_5);
+/* DISABLED: EXPORT_SYMBOL(xor_vis_2); */
+/* DISABLED: EXPORT_SYMBOL(xor_vis_3); */
+/* DISABLED: EXPORT_SYMBOL(xor_vis_4); */
+/* DISABLED: EXPORT_SYMBOL(xor_vis_5); */
 
 extern void xor_niagara_2(unsigned long, unsigned long *, unsigned long *);
 extern void xor_niagara_3(unsigned long, unsigned long *, unsigned long *,
@@ -181,8 +181,8 @@ extern void xor_niagara_4(unsigned long, unsigned long *, unsigned long *,
 extern void xor_niagara_5(unsigned long, unsigned long *, unsigned long *,
 		unsigned long *, unsigned long *, unsigned long *);
 
-EXPORT_SYMBOL(xor_niagara_2);
-EXPORT_SYMBOL(xor_niagara_3);
-EXPORT_SYMBOL(xor_niagara_4);
-EXPORT_SYMBOL(xor_niagara_5);
+/* DISABLED: EXPORT_SYMBOL(xor_niagara_2); */
+/* DISABLED: EXPORT_SYMBOL(xor_niagara_3); */
+/* DISABLED: EXPORT_SYMBOL(xor_niagara_4); */
+/* DISABLED: EXPORT_SYMBOL(xor_niagara_5); */
 #endif

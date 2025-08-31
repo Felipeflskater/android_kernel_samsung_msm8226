@@ -1194,7 +1194,7 @@ static int __init setup_print_fatal_signals(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("print-fatal-signals=", setup_print_fatal_signals); */
+/* DISABLED: __setup("print-fatal-signals=", setup_print_fatal_signals); */ */
 
 int
 __group_send_sig_info(int sig, struct siginfo *info, struct task_struct *p)
@@ -1429,7 +1429,7 @@ out_unlock:
 	rcu_read_unlock();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(kill_pid_info_as_cred);
+/* DISABLED: EXPORT_SYMBOL_GPL(kill_pid_info_as_cred); */
 
 /*
  * kill_something_info() interprets pid in interesting ways just like kill(2).
@@ -1533,13 +1533,13 @@ int kill_pgrp(struct pid *pid, int sig, int priv)
 
 	return ret;
 }
-EXPORT_SYMBOL(kill_pgrp);
+/* DISABLED: EXPORT_SYMBOL(kill_pgrp); */
 
 int kill_pid(struct pid *pid, int sig, int priv)
 {
 	return kill_pid_info(sig, __si_special(priv), pid);
 }
-EXPORT_SYMBOL(kill_pid);
+/* DISABLED: EXPORT_SYMBOL(kill_pid); */
 
 /*
  * These functions support sending signals using preallocated sigqueue
@@ -2481,15 +2481,15 @@ out:
 	}
 }
 
-EXPORT_SYMBOL(recalc_sigpending);
-EXPORT_SYMBOL_GPL(dequeue_signal);
-EXPORT_SYMBOL(flush_signals);
-EXPORT_SYMBOL(force_sig);
-EXPORT_SYMBOL(send_sig);
-EXPORT_SYMBOL(send_sig_info);
-EXPORT_SYMBOL(sigprocmask);
-EXPORT_SYMBOL(block_all_signals);
-EXPORT_SYMBOL(unblock_all_signals);
+/* DISABLED: EXPORT_SYMBOL(recalc_sigpending); */
+/* DISABLED: EXPORT_SYMBOL_GPL(dequeue_signal); */
+/* DISABLED: EXPORT_SYMBOL(flush_signals); */
+/* DISABLED: EXPORT_SYMBOL(force_sig); */
+/* DISABLED: EXPORT_SYMBOL(send_sig); */
+/* DISABLED: EXPORT_SYMBOL(send_sig_info); */
+/* DISABLED: EXPORT_SYMBOL(sigprocmask); */
+/* DISABLED: EXPORT_SYMBOL(block_all_signals); */
+/* DISABLED: EXPORT_SYMBOL(unblock_all_signals); */
 
 
 /*

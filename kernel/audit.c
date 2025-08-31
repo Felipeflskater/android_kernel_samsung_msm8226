@@ -81,7 +81,7 @@ static int	audit_initialized;
 int		audit_enabled;
 int		audit_ever_enabled;
 
-EXPORT_SYMBOL_GPL(audit_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(audit_enabled); */
 
 /* Default state when kernel boots without any parameters. */
 static int	audit_default = 1;
@@ -1024,7 +1024,7 @@ static int __init audit_enable(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("audit=", audit_enable); */
+/* DISABLED: __setup("audit=", audit_enable); */ */
 
 static void audit_buffer_free(struct audit_buffer *ab)
 {
@@ -1542,10 +1542,10 @@ void audit_log_secctx(struct audit_buffer *ab, u32 secid)
 		security_release_secctx(secctx, len);
 	}
 }
-EXPORT_SYMBOL(audit_log_secctx);
+/* DISABLED: EXPORT_SYMBOL(audit_log_secctx); */
 #endif
 
-EXPORT_SYMBOL(audit_log_start);
-EXPORT_SYMBOL(audit_log_end);
-EXPORT_SYMBOL(audit_log_format);
-EXPORT_SYMBOL(audit_log);
+/* DISABLED: EXPORT_SYMBOL(audit_log_start); */
+/* DISABLED: EXPORT_SYMBOL(audit_log_end); */
+/* DISABLED: EXPORT_SYMBOL(audit_log_format); */
+/* DISABLED: EXPORT_SYMBOL(audit_log); */

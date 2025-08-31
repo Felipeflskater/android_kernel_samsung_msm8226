@@ -275,7 +275,7 @@ int sm501_misc_control(struct device *dev,
 	return to;
 }
 
-EXPORT_SYMBOL_GPL(sm501_misc_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(sm501_misc_control); */
 
 /* sm501_modify_reg
  *
@@ -306,7 +306,7 @@ unsigned long sm501_modify_reg(struct device *dev,
 	return data;
 }
 
-EXPORT_SYMBOL_GPL(sm501_modify_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(sm501_modify_reg); */
 
 /* sm501_unit_power
  *
@@ -385,7 +385,7 @@ int sm501_unit_power(struct device *dev, unsigned int unit, unsigned int to)
 	return gate;
 }
 
-EXPORT_SYMBOL_GPL(sm501_unit_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(sm501_unit_power); */
 
 /* clock value structure. */
 struct sm501_clock {
@@ -630,7 +630,7 @@ unsigned long sm501_set_clock(struct device *dev,
 	return sm501_freq;
 }
 
-EXPORT_SYMBOL_GPL(sm501_set_clock);
+/* DISABLED: EXPORT_SYMBOL_GPL(sm501_set_clock); */
 
 /* sm501_find_clock
  *
@@ -673,7 +673,7 @@ unsigned long sm501_find_clock(struct device *dev,
 	return sm501_freq;
 }
 
-EXPORT_SYMBOL_GPL(sm501_find_clock);
+/* DISABLED: EXPORT_SYMBOL_GPL(sm501_find_clock); */
 
 static struct sm501_device *to_sm_device(struct platform_device *pdev)
 {

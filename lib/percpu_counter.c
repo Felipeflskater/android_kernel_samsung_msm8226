@@ -69,7 +69,7 @@ void percpu_counter_set(struct percpu_counter *fbc, s64 amount)
 	fbc->count = amount;
 	raw_spin_unlock(&fbc->lock);
 }
-EXPORT_SYMBOL(percpu_counter_set);
+/* DISABLED: EXPORT_SYMBOL(percpu_counter_set); */
 
 void __percpu_counter_add(struct percpu_counter *fbc, s64 amount, s32 batch)
 {
@@ -87,7 +87,7 @@ void __percpu_counter_add(struct percpu_counter *fbc, s64 amount, s32 batch)
 	}
 	preempt_enable();
 }
-EXPORT_SYMBOL(__percpu_counter_add);
+/* DISABLED: EXPORT_SYMBOL(__percpu_counter_add); */
 
 /*
  * Add up all the per-cpu counts, return the result.  This is a more accurate
@@ -107,7 +107,7 @@ s64 __percpu_counter_sum(struct percpu_counter *fbc)
 	raw_spin_unlock(&fbc->lock);
 	return ret;
 }
-EXPORT_SYMBOL(__percpu_counter_sum);
+/* DISABLED: EXPORT_SYMBOL(__percpu_counter_sum); */
 
 int __percpu_counter_init(struct percpu_counter *fbc, s64 amount,
 			  struct lock_class_key *key)
@@ -129,7 +129,7 @@ int __percpu_counter_init(struct percpu_counter *fbc, s64 amount,
 #endif
 	return 0;
 }
-EXPORT_SYMBOL(__percpu_counter_init);
+/* DISABLED: EXPORT_SYMBOL(__percpu_counter_init); */
 
 void percpu_counter_destroy(struct percpu_counter *fbc)
 {
@@ -146,10 +146,10 @@ void percpu_counter_destroy(struct percpu_counter *fbc)
 	free_percpu(fbc->counters);
 	fbc->counters = NULL;
 }
-EXPORT_SYMBOL(percpu_counter_destroy);
+/* DISABLED: EXPORT_SYMBOL(percpu_counter_destroy); */
 
 int percpu_counter_batch __read_mostly = 32;
-EXPORT_SYMBOL(percpu_counter_batch);
+/* DISABLED: EXPORT_SYMBOL(percpu_counter_batch); */
 
 static void compute_batch_value(void)
 {
@@ -211,7 +211,7 @@ int percpu_counter_compare(struct percpu_counter *fbc, s64 rhs)
 	else
 		return 0;
 }
-EXPORT_SYMBOL(percpu_counter_compare);
+/* DISABLED: EXPORT_SYMBOL(percpu_counter_compare); */
 
 static int __init percpu_counter_startup(void)
 {

@@ -151,7 +151,7 @@ int get_compat_timeval(struct timeval *tv, const struct compat_timeval __user *c
 			__get_user(tv->tv_sec, &ctv->tv_sec) ||
 			__get_user(tv->tv_usec, &ctv->tv_usec)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL_GPL(get_compat_timeval);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_compat_timeval); */
 
 int put_compat_timeval(const struct timeval *tv, struct compat_timeval __user *ctv)
 {
@@ -159,7 +159,7 @@ int put_compat_timeval(const struct timeval *tv, struct compat_timeval __user *c
 			__put_user(tv->tv_sec, &ctv->tv_sec) ||
 			__put_user(tv->tv_usec, &ctv->tv_usec)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL_GPL(put_compat_timeval);
+/* DISABLED: EXPORT_SYMBOL_GPL(put_compat_timeval); */
 
 int get_compat_timespec(struct timespec *ts, const struct compat_timespec __user *cts)
 {
@@ -167,7 +167,7 @@ int get_compat_timespec(struct timespec *ts, const struct compat_timespec __user
 			__get_user(ts->tv_sec, &cts->tv_sec) ||
 			__get_user(ts->tv_nsec, &cts->tv_nsec)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL_GPL(get_compat_timespec);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_compat_timespec); */
 
 int put_compat_timespec(const struct timespec *ts, struct compat_timespec __user *cts)
 {
@@ -175,7 +175,7 @@ int put_compat_timespec(const struct timespec *ts, struct compat_timespec __user
 			__put_user(ts->tv_sec, &cts->tv_sec) ||
 			__put_user(ts->tv_nsec, &cts->tv_nsec)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL_GPL(put_compat_timespec);
+/* DISABLED: EXPORT_SYMBOL_GPL(put_compat_timespec); */
 
 int compat_get_timeval(struct timeval *tv, const void __user *utv)
 {
@@ -184,7 +184,7 @@ int compat_get_timeval(struct timeval *tv, const void __user *utv)
 	else
 		return get_compat_timeval(tv, utv);
 }
-EXPORT_SYMBOL_GPL(compat_get_timeval);
+/* DISABLED: EXPORT_SYMBOL_GPL(compat_get_timeval); */
 
 int compat_put_timeval(const struct timeval *tv, void __user *utv)
 {
@@ -193,7 +193,7 @@ int compat_put_timeval(const struct timeval *tv, void __user *utv)
 	else
 		return put_compat_timeval(tv, utv);
 }
-EXPORT_SYMBOL_GPL(compat_put_timeval);
+/* DISABLED: EXPORT_SYMBOL_GPL(compat_put_timeval); */
 
 int compat_get_timespec(struct timespec *ts, const void __user *uts)
 {
@@ -202,7 +202,7 @@ int compat_get_timespec(struct timespec *ts, const void __user *uts)
 	else
 		return get_compat_timespec(ts, uts);
 }
-EXPORT_SYMBOL_GPL(compat_get_timespec);
+/* DISABLED: EXPORT_SYMBOL_GPL(compat_get_timespec); */
 
 int compat_put_timespec(const struct timespec *ts, void __user *uts)
 {
@@ -211,7 +211,7 @@ int compat_put_timespec(const struct timespec *ts, void __user *uts)
 	else
 		return put_compat_timespec(ts, uts);
 }
-EXPORT_SYMBOL_GPL(compat_put_timespec);
+/* DISABLED: EXPORT_SYMBOL_GPL(compat_put_timespec); */
 
 static long compat_nanosleep_restart(struct restart_block *restart)
 {
@@ -973,7 +973,7 @@ sigset_from_compat (sigset_t *set, compat_sigset_t *compat)
 	case 1: set->sig[0] = compat->sig[0] | (((long)compat->sig[1]) << 32 );
 	}
 }
-EXPORT_SYMBOL_GPL(sigset_from_compat);
+/* DISABLED: EXPORT_SYMBOL_GPL(sigset_from_compat); */
 
 asmlinkage long
 compat_sys_rt_sigtimedwait (compat_sigset_t __user *uthese,
@@ -1242,4 +1242,4 @@ void __user *compat_alloc_user_space(unsigned long len)
 
 	return ptr;
 }
-EXPORT_SYMBOL_GPL(compat_alloc_user_space);
+/* DISABLED: EXPORT_SYMBOL_GPL(compat_alloc_user_space); */

@@ -56,7 +56,7 @@ int strnicmp(const char *s1, const char *s2, size_t len)
 	} while (--len);
 	return (int)c1 - (int)c2;
 }
-EXPORT_SYMBOL(strnicmp);
+/* DISABLED: EXPORT_SYMBOL(strnicmp); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCASECMP
@@ -70,7 +70,7 @@ int strcasecmp(const char *s1, const char *s2)
 	} while (c1 == c2 && c1 != 0);
 	return c1 - c2;
 }
-EXPORT_SYMBOL(strcasecmp);
+/* DISABLED: EXPORT_SYMBOL(strcasecmp); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNCASECMP
@@ -84,7 +84,7 @@ int strncasecmp(const char *s1, const char *s2, size_t n)
 	} while ((--n > 0) && c1 == c2 && c1 != 0);
 	return c1 - c2;
 }
-EXPORT_SYMBOL(strncasecmp);
+/* DISABLED: EXPORT_SYMBOL(strncasecmp); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCPY
@@ -102,7 +102,7 @@ char *strcpy(char *dest, const char *src)
 		/* nothing */;
 	return tmp;
 }
-EXPORT_SYMBOL(strcpy);
+/* DISABLED: EXPORT_SYMBOL(strcpy); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNCPY
@@ -131,7 +131,7 @@ char *strncpy(char *dest, const char *src, size_t count)
 	}
 	return dest;
 }
-EXPORT_SYMBOL(strncpy);
+/* DISABLED: EXPORT_SYMBOL(strncpy); */
 #endif
 
 #ifndef __HAVE_ARCH_STRLCPY
@@ -157,7 +157,7 @@ size_t strlcpy(char *dest, const char *src, size_t size)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(strlcpy);
+/* DISABLED: EXPORT_SYMBOL(strlcpy); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCAT
@@ -177,7 +177,7 @@ char *strcat(char *dest, const char *src)
 		;
 	return tmp;
 }
-EXPORT_SYMBOL(strcat);
+/* DISABLED: EXPORT_SYMBOL(strcat); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNCAT
@@ -206,7 +206,7 @@ char *strncat(char *dest, const char *src, size_t count)
 	}
 	return tmp;
 }
-EXPORT_SYMBOL(strncat);
+/* DISABLED: EXPORT_SYMBOL(strncat); */
 #endif
 
 #ifndef __HAVE_ARCH_STRLCAT
@@ -233,7 +233,7 @@ size_t strlcat(char *dest, const char *src, size_t count)
 	dest[len] = 0;
 	return res;
 }
-EXPORT_SYMBOL(strlcat);
+/* DISABLED: EXPORT_SYMBOL(strlcat); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCMP
@@ -257,7 +257,7 @@ int strcmp(const char *cs, const char *ct)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(strcmp);
+/* DISABLED: EXPORT_SYMBOL(strcmp); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNCMP
@@ -282,7 +282,7 @@ int strncmp(const char *cs, const char *ct, size_t count)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(strncmp);
+/* DISABLED: EXPORT_SYMBOL(strncmp); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCHR
@@ -298,7 +298,7 @@ char *strchr(const char *s, int c)
 			return NULL;
 	return (char *)s;
 }
-EXPORT_SYMBOL(strchr);
+/* DISABLED: EXPORT_SYMBOL(strchr); */
 #endif
 
 #ifndef __HAVE_ARCH_STRRCHR
@@ -316,7 +316,7 @@ char *strrchr(const char *s, int c)
        } while (--p >= s);
        return NULL;
 }
-EXPORT_SYMBOL(strrchr);
+/* DISABLED: EXPORT_SYMBOL(strrchr); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNCHR
@@ -333,7 +333,7 @@ char *strnchr(const char *s, size_t count, int c)
 			return (char *)s;
 	return NULL;
 }
-EXPORT_SYMBOL(strnchr);
+/* DISABLED: EXPORT_SYMBOL(strnchr); */
 #endif
 
 /**
@@ -348,7 +348,7 @@ char *skip_spaces(const char *str)
 		++str;
 	return (char *)str;
 }
-EXPORT_SYMBOL(skip_spaces);
+/* DISABLED: EXPORT_SYMBOL(skip_spaces); */
 
 /**
  * strim - Removes leading and trailing whitespace from @s.
@@ -374,7 +374,7 @@ char *strim(char *s)
 
 	return skip_spaces(s);
 }
-EXPORT_SYMBOL(strim);
+/* DISABLED: EXPORT_SYMBOL(strim); */
 
 #ifndef __HAVE_ARCH_STRLEN
 /**
@@ -389,7 +389,7 @@ size_t strlen(const char *s)
 		/* nothing */;
 	return sc - s;
 }
-EXPORT_SYMBOL(strlen);
+/* DISABLED: EXPORT_SYMBOL(strlen); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNLEN
@@ -406,7 +406,7 @@ size_t strnlen(const char *s, size_t count)
 		/* nothing */;
 	return sc - s;
 }
-EXPORT_SYMBOL(strnlen);
+/* DISABLED: EXPORT_SYMBOL(strnlen); */
 #endif
 
 #ifndef __HAVE_ARCH_STRSPN
@@ -433,7 +433,7 @@ size_t strspn(const char *s, const char *accept)
 	return count;
 }
 
-EXPORT_SYMBOL(strspn);
+/* DISABLED: EXPORT_SYMBOL(strspn); */
 #endif
 
 #ifndef __HAVE_ARCH_STRCSPN
@@ -457,7 +457,7 @@ size_t strcspn(const char *s, const char *reject)
 	}
 	return count;
 }
-EXPORT_SYMBOL(strcspn);
+/* DISABLED: EXPORT_SYMBOL(strcspn); */
 #endif
 
 #ifndef __HAVE_ARCH_STRPBRK
@@ -478,7 +478,7 @@ char *strpbrk(const char *cs, const char *ct)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(strpbrk);
+/* DISABLED: EXPORT_SYMBOL(strpbrk); */
 #endif
 
 #ifndef __HAVE_ARCH_STRSEP
@@ -507,7 +507,7 @@ char *strsep(char **s, const char *ct)
 	*s = end;
 	return sbegin;
 }
-EXPORT_SYMBOL(strsep);
+/* DISABLED: EXPORT_SYMBOL(strsep); */
 #endif
 
 /**
@@ -535,7 +535,7 @@ bool sysfs_streq(const char *s1, const char *s2)
 		return true;
 	return false;
 }
-EXPORT_SYMBOL(sysfs_streq);
+/* DISABLED: EXPORT_SYMBOL(sysfs_streq); */
 
 /**
  * strtobool - convert common user inputs into boolean values
@@ -564,7 +564,7 @@ int strtobool(const char *s, bool *res)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(strtobool);
+/* DISABLED: EXPORT_SYMBOL(strtobool); */
 
 #ifndef __HAVE_ARCH_MEMSET
 /**
@@ -583,7 +583,7 @@ void *memset(void *s, int c, size_t count)
 		*xs++ = c;
 	return s;
 }
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(memset); */
 #endif
 
 /**
@@ -600,7 +600,7 @@ void memzero_explicit(void *s, size_t count)
 	memset(s, 0, count);
 	OPTIMIZER_HIDE_VAR(s);
 }
-EXPORT_SYMBOL(memzero_explicit);
+/* DISABLED: EXPORT_SYMBOL(memzero_explicit); */
 
 #ifndef __HAVE_ARCH_MEMCPY
 /**
@@ -621,7 +621,7 @@ void *memcpy(void *dest, const void *src, size_t count)
 		*tmp++ = *s++;
 	return dest;
 }
-EXPORT_SYMBOL(memcpy);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
 #endif
 
 #ifndef __HAVE_ARCH_MEMMOVE
@@ -653,7 +653,7 @@ void *memmove(void *dest, const void *src, size_t count)
 	}
 	return dest;
 }
-EXPORT_SYMBOL(memmove);
+/* DISABLED: EXPORT_SYMBOL(memmove); */
 #endif
 
 #ifndef __HAVE_ARCH_MEMCMP
@@ -674,7 +674,7 @@ int memcmp(const void *cs, const void *ct, size_t count)
 			break;
 	return res;
 }
-EXPORT_SYMBOL(memcmp);
+/* DISABLED: EXPORT_SYMBOL(memcmp); */
 #endif
 
 #ifndef __HAVE_ARCH_MEMSCAN
@@ -699,7 +699,7 @@ void *memscan(void *addr, int c, size_t size)
 	}
   	return (void *)p;
 }
-EXPORT_SYMBOL(memscan);
+/* DISABLED: EXPORT_SYMBOL(memscan); */
 #endif
 
 #ifndef __HAVE_ARCH_STRSTR
@@ -724,7 +724,7 @@ char *strstr(const char *s1, const char *s2)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(strstr);
+/* DISABLED: EXPORT_SYMBOL(strstr); */
 #endif
 
 #ifndef __HAVE_ARCH_STRNSTR
@@ -749,7 +749,7 @@ char *strnstr(const char *s1, const char *s2, size_t len)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(strnstr);
+/* DISABLED: EXPORT_SYMBOL(strnstr); */
 #endif
 
 #ifndef __HAVE_ARCH_MEMCHR
@@ -772,7 +772,7 @@ void *memchr(const void *s, int c, size_t n)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(memchr);
+/* DISABLED: EXPORT_SYMBOL(memchr); */
 #endif
 
 static void *check_bytes8(const u8 *start, u8 value, unsigned int bytes)
@@ -839,4 +839,4 @@ void *memchr_inv(const void *start, int c, size_t bytes)
 
 	return check_bytes8(start, value, bytes % 8);
 }
-EXPORT_SYMBOL(memchr_inv);
+/* DISABLED: EXPORT_SYMBOL(memchr_inv); */

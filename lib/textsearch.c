@@ -317,8 +317,8 @@ void textsearch_destroy(struct ts_config *conf)
 	kfree(conf);
 }
 
-EXPORT_SYMBOL(textsearch_register);
-EXPORT_SYMBOL(textsearch_unregister);
-EXPORT_SYMBOL(textsearch_prepare);
-EXPORT_SYMBOL(textsearch_find_continuous);
-EXPORT_SYMBOL(textsearch_destroy);
+/* DISABLED: EXPORT_SYMBOL(textsearch_register); */
+/* DISABLED: EXPORT_SYMBOL(textsearch_unregister); */
+/* DISABLED: EXPORT_SYMBOL(textsearch_prepare); */
+/* DISABLED: EXPORT_SYMBOL(textsearch_find_continuous); */
+/* DISABLED: EXPORT_SYMBOL(textsearch_destroy); */

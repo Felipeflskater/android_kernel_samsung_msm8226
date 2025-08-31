@@ -128,7 +128,7 @@ int atomic_notifier_chain_register(struct atomic_notifier_head *nh,
 	spin_unlock_irqrestore(&nh->lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(atomic_notifier_chain_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(atomic_notifier_chain_register); */
 
 /**
  *	atomic_notifier_chain_unregister - Remove notifier from an atomic notifier chain
@@ -151,7 +151,7 @@ int atomic_notifier_chain_unregister(struct atomic_notifier_head *nh,
 	synchronize_rcu();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(atomic_notifier_chain_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(atomic_notifier_chain_unregister); */
 
 /**
  *	__atomic_notifier_call_chain - Call functions in an atomic notifier chain
@@ -183,14 +183,14 @@ int __kprobes __atomic_notifier_call_chain(struct atomic_notifier_head *nh,
 	rcu_read_unlock();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__atomic_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(__atomic_notifier_call_chain); */
 
 int __kprobes atomic_notifier_call_chain(struct atomic_notifier_head *nh,
 		unsigned long val, void *v)
 {
 	return __atomic_notifier_call_chain(nh, val, v, -1, NULL);
 }
-EXPORT_SYMBOL_GPL(atomic_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(atomic_notifier_call_chain); */
 
 /*
  *	Blocking notifier chain routines.  All access to the chain is
@@ -225,7 +225,7 @@ int blocking_notifier_chain_register(struct blocking_notifier_head *nh,
 	up_write(&nh->rwsem);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(blocking_notifier_chain_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(blocking_notifier_chain_register); */
 
 /**
  *	blocking_notifier_chain_cond_register - Cond add notifier to a blocking notifier chain
@@ -248,7 +248,7 @@ int blocking_notifier_chain_cond_register(struct blocking_notifier_head *nh,
 	up_write(&nh->rwsem);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(blocking_notifier_chain_cond_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(blocking_notifier_chain_cond_register); */
 
 /**
  *	blocking_notifier_chain_unregister - Remove notifier from a blocking notifier chain
@@ -278,7 +278,7 @@ int blocking_notifier_chain_unregister(struct blocking_notifier_head *nh,
 	up_write(&nh->rwsem);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(blocking_notifier_chain_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(blocking_notifier_chain_unregister); */
 
 /**
  *	__blocking_notifier_call_chain - Call functions in a blocking notifier chain
@@ -317,14 +317,14 @@ int __blocking_notifier_call_chain(struct blocking_notifier_head *nh,
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__blocking_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(__blocking_notifier_call_chain); */
 
 int blocking_notifier_call_chain(struct blocking_notifier_head *nh,
 		unsigned long val, void *v)
 {
 	return __blocking_notifier_call_chain(nh, val, v, -1, NULL);
 }
-EXPORT_SYMBOL_GPL(blocking_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(blocking_notifier_call_chain); */
 
 /*
  *	Raw notifier chain routines.  There is no protection;
@@ -346,7 +346,7 @@ int raw_notifier_chain_register(struct raw_notifier_head *nh,
 {
 	return notifier_chain_register(&nh->head, n);
 }
-EXPORT_SYMBOL_GPL(raw_notifier_chain_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(raw_notifier_chain_register); */
 
 /**
  *	raw_notifier_chain_unregister - Remove notifier from a raw notifier chain
@@ -363,7 +363,7 @@ int raw_notifier_chain_unregister(struct raw_notifier_head *nh,
 {
 	return notifier_chain_unregister(&nh->head, n);
 }
-EXPORT_SYMBOL_GPL(raw_notifier_chain_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(raw_notifier_chain_unregister); */
 
 /**
  *	__raw_notifier_call_chain - Call functions in a raw notifier chain
@@ -390,14 +390,14 @@ int __raw_notifier_call_chain(struct raw_notifier_head *nh,
 {
 	return notifier_call_chain(&nh->head, val, v, nr_to_call, nr_calls);
 }
-EXPORT_SYMBOL_GPL(__raw_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(__raw_notifier_call_chain); */
 
 int raw_notifier_call_chain(struct raw_notifier_head *nh,
 		unsigned long val, void *v)
 {
 	return __raw_notifier_call_chain(nh, val, v, -1, NULL);
 }
-EXPORT_SYMBOL_GPL(raw_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(raw_notifier_call_chain); */
 
 /*
  *	SRCU notifier chain routines.    Registration and unregistration
@@ -432,7 +432,7 @@ int srcu_notifier_chain_register(struct srcu_notifier_head *nh,
 	mutex_unlock(&nh->mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(srcu_notifier_chain_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(srcu_notifier_chain_register); */
 
 /**
  *	srcu_notifier_chain_unregister - Remove notifier from an SRCU notifier chain
@@ -463,7 +463,7 @@ int srcu_notifier_chain_unregister(struct srcu_notifier_head *nh,
 	synchronize_srcu(&nh->srcu);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(srcu_notifier_chain_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(srcu_notifier_chain_unregister); */
 
 /**
  *	__srcu_notifier_call_chain - Call functions in an SRCU notifier chain
@@ -495,14 +495,14 @@ int __srcu_notifier_call_chain(struct srcu_notifier_head *nh,
 	srcu_read_unlock(&nh->srcu, idx);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__srcu_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(__srcu_notifier_call_chain); */
 
 int srcu_notifier_call_chain(struct srcu_notifier_head *nh,
 		unsigned long val, void *v)
 {
 	return __srcu_notifier_call_chain(nh, val, v, -1, NULL);
 }
-EXPORT_SYMBOL_GPL(srcu_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(srcu_notifier_call_chain); */
 
 /**
  *	srcu_init_notifier_head - Initialize an SRCU notifier head
@@ -523,7 +523,7 @@ void srcu_init_notifier_head(struct srcu_notifier_head *nh)
 		BUG();
 	nh->head = NULL;
 }
-EXPORT_SYMBOL_GPL(srcu_init_notifier_head);
+/* DISABLED: EXPORT_SYMBOL_GPL(srcu_init_notifier_head); */
 
 static ATOMIC_NOTIFIER_HEAD(die_chain);
 
@@ -546,10 +546,10 @@ int register_die_notifier(struct notifier_block *nb)
 	vmalloc_sync_all();
 	return atomic_notifier_chain_register(&die_chain, nb);
 }
-EXPORT_SYMBOL_GPL(register_die_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_die_notifier); */
 
 int unregister_die_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&die_chain, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_die_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_die_notifier); */

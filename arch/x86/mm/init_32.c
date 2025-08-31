@@ -523,7 +523,7 @@ static void __init pagetable_init(void)
 }
 
 pteval_t __supported_pte_mask __read_mostly = ~(_PAGE_NX | _PAGE_GLOBAL | _PAGE_IOMAP);
-EXPORT_SYMBOL_GPL(__supported_pte_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(__supported_pte_mask); */
 
 /* user-defined highmem size */
 static unsigned int highmem_pages = -1;
@@ -870,7 +870,7 @@ static noinline int do_test_wp_bit(void)
 
 #ifdef CONFIG_DEBUG_RODATA
 const int rodata_test_data = 0xC3;
-EXPORT_SYMBOL_GPL(rodata_test_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(rodata_test_data); */
 
 int kernel_set_to_readonly __read_mostly;
 

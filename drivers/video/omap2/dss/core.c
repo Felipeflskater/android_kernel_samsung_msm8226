@@ -384,13 +384,13 @@ int omap_dss_register_driver(struct omap_dss_driver *dssdriver)
 
 	return driver_register(&dssdriver->driver);
 }
-EXPORT_SYMBOL(omap_dss_register_driver);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_register_driver); */
 
 void omap_dss_unregister_driver(struct omap_dss_driver *dssdriver)
 {
 	driver_unregister(&dssdriver->driver);
 }
-EXPORT_SYMBOL(omap_dss_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_unregister_driver); */
 
 /* DEVICE */
 static void reset_device(struct device *dev, int check)

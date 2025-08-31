@@ -134,7 +134,7 @@ int pcf50633_adc_sync_read(struct pcf50633 *pcf, int mux, int avg)
 
 	return req.result;
 }
-EXPORT_SYMBOL_GPL(pcf50633_adc_sync_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_adc_sync_read); */
 
 int pcf50633_adc_async_read(struct pcf50633 *pcf, int mux, int avg,
 			     void (*callback)(struct pcf50633 *, void *, int),
@@ -154,7 +154,7 @@ int pcf50633_adc_async_read(struct pcf50633 *pcf, int mux, int avg,
 
 	return adc_enqueue_request(pcf, req);
 }
-EXPORT_SYMBOL_GPL(pcf50633_adc_async_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_adc_async_read); */
 
 static int adc_result(struct pcf50633 *pcf)
 {

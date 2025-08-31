@@ -153,7 +153,7 @@ int coresight_cti_map_trigin(struct coresight_cti *cti, int trig, int ch)
 	mutex_unlock(&drvdata->mutex);
 	return ret;
 }
-EXPORT_SYMBOL(coresight_cti_map_trigin);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_map_trigin); */
 
 static int __cti_map_trigout(struct cti_drvdata *drvdata, int trig, int ch)
 {
@@ -201,7 +201,7 @@ int coresight_cti_map_trigout(struct coresight_cti *cti, int trig, int ch)
 	mutex_unlock(&drvdata->mutex);
 	return ret;
 }
-EXPORT_SYMBOL(coresight_cti_map_trigout);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_map_trigout); */
 
 static void cti_disable(struct cti_drvdata *drvdata)
 {
@@ -253,7 +253,7 @@ void coresight_cti_unmap_trigin(struct coresight_cti *cti, int trig, int ch)
 	mutex_unlock(&drvdata->mutex);
 
 }
-EXPORT_SYMBOL(coresight_cti_unmap_trigin);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_unmap_trigin); */
 
 static void __cti_unmap_trigout(struct cti_drvdata *drvdata, int trig, int ch)
 {
@@ -293,7 +293,7 @@ void coresight_cti_unmap_trigout(struct coresight_cti *cti, int trig, int ch)
 	__cti_unmap_trigout(drvdata, trig, ch);
 	mutex_unlock(&drvdata->mutex);
 }
-EXPORT_SYMBOL(coresight_cti_unmap_trigout);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_unmap_trigout); */
 
 static void __cti_reset(struct cti_drvdata *drvdata)
 {
@@ -328,7 +328,7 @@ void coresight_cti_reset(struct coresight_cti *cti)
 	__cti_reset(drvdata);
 	mutex_unlock(&drvdata->mutex);
 }
-EXPORT_SYMBOL(coresight_cti_reset);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_reset); */
 
 struct coresight_cti *coresight_cti_get(const char *name)
 {
@@ -345,12 +345,12 @@ struct coresight_cti *coresight_cti_get(const char *name)
 
 	return ERR_PTR(-EINVAL);
 }
-EXPORT_SYMBOL(coresight_cti_get);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_get); */
 
 void coresight_cti_put(struct coresight_cti *cti)
 {
 }
-EXPORT_SYMBOL(coresight_cti_put);
+/* DISABLED: EXPORT_SYMBOL(coresight_cti_put); */
 
 static ssize_t cti_store_map_trigin(struct device *dev,
 				    struct device_attribute *attr,

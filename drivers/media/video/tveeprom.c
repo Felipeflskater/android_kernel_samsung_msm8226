@@ -748,7 +748,7 @@ void tveeprom_hauppauge_analog(struct i2c_client *c, struct tveeprom *tvee,
 		tveeprom_info("has %sradio\n",
 				tvee->has_radio ? "" : "no ");
 }
-EXPORT_SYMBOL(tveeprom_hauppauge_analog);
+/* DISABLED: EXPORT_SYMBOL(tveeprom_hauppauge_analog); */
 
 /* ----------------------------------------------------------------------- */
 /* generic helper functions                                                */
@@ -783,7 +783,7 @@ int tveeprom_read(struct i2c_client *c, unsigned char *eedata, int len)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(tveeprom_read);
+/* DISABLED: EXPORT_SYMBOL(tveeprom_read); */
 
 /*
  * Local variables:

@@ -176,7 +176,7 @@ void msmrtc_updateatsuspend(struct timespec *ts)
 #else
 void msmrtc_updateatsuspend(struct timespec *ts) { }
 #endif
-EXPORT_SYMBOL(msmrtc_updateatsuspend);
+/* DISABLED: EXPORT_SYMBOL(msmrtc_updateatsuspend); */
 
 static int msmrtc_tod_proc_args(struct msm_rpc_client *client, void *buff,
 							void *data)

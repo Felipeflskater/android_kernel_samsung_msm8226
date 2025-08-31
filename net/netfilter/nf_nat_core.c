@@ -49,7 +49,7 @@ __nf_nat_l4proto_find(u8 family, u8 protonum)
 {
 	return rcu_dereference(nf_nat_l4protos[family][protonum]);
 }
-EXPORT_SYMBOL_GPL(__nf_nat_l4proto_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(__nf_nat_l4proto_find); */
 
 #ifdef CONFIG_XFRM
 static void __nf_nat_decode_session(struct sk_buff *skb, struct flowi *fl)
@@ -110,7 +110,7 @@ int nf_xfrm_me_harder(struct sk_buff *skb, unsigned int family)
 		return -1;
 	return 0;
 }
-EXPORT_SYMBOL(nf_xfrm_me_harder);
+/* DISABLED: EXPORT_SYMBOL(nf_xfrm_me_harder); */
 #endif /* CONFIG_XFRM */
 
 /* We keep an extra hash for each conntrack, for fast searching. */
@@ -142,7 +142,7 @@ nf_nat_used_tuple(const struct nf_conntrack_tuple *tuple,
 	nf_ct_invert_tuplepr(&reply, tuple);
 	return nf_conntrack_tuple_taken(&reply, ignored_conntrack);
 }
-EXPORT_SYMBOL(nf_nat_used_tuple);
+/* DISABLED: EXPORT_SYMBOL(nf_nat_used_tuple); */
 
 /* If we source map this tuple so reply looks like reply_tuple, will
  * that meet the constraints of range.
@@ -425,7 +425,7 @@ nf_nat_setup_info(struct nf_conn *ct,
 
 	return NF_ACCEPT;
 }
-EXPORT_SYMBOL(nf_nat_setup_info);
+/* DISABLED: EXPORT_SYMBOL(nf_nat_setup_info); */
 
 /* Do packet manipulations according to nf_nat_setup_info. */
 unsigned int nf_nat_packet(struct nf_conn *ct,
@@ -463,7 +463,7 @@ unsigned int nf_nat_packet(struct nf_conn *ct,
 	}
 	return NF_ACCEPT;
 }
-EXPORT_SYMBOL_GPL(nf_nat_packet);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_packet); */
 
 struct nf_nat_proto_clean {
 	u8	l3proto;
@@ -577,7 +577,7 @@ int nf_nat_l4proto_register(u8 l3proto, const struct nf_nat_l4proto *l4proto)
 	mutex_unlock(&nf_nat_proto_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_nat_l4proto_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_l4proto_register); */
 
 /* No one stores the protocol anywhere; simply delete it. */
 void nf_nat_l4proto_unregister(u8 l3proto, const struct nf_nat_l4proto *l4proto)
@@ -590,7 +590,7 @@ void nf_nat_l4proto_unregister(u8 l3proto, const struct nf_nat_l4proto *l4proto)
 
 	nf_nat_l4proto_clean(l3proto, l4proto->l4proto);
 }
-EXPORT_SYMBOL_GPL(nf_nat_l4proto_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_l4proto_unregister); */
 
 int nf_nat_l3proto_register(const struct nf_nat_l3proto *l3proto)
 {
@@ -610,7 +610,7 @@ int nf_nat_l3proto_register(const struct nf_nat_l3proto *l3proto)
 	RCU_INIT_POINTER(nf_nat_l3protos[l3proto->l3proto], l3proto);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(nf_nat_l3proto_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_l3proto_register); */
 
 void nf_nat_l3proto_unregister(const struct nf_nat_l3proto *l3proto)
 {
@@ -622,7 +622,7 @@ void nf_nat_l3proto_unregister(const struct nf_nat_l3proto *l3proto)
 	nf_nat_l3proto_clean(l3proto->l3proto);
 	nf_ct_l3proto_module_put(l3proto->l3proto);
 }
-EXPORT_SYMBOL_GPL(nf_nat_l3proto_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_l3proto_unregister); */
 
 /* No one using conntrack by the time this called. */
 static void nf_nat_cleanup_conntrack(struct nf_conn *ct)

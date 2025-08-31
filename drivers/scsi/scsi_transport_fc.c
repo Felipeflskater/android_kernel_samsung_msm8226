@@ -513,7 +513,7 @@ fc_get_event_number(void)
 {
 	return atomic_add_return(1, &fc_event_seq);
 }
-EXPORT_SYMBOL(fc_get_event_number);
+/* DISABLED: EXPORT_SYMBOL(fc_get_event_number); */
 
 
 /**
@@ -583,7 +583,7 @@ send_fail:
 		(name) ? name : "<unknown>", event_data, err);
 	return;
 }
-EXPORT_SYMBOL(fc_host_post_event);
+/* DISABLED: EXPORT_SYMBOL(fc_host_post_event); */
 
 
 /**
@@ -651,7 +651,7 @@ send_vendor_fail:
 		__func__, shost->host_no, err);
 	return;
 }
-EXPORT_SYMBOL(fc_host_post_vendor_event);
+/* DISABLED: EXPORT_SYMBOL(fc_host_post_vendor_event); */
 
 
 
@@ -1980,7 +1980,7 @@ int scsi_is_fc_rport(const struct device *dev)
 {
 	return dev->release == fc_rport_dev_release;
 }
-EXPORT_SYMBOL(scsi_is_fc_rport);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_fc_rport); */
 
 static int fc_rport_match(struct attribute_container *cont,
 			    struct device *dev)
@@ -2013,7 +2013,7 @@ int scsi_is_fc_vport(const struct device *dev)
 {
 	return dev->release == fc_vport_dev_release;
 }
-EXPORT_SYMBOL(scsi_is_fc_vport);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_fc_vport); */
 
 static int fc_vport_match(struct attribute_container *cont,
 			    struct device *dev)
@@ -2299,7 +2299,7 @@ fc_attach_transport(struct fc_function_template *ft)
 
 	return &i->t;
 }
-EXPORT_SYMBOL(fc_attach_transport);
+/* DISABLED: EXPORT_SYMBOL(fc_attach_transport); */
 
 void fc_release_transport(struct scsi_transport_template *t)
 {
@@ -2312,7 +2312,7 @@ void fc_release_transport(struct scsi_transport_template *t)
 
 	kfree(i);
 }
-EXPORT_SYMBOL(fc_release_transport);
+/* DISABLED: EXPORT_SYMBOL(fc_release_transport); */
 
 /**
  * fc_queue_work - Queue work to the fc_host workqueue.
@@ -2465,7 +2465,7 @@ fc_remove_host(struct Scsi_Host *shost)
 		destroy_workqueue(work_q);
 	}
 }
-EXPORT_SYMBOL(fc_remove_host);
+/* DISABLED: EXPORT_SYMBOL(fc_remove_host); */
 
 static void fc_terminate_rport_io(struct fc_rport *rport)
 {
@@ -2897,7 +2897,7 @@ fc_remote_port_add(struct Scsi_Host *shost, int channel,
 
 	return rport;
 }
-EXPORT_SYMBOL(fc_remote_port_add);
+/* DISABLED: EXPORT_SYMBOL(fc_remote_port_add); */
 
 
 /**
@@ -3006,7 +3006,7 @@ fc_remote_port_delete(struct fc_rport  *rport)
 	/* cap the length the devices can be blocked until they are deleted */
 	fc_queue_devloss_work(shost, &rport->dev_loss_work, timeout * HZ);
 }
-EXPORT_SYMBOL(fc_remote_port_delete);
+/* DISABLED: EXPORT_SYMBOL(fc_remote_port_delete); */
 
 /**
  * fc_remote_port_rolechg - notifies the fc transport that the roles on a remote may have changed.
@@ -3091,7 +3091,7 @@ fc_remote_port_rolechg(struct fc_rport  *rport, u32 roles)
 		scsi_target_unblock(&rport->dev);
 	}
 }
-EXPORT_SYMBOL(fc_remote_port_rolechg);
+/* DISABLED: EXPORT_SYMBOL(fc_remote_port_rolechg); */
 
 /**
  * fc_timeout_deleted_rport - Timeout handler for a deleted remote port.
@@ -3309,7 +3309,7 @@ int fc_block_scsi_eh(struct scsi_cmnd *cmnd)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_block_scsi_eh);
+/* DISABLED: EXPORT_SYMBOL(fc_block_scsi_eh); */
 
 /**
  * fc_vport_setup - allocates and creates a FC virtual port.
@@ -3461,7 +3461,7 @@ fc_vport_create(struct Scsi_Host *shost, int channel,
 		 ids, &vport);
 	return stat ? NULL : vport;
 }
-EXPORT_SYMBOL(fc_vport_create);
+/* DISABLED: EXPORT_SYMBOL(fc_vport_create); */
 
 /**
  * fc_vport_terminate - Admin App or LLDD requests termination of a vport
@@ -3516,7 +3516,7 @@ fc_vport_terminate(struct fc_vport *vport)
 
 	return 0; /* SUCCESS */
 }
-EXPORT_SYMBOL(fc_vport_terminate);
+/* DISABLED: EXPORT_SYMBOL(fc_vport_terminate); */
 
 /**
  * fc_vport_sched_delete - workq-based delete request for a vport

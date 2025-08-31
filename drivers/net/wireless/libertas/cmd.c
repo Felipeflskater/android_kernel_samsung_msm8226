@@ -37,7 +37,7 @@ int lbs_cmd_copyback(struct lbs_private *priv, unsigned long extra,
 	memcpy(buf, resp, copy_len);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(lbs_cmd_copyback);
+/* DISABLED: EXPORT_SYMBOL_GPL(lbs_cmd_copyback); */
 
 /**
  *  lbs_cmd_async_callback - Simple callback that ignores the result.
@@ -219,7 +219,7 @@ int lbs_host_sleep_cfg(struct lbs_private *priv, uint32_t criteria,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(lbs_host_sleep_cfg);
+/* DISABLED: EXPORT_SYMBOL_GPL(lbs_host_sleep_cfg); */
 
 /**
  *  lbs_set_ps_mode - Sets the Power Save mode
@@ -1704,4 +1704,4 @@ done:
 	lbs_deb_leave_args(LBS_DEB_HOST, "ret %d", ret);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__lbs_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(__lbs_cmd); */

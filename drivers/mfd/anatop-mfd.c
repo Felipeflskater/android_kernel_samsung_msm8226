@@ -56,7 +56,7 @@ u32 anatop_get_bits(struct anatop *adata, u32 addr, int bit_shift,
 
 	return val;
 }
-EXPORT_SYMBOL_GPL(anatop_get_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(anatop_get_bits); */
 
 void anatop_set_bits(struct anatop *adata, u32 addr, int bit_shift,
 		     int bit_width, u32 data)
@@ -73,7 +73,7 @@ void anatop_set_bits(struct anatop *adata, u32 addr, int bit_shift,
 	writel((data << bit_shift) | val, adata->ioreg + addr);
 	spin_unlock(&adata->reglock);
 }
-EXPORT_SYMBOL_GPL(anatop_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(anatop_set_bits); */
 
 static const struct of_device_id of_anatop_match[] = {
 	{ .compatible = "fsl,imx6q-anatop", },

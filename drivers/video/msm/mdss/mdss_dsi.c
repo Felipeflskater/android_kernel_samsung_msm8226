@@ -2662,7 +2662,7 @@ int get_lcd_attached(void)
 	return 1;
 #endif
 }
-EXPORT_SYMBOL(get_lcd_attached);
+/* DISABLED: EXPORT_SYMBOL(get_lcd_attached); */
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("DSI controller driver");

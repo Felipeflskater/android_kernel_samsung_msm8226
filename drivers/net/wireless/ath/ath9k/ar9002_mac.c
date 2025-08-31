@@ -388,7 +388,7 @@ void ath9k_hw_setuprxdesc(struct ath_hw *ah, struct ath_desc *ds,
 
 	memset(&ads->u.rx, 0, sizeof(ads->u.rx));
 }
-EXPORT_SYMBOL(ath9k_hw_setuprxdesc);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setuprxdesc); */
 
 void ar9002_hw_attach_mac_ops(struct ath_hw *ah)
 {

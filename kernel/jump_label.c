@@ -70,7 +70,7 @@ void static_key_slow_inc(struct static_key *key)
 	atomic_inc(&key->enabled);
 	jump_label_unlock();
 }
-EXPORT_SYMBOL_GPL(static_key_slow_inc);
+/* DISABLED: EXPORT_SYMBOL_GPL(static_key_slow_inc); */
 
 static void __static_key_slow_dec(struct static_key *key,
 		unsigned long rate_limit, struct delayed_work *work)
@@ -104,13 +104,13 @@ void static_key_slow_dec(struct static_key *key)
 {
 	__static_key_slow_dec(key, 0, NULL);
 }
-EXPORT_SYMBOL_GPL(static_key_slow_dec);
+/* DISABLED: EXPORT_SYMBOL_GPL(static_key_slow_dec); */
 
 void static_key_slow_dec_deferred(struct static_key_deferred *key)
 {
 	__static_key_slow_dec(&key->key, key->timeout, &key->work);
 }
-EXPORT_SYMBOL_GPL(static_key_slow_dec_deferred);
+/* DISABLED: EXPORT_SYMBOL_GPL(static_key_slow_dec_deferred); */
 
 void jump_label_rate_limit(struct static_key_deferred *key,
 		unsigned long rl)

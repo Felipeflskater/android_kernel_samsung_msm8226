@@ -241,7 +241,7 @@ irqreturn_t aer_irq(int irq, void *context)
 
 	return IRQ_HANDLED;
 }
-EXPORT_SYMBOL_GPL(aer_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(aer_irq); */
 
 /**
  * aer_alloc_rpc - allocate Root Port data structure

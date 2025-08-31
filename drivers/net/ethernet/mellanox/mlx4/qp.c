@@ -175,7 +175,7 @@ int mlx4_qp_modify(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 	return __mlx4_qp_modify(dev, mtt, cur_state, new_state, context,
 				optpar, sqd_event, qp, 0);
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_modify);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_modify); */
 
 int __mlx4_qp_reserve_range(struct mlx4_dev *dev, int cnt, int align,
 				   int *base)
@@ -211,7 +211,7 @@ int mlx4_qp_reserve_range(struct mlx4_dev *dev, int cnt, int align, int *base)
 	}
 	return __mlx4_qp_reserve_range(dev, cnt, align, base);
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_reserve_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_reserve_range); */
 
 void __mlx4_qp_release_range(struct mlx4_dev *dev, int base_qpn, int cnt)
 {
@@ -241,7 +241,7 @@ void mlx4_qp_release_range(struct mlx4_dev *dev, int base_qpn, int cnt)
 	} else
 		 __mlx4_qp_release_range(dev, base_qpn, cnt);
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_release_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_release_range); */
 
 int __mlx4_qp_alloc_icm(struct mlx4_dev *dev, int qpn)
 {
@@ -358,7 +358,7 @@ err_icm:
 	return err;
 }
 
-EXPORT_SYMBOL_GPL(mlx4_qp_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_alloc); */
 
 void mlx4_qp_remove(struct mlx4_dev *dev, struct mlx4_qp *qp)
 {
@@ -369,7 +369,7 @@ void mlx4_qp_remove(struct mlx4_dev *dev, struct mlx4_qp *qp)
 	radix_tree_delete(&dev->qp_table_tree, qp->qpn & (dev->caps.num_qps - 1));
 	spin_unlock_irqrestore(&qp_table->lock, flags);
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_remove); */
 
 void mlx4_qp_free(struct mlx4_dev *dev, struct mlx4_qp *qp)
 {
@@ -379,7 +379,7 @@ void mlx4_qp_free(struct mlx4_dev *dev, struct mlx4_qp *qp)
 
 	mlx4_qp_free_icm(dev, qp->qpn);
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_free); */
 
 static int mlx4_CONF_SPECIAL_QP(struct mlx4_dev *dev, u32 base_qpn)
 {
@@ -474,7 +474,7 @@ int mlx4_qp_query(struct mlx4_dev *dev, struct mlx4_qp *qp,
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_query);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_query); */
 
 int mlx4_qp_to_ready(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 		     struct mlx4_qp_context *context,
@@ -506,4 +506,4 @@ int mlx4_qp_to_ready(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mlx4_qp_to_ready);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_qp_to_ready); */

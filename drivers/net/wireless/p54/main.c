@@ -784,7 +784,7 @@ struct ieee80211_hw *p54_init_common(size_t priv_data_len)
 	p54_reset_stats(priv);
 	return dev;
 }
-EXPORT_SYMBOL_GPL(p54_init_common);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_init_common); */
 
 int p54_register_common(struct ieee80211_hw *dev, struct device *pdev)
 {
@@ -806,7 +806,7 @@ int p54_register_common(struct ieee80211_hw *dev, struct device *pdev)
 	dev_info(pdev, "is registered as '%s'\n", wiphy_name(dev->wiphy));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(p54_register_common);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_register_common); */
 
 void p54_free_common(struct ieee80211_hw *dev)
 {
@@ -830,7 +830,7 @@ void p54_free_common(struct ieee80211_hw *dev)
 	priv->survey = NULL;
 	ieee80211_free_hw(dev);
 }
-EXPORT_SYMBOL_GPL(p54_free_common);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_free_common); */
 
 void p54_unregister_common(struct ieee80211_hw *dev)
 {
@@ -844,4 +844,4 @@ void p54_unregister_common(struct ieee80211_hw *dev)
 	mutex_destroy(&priv->conf_mutex);
 	mutex_destroy(&priv->eeprom_mutex);
 }
-EXPORT_SYMBOL_GPL(p54_unregister_common);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_unregister_common); */

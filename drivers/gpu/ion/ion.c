@@ -636,7 +636,7 @@ struct ion_handle *ion_alloc(struct ion_client *client, size_t len,
 
 	return handle;
 }
-EXPORT_SYMBOL(ion_alloc);
+/* DISABLED: EXPORT_SYMBOL(ion_alloc); */
 
 static void ion_free_nolock(struct ion_client *client, struct ion_handle *handle)
 {
@@ -679,7 +679,7 @@ void ion_free(struct ion_client *client, struct ion_handle *handle)
 	ion_free_nolock(client, handle);
 	mutex_unlock(&client->lock);
 }
-EXPORT_SYMBOL(ion_free);
+/* DISABLED: EXPORT_SYMBOL(ion_free); */
 
 int ion_phys(struct ion_client *client, struct ion_handle *handle,
 	     ion_phys_addr_t *addr, size_t *len)
@@ -705,7 +705,7 @@ int ion_phys(struct ion_client *client, struct ion_handle *handle,
 	ret = buffer->heap->ops->phys(buffer->heap, buffer, addr, len);
 	return ret;
 }
-EXPORT_SYMBOL(ion_phys);
+/* DISABLED: EXPORT_SYMBOL(ion_phys); */
 
 static void *ion_buffer_kmap_get(struct ion_buffer *buffer)
 {
@@ -785,7 +785,7 @@ void *ion_map_kernel(struct ion_client *client, struct ion_handle *handle)
 	mutex_unlock(&client->lock);
 	return vaddr;
 }
-EXPORT_SYMBOL(ion_map_kernel);
+/* DISABLED: EXPORT_SYMBOL(ion_map_kernel); */
 
 void ion_unmap_kernel(struct ion_client *client, struct ion_handle *handle)
 {
@@ -798,7 +798,7 @@ void ion_unmap_kernel(struct ion_client *client, struct ion_handle *handle)
 	mutex_unlock(&buffer->lock);
 	mutex_unlock(&client->lock);
 }
-EXPORT_SYMBOL(ion_unmap_kernel);
+/* DISABLED: EXPORT_SYMBOL(ion_unmap_kernel); */
 
 static int ion_debug_client_show(struct seq_file *s, void *unused)
 {
@@ -953,7 +953,7 @@ struct ion_client *ion_client_create(struct ion_device *dev,
 
 	return client;
 }
-EXPORT_SYMBOL(ion_client_create);
+/* DISABLED: EXPORT_SYMBOL(ion_client_create); */
 
 void ion_client_destroy(struct ion_client *client)
 {
@@ -981,7 +981,7 @@ void ion_client_destroy(struct ion_client *client)
 	kfree(client->name);
 	kfree(client);
 }
-EXPORT_SYMBOL(ion_client_destroy);
+/* DISABLED: EXPORT_SYMBOL(ion_client_destroy); */
 
 int ion_handle_get_flags(struct ion_client *client, struct ion_handle *handle,
 			unsigned long *flags)
@@ -1003,7 +1003,7 @@ int ion_handle_get_flags(struct ion_client *client, struct ion_handle *handle,
 
 	return 0;
 }
-EXPORT_SYMBOL(ion_handle_get_flags);
+/* DISABLED: EXPORT_SYMBOL(ion_handle_get_flags); */
 
 int ion_handle_get_size(struct ion_client *client, struct ion_handle *handle,
 			unsigned long *size)
@@ -1025,7 +1025,7 @@ int ion_handle_get_size(struct ion_client *client, struct ion_handle *handle,
 
 	return 0;
 }
-EXPORT_SYMBOL(ion_handle_get_size);
+/* DISABLED: EXPORT_SYMBOL(ion_handle_get_size); */
 
 struct sg_table *ion_sg_table(struct ion_client *client,
 			      struct ion_handle *handle)
@@ -1045,7 +1045,7 @@ struct sg_table *ion_sg_table(struct ion_client *client,
 	mutex_unlock(&client->lock);
 	return table;
 }
-EXPORT_SYMBOL(ion_sg_table);
+/* DISABLED: EXPORT_SYMBOL(ion_sg_table); */
 
 struct sg_table *ion_create_chunked_sg_table(phys_addr_t buffer_base,
 					size_t chunk_size, size_t total_size)
@@ -1331,7 +1331,7 @@ struct dma_buf *ion_share_dma_buf(struct ion_client *client,
 
 	return dmabuf;
 }
-EXPORT_SYMBOL(ion_share_dma_buf);
+/* DISABLED: EXPORT_SYMBOL(ion_share_dma_buf); */
 
 int ion_share_dma_buf_fd(struct ion_client *client, struct ion_handle *handle)
 {
@@ -1348,7 +1348,7 @@ int ion_share_dma_buf_fd(struct ion_client *client, struct ion_handle *handle)
 
 	return fd;
 }
-EXPORT_SYMBOL(ion_share_dma_buf_fd);
+/* DISABLED: EXPORT_SYMBOL(ion_share_dma_buf_fd); */
 
 struct ion_handle *ion_import_dma_buf(struct ion_client *client, int fd)
 {
@@ -1396,7 +1396,7 @@ end:
 	dma_buf_put(dmabuf);
 	return handle;
 }
-EXPORT_SYMBOL(ion_import_dma_buf);
+/* DISABLED: EXPORT_SYMBOL(ion_import_dma_buf); */
 
 static int ion_sync_for_device(struct ion_client *client, int fd)
 {
@@ -1952,7 +1952,7 @@ int ion_secure_heap(struct ion_device *dev, int heap_id, int version,
 	up_write(&dev->lock);
 	return ret_val;
 }
-EXPORT_SYMBOL(ion_secure_heap);
+/* DISABLED: EXPORT_SYMBOL(ion_secure_heap); */
 
 int ion_walk_heaps(struct ion_client *client, int heap_id, void *data,
 			int (*f)(struct ion_heap *heap, void *data))
@@ -1974,7 +1974,7 @@ int ion_walk_heaps(struct ion_client *client, int heap_id, void *data,
 	up_write(&dev->lock);
 	return ret_val;
 }
-EXPORT_SYMBOL(ion_walk_heaps);
+/* DISABLED: EXPORT_SYMBOL(ion_walk_heaps); */
 
 int ion_unsecure_heap(struct ion_device *dev, int heap_id, int version,
 			void *data)
@@ -2001,7 +2001,7 @@ int ion_unsecure_heap(struct ion_device *dev, int heap_id, int version,
 	up_write(&dev->lock);
 	return ret_val;
 }
-EXPORT_SYMBOL(ion_unsecure_heap);
+/* DISABLED: EXPORT_SYMBOL(ion_unsecure_heap); */
 
 struct ion_device *ion_device_create(long (*custom_ioctl)
 				     (struct ion_client *client,

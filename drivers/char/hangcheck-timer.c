@@ -111,10 +111,10 @@ static int __init hangcheck_parse_dump_tasks(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("hcheck_tick", hangcheck_parse_tick); */
-/* DISABLED: __setup("hcheck_margin", hangcheck_parse_margin); */
-/* DISABLED: __setup("hcheck_reboot", hangcheck_parse_reboot); */
-/* DISABLED: __setup("hcheck_dump_tasks", hangcheck_parse_dump_tasks); */
+/* DISABLED: __setup("hcheck_tick", hangcheck_parse_tick); */ */
+/* DISABLED: __setup("hcheck_margin", hangcheck_parse_margin); */ */
+/* DISABLED: __setup("hcheck_reboot", hangcheck_parse_reboot); */ */
+/* DISABLED: __setup("hcheck_dump_tasks", hangcheck_parse_dump_tasks); */ */
 #endif /* not MODULE */
 
 #if defined(CONFIG_S390)

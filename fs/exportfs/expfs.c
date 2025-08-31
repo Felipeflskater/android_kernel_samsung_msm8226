@@ -360,7 +360,7 @@ int exportfs_encode_fh(struct dentry *dentry, struct fid *fid, int *max_len,
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(exportfs_encode_fh);
+/* DISABLED: EXPORT_SYMBOL_GPL(exportfs_encode_fh); */
 
 struct dentry *exportfs_decode_fh(struct vfsmount *mnt, struct fid *fid,
 		int fh_len, int fileid_type,
@@ -492,6 +492,6 @@ struct dentry *exportfs_decode_fh(struct vfsmount *mnt, struct fid *fid,
 	dput(result);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(exportfs_decode_fh);
+/* DISABLED: EXPORT_SYMBOL_GPL(exportfs_decode_fh); */
 
 MODULE_LICENSE("GPL");

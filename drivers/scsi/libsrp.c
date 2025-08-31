@@ -151,7 +151,7 @@ free_ring:
 	srp_ring_free(target->dev, target->rx_ring, nr, iu_size);
 	return -ENOMEM;
 }
-EXPORT_SYMBOL_GPL(srp_target_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_target_alloc); */
 
 void srp_target_free(struct srp_target *target)
 {
@@ -159,7 +159,7 @@ void srp_target_free(struct srp_target *target)
 		      target->srp_iu_size);
 	srp_iu_pool_free(&target->iu_queue);
 }
-EXPORT_SYMBOL_GPL(srp_target_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_target_free); */
 
 struct iu_entry *srp_iu_get(struct srp_target *target)
 {
@@ -177,14 +177,14 @@ struct iu_entry *srp_iu_get(struct srp_target *target)
 	iue->flags = 0;
 	return iue;
 }
-EXPORT_SYMBOL_GPL(srp_iu_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_iu_get); */
 
 void srp_iu_put(struct iu_entry *iue)
 {
 	kfifo_in_locked(&iue->target->iu_queue.queue, (void *) &iue,
 			sizeof(void *), &iue->target->iu_queue.lock);
 }
-EXPORT_SYMBOL_GPL(srp_iu_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_iu_put); */
 
 static int srp_direct_data(struct scsi_cmnd *sc, struct srp_direct_buf *md,
 			   enum dma_data_direction dir, srp_rdma_t rdma_io,
@@ -362,7 +362,7 @@ int srp_transfer_data(struct scsi_cmnd *sc, struct srp_cmd *cmd,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(srp_transfer_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_transfer_data); */
 
 static int vscsis_data_length(struct srp_cmd *cmd, enum dma_data_direction dir)
 {
@@ -440,7 +440,7 @@ int srp_cmd_queue(struct Scsi_Host *shost, struct srp_cmd *cmd, void *info,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(srp_cmd_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_cmd_queue); */
 
 MODULE_DESCRIPTION("SCSI RDMA Protocol lib functions");
 MODULE_AUTHOR("FUJITA Tomonori");

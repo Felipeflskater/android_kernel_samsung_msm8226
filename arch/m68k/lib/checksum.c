@@ -125,7 +125,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
 	return(sum);
 }
 
-EXPORT_SYMBOL(csum_partial);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
 
 
 /*
@@ -320,7 +320,7 @@ csum_partial_copy_from_user(const void __user *src, void *dst,
 	return(sum);
 }
 
-EXPORT_SYMBOL(csum_partial_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
 
 
 /*
@@ -422,4 +422,4 @@ csum_partial_copy_nocheck(const void *src, void *dst, int len, __wsum sum)
 	    );
     return(sum);
 }
-EXPORT_SYMBOL(csum_partial_copy_nocheck);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */

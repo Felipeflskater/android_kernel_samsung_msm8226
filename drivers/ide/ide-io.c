@@ -69,7 +69,7 @@ int ide_end_rq(ide_drive_t *drive, struct request *rq, int error,
 
 	return blk_end_request(rq, error, nr_bytes);
 }
-EXPORT_SYMBOL_GPL(ide_end_rq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_end_rq); */
 
 void ide_complete_cmd(ide_drive_t *drive, struct ide_cmd *cmd, u8 stat, u8 err)
 {
@@ -131,7 +131,7 @@ int ide_complete_rq(ide_drive_t *drive, int error, unsigned int nr_bytes)
 
 	return rc;
 }
-EXPORT_SYMBOL(ide_complete_rq);
+/* DISABLED: EXPORT_SYMBOL(ide_complete_rq); */
 
 void ide_kill_rq(ide_drive_t *drive, struct request *rq)
 {
@@ -228,7 +228,7 @@ void ide_map_sg(ide_drive_t *drive, struct ide_cmd *cmd)
 
 	cmd->sg_nents = blk_rq_map_sg(drive->queue, rq, sg);
 }
-EXPORT_SYMBOL_GPL(ide_map_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_map_sg); */
 
 void ide_init_sg_cmd(struct ide_cmd *cmd, unsigned int nr_bytes)
 {
@@ -236,7 +236,7 @@ void ide_init_sg_cmd(struct ide_cmd *cmd, unsigned int nr_bytes)
 	cmd->cursg_ofs = 0;
 	cmd->cursg = NULL;
 }
-EXPORT_SYMBOL_GPL(ide_init_sg_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_init_sg_cmd); */
 
 /**
  *	execute_drive_command	-	issue special drive command
@@ -390,7 +390,7 @@ void ide_stall_queue (ide_drive_t *drive, unsigned long timeout)
 	drive->sleep = timeout + jiffies;
 	drive->dev_flags |= IDE_DFLAG_SLEEPING;
 }
-EXPORT_SYMBOL(ide_stall_queue);
+/* DISABLED: EXPORT_SYMBOL(ide_stall_queue); */
 
 static inline int ide_lock_port(ide_hwif_t *hwif)
 {
@@ -874,7 +874,7 @@ out_early:
 
 	return irq_ret;
 }
-EXPORT_SYMBOL_GPL(ide_intr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_intr); */
 
 void ide_pad_transfer(ide_drive_t *drive, int write, int len)
 {
@@ -889,4 +889,4 @@ void ide_pad_transfer(ide_drive_t *drive, int write, int len)
 		len -= 4;
 	}
 }
-EXPORT_SYMBOL_GPL(ide_pad_transfer);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_pad_transfer); */

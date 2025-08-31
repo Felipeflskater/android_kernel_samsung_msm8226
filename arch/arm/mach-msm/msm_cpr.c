@@ -838,7 +838,7 @@ void msm_cpr_pm_resume(void)
 
 	msm_cpr_resume(&cpr_pdev->dev);
 }
-EXPORT_SYMBOL(msm_cpr_pm_resume);
+/* DISABLED: EXPORT_SYMBOL(msm_cpr_pm_resume); */
 
 void msm_cpr_pm_suspend(void)
 {
@@ -847,7 +847,7 @@ void msm_cpr_pm_suspend(void)
 
 	msm_cpr_suspend(&cpr_pdev->dev);
 }
-EXPORT_SYMBOL(msm_cpr_pm_suspend);
+/* DISABLED: EXPORT_SYMBOL(msm_cpr_pm_suspend); */
 #endif
 
 void msm_cpr_disable(void)
@@ -861,7 +861,7 @@ void msm_cpr_disable(void)
 
 	cpr_disable(cpr);
 }
-EXPORT_SYMBOL(msm_cpr_disable);
+/* DISABLED: EXPORT_SYMBOL(msm_cpr_disable); */
 
 void msm_cpr_enable(void)
 {
@@ -874,7 +874,7 @@ void msm_cpr_enable(void)
 
 	cpr_enable(cpr);
 }
-EXPORT_SYMBOL(msm_cpr_enable);
+/* DISABLED: EXPORT_SYMBOL(msm_cpr_enable); */
 
 static int __devinit msm_cpr_probe(struct platform_device *pdev)
 {

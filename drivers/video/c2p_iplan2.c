@@ -148,6 +148,6 @@ void c2p_iplan2(void *dst, const void *src, u32 dx, u32 dy, u32 width,
 		dst += dst_nextline;
 	}
 }
-EXPORT_SYMBOL_GPL(c2p_iplan2);
+/* DISABLED: EXPORT_SYMBOL_GPL(c2p_iplan2); */
 
 MODULE_LICENSE("GPL");

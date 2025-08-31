@@ -90,7 +90,7 @@ int sensor_get_id(char *name)
 
 	return -ENODEV;
 }
-EXPORT_SYMBOL(sensor_get_id);
+/* DISABLED: EXPORT_SYMBOL(sensor_get_id); */
 
 static void init_sensor_trip(struct sensor_info *sensor)
 {
@@ -257,7 +257,7 @@ int thermal_sensor_trip(struct thermal_zone_device *tz,
 
 	return ret;
 }
-EXPORT_SYMBOL(thermal_sensor_trip);
+/* DISABLED: EXPORT_SYMBOL(thermal_sensor_trip); */
 
 int sensor_activate_trip(uint32_t sensor_id,
 	struct sensor_threshold *threshold, bool enable)
@@ -280,7 +280,7 @@ int sensor_activate_trip(uint32_t sensor_id,
 activate_trip_exit:
 	return ret;
 }
-EXPORT_SYMBOL(sensor_activate_trip);
+/* DISABLED: EXPORT_SYMBOL(sensor_activate_trip); */
 
 int sensor_set_trip(uint32_t sensor_id, struct sensor_threshold *threshold)
 {
@@ -309,7 +309,7 @@ int sensor_set_trip(uint32_t sensor_id, struct sensor_threshold *threshold)
 	return 0;
 
 }
-EXPORT_SYMBOL(sensor_set_trip);
+/* DISABLED: EXPORT_SYMBOL(sensor_set_trip); */
 
 int sensor_cancel_trip(uint32_t sensor_id, struct sensor_threshold *threshold)
 {
@@ -334,7 +334,7 @@ int sensor_cancel_trip(uint32_t sensor_id, struct sensor_threshold *threshold)
 
 	return ret;
 }
-EXPORT_SYMBOL(sensor_cancel_trip);
+/* DISABLED: EXPORT_SYMBOL(sensor_cancel_trip); */
 
 static int tz_notify_trip(enum thermal_trip_type type, int temp, void *data)
 {
@@ -1272,7 +1272,7 @@ free_mem:
 	kfree(dev);
 	return result;
 }
-EXPORT_SYMBOL(thermal_zone_bind_cooling_device);
+/* DISABLED: EXPORT_SYMBOL(thermal_zone_bind_cooling_device); */
 
 /**
  * thermal_zone_unbind_cooling_device - unbind a cooling device from a thermal zone
@@ -1308,7 +1308,7 @@ unbind:
 	kfree(pos);
 	return 0;
 }
-EXPORT_SYMBOL(thermal_zone_unbind_cooling_device);
+/* DISABLED: EXPORT_SYMBOL(thermal_zone_unbind_cooling_device); */
 
 static void thermal_release(struct device *dev)
 {
@@ -1408,7 +1408,7 @@ unregister:
 	device_unregister(&cdev->device);
 	return ERR_PTR(result);
 }
-EXPORT_SYMBOL(thermal_cooling_device_register);
+/* DISABLED: EXPORT_SYMBOL(thermal_cooling_device_register); */
 
 /**
  * thermal_cooling_device_unregister - removes the registered thermal cooling device
@@ -1452,7 +1452,7 @@ void thermal_cooling_device_unregister(struct
 	device_unregister(&cdev->device);
 	return;
 }
-EXPORT_SYMBOL(thermal_cooling_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(thermal_cooling_device_unregister); */
 
 /**
  * thermal_zone_device_update - force an update of a thermal zone's state
@@ -1557,7 +1557,7 @@ leave:
 		thermal_zone_device_set_polling(tz, 0);
 	mutex_unlock(&tz->lock);
 }
-EXPORT_SYMBOL(thermal_zone_device_update);
+/* DISABLED: EXPORT_SYMBOL(thermal_zone_device_update); */
 
 /**
  * thermal_zone_device_register - register a new thermal zone device
@@ -1694,7 +1694,7 @@ unregister:
 	device_unregister(&tz->device);
 	return ERR_PTR(result);
 }
-EXPORT_SYMBOL(thermal_zone_device_register);
+/* DISABLED: EXPORT_SYMBOL(thermal_zone_device_register); */
 
 /**
  * thermal_device_unregister - removes the registered thermal zone device
@@ -1749,7 +1749,7 @@ void thermal_zone_device_unregister(struct thermal_zone_device *tz)
 	device_unregister(&tz->device);
 	return;
 }
-EXPORT_SYMBOL(thermal_zone_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(thermal_zone_device_unregister); */
 
 #ifdef CONFIG_NET
 static struct genl_family thermal_event_genl_family = {
@@ -1823,7 +1823,7 @@ int thermal_generate_netlink_event(u32 orig, enum events event)
 
 	return result;
 }
-EXPORT_SYMBOL(thermal_generate_netlink_event);
+/* DISABLED: EXPORT_SYMBOL(thermal_generate_netlink_event); */
 
 static int genetlink_init(void)
 {

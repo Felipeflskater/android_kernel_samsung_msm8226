@@ -51,7 +51,7 @@ int clk_enable(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
@@ -76,7 +76,7 @@ void clk_disable(struct clk *clk)
 out:
 	spin_unlock_irqrestore(&clockfw_lock, flags);
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -92,7 +92,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 /*
  * Optional clock functions defined in include/linux/clk.h
@@ -115,7 +115,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -136,7 +136,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -160,13 +160,13 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
 
 struct clk *clk_get_parent(struct clk *clk)
 {
 	return clk->parent;
 }
-EXPORT_SYMBOL(clk_get_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
 
 /*
  * OMAP specific clock functions shared between omap1 and omap2
@@ -190,7 +190,7 @@ static int __init omap_clk_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("mpurate=", omap_clk_setup); */
+/* DISABLED: __setup("mpurate=", omap_clk_setup); */ */
 
 /* Used for clocks that always have same value as the parent clock */
 unsigned long followparent_recalc(struct clk *clk)
@@ -288,7 +288,7 @@ int clk_register(struct clk *clk)
 
 	return 0;
 }
-EXPORT_SYMBOL(clk_register);
+/* DISABLED: EXPORT_SYMBOL(clk_register); */
 
 void clk_unregister(struct clk *clk)
 {
@@ -300,7 +300,7 @@ void clk_unregister(struct clk *clk)
 	list_del(&clk->node);
 	mutex_unlock(&clocks_mutex);
 }
-EXPORT_SYMBOL(clk_unregister);
+/* DISABLED: EXPORT_SYMBOL(clk_unregister); */
 
 void clk_enable_init_clocks(void)
 {

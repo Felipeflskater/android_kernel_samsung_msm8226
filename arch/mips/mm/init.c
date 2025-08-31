@@ -72,7 +72,7 @@
  * don't have to care about aliases on other CPUs.
  */
 unsigned long empty_zero_page, zero_page_mask;
-EXPORT_SYMBOL_GPL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL_GPL(empty_zero_page); */
 
 /*
  * Not static inline because used by IP27 special magic initialization code

@@ -49,7 +49,7 @@ struct dma_register * const dma_io_base_addr[MAX_DMA_CHANNELS] = {
 	(struct dma_register *) IMDMA_D1_NEXT_DESC_PTR,
 	(struct dma_register *) IMDMA_S1_NEXT_DESC_PTR,
 };
-EXPORT_SYMBOL(dma_io_base_addr);
+/* DISABLED: EXPORT_SYMBOL(dma_io_base_addr); */
 
 int channel2irq(unsigned int channel)
 {

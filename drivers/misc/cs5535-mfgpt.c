@@ -91,7 +91,7 @@ int cs5535_mfgpt_toggle_event(struct cs5535_mfgpt_timer *timer, int cmp,
 	wrmsr(msr, value, dummy);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_toggle_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_toggle_event); */
 
 int cs5535_mfgpt_set_irq(struct cs5535_mfgpt_timer *timer, int cmp, int *irq,
 		int enable)
@@ -140,7 +140,7 @@ int cs5535_mfgpt_set_irq(struct cs5535_mfgpt_timer *timer, int cmp, int *irq,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_set_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_set_irq); */
 
 struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int timer_nr, int domain)
 {
@@ -201,7 +201,7 @@ struct cs5535_mfgpt_timer *cs5535_mfgpt_alloc_timer(int timer_nr, int domain)
 done:
 	return timer;
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_alloc_timer);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_alloc_timer); */
 
 /*
  * XXX: This frees the timer memory, but never resets the actual hardware
@@ -223,20 +223,20 @@ void cs5535_mfgpt_free_timer(struct cs5535_mfgpt_timer *timer)
 
 	kfree(timer);
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_free_timer);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_free_timer); */
 
 uint16_t cs5535_mfgpt_read(struct cs5535_mfgpt_timer *timer, uint16_t reg)
 {
 	return inw(timer->chip->base + reg + (timer->nr * 8));
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_read); */
 
 void cs5535_mfgpt_write(struct cs5535_mfgpt_timer *timer, uint16_t reg,
 		uint16_t value)
 {
 	outw(value, timer->chip->base + reg + (timer->nr * 8));
 }
-EXPORT_SYMBOL_GPL(cs5535_mfgpt_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_mfgpt_write); */
 
 /*
  * This is a sledgehammer that resets all MFGPT timers. This is required by

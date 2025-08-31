@@ -44,7 +44,7 @@ struct ieee80211_hw *wiphy_to_ieee80211_hw(struct wiphy *wiphy)
 	local = wiphy_priv(wiphy);
 	return &local->hw;
 }
-EXPORT_SYMBOL(wiphy_to_ieee80211_hw);
+/* DISABLED: EXPORT_SYMBOL(wiphy_to_ieee80211_hw); */
 
 u8 *ieee80211_get_bssid(struct ieee80211_hdr *hdr, size_t len,
 			enum nl80211_iftype type)
@@ -184,7 +184,7 @@ __le16 ieee80211_generic_frame_duration(struct ieee80211_hw *hw,
 
 	return cpu_to_le16(dur);
 }
-EXPORT_SYMBOL(ieee80211_generic_frame_duration);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_generic_frame_duration); */
 
 __le16 ieee80211_rts_duration(struct ieee80211_hw *hw,
 			      struct ieee80211_vif *vif, size_t frame_len,
@@ -224,7 +224,7 @@ __le16 ieee80211_rts_duration(struct ieee80211_hw *hw,
 
 	return cpu_to_le16(dur);
 }
-EXPORT_SYMBOL(ieee80211_rts_duration);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_rts_duration); */
 
 __le16 ieee80211_ctstoself_duration(struct ieee80211_hw *hw,
 				    struct ieee80211_vif *vif,
@@ -263,7 +263,7 @@ __le16 ieee80211_ctstoself_duration(struct ieee80211_hw *hw,
 
 	return cpu_to_le16(dur);
 }
-EXPORT_SYMBOL(ieee80211_ctstoself_duration);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_ctstoself_duration); */
 
 static void __ieee80211_wake_queue(struct ieee80211_hw *hw, int queue,
 				   enum queue_stop_reason reason)
@@ -310,7 +310,7 @@ void ieee80211_wake_queue(struct ieee80211_hw *hw, int queue)
 	ieee80211_wake_queue_by_reason(hw, queue,
 				       IEEE80211_QUEUE_STOP_REASON_DRIVER);
 }
-EXPORT_SYMBOL(ieee80211_wake_queue);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_wake_queue); */
 
 static void __ieee80211_stop_queue(struct ieee80211_hw *hw, int queue,
 				   enum queue_stop_reason reason)
@@ -347,7 +347,7 @@ void ieee80211_stop_queue(struct ieee80211_hw *hw, int queue)
 	ieee80211_stop_queue_by_reason(hw, queue,
 				       IEEE80211_QUEUE_STOP_REASON_DRIVER);
 }
-EXPORT_SYMBOL(ieee80211_stop_queue);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_queue); */
 
 void ieee80211_add_pending_skb(struct ieee80211_local *local,
 			       struct sk_buff *skb)
@@ -430,7 +430,7 @@ void ieee80211_stop_queues(struct ieee80211_hw *hw)
 	ieee80211_stop_queues_by_reason(hw,
 					IEEE80211_QUEUE_STOP_REASON_DRIVER);
 }
-EXPORT_SYMBOL(ieee80211_stop_queues);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_queues); */
 
 int ieee80211_queue_stopped(struct ieee80211_hw *hw, int queue)
 {
@@ -446,7 +446,7 @@ int ieee80211_queue_stopped(struct ieee80211_hw *hw, int queue)
 	spin_unlock_irqrestore(&local->queue_stop_reason_lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(ieee80211_queue_stopped);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_queue_stopped); */
 
 void ieee80211_wake_queues_by_reason(struct ieee80211_hw *hw,
 				     enum queue_stop_reason reason)
@@ -467,7 +467,7 @@ void ieee80211_wake_queues(struct ieee80211_hw *hw)
 {
 	ieee80211_wake_queues_by_reason(hw, IEEE80211_QUEUE_STOP_REASON_DRIVER);
 }
-EXPORT_SYMBOL(ieee80211_wake_queues);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_wake_queues); */
 
 void ieee80211_iterate_active_interfaces(
 	struct ieee80211_hw *hw,
@@ -495,7 +495,7 @@ void ieee80211_iterate_active_interfaces(
 
 	mutex_unlock(&local->iflist_mtx);
 }
-EXPORT_SYMBOL_GPL(ieee80211_iterate_active_interfaces);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_iterate_active_interfaces); */
 
 void ieee80211_iterate_active_interfaces_atomic(
 	struct ieee80211_hw *hw,
@@ -523,7 +523,7 @@ void ieee80211_iterate_active_interfaces_atomic(
 
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL_GPL(ieee80211_iterate_active_interfaces_atomic);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_iterate_active_interfaces_atomic); */
 
 /*
  * Nothing should have been stuffed into the workqueue during
@@ -550,7 +550,7 @@ void ieee80211_queue_work(struct ieee80211_hw *hw, struct work_struct *work)
 
 	queue_work(local->workqueue, work);
 }
-EXPORT_SYMBOL(ieee80211_queue_work);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_queue_work); */
 
 void ieee80211_queue_delayed_work(struct ieee80211_hw *hw,
 				  struct delayed_work *dwork,
@@ -563,7 +563,7 @@ void ieee80211_queue_delayed_work(struct ieee80211_hw *hw,
 
 	queue_delayed_work(local->workqueue, dwork, delay);
 }
-EXPORT_SYMBOL(ieee80211_queue_delayed_work);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_queue_delayed_work); */
 
 u32 ieee802_11_parse_elems_crc(u8 *start, size_t len,
 			       struct ieee802_11_elems *elems,
@@ -1448,7 +1448,7 @@ void ieee80211_resume_disconnect(struct ieee80211_vif *vif)
 		key->flags |= KEY_FLAG_TAINTED;
 	mutex_unlock(&local->key_mtx);
 }
-EXPORT_SYMBOL_GPL(ieee80211_resume_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_resume_disconnect); */
 
 static int check_mgd_smps(struct ieee80211_if_managed *ifmgd,
 			  enum ieee80211_smps_mode *smps_mode)
@@ -1597,7 +1597,7 @@ void ieee80211_enable_rssi_reports(struct ieee80211_vif *vif,
 	_ieee80211_enable_rssi_reports(sdata, rssi_min_thold,
 				       rssi_max_thold);
 }
-EXPORT_SYMBOL(ieee80211_enable_rssi_reports);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_enable_rssi_reports); */
 
 void ieee80211_disable_rssi_reports(struct ieee80211_vif *vif)
 {
@@ -1605,7 +1605,7 @@ void ieee80211_disable_rssi_reports(struct ieee80211_vif *vif)
 
 	_ieee80211_enable_rssi_reports(sdata, 0, 0);
 }
-EXPORT_SYMBOL(ieee80211_disable_rssi_reports);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_disable_rssi_reports); */
 
 u8 *ieee80211_ie_build_ht_cap(u8 *pos, struct ieee80211_sta_ht_cap *ht_cap,
 			      u16 cap)

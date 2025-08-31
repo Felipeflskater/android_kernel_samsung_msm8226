@@ -373,7 +373,7 @@ int rio_request_inb_pwrite(struct rio_dev *rdev,
 	spin_unlock(&rio_global_list_lock);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(rio_request_inb_pwrite);
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_request_inb_pwrite); */
 
 /**
  * rio_release_inb_pwrite - release inbound port-write message service
@@ -395,7 +395,7 @@ int rio_release_inb_pwrite(struct rio_dev *rdev)
 	spin_unlock(&rio_global_list_lock);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(rio_release_inb_pwrite);
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_release_inb_pwrite); */
 
 /**
  * rio_mport_get_physefb - Helper function that returns register offset
@@ -863,7 +863,7 @@ int rio_inb_pwrite_handler(union rio_pw_msg *pw_msg)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rio_inb_pwrite_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_inb_pwrite_handler); */
 
 /**
  * rio_mport_get_efb - get pointer to next extended features block
@@ -1169,7 +1169,7 @@ static int rio_hdid_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("riohdid=", rio_hdid_setup); */
+/* DISABLED: __setup("riohdid=", rio_hdid_setup); */ */
 
 int rio_register_mport(struct rio_mport *port)
 {
@@ -1184,14 +1184,14 @@ int rio_register_mport(struct rio_mport *port)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(rio_local_get_device_id);
-EXPORT_SYMBOL_GPL(rio_get_device);
-EXPORT_SYMBOL_GPL(rio_get_asm);
-EXPORT_SYMBOL_GPL(rio_request_inb_dbell);
-EXPORT_SYMBOL_GPL(rio_release_inb_dbell);
-EXPORT_SYMBOL_GPL(rio_request_outb_dbell);
-EXPORT_SYMBOL_GPL(rio_release_outb_dbell);
-EXPORT_SYMBOL_GPL(rio_request_inb_mbox);
-EXPORT_SYMBOL_GPL(rio_release_inb_mbox);
-EXPORT_SYMBOL_GPL(rio_request_outb_mbox);
-EXPORT_SYMBOL_GPL(rio_release_outb_mbox);
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_local_get_device_id); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_get_device); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_get_asm); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_request_inb_dbell); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_release_inb_dbell); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_request_outb_dbell); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_release_outb_dbell); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_request_inb_mbox); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_release_inb_mbox); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_request_outb_mbox); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_release_outb_mbox); */

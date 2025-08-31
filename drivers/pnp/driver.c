@@ -268,7 +268,7 @@ struct pnp_id *pnp_add_id(struct pnp_dev *dev, const char *id)
 	return dev_id;
 }
 
-EXPORT_SYMBOL(pnp_register_driver);
-EXPORT_SYMBOL(pnp_unregister_driver);
-EXPORT_SYMBOL(pnp_device_attach);
-EXPORT_SYMBOL(pnp_device_detach);
+/* DISABLED: EXPORT_SYMBOL(pnp_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(pnp_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL(pnp_device_attach); */
+/* DISABLED: EXPORT_SYMBOL(pnp_device_detach); */

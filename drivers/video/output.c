@@ -109,7 +109,7 @@ struct output_device *video_output_register(const char *name,
 error_return:
 	return ERR_PTR(ret_code);
 }
-EXPORT_SYMBOL(video_output_register);
+/* DISABLED: EXPORT_SYMBOL(video_output_register); */
 
 void video_output_unregister(struct output_device *dev)
 {
@@ -117,7 +117,7 @@ void video_output_unregister(struct output_device *dev)
 		return;
 	device_unregister(&dev->dev);
 }
-EXPORT_SYMBOL(video_output_unregister);
+/* DISABLED: EXPORT_SYMBOL(video_output_unregister); */
 
 static void __exit video_output_class_exit(void)
 {

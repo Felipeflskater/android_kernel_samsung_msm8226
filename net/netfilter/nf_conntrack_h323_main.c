@@ -1886,16 +1886,16 @@ err1:
 module_init(nf_conntrack_h323_init);
 module_exit(nf_conntrack_h323_fini);
 
-EXPORT_SYMBOL_GPL(get_h225_addr);
-EXPORT_SYMBOL_GPL(set_h245_addr_hook);
-EXPORT_SYMBOL_GPL(set_h225_addr_hook);
-EXPORT_SYMBOL_GPL(set_sig_addr_hook);
-EXPORT_SYMBOL_GPL(set_ras_addr_hook);
-EXPORT_SYMBOL_GPL(nat_rtp_rtcp_hook);
-EXPORT_SYMBOL_GPL(nat_t120_hook);
-EXPORT_SYMBOL_GPL(nat_h245_hook);
-EXPORT_SYMBOL_GPL(nat_callforwarding_hook);
-EXPORT_SYMBOL_GPL(nat_q931_hook);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_h225_addr); */
+/* DISABLED: EXPORT_SYMBOL_GPL(set_h245_addr_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(set_h225_addr_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(set_sig_addr_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(set_ras_addr_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nat_rtp_rtcp_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nat_t120_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nat_h245_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nat_callforwarding_hook); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nat_q931_hook); */
 
 MODULE_AUTHOR("Jing Min Zhao <zhaojingmin@users.sourceforge.net>");
 MODULE_DESCRIPTION("H.323 connection tracking helper");

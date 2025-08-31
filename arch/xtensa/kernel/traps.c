@@ -472,7 +472,7 @@ void dump_stack(void)
 	show_stack(current, NULL);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 
 void show_code(unsigned int *pc)

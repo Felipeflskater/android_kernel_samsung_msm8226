@@ -39,7 +39,7 @@ int gpio_get_value(unsigned gpio)
 
 	return ((val & mask) != 0);
 }
-EXPORT_SYMBOL(gpio_get_value);
+/* DISABLED: EXPORT_SYMBOL(gpio_get_value); */
 
 void gpio_set_value(unsigned gpio, int state)
 {
@@ -62,7 +62,7 @@ void gpio_set_value(unsigned gpio, int state)
 	LOONGSON_GPIODATA = val;
 	spin_unlock(&gpio_lock);
 }
-EXPORT_SYMBOL(gpio_set_value);
+/* DISABLED: EXPORT_SYMBOL(gpio_set_value); */
 
 int gpio_cansleep(unsigned gpio)
 {
@@ -71,7 +71,7 @@ int gpio_cansleep(unsigned gpio)
 	else
 		return __gpio_cansleep(gpio);
 }
-EXPORT_SYMBOL(gpio_cansleep);
+/* DISABLED: EXPORT_SYMBOL(gpio_cansleep); */
 
 static int ls2f_gpio_direction_input(struct gpio_chip *chip, unsigned gpio)
 {

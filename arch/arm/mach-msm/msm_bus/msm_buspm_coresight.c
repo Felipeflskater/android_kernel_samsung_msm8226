@@ -67,7 +67,7 @@ void msmbus_coresight_remove(struct platform_device *pdev)
 	devm_kfree(&pdev->dev, drvdata);
 	platform_set_drvdata(pdev, NULL);
 }
-EXPORT_SYMBOL(msmbus_coresight_remove);
+/* DISABLED: EXPORT_SYMBOL(msmbus_coresight_remove); */
 
 static int buspm_of_get_clk(struct device_node *of_node,
 	struct msmbus_coresight_drvdata *drvdata)
@@ -153,7 +153,7 @@ err1:
 	platform_set_drvdata(pdev, NULL);
 	return ret;
 }
-EXPORT_SYMBOL(msmbus_coresight_init);
+/* DISABLED: EXPORT_SYMBOL(msmbus_coresight_init); */
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("MSM BusPM CoreSight Driver");

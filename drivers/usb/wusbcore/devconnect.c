@@ -649,7 +649,7 @@ void wusbhc_handle_dn(struct wusbhc *wusbhc, u8 srcaddr,
 			 dn_hdr->bType, (int)size, srcaddr);
 	}
 }
-EXPORT_SYMBOL_GPL(wusbhc_handle_dn);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_handle_dn); */
 
 /*
  * Disconnect a WUSB device from a the cluster
@@ -1006,7 +1006,7 @@ struct wusb_dev *__wusb_dev_get_by_usb_dev(struct wusbhc *wusbhc,
 		wusb_dev_get(wusb_dev);
 	return wusb_dev;
 }
-EXPORT_SYMBOL_GPL(__wusb_dev_get_by_usb_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(__wusb_dev_get_by_usb_dev); */
 
 void wusb_dev_destroy(struct kref *_wusb_dev)
 {
@@ -1015,7 +1015,7 @@ void wusb_dev_destroy(struct kref *_wusb_dev)
 	list_del_init(&wusb_dev->cack_node);
 	wusb_dev_free(wusb_dev);
 }
-EXPORT_SYMBOL_GPL(wusb_dev_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusb_dev_destroy); */
 
 /*
  * Create all the device connect handling infrastructure

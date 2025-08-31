@@ -53,7 +53,7 @@ void snd_dmaengine_pcm_set_data(struct snd_pcm_substream *substream, void *data)
 
 	prtd->data = data;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_set_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_set_data); */
 
 /**
  * snd_dmaengine_pcm_get_data - Get dmaeinge substream private data
@@ -67,7 +67,7 @@ void *snd_dmaengine_pcm_get_data(struct snd_pcm_substream *substream)
 
 	return prtd->data;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_get_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_get_data); */
 
 struct dma_chan *snd_dmaengine_pcm_get_chan(struct snd_pcm_substream *substream)
 {
@@ -75,7 +75,7 @@ struct dma_chan *snd_dmaengine_pcm_get_chan(struct snd_pcm_substream *substream)
 
 	return prtd->dma_chan;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_get_chan);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_get_chan); */
 
 /**
  * snd_hwparams_to_dma_slave_config - Convert hw_params to dma_slave_config
@@ -119,7 +119,7 @@ int snd_hwparams_to_dma_slave_config(const struct snd_pcm_substream *substream,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_hwparams_to_dma_slave_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_hwparams_to_dma_slave_config); */
 
 static void dmaengine_pcm_dma_complete(void *arg)
 {
@@ -197,7 +197,7 @@ int snd_dmaengine_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_trigger);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_trigger); */
 
 /**
  * snd_dmaengine_pcm_pointer - dmaengine based PCM pointer implementation
@@ -211,7 +211,7 @@ snd_pcm_uframes_t snd_dmaengine_pcm_pointer(struct snd_pcm_substream *substream)
 	struct dmaengine_pcm_runtime_data *prtd = substream_to_prtd(substream);
 	return bytes_to_frames(substream->runtime, prtd->pos);
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_pointer);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_pointer); */
 
 static int dmaengine_pcm_request_channel(struct dmaengine_pcm_runtime_data *prtd,
 	dma_filter_fn filter_fn, void *filter_data)
@@ -270,7 +270,7 @@ int snd_dmaengine_pcm_open(struct snd_pcm_substream *substream,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_open); */
 
 /**
  * snd_dmaengine_pcm_close - Close a dmaengine based PCM substream
@@ -285,4 +285,4 @@ int snd_dmaengine_pcm_close(struct snd_pcm_substream *substream)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_dmaengine_pcm_close); */

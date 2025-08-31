@@ -53,7 +53,7 @@ unsigned mpi_get_nbits(MPI a)
 		n = 0;
 	return n;
 }
-EXPORT_SYMBOL_GPL(mpi_get_nbits);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_get_nbits); */
 
 /****************
  * Test whether bit N is set.

@@ -190,7 +190,7 @@ static int get_if_pmic_inifo(char *str)
 		__FILE__, __func__, switch_sel, if_pmic_rev);
 	return if_muic_info;
 }
-/* DISABLED: __setup("pmic_info=", get_if_pmic_inifo); */
+/* DISABLED: __setup("pmic_info=", get_if_pmic_inifo); */ */
 
 int get_switch_sel(void)
 {
@@ -206,7 +206,7 @@ int max77888_muic_read_adc(void)
 	else
 		return -1;
 }
-EXPORT_SYMBOL_GPL(max77888_muic_read_adc);
+/* DISABLED: EXPORT_SYMBOL_GPL(max77888_muic_read_adc); */
 
 int max77888_muic_read_vbvolt(void)
 {
@@ -215,13 +215,13 @@ int max77888_muic_read_vbvolt(void)
 	else
 		return -1;
 }
-EXPORT_SYMBOL_GPL(max77888_muic_read_vbvolt);
+/* DISABLED: EXPORT_SYMBOL_GPL(max77888_muic_read_vbvolt); */
 
 int max77888_muic_read_vbus(void)
 {
 	return g_usbvbus;
 }
-EXPORT_SYMBOL_GPL(max77888_muic_read_vbus);
+/* DISABLED: EXPORT_SYMBOL_GPL(max77888_muic_read_vbus); */
 
 #if 0 // unused
 static int max77888_muic_get_comp2_comn1_pass2
@@ -382,7 +382,7 @@ void max77888_muic_regdump(void) {
 	pr_info("%s:READ MUIC REG CTRL3  : %02x", __func__, r_value[14]);
 	pr_info("%s:READ MUIC REG CTRL4 : %02x", __func__, r_value[ARRAY_SIZE(r_value)-1]);
 }
-EXPORT_SYMBOL_GPL(max77888_muic_regdump);
+/* DISABLED: EXPORT_SYMBOL_GPL(max77888_muic_regdump); */
 #endif
 
 static int max77888_muic_set_uart_path_pass2

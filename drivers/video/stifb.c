@@ -1409,7 +1409,7 @@ stifb_setup(char *options)
 	return 1;
 }
 
-/* DISABLED: __setup("stifb=", stifb_setup); */
+/* DISABLED: __setup("stifb=", stifb_setup); */ */
 
 module_init(stifb_init);
 module_exit(stifb_cleanup);

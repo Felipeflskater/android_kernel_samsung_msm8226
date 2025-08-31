@@ -623,7 +623,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */
+/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */ */
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -957,7 +957,7 @@ void mdss_dsi_panel_hsync_onoff(bool onoff)
 
 	return;
 }
-EXPORT_SYMBOL(mdss_dsi_panel_hsync_onoff);
+/* DISABLED: EXPORT_SYMBOL(mdss_dsi_panel_hsync_onoff); */
 
 static int mdss_dsi_panel_registered(struct mdss_panel_data *pdata)
 {
@@ -2107,7 +2107,7 @@ int get_samsung_lcd_attached(void)
 {
 	return lcd_attached;
 }
-EXPORT_SYMBOL(get_samsung_lcd_attached);
+/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -2138,7 +2138,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */ */
 
 static int __init mdss_panel_current_hw_rev(char *rev)
 {
@@ -2154,7 +2154,7 @@ static int __init mdss_panel_current_hw_rev(char *rev)
 	return 1;
 }
 
-/* DISABLED: __setup("samsung.board_rev=", mdss_panel_current_hw_rev); */
+/* DISABLED: __setup("samsung.board_rev=", mdss_panel_current_hw_rev); */ */
 
 MODULE_DESCRIPTION("Samsung DSI panel driver");
 MODULE_AUTHOR("Krishna Kishor Jha <krishna.jha@samsung.com>");

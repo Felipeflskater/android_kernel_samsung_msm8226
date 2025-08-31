@@ -324,7 +324,7 @@ int menelaus_set_mmc_opendrain(int slot, int enable)
 
 	return ret;
 }
-EXPORT_SYMBOL(menelaus_set_mmc_opendrain);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_mmc_opendrain); */
 
 int menelaus_set_slot_sel(int enable)
 {
@@ -344,7 +344,7 @@ out:
 	mutex_unlock(&the_menelaus->lock);
 	return ret;
 }
-EXPORT_SYMBOL(menelaus_set_slot_sel);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_slot_sel); */
 
 int menelaus_set_mmc_slot(int slot, int enable, int power, int cd_en)
 {
@@ -406,7 +406,7 @@ out:
 	mutex_unlock(&the_menelaus->lock);
 	return ret;
 }
-EXPORT_SYMBOL(menelaus_set_mmc_slot);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_mmc_slot); */
 
 int menelaus_register_mmc_callback(void (*callback)(void *data, u8 card_mask),
 				   void *data)
@@ -432,7 +432,7 @@ int menelaus_register_mmc_callback(void (*callback)(void *data, u8 card_mask),
 
 	return ret;
 }
-EXPORT_SYMBOL(menelaus_register_mmc_callback);
+/* DISABLED: EXPORT_SYMBOL(menelaus_register_mmc_callback); */
 
 void menelaus_unregister_mmc_callback(void)
 {
@@ -444,7 +444,7 @@ void menelaus_unregister_mmc_callback(void)
 	the_menelaus->mmc_callback = NULL;
 	the_menelaus->mmc_callback_data = 0;
 }
-EXPORT_SYMBOL(menelaus_unregister_mmc_callback);
+/* DISABLED: EXPORT_SYMBOL(menelaus_unregister_mmc_callback); */
 
 struct menelaus_vtg {
 	const char *name;
@@ -622,7 +622,7 @@ int menelaus_set_vmem(unsigned int mV)
 		return -EINVAL;
 	return menelaus_set_voltage(&vmem_vtg, mV, val, 0x02);
 }
-EXPORT_SYMBOL(menelaus_set_vmem);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_vmem); */
 
 static const struct menelaus_vtg vio_vtg = {
 	.name = "VIO",
@@ -651,7 +651,7 @@ int menelaus_set_vio(unsigned int mV)
 		return -EINVAL;
 	return menelaus_set_voltage(&vio_vtg, mV, val, 0x02);
 }
-EXPORT_SYMBOL(menelaus_set_vio);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_vio); */
 
 static const struct menelaus_vtg_value vdcdc_values[] = {
 	{ 1500, 0 },
@@ -729,7 +729,7 @@ int menelaus_set_vmmc(unsigned int mV)
 		return -EINVAL;
 	return menelaus_set_voltage(&vmmc_vtg, mV, val, 0x02);
 }
-EXPORT_SYMBOL(menelaus_set_vmmc);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_vmmc); */
 
 
 static const struct menelaus_vtg_value vaux_values[] = {
@@ -759,13 +759,13 @@ int menelaus_set_vaux(unsigned int mV)
 		return -EINVAL;
 	return menelaus_set_voltage(&vaux_vtg, mV, val, 0x02);
 }
-EXPORT_SYMBOL(menelaus_set_vaux);
+/* DISABLED: EXPORT_SYMBOL(menelaus_set_vaux); */
 
 int menelaus_get_slot_pin_states(void)
 {
 	return menelaus_read_reg(MENELAUS_MCT_PIN_ST);
 }
-EXPORT_SYMBOL(menelaus_get_slot_pin_states);
+/* DISABLED: EXPORT_SYMBOL(menelaus_get_slot_pin_states); */
 
 int menelaus_set_regulator_sleep(int enable, u32 val)
 {

@@ -81,7 +81,7 @@ struct hd_struct *disk_get_part(struct gendisk *disk, int partno)
 
 	return part;
 }
-EXPORT_SYMBOL_GPL(disk_get_part);
+/* DISABLED: EXPORT_SYMBOL_GPL(disk_get_part); */
 
 /**
  * disk_part_iter_init - initialize partition iterator
@@ -116,7 +116,7 @@ void disk_part_iter_init(struct disk_part_iter *piter, struct gendisk *disk,
 
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL_GPL(disk_part_iter_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(disk_part_iter_init); */
 
 /**
  * disk_part_iter_next - proceed iterator to the next partition and return it
@@ -176,7 +176,7 @@ struct hd_struct *disk_part_iter_next(struct disk_part_iter *piter)
 
 	return piter->part;
 }
-EXPORT_SYMBOL_GPL(disk_part_iter_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(disk_part_iter_next); */
 
 /**
  * disk_part_iter_exit - finish up partition iteration
@@ -192,7 +192,7 @@ void disk_part_iter_exit(struct disk_part_iter *piter)
 	disk_put_part(piter->part);
 	piter->part = NULL;
 }
-EXPORT_SYMBOL_GPL(disk_part_iter_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(disk_part_iter_exit); */
 
 static inline int sector_in_part(struct hd_struct *part, sector_t sector)
 {
@@ -237,7 +237,7 @@ struct hd_struct *disk_map_sector_rcu(struct gendisk *disk, sector_t sector)
 	}
 	return &disk->part0;
 }
-EXPORT_SYMBOL_GPL(disk_map_sector_rcu);
+/* DISABLED: EXPORT_SYMBOL_GPL(disk_map_sector_rcu); */
 
 /*
  * Can be deleted altogether. Later.
@@ -339,7 +339,7 @@ out:
 	return ret;
 }
 
-EXPORT_SYMBOL(register_blkdev);
+/* DISABLED: EXPORT_SYMBOL(register_blkdev); */
 
 void unregister_blkdev(unsigned int major, const char *name)
 {
@@ -361,7 +361,7 @@ void unregister_blkdev(unsigned int major, const char *name)
 	kfree(p);
 }
 
-EXPORT_SYMBOL(unregister_blkdev);
+/* DISABLED: EXPORT_SYMBOL(unregister_blkdev); */
 
 static struct kobj_map *bdev_map;
 
@@ -487,14 +487,14 @@ void blk_register_region(dev_t devt, unsigned long range, struct module *module,
 	kobj_map(bdev_map, devt, range, module, probe, lock, data);
 }
 
-EXPORT_SYMBOL(blk_register_region);
+/* DISABLED: EXPORT_SYMBOL(blk_register_region); */
 
 void blk_unregister_region(dev_t devt, unsigned long range)
 {
 	kobj_unmap(bdev_map, devt, range);
 }
 
-EXPORT_SYMBOL(blk_unregister_region);
+/* DISABLED: EXPORT_SYMBOL(blk_unregister_region); */
 
 static struct kobject *exact_match(dev_t devt, int *partno, void *data)
 {
@@ -638,7 +638,7 @@ void add_disk(struct gendisk *disk)
 
 	disk_add_events(disk);
 }
-EXPORT_SYMBOL(add_disk);
+/* DISABLED: EXPORT_SYMBOL(add_disk); */
 
 void del_gendisk(struct gendisk *disk)
 {
@@ -684,7 +684,7 @@ void del_gendisk(struct gendisk *disk)
 #endif	
 	device_del(disk_to_dev(disk));
 }
-EXPORT_SYMBOL(del_gendisk);
+/* DISABLED: EXPORT_SYMBOL(del_gendisk); */
 
 /**
  * get_gendisk - get partitioning information for a given device
@@ -718,7 +718,7 @@ struct gendisk *get_gendisk(dev_t devt, int *partno)
 
 	return disk;
 }
-EXPORT_SYMBOL(get_gendisk);
+/* DISABLED: EXPORT_SYMBOL(get_gendisk); */
 
 /**
  * bdget_disk - do bdget() by gendisk and partition number
@@ -745,7 +745,7 @@ struct block_device *bdget_disk(struct gendisk *disk, int partno)
 
 	return bdev;
 }
-EXPORT_SYMBOL(bdget_disk);
+/* DISABLED: EXPORT_SYMBOL(bdget_disk); */
 
 /*
  * print a full list of all partitions - intended for places where the root
@@ -1297,13 +1297,13 @@ dev_t blk_lookup_devt(const char *name, int partno)
 	class_dev_iter_exit(&iter);
 	return devt;
 }
-EXPORT_SYMBOL(blk_lookup_devt);
+/* DISABLED: EXPORT_SYMBOL(blk_lookup_devt); */
 
 struct gendisk *alloc_disk(int minors)
 {
 	return alloc_disk_node(minors, -1);
 }
-EXPORT_SYMBOL(alloc_disk);
+/* DISABLED: EXPORT_SYMBOL(alloc_disk); */
 
 struct gendisk *alloc_disk_node(int minors, int node_id)
 {
@@ -1334,7 +1334,7 @@ struct gendisk *alloc_disk_node(int minors, int node_id)
 	}
 	return disk;
 }
-EXPORT_SYMBOL(alloc_disk_node);
+/* DISABLED: EXPORT_SYMBOL(alloc_disk_node); */
 
 struct kobject *get_disk(struct gendisk *disk)
 {
@@ -1355,7 +1355,7 @@ struct kobject *get_disk(struct gendisk *disk)
 
 }
 
-EXPORT_SYMBOL(get_disk);
+/* DISABLED: EXPORT_SYMBOL(get_disk); */
 
 void put_disk(struct gendisk *disk)
 {
@@ -1363,7 +1363,7 @@ void put_disk(struct gendisk *disk)
 		kobject_put(&disk_to_dev(disk)->kobj);
 }
 
-EXPORT_SYMBOL(put_disk);
+/* DISABLED: EXPORT_SYMBOL(put_disk); */
 
 static void set_disk_ro_uevent(struct gendisk *gd, int ro)
 {
@@ -1380,7 +1380,7 @@ void set_device_ro(struct block_device *bdev, int flag)
 	bdev->bd_part->policy = flag;
 }
 
-EXPORT_SYMBOL(set_device_ro);
+/* DISABLED: EXPORT_SYMBOL(set_device_ro); */
 
 void set_disk_ro(struct gendisk *disk, int flag)
 {
@@ -1398,7 +1398,7 @@ void set_disk_ro(struct gendisk *disk, int flag)
 	disk_part_iter_exit(&piter);
 }
 
-EXPORT_SYMBOL(set_disk_ro);
+/* DISABLED: EXPORT_SYMBOL(set_disk_ro); */
 
 int bdev_read_only(struct block_device *bdev)
 {
@@ -1407,7 +1407,7 @@ int bdev_read_only(struct block_device *bdev)
 	return bdev->bd_part->policy;
 }
 
-EXPORT_SYMBOL(bdev_read_only);
+/* DISABLED: EXPORT_SYMBOL(bdev_read_only); */
 
 int invalidate_partition(struct gendisk *disk, int partno)
 {
@@ -1421,7 +1421,7 @@ int invalidate_partition(struct gendisk *disk, int partno)
 	return res;
 }
 
-EXPORT_SYMBOL(invalidate_partition);
+/* DISABLED: EXPORT_SYMBOL(invalidate_partition); */
 
 /*
  * Disk events - monitor disk events like media change and eject request.

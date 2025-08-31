@@ -267,5 +267,5 @@ void ceph_debugfs_client_cleanup(struct ceph_client *client)
 
 #endif  /* CONFIG_DEBUG_FS */
 
-EXPORT_SYMBOL(ceph_debugfs_init);
-EXPORT_SYMBOL(ceph_debugfs_cleanup);
+/* DISABLED: EXPORT_SYMBOL(ceph_debugfs_init); */
+/* DISABLED: EXPORT_SYMBOL(ceph_debugfs_cleanup); */

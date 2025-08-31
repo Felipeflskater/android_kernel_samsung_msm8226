@@ -85,7 +85,7 @@ void cancel_dirty_page(struct page *page, unsigned int account_size)
 		}
 	}
 }
-EXPORT_SYMBOL(cancel_dirty_page);
+/* DISABLED: EXPORT_SYMBOL(cancel_dirty_page); */
 
 /*
  * If truncate cannot remove the fs-private metadata from the page, the page
@@ -164,7 +164,7 @@ int generic_error_remove_page(struct address_space *mapping, struct page *page)
 		return -EIO;
 	return truncate_inode_page(mapping, page);
 }
-EXPORT_SYMBOL(generic_error_remove_page);
+/* DISABLED: EXPORT_SYMBOL(generic_error_remove_page); */
 
 /*
  * Safely invalidate one page from its pagecache mapping.
@@ -295,7 +295,7 @@ void truncate_inode_pages_range(struct address_space *mapping,
 	}
 	cleancache_invalidate_inode(mapping);
 }
-EXPORT_SYMBOL(truncate_inode_pages_range);
+/* DISABLED: EXPORT_SYMBOL(truncate_inode_pages_range); */
 
 /**
  * truncate_inode_pages - truncate *all* the pages from an offset
@@ -313,7 +313,7 @@ void truncate_inode_pages(struct address_space *mapping, loff_t lstart)
 {
 	truncate_inode_pages_range(mapping, lstart, (loff_t)-1);
 }
-EXPORT_SYMBOL(truncate_inode_pages);
+/* DISABLED: EXPORT_SYMBOL(truncate_inode_pages); */
 
 /**
  * invalidate_mapping_pages - Invalidate all the unlocked pages of one inode
@@ -377,7 +377,7 @@ unsigned long invalidate_mapping_pages(struct address_space *mapping,
 	}
 	return count;
 }
-EXPORT_SYMBOL(invalidate_mapping_pages);
+/* DISABLED: EXPORT_SYMBOL(invalidate_mapping_pages); */
 
 /*
  * This is like invalidate_complete_page(), except it ignores the page's
@@ -505,7 +505,7 @@ int invalidate_inode_pages2_range(struct address_space *mapping,
 	cleancache_invalidate_inode(mapping);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(invalidate_inode_pages2_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(invalidate_inode_pages2_range); */
 
 /**
  * invalidate_inode_pages2 - remove all pages from an address_space
@@ -520,7 +520,7 @@ int invalidate_inode_pages2(struct address_space *mapping)
 {
 	return invalidate_inode_pages2_range(mapping, 0, -1);
 }
-EXPORT_SYMBOL_GPL(invalidate_inode_pages2);
+/* DISABLED: EXPORT_SYMBOL_GPL(invalidate_inode_pages2); */
 
 /**
  * truncate_pagecache - unmap and remove pagecache that has been truncated
@@ -556,7 +556,7 @@ void truncate_pagecache(struct inode *inode, loff_t oldsize, loff_t newsize)
 	truncate_inode_pages(mapping, newsize);
 	unmap_mapping_range(mapping, holebegin, 0, 1);
 }
-EXPORT_SYMBOL(truncate_pagecache);
+/* DISABLED: EXPORT_SYMBOL(truncate_pagecache); */
 
 /**
  * truncate_setsize - update inode and pagecache for a new file size
@@ -579,7 +579,7 @@ void truncate_setsize(struct inode *inode, loff_t newsize)
 		pagecache_isize_extended(inode, oldsize, newsize);
 	truncate_pagecache(inode, oldsize, newsize);
 }
-EXPORT_SYMBOL(truncate_setsize);
+/* DISABLED: EXPORT_SYMBOL(truncate_setsize); */
 
 /**
  * pagecache_isize_extended - update pagecache after extension of i_size
@@ -630,7 +630,7 @@ void pagecache_isize_extended(struct inode *inode, loff_t from, loff_t to)
 	unlock_page(page);
 	page_cache_release(page);
 }
-EXPORT_SYMBOL(pagecache_isize_extended);
+/* DISABLED: EXPORT_SYMBOL(pagecache_isize_extended); */
 
 /**
  * truncate_pagecache_range - unmap and remove pagecache that is hole-punched
@@ -656,7 +656,7 @@ int vmtruncate(struct inode *inode, loff_t newsize)
 		inode->i_op->truncate(inode);
 	return 0;
 }
-EXPORT_SYMBOL(vmtruncate);
+/* DISABLED: EXPORT_SYMBOL(vmtruncate); */
 
 /**
  * truncate_pagecache_range - unmap and remove pagecache that is hole-punched
@@ -696,4 +696,4 @@ void truncate_pagecache_range(struct inode *inode, loff_t lstart, loff_t lend)
 				    1 + unmap_end - unmap_start, 0);
 	truncate_inode_pages_range(mapping, lstart, lend);
 }
-EXPORT_SYMBOL(truncate_pagecache_range);
+/* DISABLED: EXPORT_SYMBOL(truncate_pagecache_range); */

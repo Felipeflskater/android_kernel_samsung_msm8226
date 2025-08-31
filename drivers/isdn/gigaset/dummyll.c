@@ -17,17 +17,17 @@
 void gigaset_skb_sent(struct bc_state *bcs, struct sk_buff *skb)
 {
 }
-EXPORT_SYMBOL_GPL(gigaset_skb_sent);
+/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_sent); */
 
 void gigaset_skb_rcvd(struct bc_state *bcs, struct sk_buff *skb)
 {
 }
-EXPORT_SYMBOL_GPL(gigaset_skb_rcvd);
+/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_rcvd); */
 
 void gigaset_isdn_rcv_err(struct bc_state *bcs)
 {
 }
-EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err);
+/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err); */
 
 int gigaset_isdn_icall(struct at_state_t *at_state)
 {

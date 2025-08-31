@@ -646,7 +646,7 @@ struct sysfs_dirent *sysfs_get_dirent(struct sysfs_dirent *parent_sd,
 
 	return sd;
 }
-EXPORT_SYMBOL_GPL(sysfs_get_dirent);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_get_dirent); */
 
 static int create_dir(struct kobject *kobj, struct sysfs_dirent *parent_sd,
 	enum kobj_ns_type type, const void *ns, const char *name,

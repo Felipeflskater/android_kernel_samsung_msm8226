@@ -943,8 +943,8 @@ void mtd_concat_destroy(struct mtd_info *mtd)
 	kfree(concat);
 }
 
-EXPORT_SYMBOL(mtd_concat_create);
-EXPORT_SYMBOL(mtd_concat_destroy);
+/* DISABLED: EXPORT_SYMBOL(mtd_concat_create); */
+/* DISABLED: EXPORT_SYMBOL(mtd_concat_destroy); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Robert Kaiser <rkaiser@sysgo.de>");

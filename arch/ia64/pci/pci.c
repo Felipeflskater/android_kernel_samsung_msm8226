@@ -430,7 +430,7 @@ void __devinit pcibios_fixup_device_resources(struct pci_dev *dev)
 {
 	pcibios_fixup_resources(dev, 0, PCI_BRIDGE_RESOURCES);
 }
-EXPORT_SYMBOL_GPL(pcibios_fixup_device_resources);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_fixup_device_resources); */
 
 static void __devinit pcibios_fixup_bridge_resources(struct pci_dev *dev)
 {
@@ -726,13 +726,13 @@ u64 ia64_dma_get_required_mask(struct device *dev)
 	}
 	return mask;
 }
-EXPORT_SYMBOL_GPL(ia64_dma_get_required_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(ia64_dma_get_required_mask); */
 
 u64 dma_get_required_mask(struct device *dev)
 {
 	return platform_dma_get_required_mask(dev);
 }
-EXPORT_SYMBOL_GPL(dma_get_required_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_get_required_mask); */
 
 static int __init pcibios_init(void)
 {

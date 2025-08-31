@@ -40,7 +40,7 @@ int ucc_set_qe_mux_mii_mng(unsigned int ucc_num)
 
 	return 0;
 }
-EXPORT_SYMBOL(ucc_set_qe_mux_mii_mng);
+/* DISABLED: EXPORT_SYMBOL(ucc_set_qe_mux_mii_mng); */
 
 /* Configure the UCC to either Slow or Fast.
  *

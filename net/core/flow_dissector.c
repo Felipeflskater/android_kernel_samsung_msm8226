@@ -141,4 +141,4 @@ ipv6:
 
 	return true;
 }
-EXPORT_SYMBOL(skb_flow_dissect);
+/* DISABLED: EXPORT_SYMBOL(skb_flow_dissect); */

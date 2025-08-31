@@ -24,7 +24,7 @@
 #include <mach/pm.h>
 
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /*
  * This file handles the architecture-dependent parts of process handling..
@@ -104,7 +104,7 @@ int kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED,
 		       0, &regs, 0, NULL, NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * Free current thread data structures etc
@@ -257,7 +257,7 @@ void dump_stack(void)
 
 	show_trace_log_lvl(current, &stack, NULL, "");
 }
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static const char *cpu_modes[] = {
 	"Application", "Supervisor", "Interrupt level 0", "Interrupt level 1",
@@ -322,7 +322,7 @@ void show_regs(struct pt_regs *regs)
 	show_regs_log_lvl(regs, "");
 	show_trace_log_lvl(current, (unsigned long *)sp, regs, "");
 }
-EXPORT_SYMBOL(show_regs);
+/* DISABLED: EXPORT_SYMBOL(show_regs); */
 
 /* Fill in the fpu structure for a core dump. This is easy -- we don't have any */
 int dump_fpu(struct pt_regs *regs, elf_fpregset_t *fpu)

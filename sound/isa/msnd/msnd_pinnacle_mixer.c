@@ -321,7 +321,7 @@ int __devinit snd_msndmix_new(struct snd_card *card)
 
 	return 0;
 }
-EXPORT_SYMBOL(snd_msndmix_new);
+/* DISABLED: EXPORT_SYMBOL(snd_msndmix_new); */
 
 void snd_msndmix_setup(struct snd_msnd *dev)
 {
@@ -334,11 +334,11 @@ void snd_msndmix_setup(struct snd_msnd *dev)
 		update_volm(MSND_MIXER_SYNTH, wCurrMHdrVol);
 	}
 }
-EXPORT_SYMBOL(snd_msndmix_setup);
+/* DISABLED: EXPORT_SYMBOL(snd_msndmix_setup); */
 
 int snd_msndmix_force_recsrc(struct snd_msnd *dev, int recsrc)
 {
 	dev->recsrc = -1;
 	return snd_msndmix_set_mux(dev, recsrc);
 }
-EXPORT_SYMBOL(snd_msndmix_force_recsrc);
+/* DISABLED: EXPORT_SYMBOL(snd_msndmix_force_recsrc); */

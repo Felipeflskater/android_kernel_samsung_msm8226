@@ -149,7 +149,7 @@ int drm_gem_object_init(struct drm_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_gem_object_init);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_init); */
 
 /**
  * Initialize an already allocated GEM object of the specified size with
@@ -170,7 +170,7 @@ int drm_gem_private_object_init(struct drm_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_gem_private_object_init);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_private_object_init); */
 
 /**
  * Allocate a GEM object of the specified size with shmfs backing store
@@ -199,7 +199,7 @@ free:
 	kfree(obj);
 	return NULL;
 }
-EXPORT_SYMBOL(drm_gem_object_alloc);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_alloc); */
 
 /**
  * Removes the mapping from handle to filp for this object.
@@ -243,7 +243,7 @@ drm_gem_handle_delete(struct drm_file *filp, u32 handle)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_gem_handle_delete);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_handle_delete); */
 
 /**
  * Create a handle for this object. This adds a handle reference
@@ -288,7 +288,7 @@ again:
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_gem_handle_create);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_handle_create); */
 
 
 /**
@@ -309,7 +309,7 @@ drm_gem_free_mmap_offset(struct drm_gem_object *obj)
 	kfree(list->map);
 	list->map = NULL;
 }
-EXPORT_SYMBOL(drm_gem_free_mmap_offset);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_free_mmap_offset); */
 
 /**
  * drm_gem_create_mmap_offset - create a fake mmap offset for an object
@@ -376,7 +376,7 @@ out_free_list:
 
 	return ret;
 }
-EXPORT_SYMBOL(drm_gem_create_mmap_offset);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_create_mmap_offset); */
 
 /** Returns a reference to the object named by the handle. */
 struct drm_gem_object *
@@ -400,7 +400,7 @@ drm_gem_object_lookup(struct drm_device *dev, struct drm_file *filp,
 
 	return obj;
 }
-EXPORT_SYMBOL(drm_gem_object_lookup);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_lookup); */
 
 /**
  * Releases the handle to an mm object.
@@ -565,7 +565,7 @@ drm_gem_object_release(struct drm_gem_object *obj)
 	if (obj->filp)
 	    fput(obj->filp);
 }
-EXPORT_SYMBOL(drm_gem_object_release);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_release); */
 
 /**
  * Called after the last reference to the object has been lost.
@@ -584,7 +584,7 @@ drm_gem_object_free(struct kref *kref)
 	if (dev->driver->gem_free_object != NULL)
 		dev->driver->gem_free_object(obj);
 }
-EXPORT_SYMBOL(drm_gem_object_free);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_free); */
 
 static void drm_gem_object_ref_bug(struct kref *list_kref)
 {
@@ -619,7 +619,7 @@ void drm_gem_object_handle_free(struct drm_gem_object *obj)
 		spin_unlock(&dev->object_name_lock);
 
 }
-EXPORT_SYMBOL(drm_gem_object_handle_free);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_object_handle_free); */
 
 void drm_gem_vm_open(struct vm_area_struct *vma)
 {
@@ -631,7 +631,7 @@ void drm_gem_vm_open(struct vm_area_struct *vma)
 	drm_vm_open_locked(vma);
 	mutex_unlock(&obj->dev->struct_mutex);
 }
-EXPORT_SYMBOL(drm_gem_vm_open);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_vm_open); */
 
 void drm_gem_vm_close(struct vm_area_struct *vma)
 {
@@ -643,7 +643,7 @@ void drm_gem_vm_close(struct vm_area_struct *vma)
 	drm_gem_object_unreference(obj);
 	mutex_unlock(&dev->struct_mutex);
 }
-EXPORT_SYMBOL(drm_gem_vm_close);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_vm_close); */
 
 
 /**
@@ -719,4 +719,4 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL(drm_gem_mmap);
+/* DISABLED: EXPORT_SYMBOL(drm_gem_mmap); */

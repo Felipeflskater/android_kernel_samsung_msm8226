@@ -433,7 +433,7 @@ struct cnic_eth_dev *bnx2_cnic_probe(struct net_device *dev)
 
 	return cp;
 }
-EXPORT_SYMBOL(bnx2_cnic_probe);
+/* DISABLED: EXPORT_SYMBOL(bnx2_cnic_probe); */
 
 static void
 bnx2_cnic_stop(struct bnx2 *bp)

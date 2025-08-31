@@ -358,7 +358,7 @@ void netpoll_send_skb_on_dev(struct netpoll *np, struct sk_buff *skb,
 		schedule_delayed_work(&npinfo->tx_work,0);
 	}
 }
-EXPORT_SYMBOL(netpoll_send_skb_on_dev);
+/* DISABLED: EXPORT_SYMBOL(netpoll_send_skb_on_dev); */
 
 void netpoll_send_udp(struct netpoll *np, const char *msg, int len)
 {
@@ -421,7 +421,7 @@ void netpoll_send_udp(struct netpoll *np, const char *msg, int len)
 
 	netpoll_send_skb(np, skb);
 }
-EXPORT_SYMBOL(netpoll_send_udp);
+/* DISABLED: EXPORT_SYMBOL(netpoll_send_udp); */
 
 static void arp_reply(struct sk_buff *skb)
 {
@@ -646,7 +646,7 @@ void netpoll_print_options(struct netpoll *np)
 	np_info(np, "remote IP %pI4\n", &np->remote_ip);
 	np_info(np, "remote ethernet address %pM\n", np->remote_mac);
 }
-EXPORT_SYMBOL(netpoll_print_options);
+/* DISABLED: EXPORT_SYMBOL(netpoll_print_options); */
 
 int netpoll_parse_options(struct netpoll *np, char *opt)
 {
@@ -713,7 +713,7 @@ int netpoll_parse_options(struct netpoll *np, char *opt)
 	np_info(np, "couldn't parse config at '%s'!\n", cur);
 	return -1;
 }
-EXPORT_SYMBOL(netpoll_parse_options);
+/* DISABLED: EXPORT_SYMBOL(netpoll_parse_options); */
 
 int __netpoll_setup(struct netpoll *np)
 {
@@ -778,7 +778,7 @@ free_npinfo:
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(__netpoll_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(__netpoll_setup); */
 
 int netpoll_setup(struct netpoll *np)
 {
@@ -869,7 +869,7 @@ put:
 	dev_put(ndev);
 	return err;
 }
-EXPORT_SYMBOL(netpoll_setup);
+/* DISABLED: EXPORT_SYMBOL(netpoll_setup); */
 
 static int __init netpoll_init(void)
 {
@@ -916,7 +916,7 @@ void __netpoll_cleanup(struct netpoll *np)
 		kfree(npinfo);
 	}
 }
-EXPORT_SYMBOL_GPL(__netpoll_cleanup);
+/* DISABLED: EXPORT_SYMBOL_GPL(__netpoll_cleanup); */
 
 void netpoll_cleanup(struct netpoll *np)
 {
@@ -929,13 +929,13 @@ void netpoll_cleanup(struct netpoll *np)
 out:
 	rtnl_unlock();
 }
-EXPORT_SYMBOL(netpoll_cleanup);
+/* DISABLED: EXPORT_SYMBOL(netpoll_cleanup); */
 
 int netpoll_trap(void)
 {
 	return atomic_read(&trapped);
 }
-EXPORT_SYMBOL(netpoll_trap);
+/* DISABLED: EXPORT_SYMBOL(netpoll_trap); */
 
 void netpoll_set_trap(int trap)
 {
@@ -944,4 +944,4 @@ void netpoll_set_trap(int trap)
 	else
 		atomic_dec(&trapped);
 }
-EXPORT_SYMBOL(netpoll_set_trap);
+/* DISABLED: EXPORT_SYMBOL(netpoll_set_trap); */

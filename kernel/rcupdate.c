@@ -85,17 +85,17 @@ void exit_rcu(void)
 static struct lock_class_key rcu_lock_key;
 struct lockdep_map rcu_lock_map =
 	STATIC_LOCKDEP_MAP_INIT("rcu_read_lock", &rcu_lock_key);
-EXPORT_SYMBOL_GPL(rcu_lock_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_lock_map); */
 
 static struct lock_class_key rcu_bh_lock_key;
 struct lockdep_map rcu_bh_lock_map =
 	STATIC_LOCKDEP_MAP_INIT("rcu_read_lock_bh", &rcu_bh_lock_key);
-EXPORT_SYMBOL_GPL(rcu_bh_lock_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_bh_lock_map); */
 
 static struct lock_class_key rcu_sched_lock_key;
 struct lockdep_map rcu_sched_lock_map =
 	STATIC_LOCKDEP_MAP_INIT("rcu_read_lock_sched", &rcu_sched_lock_key);
-EXPORT_SYMBOL_GPL(rcu_sched_lock_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_sched_lock_map); */
 #endif
 
 #ifdef CONFIG_DEBUG_LOCK_ALLOC
@@ -105,7 +105,7 @@ int debug_lockdep_rcu_enabled(void)
 	return rcu_scheduler_active && debug_locks &&
 	       current->lockdep_recursion == 0;
 }
-EXPORT_SYMBOL_GPL(debug_lockdep_rcu_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(debug_lockdep_rcu_enabled); */
 
 /**
  * rcu_read_lock_bh_held() - might we be in RCU-bh read-side critical section?
@@ -132,7 +132,7 @@ int rcu_read_lock_bh_held(void)
 		return 0;
 	return in_softirq() || irqs_disabled();
 }
-EXPORT_SYMBOL_GPL(rcu_read_lock_bh_held);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_read_lock_bh_held); */
 
 #endif /* #ifdef CONFIG_DEBUG_LOCK_ALLOC */
 
@@ -165,7 +165,7 @@ void wait_rcu_gp(call_rcu_func_t crf)
 	wait_for_completion(&rcu.completion);
 	destroy_rcu_head_on_stack(&rcu.head);
 }
-EXPORT_SYMBOL_GPL(wait_rcu_gp);
+/* DISABLED: EXPORT_SYMBOL_GPL(wait_rcu_gp); */
 
 #ifdef CONFIG_PROVE_RCU
 /*
@@ -175,7 +175,7 @@ int rcu_my_thread_group_empty(void)
 {
 	return thread_group_empty(current);
 }
-EXPORT_SYMBOL_GPL(rcu_my_thread_group_empty);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_my_thread_group_empty); */
 #endif /* #ifdef CONFIG_PROVE_RCU */
 
 #ifdef CONFIG_DEBUG_OBJECTS_RCU_HEAD
@@ -326,7 +326,7 @@ void init_rcu_head_on_stack(struct rcu_head *head)
 {
 	debug_object_init_on_stack(head, &rcuhead_debug_descr);
 }
-EXPORT_SYMBOL_GPL(init_rcu_head_on_stack);
+/* DISABLED: EXPORT_SYMBOL_GPL(init_rcu_head_on_stack); */
 
 /**
  * destroy_rcu_head_on_stack() - destroy on-stack rcu_head for debugobjects
@@ -343,7 +343,7 @@ void destroy_rcu_head_on_stack(struct rcu_head *head)
 {
 	debug_object_free(head, &rcuhead_debug_descr);
 }
-EXPORT_SYMBOL_GPL(destroy_rcu_head_on_stack);
+/* DISABLED: EXPORT_SYMBOL_GPL(destroy_rcu_head_on_stack); */
 
 struct debug_obj_descr rcuhead_debug_descr = {
 	.name = "rcu_head",
@@ -351,7 +351,7 @@ struct debug_obj_descr rcuhead_debug_descr = {
 	.fixup_activate = rcuhead_fixup_activate,
 	.fixup_free = rcuhead_fixup_free,
 };
-EXPORT_SYMBOL_GPL(rcuhead_debug_descr);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcuhead_debug_descr); */
 #endif /* #ifdef CONFIG_DEBUG_OBJECTS_RCU_HEAD */
 
 #if defined(CONFIG_TREE_RCU) || defined(CONFIG_TREE_PREEMPT_RCU) || defined(CONFIG_RCU_TRACE)
@@ -359,7 +359,7 @@ void do_trace_rcu_torture_read(char *rcutorturename, struct rcu_head *rhp)
 {
 	trace_rcu_torture_read(rcutorturename, rhp);
 }
-EXPORT_SYMBOL_GPL(do_trace_rcu_torture_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_trace_rcu_torture_read); */
 #else
 #define do_trace_rcu_torture_read(rcutorturename, rhp) do { } while (0)
 #endif

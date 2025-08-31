@@ -29,7 +29,7 @@ static int __init setup_failslab(char *str)
 {
 	return setup_fault_attr(&failslab.attr, str);
 }
-/* DISABLED: __setup("failslab=", setup_failslab); */
+/* DISABLED: __setup("failslab=", setup_failslab); */ */
 
 #ifdef CONFIG_FAULT_INJECTION_DEBUG_FS
 static int __init failslab_debugfs_init(void)

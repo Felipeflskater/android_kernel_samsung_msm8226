@@ -84,7 +84,7 @@ __ioremap_caller(phys_addr_t phys_addr, unsigned long size,
 
 	return (void __iomem *)(offset + (char *)orig_addr);
 }
-EXPORT_SYMBOL(__ioremap_caller);
+/* DISABLED: EXPORT_SYMBOL(__ioremap_caller); */
 
 /*
  * Simple checks for non-translatable mappings.
@@ -134,4 +134,4 @@ void __iounmap(void __iomem *addr)
 
 	kfree(p);
 }
-EXPORT_SYMBOL(__iounmap);
+/* DISABLED: EXPORT_SYMBOL(__iounmap); */

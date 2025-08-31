@@ -90,7 +90,7 @@
 struct eeh_ops *eeh_ops = NULL;
 
 int eeh_subsystem_enabled;
-EXPORT_SYMBOL(eeh_subsystem_enabled);
+/* DISABLED: EXPORT_SYMBOL(eeh_subsystem_enabled); */
 
 /* Lock to avoid races due to multiple reports of an error */
 static DEFINE_RAW_SPINLOCK(confirm_error_lock);
@@ -497,7 +497,7 @@ dn_unlock:
 	return rc;
 }
 
-EXPORT_SYMBOL_GPL(eeh_dn_check_failure);
+/* DISABLED: EXPORT_SYMBOL_GPL(eeh_dn_check_failure); */
 
 /**
  * eeh_check_failure - Check if all 1's data is due to EEH slot freeze
@@ -532,7 +532,7 @@ unsigned long eeh_check_failure(const volatile void __iomem *token, unsigned lon
 	return val;
 }
 
-EXPORT_SYMBOL(eeh_check_failure);
+/* DISABLED: EXPORT_SYMBOL(eeh_check_failure); */
 
 
 /**
@@ -1056,7 +1056,7 @@ void eeh_add_device_tree_early(struct device_node *dn)
 		eeh_add_device_tree_early(sib);
 	eeh_add_device_early(dn);
 }
-EXPORT_SYMBOL_GPL(eeh_add_device_tree_early);
+/* DISABLED: EXPORT_SYMBOL_GPL(eeh_add_device_tree_early); */
 
 /**
  * eeh_add_device_late - Perform EEH initialization for the indicated pci device
@@ -1112,7 +1112,7 @@ void eeh_add_device_tree_late(struct pci_bus *bus)
  		}
 	}
 }
-EXPORT_SYMBOL_GPL(eeh_add_device_tree_late);
+/* DISABLED: EXPORT_SYMBOL_GPL(eeh_add_device_tree_late); */
 
 /**
  * eeh_remove_device - Undo EEH setup for the indicated pci device
@@ -1167,7 +1167,7 @@ void eeh_remove_bus_device(struct pci_dev *dev)
 			 eeh_remove_bus_device(child);
 	}
 }
-EXPORT_SYMBOL_GPL(eeh_remove_bus_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(eeh_remove_bus_device); */
 
 static int proc_eeh_show(struct seq_file *m, void *v)
 {

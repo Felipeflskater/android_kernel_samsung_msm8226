@@ -22,7 +22,7 @@ static DEFINE_MUTEX(tima_uevent_mutex);
 
 static struct class *tima_uevent_class;
 struct device *tima_uevent_dev;
-EXPORT_SYMBOL_GPL(tima_uevent_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(tima_uevent_dev); */
 
 static LIST_HEAD(tima_uevent_list);
 static DEFINE_SPINLOCK(tima_uevent_list_lock);

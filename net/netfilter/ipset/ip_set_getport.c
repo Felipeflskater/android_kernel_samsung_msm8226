@@ -107,7 +107,7 @@ ip_set_get_ip4_port(const struct sk_buff *skb, bool src,
 
 	return get_port(skb, protocol, protooff, src, port, proto);
 }
-EXPORT_SYMBOL_GPL(ip_set_get_ip4_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_ip4_port); */
 
 #if IS_ENABLED(CONFIG_IP6_NF_IPTABLES)
 bool
@@ -126,7 +126,7 @@ ip_set_get_ip6_port(const struct sk_buff *skb, bool src,
 
 	return get_port(skb, nexthdr, protoff, src, port, proto);
 }
-EXPORT_SYMBOL_GPL(ip_set_get_ip6_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_ip6_port); */
 #endif
 
 bool
@@ -155,4 +155,4 @@ ip_set_get_ip_port(const struct sk_buff *skb, u8 pf, bool src, __be16 *port)
 		return false;
 	}
 }
-EXPORT_SYMBOL_GPL(ip_set_get_ip_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_ip_port); */

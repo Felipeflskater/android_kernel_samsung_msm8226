@@ -777,7 +777,7 @@ int32_t qpnp_vbat_sns_comp_result(struct qpnp_vadc_chip *vadc,
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_vbat_sns_comp_result);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vbat_sns_comp_result); */
 
 static void qpnp_vadc_625mv_channel_sel(struct qpnp_vadc_chip *vadc,
 				uint32_t *ref_channel_sel)
@@ -1015,7 +1015,7 @@ int32_t qpnp_get_vadc_gain_and_offset(struct qpnp_vadc_chip *vadc,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_get_vadc_gain_and_offset);
+/* DISABLED: EXPORT_SYMBOL(qpnp_get_vadc_gain_and_offset); */
 
 struct qpnp_vadc_chip *qpnp_get_vadc(struct device *dev, const char *name)
 {
@@ -1034,7 +1034,7 @@ struct qpnp_vadc_chip *qpnp_get_vadc(struct device *dev, const char *name)
 			return vadc;
 	return ERR_PTR(-EPROBE_DEFER);
 }
-EXPORT_SYMBOL(qpnp_get_vadc);
+/* DISABLED: EXPORT_SYMBOL(qpnp_get_vadc); */
 
 int32_t qpnp_vadc_conv_seq_request(struct qpnp_vadc_chip *vadc,
 				enum qpnp_vadc_trigger trigger_channel,
@@ -1189,7 +1189,7 @@ fail_unlock:
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_vadc_conv_seq_request);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vadc_conv_seq_request); */
 
 int32_t qpnp_vadc_read(struct qpnp_vadc_chip *vadc,
 				enum qpnp_vadc_channels channel,
@@ -1226,7 +1226,7 @@ int32_t qpnp_vadc_read(struct qpnp_vadc_chip *vadc,
 		return qpnp_vadc_conv_seq_request(vadc, ADC_SEQ_NONE,
 				channel, result);
 }
-EXPORT_SYMBOL(qpnp_vadc_read);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vadc_read); */
 
 static void qpnp_vadc_lock(struct qpnp_vadc_chip *vadc)
 {
@@ -1295,7 +1295,7 @@ fail:
 	qpnp_vadc_unlock(vadc);
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_vadc_iadc_sync_request);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vadc_iadc_sync_request); */
 
 int32_t qpnp_vadc_iadc_sync_complete_request(struct qpnp_vadc_chip *vadc,
 					enum qpnp_vadc_channels channel,
@@ -1342,7 +1342,7 @@ fail:
 	qpnp_vadc_unlock(vadc);
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_vadc_iadc_sync_complete_request);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vadc_iadc_sync_complete_request); */
 
 static ssize_t qpnp_adc_show(struct device *dev,
 			struct device_attribute *devattr, char *buf)

@@ -514,14 +514,14 @@ void *msm_ipc_load_default_node(void)
 	}
 	return pil;
 }
-EXPORT_SYMBOL(msm_ipc_load_default_node);
+/* DISABLED: EXPORT_SYMBOL(msm_ipc_load_default_node); */
 
 void msm_ipc_unload_default_node(void *pil)
 {
 	if (pil)
 		subsystem_put(pil);
 }
-EXPORT_SYMBOL(msm_ipc_unload_default_node);
+/* DISABLED: EXPORT_SYMBOL(msm_ipc_unload_default_node); */
 
 static struct platform_driver msm_ipc_router_smd_remote_driver[] = {
 	{

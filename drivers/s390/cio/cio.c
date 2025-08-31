@@ -395,7 +395,7 @@ int cio_update_schib(struct subchannel *sch)
 	memcpy(&sch->schib, &schib, sizeof(schib));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cio_update_schib);
+/* DISABLED: EXPORT_SYMBOL_GPL(cio_update_schib); */
 
 /**
  * cio_enable_subchannel - enable a subchannel.
@@ -437,7 +437,7 @@ int cio_enable_subchannel(struct subchannel *sch, u32 intparm)
 	CIO_HEX_EVENT(2, &ret, sizeof(ret));
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cio_enable_subchannel);
+/* DISABLED: EXPORT_SYMBOL_GPL(cio_enable_subchannel); */
 
 /**
  * cio_disable_subchannel - disable a subchannel.
@@ -470,7 +470,7 @@ int cio_disable_subchannel(struct subchannel *sch)
 	CIO_HEX_EVENT(2, &ret, sizeof(ret));
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cio_disable_subchannel);
+/* DISABLED: EXPORT_SYMBOL_GPL(cio_disable_subchannel); */
 
 int cio_create_sch_lock(struct subchannel *sch)
 {

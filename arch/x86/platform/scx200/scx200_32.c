@@ -123,7 +123,7 @@ static void __exit scx200_cleanup(void)
 module_init(scx200_init);
 module_exit(scx200_cleanup);
 
-EXPORT_SYMBOL(scx200_gpio_base);
-EXPORT_SYMBOL(scx200_gpio_shadow);
-EXPORT_SYMBOL(scx200_gpio_configure);
-EXPORT_SYMBOL(scx200_cb_base);
+/* DISABLED: EXPORT_SYMBOL(scx200_gpio_base); */
+/* DISABLED: EXPORT_SYMBOL(scx200_gpio_shadow); */
+/* DISABLED: EXPORT_SYMBOL(scx200_gpio_configure); */
+/* DISABLED: EXPORT_SYMBOL(scx200_cb_base); */

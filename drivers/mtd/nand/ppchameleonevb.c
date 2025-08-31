@@ -69,8 +69,8 @@ static unsigned long ppchameleonevb_fio_pbase = CFG_NAND1_PADDR;
 module_param(ppchameleon_fio_pbase, ulong, 0);
 module_param(ppchameleonevb_fio_pbase, ulong, 0);
 #else
-/* DISABLED: __setup("ppchameleon_fio_pbase=", ppchameleon_fio_pbase); */
-/* DISABLED: __setup("ppchameleonevb_fio_pbase=", ppchameleonevb_fio_pbase); */
+/* DISABLED: __setup("ppchameleon_fio_pbase=", ppchameleon_fio_pbase); */ */
+/* DISABLED: __setup("ppchameleonevb_fio_pbase=", ppchameleonevb_fio_pbase); */ */
 #endif
 
 /*

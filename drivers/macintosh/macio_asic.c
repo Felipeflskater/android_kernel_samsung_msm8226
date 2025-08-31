@@ -783,13 +783,13 @@ static int __init macio_module_init (void)
 
 module_init(macio_module_init);
 
-EXPORT_SYMBOL(macio_register_driver);
-EXPORT_SYMBOL(macio_unregister_driver);
-EXPORT_SYMBOL(macio_dev_get);
-EXPORT_SYMBOL(macio_dev_put);
-EXPORT_SYMBOL(macio_request_resource);
-EXPORT_SYMBOL(macio_release_resource);
-EXPORT_SYMBOL(macio_request_resources);
-EXPORT_SYMBOL(macio_release_resources);
-EXPORT_SYMBOL(macio_enable_devres);
+/* DISABLED: EXPORT_SYMBOL(macio_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(macio_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL(macio_dev_get); */
+/* DISABLED: EXPORT_SYMBOL(macio_dev_put); */
+/* DISABLED: EXPORT_SYMBOL(macio_request_resource); */
+/* DISABLED: EXPORT_SYMBOL(macio_release_resource); */
+/* DISABLED: EXPORT_SYMBOL(macio_request_resources); */
+/* DISABLED: EXPORT_SYMBOL(macio_release_resources); */
+/* DISABLED: EXPORT_SYMBOL(macio_enable_devres); */
 

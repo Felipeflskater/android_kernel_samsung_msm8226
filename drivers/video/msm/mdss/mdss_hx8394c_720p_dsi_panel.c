@@ -1460,7 +1460,7 @@ int get_samsung_lcd_attached(void)
 {
 	return lcd_connected_status;
 }
-EXPORT_SYMBOL(get_samsung_lcd_attached);
+/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
 
 static int __init detect_lcd_panel_vendor(char* read_id)
 {
@@ -1478,7 +1478,7 @@ static int __init detect_lcd_panel_vendor(char* read_id)
 
 	return 1;
 }
-/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */
+/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */ */
 
 #endif
 

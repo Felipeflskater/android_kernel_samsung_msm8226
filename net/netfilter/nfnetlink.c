@@ -43,13 +43,13 @@ void nfnl_lock(void)
 {
 	mutex_lock(&nfnl_mutex);
 }
-EXPORT_SYMBOL_GPL(nfnl_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnl_lock); */
 
 void nfnl_unlock(void)
 {
 	mutex_unlock(&nfnl_mutex);
 }
-EXPORT_SYMBOL_GPL(nfnl_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnl_unlock); */
 
 int nfnetlink_subsys_register(const struct nfnetlink_subsystem *n)
 {
@@ -63,7 +63,7 @@ int nfnetlink_subsys_register(const struct nfnetlink_subsystem *n)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(nfnetlink_subsys_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_subsys_register); */
 
 int nfnetlink_subsys_unregister(const struct nfnetlink_subsystem *n)
 {
@@ -73,7 +73,7 @@ int nfnetlink_subsys_unregister(const struct nfnetlink_subsystem *n)
 	synchronize_rcu();
 	return 0;
 }
-EXPORT_SYMBOL_GPL(nfnetlink_subsys_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_subsys_unregister); */
 
 static inline const struct nfnetlink_subsystem *nfnetlink_get_subsys(u_int16_t type)
 {
@@ -100,26 +100,26 @@ int nfnetlink_has_listeners(struct net *net, unsigned int group)
 {
 	return netlink_has_listeners(net->nfnl, group);
 }
-EXPORT_SYMBOL_GPL(nfnetlink_has_listeners);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_has_listeners); */
 
 int nfnetlink_send(struct sk_buff *skb, struct net *net, u32 pid,
 		   unsigned group, int echo, gfp_t flags)
 {
 	return nlmsg_notify(net->nfnl, skb, pid, group, echo, flags);
 }
-EXPORT_SYMBOL_GPL(nfnetlink_send);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_send); */
 
 int nfnetlink_set_err(struct net *net, u32 pid, u32 group, int error)
 {
 	return netlink_set_err(net->nfnl, pid, group, error);
 }
-EXPORT_SYMBOL_GPL(nfnetlink_set_err);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_set_err); */
 
 int nfnetlink_unicast(struct sk_buff *skb, struct net *net, u_int32_t pid, int flags)
 {
 	return netlink_unicast(net->nfnl, skb, pid, flags);
 }
-EXPORT_SYMBOL_GPL(nfnetlink_unicast);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfnetlink_unicast); */
 
 /* Process one complete nfnetlink message. */
 static int nfnetlink_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)

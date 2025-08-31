@@ -469,4 +469,4 @@ void i2o_dump_hrt(struct i2o_controller *c)
 	}
 }
 
-EXPORT_SYMBOL(i2o_dump_message);
+/* DISABLED: EXPORT_SYMBOL(i2o_dump_message); */

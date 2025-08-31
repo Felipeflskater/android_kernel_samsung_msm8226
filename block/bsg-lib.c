@@ -73,7 +73,7 @@ void bsg_job_done(struct bsg_job *job, int result,
 	}
 	blk_complete_request(req);
 }
-EXPORT_SYMBOL_GPL(bsg_job_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_job_done); */
 
 /**
  * bsg_softirq_done - softirq done routine for destroying the bsg requests
@@ -162,7 +162,7 @@ void bsg_goose_queue(struct request_queue *q)
 
 	blk_run_queue_async(q);
 }
-EXPORT_SYMBOL_GPL(bsg_goose_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_goose_queue); */
 
 /**
  * bsg_request_fn - generic handler for bsg requests
@@ -208,7 +208,7 @@ void bsg_request_fn(struct request_queue *q)
 	put_device(dev);
 	spin_lock_irq(q->queue_lock);
 }
-EXPORT_SYMBOL_GPL(bsg_request_fn);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_request_fn); */
 
 /**
  * bsg_setup_queue - Create and add the bsg hooks so we can receive requests
@@ -242,7 +242,7 @@ int bsg_setup_queue(struct device *dev, struct request_queue *q,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(bsg_setup_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_setup_queue); */
 
 /**
  * bsg_remove_queue - Deletes the bsg dev from the q
@@ -295,4 +295,4 @@ void bsg_remove_queue(struct request_queue *q)
 	}
 	bsg_unregister_queue(q);
 }
-EXPORT_SYMBOL_GPL(bsg_remove_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_remove_queue); */

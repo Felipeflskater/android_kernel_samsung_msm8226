@@ -109,7 +109,7 @@ struct regmap *regmap_init_i2c(struct i2c_client *i2c,
 {
 	return regmap_init(&i2c->dev, &regmap_i2c, config);
 }
-EXPORT_SYMBOL_GPL(regmap_init_i2c);
+/* DISABLED: EXPORT_SYMBOL_GPL(regmap_init_i2c); */
 
 /**
  * devm_regmap_init_i2c(): Initialise managed register map
@@ -126,6 +126,6 @@ struct regmap *devm_regmap_init_i2c(struct i2c_client *i2c,
 {
 	return devm_regmap_init(&i2c->dev, &regmap_i2c, config);
 }
-EXPORT_SYMBOL_GPL(devm_regmap_init_i2c);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_regmap_init_i2c); */
 
 MODULE_LICENSE("GPL");

@@ -110,5 +110,5 @@ int ipv6_skip_exthdr(const struct sk_buff *skb, int start, u8 *nexthdrp,
 	return start;
 }
 
-EXPORT_SYMBOL(ipv6_ext_hdr);
-EXPORT_SYMBOL(ipv6_skip_exthdr);
+/* DISABLED: EXPORT_SYMBOL(ipv6_ext_hdr); */
+/* DISABLED: EXPORT_SYMBOL(ipv6_skip_exthdr); */

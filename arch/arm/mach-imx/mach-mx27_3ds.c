@@ -254,7 +254,7 @@ static int __init mx27_3ds_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-/* DISABLED: __setup("otg_mode=", mx27_3ds_otg_mode); */
+/* DISABLED: __setup("otg_mode=", mx27_3ds_otg_mode); */ */
 
 /* Regulators */
 static struct regulator_init_data gpo_init = {

@@ -740,4 +740,4 @@ int fc_disc_init(struct fc_lport *lport)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_disc_init);
+/* DISABLED: EXPORT_SYMBOL(fc_disc_init); */

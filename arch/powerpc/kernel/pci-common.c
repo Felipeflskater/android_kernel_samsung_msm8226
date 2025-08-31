@@ -61,7 +61,7 @@ struct dma_map_ops *get_pci_dma_ops(void)
 {
 	return pci_dma_ops;
 }
-EXPORT_SYMBOL(get_pci_dma_ops);
+/* DISABLED: EXPORT_SYMBOL(get_pci_dma_ops); */
 
 struct pci_controller *pcibios_alloc_controller(struct device_node *dev)
 {
@@ -148,7 +148,7 @@ unsigned long pci_address_to_pio(phys_addr_t address)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pci_address_to_pio);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_address_to_pio); */
 
 /*
  * Return the domain number for this bus.
@@ -159,7 +159,7 @@ int pci_domain_nr(struct pci_bus *bus)
 
 	return hose->global_number;
 }
-EXPORT_SYMBOL(pci_domain_nr);
+/* DISABLED: EXPORT_SYMBOL(pci_domain_nr); */
 
 /* This routine is meant to be used early during boot, when the
  * PCI bus numbers have not yet been assigned, and you need to
@@ -1063,7 +1063,7 @@ void __devinit pcibios_fixup_bus(struct pci_bus *bus)
 	/* Now fixup devices on that bus */
 	pcibios_setup_bus_devices(bus);
 }
-EXPORT_SYMBOL(pcibios_fixup_bus);
+/* DISABLED: EXPORT_SYMBOL(pcibios_fixup_bus); */
 
 void __devinit pci_fixup_cardbus(struct pci_bus *bus)
 {
@@ -1108,7 +1108,7 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
 
 	return start;
 }
-EXPORT_SYMBOL(pcibios_align_resource);
+/* DISABLED: EXPORT_SYMBOL(pcibios_align_resource); */
 
 /*
  * Reparent resource children of pr that conflict with res
@@ -1464,7 +1464,7 @@ void pcibios_finish_adding_to_bus(struct pci_bus *bus)
 	/* Fixup EEH */
 	eeh_add_device_tree_late(bus);
 }
-EXPORT_SYMBOL_GPL(pcibios_finish_adding_to_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_finish_adding_to_bus); */
 
 #endif /* CONFIG_HOTPLUG */
 

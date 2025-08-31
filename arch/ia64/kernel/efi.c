@@ -47,7 +47,7 @@
 extern efi_status_t efi_call_phys (void *, ...);
 
 struct efi efi;
-EXPORT_SYMBOL(efi);
+/* DISABLED: EXPORT_SYMBOL(efi); */
 static efi_runtime_services_t *runtime;
 static u64 mem_limit = ~0UL, max_addr = ~0UL, min_addr = 0UL;
 
@@ -802,7 +802,7 @@ efi_mem_attributes (unsigned long phys_addr)
 		return md->attribute;
 	return 0;
 }
-EXPORT_SYMBOL(efi_mem_attributes);
+/* DISABLED: EXPORT_SYMBOL(efi_mem_attributes); */
 
 u64
 efi_mem_attribute (unsigned long phys_addr, unsigned long size)
@@ -867,7 +867,7 @@ kern_mem_attribute (unsigned long phys_addr, unsigned long size)
 	} while (md);
 	return 0;	/* never reached */
 }
-EXPORT_SYMBOL(kern_mem_attribute);
+/* DISABLED: EXPORT_SYMBOL(kern_mem_attribute); */
 
 int
 valid_phys_addr_range (unsigned long phys_addr, unsigned long size)

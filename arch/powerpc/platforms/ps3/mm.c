@@ -140,7 +140,7 @@ unsigned long ps3_mm_phys_to_lpar(unsigned long phys_addr)
 		? phys_addr : phys_addr + map.r1.offset;
 }
 
-EXPORT_SYMBOL(ps3_mm_phys_to_lpar);
+/* DISABLED: EXPORT_SYMBOL(ps3_mm_phys_to_lpar); */
 
 /**
  * ps3_mm_vas_create - create the virtual address space
@@ -1156,7 +1156,7 @@ int ps3_dma_region_init(struct ps3_system_bus_device *dev,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ps3_dma_region_init);
+/* DISABLED: EXPORT_SYMBOL(ps3_dma_region_init); */
 
 int ps3_dma_region_create(struct ps3_dma_region *r)
 {
@@ -1165,7 +1165,7 @@ int ps3_dma_region_create(struct ps3_dma_region *r)
 	BUG_ON(!r->region_ops->create);
 	return r->region_ops->create(r);
 }
-EXPORT_SYMBOL(ps3_dma_region_create);
+/* DISABLED: EXPORT_SYMBOL(ps3_dma_region_create); */
 
 int ps3_dma_region_free(struct ps3_dma_region *r)
 {
@@ -1174,7 +1174,7 @@ int ps3_dma_region_free(struct ps3_dma_region *r)
 	BUG_ON(!r->region_ops->free);
 	return r->region_ops->free(r);
 }
-EXPORT_SYMBOL(ps3_dma_region_free);
+/* DISABLED: EXPORT_SYMBOL(ps3_dma_region_free); */
 
 int ps3_dma_map(struct ps3_dma_region *r, unsigned long virt_addr,
 	unsigned long len, dma_addr_t *bus_addr,

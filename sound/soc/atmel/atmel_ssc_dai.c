@@ -847,7 +847,7 @@ int atmel_ssc_set_audio(int ssc_id)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(atmel_ssc_set_audio);
+/* DISABLED: EXPORT_SYMBOL_GPL(atmel_ssc_set_audio); */
 
 module_platform_driver(asoc_ssc_driver);
 

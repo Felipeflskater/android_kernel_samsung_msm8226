@@ -57,7 +57,7 @@ static unsigned long empty_bad_page_table;
 static unsigned long empty_bad_page;
 
 unsigned long empty_zero_page;
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 /*****************************************************************************/
 /*

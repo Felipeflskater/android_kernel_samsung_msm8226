@@ -124,7 +124,7 @@ int notrace msm_rtb_event_should_log(enum logk_event_type log_type)
 	return msm_rtb.initialized && msm_rtb.enabled &&
 		((1 << (log_type & ~LOGTYPE_NOPC)) & msm_rtb.filter);
 }
-EXPORT_SYMBOL(msm_rtb_event_should_log);
+/* DISABLED: EXPORT_SYMBOL(msm_rtb_event_should_log); */
 
 static void msm_rtb_emit_sentinel(struct msm_rtb_layout *start)
 {
@@ -285,13 +285,13 @@ int notrace uncached_logk_pc(enum logk_event_type log_type, void *caller,
 #endif
 	return 1;
 }
-EXPORT_SYMBOL(uncached_logk_pc);
+/* DISABLED: EXPORT_SYMBOL(uncached_logk_pc); */
 
 noinline int notrace uncached_logk(enum logk_event_type log_type, void *data)
 {
 	return uncached_logk_pc(log_type, __builtin_return_address(0), data);
 }
-EXPORT_SYMBOL(uncached_logk);
+/* DISABLED: EXPORT_SYMBOL(uncached_logk); */
 
 #if defined(CONFIG_MSM_RTB_TIMESTAMP)
 static int msm_rtb_probe(struct platform_device *pdev)

@@ -91,4 +91,4 @@ static void wbflush_mips(void)
 
 #include <linux/module.h>
 
-EXPORT_SYMBOL(__wbflush);
+/* DISABLED: EXPORT_SYMBOL(__wbflush); */

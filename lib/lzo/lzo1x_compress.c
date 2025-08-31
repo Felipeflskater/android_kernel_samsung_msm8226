@@ -273,7 +273,7 @@ int lzo1x_1_compress(const unsigned char *in, size_t in_len,
 	*out_len = op - out;
 	return LZO_E_OK;
 }
-EXPORT_SYMBOL_GPL(lzo1x_1_compress);
+/* DISABLED: EXPORT_SYMBOL_GPL(lzo1x_1_compress); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("LZO1X-1 Compressor");

@@ -29,7 +29,7 @@
 #include <linux/pm.h>
 
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /* If or when software machine-restart is implemented, add code here. */
 void machine_restart(char *command) {}

@@ -246,7 +246,7 @@ int gen_new_estimator(struct gnet_stats_basic_packed *bstats,
 
 	return 0;
 }
-EXPORT_SYMBOL(gen_new_estimator);
+/* DISABLED: EXPORT_SYMBOL(gen_new_estimator); */
 
 /**
  * gen_kill_estimator - remove a rate estimator
@@ -275,7 +275,7 @@ void gen_kill_estimator(struct gnet_stats_basic_packed *bstats,
 	}
 	spin_unlock_bh(&est_tree_lock);
 }
-EXPORT_SYMBOL(gen_kill_estimator);
+/* DISABLED: EXPORT_SYMBOL(gen_kill_estimator); */
 
 /**
  * gen_replace_estimator - replace rate estimator configuration
@@ -296,7 +296,7 @@ int gen_replace_estimator(struct gnet_stats_basic_packed *bstats,
 	gen_kill_estimator(bstats, rate_est);
 	return gen_new_estimator(bstats, rate_est, stats_lock, opt);
 }
-EXPORT_SYMBOL(gen_replace_estimator);
+/* DISABLED: EXPORT_SYMBOL(gen_replace_estimator); */
 
 /**
  * gen_estimator_active - test if estimator is currently in use
@@ -318,4 +318,4 @@ bool gen_estimator_active(const struct gnet_stats_basic_packed *bstats,
 
 	return res;
 }
-EXPORT_SYMBOL(gen_estimator_active);
+/* DISABLED: EXPORT_SYMBOL(gen_estimator_active); */

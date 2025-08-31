@@ -298,7 +298,7 @@ out:
 	return rc;
 }
 
-EXPORT_SYMBOL(sclp_add_request);
+/* DISABLED: EXPORT_SYMBOL(sclp_add_request); */
 
 /* Dispatch events found in request buffer to registered listeners. Return 0
  * if all events were dispatched, non-zero otherwise. */
@@ -484,7 +484,7 @@ sclp_sync_wait(void)
 	local_tick_enable(old_tick);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(sclp_sync_wait);
+/* DISABLED: EXPORT_SYMBOL(sclp_sync_wait); */
 
 /* Dispatch changes in send and receive mask to registered listeners. */
 static void
@@ -609,7 +609,7 @@ sclp_register(struct sclp_register *reg)
 	return rc;
 }
 
-EXPORT_SYMBOL(sclp_register);
+/* DISABLED: EXPORT_SYMBOL(sclp_register); */
 
 /* Unregister event listener. */
 void
@@ -623,7 +623,7 @@ sclp_unregister(struct sclp_register *reg)
 	sclp_init_mask(1);
 }
 
-EXPORT_SYMBOL(sclp_unregister);
+/* DISABLED: EXPORT_SYMBOL(sclp_unregister); */
 
 /* Remove event buffers which are marked processed. Return the number of
  * remaining event buffers. */
@@ -652,7 +652,7 @@ sclp_remove_processed(struct sccb_header *sccb)
 	return unprocessed;
 }
 
-EXPORT_SYMBOL(sclp_remove_processed);
+/* DISABLED: EXPORT_SYMBOL(sclp_remove_processed); */
 
 struct init_sccb {
 	struct sccb_header header;
@@ -785,7 +785,7 @@ sclp_deactivate(void)
 	return rc;
 }
 
-EXPORT_SYMBOL(sclp_deactivate);
+/* DISABLED: EXPORT_SYMBOL(sclp_deactivate); */
 
 /* Reactivate SCLP interface after sclp_deactivate. On success, new
  * requests will be accepted, events will be dispatched again. Return 0 on
@@ -814,7 +814,7 @@ sclp_reactivate(void)
 	return rc;
 }
 
-EXPORT_SYMBOL(sclp_reactivate);
+/* DISABLED: EXPORT_SYMBOL(sclp_reactivate); */
 
 /* Handler for external interruption used during initialization. Modify
  * request state to done. */

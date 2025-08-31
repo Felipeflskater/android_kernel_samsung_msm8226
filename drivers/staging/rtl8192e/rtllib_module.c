@@ -54,7 +54,7 @@
 
 
 u32 rt_global_debug_component = COMP_ERR;
-EXPORT_SYMBOL(rt_global_debug_component);
+/* DISABLED: EXPORT_SYMBOL(rt_global_debug_component); */
 
 
 void _setup_timer(struct timer_list *ptimer, void *fun, unsigned long data)
@@ -184,7 +184,7 @@ struct net_device *alloc_rtllib(int sizeof_priv)
 		free_netdev(dev);
 	return NULL;
 }
-EXPORT_SYMBOL(alloc_rtllib);
+/* DISABLED: EXPORT_SYMBOL(alloc_rtllib); */
 
 void free_rtllib(struct net_device *dev)
 {
@@ -200,7 +200,7 @@ void free_rtllib(struct net_device *dev)
 	rtllib_networks_free(ieee);
 	free_netdev(dev);
 }
-EXPORT_SYMBOL(free_rtllib);
+/* DISABLED: EXPORT_SYMBOL(free_rtllib); */
 
 u32 rtllib_debug_level;
 static int debug = \

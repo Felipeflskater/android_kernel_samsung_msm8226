@@ -379,7 +379,7 @@ int drm_addmap(struct drm_device * dev, resource_size_t offset,
 	return rc;
 }
 
-EXPORT_SYMBOL(drm_addmap);
+/* DISABLED: EXPORT_SYMBOL(drm_addmap); */
 
 /**
  * Ioctl to specify a range of memory that is available for mapping by a
@@ -484,7 +484,7 @@ int drm_rmmap_locked(struct drm_device *dev, struct drm_local_map *map)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_rmmap_locked);
+/* DISABLED: EXPORT_SYMBOL(drm_rmmap_locked); */
 
 int drm_rmmap(struct drm_device *dev, struct drm_local_map *map)
 {
@@ -496,7 +496,7 @@ int drm_rmmap(struct drm_device *dev, struct drm_local_map *map)
 
 	return ret;
 }
-EXPORT_SYMBOL(drm_rmmap);
+/* DISABLED: EXPORT_SYMBOL(drm_rmmap); */
 
 /* The rmmap ioctl appears to be unnecessary.  All mappings are torn down on
  * the last close of the device, and this is necessary for cleanup when things
@@ -761,7 +761,7 @@ int drm_addbufs_agp(struct drm_device * dev, struct drm_buf_desc * request)
 	atomic_dec(&dev->buf_alloc);
 	return 0;
 }
-EXPORT_SYMBOL(drm_addbufs_agp);
+/* DISABLED: EXPORT_SYMBOL(drm_addbufs_agp); */
 #endif				/* __OS_HAS_AGP */
 
 int drm_addbufs_pci(struct drm_device * dev, struct drm_buf_desc * request)
@@ -969,7 +969,7 @@ int drm_addbufs_pci(struct drm_device * dev, struct drm_buf_desc * request)
 	return 0;
 
 }
-EXPORT_SYMBOL(drm_addbufs_pci);
+/* DISABLED: EXPORT_SYMBOL(drm_addbufs_pci); */
 
 static int drm_addbufs_sg(struct drm_device * dev, struct drm_buf_desc * request)
 {
@@ -1623,4 +1623,4 @@ int drm_order(unsigned long size)
 
 	return order;
 }
-EXPORT_SYMBOL(drm_order);
+/* DISABLED: EXPORT_SYMBOL(drm_order); */

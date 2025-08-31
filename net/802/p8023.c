@@ -58,7 +58,7 @@ void destroy_8023_client(struct datalink_proto *dl)
 	kfree(dl);
 }
 
-EXPORT_SYMBOL(destroy_8023_client);
-EXPORT_SYMBOL(make_8023_client);
+/* DISABLED: EXPORT_SYMBOL(destroy_8023_client); */
+/* DISABLED: EXPORT_SYMBOL(make_8023_client); */
 
 MODULE_LICENSE("GPL");

@@ -33,13 +33,13 @@
 #include <asm/tlb.h>
 
 pg_data_t pg_data_map[MAX_NUMNODES];
-EXPORT_SYMBOL(pg_data_map);
+/* DISABLED: EXPORT_SYMBOL(pg_data_map); */
 
 int m68k_virt_to_node_shift;
 
 #ifndef CONFIG_SINGLE_MEMORY_CHUNK
 pg_data_t *pg_data_table[65];
-EXPORT_SYMBOL(pg_data_table);
+/* DISABLED: EXPORT_SYMBOL(pg_data_table); */
 #endif
 
 void __init m68k_setup_node(int node)
@@ -67,7 +67,7 @@ void __init m68k_setup_node(int node)
  */
 
 void *empty_zero_page;
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 extern void init_pointer_table(unsigned long ptable);
 

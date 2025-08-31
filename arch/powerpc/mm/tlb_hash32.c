@@ -46,7 +46,7 @@ void flush_hash_entry(struct mm_struct *mm, pte_t *ptep, unsigned long addr)
 		flush_hash_pages(mm->context.id, addr, ptephys, 1);
 	}
 }
-EXPORT_SYMBOL(flush_hash_entry);
+/* DISABLED: EXPORT_SYMBOL(flush_hash_entry); */
 
 /*
  * Called by ptep_set_access_flags, must flush on CPUs for which the
@@ -126,7 +126,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
 {
 	flush_range(&init_mm, start, end);
 }
-EXPORT_SYMBOL(flush_tlb_kernel_range);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_kernel_range); */
 
 /*
  * Flush all the (user) entries for the address space described by mm.
@@ -149,7 +149,7 @@ void flush_tlb_mm(struct mm_struct *mm)
 	for (mp = mm->mmap; mp != NULL; mp = mp->vm_next)
 		flush_range(mp->vm_mm, mp->vm_start, mp->vm_end);
 }
-EXPORT_SYMBOL(flush_tlb_mm);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_mm); */
 
 void flush_tlb_page(struct vm_area_struct *vma, unsigned long vmaddr)
 {
@@ -165,7 +165,7 @@ void flush_tlb_page(struct vm_area_struct *vma, unsigned long vmaddr)
 	if (!pmd_none(*pmd))
 		flush_hash_pages(mm->context.id, vmaddr, pmd_val(*pmd), 1);
 }
-EXPORT_SYMBOL(flush_tlb_page);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_page); */
 
 /*
  * For each address in the range, find the pte for the address
@@ -177,7 +177,7 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
 {
 	flush_range(vma->vm_mm, start, end);
 }
-EXPORT_SYMBOL(flush_tlb_range);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_range); */
 
 void __init early_init_mmu(void)
 {

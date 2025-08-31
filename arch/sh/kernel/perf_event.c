@@ -67,7 +67,7 @@ const char *perf_pmu_name(void)
 
 	return sh_pmu->name;
 }
-EXPORT_SYMBOL_GPL(perf_pmu_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_pmu_name); */
 
 int perf_num_counters(void)
 {
@@ -76,7 +76,7 @@ int perf_num_counters(void)
 
 	return sh_pmu->num_events;
 }
-EXPORT_SYMBOL_GPL(perf_num_counters);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_num_counters); */
 
 /*
  * Release the PMU if this is the last perf_event.

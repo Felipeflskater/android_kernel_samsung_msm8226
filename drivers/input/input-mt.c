@@ -49,7 +49,7 @@ int input_mt_init_slots(struct input_dev *dev, unsigned int num_slots)
 
 	return 0;
 }
-EXPORT_SYMBOL(input_mt_init_slots);
+/* DISABLED: EXPORT_SYMBOL(input_mt_init_slots); */
 
 /**
  * input_mt_destroy_slots() - frees the MT slots of the input device
@@ -66,7 +66,7 @@ void input_mt_destroy_slots(struct input_dev *dev)
 	dev->slot = 0;
 	dev->trkid = 0;
 }
-EXPORT_SYMBOL(input_mt_destroy_slots);
+/* DISABLED: EXPORT_SYMBOL(input_mt_destroy_slots); */
 
 /**
  * input_mt_report_slot_state() - report contact state
@@ -99,7 +99,7 @@ void input_mt_report_slot_state(struct input_dev *dev,
 	input_event(dev, EV_ABS, ABS_MT_TRACKING_ID, id);
 	input_event(dev, EV_ABS, ABS_MT_TOOL_TYPE, tool_type);
 }
-EXPORT_SYMBOL(input_mt_report_slot_state);
+/* DISABLED: EXPORT_SYMBOL(input_mt_report_slot_state); */
 
 /**
  * input_mt_report_finger_count() - report contact count
@@ -120,7 +120,7 @@ void input_mt_report_finger_count(struct input_dev *dev, int count)
 	input_event(dev, EV_KEY, BTN_TOOL_QUADTAP, count == 4);
 	input_event(dev, EV_KEY, BTN_TOOL_QUINTTAP, count == 5);
 }
-EXPORT_SYMBOL(input_mt_report_finger_count);
+/* DISABLED: EXPORT_SYMBOL(input_mt_report_finger_count); */
 
 /**
  * input_mt_report_pointer_emulation() - common pointer emulation
@@ -169,4 +169,4 @@ void input_mt_report_pointer_emulation(struct input_dev *dev, bool use_count)
 		input_event(dev, EV_ABS, ABS_PRESSURE, 0);
 	}
 }
-EXPORT_SYMBOL(input_mt_report_pointer_emulation);
+/* DISABLED: EXPORT_SYMBOL(input_mt_report_pointer_emulation); */

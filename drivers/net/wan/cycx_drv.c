@@ -133,7 +133,7 @@ static void cycx_drv_cleanup(void)
  * o load firmware
  * Return:	0	ok.
  *		< 0	error */
-EXPORT_SYMBOL(cycx_setup);
+/* DISABLED: EXPORT_SYMBOL(cycx_setup); */
 int cycx_setup(struct cycx_hw *hw, void *cfm, u32 len, unsigned long dpmbase)
 {
 	int err;
@@ -173,7 +173,7 @@ int cycx_setup(struct cycx_hw *hw, void *cfm, u32 len, unsigned long dpmbase)
 	return err;
 }
 
-EXPORT_SYMBOL(cycx_down);
+/* DISABLED: EXPORT_SYMBOL(cycx_down); */
 int cycx_down(struct cycx_hw *hw)
 {
 	iounmap(hw->dpmbase);
@@ -187,7 +187,7 @@ static void cycx_inten(struct cycx_hw *hw)
 }
 
 /* Generate an interrupt to adapter's CPU. */
-EXPORT_SYMBOL(cycx_intr);
+/* DISABLED: EXPORT_SYMBOL(cycx_intr); */
 void cycx_intr(struct cycx_hw *hw)
 {
 	writew(0, hw->dpmbase + GEN_CYCX_INTR);
@@ -196,7 +196,7 @@ void cycx_intr(struct cycx_hw *hw)
 /* Execute Adapter Command.
  * o Set exec flag.
  * o Busy-wait until flag is reset. */
-EXPORT_SYMBOL(cycx_exec);
+/* DISABLED: EXPORT_SYMBOL(cycx_exec); */
 int cycx_exec(void __iomem *addr)
 {
 	u16 i = 0;
@@ -214,7 +214,7 @@ int cycx_exec(void __iomem *addr)
 
 /* Read absolute adapter memory.
  * Transfer data from adapter's memory to data buffer. */
-EXPORT_SYMBOL(cycx_peek);
+/* DISABLED: EXPORT_SYMBOL(cycx_peek); */
 int cycx_peek(struct cycx_hw *hw, u32 addr, void *buf, u32 len)
 {
 	if (len == 1)
@@ -227,7 +227,7 @@ int cycx_peek(struct cycx_hw *hw, u32 addr, void *buf, u32 len)
 
 /* Write Absolute Adapter Memory.
  * Transfer data from data buffer to adapter's memory. */
-EXPORT_SYMBOL(cycx_poke);
+/* DISABLED: EXPORT_SYMBOL(cycx_poke); */
 int cycx_poke(struct cycx_hw *hw, u32 addr, void *buf, u32 len)
 {
 	if (len == 1)

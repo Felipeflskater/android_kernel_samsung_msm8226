@@ -2571,10 +2571,10 @@ int __init init_module(void){
 #endif	/* MODULE */
 
 module_exit(matrox_done);
-EXPORT_SYMBOL(matroxfb_register_driver);
-EXPORT_SYMBOL(matroxfb_unregister_driver);
-EXPORT_SYMBOL(matroxfb_wait_for_sync);
-EXPORT_SYMBOL(matroxfb_enable_irq);
+/* DISABLED: EXPORT_SYMBOL(matroxfb_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_wait_for_sync); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_enable_irq); */
 
 /*
  * Overrides for Emacs so that we follow Linus's tabbing style.

@@ -189,7 +189,7 @@ int pm8058_set_flash_led_current(enum pmic8058_leds id, unsigned mA)
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_set_flash_led_current);
+/* DISABLED: EXPORT_SYMBOL(pm8058_set_flash_led_current); */
 
 int pm8058_set_led_current(enum pmic8058_leds id, unsigned mA)
 {
@@ -232,7 +232,7 @@ int pm8058_set_led_current(enum pmic8058_leds id, unsigned mA)
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_set_led_current);
+/* DISABLED: EXPORT_SYMBOL(pm8058_set_led_current); */
 
 static void pmic8058_led_set(struct led_classdev *led_cdev,
 	enum led_brightness value)

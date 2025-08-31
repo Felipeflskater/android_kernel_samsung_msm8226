@@ -154,7 +154,7 @@ int msm_hsusb_rpc_connect(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_hsusb_rpc_connect);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_rpc_connect); */
 
 /* rpc connect for charging */
 int msm_chg_rpc_connect(void)
@@ -194,7 +194,7 @@ chg_found:
 			__func__, chg_vers);
 	return 0;
 }
-EXPORT_SYMBOL(msm_chg_rpc_connect);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_rpc_connect); */
 
 /* rpc call for phy_reset */
 int msm_hsusb_phy_reset(void)
@@ -221,7 +221,7 @@ int msm_hsusb_phy_reset(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_phy_reset);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_phy_reset); */
 
 /* rpc call for vbus powerup */
 int msm_hsusb_vbus_powerup(void)
@@ -248,7 +248,7 @@ int msm_hsusb_vbus_powerup(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_vbus_powerup);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_vbus_powerup); */
 
 /* rpc call for vbus shutdown */
 int msm_hsusb_vbus_shutdown(void)
@@ -275,7 +275,7 @@ int msm_hsusb_vbus_shutdown(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_vbus_shutdown);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_vbus_shutdown); */
 
 int msm_hsusb_send_productID(uint32_t product_id)
 {
@@ -303,7 +303,7 @@ int msm_hsusb_send_productID(uint32_t product_id)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_send_productID);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_send_productID); */
 
 int msm_hsusb_send_serial_number(const char *serial_number)
 {
@@ -345,7 +345,7 @@ int msm_hsusb_send_serial_number(const char *serial_number)
 	kfree(req);
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_send_serial_number);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_send_serial_number); */
 
 int msm_hsusb_is_serial_num_null(uint32_t val)
 {
@@ -377,7 +377,7 @@ int msm_hsusb_is_serial_num_null(uint32_t val)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_is_serial_num_null);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_is_serial_num_null); */
 
 int msm_chg_usb_charger_connected(uint32_t device)
 {
@@ -401,7 +401,7 @@ int msm_chg_usb_charger_connected(uint32_t device)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_chg_usb_charger_connected);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_usb_charger_connected); */
 
 int msm_chg_usb_i_is_available(uint32_t sample)
 {
@@ -425,7 +425,7 @@ int msm_chg_usb_i_is_available(uint32_t sample)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_chg_usb_i_is_available);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_usb_i_is_available); */
 
 int msm_chg_usb_i_is_not_available(void)
 {
@@ -447,7 +447,7 @@ int msm_chg_usb_i_is_not_available(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_chg_usb_i_is_not_available);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_usb_i_is_not_available); */
 
 int msm_chg_usb_charger_disconnected(void)
 {
@@ -469,7 +469,7 @@ int msm_chg_usb_charger_disconnected(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_chg_usb_charger_disconnected);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_usb_charger_disconnected); */
 
 /* rpc call to close connection */
 int msm_hsusb_rpc_close(void)
@@ -494,7 +494,7 @@ int msm_hsusb_rpc_close(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_hsusb_rpc_close);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_rpc_close); */
 
 /* rpc call to close charging connection */
 int msm_chg_rpc_close(void)
@@ -519,7 +519,7 @@ int msm_chg_rpc_close(void)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_chg_rpc_close);
+/* DISABLED: EXPORT_SYMBOL(msm_chg_rpc_close); */
 
 int msm_hsusb_reset_rework_installed(void)
 {
@@ -555,7 +555,7 @@ int msm_hsusb_reset_rework_installed(void)
 	pr_info("%s: rework: (%d)\n", __func__, rep.rework);
 	return be32_to_cpu(rep.rework);
 }
-EXPORT_SYMBOL(msm_hsusb_reset_rework_installed);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_reset_rework_installed); */
 
 static int msm_hsusb_pmic_ulpidata0_config(int enable)
 {
@@ -587,13 +587,13 @@ int msm_hsusb_enable_pmic_ulpidata0(void)
 {
 	return msm_hsusb_pmic_ulpidata0_config(1);
 }
-EXPORT_SYMBOL(msm_hsusb_enable_pmic_ulpidata0);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_enable_pmic_ulpidata0); */
 
 int msm_hsusb_disable_pmic_ulpidata0(void)
 {
 	return msm_hsusb_pmic_ulpidata0_config(0);
 }
-EXPORT_SYMBOL(msm_hsusb_disable_pmic_ulpidata0);
+/* DISABLED: EXPORT_SYMBOL(msm_hsusb_disable_pmic_ulpidata0); */
 
 
 /* wrapper for sending pid and serial# info to bootloader */
@@ -631,13 +631,13 @@ int hsusb_chg_init(int connect)
 	else
 		return msm_chg_rpc_close();
 }
-EXPORT_SYMBOL(hsusb_chg_init);
+/* DISABLED: EXPORT_SYMBOL(hsusb_chg_init); */
 
 void hsusb_chg_vbus_draw(unsigned mA)
 {
 	msm_chg_usb_i_is_available(mA);
 }
-EXPORT_SYMBOL(hsusb_chg_vbus_draw);
+/* DISABLED: EXPORT_SYMBOL(hsusb_chg_vbus_draw); */
 
 void hsusb_chg_connected(enum chg_type chgtype)
 {
@@ -656,5 +656,5 @@ void hsusb_chg_connected(enum chg_type chgtype)
 
 	msm_chg_usb_charger_connected(chgtype);
 }
-EXPORT_SYMBOL(hsusb_chg_connected);
+/* DISABLED: EXPORT_SYMBOL(hsusb_chg_connected); */
 #endif

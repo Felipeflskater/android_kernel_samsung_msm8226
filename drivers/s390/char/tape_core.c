@@ -47,7 +47,7 @@ static DEFINE_RWLOCK(tape_device_lock);
  * Pointer to debug area.
  */
 debug_info_t *TAPE_DBF_AREA = NULL;
-EXPORT_SYMBOL(TAPE_DBF_AREA);
+/* DISABLED: EXPORT_SYMBOL(TAPE_DBF_AREA); */
 
 /*
  * Printable strings for tape enumerations.
@@ -1371,22 +1371,22 @@ MODULE_LICENSE("GPL");
 module_init(tape_init);
 module_exit(tape_exit);
 
-EXPORT_SYMBOL(tape_generic_remove);
-EXPORT_SYMBOL(tape_generic_probe);
-EXPORT_SYMBOL(tape_generic_online);
-EXPORT_SYMBOL(tape_generic_offline);
-EXPORT_SYMBOL(tape_generic_pm_suspend);
-EXPORT_SYMBOL(tape_put_device);
-EXPORT_SYMBOL(tape_get_device);
-EXPORT_SYMBOL(tape_state_verbose);
-EXPORT_SYMBOL(tape_op_verbose);
-EXPORT_SYMBOL(tape_state_set);
-EXPORT_SYMBOL(tape_med_state_set);
-EXPORT_SYMBOL(tape_alloc_request);
-EXPORT_SYMBOL(tape_free_request);
-EXPORT_SYMBOL(tape_dump_sense_dbf);
-EXPORT_SYMBOL(tape_do_io);
-EXPORT_SYMBOL(tape_do_io_async);
-EXPORT_SYMBOL(tape_do_io_interruptible);
-EXPORT_SYMBOL(tape_cancel_io);
-EXPORT_SYMBOL(tape_mtop);
+/* DISABLED: EXPORT_SYMBOL(tape_generic_remove); */
+/* DISABLED: EXPORT_SYMBOL(tape_generic_probe); */
+/* DISABLED: EXPORT_SYMBOL(tape_generic_online); */
+/* DISABLED: EXPORT_SYMBOL(tape_generic_offline); */
+/* DISABLED: EXPORT_SYMBOL(tape_generic_pm_suspend); */
+/* DISABLED: EXPORT_SYMBOL(tape_put_device); */
+/* DISABLED: EXPORT_SYMBOL(tape_get_device); */
+/* DISABLED: EXPORT_SYMBOL(tape_state_verbose); */
+/* DISABLED: EXPORT_SYMBOL(tape_op_verbose); */
+/* DISABLED: EXPORT_SYMBOL(tape_state_set); */
+/* DISABLED: EXPORT_SYMBOL(tape_med_state_set); */
+/* DISABLED: EXPORT_SYMBOL(tape_alloc_request); */
+/* DISABLED: EXPORT_SYMBOL(tape_free_request); */
+/* DISABLED: EXPORT_SYMBOL(tape_dump_sense_dbf); */
+/* DISABLED: EXPORT_SYMBOL(tape_do_io); */
+/* DISABLED: EXPORT_SYMBOL(tape_do_io_async); */
+/* DISABLED: EXPORT_SYMBOL(tape_do_io_interruptible); */
+/* DISABLED: EXPORT_SYMBOL(tape_cancel_io); */
+/* DISABLED: EXPORT_SYMBOL(tape_mtop); */

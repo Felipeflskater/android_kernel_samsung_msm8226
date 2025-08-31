@@ -29,7 +29,7 @@ static int __init x86_rdrand_setup(char *s)
 	setup_clear_cpu_cap(X86_FEATURE_RDRAND);
 	return 1;
 }
-/* DISABLED: __setup("nordrand", x86_rdrand_setup); */
+/* DISABLED: __setup("nordrand", x86_rdrand_setup); */ */
 
 /* We can't use arch_get_random_long() here since alternatives haven't run */
 static inline int rdrand_long(unsigned long *v)

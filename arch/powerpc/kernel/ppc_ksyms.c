@@ -53,140 +53,140 @@ extern void program_check_exception(struct pt_regs *regs);
 extern void single_step_exception(struct pt_regs *regs);
 extern int sys_sigreturn(struct pt_regs *regs);
 
-EXPORT_SYMBOL(clear_pages);
-EXPORT_SYMBOL(ISA_DMA_THRESHOLD);
-EXPORT_SYMBOL(DMA_MODE_READ);
-EXPORT_SYMBOL(DMA_MODE_WRITE);
+/* DISABLED: EXPORT_SYMBOL(clear_pages); */
+/* DISABLED: EXPORT_SYMBOL(ISA_DMA_THRESHOLD); */
+/* DISABLED: EXPORT_SYMBOL(DMA_MODE_READ); */
+/* DISABLED: EXPORT_SYMBOL(DMA_MODE_WRITE); */
 
-EXPORT_SYMBOL(transfer_to_handler);
-EXPORT_SYMBOL(do_IRQ);
-EXPORT_SYMBOL(machine_check_exception);
-EXPORT_SYMBOL(alignment_exception);
-EXPORT_SYMBOL(program_check_exception);
-EXPORT_SYMBOL(single_step_exception);
-EXPORT_SYMBOL(sys_sigreturn);
+/* DISABLED: EXPORT_SYMBOL(transfer_to_handler); */
+/* DISABLED: EXPORT_SYMBOL(do_IRQ); */
+/* DISABLED: EXPORT_SYMBOL(machine_check_exception); */
+/* DISABLED: EXPORT_SYMBOL(alignment_exception); */
+/* DISABLED: EXPORT_SYMBOL(program_check_exception); */
+/* DISABLED: EXPORT_SYMBOL(single_step_exception); */
+/* DISABLED: EXPORT_SYMBOL(sys_sigreturn); */
 #endif
 
 #ifdef CONFIG_FUNCTION_TRACER
-EXPORT_SYMBOL(_mcount);
+/* DISABLED: EXPORT_SYMBOL(_mcount); */
 #endif
 
-EXPORT_SYMBOL(strcpy);
-EXPORT_SYMBOL(strncpy);
-EXPORT_SYMBOL(strcat);
-EXPORT_SYMBOL(strlen);
-EXPORT_SYMBOL(strcmp);
-EXPORT_SYMBOL(strncmp);
+/* DISABLED: EXPORT_SYMBOL(strcpy); */
+/* DISABLED: EXPORT_SYMBOL(strncpy); */
+/* DISABLED: EXPORT_SYMBOL(strcat); */
+/* DISABLED: EXPORT_SYMBOL(strlen); */
+/* DISABLED: EXPORT_SYMBOL(strcmp); */
+/* DISABLED: EXPORT_SYMBOL(strncmp); */
 
-EXPORT_SYMBOL(csum_partial);
-EXPORT_SYMBOL(csum_partial_copy_generic);
-EXPORT_SYMBOL(ip_fast_csum);
-EXPORT_SYMBOL(csum_tcpudp_magic);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_generic); */
+/* DISABLED: EXPORT_SYMBOL(ip_fast_csum); */
+/* DISABLED: EXPORT_SYMBOL(csum_tcpudp_magic); */
 
-EXPORT_SYMBOL(__copy_tofrom_user);
-EXPORT_SYMBOL(__clear_user);
-EXPORT_SYMBOL(__strncpy_from_user);
-EXPORT_SYMBOL(__strnlen_user);
-EXPORT_SYMBOL(copy_page);
+/* DISABLED: EXPORT_SYMBOL(__copy_tofrom_user); */
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */
+/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user); */
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user); */
+/* DISABLED: EXPORT_SYMBOL(copy_page); */
 
 #if defined(CONFIG_PCI) && defined(CONFIG_PPC32)
-EXPORT_SYMBOL(isa_io_base);
-EXPORT_SYMBOL(isa_mem_base);
-EXPORT_SYMBOL(pci_dram_offset);
+/* DISABLED: EXPORT_SYMBOL(isa_io_base); */
+/* DISABLED: EXPORT_SYMBOL(isa_mem_base); */
+/* DISABLED: EXPORT_SYMBOL(pci_dram_offset); */
 #endif /* CONFIG_PCI */
 
-EXPORT_SYMBOL(start_thread);
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(start_thread); */
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
-EXPORT_SYMBOL(giveup_fpu);
+/* DISABLED: EXPORT_SYMBOL(giveup_fpu); */
 #ifdef CONFIG_ALTIVEC
-EXPORT_SYMBOL(giveup_altivec);
+/* DISABLED: EXPORT_SYMBOL(giveup_altivec); */
 #endif /* CONFIG_ALTIVEC */
 #ifdef CONFIG_VSX
-EXPORT_SYMBOL(giveup_vsx);
-EXPORT_SYMBOL_GPL(__giveup_vsx);
+/* DISABLED: EXPORT_SYMBOL(giveup_vsx); */
+/* DISABLED: EXPORT_SYMBOL_GPL(__giveup_vsx); */
 #endif /* CONFIG_VSX */
 #ifdef CONFIG_SPE
-EXPORT_SYMBOL(giveup_spe);
+/* DISABLED: EXPORT_SYMBOL(giveup_spe); */
 #endif /* CONFIG_SPE */
 
 #ifndef CONFIG_PPC64
-EXPORT_SYMBOL(flush_instruction_cache);
+/* DISABLED: EXPORT_SYMBOL(flush_instruction_cache); */
 #endif
-EXPORT_SYMBOL(__flush_icache_range);
-EXPORT_SYMBOL(flush_dcache_range);
+/* DISABLED: EXPORT_SYMBOL(__flush_icache_range); */
+/* DISABLED: EXPORT_SYMBOL(flush_dcache_range); */
 
 #ifdef CONFIG_SMP
 #ifdef CONFIG_PPC32
-EXPORT_SYMBOL(smp_hw_index);
+/* DISABLED: EXPORT_SYMBOL(smp_hw_index); */
 #endif
 #endif
 
 #ifdef CONFIG_ADB
-EXPORT_SYMBOL(adb_request);
-EXPORT_SYMBOL(adb_register);
-EXPORT_SYMBOL(adb_unregister);
-EXPORT_SYMBOL(adb_poll);
-EXPORT_SYMBOL(adb_try_handler_change);
+/* DISABLED: EXPORT_SYMBOL(adb_request); */
+/* DISABLED: EXPORT_SYMBOL(adb_register); */
+/* DISABLED: EXPORT_SYMBOL(adb_unregister); */
+/* DISABLED: EXPORT_SYMBOL(adb_poll); */
+/* DISABLED: EXPORT_SYMBOL(adb_try_handler_change); */
 #endif /* CONFIG_ADB */
 #ifdef CONFIG_ADB_CUDA
-EXPORT_SYMBOL(cuda_request);
-EXPORT_SYMBOL(cuda_poll);
+/* DISABLED: EXPORT_SYMBOL(cuda_request); */
+/* DISABLED: EXPORT_SYMBOL(cuda_poll); */
 #endif /* CONFIG_ADB_CUDA */
-EXPORT_SYMBOL(to_tm);
+/* DISABLED: EXPORT_SYMBOL(to_tm); */
 
 #ifdef CONFIG_PPC32
 long long __ashrdi3(long long, int);
 long long __ashldi3(long long, int);
 long long __lshrdi3(long long, int);
-EXPORT_SYMBOL(__ashrdi3);
-EXPORT_SYMBOL(__ashldi3);
-EXPORT_SYMBOL(__lshrdi3);
+/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
+/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
 int __ucmpdi2(unsigned long long, unsigned long long);
-EXPORT_SYMBOL(__ucmpdi2);
+/* DISABLED: EXPORT_SYMBOL(__ucmpdi2); */
 #endif
 
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memmove);
-EXPORT_SYMBOL(memcmp);
-EXPORT_SYMBOL(memchr);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
+/* DISABLED: EXPORT_SYMBOL(memcmp); */
+/* DISABLED: EXPORT_SYMBOL(memchr); */
 
 #if defined(CONFIG_FB_VGA16_MODULE)
-EXPORT_SYMBOL(screen_info);
+/* DISABLED: EXPORT_SYMBOL(screen_info); */
 #endif
 
 #ifdef CONFIG_PPC32
-EXPORT_SYMBOL(timer_interrupt);
-EXPORT_SYMBOL(tb_ticks_per_jiffy);
-EXPORT_SYMBOL(cacheable_memcpy);
-EXPORT_SYMBOL(cacheable_memzero);
+/* DISABLED: EXPORT_SYMBOL(timer_interrupt); */
+/* DISABLED: EXPORT_SYMBOL(tb_ticks_per_jiffy); */
+/* DISABLED: EXPORT_SYMBOL(cacheable_memcpy); */
+/* DISABLED: EXPORT_SYMBOL(cacheable_memzero); */
 #endif
 
 #ifdef CONFIG_PPC32
-EXPORT_SYMBOL(switch_mmu_context);
+/* DISABLED: EXPORT_SYMBOL(switch_mmu_context); */
 #endif
 
 #ifdef CONFIG_PPC_STD_MMU_32
 extern long mol_trampoline;
-EXPORT_SYMBOL(mol_trampoline); /* For MOL */
-EXPORT_SYMBOL(flush_hash_pages); /* For MOL */
+/* DISABLED: EXPORT_SYMBOL(mol_trampoline); /* For MOL */ */
+/* DISABLED: EXPORT_SYMBOL(flush_hash_pages); /* For MOL */ */
 #ifdef CONFIG_SMP
 extern int mmu_hash_lock;
-EXPORT_SYMBOL(mmu_hash_lock); /* For MOL */
+/* DISABLED: EXPORT_SYMBOL(mmu_hash_lock); /* For MOL */ */
 #endif /* CONFIG_SMP */
 extern long *intercept_table;
-EXPORT_SYMBOL(intercept_table);
+/* DISABLED: EXPORT_SYMBOL(intercept_table); */
 #endif /* CONFIG_PPC_STD_MMU_32 */
 #ifdef CONFIG_PPC_DCR_NATIVE
-EXPORT_SYMBOL(__mtdcr);
-EXPORT_SYMBOL(__mfdcr);
+/* DISABLED: EXPORT_SYMBOL(__mtdcr); */
+/* DISABLED: EXPORT_SYMBOL(__mfdcr); */
 #endif
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 #ifdef CONFIG_PPC64
-EXPORT_SYMBOL(__arch_hweight8);
-EXPORT_SYMBOL(__arch_hweight16);
-EXPORT_SYMBOL(__arch_hweight32);
-EXPORT_SYMBOL(__arch_hweight64);
+/* DISABLED: EXPORT_SYMBOL(__arch_hweight8); */
+/* DISABLED: EXPORT_SYMBOL(__arch_hweight16); */
+/* DISABLED: EXPORT_SYMBOL(__arch_hweight32); */
+/* DISABLED: EXPORT_SYMBOL(__arch_hweight64); */
 #endif

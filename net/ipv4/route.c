@@ -1396,7 +1396,7 @@ u32 ip_idents_reserve(u32 hash, int segs)
 
 	return atomic_add_return(segs + delta, &bucket->id) - segs;
 }
-EXPORT_SYMBOL(ip_idents_reserve);
+/* DISABLED: EXPORT_SYMBOL(ip_idents_reserve); */
 
 void __ip_select_ident(struct net *net, struct iphdr *iph, int segs)
 {
@@ -1414,7 +1414,7 @@ void __ip_select_ident(struct net *net, struct iphdr *iph, int segs)
 	id = ip_idents_reserve(hash, segs);
 	iph->id = htons(id);
 }
-EXPORT_SYMBOL(__ip_select_ident);
+/* DISABLED: EXPORT_SYMBOL(__ip_select_ident); */
 
 static void rt_del(unsigned hash, struct rtable *rt)
 {
@@ -2544,7 +2544,7 @@ skip_cache:
 	rcu_read_unlock();
 	return res;
 }
-EXPORT_SYMBOL(ip_route_input_common);
+/* DISABLED: EXPORT_SYMBOL(ip_route_input_common); */
 
 /* called with rcu_read_lock() */
 static struct rtable *__mkroute_output(const struct fib_result *res,
@@ -2884,7 +2884,7 @@ struct rtable *__ip_route_output_key(struct net *net, struct flowi4 *flp4)
 slow_output:
 	return ip_route_output_slow(net, flp4);
 }
-EXPORT_SYMBOL_GPL(__ip_route_output_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(__ip_route_output_key); */
 
 static struct dst_entry *ipv4_blackhole_dst_check(struct dst_entry *dst, u32 cookie)
 {
@@ -2982,7 +2982,7 @@ struct rtable *ip_route_output_flow(struct net *net, struct flowi4 *flp4,
 
 	return rt;
 }
-EXPORT_SYMBOL_GPL(ip_route_output_flow);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_route_output_flow); */
 
 static int rt_fill_info(struct net *net, struct flowi4 *fl4,
 			struct sk_buff *skb, u32 pid, u32 seq, int event,
@@ -3481,7 +3481,7 @@ static int __init set_rhash_entries(char *str)
 	rhash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-/* DISABLED: __setup("rhash_entries=", set_rhash_entries); */
+/* DISABLED: __setup("rhash_entries=", set_rhash_entries); */ */
 
 int __init ip_rt_init(void)
 {

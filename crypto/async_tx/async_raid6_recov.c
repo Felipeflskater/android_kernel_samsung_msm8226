@@ -384,7 +384,7 @@ async_raid6_2data_recov(int disks, size_t bytes, int faila, int failb,
 		return __2data_recov_n(disks, bytes, faila, failb, blocks, submit);
 	}
 }
-EXPORT_SYMBOL_GPL(async_raid6_2data_recov);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_raid6_2data_recov); */
 
 /**
  * async_raid6_datap_recov - asynchronously calculate a data and the 'p' block
@@ -499,7 +499,7 @@ async_raid6_datap_recov(int disks, size_t bytes, int faila,
 
 	return tx;
 }
-EXPORT_SYMBOL_GPL(async_raid6_datap_recov);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_raid6_datap_recov); */
 
 MODULE_AUTHOR("Dan Williams <dan.j.williams@intel.com>");
 MODULE_DESCRIPTION("asynchronous RAID-6 recovery api");

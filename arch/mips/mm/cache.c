@@ -38,7 +38,7 @@ void (*__flush_cache_vunmap)(void);
 void (*__flush_kernel_vmap_range)(unsigned long vaddr, int size);
 void (*__invalidate_kernel_vmap_range)(unsigned long vaddr, int size);
 
-EXPORT_SYMBOL_GPL(__flush_kernel_vmap_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(__flush_kernel_vmap_range); */
 
 /* MIPS specific cache operations */
 void (*flush_cache_sigtramp)(unsigned long addr);
@@ -46,8 +46,8 @@ void (*local_flush_data_cache_page)(void * addr);
 void (*flush_data_cache_page)(unsigned long addr);
 void (*flush_icache_all)(void);
 
-EXPORT_SYMBOL_GPL(local_flush_data_cache_page);
-EXPORT_SYMBOL(flush_data_cache_page);
+/* DISABLED: EXPORT_SYMBOL_GPL(local_flush_data_cache_page); */
+/* DISABLED: EXPORT_SYMBOL(flush_data_cache_page); */
 
 #ifdef CONFIG_DMA_NONCOHERENT
 
@@ -56,7 +56,7 @@ void (*_dma_cache_wback_inv)(unsigned long start, unsigned long size);
 void (*_dma_cache_wback)(unsigned long start, unsigned long size);
 void (*_dma_cache_inv)(unsigned long start, unsigned long size);
 
-EXPORT_SYMBOL(_dma_cache_wback_inv);
+/* DISABLED: EXPORT_SYMBOL(_dma_cache_wback_inv); */
 
 #endif /* CONFIG_DMA_NONCOHERENT */
 
@@ -98,7 +98,7 @@ void __flush_dcache_page(struct page *page)
 	flush_data_cache_page(addr);
 }
 
-EXPORT_SYMBOL(__flush_dcache_page);
+/* DISABLED: EXPORT_SYMBOL(__flush_dcache_page); */
 
 void __flush_anon_page(struct page *page, unsigned long vmaddr)
 {
@@ -116,7 +116,7 @@ void __flush_anon_page(struct page *page, unsigned long vmaddr)
 	}
 }
 
-EXPORT_SYMBOL(__flush_anon_page);
+/* DISABLED: EXPORT_SYMBOL(__flush_anon_page); */
 
 void __update_cache(struct vm_area_struct *vma, unsigned long address,
 	pte_t pte)
@@ -138,7 +138,7 @@ void __update_cache(struct vm_area_struct *vma, unsigned long address,
 }
 
 unsigned long _page_cachable_default;
-EXPORT_SYMBOL(_page_cachable_default);
+/* DISABLED: EXPORT_SYMBOL(_page_cachable_default); */
 
 static inline void setup_protection_map(void)
 {

@@ -1062,7 +1062,7 @@ struct pccard_resource_ops pccard_nonstatic_ops = {
 	.init = nonstatic_init,
 	.exit = nonstatic_release_resource_db,
 };
-EXPORT_SYMBOL(pccard_nonstatic_ops);
+/* DISABLED: EXPORT_SYMBOL(pccard_nonstatic_ops); */
 
 
 /* sysfs interface to the resource database */

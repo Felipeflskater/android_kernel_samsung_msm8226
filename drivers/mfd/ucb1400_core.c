@@ -43,7 +43,7 @@ unsigned int ucb1400_adc_read(struct snd_ac97 *ac97, u16 adc_channel,
 
 	return val & UCB_ADC_DAT_MASK;
 }
-EXPORT_SYMBOL_GPL(ucb1400_adc_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(ucb1400_adc_read); */
 
 static int ucb1400_core_probe(struct device *dev)
 {

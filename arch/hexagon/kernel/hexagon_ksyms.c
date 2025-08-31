@@ -21,12 +21,12 @@
 #include <asm/hexagon_vm.h>
 #include <asm/uaccess.h>
 
-EXPORT_SYMBOL(__copy_from_user_hexagon);
-EXPORT_SYMBOL(__copy_to_user_hexagon);
-EXPORT_SYMBOL(__vmgetie);
-EXPORT_SYMBOL(__vmsetie);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user_hexagon); */
+/* DISABLED: EXPORT_SYMBOL(__copy_to_user_hexagon); */
+/* DISABLED: EXPORT_SYMBOL(__vmgetie); */
+/* DISABLED: EXPORT_SYMBOL(__vmsetie); */
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memset); */
 
 #define DECLARE_EXPORT(name)     \
 	extern void name(void); EXPORT_SYMBOL(name)

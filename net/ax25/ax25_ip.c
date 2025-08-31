@@ -236,7 +236,7 @@ const struct header_ops ax25_header_ops = {
 	.rebuild = ax25_rebuild_header,
 };
 
-EXPORT_SYMBOL(ax25_hard_header);
-EXPORT_SYMBOL(ax25_rebuild_header);
-EXPORT_SYMBOL(ax25_header_ops);
+/* DISABLED: EXPORT_SYMBOL(ax25_hard_header); */
+/* DISABLED: EXPORT_SYMBOL(ax25_rebuild_header); */
+/* DISABLED: EXPORT_SYMBOL(ax25_header_ops); */
 

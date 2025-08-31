@@ -494,7 +494,7 @@ static int cyttsp_resume(struct device *dev)
 #endif
 
 SIMPLE_DEV_PM_OPS(cyttsp_pm_ops, cyttsp_suspend, cyttsp_resume);
-EXPORT_SYMBOL_GPL(cyttsp_pm_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp_pm_ops); */
 
 static int cyttsp_open(struct input_dev *dev)
 {
@@ -608,7 +608,7 @@ err_free_mem:
 err_out:
 	return ERR_PTR(error);
 }
-EXPORT_SYMBOL_GPL(cyttsp_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp_probe); */
 
 void cyttsp_remove(struct cyttsp *ts)
 {
@@ -618,7 +618,7 @@ void cyttsp_remove(struct cyttsp *ts)
 		ts->pdata->exit();
 	kfree(ts);
 }
-EXPORT_SYMBOL_GPL(cyttsp_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp_remove); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Cypress TrueTouch(R) Standard touchscreen driver core");

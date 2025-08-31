@@ -895,7 +895,7 @@ error:
 
 	return NULL;
 }
-EXPORT_SYMBOL(m88rs2000_attach);
+/* DISABLED: EXPORT_SYMBOL(m88rs2000_attach); */
 
 MODULE_DESCRIPTION("M88RS2000 DVB-S Demodulator driver");
 MODULE_AUTHOR("Malcolm Priestley tvboxspy@gmail.com");

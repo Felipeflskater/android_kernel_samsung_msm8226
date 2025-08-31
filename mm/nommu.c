@@ -66,8 +66,8 @@ int heap_stack_gap = 0;
 
 atomic_long_t mmap_pages_allocated;
 
-EXPORT_SYMBOL(mem_map);
-EXPORT_SYMBOL(num_physpages);
+/* DISABLED: EXPORT_SYMBOL(mem_map); */
+/* DISABLED: EXPORT_SYMBOL(num_physpages); */
 
 /* list of mapped, potentially shareable regions */
 static struct kmem_cache *vm_region_jar;
@@ -188,7 +188,7 @@ int get_user_pages(struct task_struct *tsk, struct mm_struct *mm,
 	return __get_user_pages(tsk, mm, start, nr_pages, flags, pages, vmas,
 				NULL);
 }
-EXPORT_SYMBOL(get_user_pages);
+/* DISABLED: EXPORT_SYMBOL(get_user_pages); */
 
 /**
  * follow_pfn - look up PFN at a user virtual address
@@ -209,7 +209,7 @@ int follow_pfn(struct vm_area_struct *vma, unsigned long address,
 	*pfn = address >> PAGE_SHIFT;
 	return 0;
 }
-EXPORT_SYMBOL(follow_pfn);
+/* DISABLED: EXPORT_SYMBOL(follow_pfn); */
 
 DEFINE_RWLOCK(vmlist_lock);
 struct vm_struct *vmlist;
@@ -218,7 +218,7 @@ void vfree(const void *addr)
 {
 	kfree(addr);
 }
-EXPORT_SYMBOL(vfree);
+/* DISABLED: EXPORT_SYMBOL(vfree); */
 
 void *__vmalloc(unsigned long size, gfp_t gfp_mask, pgprot_t prot)
 {
@@ -228,7 +228,7 @@ void *__vmalloc(unsigned long size, gfp_t gfp_mask, pgprot_t prot)
 	 */
 	return kmalloc(size, (gfp_mask | __GFP_COMP) & ~__GFP_HIGHMEM);
 }
-EXPORT_SYMBOL(__vmalloc);
+/* DISABLED: EXPORT_SYMBOL(__vmalloc); */
 
 void *vmalloc_user(unsigned long size)
 {
@@ -248,19 +248,19 @@ void *vmalloc_user(unsigned long size)
 
 	return ret;
 }
-EXPORT_SYMBOL(vmalloc_user);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_user); */
 
 struct page *vmalloc_to_page(const void *addr)
 {
 	return virt_to_page(addr);
 }
-EXPORT_SYMBOL(vmalloc_to_page);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_to_page); */
 
 unsigned long vmalloc_to_pfn(const void *addr)
 {
 	return page_to_pfn(virt_to_page(addr));
 }
-EXPORT_SYMBOL(vmalloc_to_pfn);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_to_pfn); */
 
 long vread(char *buf, char *addr, unsigned long count)
 {
@@ -293,7 +293,7 @@ void *vmalloc(unsigned long size)
 {
        return __vmalloc(size, GFP_KERNEL | __GFP_HIGHMEM, PAGE_KERNEL);
 }
-EXPORT_SYMBOL(vmalloc);
+/* DISABLED: EXPORT_SYMBOL(vmalloc); */
 
 /*
  *	vzalloc - allocate virtually continguos memory with zero fill
@@ -312,7 +312,7 @@ void *vzalloc(unsigned long size)
 	return __vmalloc(size, GFP_KERNEL | __GFP_HIGHMEM | __GFP_ZERO,
 			PAGE_KERNEL);
 }
-EXPORT_SYMBOL(vzalloc);
+/* DISABLED: EXPORT_SYMBOL(vzalloc); */
 
 /**
  * vmalloc_node - allocate memory on a specific node
@@ -329,7 +329,7 @@ void *vmalloc_node(unsigned long size, int node)
 {
 	return vmalloc(size);
 }
-EXPORT_SYMBOL(vmalloc_node);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_node); */
 
 /**
  * vzalloc_node - allocate memory on a specific node with zero fill
@@ -347,7 +347,7 @@ void *vzalloc_node(unsigned long size, int node)
 {
 	return vzalloc(size);
 }
-EXPORT_SYMBOL(vzalloc_node);
+/* DISABLED: EXPORT_SYMBOL(vzalloc_node); */
 
 #ifndef PAGE_KERNEL_EXEC
 # define PAGE_KERNEL_EXEC PAGE_KERNEL
@@ -381,7 +381,7 @@ void *vmalloc_32(unsigned long size)
 {
 	return __vmalloc(size, GFP_KERNEL, PAGE_KERNEL);
 }
-EXPORT_SYMBOL(vmalloc_32);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_32); */
 
 /**
  * vmalloc_32_user - allocate zeroed virtually contiguous 32bit memory
@@ -401,38 +401,38 @@ void *vmalloc_32_user(unsigned long size)
 	 */
 	return vmalloc_user(size);
 }
-EXPORT_SYMBOL(vmalloc_32_user);
+/* DISABLED: EXPORT_SYMBOL(vmalloc_32_user); */
 
 void *vmap(struct page **pages, unsigned int count, unsigned long flags, pgprot_t prot)
 {
 	BUG();
 	return NULL;
 }
-EXPORT_SYMBOL(vmap);
+/* DISABLED: EXPORT_SYMBOL(vmap); */
 
 void vunmap(const void *addr)
 {
 	BUG();
 }
-EXPORT_SYMBOL(vunmap);
+/* DISABLED: EXPORT_SYMBOL(vunmap); */
 
 void *vm_map_ram(struct page **pages, unsigned int count, int node, pgprot_t prot)
 {
 	BUG();
 	return NULL;
 }
-EXPORT_SYMBOL(vm_map_ram);
+/* DISABLED: EXPORT_SYMBOL(vm_map_ram); */
 
 void vm_unmap_ram(const void *mem, unsigned int count)
 {
 	BUG();
 }
-EXPORT_SYMBOL(vm_unmap_ram);
+/* DISABLED: EXPORT_SYMBOL(vm_unmap_ram); */
 
 void vm_unmap_aliases(void)
 {
 }
-EXPORT_SYMBOL_GPL(vm_unmap_aliases);
+/* DISABLED: EXPORT_SYMBOL_GPL(vm_unmap_aliases); */
 
 /*
  * Implement a stub for vmalloc_sync_all() if the architecture chose not to
@@ -459,20 +459,20 @@ struct vm_struct *alloc_vm_area(size_t size, pte_t **ptes)
 	BUG();
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(alloc_vm_area);
+/* DISABLED: EXPORT_SYMBOL_GPL(alloc_vm_area); */
 
 void free_vm_area(struct vm_struct *area)
 {
 	BUG();
 }
-EXPORT_SYMBOL_GPL(free_vm_area);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_vm_area); */
 
 int vm_insert_page(struct vm_area_struct *vma, unsigned long addr,
 		   struct page *page)
 {
 	return -EINVAL;
 }
-EXPORT_SYMBOL(vm_insert_page);
+/* DISABLED: EXPORT_SYMBOL(vm_insert_page); */
 
 /*
  *  sys_brk() for the most part doesn't need the global kernel
@@ -824,7 +824,7 @@ struct vm_area_struct *find_vma(struct mm_struct *mm, unsigned long addr)
 
 	return NULL;
 }
-EXPORT_SYMBOL(find_vma);
+/* DISABLED: EXPORT_SYMBOL(find_vma); */
 
 /*
  * find a VMA
@@ -1481,7 +1481,7 @@ unsigned long do_mmap(struct file *file, unsigned long addr,
 		return -EINVAL;
 	return do_mmap_pgoff(file, addr, len, prot, flag, offset >> PAGE_SHIFT);
 }
-EXPORT_SYMBOL(do_mmap);
+/* DISABLED: EXPORT_SYMBOL(do_mmap); */
 
 unsigned long vm_mmap(struct file *file, unsigned long addr,
 	unsigned long len, unsigned long prot,
@@ -1495,7 +1495,7 @@ unsigned long vm_mmap(struct file *file, unsigned long addr,
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-EXPORT_SYMBOL(vm_mmap);
+/* DISABLED: EXPORT_SYMBOL(vm_mmap); */
 
 SYSCALL_DEFINE6(mmap_pgoff, unsigned long, addr, unsigned long, len,
 		unsigned long, prot, unsigned long, flags,
@@ -1732,7 +1732,7 @@ erase_whole_vma:
 	kleave(" = 0");
 	return 0;
 }
-EXPORT_SYMBOL(do_munmap);
+/* DISABLED: EXPORT_SYMBOL(do_munmap); */
 
 int vm_munmap(unsigned long addr, size_t len)
 {
@@ -1744,7 +1744,7 @@ int vm_munmap(unsigned long addr, size_t len)
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-EXPORT_SYMBOL(vm_munmap);
+/* DISABLED: EXPORT_SYMBOL(vm_munmap); */
 
 SYSCALL_DEFINE2(munmap, unsigned long, addr, size_t, len)
 {
@@ -1825,7 +1825,7 @@ unsigned long do_mremap(unsigned long addr,
 	vma->vm_end = vma->vm_start + new_len;
 	return vma->vm_start;
 }
-EXPORT_SYMBOL(do_mremap);
+/* DISABLED: EXPORT_SYMBOL(do_mremap); */
 
 SYSCALL_DEFINE5(mremap, unsigned long, addr, unsigned long, old_len,
 		unsigned long, new_len, unsigned long, flags,
@@ -1854,7 +1854,7 @@ int remap_pfn_range(struct vm_area_struct *vma, unsigned long addr,
 	vma->vm_flags |= VM_IO | VM_RESERVED | VM_PFNMAP;
 	return 0;
 }
-EXPORT_SYMBOL(remap_pfn_range);
+/* DISABLED: EXPORT_SYMBOL(remap_pfn_range); */
 
 int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long len)
 {
@@ -1864,7 +1864,7 @@ int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long
 	pfn += vma->vm_pgoff;
 	return io_remap_pfn_range(vma, vma->vm_start, pfn, vm_len, vma->vm_page_prot);
 }
-EXPORT_SYMBOL(vm_iomap_memory);
+/* DISABLED: EXPORT_SYMBOL(vm_iomap_memory); */
 
 int remap_vmalloc_range(struct vm_area_struct *vma, void *addr,
 			unsigned long pgoff)
@@ -1879,7 +1879,7 @@ int remap_vmalloc_range(struct vm_area_struct *vma, void *addr,
 
 	return 0;
 }
-EXPORT_SYMBOL(remap_vmalloc_range);
+/* DISABLED: EXPORT_SYMBOL(remap_vmalloc_range); */
 
 unsigned long arch_get_unmapped_area(struct file *file, unsigned long addr,
 	unsigned long len, unsigned long pgoff, unsigned long flags)
@@ -1896,7 +1896,7 @@ void unmap_mapping_range(struct address_space *mapping,
 			 int even_cows)
 {
 }
-EXPORT_SYMBOL(unmap_mapping_range);
+/* DISABLED: EXPORT_SYMBOL(unmap_mapping_range); */
 
 /*
  * Check that a process has enough memory to allocate a new virtual
@@ -2000,7 +2000,7 @@ int filemap_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 	BUG();
 	return 0;
 }
-EXPORT_SYMBOL(filemap_fault);
+/* DISABLED: EXPORT_SYMBOL(filemap_fault); */
 
 int generic_file_remap_pages(struct vm_area_struct *vma, unsigned long addr,
 			     unsigned long size, pgoff_t pgoff)
@@ -2008,7 +2008,7 @@ int generic_file_remap_pages(struct vm_area_struct *vma, unsigned long addr,
 	BUG();
 	return 0;
 }
-EXPORT_SYMBOL(generic_file_remap_pages);
+/* DISABLED: EXPORT_SYMBOL(generic_file_remap_pages); */
 
 static int __access_remote_vm(struct task_struct *tsk, struct mm_struct *mm,
 		unsigned long addr, void *buf, int len, int write)

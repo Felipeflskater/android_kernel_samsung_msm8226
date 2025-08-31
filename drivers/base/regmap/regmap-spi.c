@@ -68,7 +68,7 @@ struct regmap *regmap_init_spi(struct spi_device *spi,
 {
 	return regmap_init(&spi->dev, &regmap_spi, config);
 }
-EXPORT_SYMBOL_GPL(regmap_init_spi);
+/* DISABLED: EXPORT_SYMBOL_GPL(regmap_init_spi); */
 
 /**
  * devm_regmap_init_spi(): Initialise register map
@@ -85,6 +85,6 @@ struct regmap *devm_regmap_init_spi(struct spi_device *spi,
 {
 	return devm_regmap_init(&spi->dev, &regmap_spi, config);
 }
-EXPORT_SYMBOL_GPL(devm_regmap_init_spi);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_regmap_init_spi); */
 
 MODULE_LICENSE("GPL");

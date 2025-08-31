@@ -28,13 +28,13 @@
 const char *pci_power_names[] = {
 	"error", "D0", "D1", "D2", "D3hot", "D3cold", "unknown",
 };
-EXPORT_SYMBOL_GPL(pci_power_names);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_power_names); */
 
 int isa_dma_bridge_buggy;
-EXPORT_SYMBOL(isa_dma_bridge_buggy);
+/* DISABLED: EXPORT_SYMBOL(isa_dma_bridge_buggy); */
 
 int pci_pci_problems;
-EXPORT_SYMBOL(pci_pci_problems);
+/* DISABLED: EXPORT_SYMBOL(pci_pci_problems); */
 
 unsigned int pci_pm_d3_delay;
 
@@ -117,7 +117,7 @@ unsigned char pci_bus_max_busnr(struct pci_bus* bus)
 	}
 	return max;
 }
-EXPORT_SYMBOL_GPL(pci_bus_max_busnr);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_bus_max_busnr); */
 
 #ifdef CONFIG_HAS_IOMEM
 void __iomem *pci_ioremap_bar(struct pci_dev *pdev, int bar)
@@ -132,7 +132,7 @@ void __iomem *pci_ioremap_bar(struct pci_dev *pdev, int bar)
 	return ioremap_nocache(pci_resource_start(pdev, bar),
 				     pci_resource_len(pdev, bar));
 }
-EXPORT_SYMBOL_GPL(pci_ioremap_bar);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_ioremap_bar); */
 #endif
 
 #if 0
@@ -195,7 +195,7 @@ int pci_find_next_capability(struct pci_dev *dev, u8 pos, int cap)
 	return __pci_find_next_cap(dev->bus, dev->devfn,
 				   pos + PCI_CAP_LIST_NEXT, cap);
 }
-EXPORT_SYMBOL_GPL(pci_find_next_capability);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_find_next_capability); */
 
 static int __pci_bus_find_cap_start(struct pci_bus *bus,
 				    unsigned int devfn, u8 hdr_type)
@@ -326,7 +326,7 @@ int pci_find_ext_capability(struct pci_dev *dev, int cap)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pci_find_ext_capability);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_find_ext_capability); */
 
 /**
  * pci_bus_find_ext_capability - find an extended capability
@@ -415,7 +415,7 @@ int pci_find_next_ht_capability(struct pci_dev *dev, int pos, int ht_cap)
 {
 	return __pci_find_next_ht_cap(dev, pos + PCI_CAP_LIST_NEXT, ht_cap);
 }
-EXPORT_SYMBOL_GPL(pci_find_next_ht_capability);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_find_next_ht_capability); */
 
 /**
  * pci_find_ht_capability - query a device's Hypertransport capabilities
@@ -438,7 +438,7 @@ int pci_find_ht_capability(struct pci_dev *dev, int ht_cap)
 
 	return pos;
 }
-EXPORT_SYMBOL_GPL(pci_find_ht_capability);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_find_ht_capability); */
 
 /**
  * pci_find_parent_resource - return resource region of parent bus of given region
@@ -705,7 +705,7 @@ int __pci_complete_power_transition(struct pci_dev *dev, pci_power_t state)
 	return state >= PCI_D0 ?
 			pci_platform_power_transition(dev, state) : -EINVAL;
 }
-EXPORT_SYMBOL_GPL(__pci_complete_power_transition);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pci_complete_power_transition); */
 
 /**
  * pci_set_power_state - Set the power state of a PCI device
@@ -798,7 +798,7 @@ pci_power_t pci_choose_state(struct pci_dev *dev, pm_message_t state)
 	return PCI_D0;
 }
 
-EXPORT_SYMBOL(pci_choose_state);
+/* DISABLED: EXPORT_SYMBOL(pci_choose_state); */
 
 #define PCI_EXP_SAVE_REGS	7
 
@@ -1077,7 +1077,7 @@ struct pci_saved_state *pci_store_saved_state(struct pci_dev *dev)
 
 	return state;
 }
-EXPORT_SYMBOL_GPL(pci_store_saved_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_store_saved_state); */
 
 /**
  * pci_load_saved_state - Reload the provided save state into struct pci_dev.
@@ -1112,7 +1112,7 @@ int pci_load_saved_state(struct pci_dev *dev, struct pci_saved_state *state)
 	dev->state_saved = true;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pci_load_saved_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_load_saved_state); */
 
 /**
  * pci_load_and_free_saved_state - Reload the save state pointed to by state,
@@ -1128,7 +1128,7 @@ int pci_load_and_free_saved_state(struct pci_dev *dev,
 	*state = NULL;
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pci_load_and_free_saved_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_load_and_free_saved_state); */
 
 static int do_pci_enable_device(struct pci_dev *dev, int bars)
 {
@@ -1652,7 +1652,7 @@ int __pci_enable_wake(struct pci_dev *dev, pci_power_t state,
 
 	return ret;
 }
-EXPORT_SYMBOL(__pci_enable_wake);
+/* DISABLED: EXPORT_SYMBOL(__pci_enable_wake); */
 
 /**
  * pci_wake_from_d3 - enable/disable device to wake up from D3_hot or D3_cold
@@ -1819,7 +1819,7 @@ bool pci_dev_run_wake(struct pci_dev *dev)
 
 	return false;
 }
-EXPORT_SYMBOL_GPL(pci_dev_run_wake);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_dev_run_wake); */
 
 /**
  * pci_pm_init - Initialize PM functions of given PCI device
@@ -2037,7 +2037,7 @@ void pci_enable_ido(struct pci_dev *dev, unsigned long type)
 		ctrl |= PCI_EXP_IDO_CMP_EN;
 	pci_write_config_word(dev, pos + PCI_EXP_DEVCTL2, ctrl);
 }
-EXPORT_SYMBOL(pci_enable_ido);
+/* DISABLED: EXPORT_SYMBOL(pci_enable_ido); */
 
 /**
  * pci_disable_ido - disable ID-based ordering on a device
@@ -2063,7 +2063,7 @@ void pci_disable_ido(struct pci_dev *dev, unsigned long type)
 		ctrl &= ~PCI_EXP_IDO_CMP_EN;
 	pci_write_config_word(dev, pos + PCI_EXP_DEVCTL2, ctrl);
 }
-EXPORT_SYMBOL(pci_disable_ido);
+/* DISABLED: EXPORT_SYMBOL(pci_disable_ido); */
 
 /**
  * pci_enable_obff - enable optimized buffer flush/fill
@@ -2131,7 +2131,7 @@ int pci_enable_obff(struct pci_dev *dev, enum pci_obff_signal_type type)
 
 	return 0;
 }
-EXPORT_SYMBOL(pci_enable_obff);
+/* DISABLED: EXPORT_SYMBOL(pci_enable_obff); */
 
 /**
  * pci_disable_obff - disable optimized buffer flush/fill
@@ -2155,7 +2155,7 @@ void pci_disable_obff(struct pci_dev *dev)
 	ctrl &= ~PCI_EXP_OBFF_WAKE_EN;
 	pci_write_config_word(dev, pos + PCI_EXP_DEVCTL2, ctrl);
 }
-EXPORT_SYMBOL(pci_disable_obff);
+/* DISABLED: EXPORT_SYMBOL(pci_disable_obff); */
 
 /**
  * pci_ltr_supported - check whether a device supports LTR
@@ -2180,7 +2180,7 @@ bool pci_ltr_supported(struct pci_dev *dev)
 
 	return cap & PCI_EXP_DEVCAP2_LTR;
 }
-EXPORT_SYMBOL(pci_ltr_supported);
+/* DISABLED: EXPORT_SYMBOL(pci_ltr_supported); */
 
 /**
  * pci_enable_ltr - enable latency tolerance reporting
@@ -2222,7 +2222,7 @@ int pci_enable_ltr(struct pci_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(pci_enable_ltr);
+/* DISABLED: EXPORT_SYMBOL(pci_enable_ltr); */
 
 /**
  * pci_disable_ltr - disable latency tolerance reporting
@@ -2248,7 +2248,7 @@ void pci_disable_ltr(struct pci_dev *dev)
 	ctrl &= ~PCI_EXP_LTR_EN;
 	pci_write_config_word(dev, pos + PCI_EXP_DEVCTL2, ctrl);
 }
-EXPORT_SYMBOL(pci_disable_ltr);
+/* DISABLED: EXPORT_SYMBOL(pci_disable_ltr); */
 
 static int __pci_ltr_scale(int *val)
 {
@@ -2304,7 +2304,7 @@ int pci_set_ltr(struct pci_dev *dev, int snoop_lat_ns, int nosnoop_lat_ns)
 
 	return 0;
 }
-EXPORT_SYMBOL(pci_set_ltr);
+/* DISABLED: EXPORT_SYMBOL(pci_set_ltr); */
 
 static int pci_acs_enable;
 
@@ -2745,7 +2745,7 @@ int pci_set_cacheline_size(struct pci_dev *dev)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(pci_set_cacheline_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_set_cacheline_size); */
 
 #ifdef PCI_DISABLE_MWI
 int pci_set_mwi(struct pci_dev *dev)
@@ -2894,7 +2894,7 @@ bool pci_intx_mask_supported(struct pci_dev *dev)
 	pci_cfg_access_unlock(dev);
 	return mask_supported;
 }
-EXPORT_SYMBOL_GPL(pci_intx_mask_supported);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_intx_mask_supported); */
 
 static bool pci_check_and_set_intx_mask(struct pci_dev *dev, bool mask)
 {
@@ -2953,7 +2953,7 @@ bool pci_check_and_mask_intx(struct pci_dev *dev)
 {
 	return pci_check_and_set_intx_mask(dev, true);
 }
-EXPORT_SYMBOL_GPL(pci_check_and_mask_intx);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_check_and_mask_intx); */
 
 /**
  * pci_check_and_mask_intx - unmask INTx of no interrupt is pending
@@ -2967,7 +2967,7 @@ bool pci_check_and_unmask_intx(struct pci_dev *dev)
 {
 	return pci_check_and_set_intx_mask(dev, false);
 }
-EXPORT_SYMBOL_GPL(pci_check_and_unmask_intx);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_check_and_unmask_intx); */
 
 /**
  * pci_msi_off - disables any msi or msix capabilities
@@ -2995,19 +2995,19 @@ void pci_msi_off(struct pci_dev *dev)
 		pci_write_config_word(dev, pos + PCI_MSIX_FLAGS, control);
 	}
 }
-EXPORT_SYMBOL_GPL(pci_msi_off);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_msi_off); */
 
 int pci_set_dma_max_seg_size(struct pci_dev *dev, unsigned int size)
 {
 	return dma_set_max_seg_size(&dev->dev, size);
 }
-EXPORT_SYMBOL(pci_set_dma_max_seg_size);
+/* DISABLED: EXPORT_SYMBOL(pci_set_dma_max_seg_size); */
 
 int pci_set_dma_seg_boundary(struct pci_dev *dev, unsigned long mask)
 {
 	return dma_set_seg_boundary(&dev->dev, mask);
 }
-EXPORT_SYMBOL(pci_set_dma_seg_boundary);
+/* DISABLED: EXPORT_SYMBOL(pci_set_dma_seg_boundary); */
 
 static int pcie_flr(struct pci_dev *dev, int probe)
 {
@@ -3219,7 +3219,7 @@ int __pci_reset_function(struct pci_dev *dev)
 {
 	return pci_dev_reset(dev, 0);
 }
-EXPORT_SYMBOL_GPL(__pci_reset_function);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pci_reset_function); */
 
 /**
  * __pci_reset_function_locked - reset a PCI device function while holding
@@ -3244,7 +3244,7 @@ int __pci_reset_function_locked(struct pci_dev *dev)
 {
 	return pci_dev_reset(dev, 1);
 }
-EXPORT_SYMBOL_GPL(__pci_reset_function_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pci_reset_function_locked); */
 
 /**
  * pci_probe_reset_function - check whether the device can be safely reset
@@ -3300,7 +3300,7 @@ int pci_reset_function(struct pci_dev *dev)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pci_reset_function);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_reset_function); */
 
 /**
  * pcix_get_max_mmrbc - get PCI-X maximum designed memory read byte count
@@ -3323,7 +3323,7 @@ int pcix_get_max_mmrbc(struct pci_dev *dev)
 
 	return 512 << ((stat & PCI_X_STATUS_MAX_READ) >> 21);
 }
-EXPORT_SYMBOL(pcix_get_max_mmrbc);
+/* DISABLED: EXPORT_SYMBOL(pcix_get_max_mmrbc); */
 
 /**
  * pcix_get_mmrbc - get PCI-X maximum memory read byte count
@@ -3346,7 +3346,7 @@ int pcix_get_mmrbc(struct pci_dev *dev)
 
 	return 512 << ((cmd & PCI_X_CMD_MAX_READ) >> 2);
 }
-EXPORT_SYMBOL(pcix_get_mmrbc);
+/* DISABLED: EXPORT_SYMBOL(pcix_get_mmrbc); */
 
 /**
  * pcix_set_mmrbc - set PCI-X maximum memory read byte count
@@ -3394,7 +3394,7 @@ int pcix_set_mmrbc(struct pci_dev *dev, int mmrbc)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(pcix_set_mmrbc);
+/* DISABLED: EXPORT_SYMBOL(pcix_set_mmrbc); */
 
 /**
  * pcie_get_readrq - get PCI Express read request size
@@ -3418,7 +3418,7 @@ int pcie_get_readrq(struct pci_dev *dev)
 
 	return ret;
 }
-EXPORT_SYMBOL(pcie_get_readrq);
+/* DISABLED: EXPORT_SYMBOL(pcie_get_readrq); */
 
 /**
  * pcie_set_readrq - set PCI Express maximum memory read request
@@ -3469,7 +3469,7 @@ int pcie_set_readrq(struct pci_dev *dev, int rq)
 out:
 	return err;
 }
-EXPORT_SYMBOL(pcie_set_readrq);
+/* DISABLED: EXPORT_SYMBOL(pcie_set_readrq); */
 
 /**
  * pcie_get_mps - get PCI Express maximum payload size
@@ -3847,7 +3847,7 @@ int __attribute__ ((weak)) pci_ext_cfg_avail(struct pci_dev *dev)
 void __weak pci_fixup_cardbus(struct pci_bus *bus)
 {
 }
-EXPORT_SYMBOL(pci_fixup_cardbus);
+/* DISABLED: EXPORT_SYMBOL(pci_fixup_cardbus); */
 
 static int __init pci_setup(char *str)
 {
@@ -3900,41 +3900,41 @@ static int __init pci_setup(char *str)
 }
 early_param("pci", pci_setup);
 
-EXPORT_SYMBOL(pci_reenable_device);
-EXPORT_SYMBOL(pci_enable_device_io);
-EXPORT_SYMBOL(pci_enable_device_mem);
-EXPORT_SYMBOL(pci_enable_device);
-EXPORT_SYMBOL(pcim_enable_device);
-EXPORT_SYMBOL(pcim_pin_device);
-EXPORT_SYMBOL(pci_disable_device);
-EXPORT_SYMBOL(pci_find_capability);
-EXPORT_SYMBOL(pci_bus_find_capability);
-EXPORT_SYMBOL(pci_release_regions);
-EXPORT_SYMBOL(pci_request_regions);
-EXPORT_SYMBOL(pci_request_regions_exclusive);
-EXPORT_SYMBOL(pci_release_region);
-EXPORT_SYMBOL(pci_request_region);
-EXPORT_SYMBOL(pci_request_region_exclusive);
-EXPORT_SYMBOL(pci_release_selected_regions);
-EXPORT_SYMBOL(pci_request_selected_regions);
-EXPORT_SYMBOL(pci_request_selected_regions_exclusive);
-EXPORT_SYMBOL(pci_set_master);
-EXPORT_SYMBOL(pci_clear_master);
-EXPORT_SYMBOL(pci_set_mwi);
-EXPORT_SYMBOL(pci_try_set_mwi);
-EXPORT_SYMBOL(pci_clear_mwi);
-EXPORT_SYMBOL_GPL(pci_intx);
-EXPORT_SYMBOL(pci_assign_resource);
-EXPORT_SYMBOL(pci_find_parent_resource);
-EXPORT_SYMBOL(pci_select_bars);
+/* DISABLED: EXPORT_SYMBOL(pci_reenable_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_enable_device_io); */
+/* DISABLED: EXPORT_SYMBOL(pci_enable_device_mem); */
+/* DISABLED: EXPORT_SYMBOL(pci_enable_device); */
+/* DISABLED: EXPORT_SYMBOL(pcim_enable_device); */
+/* DISABLED: EXPORT_SYMBOL(pcim_pin_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_disable_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_find_capability); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_find_capability); */
+/* DISABLED: EXPORT_SYMBOL(pci_release_regions); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_regions); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_regions_exclusive); */
+/* DISABLED: EXPORT_SYMBOL(pci_release_region); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_region); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_region_exclusive); */
+/* DISABLED: EXPORT_SYMBOL(pci_release_selected_regions); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_selected_regions); */
+/* DISABLED: EXPORT_SYMBOL(pci_request_selected_regions_exclusive); */
+/* DISABLED: EXPORT_SYMBOL(pci_set_master); */
+/* DISABLED: EXPORT_SYMBOL(pci_clear_master); */
+/* DISABLED: EXPORT_SYMBOL(pci_set_mwi); */
+/* DISABLED: EXPORT_SYMBOL(pci_try_set_mwi); */
+/* DISABLED: EXPORT_SYMBOL(pci_clear_mwi); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_intx); */
+/* DISABLED: EXPORT_SYMBOL(pci_assign_resource); */
+/* DISABLED: EXPORT_SYMBOL(pci_find_parent_resource); */
+/* DISABLED: EXPORT_SYMBOL(pci_select_bars); */
 
-EXPORT_SYMBOL(pci_set_power_state);
-EXPORT_SYMBOL(pci_save_state);
-EXPORT_SYMBOL(pci_restore_state);
-EXPORT_SYMBOL(pci_pme_capable);
-EXPORT_SYMBOL(pci_pme_active);
-EXPORT_SYMBOL(pci_wake_from_d3);
-EXPORT_SYMBOL(pci_target_state);
-EXPORT_SYMBOL(pci_prepare_to_sleep);
-EXPORT_SYMBOL(pci_back_from_sleep);
-EXPORT_SYMBOL_GPL(pci_set_pcie_reset_state);
+/* DISABLED: EXPORT_SYMBOL(pci_set_power_state); */
+/* DISABLED: EXPORT_SYMBOL(pci_save_state); */
+/* DISABLED: EXPORT_SYMBOL(pci_restore_state); */
+/* DISABLED: EXPORT_SYMBOL(pci_pme_capable); */
+/* DISABLED: EXPORT_SYMBOL(pci_pme_active); */
+/* DISABLED: EXPORT_SYMBOL(pci_wake_from_d3); */
+/* DISABLED: EXPORT_SYMBOL(pci_target_state); */
+/* DISABLED: EXPORT_SYMBOL(pci_prepare_to_sleep); */
+/* DISABLED: EXPORT_SYMBOL(pci_back_from_sleep); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_set_pcie_reset_state); */

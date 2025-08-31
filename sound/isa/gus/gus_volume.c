@@ -25,7 +25,7 @@
 #define __GUS_TABLES_ALLOC__
 #include "gus_tables.h"
 
-EXPORT_SYMBOL(snd_gf1_atten_table); /* for snd-gus-synth module */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_atten_table); /* for snd-gus-synth module */ */
 
 unsigned short snd_gf1_lvol_to_gvol_raw(unsigned int vol)
 {

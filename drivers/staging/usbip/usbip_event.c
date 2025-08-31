@@ -91,7 +91,7 @@ int usbip_start_eh(struct usbip_device *ud)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usbip_start_eh);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbip_start_eh); */
 
 void usbip_stop_eh(struct usbip_device *ud)
 {
@@ -101,7 +101,7 @@ void usbip_stop_eh(struct usbip_device *ud)
 	kthread_stop(ud->eh);
 	usbip_dbg_eh("usbip_eh has finished\n");
 }
-EXPORT_SYMBOL_GPL(usbip_stop_eh);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbip_stop_eh); */
 
 void usbip_event_add(struct usbip_device *ud, unsigned long event)
 {
@@ -110,7 +110,7 @@ void usbip_event_add(struct usbip_device *ud, unsigned long event)
 	wake_up(&ud->eh_waitq);
 	spin_unlock(&ud->lock);
 }
-EXPORT_SYMBOL_GPL(usbip_event_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbip_event_add); */
 
 int usbip_event_happened(struct usbip_device *ud)
 {
@@ -123,4 +123,4 @@ int usbip_event_happened(struct usbip_device *ud)
 
 	return happened;
 }
-EXPORT_SYMBOL_GPL(usbip_event_happened);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbip_event_happened); */

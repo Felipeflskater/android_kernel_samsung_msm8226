@@ -42,7 +42,7 @@
  * cannot actually mask out in hardware.
  */
 unsigned long bfin_irq_flags = 0x1f;
-EXPORT_SYMBOL(bfin_irq_flags);
+/* DISABLED: EXPORT_SYMBOL(bfin_irq_flags); */
 #endif
 
 #ifdef CONFIG_PM

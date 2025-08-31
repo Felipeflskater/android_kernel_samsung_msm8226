@@ -49,18 +49,18 @@
 volatile cpumask_t cpu_callin_map;	/* Bitmask of started secondaries */
 
 int __cpu_number_map[NR_CPUS];		/* Map physical to logical */
-EXPORT_SYMBOL(__cpu_number_map);
+/* DISABLED: EXPORT_SYMBOL(__cpu_number_map); */
 
 int __cpu_logical_map[NR_CPUS];		/* Map logical to physical */
-EXPORT_SYMBOL(__cpu_logical_map);
+/* DISABLED: EXPORT_SYMBOL(__cpu_logical_map); */
 
 /* Number of TCs (or siblings in Intel speak) per CPU core */
 int smp_num_siblings = 1;
-EXPORT_SYMBOL(smp_num_siblings);
+/* DISABLED: EXPORT_SYMBOL(smp_num_siblings); */
 
 /* representing the TCs (or siblings in Intel speak) of each logical CPU */
 cpumask_t cpu_sibling_map[NR_CPUS] __read_mostly;
-EXPORT_SYMBOL(cpu_sibling_map);
+/* DISABLED: EXPORT_SYMBOL(cpu_sibling_map); */
 
 /* representing cpus for which sibling maps can be computed */
 static cpumask_t cpu_sibling_setup_map;
@@ -428,5 +428,5 @@ void flush_tlb_one(unsigned long vaddr)
 	smp_on_each_tlb(flush_tlb_one_ipi, (void *) vaddr);
 }
 
-EXPORT_SYMBOL(flush_tlb_page);
-EXPORT_SYMBOL(flush_tlb_one);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_page); */
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_one); */

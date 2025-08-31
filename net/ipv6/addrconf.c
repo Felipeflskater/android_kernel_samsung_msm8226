@@ -361,7 +361,7 @@ void in6_dev_finish_destroy(struct inet6_dev *idev)
 	kfree_rcu(idev, rcu);
 }
 
-EXPORT_SYMBOL(in6_dev_finish_destroy);
+/* DISABLED: EXPORT_SYMBOL(in6_dev_finish_destroy); */
 
 static struct inet6_dev * ipv6_add_dev(struct net_device *dev)
 {
@@ -1288,7 +1288,7 @@ try_nextdev:
 	in6_ifa_put(hiscore->ifa);
 	return 0;
 }
-EXPORT_SYMBOL(ipv6_dev_get_saddr);
+/* DISABLED: EXPORT_SYMBOL(ipv6_dev_get_saddr); */
 
 int __ipv6_get_lladdr(struct inet6_dev *idev, struct in6_addr *addr,
 		      unsigned char banned_flags)
@@ -1361,7 +1361,7 @@ int ipv6_chk_addr(struct net *net, const struct in6_addr *addr,
 	rcu_read_unlock_bh();
 	return 0;
 }
-EXPORT_SYMBOL(ipv6_chk_addr);
+/* DISABLED: EXPORT_SYMBOL(ipv6_chk_addr); */
 
 static bool ipv6_chk_same_addr(struct net *net, const struct in6_addr *addr,
 			       struct net_device *dev)
@@ -1404,7 +1404,7 @@ int ipv6_chk_prefix(const struct in6_addr *addr, struct net_device *dev)
 	return onlink;
 }
 
-EXPORT_SYMBOL(ipv6_chk_prefix);
+/* DISABLED: EXPORT_SYMBOL(ipv6_chk_prefix); */
 
 struct inet6_ifaddr *ipv6_get_ifaddr(struct net *net, const struct in6_addr *addr,
 				     struct net_device *dev, int strict)
@@ -4982,13 +4982,13 @@ int register_inet6addr_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&inet6addr_chain, nb);
 }
-EXPORT_SYMBOL(register_inet6addr_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_inet6addr_notifier); */
 
 int unregister_inet6addr_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&inet6addr_chain, nb);
 }
-EXPORT_SYMBOL(unregister_inet6addr_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_inet6addr_notifier); */
 
 static struct rtnl_af_ops inet6_ops = {
 	.family		  = AF_INET6,

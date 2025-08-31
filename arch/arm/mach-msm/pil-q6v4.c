@@ -74,7 +74,7 @@ err_regulator:
 err:
 	return ret;
 }
-EXPORT_SYMBOL(pil_q6v4_make_proxy_votes);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_make_proxy_votes); */
 
 void pil_q6v4_remove_proxy_votes(struct pil_desc *pil)
 {
@@ -83,7 +83,7 @@ void pil_q6v4_remove_proxy_votes(struct pil_desc *pil)
 		regulator_disable(drv->pll_supply);
 	clk_disable_unprepare(drv->xo);
 }
-EXPORT_SYMBOL(pil_q6v4_remove_proxy_votes);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_remove_proxy_votes); */
 
 int pil_q6v4_power_up(struct q6v4_data *drv)
 {
@@ -115,7 +115,7 @@ int pil_q6v4_power_up(struct q6v4_data *drv)
 	drv->vreg_enabled = true;
 	return 0;
 }
-EXPORT_SYMBOL(pil_q6v4_power_up);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_power_up); */
 
 void pil_q6v4_power_down(struct q6v4_data *drv)
 {
@@ -124,7 +124,7 @@ void pil_q6v4_power_down(struct q6v4_data *drv)
 		drv->vreg_enabled = false;
 	}
 }
-EXPORT_SYMBOL(pil_q6v4_power_down);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_power_down); */
 
 int pil_q6v4_boot(struct pil_desc *pil)
 {
@@ -191,7 +191,7 @@ int pil_q6v4_boot(struct pil_desc *pil)
 
 	return 0;
 }
-EXPORT_SYMBOL(pil_q6v4_boot);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_boot); */
 
 int pil_q6v4_shutdown(struct pil_desc *pil)
 {
@@ -215,7 +215,7 @@ int pil_q6v4_shutdown(struct pil_desc *pil)
 
 	return 0;
 }
-EXPORT_SYMBOL(pil_q6v4_shutdown);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_shutdown); */
 
 int pil_q6v4_init_image_trusted(struct pil_desc *pil,
 		const u8 *metadata, size_t size)
@@ -223,7 +223,7 @@ int pil_q6v4_init_image_trusted(struct pil_desc *pil,
 	struct q6v4_data *drv = pil_to_q6v4_data(pil);
 	return pas_init_image(drv->pas_id, metadata, size);
 }
-EXPORT_SYMBOL(pil_q6v4_init_image_trusted);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_init_image_trusted); */
 
 int pil_q6v4_boot_trusted(struct pil_desc *pil)
 {
@@ -240,7 +240,7 @@ int pil_q6v4_boot_trusted(struct pil_desc *pil)
 		dev_err(pil->dev, "Failed to unhalt bus port\n");
 	return pas_auth_and_reset(drv->pas_id);
 }
-EXPORT_SYMBOL(pil_q6v4_boot_trusted);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_boot_trusted); */
 
 int pil_q6v4_shutdown_trusted(struct pil_desc *pil)
 {
@@ -258,7 +258,7 @@ int pil_q6v4_shutdown_trusted(struct pil_desc *pil)
 
 	return ret;
 }
-EXPORT_SYMBOL(pil_q6v4_shutdown_trusted);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_shutdown_trusted); */
 
 void __devinit
 pil_q6v4_init(struct q6v4_data *drv, const struct pil_q6v4_pdata *pdata)
@@ -273,7 +273,7 @@ pil_q6v4_init(struct q6v4_data *drv, const struct pil_q6v4_pdata *pdata)
 
 	regulator_set_optimum_mode(drv->vreg, 100000);
 }
-EXPORT_SYMBOL(pil_q6v4_init);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v4_init); */
 
 MODULE_DESCRIPTION("Support for booting QDSP6v4 (Hexagon) processors");
 MODULE_LICENSE("GPL v2");

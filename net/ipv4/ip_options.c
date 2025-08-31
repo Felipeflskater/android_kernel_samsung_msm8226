@@ -468,7 +468,7 @@ error:
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(ip_options_compile);
+/* DISABLED: EXPORT_SYMBOL(ip_options_compile); */
 
 /*
  *	Undo all the changes done by ip_options_compile().
@@ -649,4 +649,4 @@ int ip_options_rcv_srr(struct sk_buff *skb)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ip_options_rcv_srr);
+/* DISABLED: EXPORT_SYMBOL(ip_options_rcv_srr); */

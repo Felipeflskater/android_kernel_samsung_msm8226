@@ -1169,7 +1169,7 @@ int lcd_camera_power_onoff(int on)
 
 	return rc;
 }
-EXPORT_SYMBOL(lcd_camera_power_onoff);
+/* DISABLED: EXPORT_SYMBOL(lcd_camera_power_onoff); */
 #endif
 
 void __init msm7627a_camera_init(void)

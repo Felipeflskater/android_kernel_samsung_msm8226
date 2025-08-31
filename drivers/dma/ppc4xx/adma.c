@@ -1662,7 +1662,7 @@ ppc440spe_async_tx_find_best_channel(enum dma_transaction_type cap,
 
 	return best_chan;
 }
-EXPORT_SYMBOL_GPL(ppc440spe_async_tx_find_best_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(ppc440spe_async_tx_find_best_channel); */
 
 /**
  * ppc440spe_get_group_entry - get group entry with index idx

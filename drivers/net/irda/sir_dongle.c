@@ -50,7 +50,7 @@ int irda_register_dongle(struct dongle_driver *new)
 	mutex_unlock(&dongle_list_lock);
 	return 0;
 }
-EXPORT_SYMBOL(irda_register_dongle);
+/* DISABLED: EXPORT_SYMBOL(irda_register_dongle); */
 
 int irda_unregister_dongle(struct dongle_driver *drv)
 {
@@ -59,7 +59,7 @@ int irda_unregister_dongle(struct dongle_driver *drv)
 	mutex_unlock(&dongle_list_lock);
 	return 0;
 }
-EXPORT_SYMBOL(irda_unregister_dongle);
+/* DISABLED: EXPORT_SYMBOL(irda_unregister_dongle); */
 
 int sirdev_get_dongle(struct sir_dev *dev, IRDA_DONGLE type)
 {

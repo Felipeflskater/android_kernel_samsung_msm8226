@@ -60,12 +60,12 @@ PCI_OP_WRITE(byte, u8, 1)
 PCI_OP_WRITE(word, u16, 2)
 PCI_OP_WRITE(dword, u32, 4)
 
-EXPORT_SYMBOL(pci_bus_read_config_byte);
-EXPORT_SYMBOL(pci_bus_read_config_word);
-EXPORT_SYMBOL(pci_bus_read_config_dword);
-EXPORT_SYMBOL(pci_bus_write_config_byte);
-EXPORT_SYMBOL(pci_bus_write_config_word);
-EXPORT_SYMBOL(pci_bus_write_config_dword);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_read_config_byte); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_read_config_word); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_read_config_dword); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_write_config_byte); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_write_config_word); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_write_config_dword); */
 
 /**
  * pci_bus_set_ops - Set raw operations of pci bus
@@ -85,7 +85,7 @@ struct pci_ops *pci_bus_set_ops(struct pci_bus *bus, struct pci_ops *ops)
 	raw_spin_unlock_irqrestore(&pci_lock, flags);
 	return old_ops;
 }
-EXPORT_SYMBOL(pci_bus_set_ops);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_set_ops); */
 
 /**
  * pci_read_vpd - Read one entry from Vital Product Data
@@ -101,7 +101,7 @@ ssize_t pci_read_vpd(struct pci_dev *dev, loff_t pos, size_t count, void *buf)
 		return -ENODEV;
 	return dev->vpd->ops->read(dev, pos, count, buf);
 }
-EXPORT_SYMBOL(pci_read_vpd);
+/* DISABLED: EXPORT_SYMBOL(pci_read_vpd); */
 
 /**
  * pci_write_vpd - Write entry to Vital Product Data
@@ -117,7 +117,7 @@ ssize_t pci_write_vpd(struct pci_dev *dev, loff_t pos, size_t count, const void 
 		return -ENODEV;
 	return dev->vpd->ops->write(dev, pos, count, buf);
 }
-EXPORT_SYMBOL(pci_write_vpd);
+/* DISABLED: EXPORT_SYMBOL(pci_write_vpd); */
 
 /*
  * The following routines are to prevent the user from accessing PCI config
@@ -459,7 +459,7 @@ int pci_vpd_truncate(struct pci_dev *dev, size_t size)
 
 	return 0;
 }
-EXPORT_SYMBOL(pci_vpd_truncate);
+/* DISABLED: EXPORT_SYMBOL(pci_vpd_truncate); */
 
 /**
  * pci_cfg_access_lock - Lock PCI config reads/writes
@@ -479,7 +479,7 @@ void pci_cfg_access_lock(struct pci_dev *dev)
 	dev->block_cfg_access = 1;
 	raw_spin_unlock_irq(&pci_lock);
 }
-EXPORT_SYMBOL_GPL(pci_cfg_access_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_cfg_access_lock); */
 
 /**
  * pci_cfg_access_trylock - try to lock PCI config reads/writes
@@ -503,7 +503,7 @@ bool pci_cfg_access_trylock(struct pci_dev *dev)
 
 	return locked;
 }
-EXPORT_SYMBOL_GPL(pci_cfg_access_trylock);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_cfg_access_trylock); */
 
 /**
  * pci_cfg_access_unlock - Unlock PCI config reads/writes
@@ -525,4 +525,4 @@ void pci_cfg_access_unlock(struct pci_dev *dev)
 	wake_up_all(&pci_cfg_wait);
 	raw_spin_unlock_irqrestore(&pci_lock, flags);
 }
-EXPORT_SYMBOL_GPL(pci_cfg_access_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_cfg_access_unlock); */

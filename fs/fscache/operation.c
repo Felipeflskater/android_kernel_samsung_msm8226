@@ -18,7 +18,7 @@
 #include "internal.h"
 
 atomic_t fscache_op_debug_id;
-EXPORT_SYMBOL(fscache_op_debug_id);
+/* DISABLED: EXPORT_SYMBOL(fscache_op_debug_id); */
 
 /**
  * fscache_enqueue_operation - Enqueue an operation for processing
@@ -56,7 +56,7 @@ void fscache_enqueue_operation(struct fscache_operation *op)
 		break;
 	}
 }
-EXPORT_SYMBOL(fscache_enqueue_operation);
+/* DISABLED: EXPORT_SYMBOL(fscache_enqueue_operation); */
 
 /*
  * start an op running
@@ -379,7 +379,7 @@ void fscache_put_operation(struct fscache_operation *op)
 	kfree(op);
 	_leave(" [done]");
 }
-EXPORT_SYMBOL(fscache_put_operation);
+/* DISABLED: EXPORT_SYMBOL(fscache_put_operation); */
 
 /*
  * garbage collect operations that have had their release deferred

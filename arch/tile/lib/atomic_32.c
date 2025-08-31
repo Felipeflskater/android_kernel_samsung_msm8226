@@ -115,13 +115,13 @@ int _atomic_xchg(atomic_t *v, int n)
 {
 	return __atomic_xchg(&v->counter, __atomic_setup(v), n).val;
 }
-EXPORT_SYMBOL(_atomic_xchg);
+/* DISABLED: EXPORT_SYMBOL(_atomic_xchg); */
 
 int _atomic_xchg_add(atomic_t *v, int i)
 {
 	return __atomic_xchg_add(&v->counter, __atomic_setup(v), i).val;
 }
-EXPORT_SYMBOL(_atomic_xchg_add);
+/* DISABLED: EXPORT_SYMBOL(_atomic_xchg_add); */
 
 int _atomic_xchg_add_unless(atomic_t *v, int a, int u)
 {
@@ -133,44 +133,44 @@ int _atomic_xchg_add_unless(atomic_t *v, int a, int u)
 	return __atomic_xchg_add_unless(&v->counter, __atomic_setup(v), u, a)
 		.val;
 }
-EXPORT_SYMBOL(_atomic_xchg_add_unless);
+/* DISABLED: EXPORT_SYMBOL(_atomic_xchg_add_unless); */
 
 int _atomic_cmpxchg(atomic_t *v, int o, int n)
 {
 	return __atomic_cmpxchg(&v->counter, __atomic_setup(v), o, n).val;
 }
-EXPORT_SYMBOL(_atomic_cmpxchg);
+/* DISABLED: EXPORT_SYMBOL(_atomic_cmpxchg); */
 
 unsigned long _atomic_or(volatile unsigned long *p, unsigned long mask)
 {
 	return __atomic_or((int *)p, __atomic_setup(p), mask).val;
 }
-EXPORT_SYMBOL(_atomic_or);
+/* DISABLED: EXPORT_SYMBOL(_atomic_or); */
 
 unsigned long _atomic_andn(volatile unsigned long *p, unsigned long mask)
 {
 	return __atomic_andn((int *)p, __atomic_setup(p), mask).val;
 }
-EXPORT_SYMBOL(_atomic_andn);
+/* DISABLED: EXPORT_SYMBOL(_atomic_andn); */
 
 unsigned long _atomic_xor(volatile unsigned long *p, unsigned long mask)
 {
 	return __atomic_xor((int *)p, __atomic_setup(p), mask).val;
 }
-EXPORT_SYMBOL(_atomic_xor);
+/* DISABLED: EXPORT_SYMBOL(_atomic_xor); */
 
 
 u64 _atomic64_xchg(atomic64_t *v, u64 n)
 {
 	return __atomic64_xchg(&v->counter, __atomic_setup(v), n);
 }
-EXPORT_SYMBOL(_atomic64_xchg);
+/* DISABLED: EXPORT_SYMBOL(_atomic64_xchg); */
 
 u64 _atomic64_xchg_add(atomic64_t *v, u64 i)
 {
 	return __atomic64_xchg_add(&v->counter, __atomic_setup(v), i);
 }
-EXPORT_SYMBOL(_atomic64_xchg_add);
+/* DISABLED: EXPORT_SYMBOL(_atomic64_xchg_add); */
 
 u64 _atomic64_xchg_add_unless(atomic64_t *v, u64 a, u64 u)
 {
@@ -182,13 +182,13 @@ u64 _atomic64_xchg_add_unless(atomic64_t *v, u64 a, u64 u)
 	return __atomic64_xchg_add_unless(&v->counter, __atomic_setup(v),
 					  u, a);
 }
-EXPORT_SYMBOL(_atomic64_xchg_add_unless);
+/* DISABLED: EXPORT_SYMBOL(_atomic64_xchg_add_unless); */
 
 u64 _atomic64_cmpxchg(atomic64_t *v, u64 o, u64 n)
 {
 	return __atomic64_cmpxchg(&v->counter, __atomic_setup(v), o, n);
 }
-EXPORT_SYMBOL(_atomic64_cmpxchg);
+/* DISABLED: EXPORT_SYMBOL(_atomic64_cmpxchg); */
 
 
 static inline int *__futex_setup(int __user *v)
@@ -256,7 +256,7 @@ static int __init noatomichash(char *str)
 	pr_warning("noatomichash is deprecated.\n");
 	return 1;
 }
-/* DISABLED: __setup("noatomichash", noatomichash); */
+/* DISABLED: __setup("noatomichash", noatomichash); */ */
 #endif
 
 void __init __init_atomic_per_cpu(void)

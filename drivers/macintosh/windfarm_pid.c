@@ -29,7 +29,7 @@ void wf_pid_init(struct wf_pid_state *st, struct wf_pid_param *param)
 	st->param = *param;
 	st->first = 1;
 }
-EXPORT_SYMBOL_GPL(wf_pid_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(wf_pid_init); */
 
 s32 wf_pid_run(struct wf_pid_state *st, s32 new_sample)
 {
@@ -75,7 +75,7 @@ s32 wf_pid_run(struct wf_pid_state *st, s32 new_sample)
 
 	return st->target;
 }
-EXPORT_SYMBOL_GPL(wf_pid_run);
+/* DISABLED: EXPORT_SYMBOL_GPL(wf_pid_run); */
 
 void wf_cpu_pid_init(struct wf_cpu_pid_state *st,
 		     struct wf_cpu_pid_param *param)
@@ -84,7 +84,7 @@ void wf_cpu_pid_init(struct wf_cpu_pid_state *st,
 	st->param = *param;
 	st->first = 1;
 }
-EXPORT_SYMBOL_GPL(wf_cpu_pid_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(wf_cpu_pid_init); */
 
 s32 wf_cpu_pid_run(struct wf_cpu_pid_state *st, s32 new_power, s32 new_temp)
 {
@@ -142,7 +142,7 @@ s32 wf_cpu_pid_run(struct wf_cpu_pid_state *st, s32 new_power, s32 new_temp)
 
 	return st->target;
 }
-EXPORT_SYMBOL_GPL(wf_cpu_pid_run);
+/* DISABLED: EXPORT_SYMBOL_GPL(wf_cpu_pid_run); */
 
 MODULE_AUTHOR("Benjamin Herrenschmidt <benh@kernel.crashing.org>");
 MODULE_DESCRIPTION("PID algorithm for PowerMacs thermal control");

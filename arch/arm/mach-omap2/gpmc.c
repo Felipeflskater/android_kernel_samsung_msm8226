@@ -431,7 +431,7 @@ out:
 	spin_unlock(&gpmc_mem_lock);
 	return r;
 }
-EXPORT_SYMBOL(gpmc_cs_request);
+/* DISABLED: EXPORT_SYMBOL(gpmc_cs_request); */
 
 void gpmc_cs_free(int cs)
 {
@@ -447,7 +447,7 @@ void gpmc_cs_free(int cs)
 	gpmc_cs_set_reserved(cs, 0);
 	spin_unlock(&gpmc_mem_lock);
 }
-EXPORT_SYMBOL(gpmc_cs_free);
+/* DISABLED: EXPORT_SYMBOL(gpmc_cs_free); */
 
 /**
  * gpmc_read_status - read access request to get the different gpmc status
@@ -485,7 +485,7 @@ int gpmc_read_status(int cmd)
 	}
 	return status;
 }
-EXPORT_SYMBOL(gpmc_read_status);
+/* DISABLED: EXPORT_SYMBOL(gpmc_read_status); */
 
 /**
  * gpmc_cs_configure - write request to configure gpmc
@@ -553,7 +553,7 @@ int gpmc_cs_configure(int cs, int cmd, int wval)
 
 	return err;
 }
-EXPORT_SYMBOL(gpmc_cs_configure);
+/* DISABLED: EXPORT_SYMBOL(gpmc_cs_configure); */
 
 /**
  * gpmc_nand_read - nand specific read access request
@@ -574,7 +574,7 @@ int gpmc_nand_read(int cs, int cmd)
 	}
 	return rval;
 }
-EXPORT_SYMBOL(gpmc_nand_read);
+/* DISABLED: EXPORT_SYMBOL(gpmc_nand_read); */
 
 /**
  * gpmc_nand_write - nand specific write request
@@ -604,7 +604,7 @@ int gpmc_nand_write(int cs, int cmd, int wval)
 	}
 	return err;
 }
-EXPORT_SYMBOL(gpmc_nand_write);
+/* DISABLED: EXPORT_SYMBOL(gpmc_nand_write); */
 
 
 
@@ -644,7 +644,7 @@ int gpmc_prefetch_enable(int cs, int fifo_th, int dma_mode,
 
 	return 0;
 }
-EXPORT_SYMBOL(gpmc_prefetch_enable);
+/* DISABLED: EXPORT_SYMBOL(gpmc_prefetch_enable); */
 
 /**
  * gpmc_prefetch_reset - disables and stops the prefetch engine
@@ -666,7 +666,7 @@ int gpmc_prefetch_reset(int cs)
 
 	return 0;
 }
-EXPORT_SYMBOL(gpmc_prefetch_reset);
+/* DISABLED: EXPORT_SYMBOL(gpmc_prefetch_reset); */
 
 static void __init gpmc_mem_init(void)
 {
@@ -888,7 +888,7 @@ int gpmc_enable_hwecc(int cs, int mode, int dev_width, int ecc_size)
 	gpmc_write_reg(GPMC_ECC_CONFIG, val);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gpmc_enable_hwecc);
+/* DISABLED: EXPORT_SYMBOL_GPL(gpmc_enable_hwecc); */
 
 /**
  * gpmc_calculate_ecc - generate non-inverted ecc bytes
@@ -919,4 +919,4 @@ int gpmc_calculate_ecc(int cs, const u_char *dat, u_char *ecc_code)
 	gpmc_ecc_used = -EINVAL;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gpmc_calculate_ecc);
+/* DISABLED: EXPORT_SYMBOL_GPL(gpmc_calculate_ecc); */

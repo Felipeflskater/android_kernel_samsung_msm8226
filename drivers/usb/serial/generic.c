@@ -131,7 +131,7 @@ int usb_serial_generic_open(struct tty_struct *tty, struct usb_serial_port *port
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_open); */
 
 static void generic_cleanup(struct usb_serial_port *port)
 {
@@ -164,7 +164,7 @@ void usb_serial_generic_close(struct usb_serial_port *port)
 	dbg("%s - port %d", __func__, port->number);
 	generic_cleanup(port);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_close); */
 
 int usb_serial_generic_prepare_write_buffer(struct usb_serial_port *port,
 						void *dest, size_t size)
@@ -258,7 +258,7 @@ int usb_serial_generic_write(struct tty_struct *tty,
 
 	return count;
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_write); */
 
 int usb_serial_generic_write_room(struct tty_struct *tty)
 {
@@ -343,7 +343,7 @@ err:
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_submit_read_urbs);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_submit_read_urbs); */
 
 void usb_serial_generic_process_read_urb(struct urb *urb)
 {
@@ -373,7 +373,7 @@ void usb_serial_generic_process_read_urb(struct urb *urb)
 	tty_flip_buffer_push(tty);
 	tty_kref_put(tty);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_process_read_urb);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_process_read_urb); */
 
 void usb_serial_generic_read_bulk_callback(struct urb *urb)
 {
@@ -408,7 +408,7 @@ void usb_serial_generic_read_bulk_callback(struct urb *urb)
 	} else
 		spin_unlock_irqrestore(&port->lock, flags);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_read_bulk_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_read_bulk_callback); */
 
 void usb_serial_generic_write_bulk_callback(struct urb *urb)
 {
@@ -440,7 +440,7 @@ void usb_serial_generic_write_bulk_callback(struct urb *urb)
 
 	usb_serial_port_softint(port);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_write_bulk_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_write_bulk_callback); */
 
 void usb_serial_generic_throttle(struct tty_struct *tty)
 {
@@ -455,7 +455,7 @@ void usb_serial_generic_throttle(struct tty_struct *tty)
 	port->throttle_req = 1;
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_throttle);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_throttle); */
 
 void usb_serial_generic_unthrottle(struct tty_struct *tty)
 {
@@ -473,7 +473,7 @@ void usb_serial_generic_unthrottle(struct tty_struct *tty)
 	if (was_throttled)
 		usb_serial_generic_submit_read_urbs(port, GFP_KERNEL);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_unthrottle);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_unthrottle); */
 
 #ifdef CONFIG_MAGIC_SYSRQ
 int usb_serial_handle_sysrq_char(struct usb_serial_port *port, unsigned int ch)
@@ -494,7 +494,7 @@ int usb_serial_handle_sysrq_char(struct usb_serial_port *port, unsigned int ch)
 	return 0;
 }
 #endif
-EXPORT_SYMBOL_GPL(usb_serial_handle_sysrq_char);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_handle_sysrq_char); */
 
 int usb_serial_handle_break(struct usb_serial_port *port)
 {
@@ -505,7 +505,7 @@ int usb_serial_handle_break(struct usb_serial_port *port)
 	port->sysrq = 0;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_serial_handle_break);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_handle_break); */
 
 /**
  *	usb_serial_handle_dcd_change - handle a change of carrier detect state
@@ -525,7 +525,7 @@ void usb_serial_handle_dcd_change(struct usb_serial_port *usb_port,
 	else if (tty && !C_CLOCAL(tty))
 		tty_hangup(tty);
 }
-EXPORT_SYMBOL_GPL(usb_serial_handle_dcd_change);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_handle_dcd_change); */
 
 int usb_serial_generic_resume(struct usb_serial *serial)
 {
@@ -553,7 +553,7 @@ int usb_serial_generic_resume(struct usb_serial *serial)
 
 	return c ? -EIO : 0;
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_resume); */
 
 void usb_serial_generic_disconnect(struct usb_serial *serial)
 {
@@ -565,7 +565,7 @@ void usb_serial_generic_disconnect(struct usb_serial *serial)
 	for (i = 0; i < serial->num_ports; ++i)
 		generic_cleanup(serial->port[i]);
 }
-EXPORT_SYMBOL_GPL(usb_serial_generic_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_generic_disconnect); */
 
 void usb_serial_generic_release(struct usb_serial *serial)
 {

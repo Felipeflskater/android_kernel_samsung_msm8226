@@ -316,5 +316,5 @@ machine_late_initcall(warp, warp_post_info);
 
 #endif
 
-EXPORT_SYMBOL(pika_dtm_register_shutdown);
-EXPORT_SYMBOL(pika_dtm_unregister_shutdown);
+/* DISABLED: EXPORT_SYMBOL(pika_dtm_register_shutdown); */
+/* DISABLED: EXPORT_SYMBOL(pika_dtm_unregister_shutdown); */

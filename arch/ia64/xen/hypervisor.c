@@ -29,16 +29,16 @@
 
 struct shared_info *HYPERVISOR_shared_info __read_mostly =
 	(struct shared_info *)XSI_BASE;
-EXPORT_SYMBOL(HYPERVISOR_shared_info);
+/* DISABLED: EXPORT_SYMBOL(HYPERVISOR_shared_info); */
 
 DEFINE_PER_CPU(struct vcpu_info *, xen_vcpu);
 
 struct start_info *xen_start_info;
-EXPORT_SYMBOL(xen_start_info);
+/* DISABLED: EXPORT_SYMBOL(xen_start_info); */
 
-EXPORT_SYMBOL(xen_domain_type);
+/* DISABLED: EXPORT_SYMBOL(xen_domain_type); */
 
-EXPORT_SYMBOL(__hypercall);
+/* DISABLED: EXPORT_SYMBOL(__hypercall); */
 
 /* Stolen from arch/x86/xen/enlighten.c */
 /*

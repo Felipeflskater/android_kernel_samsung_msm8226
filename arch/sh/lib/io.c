@@ -61,7 +61,7 @@ void __raw_readsl(const void __iomem *addr, void *datap, int len)
 	for (; len != 0; len--)
 		*data++ = __raw_readl(addr);
 }
-EXPORT_SYMBOL(__raw_readsl);
+/* DISABLED: EXPORT_SYMBOL(__raw_readsl); */
 
 void __raw_writesl(void __iomem *addr, const void *data, int len)
 {
@@ -79,4 +79,4 @@ void __raw_writesl(void __iomem *addr, const void *data, int len)
 			: "t", "memory");
 	}
 }
-EXPORT_SYMBOL(__raw_writesl);
+/* DISABLED: EXPORT_SYMBOL(__raw_writesl); */

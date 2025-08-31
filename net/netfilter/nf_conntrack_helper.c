@@ -31,9 +31,9 @@
 
 static DEFINE_MUTEX(nf_ct_helper_mutex);
 struct hlist_head *nf_ct_helper_hash __read_mostly;
-EXPORT_SYMBOL_GPL(nf_ct_helper_hash);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_hash); */
 unsigned int nf_ct_helper_hsize __read_mostly;
-EXPORT_SYMBOL_GPL(nf_ct_helper_hsize);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_hsize); */
 static unsigned int nf_ct_helper_count __read_mostly;
 
 static bool nf_ct_auto_assign_helper __read_mostly = true;
@@ -142,7 +142,7 @@ __nf_conntrack_helper_find(const char *name, u16 l3num, u8 protonum)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(__nf_conntrack_helper_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(__nf_conntrack_helper_find); */
 
 struct nf_conntrack_helper *
 nf_conntrack_helper_try_module_get(const char *name, u16 l3num, u8 protonum)
@@ -161,7 +161,7 @@ nf_conntrack_helper_try_module_get(const char *name, u16 l3num, u8 protonum)
 
 	return h;
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_helper_try_module_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_helper_try_module_get); */
 
 struct nf_conn_help *
 nf_ct_helper_ext_add(struct nf_conn *ct,
@@ -177,7 +177,7 @@ nf_ct_helper_ext_add(struct nf_conn *ct,
 		pr_debug("failed to add helper extension area");
 	return help;
 }
-EXPORT_SYMBOL_GPL(nf_ct_helper_ext_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_ext_add); */
 
 int __nf_ct_try_assign_helper(struct nf_conn *ct, struct nf_conn *tmpl,
 			      gfp_t flags)
@@ -242,7 +242,7 @@ int __nf_ct_try_assign_helper(struct nf_conn *ct, struct nf_conn *tmpl,
 out:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__nf_ct_try_assign_helper);
+/* DISABLED: EXPORT_SYMBOL_GPL(__nf_ct_try_assign_helper); */
 
 static inline int unhelp(struct nf_conntrack_tuple_hash *i,
 			 const struct nf_conntrack_helper *me)
@@ -282,7 +282,7 @@ void nf_ct_helper_expectfn_register(struct nf_ct_helper_expectfn *n)
 	list_add_rcu(&n->head, &nf_ct_helper_expectfn_list);
 	spin_unlock_bh(&nf_conntrack_lock);
 }
-EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_register); */
 
 void nf_ct_helper_expectfn_unregister(struct nf_ct_helper_expectfn *n)
 {
@@ -290,7 +290,7 @@ void nf_ct_helper_expectfn_unregister(struct nf_ct_helper_expectfn *n)
 	list_del_rcu(&n->head);
 	spin_unlock_bh(&nf_conntrack_lock);
 }
-EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_unregister); */
 
 struct nf_ct_helper_expectfn *
 nf_ct_helper_expectfn_find_by_name(const char *name)
@@ -308,7 +308,7 @@ nf_ct_helper_expectfn_find_by_name(const char *name)
 	rcu_read_unlock();
 	return found ? cur : NULL;
 }
-EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_find_by_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_find_by_name); */
 
 struct nf_ct_helper_expectfn *
 nf_ct_helper_expectfn_find_by_symbol(const void *symbol)
@@ -326,7 +326,7 @@ nf_ct_helper_expectfn_find_by_symbol(const void *symbol)
 	rcu_read_unlock();
 	return found ? cur : NULL;
 }
-EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_find_by_symbol);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_helper_expectfn_find_by_symbol); */
 
 int nf_conntrack_helper_register(struct nf_conntrack_helper *me)
 {
@@ -354,7 +354,7 @@ out:
 	mutex_unlock(&nf_ct_helper_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_helper_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_helper_register); */
 
 static void __nf_conntrack_helper_unregister(struct nf_conntrack_helper *me,
 					     struct net *net)
@@ -411,7 +411,7 @@ void nf_conntrack_helper_unregister(struct nf_conntrack_helper *me)
 	spin_unlock_bh(&nf_conntrack_lock);
 	rtnl_unlock();
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_helper_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_helper_unregister); */
 
 static struct nf_ct_ext_type helper_extend __read_mostly = {
 	.len	= sizeof(struct nf_conn_help),

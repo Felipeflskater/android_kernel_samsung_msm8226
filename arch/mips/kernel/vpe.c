@@ -1209,7 +1209,7 @@ vpe_handle vpe_alloc(void)
 	return NULL;
 }
 
-EXPORT_SYMBOL(vpe_alloc);
+/* DISABLED: EXPORT_SYMBOL(vpe_alloc); */
 
 /* start running from here */
 int vpe_start(vpe_handle vpe, unsigned long start)
@@ -1220,7 +1220,7 @@ int vpe_start(vpe_handle vpe, unsigned long start)
 	return vpe_run(v);
 }
 
-EXPORT_SYMBOL(vpe_start);
+/* DISABLED: EXPORT_SYMBOL(vpe_start); */
 
 /* halt it for now */
 int vpe_stop(vpe_handle vpe)
@@ -1242,7 +1242,7 @@ int vpe_stop(vpe_handle vpe)
 	return 0;
 }
 
-EXPORT_SYMBOL(vpe_stop);
+/* DISABLED: EXPORT_SYMBOL(vpe_stop); */
 
 /* I've done with it thank you */
 int vpe_free(vpe_handle vpe)
@@ -1278,7 +1278,7 @@ int vpe_free(vpe_handle vpe)
 	return 0;
 }
 
-EXPORT_SYMBOL(vpe_free);
+/* DISABLED: EXPORT_SYMBOL(vpe_free); */
 
 void *vpe_get_shared(int index)
 {
@@ -1290,7 +1290,7 @@ void *vpe_get_shared(int index)
 	return v->shared_ptr;
 }
 
-EXPORT_SYMBOL(vpe_get_shared);
+/* DISABLED: EXPORT_SYMBOL(vpe_get_shared); */
 
 int vpe_getuid(int index)
 {
@@ -1302,7 +1302,7 @@ int vpe_getuid(int index)
 	return v->uid;
 }
 
-EXPORT_SYMBOL(vpe_getuid);
+/* DISABLED: EXPORT_SYMBOL(vpe_getuid); */
 
 int vpe_getgid(int index)
 {
@@ -1314,7 +1314,7 @@ int vpe_getgid(int index)
 	return v->gid;
 }
 
-EXPORT_SYMBOL(vpe_getgid);
+/* DISABLED: EXPORT_SYMBOL(vpe_getgid); */
 
 int vpe_notify(int index, struct vpe_notifications *notify)
 {
@@ -1327,7 +1327,7 @@ int vpe_notify(int index, struct vpe_notifications *notify)
 	return 0;
 }
 
-EXPORT_SYMBOL(vpe_notify);
+/* DISABLED: EXPORT_SYMBOL(vpe_notify); */
 
 char *vpe_getcwd(int index)
 {
@@ -1339,7 +1339,7 @@ char *vpe_getcwd(int index)
 	return v->cwd;
 }
 
-EXPORT_SYMBOL(vpe_getcwd);
+/* DISABLED: EXPORT_SYMBOL(vpe_getcwd); */
 
 #ifdef CONFIG_MIPS_APSP_KSPD
 static void kspd_sp_exit( int sp_id)

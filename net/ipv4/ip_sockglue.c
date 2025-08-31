@@ -184,7 +184,7 @@ void ip_cmsg_recv(struct msghdr *msg, struct sk_buff *skb)
 		ip_cmsg_recv_dstaddr(msg, skb);
 
 }
-EXPORT_SYMBOL(ip_cmsg_recv);
+/* DISABLED: EXPORT_SYMBOL(ip_cmsg_recv); */
 
 int ip_cmsg_send(struct net *net, struct msghdr *msg, struct ipcm_cookie *ipc)
 {
@@ -1073,7 +1073,7 @@ int ip_setsockopt(struct sock *sk, int level,
 #endif
 	return err;
 }
-EXPORT_SYMBOL(ip_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(ip_setsockopt); */
 
 #ifdef CONFIG_COMPAT
 int compat_ip_setsockopt(struct sock *sk, int level, int optname,
@@ -1103,7 +1103,7 @@ int compat_ip_setsockopt(struct sock *sk, int level, int optname,
 #endif
 	return err;
 }
-EXPORT_SYMBOL(compat_ip_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(compat_ip_setsockopt); */
 #endif
 
 /*
@@ -1367,7 +1367,7 @@ int ip_getsockopt(struct sock *sk, int level,
 #endif
 	return err;
 }
-EXPORT_SYMBOL(ip_getsockopt);
+/* DISABLED: EXPORT_SYMBOL(ip_getsockopt); */
 
 #ifdef CONFIG_COMPAT
 int compat_ip_getsockopt(struct sock *sk, int level, int optname,
@@ -1401,5 +1401,5 @@ int compat_ip_getsockopt(struct sock *sk, int level, int optname,
 #endif
 	return err;
 }
-EXPORT_SYMBOL(compat_ip_getsockopt);
+/* DISABLED: EXPORT_SYMBOL(compat_ip_getsockopt); */
 #endif

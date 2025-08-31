@@ -704,7 +704,7 @@ struct dvb_frontend *tda9887_attach(struct dvb_frontend *fe,
 
 	return fe;
 }
-EXPORT_SYMBOL_GPL(tda9887_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(tda9887_attach); */
 
 MODULE_LICENSE("GPL");
 

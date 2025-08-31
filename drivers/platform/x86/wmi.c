@@ -338,7 +338,7 @@ u32 method_id, const struct acpi_buffer *in, struct acpi_buffer *out)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(wmi_evaluate_method);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_evaluate_method); */
 
 /**
  * wmi_query_block - Return contents of a WMI block
@@ -421,7 +421,7 @@ struct acpi_buffer *out)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(wmi_query_block);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_query_block); */
 
 /**
  * wmi_set_block - Write to a WMI block
@@ -474,7 +474,7 @@ const struct acpi_buffer *in)
 
 	return acpi_evaluate_object(handle, method, &input, NULL);
 }
-EXPORT_SYMBOL_GPL(wmi_set_block);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_set_block); */
 
 static void wmi_dump_wdg(const struct guid_block *g)
 {
@@ -581,7 +581,7 @@ wmi_notify_handler handler, void *data)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(wmi_install_notify_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_install_notify_handler); */
 
 /**
  * wmi_uninstall_notify_handler - Unregister handler for WMI events
@@ -627,7 +627,7 @@ acpi_status wmi_remove_notify_handler(const char *guid)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(wmi_remove_notify_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_remove_notify_handler); */
 
 /**
  * wmi_get_event_data - Get WMI data associated with an event
@@ -662,7 +662,7 @@ acpi_status wmi_get_event_data(u32 event, struct acpi_buffer *out)
 
 	return AE_NOT_FOUND;
 }
-EXPORT_SYMBOL_GPL(wmi_get_event_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_get_event_data); */
 
 /**
  * wmi_has_guid - Check if a GUID is available
@@ -674,7 +674,7 @@ bool wmi_has_guid(const char *guid_string)
 {
 	return find_guid(guid_string, NULL);
 }
-EXPORT_SYMBOL_GPL(wmi_has_guid);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmi_has_guid); */
 
 /*
  * sysfs interface

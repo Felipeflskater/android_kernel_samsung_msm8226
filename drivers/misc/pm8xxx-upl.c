@@ -46,7 +46,7 @@ struct pm8xxx_upl_device *pm8xxx_upl_request(void)
 {
 	return upl_dev;
 }
-EXPORT_SYMBOL(pm8xxx_upl_request);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_upl_request); */
 
 /*
  * pm8xxx_upl_read_truthtable - read value currently stored in UPL truth table
@@ -83,7 +83,7 @@ upl_read_done:
 	*truthtable = (((u16)table[1]) << 8) | table[0];
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_upl_read_truthtable);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_upl_read_truthtable); */
 
 /*
  * pm8xxx_upl_writes_truthtable - write value into UPL truth table
@@ -127,7 +127,7 @@ upl_write_done:
 	mutex_unlock(&upldev->upl_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_upl_write_truthtable);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_upl_write_truthtable); */
 
 /*
  * pm8xxx_upl_config - configure UPL I/O settings and UPL enable/disable
@@ -166,7 +166,7 @@ upl_config_done:
 	mutex_unlock(&upldev->upl_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_upl_config);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_upl_config); */
 
 #if defined(CONFIG_DEBUG_FS)
 

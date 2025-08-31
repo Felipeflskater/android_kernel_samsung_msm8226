@@ -882,14 +882,14 @@ static void __exit hisax_isac_exit(void)
 	FsmFree(&l1fsm);
 }
 
-EXPORT_SYMBOL(isac_init);
-EXPORT_SYMBOL(isac_d_l2l1);
+/* DISABLED: EXPORT_SYMBOL(isac_init); */
+/* DISABLED: EXPORT_SYMBOL(isac_d_l2l1); */
 
-EXPORT_SYMBOL(isacsx_setup);
-EXPORT_SYMBOL(isacsx_irq);
+/* DISABLED: EXPORT_SYMBOL(isacsx_setup); */
+/* DISABLED: EXPORT_SYMBOL(isacsx_irq); */
 
-EXPORT_SYMBOL(isac_setup);
-EXPORT_SYMBOL(isac_irq);
+/* DISABLED: EXPORT_SYMBOL(isac_setup); */
+/* DISABLED: EXPORT_SYMBOL(isac_irq); */
 
 module_init(hisax_isac_init);
 module_exit(hisax_isac_exit);

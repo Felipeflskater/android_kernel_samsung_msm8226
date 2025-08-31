@@ -21,7 +21,7 @@
 struct sgi_crime __iomem *crime;
 struct sgi_mace __iomem *mace;
 
-EXPORT_SYMBOL_GPL(mace);
+/* DISABLED: EXPORT_SYMBOL_GPL(mace); */
 
 void __init crime_init(void)
 {

@@ -51,7 +51,7 @@ error_ret:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_map_array_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_map_array_register); */
 
 
 /* Assumes the exact same array (e.g. memory locations)
@@ -89,7 +89,7 @@ error_ret:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_map_array_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_map_array_unregister); */
 
 static const struct iio_chan_spec
 *iio_chan_spec_from_name(const struct iio_dev *indio_dev,
@@ -145,14 +145,14 @@ struct iio_channel *iio_st_channel_get(const char *name,
 
 	return channel;
 }
-EXPORT_SYMBOL_GPL(iio_st_channel_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_channel_get); */
 
 void iio_st_channel_release(struct iio_channel *channel)
 {
 	put_device(&channel->indio_dev->dev);
 	kfree(channel);
 }
-EXPORT_SYMBOL_GPL(iio_st_channel_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_channel_release); */
 
 struct iio_channel *iio_st_channel_get_all(const char *name)
 {
@@ -218,7 +218,7 @@ error_ret:
 
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL_GPL(iio_st_channel_get_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_channel_get_all); */
 
 void iio_st_channel_release_all(struct iio_channel *channels)
 {
@@ -230,7 +230,7 @@ void iio_st_channel_release_all(struct iio_channel *channels)
 	}
 	kfree(channels);
 }
-EXPORT_SYMBOL_GPL(iio_st_channel_release_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_channel_release_all); */
 
 int iio_st_read_channel_raw(struct iio_channel *chan, int *val)
 {
@@ -249,7 +249,7 @@ err_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_st_read_channel_raw);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_read_channel_raw); */
 
 int iio_st_read_channel_scale(struct iio_channel *chan, int *val, int *val2)
 {
@@ -270,7 +270,7 @@ err_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_st_read_channel_scale);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_read_channel_scale); */
 
 int iio_st_get_channel_type(struct iio_channel *chan,
 			    enum iio_chan_type *type)
@@ -290,4 +290,4 @@ err_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_st_get_channel_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_st_get_channel_type); */

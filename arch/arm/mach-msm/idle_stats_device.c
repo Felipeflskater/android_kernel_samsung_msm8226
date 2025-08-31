@@ -53,7 +53,7 @@ void msm_idle_stats_update_event(struct msm_idle_stats_device *device,
 	if (wake_up)
 		wake_up_interruptible(&device->wait);
 }
-EXPORT_SYMBOL(msm_idle_stats_update_event);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_update_event); */
 
 static enum hrtimer_restart msm_idle_stats_busy_timer(struct hrtimer *timer)
 {
@@ -201,7 +201,7 @@ void msm_idle_stats_prepare_idle_start(struct msm_idle_stats_device *device)
 	hrtimer_cancel(&device->busy_timer);
 	spin_unlock(&device->lock);
 }
-EXPORT_SYMBOL(msm_idle_stats_prepare_idle_start);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_prepare_idle_start); */
 
 void msm_idle_stats_abort_idle_start(struct msm_idle_stats_device *device)
 {
@@ -210,7 +210,7 @@ void msm_idle_stats_abort_idle_start(struct msm_idle_stats_device *device)
 		hrtimer_restart(&device->busy_timer);
 	spin_unlock(&device->lock);
 }
-EXPORT_SYMBOL(msm_idle_stats_abort_idle_start);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_abort_idle_start); */
 
 void msm_idle_stats_idle_start(struct msm_idle_stats_device *device)
 {
@@ -227,7 +227,7 @@ void msm_idle_stats_idle_start(struct msm_idle_stats_device *device)
 	}
 	spin_unlock(&device->lock);
 }
-EXPORT_SYMBOL(msm_idle_stats_idle_start);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_idle_start); */
 
 void msm_idle_stats_idle_end(struct msm_idle_stats_device *device,
 				struct msm_idle_pulse *pulse)
@@ -272,7 +272,7 @@ void msm_idle_stats_idle_end(struct msm_idle_stats_device *device,
 	}
 	spin_unlock(&device->lock);
 }
-EXPORT_SYMBOL(msm_idle_stats_idle_end);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_idle_end); */
 
 static long msm_idle_stats_device_ioctl(struct file *file, unsigned int cmd,
 		unsigned long arg)
@@ -359,7 +359,7 @@ err_list:
 	mutex_unlock(&device_list_lock);
 	return ret;
 }
-EXPORT_SYMBOL(msm_idle_stats_register_device);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_register_device); */
 
 int msm_idle_stats_deregister_device(struct msm_idle_stats_device *device)
 {
@@ -375,4 +375,4 @@ int msm_idle_stats_deregister_device(struct msm_idle_stats_device *device)
 
 	return misc_deregister(&device->miscdev);
 }
-EXPORT_SYMBOL(msm_idle_stats_deregister_device);
+/* DISABLED: EXPORT_SYMBOL(msm_idle_stats_deregister_device); */

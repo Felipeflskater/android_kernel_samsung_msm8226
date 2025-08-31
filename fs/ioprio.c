@@ -56,7 +56,7 @@ int set_task_ioprio(struct task_struct *task, int ioprio)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(set_task_ioprio);
+/* DISABLED: EXPORT_SYMBOL_GPL(set_task_ioprio); */
 
 SYSCALL_DEFINE3(ioprio_set, int, which, int, who, int, ioprio)
 {

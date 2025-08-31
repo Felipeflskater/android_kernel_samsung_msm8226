@@ -72,7 +72,7 @@ int rds_page_copy_user(struct page *page, unsigned long offset,
 
 	return ret ? -EFAULT : 0;
 }
-EXPORT_SYMBOL_GPL(rds_page_copy_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(rds_page_copy_user); */
 
 /*
  * Message allocation uses this to build up regions of a message.
@@ -176,7 +176,7 @@ out:
 		 ret ? 0 : scat->length);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(rds_page_remainder_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(rds_page_remainder_alloc); */
 
 static int rds_page_remainder_cpu_notify(struct notifier_block *self,
 					 unsigned long action, void *hcpu)

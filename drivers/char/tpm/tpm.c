@@ -372,7 +372,7 @@ unsigned long tpm_calc_ordinal_duration(struct tpm_chip *chip,
 	else
 		return duration;
 }
-EXPORT_SYMBOL_GPL(tpm_calc_ordinal_duration);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_calc_ordinal_duration); */
 
 /*
  * Internal kernel interface to transmit TPM commands
@@ -530,7 +530,7 @@ void tpm_gen_interrupt(struct tpm_chip *chip)
 	rc = transmit_cmd(chip, &tpm_cmd, TPM_INTERNAL_RESULT_SIZE,
 			"attempting to determine the timeouts");
 }
-EXPORT_SYMBOL_GPL(tpm_gen_interrupt);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_gen_interrupt); */
 
 int tpm_get_timeouts(struct tpm_chip *chip)
 {
@@ -614,7 +614,7 @@ duration:
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tpm_get_timeouts);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_get_timeouts); */
 
 #define TPM_ORD_CONTINUE_SELFTEST 83
 #define CONTINUE_SELFTEST_RESULT_SIZE 10
@@ -657,7 +657,7 @@ ssize_t tpm_show_enabled(struct device * dev, struct device_attribute * attr,
 	rc = sprintf(buf, "%d\n", !cap.perm_flags.disable);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_show_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_enabled); */
 
 ssize_t tpm_show_active(struct device * dev, struct device_attribute * attr,
 			char *buf)
@@ -673,7 +673,7 @@ ssize_t tpm_show_active(struct device * dev, struct device_attribute * attr,
 	rc = sprintf(buf, "%d\n", !cap.perm_flags.deactivated);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_show_active);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_active); */
 
 ssize_t tpm_show_owned(struct device * dev, struct device_attribute * attr,
 			char *buf)
@@ -689,7 +689,7 @@ ssize_t tpm_show_owned(struct device * dev, struct device_attribute * attr,
 	rc = sprintf(buf, "%d\n", cap.owned);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_show_owned);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_owned); */
 
 ssize_t tpm_show_temp_deactivated(struct device * dev,
 				struct device_attribute * attr, char *buf)
@@ -705,7 +705,7 @@ ssize_t tpm_show_temp_deactivated(struct device * dev,
 	rc = sprintf(buf, "%d\n", cap.stclear_flags.deactivated);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_show_temp_deactivated);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_temp_deactivated); */
 
 /*
  * tpm_chip_find_get - return tpm_chip for given chip number
@@ -775,7 +775,7 @@ int tpm_pcr_read(u32 chip_num, int pcr_idx, u8 *res_buf)
 	tpm_chip_put(chip);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_pcr_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_pcr_read); */
 
 /**
  * tpm_pcr_extend - extend pcr value with hash
@@ -814,7 +814,7 @@ int tpm_pcr_extend(u32 chip_num, int pcr_idx, const u8 *hash)
 	tpm_chip_put(chip);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_pcr_extend);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_pcr_extend); */
 
 /**
  * tpm_do_selftest - have the TPM continue its selftest and wait until it
@@ -870,7 +870,7 @@ int tpm_do_selftest(struct tpm_chip *chip)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_do_selftest);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_do_selftest); */
 
 int tpm_send(u32 chip_num, void *cmd, size_t buflen)
 {
@@ -886,7 +886,7 @@ int tpm_send(u32 chip_num, void *cmd, size_t buflen)
 	tpm_chip_put(chip);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_send);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_send); */
 
 ssize_t tpm_show_pcrs(struct device *dev, struct device_attribute *attr,
 		      char *buf)
@@ -915,7 +915,7 @@ ssize_t tpm_show_pcrs(struct device *dev, struct device_attribute *attr,
 	}
 	return str - buf;
 }
-EXPORT_SYMBOL_GPL(tpm_show_pcrs);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_pcrs); */
 
 #define  READ_PUBEK_RESULT_SIZE 314
 #define TPM_ORD_READPUBEK cpu_to_be32(124)
@@ -980,7 +980,7 @@ out:
 	rc = str - buf;
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_show_pubek);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_pubek); */
 
 
 ssize_t tpm_show_caps(struct device *dev, struct device_attribute *attr,
@@ -1007,7 +1007,7 @@ ssize_t tpm_show_caps(struct device *dev, struct device_attribute *attr,
 		       cap.tpm_version.revMajor, cap.tpm_version.revMinor);
 	return str - buf;
 }
-EXPORT_SYMBOL_GPL(tpm_show_caps);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_caps); */
 
 ssize_t tpm_show_caps_1_2(struct device * dev,
 			  struct device_attribute * attr, char *buf)
@@ -1033,7 +1033,7 @@ ssize_t tpm_show_caps_1_2(struct device * dev,
 		       cap.tpm_version_1_2.revMinor);
 	return str - buf;
 }
-EXPORT_SYMBOL_GPL(tpm_show_caps_1_2);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_caps_1_2); */
 
 ssize_t tpm_show_durations(struct device *dev, struct device_attribute *attr,
 			  char *buf)
@@ -1050,7 +1050,7 @@ ssize_t tpm_show_durations(struct device *dev, struct device_attribute *attr,
 		       chip->vendor.duration_adjusted
 		       ? "adjusted" : "original");
 }
-EXPORT_SYMBOL_GPL(tpm_show_durations);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_durations); */
 
 ssize_t tpm_show_timeouts(struct device *dev, struct device_attribute *attr,
 			  char *buf)
@@ -1065,7 +1065,7 @@ ssize_t tpm_show_timeouts(struct device *dev, struct device_attribute *attr,
 		       chip->vendor.timeout_adjusted
 		       ? "adjusted" : "original");
 }
-EXPORT_SYMBOL_GPL(tpm_show_timeouts);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_show_timeouts); */
 
 ssize_t tpm_store_cancel(struct device *dev, struct device_attribute *attr,
 			const char *buf, size_t count)
@@ -1077,7 +1077,7 @@ ssize_t tpm_store_cancel(struct device *dev, struct device_attribute *attr,
 	chip->vendor.cancel(chip);
 	return count;
 }
-EXPORT_SYMBOL_GPL(tpm_store_cancel);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_store_cancel); */
 
 int wait_for_tpm_stat(struct tpm_chip *chip, u8 mask, unsigned long timeout,
 			 wait_queue_head_t *queue)
@@ -1118,7 +1118,7 @@ again:
 	}
 	return -ETIME;
 }
-EXPORT_SYMBOL_GPL(wait_for_tpm_stat);
+/* DISABLED: EXPORT_SYMBOL_GPL(wait_for_tpm_stat); */
 /*
  * Device file system interface to the TPM
  *
@@ -1162,7 +1162,7 @@ int tpm_open(struct inode *inode, struct file *file)
 	file->private_data = chip;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tpm_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_open); */
 
 /*
  * Called on file close
@@ -1180,7 +1180,7 @@ int tpm_release(struct inode *inode, struct file *file)
 	put_device(chip->dev);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tpm_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_release); */
 
 ssize_t tpm_write(struct file *file, const char __user *buf,
 		  size_t size, loff_t *off)
@@ -1222,7 +1222,7 @@ ssize_t tpm_write(struct file *file, const char __user *buf,
 
 	return in_size;
 }
-EXPORT_SYMBOL_GPL(tpm_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_write); */
 
 ssize_t tpm_read(struct file *file, char __user *buf,
 		 size_t size, loff_t *off)
@@ -1251,7 +1251,7 @@ ssize_t tpm_read(struct file *file, char __user *buf,
 
 	return ret_size;
 }
-EXPORT_SYMBOL_GPL(tpm_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_read); */
 
 void tpm_remove_hardware(struct device *dev)
 {
@@ -1274,7 +1274,7 @@ void tpm_remove_hardware(struct device *dev)
 	/* write it this way to be explicit (chip->dev == dev) */
 	put_device(chip->dev);
 }
-EXPORT_SYMBOL_GPL(tpm_remove_hardware);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_remove_hardware); */
 
 #define TPM_ORD_SAVESTATE cpu_to_be32(152)
 #define SAVESTATE_RESULT_SIZE 10
@@ -1316,7 +1316,7 @@ int tpm_pm_suspend(struct device *dev, pm_message_t pm_state)
 			  "sending savestate before suspend");
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tpm_pm_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_pm_suspend); */
 
 /*
  * Resume from a power safe. The BIOS already restored
@@ -1331,7 +1331,7 @@ int tpm_pm_resume(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tpm_pm_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_pm_resume); */
 
 /* In case vendor provided release function, call it too.*/
 
@@ -1343,7 +1343,7 @@ void tpm_dev_vendor_release(struct tpm_chip *chip)
 	clear_bit(chip->dev_num, dev_mask);
 	kfree(chip->vendor.miscdev.name);
 }
-EXPORT_SYMBOL_GPL(tpm_dev_vendor_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_dev_vendor_release); */
 
 
 /*
@@ -1359,7 +1359,7 @@ void tpm_dev_release(struct device *dev)
 	chip->release(dev);
 	kfree(chip);
 }
-EXPORT_SYMBOL_GPL(tpm_dev_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_dev_release); */
 
 /*
  * Called from tpm_<specific>.c probe function only for devices 
@@ -1445,7 +1445,7 @@ out_free:
 	kfree(devname);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(tpm_register_hardware);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpm_register_hardware); */
 
 MODULE_AUTHOR("Leendert van Doorn (leendert@watson.ibm.com)");
 MODULE_DESCRIPTION("TPM Driver");

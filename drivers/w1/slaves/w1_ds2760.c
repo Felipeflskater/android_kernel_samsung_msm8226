@@ -191,10 +191,10 @@ static void __exit w1_ds2760_exit(void)
 	ida_destroy(&bat_ida);
 }
 
-EXPORT_SYMBOL(w1_ds2760_read);
-EXPORT_SYMBOL(w1_ds2760_write);
-EXPORT_SYMBOL(w1_ds2760_store_eeprom);
-EXPORT_SYMBOL(w1_ds2760_recall_eeprom);
+/* DISABLED: EXPORT_SYMBOL(w1_ds2760_read); */
+/* DISABLED: EXPORT_SYMBOL(w1_ds2760_write); */
+/* DISABLED: EXPORT_SYMBOL(w1_ds2760_store_eeprom); */
+/* DISABLED: EXPORT_SYMBOL(w1_ds2760_recall_eeprom); */
 
 module_init(w1_ds2760_init);
 module_exit(w1_ds2760_exit);

@@ -48,13 +48,13 @@ int register_memory_notifier(struct notifier_block *nb)
 {
         return blocking_notifier_chain_register(&memory_chain, nb);
 }
-EXPORT_SYMBOL(register_memory_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_memory_notifier); */
 
 void unregister_memory_notifier(struct notifier_block *nb)
 {
         blocking_notifier_chain_unregister(&memory_chain, nb);
 }
-EXPORT_SYMBOL(unregister_memory_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_memory_notifier); */
 
 static ATOMIC_NOTIFIER_HEAD(memory_isolate_chain);
 
@@ -62,13 +62,13 @@ int register_memory_isolate_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&memory_isolate_chain, nb);
 }
-EXPORT_SYMBOL(register_memory_isolate_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_memory_isolate_notifier); */
 
 void unregister_memory_isolate_notifier(struct notifier_block *nb)
 {
 	atomic_notifier_chain_unregister(&memory_isolate_chain, nb);
 }
-EXPORT_SYMBOL(unregister_memory_isolate_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_memory_isolate_notifier); */
 
 /*
  * register_memory - Setup a sysfs device for a memory block

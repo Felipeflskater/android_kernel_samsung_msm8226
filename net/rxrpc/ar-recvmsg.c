@@ -391,7 +391,7 @@ void rxrpc_kernel_data_delivered(struct sk_buff *skb)
 	rxrpc_free_skb(skb);
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_data_delivered);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_data_delivered); */
 
 /**
  * rxrpc_kernel_is_data_last - Determine if data message is last one
@@ -408,7 +408,7 @@ bool rxrpc_kernel_is_data_last(struct sk_buff *skb)
 	return sp->hdr.flags & RXRPC_LAST_PACKET;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_is_data_last);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_is_data_last); */
 
 /**
  * rxrpc_kernel_get_abort_code - Get the abort code from an RxRPC abort message
@@ -425,7 +425,7 @@ u32 rxrpc_kernel_get_abort_code(struct sk_buff *skb)
 	return sp->call->abort_code;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_get_abort_code);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_get_abort_code); */
 
 /**
  * rxrpc_kernel_get_error - Get the error number from an RxRPC error message
@@ -440,4 +440,4 @@ int rxrpc_kernel_get_error_number(struct sk_buff *skb)
 	return sp->error;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_get_error_number);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_get_error_number); */

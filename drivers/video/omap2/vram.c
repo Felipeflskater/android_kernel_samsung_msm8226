@@ -183,7 +183,7 @@ found:
 	mutex_unlock(&region_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(omap_vram_free);
+/* DISABLED: EXPORT_SYMBOL(omap_vram_free); */
 
 static int _omap_vram_reserve(unsigned long paddr, unsigned pages)
 {
@@ -248,7 +248,7 @@ int omap_vram_reserve(unsigned long paddr, size_t size)
 
 	return r;
 }
-EXPORT_SYMBOL(omap_vram_reserve);
+/* DISABLED: EXPORT_SYMBOL(omap_vram_reserve); */
 
 static void _omap_vram_dma_cb(int lch, u16 ch_status, void *data)
 {
@@ -365,7 +365,7 @@ int omap_vram_alloc(size_t size, unsigned long *paddr)
 
 	return r;
 }
-EXPORT_SYMBOL(omap_vram_alloc);
+/* DISABLED: EXPORT_SYMBOL(omap_vram_alloc); */
 
 void omap_vram_get_info(unsigned long *vram,
 		unsigned long *free_vram,
@@ -403,7 +403,7 @@ void omap_vram_get_info(unsigned long *vram,
 
 	mutex_unlock(&region_mutex);
 }
-EXPORT_SYMBOL(omap_vram_get_info);
+/* DISABLED: EXPORT_SYMBOL(omap_vram_get_info); */
 
 #if defined(CONFIG_DEBUG_FS)
 static int vram_debug_show(struct seq_file *s, void *unused)

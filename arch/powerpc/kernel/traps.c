@@ -69,13 +69,13 @@ int (*__debugger_iabr_match)(struct pt_regs *regs) __read_mostly;
 int (*__debugger_dabr_match)(struct pt_regs *regs) __read_mostly;
 int (*__debugger_fault_handler)(struct pt_regs *regs) __read_mostly;
 
-EXPORT_SYMBOL(__debugger);
-EXPORT_SYMBOL(__debugger_ipi);
-EXPORT_SYMBOL(__debugger_bpt);
-EXPORT_SYMBOL(__debugger_sstep);
-EXPORT_SYMBOL(__debugger_iabr_match);
-EXPORT_SYMBOL(__debugger_dabr_match);
-EXPORT_SYMBOL(__debugger_fault_handler);
+/* DISABLED: EXPORT_SYMBOL(__debugger); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_ipi); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_bpt); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_sstep); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_iabr_match); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_dabr_match); */
+/* DISABLED: EXPORT_SYMBOL(__debugger_fault_handler); */
 #endif
 
 /*

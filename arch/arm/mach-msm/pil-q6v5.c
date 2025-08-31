@@ -110,7 +110,7 @@ err_cx_voltage:
 out:
 	return ret;
 }
-EXPORT_SYMBOL(pil_q6v5_make_proxy_votes);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_make_proxy_votes); */
 
 void pil_q6v5_remove_proxy_votes(struct pil_desc *pil)
 {
@@ -123,7 +123,7 @@ void pil_q6v5_remove_proxy_votes(struct pil_desc *pil)
 			      RPM_REGULATOR_CORNER_SUPER_TURBO);
 	clk_disable_unprepare(drv->xo);
 }
-EXPORT_SYMBOL(pil_q6v5_remove_proxy_votes);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_remove_proxy_votes); */
 
 void pil_q6v5_halt_axi_port(struct pil_desc *pil, void __iomem *halt_base)
 {
@@ -144,7 +144,7 @@ void pil_q6v5_halt_axi_port(struct pil_desc *pil, void __iomem *halt_base)
 	/* Clear halt request (port will remain halted until reset) */
 	writel_relaxed(0, halt_base + AXI_HALTREQ);
 }
-EXPORT_SYMBOL(pil_q6v5_halt_axi_port);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_halt_axi_port); */
 
 void pil_q6v5_shutdown(struct pil_desc *pil)
 {
@@ -178,7 +178,7 @@ void pil_q6v5_shutdown(struct pil_desc *pil)
 	val &= ~QDSS_BHS_ON;
 	writel_relaxed(val, drv->reg_base + QDSP6SS_PWR_CTL);
 }
-EXPORT_SYMBOL(pil_q6v5_shutdown);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_shutdown); */
 
 int pil_q6v5_reset(struct pil_desc *pil)
 {
@@ -233,7 +233,7 @@ int pil_q6v5_reset(struct pil_desc *pil)
 
 	return 0;
 }
-EXPORT_SYMBOL(pil_q6v5_reset);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_reset); */
 
 struct q6v5_data __devinit *pil_q6v5_init(struct platform_device *pdev)
 {
@@ -300,4 +300,4 @@ struct q6v5_data __devinit *pil_q6v5_init(struct platform_device *pdev)
 
 	return drv;
 }
-EXPORT_SYMBOL(pil_q6v5_init);
+/* DISABLED: EXPORT_SYMBOL(pil_q6v5_init); */

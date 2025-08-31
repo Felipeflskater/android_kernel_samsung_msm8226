@@ -28,10 +28,10 @@ struct datalink_proto *make_EII_client(void)
 
 	return proto;
 }
-EXPORT_SYMBOL(make_EII_client);
+/* DISABLED: EXPORT_SYMBOL(make_EII_client); */
 
 void destroy_EII_client(struct datalink_proto *dl)
 {
 	kfree(dl);
 }
-EXPORT_SYMBOL(destroy_EII_client);
+/* DISABLED: EXPORT_SYMBOL(destroy_EII_client); */

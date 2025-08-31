@@ -43,7 +43,7 @@
  * Power off function, if any
  */
 void (*pm_power_off)(void) = machine_power_off;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 void
 cpu_idle(void)
@@ -203,7 +203,7 @@ start_thread(struct pt_regs * regs, unsigned long pc, unsigned long sp)
 	regs->ps = 8;
 	wrusp(sp);
 }
-EXPORT_SYMBOL(start_thread);
+/* DISABLED: EXPORT_SYMBOL(start_thread); */
 
 /*
  * Free current thread data structures etc..
@@ -362,7 +362,7 @@ dump_elf_thread(elf_greg_t *dest, struct pt_regs *pt, struct thread_info *ti)
 	   useful value of the thread's UNIQUE field.  */
 	dest[32] = ti->pcb.unique;
 }
-EXPORT_SYMBOL(dump_elf_thread);
+/* DISABLED: EXPORT_SYMBOL(dump_elf_thread); */
 
 int
 dump_elf_task(elf_greg_t *dest, struct task_struct *task)
@@ -370,7 +370,7 @@ dump_elf_task(elf_greg_t *dest, struct task_struct *task)
 	dump_elf_thread(dest, task_pt_regs(task), task_thread_info(task));
 	return 1;
 }
-EXPORT_SYMBOL(dump_elf_task);
+/* DISABLED: EXPORT_SYMBOL(dump_elf_task); */
 
 int
 dump_elf_task_fp(elf_fpreg_t *dest, struct task_struct *task)
@@ -379,7 +379,7 @@ dump_elf_task_fp(elf_fpreg_t *dest, struct task_struct *task)
 	memcpy(dest, sw->fp, 32 * 8);
 	return 1;
 }
-EXPORT_SYMBOL(dump_elf_task_fp);
+/* DISABLED: EXPORT_SYMBOL(dump_elf_task_fp); */
 
 /*
  * sys_execve() executes a new program.

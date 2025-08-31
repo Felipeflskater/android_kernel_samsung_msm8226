@@ -273,7 +273,7 @@ static int __init mtd_slram_setup(char *str)
 	return(1);
 }
 
-/* DISABLED: __setup("slram=", mtd_slram_setup); */
+/* DISABLED: __setup("slram=", mtd_slram_setup); */ */
 
 #endif
 

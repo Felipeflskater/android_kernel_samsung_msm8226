@@ -60,9 +60,9 @@ void pfifo_free(unsigned int pfifo_mask)
 	mutex_unlock(&pfifo_lock);
 }
 
-EXPORT_SYMBOL(pfifo_push);
-EXPORT_SYMBOL(pfifo_pop);
-EXPORT_SYMBOL(pfifo_fill_level);
-EXPORT_SYMBOL(pfifo_empty);
-EXPORT_SYMBOL(pfifo_request);
-EXPORT_SYMBOL(pfifo_free);
+/* DISABLED: EXPORT_SYMBOL(pfifo_push); */
+/* DISABLED: EXPORT_SYMBOL(pfifo_pop); */
+/* DISABLED: EXPORT_SYMBOL(pfifo_fill_level); */
+/* DISABLED: EXPORT_SYMBOL(pfifo_empty); */
+/* DISABLED: EXPORT_SYMBOL(pfifo_request); */
+/* DISABLED: EXPORT_SYMBOL(pfifo_free); */

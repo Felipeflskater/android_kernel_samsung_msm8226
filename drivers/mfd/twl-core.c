@@ -244,7 +244,7 @@ unsigned int twl_rev(void)
 {
 	return twl_id;
 }
-EXPORT_SYMBOL(twl_rev);
+/* DISABLED: EXPORT_SYMBOL(twl_rev); */
 
 /* Structure for each TWL4030/TWL6030 Slave */
 struct twl_client {
@@ -406,7 +406,7 @@ int twl_i2c_write(u8 mod_no, u8 *value, u8 reg, unsigned num_bytes)
 		return 0;
 	}
 }
-EXPORT_SYMBOL(twl_i2c_write);
+/* DISABLED: EXPORT_SYMBOL(twl_i2c_write); */
 
 /**
  * twl_i2c_read - Reads a n bit register in TWL4030/TWL5030/TWL60X0
@@ -470,7 +470,7 @@ int twl_i2c_read(u8 mod_no, u8 *value, u8 reg, unsigned num_bytes)
 		return 0;
 	}
 }
-EXPORT_SYMBOL(twl_i2c_read);
+/* DISABLED: EXPORT_SYMBOL(twl_i2c_read); */
 
 /**
  * twl_i2c_write_u8 - Writes a 8 bit register in TWL4030/TWL5030/TWL60X0
@@ -489,7 +489,7 @@ int twl_i2c_write_u8(u8 mod_no, u8 value, u8 reg)
 	temp_buffer[1] = value;
 	return twl_i2c_write(mod_no, temp_buffer, reg, 1);
 }
-EXPORT_SYMBOL(twl_i2c_write_u8);
+/* DISABLED: EXPORT_SYMBOL(twl_i2c_write_u8); */
 
 /**
  * twl_i2c_read_u8 - Reads a 8 bit register from TWL4030/TWL5030/TWL60X0
@@ -503,7 +503,7 @@ int twl_i2c_read_u8(u8 mod_no, u8 *value, u8 reg)
 {
 	return twl_i2c_read(mod_no, value, reg, 1);
 }
-EXPORT_SYMBOL(twl_i2c_read_u8);
+/* DISABLED: EXPORT_SYMBOL(twl_i2c_read_u8); */
 
 /*----------------------------------------------------------------------*/
 
@@ -546,7 +546,7 @@ int twl_get_type(void)
 {
 	return TWL_SIL_TYPE(twl_idcode);
 }
-EXPORT_SYMBOL_GPL(twl_get_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(twl_get_type); */
 
 /**
  * twl_get_version - API to get TWL Si version.
@@ -557,7 +557,7 @@ int twl_get_version(void)
 {
 	return TWL_SIL_REV(twl_idcode);
 }
-EXPORT_SYMBOL_GPL(twl_get_version);
+/* DISABLED: EXPORT_SYMBOL_GPL(twl_get_version); */
 
 static struct device *
 add_numbered_child(unsigned chip, const char *name, int num,

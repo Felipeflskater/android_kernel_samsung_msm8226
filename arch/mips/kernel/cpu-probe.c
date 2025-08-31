@@ -35,7 +35,7 @@
  * the CPU very much.
  */
 void (*cpu_wait)(void);
-EXPORT_SYMBOL(cpu_wait);
+/* DISABLED: EXPORT_SYMBOL(cpu_wait); */
 
 static void r3081_wait(void)
 {
@@ -124,7 +124,7 @@ static int __init wait_disable(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("nowait", wait_disable); */
+/* DISABLED: __setup("nowait", wait_disable); */ */
 
 static int __cpuinitdata mips_fpu_disabled;
 
@@ -136,7 +136,7 @@ static int __init fpu_disable(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("nofpu", fpu_disable); */
+/* DISABLED: __setup("nofpu", fpu_disable); */ */
 
 int __cpuinitdata mips_dsp_disabled;
 
@@ -148,7 +148,7 @@ static int __init dsp_disable(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("nodsp", dsp_disable); */
+/* DISABLED: __setup("nodsp", dsp_disable); */ */
 
 void __init check_wait(void)
 {
@@ -1087,7 +1087,7 @@ static inline void cpu_probe_netlogic(struct cpuinfo_mips *c, int cpu)
 #ifdef CONFIG_64BIT
 /* For use by uaccess.h */
 u64 __ua_limit;
-EXPORT_SYMBOL(__ua_limit);
+/* DISABLED: EXPORT_SYMBOL(__ua_limit); */
 #endif
 
 const char *__cpu_name[NR_CPUS];

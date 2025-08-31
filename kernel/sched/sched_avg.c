@@ -74,7 +74,7 @@ void sched_get_nr_running_avg(int *avg, int *iowait_avg)
 	BUG_ON(*iowait_avg < 0);
 	pr_debug("%s - avg:%d\n", __func__, *iowait_avg);
 }
-EXPORT_SYMBOL(sched_get_nr_running_avg);
+/* DISABLED: EXPORT_SYMBOL(sched_get_nr_running_avg); */
 
 /**
  * sched_update_nr_prod
@@ -103,4 +103,4 @@ void sched_update_nr_prod(int cpu, unsigned long nr_running, bool inc)
 	per_cpu(iowait_prod_sum, cpu) += nr_iowait_cpu(cpu) * diff;
 	spin_unlock_irqrestore(&per_cpu(nr_lock, cpu), flags);
 }
-EXPORT_SYMBOL(sched_update_nr_prod);
+/* DISABLED: EXPORT_SYMBOL(sched_update_nr_prod); */

@@ -257,7 +257,7 @@ unlock:
 	mutex_unlock(&ccdc_lock);
 	return ret;
 }
-EXPORT_SYMBOL(vpfe_register_ccdc_device);
+/* DISABLED: EXPORT_SYMBOL(vpfe_register_ccdc_device); */
 
 /*
  * vpfe_unregister_ccdc_device. CCDC module calls this to
@@ -283,7 +283,7 @@ void vpfe_unregister_ccdc_device(struct ccdc_hw_device *dev)
 	mutex_unlock(&ccdc_lock);
 	return;
 }
-EXPORT_SYMBOL(vpfe_unregister_ccdc_device);
+/* DISABLED: EXPORT_SYMBOL(vpfe_unregister_ccdc_device); */
 
 /*
  * vpfe_get_ccdc_image_format - Get image parameters based on CCDC settings

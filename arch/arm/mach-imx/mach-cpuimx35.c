@@ -155,7 +155,7 @@ static int __init eukrea_cpuimx35_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-/* DISABLED: __setup("otg_mode=", eukrea_cpuimx35_otg_mode); */
+/* DISABLED: __setup("otg_mode=", eukrea_cpuimx35_otg_mode); */ */
 
 /*
  * Board specific initialization.

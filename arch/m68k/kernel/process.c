@@ -103,7 +103,7 @@ void machine_power_off(void)
 }
 
 void (*pm_power_off)(void) = machine_power_off;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 void show_regs(struct pt_regs * regs)
 {
@@ -163,7 +163,7 @@ int kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 	set_fs (fs);
 	return pid;
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 void flush_thread(void)
 {
@@ -331,7 +331,7 @@ int dump_fpu (struct pt_regs *regs, struct user_m68kfp_struct *fpu)
 
 	return 1;
 }
-EXPORT_SYMBOL(dump_fpu);
+/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
 #endif /* CONFIG_FPU */
 
 /*

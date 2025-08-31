@@ -273,7 +273,7 @@ void getnstimeofday(struct timespec *ts)
 	timespec_add_ns(ts, nsecs);
 }
 
-EXPORT_SYMBOL(getnstimeofday);
+/* DISABLED: EXPORT_SYMBOL(getnstimeofday); */
 
 ktime_t ktime_get(void)
 {
@@ -299,7 +299,7 @@ ktime_t ktime_get(void)
 	 */
 	return ktime_add_ns(ktime_set(secs, 0), nsecs);
 }
-EXPORT_SYMBOL_GPL(ktime_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(ktime_get); */
 
 /**
  * ktime_get_ts - get the monotonic clock in timespec format
@@ -330,7 +330,7 @@ void ktime_get_ts(struct timespec *ts)
 	set_normalized_timespec(ts, ts->tv_sec + tomono.tv_sec,
 				(s64)ts->tv_nsec + tomono.tv_nsec + nsecs);
 }
-EXPORT_SYMBOL_GPL(ktime_get_ts);
+/* DISABLED: EXPORT_SYMBOL_GPL(ktime_get_ts); */
 
 #ifdef CONFIG_NTP_PPS
 
@@ -371,7 +371,7 @@ void getnstime_raw_and_real(struct timespec *ts_raw, struct timespec *ts_real)
 	timespec_add_ns(ts_raw, nsecs_raw);
 	timespec_add_ns(ts_real, nsecs_real);
 }
-EXPORT_SYMBOL(getnstime_raw_and_real);
+/* DISABLED: EXPORT_SYMBOL(getnstime_raw_and_real); */
 
 #endif /* CONFIG_NTP_PPS */
 
@@ -390,7 +390,7 @@ void do_gettimeofday(struct timeval *tv)
 	tv->tv_usec = now.tv_nsec/1000;
 }
 
-EXPORT_SYMBOL(do_gettimeofday);
+/* DISABLED: EXPORT_SYMBOL(do_gettimeofday); */
 /**
  * do_settimeofday - Sets the time of day
  * @tv:		pointer to the timespec variable containing the new time
@@ -425,7 +425,7 @@ int do_settimeofday(const struct timespec *tv)
 	return 0;
 }
 
-EXPORT_SYMBOL(do_settimeofday);
+/* DISABLED: EXPORT_SYMBOL(do_settimeofday); */
 
 
 /**
@@ -467,7 +467,7 @@ error: /* even if we error out, we forwarded the time, so call update */
 
 	return ret;
 }
-EXPORT_SYMBOL(timekeeping_inject_offset);
+/* DISABLED: EXPORT_SYMBOL(timekeeping_inject_offset); */
 
 /**
  * change_clocksource - Swaps clocksources if a new one is available
@@ -525,7 +525,7 @@ ktime_t ktime_get_real(void)
 
 	return timespec_to_ktime(now);
 }
-EXPORT_SYMBOL_GPL(ktime_get_real);
+/* DISABLED: EXPORT_SYMBOL_GPL(ktime_get_real); */
 
 /**
  * getrawmonotonic - Returns the raw monotonic time in a timespec
@@ -547,7 +547,7 @@ void getrawmonotonic(struct timespec *ts)
 
 	timespec_add_ns(ts, nsecs);
 }
-EXPORT_SYMBOL(getrawmonotonic);
+/* DISABLED: EXPORT_SYMBOL(getrawmonotonic); */
 
 
 /**
@@ -1227,7 +1227,7 @@ void getboottime(struct timespec *ts)
 
 	set_normalized_timespec(ts, -tv_sec, -tv_nsec);
 }
-EXPORT_SYMBOL_GPL(getboottime);
+/* DISABLED: EXPORT_SYMBOL_GPL(getboottime); */
 
 
 /**
@@ -1259,7 +1259,7 @@ void get_monotonic_boottime(struct timespec *ts)
 	set_normalized_timespec(ts, ts->tv_sec + tomono.tv_sec + sleep.tv_sec,
 		(s64)ts->tv_nsec + tomono.tv_nsec + sleep.tv_nsec + nsecs);
 }
-EXPORT_SYMBOL_GPL(get_monotonic_boottime);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_monotonic_boottime); */
 
 /**
  * ktime_get_boottime - Returns monotonic time since boot in a ktime
@@ -1276,7 +1276,7 @@ ktime_t ktime_get_boottime(void)
 	get_monotonic_boottime(&ts);
 	return timespec_to_ktime(ts);
 }
-EXPORT_SYMBOL_GPL(ktime_get_boottime);
+/* DISABLED: EXPORT_SYMBOL_GPL(ktime_get_boottime); */
 
 /**
  * monotonic_to_bootbased - Convert the monotonic time to boot based.
@@ -1286,13 +1286,13 @@ void monotonic_to_bootbased(struct timespec *ts)
 {
 	*ts = timespec_add(*ts, timekeeper.total_sleep_time);
 }
-EXPORT_SYMBOL_GPL(monotonic_to_bootbased);
+/* DISABLED: EXPORT_SYMBOL_GPL(monotonic_to_bootbased); */
 
 unsigned long get_seconds(void)
 {
 	return timekeeper.xtime.tv_sec;
 }
-EXPORT_SYMBOL(get_seconds);
+/* DISABLED: EXPORT_SYMBOL(get_seconds); */
 
 struct timespec __current_kernel_time(void)
 {
@@ -1312,7 +1312,7 @@ struct timespec current_kernel_time(void)
 
 	return now;
 }
-EXPORT_SYMBOL(current_kernel_time);
+/* DISABLED: EXPORT_SYMBOL(current_kernel_time); */
 
 struct timespec get_monotonic_coarse(void)
 {
@@ -1418,7 +1418,7 @@ ktime_t ktime_get_monotonic_offset(void)
 
 	return timespec_to_ktime(wtom);
 }
-EXPORT_SYMBOL_GPL(ktime_get_monotonic_offset);
+/* DISABLED: EXPORT_SYMBOL_GPL(ktime_get_monotonic_offset); */
 
 /*
  * do_adjtimex() - Accessor function to NTP __do_adjtimex function

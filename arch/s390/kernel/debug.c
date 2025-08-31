@@ -717,7 +717,7 @@ out:
 	mutex_unlock(&debug_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(debug_register_mode);
+/* DISABLED: EXPORT_SYMBOL(debug_register_mode); */
 
 /*
  * debug_register:
@@ -1550,17 +1550,17 @@ postcore_initcall(debug_init);
 module_exit(debug_exit);
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(debug_register);
-EXPORT_SYMBOL(debug_unregister); 
-EXPORT_SYMBOL(debug_set_level);
-EXPORT_SYMBOL(debug_stop_all);
-EXPORT_SYMBOL(debug_register_view);
-EXPORT_SYMBOL(debug_unregister_view);
-EXPORT_SYMBOL(debug_event_common);
-EXPORT_SYMBOL(debug_exception_common);
-EXPORT_SYMBOL(debug_hex_ascii_view);
-EXPORT_SYMBOL(debug_raw_view);
-EXPORT_SYMBOL(debug_dflt_header_fn);
-EXPORT_SYMBOL(debug_sprintf_view);
-EXPORT_SYMBOL(debug_sprintf_exception);
-EXPORT_SYMBOL(debug_sprintf_event);
+/* DISABLED: EXPORT_SYMBOL(debug_register); */
+/* DISABLED: EXPORT_SYMBOL(debug_unregister);  */
+/* DISABLED: EXPORT_SYMBOL(debug_set_level); */
+/* DISABLED: EXPORT_SYMBOL(debug_stop_all); */
+/* DISABLED: EXPORT_SYMBOL(debug_register_view); */
+/* DISABLED: EXPORT_SYMBOL(debug_unregister_view); */
+/* DISABLED: EXPORT_SYMBOL(debug_event_common); */
+/* DISABLED: EXPORT_SYMBOL(debug_exception_common); */
+/* DISABLED: EXPORT_SYMBOL(debug_hex_ascii_view); */
+/* DISABLED: EXPORT_SYMBOL(debug_raw_view); */
+/* DISABLED: EXPORT_SYMBOL(debug_dflt_header_fn); */
+/* DISABLED: EXPORT_SYMBOL(debug_sprintf_view); */
+/* DISABLED: EXPORT_SYMBOL(debug_sprintf_exception); */
+/* DISABLED: EXPORT_SYMBOL(debug_sprintf_event); */

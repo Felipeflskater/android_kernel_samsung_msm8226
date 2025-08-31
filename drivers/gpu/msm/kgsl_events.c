@@ -96,7 +96,7 @@ out:
 	spin_unlock(&group->lock);
 	kgsl_context_put(context);
 }
-EXPORT_SYMBOL(kgsl_process_event_group);
+/* DISABLED: EXPORT_SYMBOL(kgsl_process_event_group); */
 
 /**
  * kgsl_cancel_events_timestamp() - Cancel pending events for a given timestamp
@@ -118,7 +118,7 @@ void kgsl_cancel_events_timestamp(struct kgsl_device *device,
 
 	spin_unlock(&group->lock);
 }
-EXPORT_SYMBOL(kgsl_cancel_events_timestamp);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cancel_events_timestamp); */
 
 /**
  * kgsl_cancel_events() - Cancel all pending events in the group
@@ -137,7 +137,7 @@ void kgsl_cancel_events(struct kgsl_device *device,
 
 	spin_unlock(&group->lock);
 }
-EXPORT_SYMBOL(kgsl_cancel_events);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cancel_events); */
 
 /**
  * kgsl_cancel_event() - Cancel a specific event from a group
@@ -162,7 +162,7 @@ void kgsl_cancel_event(struct kgsl_device *device,
 
 	spin_unlock(&group->lock);
 }
-EXPORT_SYMBOL(kgsl_cancel_event);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cancel_event); */
 
 /**
  * kgsl_add_event() - Add a new GPU event to a group
@@ -233,7 +233,7 @@ int kgsl_add_event(struct kgsl_device *device, struct kgsl_event_group *group,
 
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_add_event);
+/* DISABLED: EXPORT_SYMBOL(kgsl_add_event); */
 
 static DEFINE_RWLOCK(group_lock);
 static LIST_HEAD(group_list);
@@ -253,7 +253,7 @@ void kgsl_process_events(struct work_struct *work)
 		kgsl_process_event_group(device, group);
 	read_unlock(&group_lock);
 }
-EXPORT_SYMBOL(kgsl_process_events);
+/* DISABLED: EXPORT_SYMBOL(kgsl_process_events); */
 
 /**
  * kgsl_del_event_group() - Remove a GPU event group
@@ -268,7 +268,7 @@ void kgsl_del_event_group(struct kgsl_event_group *group)
 	list_del(&group->group);
 	write_unlock(&group_lock);
 }
-EXPORT_SYMBOL(kgsl_del_event_group);
+/* DISABLED: EXPORT_SYMBOL(kgsl_del_event_group); */
 
 /**
  * kgsl_add_event_group() - Add a new GPU event group
@@ -286,7 +286,7 @@ void kgsl_add_event_group(struct kgsl_event_group *group,
 	list_add_tail(&group->group, &group_list);
 	write_unlock(&group_lock);
 }
-EXPORT_SYMBOL(kgsl_add_event_group);
+/* DISABLED: EXPORT_SYMBOL(kgsl_add_event_group); */
 
 /**
  * kgsl_events_exit() - Destroy the event kmem cache on module exit

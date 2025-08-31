@@ -85,7 +85,7 @@ u32 ixp2000_uengine_csr_read(int uengine, int offset)
 
 	return value;
 }
-EXPORT_SYMBOL(ixp2000_uengine_csr_read);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_csr_read); */
 
 void ixp2000_uengine_csr_write(int uengine, int offset, u32 value)
 {
@@ -101,7 +101,7 @@ void ixp2000_uengine_csr_write(int uengine, int offset, u32 value)
 		ixp2000_reg_write(reg, value);
 	} while (ixp2000_reg_read(local_csr_status) & 1);
 }
-EXPORT_SYMBOL(ixp2000_uengine_csr_write);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_csr_write); */
 
 void ixp2000_uengine_reset(u32 uengine_mask)
 {
@@ -113,7 +113,7 @@ void ixp2000_uengine_reset(u32 uengine_mask)
 	ixp2000_reg_wrb(IXP_RESET1, value | uengine_mask);
 	ixp2000_reg_wrb(IXP_RESET1, value);
 }
-EXPORT_SYMBOL(ixp2000_uengine_reset);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_reset); */
 
 void ixp2000_uengine_set_mode(int uengine, u32 mode)
 {
@@ -136,7 +136,7 @@ void ixp2000_uengine_set_mode(int uengine, u32 mode)
 	ixp2000_uengine_csr_write(uengine, NN_GET, 0x00);
 	ixp2000_uengine_csr_write(uengine, T_INDEX_BYTE_INDEX, 0);
 }
-EXPORT_SYMBOL(ixp2000_uengine_set_mode);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_set_mode); */
 
 static int make_even_parity(u32 x)
 {
@@ -200,7 +200,7 @@ void ixp2000_uengine_load_microcode(int uengine, u8 *ucode, int insns)
 	 */
 	ixp2000_uengine_csr_write(uengine, USTORE_ADDRESS, 0x00000000);
 }
-EXPORT_SYMBOL(ixp2000_uengine_load_microcode);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_load_microcode); */
 
 void ixp2000_uengine_init_context(int uengine, int context, int pc)
 {
@@ -220,7 +220,7 @@ void ixp2000_uengine_init_context(int uengine, int context, int pc)
 	 */
 	ixp2000_uengine_csr_write(uengine, INDIRECT_CTX_STS, pc);
 }
-EXPORT_SYMBOL(ixp2000_uengine_init_context);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_init_context); */
 
 void ixp2000_uengine_start_contexts(int uengine, u8 ctx_mask)
 {
@@ -233,7 +233,7 @@ void ixp2000_uengine_start_contexts(int uengine, u8 ctx_mask)
 	mask |= ctx_mask << 8;
 	ixp2000_uengine_csr_write(uengine, CTX_ENABLES, mask);
 }
-EXPORT_SYMBOL(ixp2000_uengine_start_contexts);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_start_contexts); */
 
 void ixp2000_uengine_stop_contexts(int uengine, u8 ctx_mask)
 {
@@ -247,7 +247,7 @@ void ixp2000_uengine_stop_contexts(int uengine, u8 ctx_mask)
 	mask &= ~(ctx_mask << 8);
 	ixp2000_uengine_csr_write(uengine, CTX_ENABLES, mask);
 }
-EXPORT_SYMBOL(ixp2000_uengine_stop_contexts);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_stop_contexts); */
 
 static int check_ixp_type(struct ixp2000_uengine_code *c)
 {
@@ -447,7 +447,7 @@ int ixp2000_uengine_load(int uengine, struct ixp2000_uengine_code *c)
 
 	return 0;
 }
-EXPORT_SYMBOL(ixp2000_uengine_load);
+/* DISABLED: EXPORT_SYMBOL(ixp2000_uengine_load); */
 
 
 static int __init ixp2000_uengine_init(void)

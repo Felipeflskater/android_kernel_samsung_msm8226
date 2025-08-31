@@ -233,7 +233,7 @@ int max77803_led_en(int onoff, int mode)
 
 	return ret;
 }
-EXPORT_SYMBOL(max77803_led_en);
+/* DISABLED: EXPORT_SYMBOL(max77803_led_en); */
 
 static void max77803_led_set(struct led_classdev *led_cdev,
 					enum led_brightness value)

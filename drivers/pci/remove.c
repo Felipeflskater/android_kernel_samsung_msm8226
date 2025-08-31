@@ -77,7 +77,7 @@ void pci_remove_bus(struct pci_bus *pci_bus)
 	pci_remove_legacy_files(pci_bus);
 	device_unregister(&pci_bus->dev);
 }
-EXPORT_SYMBOL(pci_remove_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_remove_bus); */
 
 static void __pci_remove_behind_bridge(struct pci_dev *dev);
 /**
@@ -104,7 +104,7 @@ void __pci_remove_bus_device(struct pci_dev *dev)
 
 	pci_destroy_dev(dev);
 }
-EXPORT_SYMBOL(__pci_remove_bus_device);
+/* DISABLED: EXPORT_SYMBOL(__pci_remove_bus_device); */
 
 void pci_stop_and_remove_bus_device(struct pci_dev *dev)
 {
@@ -179,6 +179,6 @@ void pci_stop_bus_device(struct pci_dev *dev)
 	pci_stop_dev(dev);
 }
 
-EXPORT_SYMBOL(pci_stop_and_remove_bus_device);
-EXPORT_SYMBOL(pci_stop_and_remove_behind_bridge);
-EXPORT_SYMBOL_GPL(pci_stop_bus_device);
+/* DISABLED: EXPORT_SYMBOL(pci_stop_and_remove_bus_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_stop_and_remove_behind_bridge); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_stop_bus_device); */

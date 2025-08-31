@@ -374,7 +374,7 @@ int nmk_config_pin(pin_cfg_t cfg, bool sleep)
 {
 	return __nmk_config_pins(&cfg, 1, sleep);
 }
-EXPORT_SYMBOL(nmk_config_pin);
+/* DISABLED: EXPORT_SYMBOL(nmk_config_pin); */
 
 /**
  * nmk_config_pins - configure several pins at once
@@ -388,13 +388,13 @@ int nmk_config_pins(pin_cfg_t *cfgs, int num)
 {
 	return __nmk_config_pins(cfgs, num, false);
 }
-EXPORT_SYMBOL(nmk_config_pins);
+/* DISABLED: EXPORT_SYMBOL(nmk_config_pins); */
 
 int nmk_config_pins_sleep(pin_cfg_t *cfgs, int num)
 {
 	return __nmk_config_pins(cfgs, num, true);
 }
-EXPORT_SYMBOL(nmk_config_pins_sleep);
+/* DISABLED: EXPORT_SYMBOL(nmk_config_pins_sleep); */
 
 /**
  * nmk_gpio_set_slpm() - configure the sleep mode of a pin
@@ -501,7 +501,7 @@ int nmk_gpio_set_mode(int gpio, int gpio_mode)
 
 	return 0;
 }
-EXPORT_SYMBOL(nmk_gpio_set_mode);
+/* DISABLED: EXPORT_SYMBOL(nmk_gpio_set_mode); */
 
 int nmk_gpio_get_mode(int gpio)
 {
@@ -523,7 +523,7 @@ int nmk_gpio_get_mode(int gpio)
 
 	return (afunc ? NMK_GPIO_ALT_A : 0) | (bfunc ? NMK_GPIO_ALT_B : 0);
 }
-EXPORT_SYMBOL(nmk_gpio_get_mode);
+/* DISABLED: EXPORT_SYMBOL(nmk_gpio_get_mode); */
 
 
 /* IRQ functions */

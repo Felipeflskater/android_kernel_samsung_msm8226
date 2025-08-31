@@ -50,7 +50,7 @@ static int __init get_mac_addr_from_cmdline(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("emac_addr=", get_mac_addr_from_cmdline); */
+/* DISABLED: __setup("emac_addr=", get_mac_addr_from_cmdline); */ */
 
 /*
  * Setup the MAC address for SoC ethernet devices.
@@ -87,4 +87,4 @@ int soc_mac_addr(unsigned int index, u8 *addr)
 	addr[5] += index * c6x_num_cores;
 	return 1;
 }
-EXPORT_SYMBOL_GPL(soc_mac_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(soc_mac_addr); */

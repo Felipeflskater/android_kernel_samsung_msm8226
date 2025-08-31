@@ -98,7 +98,7 @@ unsigned long vm_dirty_bytes;
  */
 unsigned int dirty_writeback_interval = 5 * 100; /* centiseconds */
 
-EXPORT_SYMBOL_GPL(dirty_writeback_interval);
+/* DISABLED: EXPORT_SYMBOL_GPL(dirty_writeback_interval); */
 
 /*
  * The longest time for which data is allowed to remain dirty
@@ -116,7 +116,7 @@ int block_dump;
  */
 int laptop_mode;
 
-EXPORT_SYMBOL(laptop_mode);
+/* DISABLED: EXPORT_SYMBOL(laptop_mode); */
 
 /* End of sysctl-exported parameters */
 
@@ -466,7 +466,7 @@ void bdi_writeout_inc(struct backing_dev_info *bdi)
 	__bdi_writeout_inc(bdi);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(bdi_writeout_inc);
+/* DISABLED: EXPORT_SYMBOL_GPL(bdi_writeout_inc); */
 
 /*
  * Obtain an accurate fraction of the BDI's portion.
@@ -524,7 +524,7 @@ int bdi_set_max_ratio(struct backing_dev_info *bdi, unsigned max_ratio)
 
 	return ret;
 }
-EXPORT_SYMBOL(bdi_set_max_ratio);
+/* DISABLED: EXPORT_SYMBOL(bdi_set_max_ratio); */
 
 static unsigned long dirty_freerun_ceiling(unsigned long thresh,
 					   unsigned long bg_thresh)
@@ -1501,7 +1501,7 @@ void balance_dirty_pages_ratelimited_nr(struct address_space *mapping,
 	if (unlikely(current->nr_dirtied >= ratelimit))
 		balance_dirty_pages(mapping, current->nr_dirtied);
 }
-EXPORT_SYMBOL(balance_dirty_pages_ratelimited_nr);
+/* DISABLED: EXPORT_SYMBOL(balance_dirty_pages_ratelimited_nr); */
 
 void throttle_vm_writeout(gfp_t gfp_mask)
 {
@@ -1684,7 +1684,7 @@ void tag_pages_for_writeback(struct address_space *mapping,
 		/* We check 'start' to handle wrapping when end == ~0UL */
 	} while (tagged >= WRITEBACK_TAG_BATCH && start);
 }
-EXPORT_SYMBOL(tag_pages_for_writeback);
+/* DISABLED: EXPORT_SYMBOL(tag_pages_for_writeback); */
 
 /**
  * write_cache_pages - walk the list of dirty pages of the given address space and write all of them.
@@ -1862,7 +1862,7 @@ continue_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL(write_cache_pages);
+/* DISABLED: EXPORT_SYMBOL(write_cache_pages); */
 
 /*
  * Function used by generic_writepages to call the real writepage
@@ -1901,7 +1901,7 @@ int generic_writepages(struct address_space *mapping,
 	return ret;
 }
 
-EXPORT_SYMBOL(generic_writepages);
+/* DISABLED: EXPORT_SYMBOL(generic_writepages); */
 
 int do_writepages(struct address_space *mapping, struct writeback_control *wbc)
 {
@@ -1953,7 +1953,7 @@ int write_one_page(struct page *page, int wait)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(write_one_page);
+/* DISABLED: EXPORT_SYMBOL(write_one_page); */
 
 /*
  * For address_spaces which do not use buffers nor write back.
@@ -1981,7 +1981,7 @@ void account_page_dirtied(struct page *page, struct address_space *mapping)
 		this_cpu_inc(bdp_ratelimits);
 	}
 }
-EXPORT_SYMBOL(account_page_dirtied);
+/* DISABLED: EXPORT_SYMBOL(account_page_dirtied); */
 
 /*
  * Helper function for set_page_writeback family.
@@ -1992,7 +1992,7 @@ void account_page_writeback(struct page *page)
 {
 	inc_zone_page_state(page, NR_WRITEBACK);
 }
-EXPORT_SYMBOL(account_page_writeback);
+/* DISABLED: EXPORT_SYMBOL(account_page_writeback); */
 
 /*
  * For address_spaces which do not use buffers.  Just tag the page as dirty in
@@ -2030,7 +2030,7 @@ int __set_page_dirty_nobuffers(struct page *page)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(__set_page_dirty_nobuffers);
+/* DISABLED: EXPORT_SYMBOL(__set_page_dirty_nobuffers); */
 
 /*
  * Call this whenever redirtying a page, to de-account the dirty counters
@@ -2048,7 +2048,7 @@ void account_page_redirty(struct page *page)
 		dec_bdi_stat(mapping->backing_dev_info, BDI_DIRTIED);
 	}
 }
-EXPORT_SYMBOL(account_page_redirty);
+/* DISABLED: EXPORT_SYMBOL(account_page_redirty); */
 
 /*
  * When a writepage implementation decides that it doesn't want to write this
@@ -2061,7 +2061,7 @@ int redirty_page_for_writepage(struct writeback_control *wbc, struct page *page)
 	account_page_redirty(page);
 	return __set_page_dirty_nobuffers(page);
 }
-EXPORT_SYMBOL(redirty_page_for_writepage);
+/* DISABLED: EXPORT_SYMBOL(redirty_page_for_writepage); */
 
 /*
  * Dirty a page.
@@ -2103,7 +2103,7 @@ int set_page_dirty(struct page *page)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(set_page_dirty);
+/* DISABLED: EXPORT_SYMBOL(set_page_dirty); */
 
 /*
  * set_page_dirty() is racy if the caller has no reference against
@@ -2124,7 +2124,7 @@ int set_page_dirty_lock(struct page *page)
 	unlock_page(page);
 	return ret;
 }
-EXPORT_SYMBOL(set_page_dirty_lock);
+/* DISABLED: EXPORT_SYMBOL(set_page_dirty_lock); */
 
 /*
  * Clear a page's dirty flag, while caring for dirty memory accounting.
@@ -2192,7 +2192,7 @@ int clear_page_dirty_for_io(struct page *page)
 	}
 	return TestClearPageDirty(page);
 }
-EXPORT_SYMBOL(clear_page_dirty_for_io);
+/* DISABLED: EXPORT_SYMBOL(clear_page_dirty_for_io); */
 
 int test_clear_page_writeback(struct page *page)
 {
@@ -2259,7 +2259,7 @@ int test_set_page_writeback(struct page *page)
 	return ret;
 
 }
-EXPORT_SYMBOL(test_set_page_writeback);
+/* DISABLED: EXPORT_SYMBOL(test_set_page_writeback); */
 
 /*
  * Return true if any of the pages in the mapping are marked with the
@@ -2269,4 +2269,4 @@ int mapping_tagged(struct address_space *mapping, int tag)
 {
 	return radix_tree_tagged(&mapping->page_tree, tag);
 }
-EXPORT_SYMBOL(mapping_tagged);
+/* DISABLED: EXPORT_SYMBOL(mapping_tagged); */

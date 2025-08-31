@@ -88,7 +88,7 @@ drm_dma_handle_t *drm_pci_alloc(struct drm_device * dev, size_t size, size_t ali
 	return dmah;
 }
 
-EXPORT_SYMBOL(drm_pci_alloc);
+/* DISABLED: EXPORT_SYMBOL(drm_pci_alloc); */
 
 /**
  * \brief Free a PCI consistent memory block without freeing its descriptor.
@@ -123,7 +123,7 @@ void drm_pci_free(struct drm_device * dev, drm_dma_handle_t * dmah)
 	kfree(dmah);
 }
 
-EXPORT_SYMBOL(drm_pci_free);
+/* DISABLED: EXPORT_SYMBOL(drm_pci_free); */
 
 #ifdef CONFIG_PCI
 
@@ -386,7 +386,7 @@ err_g1:
 	mutex_unlock(&drm_global_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(drm_get_pci_dev);
+/* DISABLED: EXPORT_SYMBOL(drm_get_pci_dev); */
 
 /**
  * PCI device initialization. Called direct from modules at load time.
@@ -448,7 +448,7 @@ int drm_pci_init(struct drm_driver *driver, struct pci_driver *pdriver)
 
 #endif
 
-EXPORT_SYMBOL(drm_pci_init);
+/* DISABLED: EXPORT_SYMBOL(drm_pci_init); */
 
 /*@}*/
 void drm_pci_exit(struct drm_driver *driver, struct pci_driver *pdriver)
@@ -464,4 +464,4 @@ void drm_pci_exit(struct drm_driver *driver, struct pci_driver *pdriver)
 	}
 	DRM_INFO("Module unloaded\n");
 }
-EXPORT_SYMBOL(drm_pci_exit);
+/* DISABLED: EXPORT_SYMBOL(drm_pci_exit); */

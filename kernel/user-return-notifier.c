@@ -16,7 +16,7 @@ void user_return_notifier_register(struct user_return_notifier *urn)
 	set_tsk_thread_flag(current, TIF_USER_RETURN_NOTIFY);
 	hlist_add_head(&urn->link, &__get_cpu_var(return_notifier_list));
 }
-EXPORT_SYMBOL_GPL(user_return_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_return_notifier_register); */
 
 /*
  * Removes a registered user return notifier.  Must be called from atomic
@@ -28,7 +28,7 @@ void user_return_notifier_unregister(struct user_return_notifier *urn)
 	if (hlist_empty(&__get_cpu_var(return_notifier_list)))
 		clear_tsk_thread_flag(current, TIF_USER_RETURN_NOTIFY);
 }
-EXPORT_SYMBOL_GPL(user_return_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_return_notifier_unregister); */
 
 /* Calls registered user return notifiers */
 void fire_user_return_notifiers(void)

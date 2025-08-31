@@ -17,7 +17,7 @@
 LIST_HEAD(fscache_cache_list);
 DECLARE_RWSEM(fscache_addremove_sem);
 DECLARE_WAIT_QUEUE_HEAD(fscache_cache_cleared_wq);
-EXPORT_SYMBOL(fscache_cache_cleared_wq);
+/* DISABLED: EXPORT_SYMBOL(fscache_cache_cleared_wq); */
 
 static LIST_HEAD(fscache_cache_tag_list);
 
@@ -201,7 +201,7 @@ void fscache_init_cache(struct fscache_cache *cache,
 	spin_lock_init(&cache->object_list_lock);
 	spin_lock_init(&cache->op_gc_list_lock);
 }
-EXPORT_SYMBOL(fscache_init_cache);
+/* DISABLED: EXPORT_SYMBOL(fscache_init_cache); */
 
 /**
  * fscache_add_cache - Declare a cache as being open for business
@@ -300,7 +300,7 @@ nomem:
 	_leave(" = -ENOMEM");
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(fscache_add_cache);
+/* DISABLED: EXPORT_SYMBOL(fscache_add_cache); */
 
 /**
  * fscache_io_error - Note a cache I/O error
@@ -319,7 +319,7 @@ void fscache_io_error(struct fscache_cache *cache)
 	printk(KERN_ERR "FS-Cache: Cache %s stopped due to I/O error\n",
 	       cache->ops->name);
 }
-EXPORT_SYMBOL(fscache_io_error);
+/* DISABLED: EXPORT_SYMBOL(fscache_io_error); */
 
 /*
  * request withdrawal of all the objects in a cache
@@ -417,4 +417,4 @@ void fscache_withdraw_cache(struct fscache_cache *cache)
 
 	_leave("");
 }
-EXPORT_SYMBOL(fscache_withdraw_cache);
+/* DISABLED: EXPORT_SYMBOL(fscache_withdraw_cache); */

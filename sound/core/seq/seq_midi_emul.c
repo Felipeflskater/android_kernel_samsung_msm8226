@@ -734,7 +734,7 @@ static void __exit alsa_seq_midi_emul_exit(void)
 module_init(alsa_seq_midi_emul_init)
 module_exit(alsa_seq_midi_emul_exit)
 
-EXPORT_SYMBOL(snd_midi_process_event);
-EXPORT_SYMBOL(snd_midi_channel_set_clear);
-EXPORT_SYMBOL(snd_midi_channel_alloc_set);
-EXPORT_SYMBOL(snd_midi_channel_free_set);
+/* DISABLED: EXPORT_SYMBOL(snd_midi_process_event); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_channel_set_clear); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_channel_alloc_set); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_channel_free_set); */

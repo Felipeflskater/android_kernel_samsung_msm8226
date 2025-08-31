@@ -255,13 +255,13 @@ void KBacktraceIterator_init(struct KBacktraceIterator *kbt,
 	backtrace_init(&kbt->it, read_memory_func, kbt, pc, lr, sp, r52);
 	kbt->end = KBacktraceIterator_next_item_inclusive(kbt);
 }
-EXPORT_SYMBOL(KBacktraceIterator_init);
+/* DISABLED: EXPORT_SYMBOL(KBacktraceIterator_init); */
 
 int KBacktraceIterator_end(struct KBacktraceIterator *kbt)
 {
 	return kbt->end != KBT_ONGOING;
 }
-EXPORT_SYMBOL(KBacktraceIterator_end);
+/* DISABLED: EXPORT_SYMBOL(KBacktraceIterator_end); */
 
 void KBacktraceIterator_next(struct KBacktraceIterator *kbt)
 {
@@ -277,7 +277,7 @@ void KBacktraceIterator_next(struct KBacktraceIterator *kbt)
 		kbt->end = KBT_LOOP;
 	}
 }
-EXPORT_SYMBOL(KBacktraceIterator_next);
+/* DISABLED: EXPORT_SYMBOL(KBacktraceIterator_next); */
 
 static void describe_addr(struct KBacktraceIterator *kbt,
 			  unsigned long address,
@@ -403,7 +403,7 @@ void tile_show_stack(struct KBacktraceIterator *kbt, int headers)
 	if (have_mmap_sem)
 		up_read(&kbt->task->mm->mmap_sem);
 }
-EXPORT_SYMBOL(tile_show_stack);
+/* DISABLED: EXPORT_SYMBOL(tile_show_stack); */
 
 
 /* This is called from show_regs() and _dump_stack() */
@@ -413,7 +413,7 @@ void dump_stack_regs(struct pt_regs *regs)
 	KBacktraceIterator_init(&kbt, NULL, regs);
 	tile_show_stack(&kbt, 1);
 }
-EXPORT_SYMBOL(dump_stack_regs);
+/* DISABLED: EXPORT_SYMBOL(dump_stack_regs); */
 
 static struct pt_regs *regs_to_pt_regs(struct pt_regs *regs,
 				       ulong pc, ulong lr, ulong sp, ulong r52)
@@ -478,7 +478,7 @@ void save_stack_trace_tsk(struct task_struct *task, struct stack_trace *trace)
 	}
 	trace->nr_entries = i;
 }
-EXPORT_SYMBOL(save_stack_trace_tsk);
+/* DISABLED: EXPORT_SYMBOL(save_stack_trace_tsk); */
 
 void save_stack_trace(struct stack_trace *trace)
 {
@@ -488,4 +488,4 @@ void save_stack_trace(struct stack_trace *trace)
 #endif
 
 /* In entry.S */
-EXPORT_SYMBOL(KBacktraceIterator_init_current);
+/* DISABLED: EXPORT_SYMBOL(KBacktraceIterator_init_current); */

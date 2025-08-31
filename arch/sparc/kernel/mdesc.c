@@ -198,7 +198,7 @@ struct mdesc_handle *mdesc_grab(void)
 
 	return hp;
 }
-EXPORT_SYMBOL(mdesc_grab);
+/* DISABLED: EXPORT_SYMBOL(mdesc_grab); */
 
 void mdesc_release(struct mdesc_handle *hp)
 {
@@ -211,7 +211,7 @@ void mdesc_release(struct mdesc_handle *hp)
 	}
 	spin_unlock_irqrestore(&mdesc_lock, flags);
 }
-EXPORT_SYMBOL(mdesc_release);
+/* DISABLED: EXPORT_SYMBOL(mdesc_release); */
 
 static DEFINE_MUTEX(mdesc_mutex);
 static struct mdesc_notifier_client *client_list;
@@ -409,7 +409,7 @@ u64 mdesc_node_by_name(struct mdesc_handle *hp,
 		ret = MDESC_NODE_NULL;
 	return ret;
 }
-EXPORT_SYMBOL(mdesc_node_by_name);
+/* DISABLED: EXPORT_SYMBOL(mdesc_node_by_name); */
 
 const void *mdesc_get_property(struct mdesc_handle *hp, u64 node,
 			       const char *name, int *lenp)
@@ -455,7 +455,7 @@ const void *mdesc_get_property(struct mdesc_handle *hp, u64 node,
 
 	return NULL;
 }
-EXPORT_SYMBOL(mdesc_get_property);
+/* DISABLED: EXPORT_SYMBOL(mdesc_get_property); */
 
 u64 mdesc_next_arc(struct mdesc_handle *hp, u64 from, const char *arc_type)
 {
@@ -481,7 +481,7 @@ u64 mdesc_next_arc(struct mdesc_handle *hp, u64 from, const char *arc_type)
 
 	return MDESC_NODE_NULL;
 }
-EXPORT_SYMBOL(mdesc_next_arc);
+/* DISABLED: EXPORT_SYMBOL(mdesc_next_arc); */
 
 u64 mdesc_arc_target(struct mdesc_handle *hp, u64 arc)
 {
@@ -491,7 +491,7 @@ u64 mdesc_arc_target(struct mdesc_handle *hp, u64 arc)
 
 	return ep->d.val;
 }
-EXPORT_SYMBOL(mdesc_arc_target);
+/* DISABLED: EXPORT_SYMBOL(mdesc_arc_target); */
 
 const char *mdesc_node_name(struct mdesc_handle *hp, u64 node)
 {
@@ -508,7 +508,7 @@ const char *mdesc_node_name(struct mdesc_handle *hp, u64 node)
 
 	return names + ep->name_offset;
 }
-EXPORT_SYMBOL(mdesc_node_name);
+/* DISABLED: EXPORT_SYMBOL(mdesc_node_name); */
 
 static u64 max_cpus = 64;
 

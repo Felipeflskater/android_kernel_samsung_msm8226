@@ -54,7 +54,7 @@ unsigned long get_clock_tick_rate(void)
 
 	return clock_tick_rate;
 }
-EXPORT_SYMBOL(get_clock_tick_rate);
+/* DISABLED: EXPORT_SYMBOL(get_clock_tick_rate); */
 
 /*
  * Get the clock frequency as reflected by CCCR and the turbo flag.
@@ -69,7 +69,7 @@ unsigned int get_clk_frequency_khz(int info)
 		return pxa27x_get_clk_frequency_khz(info);
 	return 0;
 }
-EXPORT_SYMBOL(get_clk_frequency_khz);
+/* DISABLED: EXPORT_SYMBOL(get_clk_frequency_khz); */
 
 /*
  * Intel PXA2xx internal register mapping.

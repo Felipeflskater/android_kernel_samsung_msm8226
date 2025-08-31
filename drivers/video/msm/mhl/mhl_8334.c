@@ -262,7 +262,7 @@ int mhl_device_discovery(const char *name, int *result)
 
 	return 0;
 }
-EXPORT_SYMBOL(mhl_device_discovery);
+/* DISABLED: EXPORT_SYMBOL(mhl_device_discovery); */
 
 int mhl_register_callback(const char *name, void (*callback)(int online))
 {
@@ -273,7 +273,7 @@ int mhl_register_callback(const char *name, void (*callback)(int online))
 		notify_usb_online = callback;
 	return 0;
 }
-EXPORT_SYMBOL(mhl_register_callback);
+/* DISABLED: EXPORT_SYMBOL(mhl_register_callback); */
 
 int mhl_unregister_callback(const char *name)
 {
@@ -282,7 +282,7 @@ int mhl_unregister_callback(const char *name)
 		notify_usb_online = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(mhl_unregister_callback);
+/* DISABLED: EXPORT_SYMBOL(mhl_unregister_callback); */
 
 
 static void cbus_reset(void)

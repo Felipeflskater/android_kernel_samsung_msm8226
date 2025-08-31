@@ -597,13 +597,13 @@ int omap_lcdc_set_dma_callback(void (*callback)(void *data), void *data)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(omap_lcdc_set_dma_callback);
+/* DISABLED: EXPORT_SYMBOL(omap_lcdc_set_dma_callback); */
 
 void omap_lcdc_free_dma_callback(void)
 {
 	lcdc.dma_callback = NULL;
 }
-EXPORT_SYMBOL(omap_lcdc_free_dma_callback);
+/* DISABLED: EXPORT_SYMBOL(omap_lcdc_free_dma_callback); */
 
 static void lcdc_dma_handler(u16 status, void *data)
 {

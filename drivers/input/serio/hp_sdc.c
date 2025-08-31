@@ -92,17 +92,17 @@ MODULE_AUTHOR("Brian S. Julin <bri@calyx.com>");
 MODULE_DESCRIPTION("HP i8042-based SDC Driver");
 MODULE_LICENSE("Dual BSD/GPL");
 
-EXPORT_SYMBOL(hp_sdc_request_timer_irq);
-EXPORT_SYMBOL(hp_sdc_request_hil_irq);
-EXPORT_SYMBOL(hp_sdc_request_cooked_irq);
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_request_timer_irq); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_request_hil_irq); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_request_cooked_irq); */
 
-EXPORT_SYMBOL(hp_sdc_release_timer_irq);
-EXPORT_SYMBOL(hp_sdc_release_hil_irq);
-EXPORT_SYMBOL(hp_sdc_release_cooked_irq);
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_release_timer_irq); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_release_hil_irq); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_release_cooked_irq); */
 
-EXPORT_SYMBOL(__hp_sdc_enqueue_transaction);
-EXPORT_SYMBOL(hp_sdc_enqueue_transaction);
-EXPORT_SYMBOL(hp_sdc_dequeue_transaction);
+/* DISABLED: EXPORT_SYMBOL(__hp_sdc_enqueue_transaction); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_enqueue_transaction); */
+/* DISABLED: EXPORT_SYMBOL(hp_sdc_dequeue_transaction); */
 
 static bool hp_sdc_disabled;
 module_param_named(no_hpsdc, hp_sdc_disabled, bool, 0);

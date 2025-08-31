@@ -2574,18 +2574,18 @@ static int pmu_syscore_register(void)
 subsys_initcall(pmu_syscore_register);
 #endif /* CONFIG_SUSPEND && CONFIG_PPC32 */
 
-EXPORT_SYMBOL(pmu_request);
-EXPORT_SYMBOL(pmu_queue_request);
-EXPORT_SYMBOL(pmu_poll);
-EXPORT_SYMBOL(pmu_poll_adb);
-EXPORT_SYMBOL(pmu_wait_complete);
-EXPORT_SYMBOL(pmu_suspend);
-EXPORT_SYMBOL(pmu_resume);
-EXPORT_SYMBOL(pmu_unlock);
+/* DISABLED: EXPORT_SYMBOL(pmu_request); */
+/* DISABLED: EXPORT_SYMBOL(pmu_queue_request); */
+/* DISABLED: EXPORT_SYMBOL(pmu_poll); */
+/* DISABLED: EXPORT_SYMBOL(pmu_poll_adb); */
+/* DISABLED: EXPORT_SYMBOL(pmu_wait_complete); */
+/* DISABLED: EXPORT_SYMBOL(pmu_suspend); */
+/* DISABLED: EXPORT_SYMBOL(pmu_resume); */
+/* DISABLED: EXPORT_SYMBOL(pmu_unlock); */
 #if defined(CONFIG_PPC32)
-EXPORT_SYMBOL(pmu_enable_irled);
-EXPORT_SYMBOL(pmu_battery_count);
-EXPORT_SYMBOL(pmu_batteries);
-EXPORT_SYMBOL(pmu_power_flags);
+/* DISABLED: EXPORT_SYMBOL(pmu_enable_irled); */
+/* DISABLED: EXPORT_SYMBOL(pmu_battery_count); */
+/* DISABLED: EXPORT_SYMBOL(pmu_batteries); */
+/* DISABLED: EXPORT_SYMBOL(pmu_power_flags); */
 #endif /* CONFIG_SUSPEND && CONFIG_PPC32 */
 

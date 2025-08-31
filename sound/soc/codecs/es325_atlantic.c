@@ -990,7 +990,7 @@ int es325_remote_cfg_slim_rx(int dai_id)
 	dev_dbg(&sbdev->dev, "%s():rc = %d\n", __func__, rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_remote_cfg_slim_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_cfg_slim_rx); */
 
 int es325_remote_cfg_slim_tx(int dai_id)
 {
@@ -1054,7 +1054,7 @@ int es325_remote_cfg_slim_tx(int dai_id)
 	dev_dbg(&sbdev->dev, "%s():rc = %d\n", __func__, rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_remote_cfg_slim_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_cfg_slim_tx); */
 
 int es325_remote_close_slim_rx(int dai_id)
 {
@@ -1096,7 +1096,7 @@ int es325_remote_close_slim_rx(int dai_id)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_remote_close_slim_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_close_slim_rx); */
 
 int es325_remote_close_slim_tx(int dai_id)
 {
@@ -1138,7 +1138,7 @@ int es325_remote_close_slim_tx(int dai_id)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_remote_close_slim_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_close_slim_tx); */
 
 static void es325_init_slim_slave(struct slim_device *sbdev)
 {
@@ -2720,7 +2720,7 @@ int es325_remote_route_enable(struct snd_soc_dai *dai)
 		return 0;
 	}
 }
-EXPORT_SYMBOL_GPL(es325_remote_route_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_route_enable); */
 
 static int es325_put_internal_route_config(struct snd_kcontrol *kcontrol,
 					   struct snd_ctl_elem_value *ucontrol)
@@ -2877,7 +2877,7 @@ int es325_set_VEQ_max_gain(int volume)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(es325_set_VEQ_max_gain);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_set_VEQ_max_gain); */
 
 static int es325_ap_put_tx1_ch_cnt(struct snd_kcontrol *kcontrol,
 				   struct snd_ctl_elem_value *ucontrol)
@@ -3262,7 +3262,7 @@ int es325_slim_set_channel_map(struct snd_soc_dai *dai, unsigned int tx_num,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_slim_set_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_slim_set_channel_map); */
 
 int es325_slim_get_channel_map(struct snd_soc_dai *dai,
 			       unsigned int *tx_num, unsigned int *tx_slot,
@@ -3323,7 +3323,7 @@ int es325_slim_get_channel_map(struct snd_soc_dai *dai,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_slim_get_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_slim_get_channel_map); */
 
 static int es325_slim_set_tristate(struct snd_soc_dai *dai, int tristate)
 {
@@ -3407,7 +3407,7 @@ int es325_slim_hw_params(struct snd_pcm_substream *substream,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_slim_hw_params);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_slim_hw_params); */
 
 static int es325_slim_hw_free(struct snd_pcm_substream *substream, struct snd_soc_dai *dai)
 {
@@ -3441,7 +3441,7 @@ int es325_slim_trigger(struct snd_pcm_substream *substream,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_slim_trigger);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_slim_trigger); */
 
 #define ES325_RATES (SNDRV_PCM_RATE_8000 | SNDRV_PCM_RATE_11025 |\
 			SNDRV_PCM_RATE_16000 | SNDRV_PCM_RATE_22050 |\
@@ -3985,7 +3985,7 @@ void es325_wrapper_wakeup(struct snd_soc_dai *dai)
 	dev_info(&sbdev->dev, "%s()\n", __func__);
 #endif
 }
-EXPORT_SYMBOL_GPL(es325_wrapper_wakeup);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_wrapper_wakeup); */
 
 #ifdef ES325_SLEEP
  void es325_wrapper_sleep_internal(struct work_struct *dummy)
@@ -4048,7 +4048,7 @@ void es325_wrapper_sleep(int dai_id)
 	mutex_unlock(&es325_priv.pm_mutex);
 #endif
 }
-EXPORT_SYMBOL_GPL(es325_wrapper_sleep);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_wrapper_sleep); */
 
 static int es325_slim_device_up(struct slim_device *sbdev)
 {

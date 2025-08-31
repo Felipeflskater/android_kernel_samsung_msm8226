@@ -96,7 +96,7 @@ struct dvb_adapter *mpq_adapter_get(void)
 {
 	return &mpq_info.adapter;
 }
-EXPORT_SYMBOL(mpq_adapter_get);
+/* DISABLED: EXPORT_SYMBOL(mpq_adapter_get); */
 
 
 int mpq_adapter_register_stream_if(
@@ -141,7 +141,7 @@ register_failed_unlock_mutex:
 register_failed:
 	return ret;
 }
-EXPORT_SYMBOL(mpq_adapter_register_stream_if);
+/* DISABLED: EXPORT_SYMBOL(mpq_adapter_register_stream_if); */
 
 
 int mpq_adapter_unregister_stream_if(
@@ -160,7 +160,7 @@ int mpq_adapter_unregister_stream_if(
 
 	return 0;
 }
-EXPORT_SYMBOL(mpq_adapter_unregister_stream_if);
+/* DISABLED: EXPORT_SYMBOL(mpq_adapter_unregister_stream_if); */
 
 
 int mpq_adapter_get_stream_if(
@@ -180,7 +180,7 @@ int mpq_adapter_get_stream_if(
 
 	return 0;
 }
-EXPORT_SYMBOL(mpq_adapter_get_stream_if);
+/* DISABLED: EXPORT_SYMBOL(mpq_adapter_get_stream_if); */
 
 
 int mpq_adapter_notify_stream_if(
@@ -201,7 +201,7 @@ int mpq_adapter_notify_stream_if(
 
 	return 0;
 }
-EXPORT_SYMBOL(mpq_adapter_notify_stream_if);
+/* DISABLED: EXPORT_SYMBOL(mpq_adapter_notify_stream_if); */
 
 
 module_init(mpq_adapter_init);

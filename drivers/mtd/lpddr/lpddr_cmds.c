@@ -108,7 +108,7 @@ struct mtd_info *lpddr_cmdset(struct map_info *map)
 
 	return mtd;
 }
-EXPORT_SYMBOL(lpddr_cmdset);
+/* DISABLED: EXPORT_SYMBOL(lpddr_cmdset); */
 
 static int wait_for_ready(struct map_info *map, struct flchip *chip,
 		unsigned int chip_op_time)

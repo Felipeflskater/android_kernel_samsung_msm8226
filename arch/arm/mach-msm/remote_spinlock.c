@@ -681,7 +681,7 @@ void _remote_spin_lock(_remote_spinlock_t *lock)
 		BUG();
 	current_ops.lock((raw_remote_spinlock_t *)(*lock));
 }
-EXPORT_SYMBOL(_remote_spin_lock);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_lock); */
 
 void _remote_spin_unlock(_remote_spinlock_t *lock)
 {
@@ -689,7 +689,7 @@ void _remote_spin_unlock(_remote_spinlock_t *lock)
 		BUG();
 	current_ops.unlock((raw_remote_spinlock_t *)(*lock));
 }
-EXPORT_SYMBOL(_remote_spin_unlock);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_unlock); */
 
 int _remote_spin_trylock(_remote_spinlock_t *lock)
 {
@@ -697,7 +697,7 @@ int _remote_spin_trylock(_remote_spinlock_t *lock)
 		BUG();
 	return current_ops.trylock((raw_remote_spinlock_t *)(*lock));
 }
-EXPORT_SYMBOL(_remote_spin_trylock);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_trylock); */
 
 int _remote_spin_release(_remote_spinlock_t *lock, uint32_t pid)
 {
@@ -705,7 +705,7 @@ int _remote_spin_release(_remote_spinlock_t *lock, uint32_t pid)
 		BUG();
 	return current_ops.release((raw_remote_spinlock_t *)(*lock), pid);
 }
-EXPORT_SYMBOL(_remote_spin_release);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_release); */
 
 int _remote_spin_owner(_remote_spinlock_t *lock)
 {
@@ -713,7 +713,7 @@ int _remote_spin_owner(_remote_spinlock_t *lock)
 		BUG();
 	return current_ops.owner((raw_remote_spinlock_t *)(*lock));
 }
-EXPORT_SYMBOL(_remote_spin_owner);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_owner); */
 
 void _remote_spin_lock_rlock_id(_remote_spinlock_t *lock, uint32_t tid)
 {
@@ -721,7 +721,7 @@ void _remote_spin_lock_rlock_id(_remote_spinlock_t *lock, uint32_t tid)
 		BUG();
 	current_ops.lock_rlock_id((raw_remote_spinlock_t *)(*lock), tid);
 }
-EXPORT_SYMBOL(_remote_spin_lock_rlock_id);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_lock_rlock_id); */
 
 void _remote_spin_unlock_rlock(_remote_spinlock_t *lock)
 {
@@ -729,7 +729,7 @@ void _remote_spin_unlock_rlock(_remote_spinlock_t *lock)
 		BUG();
 	current_ops.unlock_rlock((raw_remote_spinlock_t *)(*lock));
 }
-EXPORT_SYMBOL(_remote_spin_unlock_rlock);
+/* DISABLED: EXPORT_SYMBOL(_remote_spin_unlock_rlock); */
 
 /* end common spinlock API -------------------------------------------------- */
 
@@ -741,7 +741,7 @@ int _remote_mutex_init(struct remote_mutex_id *id, _remote_mutex_t *lock)
 	lock->delay_us = id->delay_us;
 	return _remote_spin_lock_init(id->r_spinlock_id, &(lock->r_spinlock));
 }
-EXPORT_SYMBOL(_remote_mutex_init);
+/* DISABLED: EXPORT_SYMBOL(_remote_mutex_init); */
 
 void _remote_mutex_lock(_remote_mutex_t *lock)
 {
@@ -752,17 +752,17 @@ void _remote_mutex_lock(_remote_mutex_t *lock)
 			udelay(lock->delay_us);
 	}
 }
-EXPORT_SYMBOL(_remote_mutex_lock);
+/* DISABLED: EXPORT_SYMBOL(_remote_mutex_lock); */
 
 void _remote_mutex_unlock(_remote_mutex_t *lock)
 {
 	_remote_spin_unlock(&(lock->r_spinlock));
 }
-EXPORT_SYMBOL(_remote_mutex_unlock);
+/* DISABLED: EXPORT_SYMBOL(_remote_mutex_unlock); */
 
 int _remote_mutex_trylock(_remote_mutex_t *lock)
 {
 	return _remote_spin_trylock(&(lock->r_spinlock));
 }
-EXPORT_SYMBOL(_remote_mutex_trylock);
+/* DISABLED: EXPORT_SYMBOL(_remote_mutex_trylock); */
 /* end remote mutex implementation ------------------------------------------ */

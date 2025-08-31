@@ -449,7 +449,7 @@ int ceph_pg_poolid_by_name(struct ceph_osdmap *map, const char *name)
 	}
 	return -ENOENT;
 }
-EXPORT_SYMBOL(ceph_pg_poolid_by_name);
+/* DISABLED: EXPORT_SYMBOL(ceph_pg_poolid_by_name); */
 
 static void __remove_pg_pool(struct rb_root *root, struct ceph_pg_pool_info *pi)
 {
@@ -1022,7 +1022,7 @@ invalid:
 	*oxlen = 0;
 	return -EINVAL;
 }
-EXPORT_SYMBOL(ceph_calc_file_object_mapping);
+/* DISABLED: EXPORT_SYMBOL(ceph_calc_file_object_mapping); */
 
 /*
  * calculate an object layout (i.e. pgid) from an oid,
@@ -1068,7 +1068,7 @@ int ceph_calc_object_layout(struct ceph_object_layout *ol,
 	ol->ol_stripe_unit = fl->fl_object_stripe_unit;
 	return 0;
 }
-EXPORT_SYMBOL(ceph_calc_object_layout);
+/* DISABLED: EXPORT_SYMBOL(ceph_calc_object_layout); */
 
 /*
  * Calculate raw osd vector for the given pgid.  Return pointer to osd
@@ -1174,4 +1174,4 @@ int ceph_calc_pg_primary(struct ceph_osdmap *osdmap, struct ceph_pg pgid)
 			return osds[i];
 	return -1;
 }
-EXPORT_SYMBOL(ceph_calc_pg_primary);
+/* DISABLED: EXPORT_SYMBOL(ceph_calc_pg_primary); */

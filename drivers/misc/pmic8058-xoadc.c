@@ -87,7 +87,7 @@ int32_t pm8058_xoadc_registered(void)
 {
 	return xoadc_initialized;
 }
-EXPORT_SYMBOL(pm8058_xoadc_registered);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_registered); */
 
 void pm8058_xoadc_restore_slot(uint32_t adc_instance,
 					struct adc_conv_slot *slot)
@@ -99,7 +99,7 @@ void pm8058_xoadc_restore_slot(uint32_t adc_instance,
 	list_add(&slot->list, &slot_state->slots);
 	mutex_unlock(&slot_state->list_lock);
 }
-EXPORT_SYMBOL(pm8058_xoadc_restore_slot);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_restore_slot); */
 
 void pm8058_xoadc_slot_request(uint32_t adc_instance,
 					struct adc_conv_slot **slot)
@@ -118,7 +118,7 @@ void pm8058_xoadc_slot_request(uint32_t adc_instance,
 
 	mutex_unlock(&slot_state->list_lock);
 }
-EXPORT_SYMBOL(pm8058_xoadc_slot_request);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_slot_request); */
 
 static int32_t pm8058_xoadc_arb_cntrl(uint32_t arb_cntrl,
 				uint32_t adc_instance, uint32_t channel)
@@ -395,7 +395,7 @@ int32_t pm8058_xoadc_select_chan_and_start_conv(uint32_t adc_instance,
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_xoadc_select_chan_and_start_conv);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_select_chan_and_start_conv); */
 
 static int32_t pm8058_xoadc_dequeue_slot_request(uint32_t adc_instance,
 				struct adc_conv_slot **slot)
@@ -486,7 +486,7 @@ int32_t pm8058_xoadc_read_adc_code(uint32_t adc_instance, int32_t *data)
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_xoadc_read_adc_code);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_read_adc_code); */
 
 static irqreturn_t pm8058_xoadc(int irq, void *dev_id)
 {
@@ -516,7 +516,7 @@ struct adc_properties *pm8058_xoadc_get_properties(uint32_t dev_instance)
 
 	return xoadc_8058->adc_prop;
 }
-EXPORT_SYMBOL(pm8058_xoadc_get_properties);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_get_properties); */
 
 int32_t pm8058_xoadc_calib_device(uint32_t adc_instance)
 {
@@ -608,7 +608,7 @@ fail:
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_xoadc_calib_device);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_calib_device); */
 
 int32_t pm8058_xoadc_calibrate(uint32_t dev_instance,
 				struct adc_conv_slot *slot, int *calib_status)
@@ -617,7 +617,7 @@ int32_t pm8058_xoadc_calibrate(uint32_t dev_instance,
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_xoadc_calibrate);
+/* DISABLED: EXPORT_SYMBOL(pm8058_xoadc_calibrate); */
 
 #ifdef CONFIG_PM
 static int pm8058_xoadc_suspend_noirq(struct device *dev)

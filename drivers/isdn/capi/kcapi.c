@@ -300,13 +300,13 @@ int register_capictr_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&ctr_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(register_capictr_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_capictr_notifier); */
 
 int unregister_capictr_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&ctr_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_capictr_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_capictr_notifier); */
 
 /* -------- Receiver ------------------------------------------ */
 
@@ -418,7 +418,7 @@ error:
 	kfree_skb(skb);
 }
 
-EXPORT_SYMBOL(capi_ctr_handle_message);
+/* DISABLED: EXPORT_SYMBOL(capi_ctr_handle_message); */
 
 /**
  * capi_ctr_ready() - signal CAPI controller ready
@@ -435,7 +435,7 @@ void capi_ctr_ready(struct capi_ctr *ctr)
 	notify_push(CAPICTR_UP, ctr->cnr);
 }
 
-EXPORT_SYMBOL(capi_ctr_ready);
+/* DISABLED: EXPORT_SYMBOL(capi_ctr_ready); */
 
 /**
  * capi_ctr_down() - signal CAPI controller not ready
@@ -452,7 +452,7 @@ void capi_ctr_down(struct capi_ctr *ctr)
 	notify_push(CAPICTR_DOWN, ctr->cnr);
 }
 
-EXPORT_SYMBOL(capi_ctr_down);
+/* DISABLED: EXPORT_SYMBOL(capi_ctr_down); */
 
 /**
  * capi_ctr_suspend_output() - suspend controller
@@ -473,7 +473,7 @@ void capi_ctr_suspend_output(struct capi_ctr *ctr)
 	}
 }
 
-EXPORT_SYMBOL(capi_ctr_suspend_output);
+/* DISABLED: EXPORT_SYMBOL(capi_ctr_suspend_output); */
 
 /**
  * capi_ctr_resume_output() - resume controller
@@ -494,7 +494,7 @@ void capi_ctr_resume_output(struct capi_ctr *ctr)
 	}
 }
 
-EXPORT_SYMBOL(capi_ctr_resume_output);
+/* DISABLED: EXPORT_SYMBOL(capi_ctr_resume_output); */
 
 /* ------------------------------------------------------------- */
 
@@ -545,7 +545,7 @@ int attach_capi_ctr(struct capi_ctr *ctr)
 	return 0;
 }
 
-EXPORT_SYMBOL(attach_capi_ctr);
+/* DISABLED: EXPORT_SYMBOL(attach_capi_ctr); */
 
 /**
  * detach_capi_ctr() - unregister CAPI controller
@@ -583,7 +583,7 @@ unlock_out:
 	return err;
 }
 
-EXPORT_SYMBOL(detach_capi_ctr);
+/* DISABLED: EXPORT_SYMBOL(detach_capi_ctr); */
 
 /**
  * register_capi_driver() - register CAPI driver
@@ -599,7 +599,7 @@ void register_capi_driver(struct capi_driver *driver)
 	mutex_unlock(&capi_drivers_lock);
 }
 
-EXPORT_SYMBOL(register_capi_driver);
+/* DISABLED: EXPORT_SYMBOL(register_capi_driver); */
 
 /**
  * unregister_capi_driver() - unregister CAPI driver
@@ -615,7 +615,7 @@ void unregister_capi_driver(struct capi_driver *driver)
 	mutex_unlock(&capi_drivers_lock);
 }
 
-EXPORT_SYMBOL(unregister_capi_driver);
+/* DISABLED: EXPORT_SYMBOL(unregister_capi_driver); */
 
 /* ------------------------------------------------------------- */
 /* -------- CAPI2.0 Interface ---------------------------------- */
@@ -647,7 +647,7 @@ u16 capi20_isinstalled(void)
 	return ret;
 }
 
-EXPORT_SYMBOL(capi20_isinstalled);
+/* DISABLED: EXPORT_SYMBOL(capi20_isinstalled); */
 
 /**
  * capi20_register() - CAPI 2.0 operation CAPI_REGISTER
@@ -710,7 +710,7 @@ u16 capi20_register(struct capi20_appl *ap)
 	return CAPI_NOERROR;
 }
 
-EXPORT_SYMBOL(capi20_register);
+/* DISABLED: EXPORT_SYMBOL(capi20_register); */
 
 /**
  * capi20_release() - CAPI 2.0 operation CAPI_RELEASE
@@ -754,7 +754,7 @@ u16 capi20_release(struct capi20_appl *ap)
 	return CAPI_NOERROR;
 }
 
-EXPORT_SYMBOL(capi20_release);
+/* DISABLED: EXPORT_SYMBOL(capi20_release); */
 
 /**
  * capi20_put_message() - CAPI 2.0 operation CAPI_PUT_MESSAGE
@@ -833,7 +833,7 @@ u16 capi20_put_message(struct capi20_appl *ap, struct sk_buff *skb)
 	return ctr->send_message(ctr, skb);
 }
 
-EXPORT_SYMBOL(capi20_put_message);
+/* DISABLED: EXPORT_SYMBOL(capi20_put_message); */
 
 /**
  * capi20_get_manufacturer() - CAPI 2.0 operation CAPI_GET_MANUFACTURER
@@ -868,7 +868,7 @@ u16 capi20_get_manufacturer(u32 contr, u8 *buf)
 	return ret;
 }
 
-EXPORT_SYMBOL(capi20_get_manufacturer);
+/* DISABLED: EXPORT_SYMBOL(capi20_get_manufacturer); */
 
 /**
  * capi20_get_version() - CAPI 2.0 operation CAPI_GET_VERSION
@@ -903,7 +903,7 @@ u16 capi20_get_version(u32 contr, struct capi_version *verp)
 	return ret;
 }
 
-EXPORT_SYMBOL(capi20_get_version);
+/* DISABLED: EXPORT_SYMBOL(capi20_get_version); */
 
 /**
  * capi20_get_serial() - CAPI 2.0 operation CAPI_GET_SERIAL_NUMBER
@@ -938,7 +938,7 @@ u16 capi20_get_serial(u32 contr, u8 *serial)
 	return ret;
 }
 
-EXPORT_SYMBOL(capi20_get_serial);
+/* DISABLED: EXPORT_SYMBOL(capi20_get_serial); */
 
 /**
  * capi20_get_profile() - CAPI 2.0 operation CAPI_GET_PROFILE
@@ -973,7 +973,7 @@ u16 capi20_get_profile(u32 contr, struct capi_profile *profp)
 	return ret;
 }
 
-EXPORT_SYMBOL(capi20_get_profile);
+/* DISABLED: EXPORT_SYMBOL(capi20_get_profile); */
 
 /* Must be called with capi_controller_lock held. */
 static int wait_on_ctr_state(struct capi_ctr *ctr, unsigned int state)
@@ -1267,7 +1267,7 @@ int capi20_manufacturer(unsigned int cmd, void __user *data)
 	return -EINVAL;
 }
 
-EXPORT_SYMBOL(capi20_manufacturer);
+/* DISABLED: EXPORT_SYMBOL(capi20_manufacturer); */
 
 /* ------------------------------------------------------------- */
 /* -------- Init & Cleanup ------------------------------------- */

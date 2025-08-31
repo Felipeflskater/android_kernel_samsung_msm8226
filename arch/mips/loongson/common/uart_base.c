@@ -15,10 +15,10 @@
 
 /* ioremapped */
 unsigned long _loongson_uart_base;
-EXPORT_SYMBOL(_loongson_uart_base);
+/* DISABLED: EXPORT_SYMBOL(_loongson_uart_base); */
 /* raw */
 unsigned long loongson_uart_base;
-EXPORT_SYMBOL(loongson_uart_base);
+/* DISABLED: EXPORT_SYMBOL(loongson_uart_base); */
 
 void prom_init_loongson_uart_base(void)
 {

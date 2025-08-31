@@ -62,7 +62,7 @@ int cfg80211_wext_giwname(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwname);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwname); */
 
 int cfg80211_wext_siwmode(struct net_device *dev, struct iw_request_info *info,
 			  u32 *mode, char *extra)
@@ -103,7 +103,7 @@ int cfg80211_wext_siwmode(struct net_device *dev, struct iw_request_info *info,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_siwmode);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_siwmode); */
 
 int cfg80211_wext_giwmode(struct net_device *dev, struct iw_request_info *info,
 			  u32 *mode, char *extra)
@@ -138,7 +138,7 @@ int cfg80211_wext_giwmode(struct net_device *dev, struct iw_request_info *info,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwmode);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwmode); */
 
 
 int cfg80211_wext_giwrange(struct net_device *dev,
@@ -252,7 +252,7 @@ int cfg80211_wext_giwrange(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwrange);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwrange); */
 
 
 /**
@@ -308,7 +308,7 @@ int cfg80211_wext_siwrts(struct net_device *dev,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_siwrts);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_siwrts); */
 
 int cfg80211_wext_giwrts(struct net_device *dev,
 			 struct iw_request_info *info,
@@ -322,7 +322,7 @@ int cfg80211_wext_giwrts(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwrts);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwrts); */
 
 int cfg80211_wext_siwfrag(struct net_device *dev,
 			  struct iw_request_info *info,
@@ -349,7 +349,7 @@ int cfg80211_wext_siwfrag(struct net_device *dev,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_siwfrag);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_siwfrag); */
 
 int cfg80211_wext_giwfrag(struct net_device *dev,
 			  struct iw_request_info *info,
@@ -363,7 +363,7 @@ int cfg80211_wext_giwfrag(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwfrag);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwfrag); */
 
 static int cfg80211_wext_siwretry(struct net_device *dev,
 				  struct iw_request_info *info,
@@ -433,7 +433,7 @@ int cfg80211_wext_giwretry(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwretry);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwretry); */
 
 static int __cfg80211_set_encryption(struct cfg80211_registered_device *rdev,
 				     struct net_device *dev, bool pairwise,

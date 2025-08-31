@@ -86,7 +86,7 @@ void drm_free_agp(DRM_AGP_MEM * handle, int pages)
 {
 	agp_free_memory(handle);
 }
-EXPORT_SYMBOL(drm_free_agp);
+/* DISABLED: EXPORT_SYMBOL(drm_free_agp); */
 
 /** Wrapper around agp_bind_memory() */
 int drm_bind_agp(DRM_AGP_MEM * handle, unsigned int start)
@@ -99,7 +99,7 @@ int drm_unbind_agp(DRM_AGP_MEM * handle)
 {
 	return agp_unbind_memory(handle);
 }
-EXPORT_SYMBOL(drm_unbind_agp);
+/* DISABLED: EXPORT_SYMBOL(drm_unbind_agp); */
 
 #else  /*  __OS_HAS_AGP  */
 static inline void *agp_remap(unsigned long offset, unsigned long size,
@@ -118,7 +118,7 @@ void drm_core_ioremap(struct drm_local_map *map, struct drm_device *dev)
 	else
 		map->handle = ioremap(map->offset, map->size);
 }
-EXPORT_SYMBOL(drm_core_ioremap);
+/* DISABLED: EXPORT_SYMBOL(drm_core_ioremap); */
 
 void drm_core_ioremap_wc(struct drm_local_map *map, struct drm_device *dev)
 {
@@ -128,7 +128,7 @@ void drm_core_ioremap_wc(struct drm_local_map *map, struct drm_device *dev)
 	else
 		map->handle = ioremap_wc(map->offset, map->size);
 }
-EXPORT_SYMBOL(drm_core_ioremap_wc);
+/* DISABLED: EXPORT_SYMBOL(drm_core_ioremap_wc); */
 
 void drm_core_ioremapfree(struct drm_local_map *map, struct drm_device *dev)
 {
@@ -141,4 +141,4 @@ void drm_core_ioremapfree(struct drm_local_map *map, struct drm_device *dev)
 	else
 		iounmap(map->handle);
 }
-EXPORT_SYMBOL(drm_core_ioremapfree);
+/* DISABLED: EXPORT_SYMBOL(drm_core_ioremapfree); */

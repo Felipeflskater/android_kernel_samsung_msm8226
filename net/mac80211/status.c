@@ -40,7 +40,7 @@ void ieee80211_tx_status_irqsafe(struct ieee80211_hw *hw,
 	}
 	tasklet_schedule(&local->tasklet);
 }
-EXPORT_SYMBOL(ieee80211_tx_status_irqsafe);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_tx_status_irqsafe); */
 
 static void ieee80211_handle_filtered_frame(struct ieee80211_local *local,
 					    struct sta_info *sta,
@@ -632,7 +632,7 @@ void ieee80211_tx_status(struct ieee80211_hw *hw, struct sk_buff *skb)
 	rcu_read_unlock();
 	dev_kfree_skb(skb);
 }
-EXPORT_SYMBOL(ieee80211_tx_status);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_tx_status); */
 
 void ieee80211_report_low_ack(struct ieee80211_sta *pubsta, u32 num_packets)
 {
@@ -640,7 +640,7 @@ void ieee80211_report_low_ack(struct ieee80211_sta *pubsta, u32 num_packets)
 	cfg80211_cqm_pktloss_notify(sta->sdata->dev, sta->sta.addr,
 				    num_packets, GFP_ATOMIC);
 }
-EXPORT_SYMBOL(ieee80211_report_low_ack);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_report_low_ack); */
 
 void ieee80211_free_txskb(struct ieee80211_hw *hw, struct sk_buff *skb)
 {
@@ -666,7 +666,7 @@ void ieee80211_free_txskb(struct ieee80211_hw *hw, struct sk_buff *skb)
 
 	dev_kfree_skb_any(skb);
 }
-EXPORT_SYMBOL(ieee80211_free_txskb);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_free_txskb); */
 
 void ieee80211_purge_tx_queue(struct ieee80211_hw *hw,
 			      struct sk_buff_head *skbs)

@@ -185,7 +185,7 @@ static int __init acs5k_protection_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("protect_bootloader=", acs5k_protection_setup); */
+/* DISABLED: __setup("protect_bootloader=", acs5k_protection_setup); */ */
 
 static void __init acs5k_init_gpio(void)
 {

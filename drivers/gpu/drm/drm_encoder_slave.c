@@ -102,7 +102,7 @@ fail_unregister:
 fail:
 	return err;
 }
-EXPORT_SYMBOL(drm_i2c_encoder_init);
+/* DISABLED: EXPORT_SYMBOL(drm_i2c_encoder_init); */
 
 /**
  * drm_i2c_encoder_destroy - Unregister the I2C device backing an encoder
@@ -122,4 +122,4 @@ void drm_i2c_encoder_destroy(struct drm_encoder *drm_encoder)
 
 	module_put(module);
 }
-EXPORT_SYMBOL(drm_i2c_encoder_destroy);
+/* DISABLED: EXPORT_SYMBOL(drm_i2c_encoder_destroy); */

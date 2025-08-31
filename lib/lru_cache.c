@@ -544,17 +544,17 @@ void lc_seq_dump_details(struct seq_file *seq, struct lru_cache *lc, char *utext
 	}
 }
 
-EXPORT_SYMBOL(lc_create);
-EXPORT_SYMBOL(lc_reset);
-EXPORT_SYMBOL(lc_destroy);
-EXPORT_SYMBOL(lc_set);
-EXPORT_SYMBOL(lc_del);
-EXPORT_SYMBOL(lc_try_get);
-EXPORT_SYMBOL(lc_find);
-EXPORT_SYMBOL(lc_get);
-EXPORT_SYMBOL(lc_put);
-EXPORT_SYMBOL(lc_changed);
-EXPORT_SYMBOL(lc_element_by_index);
-EXPORT_SYMBOL(lc_index_of);
-EXPORT_SYMBOL(lc_seq_printf_stats);
-EXPORT_SYMBOL(lc_seq_dump_details);
+/* DISABLED: EXPORT_SYMBOL(lc_create); */
+/* DISABLED: EXPORT_SYMBOL(lc_reset); */
+/* DISABLED: EXPORT_SYMBOL(lc_destroy); */
+/* DISABLED: EXPORT_SYMBOL(lc_set); */
+/* DISABLED: EXPORT_SYMBOL(lc_del); */
+/* DISABLED: EXPORT_SYMBOL(lc_try_get); */
+/* DISABLED: EXPORT_SYMBOL(lc_find); */
+/* DISABLED: EXPORT_SYMBOL(lc_get); */
+/* DISABLED: EXPORT_SYMBOL(lc_put); */
+/* DISABLED: EXPORT_SYMBOL(lc_changed); */
+/* DISABLED: EXPORT_SYMBOL(lc_element_by_index); */
+/* DISABLED: EXPORT_SYMBOL(lc_index_of); */
+/* DISABLED: EXPORT_SYMBOL(lc_seq_printf_stats); */
+/* DISABLED: EXPORT_SYMBOL(lc_seq_dump_details); */

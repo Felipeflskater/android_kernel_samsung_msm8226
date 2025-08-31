@@ -382,7 +382,7 @@ void cx231xx_uninit_vbi_isoc(struct cx231xx *dev)
 
 	cx231xx_capture_start(dev, 0, Vbi);
 }
-EXPORT_SYMBOL_GPL(cx231xx_uninit_vbi_isoc);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_uninit_vbi_isoc); */
 
 /*
  * Allocate URBs and start IRQ
@@ -489,7 +489,7 @@ int cx231xx_init_vbi_isoc(struct cx231xx *dev, int max_packets,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cx231xx_init_vbi_isoc);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_init_vbi_isoc); */
 
 u32 cx231xx_get_vbi_line(struct cx231xx *dev, struct cx231xx_dmaqueue *dma_q,
 			 u8 sav_eav, u8 *p_buffer, u32 buffer_size)

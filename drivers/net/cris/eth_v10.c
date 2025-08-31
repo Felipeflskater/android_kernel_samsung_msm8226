@@ -1743,6 +1743,6 @@ e100_boot_setup(char* str)
 	return 1;
 }
 
-/* DISABLED: __setup("etrax100_eth=", e100_boot_setup); */
+/* DISABLED: __setup("etrax100_eth=", e100_boot_setup); */ */
 
 module_init(etrax_init_module);

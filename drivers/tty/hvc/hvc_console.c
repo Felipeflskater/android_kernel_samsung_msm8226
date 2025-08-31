@@ -288,7 +288,7 @@ int hvc_instantiate(uint32_t vtermno, int index, const struct hv_ops *ops)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(hvc_instantiate);
+/* DISABLED: EXPORT_SYMBOL_GPL(hvc_instantiate); */
 
 /* Wake the sleeping khvcd */
 void hvc_kick(void)
@@ -296,7 +296,7 @@ void hvc_kick(void)
 	hvc_kicked = 1;
 	wake_up_process(hvc_task);
 }
-EXPORT_SYMBOL_GPL(hvc_kick);
+/* DISABLED: EXPORT_SYMBOL_GPL(hvc_kick); */
 
 static void hvc_unthrottle(struct tty_struct *tty)
 {
@@ -690,7 +690,7 @@ int hvc_poll(struct hvc_struct *hp)
 
 	return poll_mask;
 }
-EXPORT_SYMBOL_GPL(hvc_poll);
+/* DISABLED: EXPORT_SYMBOL_GPL(hvc_poll); */
 
 /**
  * __hvc_resize() - Update terminal window size information.
@@ -707,7 +707,7 @@ void __hvc_resize(struct hvc_struct *hp, struct winsize ws)
 	hp->ws = ws;
 	schedule_work(&hp->tty_resize);
 }
-EXPORT_SYMBOL_GPL(__hvc_resize);
+/* DISABLED: EXPORT_SYMBOL_GPL(__hvc_resize); */
 
 /*
  * This kthread is either polling or interrupt driven.  This is determined by
@@ -872,7 +872,7 @@ struct hvc_struct *hvc_alloc(uint32_t vtermno, int data,
 
 	return hp;
 }
-EXPORT_SYMBOL_GPL(hvc_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(hvc_alloc); */
 
 int hvc_remove(struct hvc_struct *hp)
 {
@@ -906,7 +906,7 @@ int hvc_remove(struct hvc_struct *hp)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(hvc_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(hvc_remove); */
 
 /* Driver initialization: called as soon as someone uses hvc_alloc(). */
 static int hvc_init(void)

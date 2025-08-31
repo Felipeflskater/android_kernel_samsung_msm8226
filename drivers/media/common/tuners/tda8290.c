@@ -808,7 +808,7 @@ fail:
 	tda829x_release(fe);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(tda829x_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(tda829x_attach); */
 
 int tda829x_probe(struct i2c_adapter *i2c_adap, u8 i2c_addr)
 {
@@ -859,7 +859,7 @@ int tda829x_probe(struct i2c_adapter *i2c_adap, u8 i2c_addr)
 	tuner_i2c_xfer_send(&i2c_props, restore_9886, 3);
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(tda829x_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(tda829x_probe); */
 
 MODULE_DESCRIPTION("Philips/NXP TDA8290/TDA8295 analog IF demodulator driver");
 MODULE_AUTHOR("Gerd Knorr, Hartmut Hackmann, Michael Krufky");

@@ -109,7 +109,7 @@ int v4l2_ctrl_check(struct v4l2_ext_control *ctrl, struct v4l2_queryctrl *qctrl,
 		return -ERANGE;
 	return 0;
 }
-EXPORT_SYMBOL(v4l2_ctrl_check);
+/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_check); */
 
 /* Fill in a struct v4l2_queryctrl */
 int v4l2_ctrl_query_fill(struct v4l2_queryctrl *qctrl, s32 min, s32 max, s32 step, s32 def)
@@ -130,7 +130,7 @@ int v4l2_ctrl_query_fill(struct v4l2_queryctrl *qctrl, s32 min, s32 max, s32 ste
 	strlcpy(qctrl->name, name, sizeof(qctrl->name));
 	return 0;
 }
-EXPORT_SYMBOL(v4l2_ctrl_query_fill);
+/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_query_fill); */
 
 /* Fill in a struct v4l2_querymenu based on the struct v4l2_queryctrl and
    the menu. The qctrl pointer may be NULL, in which case it is ignored.
@@ -153,7 +153,7 @@ int v4l2_ctrl_query_menu(struct v4l2_querymenu *qmenu, struct v4l2_queryctrl *qc
 	strlcpy(qmenu->name, menu_items[qmenu->index], sizeof(qmenu->name));
 	return 0;
 }
-EXPORT_SYMBOL(v4l2_ctrl_query_menu);
+/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_query_menu); */
 
 /* Fill in a struct v4l2_querymenu based on the specified array of valid
    menu items (terminated by V4L2_CTRL_MENU_IDS_END).
@@ -174,7 +174,7 @@ int v4l2_ctrl_query_menu_valid_items(struct v4l2_querymenu *qmenu, const u32 *id
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(v4l2_ctrl_query_menu_valid_items);
+/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_query_menu_valid_items); */
 
 /* ctrl_classes points to an array of u32 pointers, the last element is
    a NULL pointer. Each u32 array is a 0-terminated array of control IDs.
@@ -225,7 +225,7 @@ u32 v4l2_ctrl_next(const u32 * const * ctrl_classes, u32 id)
 		return 0;
 	return **ctrl_classes;
 }
-EXPORT_SYMBOL(v4l2_ctrl_next);
+/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_next); */
 
 int v4l2_chip_match_host(const struct v4l2_dbg_match *match)
 {
@@ -236,7 +236,7 @@ int v4l2_chip_match_host(const struct v4l2_dbg_match *match)
 		return 0;
 	}
 }
-EXPORT_SYMBOL(v4l2_chip_match_host);
+/* DISABLED: EXPORT_SYMBOL(v4l2_chip_match_host); */
 
 #if defined(CONFIG_I2C) || (defined(CONFIG_I2C_MODULE) && defined(MODULE))
 int v4l2_chip_match_i2c_client(struct i2c_client *c, const struct v4l2_dbg_match *match)
@@ -261,7 +261,7 @@ int v4l2_chip_match_i2c_client(struct i2c_client *c, const struct v4l2_dbg_match
 		return 0;
 	}
 }
-EXPORT_SYMBOL(v4l2_chip_match_i2c_client);
+/* DISABLED: EXPORT_SYMBOL(v4l2_chip_match_i2c_client); */
 
 int v4l2_chip_ident_i2c_client(struct i2c_client *c, struct v4l2_dbg_chip_ident *chip,
 		u32 ident, u32 revision)
@@ -278,7 +278,7 @@ int v4l2_chip_ident_i2c_client(struct i2c_client *c, struct v4l2_dbg_chip_ident 
 	}
 	return 0;
 }
-EXPORT_SYMBOL(v4l2_chip_ident_i2c_client);
+/* DISABLED: EXPORT_SYMBOL(v4l2_chip_ident_i2c_client); */
 
 /* ----------------------------------------------------------------- */
 
@@ -300,7 +300,7 @@ void v4l2_i2c_subdev_init(struct v4l2_subdev *sd, struct i2c_client *client,
 		client->driver->driver.name, i2c_adapter_id(client->adapter),
 		client->addr);
 }
-EXPORT_SYMBOL_GPL(v4l2_i2c_subdev_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_i2c_subdev_init); */
 
 
 
@@ -352,7 +352,7 @@ error:
 		i2c_unregister_device(client);
 	return sd;
 }
-EXPORT_SYMBOL_GPL(v4l2_i2c_new_subdev_board);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_i2c_new_subdev_board); */
 
 struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *v4l2_dev,
 		struct i2c_adapter *adapter, const char *client_type,
@@ -368,7 +368,7 @@ struct v4l2_subdev *v4l2_i2c_new_subdev(struct v4l2_device *v4l2_dev,
 
 	return v4l2_i2c_new_subdev_board(v4l2_dev, adapter, &info, probe_addrs);
 }
-EXPORT_SYMBOL_GPL(v4l2_i2c_new_subdev);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_i2c_new_subdev); */
 
 /* Return i2c client address of v4l2_subdev. */
 unsigned short v4l2_i2c_subdev_addr(struct v4l2_subdev *sd)
@@ -377,7 +377,7 @@ unsigned short v4l2_i2c_subdev_addr(struct v4l2_subdev *sd)
 
 	return client ? client->addr : I2C_CLIENT_END;
 }
-EXPORT_SYMBOL_GPL(v4l2_i2c_subdev_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_i2c_subdev_addr); */
 
 /* Return a list of I2C tuner addresses to probe. Use only if the tuner
    addresses are unknown. */
@@ -412,7 +412,7 @@ const unsigned short *v4l2_i2c_tuner_addrs(enum v4l2_i2c_tuner_type type)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(v4l2_i2c_tuner_addrs);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_i2c_tuner_addrs); */
 
 #endif /* defined(CONFIG_I2C) */
 
@@ -433,7 +433,7 @@ void v4l2_spi_subdev_init(struct v4l2_subdev *sd, struct spi_device *spi,
 	/* initialize name */
 	strlcpy(sd->name, spi->dev.driver->name, sizeof(sd->name));
 }
-EXPORT_SYMBOL_GPL(v4l2_spi_subdev_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_spi_subdev_init); */
 
 struct v4l2_subdev *v4l2_spi_new_subdev(struct v4l2_device *v4l2_dev,
 		struct spi_master *master, struct spi_board_info *info)
@@ -472,7 +472,7 @@ error:
 
 	return sd;
 }
-EXPORT_SYMBOL_GPL(v4l2_spi_new_subdev);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_spi_new_subdev); */
 
 #endif /* defined(CONFIG_SPI) */
 
@@ -548,7 +548,7 @@ void v4l_bound_align_image(u32 *w, unsigned int wmin, unsigned int wmax,
 		} while (halign + walign < salign);
 	}
 }
-EXPORT_SYMBOL_GPL(v4l_bound_align_image);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l_bound_align_image); */
 
 /**
  * v4l_fill_dv_preset_info - fill description of a digital video preset
@@ -595,7 +595,7 @@ int v4l_fill_dv_preset_info(u32 preset, struct v4l2_dv_enum_preset *info)
 	strlcpy(info->name, dv_presets[preset].name, sizeof(info->name));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(v4l_fill_dv_preset_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l_fill_dv_preset_info); */
 
 const struct v4l2_frmsize_discrete *v4l2_find_nearest_format(
 		const struct v4l2_discrete_probe *probe,
@@ -620,4 +620,4 @@ const struct v4l2_frmsize_discrete *v4l2_find_nearest_format(
 
 	return best;
 }
-EXPORT_SYMBOL_GPL(v4l2_find_nearest_format);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_find_nearest_format); */

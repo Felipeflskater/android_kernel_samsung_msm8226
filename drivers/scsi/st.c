@@ -3973,7 +3973,7 @@ static int __init st_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("st=", st_setup); */
+/* DISABLED: __setup("st=", st_setup); */ */
 
 #endif
 

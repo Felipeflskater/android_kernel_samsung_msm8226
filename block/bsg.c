@@ -994,7 +994,7 @@ void bsg_unregister_queue(struct request_queue *q)
 	kref_put(&bcd->ref, bsg_kref_release_function);
 	mutex_unlock(&bsg_mutex);
 }
-EXPORT_SYMBOL_GPL(bsg_unregister_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_unregister_queue); */
 
 int bsg_register_queue(struct request_queue *q, struct device *parent,
 		       const char *name, void (*release)(struct device *))
@@ -1069,7 +1069,7 @@ unlock:
 	mutex_unlock(&bsg_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(bsg_register_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(bsg_register_queue); */
 
 static struct cdev bsg_cdev;
 

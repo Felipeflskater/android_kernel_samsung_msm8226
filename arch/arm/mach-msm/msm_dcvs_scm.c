@@ -82,7 +82,7 @@ int msm_dcvs_scm_init(size_t size)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_dcvs_scm_init);
+/* DISABLED: EXPORT_SYMBOL(msm_dcvs_scm_init); */
 
 static void __msm_dcvs_flush_cache(void *v, size_t size)
 {
@@ -115,7 +115,7 @@ int msm_dcvs_scm_register_core(uint32_t core_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_dcvs_scm_register_core);
+/* DISABLED: EXPORT_SYMBOL(msm_dcvs_scm_register_core); */
 
 int msm_dcvs_scm_set_algo_params(uint32_t core_id,
 		struct msm_dcvs_algo_param *param)
@@ -143,7 +143,7 @@ int msm_dcvs_scm_set_algo_params(uint32_t core_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_dcvs_scm_set_algo_params);
+/* DISABLED: EXPORT_SYMBOL(msm_dcvs_scm_set_algo_params); */
 
 int msm_mpd_scm_set_algo_params(struct msm_mpd_algo_param *param)
 {
@@ -170,7 +170,7 @@ int msm_mpd_scm_set_algo_params(struct msm_mpd_algo_param *param)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_mpd_scm_set_algo_params);
+/* DISABLED: EXPORT_SYMBOL(msm_mpd_scm_set_algo_params); */
 
 int msm_dcvs_scm_set_power_params(uint32_t core_id,
 		struct msm_dcvs_power_params *pwr_param,
@@ -230,7 +230,7 @@ int msm_dcvs_scm_set_power_params(uint32_t core_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_dcvs_scm_set_power_params);
+/* DISABLED: EXPORT_SYMBOL(msm_dcvs_scm_set_power_params); */
 
 int msm_dcvs_scm_event(uint32_t core_id,
 		enum msm_dcvs_scm_event event_id,
@@ -250,4 +250,4 @@ int msm_dcvs_scm_event(uint32_t core_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_dcvs_scm_event);
+/* DISABLED: EXPORT_SYMBOL(msm_dcvs_scm_event); */

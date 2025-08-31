@@ -116,7 +116,7 @@ void * __devres_alloc(dr_release_t release, size_t size, gfp_t gfp,
 	set_node_dbginfo(&dr->node, name, size);
 	return dr->data;
 }
-EXPORT_SYMBOL_GPL(__devres_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(__devres_alloc); */
 #else
 /**
  * devres_alloc - Allocate device resource data
@@ -140,7 +140,7 @@ void * devres_alloc(dr_release_t release, size_t size, gfp_t gfp)
 		return NULL;
 	return dr->data;
 }
-EXPORT_SYMBOL_GPL(devres_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_alloc); */
 #endif
 
 /**
@@ -158,7 +158,7 @@ void devres_free(void *res)
 		kfree(dr);
 	}
 }
-EXPORT_SYMBOL_GPL(devres_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_free); */
 
 /**
  * devres_add - Register device resource
@@ -178,7 +178,7 @@ void devres_add(struct device *dev, void *res)
 	add_dr(dev, &dr->node);
 	spin_unlock_irqrestore(&dev->devres_lock, flags);
 }
-EXPORT_SYMBOL_GPL(devres_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_add); */
 
 static struct devres *find_dr(struct device *dev, dr_release_t release,
 			      dr_match_t match, void *match_data)
@@ -226,7 +226,7 @@ void * devres_find(struct device *dev, dr_release_t release,
 		return dr->data;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(devres_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_find); */
 
 /**
  * devres_get - Find devres, if non-existent, add one atomically
@@ -261,7 +261,7 @@ void * devres_get(struct device *dev, void *new_res,
 
 	return dr->data;
 }
-EXPORT_SYMBOL_GPL(devres_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_get); */
 
 /**
  * devres_remove - Find a device resource and remove it
@@ -296,7 +296,7 @@ void * devres_remove(struct device *dev, dr_release_t release,
 		return dr->data;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(devres_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_remove); */
 
 /**
  * devres_destroy - Find a device resource and destroy it
@@ -324,7 +324,7 @@ int devres_destroy(struct device *dev, dr_release_t release,
 	devres_free(res);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(devres_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_destroy); */
 
 static int remove_nodes(struct device *dev,
 			struct list_head *first, struct list_head *end,
@@ -475,7 +475,7 @@ void * devres_open_group(struct device *dev, void *id, gfp_t gfp)
 	spin_unlock_irqrestore(&dev->devres_lock, flags);
 	return grp->id;
 }
-EXPORT_SYMBOL_GPL(devres_open_group);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_open_group); */
 
 /* Find devres group with ID @id.  If @id is NULL, look for the latest. */
 static struct devres_group * find_group(struct device *dev, void *id)
@@ -523,7 +523,7 @@ void devres_close_group(struct device *dev, void *id)
 
 	spin_unlock_irqrestore(&dev->devres_lock, flags);
 }
-EXPORT_SYMBOL_GPL(devres_close_group);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_close_group); */
 
 /**
  * devres_remove_group - Remove a devres group
@@ -553,7 +553,7 @@ void devres_remove_group(struct device *dev, void *id)
 
 	kfree(grp);
 }
-EXPORT_SYMBOL_GPL(devres_remove_group);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_remove_group); */
 
 /**
  * devres_release_group - Release resources in a devres group
@@ -591,7 +591,7 @@ int devres_release_group(struct device *dev, void *id)
 
 	return cnt;
 }
-EXPORT_SYMBOL_GPL(devres_release_group);
+/* DISABLED: EXPORT_SYMBOL_GPL(devres_release_group); */
 
 /*
  * Managed kzalloc/kfree
@@ -632,7 +632,7 @@ void * devm_kzalloc(struct device *dev, size_t size, gfp_t gfp)
 	devres_add(dev, dr->data);
 	return dr->data;
 }
-EXPORT_SYMBOL_GPL(devm_kzalloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_kzalloc); */
 
 /**
  * devm_kfree - Resource-managed kfree
@@ -648,4 +648,4 @@ void devm_kfree(struct device *dev, void *p)
 	rc = devres_destroy(dev, devm_kzalloc_release, devm_kzalloc_match, p);
 	WARN_ON(rc);
 }
-EXPORT_SYMBOL_GPL(devm_kfree);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_kfree); */

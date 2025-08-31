@@ -208,7 +208,7 @@ int data_bridge_unthrottle_rx(unsigned int id)
 
 	return 0;
 }
-EXPORT_SYMBOL(data_bridge_unthrottle_rx);
+/* DISABLED: EXPORT_SYMBOL(data_bridge_unthrottle_rx); */
 
 static void data_bridge_process_rx(struct work_struct *work)
 {
@@ -412,7 +412,7 @@ int data_bridge_open(struct bridge *brdg)
 
 	return 0;
 }
-EXPORT_SYMBOL(data_bridge_open);
+/* DISABLED: EXPORT_SYMBOL(data_bridge_open); */
 
 void data_bridge_close(unsigned int id)
 {
@@ -442,7 +442,7 @@ void data_bridge_close(unsigned int id)
 
 	dev->brdg = NULL;
 }
-EXPORT_SYMBOL(data_bridge_close);
+/* DISABLED: EXPORT_SYMBOL(data_bridge_close); */
 
 static void defer_kevent(struct work_struct *work)
 {
@@ -629,7 +629,7 @@ error:
 pm_error:
 	return result;
 }
-EXPORT_SYMBOL(data_bridge_write);
+/* DISABLED: EXPORT_SYMBOL(data_bridge_write); */
 
 static int bridge_resume(struct usb_interface *iface)
 {

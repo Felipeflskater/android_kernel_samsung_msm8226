@@ -149,7 +149,7 @@ void simtec_audio_init(struct snd_soc_pcm_runtime *rtd)
 				     ARRAY_SIZE(amp_gain_controls));
 	}
 }
-EXPORT_SYMBOL_GPL(simtec_audio_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(simtec_audio_init); */
 
 #define CODEC_CLOCK 12000000
 
@@ -310,7 +310,7 @@ static int simtec_audio_resume(struct device *dev)
 const struct dev_pm_ops simtec_audio_pmops = {
 	.resume	= simtec_audio_resume,
 };
-EXPORT_SYMBOL_GPL(simtec_audio_pmops);
+/* DISABLED: EXPORT_SYMBOL_GPL(simtec_audio_pmops); */
 #endif
 
 int __devinit simtec_audio_core_probe(struct platform_device *pdev,
@@ -369,7 +369,7 @@ err_clk:
 	clk_put(xtal_clk);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(simtec_audio_core_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(simtec_audio_core_probe); */
 
 int __devexit simtec_audio_remove(struct platform_device *pdev)
 {
@@ -381,7 +381,7 @@ int __devexit simtec_audio_remove(struct platform_device *pdev)
 	clk_put(xtal_clk);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(simtec_audio_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(simtec_audio_remove); */
 
 MODULE_AUTHOR("Ben Dooks <ben@simtec.co.uk>");
 MODULE_DESCRIPTION("ALSA SoC Simtec Audio common support");

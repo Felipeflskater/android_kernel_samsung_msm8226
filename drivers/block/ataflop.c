@@ -2031,7 +2031,7 @@ static int __init atari_floppy_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("floppy=", atari_floppy_setup); */
+/* DISABLED: __setup("floppy=", atari_floppy_setup); */ */
 #endif
 
 static void __exit atari_floppy_exit(void)

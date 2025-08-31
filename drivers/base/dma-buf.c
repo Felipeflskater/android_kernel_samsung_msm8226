@@ -122,7 +122,7 @@ struct dma_buf *dma_buf_export(void *priv, const struct dma_buf_ops *ops,
 
 	return dmabuf;
 }
-EXPORT_SYMBOL_GPL(dma_buf_export);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_export); */
 
 
 /**
@@ -148,7 +148,7 @@ int dma_buf_fd(struct dma_buf *dmabuf, int flags)
 
 	return fd;
 }
-EXPORT_SYMBOL_GPL(dma_buf_fd);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_fd); */
 
 /**
  * dma_buf_get - returns the dma_buf structure related to an fd
@@ -174,7 +174,7 @@ struct dma_buf *dma_buf_get(int fd)
 
 	return file->private_data;
 }
-EXPORT_SYMBOL_GPL(dma_buf_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_get); */
 
 /**
  * dma_buf_put - decreases refcount of the buffer
@@ -189,7 +189,7 @@ void dma_buf_put(struct dma_buf *dmabuf)
 
 	fput(dmabuf->file);
 }
-EXPORT_SYMBOL_GPL(dma_buf_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_put); */
 
 /**
  * dma_buf_attach - Add the device to dma_buf's attachments list; optionally,
@@ -234,7 +234,7 @@ err_attach:
 	mutex_unlock(&dmabuf->lock);
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL_GPL(dma_buf_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_attach); */
 
 /**
  * dma_buf_detach - Remove the given attachment from dmabuf's attachments list;
@@ -256,7 +256,7 @@ void dma_buf_detach(struct dma_buf *dmabuf, struct dma_buf_attachment *attach)
 	mutex_unlock(&dmabuf->lock);
 	kfree(attach);
 }
-EXPORT_SYMBOL_GPL(dma_buf_detach);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_detach); */
 
 /**
  * dma_buf_map_attachment - Returns the scatterlist table of the attachment;
@@ -283,7 +283,7 @@ struct sg_table *dma_buf_map_attachment(struct dma_buf_attachment *attach,
 
 	return sg_table;
 }
-EXPORT_SYMBOL_GPL(dma_buf_map_attachment);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_map_attachment); */
 
 /**
  * dma_buf_unmap_attachment - unmaps and decreases usecount of the buffer;might
@@ -304,7 +304,7 @@ void dma_buf_unmap_attachment(struct dma_buf_attachment *attach,
 	attach->dmabuf->ops->unmap_dma_buf(attach, sg_table,
 						direction);
 }
-EXPORT_SYMBOL_GPL(dma_buf_unmap_attachment);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_unmap_attachment); */
 
 
 /**
@@ -332,7 +332,7 @@ int dma_buf_begin_cpu_access(struct dma_buf *dmabuf, size_t start, size_t len,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(dma_buf_begin_cpu_access);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_begin_cpu_access); */
 
 /**
  * dma_buf_end_cpu_access - Must be called after accessing a dma_buf from the
@@ -354,7 +354,7 @@ void dma_buf_end_cpu_access(struct dma_buf *dmabuf, size_t start, size_t len,
 	if (dmabuf->ops->end_cpu_access)
 		dmabuf->ops->end_cpu_access(dmabuf, start, len, direction);
 }
-EXPORT_SYMBOL_GPL(dma_buf_end_cpu_access);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_end_cpu_access); */
 
 /**
  * dma_buf_kmap_atomic - Map a page of the buffer object into kernel address
@@ -371,7 +371,7 @@ void *dma_buf_kmap_atomic(struct dma_buf *dmabuf, unsigned long page_num)
 
 	return dmabuf->ops->kmap_atomic(dmabuf, page_num);
 }
-EXPORT_SYMBOL_GPL(dma_buf_kmap_atomic);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_kmap_atomic); */
 
 /**
  * dma_buf_kunmap_atomic - Unmap a page obtained by dma_buf_kmap_atomic.
@@ -389,7 +389,7 @@ void dma_buf_kunmap_atomic(struct dma_buf *dmabuf, unsigned long page_num,
 	if (dmabuf->ops->kunmap_atomic)
 		dmabuf->ops->kunmap_atomic(dmabuf, page_num, vaddr);
 }
-EXPORT_SYMBOL_GPL(dma_buf_kunmap_atomic);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_kunmap_atomic); */
 
 /**
  * dma_buf_kmap - Map a page of the buffer object into kernel address space. The
@@ -406,7 +406,7 @@ void *dma_buf_kmap(struct dma_buf *dmabuf, unsigned long page_num)
 
 	return dmabuf->ops->kmap(dmabuf, page_num);
 }
-EXPORT_SYMBOL_GPL(dma_buf_kmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_kmap); */
 
 /**
  * dma_buf_kunmap - Unmap a page obtained by dma_buf_kmap.
@@ -424,7 +424,7 @@ void dma_buf_kunmap(struct dma_buf *dmabuf, unsigned long page_num,
 	if (dmabuf->ops->kunmap)
 		dmabuf->ops->kunmap(dmabuf, page_num, vaddr);
 }
-EXPORT_SYMBOL_GPL(dma_buf_kunmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_kunmap); */
 
 
 /**
@@ -467,4 +467,4 @@ int dma_buf_mmap(struct dma_buf *dmabuf, struct vm_area_struct *vma,
 
 	return dmabuf->ops->mmap(dmabuf, vma);
 }
-EXPORT_SYMBOL_GPL(dma_buf_mmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_buf_mmap); */

@@ -128,31 +128,31 @@ struct ion_client *msm_ion_client_create(unsigned int heap_mask,
 
 	return ion_client_create(idev, name);
 }
-EXPORT_SYMBOL(msm_ion_client_create);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_client_create); */
 
 int msm_ion_secure_heap(int heap_id)
 {
 	return ion_secure_heap(idev, heap_id, ION_CP_V1, NULL);
 }
-EXPORT_SYMBOL(msm_ion_secure_heap);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_secure_heap); */
 
 int msm_ion_unsecure_heap(int heap_id)
 {
 	return ion_unsecure_heap(idev, heap_id, ION_CP_V1, NULL);
 }
-EXPORT_SYMBOL(msm_ion_unsecure_heap);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_unsecure_heap); */
 
 int msm_ion_secure_heap_2_0(int heap_id, enum cp_mem_usage usage)
 {
 	return ion_secure_heap(idev, heap_id, ION_CP_V2, (void *)usage);
 }
-EXPORT_SYMBOL(msm_ion_secure_heap_2_0);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_secure_heap_2_0); */
 
 int msm_ion_unsecure_heap_2_0(int heap_id, enum cp_mem_usage usage)
 {
 	return ion_unsecure_heap(idev, heap_id, ION_CP_V2, (void *)usage);
 }
-EXPORT_SYMBOL(msm_ion_unsecure_heap_2_0);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_unsecure_heap_2_0); */
 
 int msm_ion_secure_buffer(struct ion_client *client, struct ion_handle *handle,
 				enum cp_mem_usage usage,
@@ -161,21 +161,21 @@ int msm_ion_secure_buffer(struct ion_client *client, struct ion_handle *handle,
 	return ion_secure_handle(client, handle, ION_CP_V2,
 				(void *)usage, flags);
 }
-EXPORT_SYMBOL(msm_ion_secure_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_secure_buffer); */
 
 int msm_ion_unsecure_buffer(struct ion_client *client,
 				struct ion_handle *handle)
 {
 	return ion_unsecure_handle(client, handle);
 }
-EXPORT_SYMBOL(msm_ion_unsecure_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_unsecure_buffer); */
 
 int msm_ion_do_cache_op(struct ion_client *client, struct ion_handle *handle,
 			void *vaddr, unsigned long len, unsigned int cmd)
 {
 	return ion_do_cache_op(client, handle, vaddr, 0, len, cmd);
 }
-EXPORT_SYMBOL(msm_ion_do_cache_op);
+/* DISABLED: EXPORT_SYMBOL(msm_ion_do_cache_op); */
 
 static int ion_no_pages_cache_ops(struct ion_client *client,
 			struct ion_handle *handle,

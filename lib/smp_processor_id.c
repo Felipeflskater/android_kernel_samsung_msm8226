@@ -51,5 +51,5 @@ out:
 	return this_cpu;
 }
 
-EXPORT_SYMBOL(debug_smp_processor_id);
+/* DISABLED: EXPORT_SYMBOL(debug_smp_processor_id); */
 

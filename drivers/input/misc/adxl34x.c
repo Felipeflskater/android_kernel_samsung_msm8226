@@ -424,7 +424,7 @@ void adxl34x_suspend(struct adxl34x *ac)
 
 	mutex_unlock(&ac->mutex);
 }
-EXPORT_SYMBOL_GPL(adxl34x_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(adxl34x_suspend); */
 
 void adxl34x_resume(struct adxl34x *ac)
 {
@@ -437,7 +437,7 @@ void adxl34x_resume(struct adxl34x *ac)
 
 	mutex_unlock(&ac->mutex);
 }
-EXPORT_SYMBOL_GPL(adxl34x_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(adxl34x_resume); */
 
 static ssize_t adxl34x_disable_show(struct device *dev,
 				    struct device_attribute *attr, char *buf)
@@ -896,7 +896,7 @@ struct adxl34x *adxl34x_probe(struct device *dev, int irq,
  err_out:
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(adxl34x_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(adxl34x_probe); */
 
 int adxl34x_remove(struct adxl34x *ac)
 {
@@ -908,7 +908,7 @@ int adxl34x_remove(struct adxl34x *ac)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(adxl34x_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(adxl34x_remove); */
 
 MODULE_AUTHOR("Michael Hennerich <hennerich@blackfin.uclinux.org>");
 MODULE_DESCRIPTION("ADXL345/346 Three-Axis Digital Accelerometer Driver");

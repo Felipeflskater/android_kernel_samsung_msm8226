@@ -365,8 +365,8 @@ tsunami_ioremap(unsigned long addr, unsigned long size)
 }
 
 #ifndef CONFIG_ALPHA_GENERIC
-EXPORT_SYMBOL(tsunami_ioportmap);
-EXPORT_SYMBOL(tsunami_ioremap);
+/* DISABLED: EXPORT_SYMBOL(tsunami_ioportmap); */
+/* DISABLED: EXPORT_SYMBOL(tsunami_ioremap); */
 #endif
 
 void __init

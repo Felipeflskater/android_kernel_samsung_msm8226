@@ -664,7 +664,7 @@ u32 ps3av_cmd_set_av_audio_param(void *p, u32 port,
 u8 ps3av_mode_cs_info[] = {
 	0x00, 0x09, 0x00, 0x02, 0x01, 0x00, 0x00, 0x00
 };
-EXPORT_SYMBOL_GPL(ps3av_mode_cs_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_mode_cs_info); */
 
 #define CS_44	0x00
 #define CS_48	0x02

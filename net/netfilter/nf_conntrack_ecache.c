@@ -79,7 +79,7 @@ void nf_ct_deliver_cached_events(struct nf_conn *ct)
 out_unlock:
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL_GPL(nf_ct_deliver_cached_events);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_deliver_cached_events); */
 
 int nf_conntrack_register_notifier(struct net *net,
 				   struct nf_ct_event_notifier *new)
@@ -102,7 +102,7 @@ out_unlock:
 	mutex_unlock(&nf_ct_ecache_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_register_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_register_notifier); */
 
 void nf_conntrack_unregister_notifier(struct net *net,
 				      struct nf_ct_event_notifier *new)
@@ -116,7 +116,7 @@ void nf_conntrack_unregister_notifier(struct net *net,
 	RCU_INIT_POINTER(net->ct.nf_conntrack_event_cb, NULL);
 	mutex_unlock(&nf_ct_ecache_mutex);
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_unregister_notifier); */
 
 int nf_ct_expect_register_notifier(struct net *net,
 				   struct nf_exp_event_notifier *new)
@@ -139,7 +139,7 @@ out_unlock:
 	mutex_unlock(&nf_ct_ecache_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_register_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_register_notifier); */
 
 void nf_ct_expect_unregister_notifier(struct net *net,
 				      struct nf_exp_event_notifier *new)
@@ -153,7 +153,7 @@ void nf_ct_expect_unregister_notifier(struct net *net,
 	RCU_INIT_POINTER(net->ct.nf_expect_event_cb, NULL);
 	mutex_unlock(&nf_ct_ecache_mutex);
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_unregister_notifier); */
 
 #define NF_CT_EVENTS_DEFAULT 1
 static int nf_ct_events __read_mostly = NF_CT_EVENTS_DEFAULT;

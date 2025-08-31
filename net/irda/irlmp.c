@@ -193,7 +193,7 @@ struct lsap_cb *irlmp_open_lsap(__u8 slsap_sel, notify_t *notify, __u8 pid)
 
 	return self;
 }
-EXPORT_SYMBOL(irlmp_open_lsap);
+/* DISABLED: EXPORT_SYMBOL(irlmp_open_lsap); */
 
 /*
  * Function __irlmp_close_lsap (self)
@@ -269,7 +269,7 @@ void irlmp_close_lsap(struct lsap_cb *self)
 	}
 	__irlmp_close_lsap(self);
 }
-EXPORT_SYMBOL(irlmp_close_lsap);
+/* DISABLED: EXPORT_SYMBOL(irlmp_close_lsap); */
 
 /*
  * Function irlmp_register_irlap (saddr, notify)
@@ -502,7 +502,7 @@ err:
 		dev_kfree_skb(tx_skb);
 	return ret;
 }
-EXPORT_SYMBOL(irlmp_connect_request);
+/* DISABLED: EXPORT_SYMBOL(irlmp_connect_request); */
 
 /*
  * Function irlmp_connect_indication (self)
@@ -576,7 +576,7 @@ int irlmp_connect_response(struct lsap_cb *self, struct sk_buff *userdata)
 
 	return 0;
 }
-EXPORT_SYMBOL(irlmp_connect_response);
+/* DISABLED: EXPORT_SYMBOL(irlmp_connect_response); */
 
 /*
  * Function irlmp_connect_confirm (handle, skb)
@@ -735,7 +735,7 @@ int irlmp_disconnect_request(struct lsap_cb *self, struct sk_buff *userdata)
 
 	return 0;
 }
-EXPORT_SYMBOL(irlmp_disconnect_request);
+/* DISABLED: EXPORT_SYMBOL(irlmp_disconnect_request); */
 
 /*
  * Function irlmp_disconnect_indication (reason, userdata)
@@ -909,7 +909,7 @@ void irlmp_discovery_request(int nslots)
 		 * Jean II */
 	}
 }
-EXPORT_SYMBOL(irlmp_discovery_request);
+/* DISABLED: EXPORT_SYMBOL(irlmp_discovery_request); */
 
 /*
  * Function irlmp_get_discoveries (pn, mask, slots)
@@ -941,7 +941,7 @@ struct irda_device_info *irlmp_get_discoveries(int *pn, __u16 mask, int nslots)
 	/* Return current cached discovery log */
 	return irlmp_copy_discoveries(irlmp->cachelog, pn, mask, TRUE);
 }
-EXPORT_SYMBOL(irlmp_get_discoveries);
+/* DISABLED: EXPORT_SYMBOL(irlmp_get_discoveries); */
 
 /*
  * Function irlmp_notify_client (log)
@@ -1134,7 +1134,7 @@ int irlmp_data_request(struct lsap_cb *self, struct sk_buff *userdata)
 
 	return ret;
 }
-EXPORT_SYMBOL(irlmp_data_request);
+/* DISABLED: EXPORT_SYMBOL(irlmp_data_request); */
 
 /*
  * Function irlmp_data_indication (handle, skb)
@@ -1471,7 +1471,7 @@ __u16 irlmp_service_to_hint(int service)
 
 	return hint.word;
 }
-EXPORT_SYMBOL(irlmp_service_to_hint);
+/* DISABLED: EXPORT_SYMBOL(irlmp_service_to_hint); */
 
 /*
  * Function irlmp_register_service (service)
@@ -1499,7 +1499,7 @@ void *irlmp_register_service(__u16 hints)
 
 	return (void *)service;
 }
-EXPORT_SYMBOL(irlmp_register_service);
+/* DISABLED: EXPORT_SYMBOL(irlmp_register_service); */
 
 /*
  * Function irlmp_unregister_service (handle)
@@ -1542,7 +1542,7 @@ int irlmp_unregister_service(void *handle)
 	spin_unlock_irqrestore(&irlmp->services->hb_spinlock, flags);
 	return 0;
 }
-EXPORT_SYMBOL(irlmp_unregister_service);
+/* DISABLED: EXPORT_SYMBOL(irlmp_unregister_service); */
 
 /*
  * Function irlmp_register_client (hint_mask, callback1, callback2)
@@ -1579,7 +1579,7 @@ void *irlmp_register_client(__u16 hint_mask, DISCOVERY_CALLBACK1 disco_clb,
 
 	return (void *) client;
 }
-EXPORT_SYMBOL(irlmp_register_client);
+/* DISABLED: EXPORT_SYMBOL(irlmp_register_client); */
 
 /*
  * Function irlmp_update_client (handle, hint_mask, callback1, callback2)
@@ -1611,7 +1611,7 @@ int irlmp_update_client(void *handle, __u16 hint_mask,
 
 	return 0;
 }
-EXPORT_SYMBOL(irlmp_update_client);
+/* DISABLED: EXPORT_SYMBOL(irlmp_update_client); */
 
 /*
  * Function irlmp_unregister_client (handle)
@@ -1641,7 +1641,7 @@ int irlmp_unregister_client(void *handle)
 
 	return 0;
 }
-EXPORT_SYMBOL(irlmp_unregister_client);
+/* DISABLED: EXPORT_SYMBOL(irlmp_unregister_client); */
 
 /*
  * Function irlmp_slsap_inuse (slsap)

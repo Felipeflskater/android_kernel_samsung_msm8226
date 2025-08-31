@@ -225,9 +225,9 @@ char *match_strdup(const substring_t *s)
 	return p;
 }
 
-EXPORT_SYMBOL(match_token);
-EXPORT_SYMBOL(match_int);
-EXPORT_SYMBOL(match_octal);
-EXPORT_SYMBOL(match_hex);
-EXPORT_SYMBOL(match_strlcpy);
-EXPORT_SYMBOL(match_strdup);
+/* DISABLED: EXPORT_SYMBOL(match_token); */
+/* DISABLED: EXPORT_SYMBOL(match_int); */
+/* DISABLED: EXPORT_SYMBOL(match_octal); */
+/* DISABLED: EXPORT_SYMBOL(match_hex); */
+/* DISABLED: EXPORT_SYMBOL(match_strlcpy); */
+/* DISABLED: EXPORT_SYMBOL(match_strdup); */

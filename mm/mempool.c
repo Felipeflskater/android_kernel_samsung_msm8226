@@ -44,7 +44,7 @@ void mempool_destroy(mempool_t *pool)
 	kfree(pool->elements);
 	kfree(pool);
 }
-EXPORT_SYMBOL(mempool_destroy);
+/* DISABLED: EXPORT_SYMBOL(mempool_destroy); */
 
 /**
  * mempool_create - create a memory pool
@@ -65,7 +65,7 @@ mempool_t *mempool_create(int min_nr, mempool_alloc_t *alloc_fn,
 {
 	return  mempool_create_node(min_nr,alloc_fn,free_fn, pool_data,-1);
 }
-EXPORT_SYMBOL(mempool_create);
+/* DISABLED: EXPORT_SYMBOL(mempool_create); */
 
 mempool_t *mempool_create_node(int min_nr, mempool_alloc_t *alloc_fn,
 			mempool_free_t *free_fn, void *pool_data, int node_id)
@@ -102,7 +102,7 @@ mempool_t *mempool_create_node(int min_nr, mempool_alloc_t *alloc_fn,
 	}
 	return pool;
 }
-EXPORT_SYMBOL(mempool_create_node);
+/* DISABLED: EXPORT_SYMBOL(mempool_create_node); */
 
 /**
  * mempool_resize - resize an existing memory pool
@@ -178,7 +178,7 @@ out_unlock:
 out:
 	return 0;
 }
-EXPORT_SYMBOL(mempool_resize);
+/* DISABLED: EXPORT_SYMBOL(mempool_resize); */
 
 /**
  * mempool_alloc - allocate an element from a specific memory pool
@@ -252,7 +252,7 @@ repeat_alloc:
 	finish_wait(&pool->wait, &wait);
 	goto repeat_alloc;
 }
-EXPORT_SYMBOL(mempool_alloc);
+/* DISABLED: EXPORT_SYMBOL(mempool_alloc); */
 
 /**
  * mempool_free - return an element to the pool.
@@ -314,7 +314,7 @@ void mempool_free(void *element, mempool_t *pool)
 	}
 	pool->free(element, pool->pool_data);
 }
-EXPORT_SYMBOL(mempool_free);
+/* DISABLED: EXPORT_SYMBOL(mempool_free); */
 
 /*
  * A commonly used alloc and free fn.
@@ -324,14 +324,14 @@ void *mempool_alloc_slab(gfp_t gfp_mask, void *pool_data)
 	struct kmem_cache *mem = pool_data;
 	return kmem_cache_alloc(mem, gfp_mask);
 }
-EXPORT_SYMBOL(mempool_alloc_slab);
+/* DISABLED: EXPORT_SYMBOL(mempool_alloc_slab); */
 
 void mempool_free_slab(void *element, void *pool_data)
 {
 	struct kmem_cache *mem = pool_data;
 	kmem_cache_free(mem, element);
 }
-EXPORT_SYMBOL(mempool_free_slab);
+/* DISABLED: EXPORT_SYMBOL(mempool_free_slab); */
 
 /*
  * A commonly used alloc and free fn that kmalloc/kfrees the amount of memory
@@ -342,13 +342,13 @@ void *mempool_kmalloc(gfp_t gfp_mask, void *pool_data)
 	size_t size = (size_t)pool_data;
 	return kmalloc(size, gfp_mask);
 }
-EXPORT_SYMBOL(mempool_kmalloc);
+/* DISABLED: EXPORT_SYMBOL(mempool_kmalloc); */
 
 void mempool_kfree(void *element, void *pool_data)
 {
 	kfree(element);
 }
-EXPORT_SYMBOL(mempool_kfree);
+/* DISABLED: EXPORT_SYMBOL(mempool_kfree); */
 
 /*
  * A simple mempool-backed page allocator that allocates pages
@@ -359,11 +359,11 @@ void *mempool_alloc_pages(gfp_t gfp_mask, void *pool_data)
 	int order = (int)(long)pool_data;
 	return alloc_pages(gfp_mask, order);
 }
-EXPORT_SYMBOL(mempool_alloc_pages);
+/* DISABLED: EXPORT_SYMBOL(mempool_alloc_pages); */
 
 void mempool_free_pages(void *element, void *pool_data)
 {
 	int order = (int)(long)pool_data;
 	__free_pages(element, order);
 }
-EXPORT_SYMBOL(mempool_free_pages);
+/* DISABLED: EXPORT_SYMBOL(mempool_free_pages); */

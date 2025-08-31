@@ -72,7 +72,7 @@ int puv3_request_dma(char *name, puv3_dma_prio prio,
 	local_irq_restore(flags);
 	return i;
 }
-EXPORT_SYMBOL(puv3_request_dma);
+/* DISABLED: EXPORT_SYMBOL(puv3_request_dma); */
 
 void puv3_free_dma(int dma_ch)
 {
@@ -90,7 +90,7 @@ void puv3_free_dma(int dma_ch)
 	dma_channels[dma_ch].err_handler = NULL;
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(puv3_free_dma);
+/* DISABLED: EXPORT_SYMBOL(puv3_free_dma); */
 
 static irqreturn_t dma_irq_handler(int irq, void *dev_id)
 {

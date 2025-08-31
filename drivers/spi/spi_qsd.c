@@ -3082,7 +3082,7 @@ int fp_spi_clock_set_rate(struct spi_device *spidev)
 	pr_info("%s sucess\n", __func__);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fp_spi_clock_set_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(fp_spi_clock_set_rate); */
 
 int fp_spi_clock_enable(struct spi_device *spidev)
 {
@@ -3114,7 +3114,7 @@ int fp_spi_clock_enable(struct spi_device *spidev)
 	pr_info("%s sucess\n", __func__);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fp_spi_clock_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(fp_spi_clock_enable); */
 
 int fp_spi_clock_disable(struct spi_device *spidev)
 {
@@ -3137,7 +3137,7 @@ int fp_spi_clock_disable(struct spi_device *spidev)
 	pr_info("%s sucess\n", __func__);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fp_spi_clock_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(fp_spi_clock_disable); */
 #endif
 
 static int __init msm_spi_probe(struct platform_device *pdev)

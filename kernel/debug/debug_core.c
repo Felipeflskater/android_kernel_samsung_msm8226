@@ -64,7 +64,7 @@ struct debuggerinfo_struct kgdb_info[NR_CPUS];
  * kgdb_connected - Is a host GDB connected to us?
  */
 int				kgdb_connected;
-EXPORT_SYMBOL_GPL(kgdb_connected);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_connected); */
 
 /* All the KGDB handlers are installed */
 int			kgdb_io_module_registered;
@@ -118,7 +118,7 @@ static struct kgdb_bkpt		kgdb_break[KGDB_MAX_BREAKPOINTS] = {
  * The CPU# of the active CPU, or -1 if none:
  */
 atomic_t			kgdb_active = ATOMIC_INIT(-1);
-EXPORT_SYMBOL_GPL(kgdb_active);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_active); */
 static DEFINE_RAW_SPINLOCK(dbg_master_lock);
 static DEFINE_RAW_SPINLOCK(dbg_slave_lock);
 
@@ -887,7 +887,7 @@ void kgdb_schedule_breakpoint(void)
 	atomic_inc(&kgdb_break_tasklet_var);
 	tasklet_schedule(&kgdb_tasklet_breakpoint);
 }
-EXPORT_SYMBOL_GPL(kgdb_schedule_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_schedule_breakpoint); */
 
 static void kgdb_initial_breakpoint(void)
 {
@@ -940,7 +940,7 @@ int kgdb_register_io_module(struct kgdb_io *new_dbg_io_ops)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(kgdb_register_io_module);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_register_io_module); */
 
 /**
  *	kkgdb_unregister_io_module - unregister KGDB IO module
@@ -969,7 +969,7 @@ void kgdb_unregister_io_module(struct kgdb_io *old_dbg_io_ops)
 		"kgdb: Unregistered I/O driver %s, debugger disabled.\n",
 		old_dbg_io_ops->name);
 }
-EXPORT_SYMBOL_GPL(kgdb_unregister_io_module);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_unregister_io_module); */
 
 int dbg_io_get_char(void)
 {
@@ -999,7 +999,7 @@ void kgdb_breakpoint(void)
 	wmb(); /* Sync point after breakpoint */
 	atomic_dec(&kgdb_setting_breakpoint);
 }
-EXPORT_SYMBOL_GPL(kgdb_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(kgdb_breakpoint); */
 
 static int __init opt_kgdb_wait(char *str)
 {

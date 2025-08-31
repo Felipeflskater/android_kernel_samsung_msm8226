@@ -2078,7 +2078,7 @@ void gsm_cleanup_mux(struct gsm_mux *gsm)
 		kfree(txq);
 	INIT_LIST_HEAD(&gsm->tx_list);
 }
-EXPORT_SYMBOL_GPL(gsm_cleanup_mux);
+/* DISABLED: EXPORT_SYMBOL_GPL(gsm_cleanup_mux); */
 
 /**
  *	gsm_activate_mux	-	generic GSM setup
@@ -2125,7 +2125,7 @@ int gsm_activate_mux(struct gsm_mux *gsm)
 	gsm->dead = 0;		/* Tty opens are now permissible */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gsm_activate_mux);
+/* DISABLED: EXPORT_SYMBOL_GPL(gsm_activate_mux); */
 
 /**
  *	gsm_free_mux		-	free up a mux
@@ -2139,7 +2139,7 @@ void gsm_free_mux(struct gsm_mux *gsm)
 	kfree(gsm->buf);
 	kfree(gsm);
 }
-EXPORT_SYMBOL_GPL(gsm_free_mux);
+/* DISABLED: EXPORT_SYMBOL_GPL(gsm_free_mux); */
 
 /**
  *	gsm_free_muxr		-	free up a mux
@@ -2201,7 +2201,7 @@ struct gsm_mux *gsm_alloc_mux(void)
 
 	return gsm;
 }
-EXPORT_SYMBOL_GPL(gsm_alloc_mux);
+/* DISABLED: EXPORT_SYMBOL_GPL(gsm_alloc_mux); */
 
 /**
  *	gsmld_output		-	write to link

@@ -420,7 +420,7 @@ nlmsvc_unlock_all_by_sb(struct super_block *sb)
 	ret = nlm_traverse_files(sb, nlmsvc_always_match, nlmsvc_match_sb);
 	return ret ? -EIO : 0;
 }
-EXPORT_SYMBOL_GPL(nlmsvc_unlock_all_by_sb);
+/* DISABLED: EXPORT_SYMBOL_GPL(nlmsvc_unlock_all_by_sb); */
 
 static int
 nlmsvc_match_ip(void *datap, struct nlm_host *host)
@@ -443,4 +443,4 @@ nlmsvc_unlock_all_by_ip(struct sockaddr *server_addr)
 	ret = nlm_traverse_files(server_addr, nlmsvc_match_ip, NULL);
 	return ret ? -EIO : 0;
 }
-EXPORT_SYMBOL_GPL(nlmsvc_unlock_all_by_ip);
+/* DISABLED: EXPORT_SYMBOL_GPL(nlmsvc_unlock_all_by_ip); */

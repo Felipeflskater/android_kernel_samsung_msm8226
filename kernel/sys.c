@@ -103,8 +103,8 @@
 int overflowuid = DEFAULT_OVERFLOWUID;
 int overflowgid = DEFAULT_OVERFLOWGID;
 
-EXPORT_SYMBOL(overflowuid);
-EXPORT_SYMBOL(overflowgid);
+/* DISABLED: EXPORT_SYMBOL(overflowuid); */
+/* DISABLED: EXPORT_SYMBOL(overflowgid); */
 
 /*
  * the same as above, but for filesystems which can only store a 16-bit
@@ -114,8 +114,8 @@ EXPORT_SYMBOL(overflowgid);
 int fs_overflowuid = DEFAULT_FS_OVERFLOWUID;
 int fs_overflowgid = DEFAULT_FS_OVERFLOWUID;
 
-EXPORT_SYMBOL(fs_overflowuid);
-EXPORT_SYMBOL(fs_overflowgid);
+/* DISABLED: EXPORT_SYMBOL(fs_overflowuid); */
+/* DISABLED: EXPORT_SYMBOL(fs_overflowgid); */
 
 /*
  * this indicates whether you can reboot with ctrl-alt-del: the default is yes
@@ -123,7 +123,7 @@ EXPORT_SYMBOL(fs_overflowgid);
 
 int C_A_D = 1;
 struct pid *cad_pid;
-EXPORT_SYMBOL(cad_pid);
+/* DISABLED: EXPORT_SYMBOL(cad_pid); */
 
 /*
  * If set, this is used for preparing the system to power off.
@@ -368,7 +368,7 @@ void emergency_restart(void)
 	kmsg_dump(KMSG_DUMP_EMERG);
 	machine_emergency_restart();
 }
-EXPORT_SYMBOL_GPL(emergency_restart);
+/* DISABLED: EXPORT_SYMBOL_GPL(emergency_restart); */
 
 void kernel_restart_prepare(char *cmd)
 {
@@ -392,7 +392,7 @@ int register_reboot_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&reboot_notifier_list, nb);
 }
-EXPORT_SYMBOL(register_reboot_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_reboot_notifier); */
 
 /**
  *	unregister_reboot_notifier - Unregister previously registered reboot notifier
@@ -407,7 +407,7 @@ int unregister_reboot_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&reboot_notifier_list, nb);
 }
-EXPORT_SYMBOL(unregister_reboot_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_reboot_notifier); */
 
 /* Add backwards compatibility for stable trees. */
 #ifndef PF_NO_SETAFFINITY
@@ -458,7 +458,7 @@ void kernel_restart(char *cmd)
 	kmsg_dump(KMSG_DUMP_RESTART);
 	machine_restart(cmd);
 }
-EXPORT_SYMBOL_GPL(kernel_restart);
+/* DISABLED: EXPORT_SYMBOL_GPL(kernel_restart); */
 
 static void kernel_shutdown_prepare(enum system_states state)
 {
@@ -483,7 +483,7 @@ void kernel_halt(void)
 	machine_halt();
 }
 
-EXPORT_SYMBOL_GPL(kernel_halt);
+/* DISABLED: EXPORT_SYMBOL_GPL(kernel_halt); */
 
 /**
  *	kernel_power_off - power_off the system
@@ -504,7 +504,7 @@ void kernel_power_off(void)
 	kmsg_dump(KMSG_DUMP_POWEROFF);
 	machine_power_off();
 }
-EXPORT_SYMBOL_GPL(kernel_power_off);
+/* DISABLED: EXPORT_SYMBOL_GPL(kernel_power_off); */
 
 static DEFINE_MUTEX(reboot_mutex);
 
@@ -2375,4 +2375,4 @@ int orderly_poweroff(bool force)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(orderly_poweroff);
+/* DISABLED: EXPORT_SYMBOL_GPL(orderly_poweroff); */

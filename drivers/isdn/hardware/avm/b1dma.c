@@ -954,20 +954,20 @@ const struct file_operations b1dmactl_proc_fops = {
 	.llseek		= seq_lseek,
 	.release	= single_release,
 };
-EXPORT_SYMBOL(b1dmactl_proc_fops);
+/* DISABLED: EXPORT_SYMBOL(b1dmactl_proc_fops); */
 
 /* ------------------------------------------------------------- */
 
-EXPORT_SYMBOL(b1dma_reset);
-EXPORT_SYMBOL(t1pci_detect);
-EXPORT_SYMBOL(b1pciv4_detect);
-EXPORT_SYMBOL(b1dma_interrupt);
+/* DISABLED: EXPORT_SYMBOL(b1dma_reset); */
+/* DISABLED: EXPORT_SYMBOL(t1pci_detect); */
+/* DISABLED: EXPORT_SYMBOL(b1pciv4_detect); */
+/* DISABLED: EXPORT_SYMBOL(b1dma_interrupt); */
 
-EXPORT_SYMBOL(b1dma_load_firmware);
-EXPORT_SYMBOL(b1dma_reset_ctr);
-EXPORT_SYMBOL(b1dma_register_appl);
-EXPORT_SYMBOL(b1dma_release_appl);
-EXPORT_SYMBOL(b1dma_send_message);
+/* DISABLED: EXPORT_SYMBOL(b1dma_load_firmware); */
+/* DISABLED: EXPORT_SYMBOL(b1dma_reset_ctr); */
+/* DISABLED: EXPORT_SYMBOL(b1dma_register_appl); */
+/* DISABLED: EXPORT_SYMBOL(b1dma_release_appl); */
+/* DISABLED: EXPORT_SYMBOL(b1dma_send_message); */
 
 static int __init b1dma_init(void)
 {

@@ -56,7 +56,7 @@
 
 struct ping_table ping_table;
 struct pingv6_ops pingv6_ops;
-EXPORT_SYMBOL_GPL(pingv6_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(pingv6_ops); */
 
 static u16 ping_port_rover;
 
@@ -66,7 +66,7 @@ static inline int ping_hashfn(struct net *net, unsigned num, unsigned mask)
 	pr_debug("hash(%d) = %d\n", num, res);
 	return res;
 }
-EXPORT_SYMBOL_GPL(ping_hash);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_hash); */
 
 static inline struct hlist_nulls_head *ping_hashslot(struct ping_table *table,
 					     struct net *net, unsigned num)
@@ -138,7 +138,7 @@ fail:
 	write_unlock_bh(&ping_table.lock);
 	return 1;
 }
-EXPORT_SYMBOL_GPL(ping_get_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_get_port); */
 
 void ping_hash(struct sock *sk)
 {
@@ -161,7 +161,7 @@ void ping_unhash(struct sock *sk)
 	}
 	write_unlock_bh(&ping_table.lock);
 }
-EXPORT_SYMBOL_GPL(ping_unhash);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_unhash); */
 
 static struct sock *ping_lookup(struct net *net, struct sk_buff *skb, u16 ident)
 {
@@ -282,7 +282,7 @@ out_release_group:
 	put_group_info(group_info);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ping_init_sock);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_init_sock); */
 
 void ping_close(struct sock *sk, long timeout)
 {
@@ -292,7 +292,7 @@ void ping_close(struct sock *sk, long timeout)
 
 	sk_common_release(sk);
 }
-EXPORT_SYMBOL_GPL(ping_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_close); */
 
 /* Checks the bind address and possibly modifies sk->sk_bound_dev_if. */
 int ping_check_bind_addr(struct sock *sk, struct inet_sock *isk,
@@ -458,7 +458,7 @@ out:
 	pr_debug("ping_v4_bind -> %d\n", err);
 	return err;
 }
-EXPORT_SYMBOL_GPL(ping_bind);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_bind); */
 
 /*
  * Is this a supported type of ICMP message?
@@ -588,7 +588,7 @@ void ping_err(struct sk_buff *skb, int offset, u32 info)
 out:
 	sock_put(sk);
 }
-EXPORT_SYMBOL_GPL(ping_err);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_err); */
 
 void ping_v4_err(struct sk_buff *skb, u32 info)
 {
@@ -635,7 +635,7 @@ int ping_getfrag(void *from, char *to,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ping_getfrag);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_getfrag); */
 
 static int ping_v4_push_pending_frames(struct sock *sk, struct pingfakehdr *pfh,
 				       struct flowi4 *fl4)
@@ -689,7 +689,7 @@ int ping_common_sendmsg(int family, struct msghdr *msg, size_t len,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ping_common_sendmsg);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_common_sendmsg); */
 
 int ping_v4_sendmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 		    size_t len)
@@ -944,7 +944,7 @@ out:
 	pr_debug("ping_recvmsg -> %d\n", err);
 	return err;
 }
-EXPORT_SYMBOL_GPL(ping_recvmsg);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_recvmsg); */
 
 int ping_queue_rcv_skb(struct sock *sk, struct sk_buff *skb)
 {
@@ -957,7 +957,7 @@ int ping_queue_rcv_skb(struct sock *sk, struct sk_buff *skb)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ping_queue_rcv_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_queue_rcv_skb); */
 
 
 /*
@@ -989,7 +989,7 @@ void ping_rcv(struct sk_buff *skb)
 
 	/* We're called from icmp_rcv(). kfree_skb() is done there. */
 }
-EXPORT_SYMBOL_GPL(ping_rcv);
+/* DISABLED: EXPORT_SYMBOL_GPL(ping_rcv); */
 
 struct proto ping_prot = {
 	.name =		"PING",
@@ -1009,7 +1009,7 @@ struct proto ping_prot = {
 	.get_port =	ping_get_port,
 	.obj_size =	sizeof(struct inet_sock),
 };
-EXPORT_SYMBOL(ping_prot);
+/* DISABLED: EXPORT_SYMBOL(ping_prot); */
 
 #ifdef CONFIG_PROC_FS
 

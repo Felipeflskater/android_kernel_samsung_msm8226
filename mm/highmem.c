@@ -45,7 +45,7 @@ DEFINE_PER_CPU(int, __kmap_atomic_idx);
 #ifdef CONFIG_HIGHMEM
 
 unsigned long totalhigh_pages __read_mostly;
-EXPORT_SYMBOL(totalhigh_pages);
+/* DISABLED: EXPORT_SYMBOL(totalhigh_pages); */
 
 
 EXPORT_PER_CPU_SYMBOL(__kmap_atomic_idx);
@@ -105,7 +105,7 @@ struct page *kmap_to_page(void *vaddr)
 
 	return virt_to_page(addr);
 }
-EXPORT_SYMBOL(kmap_to_page);
+/* DISABLED: EXPORT_SYMBOL(kmap_to_page); */
 
 static void flush_all_zero_pkmaps(void)
 {
@@ -234,7 +234,7 @@ void *kmap_high(struct page *page)
 	return (void*) vaddr;
 }
 
-EXPORT_SYMBOL(kmap_high);
+/* DISABLED: EXPORT_SYMBOL(kmap_high); */
 
 #ifdef ARCH_NEEDS_KMAP_HIGH_GET
 /**
@@ -309,7 +309,7 @@ void kunmap_high(struct page *page)
 		wake_up(&pkmap_map_wait);
 }
 
-EXPORT_SYMBOL(kunmap_high);
+/* DISABLED: EXPORT_SYMBOL(kunmap_high); */
 #endif
 
 #if defined(HASHED_PAGE_VIRTUAL)
@@ -377,7 +377,7 @@ done:
 	return ret;
 }
 
-EXPORT_SYMBOL(page_address);
+/* DISABLED: EXPORT_SYMBOL(page_address); */
 
 /**
  * set_page_address - set a page's virtual address

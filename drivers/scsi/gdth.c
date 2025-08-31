@@ -5239,5 +5239,5 @@ module_init(gdth_init);
 module_exit(gdth_exit);
 
 #ifndef MODULE
-/* DISABLED: __setup("gdth=", option_setup); */
+/* DISABLED: __setup("gdth=", option_setup); */ */
 #endif

@@ -267,7 +267,7 @@ err_alloc:
 	kfree(d);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(regmap_add_irq_chip);
+/* DISABLED: EXPORT_SYMBOL_GPL(regmap_add_irq_chip); */
 
 /**
  * regmap_del_irq_chip(): Stop interrupt handling for a regmap IRQ chip
@@ -287,7 +287,7 @@ void regmap_del_irq_chip(int irq, struct regmap_irq_chip_data *d)
 	kfree(d->status_buf);
 	kfree(d);
 }
-EXPORT_SYMBOL_GPL(regmap_del_irq_chip);
+/* DISABLED: EXPORT_SYMBOL_GPL(regmap_del_irq_chip); */
 
 /**
  * regmap_irq_chip_get_base(): Retrieve interrupt base for a regmap IRQ chip
@@ -300,4 +300,4 @@ int regmap_irq_chip_get_base(struct regmap_irq_chip_data *data)
 {
 	return data->irq_base;
 }
-EXPORT_SYMBOL_GPL(regmap_irq_chip_get_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(regmap_irq_chip_get_base); */

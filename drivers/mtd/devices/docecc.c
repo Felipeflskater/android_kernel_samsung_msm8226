@@ -514,7 +514,7 @@ int doc_decode_ecc(unsigned char sector[SECTOR_SIZE], unsigned char ecc1[6])
     return nb_errors;
 }
 
-EXPORT_SYMBOL_GPL(doc_decode_ecc);
+/* DISABLED: EXPORT_SYMBOL_GPL(doc_decode_ecc); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Fabrice Bellard <fabrice.bellard@netgem.com>");

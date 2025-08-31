@@ -689,4 +689,4 @@ int drm_mmap(struct file *filp, struct vm_area_struct *vma)
 
 	return ret;
 }
-EXPORT_SYMBOL(drm_mmap);
+/* DISABLED: EXPORT_SYMBOL(drm_mmap); */

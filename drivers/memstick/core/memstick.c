@@ -211,7 +211,7 @@ void memstick_detect_change(struct memstick_host *host)
 {
 	queue_work(workqueue, &host->media_checker);
 }
-EXPORT_SYMBOL(memstick_detect_change);
+/* DISABLED: EXPORT_SYMBOL(memstick_detect_change); */
 
 /**
  * memstick_next_req - called by host driver to obtain next request to process
@@ -243,7 +243,7 @@ int memstick_next_req(struct memstick_host *host, struct memstick_request **mrq)
 
 	return rc;
 }
-EXPORT_SYMBOL(memstick_next_req);
+/* DISABLED: EXPORT_SYMBOL(memstick_next_req); */
 
 /**
  * memstick_new_req - notify the host that some requests are pending
@@ -257,7 +257,7 @@ void memstick_new_req(struct memstick_host *host)
 		host->request(host);
 	}
 }
-EXPORT_SYMBOL(memstick_new_req);
+/* DISABLED: EXPORT_SYMBOL(memstick_new_req); */
 
 /**
  * memstick_init_req_sg - set request fields needed for bulk data transfer
@@ -282,7 +282,7 @@ void memstick_init_req_sg(struct memstick_request *mrq, unsigned char tpc,
 	else
 		mrq->need_card_int = 0;
 }
-EXPORT_SYMBOL(memstick_init_req_sg);
+/* DISABLED: EXPORT_SYMBOL(memstick_init_req_sg); */
 
 /**
  * memstick_init_req - set request fields needed for short data transfer
@@ -315,7 +315,7 @@ void memstick_init_req(struct memstick_request *mrq, unsigned char tpc,
 	else
 		mrq->need_card_int = 0;
 }
-EXPORT_SYMBOL(memstick_init_req);
+/* DISABLED: EXPORT_SYMBOL(memstick_init_req); */
 
 /*
  * Functions prefixed with "h_" are protocol callbacks. They can be called from
@@ -376,7 +376,7 @@ int memstick_set_rw_addr(struct memstick_dev *card)
 
 	return card->current_mrq.error;
 }
-EXPORT_SYMBOL(memstick_set_rw_addr);
+/* DISABLED: EXPORT_SYMBOL(memstick_set_rw_addr); */
 
 static struct memstick_dev *memstick_alloc_card(struct memstick_host *host)
 {
@@ -502,7 +502,7 @@ struct memstick_host *memstick_alloc_host(unsigned int extra,
 	}
 	return host;
 }
-EXPORT_SYMBOL(memstick_alloc_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_alloc_host); */
 
 /**
  * memstick_add_host - start request processing on memstick host
@@ -539,7 +539,7 @@ int memstick_add_host(struct memstick_host *host)
 	memstick_detect_change(host);
 	return 0;
 }
-EXPORT_SYMBOL(memstick_add_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_add_host); */
 
 /**
  * memstick_remove_host - stop request processing on memstick host
@@ -560,7 +560,7 @@ void memstick_remove_host(struct memstick_host *host)
 	spin_unlock(&memstick_host_lock);
 	device_del(&host->dev);
 }
-EXPORT_SYMBOL(memstick_remove_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_remove_host); */
 
 /**
  * memstick_free_host - free memstick host
@@ -571,7 +571,7 @@ void memstick_free_host(struct memstick_host *host)
 	mutex_destroy(&host->lock);
 	put_device(&host->dev);
 }
-EXPORT_SYMBOL(memstick_free_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_free_host); */
 
 /**
  * memstick_suspend_host - notify bus driver of host suspension
@@ -583,7 +583,7 @@ void memstick_suspend_host(struct memstick_host *host)
 	host->set_param(host, MEMSTICK_POWER, MEMSTICK_POWER_OFF);
 	mutex_unlock(&host->lock);
 }
-EXPORT_SYMBOL(memstick_suspend_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_suspend_host); */
 
 /**
  * memstick_resume_host - notify bus driver of host resumption
@@ -601,7 +601,7 @@ void memstick_resume_host(struct memstick_host *host)
 	if (!rc)
 		memstick_detect_change(host);
 }
-EXPORT_SYMBOL(memstick_resume_host);
+/* DISABLED: EXPORT_SYMBOL(memstick_resume_host); */
 
 int memstick_register_driver(struct memstick_driver *drv)
 {
@@ -609,13 +609,13 @@ int memstick_register_driver(struct memstick_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL(memstick_register_driver);
+/* DISABLED: EXPORT_SYMBOL(memstick_register_driver); */
 
 void memstick_unregister_driver(struct memstick_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(memstick_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(memstick_unregister_driver); */
 
 
 static int __init memstick_init(void)

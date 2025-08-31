@@ -126,7 +126,7 @@ ret:
 	mutex_unlock(&vreg_lock);
 	return vreg;
 }
-EXPORT_SYMBOL(vreg_get);
+/* DISABLED: EXPORT_SYMBOL(vreg_get); */
 
 void vreg_put(struct vreg *vreg)
 {
@@ -156,7 +156,7 @@ int vreg_enable(struct vreg *vreg)
 
 	return rc;
 }
-EXPORT_SYMBOL(vreg_enable);
+/* DISABLED: EXPORT_SYMBOL(vreg_enable); */
 
 int vreg_disable(struct vreg *vreg)
 {
@@ -181,7 +181,7 @@ int vreg_disable(struct vreg *vreg)
 
 	return rc;
 }
-EXPORT_SYMBOL(vreg_disable);
+/* DISABLED: EXPORT_SYMBOL(vreg_disable); */
 
 int vreg_set_level(struct vreg *vreg, unsigned mv)
 {
@@ -204,7 +204,7 @@ int vreg_set_level(struct vreg *vreg, unsigned mv)
 
 	return rc;
 }
-EXPORT_SYMBOL(vreg_set_level);
+/* DISABLED: EXPORT_SYMBOL(vreg_set_level); */
 
 #if defined(CONFIG_DEBUG_FS)
 

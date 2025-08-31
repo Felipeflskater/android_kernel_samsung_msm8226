@@ -121,7 +121,7 @@ struct ktermios tty_std_termios = {	/* for the benefit of tty drivers  */
 	.c_ospeed = 38400
 };
 
-EXPORT_SYMBOL(tty_std_termios);
+/* DISABLED: EXPORT_SYMBOL(tty_std_termios); */
 
 /* This list gets poked at by procfs and various bits of boot up code. This
    could do with some rationalisation such as pulling the tty proc function
@@ -132,7 +132,7 @@ LIST_HEAD(tty_drivers);			/* linked list of tty drivers */
 /* Mutex to protect creating and releasing a tty. This is shared with
    vt.c for deeply disgusting hack reasons */
 DEFINE_MUTEX(tty_mutex);
-EXPORT_SYMBOL(tty_mutex);
+/* DISABLED: EXPORT_SYMBOL(tty_mutex); */
 
 /* Spinlock to protect the tty->tty_files list */
 DEFINE_SPINLOCK(tty_files_lock);
@@ -267,7 +267,7 @@ char *tty_name(struct tty_struct *tty, char *buf)
 	return buf;
 }
 
-EXPORT_SYMBOL(tty_name);
+/* DISABLED: EXPORT_SYMBOL(tty_name); */
 
 int tty_paranoia_check(struct tty_struct *tty, struct inode *inode,
 			      const char *routine)
@@ -388,7 +388,7 @@ struct tty_driver *tty_find_polling_driver(char *name, int *line)
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(tty_find_polling_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_find_polling_driver); */
 #endif
 
 /**
@@ -435,7 +435,7 @@ out_unlock:
 	return ret;
 }
 
-EXPORT_SYMBOL(tty_check_change);
+/* DISABLED: EXPORT_SYMBOL(tty_check_change); */
 
 static ssize_t hung_up_tty_read(struct file *file, char __user *buf,
 				size_t count, loff_t *ppos)
@@ -528,7 +528,7 @@ void tty_wakeup(struct tty_struct *tty)
 	wake_up_interruptible_poll(&tty->write_wait, POLLOUT);
 }
 
-EXPORT_SYMBOL_GPL(tty_wakeup);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_wakeup); */
 
 /**
  *	__tty_hangup		-	actual handler for hangup events
@@ -697,7 +697,7 @@ void tty_hangup(struct tty_struct *tty)
 	schedule_work(&tty->hangup_work);
 }
 
-EXPORT_SYMBOL(tty_hangup);
+/* DISABLED: EXPORT_SYMBOL(tty_hangup); */
 
 /**
  *	tty_vhangup		-	process vhangup
@@ -718,7 +718,7 @@ void tty_vhangup(struct tty_struct *tty)
 	__tty_hangup(tty);
 }
 
-EXPORT_SYMBOL(tty_vhangup);
+/* DISABLED: EXPORT_SYMBOL(tty_vhangup); */
 
 
 /**
@@ -751,7 +751,7 @@ int tty_hung_up_p(struct file *filp)
 	return (filp->f_op == &hung_up_tty_fops);
 }
 
-EXPORT_SYMBOL(tty_hung_up_p);
+/* DISABLED: EXPORT_SYMBOL(tty_hung_up_p); */
 
 static void session_clear_tty(struct pid *session)
 {
@@ -900,7 +900,7 @@ void stop_tty(struct tty_struct *tty)
 		(tty->ops->stop)(tty);
 }
 
-EXPORT_SYMBOL(stop_tty);
+/* DISABLED: EXPORT_SYMBOL(stop_tty); */
 
 /**
  *	start_tty	-	propagate flow control
@@ -936,7 +936,7 @@ void start_tty(struct tty_struct *tty)
 	tty_wakeup(tty);
 }
 
-EXPORT_SYMBOL(start_tty);
+/* DISABLED: EXPORT_SYMBOL(start_tty); */
 
 /* We limit tty time update visibility to every 8 seconds or so. */
 static void tty_update_time(struct timespec *time)
@@ -1275,7 +1275,7 @@ int tty_init_termios(struct tty_struct *tty)
 	tty->termios->c_ospeed = tty_termios_baud_rate(tty->termios);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tty_init_termios);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_init_termios); */
 
 int tty_standard_install(struct tty_driver *driver, struct tty_struct *tty)
 {
@@ -1288,7 +1288,7 @@ int tty_standard_install(struct tty_driver *driver, struct tty_struct *tty)
 	driver->ttys[tty->index] = tty;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tty_standard_install);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_standard_install); */
 
 /**
  *	tty_driver_install_tty() - install a tty entry in the driver
@@ -1453,14 +1453,14 @@ void tty_free_termios(struct tty_struct *tty)
 		kfree(tp);
 	}
 }
-EXPORT_SYMBOL(tty_free_termios);
+/* DISABLED: EXPORT_SYMBOL(tty_free_termios); */
 
 void tty_shutdown(struct tty_struct *tty)
 {
 	tty_driver_remove_tty(tty->driver, tty);
 	tty_free_termios(tty);
 }
-EXPORT_SYMBOL(tty_shutdown);
+/* DISABLED: EXPORT_SYMBOL(tty_shutdown); */
 
 /**
  *	release_one_tty		-	release tty structure memory
@@ -1528,7 +1528,7 @@ void tty_kref_put(struct tty_struct *tty)
 	if (tty)
 		kref_put(&tty->kref, queue_release_one_tty);
 }
-EXPORT_SYMBOL(tty_kref_put);
+/* DISABLED: EXPORT_SYMBOL(tty_kref_put); */
 
 /**
  *	release_tty		-	release tty structure memory
@@ -2389,7 +2389,7 @@ struct pid *tty_get_pgrp(struct tty_struct *tty)
 
 	return pgrp;
 }
-EXPORT_SYMBOL_GPL(tty_get_pgrp);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_get_pgrp); */
 
 /**
  *	tiocgpgrp		-	get process group
@@ -2669,7 +2669,7 @@ struct tty_struct *tty_pair_get_tty(struct tty_struct *tty)
 		tty = tty->link;
 	return tty;
 }
-EXPORT_SYMBOL(tty_pair_get_tty);
+/* DISABLED: EXPORT_SYMBOL(tty_pair_get_tty); */
 
 struct tty_struct *tty_pair_get_pty(struct tty_struct *tty)
 {
@@ -2678,7 +2678,7 @@ struct tty_struct *tty_pair_get_pty(struct tty_struct *tty)
 	    return tty;
 	return tty->link;
 }
-EXPORT_SYMBOL(tty_pair_get_pty);
+/* DISABLED: EXPORT_SYMBOL(tty_pair_get_pty); */
 
 /*
  * Split this up, as gcc can choke on it otherwise..
@@ -2959,7 +2959,7 @@ void do_SAK(struct tty_struct *tty)
 	schedule_work(&tty->SAK_work);
 }
 
-EXPORT_SYMBOL(do_SAK);
+/* DISABLED: EXPORT_SYMBOL(do_SAK); */
 
 static int dev_match_devt(struct device *dev, void *data)
 {
@@ -3049,7 +3049,7 @@ int tty_put_char(struct tty_struct *tty, unsigned char ch)
 		return tty->ops->put_char(tty, ch);
 	return tty->ops->write(tty, &ch, 1);
 }
-EXPORT_SYMBOL_GPL(tty_put_char);
+/* DISABLED: EXPORT_SYMBOL_GPL(tty_put_char); */
 
 struct class *tty_class;
 
@@ -3091,7 +3091,7 @@ struct device *tty_register_device(struct tty_driver *driver, unsigned index,
 
 	return device_create(tty_class, device, dev, NULL, name);
 }
-EXPORT_SYMBOL(tty_register_device);
+/* DISABLED: EXPORT_SYMBOL(tty_register_device); */
 
 /**
  * 	tty_unregister_device - unregister a tty device
@@ -3109,7 +3109,7 @@ void tty_unregister_device(struct tty_driver *driver, unsigned index)
 	device_destroy(tty_class,
 		MKDEV(driver->major, driver->minor_start) + index);
 }
-EXPORT_SYMBOL(tty_unregister_device);
+/* DISABLED: EXPORT_SYMBOL(tty_unregister_device); */
 
 struct tty_driver *__alloc_tty_driver(int lines, struct module *owner)
 {
@@ -3125,7 +3125,7 @@ struct tty_driver *__alloc_tty_driver(int lines, struct module *owner)
 	}
 	return driver;
 }
-EXPORT_SYMBOL(__alloc_tty_driver);
+/* DISABLED: EXPORT_SYMBOL(__alloc_tty_driver); */
 
 static void destruct_tty_driver(struct kref *kref)
 {
@@ -3163,20 +3163,20 @@ void tty_driver_kref_put(struct tty_driver *driver)
 {
 	kref_put(&driver->kref, destruct_tty_driver);
 }
-EXPORT_SYMBOL(tty_driver_kref_put);
+/* DISABLED: EXPORT_SYMBOL(tty_driver_kref_put); */
 
 void tty_set_operations(struct tty_driver *driver,
 			const struct tty_operations *op)
 {
 	driver->ops = op;
 };
-EXPORT_SYMBOL(tty_set_operations);
+/* DISABLED: EXPORT_SYMBOL(tty_set_operations); */
 
 void put_tty_driver(struct tty_driver *d)
 {
 	tty_driver_kref_put(d);
 }
-EXPORT_SYMBOL(put_tty_driver);
+/* DISABLED: EXPORT_SYMBOL(put_tty_driver); */
 
 /*
  * Called by a tty driver to register itself.
@@ -3262,7 +3262,7 @@ err:
 	return error;
 }
 
-EXPORT_SYMBOL(tty_register_driver);
+/* DISABLED: EXPORT_SYMBOL(tty_register_driver); */
 
 /*
  * Called by a tty driver to unregister itself.
@@ -3282,13 +3282,13 @@ int tty_unregister_driver(struct tty_driver *driver)
 	return 0;
 }
 
-EXPORT_SYMBOL(tty_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(tty_unregister_driver); */
 
 dev_t tty_devnum(struct tty_struct *tty)
 {
 	return MKDEV(tty->driver->major, tty->driver->minor_start) + tty->index;
 }
-EXPORT_SYMBOL(tty_devnum);
+/* DISABLED: EXPORT_SYMBOL(tty_devnum); */
 
 void proc_clear_tty(struct task_struct *p)
 {
@@ -3341,7 +3341,7 @@ struct tty_struct *get_current_tty(void)
 	spin_unlock_irqrestore(&current->sighand->siglock, flags);
 	return tty;
 }
-EXPORT_SYMBOL_GPL(get_current_tty);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_current_tty); */
 
 void tty_default_fops(struct file_operations *fops)
 {

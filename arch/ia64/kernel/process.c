@@ -55,11 +55,11 @@
 void (*ia64_mark_idle)(int);
 
 unsigned long boot_option_idle_override = IDLE_NO_OVERRIDE;
-EXPORT_SYMBOL(boot_option_idle_override);
+/* DISABLED: EXPORT_SYMBOL(boot_option_idle_override); */
 void (*pm_idle) (void);
-EXPORT_SYMBOL(pm_idle);
+/* DISABLED: EXPORT_SYMBOL(pm_idle); */
 void (*pm_power_off) (void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 void
 ia64_do_show_stack (struct unw_frame_info *info, void *arg)
@@ -102,7 +102,7 @@ dump_stack (void)
 	show_stack(NULL, NULL);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 void
 show_regs (struct pt_regs *regs)
@@ -220,7 +220,7 @@ static int __init nohalt_setup(char * str)
 	pal_halt = can_do_pal_halt = 0;
 	return 1;
 }
-/* DISABLED: __setup("nohalt", nohalt_setup); */
+/* DISABLED: __setup("nohalt", nohalt_setup); */ */
 
 void
 update_pal_halt_status(int status)
@@ -291,7 +291,7 @@ void cpu_idle_wait(void)
 	/* kick all the CPUs so that they exit out of pm_idle */
 	smp_call_function(do_nothing, NULL, 1);
 }
-EXPORT_SYMBOL_GPL(cpu_idle_wait);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_idle_wait); */
 
 void __attribute__((noreturn))
 cpu_idle (void)
@@ -669,7 +669,7 @@ kernel_thread (int (*fn)(void *), void *arg, unsigned long flags)
 	regs.sw.pr = (1 << PRED_KERNEL_STACK);
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0, &regs.pt, 0, NULL, NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /* This gets called from kernel_thread() via ia64_invoke_thread_helper().  */
 int

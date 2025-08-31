@@ -42,8 +42,8 @@
 unsigned long memory_start;
 unsigned long memory_end;
 
-EXPORT_SYMBOL(memory_start);
-EXPORT_SYMBOL(memory_end);
+/* DISABLED: EXPORT_SYMBOL(memory_start); */
+/* DISABLED: EXPORT_SYMBOL(memory_end); */
 
 char __initdata command_line[COMMAND_LINE_SIZE];
 

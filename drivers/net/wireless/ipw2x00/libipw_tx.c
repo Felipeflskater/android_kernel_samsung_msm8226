@@ -531,6 +531,6 @@ netdev_tx_t libipw_xmit(struct sk_buff *skb, struct net_device *dev)
 	dev->stats.tx_errors++;
 	return NETDEV_TX_BUSY;
 }
-EXPORT_SYMBOL(libipw_xmit);
+/* DISABLED: EXPORT_SYMBOL(libipw_xmit); */
 
-EXPORT_SYMBOL(libipw_txb_free);
+/* DISABLED: EXPORT_SYMBOL(libipw_txb_free); */

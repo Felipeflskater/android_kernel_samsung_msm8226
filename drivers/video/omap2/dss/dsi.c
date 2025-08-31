@@ -389,7 +389,7 @@ void dsi_bus_lock(struct omap_dss_device *dssdev)
 
 	down(&dsi->bus_lock);
 }
-EXPORT_SYMBOL(dsi_bus_lock);
+/* DISABLED: EXPORT_SYMBOL(dsi_bus_lock); */
 
 void dsi_bus_unlock(struct omap_dss_device *dssdev)
 {
@@ -398,7 +398,7 @@ void dsi_bus_unlock(struct omap_dss_device *dssdev)
 
 	up(&dsi->bus_lock);
 }
-EXPORT_SYMBOL(dsi_bus_unlock);
+/* DISABLED: EXPORT_SYMBOL(dsi_bus_unlock); */
 
 static bool dsi_bus_is_locked(struct platform_device *dsidev)
 {
@@ -2826,7 +2826,7 @@ void omapdss_dsi_vc_enable_hs(struct omap_dss_device *dssdev, int channel,
 	if (dssdev->panel.dsi_vm_data.ddr_clk_always_on && enable)
 		dsi_vc_send_null(dssdev, channel);
 }
-EXPORT_SYMBOL(omapdss_dsi_vc_enable_hs);
+/* DISABLED: EXPORT_SYMBOL(omapdss_dsi_vc_enable_hs); */
 
 static void dsi_vc_flush_long_data(struct platform_device *dsidev, int channel)
 {
@@ -2974,7 +2974,7 @@ err1:
 err0:
 	return r;
 }
-EXPORT_SYMBOL(dsi_vc_send_bta_sync);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_send_bta_sync); */
 
 static inline void dsi_vc_write_long_header(struct platform_device *dsidev,
 		int channel, u8 data_type, u16 len, u8 ecc)
@@ -3107,7 +3107,7 @@ int dsi_vc_send_null(struct omap_dss_device *dssdev, int channel)
 	return dsi_vc_send_long(dsidev, channel, MIPI_DSI_NULL_PACKET, NULL,
 		0, 0);
 }
-EXPORT_SYMBOL(dsi_vc_send_null);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_send_null); */
 
 static int dsi_vc_write_nosync_common(struct omap_dss_device *dssdev,
 		int channel, u8 *data, int len, enum dss_dsi_content_type type)
@@ -3146,7 +3146,7 @@ int dsi_vc_dcs_write_nosync(struct omap_dss_device *dssdev, int channel,
 	return dsi_vc_write_nosync_common(dssdev, channel, data, len,
 			DSS_DSI_CONTENT_DCS);
 }
-EXPORT_SYMBOL(dsi_vc_dcs_write_nosync);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_dcs_write_nosync); */
 
 int dsi_vc_generic_write_nosync(struct omap_dss_device *dssdev, int channel,
 		u8 *data, int len)
@@ -3154,7 +3154,7 @@ int dsi_vc_generic_write_nosync(struct omap_dss_device *dssdev, int channel,
 	return dsi_vc_write_nosync_common(dssdev, channel, data, len,
 			DSS_DSI_CONTENT_GENERIC);
 }
-EXPORT_SYMBOL(dsi_vc_generic_write_nosync);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_write_nosync); */
 
 static int dsi_vc_write_common(struct omap_dss_device *dssdev, int channel,
 		u8 *data, int len, enum dss_dsi_content_type type)
@@ -3191,7 +3191,7 @@ int dsi_vc_dcs_write(struct omap_dss_device *dssdev, int channel, u8 *data,
 	return dsi_vc_write_common(dssdev, channel, data, len,
 			DSS_DSI_CONTENT_DCS);
 }
-EXPORT_SYMBOL(dsi_vc_dcs_write);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_dcs_write); */
 
 int dsi_vc_generic_write(struct omap_dss_device *dssdev, int channel, u8 *data,
 		int len)
@@ -3199,19 +3199,19 @@ int dsi_vc_generic_write(struct omap_dss_device *dssdev, int channel, u8 *data,
 	return dsi_vc_write_common(dssdev, channel, data, len,
 			DSS_DSI_CONTENT_GENERIC);
 }
-EXPORT_SYMBOL(dsi_vc_generic_write);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_write); */
 
 int dsi_vc_dcs_write_0(struct omap_dss_device *dssdev, int channel, u8 dcs_cmd)
 {
 	return dsi_vc_dcs_write(dssdev, channel, &dcs_cmd, 1);
 }
-EXPORT_SYMBOL(dsi_vc_dcs_write_0);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_dcs_write_0); */
 
 int dsi_vc_generic_write_0(struct omap_dss_device *dssdev, int channel)
 {
 	return dsi_vc_generic_write(dssdev, channel, NULL, 0);
 }
-EXPORT_SYMBOL(dsi_vc_generic_write_0);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_write_0); */
 
 int dsi_vc_dcs_write_1(struct omap_dss_device *dssdev, int channel, u8 dcs_cmd,
 		u8 param)
@@ -3221,14 +3221,14 @@ int dsi_vc_dcs_write_1(struct omap_dss_device *dssdev, int channel, u8 dcs_cmd,
 	buf[1] = param;
 	return dsi_vc_dcs_write(dssdev, channel, buf, 2);
 }
-EXPORT_SYMBOL(dsi_vc_dcs_write_1);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_dcs_write_1); */
 
 int dsi_vc_generic_write_1(struct omap_dss_device *dssdev, int channel,
 		u8 param)
 {
 	return dsi_vc_generic_write(dssdev, channel, &param, 1);
 }
-EXPORT_SYMBOL(dsi_vc_generic_write_1);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_write_1); */
 
 int dsi_vc_generic_write_2(struct omap_dss_device *dssdev, int channel,
 		u8 param1, u8 param2)
@@ -3238,7 +3238,7 @@ int dsi_vc_generic_write_2(struct omap_dss_device *dssdev, int channel,
 	buf[1] = param2;
 	return dsi_vc_generic_write(dssdev, channel, buf, 2);
 }
-EXPORT_SYMBOL(dsi_vc_generic_write_2);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_write_2); */
 
 static int dsi_vc_dcs_send_read_request(struct omap_dss_device *dssdev,
 		int channel, u8 dcs_cmd)
@@ -3436,7 +3436,7 @@ err:
 	DSSERR("dsi_vc_dcs_read(ch %d, cmd 0x%02x) failed\n", channel, dcs_cmd);
 	return r;
 }
-EXPORT_SYMBOL(dsi_vc_dcs_read);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_dcs_read); */
 
 static int dsi_vc_generic_read(struct omap_dss_device *dssdev, int channel,
 		u8 *reqdata, int reqlen, u8 *buf, int buflen)
@@ -3478,7 +3478,7 @@ int dsi_vc_generic_read_0(struct omap_dss_device *dssdev, int channel, u8 *buf,
 
 	return 0;
 }
-EXPORT_SYMBOL(dsi_vc_generic_read_0);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_read_0); */
 
 int dsi_vc_generic_read_1(struct omap_dss_device *dssdev, int channel, u8 param,
 		u8 *buf, int buflen)
@@ -3493,7 +3493,7 @@ int dsi_vc_generic_read_1(struct omap_dss_device *dssdev, int channel, u8 param,
 
 	return 0;
 }
-EXPORT_SYMBOL(dsi_vc_generic_read_1);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_read_1); */
 
 int dsi_vc_generic_read_2(struct omap_dss_device *dssdev, int channel,
 		u8 param1, u8 param2, u8 *buf, int buflen)
@@ -3512,7 +3512,7 @@ int dsi_vc_generic_read_2(struct omap_dss_device *dssdev, int channel,
 
 	return 0;
 }
-EXPORT_SYMBOL(dsi_vc_generic_read_2);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_generic_read_2); */
 
 int dsi_vc_set_max_rx_packet_size(struct omap_dss_device *dssdev, int channel,
 		u16 len)
@@ -3522,7 +3522,7 @@ int dsi_vc_set_max_rx_packet_size(struct omap_dss_device *dssdev, int channel,
 	return dsi_vc_send_short(dsidev, channel,
 			MIPI_DSI_SET_MAXIMUM_RETURN_PACKET_SIZE, len, 0);
 }
-EXPORT_SYMBOL(dsi_vc_set_max_rx_packet_size);
+/* DISABLED: EXPORT_SYMBOL(dsi_vc_set_max_rx_packet_size); */
 
 static int dsi_enter_ulps(struct platform_device *dsidev)
 {
@@ -4028,7 +4028,7 @@ int dsi_enable_video_output(struct omap_dss_device *dssdev, int channel)
 
 	return 0;
 }
-EXPORT_SYMBOL(dsi_enable_video_output);
+/* DISABLED: EXPORT_SYMBOL(dsi_enable_video_output); */
 
 void dsi_disable_video_output(struct omap_dss_device *dssdev, int channel)
 {
@@ -4047,7 +4047,7 @@ void dsi_disable_video_output(struct omap_dss_device *dssdev, int channel)
 
 	dss_mgr_disable(dssdev->manager);
 }
-EXPORT_SYMBOL(dsi_disable_video_output);
+/* DISABLED: EXPORT_SYMBOL(dsi_disable_video_output); */
 
 static void dsi_update_screen_dispc(struct omap_dss_device *dssdev,
 		u16 w, u16 h)
@@ -4213,7 +4213,7 @@ int omap_dsi_update(struct omap_dss_device *dssdev, int channel,
 
 	return 0;
 }
-EXPORT_SYMBOL(omap_dsi_update);
+/* DISABLED: EXPORT_SYMBOL(omap_dsi_update); */
 
 /* Display funcs */
 
@@ -4482,7 +4482,7 @@ err_start_dev:
 	DSSDBG("dsi_display_enable FAILED\n");
 	return r;
 }
-EXPORT_SYMBOL(omapdss_dsi_display_enable);
+/* DISABLED: EXPORT_SYMBOL(omapdss_dsi_display_enable); */
 
 void omapdss_dsi_display_disable(struct omap_dss_device *dssdev,
 		bool disconnect_lanes, bool enter_ulps)
@@ -4512,7 +4512,7 @@ void omapdss_dsi_display_disable(struct omap_dss_device *dssdev,
 
 	mutex_unlock(&dsi->lock);
 }
-EXPORT_SYMBOL(omapdss_dsi_display_disable);
+/* DISABLED: EXPORT_SYMBOL(omapdss_dsi_display_disable); */
 
 int omapdss_dsi_enable_te(struct omap_dss_device *dssdev, bool enable)
 {
@@ -4522,7 +4522,7 @@ int omapdss_dsi_enable_te(struct omap_dss_device *dssdev, bool enable)
 	dsi->te_enabled = enable;
 	return 0;
 }
-EXPORT_SYMBOL(omapdss_dsi_enable_te);
+/* DISABLED: EXPORT_SYMBOL(omapdss_dsi_enable_te); */
 
 int dsi_init_display(struct omap_dss_device *dssdev)
 {
@@ -4569,7 +4569,7 @@ int omap_dsi_request_vc(struct omap_dss_device *dssdev, int *channel)
 	DSSERR("cannot get VC for display %s", dssdev->name);
 	return -ENOSPC;
 }
-EXPORT_SYMBOL(omap_dsi_request_vc);
+/* DISABLED: EXPORT_SYMBOL(omap_dsi_request_vc); */
 
 int omap_dsi_set_vc_id(struct omap_dss_device *dssdev, int channel, int vc_id)
 {
@@ -4596,7 +4596,7 @@ int omap_dsi_set_vc_id(struct omap_dss_device *dssdev, int channel, int vc_id)
 
 	return 0;
 }
-EXPORT_SYMBOL(omap_dsi_set_vc_id);
+/* DISABLED: EXPORT_SYMBOL(omap_dsi_set_vc_id); */
 
 void omap_dsi_release_vc(struct omap_dss_device *dssdev, int channel)
 {
@@ -4609,7 +4609,7 @@ void omap_dsi_release_vc(struct omap_dss_device *dssdev, int channel)
 		dsi->vc[channel].vc_id = 0;
 	}
 }
-EXPORT_SYMBOL(omap_dsi_release_vc);
+/* DISABLED: EXPORT_SYMBOL(omap_dsi_release_vc); */
 
 void dsi_wait_pll_hsdiv_dispc_active(struct platform_device *dsidev)
 {

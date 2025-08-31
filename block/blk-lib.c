@@ -120,7 +120,7 @@ int blkdev_issue_discard(struct block_device *bdev, sector_t sector,
 
 	return ret;
 }
-EXPORT_SYMBOL(blkdev_issue_discard);
+/* DISABLED: EXPORT_SYMBOL(blkdev_issue_discard); */
 
 /**
  * blkdev_issue_sanitize - queue a sanitize request
@@ -171,7 +171,7 @@ int blkdev_issue_sanitize(struct block_device *bdev, gfp_t gfp_mask)
 
 	return ret;
 }
-EXPORT_SYMBOL(blkdev_issue_sanitize);
+/* DISABLED: EXPORT_SYMBOL(blkdev_issue_sanitize); */
 
 /**
  * blkdev_issue_zeroout - generate number of zero filed write bios
@@ -234,4 +234,4 @@ int blkdev_issue_zeroout(struct block_device *bdev, sector_t sector,
 
 	return ret;
 }
-EXPORT_SYMBOL(blkdev_issue_zeroout);
+/* DISABLED: EXPORT_SYMBOL(blkdev_issue_zeroout); */

@@ -393,10 +393,10 @@ videocodec_exit (void)
 #endif
 }
 
-EXPORT_SYMBOL(videocodec_attach);
-EXPORT_SYMBOL(videocodec_detach);
-EXPORT_SYMBOL(videocodec_register);
-EXPORT_SYMBOL(videocodec_unregister);
+/* DISABLED: EXPORT_SYMBOL(videocodec_attach); */
+/* DISABLED: EXPORT_SYMBOL(videocodec_detach); */
+/* DISABLED: EXPORT_SYMBOL(videocodec_register); */
+/* DISABLED: EXPORT_SYMBOL(videocodec_unregister); */
 
 module_init(videocodec_init);
 module_exit(videocodec_exit);

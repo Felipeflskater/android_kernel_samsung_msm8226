@@ -1196,7 +1196,7 @@ int silent_log_panic_handler(void)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(silent_log_panic_handler);
+/* DISABLED: EXPORT_SYMBOL(silent_log_panic_handler); */
 
 static int diagchar_read(struct file *file, char __user *buf, size_t count,
 			  loff_t *ppos)

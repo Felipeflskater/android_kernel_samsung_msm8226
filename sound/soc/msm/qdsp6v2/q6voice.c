@@ -5532,7 +5532,7 @@ int voice_sec_set_dha_data(uint32_t session_id, short mode,
 	return ret;
 }
 
-EXPORT_SYMBOL(voice_sec_set_dha_data);
+/* DISABLED: EXPORT_SYMBOL(voice_sec_set_dha_data); */
 #endif /* CONFIG_SEC_DHA_SOL_MAL*/
 
 static int32_t qdsp_mvm_callback(struct apr_client_data *data, void *priv)

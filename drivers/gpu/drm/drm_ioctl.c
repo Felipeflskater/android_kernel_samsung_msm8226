@@ -353,4 +353,4 @@ int drm_noop(struct drm_device *dev, void *data,
 	DRM_DEBUG("\n");
 	return 0;
 }
-EXPORT_SYMBOL(drm_noop);
+/* DISABLED: EXPORT_SYMBOL(drm_noop); */

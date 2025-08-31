@@ -55,14 +55,14 @@ struct sh_cpuinfo cpu_data[NR_CPUS] __read_mostly = {
 		.phys_bits		= MAX_PHYSMEM_BITS,
 	},
 };
-EXPORT_SYMBOL(cpu_data);
+/* DISABLED: EXPORT_SYMBOL(cpu_data); */
 
 /*
  * The machine vector. First entry in .machvec.init, or clobbered by
  * sh_mv= on the command line, prior to .machvec.init teardown.
  */
 struct sh_machine_vector sh_mv = { .mv_name = "generic", };
-EXPORT_SYMBOL(sh_mv);
+/* DISABLED: EXPORT_SYMBOL(sh_mv); */
 
 #ifdef CONFIG_VT
 struct screen_info screen_info;
@@ -92,9 +92,9 @@ static struct resource bss_resource = {
 };
 
 unsigned long memory_start;
-EXPORT_SYMBOL(memory_start);
+/* DISABLED: EXPORT_SYMBOL(memory_start); */
 unsigned long memory_end = 0;
-EXPORT_SYMBOL(memory_end);
+/* DISABLED: EXPORT_SYMBOL(memory_end); */
 unsigned long memory_limit = 0;
 
 static struct resource mem_resources[MAX_NUMNODES];

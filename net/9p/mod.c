@@ -40,7 +40,7 @@
 
 #ifdef CONFIG_NET_9P_DEBUG
 unsigned int p9_debug_level = 0;	/* feature-rific global debug level  */
-EXPORT_SYMBOL(p9_debug_level);
+/* DISABLED: EXPORT_SYMBOL(p9_debug_level); */
 module_param_named(debug, p9_debug_level, uint, 0);
 MODULE_PARM_DESC(debug, "9P debugging level");
 
@@ -65,7 +65,7 @@ void _p9_debug(enum p9_debug_flags level, const char *func,
 
 	va_end(args);
 }
-EXPORT_SYMBOL(_p9_debug);
+/* DISABLED: EXPORT_SYMBOL(_p9_debug); */
 #endif
 
 /*
@@ -87,7 +87,7 @@ void v9fs_register_trans(struct p9_trans_module *m)
 	list_add_tail(&m->list, &v9fs_trans_list);
 	spin_unlock(&v9fs_trans_lock);
 }
-EXPORT_SYMBOL(v9fs_register_trans);
+/* DISABLED: EXPORT_SYMBOL(v9fs_register_trans); */
 
 /**
  * v9fs_unregister_trans - unregister a 9p transport
@@ -100,7 +100,7 @@ void v9fs_unregister_trans(struct p9_trans_module *m)
 	list_del_init(&m->list);
 	spin_unlock(&v9fs_trans_lock);
 }
-EXPORT_SYMBOL(v9fs_unregister_trans);
+/* DISABLED: EXPORT_SYMBOL(v9fs_unregister_trans); */
 
 /**
  * v9fs_get_trans_by_name - get transport with the matching name
@@ -123,7 +123,7 @@ struct p9_trans_module *v9fs_get_trans_by_name(char *s)
 	spin_unlock(&v9fs_trans_lock);
 	return found;
 }
-EXPORT_SYMBOL(v9fs_get_trans_by_name);
+/* DISABLED: EXPORT_SYMBOL(v9fs_get_trans_by_name); */
 
 /**
  * v9fs_get_default_trans - get the default transport
@@ -152,7 +152,7 @@ struct p9_trans_module *v9fs_get_default_trans(void)
 	spin_unlock(&v9fs_trans_lock);
 	return found;
 }
-EXPORT_SYMBOL(v9fs_get_default_trans);
+/* DISABLED: EXPORT_SYMBOL(v9fs_get_default_trans); */
 
 /**
  * v9fs_put_trans - put trans

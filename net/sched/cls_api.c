@@ -77,7 +77,7 @@ out:
 	write_unlock(&cls_mod_lock);
 	return rc;
 }
-EXPORT_SYMBOL(register_tcf_proto_ops);
+/* DISABLED: EXPORT_SYMBOL(register_tcf_proto_ops); */
 
 int unregister_tcf_proto_ops(struct tcf_proto_ops *ops)
 {
@@ -97,7 +97,7 @@ out:
 	write_unlock(&cls_mod_lock);
 	return rc;
 }
-EXPORT_SYMBOL(unregister_tcf_proto_ops);
+/* DISABLED: EXPORT_SYMBOL(unregister_tcf_proto_ops); */
 
 static int tfilter_notify(struct net *net, struct sk_buff *oskb,
 			  struct nlmsghdr *n, struct tcf_proto *tp,
@@ -501,7 +501,7 @@ void tcf_exts_destroy(struct tcf_proto *tp, struct tcf_exts *exts)
 	}
 #endif
 }
-EXPORT_SYMBOL(tcf_exts_destroy);
+/* DISABLED: EXPORT_SYMBOL(tcf_exts_destroy); */
 
 int tcf_exts_validate(struct tcf_proto *tp, struct nlattr **tb,
 		  struct nlattr *rate_tlv, struct tcf_exts *exts,
@@ -539,7 +539,7 @@ int tcf_exts_validate(struct tcf_proto *tp, struct nlattr **tb,
 
 	return 0;
 }
-EXPORT_SYMBOL(tcf_exts_validate);
+/* DISABLED: EXPORT_SYMBOL(tcf_exts_validate); */
 
 void tcf_exts_change(struct tcf_proto *tp, struct tcf_exts *dst,
 		     struct tcf_exts *src)
@@ -556,7 +556,7 @@ void tcf_exts_change(struct tcf_proto *tp, struct tcf_exts *dst,
 	}
 #endif
 }
-EXPORT_SYMBOL(tcf_exts_change);
+/* DISABLED: EXPORT_SYMBOL(tcf_exts_change); */
 
 int tcf_exts_dump(struct sk_buff *skb, struct tcf_exts *exts,
 		  const struct tcf_ext_map *map)
@@ -591,7 +591,7 @@ int tcf_exts_dump(struct sk_buff *skb, struct tcf_exts *exts,
 nla_put_failure: __attribute__ ((unused))
 	return -1;
 }
-EXPORT_SYMBOL(tcf_exts_dump);
+/* DISABLED: EXPORT_SYMBOL(tcf_exts_dump); */
 
 
 int tcf_exts_dump_stats(struct sk_buff *skb, struct tcf_exts *exts,
@@ -606,7 +606,7 @@ int tcf_exts_dump_stats(struct sk_buff *skb, struct tcf_exts *exts,
 nla_put_failure: __attribute__ ((unused))
 	return -1;
 }
-EXPORT_SYMBOL(tcf_exts_dump_stats);
+/* DISABLED: EXPORT_SYMBOL(tcf_exts_dump_stats); */
 
 static int __init tc_filter_init(void)
 {

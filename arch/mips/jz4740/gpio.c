@@ -133,7 +133,7 @@ int jz_gpio_set_function(int gpio, enum jz_gpio_function function)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(jz_gpio_set_function);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_set_function); */
 
 int jz_gpio_bulk_request(const struct jz_gpio_bulk_request *request, size_t num)
 {
@@ -157,7 +157,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(jz_gpio_bulk_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_bulk_request); */
 
 void jz_gpio_bulk_free(const struct jz_gpio_bulk_request *request, size_t num)
 {
@@ -169,7 +169,7 @@ void jz_gpio_bulk_free(const struct jz_gpio_bulk_request *request, size_t num)
 	}
 
 }
-EXPORT_SYMBOL_GPL(jz_gpio_bulk_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_bulk_free); */
 
 void jz_gpio_bulk_suspend(const struct jz_gpio_bulk_request *request, size_t num)
 {
@@ -181,7 +181,7 @@ void jz_gpio_bulk_suspend(const struct jz_gpio_bulk_request *request, size_t num
 		jz_gpio_write_bit(request->gpio, JZ_REG_GPIO_PULL_SET);
 	}
 }
-EXPORT_SYMBOL_GPL(jz_gpio_bulk_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_bulk_suspend); */
 
 void jz_gpio_bulk_resume(const struct jz_gpio_bulk_request *request, size_t num)
 {
@@ -190,19 +190,19 @@ void jz_gpio_bulk_resume(const struct jz_gpio_bulk_request *request, size_t num)
 	for (i = 0; i < num; ++i, ++request)
 		jz_gpio_set_function(request->gpio, request->function);
 }
-EXPORT_SYMBOL_GPL(jz_gpio_bulk_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_bulk_resume); */
 
 void jz_gpio_enable_pullup(unsigned gpio)
 {
 	jz_gpio_write_bit(gpio, JZ_REG_GPIO_PULL_CLEAR);
 }
-EXPORT_SYMBOL_GPL(jz_gpio_enable_pullup);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_enable_pullup); */
 
 void jz_gpio_disable_pullup(unsigned gpio)
 {
 	jz_gpio_write_bit(gpio, JZ_REG_GPIO_PULL_SET);
 }
-EXPORT_SYMBOL_GPL(jz_gpio_disable_pullup);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz_gpio_disable_pullup); */
 
 static int jz_gpio_get_value(struct gpio_chip *chip, unsigned gpio)
 {
@@ -238,7 +238,7 @@ int jz_gpio_port_direction_input(int port, uint32_t mask)
 
 	return 0;
 }
-EXPORT_SYMBOL(jz_gpio_port_direction_input);
+/* DISABLED: EXPORT_SYMBOL(jz_gpio_port_direction_input); */
 
 int jz_gpio_port_direction_output(int port, uint32_t mask)
 {
@@ -246,14 +246,14 @@ int jz_gpio_port_direction_output(int port, uint32_t mask)
 
 	return 0;
 }
-EXPORT_SYMBOL(jz_gpio_port_direction_output);
+/* DISABLED: EXPORT_SYMBOL(jz_gpio_port_direction_output); */
 
 void jz_gpio_port_set_value(int port, uint32_t value, uint32_t mask)
 {
 	writel(~value & mask, GPIO_TO_REG(port, JZ_REG_GPIO_DATA_CLEAR));
 	writel(value & mask, GPIO_TO_REG(port, JZ_REG_GPIO_DATA_SET));
 }
-EXPORT_SYMBOL(jz_gpio_port_set_value);
+/* DISABLED: EXPORT_SYMBOL(jz_gpio_port_set_value); */
 
 uint32_t jz_gpio_port_get_value(int port, uint32_t mask)
 {
@@ -261,19 +261,19 @@ uint32_t jz_gpio_port_get_value(int port, uint32_t mask)
 
 	return value & mask;
 }
-EXPORT_SYMBOL(jz_gpio_port_get_value);
+/* DISABLED: EXPORT_SYMBOL(jz_gpio_port_get_value); */
 
 int gpio_to_irq(unsigned gpio)
 {
 	return JZ4740_IRQ_GPIO(0) + gpio;
 }
-EXPORT_SYMBOL_GPL(gpio_to_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(gpio_to_irq); */
 
 int irq_to_gpio(unsigned irq)
 {
 	return irq - JZ4740_IRQ_GPIO(0);
 }
-EXPORT_SYMBOL_GPL(irq_to_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_to_gpio); */
 
 #define IRQ_TO_BIT(irq) BIT(irq_to_gpio(irq) & 0x1f)
 

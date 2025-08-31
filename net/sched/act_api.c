@@ -49,7 +49,7 @@ void tcf_hash_destroy(struct tcf_common *p, struct tcf_hashinfo *hinfo)
 	}
 	WARN_ON(1);
 }
-EXPORT_SYMBOL(tcf_hash_destroy);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_destroy); */
 
 int tcf_hash_release(struct tcf_common *p, int bind,
 		     struct tcf_hashinfo *hinfo)
@@ -68,7 +68,7 @@ int tcf_hash_release(struct tcf_common *p, int bind,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(tcf_hash_release);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_release); */
 
 static int tcf_dump_walker(struct sk_buff *skb, struct netlink_callback *cb,
 			   struct tc_action *a, struct tcf_hashinfo *hinfo)
@@ -162,7 +162,7 @@ int tcf_generic_walker(struct sk_buff *skb, struct netlink_callback *cb,
 		return -EINVAL;
 	}
 }
-EXPORT_SYMBOL(tcf_generic_walker);
+/* DISABLED: EXPORT_SYMBOL(tcf_generic_walker); */
 
 struct tcf_common *tcf_hash_lookup(u32 index, struct tcf_hashinfo *hinfo)
 {
@@ -178,7 +178,7 @@ struct tcf_common *tcf_hash_lookup(u32 index, struct tcf_hashinfo *hinfo)
 
 	return p;
 }
-EXPORT_SYMBOL(tcf_hash_lookup);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_lookup); */
 
 u32 tcf_hash_new_index(u32 *idx_gen, struct tcf_hashinfo *hinfo)
 {
@@ -191,7 +191,7 @@ u32 tcf_hash_new_index(u32 *idx_gen, struct tcf_hashinfo *hinfo)
 
 	return (*idx_gen = val);
 }
-EXPORT_SYMBOL(tcf_hash_new_index);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_new_index); */
 
 int tcf_hash_search(struct tc_action *a, u32 index)
 {
@@ -204,7 +204,7 @@ int tcf_hash_search(struct tc_action *a, u32 index)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(tcf_hash_search);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_search); */
 
 struct tcf_common *tcf_hash_check(u32 index, struct tc_action *a, int bind,
 				  struct tcf_hashinfo *hinfo)
@@ -218,7 +218,7 @@ struct tcf_common *tcf_hash_check(u32 index, struct tc_action *a, int bind,
 	}
 	return p;
 }
-EXPORT_SYMBOL(tcf_hash_check);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_check); */
 
 struct tcf_common *tcf_hash_create(u32 index, struct nlattr *est,
 				   struct tc_action *a, int size, int bind,
@@ -248,7 +248,7 @@ struct tcf_common *tcf_hash_create(u32 index, struct nlattr *est,
 	a->priv = (void *) p;
 	return p;
 }
-EXPORT_SYMBOL(tcf_hash_create);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_create); */
 
 void tcf_hash_insert(struct tcf_common *p, struct tcf_hashinfo *hinfo)
 {
@@ -259,7 +259,7 @@ void tcf_hash_insert(struct tcf_common *p, struct tcf_hashinfo *hinfo)
 	hinfo->htab[h] = p;
 	write_unlock_bh(hinfo->lock);
 }
-EXPORT_SYMBOL(tcf_hash_insert);
+/* DISABLED: EXPORT_SYMBOL(tcf_hash_insert); */
 
 static struct tc_action_ops *act_base = NULL;
 static DEFINE_RWLOCK(act_mod_lock);
@@ -280,7 +280,7 @@ int tcf_register_action(struct tc_action_ops *act)
 	write_unlock(&act_mod_lock);
 	return 0;
 }
-EXPORT_SYMBOL(tcf_register_action);
+/* DISABLED: EXPORT_SYMBOL(tcf_register_action); */
 
 int tcf_unregister_action(struct tc_action_ops *act)
 {
@@ -299,7 +299,7 @@ int tcf_unregister_action(struct tc_action_ops *act)
 	write_unlock(&act_mod_lock);
 	return err;
 }
-EXPORT_SYMBOL(tcf_unregister_action);
+/* DISABLED: EXPORT_SYMBOL(tcf_unregister_action); */
 
 /* lookup by name */
 static struct tc_action_ops *tc_lookup_action_n(char *kind)
@@ -396,7 +396,7 @@ repeat:
 exec_done:
 	return ret;
 }
-EXPORT_SYMBOL(tcf_action_exec);
+/* DISABLED: EXPORT_SYMBOL(tcf_action_exec); */
 
 void tcf_action_destroy(struct tc_action *act, int bind)
 {
@@ -453,7 +453,7 @@ nla_put_failure:
 	nlmsg_trim(skb, b);
 	return -1;
 }
-EXPORT_SYMBOL(tcf_action_dump_1);
+/* DISABLED: EXPORT_SYMBOL(tcf_action_dump_1); */
 
 int
 tcf_action_dump(struct sk_buff *skb, struct tc_action *act, int bind, int ref)

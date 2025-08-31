@@ -66,7 +66,7 @@ void ar9003_paprd_enable(struct ath_hw *ah, bool val)
 		REG_RMW_FIELD(ah, AR_PHY_PAPRD_CTRL0_B2,
 			      AR_PHY_PAPRD_CTRL0_PAPRD_ENABLE, !!val);
 }
-EXPORT_SYMBOL(ar9003_paprd_enable);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_enable); */
 
 static int ar9003_get_training_power_2g(struct ath_hw *ah)
 {
@@ -757,7 +757,7 @@ void ar9003_paprd_populate_single_table(struct ath_hw *ah,
 			      AR_PHY_PAPRD_CTRL1_PAPRD_POWER_AT_AM2AM_CAL,
 			      training_power);
 }
-EXPORT_SYMBOL(ar9003_paprd_populate_single_table);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_populate_single_table); */
 
 int ar9003_paprd_setup_gain_table(struct ath_hw *ah, int chain)
 {
@@ -780,7 +780,7 @@ int ar9003_paprd_setup_gain_table(struct ath_hw *ah, int chain)
 
 	return 0;
 }
-EXPORT_SYMBOL(ar9003_paprd_setup_gain_table);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_setup_gain_table); */
 
 int ar9003_paprd_create_curve(struct ath_hw *ah,
 			      struct ath9k_hw_cal_data *caldata, int chain)
@@ -824,7 +824,7 @@ int ar9003_paprd_create_curve(struct ath_hw *ah,
 
 	return status;
 }
-EXPORT_SYMBOL(ar9003_paprd_create_curve);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_create_curve); */
 
 int ar9003_paprd_init_table(struct ath_hw *ah)
 {
@@ -837,7 +837,7 @@ int ar9003_paprd_init_table(struct ath_hw *ah)
 	ar9003_paprd_get_gain_table(ah);
 	return 0;
 }
-EXPORT_SYMBOL(ar9003_paprd_init_table);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_init_table); */
 
 bool ar9003_paprd_is_done(struct ath_hw *ah)
 {
@@ -863,4 +863,4 @@ bool ar9003_paprd_is_done(struct ath_hw *ah)
 
 	return !!paprd_done;
 }
-EXPORT_SYMBOL(ar9003_paprd_is_done);
+/* DISABLED: EXPORT_SYMBOL(ar9003_paprd_is_done); */

@@ -496,7 +496,7 @@ int alchemy_usb_control(int block, int enable)
 	spin_unlock_irqrestore(&alchemy_usb_lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(alchemy_usb_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(alchemy_usb_control); */
 
 
 static unsigned long alchemy_usb_pmdata[2];

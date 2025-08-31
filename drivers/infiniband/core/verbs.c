@@ -60,7 +60,7 @@ int ib_rate_to_mult(enum ib_rate rate)
 	default:	       return -1;
 	}
 }
-EXPORT_SYMBOL(ib_rate_to_mult);
+/* DISABLED: EXPORT_SYMBOL(ib_rate_to_mult); */
 
 enum ib_rate mult_to_ib_rate(int mult)
 {
@@ -77,7 +77,7 @@ enum ib_rate mult_to_ib_rate(int mult)
 	default: return IB_RATE_PORT_CURRENT;
 	}
 }
-EXPORT_SYMBOL(mult_to_ib_rate);
+/* DISABLED: EXPORT_SYMBOL(mult_to_ib_rate); */
 
 int ib_rate_to_mbps(enum ib_rate rate)
 {
@@ -102,7 +102,7 @@ int ib_rate_to_mbps(enum ib_rate rate)
 	default:	       return -1;
 	}
 }
-EXPORT_SYMBOL(ib_rate_to_mbps);
+/* DISABLED: EXPORT_SYMBOL(ib_rate_to_mbps); */
 
 enum rdma_transport_type
 rdma_node_get_transport(enum rdma_node_type node_type)
@@ -119,7 +119,7 @@ rdma_node_get_transport(enum rdma_node_type node_type)
 		return 0;
 	}
 }
-EXPORT_SYMBOL(rdma_node_get_transport);
+/* DISABLED: EXPORT_SYMBOL(rdma_node_get_transport); */
 
 enum rdma_link_layer rdma_port_get_link_layer(struct ib_device *device, u8 port_num)
 {
@@ -135,7 +135,7 @@ enum rdma_link_layer rdma_port_get_link_layer(struct ib_device *device, u8 port_
 		return IB_LINK_LAYER_UNSPECIFIED;
 	}
 }
-EXPORT_SYMBOL(rdma_port_get_link_layer);
+/* DISABLED: EXPORT_SYMBOL(rdma_port_get_link_layer); */
 
 /* Protection domains */
 
@@ -153,7 +153,7 @@ struct ib_pd *ib_alloc_pd(struct ib_device *device)
 
 	return pd;
 }
-EXPORT_SYMBOL(ib_alloc_pd);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_pd); */
 
 int ib_dealloc_pd(struct ib_pd *pd)
 {
@@ -162,7 +162,7 @@ int ib_dealloc_pd(struct ib_pd *pd)
 
 	return pd->device->dealloc_pd(pd);
 }
-EXPORT_SYMBOL(ib_dealloc_pd);
+/* DISABLED: EXPORT_SYMBOL(ib_dealloc_pd); */
 
 /* Address handles */
 
@@ -181,7 +181,7 @@ struct ib_ah *ib_create_ah(struct ib_pd *pd, struct ib_ah_attr *ah_attr)
 
 	return ah;
 }
-EXPORT_SYMBOL(ib_create_ah);
+/* DISABLED: EXPORT_SYMBOL(ib_create_ah); */
 
 int ib_init_ah_from_wc(struct ib_device *device, u8 port_num, struct ib_wc *wc,
 		       struct ib_grh *grh, struct ib_ah_attr *ah_attr)
@@ -213,7 +213,7 @@ int ib_init_ah_from_wc(struct ib_device *device, u8 port_num, struct ib_wc *wc,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ib_init_ah_from_wc);
+/* DISABLED: EXPORT_SYMBOL(ib_init_ah_from_wc); */
 
 struct ib_ah *ib_create_ah_from_wc(struct ib_pd *pd, struct ib_wc *wc,
 				   struct ib_grh *grh, u8 port_num)
@@ -227,7 +227,7 @@ struct ib_ah *ib_create_ah_from_wc(struct ib_pd *pd, struct ib_wc *wc,
 
 	return ib_create_ah(pd, &ah_attr);
 }
-EXPORT_SYMBOL(ib_create_ah_from_wc);
+/* DISABLED: EXPORT_SYMBOL(ib_create_ah_from_wc); */
 
 int ib_modify_ah(struct ib_ah *ah, struct ib_ah_attr *ah_attr)
 {
@@ -235,7 +235,7 @@ int ib_modify_ah(struct ib_ah *ah, struct ib_ah_attr *ah_attr)
 		ah->device->modify_ah(ah, ah_attr) :
 		-ENOSYS;
 }
-EXPORT_SYMBOL(ib_modify_ah);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_ah); */
 
 int ib_query_ah(struct ib_ah *ah, struct ib_ah_attr *ah_attr)
 {
@@ -243,7 +243,7 @@ int ib_query_ah(struct ib_ah *ah, struct ib_ah_attr *ah_attr)
 		ah->device->query_ah(ah, ah_attr) :
 		-ENOSYS;
 }
-EXPORT_SYMBOL(ib_query_ah);
+/* DISABLED: EXPORT_SYMBOL(ib_query_ah); */
 
 int ib_destroy_ah(struct ib_ah *ah)
 {
@@ -257,7 +257,7 @@ int ib_destroy_ah(struct ib_ah *ah)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_destroy_ah);
+/* DISABLED: EXPORT_SYMBOL(ib_destroy_ah); */
 
 /* Shared receive queues */
 
@@ -290,7 +290,7 @@ struct ib_srq *ib_create_srq(struct ib_pd *pd,
 
 	return srq;
 }
-EXPORT_SYMBOL(ib_create_srq);
+/* DISABLED: EXPORT_SYMBOL(ib_create_srq); */
 
 int ib_modify_srq(struct ib_srq *srq,
 		  struct ib_srq_attr *srq_attr,
@@ -300,7 +300,7 @@ int ib_modify_srq(struct ib_srq *srq,
 		srq->device->modify_srq(srq, srq_attr, srq_attr_mask, NULL) :
 		-ENOSYS;
 }
-EXPORT_SYMBOL(ib_modify_srq);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_srq); */
 
 int ib_query_srq(struct ib_srq *srq,
 		 struct ib_srq_attr *srq_attr)
@@ -308,7 +308,7 @@ int ib_query_srq(struct ib_srq *srq,
 	return srq->device->query_srq ?
 		srq->device->query_srq(srq, srq_attr) : -ENOSYS;
 }
-EXPORT_SYMBOL(ib_query_srq);
+/* DISABLED: EXPORT_SYMBOL(ib_query_srq); */
 
 int ib_destroy_srq(struct ib_srq *srq)
 {
@@ -339,7 +339,7 @@ int ib_destroy_srq(struct ib_srq *srq)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_destroy_srq);
+/* DISABLED: EXPORT_SYMBOL(ib_destroy_srq); */
 
 /* Queue pairs */
 
@@ -404,7 +404,7 @@ struct ib_qp *ib_open_qp(struct ib_xrcd *xrcd,
 	mutex_unlock(&xrcd->tgt_qp_mutex);
 	return qp;
 }
-EXPORT_SYMBOL(ib_open_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_open_qp); */
 
 struct ib_qp *ib_create_qp(struct ib_pd *pd,
 			   struct ib_qp_init_attr *qp_init_attr)
@@ -464,7 +464,7 @@ struct ib_qp *ib_create_qp(struct ib_pd *pd,
 
 	return qp;
 }
-EXPORT_SYMBOL(ib_create_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_create_qp); */
 
 static const struct {
 	int			valid;
@@ -798,7 +798,7 @@ int ib_modify_qp_is_ok(enum ib_qp_state cur_state, enum ib_qp_state next_state,
 
 	return 1;
 }
-EXPORT_SYMBOL(ib_modify_qp_is_ok);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_qp_is_ok); */
 
 int ib_modify_qp(struct ib_qp *qp,
 		 struct ib_qp_attr *qp_attr,
@@ -806,7 +806,7 @@ int ib_modify_qp(struct ib_qp *qp,
 {
 	return qp->device->modify_qp(qp->real_qp, qp_attr, qp_attr_mask, NULL);
 }
-EXPORT_SYMBOL(ib_modify_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_qp); */
 
 int ib_query_qp(struct ib_qp *qp,
 		struct ib_qp_attr *qp_attr,
@@ -817,7 +817,7 @@ int ib_query_qp(struct ib_qp *qp,
 		qp->device->query_qp(qp->real_qp, qp_attr, qp_attr_mask, qp_init_attr) :
 		-ENOSYS;
 }
-EXPORT_SYMBOL(ib_query_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_query_qp); */
 
 int ib_close_qp(struct ib_qp *qp)
 {
@@ -837,7 +837,7 @@ int ib_close_qp(struct ib_qp *qp)
 
 	return 0;
 }
-EXPORT_SYMBOL(ib_close_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_close_qp); */
 
 static int __ib_destroy_shared_qp(struct ib_qp *qp)
 {
@@ -899,7 +899,7 @@ int ib_destroy_qp(struct ib_qp *qp)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_destroy_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_destroy_qp); */
 
 /* Completion queues */
 
@@ -923,14 +923,14 @@ struct ib_cq *ib_create_cq(struct ib_device *device,
 
 	return cq;
 }
-EXPORT_SYMBOL(ib_create_cq);
+/* DISABLED: EXPORT_SYMBOL(ib_create_cq); */
 
 int ib_modify_cq(struct ib_cq *cq, u16 cq_count, u16 cq_period)
 {
 	return cq->device->modify_cq ?
 		cq->device->modify_cq(cq, cq_count, cq_period) : -ENOSYS;
 }
-EXPORT_SYMBOL(ib_modify_cq);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_cq); */
 
 int ib_destroy_cq(struct ib_cq *cq)
 {
@@ -939,14 +939,14 @@ int ib_destroy_cq(struct ib_cq *cq)
 
 	return cq->device->destroy_cq(cq);
 }
-EXPORT_SYMBOL(ib_destroy_cq);
+/* DISABLED: EXPORT_SYMBOL(ib_destroy_cq); */
 
 int ib_resize_cq(struct ib_cq *cq, int cqe)
 {
 	return cq->device->resize_cq ?
 		cq->device->resize_cq(cq, cqe, NULL) : -ENOSYS;
 }
-EXPORT_SYMBOL(ib_resize_cq);
+/* DISABLED: EXPORT_SYMBOL(ib_resize_cq); */
 
 /* Memory regions */
 
@@ -966,7 +966,7 @@ struct ib_mr *ib_get_dma_mr(struct ib_pd *pd, int mr_access_flags)
 
 	return mr;
 }
-EXPORT_SYMBOL(ib_get_dma_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_get_dma_mr); */
 
 struct ib_mr *ib_reg_phys_mr(struct ib_pd *pd,
 			     struct ib_phys_buf *phys_buf_array,
@@ -992,7 +992,7 @@ struct ib_mr *ib_reg_phys_mr(struct ib_pd *pd,
 
 	return mr;
 }
-EXPORT_SYMBOL(ib_reg_phys_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_reg_phys_mr); */
 
 int ib_rereg_phys_mr(struct ib_mr *mr,
 		     int mr_rereg_mask,
@@ -1024,14 +1024,14 @@ int ib_rereg_phys_mr(struct ib_mr *mr,
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_rereg_phys_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_rereg_phys_mr); */
 
 int ib_query_mr(struct ib_mr *mr, struct ib_mr_attr *mr_attr)
 {
 	return mr->device->query_mr ?
 		mr->device->query_mr(mr, mr_attr) : -ENOSYS;
 }
-EXPORT_SYMBOL(ib_query_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_query_mr); */
 
 int ib_dereg_mr(struct ib_mr *mr)
 {
@@ -1048,7 +1048,7 @@ int ib_dereg_mr(struct ib_mr *mr)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_dereg_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_dereg_mr); */
 
 struct ib_mr *ib_alloc_fast_reg_mr(struct ib_pd *pd, int max_page_list_len)
 {
@@ -1069,7 +1069,7 @@ struct ib_mr *ib_alloc_fast_reg_mr(struct ib_pd *pd, int max_page_list_len)
 
 	return mr;
 }
-EXPORT_SYMBOL(ib_alloc_fast_reg_mr);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_fast_reg_mr); */
 
 struct ib_fast_reg_page_list *ib_alloc_fast_reg_page_list(struct ib_device *device,
 							  int max_page_list_len)
@@ -1088,13 +1088,13 @@ struct ib_fast_reg_page_list *ib_alloc_fast_reg_page_list(struct ib_device *devi
 
 	return page_list;
 }
-EXPORT_SYMBOL(ib_alloc_fast_reg_page_list);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_fast_reg_page_list); */
 
 void ib_free_fast_reg_page_list(struct ib_fast_reg_page_list *page_list)
 {
 	page_list->device->free_fast_reg_page_list(page_list);
 }
-EXPORT_SYMBOL(ib_free_fast_reg_page_list);
+/* DISABLED: EXPORT_SYMBOL(ib_free_fast_reg_page_list); */
 
 /* Memory windows */
 
@@ -1115,7 +1115,7 @@ struct ib_mw *ib_alloc_mw(struct ib_pd *pd)
 
 	return mw;
 }
-EXPORT_SYMBOL(ib_alloc_mw);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_mw); */
 
 int ib_dealloc_mw(struct ib_mw *mw)
 {
@@ -1129,7 +1129,7 @@ int ib_dealloc_mw(struct ib_mw *mw)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_dealloc_mw);
+/* DISABLED: EXPORT_SYMBOL(ib_dealloc_mw); */
 
 /* "Fast" memory regions */
 
@@ -1151,7 +1151,7 @@ struct ib_fmr *ib_alloc_fmr(struct ib_pd *pd,
 
 	return fmr;
 }
-EXPORT_SYMBOL(ib_alloc_fmr);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_fmr); */
 
 int ib_unmap_fmr(struct list_head *fmr_list)
 {
@@ -1163,7 +1163,7 @@ int ib_unmap_fmr(struct list_head *fmr_list)
 	fmr = list_entry(fmr_list->next, struct ib_fmr, list);
 	return fmr->device->unmap_fmr(fmr_list);
 }
-EXPORT_SYMBOL(ib_unmap_fmr);
+/* DISABLED: EXPORT_SYMBOL(ib_unmap_fmr); */
 
 int ib_dealloc_fmr(struct ib_fmr *fmr)
 {
@@ -1177,7 +1177,7 @@ int ib_dealloc_fmr(struct ib_fmr *fmr)
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_dealloc_fmr);
+/* DISABLED: EXPORT_SYMBOL(ib_dealloc_fmr); */
 
 /* Multicast groups */
 
@@ -1190,7 +1190,7 @@ int ib_attach_mcast(struct ib_qp *qp, union ib_gid *gid, u16 lid)
 
 	return qp->device->attach_mcast(qp, gid, lid);
 }
-EXPORT_SYMBOL(ib_attach_mcast);
+/* DISABLED: EXPORT_SYMBOL(ib_attach_mcast); */
 
 int ib_detach_mcast(struct ib_qp *qp, union ib_gid *gid, u16 lid)
 {
@@ -1201,7 +1201,7 @@ int ib_detach_mcast(struct ib_qp *qp, union ib_gid *gid, u16 lid)
 
 	return qp->device->detach_mcast(qp, gid, lid);
 }
-EXPORT_SYMBOL(ib_detach_mcast);
+/* DISABLED: EXPORT_SYMBOL(ib_detach_mcast); */
 
 struct ib_xrcd *ib_alloc_xrcd(struct ib_device *device)
 {
@@ -1221,7 +1221,7 @@ struct ib_xrcd *ib_alloc_xrcd(struct ib_device *device)
 
 	return xrcd;
 }
-EXPORT_SYMBOL(ib_alloc_xrcd);
+/* DISABLED: EXPORT_SYMBOL(ib_alloc_xrcd); */
 
 int ib_dealloc_xrcd(struct ib_xrcd *xrcd)
 {
@@ -1240,4 +1240,4 @@ int ib_dealloc_xrcd(struct ib_xrcd *xrcd)
 
 	return xrcd->device->dealloc_xrcd(xrcd);
 }
-EXPORT_SYMBOL(ib_dealloc_xrcd);
+/* DISABLED: EXPORT_SYMBOL(ib_dealloc_xrcd); */

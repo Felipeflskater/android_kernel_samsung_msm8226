@@ -247,7 +247,7 @@ bool pdev_is_ssb_gige_core(struct pci_dev *pdev)
 		return 0;
 	return (strcmp(pdev->resource[0].name, SSB_GIGE_MEM_RES_NAME) == 0);
 }
-EXPORT_SYMBOL(pdev_is_ssb_gige_core);
+/* DISABLED: EXPORT_SYMBOL(pdev_is_ssb_gige_core); */
 
 int ssb_gige_pcibios_plat_dev_init(struct ssb_device *sdev,
 				   struct pci_dev *pdev)

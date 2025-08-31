@@ -42,7 +42,7 @@ unsigned long __clear_user(void __user *addr, unsigned long size)
 		  [zero] "r" (0UL), [eight] "r" (8UL));
 	return size;
 }
-EXPORT_SYMBOL(__clear_user);
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */
 
 unsigned long clear_user(void __user *to, unsigned long n)
 {
@@ -50,7 +50,7 @@ unsigned long clear_user(void __user *to, unsigned long n)
 		return __clear_user(to, n);
 	return n;
 }
-EXPORT_SYMBOL(clear_user);
+/* DISABLED: EXPORT_SYMBOL(clear_user); */
 
 /*
  * Return the size of a string (including the ending 0)
@@ -74,7 +74,7 @@ long __strnlen_user(const char __user *s, long n)
 		s++;
 	}
 }
-EXPORT_SYMBOL(__strnlen_user);
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user); */
 
 long strnlen_user(const char __user *s, long n)
 {
@@ -82,7 +82,7 @@ long strnlen_user(const char __user *s, long n)
 		return 0;
 	return __strnlen_user(s, n);
 }
-EXPORT_SYMBOL(strnlen_user);
+/* DISABLED: EXPORT_SYMBOL(strnlen_user); */
 
 long strlen_user(const char __user *s)
 {
@@ -98,7 +98,7 @@ long strlen_user(const char __user *s)
 		s++;
 	}
 }
-EXPORT_SYMBOL(strlen_user);
+/* DISABLED: EXPORT_SYMBOL(strlen_user); */
 
 unsigned long copy_in_user(void __user *to, const void __user *from, unsigned len)
 {
@@ -107,7 +107,7 @@ unsigned long copy_in_user(void __user *to, const void __user *from, unsigned le
 	} 
 	return len;		
 }
-EXPORT_SYMBOL(copy_in_user);
+/* DISABLED: EXPORT_SYMBOL(copy_in_user); */
 
 /*
  * Try to copy last bytes and clear the rest if needed.

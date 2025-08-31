@@ -802,13 +802,13 @@ void matroxfb_read_pins(struct matrox_fb_info *minfo)
 	       (minfo->values.reg.opt & 0x1C00) >> 10);
 }
 
-EXPORT_SYMBOL(matroxfb_DAC_in);
-EXPORT_SYMBOL(matroxfb_DAC_out);
-EXPORT_SYMBOL(matroxfb_var2my);
-EXPORT_SYMBOL(matroxfb_PLL_calcclock);
-EXPORT_SYMBOL(matroxfb_vgaHWinit);		/* DAC1064, Ti3026 */
-EXPORT_SYMBOL(matroxfb_vgaHWrestore);		/* DAC1064, Ti3026 */
-EXPORT_SYMBOL(matroxfb_read_pins);
+/* DISABLED: EXPORT_SYMBOL(matroxfb_DAC_in); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_DAC_out); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_var2my); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_PLL_calcclock); */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_vgaHWinit);		/* DAC1064, Ti3026 */ */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_vgaHWrestore);		/* DAC1064, Ti3026 */ */
+/* DISABLED: EXPORT_SYMBOL(matroxfb_read_pins); */
 
 MODULE_AUTHOR("(c) 1999-2002 Petr Vandrovec <vandrove@vc.cvut.cz>");
 MODULE_DESCRIPTION("Miscellaneous support for Matrox video cards");

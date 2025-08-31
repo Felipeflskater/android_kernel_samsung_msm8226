@@ -225,6 +225,6 @@ module_exit(iop_fw_load_exit);
 MODULE_DESCRIPTION("ETRAX FS IO-Processor Firmware Loader");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(iop_fw_load_spu);
-EXPORT_SYMBOL(iop_fw_load_mpu);
-EXPORT_SYMBOL(iop_start_mpu);
+/* DISABLED: EXPORT_SYMBOL(iop_fw_load_spu); */
+/* DISABLED: EXPORT_SYMBOL(iop_fw_load_mpu); */
+/* DISABLED: EXPORT_SYMBOL(iop_start_mpu); */

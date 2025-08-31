@@ -135,7 +135,7 @@ static struct switch_dev switch_dock = {
 };
 
 struct device *switch_dev;
-EXPORT_SYMBOL(switch_dev);
+/* DISABLED: EXPORT_SYMBOL(switch_dev); */
 #endif
 
 #if defined(CONFIG_TOUCHSCREEN_ZINITIX_BT532)
@@ -199,7 +199,7 @@ void melfas_register_callback(void *cbv)
 	charger_callbacks = cb;
 	pr_debug("[TSP] melfas_register_callback\n");
 }
-EXPORT_SYMBOL(melfas_register_callback);
+/* DISABLED: EXPORT_SYMBOL(melfas_register_callback); */
 #endif
 
 #ifdef TK_INFORM_CHARGER
@@ -305,7 +305,7 @@ DEVICE_ATTR(disable_vbus, 0664, midas_switch_show_vbus,
 void max77803_muic_usb_cb(u8 usb_mode);
 struct device *usb_lock;
 int is_usb_locked;
-EXPORT_SYMBOL_GPL(is_usb_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_usb_locked); */
 
 static ssize_t switch_show_usb_lock(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -568,7 +568,7 @@ int max77803_get_jig_state(void)
 	pr_info("%s: %d\n", __func__, is_jig_attached);
 	return is_jig_attached;
 }
-EXPORT_SYMBOL(max77803_get_jig_state);
+/* DISABLED: EXPORT_SYMBOL(max77803_get_jig_state); */
 
 void max77803_set_jig_state(int jig_state)
 {
@@ -946,7 +946,7 @@ DEVICE_ATTR(disable_vbus, 0664, midas_switch_show_vbus,
 void max77804k_muic_usb_cb(u8 usb_mode);
 struct device *usb_lock;
 int is_usb_locked;
-EXPORT_SYMBOL_GPL(is_usb_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_usb_locked); */
 
 static ssize_t switch_show_usb_lock(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -1181,7 +1181,7 @@ int max77804k_get_jig_state(void)
 	pr_info("%s: %d\n", __func__, is_jig_attached);
 	return is_jig_attached;
 }
-EXPORT_SYMBOL(max77804k_get_jig_state);
+/* DISABLED: EXPORT_SYMBOL(max77804k_get_jig_state); */
 
 void max77804k_set_jig_state(int jig_state)
 {
@@ -1546,7 +1546,7 @@ void max77888_muic_usb_cb(u8 usb_mode);
 #endif
 struct device *usb_lock;
 int is_usb_locked;
-EXPORT_SYMBOL_GPL(is_usb_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_usb_locked); */
 
 static ssize_t switch_show_usb_lock(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -1806,7 +1806,7 @@ int max77888_get_jig_state(void)
 	pr_info("%s: %d\n", __func__, is_jig_attached);
 	return is_jig_attached;
 }
-EXPORT_SYMBOL(max77888_get_jig_state);
+/* DISABLED: EXPORT_SYMBOL(max77888_get_jig_state); */
 
 void max77888_set_jig_state(int jig_state)
 {
@@ -2071,8 +2071,8 @@ struct switch_dev switch_dock = {
 };
 
 struct device *switch_dev;
-EXPORT_SYMBOL(switch_dev);
-EXPORT_SYMBOL(switch_dock);
+/* DISABLED: EXPORT_SYMBOL(switch_dev); */
+/* DISABLED: EXPORT_SYMBOL(switch_dock); */
 
 extern void sec_otg_set_vbus_state(int);
 
@@ -2452,7 +2452,7 @@ void muic_callback(enum cable_type_t cable_type, int state)
 		break;
 	}
 }
-EXPORT_SYMBOL(muic_callback);
+/* DISABLED: EXPORT_SYMBOL(muic_callback); */
 
 #endif
 
@@ -2571,7 +2571,7 @@ void sec_charger_cb(u8 cable_type)
 skip:
 	return;
 }
-EXPORT_SYMBOL(sec_charger_cb);
+/* DISABLED: EXPORT_SYMBOL(sec_charger_cb); */
 
 void rt8973_usb_cb(uint8_t attached) {
 	pr_info("%s USB Cable is %s\n",
@@ -2841,7 +2841,7 @@ void fsa9485_set_mhl_cable(bool attached) {
 		pr_info("%s: Ignore Cable setting, Not LPM mode\n", __func__);
 	}
 }
-EXPORT_SYMBOL(fsa9485_set_mhl_cable);
+/* DISABLED: EXPORT_SYMBOL(fsa9485_set_mhl_cable); */
 
 bool fsa9485_muic_is_mhl_attached(void)
 {

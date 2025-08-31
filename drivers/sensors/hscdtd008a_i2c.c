@@ -292,7 +292,7 @@ int hscd_self_test_A(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(hscd_self_test_A);
+/* DISABLED: EXPORT_SYMBOL(hscd_self_test_A); */
 
 int hscd_self_test_B(void)
 {
@@ -306,7 +306,7 @@ int hscd_self_test_B(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(hscd_self_test_B);
+/* DISABLED: EXPORT_SYMBOL(hscd_self_test_B); */
 static int hscd_soft_reset(void)
 {
 	int rc;
@@ -383,7 +383,7 @@ int hscd_get_magnetic_field_data(int *xyz)
 
 	return err;
 }
-EXPORT_SYMBOL(hscd_get_magnetic_field_data);
+/* DISABLED: EXPORT_SYMBOL(hscd_get_magnetic_field_data); */
 
 void hscd_activate(int flgatm, int flg, int dtime)
 {
@@ -428,7 +428,7 @@ void hscd_activate(int flgatm, int flg, int dtime)
 		atomic_set(&delay, dtime);
 	}
 }
-EXPORT_SYMBOL(hscd_activate);
+/* DISABLED: EXPORT_SYMBOL(hscd_activate); */
 /*
 static void hscd_register_init(void)
 {

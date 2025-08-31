@@ -447,7 +447,7 @@ int va_to_cpa_and_pte(void *va, unsigned long long *cpa, pte_t *pte)
 
 	return 0; /* return non-zero if not hfh? */
 }
-EXPORT_SYMBOL(va_to_cpa_and_pte);
+/* DISABLED: EXPORT_SYMBOL(va_to_cpa_and_pte); */
 
 void __set_pte(pte_t *ptep, pte_t pte)
 {
@@ -589,14 +589,14 @@ void __iomem *ioremap_prot(resource_size_t phys_addr, unsigned long size,
 	}
 	return (__force void __iomem *) (offset + (char *)addr);
 }
-EXPORT_SYMBOL(ioremap_prot);
+/* DISABLED: EXPORT_SYMBOL(ioremap_prot); */
 
 /* Map a PCI MMIO bus address into VA space. */
 void __iomem *ioremap(resource_size_t phys_addr, unsigned long size)
 {
 	panic("ioremap for PCI MMIO is not supported");
 }
-EXPORT_SYMBOL(ioremap);
+/* DISABLED: EXPORT_SYMBOL(ioremap); */
 
 /* Unmap an MMIO VA mapping. */
 void iounmap(volatile void __iomem *addr_in)
@@ -634,6 +634,6 @@ void iounmap(volatile void __iomem *addr_in)
 	kfree(p);
 #endif
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 #endif /* CHIP_HAS_MMIO() */

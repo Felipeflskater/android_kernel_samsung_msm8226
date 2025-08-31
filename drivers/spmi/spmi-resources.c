@@ -51,7 +51,7 @@ struct resource *spmi_get_resource(struct spmi_device *dev,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(spmi_get_resource);
+/* DISABLED: EXPORT_SYMBOL_GPL(spmi_get_resource); */
 
 #define SPMI_MAX_RES_NAME 256
 
@@ -82,7 +82,7 @@ struct resource *spmi_get_resource_byname(struct spmi_device *dev,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(spmi_get_resource_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(spmi_get_resource_byname); */
 
 /**
  * spmi_get_irq - get an IRQ for a device
@@ -101,7 +101,7 @@ int spmi_get_irq(struct spmi_device *dev, struct spmi_resource *node,
 
 	return r ? r->start : -ENXIO;
 }
-EXPORT_SYMBOL_GPL(spmi_get_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(spmi_get_irq); */
 
 /**
  * spmi_get_irq_byname - get an IRQ for a device given a name
@@ -118,7 +118,7 @@ int spmi_get_irq_byname(struct spmi_device *dev,
 							IORESOURCE_IRQ, name);
 	return r ? r->start : -ENXIO;
 }
-EXPORT_SYMBOL_GPL(spmi_get_irq_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(spmi_get_irq_byname); */
 
 /*
  * spmi_get_container_dev_byname - get a device node resource
@@ -148,4 +148,4 @@ struct spmi_resource *spmi_get_dev_container_byname(struct spmi_device *dev,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(spmi_get_dev_container_byname);
+/* DISABLED: EXPORT_SYMBOL(spmi_get_dev_container_byname); */

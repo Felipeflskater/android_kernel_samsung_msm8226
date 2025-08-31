@@ -141,7 +141,7 @@ void led_classdev_suspend(struct led_classdev *led_cdev)
 	led_cdev->flags |= LED_SUSPENDED;
 	led_cdev->brightness_set(led_cdev, 0);
 }
-EXPORT_SYMBOL_GPL(led_classdev_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(led_classdev_suspend); */
 
 /**
  * led_classdev_resume - resume an led_classdev.
@@ -152,7 +152,7 @@ void led_classdev_resume(struct led_classdev *led_cdev)
 	led_cdev->brightness_set(led_cdev, led_cdev->brightness);
 	led_cdev->flags &= ~LED_SUSPENDED;
 }
-EXPORT_SYMBOL_GPL(led_classdev_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(led_classdev_resume); */
 
 static int led_suspend(struct device *dev, pm_message_t state)
 {
@@ -212,7 +212,7 @@ int led_classdev_register(struct device *parent, struct led_classdev *led_cdev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(led_classdev_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(led_classdev_register); */
 
 /**
  * led_classdev_unregister - unregisters a object of led_properties class.
@@ -238,7 +238,7 @@ void led_classdev_unregister(struct led_classdev *led_cdev)
 	list_del(&led_cdev->node);
 	up_write(&leds_list_lock);
 }
-EXPORT_SYMBOL_GPL(led_classdev_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(led_classdev_unregister); */
 
 static int __init leds_init(void)
 {

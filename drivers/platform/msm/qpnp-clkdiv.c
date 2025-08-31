@@ -81,7 +81,7 @@ struct q_clkdiv *qpnp_clkdiv_get(struct device *dev, const char *name)
 			return q_clkdiv;
 	return ERR_PTR(-EPROBE_DEFER);
 }
-EXPORT_SYMBOL(qpnp_clkdiv_get);
+/* DISABLED: EXPORT_SYMBOL(qpnp_clkdiv_get); */
 
 static int __clkdiv_enable(struct q_clkdiv *q_clkdiv, bool enable)
 {
@@ -115,7 +115,7 @@ int qpnp_clkdiv_enable(struct q_clkdiv *q_clkdiv)
 {
 	return __clkdiv_enable(q_clkdiv, true);
 }
-EXPORT_SYMBOL(qpnp_clkdiv_enable);
+/* DISABLED: EXPORT_SYMBOL(qpnp_clkdiv_enable); */
 
 /**
  * qpnp_clkdiv_disable - disable a clkdiv
@@ -125,7 +125,7 @@ int qpnp_clkdiv_disable(struct q_clkdiv *q_clkdiv)
 {
 	return __clkdiv_enable(q_clkdiv, false);
 }
-EXPORT_SYMBOL(qpnp_clkdiv_disable);
+/* DISABLED: EXPORT_SYMBOL(qpnp_clkdiv_disable); */
 
 /**
  * @q_clkdiv: pointer to clkdiv handle
@@ -176,7 +176,7 @@ cfg_err:
 	mutex_unlock(&q_clkdiv->lock);
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_clkdiv_config);
+/* DISABLED: EXPORT_SYMBOL(qpnp_clkdiv_config); */
 
 static int __devinit qpnp_clkdiv_probe(struct spmi_device *spmi)
 {

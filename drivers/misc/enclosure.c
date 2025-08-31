@@ -78,7 +78,7 @@ struct enclosure_device *enclosure_find(struct device *dev,
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(enclosure_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_find); */
 
 /**
  * enclosure_for_each_device - calls a function for each enclosure
@@ -108,7 +108,7 @@ int enclosure_for_each_device(int (*fn)(struct enclosure_device *, void *),
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(enclosure_for_each_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_for_each_device); */
 
 /**
  * enclosure_register - register device as an enclosure
@@ -159,7 +159,7 @@ enclosure_register(struct device *dev, const char *name, int components,
 	kfree(edev);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(enclosure_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_register); */
 
 static struct enclosure_component_callbacks enclosure_null_callbacks;
 
@@ -184,7 +184,7 @@ void enclosure_unregister(struct enclosure_device *edev)
 	edev->cb = &enclosure_null_callbacks;
 	device_unregister(&edev->edev);
 }
-EXPORT_SYMBOL_GPL(enclosure_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_unregister); */
 
 #define ENCLOSURE_NAME_SIZE	64
 
@@ -300,7 +300,7 @@ enclosure_component_register(struct enclosure_device *edev,
 
 	return ecomp;
 }
-EXPORT_SYMBOL_GPL(enclosure_component_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_component_register); */
 
 /**
  * enclosure_add_device - add a device as being part of an enclosure
@@ -336,7 +336,7 @@ int enclosure_add_device(struct enclosure_device *edev, int component,
 	cdev->dev = get_device(dev);
 	return enclosure_add_links(cdev);
 }
-EXPORT_SYMBOL_GPL(enclosure_add_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_add_device); */
 
 /**
  * enclosure_remove_device - remove a device from an enclosure
@@ -366,7 +366,7 @@ int enclosure_remove_device(struct enclosure_device *edev, struct device *dev)
 	}
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(enclosure_remove_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(enclosure_remove_device); */
 
 /*
  * sysfs pieces below

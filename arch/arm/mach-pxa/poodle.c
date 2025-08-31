@@ -155,7 +155,7 @@ static struct scoop_pcmcia_config poodle_pcmcia_config = {
 	.num_devs     = 1,
 };
 
-EXPORT_SYMBOL(poodle_scoop_device);
+/* DISABLED: EXPORT_SYMBOL(poodle_scoop_device); */
 
 
 static struct platform_device poodle_audio_device = {
@@ -191,7 +191,7 @@ struct platform_device poodle_locomo_device = {
 	},
 };
 
-EXPORT_SYMBOL(poodle_locomo_device);
+/* DISABLED: EXPORT_SYMBOL(poodle_locomo_device); */
 
 #if defined(CONFIG_SPI_PXA2XX) || defined(CONFIG_SPI_PXA2XX_MODULE)
 static struct pxa2xx_spi_master poodle_spi_info = {

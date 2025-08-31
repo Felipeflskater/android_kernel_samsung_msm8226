@@ -119,7 +119,7 @@ unsigned long clk_get_rate(struct clk *c)
 
 	return rate;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 int clk_reparent(struct clk *c, struct clk *parent)
 {
@@ -178,7 +178,7 @@ out:
 	spin_unlock_irqrestore(&c->spinlock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *c)
 {
@@ -204,7 +204,7 @@ void clk_disable(struct clk *c)
 
 	spin_unlock_irqrestore(&c->spinlock, flags);
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 int clk_set_parent(struct clk *c, struct clk *parent)
 {
@@ -231,13 +231,13 @@ out:
 	spin_unlock_irqrestore(&c->spinlock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
 
 struct clk *clk_get_parent(struct clk *c)
 {
 	return c->parent;
 }
-EXPORT_SYMBOL(clk_get_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
 
 int clk_set_rate_locked(struct clk *c, unsigned long rate)
 {
@@ -274,7 +274,7 @@ int clk_set_rate(struct clk *c, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
 
 
 /* Must be called with clocks lock and all indvidual clock locks held */
@@ -322,7 +322,7 @@ out:
 	spin_unlock_irqrestore(&c->spinlock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
 
 static int tegra_clk_init_one_from_table(struct tegra_clk_init_table *table)
 {
@@ -383,21 +383,21 @@ void tegra_clk_init_from_table(struct tegra_clk_init_table *table)
 	for (; table->name; table++)
 		tegra_clk_init_one_from_table(table);
 }
-EXPORT_SYMBOL(tegra_clk_init_from_table);
+/* DISABLED: EXPORT_SYMBOL(tegra_clk_init_from_table); */
 
 void tegra_periph_reset_deassert(struct clk *c)
 {
 	BUG_ON(!c->ops->reset);
 	c->ops->reset(c, false);
 }
-EXPORT_SYMBOL(tegra_periph_reset_deassert);
+/* DISABLED: EXPORT_SYMBOL(tegra_periph_reset_deassert); */
 
 void tegra_periph_reset_assert(struct clk *c)
 {
 	BUG_ON(!c->ops->reset);
 	c->ops->reset(c, true);
 }
-EXPORT_SYMBOL(tegra_periph_reset_assert);
+/* DISABLED: EXPORT_SYMBOL(tegra_periph_reset_assert); */
 
 /* Several extended clock configuration bits (e.g., clock routing, clock
  * phase control) are included in PLL and peripheral clock source

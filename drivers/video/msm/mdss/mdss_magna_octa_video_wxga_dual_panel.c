@@ -825,7 +825,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */
+/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */ */
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -1019,7 +1019,7 @@ int read_ldi_status(void)
 	return 0;
 
 }
-EXPORT_SYMBOL(read_ldi_status);
+/* DISABLED: EXPORT_SYMBOL(read_ldi_status); */
 #endif
 
 static void mipi_samsung_manufacture_date_read(struct mdss_panel_data *pdata)
@@ -1734,7 +1734,7 @@ err:
 	return ret;
 }
 
-EXPORT_SYMBOL(samsung_switching_lcd);
+/* DISABLED: EXPORT_SYMBOL(samsung_switching_lcd); */
 #endif
 
 static int mdss_samsung_parse_candella_lux_mapping_table(struct device_node *np,
@@ -3522,21 +3522,21 @@ int get_lcd_id(void)
 {
 	return lcd_id;
 }
-EXPORT_SYMBOL(get_lcd_id);
+/* DISABLED: EXPORT_SYMBOL(get_lcd_id); */
 
 int get_samsung_lcd_attached(void)
 {
 	return lcd_attached;
 
 }
-EXPORT_SYMBOL(get_samsung_lcd_attached);
+/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
 
 int get_lcd_pcd_detected(void)
 {
 	//return !lcd_pcd;
 	return !lcd_attached;
 }
-EXPORT_SYMBOL(get_lcd_pcd_detected);
+/* DISABLED: EXPORT_SYMBOL(get_lcd_pcd_detected); */
 
 static int __init get_lcd_sel_cmdline(char *val)
 {
@@ -3545,7 +3545,7 @@ static int __init get_lcd_sel_cmdline(char *val)
 
 	return 1;
 }
-/* DISABLED: __setup( "lcd_sel=0x", get_lcd_sel_cmdline ); */
+/* DISABLED: __setup( "lcd_sel=0x", get_lcd_sel_cmdline ); */ */
 
 static int __init get_pcd_cmdline(char *val)
 {
@@ -3554,7 +3554,7 @@ static int __init get_pcd_cmdline(char *val)
 
 	return 1;
 }
-/* DISABLED: __setup( "lcd_pcd=0x", get_pcd_cmdline ); */
+/* DISABLED: __setup( "lcd_pcd=0x", get_pcd_cmdline ); */ */
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -3588,7 +3588,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 
 	return 0;
 }
-/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */
+/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */ */
 
 MODULE_DESCRIPTION("Samsung EA8061V panel driver");
 MODULE_AUTHOR("Jo Kwang Rae <kr0124.cho@samsung.com>");

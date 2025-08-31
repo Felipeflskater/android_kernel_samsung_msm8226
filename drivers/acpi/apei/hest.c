@@ -42,7 +42,7 @@
 #define HEST_PFX "HEST: "
 
 bool hest_disable;
-EXPORT_SYMBOL_GPL(hest_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(hest_disable); */
 
 /* HEST table parsing */
 
@@ -119,7 +119,7 @@ int apei_hest_parse(apei_hest_func_t func, void *data)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(apei_hest_parse);
+/* DISABLED: EXPORT_SYMBOL_GPL(apei_hest_parse); */
 
 struct ghes_arr {
 	struct platform_device **ghes_devs;
@@ -203,7 +203,7 @@ static int __init setup_hest_disable(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("hest_disable", setup_hest_disable); */
+/* DISABLED: __setup("hest_disable", setup_hest_disable); */ */
 
 void __init acpi_hest_init(void)
 {

@@ -24,7 +24,7 @@
 #include <loongson.h>
 
 unsigned long cpu_clock_freq;
-EXPORT_SYMBOL(cpu_clock_freq);
+/* DISABLED: EXPORT_SYMBOL(cpu_clock_freq); */
 unsigned long memsize, highmemsize;
 
 #define parse_even_earlier(res, option, p)				\

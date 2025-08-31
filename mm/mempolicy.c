@@ -1964,7 +1964,7 @@ retry_cpuset:
 
 	return page;
 }
-EXPORT_SYMBOL(alloc_pages_current);
+/* DISABLED: EXPORT_SYMBOL(alloc_pages_current); */
 
 /*
  * If mpol_dup() sees current->cpuset == cpuset_being_rebound, then it

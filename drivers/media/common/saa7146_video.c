@@ -164,7 +164,7 @@ int saa7146_start_preview(struct saa7146_fh *fh)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(saa7146_start_preview);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_start_preview); */
 
 int saa7146_stop_preview(struct saa7146_fh *fh)
 {
@@ -199,7 +199,7 @@ int saa7146_stop_preview(struct saa7146_fh *fh)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(saa7146_stop_preview);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_stop_preview); */
 
 /********************************************************************************/
 /* device controls */

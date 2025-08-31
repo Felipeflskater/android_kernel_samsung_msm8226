@@ -337,7 +337,7 @@ int mmc_send_ext_csd(struct mmc_card *card, u8 *ext_csd)
 	return mmc_send_cxd_data(card, card->host, MMC_SEND_EXT_CSD,
 			ext_csd, 512);
 }
-EXPORT_SYMBOL_GPL(mmc_send_ext_csd);
+/* DISABLED: EXPORT_SYMBOL_GPL(mmc_send_ext_csd); */
 
 int mmc_spi_read_ocr(struct mmc_host *host, int highcap, u32 *ocrp)
 {
@@ -449,21 +449,21 @@ int __mmc_switch(struct mmc_card *card, u8 set, u8 index, u8 value,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__mmc_switch);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mmc_switch); */
 
 int mmc_switch(struct mmc_card *card, u8 set, u8 index, u8 value,
 		unsigned int timeout_ms)
 {
 	return __mmc_switch(card, set, index, value, timeout_ms, true, false);
 }
-EXPORT_SYMBOL_GPL(mmc_switch);
+/* DISABLED: EXPORT_SYMBOL_GPL(mmc_switch); */
 
 int mmc_switch_ignore_timeout(struct mmc_card *card, u8 set, u8 index, u8 value,
 		unsigned int timeout_ms)
 {
 	return __mmc_switch(card, set, index, value, timeout_ms, true, true);
 }
-EXPORT_SYMBOL(mmc_switch_ignore_timeout);
+/* DISABLED: EXPORT_SYMBOL(mmc_switch_ignore_timeout); */
 
 int mmc_send_status(struct mmc_card *card, u32 *status)
 {

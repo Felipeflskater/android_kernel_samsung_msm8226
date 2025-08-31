@@ -84,7 +84,7 @@ do_midi_msg(int synthno, unsigned char *msg, int mlen)
 		  ;
 	  }
 }
-EXPORT_SYMBOL(do_midi_msg);
+/* DISABLED: EXPORT_SYMBOL(do_midi_msg); */
 
 static void
 midi_outc(int midi_dev, int data)
@@ -277,7 +277,7 @@ int midi_synth_ioctl(int dev, unsigned int cmd, void __user *arg)
 		return -EINVAL;
 	}
 }
-EXPORT_SYMBOL(midi_synth_ioctl);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_ioctl); */
 
 int
 midi_synth_kill_note(int dev, int channel, int note, int velocity)
@@ -344,7 +344,7 @@ midi_synth_kill_note(int dev, int channel, int note, int velocity)
 
 	return 0;
 }
-EXPORT_SYMBOL(midi_synth_kill_note);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_kill_note); */
 
 int
 midi_synth_set_instr(int dev, int channel, int instr_no)
@@ -367,7 +367,7 @@ midi_synth_set_instr(int dev, int channel, int instr_no)
 
 	return 0;
 }
-EXPORT_SYMBOL(midi_synth_set_instr);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_set_instr); */
 
 int
 midi_synth_start_note(int dev, int channel, int note, int velocity)
@@ -409,7 +409,7 @@ midi_synth_start_note(int dev, int channel, int note, int velocity)
 	  }
 	return 0;
 }
-EXPORT_SYMBOL(midi_synth_start_note);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_start_note); */
 
 void
 midi_synth_reset(int dev)
@@ -417,7 +417,7 @@ midi_synth_reset(int dev)
 
 	leave_sysex(dev);
 }
-EXPORT_SYMBOL(midi_synth_reset);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_reset); */
 
 int
 midi_synth_open(int dev, int mode)
@@ -450,7 +450,7 @@ midi_synth_open(int dev, int mode)
 
 	return 1;
 }
-EXPORT_SYMBOL(midi_synth_open);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_open); */
 
 void
 midi_synth_close(int dev)
@@ -466,13 +466,13 @@ midi_synth_close(int dev)
 
 	midi_devs[orig_dev]->close(orig_dev);
 }
-EXPORT_SYMBOL(midi_synth_close);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_close); */
 
 void
 midi_synth_hw_control(int dev, unsigned char *event)
 {
 }
-EXPORT_SYMBOL(midi_synth_hw_control);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_hw_control); */
 
 int
 midi_synth_load_patch(int dev, int format, const char __user *addr,
@@ -549,12 +549,12 @@ midi_synth_load_patch(int dev, int format, const char __user *addr,
 		midi_outc(orig_dev, 0xf7);
 	return 0;
 }
-EXPORT_SYMBOL(midi_synth_load_patch);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_load_patch); */
 
 void midi_synth_panning(int dev, int channel, int pressure)
 {
 }
-EXPORT_SYMBOL(midi_synth_panning);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_panning); */
 
 void midi_synth_aftertouch(int dev, int channel, int pressure)
 {
@@ -585,7 +585,7 @@ void midi_synth_aftertouch(int dev, int channel, int pressure)
 
 	midi_outc(orig_dev, pressure);
 }
-EXPORT_SYMBOL(midi_synth_aftertouch);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_aftertouch); */
 
 void
 midi_synth_controller(int dev, int channel, int ctrl_num, int value)
@@ -614,7 +614,7 @@ midi_synth_controller(int dev, int channel, int ctrl_num, int value)
 	midi_outc(orig_dev, ctrl_num);
 	midi_outc(orig_dev, value & 0x7f);
 }
-EXPORT_SYMBOL(midi_synth_controller);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_controller); */
 
 void
 midi_synth_bender(int dev, int channel, int value)
@@ -646,13 +646,13 @@ midi_synth_bender(int dev, int channel, int value)
 	midi_outc(orig_dev, value & 0x7f);
 	midi_outc(orig_dev, (value >> 7) & 0x7f);
 }
-EXPORT_SYMBOL(midi_synth_bender);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_bender); */
 
 void
 midi_synth_setup_voice(int dev, int voice, int channel)
 {
 }
-EXPORT_SYMBOL(midi_synth_setup_voice);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_setup_voice); */
 
 int
 midi_synth_send_sysex(int dev, unsigned char *bytes, int len)
@@ -708,5 +708,5 @@ midi_synth_send_sysex(int dev, unsigned char *bytes, int len)
 
 	return 0;
 }
-EXPORT_SYMBOL(midi_synth_send_sysex);
+/* DISABLED: EXPORT_SYMBOL(midi_synth_send_sysex); */
 

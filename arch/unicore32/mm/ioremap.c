@@ -51,7 +51,7 @@ int ioremap_page(unsigned long virt, unsigned long phys,
 	return ioremap_page_range(virt, virt + PAGE_SIZE, phys,
 				  __pgprot(mtype->prot_pte));
 }
-EXPORT_SYMBOL(ioremap_page);
+/* DISABLED: EXPORT_SYMBOL(ioremap_page); */
 
 /*
  * Section support is unsafe on SMP - If you iounmap and ioremap a region,
@@ -214,7 +214,7 @@ __uc32_ioremap_pfn(unsigned long pfn, unsigned long offset, size_t size,
 	return __uc32_ioremap_pfn_caller(pfn, offset, size, mtype,
 			__builtin_return_address(0));
 }
-EXPORT_SYMBOL(__uc32_ioremap_pfn);
+/* DISABLED: EXPORT_SYMBOL(__uc32_ioremap_pfn); */
 
 void __iomem *
 __uc32_ioremap(unsigned long phys_addr, size_t size)
@@ -222,7 +222,7 @@ __uc32_ioremap(unsigned long phys_addr, size_t size)
 	return __uc32_ioremap_caller(phys_addr, size, MT_DEVICE,
 			__builtin_return_address(0));
 }
-EXPORT_SYMBOL(__uc32_ioremap);
+/* DISABLED: EXPORT_SYMBOL(__uc32_ioremap); */
 
 void __iomem *
 __uc32_ioremap_cached(unsigned long phys_addr, size_t size)
@@ -230,7 +230,7 @@ __uc32_ioremap_cached(unsigned long phys_addr, size_t size)
 	return __uc32_ioremap_caller(phys_addr, size, MT_DEVICE_CACHED,
 			__builtin_return_address(0));
 }
-EXPORT_SYMBOL(__uc32_ioremap_cached);
+/* DISABLED: EXPORT_SYMBOL(__uc32_ioremap_cached); */
 
 void __uc32_iounmap(volatile void __iomem *io_addr)
 {
@@ -258,4 +258,4 @@ void __uc32_iounmap(volatile void __iomem *io_addr)
 
 	vunmap(addr);
 }
-EXPORT_SYMBOL(__uc32_iounmap);
+/* DISABLED: EXPORT_SYMBOL(__uc32_iounmap); */

@@ -348,7 +348,7 @@ struct ib_fmr_pool *ib_create_fmr_pool(struct ib_pd             *pd,
 
 	return ERR_PTR(-ENOMEM);
 }
-EXPORT_SYMBOL(ib_create_fmr_pool);
+/* DISABLED: EXPORT_SYMBOL(ib_create_fmr_pool); */
 
 /**
  * ib_destroy_fmr_pool - Free FMR pool
@@ -386,7 +386,7 @@ void ib_destroy_fmr_pool(struct ib_fmr_pool *pool)
 	kfree(pool->cache_bucket);
 	kfree(pool);
 }
-EXPORT_SYMBOL(ib_destroy_fmr_pool);
+/* DISABLED: EXPORT_SYMBOL(ib_destroy_fmr_pool); */
 
 /**
  * ib_flush_fmr_pool - Invalidate all unmapped FMRs
@@ -421,7 +421,7 @@ int ib_flush_fmr_pool(struct ib_fmr_pool *pool)
 
 	return 0;
 }
-EXPORT_SYMBOL(ib_flush_fmr_pool);
+/* DISABLED: EXPORT_SYMBOL(ib_flush_fmr_pool); */
 
 /**
  * ib_fmr_pool_map_phys -
@@ -501,7 +501,7 @@ struct ib_pool_fmr *ib_fmr_pool_map_phys(struct ib_fmr_pool *pool_handle,
 
 	return fmr;
 }
-EXPORT_SYMBOL(ib_fmr_pool_map_phys);
+/* DISABLED: EXPORT_SYMBOL(ib_fmr_pool_map_phys); */
 
 /**
  * ib_fmr_pool_unmap - Unmap FMR
@@ -542,4 +542,4 @@ int ib_fmr_pool_unmap(struct ib_pool_fmr *fmr)
 
 	return 0;
 }
-EXPORT_SYMBOL(ib_fmr_pool_unmap);
+/* DISABLED: EXPORT_SYMBOL(ib_fmr_pool_unmap); */

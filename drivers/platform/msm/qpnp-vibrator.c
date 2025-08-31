@@ -123,7 +123,7 @@ int qpnp_vibrator_config(struct qpnp_vib_config *vib_cfg)
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_vibrator_config);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vibrator_config); */
 
 static int qpnp_vib_set(struct qpnp_vib *vib, int on)
 {

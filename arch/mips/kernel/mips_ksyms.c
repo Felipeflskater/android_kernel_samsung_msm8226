@@ -28,31 +28,31 @@ extern long __strnlen_user_asm(const char *s);
 /*
  * String functions
  */
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memmove);
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
 
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * Userspace access stuff.
  */
-EXPORT_SYMBOL(__copy_user);
-EXPORT_SYMBOL(__copy_user_inatomic);
-EXPORT_SYMBOL(__bzero);
-EXPORT_SYMBOL(__strncpy_from_user_nocheck_asm);
-EXPORT_SYMBOL(__strncpy_from_user_asm);
-EXPORT_SYMBOL(__strlen_user_nocheck_asm);
-EXPORT_SYMBOL(__strlen_user_asm);
-EXPORT_SYMBOL(__strnlen_user_nocheck_asm);
-EXPORT_SYMBOL(__strnlen_user_asm);
+/* DISABLED: EXPORT_SYMBOL(__copy_user); */
+/* DISABLED: EXPORT_SYMBOL(__copy_user_inatomic); */
+/* DISABLED: EXPORT_SYMBOL(__bzero); */
+/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user_nocheck_asm); */
+/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user_asm); */
+/* DISABLED: EXPORT_SYMBOL(__strlen_user_nocheck_asm); */
+/* DISABLED: EXPORT_SYMBOL(__strlen_user_asm); */
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user_nocheck_asm); */
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user_asm); */
 
-EXPORT_SYMBOL(csum_partial);
-EXPORT_SYMBOL(csum_partial_copy_nocheck);
-EXPORT_SYMBOL(__csum_partial_copy_user);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+/* DISABLED: EXPORT_SYMBOL(__csum_partial_copy_user); */
 
-EXPORT_SYMBOL(invalid_pte_table);
+/* DISABLED: EXPORT_SYMBOL(invalid_pte_table); */
 #ifdef CONFIG_FUNCTION_TRACER
 /* _mcount is defined in arch/mips/kernel/mcount.S */
-EXPORT_SYMBOL(_mcount);
+/* DISABLED: EXPORT_SYMBOL(_mcount); */
 #endif

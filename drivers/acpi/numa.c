@@ -336,4 +336,4 @@ int acpi_get_node(acpi_handle *handle)
 
 	return node;
 }
-EXPORT_SYMBOL(acpi_get_node);
+/* DISABLED: EXPORT_SYMBOL(acpi_get_node); */

@@ -259,7 +259,7 @@ const struct file_operations spufs_context_fops = {
 	.readdir	= dcache_readdir,
 	.fsync		= noop_fsync,
 };
-EXPORT_SYMBOL_GPL(spufs_context_fops);
+/* DISABLED: EXPORT_SYMBOL_GPL(spufs_context_fops); */
 
 static int
 spufs_mkdir(struct inode *dir, struct dentry *dentry, unsigned int flags,

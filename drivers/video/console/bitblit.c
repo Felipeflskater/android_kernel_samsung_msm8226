@@ -414,7 +414,7 @@ void fbcon_set_bitops(struct fbcon_ops *ops)
 		fbcon_set_rotate(ops);
 }
 
-EXPORT_SYMBOL(fbcon_set_bitops);
+/* DISABLED: EXPORT_SYMBOL(fbcon_set_bitops); */
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Bit Blitting Operation");

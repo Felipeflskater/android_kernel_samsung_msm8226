@@ -134,7 +134,7 @@ int fw_cancel_transaction(struct fw_card *card,
 
 	return close_transaction(transaction, card, RCODE_CANCELLED);
 }
-EXPORT_SYMBOL(fw_cancel_transaction);
+/* DISABLED: EXPORT_SYMBOL(fw_cancel_transaction); */
 
 static void split_transaction_timeout_callback(unsigned long data)
 {
@@ -388,7 +388,7 @@ void fw_send_request(struct fw_card *card, struct fw_transaction *t, int tcode,
 
 	card->driver->send_request(card, &t->packet);
 }
-EXPORT_SYMBOL(fw_send_request);
+/* DISABLED: EXPORT_SYMBOL(fw_send_request); */
 
 struct transaction_callback_data {
 	struct completion done;
@@ -432,7 +432,7 @@ int fw_run_transaction(struct fw_card *card, int tcode, int destination_id,
 
 	return d.rcode;
 }
-EXPORT_SYMBOL(fw_run_transaction);
+/* DISABLED: EXPORT_SYMBOL(fw_run_transaction); */
 
 static DEFINE_MUTEX(phy_config_mutex);
 static DECLARE_COMPLETION(phy_config_done);
@@ -523,7 +523,7 @@ static LIST_HEAD(address_handler_list);
 
 const struct fw_address_region fw_high_memory_region =
 	{ .start = 0x000100000000ULL, .end = 0xffffe0000000ULL,  };
-EXPORT_SYMBOL(fw_high_memory_region);
+/* DISABLED: EXPORT_SYMBOL(fw_high_memory_region); */
 
 #if 0
 const struct fw_address_region fw_low_memory_region =
@@ -597,7 +597,7 @@ int fw_core_add_address_handler(struct fw_address_handler *handler,
 
 	return ret;
 }
-EXPORT_SYMBOL(fw_core_add_address_handler);
+/* DISABLED: EXPORT_SYMBOL(fw_core_add_address_handler); */
 
 /**
  * fw_core_remove_address_handler() - unregister an address handler
@@ -611,7 +611,7 @@ void fw_core_remove_address_handler(struct fw_address_handler *handler)
 	list_del(&handler->link);
 	spin_unlock_bh(&address_handler_lock);
 }
-EXPORT_SYMBOL(fw_core_remove_address_handler);
+/* DISABLED: EXPORT_SYMBOL(fw_core_remove_address_handler); */
 
 struct fw_request {
 	struct fw_packet response;
@@ -721,7 +721,7 @@ void fw_fill_response(struct fw_packet *response, u32 *request_header,
 
 	response->payload_mapped = false;
 }
-EXPORT_SYMBOL(fw_fill_response);
+/* DISABLED: EXPORT_SYMBOL(fw_fill_response); */
 
 static u32 compute_split_timeout_timestamp(struct fw_card *card,
 					   u32 request_timestamp)
@@ -818,7 +818,7 @@ void fw_send_response(struct fw_card *card,
 
 	card->driver->send_response(card, &request->response);
 }
-EXPORT_SYMBOL(fw_send_response);
+/* DISABLED: EXPORT_SYMBOL(fw_send_response); */
 
 static void handle_exclusive_region_request(struct fw_card *card,
 					    struct fw_packet *p,
@@ -919,7 +919,7 @@ void fw_core_handle_request(struct fw_card *card, struct fw_packet *p)
 		handle_fcp_region_request(card, p, request, offset);
 
 }
-EXPORT_SYMBOL(fw_core_handle_request);
+/* DISABLED: EXPORT_SYMBOL(fw_core_handle_request); */
 
 void fw_core_handle_response(struct fw_card *card, struct fw_packet *p)
 {
@@ -992,7 +992,7 @@ void fw_core_handle_response(struct fw_card *card, struct fw_packet *p)
 
 	t->callback(card, rcode, data, data_length, t->callback_data);
 }
-EXPORT_SYMBOL(fw_core_handle_response);
+/* DISABLED: EXPORT_SYMBOL(fw_core_handle_response); */
 
 static const struct fw_address_region topology_map_region =
 	{ .start = CSR_REGISTER_BASE | CSR_TOPOLOGY_MAP,

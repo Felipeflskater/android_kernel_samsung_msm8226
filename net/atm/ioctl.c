@@ -37,7 +37,7 @@ void register_atm_ioctl(struct atm_ioctl *ioctl)
 	list_add_tail(&ioctl->list, &ioctl_list);
 	mutex_unlock(&ioctl_mutex);
 }
-EXPORT_SYMBOL(register_atm_ioctl);
+/* DISABLED: EXPORT_SYMBOL(register_atm_ioctl); */
 
 void deregister_atm_ioctl(struct atm_ioctl *ioctl)
 {
@@ -45,7 +45,7 @@ void deregister_atm_ioctl(struct atm_ioctl *ioctl)
 	list_del(&ioctl->list);
 	mutex_unlock(&ioctl_mutex);
 }
-EXPORT_SYMBOL(deregister_atm_ioctl);
+/* DISABLED: EXPORT_SYMBOL(deregister_atm_ioctl); */
 
 static int do_vcc_ioctl(struct socket *sock, unsigned int cmd,
 			unsigned long arg, int compat)

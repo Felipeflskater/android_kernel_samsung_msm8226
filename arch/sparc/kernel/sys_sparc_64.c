@@ -358,7 +358,7 @@ unsigned long get_fb_unmapped_area(struct file *filp, unsigned long orig_addr, u
 
 	return addr;
 }
-EXPORT_SYMBOL(get_fb_unmapped_area);
+/* DISABLED: EXPORT_SYMBOL(get_fb_unmapped_area); */
 
 /* Essentially the same as PowerPC.  */
 static unsigned long mmap_rnd(void)

@@ -61,4 +61,4 @@ void rational_best_approximation(
 	*best_denominator = d1;
 }
 
-EXPORT_SYMBOL(rational_best_approximation);
+/* DISABLED: EXPORT_SYMBOL(rational_best_approximation); */

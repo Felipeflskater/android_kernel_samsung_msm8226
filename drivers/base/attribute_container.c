@@ -59,7 +59,7 @@ attribute_container_classdev_to_container(struct device *classdev)
 		container_of(classdev, struct internal_container, classdev);
 	return ic->cont;
 }
-EXPORT_SYMBOL_GPL(attribute_container_classdev_to_container);
+/* DISABLED: EXPORT_SYMBOL_GPL(attribute_container_classdev_to_container); */
 
 static LIST_HEAD(attribute_container_list);
 
@@ -84,7 +84,7 @@ attribute_container_register(struct attribute_container *cont)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(attribute_container_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(attribute_container_register); */
 
 /**
  * attribute_container_unregister - remove a container registration
@@ -107,7 +107,7 @@ attribute_container_unregister(struct attribute_container *cont)
 	return retval;
 		
 }
-EXPORT_SYMBOL_GPL(attribute_container_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(attribute_container_unregister); */
 
 /* private function used as class release */
 static void attribute_container_release(struct device *classdev)
@@ -438,4 +438,4 @@ attribute_container_find_class_device(struct attribute_container *cont,
 
 	return cdev;
 }
-EXPORT_SYMBOL_GPL(attribute_container_find_class_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(attribute_container_find_class_device); */

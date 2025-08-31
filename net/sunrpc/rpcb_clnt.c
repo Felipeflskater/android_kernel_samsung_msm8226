@@ -773,7 +773,7 @@ bailout_nofree:
 	task->tk_status = status;
 	xprt_put(xprt);
 }
-EXPORT_SYMBOL_GPL(rpcb_getport_async);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpcb_getport_async); */
 
 /*
  * Rpcbind child task calls this callback via tk_exit.

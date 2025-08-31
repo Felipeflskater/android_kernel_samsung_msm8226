@@ -601,7 +601,7 @@ struct kvm_cpuid_entry2 *kvm_find_cpuid_entry(struct kvm_vcpu *vcpu,
 	}
 	return best;
 }
-EXPORT_SYMBOL_GPL(kvm_find_cpuid_entry);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_find_cpuid_entry); */
 
 int cpuid_maxphyaddr(struct kvm_vcpu *vcpu)
 {
@@ -667,4 +667,4 @@ void kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 			kvm_register_read(vcpu, VCPU_REGS_RCX),
 			kvm_register_read(vcpu, VCPU_REGS_RDX));
 }
-EXPORT_SYMBOL_GPL(kvm_emulate_cpuid);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_emulate_cpuid); */

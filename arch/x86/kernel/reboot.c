@@ -32,7 +32,7 @@
  * Power off function, if any
  */
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 static const struct desc_ptr no_idt = {};
 static int reboot_mode;
@@ -128,7 +128,7 @@ static int __init reboot_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("reboot=", reboot_setup); */
+/* DISABLED: __setup("reboot=", reboot_setup); */ */
 
 
 #ifdef CONFIG_X86_32
@@ -388,7 +388,7 @@ void machine_real_restart(unsigned int type)
 	restart_lowmem(type);
 }
 #ifdef CONFIG_APM_MODULE
-EXPORT_SYMBOL(machine_real_restart);
+/* DISABLED: EXPORT_SYMBOL(machine_real_restart); */
 #endif
 
 #endif /* CONFIG_X86_32 */

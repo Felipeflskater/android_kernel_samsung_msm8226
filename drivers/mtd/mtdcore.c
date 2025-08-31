@@ -85,13 +85,13 @@ static DEFINE_IDR(mtd_idr);
 /* These are exported solely for the purpose of mtd_blkdevs.c. You
    should not use them for _anything_ else */
 DEFINE_MUTEX(mtd_table_mutex);
-EXPORT_SYMBOL_GPL(mtd_table_mutex);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_table_mutex); */
 
 struct mtd_info *__mtd_next_device(int i)
 {
 	return idr_get_next(&mtd_idr, &i);
 }
-EXPORT_SYMBOL_GPL(__mtd_next_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mtd_next_device); */
 
 static LIST_HEAD(mtd_notifiers);
 
@@ -483,7 +483,7 @@ int mtd_device_parse_register(struct mtd_info *mtd, const char **types,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(mtd_device_parse_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_device_parse_register); */
 
 /**
  * mtd_device_unregister - unregister an existing MTD device.
@@ -504,7 +504,7 @@ int mtd_device_unregister(struct mtd_info *master)
 
 	return del_mtd_device(master);
 }
-EXPORT_SYMBOL_GPL(mtd_device_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_device_unregister); */
 
 /**
  *	register_mtd_user - register a 'user' of MTD devices.
@@ -529,7 +529,7 @@ void register_mtd_user (struct mtd_notifier *new)
 
 	mutex_unlock(&mtd_table_mutex);
 }
-EXPORT_SYMBOL_GPL(register_mtd_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_mtd_user); */
 
 /**
  *	unregister_mtd_user - unregister a 'user' of MTD devices.
@@ -555,7 +555,7 @@ int unregister_mtd_user (struct mtd_notifier *old)
 	mutex_unlock(&mtd_table_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(unregister_mtd_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_mtd_user); */
 
 /**
  *	get_mtd_device - obtain a validated handle for an MTD device
@@ -600,7 +600,7 @@ out:
 	mutex_unlock(&mtd_table_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(get_mtd_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_mtd_device); */
 
 
 int __get_mtd_device(struct mtd_info *mtd)
@@ -621,7 +621,7 @@ int __get_mtd_device(struct mtd_info *mtd)
 	mtd->usecount++;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__get_mtd_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(__get_mtd_device); */
 
 /**
  *	get_mtd_device_nm - obtain a validated handle for an MTD device by
@@ -659,7 +659,7 @@ out_unlock:
 	mutex_unlock(&mtd_table_mutex);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(get_mtd_device_nm);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_mtd_device_nm); */
 
 void put_mtd_device(struct mtd_info *mtd)
 {
@@ -668,7 +668,7 @@ void put_mtd_device(struct mtd_info *mtd)
 	mutex_unlock(&mtd_table_mutex);
 
 }
-EXPORT_SYMBOL_GPL(put_mtd_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(put_mtd_device); */
 
 void __put_mtd_device(struct mtd_info *mtd)
 {
@@ -680,7 +680,7 @@ void __put_mtd_device(struct mtd_info *mtd)
 
 	module_put(mtd->owner);
 }
-EXPORT_SYMBOL_GPL(__put_mtd_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(__put_mtd_device); */
 
 /*
  * Erase is an asynchronous operation.  Device drivers are supposed
@@ -703,7 +703,7 @@ int mtd_erase(struct mtd_info *mtd, struct erase_info *instr)
 	}
 	return mtd->_erase(mtd, instr);
 }
-EXPORT_SYMBOL_GPL(mtd_erase);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_erase); */
 
 /*
  * This stuff for eXecute-In-Place. phys is optional and may be set to NULL.
@@ -723,7 +723,7 @@ int mtd_point(struct mtd_info *mtd, loff_t from, size_t len, size_t *retlen,
 		return 0;
 	return mtd->_point(mtd, from, len, retlen, virt, phys);
 }
-EXPORT_SYMBOL_GPL(mtd_point);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_point); */
 
 /* We probably shouldn't allow XIP if the unpoint isn't a NULL */
 int mtd_unpoint(struct mtd_info *mtd, loff_t from, size_t len)
@@ -736,7 +736,7 @@ int mtd_unpoint(struct mtd_info *mtd, loff_t from, size_t len)
 		return 0;
 	return mtd->_unpoint(mtd, from, len);
 }
-EXPORT_SYMBOL_GPL(mtd_unpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_unpoint); */
 
 /*
  * Allow NOMMU mmap() to directly map the device (if not NULL)
@@ -752,7 +752,7 @@ unsigned long mtd_get_unmapped_area(struct mtd_info *mtd, unsigned long len,
 		return -EINVAL;
 	return mtd->_get_unmapped_area(mtd, len, offset, flags);
 }
-EXPORT_SYMBOL_GPL(mtd_get_unmapped_area);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_get_unmapped_area); */
 
 int mtd_read(struct mtd_info *mtd, loff_t from, size_t len, size_t *retlen,
 	     u_char *buf)
@@ -764,7 +764,7 @@ int mtd_read(struct mtd_info *mtd, loff_t from, size_t len, size_t *retlen,
 		return 0;
 	return mtd->_read(mtd, from, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_read); */
 
 int mtd_write(struct mtd_info *mtd, loff_t to, size_t len, size_t *retlen,
 	      const u_char *buf)
@@ -778,7 +778,7 @@ int mtd_write(struct mtd_info *mtd, loff_t to, size_t len, size_t *retlen,
 		return 0;
 	return mtd->_write(mtd, to, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_write); */
 
 /*
  * In blackbox flight recorder like scenarios we want to make successful writes
@@ -801,7 +801,7 @@ int mtd_panic_write(struct mtd_info *mtd, loff_t to, size_t len, size_t *retlen,
 		return 0;
 	return mtd->_panic_write(mtd, to, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_panic_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_panic_write); */
 
 /*
  * Method to access the protection register area, present in some flash
@@ -817,7 +817,7 @@ int mtd_get_fact_prot_info(struct mtd_info *mtd, struct otp_info *buf,
 		return 0;
 	return mtd->_get_fact_prot_info(mtd, buf, len);
 }
-EXPORT_SYMBOL_GPL(mtd_get_fact_prot_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_get_fact_prot_info); */
 
 int mtd_read_fact_prot_reg(struct mtd_info *mtd, loff_t from, size_t len,
 			   size_t *retlen, u_char *buf)
@@ -829,7 +829,7 @@ int mtd_read_fact_prot_reg(struct mtd_info *mtd, loff_t from, size_t len,
 		return 0;
 	return mtd->_read_fact_prot_reg(mtd, from, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_read_fact_prot_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_read_fact_prot_reg); */
 
 int mtd_get_user_prot_info(struct mtd_info *mtd, struct otp_info *buf,
 			   size_t len)
@@ -840,7 +840,7 @@ int mtd_get_user_prot_info(struct mtd_info *mtd, struct otp_info *buf,
 		return 0;
 	return mtd->_get_user_prot_info(mtd, buf, len);
 }
-EXPORT_SYMBOL_GPL(mtd_get_user_prot_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_get_user_prot_info); */
 
 int mtd_read_user_prot_reg(struct mtd_info *mtd, loff_t from, size_t len,
 			   size_t *retlen, u_char *buf)
@@ -852,7 +852,7 @@ int mtd_read_user_prot_reg(struct mtd_info *mtd, loff_t from, size_t len,
 		return 0;
 	return mtd->_read_user_prot_reg(mtd, from, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_read_user_prot_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_read_user_prot_reg); */
 
 int mtd_write_user_prot_reg(struct mtd_info *mtd, loff_t to, size_t len,
 			    size_t *retlen, u_char *buf)
@@ -864,7 +864,7 @@ int mtd_write_user_prot_reg(struct mtd_info *mtd, loff_t to, size_t len,
 		return 0;
 	return mtd->_write_user_prot_reg(mtd, to, len, retlen, buf);
 }
-EXPORT_SYMBOL_GPL(mtd_write_user_prot_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_write_user_prot_reg); */
 
 int mtd_lock_user_prot_reg(struct mtd_info *mtd, loff_t from, size_t len)
 {
@@ -874,7 +874,7 @@ int mtd_lock_user_prot_reg(struct mtd_info *mtd, loff_t from, size_t len)
 		return 0;
 	return mtd->_lock_user_prot_reg(mtd, from, len);
 }
-EXPORT_SYMBOL_GPL(mtd_lock_user_prot_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_lock_user_prot_reg); */
 
 /* Chip-supported device locking */
 int mtd_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
@@ -887,7 +887,7 @@ int mtd_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 		return 0;
 	return mtd->_lock(mtd, ofs, len);
 }
-EXPORT_SYMBOL_GPL(mtd_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_lock); */
 
 int mtd_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 {
@@ -899,7 +899,7 @@ int mtd_unlock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 		return 0;
 	return mtd->_unlock(mtd, ofs, len);
 }
-EXPORT_SYMBOL_GPL(mtd_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_unlock); */
 
 int mtd_is_locked(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 {
@@ -911,7 +911,7 @@ int mtd_is_locked(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 		return 0;
 	return mtd->_is_locked(mtd, ofs, len);
 }
-EXPORT_SYMBOL_GPL(mtd_is_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_is_locked); */
 
 int mtd_block_isbad(struct mtd_info *mtd, loff_t ofs)
 {
@@ -921,7 +921,7 @@ int mtd_block_isbad(struct mtd_info *mtd, loff_t ofs)
 		return -EINVAL;
 	return mtd->_block_isbad(mtd, ofs);
 }
-EXPORT_SYMBOL_GPL(mtd_block_isbad);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_block_isbad); */
 
 int mtd_block_markbad(struct mtd_info *mtd, loff_t ofs)
 {
@@ -933,7 +933,7 @@ int mtd_block_markbad(struct mtd_info *mtd, loff_t ofs)
 		return -EROFS;
 	return mtd->_block_markbad(mtd, ofs);
 }
-EXPORT_SYMBOL_GPL(mtd_block_markbad);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_block_markbad); */
 
 /*
  * default_mtd_writev - the default writev method
@@ -988,7 +988,7 @@ int mtd_writev(struct mtd_info *mtd, const struct kvec *vecs,
 		return default_mtd_writev(mtd, vecs, count, to, retlen);
 	return mtd->_writev(mtd, vecs, count, to, retlen);
 }
-EXPORT_SYMBOL_GPL(mtd_writev);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_writev); */
 
 /**
  * mtd_kmalloc_up_to - allocate a contiguous buffer up to the specified size
@@ -1038,7 +1038,7 @@ void *mtd_kmalloc_up_to(const struct mtd_info *mtd, size_t *size)
 	 */
 	return kmalloc(*size, GFP_KERNEL);
 }
-EXPORT_SYMBOL_GPL(mtd_kmalloc_up_to);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_kmalloc_up_to); */
 
 #ifdef CONFIG_PROC_FS
 

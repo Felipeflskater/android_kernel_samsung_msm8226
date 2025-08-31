@@ -43,7 +43,7 @@ static atomic_t *prof_buffer;
 static unsigned long prof_len, prof_shift;
 
 int prof_on __read_mostly;
-EXPORT_SYMBOL_GPL(prof_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(prof_on); */
 
 static cpumask_var_t prof_cpu_mask;
 #ifdef CONFIG_SMP
@@ -99,7 +99,7 @@ int profile_setup(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("profile=", profile_setup); */
+/* DISABLED: __setup("profile=", profile_setup); */ */
 
 
 int __ref profile_init(void)
@@ -161,13 +161,13 @@ int task_handoff_register(struct notifier_block *n)
 {
 	return atomic_notifier_chain_register(&task_free_notifier, n);
 }
-EXPORT_SYMBOL_GPL(task_handoff_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(task_handoff_register); */
 
 int task_handoff_unregister(struct notifier_block *n)
 {
 	return atomic_notifier_chain_unregister(&task_free_notifier, n);
 }
-EXPORT_SYMBOL_GPL(task_handoff_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(task_handoff_unregister); */
 
 int profile_event_register(enum profile_type type, struct notifier_block *n)
 {
@@ -186,7 +186,7 @@ int profile_event_register(enum profile_type type, struct notifier_block *n)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(profile_event_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(profile_event_register); */
 
 int profile_event_unregister(enum profile_type type, struct notifier_block *n)
 {
@@ -205,7 +205,7 @@ int profile_event_unregister(enum profile_type type, struct notifier_block *n)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(profile_event_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(profile_event_unregister); */
 
 int register_timer_hook(int (*hook)(struct pt_regs *))
 {
@@ -214,7 +214,7 @@ int register_timer_hook(int (*hook)(struct pt_regs *))
 	timer_hook = hook;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(register_timer_hook);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_timer_hook); */
 
 void unregister_timer_hook(int (*hook)(struct pt_regs *))
 {
@@ -223,7 +223,7 @@ void unregister_timer_hook(int (*hook)(struct pt_regs *))
 	/* make sure all CPUs see the NULL hook */
 	synchronize_sched();  /* Allow ongoing interrupts to complete. */
 }
-EXPORT_SYMBOL_GPL(unregister_timer_hook);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_timer_hook); */
 
 
 #ifdef CONFIG_SMP
@@ -429,7 +429,7 @@ void profile_hits(int type, void *__pc, unsigned int nr_hits)
 		return;
 	do_profile_hits(type, __pc, nr_hits);
 }
-EXPORT_SYMBOL_GPL(profile_hits);
+/* DISABLED: EXPORT_SYMBOL_GPL(profile_hits); */
 
 void profile_tick(int type)
 {

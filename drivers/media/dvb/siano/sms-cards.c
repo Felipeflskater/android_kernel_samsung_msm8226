@@ -107,7 +107,7 @@ struct sms_board *sms_get_board(unsigned id)
 
 	return &sms_boards[id];
 }
-EXPORT_SYMBOL_GPL(sms_get_board);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_get_board); */
 static inline void sms_gpio_assign_11xx_default_led_config(
 		struct smscore_gpio_config *pGpioConfig) {
 	pGpioConfig->Direction = SMS_GPIO_DIRECTION_OUTPUT;
@@ -172,7 +172,7 @@ int sms_board_event(struct smscore_device_t *coredev,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sms_board_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_event); */
 
 static int sms_set_gpio(struct smscore_device_t *coredev, int pin, int enable)
 {
@@ -225,7 +225,7 @@ int sms_board_setup(struct smscore_device_t *coredev)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sms_board_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_setup); */
 
 int sms_board_power(struct smscore_device_t *coredev, int onoff)
 {
@@ -247,7 +247,7 @@ int sms_board_power(struct smscore_device_t *coredev, int onoff)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sms_board_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_power); */
 
 int sms_board_led_feedback(struct smscore_device_t *coredev, int led)
 {
@@ -270,7 +270,7 @@ int sms_board_led_feedback(struct smscore_device_t *coredev, int led)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sms_board_led_feedback);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_led_feedback); */
 
 int sms_board_lna_control(struct smscore_device_t *coredev, int onoff)
 {
@@ -289,7 +289,7 @@ int sms_board_lna_control(struct smscore_device_t *coredev, int onoff)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(sms_board_lna_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_lna_control); */
 
 int sms_board_load_modules(int id)
 {
@@ -308,4 +308,4 @@ int sms_board_load_modules(int id)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sms_board_load_modules);
+/* DISABLED: EXPORT_SYMBOL_GPL(sms_board_load_modules); */

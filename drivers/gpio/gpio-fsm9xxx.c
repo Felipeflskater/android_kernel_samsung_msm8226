@@ -228,7 +228,7 @@ int gpio_tlmm_config(unsigned config, unsigned disable)
 
 	return 0;
 }
-EXPORT_SYMBOL(gpio_tlmm_config);
+/* DISABLED: EXPORT_SYMBOL(gpio_tlmm_config); */
 
 int msm_gpios_request_enable(const struct msm_gpio *table, int size)
 {
@@ -240,14 +240,14 @@ int msm_gpios_request_enable(const struct msm_gpio *table, int size)
 		msm_gpios_free(table, size);
 	return rc;
 }
-EXPORT_SYMBOL(msm_gpios_request_enable);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_request_enable); */
 
 void msm_gpios_disable_free(const struct msm_gpio *table, int size)
 {
 	msm_gpios_disable(table, size);
 	msm_gpios_free(table, size);
 }
-EXPORT_SYMBOL(msm_gpios_disable_free);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_disable_free); */
 
 int msm_gpios_request(const struct msm_gpio *table, int size)
 {
@@ -268,7 +268,7 @@ err:
 	msm_gpios_free(table, i);
 	return rc;
 }
-EXPORT_SYMBOL(msm_gpios_request);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_request); */
 
 void msm_gpios_free(const struct msm_gpio *table, int size)
 {
@@ -279,7 +279,7 @@ void msm_gpios_free(const struct msm_gpio *table, int size)
 		gpio_free(GPIO_PIN(g->gpio_cfg));
 	}
 }
-EXPORT_SYMBOL(msm_gpios_free);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_free); */
 
 int msm_gpios_enable(const struct msm_gpio *table, int size)
 {
@@ -305,7 +305,7 @@ err:
 	msm_gpios_disable(table, i);
 	return rc;
 }
-EXPORT_SYMBOL(msm_gpios_enable);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_enable); */
 
 int msm_gpios_disable(const struct msm_gpio *table, int size)
 {
@@ -331,5 +331,5 @@ int msm_gpios_disable(const struct msm_gpio *table, int size)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_gpios_disable);
+/* DISABLED: EXPORT_SYMBOL(msm_gpios_disable); */
 

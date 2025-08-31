@@ -139,7 +139,7 @@ void do_BUG(char *file, unsigned int line)
 	printk("kernel BUG at %s:%d!\n", file, line);
 	die_if_kernel("Oops", &BUG_regs, 0);
 }
-EXPORT_SYMBOL(do_BUG);
+/* DISABLED: EXPORT_SYMBOL(do_BUG); */
 
 void fixup_BUG(struct pt_regs *regs)
 {

@@ -96,7 +96,7 @@ u32 bcma_chipco_gpio_control(struct bcma_drv_cc *cc, u32 mask, u32 value)
 {
 	return bcma_cc_write32_masked(cc, BCMA_CC_GPIOCTL, mask, value);
 }
-EXPORT_SYMBOL_GPL(bcma_chipco_gpio_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_chipco_gpio_control); */
 
 u32 bcma_chipco_gpio_intmask(struct bcma_drv_cc *cc, u32 mask, u32 value)
 {

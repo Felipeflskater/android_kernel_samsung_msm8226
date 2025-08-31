@@ -19,7 +19,7 @@ static LIST_HEAD(pci_host_bridges);
 
 /* Ugh.  Need to stop exporting this to modules. */
 LIST_HEAD(pci_root_buses);
-EXPORT_SYMBOL(pci_root_buses);
+/* DISABLED: EXPORT_SYMBOL(pci_root_buses); */
 
 
 static int find_anything(struct device *dev, void *data)
@@ -42,7 +42,7 @@ int no_pci_devices(void)
 	put_device(dev);
 	return no_devices;
 }
-EXPORT_SYMBOL(no_pci_devices);
+/* DISABLED: EXPORT_SYMBOL(no_pci_devices); */
 
 static struct pci_host_bridge *pci_host_bridge(struct pci_bus *bus)
 {
@@ -84,7 +84,7 @@ void pcibios_resource_to_bus(struct pci_bus *bus, struct pci_bus_region *region,
 	region->start = res->start - offset;
 	region->end = res->end - offset;
 }
-EXPORT_SYMBOL(pcibios_resource_to_bus);
+/* DISABLED: EXPORT_SYMBOL(pcibios_resource_to_bus); */
 
 static bool region_contains(struct pci_bus_region *region1,
 			    struct pci_bus_region *region2)
@@ -116,7 +116,7 @@ void pcibios_bus_to_resource(struct pci_bus *bus, struct resource *res,
 	res->start = region->start + offset;
 	res->end = region->end + offset;
 }
-EXPORT_SYMBOL(pcibios_bus_to_resource);
+/* DISABLED: EXPORT_SYMBOL(pcibios_bus_to_resource); */
 
 /*
  * PCI Bus Class
@@ -544,7 +544,7 @@ void pcie_update_link_speed(struct pci_bus *bus, u16 linksta)
 {
 	bus->cur_bus_speed = pcie_link_speed[linksta & 0xf];
 }
-EXPORT_SYMBOL_GPL(pcie_update_link_speed);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcie_update_link_speed); */
 
 static unsigned char agp_speeds[] = {
 	AGP_UNKNOWN,
@@ -1219,7 +1219,7 @@ struct pci_dev *alloc_pci_dev(void)
 
 	return dev;
 }
-EXPORT_SYMBOL(alloc_pci_dev);
+/* DISABLED: EXPORT_SYMBOL(alloc_pci_dev); */
 
 bool pci_bus_read_dev_vendor_id(struct pci_bus *bus, int devfn, u32 *l,
 				 int crs_timeout)
@@ -1255,7 +1255,7 @@ bool pci_bus_read_dev_vendor_id(struct pci_bus *bus, int devfn, u32 *l,
 
 	return true;
 }
-EXPORT_SYMBOL(pci_bus_read_dev_vendor_id);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_read_dev_vendor_id); */
 
 /*
  * Read the config data for a PCI device, sanity-check it
@@ -1365,7 +1365,7 @@ struct pci_dev *__ref pci_scan_single_device(struct pci_bus *bus, int devfn)
 
 	return dev;
 }
-EXPORT_SYMBOL(pci_scan_single_device);
+/* DISABLED: EXPORT_SYMBOL(pci_scan_single_device); */
 
 static unsigned next_ari_fn(struct pci_dev *dev, unsigned fn)
 {
@@ -1602,7 +1602,7 @@ void pcie_bus_configure_settings(struct pci_bus *bus, u8 mpss)
 	pcie_bus_configure_set(bus->self, &smpss);
 	pci_walk_bus(bus, pcie_bus_configure_set, &smpss);
 }
-EXPORT_SYMBOL_GPL(pcie_bus_configure_settings);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcie_bus_configure_settings); */
 
 unsigned int __devinit pci_scan_child_bus(struct pci_bus *bus)
 {
@@ -1770,7 +1770,7 @@ struct pci_bus * __devinit pci_scan_root_bus(struct device *parent, int bus,
 	pci_bus_add_devices(b);
 	return b;
 }
-EXPORT_SYMBOL(pci_scan_root_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_scan_root_bus); */
 
 /* Deprecated; use pci_scan_root_bus() instead */
 struct pci_bus * __devinit pci_scan_bus_parented(struct device *parent,
@@ -1788,7 +1788,7 @@ struct pci_bus * __devinit pci_scan_bus_parented(struct device *parent,
 		pci_free_resource_list(&resources);
 	return b;
 }
-EXPORT_SYMBOL(pci_scan_bus_parented);
+/* DISABLED: EXPORT_SYMBOL(pci_scan_bus_parented); */
 
 struct pci_bus * __devinit pci_scan_bus(int bus, struct pci_ops *ops,
 					void *sysdata)
@@ -1807,7 +1807,7 @@ struct pci_bus * __devinit pci_scan_bus(int bus, struct pci_ops *ops,
 	}
 	return b;
 }
-EXPORT_SYMBOL(pci_scan_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_scan_bus); */
 
 #ifdef CONFIG_HOTPLUG
 /**
@@ -1835,10 +1835,10 @@ unsigned int __ref pci_rescan_bus_bridge_resize(struct pci_dev *bridge)
 	return max;
 }
 
-EXPORT_SYMBOL(pci_add_new_bus);
-EXPORT_SYMBOL(pci_scan_slot);
-EXPORT_SYMBOL(pci_scan_bridge);
-EXPORT_SYMBOL_GPL(pci_scan_child_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_add_new_bus); */
+/* DISABLED: EXPORT_SYMBOL(pci_scan_slot); */
+/* DISABLED: EXPORT_SYMBOL(pci_scan_bridge); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_scan_child_bus); */
 #endif
 
 static int __init pci_sort_bf_cmp(const struct device *d_a, const struct device *d_b)

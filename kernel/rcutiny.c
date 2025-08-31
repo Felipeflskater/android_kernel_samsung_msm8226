@@ -97,7 +97,7 @@ void rcu_idle_enter(void)
 	rcu_idle_enter_common(oldval);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(rcu_idle_enter);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_idle_enter); */
 
 /*
  * Exit an interrupt handler towards idle.
@@ -154,7 +154,7 @@ void rcu_idle_exit(void)
 	rcu_idle_exit_common(oldval);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(rcu_idle_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(rcu_idle_exit); */
 
 /*
  * Enter an interrupt handler, moving away from idle.
@@ -181,7 +181,7 @@ int rcu_is_cpu_idle(void)
 {
 	return !rcu_dynticks_nesting;
 }
-EXPORT_SYMBOL(rcu_is_cpu_idle);
+/* DISABLED: EXPORT_SYMBOL(rcu_is_cpu_idle); */
 
 #endif /* #ifdef CONFIG_PROVE_RCU */
 
@@ -340,7 +340,7 @@ void synchronize_sched(void)
 			   "Illegal synchronize_sched() in RCU read-side critical section");
 	cond_resched();
 }
-EXPORT_SYMBOL_GPL(synchronize_sched);
+/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_sched); */
 
 /*
  * Helper function for call_rcu() and call_rcu_bh().
@@ -371,7 +371,7 @@ void call_rcu_sched(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
 {
 	__call_rcu(head, func, &rcu_sched_ctrlblk);
 }
-EXPORT_SYMBOL_GPL(call_rcu_sched);
+/* DISABLED: EXPORT_SYMBOL_GPL(call_rcu_sched); */
 
 /*
  * Post an RCU bottom-half callback to be invoked after any subsequent
@@ -381,4 +381,4 @@ void call_rcu_bh(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
 {
 	__call_rcu(head, func, &rcu_bh_ctrlblk);
 }
-EXPORT_SYMBOL_GPL(call_rcu_bh);
+/* DISABLED: EXPORT_SYMBOL_GPL(call_rcu_bh); */

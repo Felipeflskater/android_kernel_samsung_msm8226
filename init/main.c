@@ -107,7 +107,7 @@ extern void tc_init(void);
 #ifdef CONFIG_TIMA_RKP_30
 #define PGT_BIT_ARRAY_LENGTH 0x40000
 unsigned long pgt_bit_array[PGT_BIT_ARRAY_LENGTH];
-EXPORT_SYMBOL(pgt_bit_array);
+/* DISABLED: EXPORT_SYMBOL(pgt_bit_array); */
 #endif
 /*
  * Debug helper: via this flag we know that we are in 'early bootup code'
@@ -119,7 +119,7 @@ EXPORT_SYMBOL(pgt_bit_array);
 bool early_boot_irqs_disabled __read_mostly;
 
 enum system_states system_state __read_mostly;
-EXPORT_SYMBOL(system_state);
+/* DISABLED: EXPORT_SYMBOL(system_state); */
 
 /*
  * Boot command-line arguments
@@ -144,7 +144,7 @@ static char *ramdisk_execute_command;
 
 int boot_mode_lpm;
 int boot_mode_recovery;
-EXPORT_SYMBOL(boot_mode_recovery);
+/* DISABLED: EXPORT_SYMBOL(boot_mode_recovery); */
 
 /*
  * If set, this is an indication to the drivers that reset the underlying
@@ -156,7 +156,7 @@ EXPORT_SYMBOL(boot_mode_recovery);
  * skipped and devices will be in unknown state.
  */
 unsigned int reset_devices;
-EXPORT_SYMBOL(reset_devices);
+/* DISABLED: EXPORT_SYMBOL(reset_devices); */
 
 static int __init set_reset_devices(char *str)
 {
@@ -164,7 +164,7 @@ static int __init set_reset_devices(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("reset_devices", set_reset_devices); */
+/* DISABLED: __setup("reset_devices", set_reset_devices); */ */
 
 static const char * argv_init[MAX_INIT_ARGS+2] = { "init", NULL, };
 const char * envp_init[MAX_INIT_ENVS+2] = { "HOME=/", "TERM=linux", NULL, };
@@ -207,7 +207,7 @@ static int __init obsolete_checksetup(char *line)
  */
 unsigned long loops_per_jiffy = (1<<12);
 
-EXPORT_SYMBOL(loops_per_jiffy);
+/* DISABLED: EXPORT_SYMBOL(loops_per_jiffy); */
 
 static int __init debug_kernel(char *str)
 {
@@ -354,7 +354,7 @@ static int __init init_setup(char *str)
 		argv_init[i] = NULL;
 	return 1;
 }
-/* DISABLED: __setup("init=", init_setup); */
+/* DISABLED: __setup("init=", init_setup); */ */
 
 static int __init rdinit_setup(char *str)
 {
@@ -366,7 +366,7 @@ static int __init rdinit_setup(char *str)
 		argv_init[i] = NULL;
 	return 1;
 }
-/* DISABLED: __setup("rdinit=", rdinit_setup); */
+/* DISABLED: __setup("rdinit=", rdinit_setup); */ */
 
 #ifndef CONFIG_SMP
 static const unsigned int setup_max_cpus = NR_CPUS;

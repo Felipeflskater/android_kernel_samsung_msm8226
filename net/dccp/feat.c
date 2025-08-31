@@ -546,7 +546,7 @@ void dccp_feat_list_purge(struct list_head *fn_list)
 		dccp_feat_entry_destructor(entry);
 	INIT_LIST_HEAD(fn_list);
 }
-EXPORT_SYMBOL_GPL(dccp_feat_list_purge);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_feat_list_purge); */
 
 /* generate @to as full clone of @from - @to must not contain any nodes */
 int dccp_feat_clone_list(struct list_head const *from, struct list_head *to)
@@ -783,7 +783,7 @@ u64 dccp_feat_nn_get(struct sock *sk, u8 feat)
 	DCCP_BUG("attempt to look up unsupported feature %u", feat);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dccp_feat_nn_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_feat_nn_get); */
 
 /**
  * dccp_feat_signal_nn_change  -  Update NN values for an established connection
@@ -819,7 +819,7 @@ int dccp_feat_signal_nn_change(struct sock *sk, u8 feat, u64 nn_val)
 	inet_csk_schedule_ack(sk);
 	return dccp_feat_push_change(fn, feat, 1, 0, &fval);
 }
-EXPORT_SYMBOL_GPL(dccp_feat_signal_nn_change);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_feat_signal_nn_change); */
 
 /*
  *	Tracking features whose value depend on the choice of CCID

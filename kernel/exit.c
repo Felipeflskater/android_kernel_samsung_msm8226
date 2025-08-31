@@ -389,7 +389,7 @@ int allow_signal(int sig)
 	return 0;
 }
 
-EXPORT_SYMBOL(allow_signal);
+/* DISABLED: EXPORT_SYMBOL(allow_signal); */
 
 int disallow_signal(int sig)
 {
@@ -403,7 +403,7 @@ int disallow_signal(int sig)
 	return 0;
 }
 
-EXPORT_SYMBOL(disallow_signal);
+/* DISABLED: EXPORT_SYMBOL(disallow_signal); */
 
 /*
  *	Put all the gunge required to become a kernel thread without
@@ -453,7 +453,7 @@ void daemonize(const char *name, ...)
 	reparent_to_kthreadd();
 }
 
-EXPORT_SYMBOL(daemonize);
+/* DISABLED: EXPORT_SYMBOL(daemonize); */
 
 static void close_files(struct files_struct * files)
 {
@@ -1091,7 +1091,7 @@ void do_exit(long code)
 		cpu_relax();	/* For when BUG is null */
 }
 
-EXPORT_SYMBOL_GPL(do_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_exit); */
 
 void complete_and_exit(struct completion *comp, long code)
 {
@@ -1101,7 +1101,7 @@ void complete_and_exit(struct completion *comp, long code)
 	do_exit(code);
 }
 
-EXPORT_SYMBOL(complete_and_exit);
+/* DISABLED: EXPORT_SYMBOL(complete_and_exit); */
 
 SYSCALL_DEFINE1(exit, int, error_code)
 {

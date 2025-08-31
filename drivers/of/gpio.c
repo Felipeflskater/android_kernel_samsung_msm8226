@@ -76,7 +76,7 @@ err0:
 	pr_debug("%s exited with status %d\n", __func__, ret);
 	return ret;
 }
-EXPORT_SYMBOL(of_get_named_gpio_flags);
+/* DISABLED: EXPORT_SYMBOL(of_get_named_gpio_flags); */
 
 /**
  * of_gpio_named_count - Count GPIOs for a device
@@ -111,7 +111,7 @@ unsigned int of_gpio_named_count(struct device_node *np, const char* propname)
 
 	return cnt;
 }
-EXPORT_SYMBOL(of_gpio_named_count);
+/* DISABLED: EXPORT_SYMBOL(of_gpio_named_count); */
 
 /**
  * of_gpio_simple_xlate - translate gpio_spec to the GPIO number and flags
@@ -149,7 +149,7 @@ int of_gpio_simple_xlate(struct gpio_chip *gc,
 
 	return gpiospec->args[0];
 }
-EXPORT_SYMBOL(of_gpio_simple_xlate);
+/* DISABLED: EXPORT_SYMBOL(of_gpio_simple_xlate); */
 
 /**
  * of_mm_gpiochip_add - Add memory mapped GPIO chip (bank)
@@ -205,7 +205,7 @@ err0:
 	       np->full_name, ret);
 	return ret;
 }
-EXPORT_SYMBOL(of_mm_gpiochip_add);
+/* DISABLED: EXPORT_SYMBOL(of_mm_gpiochip_add); */
 
 #ifdef CONFIG_PINCTRL
 void of_gpiochip_add_pin_range(struct gpio_chip *chip)

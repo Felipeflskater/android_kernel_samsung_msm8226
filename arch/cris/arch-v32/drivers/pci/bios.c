@@ -126,4 +126,4 @@ int pcibios_assign_resources(void)
 	return 0;
 }
 
-EXPORT_SYMBOL(pcibios_assign_resources);
+/* DISABLED: EXPORT_SYMBOL(pcibios_assign_resources); */

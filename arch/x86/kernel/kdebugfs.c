@@ -18,7 +18,7 @@
 #include <asm/setup.h>
 
 struct dentry *arch_debugfs_dir;
-EXPORT_SYMBOL(arch_debugfs_dir);
+/* DISABLED: EXPORT_SYMBOL(arch_debugfs_dir); */
 
 #ifdef CONFIG_DEBUG_BOOT_PARAMS
 struct setup_data_node {

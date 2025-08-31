@@ -58,4 +58,4 @@ DWtype __muldi3(DWtype u, DWtype v)
 
 	return w.ll;
 }
-EXPORT_SYMBOL(__muldi3);
+/* DISABLED: EXPORT_SYMBOL(__muldi3); */

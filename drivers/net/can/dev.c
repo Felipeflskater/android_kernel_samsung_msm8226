@@ -317,7 +317,7 @@ void can_put_echo_skb(struct sk_buff *skb, struct net_device *dev,
 		kfree_skb(skb);
 	}
 }
-EXPORT_SYMBOL_GPL(can_put_echo_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(can_put_echo_skb); */
 
 /*
  * Get the skb from the stack and loop it back locally
@@ -345,7 +345,7 @@ unsigned int can_get_echo_skb(struct net_device *dev, unsigned int idx)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(can_get_echo_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(can_get_echo_skb); */
 
 /*
   * Remove the skb from the stack and free it.
@@ -363,7 +363,7 @@ void can_free_echo_skb(struct net_device *dev, unsigned int idx)
 		priv->echo_skb[idx] = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(can_free_echo_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(can_free_echo_skb); */
 
 /*
  * CAN device restart for bus-off recovery
@@ -449,7 +449,7 @@ void can_bus_off(struct net_device *dev)
 		mod_timer(&priv->restart_timer,
 			  jiffies + (priv->restart_ms * HZ) / 1000);
 }
-EXPORT_SYMBOL_GPL(can_bus_off);
+/* DISABLED: EXPORT_SYMBOL_GPL(can_bus_off); */
 
 static void can_setup(struct net_device *dev)
 {
@@ -485,7 +485,7 @@ struct sk_buff *alloc_can_skb(struct net_device *dev, struct can_frame **cf)
 
 	return skb;
 }
-EXPORT_SYMBOL_GPL(alloc_can_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(alloc_can_skb); */
 
 struct sk_buff *alloc_can_err_skb(struct net_device *dev, struct can_frame **cf)
 {
@@ -500,7 +500,7 @@ struct sk_buff *alloc_can_err_skb(struct net_device *dev, struct can_frame **cf)
 
 	return skb;
 }
-EXPORT_SYMBOL_GPL(alloc_can_err_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(alloc_can_err_skb); */
 
 /*
  * Allocate and setup space for the CAN network device
@@ -535,7 +535,7 @@ struct net_device *alloc_candev(int sizeof_priv, unsigned int echo_skb_max)
 
 	return dev;
 }
-EXPORT_SYMBOL_GPL(alloc_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(alloc_candev); */
 
 /*
  * Free space of the CAN network device
@@ -544,7 +544,7 @@ void free_candev(struct net_device *dev)
 {
 	free_netdev(dev);
 }
-EXPORT_SYMBOL_GPL(free_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_candev); */
 
 /*
  * Common open function when the device gets opened.
@@ -569,7 +569,7 @@ int open_candev(struct net_device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(open_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(open_candev); */
 
 /*
  * Common close function for cleanup before the device gets closed.
@@ -584,7 +584,7 @@ void close_candev(struct net_device *dev)
 	del_timer_sync(&priv->restart_timer);
 	can_flush_echo_skb(dev);
 }
-EXPORT_SYMBOL_GPL(close_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(close_candev); */
 
 /*
  * CAN netlink interface
@@ -758,7 +758,7 @@ int register_candev(struct net_device *dev)
 	dev->rtnl_link_ops = &can_link_ops;
 	return register_netdev(dev);
 }
-EXPORT_SYMBOL_GPL(register_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_candev); */
 
 /*
  * Unregister the CAN network device
@@ -767,7 +767,7 @@ void unregister_candev(struct net_device *dev)
 {
 	unregister_netdev(dev);
 }
-EXPORT_SYMBOL_GPL(unregister_candev);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_candev); */
 
 static __init int can_dev_init(void)
 {

@@ -64,7 +64,7 @@ void kvmppc_add_revmap_chain(struct kvm *kvm, struct revmap_entry *rev,
 	smp_wmb();
 	*rmap = i | KVMPPC_RMAP_REFERENCED | KVMPPC_RMAP_PRESENT; /* unlock */
 }
-EXPORT_SYMBOL_GPL(kvmppc_add_revmap_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_add_revmap_chain); */
 
 /* Remove this HPTE from the chain for a real page */
 static void remove_revmap_chain(struct kvm *kvm, long pte_index,
@@ -321,7 +321,7 @@ long kvmppc_h_enter(struct kvm_vcpu *vcpu, unsigned long flags,
 	vcpu->arch.gpr[4] = pte_index;
 	return H_SUCCESS;
 }
-EXPORT_SYMBOL_GPL(kvmppc_h_enter);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_h_enter); */
 
 #define LOCK_TOKEN	(*(u32 *)(&get_paca()->lock_token))
 
@@ -621,7 +621,7 @@ void kvmppc_invalidate_hpte(struct kvm *kvm, unsigned long *hptep,
 	asm volatile("ptesync" : : : "memory");
 	kvm->arch.tlbie_lock = 0;
 }
-EXPORT_SYMBOL_GPL(kvmppc_invalidate_hpte);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_invalidate_hpte); */
 
 void kvmppc_clear_ref_hpte(struct kvm *kvm, unsigned long *hptep,
 			   unsigned long pte_index)
@@ -640,7 +640,7 @@ void kvmppc_clear_ref_hpte(struct kvm *kvm, unsigned long *hptep,
 	asm volatile("ptesync" : : : "memory");
 	kvm->arch.tlbie_lock = 0;
 }
-EXPORT_SYMBOL_GPL(kvmppc_clear_ref_hpte);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_clear_ref_hpte); */
 
 static int slb_base_page_shift[4] = {
 	24,	/* 16M */
@@ -731,7 +731,7 @@ long kvmppc_hv_find_lock_hpte(struct kvm *kvm, gva_t eaddr, unsigned long slb_v,
 	}
 	return -1;
 }
-EXPORT_SYMBOL(kvmppc_hv_find_lock_hpte);
+/* DISABLED: EXPORT_SYMBOL(kvmppc_hv_find_lock_hpte); */
 
 /*
  * Called in real mode to check whether an HPTE not found fault

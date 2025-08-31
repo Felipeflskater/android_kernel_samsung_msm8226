@@ -107,7 +107,7 @@ void svc_seq_show(struct seq_file *seq, const struct svc_stat *statp) {
 		seq_putc(seq, '\n');
 	}
 }
-EXPORT_SYMBOL_GPL(svc_seq_show);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_seq_show); */
 
 /**
  * rpc_alloc_iostats - allocate an rpc_iostats structure
@@ -118,7 +118,7 @@ struct rpc_iostats *rpc_alloc_iostats(struct rpc_clnt *clnt)
 {
 	return kcalloc(clnt->cl_maxproc, sizeof(struct rpc_iostats), GFP_KERNEL);
 }
-EXPORT_SYMBOL_GPL(rpc_alloc_iostats);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_alloc_iostats); */
 
 /**
  * rpc_free_iostats - release an rpc_iostats structure
@@ -129,7 +129,7 @@ void rpc_free_iostats(struct rpc_iostats *stats)
 {
 	kfree(stats);
 }
-EXPORT_SYMBOL_GPL(rpc_free_iostats);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_free_iostats); */
 
 /**
  * rpc_count_iostats - tally up per-task stats
@@ -164,7 +164,7 @@ void rpc_count_iostats(const struct rpc_task *task, struct rpc_iostats *stats)
 	delta = ktime_sub(ktime_get(), task->tk_start);
 	op_metrics->om_execute = ktime_add(op_metrics->om_execute, delta);
 }
-EXPORT_SYMBOL_GPL(rpc_count_iostats);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_count_iostats); */
 
 static void _print_name(struct seq_file *seq, unsigned int op,
 			struct rpc_procinfo *procs)
@@ -211,7 +211,7 @@ void rpc_print_iostats(struct seq_file *seq, struct rpc_clnt *clnt)
 				ktime_to_ms(metrics->om_execute));
 	}
 }
-EXPORT_SYMBOL_GPL(rpc_print_iostats);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_print_iostats); */
 
 /*
  * Register/unregister RPC proc files
@@ -232,7 +232,7 @@ rpc_proc_register(struct net *net, struct rpc_stat *statp)
 {
 	return do_register(net, statp->program->name, statp, &rpc_proc_fops);
 }
-EXPORT_SYMBOL_GPL(rpc_proc_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_proc_register); */
 
 void
 rpc_proc_unregister(struct net *net, const char *name)
@@ -242,14 +242,14 @@ rpc_proc_unregister(struct net *net, const char *name)
 	sn = net_generic(net, sunrpc_net_id);
 	remove_proc_entry(name, sn->proc_net_rpc);
 }
-EXPORT_SYMBOL_GPL(rpc_proc_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_proc_unregister); */
 
 struct proc_dir_entry *
 svc_proc_register(struct net *net, struct svc_stat *statp, const struct file_operations *fops)
 {
 	return do_register(net, statp->program->pg_name, statp, fops);
 }
-EXPORT_SYMBOL_GPL(svc_proc_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_proc_register); */
 
 void
 svc_proc_unregister(struct net *net, const char *name)
@@ -259,7 +259,7 @@ svc_proc_unregister(struct net *net, const char *name)
 	sn = net_generic(net, sunrpc_net_id);
 	remove_proc_entry(name, sn->proc_net_rpc);
 }
-EXPORT_SYMBOL_GPL(svc_proc_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_proc_unregister); */
 
 int rpc_proc_init(struct net *net)
 {

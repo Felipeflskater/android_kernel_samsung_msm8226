@@ -165,7 +165,7 @@ int fuse_do_open(struct fuse_conn *fc, u64 nodeid, struct file *file,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fuse_do_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(fuse_do_open); */
 
 void fuse_finish_open(struct inode *inode, struct file *file)
 {
@@ -286,7 +286,7 @@ void fuse_sync_release(struct fuse_file *ff, int flags)
 	fuse_put_request(ff->fc, ff->reserved_req);
 	kfree(ff);
 }
-EXPORT_SYMBOL_GPL(fuse_sync_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(fuse_sync_release); */
 
 /*
  * Scramble the ID space with XTEA, so that the value of the files_struct
@@ -1161,7 +1161,7 @@ ssize_t fuse_direct_io(struct file *file, const char __user *buf,
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(fuse_direct_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(fuse_direct_io); */
 
 static ssize_t fuse_direct_read(struct file *file, char __user *buf,
 				     size_t count, loff_t *ppos)
@@ -2015,7 +2015,7 @@ long fuse_do_ioctl(struct file *file, unsigned int cmd, unsigned long arg,
 
 	return err ? err : outarg.result;
 }
-EXPORT_SYMBOL_GPL(fuse_do_ioctl);
+/* DISABLED: EXPORT_SYMBOL_GPL(fuse_do_ioctl); */
 
 long fuse_ioctl_common(struct file *file, unsigned int cmd,
 		       unsigned long arg, unsigned int flags)
@@ -2142,7 +2142,7 @@ unsigned fuse_file_poll(struct file *file, poll_table *wait)
 	}
 	return POLLERR;
 }
-EXPORT_SYMBOL_GPL(fuse_file_poll);
+/* DISABLED: EXPORT_SYMBOL_GPL(fuse_file_poll); */
 
 /*
  * This is called from fuse_handle_notify() on FUSE_NOTIFY_POLL and

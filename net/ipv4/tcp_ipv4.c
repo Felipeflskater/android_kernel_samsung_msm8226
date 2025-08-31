@@ -88,7 +88,7 @@
 
 int sysctl_tcp_tw_reuse __read_mostly;
 int sysctl_tcp_low_latency __read_mostly;
-EXPORT_SYMBOL(sysctl_tcp_low_latency);
+/* DISABLED: EXPORT_SYMBOL(sysctl_tcp_low_latency); */
 
 
 #ifdef CONFIG_TCP_MD5SIG
@@ -97,7 +97,7 @@ static int tcp_v4_md5_hash_hdr(char *md5_hash, const struct tcp_md5sig_key *key,
 #endif
 
 struct inet_hashinfo tcp_hashinfo;
-EXPORT_SYMBOL(tcp_hashinfo);
+/* DISABLED: EXPORT_SYMBOL(tcp_hashinfo); */
 
 static inline __u32 tcp_v4_init_sequence(const struct sk_buff *skb)
 {
@@ -137,7 +137,7 @@ int tcp_twsk_unique(struct sock *sk, struct sock *sktw, void *twp)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tcp_twsk_unique);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_twsk_unique); */
 
 /* This will initiate an outgoing connection. */
 int tcp_v4_connect(struct sock *sk, struct sockaddr *uaddr, int addr_len)
@@ -274,7 +274,7 @@ failure:
 	inet->inet_dport = 0;
 	return err;
 }
-EXPORT_SYMBOL(tcp_v4_connect);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_connect); */
 
 /*
  * This routine does path mtu discovery as defined in RFC1191.
@@ -551,7 +551,7 @@ void tcp_v4_send_check(struct sock *sk, struct sk_buff *skb)
 
 	__tcp_v4_send_check(skb, inet->inet_saddr, inet->inet_daddr);
 }
-EXPORT_SYMBOL(tcp_v4_send_check);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_send_check); */
 
 int tcp_v4_gso_send_check(struct sk_buff *skb)
 {
@@ -887,7 +887,7 @@ int tcp_syn_flood_action(struct sock *sk,
 	}
 	return want_cookie;
 }
-EXPORT_SYMBOL(tcp_syn_flood_action);
+/* DISABLED: EXPORT_SYMBOL(tcp_syn_flood_action); */
 
 /*
  * Save and compile IPv4 options into the request_sock if needed.
@@ -948,7 +948,7 @@ struct tcp_md5sig_key *tcp_md5_do_lookup(struct sock *sk,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(tcp_md5_do_lookup);
+/* DISABLED: EXPORT_SYMBOL(tcp_md5_do_lookup); */
 
 struct tcp_md5sig_key *tcp_v4_md5_lookup(struct sock *sk,
 					 struct sock *addr_sk)
@@ -958,7 +958,7 @@ struct tcp_md5sig_key *tcp_v4_md5_lookup(struct sock *sk,
 	addr = (union tcp_md5_addr *)&inet_sk(addr_sk)->inet_daddr;
 	return tcp_md5_do_lookup(sk, addr, AF_INET);
 }
-EXPORT_SYMBOL(tcp_v4_md5_lookup);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_md5_lookup); */
 
 static struct tcp_md5sig_key *tcp_v4_reqsk_md5_lookup(struct sock *sk,
 						      struct request_sock *req)
@@ -1016,7 +1016,7 @@ int tcp_md5_do_add(struct sock *sk, const union tcp_md5_addr *addr,
 	hlist_add_head_rcu(&key->node, &md5sig->head);
 	return 0;
 }
-EXPORT_SYMBOL(tcp_md5_do_add);
+/* DISABLED: EXPORT_SYMBOL(tcp_md5_do_add); */
 
 int tcp_md5_do_del(struct sock *sk, const union tcp_md5_addr *addr, int family)
 {
@@ -1036,7 +1036,7 @@ int tcp_md5_do_del(struct sock *sk, const union tcp_md5_addr *addr, int family)
 		tcp_free_md5sig_pool();
 	return 0;
 }
-EXPORT_SYMBOL(tcp_md5_do_del);
+/* DISABLED: EXPORT_SYMBOL(tcp_md5_do_del); */
 
 void tcp_clear_md5_list(struct sock *sk)
 {
@@ -1187,7 +1187,7 @@ clear_hash_noput:
 	memset(md5_hash, 0, 16);
 	return 1;
 }
-EXPORT_SYMBOL(tcp_v4_md5_hash_skb);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_md5_hash_skb); */
 
 static int tcp_v4_inbound_md5_hash(struct sock *sk, const struct sk_buff *skb)
 {
@@ -1431,7 +1431,7 @@ drop_and_free:
 drop:
 	return 0;
 }
-EXPORT_SYMBOL(tcp_v4_conn_request);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_conn_request); */
 
 
 /*
@@ -1534,7 +1534,7 @@ put_and_exit:
 	tcp_done(newsk);
 	goto exit;
 }
-EXPORT_SYMBOL(tcp_v4_syn_recv_sock);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_syn_recv_sock); */
 
 static struct sock *tcp_v4_hnd_req(struct sock *sk, struct sk_buff *skb)
 {
@@ -1660,7 +1660,7 @@ csum_err:
 	TCP_INC_STATS_BH(sock_net(sk), TCP_MIB_INERRS);
 	goto discard;
 }
-EXPORT_SYMBOL(tcp_v4_do_rcv);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_do_rcv); */
 
 /*
  *	From tcp_input.c
@@ -1849,7 +1849,7 @@ struct inet_peer *tcp_v4_get_peer(struct sock *sk, bool *release_it)
 
 	return peer;
 }
-EXPORT_SYMBOL(tcp_v4_get_peer);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_get_peer); */
 
 void *tcp_v4_tw_get_peer(struct sock *sk)
 {
@@ -1857,7 +1857,7 @@ void *tcp_v4_tw_get_peer(struct sock *sk)
 
 	return inet_getpeer_v4(tw->tw_daddr, 1);
 }
-EXPORT_SYMBOL(tcp_v4_tw_get_peer);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_tw_get_peer); */
 
 static struct timewait_sock_ops tcp_timewait_sock_ops = {
 	.twsk_obj_size	= sizeof(struct tcp_timewait_sock),
@@ -1884,7 +1884,7 @@ const struct inet_connection_sock_af_ops ipv4_specific = {
 	.compat_getsockopt = compat_ip_getsockopt,
 #endif
 };
-EXPORT_SYMBOL(ipv4_specific);
+/* DISABLED: EXPORT_SYMBOL(ipv4_specific); */
 
 #ifdef CONFIG_TCP_MD5SIG
 static const struct tcp_sock_af_ops tcp_sock_ipv4_specific = {
@@ -2016,7 +2016,7 @@ void tcp_v4_destroy_sock(struct sock *sk)
 	sk_sockets_allocated_dec(sk);
 	sock_release_memcg(sk);
 }
-EXPORT_SYMBOL(tcp_v4_destroy_sock);
+/* DISABLED: EXPORT_SYMBOL(tcp_v4_destroy_sock); */
 
 #ifdef CONFIG_PROC_FS
 /* Proc filesystem TCP sock list dumping. */
@@ -2399,7 +2399,7 @@ int tcp_seq_open(struct inode *inode, struct file *file)
 	s->last_pos 		= 0;
 	return 0;
 }
-EXPORT_SYMBOL(tcp_seq_open);
+/* DISABLED: EXPORT_SYMBOL(tcp_seq_open); */
 
 int tcp_proc_register(struct net *net, struct tcp_seq_afinfo *afinfo)
 {
@@ -2416,13 +2416,13 @@ int tcp_proc_register(struct net *net, struct tcp_seq_afinfo *afinfo)
 		rc = -ENOMEM;
 	return rc;
 }
-EXPORT_SYMBOL(tcp_proc_register);
+/* DISABLED: EXPORT_SYMBOL(tcp_proc_register); */
 
 void tcp_proc_unregister(struct net *net, struct tcp_seq_afinfo *afinfo)
 {
 	proc_net_remove(net, afinfo->name);
 }
-EXPORT_SYMBOL(tcp_proc_unregister);
+/* DISABLED: EXPORT_SYMBOL(tcp_proc_unregister); */
 
 static void get_openreq4(const struct sock *sk, const struct request_sock *req,
 			 struct seq_file *f, int i, int uid)
@@ -2680,7 +2680,7 @@ struct proto tcp_prot = {
 #endif
 	.diag_destroy		= tcp_abort,
 };
-EXPORT_SYMBOL(tcp_prot);
+/* DISABLED: EXPORT_SYMBOL(tcp_prot); */
 
 static int __net_init tcp_sk_init(struct net *net)
 {

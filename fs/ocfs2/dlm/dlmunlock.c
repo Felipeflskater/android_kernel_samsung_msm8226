@@ -688,5 +688,5 @@ retry:
 	mlog(0, "returning status=%d!\n", status);
 	return status;
 }
-EXPORT_SYMBOL_GPL(dlmunlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlmunlock); */
 

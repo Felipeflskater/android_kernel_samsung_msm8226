@@ -54,7 +54,7 @@ int drm_ht_create(struct drm_open_hash *ht, unsigned int order)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(drm_ht_create);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_create); */
 
 void drm_ht_verbose_list(struct drm_open_hash *ht, unsigned long key)
 {
@@ -120,7 +120,7 @@ int drm_ht_insert_item(struct drm_open_hash *ht, struct drm_hash_item *item)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(drm_ht_insert_item);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_insert_item); */
 
 /*
  * Just insert an item and return any "bits" bit key that hasn't been
@@ -149,7 +149,7 @@ int drm_ht_just_insert_please(struct drm_open_hash *ht, struct drm_hash_item *it
 	}
 	return 0;
 }
-EXPORT_SYMBOL(drm_ht_just_insert_please);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_just_insert_please); */
 
 int drm_ht_find_item(struct drm_open_hash *ht, unsigned long key,
 		     struct drm_hash_item **item)
@@ -163,7 +163,7 @@ int drm_ht_find_item(struct drm_open_hash *ht, unsigned long key,
 	*item = hlist_entry(list, struct drm_hash_item, head);
 	return 0;
 }
-EXPORT_SYMBOL(drm_ht_find_item);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_find_item); */
 
 int drm_ht_remove_key(struct drm_open_hash *ht, unsigned long key)
 {
@@ -182,7 +182,7 @@ int drm_ht_remove_item(struct drm_open_hash *ht, struct drm_hash_item *item)
 	hlist_del_init(&item->head);
 	return 0;
 }
-EXPORT_SYMBOL(drm_ht_remove_item);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_remove_item); */
 
 void drm_ht_remove(struct drm_open_hash *ht)
 {
@@ -194,4 +194,4 @@ void drm_ht_remove(struct drm_open_hash *ht)
 		ht->table = NULL;
 	}
 }
-EXPORT_SYMBOL(drm_ht_remove);
+/* DISABLED: EXPORT_SYMBOL(drm_ht_remove); */

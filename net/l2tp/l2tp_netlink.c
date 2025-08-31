@@ -802,7 +802,7 @@ out:
 err:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(l2tp_nl_register_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_nl_register_ops); */
 
 void l2tp_nl_unregister_ops(enum l2tp_pwtype pw_type)
 {
@@ -812,7 +812,7 @@ void l2tp_nl_unregister_ops(enum l2tp_pwtype pw_type)
 		genl_unlock();
 	}
 }
-EXPORT_SYMBOL_GPL(l2tp_nl_unregister_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_nl_unregister_ops); */
 
 static int l2tp_nl_init(void)
 {

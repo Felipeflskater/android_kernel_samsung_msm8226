@@ -1817,6 +1817,6 @@ struct platform_driver sl811h_driver = {
 		.owner = THIS_MODULE,
 	},
 };
-EXPORT_SYMBOL(sl811h_driver);
+/* DISABLED: EXPORT_SYMBOL(sl811h_driver); */
 
 module_platform_driver(sl811h_driver);

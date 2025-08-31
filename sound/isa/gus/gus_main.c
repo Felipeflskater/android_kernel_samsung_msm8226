@@ -424,47 +424,47 @@ int snd_gus_initialize(struct snd_gus_card *gus)
 }
 
   /* gus_io.c */
-EXPORT_SYMBOL(snd_gf1_delay);
-EXPORT_SYMBOL(snd_gf1_write8);
-EXPORT_SYMBOL(snd_gf1_look8);
-EXPORT_SYMBOL(snd_gf1_write16);
-EXPORT_SYMBOL(snd_gf1_look16);
-EXPORT_SYMBOL(snd_gf1_i_write8);
-EXPORT_SYMBOL(snd_gf1_i_look8);
-EXPORT_SYMBOL(snd_gf1_i_look16);
-EXPORT_SYMBOL(snd_gf1_dram_addr);
-EXPORT_SYMBOL(snd_gf1_write_addr);
-EXPORT_SYMBOL(snd_gf1_poke);
-EXPORT_SYMBOL(snd_gf1_peek);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_delay); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_write8); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_look8); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_write16); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_look16); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_i_write8); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_i_look8); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_i_look16); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_dram_addr); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_write_addr); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_poke); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_peek); */
   /* gus_reset.c */
-EXPORT_SYMBOL(snd_gf1_alloc_voice);
-EXPORT_SYMBOL(snd_gf1_free_voice);
-EXPORT_SYMBOL(snd_gf1_ctrl_stop);
-EXPORT_SYMBOL(snd_gf1_stop_voice);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_alloc_voice); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_free_voice); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_ctrl_stop); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_stop_voice); */
   /* gus_mixer.c */
-EXPORT_SYMBOL(snd_gf1_new_mixer);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_new_mixer); */
   /* gus_pcm.c */
-EXPORT_SYMBOL(snd_gf1_pcm_new);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_pcm_new); */
   /* gus.c */
-EXPORT_SYMBOL(snd_gus_use_inc);
-EXPORT_SYMBOL(snd_gus_use_dec);
-EXPORT_SYMBOL(snd_gus_create);
-EXPORT_SYMBOL(snd_gus_initialize);
+/* DISABLED: EXPORT_SYMBOL(snd_gus_use_inc); */
+/* DISABLED: EXPORT_SYMBOL(snd_gus_use_dec); */
+/* DISABLED: EXPORT_SYMBOL(snd_gus_create); */
+/* DISABLED: EXPORT_SYMBOL(snd_gus_initialize); */
   /* gus_irq.c */
-EXPORT_SYMBOL(snd_gus_interrupt);
+/* DISABLED: EXPORT_SYMBOL(snd_gus_interrupt); */
   /* gus_uart.c */
-EXPORT_SYMBOL(snd_gf1_rawmidi_new);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_rawmidi_new); */
   /* gus_dram.c */
-EXPORT_SYMBOL(snd_gus_dram_write);
-EXPORT_SYMBOL(snd_gus_dram_read);
+/* DISABLED: EXPORT_SYMBOL(snd_gus_dram_write); */
+/* DISABLED: EXPORT_SYMBOL(snd_gus_dram_read); */
   /* gus_volume.c */
-EXPORT_SYMBOL(snd_gf1_lvol_to_gvol_raw);
-EXPORT_SYMBOL(snd_gf1_translate_freq);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_lvol_to_gvol_raw); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_translate_freq); */
   /* gus_mem.c */
-EXPORT_SYMBOL(snd_gf1_mem_alloc);
-EXPORT_SYMBOL(snd_gf1_mem_xfree);
-EXPORT_SYMBOL(snd_gf1_mem_free);
-EXPORT_SYMBOL(snd_gf1_mem_lock);
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_mem_alloc); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_mem_xfree); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_mem_free); */
+/* DISABLED: EXPORT_SYMBOL(snd_gf1_mem_lock); */
 
 /*
  *  INIT part

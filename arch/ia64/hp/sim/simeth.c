@@ -99,7 +99,7 @@ simeth_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("simeth=", simeth_setup); */
+/* DISABLED: __setup("simeth=", simeth_setup); */ */
 
 /*
  * Function used to probe for simeth devices when not installed

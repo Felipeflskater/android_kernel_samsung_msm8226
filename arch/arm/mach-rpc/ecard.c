@@ -839,7 +839,7 @@ int ecard_request_resources(struct expansion_card *ec)
 	}
 	return err;
 }
-EXPORT_SYMBOL(ecard_request_resources);
+/* DISABLED: EXPORT_SYMBOL(ecard_request_resources); */
 
 void ecard_release_resources(struct expansion_card *ec)
 {
@@ -850,7 +850,7 @@ void ecard_release_resources(struct expansion_card *ec)
 			release_mem_region(ecard_resource_start(ec, i),
 					   ecard_resource_len(ec, i));
 }
-EXPORT_SYMBOL(ecard_release_resources);
+/* DISABLED: EXPORT_SYMBOL(ecard_release_resources); */
 
 void ecard_setirq(struct expansion_card *ec, const struct expansion_card_ops *ops, void *irq_data)
 {
@@ -858,7 +858,7 @@ void ecard_setirq(struct expansion_card *ec, const struct expansion_card_ops *op
 	barrier();
 	ec->ops = ops;
 }
-EXPORT_SYMBOL(ecard_setirq);
+/* DISABLED: EXPORT_SYMBOL(ecard_setirq); */
 
 void __iomem *ecardm_iomap(struct expansion_card *ec, unsigned int res,
 			   unsigned long offset, unsigned long maxsize)
@@ -875,7 +875,7 @@ void __iomem *ecardm_iomap(struct expansion_card *ec, unsigned int res,
 	
 	return devm_ioremap(&ec->dev, start, end - start);
 }
-EXPORT_SYMBOL(ecardm_iomap);
+/* DISABLED: EXPORT_SYMBOL(ecardm_iomap); */
 
 /*
  * Probe for an expansion card.
@@ -1132,7 +1132,7 @@ static int ecard_bus_init(void)
 
 postcore_initcall(ecard_bus_init);
 
-EXPORT_SYMBOL(ecard_readchunk);
-EXPORT_SYMBOL(ecard_register_driver);
-EXPORT_SYMBOL(ecard_remove_driver);
-EXPORT_SYMBOL(ecard_bus_type);
+/* DISABLED: EXPORT_SYMBOL(ecard_readchunk); */
+/* DISABLED: EXPORT_SYMBOL(ecard_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(ecard_remove_driver); */
+/* DISABLED: EXPORT_SYMBOL(ecard_bus_type); */

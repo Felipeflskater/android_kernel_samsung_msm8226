@@ -45,7 +45,7 @@ u64 cper_next_record_id(void)
 
 	return atomic64_inc_return(&seq);
 }
-EXPORT_SYMBOL_GPL(cper_next_record_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(cper_next_record_id); */
 
 static const char *cper_severity_strs[] = {
 	"recoverable",
@@ -366,7 +366,7 @@ void apei_estatus_print(const char *pfx,
 		sec_no++;
 	}
 }
-EXPORT_SYMBOL_GPL(apei_estatus_print);
+/* DISABLED: EXPORT_SYMBOL_GPL(apei_estatus_print); */
 
 int apei_estatus_check_header(const struct acpi_hest_generic_status *estatus)
 {
@@ -379,7 +379,7 @@ int apei_estatus_check_header(const struct acpi_hest_generic_status *estatus)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(apei_estatus_check_header);
+/* DISABLED: EXPORT_SYMBOL_GPL(apei_estatus_check_header); */
 
 int apei_estatus_check(const struct acpi_hest_generic_status *estatus)
 {
@@ -404,4 +404,4 @@ int apei_estatus_check(const struct acpi_hest_generic_status *estatus)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(apei_estatus_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(apei_estatus_check); */

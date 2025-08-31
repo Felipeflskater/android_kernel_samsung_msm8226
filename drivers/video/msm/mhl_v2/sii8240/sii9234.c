@@ -221,7 +221,7 @@ u8 mhl_onoff_ex(bool onoff)
 	}
 	return sii9234->rgnd;
 }
-EXPORT_SYMBOL(mhl_onoff_ex);
+/* DISABLED: EXPORT_SYMBOL(mhl_onoff_ex); */
 
 static int mhl_tx_write_reg(struct sii9234_data *sii9234, unsigned int offset,
 		u8 value)

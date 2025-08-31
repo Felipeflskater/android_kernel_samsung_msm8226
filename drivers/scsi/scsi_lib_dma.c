@@ -33,7 +33,7 @@ int scsi_dma_map(struct scsi_cmnd *cmd)
 	}
 	return nseg;
 }
-EXPORT_SYMBOL(scsi_dma_map);
+/* DISABLED: EXPORT_SYMBOL(scsi_dma_map); */
 
 /**
  * scsi_dma_unmap - unmap command's sg lists mapped by scsi_dma_map
@@ -48,4 +48,4 @@ void scsi_dma_unmap(struct scsi_cmnd *cmd)
 			     cmd->sc_data_direction);
 	}
 }
-EXPORT_SYMBOL(scsi_dma_unmap);
+/* DISABLED: EXPORT_SYMBOL(scsi_dma_unmap); */

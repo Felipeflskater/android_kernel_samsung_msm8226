@@ -922,7 +922,7 @@ struct ieee80211_sta *ieee80211_find_sta_by_ifaddr(struct ieee80211_hw *hw,
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(ieee80211_find_sta_by_ifaddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_find_sta_by_ifaddr); */
 
 struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *vif,
 					 const u8 *addr)
@@ -941,7 +941,7 @@ struct ieee80211_sta *ieee80211_find_sta(struct ieee80211_vif *vif,
 
 	return &sta->sta;
 }
-EXPORT_SYMBOL(ieee80211_find_sta);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_find_sta); */
 
 static void clear_sta_ps_flags(void *_sta)
 {
@@ -1313,7 +1313,7 @@ void ieee80211_sta_block_awake(struct ieee80211_hw *hw,
 	else if (test_sta_flag(sta, WLAN_STA_PS_DRIVER))
 		ieee80211_queue_work(hw, &sta->drv_unblock_wk);
 }
-EXPORT_SYMBOL(ieee80211_sta_block_awake);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_sta_block_awake); */
 
 void ieee80211_sta_eosp_irqsafe(struct ieee80211_sta *pubsta)
 {
@@ -1338,7 +1338,7 @@ void ieee80211_sta_eosp_irqsafe(struct ieee80211_sta *pubsta)
 	skb_queue_tail(&local->skb_queue, skb);
 	tasklet_schedule(&local->tasklet);
 }
-EXPORT_SYMBOL(ieee80211_sta_eosp_irqsafe);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_sta_eosp_irqsafe); */
 
 void ieee80211_sta_set_buffered(struct ieee80211_sta *pubsta,
 				u8 tid, bool buffered)
@@ -1355,7 +1355,7 @@ void ieee80211_sta_set_buffered(struct ieee80211_sta *pubsta,
 
 	sta_info_recalc_tim(sta);
 }
-EXPORT_SYMBOL(ieee80211_sta_set_buffered);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_sta_set_buffered); */
 
 int sta_info_move_state(struct sta_info *sta,
 			enum ieee80211_sta_state new_state)

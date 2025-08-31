@@ -44,7 +44,7 @@ static int __init setup_unaligned_printk(char *str)
 		unaligned_printk ? "enabled" : "disabled");
 	return 1;
 }
-/* DISABLED: __setup("unaligned_printk=", setup_unaligned_printk); */
+/* DISABLED: __setup("unaligned_printk=", setup_unaligned_printk); */ */
 
 unsigned int unaligned_fixup_count;
 

@@ -328,7 +328,7 @@ struct target_fabric_configfs *target_fabric_configfs_init(
 			" %s\n", tf, tf->tf_name);
 	return tf;
 }
-EXPORT_SYMBOL(target_fabric_configfs_init);
+/* DISABLED: EXPORT_SYMBOL(target_fabric_configfs_init); */
 
 /*
  * Called by fabric plugins after FAILED target_fabric_configfs_register() call.
@@ -342,7 +342,7 @@ void target_fabric_configfs_free(
 
 	kfree(tf);
 }
-EXPORT_SYMBOL(target_fabric_configfs_free);
+/* DISABLED: EXPORT_SYMBOL(target_fabric_configfs_free); */
 
 /*
  * Perform a sanity check of the passed tf->tf_ops before completing
@@ -521,7 +521,7 @@ int target_fabric_configfs_register(
 		">>>>>>>>>>\n");
 	return 0;
 }
-EXPORT_SYMBOL(target_fabric_configfs_register);
+/* DISABLED: EXPORT_SYMBOL(target_fabric_configfs_register); */
 
 void target_fabric_configfs_deregister(
 	struct target_fabric_configfs *tf)
@@ -560,7 +560,7 @@ void target_fabric_configfs_deregister(
 	pr_debug("<<<<<<<<<<<<<<<<<<<<<< END FABRIC API >>>>>>>>>>>>>>>>>"
 			">>>>>\n");
 }
-EXPORT_SYMBOL(target_fabric_configfs_deregister);
+/* DISABLED: EXPORT_SYMBOL(target_fabric_configfs_deregister); */
 
 /*##############################################################################
 // Stop functions called by external Target Fabrics Modules

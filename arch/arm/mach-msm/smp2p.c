@@ -1185,7 +1185,7 @@ int msm_smp2p_out_open(int remote_pid, const char *name,
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_smp2p_out_open);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_out_open); */
 
 /**
  * msm_smp2p_out_close - Closes the handle to an outbound entry.
@@ -1219,7 +1219,7 @@ int msm_smp2p_out_close(struct msm_smp2p_out **handle)
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_smp2p_out_close);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_out_close); */
 
 /**
  * msm_smp2p_out_read - Allows reading the entry.
@@ -1247,7 +1247,7 @@ int msm_smp2p_out_read(struct msm_smp2p_out *handle, uint32_t *data)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_smp2p_out_read);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_out_read); */
 
 /**
  * msm_smp2p_out_write - Allows writing to the entry.
@@ -1279,7 +1279,7 @@ int msm_smp2p_out_write(struct msm_smp2p_out *handle, uint32_t data)
 	return ret;
 
 }
-EXPORT_SYMBOL(msm_smp2p_out_write);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_out_write); */
 
 /**
  * msm_smp2p_out_modify - Modifies the entry.
@@ -1315,7 +1315,7 @@ int msm_smp2p_out_modify(struct msm_smp2p_out *handle, uint32_t set_mask,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_smp2p_out_modify);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_out_modify); */
 
 /**
  * msm_smp2p_in_read - Read an entry on a remote processor.
@@ -1353,7 +1353,7 @@ int msm_smp2p_in_read(int remote_pid, const char *name, uint32_t *data)
 	*data = readl_relaxed(entry_ptr);
 	return 0;
 }
-EXPORT_SYMBOL(msm_smp2p_in_read);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_in_read); */
 
 /**
  * msm_smp2p_in_register -  Notifies the change in value of the entry.
@@ -1444,7 +1444,7 @@ bail:
 	return ret;
 
 }
-EXPORT_SYMBOL(msm_smp2p_in_register);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_in_register); */
 
 /**
  * msm_smp2p_in_unregister - Unregister the notifier for remote entry.
@@ -1496,7 +1496,7 @@ fail:
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_smp2p_in_unregister);
+/* DISABLED: EXPORT_SYMBOL(msm_smp2p_in_unregister); */
 
 /**
  * smp2p_send_interrupt - Send interrupt to remote system.

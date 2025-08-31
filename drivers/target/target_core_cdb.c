@@ -1213,4 +1213,4 @@ void target_get_task_cdb(struct se_task *task, unsigned char *cdb)
 		}
 	}
 }
-EXPORT_SYMBOL(target_get_task_cdb);
+/* DISABLED: EXPORT_SYMBOL(target_get_task_cdb); */

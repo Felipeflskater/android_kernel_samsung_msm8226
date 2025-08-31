@@ -124,7 +124,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.write		= txx9aclc_ac97_write,
 	.reset		= txx9aclc_ac97_cold_reset,
 };
-EXPORT_SYMBOL_GPL(soc_ac97_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
 
 static irqreturn_t txx9aclc_ac97_irq(int irq, void *dev_id)
 {

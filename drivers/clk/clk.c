@@ -411,7 +411,7 @@ void clk_unprepare(struct clk *clk)
 	__clk_unprepare(clk);
 	mutex_unlock(&prepare_lock);
 }
-EXPORT_SYMBOL_GPL(clk_unprepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_unprepare); */
 
 int __clk_prepare(struct clk *clk)
 {
@@ -461,7 +461,7 @@ int clk_prepare(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_prepare); */
 
 static void __clk_disable(struct clk *clk)
 {
@@ -500,7 +500,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&enable_lock, flags);
 }
-EXPORT_SYMBOL_GPL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_disable); */
 
 static int __clk_enable(struct clk *clk)
 {
@@ -555,7 +555,7 @@ int clk_enable(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_enable); */
 
 /**
  * clk_get_rate - return the rate of clk
@@ -574,7 +574,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return rate;
 }
-EXPORT_SYMBOL_GPL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_get_rate); */
 
 /**
  * __clk_round_rate - round the given rate for a clk
@@ -617,7 +617,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_round_rate); */
 
 /**
  * __clk_notify - call clk notifier chain
@@ -937,7 +937,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_rate); */
 
 /**
  * clk_get_parent - return the parent of a clk
@@ -955,7 +955,7 @@ struct clk *clk_get_parent(struct clk *clk)
 
 	return parent;
 }
-EXPORT_SYMBOL_GPL(clk_get_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_get_parent); */
 
 /*
  * .get_parent is mandatory for clocks with multiple possible parents.  It is
@@ -1172,7 +1172,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_parent); */
 
 /**
  * __clk_init - initialize the data structures in a struct clk
@@ -1348,7 +1348,7 @@ struct clk *clk_register(struct device *dev, const char *name,
 
 	return clk;
 }
-EXPORT_SYMBOL_GPL(clk_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_register); */
 
 /***        clk rate change notifiers        ***/
 
@@ -1418,7 +1418,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_notifier_register); */
 
 /**
  * clk_notifier_unregister - remove a clk rate change notifier
@@ -1465,4 +1465,4 @@ int clk_notifier_unregister(struct clk *clk, struct notifier_block *nb)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_notifier_unregister); */

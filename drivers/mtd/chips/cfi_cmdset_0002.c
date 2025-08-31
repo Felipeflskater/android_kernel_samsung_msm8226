@@ -547,9 +547,9 @@ struct mtd_info *cfi_cmdset_0002(struct map_info *map, int primary)
 }
 struct mtd_info *cfi_cmdset_0006(struct map_info *map, int primary) __attribute__((alias("cfi_cmdset_0002")));
 struct mtd_info *cfi_cmdset_0701(struct map_info *map, int primary) __attribute__((alias("cfi_cmdset_0002")));
-EXPORT_SYMBOL_GPL(cfi_cmdset_0002);
-EXPORT_SYMBOL_GPL(cfi_cmdset_0006);
-EXPORT_SYMBOL_GPL(cfi_cmdset_0701);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfi_cmdset_0002); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cfi_cmdset_0006); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cfi_cmdset_0701); */
 
 static struct mtd_info *cfi_amdstd_setup(struct mtd_info *mtd)
 {

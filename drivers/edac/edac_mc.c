@@ -99,7 +99,7 @@ const char *edac_mem_types[] = {
 	"Unbuffered DDR3 RAM",
 	"Registered DDR3 RAM",
 };
-EXPORT_SYMBOL_GPL(edac_mem_types);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mem_types); */
 
 /* 'ptr' points to a possibly unaligned item X such that sizeof(X) is 'size'.
  * Adjust 'ptr' so that its alignment is at least as stringent as what the
@@ -225,7 +225,7 @@ struct mem_ctl_info *edac_mc_alloc(unsigned sz_pvt, unsigned nr_csrows,
 	 */
 	return mci;
 }
-EXPORT_SYMBOL_GPL(edac_mc_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_alloc); */
 
 /**
  * edac_mc_free
@@ -241,7 +241,7 @@ void edac_mc_free(struct mem_ctl_info *mci)
 	/* free the mci instance memory here */
 	kfree(mci);
 }
-EXPORT_SYMBOL_GPL(edac_mc_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_free); */
 
 
 /**
@@ -267,7 +267,7 @@ struct mem_ctl_info *find_mci_by_dev(struct device *dev)
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(find_mci_by_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(find_mci_by_dev); */
 
 /*
  * handler for EDAC to check if NMI type handler has asserted interrupt
@@ -484,7 +484,7 @@ struct mem_ctl_info *edac_mc_find(int idx)
 
 	return NULL;
 }
-EXPORT_SYMBOL(edac_mc_find);
+/* DISABLED: EXPORT_SYMBOL(edac_mc_find); */
 
 /**
  * edac_mc_add_mc: Insert the 'mci' structure into the mci global list and
@@ -557,7 +557,7 @@ fail0:
 	mutex_unlock(&mem_ctls_mutex);
 	return 1;
 }
-EXPORT_SYMBOL_GPL(edac_mc_add_mc);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_add_mc); */
 
 /**
  * edac_mc_del_mc: Remove sysfs entries for specified mci structure and
@@ -599,7 +599,7 @@ struct mem_ctl_info *edac_mc_del_mc(struct device *dev)
 
 	return mci;
 }
-EXPORT_SYMBOL_GPL(edac_mc_del_mc);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_del_mc); */
 
 static void edac_mc_scrub_block(unsigned long page, unsigned long offset,
 				u32 size)
@@ -668,7 +668,7 @@ int edac_mc_find_csrow_by_page(struct mem_ctl_info *mci, unsigned long page)
 
 	return row;
 }
-EXPORT_SYMBOL_GPL(edac_mc_find_csrow_by_page);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_find_csrow_by_page); */
 
 /* FIXME - setable log (warning/emerg) levels */
 /* FIXME - integrate with evlog: http://evlog.sourceforge.net/ */
@@ -732,7 +732,7 @@ void edac_mc_handle_ce(struct mem_ctl_info *mci,
 				mci->csrows[row].grain);
 	}
 }
-EXPORT_SYMBOL_GPL(edac_mc_handle_ce);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_handle_ce); */
 
 void edac_mc_handle_ce_no_info(struct mem_ctl_info *mci, const char *msg)
 {
@@ -743,7 +743,7 @@ void edac_mc_handle_ce_no_info(struct mem_ctl_info *mci, const char *msg)
 	mci->ce_noinfo_count++;
 	mci->ce_count++;
 }
-EXPORT_SYMBOL_GPL(edac_mc_handle_ce_no_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_handle_ce_no_info); */
 
 void edac_mc_handle_ue(struct mem_ctl_info *mci,
 		unsigned long page_frame_number,
@@ -796,7 +796,7 @@ void edac_mc_handle_ue(struct mem_ctl_info *mci,
 	mci->ue_count++;
 	mci->csrows[row].ue_count++;
 }
-EXPORT_SYMBOL_GPL(edac_mc_handle_ue);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_handle_ue); */
 
 void edac_mc_handle_ue_no_info(struct mem_ctl_info *mci, const char *msg)
 {
@@ -809,7 +809,7 @@ void edac_mc_handle_ue_no_info(struct mem_ctl_info *mci, const char *msg)
 	mci->ue_noinfo_count++;
 	mci->ue_count++;
 }
-EXPORT_SYMBOL_GPL(edac_mc_handle_ue_no_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_mc_handle_ue_no_info); */
 
 /*************************************************************
  * On Fully Buffered DIMM modules, this help function is
@@ -876,7 +876,7 @@ void edac_mc_handle_fbd_ue(struct mem_ctl_info *mci,
 			"labels \"%s\": %s\n", csrow, channela,
 			channelb, labels, msg);
 }
-EXPORT_SYMBOL(edac_mc_handle_fbd_ue);
+/* DISABLED: EXPORT_SYMBOL(edac_mc_handle_fbd_ue); */
 
 /*************************************************************
  * On Fully Buffered DIMM modules, this help function is
@@ -915,4 +915,4 @@ void edac_mc_handle_fbd_ce(struct mem_ctl_info *mci,
 	mci->csrows[csrow].ce_count++;
 	mci->csrows[csrow].channels[channel].ce_count++;
 }
-EXPORT_SYMBOL(edac_mc_handle_fbd_ce);
+/* DISABLED: EXPORT_SYMBOL(edac_mc_handle_fbd_ce); */

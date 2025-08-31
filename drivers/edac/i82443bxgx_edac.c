@@ -344,7 +344,7 @@ fail:
 	return -ENODEV;
 }
 
-EXPORT_SYMBOL_GPL(i82443bxgx_edacmc_probe1);
+/* DISABLED: EXPORT_SYMBOL_GPL(i82443bxgx_edacmc_probe1); */
 
 /* returns count (>= 0), or negative on error */
 static int __devinit i82443bxgx_edacmc_init_one(struct pci_dev *pdev,
@@ -378,7 +378,7 @@ static void __devexit i82443bxgx_edacmc_remove_one(struct pci_dev *pdev)
 	edac_mc_free(mci);
 }
 
-EXPORT_SYMBOL_GPL(i82443bxgx_edacmc_remove_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(i82443bxgx_edacmc_remove_one); */
 
 static DEFINE_PCI_DEVICE_TABLE(i82443bxgx_pci_tbl) = {
 	{PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_82443BX_0)},

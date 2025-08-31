@@ -240,7 +240,7 @@ async_gen_syndrome(struct page **blocks, unsigned int offset, int disks,
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(async_gen_syndrome);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_gen_syndrome); */
 
 static inline struct dma_chan *
 pq_val_chan(struct async_submit_ctl *submit, struct page **blocks, int disks, size_t len)
@@ -391,7 +391,7 @@ async_syndrome_val(struct page **blocks, unsigned int offset, int disks,
 		return NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(async_syndrome_val);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_syndrome_val); */
 
 static int __init async_pq_init(void)
 {

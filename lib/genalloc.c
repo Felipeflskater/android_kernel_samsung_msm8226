@@ -156,7 +156,7 @@ struct gen_pool *gen_pool_create(int min_alloc_order, int nid)
 	}
 	return pool;
 }
-EXPORT_SYMBOL(gen_pool_create);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_create); */
 
 /**
  * gen_pool_add_virt - add a new chunk of special memory to the pool
@@ -199,7 +199,7 @@ int gen_pool_add_virt(struct gen_pool *pool, u64 virt, phys_addr_t phys,
 
 	return 0;
 }
-EXPORT_SYMBOL(gen_pool_add_virt);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_add_virt); */
 
 /**
  * gen_pool_virt_to_phys - return the physical address of memory
@@ -224,7 +224,7 @@ phys_addr_t gen_pool_virt_to_phys(struct gen_pool *pool, u64 addr)
 
 	return paddr;
 }
-EXPORT_SYMBOL(gen_pool_virt_to_phys);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_virt_to_phys); */
 
 /**
  * gen_pool_destroy - destroy a special memory pool
@@ -259,7 +259,7 @@ void gen_pool_destroy(struct gen_pool *pool)
 	kfree(pool);
 	return;
 }
-EXPORT_SYMBOL(gen_pool_destroy);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_destroy); */
 
 /**
  * gen_pool_alloc_aligned - allocate special memory from the pool
@@ -322,7 +322,7 @@ retry:
 	rcu_read_unlock();
 	return addr;
 }
-EXPORT_SYMBOL(gen_pool_alloc_aligned);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_alloc_aligned); */
 
 /**
  * gen_pool_free - free allocated special memory back to the pool
@@ -361,7 +361,7 @@ void gen_pool_free(struct gen_pool *pool, u64 addr, size_t size)
 	rcu_read_unlock();
 	BUG();
 }
-EXPORT_SYMBOL(gen_pool_free);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_free); */
 
 /**
  * gen_pool_for_each_chunk - call func for every chunk of generic memory pool
@@ -383,7 +383,7 @@ void gen_pool_for_each_chunk(struct gen_pool *pool,
 		func(pool, chunk, data);
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL(gen_pool_for_each_chunk);
+/* DISABLED: EXPORT_SYMBOL(gen_pool_for_each_chunk); */
 
 /**
  * gen_pool_avail - get available free space of the pool
@@ -402,7 +402,7 @@ size_t gen_pool_avail(struct gen_pool *pool)
 	rcu_read_unlock();
 	return avail;
 }
-EXPORT_SYMBOL_GPL(gen_pool_avail);
+/* DISABLED: EXPORT_SYMBOL_GPL(gen_pool_avail); */
 
 /**
  * gen_pool_size - get size in bytes of memory managed by the pool
@@ -421,4 +421,4 @@ size_t gen_pool_size(struct gen_pool *pool)
 	rcu_read_unlock();
 	return size;
 }
-EXPORT_SYMBOL_GPL(gen_pool_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(gen_pool_size); */

@@ -51,7 +51,7 @@ int amdtp_out_stream_init(struct amdtp_out_stream *s, struct fw_unit *unit,
 
 	return 0;
 }
-EXPORT_SYMBOL(amdtp_out_stream_init);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_init); */
 
 /**
  * amdtp_out_stream_destroy - free stream resources
@@ -63,7 +63,7 @@ void amdtp_out_stream_destroy(struct amdtp_out_stream *s)
 	mutex_destroy(&s->mutex);
 	fw_unit_put(s->unit);
 }
-EXPORT_SYMBOL(amdtp_out_stream_destroy);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_destroy); */
 
 /**
  * amdtp_out_stream_set_rate - set the sample rate
@@ -100,7 +100,7 @@ void amdtp_out_stream_set_rate(struct amdtp_out_stream *s, unsigned int rate)
 		}
 	WARN_ON(1);
 }
-EXPORT_SYMBOL(amdtp_out_stream_set_rate);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_set_rate); */
 
 /**
  * amdtp_out_stream_get_max_payload - get the stream's packet size
@@ -127,7 +127,7 @@ unsigned int amdtp_out_stream_get_max_payload(struct amdtp_out_stream *s)
 
 	return 8 + max_data_blocks[s->sfc] * 4 * s->data_block_quadlets;
 }
-EXPORT_SYMBOL(amdtp_out_stream_get_max_payload);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_get_max_payload); */
 
 static void amdtp_write_s16(struct amdtp_out_stream *s,
 			    struct snd_pcm_substream *pcm,
@@ -162,7 +162,7 @@ void amdtp_out_stream_set_pcm_format(struct amdtp_out_stream *s,
 		break;
 	}
 }
-EXPORT_SYMBOL(amdtp_out_stream_set_pcm_format);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_set_pcm_format); */
 
 static unsigned int calculate_data_blocks(struct amdtp_out_stream *s)
 {
@@ -503,7 +503,7 @@ err_unlock:
 
 	return err;
 }
-EXPORT_SYMBOL(amdtp_out_stream_start);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_start); */
 
 /**
  * amdtp_out_stream_update - update the stream after a bus reset
@@ -514,7 +514,7 @@ void amdtp_out_stream_update(struct amdtp_out_stream *s)
 	ACCESS_ONCE(s->source_node_id_field) =
 		(fw_parent_device(s->unit)->card->node_id & 0x3f) << 24;
 }
-EXPORT_SYMBOL(amdtp_out_stream_update);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_update); */
 
 /**
  * amdtp_out_stream_stop - stop sending packets
@@ -539,7 +539,7 @@ void amdtp_out_stream_stop(struct amdtp_out_stream *s)
 
 	mutex_unlock(&s->mutex);
 }
-EXPORT_SYMBOL(amdtp_out_stream_stop);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_stop); */
 
 /**
  * amdtp_out_stream_pcm_abort - abort the running PCM device
@@ -560,4 +560,4 @@ void amdtp_out_stream_pcm_abort(struct amdtp_out_stream *s)
 		snd_pcm_stream_unlock_irq(pcm);
 	}
 }
-EXPORT_SYMBOL(amdtp_out_stream_pcm_abort);
+/* DISABLED: EXPORT_SYMBOL(amdtp_out_stream_pcm_abort); */

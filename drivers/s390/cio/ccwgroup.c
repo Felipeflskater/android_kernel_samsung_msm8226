@@ -397,7 +397,7 @@ error:
 	put_device(&gdev->dev);
 	return rc;
 }
-EXPORT_SYMBOL(ccwgroup_create_from_string);
+/* DISABLED: EXPORT_SYMBOL(ccwgroup_create_from_string); */
 
 static int ccwgroup_notifier(struct notifier_block *nb, unsigned long action,
 			     void *data)
@@ -562,7 +562,7 @@ int ccwgroup_driver_register(struct ccwgroup_driver *cdriver)
 
 	return driver_register(&cdriver->driver);
 }
-EXPORT_SYMBOL(ccwgroup_driver_register);
+/* DISABLED: EXPORT_SYMBOL(ccwgroup_driver_register); */
 
 static int __ccwgroup_match_all(struct device *dev, void *data)
 {
@@ -593,7 +593,7 @@ void ccwgroup_driver_unregister(struct ccwgroup_driver *cdriver)
 	}
 	driver_unregister(&cdriver->driver);
 }
-EXPORT_SYMBOL(ccwgroup_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL(ccwgroup_driver_unregister); */
 
 /**
  * ccwgroup_probe_ccwdev() - probe function for slave devices
@@ -608,7 +608,7 @@ int ccwgroup_probe_ccwdev(struct ccw_device *cdev)
 {
 	return 0;
 }
-EXPORT_SYMBOL(ccwgroup_probe_ccwdev);
+/* DISABLED: EXPORT_SYMBOL(ccwgroup_probe_ccwdev); */
 
 /**
  * ccwgroup_remove_ccwdev() - remove function for slave devices
@@ -645,5 +645,5 @@ void ccwgroup_remove_ccwdev(struct ccw_device *cdev)
 	/* Release ccwgroup device reference for local processing. */
 	put_device(&gdev->dev);
 }
-EXPORT_SYMBOL(ccwgroup_remove_ccwdev);
+/* DISABLED: EXPORT_SYMBOL(ccwgroup_remove_ccwdev); */
 MODULE_LICENSE("GPL");

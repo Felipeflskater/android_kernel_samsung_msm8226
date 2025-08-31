@@ -151,7 +151,7 @@ fail_input:
 	kfree(jack);
 	return err;
 }
-EXPORT_SYMBOL(snd_jack_new);
+/* DISABLED: EXPORT_SYMBOL(snd_jack_new); */
 
 /**
  * snd_jack_set_parent - Set the parent device for a jack
@@ -169,7 +169,7 @@ void snd_jack_set_parent(struct snd_jack *jack, struct device *parent)
 
 	jack->input_dev->dev.parent = parent;
 }
-EXPORT_SYMBOL(snd_jack_set_parent);
+/* DISABLED: EXPORT_SYMBOL(snd_jack_set_parent); */
 
 /**
  * snd_jack_set_key - Set a key mapping on a jack
@@ -206,7 +206,7 @@ int snd_jack_set_key(struct snd_jack *jack, enum snd_jack_types type,
 
 	return 0;
 }
-EXPORT_SYMBOL(snd_jack_set_key);
+/* DISABLED: EXPORT_SYMBOL(snd_jack_set_key); */
 
 /**
  * snd_jack_report - Report the current status of a jack
@@ -239,7 +239,7 @@ void snd_jack_report(struct snd_jack *jack, int status)
 
 	input_sync(jack->input_dev);
 }
-EXPORT_SYMBOL(snd_jack_report);
+/* DISABLED: EXPORT_SYMBOL(snd_jack_report); */
 
 MODULE_AUTHOR("Mark Brown <broonie@opensource.wolfsonmicro.com>");
 MODULE_DESCRIPTION("Jack detection support for ALSA");

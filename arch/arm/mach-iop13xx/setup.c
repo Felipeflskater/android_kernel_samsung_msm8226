@@ -603,9 +603,9 @@ static int __init iop13xx_init_adma_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("iop13xx_init_adma", iop13xx_init_adma_setup); */
-/* DISABLED: __setup("iop13xx_init_uart", iop13xx_init_uart_setup); */
-/* DISABLED: __setup("iop13xx_init_i2c", iop13xx_init_i2c_setup); */
+/* DISABLED: __setup("iop13xx_init_adma", iop13xx_init_adma_setup); */ */
+/* DISABLED: __setup("iop13xx_init_uart", iop13xx_init_uart_setup); */ */
+/* DISABLED: __setup("iop13xx_init_i2c", iop13xx_init_i2c_setup); */ */
 
 void iop13xx_restart(char mode, const char *cmd)
 {

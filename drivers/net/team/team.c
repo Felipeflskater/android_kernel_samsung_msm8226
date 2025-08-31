@@ -72,7 +72,7 @@ int team_port_set_team_mac(struct team_port *port)
 {
 	return __set_port_mac(port->dev, port->team->dev->dev_addr);
 }
-EXPORT_SYMBOL(team_port_set_team_mac);
+/* DISABLED: EXPORT_SYMBOL(team_port_set_team_mac); */
 
 
 /*******************
@@ -179,7 +179,7 @@ int team_options_register(struct team *team,
 	__team_options_change_check(team);
 	return 0;
 }
-EXPORT_SYMBOL(team_options_register);
+/* DISABLED: EXPORT_SYMBOL(team_options_register); */
 
 void team_options_unregister(struct team *team,
 			     const struct team_option *option,
@@ -189,7 +189,7 @@ void team_options_unregister(struct team *team,
 	__team_options_change_check(team);
 	__team_options_unregister(team, option, option_count);
 }
-EXPORT_SYMBOL(team_options_unregister);
+/* DISABLED: EXPORT_SYMBOL(team_options_unregister); */
 
 static int team_option_get(struct team *team, struct team_option *option,
 			   void *arg)
@@ -256,7 +256,7 @@ unlock:
 	spin_unlock(&mode_list_lock);
 	return err;
 }
-EXPORT_SYMBOL(team_mode_register);
+/* DISABLED: EXPORT_SYMBOL(team_mode_register); */
 
 int team_mode_unregister(struct team_mode *mode)
 {
@@ -265,7 +265,7 @@ int team_mode_unregister(struct team_mode *mode)
 	spin_unlock(&mode_list_lock);
 	return 0;
 }
-EXPORT_SYMBOL(team_mode_unregister);
+/* DISABLED: EXPORT_SYMBOL(team_mode_unregister); */
 
 static struct team_mode *team_mode_get(const char *kind)
 {

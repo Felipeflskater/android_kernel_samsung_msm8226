@@ -39,4 +39,4 @@ union {
 	.thread_info =	INIT_THREAD_INFO(init_task_mem.s.task)
 }};
 
-EXPORT_SYMBOL(init_task);
+/* DISABLED: EXPORT_SYMBOL(init_task); */

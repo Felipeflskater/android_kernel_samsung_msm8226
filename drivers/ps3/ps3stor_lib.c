@@ -230,7 +230,7 @@ fail_close_device:
 fail:
 	return error;
 }
-EXPORT_SYMBOL_GPL(ps3stor_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3stor_setup); */
 
 
 /**
@@ -259,7 +259,7 @@ void ps3stor_teardown(struct ps3_storage_device *dev)
 			"%s:%u: ps3_close_hv_device failed %d\n", __func__,
 			__LINE__, error);
 }
-EXPORT_SYMBOL_GPL(ps3stor_teardown);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3stor_teardown); */
 
 
 /**
@@ -308,7 +308,7 @@ u64 ps3stor_read_write_sectors(struct ps3_storage_device *dev, u64 lpar,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3stor_read_write_sectors);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3stor_read_write_sectors); */
 
 
 /**
@@ -354,7 +354,7 @@ u64 ps3stor_send_command(struct ps3_storage_device *dev, u64 cmd, u64 arg1,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3stor_send_command);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3stor_send_command); */
 
 
 MODULE_LICENSE("GPL");

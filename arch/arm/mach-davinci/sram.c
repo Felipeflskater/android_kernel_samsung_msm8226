@@ -36,13 +36,13 @@ void *sram_alloc(size_t len, dma_addr_t *dma)
 	return (void *)vaddr;
 
 }
-EXPORT_SYMBOL(sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(sram_alloc); */
 
 void sram_free(void *addr, size_t len)
 {
 	gen_pool_free(sram_pool, (unsigned long) addr, len);
 }
-EXPORT_SYMBOL(sram_free);
+/* DISABLED: EXPORT_SYMBOL(sram_free); */
 
 
 /*

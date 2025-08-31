@@ -80,7 +80,7 @@ int ibnl_add_client(int index, int nops,
 
 	return 0;
 }
-EXPORT_SYMBOL(ibnl_add_client);
+/* DISABLED: EXPORT_SYMBOL(ibnl_add_client); */
 
 int ibnl_remove_client(int index)
 {
@@ -100,7 +100,7 @@ int ibnl_remove_client(int index)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(ibnl_remove_client);
+/* DISABLED: EXPORT_SYMBOL(ibnl_remove_client); */
 
 void *ibnl_put_msg(struct sk_buff *skb, struct nlmsghdr **nlh, int seq,
 		   int len, int client, int op)
@@ -117,7 +117,7 @@ nlmsg_failure:
 	nlmsg_trim(skb, prev_tail);
 	return NULL;
 }
-EXPORT_SYMBOL(ibnl_put_msg);
+/* DISABLED: EXPORT_SYMBOL(ibnl_put_msg); */
 
 int ibnl_put_attr(struct sk_buff *skb, struct nlmsghdr *nlh,
 		  int len, void *data, int type)
@@ -133,7 +133,7 @@ nla_put_failure:
 	nlmsg_trim(skb, prev_tail - nlh->nlmsg_len);
 	return -EMSGSIZE;
 }
-EXPORT_SYMBOL(ibnl_put_attr);
+/* DISABLED: EXPORT_SYMBOL(ibnl_put_attr); */
 
 static int ibnl_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)
 {

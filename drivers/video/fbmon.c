@@ -1488,11 +1488,11 @@ const unsigned char *fb_firmware_edid(struct device *device)
 	return NULL;
 }
 #endif
-EXPORT_SYMBOL(fb_firmware_edid);
+/* DISABLED: EXPORT_SYMBOL(fb_firmware_edid); */
 
-EXPORT_SYMBOL(fb_parse_edid);
-EXPORT_SYMBOL(fb_edid_to_monspecs);
-EXPORT_SYMBOL(fb_edid_add_monspecs);
-EXPORT_SYMBOL(fb_get_mode);
-EXPORT_SYMBOL(fb_validate_mode);
-EXPORT_SYMBOL(fb_destroy_modedb);
+/* DISABLED: EXPORT_SYMBOL(fb_parse_edid); */
+/* DISABLED: EXPORT_SYMBOL(fb_edid_to_monspecs); */
+/* DISABLED: EXPORT_SYMBOL(fb_edid_add_monspecs); */
+/* DISABLED: EXPORT_SYMBOL(fb_get_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_validate_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_destroy_modedb); */

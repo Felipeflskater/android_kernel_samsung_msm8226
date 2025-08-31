@@ -7132,7 +7132,7 @@ IXJ *ixj_pcmcia_probe(unsigned long dsp, unsigned long xilinx)
 	return j;
 }
 
-EXPORT_SYMBOL(ixj_pcmcia_probe);		/* Fpr PCMCIA */
+/* DISABLED: EXPORT_SYMBOL(ixj_pcmcia_probe);		/* Fpr PCMCIA */ */
 
 static int ixj_get_status_proc(char *buf)
 {

@@ -569,7 +569,7 @@ int cyttsp5_device_access_probe(struct device *dev)
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-EXPORT_SYMBOL(cyttsp5_device_access_probe);
+/* DISABLED: EXPORT_SYMBOL(cyttsp5_device_access_probe); */
 
 int cyttsp5_device_access_release(struct device *dev)
 {
@@ -592,4 +592,4 @@ int cyttsp5_device_access_release(struct device *dev)
 	kfree(dad);
 	return 0;
 }
-EXPORT_SYMBOL(cyttsp5_device_access_release);
+/* DISABLED: EXPORT_SYMBOL(cyttsp5_device_access_release); */

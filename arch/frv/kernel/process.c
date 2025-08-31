@@ -41,7 +41,7 @@ asmlinkage void ret_from_fork(void);
 #include <asm/pgalloc.h>
 
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 struct task_struct *alloc_task_struct_node(int node)
 {

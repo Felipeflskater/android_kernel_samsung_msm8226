@@ -81,7 +81,7 @@ bool ath_hw_keyreset(struct ath_common *common, u16 entry)
 
 	return true;
 }
-EXPORT_SYMBOL(ath_hw_keyreset);
+/* DISABLED: EXPORT_SYMBOL(ath_hw_keyreset); */
 
 static bool ath_hw_keysetmac(struct ath_common *common,
 			     u16 entry, const u8 *mac)
@@ -573,7 +573,7 @@ int ath_key_config(struct ath_common *common,
 
 	return idx;
 }
-EXPORT_SYMBOL(ath_key_config);
+/* DISABLED: EXPORT_SYMBOL(ath_key_config); */
 
 /*
  * Delete Key.
@@ -603,4 +603,4 @@ void ath_key_delete(struct ath_common *common, struct ieee80211_key_conf *key)
 		clear_bit(key->hw_key_idx + 64 + 32, common->tkip_keymap);
 	}
 }
-EXPORT_SYMBOL(ath_key_delete);
+/* DISABLED: EXPORT_SYMBOL(ath_key_delete); */

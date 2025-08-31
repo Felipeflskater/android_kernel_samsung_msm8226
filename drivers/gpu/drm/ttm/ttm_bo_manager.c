@@ -154,4 +154,4 @@ const struct ttm_mem_type_manager_func ttm_bo_manager_func = {
 	ttm_bo_man_put_node,
 	ttm_bo_man_debug
 };
-EXPORT_SYMBOL(ttm_bo_manager_func);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_manager_func); */

@@ -126,4 +126,4 @@ void flush_icache_range(unsigned long start, unsigned long end)
 done:
 	smp_unlock_cache(flags);
 }
-EXPORT_SYMBOL(flush_icache_range);
+/* DISABLED: EXPORT_SYMBOL(flush_icache_range); */

@@ -116,7 +116,7 @@ void inet_twsk_put(struct inet_timewait_sock *tw)
 	if (atomic_dec_and_test(&tw->tw_refcnt))
 		inet_twsk_free(tw);
 }
-EXPORT_SYMBOL_GPL(inet_twsk_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twsk_put); */
 
 /*
  * Enter the time wait state. This is called with locally disabled BH.
@@ -168,7 +168,7 @@ void __inet_twsk_hashdance(struct inet_timewait_sock *tw, struct sock *sk,
 
 	spin_unlock(lock);
 }
-EXPORT_SYMBOL_GPL(__inet_twsk_hashdance);
+/* DISABLED: EXPORT_SYMBOL_GPL(__inet_twsk_hashdance); */
 
 struct inet_timewait_sock *inet_twsk_alloc(const struct sock *sk, const int state)
 {
@@ -209,7 +209,7 @@ struct inet_timewait_sock *inet_twsk_alloc(const struct sock *sk, const int stat
 
 	return tw;
 }
-EXPORT_SYMBOL_GPL(inet_twsk_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twsk_alloc); */
 
 /* Returns non-zero if quota exceeded.  */
 static int inet_twdr_do_twkill_work(struct inet_timewait_death_row *twdr,
@@ -287,7 +287,7 @@ void inet_twdr_hangman(unsigned long data)
 out:
 	spin_unlock(&twdr->death_lock);
 }
-EXPORT_SYMBOL_GPL(inet_twdr_hangman);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twdr_hangman); */
 
 void inet_twdr_twkill_work(struct work_struct *work)
 {
@@ -317,7 +317,7 @@ void inet_twdr_twkill_work(struct work_struct *work)
 		spin_unlock_bh(&twdr->death_lock);
 	}
 }
-EXPORT_SYMBOL_GPL(inet_twdr_twkill_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twdr_twkill_work); */
 
 /* These are always called from BH context.  See callers in
  * tcp_input.c to verify this.
@@ -336,7 +336,7 @@ void inet_twsk_deschedule(struct inet_timewait_sock *tw,
 	spin_unlock(&twdr->death_lock);
 	__inet_twsk_kill(tw, twdr->hashinfo);
 }
-EXPORT_SYMBOL(inet_twsk_deschedule);
+/* DISABLED: EXPORT_SYMBOL(inet_twsk_deschedule); */
 
 void inet_twsk_schedule(struct inet_timewait_sock *tw,
 		       struct inet_timewait_death_row *twdr,
@@ -416,7 +416,7 @@ void inet_twsk_schedule(struct inet_timewait_sock *tw,
 		mod_timer(&twdr->tw_timer, jiffies + twdr->period);
 	spin_unlock(&twdr->death_lock);
 }
-EXPORT_SYMBOL_GPL(inet_twsk_schedule);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twsk_schedule); */
 
 void inet_twdr_twcal_tick(unsigned long data)
 {
@@ -476,7 +476,7 @@ out:
 #endif
 	spin_unlock(&twdr->death_lock);
 }
-EXPORT_SYMBOL_GPL(inet_twdr_twcal_tick);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twdr_twcal_tick); */
 
 void inet_twsk_purge(struct inet_hashinfo *hashinfo,
 		     struct inet_timewait_death_row *twdr, int family)
@@ -522,4 +522,4 @@ restart:
 		rcu_read_unlock();
 	}
 }
-EXPORT_SYMBOL_GPL(inet_twsk_purge);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_twsk_purge); */

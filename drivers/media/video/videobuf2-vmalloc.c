@@ -215,7 +215,7 @@ const struct vb2_mem_ops vb2_vmalloc_memops = {
 	.mmap		= vb2_vmalloc_mmap,
 	.num_users	= vb2_vmalloc_num_users,
 };
-EXPORT_SYMBOL_GPL(vb2_vmalloc_memops);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_vmalloc_memops); */
 
 MODULE_DESCRIPTION("vmalloc memory handling routines for videobuf2");
 MODULE_AUTHOR("Pawel Osciak <pawel@osciak.com>");

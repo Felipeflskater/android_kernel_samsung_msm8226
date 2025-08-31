@@ -243,7 +243,7 @@ void ip_vs_nfct_expect_related(struct sk_buff *skb, struct nf_conn *ct,
 	nf_ct_expect_related(exp);
 	nf_ct_expect_put(exp);
 }
-EXPORT_SYMBOL(ip_vs_nfct_expect_related);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_nfct_expect_related); */
 
 /*
  * Our connection was terminated, try to drop the conntrack immediately

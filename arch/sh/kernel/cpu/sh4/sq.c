@@ -68,7 +68,7 @@ void sq_flush_range(unsigned long start, unsigned int len)
 	/* Wait for completion */
 	store_queue_barrier();
 }
-EXPORT_SYMBOL(sq_flush_range);
+/* DISABLED: EXPORT_SYMBOL(sq_flush_range); */
 
 static inline void sq_mapping_list_add(struct sq_mapping *map)
 {
@@ -196,7 +196,7 @@ out:
 	kmem_cache_free(sq_cache, map);
 	return ret;
 }
-EXPORT_SYMBOL(sq_remap);
+/* DISABLED: EXPORT_SYMBOL(sq_remap); */
 
 /**
  * sq_unmap - Unmap a Store Queue allocation
@@ -244,7 +244,7 @@ void sq_unmap(unsigned long vaddr)
 
 	kmem_cache_free(sq_cache, map);
 }
-EXPORT_SYMBOL(sq_unmap);
+/* DISABLED: EXPORT_SYMBOL(sq_unmap); */
 
 /*
  * Needlessly complex sysfs interface. Unfortunately it doesn't seem like

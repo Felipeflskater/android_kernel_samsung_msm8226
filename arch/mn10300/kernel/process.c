@@ -39,7 +39,7 @@
  * power management idle function, if any..
  */
 void (*pm_idle)(void);
-EXPORT_SYMBOL(pm_idle);
+/* DISABLED: EXPORT_SYMBOL(pm_idle); */
 
 /*
  * return saved PC of a blocked thread.
@@ -53,7 +53,7 @@ unsigned long thread_saved_pc(struct task_struct *tsk)
  * power off function, if any
  */
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 #if !defined(CONFIG_SMP) || defined(CONFIG_HOTPLUG_CPU)
 /*
@@ -180,7 +180,7 @@ int kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0, &regs, 0,
 		       NULL, NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * free current thread data structures etc..

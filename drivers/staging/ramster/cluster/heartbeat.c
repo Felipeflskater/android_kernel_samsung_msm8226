@@ -128,7 +128,7 @@ void r2hb_fill_node_map(unsigned long *map, unsigned bytes)
 	spin_unlock(&r2hb_live_lock);
 	up_read(&r2hb_callback_sem);
 }
-EXPORT_SYMBOL_GPL(r2hb_fill_node_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_fill_node_map); */
 
 /*
  * heartbeat configfs bits.  The heartbeat set is a default set under
@@ -364,7 +364,7 @@ void r2hb_setup_callback(struct r2hb_callback_func *hc,
 	hc->hc_type = type;
 	hc->hc_magic = R2HB_CB_MAGIC;
 }
-EXPORT_SYMBOL_GPL(r2hb_setup_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_setup_callback); */
 
 int r2hb_register_callback(const char *region_uuid,
 			   struct r2hb_callback_func *hc)
@@ -402,7 +402,7 @@ out:
 	     ret, __builtin_return_address(0), hc);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(r2hb_register_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_register_callback); */
 
 void r2hb_unregister_callback(const char *region_uuid,
 			      struct r2hb_callback_func *hc)
@@ -422,7 +422,7 @@ void r2hb_unregister_callback(const char *region_uuid,
 
 	up_write(&r2hb_callback_sem);
 }
-EXPORT_SYMBOL_GPL(r2hb_unregister_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_unregister_callback); */
 
 int r2hb_check_node_heartbeating_from_callback(u8 node_num)
 {
@@ -438,12 +438,12 @@ int r2hb_check_node_heartbeating_from_callback(u8 node_num)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(r2hb_check_node_heartbeating_from_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_check_node_heartbeating_from_callback); */
 
 void r2hb_stop_all_regions(void)
 {
 }
-EXPORT_SYMBOL_GPL(r2hb_stop_all_regions);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2hb_stop_all_regions); */
 
 /*
  * this is just a hack until we get the plumbing which flips file systems
@@ -453,7 +453,7 @@ int r2hb_global_heartbeat_active(void)
 {
 	return (r2hb_heartbeat_mode == R2HB_HEARTBEAT_GLOBAL);
 }
-EXPORT_SYMBOL(r2hb_global_heartbeat_active);
+/* DISABLED: EXPORT_SYMBOL(r2hb_global_heartbeat_active); */
 
 /* added for RAMster */
 void r2hb_manual_set_node_heartbeating(int node_num)
@@ -461,4 +461,4 @@ void r2hb_manual_set_node_heartbeating(int node_num)
 	if (node_num < R2NM_MAX_NODES)
 		set_bit(node_num, r2hb_live_node_bitmap);
 }
-EXPORT_SYMBOL(r2hb_manual_set_node_heartbeating);
+/* DISABLED: EXPORT_SYMBOL(r2hb_manual_set_node_heartbeating); */

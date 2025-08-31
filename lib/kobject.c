@@ -116,7 +116,7 @@ char *kobject_get_path(struct kobject *kobj, gfp_t gfp_mask)
 
 	return path;
 }
-EXPORT_SYMBOL_GPL(kobject_get_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(kobject_get_path); */
 
 /* add the kobject to its kset's list */
 static void kobj_kset_join(struct kobject *kobj)
@@ -253,7 +253,7 @@ int kobject_set_name(struct kobject *kobj, const char *fmt, ...)
 
 	return retval;
 }
-EXPORT_SYMBOL(kobject_set_name);
+/* DISABLED: EXPORT_SYMBOL(kobject_set_name); */
 
 /**
  * kobject_init - initialize a kobject structure
@@ -294,7 +294,7 @@ error:
 	printk(KERN_ERR "kobject (%p): %s\n", kobj, err_str);
 	dump_stack();
 }
-EXPORT_SYMBOL(kobject_init);
+/* DISABLED: EXPORT_SYMBOL(kobject_init); */
 
 static int kobject_add_varg(struct kobject *kobj, struct kobject *parent,
 			    const char *fmt, va_list vargs)
@@ -357,7 +357,7 @@ int kobject_add(struct kobject *kobj, struct kobject *parent,
 
 	return retval;
 }
-EXPORT_SYMBOL(kobject_add);
+/* DISABLED: EXPORT_SYMBOL(kobject_add); */
 
 /**
  * kobject_init_and_add - initialize a kobject structure and add it to the kobject hierarchy
@@ -384,7 +384,7 @@ int kobject_init_and_add(struct kobject *kobj, struct kobj_type *ktype,
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(kobject_init_and_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(kobject_init_and_add); */
 
 /**
  * kobject_rename - change the name of an object
@@ -451,7 +451,7 @@ out:
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(kobject_rename);
+/* DISABLED: EXPORT_SYMBOL_GPL(kobject_rename); */
 
 /**
  * kobject_move - move object to another parent
@@ -669,7 +669,7 @@ struct kobject *kobject_create_and_add(const char *name, struct kobject *parent)
 	}
 	return kobj;
 }
-EXPORT_SYMBOL_GPL(kobject_create_and_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(kobject_create_and_add); */
 
 /**
  * kset_init - initialize a kset for use
@@ -857,7 +857,7 @@ struct kset *kset_create_and_add(const char *name,
 	}
 	return kset;
 }
-EXPORT_SYMBOL_GPL(kset_create_and_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(kset_create_and_add); */
 
 
 static DEFINE_SPINLOCK(kobj_ns_type_lock);
@@ -966,9 +966,9 @@ void kobj_ns_drop(enum kobj_ns_type type, void *ns)
 	spin_unlock(&kobj_ns_type_lock);
 }
 
-EXPORT_SYMBOL(kobject_get);
-EXPORT_SYMBOL(kobject_put);
-EXPORT_SYMBOL(kobject_del);
+/* DISABLED: EXPORT_SYMBOL(kobject_get); */
+/* DISABLED: EXPORT_SYMBOL(kobject_put); */
+/* DISABLED: EXPORT_SYMBOL(kobject_del); */
 
-EXPORT_SYMBOL(kset_register);
-EXPORT_SYMBOL(kset_unregister);
+/* DISABLED: EXPORT_SYMBOL(kset_register); */
+/* DISABLED: EXPORT_SYMBOL(kset_unregister); */

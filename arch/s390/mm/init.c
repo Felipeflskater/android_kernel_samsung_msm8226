@@ -42,7 +42,7 @@
 pgd_t swapper_pg_dir[PTRS_PER_PGD] __attribute__((__aligned__(PAGE_SIZE)));
 
 unsigned long empty_zero_page, zero_page_mask;
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 static unsigned long setup_zero_pages(void)
 {

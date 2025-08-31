@@ -70,7 +70,7 @@ int snd_vx_check_reg_bit(struct vx_core *chip, int reg, int mask, int bit, int t
 	return -EIO;
 }
 
-EXPORT_SYMBOL(snd_vx_check_reg_bit);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_check_reg_bit); */
 
 /*
  * vx_send_irq_dsp - set command irq bit
@@ -471,7 +471,7 @@ int snd_vx_load_boot_image(struct vx_core *chip, const struct firmware *boot)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_vx_load_boot_image);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_load_boot_image); */
 
 /*
  * vx_test_irq_src - query the source of interrupts
@@ -553,7 +553,7 @@ irqreturn_t snd_vx_irq_handler(int irq, void *dev)
 	return IRQ_HANDLED;
 }
 
-EXPORT_SYMBOL(snd_vx_irq_handler);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_irq_handler); */
 
 /*
  */
@@ -667,7 +667,7 @@ int snd_vx_dsp_boot(struct vx_core *chip, const struct firmware *boot)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_vx_dsp_boot);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_dsp_boot); */
 
 /**
  * snd_vx_dsp_load - load the DSP image
@@ -719,7 +719,7 @@ int snd_vx_dsp_load(struct vx_core *chip, const struct firmware *dsp)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_vx_dsp_load);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_dsp_load); */
 
 #ifdef CONFIG_PM
 /*
@@ -737,7 +737,7 @@ int snd_vx_suspend(struct vx_core *chip, pm_message_t state)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_vx_suspend);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_suspend); */
 
 /*
  * resume
@@ -765,7 +765,7 @@ int snd_vx_resume(struct vx_core *chip)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_vx_resume);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_resume); */
 #endif
 
 /**
@@ -810,7 +810,7 @@ struct vx_core *snd_vx_create(struct snd_card *card, struct snd_vx_hardware *hw,
 	return chip;
 }
 
-EXPORT_SYMBOL(snd_vx_create);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_create); */
 
 /*
  * module entries

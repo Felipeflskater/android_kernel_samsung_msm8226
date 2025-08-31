@@ -478,7 +478,7 @@ int ps3av_set_audio_mode(u32 ch, u32 fs, u32 word_bits, u32 format, u32 source)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(ps3av_set_audio_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_set_audio_mode); */
 
 static int ps3av_set_videomode(void)
 {
@@ -871,21 +871,21 @@ int ps3av_set_video_mode(int id)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(ps3av_set_video_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_set_video_mode); */
 
 int ps3av_get_auto_mode(void)
 {
 	return ps3av_auto_videomode(&ps3av->av_hw_conf);
 }
 
-EXPORT_SYMBOL_GPL(ps3av_get_auto_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_get_auto_mode); */
 
 int ps3av_get_mode(void)
 {
 	return ps3av ? ps3av->ps3av_mode : 0;
 }
 
-EXPORT_SYMBOL_GPL(ps3av_get_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_get_mode); */
 
 /* get resolution by video_mode */
 int ps3av_video_mode2res(u32 id, u32 *xres, u32 *yres)
@@ -903,7 +903,7 @@ int ps3av_video_mode2res(u32 id, u32 *xres, u32 *yres)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(ps3av_video_mode2res);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_video_mode2res); */
 
 /* mute */
 int ps3av_video_mute(int mute)
@@ -912,7 +912,7 @@ int ps3av_video_mute(int mute)
 					    : PS3AV_CMD_MUTE_OFF);
 }
 
-EXPORT_SYMBOL_GPL(ps3av_video_mute);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_video_mute); */
 
 /* mute analog output only */
 int ps3av_audio_mute_analog(int mute)
@@ -928,7 +928,7 @@ int ps3av_audio_mute_analog(int mute)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3av_audio_mute_analog);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_audio_mute_analog); */
 
 int ps3av_audio_mute(int mute)
 {
@@ -936,7 +936,7 @@ int ps3av_audio_mute(int mute)
 					 : PS3AV_CMD_MUTE_OFF);
 }
 
-EXPORT_SYMBOL_GPL(ps3av_audio_mute);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3av_audio_mute); */
 
 static int __devinit ps3av_probe(struct ps3_system_bus_device *dev)
 {

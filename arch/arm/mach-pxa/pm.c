@@ -64,7 +64,7 @@ int pxa_pm_enter(suspend_state_t state)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(pxa_pm_enter);
+/* DISABLED: EXPORT_SYMBOL_GPL(pxa_pm_enter); */
 
 static int pxa_pm_valid(suspend_state_t state)
 {

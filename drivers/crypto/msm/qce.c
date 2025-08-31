@@ -1938,7 +1938,7 @@ static int _ce_f8_setup(struct qce_device *pce_dev, struct qce_f8_req *req,
 };
 
 struct qce_pm_table qce_pm_table = {NULL, NULL};
-EXPORT_SYMBOL(qce_pm_table);
+/* DISABLED: EXPORT_SYMBOL(qce_pm_table); */
 
 int qce_aead_req(void *handle, struct qce_req *q_req)
 {
@@ -2071,7 +2071,7 @@ bad:
 	}
 	return rc;
 }
-EXPORT_SYMBOL(qce_aead_req);
+/* DISABLED: EXPORT_SYMBOL(qce_aead_req); */
 
 int qce_ablk_cipher_req(void *handle, struct qce_req *c_req)
 {
@@ -2162,7 +2162,7 @@ bad:
 	}
 	return rc;
 }
-EXPORT_SYMBOL(qce_ablk_cipher_req);
+/* DISABLED: EXPORT_SYMBOL(qce_ablk_cipher_req); */
 
 int qce_process_sha_req(void *handle, struct qce_sha_req *sreq)
 {
@@ -2215,19 +2215,19 @@ bad:
 
 	return rc;
 }
-EXPORT_SYMBOL(qce_process_sha_req);
+/* DISABLED: EXPORT_SYMBOL(qce_process_sha_req); */
 
 int qce_enable_clk(void *handle)
 {
 	return 0;
 }
-EXPORT_SYMBOL(qce_enable_clk);
+/* DISABLED: EXPORT_SYMBOL(qce_enable_clk); */
 
 int qce_disable_clk(void *handle)
 {
 	return 0;
 }
-EXPORT_SYMBOL(qce_disable_clk);
+/* DISABLED: EXPORT_SYMBOL(qce_disable_clk); */
 
 /*
  * crypto engine open function.
@@ -2346,7 +2346,7 @@ err:
 		qce_close(pce_dev);
 	return NULL;
 }
-EXPORT_SYMBOL(qce_open);
+/* DISABLED: EXPORT_SYMBOL(qce_open); */
 
 /*
  * crypto engine close function.
@@ -2370,7 +2370,7 @@ int qce_close(void *handle)
 	kfree(handle);
 	return 0;
 }
-EXPORT_SYMBOL(qce_close);
+/* DISABLED: EXPORT_SYMBOL(qce_close); */
 
 int qce_hw_support(void *handle, struct ce_hw_support *ce_support)
 {
@@ -2396,7 +2396,7 @@ int qce_hw_support(void *handle, struct ce_hw_support *ce_support)
 	ce_support->bam = false;
 	return 0;
 }
-EXPORT_SYMBOL(qce_hw_support);
+/* DISABLED: EXPORT_SYMBOL(qce_hw_support); */
 
 int qce_f8_req(void *handle, struct qce_f8_req *req,
 			void *cookie, qce_comp_func_ptr_t qce_cb)
@@ -2492,7 +2492,7 @@ bad:
 					DMA_BIDIRECTIONAL : DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f8_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f8_req); */
 
 int qce_f8_multi_pkt_req(void *handle, struct qce_f8_multi_pkt_req *mreq,
 			void *cookie, qce_comp_func_ptr_t qce_cb)
@@ -2584,7 +2584,7 @@ bad:
 				DMA_BIDIRECTIONAL : DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f8_multi_pkt_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f8_multi_pkt_req); */
 
 int qce_f9_req(void *handle, struct qce_f9_req *req, void *cookie,
 			qce_comp_func_ptr_t qce_cb)
@@ -2631,7 +2631,7 @@ bad:
 				req->msize, DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f9_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f9_req); */
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Crypto Engine driver");

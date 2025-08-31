@@ -82,7 +82,7 @@ int sha1_update_arm(struct shash_desc *desc, const u8 *data,
 	res = __sha1_update(sctx, data, len, partial);
 	return res;
 }
-EXPORT_SYMBOL_GPL(sha1_update_arm);
+/* DISABLED: EXPORT_SYMBOL_GPL(sha1_update_arm); */
 
 
 /* Add padding and return the message digest. */

@@ -56,4 +56,4 @@ void *return_address(unsigned int depth)
 
 #endif
 
-EXPORT_SYMBOL_GPL(return_address);
+/* DISABLED: EXPORT_SYMBOL_GPL(return_address); */

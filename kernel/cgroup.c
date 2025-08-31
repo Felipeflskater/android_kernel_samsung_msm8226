@@ -237,7 +237,7 @@ int cgroup_lock_is_held(void)
 }
 #endif /* #else #ifdef CONFIG_PROVE_LOCKING */
 
-EXPORT_SYMBOL_GPL(cgroup_lock_is_held);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_lock_is_held); */
 
 /* convenient tests for these bits */
 inline int cgroup_is_removed(const struct cgroup *cgrp)
@@ -779,7 +779,7 @@ void cgroup_lock(void)
 {
 	mutex_lock(&cgroup_mutex);
 }
-EXPORT_SYMBOL_GPL(cgroup_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_lock); */
 
 /**
  * cgroup_unlock - release lock on cgroup changes
@@ -790,7 +790,7 @@ void cgroup_unlock(void)
 {
 	mutex_unlock(&cgroup_mutex);
 }
-EXPORT_SYMBOL_GPL(cgroup_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_unlock); */
 
 /*
  * A couple of forward declarations required, due to cyclic reference loop:
@@ -1747,7 +1747,7 @@ int cgroup_path(const struct cgroup *cgrp, char *buf, int buflen)
 	memmove(buf, start, buf + buflen - start);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cgroup_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_path); */
 
 /*
  * Control Group taskset
@@ -1782,7 +1782,7 @@ struct task_struct *cgroup_taskset_first(struct cgroup_taskset *tset)
 		return tset->single.task;
 	}
 }
-EXPORT_SYMBOL_GPL(cgroup_taskset_first);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_taskset_first); */
 
 /**
  * cgroup_taskset_next - iterate to the next task in taskset
@@ -1802,7 +1802,7 @@ struct task_struct *cgroup_taskset_next(struct cgroup_taskset *tset)
 	tset->cur_cgrp = tc->cgrp;
 	return tc->task;
 }
-EXPORT_SYMBOL_GPL(cgroup_taskset_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_taskset_next); */
 
 /**
  * cgroup_taskset_cur_cgroup - return the matching cgroup for the current task
@@ -1816,7 +1816,7 @@ struct cgroup *cgroup_taskset_cur_cgroup(struct cgroup_taskset *tset)
 {
 	return tset->cur_cgrp;
 }
-EXPORT_SYMBOL_GPL(cgroup_taskset_cur_cgroup);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_taskset_cur_cgroup); */
 
 /**
  * cgroup_taskset_size - return the number of tasks in taskset
@@ -1826,7 +1826,7 @@ int cgroup_taskset_size(struct cgroup_taskset *tset)
 {
 	return tset->tc_array ? tset->tc_array_len : 1;
 }
-EXPORT_SYMBOL_GPL(cgroup_taskset_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_taskset_size); */
 
 
 /*
@@ -1980,7 +1980,7 @@ int cgroup_attach_task_all(struct task_struct *from, struct task_struct *tsk)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(cgroup_attach_task_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_attach_task_all); */
 
 /**
  * cgroup_attach_proc - attach all threads in a threadgroup to a cgroup
@@ -2254,7 +2254,7 @@ bool cgroup_lock_live_group(struct cgroup *cgrp)
 	}
 	return true;
 }
-EXPORT_SYMBOL_GPL(cgroup_lock_live_group);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_lock_live_group); */
 
 static int cgroup_release_agent_write(struct cgroup *cgrp, struct cftype *cft,
 				      const char *buffer)
@@ -2657,7 +2657,7 @@ int cgroup_add_file(struct cgroup *cgrp,
 		error = PTR_ERR(dentry);
 	return error;
 }
-EXPORT_SYMBOL_GPL(cgroup_add_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_add_file); */
 
 int cgroup_add_files(struct cgroup *cgrp,
 			struct cgroup_subsys *subsys,
@@ -2672,7 +2672,7 @@ int cgroup_add_files(struct cgroup *cgrp,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cgroup_add_files);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_add_files); */
 
 /**
  * cgroup_task_count - count the number of tasks in a cgroup.
@@ -4247,7 +4247,7 @@ int __init_or_module cgroup_load_subsys(struct cgroup_subsys *ss)
 	mutex_unlock(&cgroup_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cgroup_load_subsys);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_load_subsys); */
 
 /**
  * cgroup_unload_subsys: unload a modular subsystem
@@ -4306,7 +4306,7 @@ void cgroup_unload_subsys(struct cgroup_subsys *ss)
 
 	mutex_unlock(&cgroup_mutex);
 }
-EXPORT_SYMBOL_GPL(cgroup_unload_subsys);
+/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_unload_subsys); */
 
 /**
  * cgroup_init_early - cgroup initialization at system boot
@@ -4728,7 +4728,7 @@ void __css_get(struct cgroup_subsys_state *css, int count)
 	atomic_add(count, &css->refcnt);
 	set_bit(CGRP_RELEASABLE, &css->cgroup->flags);
 }
-EXPORT_SYMBOL_GPL(__css_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(__css_get); */
 
 /* Caller must verify that the css is not for root cgroup */
 void __css_put(struct cgroup_subsys_state *css, int count)
@@ -4744,7 +4744,7 @@ void __css_put(struct cgroup_subsys_state *css, int count)
 	rcu_read_unlock();
 	WARN_ON_ONCE(val < 1);
 }
-EXPORT_SYMBOL_GPL(__css_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(__css_put); */
 
 /*
  * Notify userspace when a cgroup is released, by running the
@@ -4843,7 +4843,7 @@ static int __init cgroup_disable(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("cgroup_disable=", cgroup_disable); */
+/* DISABLED: __setup("cgroup_disable=", cgroup_disable); */ */
 
 /*
  * Functons for CSS ID.
@@ -4867,7 +4867,7 @@ unsigned short css_id(struct cgroup_subsys_state *css)
 		return cssid->id;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(css_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(css_id); */
 
 unsigned short css_depth(struct cgroup_subsys_state *css)
 {
@@ -4879,7 +4879,7 @@ unsigned short css_depth(struct cgroup_subsys_state *css)
 		return cssid->depth;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(css_depth);
+/* DISABLED: EXPORT_SYMBOL_GPL(css_depth); */
 
 /**
  *  css_is_ancestor - test "root" css is an ancestor of "child"
@@ -4929,7 +4929,7 @@ void free_css_id(struct cgroup_subsys *ss, struct cgroup_subsys_state *css)
 	spin_unlock(&ss->id_lock);
 	kfree_rcu(id, rcu_head);
 }
-EXPORT_SYMBOL_GPL(free_css_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_css_id); */
 
 /*
  * This is called by init or create(). Then, calls to this function are
@@ -5046,7 +5046,7 @@ struct cgroup_subsys_state *css_lookup(struct cgroup_subsys *ss, int id)
 
 	return rcu_dereference(cssid->css);
 }
-EXPORT_SYMBOL_GPL(css_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(css_lookup); */
 
 /**
  * css_get_next - lookup next cgroup under specified hierarchy.

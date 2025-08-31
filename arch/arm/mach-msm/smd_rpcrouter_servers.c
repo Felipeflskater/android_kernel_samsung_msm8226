@@ -124,7 +124,7 @@ int msm_rpc_create_server(struct msm_rpc_server *server)
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_rpc_create_server);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_create_server); */
 
 int msm_rpc_create_server2(struct msm_rpc_server *server)
 {
@@ -135,7 +135,7 @@ int msm_rpc_create_server2(struct msm_rpc_server *server)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_create_server2);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_create_server2); */
 
 static int rpc_send_accepted_void_reply(struct msm_rpc_endpoint *client,
 					uint32_t xid, uint32_t accept_status)
@@ -201,7 +201,7 @@ void *msm_rpc_server_start_accepted_reply(struct msm_rpc_server *server,
 
 	return reply + 1;
 }
-EXPORT_SYMBOL(msm_rpc_server_start_accepted_reply);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_server_start_accepted_reply); */
 
 /*
  * Interface to be used to send accepted reply for a request.
@@ -229,7 +229,7 @@ int msm_rpc_server_send_accepted_reply(struct msm_rpc_server *server,
 	mutex_unlock(&server_xdr.out_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_server_send_accepted_reply);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_server_send_accepted_reply); */
 
 /*
  * Interface to be used to send a server callback request.
@@ -358,7 +358,7 @@ release_locks:
 	mutex_unlock(&server->cb_req_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_server_cb_req);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_server_cb_req); */
 
 /*
  * Interface to be used to send a server callback request.
@@ -486,7 +486,7 @@ release_locks:
 	mutex_unlock(&server->cb_req_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_server_cb_req2);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_server_cb_req2); */
 
 void msm_rpc_server_get_requesting_client(struct msm_rpc_client_info *clnt_info)
 {

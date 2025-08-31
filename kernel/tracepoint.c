@@ -389,7 +389,7 @@ int tracepoint_probe_register(const char *name, void *probe, void *data)
 	release_probes(old);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tracepoint_probe_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_probe_register); */
 
 static struct tracepoint_func *
 tracepoint_remove_probe(const char *name, void *probe, void *data)
@@ -433,7 +433,7 @@ int tracepoint_probe_unregister(const char *name, void *probe, void *data)
 	release_probes(old);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tracepoint_probe_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_probe_unregister); */
 
 static LIST_HEAD(old_probes);
 static int need_update;
@@ -470,7 +470,7 @@ int tracepoint_probe_register_noupdate(const char *name, void *probe,
 	mutex_unlock(&tracepoints_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tracepoint_probe_register_noupdate);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_probe_register_noupdate); */
 
 /**
  * tracepoint_probe_unregister_noupdate -  remove a probe but not disconnect
@@ -494,7 +494,7 @@ int tracepoint_probe_unregister_noupdate(const char *name, void *probe,
 	mutex_unlock(&tracepoints_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(tracepoint_probe_unregister_noupdate);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_probe_unregister_noupdate); */
 
 /**
  * tracepoint_probe_update_all -  update tracepoints
@@ -519,7 +519,7 @@ void tracepoint_probe_update_all(void)
 		call_rcu_sched(&pos->u.rcu, rcu_free_old_probes);
 	}
 }
-EXPORT_SYMBOL_GPL(tracepoint_probe_update_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_probe_update_all); */
 
 /**
  * tracepoint_get_iter_range - Get a next tracepoint iterator given a range.
@@ -599,7 +599,7 @@ void tracepoint_iter_start(struct tracepoint_iter *iter)
 {
 	tracepoint_get_iter(iter);
 }
-EXPORT_SYMBOL_GPL(tracepoint_iter_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_iter_start); */
 
 void tracepoint_iter_next(struct tracepoint_iter *iter)
 {
@@ -611,12 +611,12 @@ void tracepoint_iter_next(struct tracepoint_iter *iter)
 	 */
 	tracepoint_get_iter(iter);
 }
-EXPORT_SYMBOL_GPL(tracepoint_iter_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_iter_next); */
 
 void tracepoint_iter_stop(struct tracepoint_iter *iter)
 {
 }
-EXPORT_SYMBOL_GPL(tracepoint_iter_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_iter_stop); */
 
 void tracepoint_iter_reset(struct tracepoint_iter *iter)
 {
@@ -625,7 +625,7 @@ void tracepoint_iter_reset(struct tracepoint_iter *iter)
 #endif /* CONFIG_MODULES */
 	iter->tracepoint = NULL;
 }
-EXPORT_SYMBOL_GPL(tracepoint_iter_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracepoint_iter_reset); */
 
 #ifdef CONFIG_MODULES
 bool trace_module_has_bad_taint(struct module *mod)

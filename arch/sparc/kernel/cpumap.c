@@ -423,7 +423,7 @@ int map_to_cpu(unsigned int index)
 	spin_unlock_irqrestore(&cpu_map_lock, flag);
 	return mapped_cpu;
 }
-EXPORT_SYMBOL(map_to_cpu);
+/* DISABLED: EXPORT_SYMBOL(map_to_cpu); */
 
 void cpu_map_rebuild(void)
 {

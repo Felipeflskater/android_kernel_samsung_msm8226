@@ -15,11 +15,11 @@ void ioport_unmap(void __iomem *addr)
 {
 	/* Nothing to do */
 }
-EXPORT_SYMBOL(ioport_map);
-EXPORT_SYMBOL(ioport_unmap);
+/* DISABLED: EXPORT_SYMBOL(ioport_map); */
+/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
 
 void pci_iounmap(struct pci_dev *dev, void __iomem * addr)
 {
 	/* nothing to do */
 }
-EXPORT_SYMBOL(pci_iounmap);
+/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */

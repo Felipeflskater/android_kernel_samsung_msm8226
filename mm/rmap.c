@@ -1031,7 +1031,7 @@ int page_mkclean(struct page *page)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(page_mkclean);
+/* DISABLED: EXPORT_SYMBOL_GPL(page_mkclean); */
 
 /**
  * page_move_anon_rmap - move a page to our anon_vma

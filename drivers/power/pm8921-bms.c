@@ -1265,7 +1265,7 @@ int pm8921_bms_cc_uah(int *cc_uah)
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8921_bms_cc_uah);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_cc_uah); */
 
 static int calculate_termination_uuc(struct pm8921_bms_chip *chip,
 				 int batt_temp, int chargecycles,
@@ -1612,7 +1612,7 @@ int pm8921_bms_get_simultaneous_battery_voltage_and_current(int *ibat_ua,
 
 	return 0;
 }
-EXPORT_SYMBOL(pm8921_bms_get_simultaneous_battery_voltage_and_current);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_get_simultaneous_battery_voltage_and_current); */
 
 #define SIGN(x) ((x) < 0 ? -1 : 1)
 
@@ -2597,7 +2597,7 @@ void pm8921_bms_battery_removed(void)
 	/* UUC related data is left as is - use the same historical load avg */
 	update_power_supply(the_chip);
 }
-EXPORT_SYMBOL(pm8921_bms_battery_removed);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_battery_removed); */
 
 void pm8921_bms_battery_inserted(void)
 {
@@ -2610,7 +2610,7 @@ void pm8921_bms_battery_inserted(void)
 	the_chip->last_ocv_uv = estimate_ocv(the_chip);
 	schedule_delayed_work(&the_chip->calculate_soc_delayed_work, 0);
 }
-EXPORT_SYMBOL(pm8921_bms_battery_inserted);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_battery_inserted); */
 
 void pm8921_bms_invalidate_shutdown_soc(void)
 {
@@ -2646,7 +2646,7 @@ void pm8921_bms_invalidate_shutdown_soc(void)
 		return;
 	recalculate_soc(chip);
 }
-EXPORT_SYMBOL(pm8921_bms_invalidate_shutdown_soc);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_invalidate_shutdown_soc); */
 
 static void calibrate_hkadc_work(struct work_struct *work)
 {
@@ -2676,7 +2676,7 @@ int pm8921_bms_get_vsense_avg(int *result)
 	pr_err("called before initialization\n");
 	return rc;
 }
-EXPORT_SYMBOL(pm8921_bms_get_vsense_avg);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_get_vsense_avg); */
 
 int pm8921_bms_get_battery_current(int *result_ua)
 {
@@ -2710,7 +2710,7 @@ int pm8921_bms_get_battery_current(int *result_ua)
 error_vsense:
 	return rc;
 }
-EXPORT_SYMBOL(pm8921_bms_get_battery_current);
+/* DISABLED: EXPORT_SYMBOL(pm8921_bms_get_battery_current); */
 
 int pm8921_bms_get_percent_charge(void)
 {
@@ -2721,7 +2721,7 @@ int pm8921_bms_get_percent_charge(void)
 
 	return report_state_of_charge(the_chip);
 }
-EXPORT_SYMBOL_GPL(pm8921_bms_get_percent_charge);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_bms_get_percent_charge); */
 
 int pm8921_bms_get_current_max(void)
 {
@@ -2731,7 +2731,7 @@ int pm8921_bms_get_current_max(void)
 	}
 	return the_chip->imax_ua;
 }
-EXPORT_SYMBOL_GPL(pm8921_bms_get_current_max);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_bms_get_current_max); */
 
 int pm8921_bms_get_fcc(void)
 {
@@ -2745,7 +2745,7 @@ int pm8921_bms_get_fcc(void)
 	get_batt_temp(the_chip, &batt_temp);
 	return calculate_fcc_uah(the_chip, batt_temp, last_chargecycles);
 }
-EXPORT_SYMBOL_GPL(pm8921_bms_get_fcc);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_bms_get_fcc); */
 
 static void calculate_real_soc(struct pm8921_bms_chip *chip, int *soc,
 		int batt_temp, struct pm8921_soc_params *raw, int cc_uah)
@@ -2796,7 +2796,7 @@ void pm8921_bms_charging_began(void)
 
 	pr_debug("start_percent = %u%%\n", the_chip->start_percent);
 }
-EXPORT_SYMBOL_GPL(pm8921_bms_charging_began);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_bms_charging_began); */
 
 static void invalidate_fcc(struct pm8921_bms_chip *chip)
 {
@@ -2990,7 +2990,7 @@ void pm8921_bms_charging_end(int is_battery_full)
 	pm_bms_masked_write(the_chip, BMS_TOLERANCES,
 				IBAT_TOL_MASK, IBAT_TOL_NOCHG);
 }
-EXPORT_SYMBOL_GPL(pm8921_bms_charging_end);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_bms_charging_end); */
 
 static irqreturn_t pm8921_bms_sbi_write_ok_handler(int irq, void *data)
 {

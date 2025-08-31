@@ -37,7 +37,7 @@
 #define PHAD_MAGIC	MAGIC_CHG('P','H','A','D')
 
 struct sharpsl_param_info sharpsl_param;
-EXPORT_SYMBOL(sharpsl_param);
+/* DISABLED: EXPORT_SYMBOL(sharpsl_param); */
 
 void sharpsl_save_param(void)
 {

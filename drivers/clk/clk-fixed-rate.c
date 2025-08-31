@@ -32,12 +32,12 @@ static unsigned long clk_fixed_rate_recalc_rate(struct clk_hw *hw,
 {
 	return to_clk_fixed_rate(hw)->fixed_rate;
 }
-EXPORT_SYMBOL_GPL(clk_fixed_rate_recalc_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_fixed_rate_recalc_rate); */
 
 struct clk_ops clk_fixed_rate_ops = {
 	.recalc_rate = clk_fixed_rate_recalc_rate,
 };
-EXPORT_SYMBOL_GPL(clk_fixed_rate_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_fixed_rate_ops); */
 
 struct clk *clk_register_fixed_rate(struct device *dev, const char *name,
 		const char *parent_name, unsigned long flags,

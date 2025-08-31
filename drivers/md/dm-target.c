@@ -150,5 +150,5 @@ void dm_target_exit(void)
 	dm_unregister_target(&error_target);
 }
 
-EXPORT_SYMBOL(dm_register_target);
-EXPORT_SYMBOL(dm_unregister_target);
+/* DISABLED: EXPORT_SYMBOL(dm_register_target); */
+/* DISABLED: EXPORT_SYMBOL(dm_unregister_target); */

@@ -718,7 +718,7 @@ bail:
 
 	return result;
 }
-EXPORT_SYMBOL(ipa_add_flt_rule);
+/* DISABLED: EXPORT_SYMBOL(ipa_add_flt_rule); */
 
 /**
  * ipa_del_flt_rule() - Remove the specified filtering rules from SW and
@@ -760,7 +760,7 @@ bail:
 
 	return result;
 }
-EXPORT_SYMBOL(ipa_del_flt_rule);
+/* DISABLED: EXPORT_SYMBOL(ipa_del_flt_rule); */
 
 /**
  * ipa_commit_flt() - Commit the current SW filtering table of specified type to
@@ -793,7 +793,7 @@ bail:
 
 	return result;
 }
-EXPORT_SYMBOL(ipa_commit_flt);
+/* DISABLED: EXPORT_SYMBOL(ipa_commit_flt); */
 
 /**
  * ipa_reset_flt() - Reset the current SW filtering table of specified type
@@ -877,4 +877,4 @@ int ipa_reset_flt(enum ipa_ip_type ip)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipa_reset_flt);
+/* DISABLED: EXPORT_SYMBOL(ipa_reset_flt); */

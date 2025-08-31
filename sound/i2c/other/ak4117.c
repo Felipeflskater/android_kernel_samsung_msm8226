@@ -544,9 +544,9 @@ static void snd_ak4117_timer(unsigned long data)
 	add_timer(&chip->timer);
 }
 
-EXPORT_SYMBOL(snd_ak4117_create);
-EXPORT_SYMBOL(snd_ak4117_reg_write);
-EXPORT_SYMBOL(snd_ak4117_reinit);
-EXPORT_SYMBOL(snd_ak4117_build);
-EXPORT_SYMBOL(snd_ak4117_external_rate);
-EXPORT_SYMBOL(snd_ak4117_check_rate_and_errors);
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_create); */
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_reg_write); */
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_reinit); */
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_build); */
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_external_rate); */
+/* DISABLED: EXPORT_SYMBOL(snd_ak4117_check_rate_and_errors); */

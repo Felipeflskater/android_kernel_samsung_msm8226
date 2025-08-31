@@ -682,7 +682,7 @@ int core_alua_check_nonop_delay(
 	msleep_interruptible(cmd->alua_nonop_delay);
 	return 0;
 }
-EXPORT_SYMBOL(core_alua_check_nonop_delay);
+/* DISABLED: EXPORT_SYMBOL(core_alua_check_nonop_delay); */
 
 /*
  * Called with tg_pt_gp->tg_pt_gp_md_mutex or tg_pt_gp_mem->sep_tg_pt_md_mutex

@@ -69,7 +69,7 @@ struct fc_seq *fc_elsct_send(struct fc_lport *lport, u32 did,
 
 	return lport->tt.exch_seq_send(lport, fp, resp, NULL, arg, timer_msec);
 }
-EXPORT_SYMBOL(fc_elsct_send);
+/* DISABLED: EXPORT_SYMBOL(fc_elsct_send); */
 
 /**
  * fc_elsct_init() - Initialize the ELS/CT layer
@@ -82,7 +82,7 @@ int fc_elsct_init(struct fc_lport *lport)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_elsct_init);
+/* DISABLED: EXPORT_SYMBOL(fc_elsct_init); */
 
 /**
  * fc_els_resp_type() - Return a string describing the ELS response

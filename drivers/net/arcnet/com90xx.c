@@ -700,5 +700,5 @@ static int __init com90xx_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("com90xx=", com90xx_setup); */
+/* DISABLED: __setup("com90xx=", com90xx_setup); */ */
 #endif

@@ -1326,7 +1326,7 @@ struct i2c_adapter * dib7000m_get_i2c_master(struct dvb_frontend *demod, enum di
 	struct dib7000m_state *st = demod->demodulator_priv;
 	return dibx000_get_i2c_adapter(&st->i2c_master, intf, gating);
 }
-EXPORT_SYMBOL(dib7000m_get_i2c_master);
+/* DISABLED: EXPORT_SYMBOL(dib7000m_get_i2c_master); */
 
 int dib7000m_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 {
@@ -1336,7 +1336,7 @@ int dib7000m_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 	dprintk("PID filter enabled %d", onoff);
 	return dib7000m_write_word(state, 294 + state->reg_offs, val);
 }
-EXPORT_SYMBOL(dib7000m_pid_filter_ctrl);
+/* DISABLED: EXPORT_SYMBOL(dib7000m_pid_filter_ctrl); */
 
 int dib7000m_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 {
@@ -1345,7 +1345,7 @@ int dib7000m_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 	return dib7000m_write_word(state, 300 + state->reg_offs + id,
 			onoff ? (1 << 13) | pid : 0);
 }
-EXPORT_SYMBOL(dib7000m_pid_filter);
+/* DISABLED: EXPORT_SYMBOL(dib7000m_pid_filter); */
 
 #if 0
 /* used with some prototype boards */
@@ -1394,7 +1394,7 @@ int dib7000m_i2c_enumeration(struct i2c_adapter *i2c, int no_of_demods,
 
 	return 0;
 }
-EXPORT_SYMBOL(dib7000m_i2c_enumeration);
+/* DISABLED: EXPORT_SYMBOL(dib7000m_i2c_enumeration); */
 #endif
 
 static struct dvb_frontend_ops dib7000m_ops;
@@ -1433,7 +1433,7 @@ error:
 	kfree(st);
 	return NULL;
 }
-EXPORT_SYMBOL(dib7000m_attach);
+/* DISABLED: EXPORT_SYMBOL(dib7000m_attach); */
 
 static struct dvb_frontend_ops dib7000m_ops = {
 	.delsys = { SYS_DVBT },

@@ -492,7 +492,7 @@ chipcHw_freq chipcHw_setClockFrequency(chipcHw_CLOCK_e clock,	/*  [ IN ] Configu
 	return 0;
 }
 
-EXPORT_SYMBOL(chipcHw_setClockFrequency);
+/* DISABLED: EXPORT_SYMBOL(chipcHw_setClockFrequency); */
 
 /****************************************************************************/
 /**

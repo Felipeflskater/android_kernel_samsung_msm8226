@@ -647,4 +647,4 @@ static int __init init_axis_flash(void)
 /* This adds the above to the kernels init-call chain. */
 module_init(init_axis_flash);
 
-EXPORT_SYMBOL(axisflash_mtd);
+/* DISABLED: EXPORT_SYMBOL(axisflash_mtd); */

@@ -159,7 +159,7 @@ const struct vb2_mem_ops vb2_dma_contig_memops = {
 	.put_userptr	= vb2_dma_contig_put_userptr,
 	.num_users	= vb2_dma_contig_num_users,
 };
-EXPORT_SYMBOL_GPL(vb2_dma_contig_memops);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_dma_contig_memops); */
 
 void *vb2_dma_contig_init_ctx(struct device *dev)
 {
@@ -173,13 +173,13 @@ void *vb2_dma_contig_init_ctx(struct device *dev)
 
 	return conf;
 }
-EXPORT_SYMBOL_GPL(vb2_dma_contig_init_ctx);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_dma_contig_init_ctx); */
 
 void vb2_dma_contig_cleanup_ctx(void *alloc_ctx)
 {
 	kfree(alloc_ctx);
 }
-EXPORT_SYMBOL_GPL(vb2_dma_contig_cleanup_ctx);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_dma_contig_cleanup_ctx); */
 
 MODULE_DESCRIPTION("DMA-contig memory handling routines for videobuf2");
 MODULE_AUTHOR("Pawel Osciak <pawel@osciak.com>");

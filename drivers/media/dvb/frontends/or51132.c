@@ -622,7 +622,7 @@ MODULE_AUTHOR("Kirk Lapray");
 MODULE_AUTHOR("Trent Piepho");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(or51132_attach);
+/* DISABLED: EXPORT_SYMBOL(or51132_attach); */
 
 /*
  * Local variables:

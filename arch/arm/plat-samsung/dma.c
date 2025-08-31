@@ -54,7 +54,7 @@ int s3c2410_dma_set_opfn(enum dma_ch channel, s3c2410_dma_opfn_t rtn)
 
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_set_opfn);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_set_opfn); */
 
 int s3c2410_dma_set_buffdone_fn(enum dma_ch channel, s3c2410_dma_cbfn_t rtn)
 {
@@ -69,7 +69,7 @@ int s3c2410_dma_set_buffdone_fn(enum dma_ch channel, s3c2410_dma_cbfn_t rtn)
 
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_set_buffdone_fn);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_set_buffdone_fn); */
 
 int s3c2410_dma_setflags(enum dma_ch channel, unsigned int flags)
 {
@@ -81,4 +81,4 @@ int s3c2410_dma_setflags(enum dma_ch channel, unsigned int flags)
 	chan->flags = flags;
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_setflags);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_setflags); */

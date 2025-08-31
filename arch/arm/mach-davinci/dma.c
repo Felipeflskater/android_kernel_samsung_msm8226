@@ -695,7 +695,7 @@ int edma_alloc_channel(int channel,
 
 	return EDMA_CTLR_CHAN(ctlr, channel);
 }
-EXPORT_SYMBOL(edma_alloc_channel);
+/* DISABLED: EXPORT_SYMBOL(edma_alloc_channel); */
 
 
 /**
@@ -726,7 +726,7 @@ void edma_free_channel(unsigned channel)
 			&dummy_paramset, PARM_SIZE);
 	clear_bit(channel, edma_cc[ctlr]->edma_inuse);
 }
-EXPORT_SYMBOL(edma_free_channel);
+/* DISABLED: EXPORT_SYMBOL(edma_free_channel); */
 
 /**
  * edma_alloc_slot - allocate DMA parameter RAM
@@ -769,7 +769,7 @@ int edma_alloc_slot(unsigned ctlr, int slot)
 
 	return EDMA_CTLR_CHAN(ctlr, slot);
 }
-EXPORT_SYMBOL(edma_alloc_slot);
+/* DISABLED: EXPORT_SYMBOL(edma_alloc_slot); */
 
 /**
  * edma_free_slot - deallocate DMA parameter RAM
@@ -794,7 +794,7 @@ void edma_free_slot(unsigned slot)
 			&dummy_paramset, PARM_SIZE);
 	clear_bit(slot, edma_cc[ctlr]->edma_inuse);
 }
-EXPORT_SYMBOL(edma_free_slot);
+/* DISABLED: EXPORT_SYMBOL(edma_free_slot); */
 
 
 /**
@@ -855,7 +855,7 @@ int edma_alloc_cont_slots(unsigned ctlr, unsigned int id, int slot, int count)
 	}
 
 }
-EXPORT_SYMBOL(edma_alloc_cont_slots);
+/* DISABLED: EXPORT_SYMBOL(edma_alloc_cont_slots); */
 
 /**
  * edma_free_cont_slots - deallocate DMA parameter RAM slots
@@ -894,7 +894,7 @@ int edma_free_cont_slots(unsigned slot, int count)
 
 	return 0;
 }
-EXPORT_SYMBOL(edma_free_cont_slots);
+/* DISABLED: EXPORT_SYMBOL(edma_free_cont_slots); */
 
 /*-----------------------------------------------------------------------*/
 
@@ -936,7 +936,7 @@ void edma_set_src(unsigned slot, dma_addr_t src_port,
 		edma_parm_write(ctlr, PARM_SRC, slot, src_port);
 	}
 }
-EXPORT_SYMBOL(edma_set_src);
+/* DISABLED: EXPORT_SYMBOL(edma_set_src); */
 
 /**
  * edma_set_dest - set initial DMA destination address in parameter RAM slot
@@ -973,7 +973,7 @@ void edma_set_dest(unsigned slot, dma_addr_t dest_port,
 		edma_parm_write(ctlr, PARM_DST, slot, dest_port);
 	}
 }
-EXPORT_SYMBOL(edma_set_dest);
+/* DISABLED: EXPORT_SYMBOL(edma_set_dest); */
 
 /**
  * edma_get_position - returns the current transfer points
@@ -998,7 +998,7 @@ void edma_get_position(unsigned slot, dma_addr_t *src, dma_addr_t *dst)
 	if (dst != NULL)
 		*dst = temp.dst;
 }
-EXPORT_SYMBOL(edma_get_position);
+/* DISABLED: EXPORT_SYMBOL(edma_get_position); */
 
 /**
  * edma_set_src_index - configure DMA source address indexing
@@ -1024,7 +1024,7 @@ void edma_set_src_index(unsigned slot, s16 src_bidx, s16 src_cidx)
 				0xffff0000, src_cidx);
 	}
 }
-EXPORT_SYMBOL(edma_set_src_index);
+/* DISABLED: EXPORT_SYMBOL(edma_set_src_index); */
 
 /**
  * edma_set_dest_index - configure DMA destination address indexing
@@ -1050,7 +1050,7 @@ void edma_set_dest_index(unsigned slot, s16 dest_bidx, s16 dest_cidx)
 				0x0000ffff, dest_cidx << 16);
 	}
 }
-EXPORT_SYMBOL(edma_set_dest_index);
+/* DISABLED: EXPORT_SYMBOL(edma_set_dest_index); */
 
 /**
  * edma_set_transfer_params - configure DMA transfer parameters
@@ -1102,7 +1102,7 @@ void edma_set_transfer_params(unsigned slot,
 		edma_parm_write(ctlr, PARM_CCNT, slot, ccnt);
 	}
 }
-EXPORT_SYMBOL(edma_set_transfer_params);
+/* DISABLED: EXPORT_SYMBOL(edma_set_transfer_params); */
 
 /**
  * edma_link - link one parameter RAM slot to another
@@ -1127,7 +1127,7 @@ void edma_link(unsigned from, unsigned to)
 	edma_parm_modify(ctlr_from, PARM_LINK_BCNTRLD, from, 0xffff0000,
 				PARM_OFFSET(to));
 }
-EXPORT_SYMBOL(edma_link);
+/* DISABLED: EXPORT_SYMBOL(edma_link); */
 
 /**
  * edma_unlink - cut link from one parameter RAM slot
@@ -1147,7 +1147,7 @@ void edma_unlink(unsigned from)
 		return;
 	edma_parm_or(ctlr, PARM_LINK_BCNTRLD, from, 0xffff);
 }
-EXPORT_SYMBOL(edma_unlink);
+/* DISABLED: EXPORT_SYMBOL(edma_unlink); */
 
 /*-----------------------------------------------------------------------*/
 
@@ -1175,7 +1175,7 @@ void edma_write_slot(unsigned slot, const struct edmacc_param *param)
 	memcpy_toio(edmacc_regs_base[ctlr] + PARM_OFFSET(slot), param,
 			PARM_SIZE);
 }
-EXPORT_SYMBOL(edma_write_slot);
+/* DISABLED: EXPORT_SYMBOL(edma_write_slot); */
 
 /**
  * edma_read_slot - read parameter RAM data from slot
@@ -1197,7 +1197,7 @@ void edma_read_slot(unsigned slot, struct edmacc_param *param)
 	memcpy_fromio(param, edmacc_regs_base[ctlr] + PARM_OFFSET(slot),
 			PARM_SIZE);
 }
-EXPORT_SYMBOL(edma_read_slot);
+/* DISABLED: EXPORT_SYMBOL(edma_read_slot); */
 
 /*-----------------------------------------------------------------------*/
 
@@ -1223,7 +1223,7 @@ void edma_pause(unsigned channel)
 		edma_shadow0_write_array(ctlr, SH_EECR, channel >> 5, mask);
 	}
 }
-EXPORT_SYMBOL(edma_pause);
+/* DISABLED: EXPORT_SYMBOL(edma_pause); */
 
 /**
  * edma_resume - resumes dma on a paused channel
@@ -1244,7 +1244,7 @@ void edma_resume(unsigned channel)
 		edma_shadow0_write_array(ctlr, SH_EESR, channel >> 5, mask);
 	}
 }
-EXPORT_SYMBOL(edma_resume);
+/* DISABLED: EXPORT_SYMBOL(edma_resume); */
 
 /**
  * edma_start - start dma on a channel
@@ -1292,7 +1292,7 @@ int edma_start(unsigned channel)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(edma_start);
+/* DISABLED: EXPORT_SYMBOL(edma_start); */
 
 /**
  * edma_stop - stops dma on the channel passed
@@ -1327,7 +1327,7 @@ void edma_stop(unsigned channel)
 		 */
 	}
 }
-EXPORT_SYMBOL(edma_stop);
+/* DISABLED: EXPORT_SYMBOL(edma_stop); */
 
 /******************************************************************************
  *
@@ -1363,7 +1363,7 @@ void edma_clean_channel(unsigned channel)
 		edma_write(ctlr, EDMA_CCERRCLR, BIT(16) | BIT(1) | BIT(0));
 	}
 }
-EXPORT_SYMBOL(edma_clean_channel);
+/* DISABLED: EXPORT_SYMBOL(edma_clean_channel); */
 
 /*
  * edma_clear_event - clear an outstanding event on the DMA channel
@@ -1384,7 +1384,7 @@ void edma_clear_event(unsigned channel)
 	else
 		edma_write(ctlr, EDMA_ECRH, BIT(channel - 32));
 }
-EXPORT_SYMBOL(edma_clear_event);
+/* DISABLED: EXPORT_SYMBOL(edma_clear_event); */
 
 /*-----------------------------------------------------------------------*/
 

@@ -176,7 +176,7 @@ static int __init ofpci_debug(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ofpci_debug=", ofpci_debug); */
+/* DISABLED: __setup("ofpci_debug=", ofpci_debug); */ */
 
 static unsigned long pci_parse_of_flags(u32 addr0)
 {
@@ -924,7 +924,7 @@ int pcibus_to_node(struct pci_bus *pbus)
 
 	return pbm->numa_node;
 }
-EXPORT_SYMBOL(pcibus_to_node);
+/* DISABLED: EXPORT_SYMBOL(pcibus_to_node); */
 #endif
 
 /* Return the domain number for this pci bus */
@@ -942,7 +942,7 @@ int pci_domain_nr(struct pci_bus *pbus)
 
 	return ret;
 }
-EXPORT_SYMBOL(pci_domain_nr);
+/* DISABLED: EXPORT_SYMBOL(pci_domain_nr); */
 
 #ifdef CONFIG_PCI_MSI
 int arch_setup_msi_irq(struct pci_dev *pdev, struct msi_desc *desc)

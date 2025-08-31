@@ -274,7 +274,7 @@ disable_pci:
 	dev_err(&dev->dev, "init %s fail, %d\n", pci_name(dev), retval);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(usb_hcd_pci_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_pci_probe); */
 
 
 /* may be called without controller electrically present */
@@ -321,7 +321,7 @@ void usb_hcd_pci_remove(struct pci_dev *dev)
 	usb_put_hcd(hcd);
 	pci_disable_device(dev);
 }
-EXPORT_SYMBOL_GPL(usb_hcd_pci_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_pci_remove); */
 
 /**
  * usb_hcd_pci_shutdown - shutdown host controller
@@ -341,7 +341,7 @@ void usb_hcd_pci_shutdown(struct pci_dev *dev)
 		pci_disable_device(dev);
 	}
 }
-EXPORT_SYMBOL_GPL(usb_hcd_pci_shutdown);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_pci_shutdown); */
 
 #ifdef	CONFIG_PM
 
@@ -602,6 +602,6 @@ const struct dev_pm_ops usb_hcd_pci_pm_ops = {
 	.runtime_suspend = hcd_pci_runtime_suspend,
 	.runtime_resume	= hcd_pci_runtime_resume,
 };
-EXPORT_SYMBOL_GPL(usb_hcd_pci_pm_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_pci_pm_ops); */
 
 #endif	/* CONFIG_PM */

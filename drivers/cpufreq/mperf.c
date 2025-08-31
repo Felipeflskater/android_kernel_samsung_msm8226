@@ -47,5 +47,5 @@ unsigned int cpufreq_get_measured_perf(struct cpufreq_policy *policy,
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(cpufreq_get_measured_perf);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_get_measured_perf); */
 MODULE_LICENSE("GPL");

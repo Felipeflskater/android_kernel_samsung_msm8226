@@ -283,7 +283,7 @@ int roccat_report_event(int minor, u8 const *data)
 	wake_up_interruptible(&device->wait);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(roccat_report_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(roccat_report_event); */
 
 /*
  * roccat_connect() - create a char device for special event output
@@ -346,7 +346,7 @@ int roccat_connect(struct class *klass, struct hid_device *hid, int report_size)
 
 	return minor;
 }
-EXPORT_SYMBOL_GPL(roccat_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(roccat_connect); */
 
 /* roccat_disconnect() - remove char device from hid device
  * @minor: the minor device number returned by roccat_connect()
@@ -374,7 +374,7 @@ void roccat_disconnect(int minor)
 		kfree(device);
 	}
 }
-EXPORT_SYMBOL_GPL(roccat_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(roccat_disconnect); */
 
 static long roccat_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {

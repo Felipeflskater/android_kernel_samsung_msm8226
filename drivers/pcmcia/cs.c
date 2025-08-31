@@ -62,15 +62,15 @@ INT_MODULE_PARM(cis_speed,	300);		/* ns */
 socket_state_t dead_socket = {
 	.csc_mask	= SS_DETECT,
 };
-EXPORT_SYMBOL(dead_socket);
+/* DISABLED: EXPORT_SYMBOL(dead_socket); */
 
 
 /* List of all sockets, protected by a rwsem */
 LIST_HEAD(pcmcia_socket_list);
-EXPORT_SYMBOL(pcmcia_socket_list);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_socket_list); */
 
 DECLARE_RWSEM(pcmcia_socket_list_rwsem);
-EXPORT_SYMBOL(pcmcia_socket_list_rwsem);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_socket_list_rwsem); */
 
 
 struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *skt)
@@ -80,14 +80,14 @@ struct pcmcia_socket *pcmcia_get_socket(struct pcmcia_socket *skt)
 		return NULL;
 	return dev_get_drvdata(dev);
 }
-EXPORT_SYMBOL(pcmcia_get_socket);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_get_socket); */
 
 
 void pcmcia_put_socket(struct pcmcia_socket *skt)
 {
 	put_device(&skt->dev);
 }
-EXPORT_SYMBOL(pcmcia_put_socket);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_put_socket); */
 
 
 static void pcmcia_release_socket(struct device *dev)
@@ -199,7 +199,7 @@ int pcmcia_register_socket(struct pcmcia_socket *socket)
 	up_write(&pcmcia_socket_list_rwsem);
 	return ret;
 } /* pcmcia_register_socket */
-EXPORT_SYMBOL(pcmcia_register_socket);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_register_socket); */
 
 
 /**
@@ -229,7 +229,7 @@ void pcmcia_unregister_socket(struct pcmcia_socket *socket)
 	}
 	wait_for_completion(&socket->socket_released);
 } /* pcmcia_unregister_socket */
-EXPORT_SYMBOL(pcmcia_unregister_socket);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_unregister_socket); */
 
 
 struct pcmcia_socket *pcmcia_get_socket_by_nr(unsigned int nr)
@@ -247,7 +247,7 @@ struct pcmcia_socket *pcmcia_get_socket_by_nr(unsigned int nr)
 	return NULL;
 
 }
-EXPORT_SYMBOL(pcmcia_get_socket_by_nr);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_get_socket_by_nr); */
 
 static int socket_reset(struct pcmcia_socket *skt)
 {
@@ -695,7 +695,7 @@ void pcmcia_parse_events(struct pcmcia_socket *s, u_int events)
 		wake_up_process(s->thread);
 	}
 } /* pcmcia_parse_events */
-EXPORT_SYMBOL(pcmcia_parse_events);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_parse_events); */
 
 /**
  * pcmcia_parse_uevents() - tell pccardd to issue manual commands
@@ -720,7 +720,7 @@ void pcmcia_parse_uevents(struct pcmcia_socket *s, u_int events)
 		wake_up_process(s->thread);
 	}
 }
-EXPORT_SYMBOL(pcmcia_parse_uevents);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_parse_uevents); */
 
 
 /* register pcmcia_callback */
@@ -749,7 +749,7 @@ int pccard_register_pcmcia(struct pcmcia_socket *s, struct pcmcia_callback *c)
 
 	return ret;
 }
-EXPORT_SYMBOL(pccard_register_pcmcia);
+/* DISABLED: EXPORT_SYMBOL(pccard_register_pcmcia); */
 
 
 /* I'm not sure which "reset" function this is supposed to use,
@@ -795,7 +795,7 @@ int pcmcia_reset_card(struct pcmcia_socket *skt)
 
 	return ret;
 } /* reset_card */
-EXPORT_SYMBOL(pcmcia_reset_card);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_reset_card); */
 
 
 static int pcmcia_socket_uevent(struct device *dev,
@@ -879,7 +879,7 @@ struct class pcmcia_socket_class = {
 	.class_release = pcmcia_release_socket_class,
 	.pm = PCMCIA_SOCKET_CLASS_PM_OPS,
 };
-EXPORT_SYMBOL(pcmcia_socket_class);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_socket_class); */
 
 
 static int __init init_pcmcia_cs(void)

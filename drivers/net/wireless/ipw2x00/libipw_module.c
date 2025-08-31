@@ -119,7 +119,7 @@ void libipw_networks_age(struct libipw_device *ieee,
 	}
 	spin_unlock_irqrestore(&ieee->lock, flags);
 }
-EXPORT_SYMBOL(libipw_networks_age);
+/* DISABLED: EXPORT_SYMBOL(libipw_networks_age); */
 
 static void libipw_networks_initialize(struct libipw_device *ieee)
 {
@@ -139,7 +139,7 @@ int libipw_change_mtu(struct net_device *dev, int new_mtu)
 	dev->mtu = new_mtu;
 	return 0;
 }
-EXPORT_SYMBOL(libipw_change_mtu);
+/* DISABLED: EXPORT_SYMBOL(libipw_change_mtu); */
 
 struct net_device *alloc_libipw(int sizeof_priv, int monitor)
 {
@@ -222,7 +222,7 @@ failed_free_netdev:
 failed:
 	return NULL;
 }
-EXPORT_SYMBOL(alloc_libipw);
+/* DISABLED: EXPORT_SYMBOL(alloc_libipw); */
 
 void free_libipw(struct net_device *dev, int monitor)
 {
@@ -238,13 +238,13 @@ void free_libipw(struct net_device *dev, int monitor)
 
 	free_netdev(dev);
 }
-EXPORT_SYMBOL(free_libipw);
+/* DISABLED: EXPORT_SYMBOL(free_libipw); */
 
 #ifdef CONFIG_LIBIPW_DEBUG
 
 static int debug = 0;
 u32 libipw_debug_level = 0;
-EXPORT_SYMBOL_GPL(libipw_debug_level);
+/* DISABLED: EXPORT_SYMBOL_GPL(libipw_debug_level); */
 static struct proc_dir_entry *libipw_proc = NULL;
 
 static int debug_level_proc_show(struct seq_file *m, void *v)

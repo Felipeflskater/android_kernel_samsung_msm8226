@@ -528,14 +528,14 @@ static int extra_decode_xrpn(struct snd_midi_event *dev, unsigned char *buf,
  *  exports
  */
  
-EXPORT_SYMBOL(snd_midi_event_new);
-EXPORT_SYMBOL(snd_midi_event_free);
-EXPORT_SYMBOL(snd_midi_event_reset_encode);
-EXPORT_SYMBOL(snd_midi_event_reset_decode);
-EXPORT_SYMBOL(snd_midi_event_no_status);
-EXPORT_SYMBOL(snd_midi_event_encode);
-EXPORT_SYMBOL(snd_midi_event_encode_byte);
-EXPORT_SYMBOL(snd_midi_event_decode);
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_new); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_free); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_reset_encode); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_reset_decode); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_no_status); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_encode); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_encode_byte); */
+/* DISABLED: EXPORT_SYMBOL(snd_midi_event_decode); */
 
 static int __init alsa_seq_midi_event_init(void)
 {

@@ -39,7 +39,7 @@ void __iomem *devm_ioremap(struct device *dev, resource_size_t offset,
 
 	return addr;
 }
-EXPORT_SYMBOL(devm_ioremap);
+/* DISABLED: EXPORT_SYMBOL(devm_ioremap); */
 
 /**
  * devm_ioremap_nocache - Managed ioremap_nocache()
@@ -68,7 +68,7 @@ void __iomem *devm_ioremap_nocache(struct device *dev, resource_size_t offset,
 
 	return addr;
 }
-EXPORT_SYMBOL(devm_ioremap_nocache);
+/* DISABLED: EXPORT_SYMBOL(devm_ioremap_nocache); */
 
 /**
  * devm_iounmap - Managed iounmap()
@@ -83,7 +83,7 @@ void devm_iounmap(struct device *dev, void __iomem *addr)
 			       (void *)addr));
 	iounmap(addr);
 }
-EXPORT_SYMBOL(devm_iounmap);
+/* DISABLED: EXPORT_SYMBOL(devm_iounmap); */
 
 /**
  * devm_ioremap_resource() - check, request region, and ioremap resource
@@ -137,7 +137,7 @@ void __iomem *devm_ioremap_resource(struct device *dev, struct resource *res)
 
 	return dest_ptr;
 }
-EXPORT_SYMBOL(devm_ioremap_resource);
+/* DISABLED: EXPORT_SYMBOL(devm_ioremap_resource); */
 
 /**
  * devm_request_and_ioremap() - Check, request region, and ioremap resource
@@ -165,7 +165,7 @@ void __iomem *devm_request_and_ioremap(struct device *device,
 
 	return dest_ptr;
 }
-EXPORT_SYMBOL(devm_request_and_ioremap);
+/* DISABLED: EXPORT_SYMBOL(devm_request_and_ioremap); */
 
 #ifdef CONFIG_HAS_IOPORT
 /*
@@ -209,7 +209,7 @@ void __iomem * devm_ioport_map(struct device *dev, unsigned long port,
 
 	return addr;
 }
-EXPORT_SYMBOL(devm_ioport_map);
+/* DISABLED: EXPORT_SYMBOL(devm_ioport_map); */
 
 /**
  * devm_ioport_unmap - Managed ioport_unmap()
@@ -225,7 +225,7 @@ void devm_ioport_unmap(struct device *dev, void __iomem *addr)
 	WARN_ON(devres_destroy(dev, devm_ioport_map_release,
 			       devm_ioport_map_match, (void *)addr));
 }
-EXPORT_SYMBOL(devm_ioport_unmap);
+/* DISABLED: EXPORT_SYMBOL(devm_ioport_unmap); */
 
 #ifdef CONFIG_PCI
 /*
@@ -275,7 +275,7 @@ void __iomem * const * pcim_iomap_table(struct pci_dev *pdev)
 	dr = devres_get(&pdev->dev, new_dr, NULL, NULL);
 	return dr->table;
 }
-EXPORT_SYMBOL(pcim_iomap_table);
+/* DISABLED: EXPORT_SYMBOL(pcim_iomap_table); */
 
 /**
  * pcim_iomap - Managed pcim_iomap()
@@ -299,7 +299,7 @@ void __iomem * pcim_iomap(struct pci_dev *pdev, int bar, unsigned long maxlen)
 	tbl[bar] = pci_iomap(pdev, bar, maxlen);
 	return tbl[bar];
 }
-EXPORT_SYMBOL(pcim_iomap);
+/* DISABLED: EXPORT_SYMBOL(pcim_iomap); */
 
 /**
  * pcim_iounmap - Managed pci_iounmap()
@@ -325,7 +325,7 @@ void pcim_iounmap(struct pci_dev *pdev, void __iomem *addr)
 		}
 	WARN_ON(1);
 }
-EXPORT_SYMBOL(pcim_iounmap);
+/* DISABLED: EXPORT_SYMBOL(pcim_iounmap); */
 
 /**
  * pcim_iomap_regions - Request and iomap PCI BARs
@@ -378,7 +378,7 @@ int pcim_iomap_regions(struct pci_dev *pdev, int mask, const char *name)
 
 	return rc;
 }
-EXPORT_SYMBOL(pcim_iomap_regions);
+/* DISABLED: EXPORT_SYMBOL(pcim_iomap_regions); */
 
 /**
  * pcim_iomap_regions_request_all - Request all BARs and iomap specified ones
@@ -403,7 +403,7 @@ int pcim_iomap_regions_request_all(struct pci_dev *pdev, int mask,
 		pci_release_selected_regions(pdev, request_mask);
 	return rc;
 }
-EXPORT_SYMBOL(pcim_iomap_regions_request_all);
+/* DISABLED: EXPORT_SYMBOL(pcim_iomap_regions_request_all); */
 
 /**
  * pcim_iounmap_regions - Unmap and release PCI BARs
@@ -429,6 +429,6 @@ void pcim_iounmap_regions(struct pci_dev *pdev, int mask)
 		pci_release_region(pdev, i);
 	}
 }
-EXPORT_SYMBOL(pcim_iounmap_regions);
+/* DISABLED: EXPORT_SYMBOL(pcim_iounmap_regions); */
 #endif /* CONFIG_PCI */
 #endif /* CONFIG_HAS_IOPORT */

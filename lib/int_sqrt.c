@@ -29,4 +29,4 @@ unsigned long int_sqrt(unsigned long x)
 	}
 	return res;
 }
-EXPORT_SYMBOL(int_sqrt);
+/* DISABLED: EXPORT_SYMBOL(int_sqrt); */

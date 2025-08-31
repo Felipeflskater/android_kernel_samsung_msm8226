@@ -668,7 +668,7 @@ void add_device_randomness(const void *buf, unsigned int size)
 	mix_pool_bytes(&nonblocking_pool, buf, size, NULL);
 	mix_pool_bytes(&nonblocking_pool, &time, sizeof(time), NULL);
 }
-EXPORT_SYMBOL(add_device_randomness);
+/* DISABLED: EXPORT_SYMBOL(add_device_randomness); */
 
 static struct timer_rand_state input_timer_state;
 
@@ -755,7 +755,7 @@ void add_input_randomness(unsigned int type, unsigned int code,
 	add_timer_randomness(&input_timer_state,
 			     (type << 4) ^ code ^ (code >> 4) ^ value);
 }
-EXPORT_SYMBOL_GPL(add_input_randomness);
+/* DISABLED: EXPORT_SYMBOL_GPL(add_input_randomness); */
 
 static DEFINE_PER_CPU(struct fast_pool, irq_randomness);
 
@@ -1058,7 +1058,7 @@ void get_random_bytes(void *buf, int nbytes)
 {
 	extract_entropy(&nonblocking_pool, buf, nbytes, 0, 0);
 }
-EXPORT_SYMBOL(get_random_bytes);
+/* DISABLED: EXPORT_SYMBOL(get_random_bytes); */
 
 /*
  * This function will use the architecture-specific hardware random
@@ -1090,7 +1090,7 @@ void get_random_bytes_arch(void *buf, int nbytes)
 	if (nbytes)
 		extract_entropy(&nonblocking_pool, p, nbytes, 0, 0);
 }
-EXPORT_SYMBOL(get_random_bytes_arch);
+/* DISABLED: EXPORT_SYMBOL(get_random_bytes_arch); */
 
 
 /*
@@ -1382,7 +1382,7 @@ void generate_random_uuid(unsigned char uuid_out[16])
 	/* Set the UUID variant to DCE */
 	uuid_out[8] = (uuid_out[8] & 0x3F) | 0x80;
 }
-EXPORT_SYMBOL(generate_random_uuid);
+/* DISABLED: EXPORT_SYMBOL(generate_random_uuid); */
 
 /********************************************************************
  *
@@ -1539,7 +1539,7 @@ unsigned long get_random_long(void)
 
 	return ret;
 }
-EXPORT_SYMBOL(get_random_long);
+/* DISABLED: EXPORT_SYMBOL(get_random_long); */
 
 /*
  * randomize_range() returns a start address such that

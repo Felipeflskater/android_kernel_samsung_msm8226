@@ -223,7 +223,7 @@ struct pnp_protocol pnpacpi_protocol = {
 	.resume = pnpacpi_resume,
 #endif
 };
-EXPORT_SYMBOL(pnpacpi_protocol);
+/* DISABLED: EXPORT_SYMBOL(pnpacpi_protocol); */
 
 static char *__init pnpacpi_get_id(struct acpi_device *device)
 {
@@ -387,4 +387,4 @@ static int __init pnpacpi_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnpacpi=", pnpacpi_setup); */
+/* DISABLED: __setup("pnpacpi=", pnpacpi_setup); */ */

@@ -375,7 +375,7 @@ hashbin_t *hashbin_new(int type)
 
 	return hashbin;
 }
-EXPORT_SYMBOL(hashbin_new);
+/* DISABLED: EXPORT_SYMBOL(hashbin_new); */
 
 
 /*
@@ -434,7 +434,7 @@ int hashbin_delete( hashbin_t* hashbin, FREE_FUNC free_func)
 
 	return 0;
 }
-EXPORT_SYMBOL(hashbin_delete);
+/* DISABLED: EXPORT_SYMBOL(hashbin_delete); */
 
 /********************* HASHBIN LIST OPERATIONS *********************/
 
@@ -486,7 +486,7 @@ void hashbin_insert(hashbin_t* hashbin, irda_queue_t* entry, long hashv,
 		spin_unlock_irqrestore(&hashbin->hb_spinlock, flags);
 	} /* Default is no-lock  */
 }
-EXPORT_SYMBOL(hashbin_insert);
+/* DISABLED: EXPORT_SYMBOL(hashbin_insert); */
 
 /*
  *  Function hashbin_remove_first (hashbin)
@@ -637,7 +637,7 @@ void* hashbin_remove( hashbin_t* hashbin, long hashv, const char* name)
 		return NULL;
 
 }
-EXPORT_SYMBOL(hashbin_remove);
+/* DISABLED: EXPORT_SYMBOL(hashbin_remove); */
 
 /*
  *  Function hashbin_remove_this (hashbin, entry)
@@ -702,7 +702,7 @@ out:
 
 	return entry;
 }
-EXPORT_SYMBOL(hashbin_remove_this);
+/* DISABLED: EXPORT_SYMBOL(hashbin_remove_this); */
 
 /*********************** HASHBIN ENUMERATION ***********************/
 
@@ -756,7 +756,7 @@ void* hashbin_find( hashbin_t* hashbin, long hashv, const char* name )
 
 	return NULL;
 }
-EXPORT_SYMBOL(hashbin_find);
+/* DISABLED: EXPORT_SYMBOL(hashbin_find); */
 
 /*
  * Function hashbin_lock_find (hashbin, hashv, name)
@@ -785,7 +785,7 @@ void* hashbin_lock_find( hashbin_t* hashbin, long hashv, const char* name )
 
 	return entry;
 }
-EXPORT_SYMBOL(hashbin_lock_find);
+/* DISABLED: EXPORT_SYMBOL(hashbin_lock_find); */
 
 /*
  * Function hashbin_find (hashbin, hashv, name, pnext)
@@ -858,7 +858,7 @@ irda_queue_t *hashbin_get_first( hashbin_t* hashbin)
 	 */
 	return NULL;
 }
-EXPORT_SYMBOL(hashbin_get_first);
+/* DISABLED: EXPORT_SYMBOL(hashbin_get_first); */
 
 /*
  * Function hashbin_get_next (hashbin)
@@ -916,4 +916,4 @@ irda_queue_t *hashbin_get_next( hashbin_t *hashbin)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(hashbin_get_next);
+/* DISABLED: EXPORT_SYMBOL(hashbin_get_next); */

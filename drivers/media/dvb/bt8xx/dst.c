@@ -143,7 +143,7 @@ int rdc_reset_state(struct dst_state *state)
 
 	return 0;
 }
-EXPORT_SYMBOL(rdc_reset_state);
+/* DISABLED: EXPORT_SYMBOL(rdc_reset_state); */
 
 static int rdc_8820_reset(struct dst_state *state)
 {
@@ -183,7 +183,7 @@ int dst_pio_disable(struct dst_state *state)
 
 	return 0;
 }
-EXPORT_SYMBOL(dst_pio_disable);
+/* DISABLED: EXPORT_SYMBOL(dst_pio_disable); */
 
 int dst_wait_dst_ready(struct dst_state *state, u8 delay_mode)
 {
@@ -205,7 +205,7 @@ int dst_wait_dst_ready(struct dst_state *state, u8 delay_mode)
 
 	return 0;
 }
-EXPORT_SYMBOL(dst_wait_dst_ready);
+/* DISABLED: EXPORT_SYMBOL(dst_wait_dst_ready); */
 
 int dst_error_recovery(struct dst_state *state)
 {
@@ -217,7 +217,7 @@ int dst_error_recovery(struct dst_state *state)
 
 	return 0;
 }
-EXPORT_SYMBOL(dst_error_recovery);
+/* DISABLED: EXPORT_SYMBOL(dst_error_recovery); */
 
 int dst_error_bailout(struct dst_state *state)
 {
@@ -228,7 +228,7 @@ int dst_error_bailout(struct dst_state *state)
 
 	return 0;
 }
-EXPORT_SYMBOL(dst_error_bailout);
+/* DISABLED: EXPORT_SYMBOL(dst_error_bailout); */
 
 int dst_comm_init(struct dst_state *state)
 {
@@ -248,7 +248,7 @@ int dst_comm_init(struct dst_state *state)
 
 	return 0;
 }
-EXPORT_SYMBOL(dst_comm_init);
+/* DISABLED: EXPORT_SYMBOL(dst_comm_init); */
 
 int write_dst(struct dst_state *state, u8 *data, u8 len)
 {
@@ -284,7 +284,7 @@ int write_dst(struct dst_state *state, u8 *data, u8 len)
 
 	return 0;
 }
-EXPORT_SYMBOL(write_dst);
+/* DISABLED: EXPORT_SYMBOL(write_dst); */
 
 int read_dst(struct dst_state *state, u8 *ret, u8 len)
 {
@@ -320,7 +320,7 @@ int read_dst(struct dst_state *state, u8 *ret, u8 len)
 
 	return 0;
 }
-EXPORT_SYMBOL(read_dst);
+/* DISABLED: EXPORT_SYMBOL(read_dst); */
 
 static int dst_set_polarization(struct dst_state *state)
 {
@@ -553,7 +553,7 @@ u8 dst_check_sum(u8 *buf, u32 len)
 	}
 	return ((~val) + 1);
 }
-EXPORT_SYMBOL(dst_check_sum);
+/* DISABLED: EXPORT_SYMBOL(dst_check_sum); */
 
 static void dst_type_flags_print(struct dst_state *state)
 {
@@ -1756,7 +1756,7 @@ struct dst_state *dst_attach(struct dst_state *state, struct dvb_adapter *dvb_ad
 	return state;				/*	Manu (DST is a card not a frontend)	*/
 }
 
-EXPORT_SYMBOL(dst_attach);
+/* DISABLED: EXPORT_SYMBOL(dst_attach); */
 
 static struct dvb_frontend_ops dst_dvbt_ops = {
 	.delsys = { SYS_DVBT },

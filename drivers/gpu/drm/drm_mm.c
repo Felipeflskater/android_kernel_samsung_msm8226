@@ -100,7 +100,7 @@ int drm_mm_pre_get(struct drm_mm *mm)
 	spin_unlock(&mm->unused_lock);
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_pre_get);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_pre_get); */
 
 static inline unsigned long drm_mm_hole_node_start(struct drm_mm_node *hole_node)
 {
@@ -169,7 +169,7 @@ struct drm_mm_node *drm_mm_get_block_generic(struct drm_mm_node *hole_node,
 
 	return node;
 }
-EXPORT_SYMBOL(drm_mm_get_block_generic);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_get_block_generic); */
 
 /**
  * Search for free space and insert a preallocated memory node. Returns
@@ -189,7 +189,7 @@ int drm_mm_insert_node(struct drm_mm *mm, struct drm_mm_node *node,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_insert_node);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_insert_node); */
 
 static void drm_mm_insert_helper_range(struct drm_mm_node *hole_node,
 				       struct drm_mm_node *node,
@@ -253,7 +253,7 @@ struct drm_mm_node *drm_mm_get_block_range_generic(struct drm_mm_node *hole_node
 
 	return node;
 }
-EXPORT_SYMBOL(drm_mm_get_block_range_generic);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_get_block_range_generic); */
 
 /**
  * Search for free space and insert a preallocated memory node. Returns
@@ -276,7 +276,7 @@ int drm_mm_insert_node_in_range(struct drm_mm *mm, struct drm_mm_node *node,
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_insert_node_in_range);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_insert_node_in_range); */
 
 /**
  * Remove a memory node from the allocator.
@@ -309,7 +309,7 @@ void drm_mm_remove_node(struct drm_mm_node *node)
 	list_del(&node->node_list);
 	node->allocated = 0;
 }
-EXPORT_SYMBOL(drm_mm_remove_node);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_remove_node); */
 
 /*
  * Remove a memory node from the allocator and free the allocated struct
@@ -331,7 +331,7 @@ void drm_mm_put_block(struct drm_mm_node *node)
 		kfree(node);
 	spin_unlock(&mm->unused_lock);
 }
-EXPORT_SYMBOL(drm_mm_put_block);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_put_block); */
 
 static int check_free_hole(unsigned long start, unsigned long end,
 			   unsigned long size, unsigned alignment)
@@ -385,7 +385,7 @@ struct drm_mm_node *drm_mm_search_free(const struct drm_mm *mm,
 
 	return best;
 }
-EXPORT_SYMBOL(drm_mm_search_free);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_search_free); */
 
 struct drm_mm_node *drm_mm_search_free_in_range(const struct drm_mm *mm,
 						unsigned long size,
@@ -424,7 +424,7 @@ struct drm_mm_node *drm_mm_search_free_in_range(const struct drm_mm *mm,
 
 	return best;
 }
-EXPORT_SYMBOL(drm_mm_search_free_in_range);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_search_free_in_range); */
 
 /**
  * Moves an allocation. To be used with embedded struct drm_mm_node.
@@ -441,7 +441,7 @@ void drm_mm_replace_node(struct drm_mm_node *old, struct drm_mm_node *new)
 	old->allocated = 0;
 	new->allocated = 1;
 }
-EXPORT_SYMBOL(drm_mm_replace_node);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_replace_node); */
 
 /**
  * Initializa lru scanning.
@@ -463,7 +463,7 @@ void drm_mm_init_scan(struct drm_mm *mm, unsigned long size,
 	mm->scan_check_range = 0;
 	mm->prev_scanned_node = NULL;
 }
-EXPORT_SYMBOL(drm_mm_init_scan);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_init_scan); */
 
 /**
  * Initializa lru scanning.
@@ -489,7 +489,7 @@ void drm_mm_init_scan_with_range(struct drm_mm *mm, unsigned long size,
 	mm->scan_check_range = 1;
 	mm->prev_scanned_node = NULL;
 }
-EXPORT_SYMBOL(drm_mm_init_scan_with_range);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_init_scan_with_range); */
 
 /**
  * Add a node to the scan list that might be freed to make space for the desired
@@ -542,7 +542,7 @@ int drm_mm_scan_add_block(struct drm_mm_node *node)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_scan_add_block);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_scan_add_block); */
 
 /**
  * Remove a node from the scan list.
@@ -586,7 +586,7 @@ int drm_mm_scan_remove_block(struct drm_mm_node *node)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_scan_remove_block);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_scan_remove_block); */
 
 int drm_mm_clean(struct drm_mm * mm)
 {
@@ -594,7 +594,7 @@ int drm_mm_clean(struct drm_mm * mm)
 
 	return (head->next->next == head);
 }
-EXPORT_SYMBOL(drm_mm_clean);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_clean); */
 
 int drm_mm_init(struct drm_mm * mm, unsigned long start, unsigned long size)
 {
@@ -618,7 +618,7 @@ int drm_mm_init(struct drm_mm * mm, unsigned long start, unsigned long size)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_init);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_init); */
 
 void drm_mm_takedown(struct drm_mm * mm)
 {
@@ -639,7 +639,7 @@ void drm_mm_takedown(struct drm_mm * mm)
 
 	BUG_ON(mm->num_unused != 0);
 }
-EXPORT_SYMBOL(drm_mm_takedown);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_takedown); */
 
 void drm_mm_debug_table(struct drm_mm *mm, const char *prefix)
 {
@@ -677,7 +677,7 @@ void drm_mm_debug_table(struct drm_mm *mm, const char *prefix)
 	printk(KERN_DEBUG "%s total: %lu, used %lu free %lu\n", prefix, total,
 		total_used, total_free);
 }
-EXPORT_SYMBOL(drm_mm_debug_table);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_debug_table); */
 
 #if defined(CONFIG_DEBUG_FS)
 static unsigned long drm_mm_dump_hole(struct seq_file *m, struct drm_mm_node *entry)
@@ -715,5 +715,5 @@ int drm_mm_dump_table(struct seq_file *m, struct drm_mm *mm)
 	seq_printf(m, "total: %lu, used %lu free %lu\n", total, total_used, total_free);
 	return 0;
 }
-EXPORT_SYMBOL(drm_mm_dump_table);
+/* DISABLED: EXPORT_SYMBOL(drm_mm_dump_table); */
 #endif

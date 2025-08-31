@@ -64,7 +64,7 @@ int max8925_reg_read(struct i2c_client *i2c, int reg)
 	else
 		return (int)data;
 }
-EXPORT_SYMBOL(max8925_reg_read);
+/* DISABLED: EXPORT_SYMBOL(max8925_reg_read); */
 
 int max8925_reg_write(struct i2c_client *i2c, int reg,
 		unsigned char data)
@@ -78,7 +78,7 @@ int max8925_reg_write(struct i2c_client *i2c, int reg,
 
 	return ret;
 }
-EXPORT_SYMBOL(max8925_reg_write);
+/* DISABLED: EXPORT_SYMBOL(max8925_reg_write); */
 
 int max8925_bulk_read(struct i2c_client *i2c, int reg,
 		int count, unsigned char *buf)
@@ -92,7 +92,7 @@ int max8925_bulk_read(struct i2c_client *i2c, int reg,
 
 	return ret;
 }
-EXPORT_SYMBOL(max8925_bulk_read);
+/* DISABLED: EXPORT_SYMBOL(max8925_bulk_read); */
 
 int max8925_bulk_write(struct i2c_client *i2c, int reg,
 		int count, unsigned char *buf)
@@ -106,7 +106,7 @@ int max8925_bulk_write(struct i2c_client *i2c, int reg,
 
 	return ret;
 }
-EXPORT_SYMBOL(max8925_bulk_write);
+/* DISABLED: EXPORT_SYMBOL(max8925_bulk_write); */
 
 int max8925_set_bits(struct i2c_client *i2c, int reg,
 		unsigned char mask, unsigned char data)
@@ -126,7 +126,7 @@ out:
 	mutex_unlock(&chip->io_lock);
 	return ret;
 }
-EXPORT_SYMBOL(max8925_set_bits);
+/* DISABLED: EXPORT_SYMBOL(max8925_set_bits); */
 
 
 static const struct i2c_device_id max8925_id_table[] = {

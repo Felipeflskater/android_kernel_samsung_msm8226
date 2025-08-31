@@ -300,7 +300,7 @@ int encode_rs8(struct rs_control *rs, uint8_t *data, int len, uint16_t *par,
 {
 #include "encode_rs.c"
 }
-EXPORT_SYMBOL_GPL(encode_rs8);
+/* DISABLED: EXPORT_SYMBOL_GPL(encode_rs8); */
 #endif
 
 #ifdef CONFIG_REED_SOLOMON_DEC8
@@ -327,7 +327,7 @@ int decode_rs8(struct rs_control *rs, uint8_t *data, uint16_t *par, int len,
 {
 #include "decode_rs.c"
 }
-EXPORT_SYMBOL_GPL(decode_rs8);
+/* DISABLED: EXPORT_SYMBOL_GPL(decode_rs8); */
 #endif
 
 #ifdef CONFIG_REED_SOLOMON_ENC16
@@ -346,7 +346,7 @@ int encode_rs16(struct rs_control *rs, uint16_t *data, int len, uint16_t *par,
 {
 #include "encode_rs.c"
 }
-EXPORT_SYMBOL_GPL(encode_rs16);
+/* DISABLED: EXPORT_SYMBOL_GPL(encode_rs16); */
 #endif
 
 #ifdef CONFIG_REED_SOLOMON_DEC16
@@ -371,12 +371,12 @@ int decode_rs16(struct rs_control *rs, uint16_t *data, uint16_t *par, int len,
 {
 #include "decode_rs.c"
 }
-EXPORT_SYMBOL_GPL(decode_rs16);
+/* DISABLED: EXPORT_SYMBOL_GPL(decode_rs16); */
 #endif
 
-EXPORT_SYMBOL_GPL(init_rs);
-EXPORT_SYMBOL_GPL(init_rs_non_canonical);
-EXPORT_SYMBOL_GPL(free_rs);
+/* DISABLED: EXPORT_SYMBOL_GPL(init_rs); */
+/* DISABLED: EXPORT_SYMBOL_GPL(init_rs_non_canonical); */
+/* DISABLED: EXPORT_SYMBOL_GPL(free_rs); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Reed Solomon encoder/decoder");

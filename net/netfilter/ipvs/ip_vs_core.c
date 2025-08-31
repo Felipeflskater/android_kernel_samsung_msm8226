@@ -55,23 +55,23 @@
 #include <net/ip_vs.h>
 
 
-EXPORT_SYMBOL(register_ip_vs_scheduler);
-EXPORT_SYMBOL(unregister_ip_vs_scheduler);
-EXPORT_SYMBOL(ip_vs_proto_name);
-EXPORT_SYMBOL(ip_vs_conn_new);
-EXPORT_SYMBOL(ip_vs_conn_in_get);
-EXPORT_SYMBOL(ip_vs_conn_out_get);
+/* DISABLED: EXPORT_SYMBOL(register_ip_vs_scheduler); */
+/* DISABLED: EXPORT_SYMBOL(unregister_ip_vs_scheduler); */
+/* DISABLED: EXPORT_SYMBOL(ip_vs_proto_name); */
+/* DISABLED: EXPORT_SYMBOL(ip_vs_conn_new); */
+/* DISABLED: EXPORT_SYMBOL(ip_vs_conn_in_get); */
+/* DISABLED: EXPORT_SYMBOL(ip_vs_conn_out_get); */
 #ifdef CONFIG_IP_VS_PROTO_TCP
-EXPORT_SYMBOL(ip_vs_tcp_conn_listen);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_tcp_conn_listen); */
 #endif
-EXPORT_SYMBOL(ip_vs_conn_put);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_conn_put); */
 #ifdef CONFIG_IP_VS_DEBUG
-EXPORT_SYMBOL(ip_vs_get_debug_level);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_get_debug_level); */
 #endif
 
 int ip_vs_net_id __read_mostly;
 #ifdef IP_VS_GENERIC_NETNS
-EXPORT_SYMBOL(ip_vs_net_id);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_net_id); */
 #endif
 /* netns cnt used for uniqueness */
 static atomic_t ipvs_netns_cnt = ATOMIC_INIT(0);

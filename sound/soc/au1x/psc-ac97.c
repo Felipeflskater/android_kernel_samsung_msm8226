@@ -207,7 +207,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.reset		= au1xpsc_ac97_cold_reset,
 	.warm_reset	= au1xpsc_ac97_warm_reset,
 };
-EXPORT_SYMBOL_GPL(soc_ac97_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
 
 static int au1xpsc_ac97_hw_params(struct snd_pcm_substream *substream,
 				  struct snd_pcm_hw_params *params,

@@ -33,5 +33,5 @@ void sas_ssp_task_response(struct device *dev, struct sas_task *task,
 		/* when datapres contains corrupt/unknown value... */
 		tstat->stat = SAM_STAT_CHECK_CONDITION;
 }
-EXPORT_SYMBOL_GPL(sas_ssp_task_response);
+/* DISABLED: EXPORT_SYMBOL_GPL(sas_ssp_task_response); */
 

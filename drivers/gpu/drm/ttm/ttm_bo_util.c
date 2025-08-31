@@ -73,7 +73,7 @@ int ttm_bo_move_ttm(struct ttm_buffer_object *bo,
 
 	return 0;
 }
-EXPORT_SYMBOL(ttm_bo_move_ttm);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_move_ttm); */
 
 int ttm_mem_io_lock(struct ttm_mem_type_manager *man, bool interruptible)
 {
@@ -395,7 +395,7 @@ out:
 	ttm_bo_mem_put(bo, &old_copy);
 	return ret;
 }
-EXPORT_SYMBOL(ttm_bo_move_memcpy);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_move_memcpy); */
 
 static void ttm_transfered_destroy(struct ttm_buffer_object *bo)
 {
@@ -480,7 +480,7 @@ pgprot_t ttm_io_prot(uint32_t caching_flags, pgprot_t tmp)
 #endif
 	return tmp;
 }
-EXPORT_SYMBOL(ttm_io_prot);
+/* DISABLED: EXPORT_SYMBOL(ttm_io_prot); */
 
 static int ttm_bo_ioremap(struct ttm_buffer_object *bo,
 			  unsigned long offset,
@@ -578,7 +578,7 @@ int ttm_bo_kmap(struct ttm_buffer_object *bo,
 		return ttm_bo_ioremap(bo, offset, size, map);
 	}
 }
-EXPORT_SYMBOL(ttm_bo_kmap);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_kmap); */
 
 void ttm_bo_kunmap(struct ttm_bo_kmap_obj *map)
 {
@@ -609,7 +609,7 @@ void ttm_bo_kunmap(struct ttm_bo_kmap_obj *map)
 	map->virtual = NULL;
 	map->page = NULL;
 }
-EXPORT_SYMBOL(ttm_bo_kunmap);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_kunmap); */
 
 int ttm_bo_move_accel_cleanup(struct ttm_buffer_object *bo,
 			      void *sync_obj,
@@ -686,4 +686,4 @@ int ttm_bo_move_accel_cleanup(struct ttm_buffer_object *bo,
 
 	return 0;
 }
-EXPORT_SYMBOL(ttm_bo_move_accel_cleanup);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_move_accel_cleanup); */

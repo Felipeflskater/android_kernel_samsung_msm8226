@@ -173,7 +173,7 @@ static struct platform_device ion_dev;
 
 static unsigned int phys_add = DDR2_BANK_BASE;
 unsigned long ebi1_phys_offset = DDR2_BANK_BASE;
-EXPORT_SYMBOL(ebi1_phys_offset);
+/* DISABLED: EXPORT_SYMBOL(ebi1_phys_offset); */
 
 struct pm8xxx_gpio_init_info {
 	unsigned			gpio;

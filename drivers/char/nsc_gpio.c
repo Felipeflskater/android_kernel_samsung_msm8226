@@ -116,9 +116,9 @@ ssize_t nsc_gpio_read(struct file *file, char __user * buf,
 }
 
 /* common file-ops routines for both scx200_gpio and pc87360_gpio */
-EXPORT_SYMBOL(nsc_gpio_write);
-EXPORT_SYMBOL(nsc_gpio_read);
-EXPORT_SYMBOL(nsc_gpio_dump);
+/* DISABLED: EXPORT_SYMBOL(nsc_gpio_write); */
+/* DISABLED: EXPORT_SYMBOL(nsc_gpio_read); */
+/* DISABLED: EXPORT_SYMBOL(nsc_gpio_dump); */
 
 static int __init nsc_gpio_init(void)
 {

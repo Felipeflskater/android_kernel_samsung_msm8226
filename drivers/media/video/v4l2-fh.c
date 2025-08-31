@@ -43,7 +43,7 @@ void v4l2_fh_init(struct v4l2_fh *fh, struct video_device *vdev)
 	INIT_LIST_HEAD(&fh->subscribed);
 	fh->sequence = -1;
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_init); */
 
 void v4l2_fh_add(struct v4l2_fh *fh)
 {
@@ -55,7 +55,7 @@ void v4l2_fh_add(struct v4l2_fh *fh)
 	list_add(&fh->list, &fh->vdev->fh_list);
 	spin_unlock_irqrestore(&fh->vdev->fh_lock, flags);
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_add); */
 
 int v4l2_fh_open(struct file *filp)
 {
@@ -69,7 +69,7 @@ int v4l2_fh_open(struct file *filp)
 	v4l2_fh_add(fh);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_open); */
 
 void v4l2_fh_del(struct v4l2_fh *fh)
 {
@@ -81,7 +81,7 @@ void v4l2_fh_del(struct v4l2_fh *fh)
 	if (test_bit(V4L2_FL_USE_FH_PRIO, &fh->vdev->flags))
 		v4l2_prio_close(fh->vdev->prio, fh->prio);
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_del);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_del); */
 
 void v4l2_fh_exit(struct v4l2_fh *fh)
 {
@@ -90,7 +90,7 @@ void v4l2_fh_exit(struct v4l2_fh *fh)
 	v4l2_event_unsubscribe_all(fh);
 	fh->vdev = NULL;
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_exit); */
 
 int v4l2_fh_release(struct file *filp)
 {
@@ -103,7 +103,7 @@ int v4l2_fh_release(struct file *filp)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_release); */
 
 int v4l2_fh_is_singular(struct v4l2_fh *fh)
 {
@@ -117,4 +117,4 @@ int v4l2_fh_is_singular(struct v4l2_fh *fh)
 	spin_unlock_irqrestore(&fh->vdev->fh_lock, flags);
 	return is_singular;
 }
-EXPORT_SYMBOL_GPL(v4l2_fh_is_singular);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_fh_is_singular); */

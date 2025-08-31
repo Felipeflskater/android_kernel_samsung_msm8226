@@ -134,7 +134,7 @@ void dapm_mark_dirty(struct snd_soc_dapm_widget *w, const char *reason)
 		list_add_tail(&w->dirty, &w->dapm->card->dapm_dirty);
 	}
 }
-EXPORT_SYMBOL_GPL(dapm_mark_dirty);
+/* DISABLED: EXPORT_SYMBOL_GPL(dapm_mark_dirty); */
 
 /* create a new dapm widget */
 static inline struct snd_soc_dapm_widget *dapm_cnew_widget(
@@ -905,7 +905,7 @@ struct snd_soc_dapm_widget *snd_soc_get_codec_widget(struct snd_soc_card *card,
 	dev_err(card->dapm.dev, "DAI AIF widget for %s not found\n", name);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_codec_widget);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_codec_widget); */
 
 struct snd_soc_dapm_widget *snd_soc_get_platform_widget(struct snd_soc_card *card,
 		struct snd_soc_platform *platform, const char *name)
@@ -925,7 +925,7 @@ struct snd_soc_dapm_widget *snd_soc_get_platform_widget(struct snd_soc_card *car
 	dev_err(card->dapm.dev, "DAI AIF widget for %s not found\n", name);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_platform_widget);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_platform_widget); */
 
 static int dapm_get_playback_paths(struct snd_soc_dapm_context *dapm,
 		struct snd_soc_dapm_widget *root,
@@ -1075,7 +1075,7 @@ int dapm_reg_event(struct snd_soc_dapm_widget *w,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dapm_reg_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(dapm_reg_event); */
 
 static int dapm_widget_power_check(struct snd_soc_dapm_widget *w)
 {
@@ -1991,7 +1991,7 @@ int snd_soc_dapm_mux_update_power(struct snd_soc_dapm_widget *widget,
 		soc_dpcm_runtime_update(widget);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_mux_update_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_mux_update_power); */
 
 /* test and update the power status of a mixer or switch widget */
 static int soc_dapm_mixer_update_power(struct snd_soc_dapm_widget *widget,
@@ -2035,7 +2035,7 @@ int snd_soc_dapm_mixer_update_power(struct snd_soc_dapm_widget *widget,
 		soc_dpcm_runtime_update(widget);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_mixer_update_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_mixer_update_power); */
 
 /* show dapm widget status in sys fs */
 static ssize_t dapm_widget_show(struct device *dev,
@@ -2208,7 +2208,7 @@ int snd_soc_dapm_sync(struct snd_soc_dapm_context *dapm)
 	mutex_unlock(&dapm->card->dapm_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_sync); */
 
 static int snd_soc_dapm_add_route(struct snd_soc_dapm_context *dapm,
 				  const struct snd_soc_dapm_route *route)
@@ -2384,7 +2384,7 @@ int snd_soc_dapm_add_routes(struct snd_soc_dapm_context *dapm,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_add_routes);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_add_routes); */
 
 static int snd_soc_dapm_weak_route(struct snd_soc_dapm_context *dapm,
 				   const struct snd_soc_dapm_route *route)
@@ -2464,7 +2464,7 @@ int snd_soc_dapm_weak_routes(struct snd_soc_dapm_context *dapm,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_weak_routes);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_weak_routes); */
 
 /**
  * snd_soc_dapm_new_widgets - add new dapm widgets
@@ -2536,7 +2536,7 @@ int snd_soc_dapm_new_widgets(struct snd_soc_dapm_context *dapm)
 	mutex_unlock(&dapm->card->dapm_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_new_widgets);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_new_widgets); */
 
 /**
  * snd_soc_dapm_get_volsw - dapm mixer get callback
@@ -2576,7 +2576,7 @@ int snd_soc_dapm_get_volsw(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_volsw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_volsw); */
 
 /**
  * snd_soc_dapm_put_volsw - dapm mixer set callback
@@ -2645,7 +2645,7 @@ int snd_soc_dapm_put_volsw(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&card->dapm_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_put_volsw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_put_volsw); */
 
 /**
  * snd_soc_dapm_get_enum_double - dapm enumerated double mixer get callback
@@ -2674,7 +2674,7 @@ int snd_soc_dapm_get_enum_double(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_enum_double); */
 
 /**
  * snd_soc_dapm_put_enum_double - dapm enumerated double mixer set callback
@@ -2737,7 +2737,7 @@ int snd_soc_dapm_put_enum_double(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&card->dapm_mutex);
 	return change;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_put_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_put_enum_double); */
 
 /**
  * snd_soc_dapm_get_enum_virt - Get virtual DAPM mux
@@ -2756,7 +2756,7 @@ int snd_soc_dapm_get_enum_virt(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_enum_virt);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_enum_virt); */
 
 /**
  * snd_soc_dapm_put_enum_virt - Set virtual DAPM mux
@@ -2798,7 +2798,7 @@ int snd_soc_dapm_put_enum_virt(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&card->dapm_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_put_enum_virt);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_put_enum_virt); */
 
 /**
  * snd_soc_dapm_get_value_enum_double - dapm semi enumerated double mixer get
@@ -2839,7 +2839,7 @@ int snd_soc_dapm_get_value_enum_double(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_value_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_value_enum_double); */
 
 /**
  * snd_soc_dapm_put_value_enum_double - dapm semi enumerated double mixer set
@@ -2904,7 +2904,7 @@ int snd_soc_dapm_put_value_enum_double(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&card->dapm_mutex);
 	return change;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_put_value_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_put_value_enum_double); */
 
 /**
  * snd_soc_dapm_info_pin_switch - Info for a pin switch
@@ -2924,7 +2924,7 @@ int snd_soc_dapm_info_pin_switch(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_info_pin_switch);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_info_pin_switch); */
 
 /**
  * snd_soc_dapm_get_pin_switch - Get information for a pin switch
@@ -2947,7 +2947,7 @@ int snd_soc_dapm_get_pin_switch(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_pin_switch);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_pin_switch); */
 
 /**
  * snd_soc_dapm_put_pin_switch - Set information for a pin switch
@@ -2973,7 +2973,7 @@ int snd_soc_dapm_put_pin_switch(struct snd_kcontrol *kcontrol,
 	snd_soc_dapm_sync(&card->dapm);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_put_pin_switch);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_put_pin_switch); */
 
 /**
  * snd_soc_dapm_new_control - create new dapm control
@@ -3060,7 +3060,7 @@ int snd_soc_dapm_new_control(struct snd_soc_dapm_context *dapm,
 	w->connected = 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_new_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_new_control); */
 
 /**
  * snd_soc_dapm_new_controls - create new dapm controls
@@ -3094,7 +3094,7 @@ int snd_soc_dapm_new_controls(struct snd_soc_dapm_context *dapm,
 	mutex_unlock(&dapm->card->dapm_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_new_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_new_controls); */
 
 static void soc_dapm_stream_event(struct snd_soc_dapm_context *dapm,
 	const char *stream, int event)
@@ -3185,7 +3185,7 @@ void snd_soc_dapm_rtd_stream_event(struct snd_soc_pcm_runtime *rtd,
 	if (cdapm->stream_event)
 		cdapm->stream_event(cdapm, event);
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_rtd_stream_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_rtd_stream_event); */
 
 /**
  * snd_soc_dapm_stream_event - send a stream event to the dapm core
@@ -3219,7 +3219,7 @@ void snd_soc_dapm_codec_stream_event(struct snd_soc_codec *codec,
 	soc_dapm_stream_event(&codec->dapm, stream, event);
 //	mutex_unlock(&codec->card->dapm_mutex);
 }
-EXPORT_SYMBOL(snd_soc_dapm_codec_stream_event);
+/* DISABLED: EXPORT_SYMBOL(snd_soc_dapm_codec_stream_event); */
 
 /**
  * snd_soc_dapm_enable_pin - enable pin.
@@ -3235,7 +3235,7 @@ int snd_soc_dapm_enable_pin(struct snd_soc_dapm_context *dapm, const char *pin)
 {
 	return snd_soc_dapm_set_pin(dapm, pin, 1);
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_enable_pin);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_enable_pin); */
 
 /**
  * snd_soc_dapm_force_enable_pin - force a pin to be enabled
@@ -3269,7 +3269,7 @@ int snd_soc_dapm_force_enable_pin(struct snd_soc_dapm_context *dapm,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_force_enable_pin);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_force_enable_pin); */
 
 /**
  * snd_soc_dapm_disable_pin - disable pin.
@@ -3285,7 +3285,7 @@ int snd_soc_dapm_disable_pin(struct snd_soc_dapm_context *dapm,
 {
 	return snd_soc_dapm_set_pin(dapm, pin, 0);
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_disable_pin);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_disable_pin); */
 
 /**
  * snd_soc_dapm_nc_pin - permanently disable pin.
@@ -3305,7 +3305,7 @@ int snd_soc_dapm_nc_pin(struct snd_soc_dapm_context *dapm, const char *pin)
 {
 	return snd_soc_dapm_set_pin(dapm, pin, 0);
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_nc_pin);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_nc_pin); */
 
 /**
  * snd_soc_dapm_get_pin_status - get audio pin status
@@ -3326,7 +3326,7 @@ int snd_soc_dapm_get_pin_status(struct snd_soc_dapm_context *dapm,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_get_pin_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_get_pin_status); */
 
 /**
  * snd_soc_dapm_ignore_suspend - ignore suspend status for DAPM endpoint
@@ -3353,7 +3353,7 @@ int snd_soc_dapm_ignore_suspend(struct snd_soc_dapm_context *dapm,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_ignore_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_ignore_suspend); */
 
 static bool snd_soc_dapm_widget_in_card_paths(struct snd_soc_card *card,
 					      struct snd_soc_dapm_widget *w)
@@ -3441,7 +3441,7 @@ void snd_soc_dapm_free(struct snd_soc_dapm_context *dapm)
 	dapm_free_widgets(dapm);
 	list_del(&dapm->list);
 }
-EXPORT_SYMBOL_GPL(snd_soc_dapm_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dapm_free); */
 
 static void soc_dapm_shutdown_codec(struct snd_soc_dapm_context *dapm)
 {

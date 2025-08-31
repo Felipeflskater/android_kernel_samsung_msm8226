@@ -95,7 +95,7 @@ ioremap (unsigned long phys_addr, unsigned long size)
 
 	return __ioremap(phys_addr);
 }
-EXPORT_SYMBOL(ioremap);
+/* DISABLED: EXPORT_SYMBOL(ioremap); */
 
 void __iomem *
 ioremap_nocache (unsigned long phys_addr, unsigned long size)
@@ -105,7 +105,7 @@ ioremap_nocache (unsigned long phys_addr, unsigned long size)
 
 	return __ioremap(phys_addr);
 }
-EXPORT_SYMBOL(ioremap_nocache);
+/* DISABLED: EXPORT_SYMBOL(ioremap_nocache); */
 
 void
 early_iounmap (volatile void __iomem *addr, unsigned long size)
@@ -118,4 +118,4 @@ iounmap (volatile void __iomem *addr)
 	if (REGION_NUMBER(addr) == RGN_GATE)
 		vunmap((void *) ((unsigned long) addr & PAGE_MASK));
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */

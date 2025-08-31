@@ -561,7 +561,7 @@ static int __devinit vrc4173_cardu_setup(char *options)
 	return 1;
 }
 
-/* DISABLED: __setup("vrc4173_cardu=", vrc4173_cardu_setup); */
+/* DISABLED: __setup("vrc4173_cardu=", vrc4173_cardu_setup); */ */
 
 static DEFINE_PCI_DEVICE_TABLE(vrc4173_cardu_id_table) = {
 	{ PCI_DEVICE(PCI_VENDOR_ID_NEC, PCI_DEVICE_ID_NEC_NAPCCARD) },

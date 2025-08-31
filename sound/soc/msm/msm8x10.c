@@ -785,7 +785,7 @@ void msm8x10_enable_ear_micbias(bool state)
 
 	mutex_unlock(&dapm->codec->mutex);
 }
-EXPORT_SYMBOL(msm8x10_enable_ear_micbias);
+/* DISABLED: EXPORT_SYMBOL(msm8x10_enable_ear_micbias); */
 #endif
 
 static int msm_proxy_rx_be_hw_params_fixup(struct snd_soc_pcm_runtime *rtd,

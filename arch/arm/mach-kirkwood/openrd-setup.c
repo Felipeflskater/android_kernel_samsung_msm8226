@@ -114,7 +114,7 @@ static int __init sd_uart_selection(char *str)
 	return 1;
 }
 /* Parse boot_command_line string kw_openrd_init_uart1=232/485 */
-/* DISABLED: __setup("kw_openrd_init_uart1=", sd_uart_selection); */
+/* DISABLED: __setup("kw_openrd_init_uart1=", sd_uart_selection); */ */
 
 static int __init uart1_mpp_config(void)
 {

@@ -2618,5 +2618,5 @@ static int __init dc390_setup (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("tmscsim=", dc390_setup); */
+/* DISABLED: __setup("tmscsim=", dc390_setup); */ */
 #endif

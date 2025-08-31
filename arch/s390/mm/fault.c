@@ -479,7 +479,7 @@ static int __init nopfault(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("nopfault", nopfault); */
+/* DISABLED: __setup("nopfault", nopfault); */ */
 
 struct pfault_refbk {
 	u16 refdiagc;

@@ -2397,7 +2397,7 @@ struct mdss_panel_cfg *mdp3_panel_intf_type(int intf_val)
 	else
 		return NULL;
 }
-EXPORT_SYMBOL(mdp3_panel_intf_type);
+/* DISABLED: EXPORT_SYMBOL(mdp3_panel_intf_type); */
 
 int mdp3_panel_get_boot_cfg(void)
 {

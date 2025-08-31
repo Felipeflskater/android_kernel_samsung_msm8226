@@ -31,7 +31,7 @@ void ledtrig_ide_activity(void)
 	if (!timer_pending(&ledtrig_ide_timer))
 		mod_timer(&ledtrig_ide_timer, jiffies + msecs_to_jiffies(10));
 }
-EXPORT_SYMBOL(ledtrig_ide_activity);
+/* DISABLED: EXPORT_SYMBOL(ledtrig_ide_activity); */
 
 static void ledtrig_ide_timerfunc(unsigned long data)
 {

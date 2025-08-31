@@ -215,7 +215,7 @@ void ieee80211_ready_on_channel(struct ieee80211_hw *hw)
 
 	ieee80211_queue_work(hw, &local->hw_roc_start);
 }
-EXPORT_SYMBOL_GPL(ieee80211_ready_on_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_ready_on_channel); */
 
 static void ieee80211_hw_roc_done(struct work_struct *work)
 {
@@ -268,7 +268,7 @@ void ieee80211_remain_on_channel_expired(struct ieee80211_hw *hw)
 
 	ieee80211_queue_work(hw, &local->hw_roc_done);
 }
-EXPORT_SYMBOL_GPL(ieee80211_remain_on_channel_expired);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_remain_on_channel_expired); */
 
 void ieee80211_hw_roc_setup(struct ieee80211_local *local)
 {

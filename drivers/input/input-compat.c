@@ -131,6 +131,6 @@ int input_ff_effect_from_user(const char __user *buffer, size_t size,
 
 #endif /* CONFIG_COMPAT */
 
-EXPORT_SYMBOL_GPL(input_event_from_user);
-EXPORT_SYMBOL_GPL(input_event_to_user);
-EXPORT_SYMBOL_GPL(input_ff_effect_from_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_event_from_user); */
+/* DISABLED: EXPORT_SYMBOL_GPL(input_event_to_user); */
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_effect_from_user); */

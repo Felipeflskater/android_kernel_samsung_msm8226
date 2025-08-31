@@ -81,7 +81,7 @@ static int __init sapphire_disablesdcard_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("board_sapphire.disable_sdcard=", sapphire_disablesdcard_setup); */
+/* DISABLED: __setup("board_sapphire.disable_sdcard=", sapphire_disablesdcard_setup); */ */
 
 static struct vreg *vreg_sdslot;	/* SD slot power */
 
@@ -258,7 +258,7 @@ int sapphire_wifi_set_carddetect(int val)
 	return 0;
 }
 #ifndef CONFIG_WIFI_CONTROL_FUNC
-EXPORT_SYMBOL(sapphire_wifi_set_carddetect);
+/* DISABLED: EXPORT_SYMBOL(sapphire_wifi_set_carddetect); */
 #endif
 
 int sapphire_wifi_power_state=0;
@@ -299,7 +299,7 @@ int sapphire_wifi_power(int on)
 	return 0;
 }
 #ifndef CONFIG_WIFI_CONTROL_FUNC
-EXPORT_SYMBOL(sapphire_wifi_power);
+/* DISABLED: EXPORT_SYMBOL(sapphire_wifi_power); */
 #endif
 
 /* Eenable VREG_MMC pin to turn on fastclock oscillator : colin */
@@ -328,7 +328,7 @@ int sapphire_bt_fastclock_power(int on)
 	sapphire_bt_power_state = on;
 	return 0;
 }
-EXPORT_SYMBOL(sapphire_bt_fastclock_power);
+/* DISABLED: EXPORT_SYMBOL(sapphire_bt_fastclock_power); */
 
 static int sapphire_wifi_reset_state;
 void sapphire_wifi_reset(int on)
@@ -339,7 +339,7 @@ void sapphire_wifi_reset(int on)
 	mdelay(50);
 }
 #ifndef CONFIG_WIFI_CONTROL_FUNC
-EXPORT_SYMBOL(sapphire_wifi_reset);
+/* DISABLED: EXPORT_SYMBOL(sapphire_wifi_reset); */
 #endif
 
 static struct mmc_platform_data sapphire_wifi_data = {

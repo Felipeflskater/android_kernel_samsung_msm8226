@@ -2480,7 +2480,7 @@ struct sk_buff *ieee80211_beacon_get_tim(struct ieee80211_hw *hw,
 	rcu_read_unlock();
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_beacon_get_tim);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_beacon_get_tim); */
 
 struct sk_buff *ieee80211_proberesp_get(struct ieee80211_hw *hw,
 					struct ieee80211_vif *vif)
@@ -2511,7 +2511,7 @@ out:
 	rcu_read_unlock();
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_proberesp_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_proberesp_get); */
 
 struct sk_buff *ieee80211_pspoll_get(struct ieee80211_hw *hw,
 				     struct ieee80211_vif *vif)
@@ -2549,7 +2549,7 @@ struct sk_buff *ieee80211_pspoll_get(struct ieee80211_hw *hw,
 
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_pspoll_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_pspoll_get); */
 
 struct sk_buff *ieee80211_nullfunc_get(struct ieee80211_hw *hw,
 				       struct ieee80211_vif *vif)
@@ -2585,7 +2585,7 @@ struct sk_buff *ieee80211_nullfunc_get(struct ieee80211_hw *hw,
 
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_nullfunc_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_nullfunc_get); */
 
 struct sk_buff *ieee80211_probereq_get(struct ieee80211_hw *hw,
 				       struct ieee80211_vif *vif,
@@ -2632,7 +2632,7 @@ struct sk_buff *ieee80211_probereq_get(struct ieee80211_hw *hw,
 
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_probereq_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_probereq_get); */
 
 void ieee80211_rts_get(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 		       const void *frame, size_t frame_len,
@@ -2648,7 +2648,7 @@ void ieee80211_rts_get(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 	memcpy(rts->ra, hdr->addr1, sizeof(rts->ra));
 	memcpy(rts->ta, hdr->addr2, sizeof(rts->ta));
 }
-EXPORT_SYMBOL(ieee80211_rts_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_rts_get); */
 
 void ieee80211_ctstoself_get(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			     const void *frame, size_t frame_len,
@@ -2663,7 +2663,7 @@ void ieee80211_ctstoself_get(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 						     frame_len, frame_txctl);
 	memcpy(cts->ra, hdr->addr1, sizeof(cts->ra));
 }
-EXPORT_SYMBOL(ieee80211_ctstoself_get);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_ctstoself_get); */
 
 struct sk_buff *
 ieee80211_get_buffered_bc(struct ieee80211_hw *hw,
@@ -2723,7 +2723,7 @@ ieee80211_get_buffered_bc(struct ieee80211_hw *hw,
 
 	return skb;
 }
-EXPORT_SYMBOL(ieee80211_get_buffered_bc);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_get_buffered_bc); */
 
 void ieee80211_tx_skb_tid(struct ieee80211_sub_if_data *sdata,
 			  struct sk_buff *skb, int tid)

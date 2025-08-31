@@ -108,7 +108,7 @@ int bt_sock_register(int proto, const struct net_proto_family *ops)
 
 	return err;
 }
-EXPORT_SYMBOL(bt_sock_register);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_register); */
 
 int bt_sock_unregister(int proto)
 {
@@ -128,7 +128,7 @@ int bt_sock_unregister(int proto)
 
 	return err;
 }
-EXPORT_SYMBOL(bt_sock_unregister);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_unregister); */
 
 #ifdef CONFIG_PARANOID_NETWORK
 static inline int current_has_bt_admin(void)
@@ -194,7 +194,7 @@ void bt_sock_link(struct bt_sock_list *l, struct sock *sk)
 	sk_add_node(sk, &l->head);
 	write_unlock_bh(&l->lock);
 }
-EXPORT_SYMBOL(bt_sock_link);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_link); */
 
 void bt_sock_unlink(struct bt_sock_list *l, struct sock *sk)
 {
@@ -202,7 +202,7 @@ void bt_sock_unlink(struct bt_sock_list *l, struct sock *sk)
 	sk_del_node_init(sk);
 	write_unlock_bh(&l->lock);
 }
-EXPORT_SYMBOL(bt_sock_unlink);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_unlink); */
 
 void bt_accept_enqueue(struct sock *parent, struct sock *sk)
 {
@@ -213,7 +213,7 @@ void bt_accept_enqueue(struct sock *parent, struct sock *sk)
 	bt_sk(sk)->parent = parent;
 	parent->sk_ack_backlog++;
 }
-EXPORT_SYMBOL(bt_accept_enqueue);
+/* DISABLED: EXPORT_SYMBOL(bt_accept_enqueue); */
 
 void bt_accept_unlink(struct sock *sk)
 {
@@ -224,7 +224,7 @@ void bt_accept_unlink(struct sock *sk)
 	bt_sk(sk)->parent = NULL;
 	sock_put(sk);
 }
-EXPORT_SYMBOL(bt_accept_unlink);
+/* DISABLED: EXPORT_SYMBOL(bt_accept_unlink); */
 
 struct sock *bt_accept_dequeue(struct sock *parent, struct socket *newsock)
 {
@@ -263,7 +263,7 @@ struct sock *bt_accept_dequeue(struct sock *parent, struct socket *newsock)
 
 	return NULL;
 }
-EXPORT_SYMBOL(bt_accept_dequeue);
+/* DISABLED: EXPORT_SYMBOL(bt_accept_dequeue); */
 
 int bt_sock_recvmsg(struct kiocb *iocb, struct socket *sock,
 				struct msghdr *msg, size_t len, int flags)
@@ -301,7 +301,7 @@ int bt_sock_recvmsg(struct kiocb *iocb, struct socket *sock,
 
 	return err ? : copied;
 }
-EXPORT_SYMBOL(bt_sock_recvmsg);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_recvmsg); */
 
 static long bt_sock_data_wait(struct sock *sk, long timeo)
 {
@@ -435,7 +435,7 @@ out:
 	release_sock(sk);
 	return copied ? : err;
 }
-EXPORT_SYMBOL(bt_sock_stream_recvmsg);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_stream_recvmsg); */
 
 static inline unsigned int bt_accept_poll(struct sock *parent)
 {
@@ -492,7 +492,7 @@ unsigned int bt_sock_poll(struct file *file, struct socket *sock, poll_table *wa
 
 	return mask;
 }
-EXPORT_SYMBOL(bt_sock_poll);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_poll); */
 
 int bt_sock_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 {
@@ -540,7 +540,7 @@ int bt_sock_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 
 	return err;
 }
-EXPORT_SYMBOL(bt_sock_ioctl);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_ioctl); */
 
 int bt_sock_wait_state(struct sock *sk, int state, unsigned long timeo)
 {
@@ -575,7 +575,7 @@ int bt_sock_wait_state(struct sock *sk, int state, unsigned long timeo)
 	remove_wait_queue(sk_sleep(sk), &wait);
 	return err;
 }
-EXPORT_SYMBOL(bt_sock_wait_state);
+/* DISABLED: EXPORT_SYMBOL(bt_sock_wait_state); */
 
 static struct net_proto_family bt_sock_family_ops = {
 	.owner	= THIS_MODULE,

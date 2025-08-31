@@ -709,7 +709,7 @@ struct dvb_ca_en50221 *cxd2099_attach(struct cxd2099_cfg *cfg,
 	printk(KERN_INFO "Attached CXD2099AR at %02x\n", ci->cfg.adr);
 	return &ci->en;
 }
-EXPORT_SYMBOL(cxd2099_attach);
+/* DISABLED: EXPORT_SYMBOL(cxd2099_attach); */
 
 MODULE_DESCRIPTION("cxd2099");
 MODULE_AUTHOR("Ralph Metzler");

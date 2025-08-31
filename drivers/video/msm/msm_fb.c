@@ -4068,43 +4068,43 @@ struct fb_info *msm_fb_get_writeback_fb(void)
 
 	return NULL;
 }
-EXPORT_SYMBOL(msm_fb_get_writeback_fb);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_get_writeback_fb); */
 
 int msm_fb_writeback_start(struct fb_info *info)
 {
 	return mdp4_writeback_start(info);
 }
-EXPORT_SYMBOL(msm_fb_writeback_start);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_start); */
 
 int msm_fb_writeback_queue_buffer(struct fb_info *info,
 		struct msmfb_data *data)
 {
 	return mdp4_writeback_queue_buffer(info, data);
 }
-EXPORT_SYMBOL(msm_fb_writeback_queue_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_queue_buffer); */
 
 int msm_fb_writeback_dequeue_buffer(struct fb_info *info,
 		struct msmfb_data *data)
 {
 	return mdp4_writeback_dequeue_buffer(info, data);
 }
-EXPORT_SYMBOL(msm_fb_writeback_dequeue_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_dequeue_buffer); */
 
 int msm_fb_writeback_stop(struct fb_info *info)
 {
 	return mdp4_writeback_stop(info);
 }
-EXPORT_SYMBOL(msm_fb_writeback_stop);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_stop); */
 int msm_fb_writeback_init(struct fb_info *info)
 {
 	return mdp4_writeback_init(info);
 }
-EXPORT_SYMBOL(msm_fb_writeback_init);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_init); */
 int msm_fb_writeback_terminate(struct fb_info *info)
 {
 	return mdp4_writeback_terminate(info);
 }
-EXPORT_SYMBOL(msm_fb_writeback_terminate);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_terminate); */
 #endif
 
 struct platform_device *msm_fb_add_device(struct platform_device *pdev)
@@ -4212,7 +4212,7 @@ struct platform_device *msm_fb_add_device(struct platform_device *pdev)
 
 	return this_dev;
 }
-EXPORT_SYMBOL(msm_fb_add_device);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_add_device); */
 
 #ifdef CONFIG_SEC_DEBUG_SUBSYS
 void get_fbinfo(int fb_num, unsigned int *fb_paddr, unsigned int *xres,
@@ -4281,7 +4281,7 @@ int get_fb_phys_info(unsigned long *start, unsigned long *len, int fb_num,
 
 	return 0;
 }
-EXPORT_SYMBOL(get_fb_phys_info);
+/* DISABLED: EXPORT_SYMBOL(get_fb_phys_info); */
 
 int __init msm_fb_init(void)
 {
@@ -4339,7 +4339,7 @@ int msm_fb_v4l2_enable(struct mdp_overlay *req, bool enable, void **par)
 
 	return err;
 }
-EXPORT_SYMBOL(msm_fb_v4l2_enable);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_v4l2_enable); */
 
 /* Called by v4l2 driver to provide a frame for display */
 int msm_fb_v4l2_update(void *par, bool bUserPtr,
@@ -4367,6 +4367,6 @@ int msm_fb_v4l2_update(void *par, bool bUserPtr,
 #endif
 #endif
 }
-EXPORT_SYMBOL(msm_fb_v4l2_update);
+/* DISABLED: EXPORT_SYMBOL(msm_fb_v4l2_update); */
 
 module_init(msm_fb_init);

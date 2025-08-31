@@ -601,7 +601,7 @@ void wireless_send_event(struct net_device *	dev,
 	skb_queue_tail(&dev_net(dev)->wext_nlevents, skb);
 	schedule_work(&wireless_nlevent_work);
 }
-EXPORT_SYMBOL(wireless_send_event);
+/* DISABLED: EXPORT_SYMBOL(wireless_send_event); */
 
 
 

@@ -425,9 +425,9 @@ void unload_uart401(struct address_info *hw_config)
 	sound_unload_mididev(hw_config->slots[4]);
 }
 
-EXPORT_SYMBOL(probe_uart401);
-EXPORT_SYMBOL(unload_uart401);
-EXPORT_SYMBOL(uart401intr);
+/* DISABLED: EXPORT_SYMBOL(probe_uart401); */
+/* DISABLED: EXPORT_SYMBOL(unload_uart401); */
+/* DISABLED: EXPORT_SYMBOL(uart401intr); */
 
 static struct address_info cfg_mpu;
 
@@ -477,6 +477,6 @@ static int __init setup_uart401(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("uart401=", setup_uart401); */
+/* DISABLED: __setup("uart401=", setup_uart401); */ */
 #endif
 MODULE_LICENSE("GPL");

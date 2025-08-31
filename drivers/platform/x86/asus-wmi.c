@@ -1845,7 +1845,7 @@ int __init_or_module asus_wmi_register_driver(struct asus_wmi_driver *driver)
 	used = true;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(asus_wmi_register_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(asus_wmi_register_driver); */
 
 void asus_wmi_unregister_driver(struct asus_wmi_driver *driver)
 {
@@ -1853,7 +1853,7 @@ void asus_wmi_unregister_driver(struct asus_wmi_driver *driver)
 	platform_driver_unregister(&driver->platform_driver);
 	used = false;
 }
-EXPORT_SYMBOL_GPL(asus_wmi_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(asus_wmi_unregister_driver); */
 
 static int __init asus_wmi_init(void)
 {

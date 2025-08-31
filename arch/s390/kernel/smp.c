@@ -496,7 +496,7 @@ void smp_ptlb_all(void)
 {
 	on_each_cpu(smp_ptlb_callback, NULL, 1);
 }
-EXPORT_SYMBOL(smp_ptlb_all);
+/* DISABLED: EXPORT_SYMBOL(smp_ptlb_all); */
 #endif /* ! CONFIG_64BIT */
 
 /*
@@ -540,7 +540,7 @@ void smp_ctl_set_bit(int cr, int bit)
 
 	on_each_cpu(smp_ctl_bit_callback, &parms, 1);
 }
-EXPORT_SYMBOL(smp_ctl_set_bit);
+/* DISABLED: EXPORT_SYMBOL(smp_ctl_set_bit); */
 
 /*
  * Clear a bit in a control register of all cpus
@@ -551,12 +551,12 @@ void smp_ctl_clear_bit(int cr, int bit)
 
 	on_each_cpu(smp_ctl_bit_callback, &parms, 1);
 }
-EXPORT_SYMBOL(smp_ctl_clear_bit);
+/* DISABLED: EXPORT_SYMBOL(smp_ctl_clear_bit); */
 
 #if defined(CONFIG_ZFCPDUMP) || defined(CONFIG_CRASH_DUMP)
 
 struct save_area *zfcpdump_save_areas[NR_CPUS + 1];
-EXPORT_SYMBOL_GPL(zfcpdump_save_areas);
+/* DISABLED: EXPORT_SYMBOL_GPL(zfcpdump_save_areas); */
 
 static void __init smp_get_save_area(int cpu, u16 address)
 {

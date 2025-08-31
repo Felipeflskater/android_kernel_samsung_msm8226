@@ -1017,7 +1017,7 @@ int get_tsp_status(void)
 {
 	return touch_is_pressed;
 }
-EXPORT_SYMBOL(get_tsp_status);
+/* DISABLED: EXPORT_SYMBOL(get_tsp_status); */
 
 static int get_fw_version(struct mms_ts_info *info)
 {
@@ -2579,7 +2579,7 @@ void dump_tsp_log(void){
 	dev_info(&ts->client->dev, "demp_tsp_log, not debug2 mode\n");
 #endif
 }
-EXPORT_SYMBOL(dump_tsp_log);
+/* DISABLED: EXPORT_SYMBOL(dump_tsp_log); */
 
 static void get_x_num(void *device_data)
 {

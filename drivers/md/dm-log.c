@@ -125,7 +125,7 @@ int dm_dirty_log_type_register(struct dm_dirty_log_type *type)
 
 	return r;
 }
-EXPORT_SYMBOL(dm_dirty_log_type_register);
+/* DISABLED: EXPORT_SYMBOL(dm_dirty_log_type_register); */
 
 int dm_dirty_log_type_unregister(struct dm_dirty_log_type *type)
 {
@@ -142,7 +142,7 @@ int dm_dirty_log_type_unregister(struct dm_dirty_log_type *type)
 
 	return 0;
 }
-EXPORT_SYMBOL(dm_dirty_log_type_unregister);
+/* DISABLED: EXPORT_SYMBOL(dm_dirty_log_type_unregister); */
 
 struct dm_dirty_log *dm_dirty_log_create(const char *type_name,
 			struct dm_target *ti,
@@ -172,7 +172,7 @@ struct dm_dirty_log *dm_dirty_log_create(const char *type_name,
 
 	return log;
 }
-EXPORT_SYMBOL(dm_dirty_log_create);
+/* DISABLED: EXPORT_SYMBOL(dm_dirty_log_create); */
 
 void dm_dirty_log_destroy(struct dm_dirty_log *log)
 {
@@ -180,7 +180,7 @@ void dm_dirty_log_destroy(struct dm_dirty_log *log)
 	put_type(log->type);
 	kfree(log);
 }
-EXPORT_SYMBOL(dm_dirty_log_destroy);
+/* DISABLED: EXPORT_SYMBOL(dm_dirty_log_destroy); */
 
 /*-----------------------------------------------------------------
  * Persistent and core logs share a lot of their implementation.

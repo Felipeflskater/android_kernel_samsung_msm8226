@@ -190,7 +190,7 @@ bool nfs_generic_pg_test(struct nfs_pageio_descriptor *desc, struct nfs_page *pr
 
 	return desc->pg_count + req->wb_bytes <= desc->pg_bsize;
 }
-EXPORT_SYMBOL_GPL(nfs_generic_pg_test);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs_generic_pg_test); */
 
 /**
  * nfs_pageio_init - initialise a page io descriptor

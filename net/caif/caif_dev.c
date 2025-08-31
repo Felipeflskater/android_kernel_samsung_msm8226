@@ -61,7 +61,7 @@ struct cfcnfg *get_cfcnfg(struct net *net)
 	caifn = net_generic(net, caif_net_id);
 	return caifn->cfg;
 }
-EXPORT_SYMBOL(get_cfcnfg);
+/* DISABLED: EXPORT_SYMBOL(get_cfcnfg); */
 
 static struct caif_device_entry_list *caif_device_list(struct net *net)
 {
@@ -346,7 +346,7 @@ void caif_enroll_dev(struct net_device *dev, struct caif_dev_common *caifdev,
 	if (rcv_func)
 		*rcv_func = receive;
 }
-EXPORT_SYMBOL(caif_enroll_dev);
+/* DISABLED: EXPORT_SYMBOL(caif_enroll_dev); */
 
 /* notify Caif of device events */
 static int caif_device_notify(struct notifier_block *me, unsigned long what,

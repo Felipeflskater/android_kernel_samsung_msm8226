@@ -761,7 +761,7 @@ int omapfb_update_window_async(struct fb_info *fbi,
 
 	return fbdev->ctrl->update_window(fbi, win, callback, callback_data);
 }
-EXPORT_SYMBOL(omapfb_update_window_async);
+/* DISABLED: EXPORT_SYMBOL(omapfb_update_window_async); */
 
 static int omapfb_update_win(struct fb_info *fbi,
 				struct omapfb_update_window *win)
@@ -1012,14 +1012,14 @@ int omapfb_register_client(struct omapfb_notifier_block *omapfb_nb,
 
 	return 0;
 }
-EXPORT_SYMBOL(omapfb_register_client);
+/* DISABLED: EXPORT_SYMBOL(omapfb_register_client); */
 
 int omapfb_unregister_client(struct omapfb_notifier_block *omapfb_nb)
 {
 	return blocking_notifier_chain_unregister(
 		&omapfb_client_list[omapfb_nb->plane_idx], &omapfb_nb->nb);
 }
-EXPORT_SYMBOL(omapfb_unregister_client);
+/* DISABLED: EXPORT_SYMBOL(omapfb_unregister_client); */
 
 void omapfb_notify_clients(struct omapfb_device *fbdev, unsigned long event)
 {
@@ -1033,7 +1033,7 @@ void omapfb_notify_clients(struct omapfb_device *fbdev, unsigned long event)
 		blocking_notifier_call_chain(&omapfb_client_list[i], event,
 				    fbdev->fb_info[i]);
 }
-EXPORT_SYMBOL(omapfb_notify_clients);
+/* DISABLED: EXPORT_SYMBOL(omapfb_notify_clients); */
 
 static int omapfb_set_update_mode(struct omapfb_device *fbdev,
 				   enum omapfb_update_mode mode)
@@ -1083,7 +1083,7 @@ void omapfb_write_first_pixel(struct omapfb_device *fbdev, u16 pixval)
 	}
 	omapfb_rqueue_unlock(fbdev);
 }
-EXPORT_SYMBOL(omapfb_write_first_pixel);
+/* DISABLED: EXPORT_SYMBOL(omapfb_write_first_pixel); */
 
 /*
  * Ioctl interface. Part of the kernel mode frame buffer API is duplicated

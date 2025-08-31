@@ -941,7 +941,7 @@ void kvm_lapic_set_eoi(struct kvm_vcpu *vcpu)
 	if (apic)
 		apic_reg_write(vcpu->arch.apic, APIC_EOI, 0);
 }
-EXPORT_SYMBOL_GPL(kvm_lapic_set_eoi);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_lapic_set_eoi); */
 
 void kvm_free_lapic(struct kvm_vcpu *vcpu)
 {

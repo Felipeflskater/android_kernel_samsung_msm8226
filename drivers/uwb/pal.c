@@ -30,7 +30,7 @@ void uwb_pal_init(struct uwb_pal *pal)
 {
 	INIT_LIST_HEAD(&pal->node);
 }
-EXPORT_SYMBOL_GPL(uwb_pal_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_pal_init); */
 
 /**
  * uwb_pal_register - register a UWB PAL
@@ -64,7 +64,7 @@ int uwb_pal_register(struct uwb_pal *pal)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(uwb_pal_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_pal_register); */
 
 /**
  * uwb_pal_register - unregister a UWB PAL
@@ -87,7 +87,7 @@ void uwb_pal_unregister(struct uwb_pal *pal)
 		sysfs_remove_link(&pal->device->kobj, "uwb_rc");
 	}
 }
-EXPORT_SYMBOL_GPL(uwb_pal_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_pal_unregister); */
 
 /**
  * uwb_rc_pal_init - initialize the PAL related parts of a radio controller

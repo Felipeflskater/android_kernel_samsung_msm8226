@@ -25,7 +25,7 @@ void locks_start_grace(struct lock_manager *lm)
 	list_add(&lm->list, &grace_list);
 	spin_unlock(&grace_lock);
 }
-EXPORT_SYMBOL_GPL(locks_start_grace);
+/* DISABLED: EXPORT_SYMBOL_GPL(locks_start_grace); */
 
 /**
  * locks_end_grace
@@ -43,7 +43,7 @@ void locks_end_grace(struct lock_manager *lm)
 	list_del_init(&lm->list);
 	spin_unlock(&grace_lock);
 }
-EXPORT_SYMBOL_GPL(locks_end_grace);
+/* DISABLED: EXPORT_SYMBOL_GPL(locks_end_grace); */
 
 /**
  * locks_in_grace
@@ -56,4 +56,4 @@ int locks_in_grace(void)
 {
 	return !list_empty(&grace_list);
 }
-EXPORT_SYMBOL_GPL(locks_in_grace);
+/* DISABLED: EXPORT_SYMBOL_GPL(locks_in_grace); */

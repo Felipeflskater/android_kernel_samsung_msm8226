@@ -6437,14 +6437,14 @@ int tapan_hs_detect(struct snd_soc_codec *codec,
 	struct tapan_priv *tapan = snd_soc_codec_get_drvdata(codec);
 	return wcd9xxx_mbhc_start(&tapan->mbhc, mbhc_cfg);
 }
-EXPORT_SYMBOL(tapan_hs_detect);
+/* DISABLED: EXPORT_SYMBOL(tapan_hs_detect); */
 
 void tapan_hs_detect_exit(struct snd_soc_codec *codec)
 {
 	struct tapan_priv *tapan = snd_soc_codec_get_drvdata(codec);
 	wcd9xxx_mbhc_stop(&tapan->mbhc);
 }
-EXPORT_SYMBOL(tapan_hs_detect_exit);
+/* DISABLED: EXPORT_SYMBOL(tapan_hs_detect_exit); */
 
 void tapan_event_register(
 	int (*machine_event_cb)(struct snd_soc_codec *codec,
@@ -6454,7 +6454,7 @@ void tapan_event_register(
 	struct tapan_priv *tapan = snd_soc_codec_get_drvdata(codec);
 	tapan->machine_codec_event_cb = machine_event_cb;
 }
-EXPORT_SYMBOL(tapan_event_register);
+/* DISABLED: EXPORT_SYMBOL(tapan_event_register); */
 
 static int tapan_device_down(struct wcd9xxx *wcd9xxx)
 {
@@ -6692,7 +6692,7 @@ bool is_codec_probe_done(void)
 {
 	return codec_probe_done;
 }
-EXPORT_SYMBOL(is_codec_probe_done);
+/* DISABLED: EXPORT_SYMBOL(is_codec_probe_done); */
 #endif
 
 static int tapan_codec_probe(struct snd_soc_codec *codec)

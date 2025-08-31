@@ -23,4 +23,4 @@ int check_signature(const volatile void __iomem *io_addr,
 	}
 	return 1;
 }
-EXPORT_SYMBOL(check_signature);
+/* DISABLED: EXPORT_SYMBOL(check_signature); */

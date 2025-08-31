@@ -265,7 +265,7 @@ void cma3000_suspend(struct cma3000_accl_data *data)
 
 	mutex_unlock(&data->mutex);
 }
-EXPORT_SYMBOL(cma3000_suspend);
+/* DISABLED: EXPORT_SYMBOL(cma3000_suspend); */
 
 
 void cma3000_resume(struct cma3000_accl_data *data)
@@ -279,7 +279,7 @@ void cma3000_resume(struct cma3000_accl_data *data)
 
 	mutex_unlock(&data->mutex);
 }
-EXPORT_SYMBOL(cma3000_resume);
+/* DISABLED: EXPORT_SYMBOL(cma3000_resume); */
 
 struct cma3000_accl_data *cma3000_init(struct device *dev, int irq,
 				       const struct cma3000_bus_ops *bops)
@@ -384,7 +384,7 @@ err_free_mem:
 err_out:
 	return ERR_PTR(error);
 }
-EXPORT_SYMBOL(cma3000_init);
+/* DISABLED: EXPORT_SYMBOL(cma3000_init); */
 
 void cma3000_exit(struct cma3000_accl_data *data)
 {
@@ -392,7 +392,7 @@ void cma3000_exit(struct cma3000_accl_data *data)
 	input_unregister_device(data->input_dev);
 	kfree(data);
 }
-EXPORT_SYMBOL(cma3000_exit);
+/* DISABLED: EXPORT_SYMBOL(cma3000_exit); */
 
 MODULE_DESCRIPTION("CMA3000-D0x Accelerometer Driver");
 MODULE_LICENSE("GPL");

@@ -71,7 +71,7 @@ leave:
 	*ret_nread = nread;
 	return val;
 }
-EXPORT_SYMBOL_GPL(mpi_read_from_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_read_from_buffer); */
 
 /****************
  * Make an mpi from a character string.
@@ -146,7 +146,7 @@ int mpi_fromstr(MPI val, const char *str)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mpi_fromstr);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_fromstr); */
 
 /****************
  * Return an allocated buffer with the MPI (msb first).
@@ -201,7 +201,7 @@ void *mpi_get_buffer(MPI a, unsigned *nbytes, int *sign)
 
 	return buffer;
 }
-EXPORT_SYMBOL_GPL(mpi_get_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_get_buffer); */
 
 /****************
  * Use BUFFER to update MPI.
@@ -277,4 +277,4 @@ int mpi_set_buffer(MPI a, const void *xbuffer, unsigned nbytes, int sign)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mpi_set_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_set_buffer); */

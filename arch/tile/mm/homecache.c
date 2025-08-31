@@ -370,7 +370,7 @@ pte_t pte_set_home(pte_t pte, int home)
 
 	return pte;
 }
-EXPORT_SYMBOL(pte_set_home);
+/* DISABLED: EXPORT_SYMBOL(pte_set_home); */
 
 /*
  * The routines in this section are the "static" versions of the normal
@@ -394,7 +394,7 @@ int page_home(struct page *page)
 		return pte_to_home(*virt_to_pte(NULL, kva));
 	}
 }
-EXPORT_SYMBOL(page_home);
+/* DISABLED: EXPORT_SYMBOL(page_home); */
 
 void homecache_change_page_home(struct page *page, int order, int home)
 {
@@ -427,7 +427,7 @@ struct page *homecache_alloc_pages(gfp_t gfp_mask,
 		homecache_change_page_home(page, order, home);
 	return page;
 }
-EXPORT_SYMBOL(homecache_alloc_pages);
+/* DISABLED: EXPORT_SYMBOL(homecache_alloc_pages); */
 
 struct page *homecache_alloc_pages_node(int nid, gfp_t gfp_mask,
 					unsigned int order, int home)

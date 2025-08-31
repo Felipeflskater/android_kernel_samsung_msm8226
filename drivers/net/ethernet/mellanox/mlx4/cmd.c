@@ -545,7 +545,7 @@ int __mlx4_cmd(struct mlx4_dev *dev, u64 in_param, u64 *out_param,
 	return mlx4_slave_cmd(dev, in_param, out_param, out_is_imm,
 			      in_modifier, op_modifier, op, timeout);
 }
-EXPORT_SYMBOL_GPL(__mlx4_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mlx4_cmd); */
 
 
 static int mlx4_ARM_COMM_CHANNEL(struct mlx4_dev *dev)
@@ -1717,7 +1717,7 @@ struct mlx4_cmd_mailbox *mlx4_alloc_cmd_mailbox(struct mlx4_dev *dev)
 
 	return mailbox;
 }
-EXPORT_SYMBOL_GPL(mlx4_alloc_cmd_mailbox);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_alloc_cmd_mailbox); */
 
 void mlx4_free_cmd_mailbox(struct mlx4_dev *dev,
 			   struct mlx4_cmd_mailbox *mailbox)
@@ -1728,7 +1728,7 @@ void mlx4_free_cmd_mailbox(struct mlx4_dev *dev,
 	pci_pool_free(mlx4_priv(dev)->cmd.pool, mailbox->buf, mailbox->dma);
 	kfree(mailbox);
 }
-EXPORT_SYMBOL_GPL(mlx4_free_cmd_mailbox);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_free_cmd_mailbox); */
 
 u32 mlx4_comm_get_version(void)
 {

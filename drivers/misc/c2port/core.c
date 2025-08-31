@@ -954,7 +954,7 @@ error_idr_get_new:
 
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL(c2port_device_register);
+/* DISABLED: EXPORT_SYMBOL(c2port_device_register); */
 
 void c2port_device_unregister(struct c2port_device *c2dev)
 {
@@ -972,7 +972,7 @@ void c2port_device_unregister(struct c2port_device *c2dev)
 
 	kfree(c2dev);
 }
-EXPORT_SYMBOL(c2port_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(c2port_device_unregister); */
 
 /*
  * Module stuff

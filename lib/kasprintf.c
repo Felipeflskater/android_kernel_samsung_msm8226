@@ -29,7 +29,7 @@ char *kvasprintf(gfp_t gfp, const char *fmt, va_list ap)
 
 	return p;
 }
-EXPORT_SYMBOL(kvasprintf);
+/* DISABLED: EXPORT_SYMBOL(kvasprintf); */
 
 char *kasprintf(gfp_t gfp, const char *fmt, ...)
 {
@@ -42,4 +42,4 @@ char *kasprintf(gfp_t gfp, const char *fmt, ...)
 
 	return p;
 }
-EXPORT_SYMBOL(kasprintf);
+/* DISABLED: EXPORT_SYMBOL(kasprintf); */

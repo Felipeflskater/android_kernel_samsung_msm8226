@@ -37,7 +37,7 @@ const char *rcode_string(unsigned int rcode)
 	else
 		return "unknown";
 }
-EXPORT_SYMBOL(rcode_string);
+/* DISABLED: EXPORT_SYMBOL(rcode_string); */
 
 /**
  * snd_fw_transaction - send a request and wait for its completion
@@ -78,7 +78,7 @@ int snd_fw_transaction(struct fw_unit *unit, int tcode,
 		msleep(ERROR_RETRY_DELAY_MS);
 	}
 }
-EXPORT_SYMBOL(snd_fw_transaction);
+/* DISABLED: EXPORT_SYMBOL(snd_fw_transaction); */
 
 MODULE_DESCRIPTION("FireWire audio helper functions");
 MODULE_AUTHOR("Clemens Ladisch <clemens@ladisch.de>");

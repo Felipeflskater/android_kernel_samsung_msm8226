@@ -142,7 +142,7 @@ errout:
 	write_unlock(&ematch_mod_lock);
 	return err;
 }
-EXPORT_SYMBOL(tcf_em_register);
+/* DISABLED: EXPORT_SYMBOL(tcf_em_register); */
 
 /**
  * tcf_em_unregister - unregster and extended match
@@ -161,7 +161,7 @@ void tcf_em_unregister(struct tcf_ematch_ops *ops)
 	list_del(&ops->link);
 	write_unlock(&ematch_mod_lock);
 }
-EXPORT_SYMBOL(tcf_em_unregister);
+/* DISABLED: EXPORT_SYMBOL(tcf_em_unregister); */
 
 static inline struct tcf_ematch *tcf_em_get_match(struct tcf_ematch_tree *tree,
 						  int index)
@@ -381,7 +381,7 @@ errout_abort:
 	tcf_em_tree_destroy(tp, tree);
 	return err;
 }
-EXPORT_SYMBOL(tcf_em_tree_validate);
+/* DISABLED: EXPORT_SYMBOL(tcf_em_tree_validate); */
 
 /**
  * tcf_em_tree_destroy - destroy an ematch tree
@@ -416,7 +416,7 @@ void tcf_em_tree_destroy(struct tcf_proto *tp, struct tcf_ematch_tree *tree)
 	kfree(tree->matches);
 	tree->matches = NULL;
 }
-EXPORT_SYMBOL(tcf_em_tree_destroy);
+/* DISABLED: EXPORT_SYMBOL(tcf_em_tree_destroy); */
 
 /**
  * tcf_em_tree_dump - dump ematch tree into a rtnl message
@@ -480,7 +480,7 @@ int tcf_em_tree_dump(struct sk_buff *skb, struct tcf_ematch_tree *tree, int tlv)
 nla_put_failure:
 	return -1;
 }
-EXPORT_SYMBOL(tcf_em_tree_dump);
+/* DISABLED: EXPORT_SYMBOL(tcf_em_tree_dump); */
 
 static inline int tcf_em_match(struct sk_buff *skb, struct tcf_ematch *em,
 			       struct tcf_pkt_info *info)
@@ -540,4 +540,4 @@ stack_overflow:
 			   " increase NET_EMATCH_STACK\n");
 	return -1;
 }
-EXPORT_SYMBOL(__tcf_em_tree_match);
+/* DISABLED: EXPORT_SYMBOL(__tcf_em_tree_match); */

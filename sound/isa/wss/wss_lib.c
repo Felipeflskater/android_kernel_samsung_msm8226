@@ -211,7 +211,7 @@ void snd_wss_out(struct snd_wss *chip, unsigned char reg, unsigned char value)
 	snd_printdd("codec out - reg 0x%x = 0x%x\n",
 			chip->mce_bit | reg, value);
 }
-EXPORT_SYMBOL(snd_wss_out);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_out); */
 
 unsigned char snd_wss_in(struct snd_wss *chip, unsigned char reg)
 {
@@ -225,7 +225,7 @@ unsigned char snd_wss_in(struct snd_wss *chip, unsigned char reg)
 	mb();
 	return wss_inb(chip, CS4231P(REG));
 }
-EXPORT_SYMBOL(snd_wss_in);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_in); */
 
 void snd_cs4236_ext_out(struct snd_wss *chip, unsigned char reg,
 			unsigned char val)
@@ -239,7 +239,7 @@ void snd_cs4236_ext_out(struct snd_wss *chip, unsigned char reg,
 	printk(KERN_DEBUG "ext out : reg = 0x%x, val = 0x%x\n", reg, val);
 #endif
 }
-EXPORT_SYMBOL(snd_cs4236_ext_out);
+/* DISABLED: EXPORT_SYMBOL(snd_cs4236_ext_out); */
 
 unsigned char snd_cs4236_ext_in(struct snd_wss *chip, unsigned char reg)
 {
@@ -258,7 +258,7 @@ unsigned char snd_cs4236_ext_in(struct snd_wss *chip, unsigned char reg)
 	}
 #endif
 }
-EXPORT_SYMBOL(snd_cs4236_ext_in);
+/* DISABLED: EXPORT_SYMBOL(snd_cs4236_ext_in); */
 
 #if 0
 
@@ -394,7 +394,7 @@ void snd_wss_mce_up(struct snd_wss *chip)
 			 chip->mce_bit | (timeout & 0x1f));
 	spin_unlock_irqrestore(&chip->reg_lock, flags);
 }
-EXPORT_SYMBOL(snd_wss_mce_up);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_mce_up); */
 
 void snd_wss_mce_down(struct snd_wss *chip)
 {
@@ -460,7 +460,7 @@ void snd_wss_mce_down(struct snd_wss *chip)
 	snd_printdd("(3) jiffies = %lu\n", jiffies);
 	snd_printd("mce_down - exit = 0x%x\n", wss_inb(chip, CS4231P(REGSEL)));
 }
-EXPORT_SYMBOL(snd_wss_mce_down);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_mce_down); */
 
 static unsigned int snd_wss_get_count(unsigned char format, unsigned int size)
 {
@@ -1098,7 +1098,7 @@ void snd_wss_overrange(struct snd_wss *chip)
 	if (res & (0x08 | 0x02))	/* detect overrange only above 0dB; may be user selectable? */
 		chip->capture_substream->runtime->overrange++;
 }
-EXPORT_SYMBOL(snd_wss_overrange);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_overrange); */
 
 irqreturn_t snd_wss_interrupt(int irq, void *dev_id)
 {
@@ -1149,7 +1149,7 @@ irqreturn_t snd_wss_interrupt(int irq, void *dev_id)
 	spin_unlock(&chip->reg_lock);
 	return IRQ_HANDLED;
 }
-EXPORT_SYMBOL(snd_wss_interrupt);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_interrupt); */
 
 static snd_pcm_uframes_t snd_wss_playback_pointer(struct snd_pcm_substream *substream)
 {
@@ -1756,7 +1756,7 @@ const char *snd_wss_chip_id(struct snd_wss *chip)
 		return "???";
 	}
 }
-EXPORT_SYMBOL(snd_wss_chip_id);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_chip_id); */
 
 static int snd_wss_new(struct snd_card *card,
 			  unsigned short hardware,
@@ -1896,7 +1896,7 @@ int snd_wss_create(struct snd_card *card,
 	*rchip = chip;
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_create);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_create); */
 
 static struct snd_pcm_ops snd_wss_playback_ops = {
 	.open =		snd_wss_playback_open,
@@ -1950,7 +1950,7 @@ int snd_wss_pcm(struct snd_wss *chip, int device, struct snd_pcm **rpcm)
 		*rpcm = pcm;
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_pcm);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_pcm); */
 
 static void snd_wss_timer_free(struct snd_timer *timer)
 {
@@ -1981,7 +1981,7 @@ int snd_wss_timer(struct snd_wss *chip, int device, struct snd_timer **rtimer)
 		*rtimer = timer;
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_timer);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_timer); */
 
 /*
  *  MIXER part
@@ -2072,7 +2072,7 @@ int snd_wss_info_single(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = mask;
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_info_single);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_info_single); */
 
 int snd_wss_get_single(struct snd_kcontrol *kcontrol,
 		       struct snd_ctl_elem_value *ucontrol)
@@ -2091,7 +2091,7 @@ int snd_wss_get_single(struct snd_kcontrol *kcontrol,
 		ucontrol->value.integer.value[0] = mask - ucontrol->value.integer.value[0];
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_get_single);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_get_single); */
 
 int snd_wss_put_single(struct snd_kcontrol *kcontrol,
 		       struct snd_ctl_elem_value *ucontrol)
@@ -2116,7 +2116,7 @@ int snd_wss_put_single(struct snd_kcontrol *kcontrol,
 	spin_unlock_irqrestore(&chip->reg_lock, flags);
 	return change;
 }
-EXPORT_SYMBOL(snd_wss_put_single);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_put_single); */
 
 int snd_wss_info_double(struct snd_kcontrol *kcontrol,
 			struct snd_ctl_elem_info *uinfo)
@@ -2129,7 +2129,7 @@ int snd_wss_info_double(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = mask;
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_info_double);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_info_double); */
 
 int snd_wss_get_double(struct snd_kcontrol *kcontrol,
 		       struct snd_ctl_elem_value *ucontrol)
@@ -2153,7 +2153,7 @@ int snd_wss_get_double(struct snd_kcontrol *kcontrol,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_get_double);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_get_double); */
 
 int snd_wss_put_double(struct snd_kcontrol *kcontrol,
 		       struct snd_ctl_elem_value *ucontrol)
@@ -2194,7 +2194,7 @@ int snd_wss_put_double(struct snd_kcontrol *kcontrol,
 	spin_unlock_irqrestore(&chip->reg_lock, flags);
 	return change;
 }
-EXPORT_SYMBOL(snd_wss_put_double);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_put_double); */
 
 static const DECLARE_TLV_DB_SCALE(db_scale_6bit, -9450, 150, 0);
 static const DECLARE_TLV_DB_SCALE(db_scale_5bit_12db_max, -3450, 150, 0);
@@ -2278,14 +2278,14 @@ int snd_wss_mixer(struct snd_wss *chip)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(snd_wss_mixer);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_mixer); */
 
 const struct snd_pcm_ops *snd_wss_get_pcm_ops(int direction)
 {
 	return direction == SNDRV_PCM_STREAM_PLAYBACK ?
 		&snd_wss_playback_ops : &snd_wss_capture_ops;
 }
-EXPORT_SYMBOL(snd_wss_get_pcm_ops);
+/* DISABLED: EXPORT_SYMBOL(snd_wss_get_pcm_ops); */
 
 /*
  *  INIT part

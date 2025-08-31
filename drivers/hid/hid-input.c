@@ -1064,7 +1064,7 @@ void hidinput_report_event(struct hid_device *hid, struct hid_report *report)
 	list_for_each_entry(hidinput, &hid->inputs, list)
 		input_sync(hidinput->input);
 }
-EXPORT_SYMBOL_GPL(hidinput_report_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_report_event); */
 
 int hidinput_find_field(struct hid_device *hid, unsigned int type, unsigned int code, struct hid_field **field)
 {
@@ -1081,7 +1081,7 @@ int hidinput_find_field(struct hid_device *hid, unsigned int type, unsigned int 
 	}
 	return -1;
 }
-EXPORT_SYMBOL_GPL(hidinput_find_field);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_find_field); */
 
 struct hid_field *hidinput_get_led_field(struct hid_device *hid)
 {
@@ -1101,7 +1101,7 @@ struct hid_field *hidinput_get_led_field(struct hid_device *hid)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(hidinput_get_led_field);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_get_led_field); */
 
 unsigned int hidinput_count_leds(struct hid_device *hid)
 {
@@ -1123,7 +1123,7 @@ unsigned int hidinput_count_leds(struct hid_device *hid)
 	}
 	return count;
 }
-EXPORT_SYMBOL_GPL(hidinput_count_leds);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_count_leds); */
 
 static void hidinput_led_worker(struct work_struct *work)
 {
@@ -1346,7 +1346,7 @@ out_unwind:
 
 	return -1;
 }
-EXPORT_SYMBOL_GPL(hidinput_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_connect); */
 
 void hidinput_disconnect(struct hid_device *hid)
 {
@@ -1366,5 +1366,5 @@ void hidinput_disconnect(struct hid_device *hid)
 	 * synchronously and are safe. */
 	cancel_work_sync(&hid->led_work);
 }
-EXPORT_SYMBOL_GPL(hidinput_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(hidinput_disconnect); */
 

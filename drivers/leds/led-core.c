@@ -19,10 +19,10 @@
 #include "leds.h"
 
 DECLARE_RWSEM(leds_list_lock);
-EXPORT_SYMBOL_GPL(leds_list_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(leds_list_lock); */
 
 LIST_HEAD(leds_list);
-EXPORT_SYMBOL_GPL(leds_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(leds_list); */
 
 static void led_stop_software_blink(struct led_classdev *led_cdev)
 {
@@ -84,7 +84,7 @@ void led_blink_set(struct led_classdev *led_cdev,
 
 	led_set_software_blink(led_cdev, *delay_on, *delay_off);
 }
-EXPORT_SYMBOL(led_blink_set);
+/* DISABLED: EXPORT_SYMBOL(led_blink_set); */
 
 void led_brightness_set(struct led_classdev *led_cdev,
 			enum led_brightness brightness)
@@ -92,4 +92,4 @@ void led_brightness_set(struct led_classdev *led_cdev,
 	led_stop_software_blink(led_cdev);
 	led_cdev->brightness_set(led_cdev, brightness);
 }
-EXPORT_SYMBOL(led_brightness_set);
+/* DISABLED: EXPORT_SYMBOL(led_brightness_set); */

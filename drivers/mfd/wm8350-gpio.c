@@ -219,4 +219,4 @@ int wm8350_gpio_config(struct wm8350 *wm8350, int gpio, int dir, int func,
 err:
 	return -EIO;
 }
-EXPORT_SYMBOL_GPL(wm8350_gpio_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_gpio_config); */

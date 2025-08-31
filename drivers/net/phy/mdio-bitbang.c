@@ -227,7 +227,7 @@ struct mii_bus *alloc_mdio_bitbang(struct mdiobb_ctrl *ctrl)
 
 	return bus;
 }
-EXPORT_SYMBOL(alloc_mdio_bitbang);
+/* DISABLED: EXPORT_SYMBOL(alloc_mdio_bitbang); */
 
 void free_mdio_bitbang(struct mii_bus *bus)
 {
@@ -236,6 +236,6 @@ void free_mdio_bitbang(struct mii_bus *bus)
 	module_put(ctrl->ops->owner);
 	mdiobus_free(bus);
 }
-EXPORT_SYMBOL(free_mdio_bitbang);
+/* DISABLED: EXPORT_SYMBOL(free_mdio_bitbang); */
 
 MODULE_LICENSE("GPL");

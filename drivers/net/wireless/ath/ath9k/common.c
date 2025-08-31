@@ -39,7 +39,7 @@ int ath9k_cmn_padpos(__le16 frame_control)
 
 	return padpos;
 }
-EXPORT_SYMBOL(ath9k_cmn_padpos);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_padpos); */
 
 int ath9k_cmn_get_hw_crypto_keytype(struct sk_buff *skb)
 {
@@ -61,7 +61,7 @@ int ath9k_cmn_get_hw_crypto_keytype(struct sk_buff *skb)
 
 	return ATH9K_KEY_TYPE_CLEAR;
 }
-EXPORT_SYMBOL(ath9k_cmn_get_hw_crypto_keytype);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_get_hw_crypto_keytype); */
 
 static u32 ath9k_get_extchanmode(struct ieee80211_channel *chan,
 				 enum nl80211_channel_type channel_type)
@@ -125,7 +125,7 @@ void ath9k_cmn_update_ichannel(struct ath9k_channel *ichan,
 	if (channel_type != NL80211_CHAN_NO_HT)
 		ichan->chanmode = ath9k_get_extchanmode(chan, channel_type);
 }
-EXPORT_SYMBOL(ath9k_cmn_update_ichannel);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_update_ichannel); */
 
 /*
  * Get the internal channel reference.
@@ -143,7 +143,7 @@ struct ath9k_channel *ath9k_cmn_get_curchannel(struct ieee80211_hw *hw,
 
 	return channel;
 }
-EXPORT_SYMBOL(ath9k_cmn_get_curchannel);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_get_curchannel); */
 
 int ath9k_cmn_count_streams(unsigned int chainmask, int max)
 {
@@ -156,7 +156,7 @@ int ath9k_cmn_count_streams(unsigned int chainmask, int max)
 
 	return streams;
 }
-EXPORT_SYMBOL(ath9k_cmn_count_streams);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_count_streams); */
 
 void ath9k_cmn_update_txpow(struct ath_hw *ah, u16 cur_txpow,
 			    u16 new_txpow, u16 *txpower)
@@ -169,7 +169,7 @@ void ath9k_cmn_update_txpow(struct ath_hw *ah, u16 cur_txpow,
 		*txpower = reg->max_power_level;
 	}
 }
-EXPORT_SYMBOL(ath9k_cmn_update_txpow);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_update_txpow); */
 
 void ath9k_cmn_init_crypto(struct ath_hw *ah)
 {
@@ -195,7 +195,7 @@ void ath9k_cmn_init_crypto(struct ath_hw *ah)
 	for (i = 0; i < common->keymax; i++)
 		ath_hw_keyreset(common, (u16) i);
 }
-EXPORT_SYMBOL(ath9k_cmn_init_crypto);
+/* DISABLED: EXPORT_SYMBOL(ath9k_cmn_init_crypto); */
 
 static int __init ath9k_cmn_init(void)
 {

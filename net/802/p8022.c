@@ -61,7 +61,7 @@ void unregister_8022_client(struct datalink_proto *proto)
 	kfree(proto);
 }
 
-EXPORT_SYMBOL(register_8022_client);
-EXPORT_SYMBOL(unregister_8022_client);
+/* DISABLED: EXPORT_SYMBOL(register_8022_client); */
+/* DISABLED: EXPORT_SYMBOL(unregister_8022_client); */
 
 MODULE_LICENSE("GPL");

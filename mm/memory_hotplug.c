@@ -351,7 +351,7 @@ int __ref __add_pages(int nid, struct zone *zone, unsigned long phys_start_pfn,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(__add_pages);
+/* DISABLED: EXPORT_SYMBOL_GPL(__add_pages); */
 
 /**
  * __remove_pages() - remove sections of pages from a zone
@@ -387,7 +387,7 @@ int __remove_pages(struct zone *zone, unsigned long phys_start_pfn,
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__remove_pages);
+/* DISABLED: EXPORT_SYMBOL_GPL(__remove_pages); */
 
 int set_online_page_callback(online_page_callback_t callback)
 {
@@ -404,7 +404,7 @@ int set_online_page_callback(online_page_callback_t callback)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(set_online_page_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(set_online_page_callback); */
 
 int restore_online_page_callback(online_page_callback_t callback)
 {
@@ -421,7 +421,7 @@ int restore_online_page_callback(online_page_callback_t callback)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(restore_online_page_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(restore_online_page_callback); */
 
 void __online_page_set_limits(struct page *page)
 {
@@ -435,7 +435,7 @@ void __online_page_set_limits(struct page *page)
 	if (pfn >= num_physpages)
 		num_physpages = pfn + 1;
 }
-EXPORT_SYMBOL_GPL(__online_page_set_limits);
+/* DISABLED: EXPORT_SYMBOL_GPL(__online_page_set_limits); */
 
 void __online_page_increment_counters(struct page *page)
 {
@@ -446,7 +446,7 @@ void __online_page_increment_counters(struct page *page)
 		totalhigh_pages++;
 #endif
 }
-EXPORT_SYMBOL_GPL(__online_page_increment_counters);
+/* DISABLED: EXPORT_SYMBOL_GPL(__online_page_increment_counters); */
 
 void __online_page_free(struct page *page)
 {
@@ -454,7 +454,7 @@ void __online_page_free(struct page *page)
 	init_page_count(page);
 	__free_page(page);
 }
-EXPORT_SYMBOL_GPL(__online_page_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(__online_page_free); */
 
 static void generic_online_page(struct page *page)
 {
@@ -680,7 +680,7 @@ out:
 	unlock_memory_hotplug();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(add_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(add_memory); */
 
 int __ref physical_remove_memory(u64 start, u64 size)
 {
@@ -710,7 +710,7 @@ int __ref physical_remove_memory(u64 start, u64 size)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(physical_remove_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(physical_remove_memory); */
 
 int __ref physical_active_memory(u64 start, u64 size)
 {
@@ -719,7 +719,7 @@ int __ref physical_active_memory(u64 start, u64 size)
 	ret = arch_physical_active_memory(start, size);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(physical_active_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(physical_active_memory); */
 
 int __ref physical_low_power_memory(u64 start, u64 size)
 {
@@ -728,7 +728,7 @@ int __ref physical_low_power_memory(u64 start, u64 size)
 	ret = arch_physical_low_power_memory(start, size);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(physical_low_power_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(physical_low_power_memory); */
 
 #ifdef CONFIG_MEMORY_HOTREMOVE
 /*
@@ -1090,4 +1090,4 @@ int remove_memory(u64 start, u64 size)
 	return -EINVAL;
 }
 #endif /* CONFIG_MEMORY_HOTREMOVE */
-EXPORT_SYMBOL_GPL(remove_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(remove_memory); */

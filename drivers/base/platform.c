@@ -29,7 +29,7 @@
 struct device platform_bus = {
 	.init_name	= "platform",
 };
-EXPORT_SYMBOL_GPL(platform_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_bus); */
 
 /**
  * arch_setup_pdev_archdata - Allow manipulation of archdata before its used
@@ -69,7 +69,7 @@ struct resource *platform_get_resource(struct platform_device *dev,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(platform_get_resource);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_get_resource); */
 
 /**
  * platform_get_irq - get an IRQ for a device
@@ -82,7 +82,7 @@ int platform_get_irq(struct platform_device *dev, unsigned int num)
 
 	return r ? r->start : -ENXIO;
 }
-EXPORT_SYMBOL_GPL(platform_get_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_get_irq); */
 
 /**
  * platform_get_resource_byname - get a resource for a device by name
@@ -104,7 +104,7 @@ struct resource *platform_get_resource_byname(struct platform_device *dev,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(platform_get_resource_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_get_resource_byname); */
 
 /**
  * platform_get_irq - get an IRQ for a device
@@ -118,7 +118,7 @@ int platform_get_irq_byname(struct platform_device *dev, const char *name)
 
 	return r ? r->start : -ENXIO;
 }
-EXPORT_SYMBOL_GPL(platform_get_irq_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_get_irq_byname); */
 
 /**
  * platform_add_devices - add a numbers of platform devices
@@ -140,7 +140,7 @@ int platform_add_devices(struct platform_device **devs, int num)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(platform_add_devices);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_add_devices); */
 
 struct platform_object {
 	struct platform_device pdev;
@@ -159,7 +159,7 @@ void platform_device_put(struct platform_device *pdev)
 	if (pdev)
 		put_device(&pdev->dev);
 }
-EXPORT_SYMBOL_GPL(platform_device_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_put); */
 
 static void platform_device_release(struct device *dev)
 {
@@ -197,7 +197,7 @@ struct platform_device *platform_device_alloc(const char *name, int id)
 
 	return pa ? &pa->pdev : NULL;
 }
-EXPORT_SYMBOL_GPL(platform_device_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_alloc); */
 
 /**
  * platform_device_add_resources - add resources to a platform device
@@ -225,7 +225,7 @@ int platform_device_add_resources(struct platform_device *pdev,
 	pdev->num_resources = num;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(platform_device_add_resources);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_add_resources); */
 
 /**
  * platform_device_add_data - add platform-specific data to a platform device
@@ -252,7 +252,7 @@ int platform_device_add_data(struct platform_device *pdev, const void *data,
 	pdev->dev.platform_data = d;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(platform_device_add_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_add_data); */
 
 /**
  * platform_device_add - add a platform device to device hierarchy
@@ -317,7 +317,7 @@ int platform_device_add(struct platform_device *pdev)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(platform_device_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_add); */
 
 /**
  * platform_device_del - remove a platform-level device
@@ -341,7 +341,7 @@ void platform_device_del(struct platform_device *pdev)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(platform_device_del);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_del); */
 
 /**
  * platform_device_register - add a platform-level device
@@ -353,7 +353,7 @@ int platform_device_register(struct platform_device *pdev)
 	arch_setup_pdev_archdata(pdev);
 	return platform_device_add(pdev);
 }
-EXPORT_SYMBOL_GPL(platform_device_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_register); */
 
 /**
  * platform_device_unregister - unregister a platform-level device
@@ -368,7 +368,7 @@ void platform_device_unregister(struct platform_device *pdev)
 	platform_device_del(pdev);
 	platform_device_put(pdev);
 }
-EXPORT_SYMBOL_GPL(platform_device_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_unregister); */
 
 /**
  * platform_device_register_full - add a platform-level device with
@@ -428,7 +428,7 @@ err_alloc:
 
 	return pdev;
 }
-EXPORT_SYMBOL_GPL(platform_device_register_full);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_device_register_full); */
 
 static int platform_drv_probe(struct device *_dev)
 {
@@ -475,7 +475,7 @@ int platform_driver_register(struct platform_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(platform_driver_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_driver_register); */
 
 /**
  * platform_driver_unregister - unregister a driver for platform-level devices
@@ -485,7 +485,7 @@ void platform_driver_unregister(struct platform_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(platform_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_driver_unregister); */
 
 /**
  * platform_driver_probe - register driver for non-hotpluggable device
@@ -533,7 +533,7 @@ int __init_or_module platform_driver_probe(struct platform_driver *drv,
 		platform_driver_unregister(drv);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(platform_driver_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_driver_probe); */
 
 /**
  * platform_create_bundle - register driver and create corresponding device
@@ -589,7 +589,7 @@ err_pdev_put:
 err_out:
 	return ERR_PTR(error);
 }
-EXPORT_SYMBOL_GPL(platform_create_bundle);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_create_bundle); */
 
 /* modalias support enables more hands-off userspace setup:
  * (a) environment variable lets new-style hotplug events work once system is
@@ -828,7 +828,7 @@ struct bus_type platform_bus_type = {
 	.uevent		= platform_uevent,
 	.pm		= &platform_dev_pm_ops,
 };
-EXPORT_SYMBOL_GPL(platform_bus_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(platform_bus_type); */
 
 int __init platform_bus_init(void)
 {
@@ -864,7 +864,7 @@ u64 dma_get_required_mask(struct device *dev)
 	}
 	return mask;
 }
-EXPORT_SYMBOL_GPL(dma_get_required_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_get_required_mask); */
 #endif
 
 static __initdata LIST_HEAD(early_platform_driver_list);

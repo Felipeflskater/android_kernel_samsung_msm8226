@@ -984,7 +984,7 @@ struct pmac_i2c_bus *pmac_i2c_find_bus(struct device_node *node)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_find_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_find_bus); */
 
 u8 pmac_i2c_get_dev_addr(struct device_node *device)
 {
@@ -995,44 +995,44 @@ u8 pmac_i2c_get_dev_addr(struct device_node *device)
 
 	return (*reg) & 0xff;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_dev_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_dev_addr); */
 
 struct device_node *pmac_i2c_get_controller(struct pmac_i2c_bus *bus)
 {
 	return bus->controller;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_controller); */
 
 struct device_node *pmac_i2c_get_bus_node(struct pmac_i2c_bus *bus)
 {
 	return bus->busnode;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_bus_node);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_bus_node); */
 
 int pmac_i2c_get_type(struct pmac_i2c_bus *bus)
 {
 	return bus->type;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_type); */
 
 int pmac_i2c_get_flags(struct pmac_i2c_bus *bus)
 {
 	return bus->flags;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_flags);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_flags); */
 
 int pmac_i2c_get_channel(struct pmac_i2c_bus *bus)
 {
 	return bus->channel;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_channel); */
 
 
 struct i2c_adapter *pmac_i2c_get_adapter(struct pmac_i2c_bus *bus)
 {
 	return &bus->adapter;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_get_adapter);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_get_adapter); */
 
 struct pmac_i2c_bus *pmac_i2c_adapter_to_bus(struct i2c_adapter *adapter)
 {
@@ -1043,7 +1043,7 @@ struct pmac_i2c_bus *pmac_i2c_adapter_to_bus(struct i2c_adapter *adapter)
 			return bus;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_adapter_to_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_adapter_to_bus); */
 
 int pmac_i2c_match_adapter(struct device_node *dev, struct i2c_adapter *adapter)
 {
@@ -1053,7 +1053,7 @@ int pmac_i2c_match_adapter(struct device_node *dev, struct i2c_adapter *adapter)
 		return 0;
 	return (&bus->adapter == adapter);
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_match_adapter);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_match_adapter); */
 
 int pmac_low_i2c_lock(struct device_node *np)
 {
@@ -1069,7 +1069,7 @@ int pmac_low_i2c_lock(struct device_node *np)
 		return -ENODEV;
 	return pmac_i2c_open(bus, 0);
 }
-EXPORT_SYMBOL_GPL(pmac_low_i2c_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_low_i2c_lock); */
 
 int pmac_low_i2c_unlock(struct device_node *np)
 {
@@ -1086,7 +1086,7 @@ int pmac_low_i2c_unlock(struct device_node *np)
 	pmac_i2c_close(bus);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pmac_low_i2c_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_low_i2c_unlock); */
 
 
 int pmac_i2c_open(struct pmac_i2c_bus *bus, int polled)
@@ -1104,7 +1104,7 @@ int pmac_i2c_open(struct pmac_i2c_bus *bus, int polled)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_open); */
 
 void pmac_i2c_close(struct pmac_i2c_bus *bus)
 {
@@ -1114,7 +1114,7 @@ void pmac_i2c_close(struct pmac_i2c_bus *bus)
 	bus->opened = 0;
 	mutex_unlock(&bus->mutex);
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_close); */
 
 int pmac_i2c_setmode(struct pmac_i2c_bus *bus, int mode)
 {
@@ -1132,7 +1132,7 @@ int pmac_i2c_setmode(struct pmac_i2c_bus *bus, int mode)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_setmode);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_setmode); */
 
 int pmac_i2c_xfer(struct pmac_i2c_bus *bus, u8 addrdir, int subsize,
 		  u32 subaddr, u8 *data, int len)
@@ -1153,7 +1153,7 @@ int pmac_i2c_xfer(struct pmac_i2c_bus *bus, u8 addrdir, int subsize,
 #endif
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pmac_i2c_xfer);
+/* DISABLED: EXPORT_SYMBOL_GPL(pmac_i2c_xfer); */
 
 /* some quirks for platform function decoding */
 enum {

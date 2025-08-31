@@ -117,7 +117,7 @@ gss_mech_register(struct gss_api_mech *gm)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_register); */
 
 void
 gss_mech_unregister(struct gss_api_mech *gm)
@@ -129,7 +129,7 @@ gss_mech_unregister(struct gss_api_mech *gm)
 	gss_mech_free(gm);
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_unregister); */
 
 struct gss_api_mech *
 gss_mech_get(struct gss_api_mech *gm)
@@ -138,7 +138,7 @@ gss_mech_get(struct gss_api_mech *gm)
 	return gm;
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_get); */
 
 struct gss_api_mech *
 _gss_mech_get_by_name(const char *name)
@@ -169,7 +169,7 @@ struct gss_api_mech * gss_mech_get_by_name(const char *name)
 	}
 	return gm;
 }
-EXPORT_SYMBOL_GPL(gss_mech_get_by_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_get_by_name); */
 
 struct gss_api_mech *
 gss_mech_get_by_OID(struct xdr_netobj *obj)
@@ -191,7 +191,7 @@ gss_mech_get_by_OID(struct xdr_netobj *obj)
 
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_get_by_OID);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_get_by_OID); */
 
 static inline int
 mech_supports_pseudoflavor(struct gss_api_mech *gm, u32 pseudoflavor)
@@ -237,7 +237,7 @@ gss_mech_get_by_pseudoflavor(u32 pseudoflavor)
 	return gm;
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_get_by_pseudoflavor);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_get_by_pseudoflavor); */
 
 int gss_mech_list_pseudoflavors(rpc_authflavor_t *array_ptr)
 {
@@ -254,7 +254,7 @@ int gss_mech_list_pseudoflavors(rpc_authflavor_t *array_ptr)
 	return i;
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_list_pseudoflavors);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_list_pseudoflavors); */
 
 u32
 gss_svc_to_pseudoflavor(struct gss_api_mech *gm, u32 service)
@@ -268,7 +268,7 @@ gss_svc_to_pseudoflavor(struct gss_api_mech *gm, u32 service)
 	}
 	return RPC_AUTH_MAXFLAVOR; /* illegal value */
 }
-EXPORT_SYMBOL_GPL(gss_svc_to_pseudoflavor);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_svc_to_pseudoflavor); */
 
 u32
 gss_pseudoflavor_to_service(struct gss_api_mech *gm, u32 pseudoflavor)
@@ -282,7 +282,7 @@ gss_pseudoflavor_to_service(struct gss_api_mech *gm, u32 pseudoflavor)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(gss_pseudoflavor_to_service);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_pseudoflavor_to_service); */
 
 char *
 gss_service_to_auth_domain_name(struct gss_api_mech *gm, u32 service)
@@ -296,7 +296,7 @@ gss_service_to_auth_domain_name(struct gss_api_mech *gm, u32 service)
 	return NULL;
 }
 
-EXPORT_SYMBOL_GPL(gss_service_to_auth_domain_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_service_to_auth_domain_name); */
 
 void
 gss_mech_put(struct gss_api_mech * gm)
@@ -305,7 +305,7 @@ gss_mech_put(struct gss_api_mech * gm)
 		module_put(gm->gm_owner);
 }
 
-EXPORT_SYMBOL_GPL(gss_mech_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(gss_mech_put); */
 
 /* The mech could probably be determined from the token instead, but it's just
  * as easy for now to pass it in. */

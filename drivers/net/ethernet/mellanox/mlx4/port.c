@@ -195,7 +195,7 @@ qp_err:
 	mlx4_unregister_mac(dev, port, mac);
 	return err;
 }
-EXPORT_SYMBOL_GPL(mlx4_get_eth_qp);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_get_eth_qp); */
 
 void mlx4_put_eth_qp(struct mlx4_dev *dev, u8 port, u64 mac, int qpn)
 {
@@ -219,7 +219,7 @@ void mlx4_put_eth_qp(struct mlx4_dev *dev, u8 port, u64 mac, int qpn)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(mlx4_put_eth_qp);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_put_eth_qp); */
 
 static int mlx4_set_port_mac_table(struct mlx4_dev *dev, u8 port,
 				   __be64 *entries)
@@ -292,7 +292,7 @@ out:
 	mutex_unlock(&table->mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(__mlx4_register_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mlx4_register_mac); */
 
 int mlx4_register_mac(struct mlx4_dev *dev, u8 port, u64 mac)
 {
@@ -311,7 +311,7 @@ int mlx4_register_mac(struct mlx4_dev *dev, u8 port, u64 mac)
 	}
 	return __mlx4_register_mac(dev, port, mac);
 }
-EXPORT_SYMBOL_GPL(mlx4_register_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_register_mac); */
 
 
 void __mlx4_unregister_mac(struct mlx4_dev *dev, u8 port, u64 mac)
@@ -333,7 +333,7 @@ void __mlx4_unregister_mac(struct mlx4_dev *dev, u8 port, u64 mac)
 out:
 	mutex_unlock(&table->mutex);
 }
-EXPORT_SYMBOL_GPL(__mlx4_unregister_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mlx4_unregister_mac); */
 
 void mlx4_unregister_mac(struct mlx4_dev *dev, u8 port, u64 mac)
 {
@@ -350,7 +350,7 @@ void mlx4_unregister_mac(struct mlx4_dev *dev, u8 port, u64 mac)
 	__mlx4_unregister_mac(dev, port, mac);
 	return;
 }
-EXPORT_SYMBOL_GPL(mlx4_unregister_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unregister_mac); */
 
 int mlx4_replace_mac(struct mlx4_dev *dev, u8 port, int qpn, u64 new_mac)
 {
@@ -391,7 +391,7 @@ out:
 	mutex_unlock(&table->mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(mlx4_replace_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_replace_mac); */
 
 static int mlx4_set_port_vlan_table(struct mlx4_dev *dev, u8 port,
 				    __be32 *entries)
@@ -431,7 +431,7 @@ int mlx4_find_cached_vlan(struct mlx4_dev *dev, u8 port, u16 vid, int *idx)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL_GPL(mlx4_find_cached_vlan);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_find_cached_vlan); */
 
 static int __mlx4_register_vlan(struct mlx4_dev *dev, u8 port, u16 vlan,
 				int *index)
@@ -505,7 +505,7 @@ int mlx4_register_vlan(struct mlx4_dev *dev, u8 port, u16 vlan, int *index)
 	}
 	return __mlx4_register_vlan(dev, port, vlan, index);
 }
-EXPORT_SYMBOL_GPL(mlx4_register_vlan);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_register_vlan); */
 
 static void __mlx4_unregister_vlan(struct mlx4_dev *dev, u8 port, int index)
 {
@@ -551,7 +551,7 @@ void mlx4_unregister_vlan(struct mlx4_dev *dev, u8 port, int index)
 	}
 	__mlx4_unregister_vlan(dev, port, index);
 }
-EXPORT_SYMBOL_GPL(mlx4_unregister_vlan);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unregister_vlan); */
 
 int mlx4_get_port_ib_caps(struct mlx4_dev *dev, u8 port, __be32 *caps)
 {
@@ -792,7 +792,7 @@ int mlx4_SET_PORT_general(struct mlx4_dev *dev, u8 port, int mtu,
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-EXPORT_SYMBOL(mlx4_SET_PORT_general);
+/* DISABLED: EXPORT_SYMBOL(mlx4_SET_PORT_general); */
 
 int mlx4_SET_PORT_qpn_calc(struct mlx4_dev *dev, u8 port, u32 base_qpn,
 			   u8 promisc)
@@ -832,7 +832,7 @@ int mlx4_SET_PORT_qpn_calc(struct mlx4_dev *dev, u8 port, u32 base_qpn,
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-EXPORT_SYMBOL(mlx4_SET_PORT_qpn_calc);
+/* DISABLED: EXPORT_SYMBOL(mlx4_SET_PORT_qpn_calc); */
 
 int mlx4_SET_MCAST_FLTR_wrapper(struct mlx4_dev *dev, int slave,
 				struct mlx4_vhcr *vhcr,
@@ -852,7 +852,7 @@ int mlx4_SET_MCAST_FLTR(struct mlx4_dev *dev, u8 port,
 			MLX4_CMD_SET_MCAST_FLTR, MLX4_CMD_TIME_CLASS_B,
 			MLX4_CMD_WRAPPED);
 }
-EXPORT_SYMBOL(mlx4_SET_MCAST_FLTR);
+/* DISABLED: EXPORT_SYMBOL(mlx4_SET_MCAST_FLTR); */
 
 int mlx4_SET_VLAN_FLTR_wrapper(struct mlx4_dev *dev, int slave,
 			       struct mlx4_vhcr *vhcr,
@@ -899,4 +899,4 @@ void mlx4_set_stats_bitmap(struct mlx4_dev *dev, u64 *stats_bitmap)
 	if (mlx4_is_master(dev))
 		*stats_bitmap |= MLX4_STATS_ERROR_COUNTERS_MASK;
 }
-EXPORT_SYMBOL(mlx4_set_stats_bitmap);
+/* DISABLED: EXPORT_SYMBOL(mlx4_set_stats_bitmap); */

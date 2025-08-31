@@ -211,11 +211,11 @@ int ToLegalChannel(
 
 	return default_chn;
 }
-EXPORT_SYMBOL(Dot11d_Init);
-EXPORT_SYMBOL(Dot11d_Reset);
-EXPORT_SYMBOL(Dot11d_UpdateCountryIe);
-EXPORT_SYMBOL(DOT11D_GetMaxTxPwrInDbm);
-EXPORT_SYMBOL(DOT11D_ScanComplete);
-EXPORT_SYMBOL(IsLegalChannel);
-EXPORT_SYMBOL(ToLegalChannel);
+/* DISABLED: EXPORT_SYMBOL(Dot11d_Init); */
+/* DISABLED: EXPORT_SYMBOL(Dot11d_Reset); */
+/* DISABLED: EXPORT_SYMBOL(Dot11d_UpdateCountryIe); */
+/* DISABLED: EXPORT_SYMBOL(DOT11D_GetMaxTxPwrInDbm); */
+/* DISABLED: EXPORT_SYMBOL(DOT11D_ScanComplete); */
+/* DISABLED: EXPORT_SYMBOL(IsLegalChannel); */
+/* DISABLED: EXPORT_SYMBOL(ToLegalChannel); */
 

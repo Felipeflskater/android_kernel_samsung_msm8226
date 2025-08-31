@@ -39,7 +39,7 @@
 
 #ifdef CONFIG_VIDEO_MHL_V2
 struct hdmi_hdcp_ctrl *hdcp_ctrl_global = NULL;
-EXPORT_SYMBOL(hdcp_ctrl_global);
+/* DISABLED: EXPORT_SYMBOL(hdcp_ctrl_global); */
 extern int hdmi_hpd_status(void);
 #endif
 

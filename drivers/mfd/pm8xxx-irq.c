@@ -386,7 +386,7 @@ bail_out:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_get_irq_stat);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_get_irq_stat); */
 
 struct pm_irq_chip *  __devinit pm8xxx_irq_init(struct device *dev,
 				const struct pm8xxx_irq_platform_data *pdata)

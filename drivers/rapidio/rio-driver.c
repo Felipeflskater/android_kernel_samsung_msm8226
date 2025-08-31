@@ -219,8 +219,8 @@ static int __init rio_bus_init(void)
 
 postcore_initcall(rio_bus_init);
 
-EXPORT_SYMBOL_GPL(rio_register_driver);
-EXPORT_SYMBOL_GPL(rio_unregister_driver);
-EXPORT_SYMBOL_GPL(rio_bus_type);
-EXPORT_SYMBOL_GPL(rio_dev_get);
-EXPORT_SYMBOL_GPL(rio_dev_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_register_driver); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_bus_type); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_dev_get); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rio_dev_put); */

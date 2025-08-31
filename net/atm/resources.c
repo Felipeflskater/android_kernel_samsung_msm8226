@@ -72,7 +72,7 @@ struct atm_dev *atm_dev_lookup(int number)
 	mutex_unlock(&atm_dev_mutex);
 	return dev;
 }
-EXPORT_SYMBOL(atm_dev_lookup);
+/* DISABLED: EXPORT_SYMBOL(atm_dev_lookup); */
 
 struct atm_dev *atm_dev_register(const char *type, struct device *parent,
 				 const struct atmdev_ops *ops, int number,
@@ -133,7 +133,7 @@ out_fail:
 	dev = NULL;
 	goto out;
 }
-EXPORT_SYMBOL(atm_dev_register);
+/* DISABLED: EXPORT_SYMBOL(atm_dev_register); */
 
 void atm_dev_deregister(struct atm_dev *dev)
 {
@@ -155,7 +155,7 @@ void atm_dev_deregister(struct atm_dev *dev)
 
 	atm_dev_put(dev);
 }
-EXPORT_SYMBOL(atm_dev_deregister);
+/* DISABLED: EXPORT_SYMBOL(atm_dev_deregister); */
 
 static void copy_aal_stats(struct k_atm_aal_stats *from,
     struct atm_aal_stats *to)

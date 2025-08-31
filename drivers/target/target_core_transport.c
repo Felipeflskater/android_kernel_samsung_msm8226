@@ -250,7 +250,7 @@ struct se_session *transport_init_session(void)
 
 	return se_sess;
 }
-EXPORT_SYMBOL(transport_init_session);
+/* DISABLED: EXPORT_SYMBOL(transport_init_session); */
 
 /*
  * Called with spin_lock_irqsave(&struct se_portal_group->session_lock called.
@@ -300,7 +300,7 @@ void __transport_register_session(
 	pr_debug("TARGET_CORE[%s]: Registered fabric_sess_ptr: %p\n",
 		se_tpg->se_tpg_tfo->get_fabric_name(), se_sess->fabric_sess_ptr);
 }
-EXPORT_SYMBOL(__transport_register_session);
+/* DISABLED: EXPORT_SYMBOL(__transport_register_session); */
 
 void transport_register_session(
 	struct se_portal_group *se_tpg,
@@ -314,7 +314,7 @@ void transport_register_session(
 	__transport_register_session(se_tpg, se_nacl, se_sess, fabric_sess_ptr);
 	spin_unlock_irqrestore(&se_tpg->session_lock, flags);
 }
-EXPORT_SYMBOL(transport_register_session);
+/* DISABLED: EXPORT_SYMBOL(transport_register_session); */
 
 static void target_release_session(struct kref *kref)
 {
@@ -329,13 +329,13 @@ void target_get_session(struct se_session *se_sess)
 {
 	kref_get(&se_sess->sess_kref);
 }
-EXPORT_SYMBOL(target_get_session);
+/* DISABLED: EXPORT_SYMBOL(target_get_session); */
 
 int target_put_session(struct se_session *se_sess)
 {
 	return kref_put(&se_sess->sess_kref, target_release_session);
 }
-EXPORT_SYMBOL(target_put_session);
+/* DISABLED: EXPORT_SYMBOL(target_put_session); */
 
 static void target_complete_nacl(struct kref *kref)
 {
@@ -377,13 +377,13 @@ void transport_deregister_session_configfs(struct se_session *se_sess)
 		spin_unlock_irqrestore(&se_nacl->nacl_sess_lock, flags);
 	}
 }
-EXPORT_SYMBOL(transport_deregister_session_configfs);
+/* DISABLED: EXPORT_SYMBOL(transport_deregister_session_configfs); */
 
 void transport_free_session(struct se_session *se_sess)
 {
 	kmem_cache_free(se_sess_cache, se_sess);
 }
-EXPORT_SYMBOL(transport_free_session);
+/* DISABLED: EXPORT_SYMBOL(transport_free_session); */
 
 void transport_deregister_session(struct se_session *se_sess)
 {
@@ -439,7 +439,7 @@ void transport_deregister_session(struct se_session *se_sess)
 
 	transport_free_session(se_sess);
 }
-EXPORT_SYMBOL(transport_deregister_session);
+/* DISABLED: EXPORT_SYMBOL(transport_deregister_session); */
 
 /*
  * Called with cmd->t_state_lock held.
@@ -690,7 +690,7 @@ void transport_complete_sync_cache(struct se_cmd *cmd, int good)
 
 	transport_complete_task(task, good);
 }
-EXPORT_SYMBOL(transport_complete_sync_cache);
+/* DISABLED: EXPORT_SYMBOL(transport_complete_sync_cache); */
 
 static void target_complete_failure_work(struct work_struct *work)
 {
@@ -770,7 +770,7 @@ void transport_complete_task(struct se_task *task, int success)
 
 	queue_work(target_completion_wq, &cmd->work);
 }
-EXPORT_SYMBOL(transport_complete_task);
+/* DISABLED: EXPORT_SYMBOL(transport_complete_task); */
 
 /*
  * Called by transport_add_tasks_from_cmd() once a struct se_cmd's
@@ -1071,7 +1071,7 @@ transport_set_vpd_proto_id(struct t10_vpd *vpd, unsigned char *page_83)
 		transport_dump_vpd_proto_id(vpd, NULL, 0);
 	}
 }
-EXPORT_SYMBOL(transport_set_vpd_proto_id);
+/* DISABLED: EXPORT_SYMBOL(transport_set_vpd_proto_id); */
 
 int transport_dump_vpd_assoc(
 	struct t10_vpd *vpd,
@@ -1119,7 +1119,7 @@ int transport_set_vpd_assoc(struct t10_vpd *vpd, unsigned char *page_83)
 	vpd->association = (page_83[1] & 0x30);
 	return transport_dump_vpd_assoc(vpd, NULL, 0);
 }
-EXPORT_SYMBOL(transport_set_vpd_assoc);
+/* DISABLED: EXPORT_SYMBOL(transport_set_vpd_assoc); */
 
 int transport_dump_vpd_ident_type(
 	struct t10_vpd *vpd,
@@ -1180,7 +1180,7 @@ int transport_set_vpd_ident_type(struct t10_vpd *vpd, unsigned char *page_83)
 	vpd->device_identifier_type = (page_83[1] & 0x0f);
 	return transport_dump_vpd_ident_type(vpd, NULL, 0);
 }
-EXPORT_SYMBOL(transport_set_vpd_ident_type);
+/* DISABLED: EXPORT_SYMBOL(transport_set_vpd_ident_type); */
 
 int transport_dump_vpd_ident(
 	struct t10_vpd *vpd,
@@ -1255,7 +1255,7 @@ transport_set_vpd_ident(struct t10_vpd *vpd, unsigned char *page_83)
 
 	return transport_dump_vpd_ident(vpd, NULL, 0);
 }
-EXPORT_SYMBOL(transport_set_vpd_ident);
+/* DISABLED: EXPORT_SYMBOL(transport_set_vpd_ident); */
 
 static void core_setup_task_attr_emulation(struct se_device *dev)
 {
@@ -1436,7 +1436,7 @@ out:
 
 	return NULL;
 }
-EXPORT_SYMBOL(transport_add_device_to_core_hba);
+/* DISABLED: EXPORT_SYMBOL(transport_add_device_to_core_hba); */
 
 /*	transport_generic_prepare_cdb():
  *
@@ -1524,7 +1524,7 @@ void transport_init_se_cmd(
 	cmd->sam_task_attr = task_attr;
 	cmd->sense_buffer = sense_buffer;
 }
-EXPORT_SYMBOL(transport_init_se_cmd);
+/* DISABLED: EXPORT_SYMBOL(transport_init_se_cmd); */
 
 static int transport_check_alloc_task_attr(struct se_cmd *cmd)
 {
@@ -1622,7 +1622,7 @@ int target_setup_cmd_from_cdb(
 	spin_unlock(&cmd->se_lun->lun_sep_lock);
 	return 0;
 }
-EXPORT_SYMBOL(target_setup_cmd_from_cdb);
+/* DISABLED: EXPORT_SYMBOL(target_setup_cmd_from_cdb); */
 
 /*
  * Used by fabric module frontends to queue tasks directly.
@@ -1667,7 +1667,7 @@ int transport_handle_cdb_direct(
 
 	return 0;
 }
-EXPORT_SYMBOL(transport_handle_cdb_direct);
+/* DISABLED: EXPORT_SYMBOL(transport_handle_cdb_direct); */
 
 /**
  * target_submit_cmd - lookup unpacked lun and submit uninitialized se_cmd
@@ -1744,7 +1744,7 @@ void target_submit_cmd(struct se_cmd *se_cmd, struct se_session *se_sess,
 	transport_handle_cdb_direct(se_cmd);
 	return;
 }
-EXPORT_SYMBOL(target_submit_cmd);
+/* DISABLED: EXPORT_SYMBOL(target_submit_cmd); */
 
 static void target_complete_tmr_failure(struct work_struct *work)
 {
@@ -1813,7 +1813,7 @@ int target_submit_tmr(struct se_cmd *se_cmd, struct se_session *se_sess,
 	transport_generic_handle_tmr(se_cmd);
 	return 0;
 }
-EXPORT_SYMBOL(target_submit_tmr);
+/* DISABLED: EXPORT_SYMBOL(target_submit_tmr); */
 
 /*
  * Used by fabric module frontends defining a TFO->new_cmd_map() caller
@@ -1832,7 +1832,7 @@ int transport_generic_handle_cdb_map(
 	transport_add_cmd_to_queue(cmd, TRANSPORT_NEW_CMD_MAP, false);
 	return 0;
 }
-EXPORT_SYMBOL(transport_generic_handle_cdb_map);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_handle_cdb_map); */
 
 /*	transport_generic_handle_data():
  *
@@ -1862,7 +1862,7 @@ int transport_generic_handle_data(
 	transport_add_cmd_to_queue(cmd, TRANSPORT_PROCESS_WRITE, false);
 	return 0;
 }
-EXPORT_SYMBOL(transport_generic_handle_data);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_handle_data); */
 
 /*	transport_generic_handle_tmr():
  *
@@ -1874,7 +1874,7 @@ int transport_generic_handle_tmr(
 	transport_add_cmd_to_queue(cmd, TRANSPORT_PROCESS_TMR, false);
 	return 0;
 }
-EXPORT_SYMBOL(transport_generic_handle_tmr);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_handle_tmr); */
 
 /*
  * If the task is active, request it to be stopped and sleep until it
@@ -2039,7 +2039,7 @@ queue_full:
 	cmd->t_state = TRANSPORT_COMPLETE_QF_OK;
 	transport_handle_queue_full(cmd, cmd->se_dev);
 }
-EXPORT_SYMBOL(transport_generic_request_failure);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_request_failure); */
 
 static inline u32 transport_lba_21(unsigned char *cdb)
 {
@@ -3603,7 +3603,7 @@ int transport_generic_map_mem_to_cmd(
 
 	return 0;
 }
-EXPORT_SYMBOL(transport_generic_map_mem_to_cmd);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_map_mem_to_cmd); */
 
 void *transport_kmap_data_sg(struct se_cmd *cmd)
 {
@@ -3639,7 +3639,7 @@ void *transport_kmap_data_sg(struct se_cmd *cmd)
 
 	return cmd->t_data_vmap + cmd->t_data_sg[0].offset;
 }
-EXPORT_SYMBOL(transport_kmap_data_sg);
+/* DISABLED: EXPORT_SYMBOL(transport_kmap_data_sg); */
 
 void transport_kunmap_data_sg(struct se_cmd *cmd)
 {
@@ -3653,7 +3653,7 @@ void transport_kunmap_data_sg(struct se_cmd *cmd)
 	vunmap(cmd->t_data_vmap);
 	cmd->t_data_vmap = NULL;
 }
-EXPORT_SYMBOL(transport_kunmap_data_sg);
+/* DISABLED: EXPORT_SYMBOL(transport_kunmap_data_sg); */
 
 static int
 transport_generic_get_mem(struct se_cmd *cmd)
@@ -3779,7 +3779,7 @@ void transport_do_task_sg_chain(struct se_cmd *cmd)
 			pr_debug("SG: %p sg_is_last=1\n", sg);
 	}
 }
-EXPORT_SYMBOL(transport_do_task_sg_chain);
+/* DISABLED: EXPORT_SYMBOL(transport_do_task_sg_chain); */
 
 /*
  * Break up cmd into chunks transport can handle
@@ -4027,7 +4027,7 @@ out_fail:
 	cmd->scsi_sense_reason = TCM_LOGICAL_UNIT_COMMUNICATION_FAILURE;
 	return -EINVAL;
 }
-EXPORT_SYMBOL(transport_generic_new_cmd);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_new_cmd); */
 
 /*	transport_generic_process_write():
  *
@@ -4037,7 +4037,7 @@ void transport_generic_process_write(struct se_cmd *cmd)
 {
 	transport_execute_tasks(cmd);
 }
-EXPORT_SYMBOL(transport_generic_process_write);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_process_write); */
 
 static void transport_write_pending_qf(struct se_cmd *cmd)
 {
@@ -4109,7 +4109,7 @@ void transport_generic_free_cmd(struct se_cmd *cmd, int wait_for_tasks)
 		transport_put_cmd(cmd);
 	}
 }
-EXPORT_SYMBOL(transport_generic_free_cmd);
+/* DISABLED: EXPORT_SYMBOL(transport_generic_free_cmd); */
 
 /* target_get_sess_cmd - Add command to active ->sess_cmd_list
  * @se_sess:	session to reference
@@ -4137,7 +4137,7 @@ void target_get_sess_cmd(struct se_session *se_sess, struct se_cmd *se_cmd,
 	se_cmd->check_release = 1;
 	spin_unlock_irqrestore(&se_sess->sess_cmd_lock, flags);
 }
-EXPORT_SYMBOL(target_get_sess_cmd);
+/* DISABLED: EXPORT_SYMBOL(target_get_sess_cmd); */
 
 static void target_release_cmd_kref(struct kref *kref)
 {
@@ -4170,7 +4170,7 @@ int target_put_sess_cmd(struct se_session *se_sess, struct se_cmd *se_cmd)
 {
 	return kref_put(&se_cmd->cmd_kref, target_release_cmd_kref);
 }
-EXPORT_SYMBOL(target_put_sess_cmd);
+/* DISABLED: EXPORT_SYMBOL(target_put_sess_cmd); */
 
 /* target_splice_sess_cmd_list - Split active cmds into sess_wait_list
  * @se_sess:	session to split
@@ -4193,7 +4193,7 @@ void target_splice_sess_cmd_list(struct se_session *se_sess)
 
 	spin_unlock_irqrestore(&se_sess->sess_cmd_lock, flags);
 }
-EXPORT_SYMBOL(target_splice_sess_cmd_list);
+/* DISABLED: EXPORT_SYMBOL(target_splice_sess_cmd_list); */
 
 /* target_wait_for_sess_cmds - Wait for outstanding descriptors
  * @se_sess:    session to wait for active I/O
@@ -4236,7 +4236,7 @@ void target_wait_for_sess_cmds(
 		se_cmd->se_tfo->release_cmd(se_cmd);
 	}
 }
-EXPORT_SYMBOL(target_wait_for_sess_cmds);
+/* DISABLED: EXPORT_SYMBOL(target_wait_for_sess_cmds); */
 
 /*	transport_lun_wait_for_tasks():
  *
@@ -4500,7 +4500,7 @@ bool transport_wait_for_tasks(struct se_cmd *cmd)
 
 	return true;
 }
-EXPORT_SYMBOL(transport_wait_for_tasks);
+/* DISABLED: EXPORT_SYMBOL(transport_wait_for_tasks); */
 
 static int transport_get_sense_codes(
 	struct se_cmd *cmd,
@@ -4722,7 +4722,7 @@ int transport_send_check_condition_and_sense(
 after_reason:
 	return cmd->se_tfo->queue_status(cmd);
 }
-EXPORT_SYMBOL(transport_send_check_condition_and_sense);
+/* DISABLED: EXPORT_SYMBOL(transport_send_check_condition_and_sense); */
 
 int transport_check_aborted_status(struct se_cmd *cmd, int send_status)
 {
@@ -4744,7 +4744,7 @@ int transport_check_aborted_status(struct se_cmd *cmd, int send_status)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(transport_check_aborted_status);
+/* DISABLED: EXPORT_SYMBOL(transport_check_aborted_status); */
 
 void transport_send_task_abort(struct se_cmd *cmd)
 {

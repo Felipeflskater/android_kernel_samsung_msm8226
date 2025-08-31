@@ -38,7 +38,7 @@ void notrace arch_local_irq_restore(unsigned long flags)
 		);
 	}
 }
-EXPORT_SYMBOL(arch_local_irq_restore);
+/* DISABLED: EXPORT_SYMBOL(arch_local_irq_restore); */
 
 unsigned long notrace arch_local_save_flags(void)
 {
@@ -54,4 +54,4 @@ unsigned long notrace arch_local_save_flags(void)
 
 	return flags;
 }
-EXPORT_SYMBOL(arch_local_save_flags);
+/* DISABLED: EXPORT_SYMBOL(arch_local_save_flags); */

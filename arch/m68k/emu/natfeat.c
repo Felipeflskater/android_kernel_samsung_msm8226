@@ -32,8 +32,8 @@ asm("\n"
 "	.long	nf_get_id,1b\n"
 "	.long	nf_call,1b\n"
 "	.previous");
-EXPORT_SYMBOL_GPL(nf_get_id);
-EXPORT_SYMBOL_GPL(nf_call);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_get_id); */
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_call); */
 
 void nfprint(const char *fmt, ...)
 {

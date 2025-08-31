@@ -138,7 +138,7 @@ static int __init five_v_on_setup(char *ignore)
 	five_v_on = 1;
 	return 1;
 }
-/* DISABLED: __setup("five_v_on", five_v_on_setup); */
+/* DISABLED: __setup("five_v_on", five_v_on_setup); */ */
 
 
 static int __init badge4_init(void)
@@ -259,7 +259,7 @@ void badge4_set_5V(unsigned subsystem, int on)
 
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(badge4_set_5V);
+/* DISABLED: EXPORT_SYMBOL(badge4_set_5V); */
 
 
 static struct map_desc badge4_io_desc[] __initdata = {

@@ -149,7 +149,7 @@ err:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(blkcipher_walk_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(blkcipher_walk_done); */
 
 static inline int blkcipher_next_slow(struct blkcipher_desc *desc,
 				      struct blkcipher_walk *walk,
@@ -314,7 +314,7 @@ int blkcipher_walk_virt(struct blkcipher_desc *desc,
 	walk->blocksize = crypto_blkcipher_blocksize(desc->tfm);
 	return blkcipher_walk_first(desc, walk);
 }
-EXPORT_SYMBOL_GPL(blkcipher_walk_virt);
+/* DISABLED: EXPORT_SYMBOL_GPL(blkcipher_walk_virt); */
 
 int blkcipher_walk_phys(struct blkcipher_desc *desc,
 			struct blkcipher_walk *walk)
@@ -323,7 +323,7 @@ int blkcipher_walk_phys(struct blkcipher_desc *desc,
 	walk->blocksize = crypto_blkcipher_blocksize(desc->tfm);
 	return blkcipher_walk_first(desc, walk);
 }
-EXPORT_SYMBOL_GPL(blkcipher_walk_phys);
+/* DISABLED: EXPORT_SYMBOL_GPL(blkcipher_walk_phys); */
 
 static int blkcipher_walk_first(struct blkcipher_desc *desc,
 				struct blkcipher_walk *walk)
@@ -366,7 +366,7 @@ int blkcipher_walk_virt_block(struct blkcipher_desc *desc,
 	walk->blocksize = blocksize;
 	return blkcipher_walk_first(desc, walk);
 }
-EXPORT_SYMBOL_GPL(blkcipher_walk_virt_block);
+/* DISABLED: EXPORT_SYMBOL_GPL(blkcipher_walk_virt_block); */
 
 static int setkey_unaligned(struct crypto_tfm *tfm, const u8 *key,
 			    unsigned int keylen)
@@ -563,7 +563,7 @@ const struct crypto_type crypto_blkcipher_type = {
 #endif
 	.report = crypto_blkcipher_report,
 };
-EXPORT_SYMBOL_GPL(crypto_blkcipher_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_blkcipher_type); */
 
 static int crypto_grab_nivcipher(struct crypto_skcipher_spawn *spawn,
 				const char *name, u32 type, u32 mask)
@@ -721,14 +721,14 @@ err_free_inst:
 	inst = ERR_PTR(err);
 	goto out;
 }
-EXPORT_SYMBOL_GPL(skcipher_geniv_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(skcipher_geniv_alloc); */
 
 void skcipher_geniv_free(struct crypto_instance *inst)
 {
 	crypto_drop_skcipher(crypto_instance_ctx(inst));
 	kfree(inst);
 }
-EXPORT_SYMBOL_GPL(skcipher_geniv_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(skcipher_geniv_free); */
 
 int skcipher_geniv_init(struct crypto_tfm *tfm)
 {
@@ -749,13 +749,13 @@ int skcipher_geniv_init(struct crypto_tfm *tfm)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(skcipher_geniv_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(skcipher_geniv_init); */
 
 void skcipher_geniv_exit(struct crypto_tfm *tfm)
 {
 	crypto_free_ablkcipher(tfm->crt_ablkcipher.base);
 }
-EXPORT_SYMBOL_GPL(skcipher_geniv_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(skcipher_geniv_exit); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Generic block chaining cipher type");

@@ -319,7 +319,7 @@ struct dvb_frontend *tda18212_attach(struct dvb_frontend *fe,
 
 	return fe;
 }
-EXPORT_SYMBOL(tda18212_attach);
+/* DISABLED: EXPORT_SYMBOL(tda18212_attach); */
 
 MODULE_DESCRIPTION("NXP TDA18212HN silicon tuner driver");
 MODULE_AUTHOR("Antti Palosaari <crope@iki.fi>");

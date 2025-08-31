@@ -450,7 +450,7 @@ void corgi_lcd_limit_intensity(int limit)
 
 	backlight_update_status(the_corgi_lcd->bl_dev);
 }
-EXPORT_SYMBOL(corgi_lcd_limit_intensity);
+/* DISABLED: EXPORT_SYMBOL(corgi_lcd_limit_intensity); */
 
 static const struct backlight_ops corgi_bl_ops = {
 	.get_brightness	= corgi_bl_get_intensity,

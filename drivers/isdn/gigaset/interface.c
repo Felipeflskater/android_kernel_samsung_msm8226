@@ -572,7 +572,7 @@ void gigaset_if_receive(struct cardstate *cs,
 	tty_flip_buffer_push(tty);
 	tty_kref_put(tty);
 }
-EXPORT_SYMBOL_GPL(gigaset_if_receive);
+/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_if_receive); */
 
 /* gigaset_if_initdriver
  * Initialize tty interface.

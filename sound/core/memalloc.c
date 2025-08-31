@@ -536,12 +536,12 @@ module_exit(snd_mem_exit)
 /*
  * exports
  */
-EXPORT_SYMBOL(snd_dma_alloc_pages);
-EXPORT_SYMBOL(snd_dma_alloc_pages_fallback);
-EXPORT_SYMBOL(snd_dma_free_pages);
+/* DISABLED: EXPORT_SYMBOL(snd_dma_alloc_pages); */
+/* DISABLED: EXPORT_SYMBOL(snd_dma_alloc_pages_fallback); */
+/* DISABLED: EXPORT_SYMBOL(snd_dma_free_pages); */
 
-EXPORT_SYMBOL(snd_dma_get_reserved_buf);
-EXPORT_SYMBOL(snd_dma_reserve_buf);
+/* DISABLED: EXPORT_SYMBOL(snd_dma_get_reserved_buf); */
+/* DISABLED: EXPORT_SYMBOL(snd_dma_reserve_buf); */
 
-EXPORT_SYMBOL(snd_malloc_pages);
-EXPORT_SYMBOL(snd_free_pages);
+/* DISABLED: EXPORT_SYMBOL(snd_malloc_pages); */
+/* DISABLED: EXPORT_SYMBOL(snd_free_pages); */

@@ -39,4 +39,4 @@ int mx35_revision(void)
 
 	return mx35_cpu_rev;
 }
-EXPORT_SYMBOL(mx35_revision);
+/* DISABLED: EXPORT_SYMBOL(mx35_revision); */

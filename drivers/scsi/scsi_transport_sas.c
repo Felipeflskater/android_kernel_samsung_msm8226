@@ -350,7 +350,7 @@ void sas_remove_children(struct device *dev)
 	device_for_each_child(dev, (void *)0, do_sas_phy_delete);
 	device_for_each_child(dev, (void *)1, do_sas_phy_delete);
 }
-EXPORT_SYMBOL(sas_remove_children);
+/* DISABLED: EXPORT_SYMBOL(sas_remove_children); */
 
 /**
  * sas_remove_host  -  tear down a Scsi_Host's SAS data structures
@@ -363,7 +363,7 @@ void sas_remove_host(struct Scsi_Host *shost)
 {
 	sas_remove_children(&shost->shost_gendev);
 }
-EXPORT_SYMBOL(sas_remove_host);
+/* DISABLED: EXPORT_SYMBOL(sas_remove_host); */
 
 /**
  * sas_tlr_supported - checking TLR bit in vpd 0x90
@@ -398,7 +398,7 @@ sas_tlr_supported(struct scsi_device *sdev)
 	return ret;
 
 }
-EXPORT_SYMBOL_GPL(sas_tlr_supported);
+/* DISABLED: EXPORT_SYMBOL_GPL(sas_tlr_supported); */
 
 /**
  * sas_disable_tlr - setting TLR flags
@@ -414,7 +414,7 @@ sas_disable_tlr(struct scsi_device *sdev)
 
 	rdev->tlr_enabled = 0;
 }
-EXPORT_SYMBOL_GPL(sas_disable_tlr);
+/* DISABLED: EXPORT_SYMBOL_GPL(sas_disable_tlr); */
 
 /**
  * sas_enable_tlr - setting TLR flags
@@ -436,14 +436,14 @@ void sas_enable_tlr(struct scsi_device *sdev)
 
 	return;
 }
-EXPORT_SYMBOL_GPL(sas_enable_tlr);
+/* DISABLED: EXPORT_SYMBOL_GPL(sas_enable_tlr); */
 
 unsigned int sas_is_tlr_enabled(struct scsi_device *sdev)
 {
 	struct sas_end_device *rdev = sas_sdev_to_rdev(sdev);
 	return rdev->tlr_enabled;
 }
-EXPORT_SYMBOL_GPL(sas_is_tlr_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(sas_is_tlr_enabled); */
 
 /*
  * SAS Phy attributes
@@ -739,7 +739,7 @@ struct sas_phy *sas_phy_alloc(struct device *parent, int number)
 
 	return phy;
 }
-EXPORT_SYMBOL(sas_phy_alloc);
+/* DISABLED: EXPORT_SYMBOL(sas_phy_alloc); */
 
 /**
  * sas_phy_add  -  add a SAS PHY to the device hierarchy
@@ -759,7 +759,7 @@ int sas_phy_add(struct sas_phy *phy)
 
 	return error;
 }
-EXPORT_SYMBOL(sas_phy_add);
+/* DISABLED: EXPORT_SYMBOL(sas_phy_add); */
 
 /**
  * sas_phy_free  -  free a SAS PHY
@@ -776,7 +776,7 @@ void sas_phy_free(struct sas_phy *phy)
 	transport_destroy_device(&phy->dev);
 	put_device(&phy->dev);
 }
-EXPORT_SYMBOL(sas_phy_free);
+/* DISABLED: EXPORT_SYMBOL(sas_phy_free); */
 
 /**
  * sas_phy_delete  -  remove SAS PHY
@@ -798,7 +798,7 @@ sas_phy_delete(struct sas_phy *phy)
 	transport_destroy_device(dev);
 	put_device(dev);
 }
-EXPORT_SYMBOL(sas_phy_delete);
+/* DISABLED: EXPORT_SYMBOL(sas_phy_delete); */
 
 /**
  * scsi_is_sas_phy  -  check if a struct device represents a SAS PHY
@@ -811,7 +811,7 @@ int scsi_is_sas_phy(const struct device *dev)
 {
 	return dev->release == sas_phy_release;
 }
-EXPORT_SYMBOL(scsi_is_sas_phy);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_sas_phy); */
 
 /*
  * SAS Port attributes
@@ -932,7 +932,7 @@ struct sas_port *sas_port_alloc(struct device *parent, int port_id)
 
 	return port;
 }
-EXPORT_SYMBOL(sas_port_alloc);
+/* DISABLED: EXPORT_SYMBOL(sas_port_alloc); */
 
 /** sas_port_alloc_num - allocate and initialize a SAS port structure
  *
@@ -964,7 +964,7 @@ struct sas_port *sas_port_alloc_num(struct device *parent)
 	mutex_unlock(&sas_host->lock);
 	return sas_port_alloc(parent, index);
 }
-EXPORT_SYMBOL(sas_port_alloc_num);
+/* DISABLED: EXPORT_SYMBOL(sas_port_alloc_num); */
 
 /**
  * sas_port_add - add a SAS port to the device hierarchy
@@ -989,7 +989,7 @@ int sas_port_add(struct sas_port *port)
 
 	return 0;
 }
-EXPORT_SYMBOL(sas_port_add);
+/* DISABLED: EXPORT_SYMBOL(sas_port_add); */
 
 /**
  * sas_port_free  -  free a SAS PORT
@@ -1006,7 +1006,7 @@ void sas_port_free(struct sas_port *port)
 	transport_destroy_device(&port->dev);
 	put_device(&port->dev);
 }
-EXPORT_SYMBOL(sas_port_free);
+/* DISABLED: EXPORT_SYMBOL(sas_port_free); */
 
 /**
  * sas_port_delete  -  remove SAS PORT
@@ -1045,7 +1045,7 @@ void sas_port_delete(struct sas_port *port)
 	transport_destroy_device(dev);
 	put_device(dev);
 }
-EXPORT_SYMBOL(sas_port_delete);
+/* DISABLED: EXPORT_SYMBOL(sas_port_delete); */
 
 /**
  * scsi_is_sas_port -  check if a struct device represents a SAS port
@@ -1058,7 +1058,7 @@ int scsi_is_sas_port(const struct device *dev)
 {
 	return dev->release == sas_port_release;
 }
-EXPORT_SYMBOL(scsi_is_sas_port);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_sas_port); */
 
 /**
  * sas_port_get_phy - try to take a reference on a port member
@@ -1081,7 +1081,7 @@ struct sas_phy *sas_port_get_phy(struct sas_port *port)
 
 	return phy;
 }
-EXPORT_SYMBOL(sas_port_get_phy);
+/* DISABLED: EXPORT_SYMBOL(sas_port_get_phy); */
 
 /**
  * sas_port_add_phy - add another phy to a port to form a wide port
@@ -1119,7 +1119,7 @@ void sas_port_add_phy(struct sas_port *port, struct sas_phy *phy)
 	}
 	mutex_unlock(&port->phy_list_mutex);
 }
-EXPORT_SYMBOL(sas_port_add_phy);
+/* DISABLED: EXPORT_SYMBOL(sas_port_add_phy); */
 
 /**
  * sas_port_delete_phy - remove a phy from a port or wide port
@@ -1137,7 +1137,7 @@ void sas_port_delete_phy(struct sas_port *port, struct sas_phy *phy)
 	port->num_phys--;
 	mutex_unlock(&port->phy_list_mutex);
 }
-EXPORT_SYMBOL(sas_port_delete_phy);
+/* DISABLED: EXPORT_SYMBOL(sas_port_delete_phy); */
 
 void sas_port_mark_backlink(struct sas_port *port)
 {
@@ -1157,7 +1157,7 @@ err:
 	       __func__, res);
 
 }
-EXPORT_SYMBOL(sas_port_mark_backlink);
+/* DISABLED: EXPORT_SYMBOL(sas_port_mark_backlink); */
 
 /*
  * SAS remote PHY attributes.
@@ -1302,7 +1302,7 @@ int sas_read_port_mode_page(struct scsi_device *sdev)
 	kfree(buffer);
 	return error;
 }
-EXPORT_SYMBOL(sas_read_port_mode_page);
+/* DISABLED: EXPORT_SYMBOL(sas_read_port_mode_page); */
 
 static DECLARE_TRANSPORT_CLASS(sas_end_dev_class,
 			       "sas_end_device", NULL, NULL, NULL);
@@ -1503,7 +1503,7 @@ struct sas_rphy *sas_end_device_alloc(struct sas_port *parent)
 
 	return &rdev->rphy;
 }
-EXPORT_SYMBOL(sas_end_device_alloc);
+/* DISABLED: EXPORT_SYMBOL(sas_end_device_alloc); */
 
 /**
  * sas_expander_alloc - allocate an rphy for an end device
@@ -1544,7 +1544,7 @@ struct sas_rphy *sas_expander_alloc(struct sas_port *parent,
 
 	return &rdev->rphy;
 }
-EXPORT_SYMBOL(sas_expander_alloc);
+/* DISABLED: EXPORT_SYMBOL(sas_expander_alloc); */
 
 /**
  * sas_rphy_add  -  add a SAS remote PHY to the device hierarchy
@@ -1597,7 +1597,7 @@ int sas_rphy_add(struct sas_rphy *rphy)
 
 	return 0;
 }
-EXPORT_SYMBOL(sas_rphy_add);
+/* DISABLED: EXPORT_SYMBOL(sas_rphy_add); */
 
 /**
  * sas_rphy_free  -  free a SAS remote PHY
@@ -1626,7 +1626,7 @@ void sas_rphy_free(struct sas_rphy *rphy)
 
 	put_device(dev);
 }
-EXPORT_SYMBOL(sas_rphy_free);
+/* DISABLED: EXPORT_SYMBOL(sas_rphy_free); */
 
 /**
  * sas_rphy_delete  -  remove and free SAS remote PHY
@@ -1640,7 +1640,7 @@ sas_rphy_delete(struct sas_rphy *rphy)
 	sas_rphy_remove(rphy);
 	sas_rphy_free(rphy);
 }
-EXPORT_SYMBOL(sas_rphy_delete);
+/* DISABLED: EXPORT_SYMBOL(sas_rphy_delete); */
 
 /**
  * sas_rphy_unlink  -  unlink SAS remote PHY
@@ -1654,7 +1654,7 @@ void sas_rphy_unlink(struct sas_rphy *rphy)
 
 	parent->rphy = NULL;
 }
-EXPORT_SYMBOL(sas_rphy_unlink);
+/* DISABLED: EXPORT_SYMBOL(sas_rphy_unlink); */
 
 /**
  * sas_rphy_remove  -  remove SAS remote PHY
@@ -1683,7 +1683,7 @@ sas_rphy_remove(struct sas_rphy *rphy)
 	transport_remove_device(dev);
 	device_del(dev);
 }
-EXPORT_SYMBOL(sas_rphy_remove);
+/* DISABLED: EXPORT_SYMBOL(sas_rphy_remove); */
 
 /**
  * scsi_is_sas_rphy  -  check if a struct device represents a SAS remote PHY
@@ -1697,7 +1697,7 @@ int scsi_is_sas_rphy(const struct device *dev)
 	return dev->release == sas_end_device_release ||
 		dev->release == sas_expander_release;
 }
-EXPORT_SYMBOL(scsi_is_sas_rphy);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_sas_rphy); */
 
 
 /*
@@ -1892,7 +1892,7 @@ sas_attach_transport(struct sas_function_template *ft)
 
 	return &i->t;
 }
-EXPORT_SYMBOL(sas_attach_transport);
+/* DISABLED: EXPORT_SYMBOL(sas_attach_transport); */
 
 /**
  * sas_release_transport  -  release SAS transport template instance
@@ -1911,7 +1911,7 @@ void sas_release_transport(struct scsi_transport_template *t)
 
 	kfree(i);
 }
-EXPORT_SYMBOL(sas_release_transport);
+/* DISABLED: EXPORT_SYMBOL(sas_release_transport); */
 
 static __init int sas_transport_init(void)
 {

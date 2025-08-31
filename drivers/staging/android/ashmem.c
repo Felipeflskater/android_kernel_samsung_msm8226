@@ -851,7 +851,7 @@ int get_ashmem_file(int fd, struct file **filp, struct file **vm_file,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(get_ashmem_file);
+/* DISABLED: EXPORT_SYMBOL(get_ashmem_file); */
 
 void put_ashmem_file(struct file *file)
 {
@@ -863,7 +863,7 @@ void put_ashmem_file(struct file *file)
 	if (file && is_ashmem_file(file))
 		fput(file);
 }
-EXPORT_SYMBOL(put_ashmem_file);
+/* DISABLED: EXPORT_SYMBOL(put_ashmem_file); */
 
 static int __init ashmem_init(void)
 {

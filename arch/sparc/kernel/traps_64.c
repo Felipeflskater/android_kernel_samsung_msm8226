@@ -130,7 +130,7 @@ void do_BUG(const char *file, int line)
 	bust_spinlocks(1);
 	printk("kernel BUG at %s:%d!\n", file, line);
 }
-EXPORT_SYMBOL(do_BUG);
+/* DISABLED: EXPORT_SYMBOL(do_BUG); */
 #endif
 
 static DEFINE_SPINLOCK(dimm_handler_lock);
@@ -170,7 +170,7 @@ int register_dimm_printer(dimm_printer_t func)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_dimm_printer);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_dimm_printer); */
 
 void unregister_dimm_printer(dimm_printer_t func)
 {
@@ -181,7 +181,7 @@ void unregister_dimm_printer(dimm_printer_t func)
 		dimm_handler = NULL;
 	spin_unlock_irqrestore(&dimm_handler_lock, flags);
 }
-EXPORT_SYMBOL_GPL(unregister_dimm_printer);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_dimm_printer); */
 
 void spitfire_insn_access_exception(struct pt_regs *regs, unsigned long sfsr, unsigned long sfar)
 {
@@ -2214,7 +2214,7 @@ void dump_stack(void)
 	show_stack(current, NULL);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static inline struct reg_window *kernel_stack_up(struct reg_window *rw)
 {
@@ -2271,7 +2271,7 @@ void die_if_kernel(char *str, struct pt_regs *regs)
 		do_exit(SIGKILL);
 	do_exit(SIGSEGV);
 }
-EXPORT_SYMBOL(die_if_kernel);
+/* DISABLED: EXPORT_SYMBOL(die_if_kernel); */
 
 #define VIS_OPCODE_MASK	((0x3 << 30) | (0x3f << 19))
 #define VIS_OPCODE_VAL	((0x2 << 30) | (0x36 << 19))
@@ -2503,7 +2503,7 @@ void do_getpsr(struct pt_regs *regs)
 }
 
 struct trap_per_cpu trap_block[NR_CPUS];
-EXPORT_SYMBOL(trap_block);
+/* DISABLED: EXPORT_SYMBOL(trap_block); */
 
 /* This can get invoked before sched_init() so play it super safe
  * and use hard_smp_processor_id().

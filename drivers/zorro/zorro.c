@@ -60,7 +60,7 @@ struct zorro_dev *zorro_find_device(zorro_id id, struct zorro_dev *from)
 			return z;
 	return NULL;
 }
-EXPORT_SYMBOL(zorro_find_device);
+/* DISABLED: EXPORT_SYMBOL(zorro_find_device); */
 
 
     /*
@@ -79,7 +79,7 @@ EXPORT_SYMBOL(zorro_find_device);
      */
 
 DECLARE_BITMAP(zorro_unused_z2ram, 128);
-EXPORT_SYMBOL(zorro_unused_z2ram);
+/* DISABLED: EXPORT_SYMBOL(zorro_unused_z2ram); */
 
 
 static void __init mark_region(unsigned long start, unsigned long end,

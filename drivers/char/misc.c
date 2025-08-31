@@ -255,8 +255,8 @@ int misc_deregister(struct miscdevice *misc)
 	return 0;
 }
 
-EXPORT_SYMBOL(misc_register);
-EXPORT_SYMBOL(misc_deregister);
+/* DISABLED: EXPORT_SYMBOL(misc_register); */
+/* DISABLED: EXPORT_SYMBOL(misc_deregister); */
 
 static char *misc_devnode(struct device *dev, umode_t *mode)
 {

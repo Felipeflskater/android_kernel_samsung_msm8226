@@ -1879,7 +1879,7 @@ int fc_queuecommand(struct Scsi_Host *shost, struct scsi_cmnd *sc_cmd)
 out:
 	return rc;
 }
-EXPORT_SYMBOL(fc_queuecommand);
+/* DISABLED: EXPORT_SYMBOL(fc_queuecommand); */
 
 /**
  * fc_io_compl() - Handle responses for completed commands
@@ -2066,7 +2066,7 @@ release_pkt:
 	fc_fcp_pkt_release(fsp);
 	return rc;
 }
-EXPORT_SYMBOL(fc_eh_abort);
+/* DISABLED: EXPORT_SYMBOL(fc_eh_abort); */
 
 /**
  * fc_eh_device_reset() - Reset a single LUN
@@ -2117,7 +2117,7 @@ int fc_eh_device_reset(struct scsi_cmnd *sc_cmd)
 out:
 	return rc;
 }
-EXPORT_SYMBOL(fc_eh_device_reset);
+/* DISABLED: EXPORT_SYMBOL(fc_eh_device_reset); */
 
 /**
  * fc_eh_host_reset() - Reset a Scsi_Host.
@@ -2150,7 +2150,7 @@ int fc_eh_host_reset(struct scsi_cmnd *sc_cmd)
 		return FAILED;
 	}
 }
-EXPORT_SYMBOL(fc_eh_host_reset);
+/* DISABLED: EXPORT_SYMBOL(fc_eh_host_reset); */
 
 /**
  * fc_slave_alloc() - Configure the queue depth of a Scsi_Host
@@ -2174,7 +2174,7 @@ int fc_slave_alloc(struct scsi_device *sdev)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_slave_alloc);
+/* DISABLED: EXPORT_SYMBOL(fc_slave_alloc); */
 
 /**
  * fc_change_queue_depth() - Change a device's queue depth
@@ -2199,7 +2199,7 @@ int fc_change_queue_depth(struct scsi_device *sdev, int qdepth, int reason)
 	}
 	return sdev->queue_depth;
 }
-EXPORT_SYMBOL(fc_change_queue_depth);
+/* DISABLED: EXPORT_SYMBOL(fc_change_queue_depth); */
 
 /**
  * fc_change_queue_type() - Change a device's queue type
@@ -2219,7 +2219,7 @@ int fc_change_queue_type(struct scsi_device *sdev, int tag_type)
 
 	return tag_type;
 }
-EXPORT_SYMBOL(fc_change_queue_type);
+/* DISABLED: EXPORT_SYMBOL(fc_change_queue_type); */
 
 /**
  * fc_fcp_destory() - Tear down the FCP layer for a given local port
@@ -2237,7 +2237,7 @@ void fc_fcp_destroy(struct fc_lport *lport)
 	kfree(si);
 	lport->scsi_priv = NULL;
 }
-EXPORT_SYMBOL(fc_fcp_destroy);
+/* DISABLED: EXPORT_SYMBOL(fc_fcp_destroy); */
 
 int fc_setup_fcp(void)
 {
@@ -2298,4 +2298,4 @@ free_internal:
 	kfree(si);
 	return rc;
 }
-EXPORT_SYMBOL(fc_fcp_init);
+/* DISABLED: EXPORT_SYMBOL(fc_fcp_init); */

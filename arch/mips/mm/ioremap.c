@@ -188,5 +188,5 @@ void __iounmap(const volatile void __iomem *addr)
         kfree(p);
 }
 
-EXPORT_SYMBOL(__ioremap);
-EXPORT_SYMBOL(__iounmap);
+/* DISABLED: EXPORT_SYMBOL(__ioremap); */
+/* DISABLED: EXPORT_SYMBOL(__iounmap); */

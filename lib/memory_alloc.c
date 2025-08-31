@@ -279,7 +279,7 @@ struct mem_pool *initialize_memory_pool(phys_addr_t start,
 		id, &start, size);
 	return &mpools[id];
 }
-EXPORT_SYMBOL_GPL(initialize_memory_pool);
+/* DISABLED: EXPORT_SYMBOL_GPL(initialize_memory_pool); */
 
 void *allocate_contiguous_memory(unsigned long size,
 	int mem_type, unsigned long align, int cached)
@@ -294,7 +294,7 @@ void *allocate_contiguous_memory(unsigned long size,
 		__builtin_return_address(0));
 
 }
-EXPORT_SYMBOL_GPL(allocate_contiguous_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(allocate_contiguous_memory); */
 
 phys_addr_t _allocate_contiguous_memory_nomap(unsigned long size,
 	int mem_type, unsigned long align, void *caller)
@@ -343,7 +343,7 @@ out:
 	gen_pool_free(mpool->gpool, paddr, aligned_size);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(_allocate_contiguous_memory_nomap);
+/* DISABLED: EXPORT_SYMBOL_GPL(_allocate_contiguous_memory_nomap); */
 
 phys_addr_t allocate_contiguous_memory_nomap(unsigned long size,
 	int mem_type, unsigned long align)
@@ -351,7 +351,7 @@ phys_addr_t allocate_contiguous_memory_nomap(unsigned long size,
 	return _allocate_contiguous_memory_nomap(size, mem_type, align,
 		__builtin_return_address(0));
 }
-EXPORT_SYMBOL_GPL(allocate_contiguous_memory_nomap);
+/* DISABLED: EXPORT_SYMBOL_GPL(allocate_contiguous_memory_nomap); */
 
 void free_contiguous_memory(void *addr)
 {
@@ -360,7 +360,7 @@ void free_contiguous_memory(void *addr)
 	__free(addr, true);
 	return;
 }
-EXPORT_SYMBOL_GPL(free_contiguous_memory);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_contiguous_memory); */
 
 void free_contiguous_memory_by_paddr(phys_addr_t paddr)
 {
@@ -369,7 +369,7 @@ void free_contiguous_memory_by_paddr(phys_addr_t paddr)
 	__free((void *)(unsigned long)paddr, false);
 	return;
 }
-EXPORT_SYMBOL_GPL(free_contiguous_memory_by_paddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_contiguous_memory_by_paddr); */
 
 phys_addr_t memory_pool_node_paddr(void *vaddr)
 {
@@ -380,7 +380,7 @@ phys_addr_t memory_pool_node_paddr(void *vaddr)
 
 	return node->paddr;
 }
-EXPORT_SYMBOL_GPL(memory_pool_node_paddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(memory_pool_node_paddr); */
 
 unsigned long memory_pool_node_len(void *vaddr)
 {
@@ -391,7 +391,7 @@ unsigned long memory_pool_node_len(void *vaddr)
 
 	return node->len;
 }
-EXPORT_SYMBOL_GPL(memory_pool_node_len);
+/* DISABLED: EXPORT_SYMBOL_GPL(memory_pool_node_len); */
 
 static const struct file_operations mempool_operations = {
 	.owner		= THIS_MODULE,

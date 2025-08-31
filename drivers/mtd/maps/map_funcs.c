@@ -39,5 +39,5 @@ void simple_map_init(struct map_info *map)
 	map->copy_to = simple_map_copy_to;
 }
 
-EXPORT_SYMBOL(simple_map_init);
+/* DISABLED: EXPORT_SYMBOL(simple_map_init); */
 MODULE_LICENSE("GPL");

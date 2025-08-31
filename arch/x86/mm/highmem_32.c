@@ -9,7 +9,7 @@ void *kmap(struct page *page)
 		return page_address(page);
 	return kmap_high(page);
 }
-EXPORT_SYMBOL(kmap);
+/* DISABLED: EXPORT_SYMBOL(kmap); */
 
 void kunmap(struct page *page)
 {
@@ -19,7 +19,7 @@ void kunmap(struct page *page)
 		return;
 	kunmap_high(page);
 }
-EXPORT_SYMBOL(kunmap);
+/* DISABLED: EXPORT_SYMBOL(kunmap); */
 
 /*
  * kmap_atomic/kunmap_atomic is significantly faster than kmap/kunmap because
@@ -49,13 +49,13 @@ void *kmap_atomic_prot(struct page *page, pgprot_t prot)
 
 	return (void *)vaddr;
 }
-EXPORT_SYMBOL(kmap_atomic_prot);
+/* DISABLED: EXPORT_SYMBOL(kmap_atomic_prot); */
 
 void *kmap_atomic(struct page *page)
 {
 	return kmap_atomic_prot(page, kmap_prot);
 }
-EXPORT_SYMBOL(kmap_atomic);
+/* DISABLED: EXPORT_SYMBOL(kmap_atomic); */
 
 /*
  * This is the same as kmap_atomic() but can map memory that doesn't
@@ -65,7 +65,7 @@ void *kmap_atomic_pfn(unsigned long pfn)
 {
 	return kmap_atomic_prot_pfn(pfn, kmap_prot);
 }
-EXPORT_SYMBOL_GPL(kmap_atomic_pfn);
+/* DISABLED: EXPORT_SYMBOL_GPL(kmap_atomic_pfn); */
 
 void __kunmap_atomic(void *kvaddr)
 {
@@ -100,7 +100,7 @@ void __kunmap_atomic(void *kvaddr)
 
 	pagefault_enable();
 }
-EXPORT_SYMBOL(__kunmap_atomic);
+/* DISABLED: EXPORT_SYMBOL(__kunmap_atomic); */
 
 struct page *kmap_atomic_to_page(void *ptr)
 {
@@ -114,7 +114,7 @@ struct page *kmap_atomic_to_page(void *ptr)
 	pte = kmap_pte - (idx - FIX_KMAP_BEGIN);
 	return pte_page(*pte);
 }
-EXPORT_SYMBOL(kmap_atomic_to_page);
+/* DISABLED: EXPORT_SYMBOL(kmap_atomic_to_page); */
 
 void __init set_highmem_pages_init(void)
 {

@@ -226,7 +226,7 @@ dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
 
 	return ops->phys_to_dma(dev, paddr);
 }
-EXPORT_SYMBOL(phys_to_dma);
+/* DISABLED: EXPORT_SYMBOL(phys_to_dma); */
 
 phys_addr_t dma_to_phys(struct device *dev, dma_addr_t daddr)
 {
@@ -236,7 +236,7 @@ phys_addr_t dma_to_phys(struct device *dev, dma_addr_t daddr)
 
 	return ops->dma_to_phys(dev, daddr);
 }
-EXPORT_SYMBOL(dma_to_phys);
+/* DISABLED: EXPORT_SYMBOL(dma_to_phys); */
 
 static struct octeon_dma_map_ops octeon_linear_dma_map_ops = {
 	.dma_map_ops = {

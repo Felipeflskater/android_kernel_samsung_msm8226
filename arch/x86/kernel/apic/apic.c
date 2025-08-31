@@ -140,7 +140,7 @@ static __init int setup_apicpmtimer(char *s)
 	notsc_setup(NULL);
 	return 0;
 }
-/* DISABLED: __setup("apicpmtimer", setup_apicpmtimer); */
+/* DISABLED: __setup("apicpmtimer", setup_apicpmtimer); */ */
 #endif
 
 int x2apic_mode;
@@ -177,7 +177,7 @@ int disable_apic;
 static int disable_apic_timer __initdata;
 /* Local APIC timer works in C2 */
 int local_apic_timer_c2_ok;
-EXPORT_SYMBOL_GPL(local_apic_timer_c2_ok);
+/* DISABLED: EXPORT_SYMBOL_GPL(local_apic_timer_c2_ok); */
 
 int first_system_vector = 0xfe;
 
@@ -440,7 +440,7 @@ int setup_APIC_eilvt(u8 offset, u8 vector, u8 msg_type, u8 mask)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(setup_APIC_eilvt);
+/* DISABLED: EXPORT_SYMBOL_GPL(setup_APIC_eilvt); */
 
 /*
  * Program the next event, relative to now

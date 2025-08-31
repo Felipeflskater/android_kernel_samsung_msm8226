@@ -900,7 +900,7 @@ void bitmap_unplug(struct bitmap *bitmap)
 	if (bitmap->flags & BITMAP_WRITE_ERROR)
 		bitmap_file_kick(bitmap);
 }
-EXPORT_SYMBOL(bitmap_unplug);
+/* DISABLED: EXPORT_SYMBOL(bitmap_unplug); */
 
 static void bitmap_set_memory_bits(struct bitmap *bitmap, sector_t offset, int needed);
 /* * bitmap_init_from_disk -- called at bitmap_create time to initialize
@@ -1344,7 +1344,7 @@ int bitmap_startwrite(struct bitmap *bitmap, sector_t offset, unsigned long sect
 	}
 	return 0;
 }
-EXPORT_SYMBOL(bitmap_startwrite);
+/* DISABLED: EXPORT_SYMBOL(bitmap_startwrite); */
 
 void bitmap_endwrite(struct bitmap *bitmap, sector_t offset, unsigned long sectors,
 		     int success, int behind)
@@ -1401,7 +1401,7 @@ void bitmap_endwrite(struct bitmap *bitmap, sector_t offset, unsigned long secto
 			sectors = 0;
 	}
 }
-EXPORT_SYMBOL(bitmap_endwrite);
+/* DISABLED: EXPORT_SYMBOL(bitmap_endwrite); */
 
 static int __bitmap_start_sync(struct bitmap *bitmap, sector_t offset, sector_t *blocks,
 			       int degraded)
@@ -1453,7 +1453,7 @@ int bitmap_start_sync(struct bitmap *bitmap, sector_t offset, sector_t *blocks,
 	}
 	return rv;
 }
-EXPORT_SYMBOL(bitmap_start_sync);
+/* DISABLED: EXPORT_SYMBOL(bitmap_start_sync); */
 
 void bitmap_end_sync(struct bitmap *bitmap, sector_t offset, sector_t *blocks, int aborted)
 {
@@ -1486,7 +1486,7 @@ void bitmap_end_sync(struct bitmap *bitmap, sector_t offset, sector_t *blocks, i
  unlock:
 	spin_unlock_irqrestore(&bitmap->lock, flags);
 }
-EXPORT_SYMBOL(bitmap_end_sync);
+/* DISABLED: EXPORT_SYMBOL(bitmap_end_sync); */
 
 void bitmap_close_sync(struct bitmap *bitmap)
 {
@@ -1503,7 +1503,7 @@ void bitmap_close_sync(struct bitmap *bitmap)
 		sector += blocks;
 	}
 }
-EXPORT_SYMBOL(bitmap_close_sync);
+/* DISABLED: EXPORT_SYMBOL(bitmap_close_sync); */
 
 void bitmap_cond_end_sync(struct bitmap *bitmap, sector_t sector)
 {
@@ -1533,7 +1533,7 @@ void bitmap_cond_end_sync(struct bitmap *bitmap, sector_t sector)
 	bitmap->last_end_sync = jiffies;
 	sysfs_notify(&bitmap->mddev->kobj, NULL, "sync_completed");
 }
-EXPORT_SYMBOL(bitmap_cond_end_sync);
+/* DISABLED: EXPORT_SYMBOL(bitmap_cond_end_sync); */
 
 static void bitmap_set_memory_bits(struct bitmap *bitmap, sector_t offset, int needed)
 {
@@ -1801,7 +1801,7 @@ int bitmap_load(struct mddev *mddev)
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(bitmap_load);
+/* DISABLED: EXPORT_SYMBOL_GPL(bitmap_load); */
 
 void bitmap_status(struct seq_file *seq, struct bitmap *bitmap)
 {

@@ -223,7 +223,7 @@ const char *snd_pcm_format_name(snd_pcm_format_t format)
 		return "Unknown";
 	return snd_pcm_format_names[(__force unsigned int)format];
 }
-EXPORT_SYMBOL_GPL(snd_pcm_format_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_pcm_format_name); */
 
 #ifdef CONFIG_SND_VERBOSE_PROCFS
 
@@ -704,7 +704,7 @@ int snd_pcm_new_stream(struct snd_pcm *pcm, int stream, int substream_count)
 	return 0;
 }				
 
-EXPORT_SYMBOL(snd_pcm_new_stream);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_new_stream); */
 
 static int _snd_pcm_new(struct snd_card *card, const char *id, int device,
 		int playback_count, int capture_count, bool internal,
@@ -773,7 +773,7 @@ int snd_pcm_new(struct snd_card *card, const char *id, int device,
 	return _snd_pcm_new(card, id, device, playback_count, capture_count,
 			false, rpcm);
 }
-EXPORT_SYMBOL(snd_pcm_new);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_new); */
 
 static int snd_pcm_new_stream_soc_be(struct snd_pcm *pcm, int stream,
 	int substream_count)
@@ -878,7 +878,7 @@ int snd_pcm_new_soc_be(struct snd_card *card, const char *id, int device,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_pcm_new_soc_be);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_new_soc_be); */
 /**
  * snd_pcm_new_internal - create a new internal PCM instance
  * @card: the card instance
@@ -906,7 +906,7 @@ int snd_pcm_new_internal(struct snd_card *card, const char *id, int device,
 	return _snd_pcm_new(card, id, device, playback_count, capture_count,
 			true, rpcm);
 }
-EXPORT_SYMBOL(snd_pcm_new_internal);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_new_internal); */
 
 static void snd_pcm_free_stream(struct snd_pcm_str * pstr)
 {
@@ -1284,7 +1284,7 @@ int snd_pcm_notify(struct snd_pcm_notify *notify, int nfree)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_pcm_notify);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_notify); */
 
 #ifdef CONFIG_PROC_FS
 /*

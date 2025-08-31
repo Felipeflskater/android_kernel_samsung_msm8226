@@ -61,7 +61,7 @@
  * operations in asm/ns87303.h
  */
 DEFINE_SPINLOCK(ns87303_lock);
-EXPORT_SYMBOL(ns87303_lock);
+/* DISABLED: EXPORT_SYMBOL(ns87303_lock); */
 
 struct screen_info screen_info = {
 	0, 0,			/* orig-x, orig-y */
@@ -329,7 +329,7 @@ void __init boot_cpu_id_too_large(int cpu)
 unsigned long sparc64_elf_hwcap = (HWCAP_SPARC_FLUSH | HWCAP_SPARC_STBAR |
 				   HWCAP_SPARC_SWAP | HWCAP_SPARC_MULDIV |
 				   HWCAP_SPARC_V9);
-EXPORT_SYMBOL(sparc64_elf_hwcap);
+/* DISABLED: EXPORT_SYMBOL(sparc64_elf_hwcap); */
 
 static const char *hwcaps[] = {
 	"flush", "stbar", "swap", "muldiv", "v9",
@@ -561,7 +561,7 @@ void sun_do_break(void)
 
 	prom_cmdline();
 }
-EXPORT_SYMBOL(sun_do_break);
+/* DISABLED: EXPORT_SYMBOL(sun_do_break); */
 
 int stop_a_enabled = 1;
-EXPORT_SYMBOL(stop_a_enabled);
+/* DISABLED: EXPORT_SYMBOL(stop_a_enabled); */

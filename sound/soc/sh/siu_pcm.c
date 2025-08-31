@@ -614,4 +614,4 @@ struct snd_soc_platform_driver siu_platform = {
 	.pcm_new	= siu_pcm_new,
 	.pcm_free	= siu_pcm_free,
 };
-EXPORT_SYMBOL_GPL(siu_platform);
+/* DISABLED: EXPORT_SYMBOL_GPL(siu_platform); */

@@ -1815,7 +1815,7 @@ exit:
 
 	return;
 }
-EXPORT_SYMBOL(synaptics_rmi4_new_function);
+/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_new_function); */
 
 
 static int reg_set_optimum_mode_check(struct regulator *reg, int load_uA)

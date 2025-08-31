@@ -32,7 +32,7 @@
 #include <net/netfilter/nf_conntrack_zones.h>
 
 unsigned int nf_ct_expect_hsize __read_mostly;
-EXPORT_SYMBOL_GPL(nf_ct_expect_hsize);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_hsize); */
 
 unsigned int nf_ct_expect_max __read_mostly;
 
@@ -59,7 +59,7 @@ void nf_ct_unlink_expect_report(struct nf_conntrack_expect *exp,
 
 	NF_CT_STAT_INC(net, expect_delete);
 }
-EXPORT_SYMBOL_GPL(nf_ct_unlink_expect_report);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_unlink_expect_report); */
 
 static void nf_ct_expectation_timed_out(unsigned long ul_expect)
 {
@@ -104,7 +104,7 @@ __nf_ct_expect_find(struct net *net, u16 zone,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(__nf_ct_expect_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(__nf_ct_expect_find); */
 
 /* Just find a expectation corresponding to a tuple. */
 struct nf_conntrack_expect *
@@ -121,7 +121,7 @@ nf_ct_expect_find_get(struct net *net, u16 zone,
 
 	return i;
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_find_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_find_get); */
 
 /* If an expectation for this connection is found, it gets delete from
  * global list then returned. */
@@ -185,7 +185,7 @@ void nf_ct_remove_expectations(struct nf_conn *ct)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(nf_ct_remove_expectations);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_remove_expectations); */
 
 /* Would two expected things clash? */
 static inline int expect_clash(const struct nf_conntrack_expect *a,
@@ -226,7 +226,7 @@ void nf_ct_unexpect_related(struct nf_conntrack_expect *exp)
 	}
 	spin_unlock_bh(&nf_conntrack_lock);
 }
-EXPORT_SYMBOL_GPL(nf_ct_unexpect_related);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_unexpect_related); */
 
 /* We don't increase the master conntrack refcount for non-fulfilled
  * conntracks. During the conntrack destruction, the expectations are
@@ -243,7 +243,7 @@ struct nf_conntrack_expect *nf_ct_expect_alloc(struct nf_conn *me)
 	atomic_set(&new->use, 1);
 	return new;
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_alloc); */
 
 void nf_ct_expect_init(struct nf_conntrack_expect *exp, unsigned int class,
 		       u_int8_t family,
@@ -296,7 +296,7 @@ void nf_ct_expect_init(struct nf_conntrack_expect *exp, unsigned int class,
 
 	exp->tuple.dst.u.all = *dst;
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_init); */
 
 static void nf_ct_expect_free_rcu(struct rcu_head *head)
 {
@@ -311,7 +311,7 @@ void nf_ct_expect_put(struct nf_conntrack_expect *exp)
 	if (atomic_dec_and_test(&exp->use))
 		call_rcu(&exp->rcu, nf_ct_expect_free_rcu);
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_put); */
 
 static int nf_ct_expect_insert(struct nf_conntrack_expect *exp)
 {
@@ -437,7 +437,7 @@ out:
 	spin_unlock_bh(&nf_conntrack_lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_ct_expect_related_report);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_expect_related_report); */
 
 #ifdef CONFIG_NF_CONNTRACK_PROCFS
 struct ct_expect_iter_state {

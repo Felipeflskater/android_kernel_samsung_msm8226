@@ -604,14 +604,14 @@ MODULE_LICENSE("GPL");
 module_init(qlogicfas408_init);
 module_exit(qlogicfas408_exit);
 
-EXPORT_SYMBOL(qlogicfas408_info);
-EXPORT_SYMBOL(qlogicfas408_queuecommand);
-EXPORT_SYMBOL(qlogicfas408_abort);
-EXPORT_SYMBOL(qlogicfas408_bus_reset);
-EXPORT_SYMBOL(qlogicfas408_biosparam);
-EXPORT_SYMBOL(qlogicfas408_ihandl);
-EXPORT_SYMBOL(qlogicfas408_get_chip_type);
-EXPORT_SYMBOL(qlogicfas408_setup);
-EXPORT_SYMBOL(qlogicfas408_detect);
-EXPORT_SYMBOL(qlogicfas408_disable_ints);
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_info); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_queuecommand); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_abort); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_bus_reset); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_biosparam); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_ihandl); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_get_chip_type); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_setup); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_detect); */
+/* DISABLED: EXPORT_SYMBOL(qlogicfas408_disable_ints); */
 

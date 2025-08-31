@@ -64,7 +64,7 @@ void rtnl_lock(void)
 {
 	mutex_lock(&rtnl_mutex);
 }
-EXPORT_SYMBOL(rtnl_lock);
+/* DISABLED: EXPORT_SYMBOL(rtnl_lock); */
 
 void __rtnl_unlock(void)
 {
@@ -76,26 +76,26 @@ void rtnl_unlock(void)
 	/* This fellow will unlock it for us. */
 	netdev_run_todo();
 }
-EXPORT_SYMBOL(rtnl_unlock);
+/* DISABLED: EXPORT_SYMBOL(rtnl_unlock); */
 
 int rtnl_trylock(void)
 {
 	return mutex_trylock(&rtnl_mutex);
 }
-EXPORT_SYMBOL(rtnl_trylock);
+/* DISABLED: EXPORT_SYMBOL(rtnl_trylock); */
 
 int rtnl_is_locked(void)
 {
 	return mutex_is_locked(&rtnl_mutex);
 }
-EXPORT_SYMBOL(rtnl_is_locked);
+/* DISABLED: EXPORT_SYMBOL(rtnl_is_locked); */
 
 #ifdef CONFIG_PROVE_LOCKING
 int lockdep_rtnl_is_held(void)
 {
 	return lockdep_is_held(&rtnl_mutex);
 }
-EXPORT_SYMBOL(lockdep_rtnl_is_held);
+/* DISABLED: EXPORT_SYMBOL(lockdep_rtnl_is_held); */
 #endif /* #ifdef CONFIG_PROVE_LOCKING */
 
 static struct rtnl_link *rtnl_msg_handlers[RTNL_FAMILY_MAX + 1];
@@ -207,7 +207,7 @@ int __rtnl_register(int protocol, int msgtype,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__rtnl_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rtnl_register); */
 
 /**
  * rtnl_register - Register a rtnetlink message type
@@ -227,7 +227,7 @@ void rtnl_register(int protocol, int msgtype,
 		      "protocol = %d, message type = %d\n",
 		      protocol, msgtype);
 }
-EXPORT_SYMBOL_GPL(rtnl_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_register); */
 
 /**
  * rtnl_unregister - Unregister a rtnetlink message type
@@ -251,7 +251,7 @@ int rtnl_unregister(int protocol, int msgtype)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rtnl_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_unregister); */
 
 /**
  * rtnl_unregister_all - Unregister all rtnetlink message type of a protocol
@@ -267,7 +267,7 @@ void rtnl_unregister_all(int protocol)
 	kfree(rtnl_msg_handlers[protocol]);
 	rtnl_msg_handlers[protocol] = NULL;
 }
-EXPORT_SYMBOL_GPL(rtnl_unregister_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_unregister_all); */
 
 static LIST_HEAD(link_ops);
 
@@ -303,7 +303,7 @@ int __rtnl_link_register(struct rtnl_link_ops *ops)
 	list_add_tail(&ops->list, &link_ops);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__rtnl_link_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rtnl_link_register); */
 
 /**
  * rtnl_link_register - Register rtnl_link_ops with rtnetlink.
@@ -320,7 +320,7 @@ int rtnl_link_register(struct rtnl_link_ops *ops)
 	rtnl_unlock();
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtnl_link_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_link_register); */
 
 static void __rtnl_kill_links(struct net *net, struct rtnl_link_ops *ops)
 {
@@ -349,7 +349,7 @@ void __rtnl_link_unregister(struct rtnl_link_ops *ops)
 	}
 	list_del(&ops->list);
 }
-EXPORT_SYMBOL_GPL(__rtnl_link_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rtnl_link_unregister); */
 
 /**
  * rtnl_link_unregister - Unregister rtnl_link_ops from rtnetlink.
@@ -361,7 +361,7 @@ void rtnl_link_unregister(struct rtnl_link_ops *ops)
 	__rtnl_link_unregister(ops);
 	rtnl_unlock();
 }
-EXPORT_SYMBOL_GPL(rtnl_link_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_link_unregister); */
 
 static size_t rtnl_link_get_size(const struct net_device *dev)
 {
@@ -413,7 +413,7 @@ int __rtnl_af_register(struct rtnl_af_ops *ops)
 	list_add_tail(&ops->list, &rtnl_af_ops);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__rtnl_af_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rtnl_af_register); */
 
 /**
  * rtnl_af_register - Register rtnl_af_ops with rtnetlink.
@@ -430,7 +430,7 @@ int rtnl_af_register(struct rtnl_af_ops *ops)
 	rtnl_unlock();
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtnl_af_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_af_register); */
 
 /**
  * __rtnl_af_unregister - Unregister rtnl_af_ops from rtnetlink.
@@ -442,7 +442,7 @@ void __rtnl_af_unregister(struct rtnl_af_ops *ops)
 {
 	list_del(&ops->list);
 }
-EXPORT_SYMBOL_GPL(__rtnl_af_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rtnl_af_unregister); */
 
 /**
  * rtnl_af_unregister - Unregister rtnl_af_ops from rtnetlink.
@@ -454,7 +454,7 @@ void rtnl_af_unregister(struct rtnl_af_ops *ops)
 	__rtnl_af_unregister(ops);
 	rtnl_unlock();
 }
-EXPORT_SYMBOL_GPL(rtnl_af_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_af_unregister); */
 
 static size_t rtnl_link_get_af_size(const struct net_device *dev)
 {
@@ -552,7 +552,7 @@ void __rta_fill(struct sk_buff *skb, int attrtype, int attrlen, const void *data
 	memcpy(RTA_DATA(rta), data, attrlen);
 	memset(RTA_DATA(rta) + attrlen, 0, RTA_ALIGN(size) - size);
 }
-EXPORT_SYMBOL(__rta_fill);
+/* DISABLED: EXPORT_SYMBOL(__rta_fill); */
 
 int rtnetlink_send(struct sk_buff *skb, struct net *net, u32 pid, unsigned group, int echo)
 {
@@ -574,7 +574,7 @@ int rtnl_unicast(struct sk_buff *skb, struct net *net, u32 pid)
 
 	return nlmsg_unicast(rtnl, skb, pid);
 }
-EXPORT_SYMBOL(rtnl_unicast);
+/* DISABLED: EXPORT_SYMBOL(rtnl_unicast); */
 
 void rtnl_notify(struct sk_buff *skb, struct net *net, u32 pid, u32 group,
 		 struct nlmsghdr *nlh, gfp_t flags)
@@ -587,7 +587,7 @@ void rtnl_notify(struct sk_buff *skb, struct net *net, u32 pid, u32 group,
 
 	nlmsg_notify(rtnl, skb, pid, group, report, flags);
 }
-EXPORT_SYMBOL(rtnl_notify);
+/* DISABLED: EXPORT_SYMBOL(rtnl_notify); */
 
 void rtnl_set_sk_err(struct net *net, u32 group, int error)
 {
@@ -595,7 +595,7 @@ void rtnl_set_sk_err(struct net *net, u32 group, int error)
 
 	netlink_set_err(rtnl, 0, group, error);
 }
-EXPORT_SYMBOL(rtnl_set_sk_err);
+/* DISABLED: EXPORT_SYMBOL(rtnl_set_sk_err); */
 
 int rtnetlink_put_metrics(struct sk_buff *skb, u32 *metrics)
 {
@@ -624,7 +624,7 @@ nla_put_failure:
 	nla_nest_cancel(skb, mx);
 	return -EMSGSIZE;
 }
-EXPORT_SYMBOL(rtnetlink_put_metrics);
+/* DISABLED: EXPORT_SYMBOL(rtnetlink_put_metrics); */
 
 int rtnl_put_cacheinfo(struct sk_buff *skb, struct dst_entry *dst, u32 id,
 		       u32 ts, u32 tsage, long expires, u32 error)
@@ -644,7 +644,7 @@ int rtnl_put_cacheinfo(struct sk_buff *skb, struct dst_entry *dst, u32 id,
 
 	return nla_put(skb, RTA_CACHEINFO, sizeof(ci), &ci);
 }
-EXPORT_SYMBOL_GPL(rtnl_put_cacheinfo);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtnl_put_cacheinfo); */
 
 static void set_operstate(struct net_device *dev, unsigned char transition)
 {
@@ -1134,7 +1134,7 @@ const struct nla_policy ifla_policy[IFLA_MAX+1] = {
 	[IFLA_AF_SPEC]		= { .type = NLA_NESTED },
 	[IFLA_EXT_MASK]		= { .type = NLA_U32 },
 };
-EXPORT_SYMBOL(ifla_policy);
+/* DISABLED: EXPORT_SYMBOL(ifla_policy); */
 
 static const struct nla_policy ifla_info_policy[IFLA_INFO_MAX+1] = {
 	[IFLA_INFO_KIND]	= { .type = NLA_STRING },
@@ -1176,7 +1176,7 @@ struct net *rtnl_link_get_net(struct net *src_net, struct nlattr *tb[])
 		net = get_net(src_net);
 	return net;
 }
-EXPORT_SYMBOL(rtnl_link_get_net);
+/* DISABLED: EXPORT_SYMBOL(rtnl_link_get_net); */
 
 static int validate_linkmsg(struct net_device *dev, struct nlattr *tb[])
 {
@@ -1641,7 +1641,7 @@ int rtnl_configure_link(struct net_device *dev, const struct ifinfomsg *ifm)
 	__dev_notify_flags(dev, old_flags);
 	return 0;
 }
-EXPORT_SYMBOL(rtnl_configure_link);
+/* DISABLED: EXPORT_SYMBOL(rtnl_configure_link); */
 
 struct net_device *rtnl_create_link(struct net *src_net, struct net *net,
 	char *ifname, const struct rtnl_link_ops *ops, struct nlattr *tb[])
@@ -1688,7 +1688,7 @@ struct net_device *rtnl_create_link(struct net *src_net, struct net *net,
 err:
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(rtnl_create_link);
+/* DISABLED: EXPORT_SYMBOL(rtnl_create_link); */
 
 static int rtnl_group_changelink(struct net *net, int group,
 		struct ifinfomsg *ifm,

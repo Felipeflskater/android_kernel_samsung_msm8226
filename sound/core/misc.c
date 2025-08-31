@@ -49,7 +49,7 @@ void release_and_free_resource(struct resource *res)
 	}
 }
 
-EXPORT_SYMBOL(release_and_free_resource);
+/* DISABLED: EXPORT_SYMBOL(release_and_free_resource); */
 
 #ifdef CONFIG_SND_VERBOSE_PRINTK
 /* strip the leading path if the given path is absolute */
@@ -92,7 +92,7 @@ void __snd_printk(unsigned int level, const char *path, int line,
 #endif
 	va_end(args);
 }
-EXPORT_SYMBOL_GPL(__snd_printk);
+/* DISABLED: EXPORT_SYMBOL_GPL(__snd_printk); */
 #endif
 
 #ifdef CONFIG_PCI
@@ -124,7 +124,7 @@ snd_pci_quirk_lookup_id(u16 vendor, u16 device,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(snd_pci_quirk_lookup_id);
+/* DISABLED: EXPORT_SYMBOL(snd_pci_quirk_lookup_id); */
 
 /**
  * snd_pci_quirk_lookup - look up a PCI SSID quirk list
@@ -144,5 +144,5 @@ snd_pci_quirk_lookup(struct pci_dev *pci, const struct snd_pci_quirk *list)
 				       pci->subsystem_device,
 				       list);
 }
-EXPORT_SYMBOL(snd_pci_quirk_lookup);
+/* DISABLED: EXPORT_SYMBOL(snd_pci_quirk_lookup); */
 #endif

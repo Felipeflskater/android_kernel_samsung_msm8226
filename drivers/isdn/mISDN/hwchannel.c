@@ -78,7 +78,7 @@ mISDN_initdchannel(struct dchannel *ch, int maxlen, void *phf)
 	INIT_WORK(&ch->workq, dchannel_bh);
 	return 0;
 }
-EXPORT_SYMBOL(mISDN_initdchannel);
+/* DISABLED: EXPORT_SYMBOL(mISDN_initdchannel); */
 
 int
 mISDN_initbchannel(struct bchannel *ch, int maxlen)
@@ -95,7 +95,7 @@ mISDN_initbchannel(struct bchannel *ch, int maxlen)
 	INIT_WORK(&ch->workq, bchannel_bh);
 	return 0;
 }
-EXPORT_SYMBOL(mISDN_initbchannel);
+/* DISABLED: EXPORT_SYMBOL(mISDN_initbchannel); */
 
 int
 mISDN_freedchannel(struct dchannel *ch)
@@ -113,7 +113,7 @@ mISDN_freedchannel(struct dchannel *ch)
 	flush_work_sync(&ch->workq);
 	return 0;
 }
-EXPORT_SYMBOL(mISDN_freedchannel);
+/* DISABLED: EXPORT_SYMBOL(mISDN_freedchannel); */
 
 void
 mISDN_clear_bchannel(struct bchannel *ch)
@@ -135,7 +135,7 @@ mISDN_clear_bchannel(struct bchannel *ch)
 	test_and_clear_bit(FLG_TX_NEXT, &ch->Flags);
 	test_and_clear_bit(FLG_ACTIVE, &ch->Flags);
 }
-EXPORT_SYMBOL(mISDN_clear_bchannel);
+/* DISABLED: EXPORT_SYMBOL(mISDN_clear_bchannel); */
 
 int
 mISDN_freebchannel(struct bchannel *ch)
@@ -146,7 +146,7 @@ mISDN_freebchannel(struct bchannel *ch)
 	flush_work_sync(&ch->workq);
 	return 0;
 }
-EXPORT_SYMBOL(mISDN_freebchannel);
+/* DISABLED: EXPORT_SYMBOL(mISDN_freebchannel); */
 
 static inline u_int
 get_sapi_tei(u_char *p)
@@ -175,7 +175,7 @@ recv_Dchannel(struct dchannel *dch)
 	dch->rx_skb = NULL;
 	schedule_event(dch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(recv_Dchannel);
+/* DISABLED: EXPORT_SYMBOL(recv_Dchannel); */
 
 void
 recv_Echannel(struct dchannel *ech, struct dchannel *dch)
@@ -194,7 +194,7 @@ recv_Echannel(struct dchannel *ech, struct dchannel *dch)
 	ech->rx_skb = NULL;
 	schedule_event(dch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(recv_Echannel);
+/* DISABLED: EXPORT_SYMBOL(recv_Echannel); */
 
 void
 recv_Bchannel(struct bchannel *bch, unsigned int id)
@@ -216,7 +216,7 @@ recv_Bchannel(struct bchannel *bch, unsigned int id)
 	bch->rx_skb = NULL;
 	schedule_event(bch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(recv_Bchannel);
+/* DISABLED: EXPORT_SYMBOL(recv_Bchannel); */
 
 void
 recv_Dchannel_skb(struct dchannel *dch, struct sk_buff *skb)
@@ -224,7 +224,7 @@ recv_Dchannel_skb(struct dchannel *dch, struct sk_buff *skb)
 	skb_queue_tail(&dch->rqueue, skb);
 	schedule_event(dch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(recv_Dchannel_skb);
+/* DISABLED: EXPORT_SYMBOL(recv_Dchannel_skb); */
 
 void
 recv_Bchannel_skb(struct bchannel *bch, struct sk_buff *skb)
@@ -239,7 +239,7 @@ recv_Bchannel_skb(struct bchannel *bch, struct sk_buff *skb)
 	skb_queue_tail(&bch->rqueue, skb);
 	schedule_event(bch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(recv_Bchannel_skb);
+/* DISABLED: EXPORT_SYMBOL(recv_Bchannel_skb); */
 
 static void
 confirm_Dsend(struct dchannel *dch)
@@ -270,7 +270,7 @@ get_next_dframe(struct dchannel *dch)
 	test_and_clear_bit(FLG_TX_BUSY, &dch->Flags);
 	return 0;
 }
-EXPORT_SYMBOL(get_next_dframe);
+/* DISABLED: EXPORT_SYMBOL(get_next_dframe); */
 
 void
 confirm_Bsend(struct bchannel *bch)
@@ -294,7 +294,7 @@ confirm_Bsend(struct bchannel *bch)
 	skb_queue_tail(&bch->rqueue, skb);
 	schedule_event(bch, FLG_RECVQUEUE);
 }
-EXPORT_SYMBOL(confirm_Bsend);
+/* DISABLED: EXPORT_SYMBOL(confirm_Bsend); */
 
 int
 get_next_bframe(struct bchannel *bch)
@@ -317,7 +317,7 @@ get_next_bframe(struct bchannel *bch)
 	test_and_clear_bit(FLG_TX_BUSY, &bch->Flags);
 	return 0;
 }
-EXPORT_SYMBOL(get_next_bframe);
+/* DISABLED: EXPORT_SYMBOL(get_next_bframe); */
 
 void
 queue_ch_frame(struct mISDNchannel *ch, u_int pr, int id, struct sk_buff *skb)
@@ -337,7 +337,7 @@ queue_ch_frame(struct mISDNchannel *ch, u_int pr, int id, struct sk_buff *skb)
 		dev_kfree_skb(skb);
 	}
 }
-EXPORT_SYMBOL(queue_ch_frame);
+/* DISABLED: EXPORT_SYMBOL(queue_ch_frame); */
 
 int
 dchannel_senddata(struct dchannel *ch, struct sk_buff *skb)
@@ -363,7 +363,7 @@ dchannel_senddata(struct dchannel *ch, struct sk_buff *skb)
 		return 1;
 	}
 }
-EXPORT_SYMBOL(dchannel_senddata);
+/* DISABLED: EXPORT_SYMBOL(dchannel_senddata); */
 
 int
 bchannel_senddata(struct bchannel *ch, struct sk_buff *skb)
@@ -398,4 +398,4 @@ bchannel_senddata(struct bchannel *ch, struct sk_buff *skb)
 		return 1;
 	}
 }
-EXPORT_SYMBOL(bchannel_senddata);
+/* DISABLED: EXPORT_SYMBOL(bchannel_senddata); */

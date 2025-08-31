@@ -34,7 +34,7 @@ _bad_access:
 		 current->pid, addr, size);
 	return 0;
 }
-EXPORT_SYMBOL(_access_ok);
+/* DISABLED: EXPORT_SYMBOL(_access_ok); */
 #endif
 
 /* sys_cache_sync -- sync caches over given range */

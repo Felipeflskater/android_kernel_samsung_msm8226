@@ -110,7 +110,7 @@ __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
 {
 	return (__force __sum16)~do_csum(iph, ihl*4);
 }
-EXPORT_SYMBOL(ip_fast_csum);
+/* DISABLED: EXPORT_SYMBOL(ip_fast_csum); */
 
 /*
  * computes the checksum of a memory block at buff, length len,
@@ -135,7 +135,7 @@ __wsum csum_partial(const void *buff, int len, __wsum wsum)
 		result += 1;
 	return (__force __wsum)result;
 }
-EXPORT_SYMBOL(csum_partial);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
 
 /*
  * this routine is used for miscellaneous IP-like checksums, mainly
@@ -145,7 +145,7 @@ __sum16 ip_compute_csum(const void *buff, int len)
 {
 	return (__force __sum16)~do_csum(buff, len);
 }
-EXPORT_SYMBOL(ip_compute_csum);
+/* DISABLED: EXPORT_SYMBOL(ip_compute_csum); */
 
 /*
  * copy from fs while checksumming, otherwise like csum_partial
@@ -165,7 +165,7 @@ csum_partial_copy_from_user(const void __user *src, void *dst, int len,
 
 	return csum_partial(dst, len, sum);
 }
-EXPORT_SYMBOL(csum_partial_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
 
 /*
  * copy from ds while checksumming, otherwise like csum_partial
@@ -176,7 +176,7 @@ csum_partial_copy(const void *src, void *dst, int len, __wsum sum)
 	memcpy(dst, src, len);
 	return csum_partial(dst, len, sum);
 }
-EXPORT_SYMBOL(csum_partial_copy);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy); */
 
 #ifndef csum_tcpudp_nofold
 static inline u32 from64to32(u64 x)
@@ -204,5 +204,5 @@ __wsum csum_tcpudp_nofold(__be32 saddr, __be32 daddr,
 #endif
 	return (__force __wsum)from64to32(s);
 }
-EXPORT_SYMBOL(csum_tcpudp_nofold);
+/* DISABLED: EXPORT_SYMBOL(csum_tcpudp_nofold); */
 #endif

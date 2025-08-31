@@ -23,7 +23,7 @@ static inline void cleanup_oss_soundcore(void)	{ }
 #endif
 
 struct class *sound_class;
-EXPORT_SYMBOL(sound_class);
+/* DISABLED: EXPORT_SYMBOL(sound_class); */
 
 MODULE_DESCRIPTION("Core sound module");
 MODULE_AUTHOR("Alan Cox");
@@ -422,14 +422,14 @@ int register_sound_special_device(const struct file_operations *fops, int unit,
 				 name, S_IRUSR | S_IWUSR, dev);
 }
  
-EXPORT_SYMBOL(register_sound_special_device);
+/* DISABLED: EXPORT_SYMBOL(register_sound_special_device); */
 
 int register_sound_special(const struct file_operations *fops, int unit)
 {
 	return register_sound_special_device(fops, unit, NULL);
 }
 
-EXPORT_SYMBOL(register_sound_special);
+/* DISABLED: EXPORT_SYMBOL(register_sound_special); */
 
 /**
  *	register_sound_mixer - register a mixer device
@@ -447,7 +447,7 @@ int register_sound_mixer(const struct file_operations *fops, int dev)
 				 "mixer", S_IRUSR | S_IWUSR, NULL);
 }
 
-EXPORT_SYMBOL(register_sound_mixer);
+/* DISABLED: EXPORT_SYMBOL(register_sound_mixer); */
 
 /**
  *	register_sound_midi - register a midi device
@@ -465,7 +465,7 @@ int register_sound_midi(const struct file_operations *fops, int dev)
 				 "midi", S_IRUSR | S_IWUSR, NULL);
 }
 
-EXPORT_SYMBOL(register_sound_midi);
+/* DISABLED: EXPORT_SYMBOL(register_sound_midi); */
 
 /*
  *	DSP's are registered as a triple. Register only one and cheat
@@ -491,7 +491,7 @@ int register_sound_dsp(const struct file_operations *fops, int dev)
 				 "dsp", S_IWUSR | S_IRUSR, NULL);
 }
 
-EXPORT_SYMBOL(register_sound_dsp);
+/* DISABLED: EXPORT_SYMBOL(register_sound_dsp); */
 
 /**
  *	unregister_sound_special - unregister a special sound device
@@ -508,7 +508,7 @@ void unregister_sound_special(int unit)
 	sound_remove_unit(&chains[unit % SOUND_STEP], unit);
 }
  
-EXPORT_SYMBOL(unregister_sound_special);
+/* DISABLED: EXPORT_SYMBOL(unregister_sound_special); */
 
 /**
  *	unregister_sound_mixer - unregister a mixer
@@ -523,7 +523,7 @@ void unregister_sound_mixer(int unit)
 	sound_remove_unit(&chains[0], unit);
 }
 
-EXPORT_SYMBOL(unregister_sound_mixer);
+/* DISABLED: EXPORT_SYMBOL(unregister_sound_mixer); */
 
 /**
  *	unregister_sound_midi - unregister a midi device
@@ -538,7 +538,7 @@ void unregister_sound_midi(int unit)
 	sound_remove_unit(&chains[2], unit);
 }
 
-EXPORT_SYMBOL(unregister_sound_midi);
+/* DISABLED: EXPORT_SYMBOL(unregister_sound_midi); */
 
 /**
  *	unregister_sound_dsp - unregister a DSP device
@@ -556,7 +556,7 @@ void unregister_sound_dsp(int unit)
 }
 
 
-EXPORT_SYMBOL(unregister_sound_dsp);
+/* DISABLED: EXPORT_SYMBOL(unregister_sound_dsp); */
 
 static struct sound_unit *__look_for_unit(int chain, int unit)
 {

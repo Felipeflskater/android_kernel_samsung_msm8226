@@ -80,19 +80,19 @@ struct net_device *__vlan_find_dev_deep(struct net_device *real_dev,
 
 	return NULL;
 }
-EXPORT_SYMBOL(__vlan_find_dev_deep);
+/* DISABLED: EXPORT_SYMBOL(__vlan_find_dev_deep); */
 
 struct net_device *vlan_dev_real_dev(const struct net_device *dev)
 {
 	return vlan_dev_priv(dev)->real_dev;
 }
-EXPORT_SYMBOL(vlan_dev_real_dev);
+/* DISABLED: EXPORT_SYMBOL(vlan_dev_real_dev); */
 
 u16 vlan_dev_vlan_id(const struct net_device *dev)
 {
 	return vlan_dev_priv(dev)->vlan_id;
 }
-EXPORT_SYMBOL(vlan_dev_vlan_id);
+/* DISABLED: EXPORT_SYMBOL(vlan_dev_vlan_id); */
 
 static struct sk_buff *vlan_reorder_header(struct sk_buff *skb)
 {
@@ -272,7 +272,7 @@ out_free_vlan_info:
 		kfree(vlan_info);
 	return err;
 }
-EXPORT_SYMBOL(vlan_vid_add);
+/* DISABLED: EXPORT_SYMBOL(vlan_vid_add); */
 
 static void __vlan_vid_del(struct vlan_info *vlan_info,
 			   struct vlan_vid_info *vid_info)
@@ -318,7 +318,7 @@ void vlan_vid_del(struct net_device *dev, unsigned short vid)
 		}
 	}
 }
-EXPORT_SYMBOL(vlan_vid_del);
+/* DISABLED: EXPORT_SYMBOL(vlan_vid_del); */
 
 int vlan_vids_add_by_dev(struct net_device *dev,
 			 const struct net_device *by_dev)
@@ -349,7 +349,7 @@ unwind:
 
 	return err;
 }
-EXPORT_SYMBOL(vlan_vids_add_by_dev);
+/* DISABLED: EXPORT_SYMBOL(vlan_vids_add_by_dev); */
 
 void vlan_vids_del_by_dev(struct net_device *dev,
 			  const struct net_device *by_dev)
@@ -366,4 +366,4 @@ void vlan_vids_del_by_dev(struct net_device *dev,
 	list_for_each_entry(vid_info, &vlan_info->vid_list, list)
 		vlan_vid_del(dev, vid_info->vid);
 }
-EXPORT_SYMBOL(vlan_vids_del_by_dev);
+/* DISABLED: EXPORT_SYMBOL(vlan_vids_del_by_dev); */

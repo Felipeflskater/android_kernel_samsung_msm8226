@@ -47,20 +47,20 @@ u32 ath9k_hw_gettxbuf(struct ath_hw *ah, u32 q)
 {
 	return REG_READ(ah, AR_QTXDP(q));
 }
-EXPORT_SYMBOL(ath9k_hw_gettxbuf);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gettxbuf); */
 
 void ath9k_hw_puttxbuf(struct ath_hw *ah, u32 q, u32 txdp)
 {
 	REG_WRITE(ah, AR_QTXDP(q), txdp);
 }
-EXPORT_SYMBOL(ath9k_hw_puttxbuf);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_puttxbuf); */
 
 void ath9k_hw_txstart(struct ath_hw *ah, u32 q)
 {
 	ath_dbg(ath9k_hw_common(ah), QUEUE, "Enable TXE on queue: %u\n", q);
 	REG_WRITE(ah, AR_Q_TXE, 1 << q);
 }
-EXPORT_SYMBOL(ath9k_hw_txstart);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_txstart); */
 
 u32 ath9k_hw_numtxpending(struct ath_hw *ah, u32 q)
 {
@@ -75,7 +75,7 @@ u32 ath9k_hw_numtxpending(struct ath_hw *ah, u32 q)
 
 	return npend;
 }
-EXPORT_SYMBOL(ath9k_hw_numtxpending);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_numtxpending); */
 
 /**
  * ath9k_hw_updatetxtriglevel - adjusts the frame trigger level
@@ -129,7 +129,7 @@ bool ath9k_hw_updatetxtriglevel(struct ath_hw *ah, bool bIncTrigLevel)
 
 	return newLevel != curLevel;
 }
-EXPORT_SYMBOL(ath9k_hw_updatetxtriglevel);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_updatetxtriglevel); */
 
 void ath9k_hw_abort_tx_dma(struct ath_hw *ah)
 {
@@ -157,7 +157,7 @@ void ath9k_hw_abort_tx_dma(struct ath_hw *ah)
 
 	REG_WRITE(ah, AR_Q_TXD, 0);
 }
-EXPORT_SYMBOL(ath9k_hw_abort_tx_dma);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_abort_tx_dma); */
 
 bool ath9k_hw_stop_dma_queue(struct ath_hw *ah, u32 q)
 {
@@ -183,7 +183,7 @@ bool ath9k_hw_stop_dma_queue(struct ath_hw *ah, u32 q)
 #undef ATH9K_TX_STOP_DMA_TIMEOUT
 #undef ATH9K_TIME_QUANTUM
 }
-EXPORT_SYMBOL(ath9k_hw_stop_dma_queue);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_stop_dma_queue); */
 
 bool ath9k_hw_set_txq_props(struct ath_hw *ah, int q,
 			    const struct ath9k_tx_queue_info *qinfo)
@@ -248,7 +248,7 @@ bool ath9k_hw_set_txq_props(struct ath_hw *ah, int q,
 
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_set_txq_props);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_txq_props); */
 
 bool ath9k_hw_get_txq_props(struct ath_hw *ah, int q,
 			    struct ath9k_tx_queue_info *qinfo)
@@ -280,7 +280,7 @@ bool ath9k_hw_get_txq_props(struct ath_hw *ah, int q,
 
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_get_txq_props);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_get_txq_props); */
 
 int ath9k_hw_setuptxqueue(struct ath_hw *ah, enum ath9k_tx_queue type,
 			  const struct ath9k_tx_queue_info *qinfo)
@@ -324,7 +324,7 @@ int ath9k_hw_setuptxqueue(struct ath_hw *ah, enum ath9k_tx_queue type,
 
 	return q;
 }
-EXPORT_SYMBOL(ath9k_hw_setuptxqueue);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setuptxqueue); */
 
 static void ath9k_hw_clear_queue_interrupts(struct ath_hw *ah, u32 q)
 {
@@ -354,7 +354,7 @@ bool ath9k_hw_releasetxqueue(struct ath_hw *ah, u32 q)
 
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_releasetxqueue);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_releasetxqueue); */
 
 bool ath9k_hw_resettxqueue(struct ath_hw *ah, u32 q)
 {
@@ -516,7 +516,7 @@ bool ath9k_hw_resettxqueue(struct ath_hw *ah, u32 q)
 
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_resettxqueue);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_resettxqueue); */
 
 int ath9k_hw_rxprocdesc(struct ath_hw *ah, struct ath_desc *ds,
 			struct ath_rx_status *rs)
@@ -607,7 +607,7 @@ int ath9k_hw_rxprocdesc(struct ath_hw *ah, struct ath_desc *ds,
 
 	return 0;
 }
-EXPORT_SYMBOL(ath9k_hw_rxprocdesc);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_rxprocdesc); */
 
 /*
  * This can stop or re-enables RX.
@@ -644,13 +644,13 @@ bool ath9k_hw_setrxabort(struct ath_hw *ah, bool set)
 
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_setrxabort);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setrxabort); */
 
 void ath9k_hw_putrxbuf(struct ath_hw *ah, u32 rxdp)
 {
 	REG_WRITE(ah, AR_RXDP, rxdp);
 }
-EXPORT_SYMBOL(ath9k_hw_putrxbuf);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_putrxbuf); */
 
 void ath9k_hw_startpcureceive(struct ath_hw *ah, bool is_scanning)
 {
@@ -660,7 +660,7 @@ void ath9k_hw_startpcureceive(struct ath_hw *ah, bool is_scanning)
 
 	REG_CLR_BIT(ah, AR_DIAG_SW, (AR_DIAG_RX_DIS | AR_DIAG_RX_ABORT));
 }
-EXPORT_SYMBOL(ath9k_hw_startpcureceive);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_startpcureceive); */
 
 void ath9k_hw_abortpcurecv(struct ath_hw *ah)
 {
@@ -668,7 +668,7 @@ void ath9k_hw_abortpcurecv(struct ath_hw *ah)
 
 	ath9k_hw_disable_mib_counters(ah);
 }
-EXPORT_SYMBOL(ath9k_hw_abortpcurecv);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_abortpcurecv); */
 
 bool ath9k_hw_stopdmarecv(struct ath_hw *ah, bool *reset)
 {
@@ -717,7 +717,7 @@ bool ath9k_hw_stopdmarecv(struct ath_hw *ah, bool *reset)
 
 #undef AH_RX_STOP_DMA_TIMEOUT
 }
-EXPORT_SYMBOL(ath9k_hw_stopdmarecv);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_stopdmarecv); */
 
 int ath9k_hw_beaconq_setup(struct ath_hw *ah)
 {
@@ -733,7 +733,7 @@ int ath9k_hw_beaconq_setup(struct ath_hw *ah)
 
 	return ath9k_hw_setuptxqueue(ah, ATH9K_TX_QUEUE_BEACON, &qi);
 }
-EXPORT_SYMBOL(ath9k_hw_beaconq_setup);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_beaconq_setup); */
 
 bool ath9k_hw_intrpend(struct ath_hw *ah)
 {
@@ -756,7 +756,7 @@ bool ath9k_hw_intrpend(struct ath_hw *ah)
 
 	return false;
 }
-EXPORT_SYMBOL(ath9k_hw_intrpend);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_intrpend); */
 
 void ath9k_hw_disable_interrupts(struct ath_hw *ah)
 {
@@ -778,7 +778,7 @@ void ath9k_hw_disable_interrupts(struct ath_hw *ah)
 		(void) REG_READ(ah, AR_INTR_SYNC_ENABLE);
 	}
 }
-EXPORT_SYMBOL(ath9k_hw_disable_interrupts);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_disable_interrupts); */
 
 void ath9k_hw_enable_interrupts(struct ath_hw *ah)
 {
@@ -815,7 +815,7 @@ void ath9k_hw_enable_interrupts(struct ath_hw *ah)
 	ath_dbg(common, INTERRUPT, "AR_IMR 0x%x IER 0x%x\n",
 		REG_READ(ah, AR_IMR), REG_READ(ah, AR_IER));
 }
-EXPORT_SYMBOL(ath9k_hw_enable_interrupts);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_enable_interrupts); */
 
 void ath9k_hw_set_interrupts(struct ath_hw *ah)
 {
@@ -907,4 +907,4 @@ void ath9k_hw_set_interrupts(struct ath_hw *ah)
 
 	return;
 }
-EXPORT_SYMBOL(ath9k_hw_set_interrupts);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_interrupts); */

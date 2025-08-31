@@ -382,7 +382,7 @@ void msm_dmov_enqueue_cmd_ext(unsigned id, struct msm_dmov_cmd *cmd)
 	INIT_WORK(&cmd->work, msm_dmov_enqueue_cmd_ext_work);
 	__msm_dmov_enqueue_cmd_ext(id, cmd);
 }
-EXPORT_SYMBOL(msm_dmov_enqueue_cmd_ext);
+/* DISABLED: EXPORT_SYMBOL(msm_dmov_enqueue_cmd_ext); */
 
 void msm_dmov_enqueue_cmd(unsigned id, struct msm_dmov_cmd *cmd)
 {
@@ -391,7 +391,7 @@ void msm_dmov_enqueue_cmd(unsigned id, struct msm_dmov_cmd *cmd)
 	INIT_WORK(&cmd->work, msm_dmov_enqueue_cmd_ext_work);
 	__msm_dmov_enqueue_cmd_ext(id, cmd);
 }
-EXPORT_SYMBOL(msm_dmov_enqueue_cmd);
+/* DISABLED: EXPORT_SYMBOL(msm_dmov_enqueue_cmd); */
 
 void msm_dmov_flush(unsigned int id, int graceful)
 {
@@ -412,7 +412,7 @@ void msm_dmov_flush(unsigned int id, int graceful)
 	/* spin_unlock_irqrestore has the necessary barrier */
 	spin_unlock_irqrestore(&dmov_conf[adm].list_lock, irq_flags);
 }
-EXPORT_SYMBOL(msm_dmov_flush);
+/* DISABLED: EXPORT_SYMBOL(msm_dmov_flush); */
 
 struct msm_dmov_exec_cmdptr_cmd {
 	struct msm_dmov_cmd dmov_cmd;
@@ -461,7 +461,7 @@ int msm_dmov_exec_cmd(unsigned id, unsigned int cmdptr)
 	PRINT_FLOW("dmov_exec_cmdptr(%d, %x) done\n", id, cmdptr);
 	return 0;
 }
-EXPORT_SYMBOL(msm_dmov_exec_cmd);
+/* DISABLED: EXPORT_SYMBOL(msm_dmov_exec_cmd); */
 
 static void fill_errdata(struct msm_dmov_errdata *errdata, int ch, int adm)
 {

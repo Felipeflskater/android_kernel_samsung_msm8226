@@ -201,7 +201,7 @@ int mpc52xx_set_psc_clkdiv(int psc_id, int clkdiv)
 
 	return 0;
 }
-EXPORT_SYMBOL(mpc52xx_set_psc_clkdiv);
+/* DISABLED: EXPORT_SYMBOL(mpc52xx_set_psc_clkdiv); */
 
 /**
  * mpc52xx_get_xtal_freq - Get SYS_XTAL_IN frequency for a device
@@ -238,7 +238,7 @@ unsigned int mpc52xx_get_xtal_freq(struct device_node *node)
 
 	return freq;
 }
-EXPORT_SYMBOL(mpc52xx_get_xtal_freq);
+/* DISABLED: EXPORT_SYMBOL(mpc52xx_get_xtal_freq); */
 
 /**
  * mpc52xx_restart: ppc_md->restart hook for mpc5200 using the watchdog timer
@@ -341,4 +341,4 @@ int mpc5200_psc_ac97_gpio_reset(int psc_number)
 
 	return 0;
 }
-EXPORT_SYMBOL(mpc5200_psc_ac97_gpio_reset);
+/* DISABLED: EXPORT_SYMBOL(mpc5200_psc_ac97_gpio_reset); */

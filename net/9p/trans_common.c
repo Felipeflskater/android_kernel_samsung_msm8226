@@ -30,7 +30,7 @@ void p9_release_pages(struct page **pages, int nr_pages)
 		if (pages[i])
 			put_page(pages[i]);
 }
-EXPORT_SYMBOL(p9_release_pages);
+/* DISABLED: EXPORT_SYMBOL(p9_release_pages); */
 
 /**
  * p9_nr_pages - Return number of pages needed to accommodate the payload.
@@ -42,7 +42,7 @@ int p9_nr_pages(char *data, int len)
 	end_page = ((unsigned long)data + len + PAGE_SIZE - 1) >> PAGE_SHIFT;
 	return end_page - start_page;
 }
-EXPORT_SYMBOL(p9_nr_pages);
+/* DISABLED: EXPORT_SYMBOL(p9_nr_pages); */
 
 /**
  * payload_gup - Translates user buffer into kernel pages and
@@ -66,4 +66,4 @@ int p9_payload_gup(char *data, int *nr_pages, struct page **pages, int write)
 	*nr_pages = nr_mapped_pages;
 	return 0;
 }
-EXPORT_SYMBOL(p9_payload_gup);
+/* DISABLED: EXPORT_SYMBOL(p9_payload_gup); */

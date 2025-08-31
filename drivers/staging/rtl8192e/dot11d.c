@@ -58,7 +58,7 @@ void dot11d_init(struct rtllib_device *ieee)
 	RESET_CIE_WATCHDOG(ieee);
 
 }
-EXPORT_SYMBOL(dot11d_init);
+/* DISABLED: EXPORT_SYMBOL(dot11d_init); */
 
 void Dot11d_Channelmap(u8 channel_plan, struct rtllib_device *ieee)
 {
@@ -100,7 +100,7 @@ void Dot11d_Channelmap(u8 channel_plan, struct rtllib_device *ieee)
 		break;
 	}
 }
-EXPORT_SYMBOL(Dot11d_Channelmap);
+/* DISABLED: EXPORT_SYMBOL(Dot11d_Channelmap); */
 
 
 void Dot11d_Reset(struct rtllib_device *ieee)

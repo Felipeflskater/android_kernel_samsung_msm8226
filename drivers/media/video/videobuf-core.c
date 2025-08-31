@@ -71,7 +71,7 @@ struct videobuf_buffer *videobuf_alloc_vb(struct videobuf_queue *q)
 
 	return vb;
 }
-EXPORT_SYMBOL_GPL(videobuf_alloc_vb);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_alloc_vb); */
 
 static int is_state_active_or_queued(struct videobuf_queue *q, struct videobuf_buffer *vb)
 {
@@ -114,7 +114,7 @@ int videobuf_waiton(struct videobuf_queue *q, struct videobuf_buffer *vb,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(videobuf_waiton);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_waiton); */
 
 int videobuf_iolock(struct videobuf_queue *q, struct videobuf_buffer *vb,
 		    struct v4l2_framebuffer *fbuf)
@@ -124,7 +124,7 @@ int videobuf_iolock(struct videobuf_queue *q, struct videobuf_buffer *vb,
 
 	return CALL(q, iolock, q, vb, fbuf);
 }
-EXPORT_SYMBOL_GPL(videobuf_iolock);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_iolock); */
 
 void *videobuf_queue_to_vaddr(struct videobuf_queue *q,
 			      struct videobuf_buffer *buf)
@@ -133,7 +133,7 @@ void *videobuf_queue_to_vaddr(struct videobuf_queue *q,
 		return q->int_ops->vaddr(buf);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(videobuf_queue_to_vaddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_to_vaddr); */
 
 /* --------------------------------------------------------------------- */
 
@@ -177,7 +177,7 @@ void videobuf_queue_core_init(struct videobuf_queue *q,
 	init_waitqueue_head(&q->wait);
 	INIT_LIST_HEAD(&q->stream);
 }
-EXPORT_SYMBOL_GPL(videobuf_queue_core_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_core_init); */
 
 /* Locking: Only usage in bttv unsafe find way to remove */
 int videobuf_queue_is_busy(struct videobuf_queue *q)
@@ -216,7 +216,7 @@ int videobuf_queue_is_busy(struct videobuf_queue *q)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(videobuf_queue_is_busy);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_is_busy); */
 
 /**
  * __videobuf_free() - free all the buffers and their control structures
@@ -288,7 +288,7 @@ void videobuf_queue_cancel(struct videobuf_queue *q)
 	}
 	INIT_LIST_HEAD(&q->stream);
 }
-EXPORT_SYMBOL_GPL(videobuf_queue_cancel);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_cancel); */
 
 /* --------------------------------------------------------------------- */
 
@@ -310,7 +310,7 @@ enum v4l2_field videobuf_next_field(struct videobuf_queue *q)
 	}
 	return field;
 }
-EXPORT_SYMBOL_GPL(videobuf_next_field);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_next_field); */
 
 /* Locking: Caller holds q->vb_lock */
 static void videobuf_status(struct videobuf_queue *q, struct v4l2_buffer *b,
@@ -379,7 +379,7 @@ int videobuf_mmap_free(struct videobuf_queue *q)
 	videobuf_queue_unlock(q);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(videobuf_mmap_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_mmap_free); */
 
 /* Locking: Caller holds q->vb_lock */
 int __videobuf_mmap_setup(struct videobuf_queue *q,
@@ -424,7 +424,7 @@ int __videobuf_mmap_setup(struct videobuf_queue *q,
 
 	return i;
 }
-EXPORT_SYMBOL_GPL(__videobuf_mmap_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(__videobuf_mmap_setup); */
 
 int videobuf_mmap_setup(struct videobuf_queue *q,
 			unsigned int bcount, unsigned int bsize,
@@ -436,7 +436,7 @@ int videobuf_mmap_setup(struct videobuf_queue *q,
 	videobuf_queue_unlock(q);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(videobuf_mmap_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_mmap_setup); */
 
 int videobuf_reqbufs(struct videobuf_queue *q,
 		 struct v4l2_requestbuffers *req)
@@ -496,7 +496,7 @@ int videobuf_reqbufs(struct videobuf_queue *q,
 	videobuf_queue_unlock(q);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_reqbufs);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_reqbufs); */
 
 int videobuf_querybuf(struct videobuf_queue *q, struct v4l2_buffer *b)
 {
@@ -523,7 +523,7 @@ done:
 	videobuf_queue_unlock(q);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(videobuf_querybuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_querybuf); */
 
 int videobuf_qbuf(struct videobuf_queue *q, struct v4l2_buffer *b)
 {
@@ -637,7 +637,7 @@ done:
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_qbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_qbuf); */
 
 /* Locking: Caller holds q->vb_lock */
 static int stream_next_buffer_check_queue(struct videobuf_queue *q, int noblock)
@@ -741,7 +741,7 @@ done:
 	videobuf_queue_unlock(q);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_dqbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dqbuf); */
 
 int videobuf_streamon(struct videobuf_queue *q)
 {
@@ -768,7 +768,7 @@ done:
 	videobuf_queue_unlock(q);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_streamon);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_streamon); */
 
 /* Locking: Caller holds q->vb_lock */
 static int __videobuf_streamoff(struct videobuf_queue *q)
@@ -791,7 +791,7 @@ int videobuf_streamoff(struct videobuf_queue *q)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_streamoff);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_streamoff); */
 
 /* Locking: Caller holds q->vb_lock */
 static ssize_t videobuf_read_zerocopy(struct videobuf_queue *q,
@@ -966,7 +966,7 @@ done:
 	videobuf_queue_unlock(q);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_read_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_read_one); */
 
 /* Locking: Caller holds q->vb_lock */
 static int __videobuf_read_start(struct videobuf_queue *q)
@@ -1030,7 +1030,7 @@ int videobuf_read_start(struct videobuf_queue *q)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(videobuf_read_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_read_start); */
 
 void videobuf_read_stop(struct videobuf_queue *q)
 {
@@ -1038,7 +1038,7 @@ void videobuf_read_stop(struct videobuf_queue *q)
 	__videobuf_read_stop(q);
 	videobuf_queue_unlock(q);
 }
-EXPORT_SYMBOL_GPL(videobuf_read_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_read_stop); */
 
 void videobuf_stop(struct videobuf_queue *q)
 {
@@ -1052,7 +1052,7 @@ void videobuf_stop(struct videobuf_queue *q)
 
 	videobuf_queue_unlock(q);
 }
-EXPORT_SYMBOL_GPL(videobuf_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_stop); */
 
 ssize_t videobuf_read_stream(struct videobuf_queue *q,
 			     char __user *data, size_t count, loff_t *ppos,
@@ -1125,7 +1125,7 @@ done:
 	videobuf_queue_unlock(q);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(videobuf_read_stream);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_read_stream); */
 
 unsigned int videobuf_poll_stream(struct file *file,
 				  struct videobuf_queue *q,
@@ -1173,7 +1173,7 @@ unsigned int videobuf_poll_stream(struct file *file,
 	videobuf_queue_unlock(q);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(videobuf_poll_stream);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_poll_stream); */
 
 int videobuf_mmap_mapper(struct videobuf_queue *q, struct vm_area_struct *vma)
 {
@@ -1201,4 +1201,4 @@ int videobuf_mmap_mapper(struct videobuf_queue *q, struct vm_area_struct *vma)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(videobuf_mmap_mapper);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_mmap_mapper); */

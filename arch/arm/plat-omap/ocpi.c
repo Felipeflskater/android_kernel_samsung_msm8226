@@ -73,7 +73,7 @@ int ocpi_enable(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(ocpi_enable);
+/* DISABLED: EXPORT_SYMBOL(ocpi_enable); */
 
 static int __init omap_ocpi_init(void)
 {

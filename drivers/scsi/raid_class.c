@@ -256,7 +256,7 @@ err_out:
 	kfree(rc);
 	return err;
 }
-EXPORT_SYMBOL(raid_component_add);
+/* DISABLED: EXPORT_SYMBOL(raid_component_add); */
 
 struct raid_template *
 raid_class_attach(struct raid_function_template *ft)
@@ -285,7 +285,7 @@ raid_class_attach(struct raid_function_template *ft)
 
 	return &i->r;
 }
-EXPORT_SYMBOL(raid_class_attach);
+/* DISABLED: EXPORT_SYMBOL(raid_class_attach); */
 
 void
 raid_class_release(struct raid_template *r)
@@ -296,7 +296,7 @@ raid_class_release(struct raid_template *r)
 
 	kfree(i);
 }
-EXPORT_SYMBOL(raid_class_release);
+/* DISABLED: EXPORT_SYMBOL(raid_class_release); */
 
 static __init int raid_init(void)
 {

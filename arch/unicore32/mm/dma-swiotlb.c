@@ -45,4 +45,4 @@ struct dma_map_ops swiotlb_dma_map_ops = {
 	.sync_sg_for_device = swiotlb_sync_sg_for_device,
 	.mapping_error = swiotlb_dma_mapping_error,
 };
-EXPORT_SYMBOL(swiotlb_dma_map_ops);
+/* DISABLED: EXPORT_SYMBOL(swiotlb_dma_map_ops); */

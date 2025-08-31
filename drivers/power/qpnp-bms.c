@@ -1818,7 +1818,7 @@ void bms_quickstart(void)
 	 */
 	bms_reset = 1;
 }
-EXPORT_SYMBOL_GPL(bms_quickstart);
+/* DISABLED: EXPORT_SYMBOL_GPL(bms_quickstart); */
 
 static int bms_reset_set(const char *val, const struct kernel_param *kp)
 {

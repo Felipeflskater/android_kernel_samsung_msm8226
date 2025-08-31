@@ -138,7 +138,7 @@ void dlm_print_one_lock(struct dlm_lock *lockid)
 {
 	dlm_print_one_lock_resource(lockid->lockres);
 }
-EXPORT_SYMBOL_GPL(dlm_print_one_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_print_one_lock); */
 
 static const char *dlm_errnames[] = {
 	[DLM_NORMAL] =			"DLM_NORMAL",
@@ -236,7 +236,7 @@ const char *dlm_errmsg(enum dlm_status err)
 		return dlm_errmsgs[DLM_MAXSTATS];
 	return dlm_errmsgs[err];
 }
-EXPORT_SYMBOL_GPL(dlm_errmsg);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_errmsg); */
 
 const char *dlm_errname(enum dlm_status err)
 {
@@ -244,7 +244,7 @@ const char *dlm_errname(enum dlm_status err)
 		return dlm_errnames[DLM_MAXSTATS];
 	return dlm_errnames[err];
 }
-EXPORT_SYMBOL_GPL(dlm_errname);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_errname); */
 
 /* NOTE: This function converts a lockname into a string. It uses knowledge
  * of the format of the lockname that should be outside the purview of the dlm.

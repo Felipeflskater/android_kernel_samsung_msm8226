@@ -44,7 +44,7 @@ void pxa27x_clear_otgph(void)
 	if (cpu_is_pxa27x() && (PSSR & PSSR_OTGPH))
 		PSSR |= PSSR_OTGPH;
 }
-EXPORT_SYMBOL(pxa27x_clear_otgph);
+/* DISABLED: EXPORT_SYMBOL(pxa27x_clear_otgph); */
 
 static unsigned long ac97_reset_config[] = {
 	GPIO113_AC97_nRESET_GPIO_HIGH,
@@ -63,7 +63,7 @@ void pxa27x_assert_ac97reset(int reset_gpio, int on)
 		pxa2xx_mfp_config(on ? &ac97_reset_config[2] :
 				       &ac97_reset_config[3], 1);
 }
-EXPORT_SYMBOL_GPL(pxa27x_assert_ac97reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(pxa27x_assert_ac97reset); */
 
 /* Crystal clock: 13MHz */
 #define BASE_CLK	13000000

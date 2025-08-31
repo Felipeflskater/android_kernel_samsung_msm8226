@@ -111,7 +111,7 @@ void *vme_alloc_consistent(struct vme_resource *resource, size_t size,
 
 	return bridge->alloc_consistent(bridge->parent, size, dma);
 }
-EXPORT_SYMBOL(vme_alloc_consistent);
+/* DISABLED: EXPORT_SYMBOL(vme_alloc_consistent); */
 
 /*
  * Free previously allocated contiguous block of memory.
@@ -146,7 +146,7 @@ void vme_free_consistent(struct vme_resource *resource, size_t size,
 
 	bridge->free_consistent(bridge->parent, size, vaddr, dma);
 }
-EXPORT_SYMBOL(vme_free_consistent);
+/* DISABLED: EXPORT_SYMBOL(vme_free_consistent); */
 
 size_t vme_get_size(struct vme_resource *resource)
 {
@@ -177,7 +177,7 @@ size_t vme_get_size(struct vme_resource *resource)
 		break;
 	}
 }
-EXPORT_SYMBOL(vme_get_size);
+/* DISABLED: EXPORT_SYMBOL(vme_get_size); */
 
 static int vme_check_window(u32 aspace, unsigned long long vme_base,
 	unsigned long long size)
@@ -292,7 +292,7 @@ err_image:
 err_bus:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_slave_request);
+/* DISABLED: EXPORT_SYMBOL(vme_slave_request); */
 
 int vme_slave_set(struct vme_resource *resource, int enabled,
 	unsigned long long vme_base, unsigned long long size,
@@ -327,7 +327,7 @@ int vme_slave_set(struct vme_resource *resource, int enabled,
 	return bridge->slave_set(image, enabled, vme_base, size, buf_base,
 		aspace, cycle);
 }
-EXPORT_SYMBOL(vme_slave_set);
+/* DISABLED: EXPORT_SYMBOL(vme_slave_set); */
 
 int vme_slave_get(struct vme_resource *resource, int *enabled,
 	unsigned long long *vme_base, unsigned long long *size,
@@ -351,7 +351,7 @@ int vme_slave_get(struct vme_resource *resource, int *enabled,
 	return bridge->slave_get(image, enabled, vme_base, size, buf_base,
 		aspace, cycle);
 }
-EXPORT_SYMBOL(vme_slave_get);
+/* DISABLED: EXPORT_SYMBOL(vme_slave_get); */
 
 void vme_slave_free(struct vme_resource *resource)
 {
@@ -380,7 +380,7 @@ void vme_slave_free(struct vme_resource *resource)
 	/* Free up resource memory */
 	kfree(resource);
 }
-EXPORT_SYMBOL(vme_slave_free);
+/* DISABLED: EXPORT_SYMBOL(vme_slave_free); */
 
 /*
  * Request a master image with specific attributes, return some unique
@@ -451,7 +451,7 @@ err_image:
 err_bus:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_master_request);
+/* DISABLED: EXPORT_SYMBOL(vme_master_request); */
 
 int vme_master_set(struct vme_resource *resource, int enabled,
 	unsigned long long vme_base, unsigned long long size, u32 aspace,
@@ -487,7 +487,7 @@ int vme_master_set(struct vme_resource *resource, int enabled,
 	return bridge->master_set(image, enabled, vme_base, size, aspace,
 		cycle, dwidth);
 }
-EXPORT_SYMBOL(vme_master_set);
+/* DISABLED: EXPORT_SYMBOL(vme_master_set); */
 
 int vme_master_get(struct vme_resource *resource, int *enabled,
 	unsigned long long *vme_base, unsigned long long *size, u32 *aspace,
@@ -511,7 +511,7 @@ int vme_master_get(struct vme_resource *resource, int *enabled,
 	return bridge->master_get(image, enabled, vme_base, size, aspace,
 		cycle, dwidth);
 }
-EXPORT_SYMBOL(vme_master_get);
+/* DISABLED: EXPORT_SYMBOL(vme_master_get); */
 
 /*
  * Read data out of VME space into a buffer.
@@ -548,7 +548,7 @@ ssize_t vme_master_read(struct vme_resource *resource, void *buf, size_t count,
 	return bridge->master_read(image, buf, count, offset);
 
 }
-EXPORT_SYMBOL(vme_master_read);
+/* DISABLED: EXPORT_SYMBOL(vme_master_read); */
 
 /*
  * Write data out to VME space from a buffer.
@@ -584,7 +584,7 @@ ssize_t vme_master_write(struct vme_resource *resource, void *buf,
 
 	return bridge->master_write(image, buf, count, offset);
 }
-EXPORT_SYMBOL(vme_master_write);
+/* DISABLED: EXPORT_SYMBOL(vme_master_write); */
 
 /*
  * Perform RMW cycle to provided location.
@@ -609,7 +609,7 @@ unsigned int vme_master_rmw(struct vme_resource *resource, unsigned int mask,
 
 	return bridge->master_rmw(image, mask, compare, swap, offset);
 }
-EXPORT_SYMBOL(vme_master_rmw);
+/* DISABLED: EXPORT_SYMBOL(vme_master_rmw); */
 
 void vme_master_free(struct vme_resource *resource)
 {
@@ -638,7 +638,7 @@ void vme_master_free(struct vme_resource *resource)
 	/* Free up resource memory */
 	kfree(resource);
 }
-EXPORT_SYMBOL(vme_master_free);
+/* DISABLED: EXPORT_SYMBOL(vme_master_free); */
 
 /*
  * Request a DMA controller with specific attributes, return some unique
@@ -707,7 +707,7 @@ err_ctrlr:
 err_bus:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_dma_request);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_request); */
 
 /*
  * Start new list
@@ -735,7 +735,7 @@ struct vme_dma_list *vme_new_dma_list(struct vme_resource *resource)
 
 	return dma_list;
 }
-EXPORT_SYMBOL(vme_new_dma_list);
+/* DISABLED: EXPORT_SYMBOL(vme_new_dma_list); */
 
 /*
  * Create "Pattern" type attributes
@@ -772,7 +772,7 @@ err_pat:
 err_attr:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_dma_pattern_attribute);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_pattern_attribute); */
 
 /*
  * Create "PCI" type attributes
@@ -812,7 +812,7 @@ err_pci:
 err_attr:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_dma_pci_attribute);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_pci_attribute); */
 
 /*
  * Create "VME" type attributes
@@ -853,7 +853,7 @@ err_vme:
 err_attr:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_dma_vme_attribute);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_vme_attribute); */
 
 /*
  * Free attribute
@@ -863,7 +863,7 @@ void vme_dma_free_attribute(struct vme_dma_attr *attributes)
 	kfree(attributes->private);
 	kfree(attributes);
 }
-EXPORT_SYMBOL(vme_dma_free_attribute);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_free_attribute); */
 
 int vme_dma_list_add(struct vme_dma_list *list, struct vme_dma_attr *src,
 	struct vme_dma_attr *dest, size_t count)
@@ -887,7 +887,7 @@ int vme_dma_list_add(struct vme_dma_list *list, struct vme_dma_attr *src,
 
 	return retval;
 }
-EXPORT_SYMBOL(vme_dma_list_add);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_list_add); */
 
 int vme_dma_list_exec(struct vme_dma_list *list)
 {
@@ -907,7 +907,7 @@ int vme_dma_list_exec(struct vme_dma_list *list)
 
 	return retval;
 }
-EXPORT_SYMBOL(vme_dma_list_exec);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_list_exec); */
 
 int vme_dma_list_free(struct vme_dma_list *list)
 {
@@ -939,7 +939,7 @@ int vme_dma_list_free(struct vme_dma_list *list)
 
 	return retval;
 }
-EXPORT_SYMBOL(vme_dma_list_free);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_list_free); */
 
 int vme_dma_free(struct vme_resource *resource)
 {
@@ -969,7 +969,7 @@ int vme_dma_free(struct vme_resource *resource)
 
 	return 0;
 }
-EXPORT_SYMBOL(vme_dma_free);
+/* DISABLED: EXPORT_SYMBOL(vme_dma_free); */
 
 void vme_irq_handler(struct vme_bridge *bridge, int level, int statid)
 {
@@ -985,7 +985,7 @@ void vme_irq_handler(struct vme_bridge *bridge, int level, int statid)
 		printk(KERN_WARNING "Spurilous VME interrupt, level:%x, "
 			"vector:%x\n", level, statid);
 }
-EXPORT_SYMBOL(vme_irq_handler);
+/* DISABLED: EXPORT_SYMBOL(vme_irq_handler); */
 
 int vme_irq_request(struct vme_dev *vdev, int level, int statid,
 	void (*callback)(int, int, void *),
@@ -1028,7 +1028,7 @@ int vme_irq_request(struct vme_dev *vdev, int level, int statid,
 
 	return 0;
 }
-EXPORT_SYMBOL(vme_irq_request);
+/* DISABLED: EXPORT_SYMBOL(vme_irq_request); */
 
 void vme_irq_free(struct vme_dev *vdev, int level, int statid)
 {
@@ -1063,7 +1063,7 @@ void vme_irq_free(struct vme_dev *vdev, int level, int statid)
 
 	mutex_unlock(&bridge->irq_mtx);
 }
-EXPORT_SYMBOL(vme_irq_free);
+/* DISABLED: EXPORT_SYMBOL(vme_irq_free); */
 
 int vme_irq_generate(struct vme_dev *vdev, int level, int statid)
 {
@@ -1087,7 +1087,7 @@ int vme_irq_generate(struct vme_dev *vdev, int level, int statid)
 
 	return bridge->irq_generate(bridge, level, statid);
 }
-EXPORT_SYMBOL(vme_irq_generate);
+/* DISABLED: EXPORT_SYMBOL(vme_irq_generate); */
 
 /*
  * Request the location monitor, return resource or NULL
@@ -1151,7 +1151,7 @@ err_lm:
 err_bus:
 	return NULL;
 }
-EXPORT_SYMBOL(vme_lm_request);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_request); */
 
 int vme_lm_count(struct vme_resource *resource)
 {
@@ -1166,7 +1166,7 @@ int vme_lm_count(struct vme_resource *resource)
 
 	return lm->monitors;
 }
-EXPORT_SYMBOL(vme_lm_count);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_count); */
 
 int vme_lm_set(struct vme_resource *resource, unsigned long long lm_base,
 	u32 aspace, u32 cycle)
@@ -1188,7 +1188,7 @@ int vme_lm_set(struct vme_resource *resource, unsigned long long lm_base,
 
 	return bridge->lm_set(lm, lm_base, aspace, cycle);
 }
-EXPORT_SYMBOL(vme_lm_set);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_set); */
 
 int vme_lm_get(struct vme_resource *resource, unsigned long long *lm_base,
 	u32 *aspace, u32 *cycle)
@@ -1210,7 +1210,7 @@ int vme_lm_get(struct vme_resource *resource, unsigned long long *lm_base,
 
 	return bridge->lm_get(lm, lm_base, aspace, cycle);
 }
-EXPORT_SYMBOL(vme_lm_get);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_get); */
 
 int vme_lm_attach(struct vme_resource *resource, int monitor,
 	void (*callback)(int))
@@ -1232,7 +1232,7 @@ int vme_lm_attach(struct vme_resource *resource, int monitor,
 
 	return bridge->lm_attach(lm, monitor, callback);
 }
-EXPORT_SYMBOL(vme_lm_attach);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_attach); */
 
 int vme_lm_detach(struct vme_resource *resource, int monitor)
 {
@@ -1253,7 +1253,7 @@ int vme_lm_detach(struct vme_resource *resource, int monitor)
 
 	return bridge->lm_detach(lm, monitor);
 }
-EXPORT_SYMBOL(vme_lm_detach);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_detach); */
 
 void vme_lm_free(struct vme_resource *resource)
 {
@@ -1279,7 +1279,7 @@ void vme_lm_free(struct vme_resource *resource)
 
 	kfree(resource);
 }
-EXPORT_SYMBOL(vme_lm_free);
+/* DISABLED: EXPORT_SYMBOL(vme_lm_free); */
 
 int vme_slot_get(struct vme_dev *vdev)
 {
@@ -1298,7 +1298,7 @@ int vme_slot_get(struct vme_dev *vdev)
 
 	return bridge->slot_get(bridge);
 }
-EXPORT_SYMBOL(vme_slot_get);
+/* DISABLED: EXPORT_SYMBOL(vme_slot_get); */
 
 
 /* - Bridge Registration --------------------------------------------------- */
@@ -1328,7 +1328,7 @@ int vme_register_bridge(struct vme_bridge *bridge)
 
 	return ret;
 }
-EXPORT_SYMBOL(vme_register_bridge);
+/* DISABLED: EXPORT_SYMBOL(vme_register_bridge); */
 
 void vme_unregister_bridge(struct vme_bridge *bridge)
 {
@@ -1345,7 +1345,7 @@ void vme_unregister_bridge(struct vme_bridge *bridge)
 	list_del(&bridge->bus_list);
 	mutex_unlock(&vme_buses_lock);
 }
-EXPORT_SYMBOL(vme_unregister_bridge);
+/* DISABLED: EXPORT_SYMBOL(vme_unregister_bridge); */
 
 /* - Driver Registration --------------------------------------------------- */
 
@@ -1435,7 +1435,7 @@ int vme_register_driver(struct vme_driver *drv, unsigned int ndevs)
 
 	return err;
 }
-EXPORT_SYMBOL(vme_register_driver);
+/* DISABLED: EXPORT_SYMBOL(vme_register_driver); */
 
 void vme_unregister_driver(struct vme_driver *drv)
 {
@@ -1451,7 +1451,7 @@ void vme_unregister_driver(struct vme_driver *drv)
 
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(vme_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(vme_unregister_driver); */
 
 /* - Bus Registration ------------------------------------------------------ */
 
@@ -1506,7 +1506,7 @@ struct bus_type vme_bus_type = {
 	.probe = vme_bus_probe,
 	.remove = vme_bus_remove,
 };
-EXPORT_SYMBOL(vme_bus_type);
+/* DISABLED: EXPORT_SYMBOL(vme_bus_type); */
 
 static int __init vme_init(void)
 {

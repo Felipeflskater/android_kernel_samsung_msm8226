@@ -223,7 +223,7 @@ struct i2c_client *i2c_setup_smbus_alert(struct i2c_adapter *adapter,
 
 	return i2c_new_device(adapter, &ara_board_info);
 }
-EXPORT_SYMBOL_GPL(i2c_setup_smbus_alert);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_setup_smbus_alert); */
 
 /**
  * i2c_handle_smbus_alert - Handle an SMBus alert
@@ -243,7 +243,7 @@ int i2c_handle_smbus_alert(struct i2c_client *ara)
 
 	return schedule_work(&alert->alert);
 }
-EXPORT_SYMBOL_GPL(i2c_handle_smbus_alert);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_handle_smbus_alert); */
 
 static int __init i2c_smbus_init(void)
 {

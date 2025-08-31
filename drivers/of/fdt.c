@@ -430,7 +430,7 @@ void of_fdt_unflatten_tree(unsigned long *blob,
 		(struct boot_param_header *)blob;
 	__unflatten_device_tree(device_tree, mynodes, &kernel_tree_alloc);
 }
-EXPORT_SYMBOL_GPL(of_fdt_unflatten_tree);
+/* DISABLED: EXPORT_SYMBOL_GPL(of_fdt_unflatten_tree); */
 
 /* Everything below here references initial_boot_params directly. */
 int __initdata dt_root_addr_cells;

@@ -1183,7 +1183,7 @@ static void info_read(struct snd_info_entry *entry, struct snd_info_buffer *buff
 
 /* */
 
-EXPORT_SYMBOL(snd_sb_csp_new);
+/* DISABLED: EXPORT_SYMBOL(snd_sb_csp_new); */
 
 /*
  * INIT part

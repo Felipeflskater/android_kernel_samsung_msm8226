@@ -494,6 +494,6 @@ int dma_set_coherent_mask(struct device *dev, u64 mask)
 	return -EIO;
 }
 
-EXPORT_SYMBOL(ixp4xx_pci_read);
-EXPORT_SYMBOL(ixp4xx_pci_write);
-EXPORT_SYMBOL(dma_set_coherent_mask);
+/* DISABLED: EXPORT_SYMBOL(ixp4xx_pci_read); */
+/* DISABLED: EXPORT_SYMBOL(ixp4xx_pci_write); */
+/* DISABLED: EXPORT_SYMBOL(dma_set_coherent_mask); */

@@ -42,7 +42,7 @@ static int stderr_setup(char *str)
 	use_stderr_console = simple_strtoul(str,&str,0);
 	return 1;
 }
-/* DISABLED: __setup("stderr=", stderr_setup); */
+/* DISABLED: __setup("stderr=", stderr_setup); */ */
 
 /* The previous behavior of not unregistering led to /dev/console being
  * impossible to open.  My FC5 filesystem started having init die, and the

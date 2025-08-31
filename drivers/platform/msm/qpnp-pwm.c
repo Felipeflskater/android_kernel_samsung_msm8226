@@ -1285,7 +1285,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *lable)
 
 	return pwm;
 }
-EXPORT_SYMBOL_GPL(pwm_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_request); */
 
 /**
  * pwm_free - free a PWM device
@@ -1315,7 +1315,7 @@ void pwm_free(struct pwm_device *pwm)
 
 	spin_unlock_irqrestore(&pwm->chip->lpg_lock, flags);
 }
-EXPORT_SYMBOL_GPL(pwm_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_free); */
 
 /**
  * pwm_config - change a PWM device configuration
@@ -1346,7 +1346,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_config); */
 
 /**
  * pwm_config_us - change a PWM device configuration
@@ -1379,7 +1379,7 @@ int pwm_config_us(struct pwm_device *pwm, int duty_us, int period_us)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_config_us);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_config_us); */
 
 /**
  * pwm_enable - start a PWM output toggling
@@ -1403,7 +1403,7 @@ int pwm_enable(struct pwm_device *pwm)
 
 	return _pwm_enable(pwm);
 }
-EXPORT_SYMBOL_GPL(pwm_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_enable); */
 
 /**
  * pwm_disable - stop a PWM output toggling
@@ -1444,7 +1444,7 @@ void pwm_disable(struct pwm_device *pwm)
 		pr_err("Failed to disable PWM channel: %d\n",
 					pwm_config->channel_id);
 }
-EXPORT_SYMBOL_GPL(pwm_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_disable); */
 
 /**
  * pwm_change_mode - Change the PWM mode configuration
@@ -1479,7 +1479,7 @@ int pwm_change_mode(struct pwm_device *pwm, enum pm_pwm_mode mode)
 		pr_err("Failed to change the mode\n");
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_change_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_change_mode); */
 
 /**
  * pwm_config_period - change PWM period
@@ -1543,7 +1543,7 @@ out_unlock:
 	spin_unlock_irqrestore(&pwm->chip->lpg_lock, flags);
 	return rc;
 }
-EXPORT_SYMBOL(pwm_config_period);
+/* DISABLED: EXPORT_SYMBOL(pwm_config_period); */
 
 /**
  * pwm_config_pwm_value - change a PWM device configuration
@@ -1593,7 +1593,7 @@ out_unlock:
 	spin_unlock_irqrestore(&pwm->chip->lpg_lock, flags);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_config_pwm_value);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_config_pwm_value); */
 
 /**
  * pwm_lut_config - change LPG LUT device configuration
@@ -1655,7 +1655,7 @@ int pwm_lut_config(struct pwm_device *pwm, int period_us,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_lut_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_lut_config); */
 
 static int qpnp_parse_pwm_dt_config(struct device_node *of_pwm_node,
 		struct device_node *of_parent, struct qpnp_lpg_chip *chip)

@@ -65,7 +65,7 @@ struct mpic_msgr *mpic_msgr_get(unsigned int reg_num)
 
 	return msgr;
 }
-EXPORT_SYMBOL_GPL(mpic_msgr_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpic_msgr_get); */
 
 void mpic_msgr_put(struct mpic_msgr *msgr)
 {
@@ -76,7 +76,7 @@ void mpic_msgr_put(struct mpic_msgr *msgr)
 	_mpic_msgr_disable(msgr);
 	raw_spin_unlock_irqrestore(&msgr->lock, flags);
 }
-EXPORT_SYMBOL_GPL(mpic_msgr_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpic_msgr_put); */
 
 void mpic_msgr_enable(struct mpic_msgr *msgr)
 {
@@ -88,7 +88,7 @@ void mpic_msgr_enable(struct mpic_msgr *msgr)
 	_mpic_msgr_mer_write(msgr, mer | (1 << msgr->num));
 	raw_spin_unlock_irqrestore(&msgr->lock, flags);
 }
-EXPORT_SYMBOL_GPL(mpic_msgr_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpic_msgr_enable); */
 
 void mpic_msgr_disable(struct mpic_msgr *msgr)
 {
@@ -98,7 +98,7 @@ void mpic_msgr_disable(struct mpic_msgr *msgr)
 	_mpic_msgr_disable(msgr);
 	raw_spin_unlock_irqrestore(&msgr->lock, flags);
 }
-EXPORT_SYMBOL_GPL(mpic_msgr_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpic_msgr_disable); */
 
 /* The following three functions are used to compute the order and number of
  * the message register blocks.  They are clearly very inefficent.  However,

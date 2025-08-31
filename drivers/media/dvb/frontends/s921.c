@@ -508,7 +508,7 @@ rcor:
 
 	return NULL;
 }
-EXPORT_SYMBOL(s921_attach);
+/* DISABLED: EXPORT_SYMBOL(s921_attach); */
 
 static struct dvb_frontend_ops s921_ops = {
 	.delsys = { SYS_ISDBT },

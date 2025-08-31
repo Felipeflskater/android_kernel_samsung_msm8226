@@ -127,7 +127,7 @@ unsigned int inet6_hash_frag(__be32 id, const struct in6_addr *saddr,
 
 	return c & (INETFRAGS_HASHSZ - 1);
 }
-EXPORT_SYMBOL_GPL(inet6_hash_frag);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_hash_frag); */
 
 static unsigned int ip6_hashfn(struct inet_frag_queue *q)
 {
@@ -147,7 +147,7 @@ int ip6_frag_match(struct inet_frag_queue *q, void *a)
 			ipv6_addr_equal(&fq->saddr, arg->src) &&
 			ipv6_addr_equal(&fq->daddr, arg->dst));
 }
-EXPORT_SYMBOL(ip6_frag_match);
+/* DISABLED: EXPORT_SYMBOL(ip6_frag_match); */
 
 void ip6_frag_init(struct inet_frag_queue *q, void *a)
 {
@@ -159,7 +159,7 @@ void ip6_frag_init(struct inet_frag_queue *q, void *a)
 	fq->saddr = *arg->src;
 	fq->daddr = *arg->dst;
 }
-EXPORT_SYMBOL(ip6_frag_init);
+/* DISABLED: EXPORT_SYMBOL(ip6_frag_init); */
 
 /* Destruction primitives. */
 

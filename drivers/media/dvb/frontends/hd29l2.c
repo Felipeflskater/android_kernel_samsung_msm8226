@@ -817,7 +817,7 @@ err:
 	kfree(priv);
 	return NULL;
 }
-EXPORT_SYMBOL(hd29l2_attach);
+/* DISABLED: EXPORT_SYMBOL(hd29l2_attach); */
 
 static struct dvb_frontend_ops hd29l2_ops = {
 	.delsys = { SYS_DVBT },

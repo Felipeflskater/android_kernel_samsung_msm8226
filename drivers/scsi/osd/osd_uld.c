@@ -141,7 +141,7 @@ int osduld_register_test(unsigned ioctl, do_test_fn *do_test)
 	g_do_test = do_test;
 	return 0;
 }
-EXPORT_SYMBOL(osduld_register_test);
+/* DISABLED: EXPORT_SYMBOL(osduld_register_test); */
 
 void osduld_unregister_test(unsigned ioctl)
 {
@@ -150,7 +150,7 @@ void osduld_unregister_test(unsigned ioctl)
 		g_do_test = NULL;
 	}
 }
-EXPORT_SYMBOL(osduld_unregister_test);
+/* DISABLED: EXPORT_SYMBOL(osduld_unregister_test); */
 
 static do_test_fn *_find_ioctl(unsigned cmd)
 {
@@ -226,7 +226,7 @@ free_od:
 	kfree(odh);
 	return ERR_PTR(error);
 }
-EXPORT_SYMBOL(osduld_path_lookup);
+/* DISABLED: EXPORT_SYMBOL(osduld_path_lookup); */
 
 static inline bool _the_same_or_null(const u8 *a1, unsigned a1_len,
 				     const u8 *a2, unsigned a2_len)
@@ -292,7 +292,7 @@ struct osd_dev *osduld_info_lookup(const struct osd_dev_info *odi)
 
 	return ERR_PTR(-ENODEV);
 }
-EXPORT_SYMBOL(osduld_info_lookup);
+/* DISABLED: EXPORT_SYMBOL(osduld_info_lookup); */
 
 void osduld_put_device(struct osd_dev *od)
 {
@@ -317,7 +317,7 @@ void osduld_put_device(struct osd_dev *od)
 		kfree(odh);
 	}
 }
-EXPORT_SYMBOL(osduld_put_device);
+/* DISABLED: EXPORT_SYMBOL(osduld_put_device); */
 
 const struct osd_dev_info *osduld_device_info(struct osd_dev *od)
 {
@@ -325,7 +325,7 @@ const struct osd_dev_info *osduld_device_info(struct osd_dev *od)
 				container_of(od, struct osd_dev_handle, od);
 	return &odh->oud->odi;
 }
-EXPORT_SYMBOL(osduld_device_info);
+/* DISABLED: EXPORT_SYMBOL(osduld_device_info); */
 
 bool osduld_device_same(struct osd_dev *od, const struct osd_dev_info *odi)
 {
@@ -340,7 +340,7 @@ bool osduld_device_same(struct osd_dev *od, const struct osd_dev_info *odi)
 		_the_same_or_null(oud->odi.osdname, oud->odi.osdname_len,
 				  odi->osdname, odi->osdname_len);
 }
-EXPORT_SYMBOL(osduld_device_same);
+/* DISABLED: EXPORT_SYMBOL(osduld_device_same); */
 
 /*
  * Scsi Device operations

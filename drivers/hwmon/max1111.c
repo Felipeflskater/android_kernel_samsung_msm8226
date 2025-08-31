@@ -82,7 +82,7 @@ int max1111_read_channel(int channel)
 {
 	return max1111_read(&the_max1111->spi->dev, channel);
 }
-EXPORT_SYMBOL(max1111_read_channel);
+/* DISABLED: EXPORT_SYMBOL(max1111_read_channel); */
 #endif
 
 /*

@@ -381,7 +381,7 @@ int simple_setattr(struct dentry *dentry, struct iattr *iattr)
 	mark_inode_dirty(inode);
 	return 0;
 }
-EXPORT_SYMBOL(simple_setattr);
+/* DISABLED: EXPORT_SYMBOL(simple_setattr); */
 
 int simple_readpage(struct file *file, struct page *page)
 {
@@ -871,7 +871,7 @@ struct dentry *generic_fh_to_dentry(struct super_block *sb, struct fid *fid,
 
 	return d_obtain_alias(inode);
 }
-EXPORT_SYMBOL_GPL(generic_fh_to_dentry);
+/* DISABLED: EXPORT_SYMBOL_GPL(generic_fh_to_dentry); */
 
 /**
  * generic_fh_to_dentry - generic helper for the fh_to_parent export operation
@@ -904,7 +904,7 @@ struct dentry *generic_fh_to_parent(struct super_block *sb, struct fid *fid,
 
 	return d_obtain_alias(inode);
 }
-EXPORT_SYMBOL_GPL(generic_fh_to_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(generic_fh_to_parent); */
 
 /**
  * generic_file_fsync - generic fsync implementation for simple filesystems
@@ -940,7 +940,7 @@ out:
 	mutex_unlock(&inode->i_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(generic_file_fsync);
+/* DISABLED: EXPORT_SYMBOL(generic_file_fsync); */
 
 /**
  * generic_check_addressable - Check addressability of file system
@@ -969,7 +969,7 @@ int generic_check_addressable(unsigned blocksize_bits, u64 num_blocks)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(generic_check_addressable);
+/* DISABLED: EXPORT_SYMBOL(generic_check_addressable); */
 
 /*
  * No-op implementation of ->fsync for in-memory filesystems.
@@ -979,38 +979,38 @@ int noop_fsync(struct file *file, loff_t start, loff_t end, int datasync)
 	return 0;
 }
 
-EXPORT_SYMBOL(dcache_dir_close);
-EXPORT_SYMBOL(dcache_dir_lseek);
-EXPORT_SYMBOL(dcache_dir_open);
-EXPORT_SYMBOL(dcache_readdir);
-EXPORT_SYMBOL(generic_read_dir);
-EXPORT_SYMBOL(mount_pseudo);
-EXPORT_SYMBOL(simple_write_begin);
-EXPORT_SYMBOL(simple_write_end);
-EXPORT_SYMBOL(simple_dir_inode_operations);
-EXPORT_SYMBOL(simple_dir_operations);
-EXPORT_SYMBOL(simple_empty);
-EXPORT_SYMBOL(simple_fill_super);
-EXPORT_SYMBOL(simple_getattr);
-EXPORT_SYMBOL(simple_open);
-EXPORT_SYMBOL(simple_link);
-EXPORT_SYMBOL(simple_lookup);
-EXPORT_SYMBOL(simple_pin_fs);
-EXPORT_SYMBOL(simple_readpage);
-EXPORT_SYMBOL(simple_release_fs);
-EXPORT_SYMBOL(simple_rename);
-EXPORT_SYMBOL(simple_rmdir);
-EXPORT_SYMBOL(simple_statfs);
-EXPORT_SYMBOL(noop_fsync);
-EXPORT_SYMBOL(simple_unlink);
-EXPORT_SYMBOL(simple_read_from_buffer);
-EXPORT_SYMBOL(simple_write_to_buffer);
-EXPORT_SYMBOL(memory_read_from_buffer);
-EXPORT_SYMBOL(simple_transaction_set);
-EXPORT_SYMBOL(simple_transaction_get);
-EXPORT_SYMBOL(simple_transaction_read);
-EXPORT_SYMBOL(simple_transaction_release);
-EXPORT_SYMBOL_GPL(simple_attr_open);
-EXPORT_SYMBOL_GPL(simple_attr_release);
-EXPORT_SYMBOL_GPL(simple_attr_read);
-EXPORT_SYMBOL_GPL(simple_attr_write);
+/* DISABLED: EXPORT_SYMBOL(dcache_dir_close); */
+/* DISABLED: EXPORT_SYMBOL(dcache_dir_lseek); */
+/* DISABLED: EXPORT_SYMBOL(dcache_dir_open); */
+/* DISABLED: EXPORT_SYMBOL(dcache_readdir); */
+/* DISABLED: EXPORT_SYMBOL(generic_read_dir); */
+/* DISABLED: EXPORT_SYMBOL(mount_pseudo); */
+/* DISABLED: EXPORT_SYMBOL(simple_write_begin); */
+/* DISABLED: EXPORT_SYMBOL(simple_write_end); */
+/* DISABLED: EXPORT_SYMBOL(simple_dir_inode_operations); */
+/* DISABLED: EXPORT_SYMBOL(simple_dir_operations); */
+/* DISABLED: EXPORT_SYMBOL(simple_empty); */
+/* DISABLED: EXPORT_SYMBOL(simple_fill_super); */
+/* DISABLED: EXPORT_SYMBOL(simple_getattr); */
+/* DISABLED: EXPORT_SYMBOL(simple_open); */
+/* DISABLED: EXPORT_SYMBOL(simple_link); */
+/* DISABLED: EXPORT_SYMBOL(simple_lookup); */
+/* DISABLED: EXPORT_SYMBOL(simple_pin_fs); */
+/* DISABLED: EXPORT_SYMBOL(simple_readpage); */
+/* DISABLED: EXPORT_SYMBOL(simple_release_fs); */
+/* DISABLED: EXPORT_SYMBOL(simple_rename); */
+/* DISABLED: EXPORT_SYMBOL(simple_rmdir); */
+/* DISABLED: EXPORT_SYMBOL(simple_statfs); */
+/* DISABLED: EXPORT_SYMBOL(noop_fsync); */
+/* DISABLED: EXPORT_SYMBOL(simple_unlink); */
+/* DISABLED: EXPORT_SYMBOL(simple_read_from_buffer); */
+/* DISABLED: EXPORT_SYMBOL(simple_write_to_buffer); */
+/* DISABLED: EXPORT_SYMBOL(memory_read_from_buffer); */
+/* DISABLED: EXPORT_SYMBOL(simple_transaction_set); */
+/* DISABLED: EXPORT_SYMBOL(simple_transaction_get); */
+/* DISABLED: EXPORT_SYMBOL(simple_transaction_read); */
+/* DISABLED: EXPORT_SYMBOL(simple_transaction_release); */
+/* DISABLED: EXPORT_SYMBOL_GPL(simple_attr_open); */
+/* DISABLED: EXPORT_SYMBOL_GPL(simple_attr_release); */
+/* DISABLED: EXPORT_SYMBOL_GPL(simple_attr_read); */
+/* DISABLED: EXPORT_SYMBOL_GPL(simple_attr_write); */

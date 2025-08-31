@@ -1499,7 +1499,7 @@ free_irq:
 		msm_tspp_free_irqs(pdev);
 	return rc;
 }
-EXPORT_SYMBOL(tspp_open_stream);
+/* DISABLED: EXPORT_SYMBOL(tspp_open_stream); */
 
 /**
  * tspp_close_stream - close a TSPP stream.
@@ -1570,7 +1570,7 @@ int tspp_close_stream(u32 dev, u32 channel_id)
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_close_stream);
+/* DISABLED: EXPORT_SYMBOL(tspp_close_stream); */
 
 static int tspp_init_sps_device(struct tspp_device *dev)
 {
@@ -1727,7 +1727,7 @@ err_sps_alloc:
 	channel->used = 0;
 	return rc;
 }
-EXPORT_SYMBOL(tspp_open_channel);
+/* DISABLED: EXPORT_SYMBOL(tspp_open_channel); */
 
 /**
  * tspp_close_channel - close a TSPP channel.
@@ -1843,7 +1843,7 @@ int tspp_close_channel(u32 dev, u32 channel_id)
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_close_channel);
+/* DISABLED: EXPORT_SYMBOL(tspp_close_channel); */
 
 /**
  * tspp_get_ref_clk_counter - return the TSIF clock reference (TCR) counter.
@@ -1892,7 +1892,7 @@ int tspp_get_ref_clk_counter(u32 dev, enum tspp_source source, u32 *tcr_counter)
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_get_ref_clk_counter);
+/* DISABLED: EXPORT_SYMBOL(tspp_get_ref_clk_counter); */
 
 /**
  * tspp_add_filter - add a TSPP filter to a channel.
@@ -2032,7 +2032,7 @@ int tspp_add_filter(u32 dev, u32 channel_id,
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_add_filter);
+/* DISABLED: EXPORT_SYMBOL(tspp_add_filter); */
 
 /**
  * tspp_remove_filter - remove a TSPP filter from a channel.
@@ -2098,7 +2098,7 @@ int tspp_remove_filter(u32 dev, u32 channel_id,
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_remove_filter);
+/* DISABLED: EXPORT_SYMBOL(tspp_remove_filter); */
 
 /**
  * tspp_set_key - set TSPP key in key table.
@@ -2158,7 +2158,7 @@ int tspp_set_key(u32 dev, u32 channel_id, struct tspp_key *key)
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_set_key);
+/* DISABLED: EXPORT_SYMBOL(tspp_set_key); */
 
 /**
  * tspp_register_notification - register TSPP channel notification function.
@@ -2194,7 +2194,7 @@ int tspp_register_notification(u32 dev, u32 channel_id,
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_register_notification);
+/* DISABLED: EXPORT_SYMBOL(tspp_register_notification); */
 
 /**
  * tspp_unregister_notification - unregister TSPP channel notification function.
@@ -2224,7 +2224,7 @@ int tspp_unregister_notification(u32 dev, u32 channel_id)
 	channel->notify_data = 0;
 	return 0;
 }
-EXPORT_SYMBOL(tspp_unregister_notification);
+/* DISABLED: EXPORT_SYMBOL(tspp_unregister_notification); */
 
 /**
  * tspp_get_buffer - get TSPP data buffer.
@@ -2282,7 +2282,7 @@ const struct tspp_data_descriptor *tspp_get_buffer(u32 dev, u32 channel_id)
 
 	return &buffer->desc;
 }
-EXPORT_SYMBOL(tspp_get_buffer);
+/* DISABLED: EXPORT_SYMBOL(tspp_get_buffer); */
 
 /**
  * tspp_release_buffer - release TSPP data buffer back to TSPP.
@@ -2352,7 +2352,7 @@ int tspp_release_buffer(u32 dev, u32 channel_id, u32 descriptor_id)
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_release_buffer);
+/* DISABLED: EXPORT_SYMBOL(tspp_release_buffer); */
 
 /**
  * tspp_allocate_buffers - allocate TSPP data buffers.
@@ -2527,7 +2527,7 @@ int tspp_allocate_buffers(u32 dev, u32 channel_id, u32 count, u32 size,
 
 	return 0;
 }
-EXPORT_SYMBOL(tspp_allocate_buffers);
+/* DISABLED: EXPORT_SYMBOL(tspp_allocate_buffers); */
 
 /*** File Operations ***/
 static ssize_t tspp_open(struct inode *inode, struct file *filp)

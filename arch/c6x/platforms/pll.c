@@ -58,7 +58,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
@@ -71,7 +71,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clockfw_lock, flags);
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -80,7 +80,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return clk->rate;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -92,7 +92,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return clk->rate;
 }
-EXPORT_SYMBOL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
 
 /* Propagate rate to children */
 static void propagate_rate(struct clk *root)
@@ -127,7 +127,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -154,7 +154,7 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return 0;
 }
-EXPORT_SYMBOL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
 
 int clk_register(struct clk *clk)
 {
@@ -186,7 +186,7 @@ int clk_register(struct clk *clk)
 
 	return 0;
 }
-EXPORT_SYMBOL(clk_register);
+/* DISABLED: EXPORT_SYMBOL(clk_register); */
 
 void clk_unregister(struct clk *clk)
 {
@@ -198,7 +198,7 @@ void clk_unregister(struct clk *clk)
 	list_del(&clk->childnode);
 	mutex_unlock(&clocks_mutex);
 }
-EXPORT_SYMBOL(clk_unregister);
+/* DISABLED: EXPORT_SYMBOL(clk_unregister); */
 
 
 static u32 pll_read(struct pll_data *pll, int reg)

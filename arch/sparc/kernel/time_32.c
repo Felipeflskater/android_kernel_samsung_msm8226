@@ -48,7 +48,7 @@
 #include "irq.h"
 
 DEFINE_SPINLOCK(rtc_lock);
-EXPORT_SYMBOL(rtc_lock);
+/* DISABLED: EXPORT_SYMBOL(rtc_lock); */
 
 static int set_rtc_mmss(unsigned long);
 
@@ -71,7 +71,7 @@ unsigned long profile_pc(struct pt_regs *regs)
 	return pc;
 }
 
-EXPORT_SYMBOL(profile_pc);
+/* DISABLED: EXPORT_SYMBOL(profile_pc); */
 
 __volatile__ unsigned int *master_l10_counter;
 

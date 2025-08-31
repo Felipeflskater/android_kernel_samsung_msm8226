@@ -31,10 +31,10 @@
 int split_tlb __read_mostly;
 int dcache_stride __read_mostly;
 int icache_stride __read_mostly;
-EXPORT_SYMBOL(dcache_stride);
+/* DISABLED: EXPORT_SYMBOL(dcache_stride); */
 
 void flush_dcache_page_asm(unsigned long phys_addr, unsigned long vaddr);
-EXPORT_SYMBOL(flush_dcache_page_asm);
+/* DISABLED: EXPORT_SYMBOL(flush_dcache_page_asm); */
 void flush_icache_page_asm(unsigned long phys_addr, unsigned long vaddr);
 
 
@@ -69,7 +69,7 @@ flush_cache_all_local(void)
 	flush_instruction_cache_local(NULL);
 	flush_data_cache_local(NULL);
 }
-EXPORT_SYMBOL(flush_cache_all_local);
+/* DISABLED: EXPORT_SYMBOL(flush_cache_all_local); */
 
 void
 update_mmu_cache(struct vm_area_struct *vma, unsigned long address, pte_t *ptep)
@@ -322,13 +322,13 @@ void flush_dcache_page(struct page *page)
 	}
 	flush_dcache_mmap_unlock(mapping);
 }
-EXPORT_SYMBOL(flush_dcache_page);
+/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
 
 /* Defined in arch/parisc/kernel/pacache.S */
-EXPORT_SYMBOL(flush_kernel_dcache_range_asm);
-EXPORT_SYMBOL(flush_kernel_dcache_page_asm);
-EXPORT_SYMBOL(flush_data_cache_local);
-EXPORT_SYMBOL(flush_kernel_icache_range_asm);
+/* DISABLED: EXPORT_SYMBOL(flush_kernel_dcache_range_asm); */
+/* DISABLED: EXPORT_SYMBOL(flush_kernel_dcache_page_asm); */
+/* DISABLED: EXPORT_SYMBOL(flush_data_cache_local); */
+/* DISABLED: EXPORT_SYMBOL(flush_kernel_icache_range_asm); */
 
 void clear_user_page_asm(void *page, unsigned long vaddr)
 {
@@ -387,7 +387,7 @@ void clear_user_page(void *page, unsigned long vaddr, struct page *pg)
 	purge_tlb_end(flags);
 	clear_user_page_asm(page, vaddr);
 }
-EXPORT_SYMBOL(clear_user_page);
+/* DISABLED: EXPORT_SYMBOL(clear_user_page); */
 
 void flush_kernel_dcache_page_addr(void *addr)
 {
@@ -398,7 +398,7 @@ void flush_kernel_dcache_page_addr(void *addr)
 	pdtlb_kernel(addr);
 	purge_tlb_end(flags);
 }
-EXPORT_SYMBOL(flush_kernel_dcache_page_addr);
+/* DISABLED: EXPORT_SYMBOL(flush_kernel_dcache_page_addr); */
 
 void copy_user_page(void *vto, void *vfrom, unsigned long vaddr,
 		    struct page *pg)
@@ -408,7 +408,7 @@ void copy_user_page(void *vto, void *vfrom, unsigned long vaddr,
 	if (!parisc_requires_coherency())
 		flush_kernel_dcache_page_asm(vto);
 }
-EXPORT_SYMBOL(copy_user_page);
+/* DISABLED: EXPORT_SYMBOL(copy_user_page); */
 
 #ifdef CONFIG_PA8X00
 
@@ -417,7 +417,7 @@ void kunmap_parisc(void *addr)
 	if (parisc_requires_coherency())
 		flush_kernel_dcache_page_addr(addr);
 }
-EXPORT_SYMBOL(kunmap_parisc);
+/* DISABLED: EXPORT_SYMBOL(kunmap_parisc); */
 #endif
 
 void __flush_tlb_range(unsigned long sid, unsigned long start,

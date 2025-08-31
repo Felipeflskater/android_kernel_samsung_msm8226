@@ -66,7 +66,7 @@ int mantis_frontend_power(struct mantis_pci *mantis, enum mantis_power power)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mantis_frontend_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_frontend_power); */
 
 void mantis_frontend_soft_reset(struct mantis_pci *mantis)
 {
@@ -84,7 +84,7 @@ void mantis_frontend_soft_reset(struct mantis_pci *mantis)
 
 	return;
 }
-EXPORT_SYMBOL_GPL(mantis_frontend_soft_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_frontend_soft_reset); */
 
 static int mantis_frontend_shutdown(struct mantis_pci *mantis)
 {
@@ -269,7 +269,7 @@ err0:
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(mantis_dvb_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_dvb_init); */
 
 int __devexit mantis_dvb_exit(struct mantis_pci *mantis)
 {
@@ -298,4 +298,4 @@ int __devexit mantis_dvb_exit(struct mantis_pci *mantis)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mantis_dvb_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_dvb_exit); */

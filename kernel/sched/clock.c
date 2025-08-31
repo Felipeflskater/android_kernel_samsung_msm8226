@@ -77,7 +77,7 @@ unsigned long long __attribute__((weak)) sched_clock(void)
 	return (unsigned long long)(jiffies - INITIAL_JIFFIES)
 					* (NSEC_PER_SEC / HZ);
 }
-EXPORT_SYMBOL_GPL(sched_clock);
+/* DISABLED: EXPORT_SYMBOL_GPL(sched_clock); */
 
 __read_mostly int sched_clock_running;
 
@@ -289,7 +289,7 @@ void sched_clock_idle_sleep_event(void)
 {
 	sched_clock_cpu(smp_processor_id());
 }
-EXPORT_SYMBOL_GPL(sched_clock_idle_sleep_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(sched_clock_idle_sleep_event); */
 
 /*
  * We just idled delta nanoseconds (called with irqs disabled):
@@ -302,7 +302,7 @@ void sched_clock_idle_wakeup_event(u64 delta_ns)
 	sched_clock_tick();
 	touch_softlockup_watchdog();
 }
-EXPORT_SYMBOL_GPL(sched_clock_idle_wakeup_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(sched_clock_idle_wakeup_event); */
 
 /*
  * As outlined at the top, provides a fast, high resolution, nanosecond
@@ -372,5 +372,5 @@ u64 local_clock(void)
 
 #endif /* CONFIG_HAVE_UNSTABLE_SCHED_CLOCK */
 
-EXPORT_SYMBOL_GPL(cpu_clock);
-EXPORT_SYMBOL_GPL(local_clock);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_clock); */
+/* DISABLED: EXPORT_SYMBOL_GPL(local_clock); */

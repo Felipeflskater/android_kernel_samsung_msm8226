@@ -85,7 +85,7 @@ static DEFINE_MUTEX(sensor_devices_mutex);
 struct device rmi_bus_device;
 
 struct bus_type rmi_bus_type;
-EXPORT_SYMBOL(rmi_bus_type);
+/* DISABLED: EXPORT_SYMBOL(rmi_bus_type); */
 
 
 /*
@@ -287,7 +287,7 @@ int rmi_register_sensor(struct rmi_phys_driver *rpd, struct rmi_sensordata *sens
 exit_fail:
 	return retval;
 }
-EXPORT_SYMBOL(rmi_register_sensor);
+/* DISABLED: EXPORT_SYMBOL(rmi_register_sensor); */
 
 int rmi_unregister_sensors(struct rmi_phys_driver *rpd)
 {
@@ -308,7 +308,7 @@ int rmi_unregister_sensors(struct rmi_phys_driver *rpd)
 
 	return 0;
 }
-EXPORT_SYMBOL(rmi_unregister_sensors);
+/* DISABLED: EXPORT_SYMBOL(rmi_unregister_sensors); */
 
 
 static void rmi_bus_dev_release(struct device *dev)
@@ -334,7 +334,7 @@ int rmi_register_bus_device(struct device *rmibusdev)
 
 	return device_register(rmibusdev);
 }
-EXPORT_SYMBOL(rmi_register_bus_device);
+/* DISABLED: EXPORT_SYMBOL(rmi_register_bus_device); */
 
 void rmi_unregister_bus_device(struct device *rmibusdev)
 {
@@ -342,7 +342,7 @@ void rmi_unregister_bus_device(struct device *rmibusdev)
 
 	device_unregister(rmibusdev);
 }
-EXPORT_SYMBOL(rmi_unregister_bus_device);
+/* DISABLED: EXPORT_SYMBOL(rmi_unregister_bus_device); */
 
 static int __init rmi_bus_init(void)
 {

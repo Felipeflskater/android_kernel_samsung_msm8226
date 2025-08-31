@@ -49,114 +49,114 @@ extern void __aeabi_ulcmp(void);
 extern void fpundefinstr(void);
 
 	/* platform dependent support */
-EXPORT_SYMBOL(arm_delay_ops);
+/* DISABLED: EXPORT_SYMBOL(arm_delay_ops); */
 
 	/* networking */
-EXPORT_SYMBOL(csum_partial);
-EXPORT_SYMBOL(csum_partial_copy_from_user);
-EXPORT_SYMBOL(csum_partial_copy_nocheck);
-EXPORT_SYMBOL(__csum_ipv6_magic);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+/* DISABLED: EXPORT_SYMBOL(__csum_ipv6_magic); */
 
 	/* io */
 #ifndef __raw_readsb
-EXPORT_SYMBOL(__raw_readsb);
+/* DISABLED: EXPORT_SYMBOL(__raw_readsb); */
 #endif
 #ifndef __raw_readsw
-EXPORT_SYMBOL(__raw_readsw);
+/* DISABLED: EXPORT_SYMBOL(__raw_readsw); */
 #endif
 #ifndef __raw_readsl
-EXPORT_SYMBOL(__raw_readsl);
+/* DISABLED: EXPORT_SYMBOL(__raw_readsl); */
 #endif
 #ifndef __raw_writesb
-EXPORT_SYMBOL(__raw_writesb);
+/* DISABLED: EXPORT_SYMBOL(__raw_writesb); */
 #endif
 #ifndef __raw_writesw
-EXPORT_SYMBOL(__raw_writesw);
+/* DISABLED: EXPORT_SYMBOL(__raw_writesw); */
 #endif
 #ifndef __raw_writesl
-EXPORT_SYMBOL(__raw_writesl);
+/* DISABLED: EXPORT_SYMBOL(__raw_writesl); */
 #endif
 
 	/* string / mem functions */
-EXPORT_SYMBOL(strchr);
-EXPORT_SYMBOL(strrchr);
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memmove);
-EXPORT_SYMBOL(memchr);
-EXPORT_SYMBOL(__memzero);
+/* DISABLED: EXPORT_SYMBOL(strchr); */
+/* DISABLED: EXPORT_SYMBOL(strrchr); */
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
+/* DISABLED: EXPORT_SYMBOL(memchr); */
+/* DISABLED: EXPORT_SYMBOL(__memzero); */
 
 	/* user mem (segment) */
-EXPORT_SYMBOL(__strnlen_user);
-EXPORT_SYMBOL(__strncpy_from_user);
+/* DISABLED: EXPORT_SYMBOL(__strnlen_user); */
+/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user); */
 
 #ifdef CONFIG_MMU
-EXPORT_SYMBOL(copy_page);
+/* DISABLED: EXPORT_SYMBOL(copy_page); */
 
-EXPORT_SYMBOL(__copy_from_user);
-EXPORT_SYMBOL(__copy_to_user);
-EXPORT_SYMBOL(__clear_user);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user); */
+/* DISABLED: EXPORT_SYMBOL(__copy_to_user); */
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */
 
-EXPORT_SYMBOL(__get_user_1);
-EXPORT_SYMBOL(__get_user_2);
-EXPORT_SYMBOL(__get_user_4);
+/* DISABLED: EXPORT_SYMBOL(__get_user_1); */
+/* DISABLED: EXPORT_SYMBOL(__get_user_2); */
+/* DISABLED: EXPORT_SYMBOL(__get_user_4); */
 
-EXPORT_SYMBOL(__put_user_1);
-EXPORT_SYMBOL(__put_user_2);
-EXPORT_SYMBOL(__put_user_4);
-EXPORT_SYMBOL(__put_user_8);
+/* DISABLED: EXPORT_SYMBOL(__put_user_1); */
+/* DISABLED: EXPORT_SYMBOL(__put_user_2); */
+/* DISABLED: EXPORT_SYMBOL(__put_user_4); */
+/* DISABLED: EXPORT_SYMBOL(__put_user_8); */
 #endif
 
 	/* gcc lib functions */
-EXPORT_SYMBOL(__ashldi3);
-EXPORT_SYMBOL(__ashrdi3);
-EXPORT_SYMBOL(__divsi3);
-EXPORT_SYMBOL(__lshrdi3);
-EXPORT_SYMBOL(__modsi3);
-EXPORT_SYMBOL(__muldi3);
-EXPORT_SYMBOL(__ucmpdi2);
-EXPORT_SYMBOL(__udivsi3);
-EXPORT_SYMBOL(__umodsi3);
-EXPORT_SYMBOL(__do_div64);
+/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
+/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__divsi3); */
+/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__modsi3); */
+/* DISABLED: EXPORT_SYMBOL(__muldi3); */
+/* DISABLED: EXPORT_SYMBOL(__ucmpdi2); */
+/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
+/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
+/* DISABLED: EXPORT_SYMBOL(__do_div64); */
 
 #ifdef CONFIG_AEABI
-EXPORT_SYMBOL(__aeabi_idiv);
-EXPORT_SYMBOL(__aeabi_idivmod);
-EXPORT_SYMBOL(__aeabi_lasr);
-EXPORT_SYMBOL(__aeabi_llsl);
-EXPORT_SYMBOL(__aeabi_llsr);
-EXPORT_SYMBOL(__aeabi_lmul);
-EXPORT_SYMBOL(__aeabi_uidiv);
-EXPORT_SYMBOL(__aeabi_uidivmod);
-EXPORT_SYMBOL(__aeabi_ulcmp);
+/* DISABLED: EXPORT_SYMBOL(__aeabi_idiv); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_idivmod); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_lasr); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_llsl); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_llsr); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_lmul); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_uidiv); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_uidivmod); */
+/* DISABLED: EXPORT_SYMBOL(__aeabi_ulcmp); */
 #endif
 
 	/* bitops */
-EXPORT_SYMBOL(_set_bit);
-EXPORT_SYMBOL(_test_and_set_bit);
-EXPORT_SYMBOL(_clear_bit);
-EXPORT_SYMBOL(_test_and_clear_bit);
-EXPORT_SYMBOL(_change_bit);
-EXPORT_SYMBOL(_test_and_change_bit);
-EXPORT_SYMBOL(_find_first_zero_bit_le);
-EXPORT_SYMBOL(_find_next_zero_bit_le);
-EXPORT_SYMBOL(_find_first_bit_le);
-EXPORT_SYMBOL(_find_next_bit_le);
+/* DISABLED: EXPORT_SYMBOL(_set_bit); */
+/* DISABLED: EXPORT_SYMBOL(_test_and_set_bit); */
+/* DISABLED: EXPORT_SYMBOL(_clear_bit); */
+/* DISABLED: EXPORT_SYMBOL(_test_and_clear_bit); */
+/* DISABLED: EXPORT_SYMBOL(_change_bit); */
+/* DISABLED: EXPORT_SYMBOL(_test_and_change_bit); */
+/* DISABLED: EXPORT_SYMBOL(_find_first_zero_bit_le); */
+/* DISABLED: EXPORT_SYMBOL(_find_next_zero_bit_le); */
+/* DISABLED: EXPORT_SYMBOL(_find_first_bit_le); */
+/* DISABLED: EXPORT_SYMBOL(_find_next_bit_le); */
 
 #ifdef __ARMEB__
-EXPORT_SYMBOL(_find_first_zero_bit_be);
-EXPORT_SYMBOL(_find_next_zero_bit_be);
-EXPORT_SYMBOL(_find_first_bit_be);
-EXPORT_SYMBOL(_find_next_bit_be);
+/* DISABLED: EXPORT_SYMBOL(_find_first_zero_bit_be); */
+/* DISABLED: EXPORT_SYMBOL(_find_next_zero_bit_be); */
+/* DISABLED: EXPORT_SYMBOL(_find_first_bit_be); */
+/* DISABLED: EXPORT_SYMBOL(_find_next_bit_be); */
 #endif
 
 #ifdef CONFIG_FUNCTION_TRACER
 #ifdef CONFIG_OLD_MCOUNT
-EXPORT_SYMBOL(mcount);
+/* DISABLED: EXPORT_SYMBOL(mcount); */
 #endif
-EXPORT_SYMBOL(__gnu_mcount_nc);
+/* DISABLED: EXPORT_SYMBOL(__gnu_mcount_nc); */
 #endif
 
 #ifdef CONFIG_ARM_PATCH_PHYS_VIRT
-EXPORT_SYMBOL(__pv_phys_offset);
+/* DISABLED: EXPORT_SYMBOL(__pv_phys_offset); */
 #endif

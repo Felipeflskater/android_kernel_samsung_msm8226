@@ -2146,7 +2146,7 @@ int synaptics_rmi4_force_calibration(void)
 
 	return retval;
 }
-EXPORT_SYMBOL(synaptics_rmi4_force_calibration);
+/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_force_calibration); */
 
 
 /* TODO: Below function is added to check that firmware update is needed or not.
@@ -2256,7 +2256,7 @@ done:
 
 	return retval;
 }
-EXPORT_SYMBOL(synaptics_rmi4_fw_update_on_probe);
+/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_fw_update_on_probe); */
 
 static int synaptics_load_fw_from_kernel(struct synaptics_rmi4_data *rmi4_data, const char *fw_path)
 {

@@ -95,7 +95,7 @@ struct usb_host_interface *usb_find_alt_setting(
 			config->desc.bConfigurationValue);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(usb_find_alt_setting);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_find_alt_setting); */
 
 /**
  * usb_ifnum_to_if - get the interface object with a given interface number
@@ -131,7 +131,7 @@ struct usb_interface *usb_ifnum_to_if(const struct usb_device *dev,
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(usb_ifnum_to_if);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ifnum_to_if); */
 
 /**
  * usb_altnum_to_altsetting - get the altsetting structure with a given alternate setting number.
@@ -162,7 +162,7 @@ struct usb_host_interface *usb_altnum_to_altsetting(
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(usb_altnum_to_altsetting);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_altnum_to_altsetting); */
 
 struct find_interface_arg {
 	int minor;
@@ -207,7 +207,7 @@ struct usb_interface *usb_find_interface(struct usb_driver *drv, int minor)
 
 	return dev ? to_usb_interface(dev) : NULL;
 }
-EXPORT_SYMBOL_GPL(usb_find_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_find_interface); */
 
 /**
  * usb_release_dev - free a usb device structure when all users of it are finished.
@@ -486,7 +486,7 @@ struct usb_device *usb_get_dev(struct usb_device *dev)
 		get_device(&dev->dev);
 	return dev;
 }
-EXPORT_SYMBOL_GPL(usb_get_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_dev); */
 
 /**
  * usb_put_dev - release a use of the usb device structure
@@ -500,7 +500,7 @@ void usb_put_dev(struct usb_device *dev)
 	if (dev)
 		put_device(&dev->dev);
 }
-EXPORT_SYMBOL_GPL(usb_put_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_put_dev); */
 
 /**
  * usb_get_intf - increments the reference count of the usb interface structure
@@ -521,7 +521,7 @@ struct usb_interface *usb_get_intf(struct usb_interface *intf)
 		get_device(&intf->dev);
 	return intf;
 }
-EXPORT_SYMBOL_GPL(usb_get_intf);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_intf); */
 
 /**
  * usb_put_intf - release a use of the usb interface structure
@@ -536,7 +536,7 @@ void usb_put_intf(struct usb_interface *intf)
 	if (intf)
 		put_device(&intf->dev);
 }
-EXPORT_SYMBOL_GPL(usb_put_intf);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_put_intf); */
 
 /*			USB device locking
  *
@@ -599,7 +599,7 @@ int usb_lock_device_for_reset(struct usb_device *udev,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_lock_device_for_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_lock_device_for_reset); */
 
 /**
  * usb_get_current_frame_number - return current bus frame number
@@ -618,7 +618,7 @@ int usb_get_current_frame_number(struct usb_device *dev)
 {
 	return usb_hcd_get_frame_number(dev);
 }
-EXPORT_SYMBOL_GPL(usb_get_current_frame_number);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_current_frame_number); */
 
 /*-------------------------------------------------------------------*/
 /*
@@ -653,7 +653,7 @@ int __usb_get_extra_descriptor(char *buffer, unsigned size,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_GPL(__usb_get_extra_descriptor);
+/* DISABLED: EXPORT_SYMBOL_GPL(__usb_get_extra_descriptor); */
 
 /**
  * usb_alloc_coherent - allocate dma-consistent buffer for URB_NO_xxx_DMA_MAP
@@ -684,7 +684,7 @@ void *usb_alloc_coherent(struct usb_device *dev, size_t size, gfp_t mem_flags,
 		return NULL;
 	return hcd_buffer_alloc(dev->bus, size, mem_flags, dma);
 }
-EXPORT_SYMBOL_GPL(usb_alloc_coherent);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_alloc_coherent); */
 
 /**
  * usb_free_coherent - free memory allocated with usb_alloc_coherent()
@@ -706,7 +706,7 @@ void usb_free_coherent(struct usb_device *dev, size_t size, void *addr,
 		return;
 	hcd_buffer_free(dev->bus, size, addr, dma);
 }
-EXPORT_SYMBOL_GPL(usb_free_coherent);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_free_coherent); */
 
 /**
  * usb_buffer_map - create DMA mapping(s) for an urb
@@ -748,7 +748,7 @@ struct urb *usb_buffer_map(struct urb *urb)
 	urb->transfer_flags |= URB_NO_TRANSFER_DMA_MAP;
 	return urb;
 }
-EXPORT_SYMBOL_GPL(usb_buffer_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_map); */
 #endif  /*  0  */
 
 /* XXX DISABLED, no users currently.  If you wish to re-enable this
@@ -786,7 +786,7 @@ void usb_buffer_dmasync(struct urb *urb)
 					DMA_TO_DEVICE);
 	}
 }
-EXPORT_SYMBOL_GPL(usb_buffer_dmasync);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_dmasync); */
 #endif
 
 /**
@@ -816,7 +816,7 @@ void usb_buffer_unmap(struct urb *urb)
 	}
 	urb->transfer_flags &= ~URB_NO_TRANSFER_DMA_MAP;
 }
-EXPORT_SYMBOL_GPL(usb_buffer_unmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_unmap); */
 #endif  /*  0  */
 
 #if 0
@@ -862,7 +862,7 @@ int usb_buffer_map_sg(const struct usb_device *dev, int is_in,
 	return dma_map_sg(controller, sg, nents,
 			is_in ? DMA_FROM_DEVICE : DMA_TO_DEVICE) ? : -ENOMEM;
 }
-EXPORT_SYMBOL_GPL(usb_buffer_map_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_map_sg); */
 #endif
 
 /* XXX DISABLED, no users currently.  If you wish to re-enable this
@@ -897,7 +897,7 @@ void usb_buffer_dmasync_sg(const struct usb_device *dev, int is_in,
 	dma_sync_sg_for_cpu(controller, sg, n_hw_ents,
 			    is_in ? DMA_FROM_DEVICE : DMA_TO_DEVICE);
 }
-EXPORT_SYMBOL_GPL(usb_buffer_dmasync_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_dmasync_sg); */
 #endif
 
 #if 0
@@ -925,7 +925,7 @@ void usb_buffer_unmap_sg(const struct usb_device *dev, int is_in,
 	dma_unmap_sg(controller, sg, n_hw_ents,
 			is_in ? DMA_FROM_DEVICE : DMA_TO_DEVICE);
 }
-EXPORT_SYMBOL_GPL(usb_buffer_unmap_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_buffer_unmap_sg); */
 #endif
 
 /* To disable USB, kernel command line is 'nousb' not 'usbcore.nousb' */
@@ -942,7 +942,7 @@ int usb_disabled(void)
 {
 	return nousb;
 }
-EXPORT_SYMBOL_GPL(usb_disabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_disabled); */
 
 /*
  * Notifications of device and interface registration
@@ -975,7 +975,7 @@ static struct notifier_block usb_bus_nb = {
 };
 
 struct dentry *usb_debug_root;
-EXPORT_SYMBOL_GPL(usb_debug_root);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_debug_root); */
 
 static struct dentry *usb_debug_devices;
 

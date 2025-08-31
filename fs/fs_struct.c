@@ -127,7 +127,7 @@ struct fs_struct *copy_fs_struct(struct fs_struct *old)
 	}
 	return fs;
 }
-EXPORT_SYMBOL_GPL(copy_fs_struct);
+/* DISABLED: EXPORT_SYMBOL_GPL(copy_fs_struct); */
 
 int unshare_fs_struct(void)
 {
@@ -150,13 +150,13 @@ int unshare_fs_struct(void)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(unshare_fs_struct);
+/* DISABLED: EXPORT_SYMBOL_GPL(unshare_fs_struct); */
 
 int current_umask(void)
 {
 	return current->fs->umask;
 }
-EXPORT_SYMBOL(current_umask);
+/* DISABLED: EXPORT_SYMBOL(current_umask); */
 
 /* to be mentioned only in INIT_TASK */
 struct fs_struct init_fs = {

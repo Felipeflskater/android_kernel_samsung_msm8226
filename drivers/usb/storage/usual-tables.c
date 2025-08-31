@@ -64,7 +64,7 @@ struct usb_device_id usb_storage_usb_ids[] = {
 #	include "unusual_devs.h"
 	{ }		/* Terminating entry */
 };
-EXPORT_SYMBOL_GPL(usb_storage_usb_ids);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_storage_usb_ids); */
 
 MODULE_DEVICE_TABLE(usb, usb_storage_usb_ids);
 
@@ -130,4 +130,4 @@ int usb_usual_ignore_device(struct usb_interface *intf)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_usual_ignore_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_usual_ignore_device); */

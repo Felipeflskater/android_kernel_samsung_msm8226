@@ -114,7 +114,7 @@ struct mISDNclock
 	write_unlock_irqrestore(&iclock_lock, flags);
 	return iclock;
 }
-EXPORT_SYMBOL(mISDN_register_clock);
+/* DISABLED: EXPORT_SYMBOL(mISDN_register_clock); */
 
 void
 mISDN_unregister_clock(struct mISDNclock *iclock)
@@ -136,7 +136,7 @@ mISDN_unregister_clock(struct mISDNclock *iclock)
 	select_iclock();
 	write_unlock_irqrestore(&iclock_lock, flags);
 }
-EXPORT_SYMBOL(mISDN_unregister_clock);
+/* DISABLED: EXPORT_SYMBOL(mISDN_unregister_clock); */
 
 void
 mISDN_clock_update(struct mISDNclock *iclock, int samples, struct timeval *tv)
@@ -189,7 +189,7 @@ mISDN_clock_update(struct mISDNclock *iclock, int samples, struct timeval *tv)
 	}
 	write_unlock_irqrestore(&iclock_lock, flags);
 }
-EXPORT_SYMBOL(mISDN_clock_update);
+/* DISABLED: EXPORT_SYMBOL(mISDN_clock_update); */
 
 unsigned short
 mISDN_clock_get(void)
@@ -214,4 +214,4 @@ mISDN_clock_get(void)
 	read_unlock_irqrestore(&iclock_lock, flags);
 	return count;
 }
-EXPORT_SYMBOL(mISDN_clock_get);
+/* DISABLED: EXPORT_SYMBOL(mISDN_clock_get); */

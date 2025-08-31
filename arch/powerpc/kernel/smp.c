@@ -263,7 +263,7 @@ void smp_send_reschedule(int cpu)
 	if (likely(smp_ops))
 		do_message_pass(cpu, PPC_MSG_RESCHEDULE);
 }
-EXPORT_SYMBOL_GPL(smp_send_reschedule);
+/* DISABLED: EXPORT_SYMBOL_GPL(smp_send_reschedule); */
 
 void arch_send_call_function_single_ipi(int cpu)
 {
@@ -579,13 +579,13 @@ int cpu_core_index_of_thread(int cpu)
 {
 	return cpu >> threads_shift;
 }
-EXPORT_SYMBOL_GPL(cpu_core_index_of_thread);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_core_index_of_thread); */
 
 int cpu_first_thread_of_core(int core)
 {
 	return core << threads_shift;
 }
-EXPORT_SYMBOL_GPL(cpu_first_thread_of_core);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_first_thread_of_core); */
 
 /* Must be called when no change can occur to cpu_present_mask,
  * i.e. during cpu online or offline.

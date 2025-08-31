@@ -50,7 +50,7 @@ int gpio_request(unsigned gpio, const char *tag)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(gpio_request);
+/* DISABLED: EXPORT_SYMBOL(gpio_request); */
 
 void gpio_free(unsigned gpio)
 {
@@ -78,7 +78,7 @@ void gpio_free(unsigned gpio)
 #endif
 	}
 }
-EXPORT_SYMBOL(gpio_free);
+/* DISABLED: EXPORT_SYMBOL(gpio_free); */
 
 int gpio_to_irq(unsigned gpio)
 {
@@ -99,4 +99,4 @@ int gpio_to_irq(unsigned gpio)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(gpio_to_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(gpio_to_irq); */

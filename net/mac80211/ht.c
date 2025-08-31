@@ -404,4 +404,4 @@ void ieee80211_request_smps(struct ieee80211_vif *vif,
 			     &sdata->u.mgd.request_smps_work);
 }
 /* this might change ... don't want non-open drivers using it */
-EXPORT_SYMBOL_GPL(ieee80211_request_smps);
+/* DISABLED: EXPORT_SYMBOL_GPL(ieee80211_request_smps); */

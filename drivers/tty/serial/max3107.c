@@ -130,7 +130,7 @@ int max3107_rw(struct max3107_port *s, u8 *tx, u8 *rx, int len)
 #endif
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max3107_rw);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_rw); */
 
 /* Puts received data to circular buffer */
 static void put_data_to_circ_buf(struct max3107_port *s, unsigned char *data,
@@ -664,7 +664,7 @@ void max3107_hw_susp(struct max3107_port *s, int suspend)
 		max3107_set_sleep(s, MAX3107_DISABLE_AUTOSLEEP);
 	}
 }
-EXPORT_SYMBOL_GPL(max3107_hw_susp);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_hw_susp); */
 
 /* Modem status IRQ enabling */
 static void max3107_enable_ms(struct uart_port *port)
@@ -1108,7 +1108,7 @@ err_free4:
 	kfree(s);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(max3107_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_probe); */
 
 /* Driver remove function */
 int max3107_remove(struct spi_device *spi)
@@ -1132,7 +1132,7 @@ int max3107_remove(struct spi_device *spi)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max3107_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_remove); */
 
 /* Driver suspend function */
 int max3107_suspend(struct spi_device *spi, pm_message_t state)
@@ -1151,7 +1151,7 @@ int max3107_suspend(struct spi_device *spi, pm_message_t state)
 #endif	/* CONFIG_PM */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max3107_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_suspend); */
 
 /* Driver resume function */
 int max3107_resume(struct spi_device *spi)
@@ -1170,7 +1170,7 @@ int max3107_resume(struct spi_device *spi)
 #endif	/* CONFIG_PM */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max3107_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(max3107_resume); */
 
 static int max3107_probe_generic(struct spi_device *spi)
 {

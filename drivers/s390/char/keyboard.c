@@ -549,8 +549,8 @@ int kbd_ioctl(struct kbd_data *kbd, unsigned int cmd, unsigned long arg)
 	}
 }
 
-EXPORT_SYMBOL(kbd_ioctl);
-EXPORT_SYMBOL(kbd_ascebc);
-EXPORT_SYMBOL(kbd_free);
-EXPORT_SYMBOL(kbd_alloc);
-EXPORT_SYMBOL(kbd_keycode);
+/* DISABLED: EXPORT_SYMBOL(kbd_ioctl); */
+/* DISABLED: EXPORT_SYMBOL(kbd_ascebc); */
+/* DISABLED: EXPORT_SYMBOL(kbd_free); */
+/* DISABLED: EXPORT_SYMBOL(kbd_alloc); */
+/* DISABLED: EXPORT_SYMBOL(kbd_keycode); */

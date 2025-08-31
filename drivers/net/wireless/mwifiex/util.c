@@ -74,7 +74,7 @@ int mwifiex_init_shutdown_fw(struct mwifiex_private *priv,
 
 	return mwifiex_send_cmd_sync(priv, cmd, HostCmd_ACT_GEN_SET, 0, NULL);
 }
-EXPORT_SYMBOL_GPL(mwifiex_init_shutdown_fw);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_init_shutdown_fw); */
 
 /*
  * IOCTL request handler to set/get debug information.

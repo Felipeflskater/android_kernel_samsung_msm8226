@@ -597,21 +597,21 @@ struct xfrm_algo_desc *xfrm_aalg_get_byid(int alg_id)
 	return xfrm_find_algo(&xfrm_aalg_list, xfrm_alg_id_match,
 			      (void *)(unsigned long)alg_id, 1);
 }
-EXPORT_SYMBOL_GPL(xfrm_aalg_get_byid);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_aalg_get_byid); */
 
 struct xfrm_algo_desc *xfrm_ealg_get_byid(int alg_id)
 {
 	return xfrm_find_algo(&xfrm_ealg_list, xfrm_alg_id_match,
 			      (void *)(unsigned long)alg_id, 1);
 }
-EXPORT_SYMBOL_GPL(xfrm_ealg_get_byid);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_ealg_get_byid); */
 
 struct xfrm_algo_desc *xfrm_calg_get_byid(int alg_id)
 {
 	return xfrm_find_algo(&xfrm_calg_list, xfrm_alg_id_match,
 			      (void *)(unsigned long)alg_id, 1);
 }
-EXPORT_SYMBOL_GPL(xfrm_calg_get_byid);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_calg_get_byid); */
 
 static int xfrm_alg_name_match(const struct xfrm_algo_desc *entry,
 			       const void *data)
@@ -627,21 +627,21 @@ struct xfrm_algo_desc *xfrm_aalg_get_byname(const char *name, int probe)
 	return xfrm_find_algo(&xfrm_aalg_list, xfrm_alg_name_match, name,
 			      probe);
 }
-EXPORT_SYMBOL_GPL(xfrm_aalg_get_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_aalg_get_byname); */
 
 struct xfrm_algo_desc *xfrm_ealg_get_byname(const char *name, int probe)
 {
 	return xfrm_find_algo(&xfrm_ealg_list, xfrm_alg_name_match, name,
 			      probe);
 }
-EXPORT_SYMBOL_GPL(xfrm_ealg_get_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_ealg_get_byname); */
 
 struct xfrm_algo_desc *xfrm_calg_get_byname(const char *name, int probe)
 {
 	return xfrm_find_algo(&xfrm_calg_list, xfrm_alg_name_match, name,
 			      probe);
 }
-EXPORT_SYMBOL_GPL(xfrm_calg_get_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_calg_get_byname); */
 
 struct xfrm_aead_name {
 	const char *name;
@@ -668,7 +668,7 @@ struct xfrm_algo_desc *xfrm_aead_get_byname(const char *name, int icv_len, int p
 	return xfrm_find_algo(&xfrm_aead_list, xfrm_aead_name_match, &data,
 			      probe);
 }
-EXPORT_SYMBOL_GPL(xfrm_aead_get_byname);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_aead_get_byname); */
 
 struct xfrm_algo_desc *xfrm_aalg_get_byidx(unsigned int idx)
 {
@@ -677,7 +677,7 @@ struct xfrm_algo_desc *xfrm_aalg_get_byidx(unsigned int idx)
 
 	return &aalg_list[idx];
 }
-EXPORT_SYMBOL_GPL(xfrm_aalg_get_byidx);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_aalg_get_byidx); */
 
 struct xfrm_algo_desc *xfrm_ealg_get_byidx(unsigned int idx)
 {
@@ -686,7 +686,7 @@ struct xfrm_algo_desc *xfrm_ealg_get_byidx(unsigned int idx)
 
 	return &ealg_list[idx];
 }
-EXPORT_SYMBOL_GPL(xfrm_ealg_get_byidx);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_ealg_get_byidx); */
 
 /*
  * Probe for the availability of crypto algorithms, and set the available
@@ -720,7 +720,7 @@ void xfrm_probe_algs(void)
 			calg_list[i].available = status;
 	}
 }
-EXPORT_SYMBOL_GPL(xfrm_probe_algs);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_probe_algs); */
 
 int xfrm_count_auth_supported(void)
 {
@@ -731,7 +731,7 @@ int xfrm_count_auth_supported(void)
 			n++;
 	return n;
 }
-EXPORT_SYMBOL_GPL(xfrm_count_auth_supported);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_count_auth_supported); */
 
 int xfrm_count_enc_supported(void)
 {
@@ -742,7 +742,7 @@ int xfrm_count_enc_supported(void)
 			n++;
 	return n;
 }
-EXPORT_SYMBOL_GPL(xfrm_count_enc_supported);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_count_enc_supported); */
 
 #if defined(CONFIG_INET_ESP) || defined(CONFIG_INET_ESP_MODULE) || defined(CONFIG_INET6_ESP) || defined(CONFIG_INET6_ESP_MODULE)
 
@@ -754,5 +754,5 @@ void *pskb_put(struct sk_buff *skb, struct sk_buff *tail, int len)
 	}
 	return skb_put(tail, len);
 }
-EXPORT_SYMBOL_GPL(pskb_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(pskb_put); */
 #endif

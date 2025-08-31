@@ -410,4 +410,4 @@ pcibr_dma_map_consistent(struct pci_dev * hwdev, unsigned long phys_addr,
 	return dma_handle;
 }
 
-EXPORT_SYMBOL(sn_dma_flush);
+/* DISABLED: EXPORT_SYMBOL(sn_dma_flush); */

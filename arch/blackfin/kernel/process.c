@@ -43,10 +43,10 @@ unsigned long l1_stack_len;
  * Powermanagement idle function, if any..
  */
 void (*pm_idle)(void) = NULL;
-EXPORT_SYMBOL(pm_idle);
+/* DISABLED: EXPORT_SYMBOL(pm_idle); */
 
 void (*pm_power_off)(void) = NULL;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /*
  * The idle loop on BFIN
@@ -131,7 +131,7 @@ pid_t kernel_thread(int (*fn) (void *), void *arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0, &regs, 0, NULL,
 		       NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * Do necessary setup to start up a newly executed thread.
@@ -153,7 +153,7 @@ void start_thread(struct pt_regs *regs, unsigned long new_ip, unsigned long new_
 #endif
 	wrusp(new_sp);
 }
-EXPORT_SYMBOL_GPL(start_thread);
+/* DISABLED: EXPORT_SYMBOL_GPL(start_thread); */
 
 void flush_thread(void)
 {
@@ -509,5 +509,5 @@ int _access_ok(unsigned long addr, unsigned long size)
 
 	return 0;
 }
-EXPORT_SYMBOL(_access_ok);
+/* DISABLED: EXPORT_SYMBOL(_access_ok); */
 #endif /* CONFIG_ACCESS_CHECK */

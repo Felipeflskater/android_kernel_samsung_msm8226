@@ -217,7 +217,7 @@ struct iw_cm_id *iw_create_cm_id(struct ib_device *device,
 
 	return &cm_id_priv->id;
 }
-EXPORT_SYMBOL(iw_create_cm_id);
+/* DISABLED: EXPORT_SYMBOL(iw_create_cm_id); */
 
 
 static int iwcm_modify_qp_err(struct ib_qp *qp)
@@ -315,7 +315,7 @@ int iw_cm_disconnect(struct iw_cm_id *cm_id, int abrupt)
 
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_disconnect);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_disconnect); */
 
 /*
  * CM_ID <-- DESTROYING
@@ -403,7 +403,7 @@ void iw_destroy_cm_id(struct iw_cm_id *cm_id)
 
 	free_cm_id(cm_id_priv);
 }
-EXPORT_SYMBOL(iw_destroy_cm_id);
+/* DISABLED: EXPORT_SYMBOL(iw_destroy_cm_id); */
 
 /*
  * CM_ID <-- LISTEN
@@ -440,7 +440,7 @@ int iw_cm_listen(struct iw_cm_id *cm_id, int backlog)
 
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_listen);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_listen); */
 
 /*
  * CM_ID <-- IDLE
@@ -476,7 +476,7 @@ int iw_cm_reject(struct iw_cm_id *cm_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_reject);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_reject); */
 
 /*
  * CM_ID <-- ESTABLISHED
@@ -532,7 +532,7 @@ int iw_cm_accept(struct iw_cm_id *cm_id,
 
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_accept);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_accept); */
 
 /*
  * Active Side: CM_ID <-- CONN_SENT
@@ -593,7 +593,7 @@ int iw_cm_connect(struct iw_cm_id *cm_id, struct iw_cm_conn_param *iw_param)
 
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_connect);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_connect); */
 
 /*
  * Passive Side: new CM_ID <-- CONN_RECV
@@ -1014,7 +1014,7 @@ int iw_cm_init_qp_attr(struct iw_cm_id *cm_id,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(iw_cm_init_qp_attr);
+/* DISABLED: EXPORT_SYMBOL(iw_cm_init_qp_attr); */
 
 static int __init iw_cm_init(void)
 {

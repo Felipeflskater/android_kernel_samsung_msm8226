@@ -75,8 +75,8 @@ void sysdev_remove_file(struct sys_device *s, struct sysdev_attribute *a)
 	sysfs_remove_file(&s->kobj, &a->attr);
 }
 
-EXPORT_SYMBOL_GPL(sysdev_create_file);
-EXPORT_SYMBOL_GPL(sysdev_remove_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_create_file); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_remove_file); */
 
 #define to_sysdev_class(k) container_of(k, struct sysdev_class, kset.kobj)
 #define to_sysdev_class_attr(a) container_of(a, \
@@ -118,14 +118,14 @@ int sysdev_class_create_file(struct sysdev_class *c,
 {
 	return sysfs_create_file(&c->kset.kobj, &a->attr);
 }
-EXPORT_SYMBOL_GPL(sysdev_class_create_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_class_create_file); */
 
 void sysdev_class_remove_file(struct sysdev_class *c,
 			      struct sysdev_class_attribute *a)
 {
 	sysfs_remove_file(&c->kset.kobj, &a->attr);
 }
-EXPORT_SYMBOL_GPL(sysdev_class_remove_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_class_remove_file); */
 
 int sysdev_class_register(struct sysdev_class *cls)
 {
@@ -160,8 +160,8 @@ void sysdev_class_unregister(struct sysdev_class *cls)
 	kset_unregister(&cls->kset);
 }
 
-EXPORT_SYMBOL_GPL(sysdev_class_register);
-EXPORT_SYMBOL_GPL(sysdev_class_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_class_register); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_class_unregister); */
 
 static DEFINE_MUTEX(sysdev_drivers_lock);
 
@@ -260,8 +260,8 @@ void sysdev_driver_unregister(struct sysdev_class *cls,
 	__sysdev_driver_remove(cls, drv, NULL);
 	mutex_unlock(&sysdev_drivers_lock);
 }
-EXPORT_SYMBOL_GPL(sysdev_driver_register);
-EXPORT_SYMBOL_GPL(sysdev_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_driver_register); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_driver_unregister); */
 
 /**
  *	sysdev_register - add a system device to the tree
@@ -327,8 +327,8 @@ void sysdev_unregister(struct sys_device *sysdev)
 	kobject_put(&sysdev->kobj);
 }
 
-EXPORT_SYMBOL_GPL(sysdev_register);
-EXPORT_SYMBOL_GPL(sysdev_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_register); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_unregister); */
 
 #define to_ext_attr(x) container_of(x, struct sysdev_ext_attribute, attr)
 
@@ -345,7 +345,7 @@ ssize_t sysdev_store_ulong(struct sys_device *sysdev,
 	/* Always return full write size even if we didn't consume all */
 	return size;
 }
-EXPORT_SYMBOL_GPL(sysdev_store_ulong);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_store_ulong); */
 
 ssize_t sysdev_show_ulong(struct sys_device *sysdev,
 			  struct sysdev_attribute *attr,
@@ -354,7 +354,7 @@ ssize_t sysdev_show_ulong(struct sys_device *sysdev,
 	struct sysdev_ext_attribute *ea = to_ext_attr(attr);
 	return snprintf(buf, PAGE_SIZE, "%lx\n", *(unsigned long *)(ea->var));
 }
-EXPORT_SYMBOL_GPL(sysdev_show_ulong);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_show_ulong); */
 
 ssize_t sysdev_store_int(struct sys_device *sysdev,
 			   struct sysdev_attribute *attr,
@@ -369,7 +369,7 @@ ssize_t sysdev_store_int(struct sys_device *sysdev,
 	/* Always return full write size even if we didn't consume all */
 	return size;
 }
-EXPORT_SYMBOL_GPL(sysdev_store_int);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_store_int); */
 
 ssize_t sysdev_show_int(struct sys_device *sysdev,
 			  struct sysdev_attribute *attr,
@@ -378,5 +378,5 @@ ssize_t sysdev_show_int(struct sys_device *sysdev,
 	struct sysdev_ext_attribute *ea = to_ext_attr(attr);
 	return snprintf(buf, PAGE_SIZE, "%d\n", *(int *)(ea->var));
 }
-EXPORT_SYMBOL_GPL(sysdev_show_int);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysdev_show_int); */
 

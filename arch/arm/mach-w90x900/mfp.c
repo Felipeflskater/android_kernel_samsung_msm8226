@@ -70,7 +70,7 @@ void mfp_set_groupf(struct device *dev)
 
 	mutex_unlock(&mfp_mutex);
 }
-EXPORT_SYMBOL(mfp_set_groupf);
+/* DISABLED: EXPORT_SYMBOL(mfp_set_groupf); */
 
 void mfp_set_groupc(struct device *dev)
 {
@@ -100,7 +100,7 @@ void mfp_set_groupc(struct device *dev)
 
 	mutex_unlock(&mfp_mutex);
 }
-EXPORT_SYMBOL(mfp_set_groupc);
+/* DISABLED: EXPORT_SYMBOL(mfp_set_groupc); */
 
 void mfp_set_groupi(struct device *dev)
 {
@@ -128,7 +128,7 @@ void mfp_set_groupi(struct device *dev)
 
 	mutex_unlock(&mfp_mutex);
 }
-EXPORT_SYMBOL(mfp_set_groupi);
+/* DISABLED: EXPORT_SYMBOL(mfp_set_groupi); */
 
 void mfp_set_groupg(struct device *dev, const char *subname)
 {
@@ -169,7 +169,7 @@ void mfp_set_groupg(struct device *dev, const char *subname)
 
 	mutex_unlock(&mfp_mutex);
 }
-EXPORT_SYMBOL(mfp_set_groupg);
+/* DISABLED: EXPORT_SYMBOL(mfp_set_groupg); */
 
 void mfp_set_groupd(struct device *dev, const char *subname)
 {
@@ -197,4 +197,4 @@ void mfp_set_groupd(struct device *dev, const char *subname)
 
 	mutex_unlock(&mfp_mutex);
 }
-EXPORT_SYMBOL(mfp_set_groupd);
+/* DISABLED: EXPORT_SYMBOL(mfp_set_groupd); */

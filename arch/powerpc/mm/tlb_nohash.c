@@ -172,7 +172,7 @@ void local_flush_tlb_mm(struct mm_struct *mm)
 		_tlbil_pid(pid);
 	preempt_enable();
 }
-EXPORT_SYMBOL(local_flush_tlb_mm);
+/* DISABLED: EXPORT_SYMBOL(local_flush_tlb_mm); */
 
 void __local_flush_tlb_page(struct mm_struct *mm, unsigned long vmaddr,
 			    int tsize, int ind)
@@ -191,7 +191,7 @@ void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long vmaddr)
 	__local_flush_tlb_page(vma ? vma->vm_mm : NULL, vmaddr,
 			       mmu_get_tsize(mmu_virtual_psize), 0);
 }
-EXPORT_SYMBOL(local_flush_tlb_page);
+/* DISABLED: EXPORT_SYMBOL(local_flush_tlb_page); */
 
 /*
  * And here are the SMP non-local implementations
@@ -262,7 +262,7 @@ void flush_tlb_mm(struct mm_struct *mm)
  no_context:
 	preempt_enable();
 }
-EXPORT_SYMBOL(flush_tlb_mm);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_mm); */
 
 void __flush_tlb_page(struct mm_struct *mm, unsigned long vmaddr,
 		      int tsize, int ind)
@@ -312,7 +312,7 @@ void flush_tlb_page(struct vm_area_struct *vma, unsigned long vmaddr)
 	__flush_tlb_page(vma ? vma->vm_mm : NULL, vmaddr,
 			 mmu_get_tsize(mmu_virtual_psize), 0);
 }
-EXPORT_SYMBOL(flush_tlb_page);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_page); */
 
 #endif /* CONFIG_SMP */
 
@@ -341,7 +341,7 @@ void flush_tlb_kernel_range(unsigned long start, unsigned long end)
 	_tlbil_pid(0);
 #endif
 }
-EXPORT_SYMBOL(flush_tlb_kernel_range);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_kernel_range); */
 
 /*
  * Currently, for range flushing, we just do a full mm flush. This should
@@ -355,7 +355,7 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
 {
 	flush_tlb_mm(vma->vm_mm);
 }
-EXPORT_SYMBOL(flush_tlb_range);
+/* DISABLED: EXPORT_SYMBOL(flush_tlb_range); */
 
 void tlb_flush(struct mmu_gather *tlb)
 {

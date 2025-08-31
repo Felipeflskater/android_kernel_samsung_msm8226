@@ -44,5 +44,5 @@ void __iomem *pci_iomap(struct pci_dev *dev, int bar, unsigned long maxlen)
 	return NULL;
 }
 
-EXPORT_SYMBOL(pci_iomap);
+/* DISABLED: EXPORT_SYMBOL(pci_iomap); */
 #endif /* CONFIG_PCI */

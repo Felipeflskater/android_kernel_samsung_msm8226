@@ -761,7 +761,7 @@ static int __init apparmor_enabled_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("apparmor=", apparmor_enabled_setup); */
+/* DISABLED: __setup("apparmor=", apparmor_enabled_setup); */ */
 
 /* set global flag turning off the ability to load policy */
 static int param_set_aalockpolicy(const char *val, const struct kernel_param *kp)

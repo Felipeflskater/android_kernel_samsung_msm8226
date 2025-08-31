@@ -94,7 +94,7 @@ void kgsl_trace_issueibcmds(struct kgsl_device *device, int id,
 	trace_kgsl_issueibcmds(device, id, cmdbatch,
 		numibs, timestamp, flags, result, type);
 }
-EXPORT_SYMBOL(kgsl_trace_issueibcmds);
+/* DISABLED: EXPORT_SYMBOL(kgsl_trace_issueibcmds); */
 
 /**
  * kgsl_trace_regwrite - call regwrite ftrace function by proxy
@@ -110,7 +110,7 @@ void kgsl_trace_regwrite(struct kgsl_device *device, unsigned int offset,
 {
 	trace_kgsl_regwrite(device, offset, value);
 }
-EXPORT_SYMBOL(kgsl_trace_regwrite);
+/* DISABLED: EXPORT_SYMBOL(kgsl_trace_regwrite); */
 
 /*
  * The memfree list contains the last N blocks of memory that have been freed.
@@ -246,7 +246,7 @@ kgsl_get_mem_entry(struct kgsl_device *device,
 
 	return NULL;
 }
-EXPORT_SYMBOL(kgsl_get_mem_entry);
+/* DISABLED: EXPORT_SYMBOL(kgsl_get_mem_entry); */
 
 static inline struct kgsl_mem_entry *
 kgsl_mem_entry_create(void)
@@ -311,7 +311,7 @@ kgsl_mem_entry_destroy(struct kref *kref)
 
 	kfree(entry);
 }
-EXPORT_SYMBOL(kgsl_mem_entry_destroy);
+/* DISABLED: EXPORT_SYMBOL(kgsl_mem_entry_destroy); */
 
 /**
  * kgsl_mem_entry_track_gpuaddr - Get the entry gpu address space before
@@ -521,7 +521,7 @@ void kgsl_context_dump(struct kgsl_context *context)
 
 	kgsl_context_put(context);
 }
-EXPORT_SYMBOL(kgsl_context_dump);
+/* DISABLED: EXPORT_SYMBOL(kgsl_context_dump); */
 
 /**
  * kgsl_context_init() - helper to initialize kgsl_context members
@@ -597,7 +597,7 @@ fail_free_id:
 fail:
 	return ret;
 }
-EXPORT_SYMBOL(kgsl_context_init);
+/* DISABLED: EXPORT_SYMBOL(kgsl_context_init); */
 
 /**
  * kgsl_context_detach() - Release the "master" context reference
@@ -691,7 +691,7 @@ struct kgsl_device *kgsl_get_device(int dev_idx)
 	mutex_unlock(&kgsl_driver.devlock);
 	return ret;
 }
-EXPORT_SYMBOL(kgsl_get_device);
+/* DISABLED: EXPORT_SYMBOL(kgsl_get_device); */
 
 static struct kgsl_device *kgsl_get_minor(int minor)
 {
@@ -717,7 +717,7 @@ int kgsl_check_timestamp(struct kgsl_device *device,
 
 	return (timestamp_cmp(ts_processed, timestamp) >= 0);
 }
-EXPORT_SYMBOL(kgsl_check_timestamp);
+/* DISABLED: EXPORT_SYMBOL(kgsl_check_timestamp); */
 
 static int kgsl_suspend_device(struct kgsl_device *device, pm_message_t state)
 {
@@ -853,7 +853,7 @@ const struct dev_pm_ops kgsl_pm_ops = {
 	.runtime_suspend = kgsl_runtime_suspend,
 	.runtime_resume = kgsl_runtime_resume,
 };
-EXPORT_SYMBOL(kgsl_pm_ops);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pm_ops); */
 
 int kgsl_suspend_driver(struct platform_device *pdev,
 					pm_message_t state)
@@ -861,14 +861,14 @@ int kgsl_suspend_driver(struct platform_device *pdev,
 	struct kgsl_device *device = dev_get_drvdata(&pdev->dev);
 	return kgsl_suspend_device(device, state);
 }
-EXPORT_SYMBOL(kgsl_suspend_driver);
+/* DISABLED: EXPORT_SYMBOL(kgsl_suspend_driver); */
 
 int kgsl_resume_driver(struct platform_device *pdev)
 {
 	struct kgsl_device *device = dev_get_drvdata(&pdev->dev);
 	return kgsl_resume_device(device);
 }
-EXPORT_SYMBOL(kgsl_resume_driver);
+/* DISABLED: EXPORT_SYMBOL(kgsl_resume_driver); */
 
 /**
  * kgsl_destroy_process_private() - Cleanup function to free process private
@@ -1070,7 +1070,7 @@ int kgsl_close_device(struct kgsl_device *device)
 	return result;
 
 }
-EXPORT_SYMBOL(kgsl_close_device);
+/* DISABLED: EXPORT_SYMBOL(kgsl_close_device); */
 
 static int kgsl_release(struct inode *inodep, struct file *filep)
 {
@@ -1174,7 +1174,7 @@ err:
 
 	return result;
 }
-EXPORT_SYMBOL(kgsl_open_device);
+/* DISABLED: EXPORT_SYMBOL(kgsl_open_device); */
 
 static int kgsl_open(struct inode *inodep, struct file *filep)
 {
@@ -1300,7 +1300,7 @@ kgsl_sharedmem_find_region(struct kgsl_process_private *private,
 
 	return NULL;
 }
-EXPORT_SYMBOL(kgsl_sharedmem_find_region);
+/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_find_region); */
 
 /**
  * kgsl_sharedmem_find() - Find a gpu memory allocation
@@ -1733,7 +1733,7 @@ void kgsl_cmdbatch_destroy_object(struct kref *kref)
 
 	kfree(cmdbatch);
 }
-EXPORT_SYMBOL(kgsl_cmdbatch_destroy_object);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cmdbatch_destroy_object); */
 
 /*
  * a generic function to retire a pending sync event and (possibly)
@@ -1888,7 +1888,7 @@ void kgsl_cmdbatch_destroy(struct kgsl_cmdbatch *cmdbatch)
 
 	kgsl_cmdbatch_put(cmdbatch);
 }
-EXPORT_SYMBOL(kgsl_cmdbatch_destroy);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cmdbatch_destroy); */
 
 /*
  * A callback that gets registered with kgsl_sync_fence_async_wait and is fired
@@ -4282,7 +4282,7 @@ struct kgsl_driver kgsl_driver  = {
 	.stats.mapped = ATOMIC_INIT(0),
 	.stats.mapped_max = ATOMIC_INIT(0),
 };
-EXPORT_SYMBOL(kgsl_driver);
+/* DISABLED: EXPORT_SYMBOL(kgsl_driver); */
 
 static void _unregister_device(struct kgsl_device *device)
 {
@@ -4502,7 +4502,7 @@ error:
 	_unregister_device(device);
 	return status;
 }
-EXPORT_SYMBOL(kgsl_device_platform_probe);
+/* DISABLED: EXPORT_SYMBOL(kgsl_device_platform_probe); */
 
 int kgsl_postmortem_dump(struct kgsl_device *device, int manual)
 {
@@ -4563,7 +4563,7 @@ int kgsl_postmortem_dump(struct kgsl_device *device, int manual)
 
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_postmortem_dump);
+/* DISABLED: EXPORT_SYMBOL(kgsl_postmortem_dump); */
 
 void kgsl_device_platform_remove(struct kgsl_device *device)
 {
@@ -4592,7 +4592,7 @@ void kgsl_device_platform_remove(struct kgsl_device *device)
 
 	_unregister_device(device);
 }
-EXPORT_SYMBOL(kgsl_device_platform_remove);
+/* DISABLED: EXPORT_SYMBOL(kgsl_device_platform_remove); */
 
 static int __devinit
 kgsl_ptdata_init(void)

@@ -679,7 +679,7 @@ free_it:
 drop:
 	return NET_XMIT_DROP;
 }
-EXPORT_SYMBOL(aarp_send_ddp);
+/* DISABLED: EXPORT_SYMBOL(aarp_send_ddp); */
 
 /*
  *	An entry in the aarp unresolved queue has become resolved. Send

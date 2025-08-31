@@ -41,7 +41,7 @@ int pci_vpd_find_tag(const u8 *buf, unsigned int off, unsigned int len, u8 rdt)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL_GPL(pci_vpd_find_tag);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_vpd_find_tag); */
 
 int pci_vpd_find_info_keyword(const u8 *buf, unsigned int off,
 			      unsigned int len, const char *kw)
@@ -59,4 +59,4 @@ int pci_vpd_find_info_keyword(const u8 *buf, unsigned int off,
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL_GPL(pci_vpd_find_info_keyword);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_vpd_find_info_keyword); */

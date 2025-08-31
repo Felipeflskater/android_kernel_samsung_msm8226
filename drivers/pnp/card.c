@@ -449,7 +449,7 @@ void pnp_unregister_card_driver(struct pnp_card_driver *drv)
 	pnp_unregister_driver(&drv->link);
 }
 
-EXPORT_SYMBOL(pnp_request_card_device);
-EXPORT_SYMBOL(pnp_release_card_device);
-EXPORT_SYMBOL(pnp_register_card_driver);
-EXPORT_SYMBOL(pnp_unregister_card_driver);
+/* DISABLED: EXPORT_SYMBOL(pnp_request_card_device); */
+/* DISABLED: EXPORT_SYMBOL(pnp_release_card_device); */
+/* DISABLED: EXPORT_SYMBOL(pnp_register_card_driver); */
+/* DISABLED: EXPORT_SYMBOL(pnp_unregister_card_driver); */

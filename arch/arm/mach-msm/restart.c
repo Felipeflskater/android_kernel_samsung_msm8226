@@ -115,7 +115,7 @@ void set_dload_mode(int on)
 #endif
 	}
 }
-EXPORT_SYMBOL(set_dload_mode);
+/* DISABLED: EXPORT_SYMBOL(set_dload_mode); */
 
 #if 0
 static bool get_dload_mode(void)
@@ -170,7 +170,7 @@ void set_dload_mode(int on)
 {
 	do {} while (0);
 }
-EXPORT_SYMBOL(set_dload_mode);
+/* DISABLED: EXPORT_SYMBOL(set_dload_mode); */
 
 #if !defined(CONFIG_SAMSUNG_PRODUCT_SHIP)
 static void enable_emergency_dload_mode(void)
@@ -189,7 +189,7 @@ void msm_set_restart_mode(int mode)
 {
 	restart_mode = mode;
 }
-EXPORT_SYMBOL(msm_set_restart_mode);
+/* DISABLED: EXPORT_SYMBOL(msm_set_restart_mode); */
 
 static bool scm_pmic_arbiter_disable_supported;
 /*

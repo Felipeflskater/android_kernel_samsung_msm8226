@@ -115,7 +115,7 @@ struct ocmem_notifier *ocmem_notifier_register(int client_id,
 	mutex_unlock(&nc_lock);
 	return nc_hndl;
 }
-EXPORT_SYMBOL(ocmem_notifier_register);
+/* DISABLED: EXPORT_SYMBOL(ocmem_notifier_register); */
 
 int ocmem_notifier_unregister(struct ocmem_notifier *nc_hndl,
 				struct notifier_block *nb)
@@ -135,4 +135,4 @@ int ocmem_notifier_unregister(struct ocmem_notifier *nc_hndl,
 
 	return ret;
 }
-EXPORT_SYMBOL(ocmem_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL(ocmem_notifier_unregister); */

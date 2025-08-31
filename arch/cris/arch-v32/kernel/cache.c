@@ -14,7 +14,7 @@ inline void flush_dma_descr(struct dma_descr_data *descr, int flush_buf)
 		cris_flush_cache_range(phys_to_virt((unsigned)descr->buf),
 				(unsigned)(descr->after - descr->buf));
 }
-EXPORT_SYMBOL(flush_dma_descr);
+/* DISABLED: EXPORT_SYMBOL(flush_dma_descr); */
 
 void flush_dma_list(struct dma_descr_data *descr)
 {
@@ -25,9 +25,9 @@ void flush_dma_list(struct dma_descr_data *descr)
 		descr = phys_to_virt((unsigned)descr->next);
 	}
 }
-EXPORT_SYMBOL(flush_dma_list);
+/* DISABLED: EXPORT_SYMBOL(flush_dma_list); */
 
 /* From cacheflush.S */
-EXPORT_SYMBOL(cris_flush_cache);
+/* DISABLED: EXPORT_SYMBOL(cris_flush_cache); */
 /* From cacheflush.S */
-EXPORT_SYMBOL(cris_flush_cache_range);
+/* DISABLED: EXPORT_SYMBOL(cris_flush_cache_range); */

@@ -1391,7 +1391,7 @@ int acpi_video_get_edid(struct acpi_device *device, int type, int device_id,
 
 	return -ENODEV;
 }
-EXPORT_SYMBOL(acpi_video_get_edid);
+/* DISABLED: EXPORT_SYMBOL(acpi_video_get_edid); */
 
 static int
 acpi_video_bus_get_devices(struct acpi_video_bus *video,
@@ -1844,7 +1844,7 @@ int acpi_video_register(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(acpi_video_register);
+/* DISABLED: EXPORT_SYMBOL(acpi_video_register); */
 
 void acpi_video_unregister(void)
 {
@@ -1861,7 +1861,7 @@ void acpi_video_unregister(void)
 
 	return;
 }
-EXPORT_SYMBOL(acpi_video_unregister);
+/* DISABLED: EXPORT_SYMBOL(acpi_video_unregister); */
 
 /*
  * This is kind of nasty. Hardware using Intel chipsets may require

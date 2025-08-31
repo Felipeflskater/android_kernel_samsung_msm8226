@@ -33,7 +33,7 @@ unsigned char *get_wifi_nvs_ram( void )
 {
 	return( wifi_nvs_ram );
 }
-EXPORT_SYMBOL(get_wifi_nvs_ram);
+/* DISABLED: EXPORT_SYMBOL(get_wifi_nvs_ram); */
 
 static int __init parse_tag_msm_wifi(const struct tag *tag)
 {

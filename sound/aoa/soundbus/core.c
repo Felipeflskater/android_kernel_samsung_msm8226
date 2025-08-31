@@ -25,14 +25,14 @@ struct soundbus_dev *soundbus_dev_get(struct soundbus_dev *dev)
 	else
 		return NULL;
 }
-EXPORT_SYMBOL_GPL(soundbus_dev_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_dev_get); */
 
 void soundbus_dev_put(struct soundbus_dev *dev)
 {
 	if (dev)
 		put_device(&dev->ofdev.dev);
 }
-EXPORT_SYMBOL_GPL(soundbus_dev_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_dev_put); */
 
 static int soundbus_probe(struct device *dev)
 {
@@ -180,13 +180,13 @@ int soundbus_add_one(struct soundbus_dev *dev)
 	dev->ofdev.dev.bus = &soundbus_bus_type;
 	return of_device_register(&dev->ofdev);
 }
-EXPORT_SYMBOL_GPL(soundbus_add_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_add_one); */
 
 void soundbus_remove_one(struct soundbus_dev *dev)
 {
 	of_device_unregister(&dev->ofdev);
 }
-EXPORT_SYMBOL_GPL(soundbus_remove_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_remove_one); */
 
 int soundbus_register_driver(struct soundbus_driver *drv)
 {
@@ -197,13 +197,13 @@ int soundbus_register_driver(struct soundbus_driver *drv)
 	/* register with core */
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(soundbus_register_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_register_driver); */
 
 void soundbus_unregister_driver(struct soundbus_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(soundbus_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(soundbus_unregister_driver); */
 
 static int __init soundbus_init(void)
 {

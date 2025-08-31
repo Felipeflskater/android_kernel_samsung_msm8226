@@ -13,10 +13,10 @@ char *strcpy(char *dest, const char *src)
 {
 	return __kernel_strcpy(dest, src);
 }
-EXPORT_SYMBOL(strcpy);
+/* DISABLED: EXPORT_SYMBOL(strcpy); */
 
 char *strcat(char *dest, const char *src)
 {
 	return __kernel_strcpy(dest + __kernel_strlen(dest), src);
 }
-EXPORT_SYMBOL(strcat);
+/* DISABLED: EXPORT_SYMBOL(strcat); */

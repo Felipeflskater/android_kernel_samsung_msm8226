@@ -305,7 +305,7 @@ void dvb_frontend_reinitialise(struct dvb_frontend *fe)
 	fepriv->reinitialise = 1;
 	dvb_frontend_wakeup(fe);
 }
-EXPORT_SYMBOL(dvb_frontend_reinitialise);
+/* DISABLED: EXPORT_SYMBOL(dvb_frontend_reinitialise); */
 
 static void dvb_frontend_swzigzag_update_delay(struct dvb_frontend_private *fepriv, int locked)
 {
@@ -775,7 +775,7 @@ s32 timeval_usec_diff(struct timeval lasttime, struct timeval curtime)
 		1000000 - lasttime.tv_usec + curtime.tv_usec :
 		curtime.tv_usec - lasttime.tv_usec);
 }
-EXPORT_SYMBOL(timeval_usec_diff);
+/* DISABLED: EXPORT_SYMBOL(timeval_usec_diff); */
 
 static inline void timeval_usec_add(struct timeval *curtime, u32 add_usec)
 {
@@ -810,7 +810,7 @@ void dvb_frontend_sleep_until(struct timeval *waketime, u32 add_usec)
 	if (delta > 0)
 		udelay(delta);
 }
-EXPORT_SYMBOL(dvb_frontend_sleep_until);
+/* DISABLED: EXPORT_SYMBOL(dvb_frontend_sleep_until); */
 
 static int dvb_frontend_start(struct dvb_frontend *fe)
 {
@@ -2421,7 +2421,7 @@ int dvb_register_frontend(struct dvb_adapter* dvb,
 	mutex_unlock(&frontend_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(dvb_register_frontend);
+/* DISABLED: EXPORT_SYMBOL(dvb_register_frontend); */
 
 int dvb_unregister_frontend(struct dvb_frontend* fe)
 {
@@ -2444,7 +2444,7 @@ int dvb_unregister_frontend(struct dvb_frontend* fe)
 	mutex_unlock(&frontend_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(dvb_unregister_frontend);
+/* DISABLED: EXPORT_SYMBOL(dvb_unregister_frontend); */
 
 #ifdef CONFIG_MEDIA_ATTACH
 void dvb_frontend_detach(struct dvb_frontend* fe)
@@ -2482,4 +2482,4 @@ void dvb_frontend_detach(struct dvb_frontend* fe)
 		fe->ops.release(fe);
 }
 #endif
-EXPORT_SYMBOL(dvb_frontend_detach);
+/* DISABLED: EXPORT_SYMBOL(dvb_frontend_detach); */

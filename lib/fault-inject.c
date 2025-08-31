@@ -36,7 +36,7 @@ int setup_fault_attr(struct fault_attr *attr, char *str)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(setup_fault_attr);
+/* DISABLED: EXPORT_SYMBOL_GPL(setup_fault_attr); */
 
 static void fail_dump(struct fault_attr *attr)
 {
@@ -131,7 +131,7 @@ bool should_fail(struct fault_attr *attr, ssize_t size)
 
 	return true;
 }
-EXPORT_SYMBOL_GPL(should_fail);
+/* DISABLED: EXPORT_SYMBOL_GPL(should_fail); */
 
 #ifdef CONFIG_FAULT_INJECTION_DEBUG_FS
 
@@ -224,6 +224,6 @@ fail:
 
 	return ERR_PTR(-ENOMEM);
 }
-EXPORT_SYMBOL_GPL(fault_create_debugfs_attr);
+/* DISABLED: EXPORT_SYMBOL_GPL(fault_create_debugfs_attr); */
 
 #endif /* CONFIG_FAULT_INJECTION_DEBUG_FS */

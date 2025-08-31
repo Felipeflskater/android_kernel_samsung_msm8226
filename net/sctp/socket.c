@@ -4273,7 +4273,7 @@ int sctp_do_peeloff(struct sock *sk, sctp_assoc_t id, struct socket **sockp)
 
 	return err;
 }
-EXPORT_SYMBOL(sctp_do_peeloff);
+/* DISABLED: EXPORT_SYMBOL(sctp_do_peeloff); */
 
 static int sctp_getsockopt_peeloff(struct sock *sk, int len, char __user *optval, int __user *optlen)
 {

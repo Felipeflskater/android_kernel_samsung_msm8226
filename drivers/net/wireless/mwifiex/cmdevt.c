@@ -1145,7 +1145,7 @@ mwifiex_process_sleep_confirm_resp(struct mwifiex_adapter *adapter,
 	cmd->command = cpu_to_le16(command);
 	cmd->seq_num = cpu_to_le16(seq_num);
 }
-EXPORT_SYMBOL_GPL(mwifiex_process_sleep_confirm_resp);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_process_sleep_confirm_resp); */
 
 /*
  * This function prepares an enhanced power mode command.

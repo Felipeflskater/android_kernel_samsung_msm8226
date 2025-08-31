@@ -136,7 +136,7 @@ void __udelay(unsigned long us)
 	while (end > cur)
 		cur = read_c0_cvmcount();
 }
-EXPORT_SYMBOL(__udelay);
+/* DISABLED: EXPORT_SYMBOL(__udelay); */
 
 void __ndelay(unsigned long ns)
 {
@@ -150,7 +150,7 @@ void __ndelay(unsigned long ns)
 	while (end > cur)
 		cur = read_c0_cvmcount();
 }
-EXPORT_SYMBOL(__ndelay);
+/* DISABLED: EXPORT_SYMBOL(__ndelay); */
 
 void __delay(unsigned long loops)
 {
@@ -162,4 +162,4 @@ void __delay(unsigned long loops)
 	while (end > cur)
 		cur = read_c0_cvmcount();
 }
-EXPORT_SYMBOL(__delay);
+/* DISABLED: EXPORT_SYMBOL(__delay); */

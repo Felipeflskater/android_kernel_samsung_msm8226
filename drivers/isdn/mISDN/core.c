@@ -259,7 +259,7 @@ error1:
 	return err;
 
 }
-EXPORT_SYMBOL(mISDN_register_device);
+/* DISABLED: EXPORT_SYMBOL(mISDN_register_device); */
 
 void
 mISDN_unregister_device(struct mISDNdevice *dev) {
@@ -274,7 +274,7 @@ mISDN_unregister_device(struct mISDNdevice *dev) {
 	delete_stack(dev);
 	put_device(&dev->dev);
 }
-EXPORT_SYMBOL(mISDN_unregister_device);
+/* DISABLED: EXPORT_SYMBOL(mISDN_unregister_device); */
 
 u_int
 get_all_Bprotocols(void)
@@ -339,7 +339,7 @@ mISDN_register_Bprotocol(struct Bprotocol *bp)
 	write_unlock_irqrestore(&bp_lock, flags);
 	return 0;
 }
-EXPORT_SYMBOL(mISDN_register_Bprotocol);
+/* DISABLED: EXPORT_SYMBOL(mISDN_register_Bprotocol); */
 
 void
 mISDN_unregister_Bprotocol(struct Bprotocol *bp)
@@ -353,7 +353,7 @@ mISDN_unregister_Bprotocol(struct Bprotocol *bp)
 	list_del(&bp->list);
 	write_unlock_irqrestore(&bp_lock, flags);
 }
-EXPORT_SYMBOL(mISDN_unregister_Bprotocol);
+/* DISABLED: EXPORT_SYMBOL(mISDN_unregister_Bprotocol); */
 
 static int
 mISDNInit(void)

@@ -49,7 +49,7 @@ int msm_bus_axi_porthalt(int master_port)
 	mutex_unlock(&msm_bus_config_lock);
 	return ret;
 }
-EXPORT_SYMBOL(msm_bus_axi_porthalt);
+/* DISABLED: EXPORT_SYMBOL(msm_bus_axi_porthalt); */
 
 /**
  * msm_bus_axi_portunhalt() - Unhalt the given axi master port
@@ -75,4 +75,4 @@ int msm_bus_axi_portunhalt(int master_port)
 	mutex_unlock(&msm_bus_config_lock);
 	return ret;
 }
-EXPORT_SYMBOL(msm_bus_axi_portunhalt);
+/* DISABLED: EXPORT_SYMBOL(msm_bus_axi_portunhalt); */

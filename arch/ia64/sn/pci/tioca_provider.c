@@ -20,10 +20,10 @@
 #include <asm/sn/tioca_provider.h>
 
 u32 tioca_gart_found;
-EXPORT_SYMBOL(tioca_gart_found);	/* used by agp-sgi */
+/* DISABLED: EXPORT_SYMBOL(tioca_gart_found);	/* used by agp-sgi */ */
 
 LIST_HEAD(tioca_list);
-EXPORT_SYMBOL(tioca_list);	/* used by agp-sgi */
+/* DISABLED: EXPORT_SYMBOL(tioca_list);	/* used by agp-sgi */ */
 
 static int tioca_gart_init(struct tioca_kernel *);
 
@@ -264,7 +264,7 @@ tioca_fastwrite_enable(struct tioca_kernel *tioca_kern)
 	__sn_setq_relaxed(&tioca_base->ca_control1, CA_AGP_FW_ENABLE);
 }
 
-EXPORT_SYMBOL(tioca_fastwrite_enable);	/* used by agp-sgi */
+/* DISABLED: EXPORT_SYMBOL(tioca_fastwrite_enable);	/* used by agp-sgi */ */
 
 /**
  * tioca_dma_d64 - create a DMA mapping using 64-bit direct mode

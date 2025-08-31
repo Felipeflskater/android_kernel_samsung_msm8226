@@ -158,7 +158,7 @@ int avcs_core_open(void)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(avcs_core_open);
+/* DISABLED: EXPORT_SYMBOL(avcs_core_open); */
 
 static int avcs_core_disable_avtimer(int timerhandle)
 {
@@ -281,7 +281,7 @@ done:
 	mutex_unlock(&avtimer.avtimer_lock);
 	return rc;
 }
-EXPORT_SYMBOL(avcs_core_disable_power_collapse);
+/* DISABLED: EXPORT_SYMBOL(avcs_core_disable_power_collapse); */
 
 static void reset_work(struct work_struct *work)
 {
@@ -324,7 +324,7 @@ int avcs_core_query_timer(uint64_t *avtimer_tick)
 			avtimer_msw, avtimer_lsw, *avtimer_tick);
 	return 0;
 }
-EXPORT_SYMBOL(avcs_core_query_timer);
+/* DISABLED: EXPORT_SYMBOL(avcs_core_query_timer); */
 
 static int avtimer_open(struct inode *inode, struct file *file)
 {

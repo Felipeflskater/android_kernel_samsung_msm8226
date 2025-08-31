@@ -671,7 +671,7 @@ void kernel_neon_begin(void)
 #endif
 	vfp_current_hw_state[cpu] = NULL;
 }
-EXPORT_SYMBOL(kernel_neon_begin);
+/* DISABLED: EXPORT_SYMBOL(kernel_neon_begin); */
 
 void kernel_neon_end(void)
 {
@@ -679,7 +679,7 @@ void kernel_neon_end(void)
 	fmxr(FPEXC, fmrx(FPEXC) & ~FPEXC_EN);
 	put_cpu();
 }
-EXPORT_SYMBOL(kernel_neon_end);
+/* DISABLED: EXPORT_SYMBOL(kernel_neon_end); */
 
 #endif /* CONFIG_KERNEL_MODE_NEON */
 

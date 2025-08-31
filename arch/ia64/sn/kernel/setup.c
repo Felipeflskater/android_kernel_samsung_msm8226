@@ -66,7 +66,7 @@ extern void (*ia64_mark_idle) (int);
 extern void snidle(int);
 
 unsigned long sn_rtc_cycles_per_second;
-EXPORT_SYMBOL(sn_rtc_cycles_per_second);
+/* DISABLED: EXPORT_SYMBOL(sn_rtc_cycles_per_second); */
 
 DEFINE_PER_CPU(struct sn_hub_info_s, __sn_hub_info);
 EXPORT_PER_CPU_SYMBOL(__sn_hub_info);
@@ -78,25 +78,25 @@ DEFINE_PER_CPU(struct nodepda_s *, __sn_nodepda);
 EXPORT_PER_CPU_SYMBOL(__sn_nodepda);
 
 char sn_system_serial_number_string[128];
-EXPORT_SYMBOL(sn_system_serial_number_string);
+/* DISABLED: EXPORT_SYMBOL(sn_system_serial_number_string); */
 u64 sn_partition_serial_number;
-EXPORT_SYMBOL(sn_partition_serial_number);
+/* DISABLED: EXPORT_SYMBOL(sn_partition_serial_number); */
 u8 sn_partition_id;
-EXPORT_SYMBOL(sn_partition_id);
+/* DISABLED: EXPORT_SYMBOL(sn_partition_id); */
 u8 sn_system_size;
-EXPORT_SYMBOL(sn_system_size);
+/* DISABLED: EXPORT_SYMBOL(sn_system_size); */
 u8 sn_sharing_domain_size;
-EXPORT_SYMBOL(sn_sharing_domain_size);
+/* DISABLED: EXPORT_SYMBOL(sn_sharing_domain_size); */
 u8 sn_coherency_id;
-EXPORT_SYMBOL(sn_coherency_id);
+/* DISABLED: EXPORT_SYMBOL(sn_coherency_id); */
 u8 sn_region_size;
-EXPORT_SYMBOL(sn_region_size);
+/* DISABLED: EXPORT_SYMBOL(sn_region_size); */
 int sn_prom_type;	/* 0=hardware, 1=medusa/realprom, 2=medusa/fakeprom */
 
 short physical_node_map[MAX_NUMALINK_NODES];
 static unsigned long sn_prom_features[MAX_PROM_FEATURE_SETS];
 
-EXPORT_SYMBOL(physical_node_map);
+/* DISABLED: EXPORT_SYMBOL(physical_node_map); */
 
 int num_cnodes;
 
@@ -771,5 +771,5 @@ sn_kernel_launch_event(void)
 	if (ia64_sn_kernel_launch_event())
 		printk(KERN_ERR "KEXEC is not supported in this PROM, Please update the PROM.\n");
 }
-EXPORT_SYMBOL(sn_prom_feature_available);
+/* DISABLED: EXPORT_SYMBOL(sn_prom_feature_available); */
 

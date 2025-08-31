@@ -570,7 +570,7 @@ int bcma_core_pci_plat_dev_init(struct pci_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(bcma_core_pci_plat_dev_init);
+/* DISABLED: EXPORT_SYMBOL(bcma_core_pci_plat_dev_init); */
 
 /* PCI device IRQ mapping. */
 int bcma_core_pci_pcibios_map_irq(const struct pci_dev *dev)
@@ -586,4 +586,4 @@ int bcma_core_pci_pcibios_map_irq(const struct pci_dev *dev)
 			       pci_ops);
 	return bcma_core_mips_irq(pc_host->pdev->core) + 2;
 }
-EXPORT_SYMBOL(bcma_core_pci_pcibios_map_irq);
+/* DISABLED: EXPORT_SYMBOL(bcma_core_pci_pcibios_map_irq); */

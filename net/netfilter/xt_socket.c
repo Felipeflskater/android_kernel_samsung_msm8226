@@ -43,7 +43,7 @@ xt_socket_put_sk(struct sock *sk)
 	else
 		sock_put(sk);
 }
-EXPORT_SYMBOL(xt_socket_put_sk);
+/* DISABLED: EXPORT_SYMBOL(xt_socket_put_sk); */
 
 static int
 extract_icmp4_fields(const struct sk_buff *skb,
@@ -165,7 +165,7 @@ xt_socket_get4_sk(const struct sk_buff *skb, struct xt_action_param *par)
 
 	return sk;
 }
-EXPORT_SYMBOL(xt_socket_get4_sk);
+/* DISABLED: EXPORT_SYMBOL(xt_socket_get4_sk); */
 
 static bool
 socket_match(const struct sk_buff *skb, struct xt_action_param *par,
@@ -314,7 +314,7 @@ xt_socket_get6_sk(const struct sk_buff *skb, struct xt_action_param *par)
 		 &iph->daddr, hp ? ntohs(hp->dest) : 0, sk);
 	return sk;
 }
-EXPORT_SYMBOL(xt_socket_get6_sk);
+/* DISABLED: EXPORT_SYMBOL(xt_socket_get6_sk); */
 
 static bool
 socket_mt6_v1(const struct sk_buff *skb, struct xt_action_param *par)

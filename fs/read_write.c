@@ -28,7 +28,7 @@ const struct file_operations generic_ro_fops = {
 	.splice_read	= generic_file_splice_read,
 };
 
-EXPORT_SYMBOL(generic_ro_fops);
+/* DISABLED: EXPORT_SYMBOL(generic_ro_fops); */
 
 static inline int unsigned_offsets(struct file *file)
 {
@@ -115,7 +115,7 @@ generic_file_llseek_size(struct file *file, loff_t offset, int origin,
 
 	return lseek_execute(file, inode, offset, maxsize);
 }
-EXPORT_SYMBOL(generic_file_llseek_size);
+/* DISABLED: EXPORT_SYMBOL(generic_file_llseek_size); */
 
 /**
  * generic_file_llseek - generic llseek implementation for regular files
@@ -134,7 +134,7 @@ loff_t generic_file_llseek(struct file *file, loff_t offset, int origin)
 	return generic_file_llseek_size(file, offset, origin,
 					inode->i_sb->s_maxbytes);
 }
-EXPORT_SYMBOL(generic_file_llseek);
+/* DISABLED: EXPORT_SYMBOL(generic_file_llseek); */
 
 /**
  * noop_llseek - No Operation Performed llseek implementation
@@ -151,13 +151,13 @@ loff_t noop_llseek(struct file *file, loff_t offset, int origin)
 {
 	return file->f_pos;
 }
-EXPORT_SYMBOL(noop_llseek);
+/* DISABLED: EXPORT_SYMBOL(noop_llseek); */
 
 loff_t no_llseek(struct file *file, loff_t offset, int origin)
 {
 	return -ESPIPE;
 }
-EXPORT_SYMBOL(no_llseek);
+/* DISABLED: EXPORT_SYMBOL(no_llseek); */
 
 loff_t default_llseek(struct file *file, loff_t offset, int origin)
 {
@@ -212,7 +212,7 @@ out:
 	mutex_unlock(&inode->i_mutex);
 	return retval;
 }
-EXPORT_SYMBOL(default_llseek);
+/* DISABLED: EXPORT_SYMBOL(default_llseek); */
 
 loff_t vfs_llseek(struct file *file, loff_t offset, int origin)
 {
@@ -225,7 +225,7 @@ loff_t vfs_llseek(struct file *file, loff_t offset, int origin)
 	}
 	return fn(file, offset, origin);
 }
-EXPORT_SYMBOL(vfs_llseek);
+/* DISABLED: EXPORT_SYMBOL(vfs_llseek); */
 
 SYSCALL_DEFINE3(lseek, unsigned int, fd, off_t, offset, unsigned int, origin)
 {
@@ -359,7 +359,7 @@ ssize_t do_sync_read(struct file *filp, char __user *buf, size_t len, loff_t *pp
 	return ret;
 }
 
-EXPORT_SYMBOL(do_sync_read);
+/* DISABLED: EXPORT_SYMBOL(do_sync_read); */
 
 ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 {
@@ -389,7 +389,7 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
 	return ret;
 }
 
-EXPORT_SYMBOL(vfs_read);
+/* DISABLED: EXPORT_SYMBOL(vfs_read); */
 
 ssize_t do_sync_write(struct file *filp, const char __user *buf, size_t len, loff_t *ppos)
 {
@@ -415,7 +415,7 @@ ssize_t do_sync_write(struct file *filp, const char __user *buf, size_t len, lof
 	return ret;
 }
 
-EXPORT_SYMBOL(do_sync_write);
+/* DISABLED: EXPORT_SYMBOL(do_sync_write); */
 
 ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_t *pos)
 {
@@ -445,7 +445,7 @@ ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_
 	return ret;
 }
 
-EXPORT_SYMBOL(vfs_write);
+/* DISABLED: EXPORT_SYMBOL(vfs_write); */
 
 static inline loff_t file_pos_read(struct file *file)
 {
@@ -569,7 +569,7 @@ unsigned long iov_shorten(struct iovec *iov, unsigned long nr_segs, size_t to)
 	}
 	return seg;
 }
-EXPORT_SYMBOL(iov_shorten);
+/* DISABLED: EXPORT_SYMBOL(iov_shorten); */
 
 ssize_t do_sync_readv_writev(struct file *filp, const struct iovec *iov,
 		unsigned long nr_segs, size_t len, loff_t *ppos, iov_fn_t fn)
@@ -770,7 +770,7 @@ ssize_t vfs_readv(struct file *file, const struct iovec __user *vec,
 	return do_readv_writev(READ, file, vec, vlen, pos);
 }
 
-EXPORT_SYMBOL(vfs_readv);
+/* DISABLED: EXPORT_SYMBOL(vfs_readv); */
 
 ssize_t vfs_writev(struct file *file, const struct iovec __user *vec,
 		   unsigned long vlen, loff_t *pos)
@@ -783,7 +783,7 @@ ssize_t vfs_writev(struct file *file, const struct iovec __user *vec,
 	return do_readv_writev(WRITE, file, vec, vlen, pos);
 }
 
-EXPORT_SYMBOL(vfs_writev);
+/* DISABLED: EXPORT_SYMBOL(vfs_writev); */
 
 SYSCALL_DEFINE3(readv, unsigned long, fd, const struct iovec __user *, vec,
 		unsigned long, vlen)

@@ -480,9 +480,9 @@ void outsl (unsigned long port, const void *src, unsigned long count)
 	}
 }
 
-EXPORT_SYMBOL(insb);
-EXPORT_SYMBOL(insw);
-EXPORT_SYMBOL(insl);
-EXPORT_SYMBOL(outsb);
-EXPORT_SYMBOL(outsw);
-EXPORT_SYMBOL(outsl);
+/* DISABLED: EXPORT_SYMBOL(insb); */
+/* DISABLED: EXPORT_SYMBOL(insw); */
+/* DISABLED: EXPORT_SYMBOL(insl); */
+/* DISABLED: EXPORT_SYMBOL(outsb); */
+/* DISABLED: EXPORT_SYMBOL(outsw); */
+/* DISABLED: EXPORT_SYMBOL(outsl); */

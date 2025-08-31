@@ -661,7 +661,7 @@ static int __init NCR53c406a_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ncr53c406a=", NCR53c406a_setup); */
+/* DISABLED: __setup("ncr53c406a=", NCR53c406a_setup); */ */
 
 #endif /* !MODULE */
 

@@ -24,5 +24,5 @@ struct pv_lock_ops pv_lock_ops = {
 	.spin_unlock = __ticket_spin_unlock,
 #endif
 };
-EXPORT_SYMBOL(pv_lock_ops);
+/* DISABLED: EXPORT_SYMBOL(pv_lock_ops); */
 

@@ -26,7 +26,7 @@
 struct at91_init_soc __initdata at91_boot_soc;
 
 struct at91_socinfo at91_soc_initdata;
-EXPORT_SYMBOL(at91_soc_initdata);
+/* DISABLED: EXPORT_SYMBOL(at91_soc_initdata); */
 
 void __init at91rm9200_set_type(int type)
 {
@@ -54,7 +54,7 @@ void __init at91_init_interrupts(unsigned int *priority)
 }
 
 void __iomem *at91_ramc_base[2];
-EXPORT_SYMBOL_GPL(at91_ramc_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(at91_ramc_base); */
 
 void __init at91_ioremap_ramc(int id, u32 addr, u32 size)
 {
@@ -219,7 +219,7 @@ const char *at91_get_soc_type(struct at91_socinfo *c)
 {
 	return soc_name[c->type];
 }
-EXPORT_SYMBOL(at91_get_soc_type);
+/* DISABLED: EXPORT_SYMBOL(at91_get_soc_type); */
 
 static const char *soc_subtype_name[] = {
 	[AT91_SOC_RM9200_BGA]	= "at91rm9200 BGA",
@@ -241,7 +241,7 @@ const char *at91_get_soc_subtype(struct at91_socinfo *c)
 {
 	return soc_subtype_name[c->subtype];
 }
-EXPORT_SYMBOL(at91_get_soc_subtype);
+/* DISABLED: EXPORT_SYMBOL(at91_get_soc_subtype); */
 
 void __init at91_map_io(void)
 {
@@ -295,7 +295,7 @@ void __init at91_ioremap_rstc(u32 base_addr)
 }
 
 void __iomem *at91_matrix_base;
-EXPORT_SYMBOL_GPL(at91_matrix_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(at91_matrix_base); */
 
 void __init at91_ioremap_matrix(u32 base_addr)
 {

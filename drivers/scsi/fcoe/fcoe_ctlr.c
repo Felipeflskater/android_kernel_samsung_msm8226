@@ -158,7 +158,7 @@ void fcoe_ctlr_init(struct fcoe_ctlr *fip, enum fip_state mode)
 	INIT_WORK(&fip->recv_work, fcoe_ctlr_recv_work);
 	skb_queue_head_init(&fip->fip_recv_list);
 }
-EXPORT_SYMBOL(fcoe_ctlr_init);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_init); */
 
 /**
  * fcoe_ctlr_reset_fcfs() - Reset and free all FCFs for a controller
@@ -204,7 +204,7 @@ void fcoe_ctlr_destroy(struct fcoe_ctlr *fip)
 	del_timer_sync(&fip->timer);
 	cancel_work_sync(&fip->timer_work);
 }
-EXPORT_SYMBOL(fcoe_ctlr_destroy);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_destroy); */
 
 /**
  * fcoe_ctlr_announce() - announce new FCF selection
@@ -365,7 +365,7 @@ void fcoe_ctlr_link_up(struct fcoe_ctlr *fip)
 	} else
 		mutex_unlock(&fip->ctlr_mutex);
 }
-EXPORT_SYMBOL(fcoe_ctlr_link_up);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_link_up); */
 
 /**
  * fcoe_ctlr_reset() - Reset a FCoE controller
@@ -406,7 +406,7 @@ int fcoe_ctlr_link_down(struct fcoe_ctlr *fip)
 		fc_linkdown(fip->lp);
 	return link_dropped;
 }
-EXPORT_SYMBOL(fcoe_ctlr_link_down);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_link_down); */
 
 /**
  * fcoe_ctlr_send_keep_alive() - Send a keep-alive to the selected FCF
@@ -691,7 +691,7 @@ drop:
 	kfree_skb(skb);
 	return -EINVAL;
 }
-EXPORT_SYMBOL(fcoe_ctlr_els_send);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_els_send); */
 
 /**
  * fcoe_ctlr_age_fcfs() - Reset and free all old FCFs for a controller
@@ -1358,7 +1358,7 @@ void fcoe_ctlr_recv(struct fcoe_ctlr *fip, struct sk_buff *skb)
 	skb_queue_tail(&fip->fip_recv_list, skb);
 	schedule_work(&fip->recv_work);
 }
-EXPORT_SYMBOL(fcoe_ctlr_recv);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_recv); */
 
 /**
  * fcoe_ctlr_recv_handler() - Receive a FIP frame
@@ -1789,7 +1789,7 @@ int fcoe_ctlr_recv_flogi(struct fcoe_ctlr *fip, struct fc_lport *lport,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(fcoe_ctlr_recv_flogi);
+/* DISABLED: EXPORT_SYMBOL(fcoe_ctlr_recv_flogi); */
 
 /**
  * fcoe_wwn_from_mac() - Converts a 48-bit IEEE MAC address to a 64-bit FC WWN
@@ -1830,7 +1830,7 @@ u64 fcoe_wwn_from_mac(unsigned char mac[MAX_ADDR_LEN],
 
 	return wwn;
 }
-EXPORT_SYMBOL_GPL(fcoe_wwn_from_mac);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_wwn_from_mac); */
 
 /**
  * fcoe_ctlr_rport() - return the fcoe_rport for a given fc_rport_priv
@@ -2746,4 +2746,4 @@ int fcoe_libfc_config(struct fc_lport *lport, struct fcoe_ctlr *fip,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fcoe_libfc_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_libfc_config); */

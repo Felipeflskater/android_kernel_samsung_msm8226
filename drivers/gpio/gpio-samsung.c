@@ -3006,7 +3006,7 @@ int s3c_gpio_cfgpin(unsigned int pin, unsigned int config)
 
 	return ret;
 }
-EXPORT_SYMBOL(s3c_gpio_cfgpin);
+/* DISABLED: EXPORT_SYMBOL(s3c_gpio_cfgpin); */
 
 int s3c_gpio_cfgpin_range(unsigned int start, unsigned int nr,
 			  unsigned int cfg)
@@ -3021,7 +3021,7 @@ int s3c_gpio_cfgpin_range(unsigned int start, unsigned int nr,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(s3c_gpio_cfgpin_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_gpio_cfgpin_range); */
 
 int s3c_gpio_cfgall_range(unsigned int start, unsigned int nr,
 			  unsigned int cfg, samsung_gpio_pull_t pull)
@@ -3037,7 +3037,7 @@ int s3c_gpio_cfgall_range(unsigned int start, unsigned int nr,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(s3c_gpio_cfgall_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_gpio_cfgall_range); */
 
 unsigned s3c_gpio_getcfg(unsigned int pin)
 {
@@ -3056,7 +3056,7 @@ unsigned s3c_gpio_getcfg(unsigned int pin)
 
 	return ret;
 }
-EXPORT_SYMBOL(s3c_gpio_getcfg);
+/* DISABLED: EXPORT_SYMBOL(s3c_gpio_getcfg); */
 
 int s3c_gpio_setpull(unsigned int pin, samsung_gpio_pull_t pull)
 {
@@ -3075,7 +3075,7 @@ int s3c_gpio_setpull(unsigned int pin, samsung_gpio_pull_t pull)
 
 	return ret;
 }
-EXPORT_SYMBOL(s3c_gpio_setpull);
+/* DISABLED: EXPORT_SYMBOL(s3c_gpio_setpull); */
 
 samsung_gpio_pull_t s3c_gpio_getpull(unsigned int pin)
 {
@@ -3094,7 +3094,7 @@ samsung_gpio_pull_t s3c_gpio_getpull(unsigned int pin)
 
 	return (__force samsung_gpio_pull_t)pup;
 }
-EXPORT_SYMBOL(s3c_gpio_getpull);
+/* DISABLED: EXPORT_SYMBOL(s3c_gpio_getpull); */
 
 /* gpiolib wrappers until these are totally eliminated */
 
@@ -3115,7 +3115,7 @@ void s3c2410_gpio_pullup(unsigned int pin, unsigned int to)
 		s3c_gpio_setpull(pin, S3C_GPIO_PULL_NONE);
 	}
 }
-EXPORT_SYMBOL(s3c2410_gpio_pullup);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_gpio_pullup); */
 
 void s3c2410_gpio_setpin(unsigned int pin, unsigned int to)
 {
@@ -3125,7 +3125,7 @@ void s3c2410_gpio_setpin(unsigned int pin, unsigned int to)
 	gpio_set_value(pin, to);
 	gpio_free(pin);
 }
-EXPORT_SYMBOL(s3c2410_gpio_setpin);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_gpio_setpin); */
 
 unsigned int s3c2410_gpio_getpin(unsigned int pin)
 {
@@ -3134,7 +3134,7 @@ unsigned int s3c2410_gpio_getpin(unsigned int pin)
 
 	return __raw_readl(chip->base + 0x04) & (1 << offs);
 }
-EXPORT_SYMBOL(s3c2410_gpio_getpin);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_gpio_getpin); */
 
 #ifdef CONFIG_S5P_GPIO_DRVSTR
 s5p_gpio_drvstr_t s5p_gpio_get_drvstr(unsigned int pin)
@@ -3158,7 +3158,7 @@ s5p_gpio_drvstr_t s5p_gpio_get_drvstr(unsigned int pin)
 
 	return (__force s5p_gpio_drvstr_t)drvstr;
 }
-EXPORT_SYMBOL(s5p_gpio_get_drvstr);
+/* DISABLED: EXPORT_SYMBOL(s5p_gpio_get_drvstr); */
 
 int s5p_gpio_set_drvstr(unsigned int pin, s5p_gpio_drvstr_t drvstr)
 {
@@ -3183,7 +3183,7 @@ int s5p_gpio_set_drvstr(unsigned int pin, s5p_gpio_drvstr_t drvstr)
 
 	return 0;
 }
-EXPORT_SYMBOL(s5p_gpio_set_drvstr);
+/* DISABLED: EXPORT_SYMBOL(s5p_gpio_set_drvstr); */
 #endif	/* CONFIG_S5P_GPIO_DRVSTR */
 
 #ifdef CONFIG_PLAT_S3C24XX
@@ -3201,5 +3201,5 @@ unsigned int s3c2410_modify_misccr(unsigned int clear, unsigned int change)
 
 	return misccr;
 }
-EXPORT_SYMBOL(s3c2410_modify_misccr);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_modify_misccr); */
 #endif

@@ -32,7 +32,7 @@
 
 unsigned int mem_fclk_21285 = 50000000;
 
-EXPORT_SYMBOL(mem_fclk_21285);
+/* DISABLED: EXPORT_SYMBOL(mem_fclk_21285); */
 
 static int __init early_fclk(char *arg)
 {
@@ -248,7 +248,7 @@ unsigned long __virt_to_bus(unsigned long res)
 
 	return res + (fb_bus_sdram_offset() - PAGE_OFFSET);
 }
-EXPORT_SYMBOL(__virt_to_bus);
+/* DISABLED: EXPORT_SYMBOL(__virt_to_bus); */
 
 unsigned long __bus_to_virt(unsigned long res)
 {
@@ -258,18 +258,18 @@ unsigned long __bus_to_virt(unsigned long res)
 
 	return res;
 }
-EXPORT_SYMBOL(__bus_to_virt);
+/* DISABLED: EXPORT_SYMBOL(__bus_to_virt); */
 
 unsigned long __pfn_to_bus(unsigned long pfn)
 {
 	return __pfn_to_phys(pfn) + (fb_bus_sdram_offset() - PHYS_OFFSET);
 }
-EXPORT_SYMBOL(__pfn_to_bus);
+/* DISABLED: EXPORT_SYMBOL(__pfn_to_bus); */
 
 unsigned long __bus_to_pfn(unsigned long bus)
 {
 	return __phys_to_pfn(bus - (fb_bus_sdram_offset() - PHYS_OFFSET));
 }
-EXPORT_SYMBOL(__bus_to_pfn);
+/* DISABLED: EXPORT_SYMBOL(__bus_to_pfn); */
 
 #endif

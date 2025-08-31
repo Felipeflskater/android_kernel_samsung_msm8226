@@ -55,7 +55,7 @@ timer_msec_t timer_get_msec(void)
 	return timer_ticks_to_msec(timer_get_tick_count());
 }
 
-EXPORT_SYMBOL(timer_get_tick_count);
-EXPORT_SYMBOL(timer_ticks_to_msec);
-EXPORT_SYMBOL(timer_get_tick_rate);
-EXPORT_SYMBOL(timer_get_msec);
+/* DISABLED: EXPORT_SYMBOL(timer_get_tick_count); */
+/* DISABLED: EXPORT_SYMBOL(timer_ticks_to_msec); */
+/* DISABLED: EXPORT_SYMBOL(timer_get_tick_rate); */
+/* DISABLED: EXPORT_SYMBOL(timer_get_msec); */

@@ -50,7 +50,7 @@ size_t strlen(const char *s)
 	return __builtin_strlen(s);
 #endif
 }
-EXPORT_SYMBOL(strlen);
+/* DISABLED: EXPORT_SYMBOL(strlen); */
 
 /**
  * strnlen - Find the length of a length-limited string
@@ -63,7 +63,7 @@ size_t strnlen(const char * s, size_t n)
 {
 	return __strnend(s, n) - s;
 }
-EXPORT_SYMBOL(strnlen);
+/* DISABLED: EXPORT_SYMBOL(strnlen); */
 
 /**
  * strcpy - Copy a %NUL terminated string
@@ -87,7 +87,7 @@ char *strcpy(char *dest, const char *src)
 	return __builtin_strcpy(dest, src);
 #endif
 }
-EXPORT_SYMBOL(strcpy);
+/* DISABLED: EXPORT_SYMBOL(strcpy); */
 
 /**
  * strlcpy - Copy a %NUL terminated string into a sized buffer
@@ -111,7 +111,7 @@ size_t strlcpy(char *dest, const char *src, size_t size)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(strlcpy);
+/* DISABLED: EXPORT_SYMBOL(strlcpy); */
 
 /**
  * strncpy - Copy a length-limited, %NUL-terminated string
@@ -129,7 +129,7 @@ char *strncpy(char *dest, const char *src, size_t n)
 	__builtin_memcpy(dest, src, len);
 	return dest;
 }
-EXPORT_SYMBOL(strncpy);
+/* DISABLED: EXPORT_SYMBOL(strncpy); */
 
 /**
  * strcat - Append one %NUL-terminated string to another
@@ -152,7 +152,7 @@ char *strcat(char *dest, const char *src)
 		      : "d" (r0), "0" (0UL) : "cc", "memory" );
 	return ret;
 }
-EXPORT_SYMBOL(strcat);
+/* DISABLED: EXPORT_SYMBOL(strcat); */
 
 /**
  * strlcat - Append a length-limited, %NUL-terminated string to another
@@ -176,7 +176,7 @@ size_t strlcat(char *dest, const char *src, size_t n)
 	}
 	return res;
 }
-EXPORT_SYMBOL(strlcat);
+/* DISABLED: EXPORT_SYMBOL(strlcat); */
 
 /**
  * strncat - Append a length-limited, %NUL-terminated string to another
@@ -198,7 +198,7 @@ char *strncat(char *dest, const char *src, size_t n)
 	__builtin_memcpy(p, src, len);
 	return dest;
 }
-EXPORT_SYMBOL(strncat);
+/* DISABLED: EXPORT_SYMBOL(strncat); */
 
 /**
  * strcmp - Compare two strings
@@ -225,7 +225,7 @@ int strcmp(const char *cs, const char *ct)
 		      : : "cc" );
 	return ret;
 }
-EXPORT_SYMBOL(strcmp);
+/* DISABLED: EXPORT_SYMBOL(strcmp); */
 
 /**
  * strrchr - Find the last occurrence of a character in a string
@@ -243,7 +243,7 @@ char * strrchr(const char * s, int c)
 	       } while (--len > 0);
        return NULL;
 }
-EXPORT_SYMBOL(strrchr);
+/* DISABLED: EXPORT_SYMBOL(strrchr); */
 
 /**
  * strstr - Find the first substring in a %NUL terminated string
@@ -277,7 +277,7 @@ char * strstr(const char * s1,const char * s2)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(strstr);
+/* DISABLED: EXPORT_SYMBOL(strstr); */
 
 /**
  * memchr - Find a character in an area of memory.
@@ -301,7 +301,7 @@ void *memchr(const void *s, int c, size_t n)
 		      : "+a" (ret), "+&a" (s) : "d" (r0) : "cc" );
 	return (void *) ret;
 }
-EXPORT_SYMBOL(memchr);
+/* DISABLED: EXPORT_SYMBOL(memchr); */
 
 /**
  * memcmp - Compare two areas of memory
@@ -327,7 +327,7 @@ int memcmp(const void *cs, const void *ct, size_t n)
 		ret = *(char *) r2 - *(char *) r4;
 	return ret;
 }
-EXPORT_SYMBOL(memcmp);
+/* DISABLED: EXPORT_SYMBOL(memcmp); */
 
 /**
  * memscan - Find a character in an area of memory.
@@ -348,7 +348,7 @@ void *memscan(void *s, int c, size_t n)
 		      : "+a" (ret), "+&a" (s) : "d" (r0) : "cc" );
 	return (void *) ret;
 }
-EXPORT_SYMBOL(memscan);
+/* DISABLED: EXPORT_SYMBOL(memscan); */
 
 /**
  * memcpy - Copy one area of memory to another
@@ -362,7 +362,7 @@ void *memcpy(void *dest, const void *src, size_t n)
 {
 	return __builtin_memcpy(dest, src, n);
 }
-EXPORT_SYMBOL(memcpy);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
 
 /**
  * memset - Fill a region of memory with the given value
@@ -386,4 +386,4 @@ void *memset(void *s, int c, size_t n)
 		} while (--n > 0);
 	return s;
 }
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(memset); */

@@ -204,7 +204,7 @@ start_thread(struct pt_regs *regs, unsigned long new_ip, unsigned long new_sp)
 	 */
 	free_thread_xstate(current);
 }
-EXPORT_SYMBOL_GPL(start_thread);
+/* DISABLED: EXPORT_SYMBOL_GPL(start_thread); */
 
 
 /*

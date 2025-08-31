@@ -177,7 +177,7 @@ void n_tracesink_datadrain(u8 *buf, int count)
 
 	mutex_unlock(&writelock);
 }
-EXPORT_SYMBOL_GPL(n_tracesink_datadrain);
+/* DISABLED: EXPORT_SYMBOL_GPL(n_tracesink_datadrain); */
 
 /*
  * Flush buffer is not impelemented as the ldisc has no internal buffering

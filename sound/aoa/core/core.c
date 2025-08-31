@@ -68,7 +68,7 @@ int aoa_codec_register(struct aoa_codec *codec)
 		list_add(&codec->list, &codec_list);
 	return err;
 }
-EXPORT_SYMBOL_GPL(aoa_codec_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_codec_register); */
 
 void aoa_codec_unregister(struct aoa_codec *codec)
 {
@@ -80,7 +80,7 @@ void aoa_codec_unregister(struct aoa_codec *codec)
 	codec->fabric = NULL;
 	module_put(codec->owner);
 }
-EXPORT_SYMBOL_GPL(aoa_codec_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_codec_unregister); */
 
 int aoa_fabric_register(struct aoa_fabric *new_fabric, struct device *dev)
 {
@@ -111,7 +111,7 @@ int aoa_fabric_register(struct aoa_fabric *new_fabric, struct device *dev)
 	}
 	return err;
 }
-EXPORT_SYMBOL_GPL(aoa_fabric_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_fabric_register); */
 
 void aoa_fabric_unregister(struct aoa_fabric *old_fabric)
 {
@@ -129,7 +129,7 @@ void aoa_fabric_unregister(struct aoa_fabric *old_fabric)
 
 	fabric = NULL;
 }
-EXPORT_SYMBOL_GPL(aoa_fabric_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_fabric_unregister); */
 
 void aoa_fabric_unlink_codec(struct aoa_codec *codec)
 {
@@ -146,7 +146,7 @@ void aoa_fabric_unlink_codec(struct aoa_codec *codec)
 	codec->fabric = NULL;
 	module_put(codec->owner);
 }
-EXPORT_SYMBOL_GPL(aoa_fabric_unlink_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_fabric_unlink_codec); */
 
 static int __init aoa_init(void)
 {

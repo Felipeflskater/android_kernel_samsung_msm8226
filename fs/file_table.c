@@ -69,7 +69,7 @@ unsigned long get_max_files(void)
 {
 	return files_stat.max_files;
 }
-EXPORT_SYMBOL_GPL(get_max_files);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_max_files); */
 
 /*
  * Handle nr_files sysctl
@@ -190,7 +190,7 @@ struct file *alloc_file(struct path *path, fmode_t mode,
 		i_readcount_inc(path->dentry->d_inode);
 	return file;
 }
-EXPORT_SYMBOL(alloc_file);
+/* DISABLED: EXPORT_SYMBOL(alloc_file); */
 
 /**
  * drop_file_write_access - give up ability to write to a file
@@ -265,7 +265,7 @@ void fput(struct file *file)
 		__fput(file);
 }
 
-EXPORT_SYMBOL(fput);
+/* DISABLED: EXPORT_SYMBOL(fput); */
 
 struct file *fget(unsigned int fd)
 {
@@ -285,7 +285,7 @@ struct file *fget(unsigned int fd)
 	return file;
 }
 
-EXPORT_SYMBOL(fget);
+/* DISABLED: EXPORT_SYMBOL(fget); */
 
 struct file *fget_raw(unsigned int fd)
 {
@@ -304,7 +304,7 @@ struct file *fget_raw(unsigned int fd)
 	return file;
 }
 
-EXPORT_SYMBOL(fget_raw);
+/* DISABLED: EXPORT_SYMBOL(fget_raw); */
 
 /*
  * Lightweight file lookup - no refcnt increment if fd table isn't shared.

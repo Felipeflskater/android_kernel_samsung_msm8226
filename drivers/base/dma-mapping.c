@@ -83,7 +83,7 @@ void * dmam_alloc_coherent(struct device *dev, size_t size,
 
 	return vaddr;
 }
-EXPORT_SYMBOL(dmam_alloc_coherent);
+/* DISABLED: EXPORT_SYMBOL(dmam_alloc_coherent); */
 
 /**
  * dmam_free_coherent - Managed dma_free_coherent()
@@ -103,7 +103,7 @@ void dmam_free_coherent(struct device *dev, size_t size, void *vaddr,
 	WARN_ON(devres_destroy(dev, dmam_coherent_release, dmam_match,
 			       &match_data));
 }
-EXPORT_SYMBOL(dmam_free_coherent);
+/* DISABLED: EXPORT_SYMBOL(dmam_free_coherent); */
 
 /**
  * dmam_alloc_non_coherent - Managed dma_alloc_non_coherent()
@@ -142,7 +142,7 @@ void *dmam_alloc_noncoherent(struct device *dev, size_t size,
 
 	return vaddr;
 }
-EXPORT_SYMBOL(dmam_alloc_noncoherent);
+/* DISABLED: EXPORT_SYMBOL(dmam_alloc_noncoherent); */
 
 /**
  * dmam_free_coherent - Managed dma_free_noncoherent()
@@ -162,7 +162,7 @@ void dmam_free_noncoherent(struct device *dev, size_t size, void *vaddr,
 	WARN_ON(!devres_destroy(dev, dmam_noncoherent_release, dmam_match,
 				&match_data));
 }
-EXPORT_SYMBOL(dmam_free_noncoherent);
+/* DISABLED: EXPORT_SYMBOL(dmam_free_noncoherent); */
 
 #ifdef ARCH_HAS_DMA_DECLARE_COHERENT_MEMORY
 
@@ -203,7 +203,7 @@ int dmam_declare_coherent_memory(struct device *dev, dma_addr_t bus_addr,
 
 	return rc;
 }
-EXPORT_SYMBOL(dmam_declare_coherent_memory);
+/* DISABLED: EXPORT_SYMBOL(dmam_declare_coherent_memory); */
 
 /**
  * dmam_release_declared_memory - Managed dma_release_declared_memory().
@@ -215,6 +215,6 @@ void dmam_release_declared_memory(struct device *dev)
 {
 	WARN_ON(devres_destroy(dev, dmam_coherent_decl_release, NULL, NULL));
 }
-EXPORT_SYMBOL(dmam_release_declared_memory);
+/* DISABLED: EXPORT_SYMBOL(dmam_release_declared_memory); */
 
 #endif

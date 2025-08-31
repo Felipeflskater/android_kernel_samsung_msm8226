@@ -15,13 +15,13 @@ void amd_report_gart_errors(bool v)
 {
 	report_gart_errors = v;
 }
-EXPORT_SYMBOL_GPL(amd_report_gart_errors);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_report_gart_errors); */
 
 void amd_register_ecc_decoder(void (*f)(int, struct mce *))
 {
 	nb_bus_decoder = f;
 }
-EXPORT_SYMBOL_GPL(amd_register_ecc_decoder);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_register_ecc_decoder); */
 
 void amd_unregister_ecc_decoder(void (*f)(int, struct mce *))
 {
@@ -31,7 +31,7 @@ void amd_unregister_ecc_decoder(void (*f)(int, struct mce *))
 		nb_bus_decoder = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(amd_unregister_ecc_decoder);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_unregister_ecc_decoder); */
 
 /*
  * string representation for the different MCA reported error types, see F3x48
@@ -40,29 +40,29 @@ EXPORT_SYMBOL_GPL(amd_unregister_ecc_decoder);
 
 /* transaction type */
 const char * const tt_msgs[] = { "INSN", "DATA", "GEN", "RESV" };
-EXPORT_SYMBOL_GPL(tt_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(tt_msgs); */
 
 /* cache level */
 const char * const ll_msgs[] = { "RESV", "L1", "L2", "L3/GEN" };
-EXPORT_SYMBOL_GPL(ll_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(ll_msgs); */
 
 /* memory transaction type */
 const char * const rrrr_msgs[] = {
        "GEN", "RD", "WR", "DRD", "DWR", "IRD", "PRF", "EV", "SNP"
 };
-EXPORT_SYMBOL_GPL(rrrr_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(rrrr_msgs); */
 
 /* participating processor */
 const char * const pp_msgs[] = { "SRC", "RES", "OBS", "GEN" };
-EXPORT_SYMBOL_GPL(pp_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(pp_msgs); */
 
 /* request timeout */
 const char * const to_msgs[] = { "no timeout", "timed out" };
-EXPORT_SYMBOL_GPL(to_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(to_msgs); */
 
 /* memory or i/o */
 const char * const ii_msgs[] = { "MEM", "RESV", "IO", "GEN" };
-EXPORT_SYMBOL_GPL(ii_msgs);
+/* DISABLED: EXPORT_SYMBOL_GPL(ii_msgs); */
 
 static const char * const f15h_ic_mce_desc[] = {
 	"UC during a demand linefill from L2",
@@ -567,7 +567,7 @@ void amd_decode_nb_mce(struct mce *m)
 wrong_nb_mce:
 	pr_emerg(HW_ERR "Corrupted NB MCE info?\n");
 }
-EXPORT_SYMBOL_GPL(amd_decode_nb_mce);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_decode_nb_mce); */
 
 static void amd_decode_fr_mce(struct mce *m)
 {
@@ -741,7 +741,7 @@ int amd_decode_mce(struct notifier_block *nb, unsigned long val, void *data)
 
 	return NOTIFY_STOP;
 }
-EXPORT_SYMBOL_GPL(amd_decode_mce);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_decode_mce); */
 
 static struct notifier_block amd_mce_dec_nb = {
 	.notifier_call	= amd_decode_mce,

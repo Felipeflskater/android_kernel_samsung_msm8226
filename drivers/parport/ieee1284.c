@@ -808,10 +808,10 @@ long parport_set_timeout (struct pardevice *dev, long inactivity)
 
 /* Exported symbols for modules. */
 
-EXPORT_SYMBOL(parport_negotiate);
-EXPORT_SYMBOL(parport_write);
-EXPORT_SYMBOL(parport_read);
-EXPORT_SYMBOL(parport_wait_peripheral);
-EXPORT_SYMBOL(parport_wait_event);
-EXPORT_SYMBOL(parport_set_timeout);
-EXPORT_SYMBOL(parport_ieee1284_interrupt);
+/* DISABLED: EXPORT_SYMBOL(parport_negotiate); */
+/* DISABLED: EXPORT_SYMBOL(parport_write); */
+/* DISABLED: EXPORT_SYMBOL(parport_read); */
+/* DISABLED: EXPORT_SYMBOL(parport_wait_peripheral); */
+/* DISABLED: EXPORT_SYMBOL(parport_wait_event); */
+/* DISABLED: EXPORT_SYMBOL(parport_set_timeout); */
+/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_interrupt); */

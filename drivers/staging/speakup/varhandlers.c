@@ -157,7 +157,7 @@ struct var_t *spk_get_var(enum var_id_t var_id)
 	BUG_ON(!var_ptrs[var_id]);
 	return var_ptrs[var_id]->data;
 }
-EXPORT_SYMBOL_GPL(spk_get_var);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_get_var); */
 
 struct punc_var_t *spk_get_punc_var(enum var_id_t var_id)
 {

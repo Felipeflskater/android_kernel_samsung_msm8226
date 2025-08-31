@@ -53,7 +53,7 @@ int ps2_sendbyte(struct ps2dev *ps2dev, unsigned char byte, int timeout)
 
 	return -ps2dev->nak;
 }
-EXPORT_SYMBOL(ps2_sendbyte);
+/* DISABLED: EXPORT_SYMBOL(ps2_sendbyte); */
 
 void ps2_begin_command(struct ps2dev *ps2dev)
 {
@@ -62,7 +62,7 @@ void ps2_begin_command(struct ps2dev *ps2dev)
 	if (i8042_check_port_owner(ps2dev->serio))
 		i8042_lock_chip();
 }
-EXPORT_SYMBOL(ps2_begin_command);
+/* DISABLED: EXPORT_SYMBOL(ps2_begin_command); */
 
 void ps2_end_command(struct ps2dev *ps2dev)
 {
@@ -71,7 +71,7 @@ void ps2_end_command(struct ps2dev *ps2dev)
 
 	mutex_unlock(&ps2dev->cmd_mutex);
 }
-EXPORT_SYMBOL(ps2_end_command);
+/* DISABLED: EXPORT_SYMBOL(ps2_end_command); */
 
 /*
  * ps2_drain() waits for device to transmit requested number of bytes
@@ -98,7 +98,7 @@ void ps2_drain(struct ps2dev *ps2dev, int maxbytes, int timeout)
 
 	ps2_end_command(ps2dev);
 }
-EXPORT_SYMBOL(ps2_drain);
+/* DISABLED: EXPORT_SYMBOL(ps2_drain); */
 
 /*
  * ps2_is_keyboard_id() checks received ID byte against the list of
@@ -118,7 +118,7 @@ int ps2_is_keyboard_id(char id_byte)
 
 	return memchr(keyboard_ids, id_byte, sizeof(keyboard_ids)) != NULL;
 }
-EXPORT_SYMBOL(ps2_is_keyboard_id);
+/* DISABLED: EXPORT_SYMBOL(ps2_is_keyboard_id); */
 
 /*
  * ps2_adjust_timeout() is called after receiving 1st byte of command
@@ -251,7 +251,7 @@ int __ps2_command(struct ps2dev *ps2dev, unsigned char *param, int command)
 
 	return rc;
 }
-EXPORT_SYMBOL(__ps2_command);
+/* DISABLED: EXPORT_SYMBOL(__ps2_command); */
 
 int ps2_command(struct ps2dev *ps2dev, unsigned char *param, int command)
 {
@@ -263,7 +263,7 @@ int ps2_command(struct ps2dev *ps2dev, unsigned char *param, int command)
 
 	return rc;
 }
-EXPORT_SYMBOL(ps2_command);
+/* DISABLED: EXPORT_SYMBOL(ps2_command); */
 
 /*
  * ps2_init() initializes ps2dev structure
@@ -276,7 +276,7 @@ void ps2_init(struct ps2dev *ps2dev, struct serio *serio)
 	init_waitqueue_head(&ps2dev->wait);
 	ps2dev->serio = serio;
 }
-EXPORT_SYMBOL(ps2_init);
+/* DISABLED: EXPORT_SYMBOL(ps2_init); */
 
 /*
  * ps2_handle_ack() is supposed to be used in interrupt handler
@@ -333,7 +333,7 @@ int ps2_handle_ack(struct ps2dev *ps2dev, unsigned char data)
 
 	return 1;
 }
-EXPORT_SYMBOL(ps2_handle_ack);
+/* DISABLED: EXPORT_SYMBOL(ps2_handle_ack); */
 
 /*
  * ps2_handle_response() is supposed to be used in interrupt handler
@@ -359,7 +359,7 @@ int ps2_handle_response(struct ps2dev *ps2dev, unsigned char data)
 
 	return 1;
 }
-EXPORT_SYMBOL(ps2_handle_response);
+/* DISABLED: EXPORT_SYMBOL(ps2_handle_response); */
 
 void ps2_cmd_aborted(struct ps2dev *ps2dev)
 {
@@ -372,4 +372,4 @@ void ps2_cmd_aborted(struct ps2dev *ps2dev)
 	/* reset all flags except last nack */
 	ps2dev->flags &= PS2_FLAG_NAK;
 }
-EXPORT_SYMBOL(ps2_cmd_aborted);
+/* DISABLED: EXPORT_SYMBOL(ps2_cmd_aborted); */

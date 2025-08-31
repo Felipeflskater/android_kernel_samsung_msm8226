@@ -1330,7 +1330,7 @@ fail:
 	tda18271_release(fe);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(tda18271_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(tda18271_attach); */
 MODULE_DESCRIPTION("NXP TDA18271HD analog / digital tuner driver");
 MODULE_AUTHOR("Michael Krufky <mkrufky@linuxtv.org>");
 MODULE_LICENSE("GPL");

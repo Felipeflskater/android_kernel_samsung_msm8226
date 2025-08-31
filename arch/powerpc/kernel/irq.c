@@ -82,7 +82,7 @@ EXPORT_PER_CPU_SYMBOL(irq_stat);
 int __irq_offset_value;
 
 #ifdef CONFIG_PPC32
-EXPORT_SYMBOL(__irq_offset_value);
+/* DISABLED: EXPORT_SYMBOL(__irq_offset_value); */
 atomic_t ppc_n_lost_interrupts;
 
 #ifdef CONFIG_TAU_INT
@@ -266,7 +266,7 @@ notrace void arch_local_irq_restore(unsigned long en)
 	/* Finally, let's ensure we are hard enabled */
 	__hard_irq_enable();
 }
-EXPORT_SYMBOL(arch_local_irq_restore);
+/* DISABLED: EXPORT_SYMBOL(arch_local_irq_restore); */
 
 /*
  * This is specifically called by assembly code to re-enable interrupts
@@ -580,7 +580,7 @@ irq_hw_number_t virq_to_hw(unsigned int virq)
 	struct irq_data *irq_data = irq_get_irq_data(virq);
 	return WARN_ON(!irq_data) ? 0 : irq_data->hwirq;
 }
-EXPORT_SYMBOL_GPL(virq_to_hw);
+/* DISABLED: EXPORT_SYMBOL_GPL(virq_to_hw); */
 
 #ifdef CONFIG_SMP
 int irq_choose_cpu(const struct cpumask *mask)
@@ -630,5 +630,5 @@ static int __init setup_noirqdistrib(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("noirqdistrib", setup_noirqdistrib); */
+/* DISABLED: __setup("noirqdistrib", setup_noirqdistrib); */ */
 #endif /* CONFIG_PPC64 */

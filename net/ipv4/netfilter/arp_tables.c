@@ -58,7 +58,7 @@ void *arpt_alloc_initial_table(const struct xt_table *info)
 {
 	return xt_alloc_initial_table(arpt, ARPT);
 }
-EXPORT_SYMBOL_GPL(arpt_alloc_initial_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(arpt_alloc_initial_table); */
 
 static inline int arp_devaddr_compare(const struct arpt_devaddr_info *ap,
 				      const char *hdr_addr, int len)
@@ -1918,9 +1918,9 @@ static void __exit arp_tables_fini(void)
 	unregister_pernet_subsys(&arp_tables_net_ops);
 }
 
-EXPORT_SYMBOL(arpt_register_table);
-EXPORT_SYMBOL(arpt_unregister_table);
-EXPORT_SYMBOL(arpt_do_table);
+/* DISABLED: EXPORT_SYMBOL(arpt_register_table); */
+/* DISABLED: EXPORT_SYMBOL(arpt_unregister_table); */
+/* DISABLED: EXPORT_SYMBOL(arpt_do_table); */
 
 module_init(arp_tables_init);
 module_exit(arp_tables_fini);

@@ -585,7 +585,7 @@ int ipmi_smi_watcher_register(struct ipmi_smi_watcher *watcher)
 	}
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(ipmi_smi_watcher_register);
+/* DISABLED: EXPORT_SYMBOL(ipmi_smi_watcher_register); */
 
 int ipmi_smi_watcher_unregister(struct ipmi_smi_watcher *watcher)
 {
@@ -594,7 +594,7 @@ int ipmi_smi_watcher_unregister(struct ipmi_smi_watcher *watcher)
 	mutex_unlock(&smi_watchers_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_smi_watcher_unregister);
+/* DISABLED: EXPORT_SYMBOL(ipmi_smi_watcher_unregister); */
 
 /*
  * Must be called with smi_watchers_mutex held.
@@ -685,7 +685,7 @@ int ipmi_validate_addr(struct ipmi_addr *addr, int len)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(ipmi_validate_addr);
+/* DISABLED: EXPORT_SYMBOL(ipmi_validate_addr); */
 
 unsigned int ipmi_addr_length(int addr_type)
 {
@@ -701,7 +701,7 @@ unsigned int ipmi_addr_length(int addr_type)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_addr_length);
+/* DISABLED: EXPORT_SYMBOL(ipmi_addr_length); */
 
 static void deliver_response(struct ipmi_recv_msg *msg)
 {
@@ -976,7 +976,7 @@ out_kfree:
 	kfree(new_user);
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_create_user);
+/* DISABLED: EXPORT_SYMBOL(ipmi_create_user); */
 
 int ipmi_get_smi_info(int if_num, struct ipmi_smi_info *data)
 {
@@ -1003,7 +1003,7 @@ found:
 
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_get_smi_info);
+/* DISABLED: EXPORT_SYMBOL(ipmi_get_smi_info); */
 
 static void free_user(struct kref *ref)
 {
@@ -1070,7 +1070,7 @@ int ipmi_destroy_user(ipmi_user_t user)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_destroy_user);
+/* DISABLED: EXPORT_SYMBOL(ipmi_destroy_user); */
 
 void ipmi_get_version(ipmi_user_t   user,
 		      unsigned char *major,
@@ -1079,7 +1079,7 @@ void ipmi_get_version(ipmi_user_t   user,
 	*major = user->intf->ipmi_version_major;
 	*minor = user->intf->ipmi_version_minor;
 }
-EXPORT_SYMBOL(ipmi_get_version);
+/* DISABLED: EXPORT_SYMBOL(ipmi_get_version); */
 
 int ipmi_set_my_address(ipmi_user_t   user,
 			unsigned int  channel,
@@ -1090,7 +1090,7 @@ int ipmi_set_my_address(ipmi_user_t   user,
 	user->intf->channels[channel].address = address;
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_set_my_address);
+/* DISABLED: EXPORT_SYMBOL(ipmi_set_my_address); */
 
 int ipmi_get_my_address(ipmi_user_t   user,
 			unsigned int  channel,
@@ -1101,7 +1101,7 @@ int ipmi_get_my_address(ipmi_user_t   user,
 	*address = user->intf->channels[channel].address;
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_get_my_address);
+/* DISABLED: EXPORT_SYMBOL(ipmi_get_my_address); */
 
 int ipmi_set_my_LUN(ipmi_user_t   user,
 		    unsigned int  channel,
@@ -1112,7 +1112,7 @@ int ipmi_set_my_LUN(ipmi_user_t   user,
 	user->intf->channels[channel].lun = LUN & 0x3;
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_set_my_LUN);
+/* DISABLED: EXPORT_SYMBOL(ipmi_set_my_LUN); */
 
 int ipmi_get_my_LUN(ipmi_user_t   user,
 		    unsigned int  channel,
@@ -1123,7 +1123,7 @@ int ipmi_get_my_LUN(ipmi_user_t   user,
 	*address = user->intf->channels[channel].lun;
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_get_my_LUN);
+/* DISABLED: EXPORT_SYMBOL(ipmi_get_my_LUN); */
 
 int ipmi_get_maintenance_mode(ipmi_user_t user)
 {
@@ -1136,7 +1136,7 @@ int ipmi_get_maintenance_mode(ipmi_user_t user)
 
 	return mode;
 }
-EXPORT_SYMBOL(ipmi_get_maintenance_mode);
+/* DISABLED: EXPORT_SYMBOL(ipmi_get_maintenance_mode); */
 
 static void maintenance_mode_update(ipmi_smi_t intf)
 {
@@ -1182,7 +1182,7 @@ int ipmi_set_maintenance_mode(ipmi_user_t user, int mode)
 
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_set_maintenance_mode);
+/* DISABLED: EXPORT_SYMBOL(ipmi_set_maintenance_mode); */
 
 int ipmi_set_gets_events(ipmi_user_t user, int val)
 {
@@ -1232,7 +1232,7 @@ int ipmi_set_gets_events(ipmi_user_t user, int val)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_set_gets_events);
+/* DISABLED: EXPORT_SYMBOL(ipmi_set_gets_events); */
 
 static struct cmd_rcvr *find_cmd_rcvr(ipmi_smi_t    intf,
 				      unsigned char netfn,
@@ -1298,7 +1298,7 @@ int ipmi_register_for_cmd(ipmi_user_t   user,
 
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_register_for_cmd);
+/* DISABLED: EXPORT_SYMBOL(ipmi_register_for_cmd); */
 
 int ipmi_unregister_for_cmd(ipmi_user_t   user,
 			    unsigned char netfn,
@@ -1336,7 +1336,7 @@ int ipmi_unregister_for_cmd(ipmi_user_t   user,
 	}
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_unregister_for_cmd);
+/* DISABLED: EXPORT_SYMBOL(ipmi_unregister_for_cmd); */
 
 static unsigned char
 ipmb_checksum(unsigned char *data, int size)
@@ -1869,7 +1869,7 @@ int ipmi_request_settime(ipmi_user_t      user,
 			      retries,
 			      retry_time_ms);
 }
-EXPORT_SYMBOL(ipmi_request_settime);
+/* DISABLED: EXPORT_SYMBOL(ipmi_request_settime); */
 
 int ipmi_request_supply_msgs(ipmi_user_t          user,
 			     struct ipmi_addr     *addr,
@@ -1901,7 +1901,7 @@ int ipmi_request_supply_msgs(ipmi_user_t          user,
 			      lun,
 			      -1, 0);
 }
-EXPORT_SYMBOL(ipmi_request_supply_msgs);
+/* DISABLED: EXPORT_SYMBOL(ipmi_request_supply_msgs); */
 
 #ifdef CONFIG_PROC_FS
 static int smi_ipmb_proc_show(struct seq_file *m, void *v)
@@ -2060,7 +2060,7 @@ int ipmi_smi_add_proc_entry(ipmi_smi_t smi, char *name,
 
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_smi_add_proc_entry);
+/* DISABLED: EXPORT_SYMBOL(ipmi_smi_add_proc_entry); */
 
 static int add_proc_entries(ipmi_smi_t smi, int num)
 {
@@ -2805,7 +2805,7 @@ void ipmi_poll_interface(ipmi_user_t user)
 {
 	ipmi_poll(user->intf);
 }
-EXPORT_SYMBOL(ipmi_poll_interface);
+/* DISABLED: EXPORT_SYMBOL(ipmi_poll_interface); */
 
 int ipmi_register_smi(struct ipmi_smi_handlers *handlers,
 		      void		       *send_info,
@@ -2967,7 +2967,7 @@ int ipmi_register_smi(struct ipmi_smi_handlers *handlers,
 
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_register_smi);
+/* DISABLED: EXPORT_SYMBOL(ipmi_register_smi); */
 
 static void cleanup_smi_msgs(ipmi_smi_t intf)
 {
@@ -3013,7 +3013,7 @@ int ipmi_unregister_smi(ipmi_smi_t intf)
 	kref_put(&intf->refcount, intf_free);
 	return 0;
 }
-EXPORT_SYMBOL(ipmi_unregister_smi);
+/* DISABLED: EXPORT_SYMBOL(ipmi_unregister_smi); */
 
 static int handle_ipmb_get_msg_rsp(ipmi_smi_t          intf,
 				   struct ipmi_smi_msg *msg)
@@ -3927,14 +3927,14 @@ void ipmi_smi_msg_received(ipmi_smi_t          intf,
  out:
 	return;
 }
-EXPORT_SYMBOL(ipmi_smi_msg_received);
+/* DISABLED: EXPORT_SYMBOL(ipmi_smi_msg_received); */
 
 void ipmi_smi_watchdog_pretimeout(ipmi_smi_t intf)
 {
 	atomic_set(&intf->watchdog_pretimeouts_to_deliver, 1);
 	tasklet_schedule(&intf->recv_tasklet);
 }
-EXPORT_SYMBOL(ipmi_smi_watchdog_pretimeout);
+/* DISABLED: EXPORT_SYMBOL(ipmi_smi_watchdog_pretimeout); */
 
 static struct ipmi_smi_msg *
 smi_from_recv_msg(ipmi_smi_t intf, struct ipmi_recv_msg *recv_msg,
@@ -4174,7 +4174,7 @@ struct ipmi_smi_msg *ipmi_alloc_smi_msg(void)
 	}
 	return rv;
 }
-EXPORT_SYMBOL(ipmi_alloc_smi_msg);
+/* DISABLED: EXPORT_SYMBOL(ipmi_alloc_smi_msg); */
 
 static void free_recv_msg(struct ipmi_recv_msg *msg)
 {
@@ -4201,7 +4201,7 @@ void ipmi_free_recv_msg(struct ipmi_recv_msg *msg)
 		kref_put(&msg->user->refcount, free_user);
 	msg->done(msg);
 }
-EXPORT_SYMBOL(ipmi_free_recv_msg);
+/* DISABLED: EXPORT_SYMBOL(ipmi_free_recv_msg); */
 
 #ifdef CONFIG_IPMI_PANIC_EVENT
 

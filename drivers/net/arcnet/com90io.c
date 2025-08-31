@@ -384,7 +384,7 @@ static int __init com90io_setup(char *s)
 		snprintf(device, sizeof(device), "%s", s);
 	return 1;
 }
-/* DISABLED: __setup("com90io=", com90io_setup); */
+/* DISABLED: __setup("com90io=", com90io_setup); */ */
 #endif
 
 static struct net_device *my_dev;

@@ -221,7 +221,7 @@ int msm_iommu_map_contig_buffer(phys_addr_t phys,
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_iommu_map_contig_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_map_contig_buffer); */
 
 void msm_iommu_unmap_contig_buffer(unsigned long iova,
 					unsigned int domain_no,
@@ -242,7 +242,7 @@ void msm_iommu_unmap_contig_buffer(unsigned long iova,
 	}
 	msm_free_iova_address(iova, domain_no, partition_no, size);
 }
-EXPORT_SYMBOL(msm_iommu_unmap_contig_buffer);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_unmap_contig_buffer); */
 
 static struct msm_iova_data *find_domain(int domain_num)
 {
@@ -326,7 +326,7 @@ struct iommu_domain *msm_get_iommu_domain(int domain_num)
 	else
 		return NULL;
 }
-EXPORT_SYMBOL(msm_get_iommu_domain);
+/* DISABLED: EXPORT_SYMBOL(msm_get_iommu_domain); */
 
 int msm_find_domain_no(const struct iommu_domain *domain)
 {
@@ -347,7 +347,7 @@ int msm_find_domain_no(const struct iommu_domain *domain)
 	mutex_unlock(&domain_mutex);
 	return domain_num;
 }
-EXPORT_SYMBOL(msm_find_domain_no);
+/* DISABLED: EXPORT_SYMBOL(msm_find_domain_no); */
 
 static struct msm_iova_data *msm_domain_to_iova_data(struct iommu_domain
 						     const *domain)
@@ -531,7 +531,7 @@ free_data:
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(msm_register_domain);
+/* DISABLED: EXPORT_SYMBOL(msm_register_domain); */
 
 int msm_unregister_domain(struct iommu_domain *domain)
 {
@@ -560,7 +560,7 @@ int msm_unregister_domain(struct iommu_domain *domain)
 	kfree(data);
 	return 0;
 }
-EXPORT_SYMBOL(msm_unregister_domain);
+/* DISABLED: EXPORT_SYMBOL(msm_unregister_domain); */
 
 static int find_and_add_contexts(struct iommu_group *group,
 				 const struct device_node *node,

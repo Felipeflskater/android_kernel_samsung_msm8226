@@ -80,7 +80,7 @@ void wmt_ge_fillrect(struct fb_info *p, const struct fb_fillrect *rect)
 	writel(rect->rop == ROP_XOR ? 0x5a : 0xf0, regbase + GE_ROPCODE_OFF);
 	writel(1, regbase + GE_FIRE_OFF);
 }
-EXPORT_SYMBOL_GPL(wmt_ge_fillrect);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmt_ge_fillrect); */
 
 void wmt_ge_copyarea(struct fb_info *p, const struct fb_copyarea *area)
 {
@@ -113,7 +113,7 @@ void wmt_ge_copyarea(struct fb_info *p, const struct fb_copyarea *area)
 	writel(1, regbase + GE_COMMAND_OFF);
 	writel(1, regbase + GE_FIRE_OFF);
 }
-EXPORT_SYMBOL_GPL(wmt_ge_copyarea);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmt_ge_copyarea); */
 
 int wmt_ge_sync(struct fb_info *p)
 {
@@ -122,7 +122,7 @@ int wmt_ge_sync(struct fb_info *p)
 		cpu_relax();
 	return loops > 0 ? 0 : -EBUSY;
 }
-EXPORT_SYMBOL_GPL(wmt_ge_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(wmt_ge_sync); */
 
 static int __devinit wmt_ge_rops_probe(struct platform_device *pdev)
 {

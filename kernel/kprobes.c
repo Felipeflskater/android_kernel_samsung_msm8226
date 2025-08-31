@@ -1416,7 +1416,7 @@ cannot_probe:
 	jump_label_unlock();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_kprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kprobe); */
 
 /* Check if all probes on the aggrprobe are disabled */
 static int __kprobes aggr_kprobe_disabled(struct kprobe *ap)
@@ -1551,13 +1551,13 @@ int __kprobes register_kprobes(struct kprobe **kps, int num)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_kprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kprobes); */
 
 void __kprobes unregister_kprobe(struct kprobe *p)
 {
 	unregister_kprobes(&p, 1);
 }
-EXPORT_SYMBOL_GPL(unregister_kprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kprobe); */
 
 void __kprobes unregister_kprobes(struct kprobe **kps, int num)
 {
@@ -1576,7 +1576,7 @@ void __kprobes unregister_kprobes(struct kprobe **kps, int num)
 		if (kps[i]->addr)
 			__unregister_kprobe_bottom(kps[i]);
 }
-EXPORT_SYMBOL_GPL(unregister_kprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kprobes); */
 
 static struct notifier_block kprobe_exceptions_nb = {
 	.notifier_call = kprobe_exceptions_notify,
@@ -1617,19 +1617,19 @@ int __kprobes register_jprobes(struct jprobe **jps, int num)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_jprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_jprobes); */
 
 int __kprobes register_jprobe(struct jprobe *jp)
 {
 	return register_jprobes(&jp, 1);
 }
-EXPORT_SYMBOL_GPL(register_jprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_jprobe); */
 
 void __kprobes unregister_jprobe(struct jprobe *jp)
 {
 	unregister_jprobes(&jp, 1);
 }
-EXPORT_SYMBOL_GPL(unregister_jprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_jprobe); */
 
 void __kprobes unregister_jprobes(struct jprobe **jps, int num)
 {
@@ -1649,7 +1649,7 @@ void __kprobes unregister_jprobes(struct jprobe **jps, int num)
 			__unregister_kprobe_bottom(&jps[i]->kp);
 	}
 }
-EXPORT_SYMBOL_GPL(unregister_jprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_jprobes); */
 
 #ifdef CONFIG_KRETPROBES
 /*
@@ -1747,7 +1747,7 @@ int __kprobes register_kretprobe(struct kretprobe *rp)
 		free_rp_inst(rp);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_kretprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kretprobe); */
 
 int __kprobes register_kretprobes(struct kretprobe **rps, int num)
 {
@@ -1765,13 +1765,13 @@ int __kprobes register_kretprobes(struct kretprobe **rps, int num)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_kretprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kretprobes); */
 
 void __kprobes unregister_kretprobe(struct kretprobe *rp)
 {
 	unregister_kretprobes(&rp, 1);
 }
-EXPORT_SYMBOL_GPL(unregister_kretprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kretprobe); */
 
 void __kprobes unregister_kretprobes(struct kretprobe **rps, int num)
 {
@@ -1793,30 +1793,30 @@ void __kprobes unregister_kretprobes(struct kretprobe **rps, int num)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(unregister_kretprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kretprobes); */
 
 #else /* CONFIG_KRETPROBES */
 int __kprobes register_kretprobe(struct kretprobe *rp)
 {
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(register_kretprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kretprobe); */
 
 int __kprobes register_kretprobes(struct kretprobe **rps, int num)
 {
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(register_kretprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_kretprobes); */
 
 void __kprobes unregister_kretprobe(struct kretprobe *rp)
 {
 }
-EXPORT_SYMBOL_GPL(unregister_kretprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kretprobe); */
 
 void __kprobes unregister_kretprobes(struct kretprobe **rps, int num)
 {
 }
-EXPORT_SYMBOL_GPL(unregister_kretprobes);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_kretprobes); */
 
 static int __kprobes pre_handler_kretprobe(struct kprobe *p,
 					   struct pt_regs *regs)
@@ -1864,7 +1864,7 @@ int __kprobes disable_kprobe(struct kprobe *kp)
 	mutex_unlock(&kprobe_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(disable_kprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(disable_kprobe); */
 
 /* Enable one kprobe */
 int __kprobes enable_kprobe(struct kprobe *kp)
@@ -1898,7 +1898,7 @@ out:
 	mutex_unlock(&kprobe_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(enable_kprobe);
+/* DISABLED: EXPORT_SYMBOL_GPL(enable_kprobe); */
 
 void __kprobes dump_kprobe(struct kprobe *kp)
 {
@@ -2264,4 +2264,4 @@ late_initcall(debugfs_kprobe_init);
 module_init(init_kprobes);
 
 /* defined in arch/.../kernel/kprobes.c */
-EXPORT_SYMBOL_GPL(jprobe_return);
+/* DISABLED: EXPORT_SYMBOL_GPL(jprobe_return); */

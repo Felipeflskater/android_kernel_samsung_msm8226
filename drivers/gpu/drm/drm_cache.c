@@ -97,4 +97,4 @@ drm_clflush_pages(struct page *pages[], unsigned long num_pages)
 	WARN_ON_ONCE(1);
 #endif
 }
-EXPORT_SYMBOL(drm_clflush_pages);
+/* DISABLED: EXPORT_SYMBOL(drm_clflush_pages); */

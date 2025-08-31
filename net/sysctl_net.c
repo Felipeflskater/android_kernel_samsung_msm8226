@@ -107,7 +107,7 @@ struct ctl_table_header *register_net_sysctl_table(struct net *net,
 {
 	return __register_sysctl_paths(&net->sysctls, path, table);
 }
-EXPORT_SYMBOL_GPL(register_net_sysctl_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_net_sysctl_table); */
 
 struct ctl_table_header *register_net_sysctl_rotable(const
 		struct ctl_path *path, struct ctl_table *table)
@@ -115,10 +115,10 @@ struct ctl_table_header *register_net_sysctl_rotable(const
 	return __register_sysctl_paths(&net_sysctl_ro_root.default_set,
 					path, table);
 }
-EXPORT_SYMBOL_GPL(register_net_sysctl_rotable);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_net_sysctl_rotable); */
 
 void unregister_net_sysctl_table(struct ctl_table_header *header)
 {
 	unregister_sysctl_table(header);
 }
-EXPORT_SYMBOL_GPL(unregister_net_sysctl_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_net_sysctl_table); */

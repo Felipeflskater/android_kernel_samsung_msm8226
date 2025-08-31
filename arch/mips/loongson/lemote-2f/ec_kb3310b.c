@@ -32,7 +32,7 @@ unsigned char ec_read(unsigned short addr)
 
 	return value;
 }
-EXPORT_SYMBOL_GPL(ec_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(ec_read); */
 
 void ec_write(unsigned short addr, unsigned char val)
 {
@@ -46,7 +46,7 @@ void ec_write(unsigned short addr, unsigned char val)
 	inb(EC_IO_PORT_DATA);
 	spin_unlock_irqrestore(&index_access_lock, flags);
 }
-EXPORT_SYMBOL_GPL(ec_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(ec_write); */
 
 /*
  * This function is used for EC command writes and corresponding status queries.
@@ -85,7 +85,7 @@ int ec_query_seq(unsigned char cmd)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ec_query_seq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ec_query_seq); */
 
 /*
  * Send query command to EC to get the proper event number
@@ -94,7 +94,7 @@ int ec_query_event_num(void)
 {
 	return ec_query_seq(CMD_GET_EVENT_NUM);
 }
-EXPORT_SYMBOL(ec_query_event_num);
+/* DISABLED: EXPORT_SYMBOL(ec_query_event_num); */
 
 /*
  * Get event number from EC
@@ -125,4 +125,4 @@ int ec_get_event_num(void)
 
 	return value;
 }
-EXPORT_SYMBOL(ec_get_event_num);
+/* DISABLED: EXPORT_SYMBOL(ec_get_event_num); */

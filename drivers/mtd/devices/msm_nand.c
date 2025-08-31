@@ -6985,7 +6985,7 @@ int msm_nand_scan(struct mtd_info *mtd, int maxchips)
 	/* return this->scan_bbt(mtd); */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(msm_nand_scan);
+/* DISABLED: EXPORT_SYMBOL_GPL(msm_nand_scan); */
 
 /**
  * msm_nand_release - [msm_nand Interface] Free resources held by the msm_nand device
@@ -6998,7 +6998,7 @@ void msm_nand_release(struct mtd_info *mtd)
 	/* Deregister the device */
 	mtd_device_unregister(mtd);
 }
-EXPORT_SYMBOL_GPL(msm_nand_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(msm_nand_release); */
 
 struct msm_nand_info {
 	struct mtd_info		mtd;

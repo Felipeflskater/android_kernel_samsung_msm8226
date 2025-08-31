@@ -503,5 +503,5 @@ void hostap_info_init(local_info_t *local)
 }
 
 
-EXPORT_SYMBOL(hostap_info_init);
-EXPORT_SYMBOL(hostap_info_process);
+/* DISABLED: EXPORT_SYMBOL(hostap_info_init); */
+/* DISABLED: EXPORT_SYMBOL(hostap_info_process); */

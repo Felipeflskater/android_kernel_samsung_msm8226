@@ -79,7 +79,7 @@ gate_desc idt_table[NR_VECTORS] __page_aligned_data = { { { { 0, 0 } } }, };
 #endif
 
 DECLARE_BITMAP(used_vectors, NR_VECTORS);
-EXPORT_SYMBOL_GPL(used_vectors);
+/* DISABLED: EXPORT_SYMBOL_GPL(used_vectors); */
 
 static inline void conditional_sti(struct pt_regs *regs)
 {
@@ -658,7 +658,7 @@ void math_state_restore(void)
 
 	tsk->fpu_counter++;
 }
-EXPORT_SYMBOL_GPL(math_state_restore);
+/* DISABLED: EXPORT_SYMBOL_GPL(math_state_restore); */
 
 dotraplinkage void __kprobes
 do_device_not_available(struct pt_regs *regs, long error_code)

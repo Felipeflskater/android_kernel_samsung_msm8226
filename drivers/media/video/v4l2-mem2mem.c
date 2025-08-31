@@ -85,7 +85,7 @@ struct vb2_queue *v4l2_m2m_get_vq(struct v4l2_m2m_ctx *m2m_ctx,
 
 	return &q_ctx->q;
 }
-EXPORT_SYMBOL(v4l2_m2m_get_vq);
+/* DISABLED: EXPORT_SYMBOL(v4l2_m2m_get_vq); */
 
 /**
  * v4l2_m2m_next_buf() - return next buffer from the list of ready buffers
@@ -106,7 +106,7 @@ void *v4l2_m2m_next_buf(struct v4l2_m2m_queue_ctx *q_ctx)
 	spin_unlock_irqrestore(&q_ctx->rdy_spinlock, flags);
 	return &b->vb;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_next_buf);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_next_buf); */
 
 /**
  * v4l2_m2m_buf_remove() - take off a buffer from the list of ready buffers and
@@ -129,7 +129,7 @@ void *v4l2_m2m_buf_remove(struct v4l2_m2m_queue_ctx *q_ctx)
 
 	return &b->vb;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_buf_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_buf_remove); */
 
 /*
  * Scheduling handlers
@@ -151,7 +151,7 @@ void *v4l2_m2m_get_curr_priv(struct v4l2_m2m_dev *m2m_dev)
 
 	return ret;
 }
-EXPORT_SYMBOL(v4l2_m2m_get_curr_priv);
+/* DISABLED: EXPORT_SYMBOL(v4l2_m2m_get_curr_priv); */
 
 /**
  * v4l2_m2m_try_run() - select next job to perform and run it if possible
@@ -287,7 +287,7 @@ void v4l2_m2m_job_finish(struct v4l2_m2m_dev *m2m_dev,
 	v4l2_m2m_try_schedule(m2m_ctx);
 	v4l2_m2m_try_run(m2m_dev);
 }
-EXPORT_SYMBOL(v4l2_m2m_job_finish);
+/* DISABLED: EXPORT_SYMBOL(v4l2_m2m_job_finish); */
 
 /**
  * v4l2_m2m_reqbufs() - multi-queue-aware REQBUFS multiplexer
@@ -300,7 +300,7 @@ int v4l2_m2m_reqbufs(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 	vq = v4l2_m2m_get_vq(m2m_ctx, reqbufs->type);
 	return vb2_reqbufs(vq, reqbufs);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_reqbufs);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_reqbufs); */
 
 /**
  * v4l2_m2m_querybuf() - multi-queue-aware QUERYBUF multiplexer
@@ -330,7 +330,7 @@ int v4l2_m2m_querybuf(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_querybuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_querybuf); */
 
 /**
  * v4l2_m2m_qbuf() - enqueue a source or destination buffer, depending on
@@ -349,7 +349,7 @@ int v4l2_m2m_qbuf(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_qbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_qbuf); */
 
 /**
  * v4l2_m2m_dqbuf() - dequeue a source or destination buffer, depending on
@@ -363,7 +363,7 @@ int v4l2_m2m_dqbuf(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 	vq = v4l2_m2m_get_vq(m2m_ctx, buf->type);
 	return vb2_dqbuf(vq, buf, file->f_flags & O_NONBLOCK);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_dqbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_dqbuf); */
 
 /**
  * v4l2_m2m_streamon() - turn on streaming for a video queue
@@ -381,7 +381,7 @@ int v4l2_m2m_streamon(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_streamon);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_streamon); */
 
 /**
  * v4l2_m2m_streamoff() - turn off streaming for a video queue
@@ -394,7 +394,7 @@ int v4l2_m2m_streamoff(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 	vq = v4l2_m2m_get_vq(m2m_ctx, type);
 	return vb2_streamoff(vq, type);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_streamoff);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_streamoff); */
 
 /**
  * v4l2_m2m_poll() - poll replacement, for destination buffers only
@@ -456,7 +456,7 @@ unsigned int v4l2_m2m_poll(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 end:
 	return rc;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_poll);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_poll); */
 
 /**
  * v4l2_m2m_mmap() - source and destination queues-aware mmap multiplexer
@@ -483,7 +483,7 @@ int v4l2_m2m_mmap(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
 
 	return vb2_mmap(vq, vma);
 }
-EXPORT_SYMBOL(v4l2_m2m_mmap);
+/* DISABLED: EXPORT_SYMBOL(v4l2_m2m_mmap); */
 
 /**
  * v4l2_m2m_init() - initialize per-driver m2m data
@@ -511,7 +511,7 @@ struct v4l2_m2m_dev *v4l2_m2m_init(struct v4l2_m2m_ops *m2m_ops)
 
 	return m2m_dev;
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_init); */
 
 /**
  * v4l2_m2m_release() - cleans up and frees a m2m_dev structure
@@ -522,7 +522,7 @@ void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev)
 {
 	kfree(m2m_dev);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_release); */
 
 /**
  * v4l2_m2m_ctx_init() - allocate and initialize a m2m context
@@ -569,7 +569,7 @@ err:
 	kfree(m2m_ctx);
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_ctx_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_ctx_init); */
 
 /**
  * v4l2_m2m_ctx_release() - release m2m context
@@ -605,7 +605,7 @@ void v4l2_m2m_ctx_release(struct v4l2_m2m_ctx *m2m_ctx)
 
 	kfree(m2m_ctx);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_ctx_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_ctx_release); */
 
 /**
  * v4l2_m2m_buf_queue() - add a buffer to the proper ready buffers list.
@@ -627,5 +627,5 @@ void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *m2m_ctx, struct vb2_buffer *vb)
 	q_ctx->num_rdy++;
 	spin_unlock_irqrestore(&q_ctx->rdy_spinlock, flags);
 }
-EXPORT_SYMBOL_GPL(v4l2_m2m_buf_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_m2m_buf_queue); */
 

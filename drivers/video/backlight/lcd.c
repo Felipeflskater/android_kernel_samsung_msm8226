@@ -222,7 +222,7 @@ struct lcd_device *lcd_device_register(const char *name, struct device *parent,
 
 	return new_ld;
 }
-EXPORT_SYMBOL(lcd_device_register);
+/* DISABLED: EXPORT_SYMBOL(lcd_device_register); */
 
 /**
  * lcd_device_unregister - unregisters a object of lcd_device class.
@@ -242,7 +242,7 @@ void lcd_device_unregister(struct lcd_device *ld)
 
 	device_unregister(&ld->dev);
 }
-EXPORT_SYMBOL(lcd_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(lcd_device_unregister); */
 
 static void __exit lcd_class_exit(void)
 {

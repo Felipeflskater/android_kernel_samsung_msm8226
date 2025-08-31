@@ -22,7 +22,7 @@ u8 *ecryptfs_get_auth_tok_key(struct ecryptfs_auth_tok *auth_tok)
 {
 	return auth_tok->token.password.session_key_encryption_key;
 }
-EXPORT_SYMBOL(ecryptfs_get_auth_tok_key);
+/* DISABLED: EXPORT_SYMBOL(ecryptfs_get_auth_tok_key); */
 
 /*
  * ecryptfs_get_versions()
@@ -37,7 +37,7 @@ void ecryptfs_get_versions(int *major, int *minor, int *file_version)
 	if (file_version)
 		*file_version = ECRYPTFS_SUPPORTED_FILE_VERSION;
 }
-EXPORT_SYMBOL(ecryptfs_get_versions);
+/* DISABLED: EXPORT_SYMBOL(ecryptfs_get_versions); */
 
 /*
  * ecryptfs_fill_auth_tok - fill the ecryptfs_auth_tok structure
@@ -76,6 +76,6 @@ int ecryptfs_fill_auth_tok(struct ecryptfs_auth_tok *auth_tok,
 	auth_tok->token.password.flags &= ~(ECRYPTFS_PERSISTENT_PASSWORD);
 	return 0;
 }
-EXPORT_SYMBOL(ecryptfs_fill_auth_tok);
+/* DISABLED: EXPORT_SYMBOL(ecryptfs_fill_auth_tok); */
 
 MODULE_LICENSE("GPL");

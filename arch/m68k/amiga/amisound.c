@@ -31,7 +31,7 @@ static const signed char sine_data[] = {
      */
 
 volatile unsigned short amiga_audio_min_period = 124; /* Default for pre-OCS */
-EXPORT_SYMBOL(amiga_audio_min_period);
+/* DISABLED: EXPORT_SYMBOL(amiga_audio_min_period); */
 
 #define MAX_PERIOD	(65535)
 
@@ -41,7 +41,7 @@ EXPORT_SYMBOL(amiga_audio_min_period);
      */
 
 unsigned short amiga_audio_period = MAX_PERIOD;
-EXPORT_SYMBOL(amiga_audio_period);
+/* DISABLED: EXPORT_SYMBOL(amiga_audio_period); */
 
 static unsigned long clock_constant;
 

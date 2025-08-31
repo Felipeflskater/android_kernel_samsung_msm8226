@@ -562,10 +562,10 @@ titan_is_mmio(const volatile void __iomem *xaddr)
 }
 
 #ifndef CONFIG_ALPHA_GENERIC
-EXPORT_SYMBOL(titan_ioportmap);
-EXPORT_SYMBOL(titan_ioremap);
-EXPORT_SYMBOL(titan_iounmap);
-EXPORT_SYMBOL(titan_is_mmio);
+/* DISABLED: EXPORT_SYMBOL(titan_ioportmap); */
+/* DISABLED: EXPORT_SYMBOL(titan_ioremap); */
+/* DISABLED: EXPORT_SYMBOL(titan_iounmap); */
+/* DISABLED: EXPORT_SYMBOL(titan_is_mmio); */
 #endif
 
 /*

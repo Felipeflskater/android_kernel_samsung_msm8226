@@ -200,15 +200,15 @@ fsm_modtimer(fsm_timer *this, int millisec, int event, void *arg)
 	add_timer(&this->tl);
 }
 
-EXPORT_SYMBOL(init_fsm);
-EXPORT_SYMBOL(kfree_fsm);
-EXPORT_SYMBOL(fsm_settimer);
-EXPORT_SYMBOL(fsm_deltimer);
-EXPORT_SYMBOL(fsm_addtimer);
-EXPORT_SYMBOL(fsm_modtimer);
-EXPORT_SYMBOL(fsm_getstate_str);
+/* DISABLED: EXPORT_SYMBOL(init_fsm); */
+/* DISABLED: EXPORT_SYMBOL(kfree_fsm); */
+/* DISABLED: EXPORT_SYMBOL(fsm_settimer); */
+/* DISABLED: EXPORT_SYMBOL(fsm_deltimer); */
+/* DISABLED: EXPORT_SYMBOL(fsm_addtimer); */
+/* DISABLED: EXPORT_SYMBOL(fsm_modtimer); */
+/* DISABLED: EXPORT_SYMBOL(fsm_getstate_str); */
 
 #if FSM_DEBUG_HISTORY
-EXPORT_SYMBOL(fsm_print_history);
-EXPORT_SYMBOL(fsm_record_history);
+/* DISABLED: EXPORT_SYMBOL(fsm_print_history); */
+/* DISABLED: EXPORT_SYMBOL(fsm_record_history); */
 #endif

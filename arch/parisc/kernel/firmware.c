@@ -218,7 +218,7 @@ int pdc_add_valid(unsigned long address)
 
         return retval;
 }
-EXPORT_SYMBOL(pdc_add_valid);
+/* DISABLED: EXPORT_SYMBOL(pdc_add_valid); */
 
 /**
  * pdc_chassis_info - Return chassis information.
@@ -361,7 +361,7 @@ int pdc_iodc_read(unsigned long *actcnt, unsigned long hpa, unsigned int index,
 
 	return retval;
 }
-EXPORT_SYMBOL(pdc_iodc_read);
+/* DISABLED: EXPORT_SYMBOL(pdc_iodc_read); */
 
 /**
  * pdc_system_map_find_mods - Locate unarchitected modules.
@@ -654,7 +654,7 @@ int pdc_lan_station_id(char *lan_addr, unsigned long hpa)
 
 	return retval;
 }
-EXPORT_SYMBOL(pdc_lan_station_id);
+/* DISABLED: EXPORT_SYMBOL(pdc_lan_station_id); */
 
 /**
  * pdc_stable_read - Read data from Stable Storage.
@@ -680,7 +680,7 @@ int pdc_stable_read(unsigned long staddr, void *memaddr, unsigned long count)
 
        return retval;
 }
-EXPORT_SYMBOL(pdc_stable_read);
+/* DISABLED: EXPORT_SYMBOL(pdc_stable_read); */
 
 /**
  * pdc_stable_write - Write data to Stable Storage.
@@ -706,7 +706,7 @@ int pdc_stable_write(unsigned long staddr, void *memaddr, unsigned long count)
 
        return retval;
 }
-EXPORT_SYMBOL(pdc_stable_write);
+/* DISABLED: EXPORT_SYMBOL(pdc_stable_write); */
 
 /**
  * pdc_stable_get_size - Get Stable Storage size in bytes.
@@ -729,7 +729,7 @@ int pdc_stable_get_size(unsigned long *size)
 
        return retval;
 }
-EXPORT_SYMBOL(pdc_stable_get_size);
+/* DISABLED: EXPORT_SYMBOL(pdc_stable_get_size); */
 
 /**
  * pdc_stable_verify_contents - Checks that Stable Storage contents are valid.
@@ -748,7 +748,7 @@ int pdc_stable_verify_contents(void)
 
        return retval;
 }
-EXPORT_SYMBOL(pdc_stable_verify_contents);
+/* DISABLED: EXPORT_SYMBOL(pdc_stable_verify_contents); */
 
 /**
  * pdc_stable_initialize - Sets Stable Storage contents to zero and initialize
@@ -767,7 +767,7 @@ int pdc_stable_initialize(void)
 
        return retval;
 }
-EXPORT_SYMBOL(pdc_stable_initialize);
+/* DISABLED: EXPORT_SYMBOL(pdc_stable_initialize); */
 
 /**
  * pdc_get_initiator - Get the SCSI Interface Card params (SCSI ID, SDTR, SE or LVD)
@@ -832,7 +832,7 @@ int pdc_get_initiator(struct hardware_path *hwpath, struct pdc_initiator *initia
 
 	return (retval >= PDC_OK);
 }
-EXPORT_SYMBOL(pdc_get_initiator);
+/* DISABLED: EXPORT_SYMBOL(pdc_get_initiator); */
 
 
 /**
@@ -953,7 +953,7 @@ int pdc_tod_read(struct pdc_tod *tod)
 
         return retval;
 }
-EXPORT_SYMBOL(pdc_tod_read);
+/* DISABLED: EXPORT_SYMBOL(pdc_tod_read); */
 
 /**
  * pdc_tod_set - Set the Time-Of-Day clock.
@@ -973,7 +973,7 @@ int pdc_tod_set(unsigned long sec, unsigned long usec)
 
         return retval;
 }
-EXPORT_SYMBOL(pdc_tod_set);
+/* DISABLED: EXPORT_SYMBOL(pdc_tod_set); */
 
 #ifdef CONFIG_64BIT
 int pdc_mem_mem_table(struct pdc_memory_table_raddr *r_addr,
@@ -1196,7 +1196,7 @@ int pdc_sti_call(unsigned long func, unsigned long flags,
 
         return retval;
 }
-EXPORT_SYMBOL(pdc_sti_call);
+/* DISABLED: EXPORT_SYMBOL(pdc_sti_call); */
 
 #ifdef CONFIG_64BIT
 /**

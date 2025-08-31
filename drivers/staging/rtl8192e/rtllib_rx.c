@@ -1496,7 +1496,7 @@ int rtllib_rx(struct rtllib_device *ieee, struct sk_buff *skb,
 	ieee->stats.rx_dropped++;
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_rx);
+/* DISABLED: EXPORT_SYMBOL(rtllib_rx); */
 
 static u8 qos_oui[QOS_OUI_LEN] = { 0x00, 0x50, 0xF2 };
 
@@ -2503,7 +2503,7 @@ int rtllib_legal_channel(struct rtllib_device *rtllib, u8 channel)
 
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_legal_channel);
+/* DISABLED: EXPORT_SYMBOL(rtllib_legal_channel); */
 
 static inline void rtllib_process_probe_response(
 	struct rtllib_device *ieee,

@@ -225,7 +225,7 @@ void sharpsl_battery_kick(void)
 {
 	schedule_delayed_work(&sharpsl_bat, msecs_to_jiffies(125));
 }
-EXPORT_SYMBOL(sharpsl_battery_kick);
+/* DISABLED: EXPORT_SYMBOL(sharpsl_battery_kick); */
 
 
 static void sharpsl_battery_thread(struct work_struct *private_)

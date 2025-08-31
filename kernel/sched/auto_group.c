@@ -161,14 +161,14 @@ void sched_autogroup_create_attach(struct task_struct *p)
 	/* drop extra reference added by autogroup_create() */
 	autogroup_kref_put(ag);
 }
-EXPORT_SYMBOL(sched_autogroup_create_attach);
+/* DISABLED: EXPORT_SYMBOL(sched_autogroup_create_attach); */
 
 /* Cannot be called under siglock.  Currently has no users */
 void sched_autogroup_detach(struct task_struct *p)
 {
 	autogroup_move_group(p, &autogroup_default);
 }
-EXPORT_SYMBOL(sched_autogroup_detach);
+/* DISABLED: EXPORT_SYMBOL(sched_autogroup_detach); */
 
 void sched_autogroup_fork(struct signal_struct *sig)
 {
@@ -187,7 +187,7 @@ static int __init setup_autogroup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("noautogroup", setup_autogroup); */
+/* DISABLED: __setup("noautogroup", setup_autogroup); */ */
 
 #ifdef CONFIG_PROC_FS
 

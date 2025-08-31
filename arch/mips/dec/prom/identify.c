@@ -63,7 +63,7 @@ const char *get_system_type(void)
  */
 volatile u8 *dec_rtc_base;
 
-EXPORT_SYMBOL(dec_rtc_base);
+/* DISABLED: EXPORT_SYMBOL(dec_rtc_base); */
 
 static inline void prom_init_kn01(void)
 {

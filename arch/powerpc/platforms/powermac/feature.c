@@ -86,7 +86,7 @@ struct macio_chip *macio_find(struct device_node *child, int type)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(macio_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(macio_find); */
 
 static const char *macio_names[] =
 {
@@ -2994,7 +2994,7 @@ void pmac_set_early_video_resume(void (*proc)(void *data), void *data)
 	pmac_early_vresume_data = data;
 	preempt_enable();
 }
-EXPORT_SYMBOL(pmac_set_early_video_resume);
+/* DISABLED: EXPORT_SYMBOL(pmac_set_early_video_resume); */
 
 void pmac_call_early_video_resume(void)
 {
@@ -3025,7 +3025,7 @@ void pmac_register_agp_pm(struct pci_dev *bridge,
 	pmac_agp_suspend = pmac_agp_resume = NULL;
 	return;
 }
-EXPORT_SYMBOL(pmac_register_agp_pm);
+/* DISABLED: EXPORT_SYMBOL(pmac_register_agp_pm); */
 
 void pmac_suspend_agp_for_card(struct pci_dev *dev)
 {
@@ -3035,7 +3035,7 @@ void pmac_suspend_agp_for_card(struct pci_dev *dev)
 		return;
 	pmac_agp_suspend(pmac_agp_bridge);
 }
-EXPORT_SYMBOL(pmac_suspend_agp_for_card);
+/* DISABLED: EXPORT_SYMBOL(pmac_suspend_agp_for_card); */
 
 void pmac_resume_agp_for_card(struct pci_dev *dev)
 {
@@ -3045,7 +3045,7 @@ void pmac_resume_agp_for_card(struct pci_dev *dev)
 		return;
 	pmac_agp_resume(pmac_agp_bridge);
 }
-EXPORT_SYMBOL(pmac_resume_agp_for_card);
+/* DISABLED: EXPORT_SYMBOL(pmac_resume_agp_for_card); */
 
 int pmac_get_uninorth_variant(void)
 {

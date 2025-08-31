@@ -239,7 +239,7 @@ void ps3_os_area_flash_register(const struct ps3_os_area_flash_ops *ops)
 	os_area_flash_ops = ops;
 	mutex_unlock(&os_area_flash_mutex);
 }
-EXPORT_SYMBOL_GPL(ps3_os_area_flash_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_os_area_flash_register); */
 
 static ssize_t os_area_flash_read(void *buf, size_t count, loff_t pos)
 {
@@ -822,7 +822,7 @@ u64 ps3_os_area_get_rtc_diff(void)
 {
 	return saved_params.rtc_diff;
 }
-EXPORT_SYMBOL_GPL(ps3_os_area_get_rtc_diff);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_os_area_get_rtc_diff); */
 
 /**
  * ps3_os_area_set_rtc_diff - Set the rtc diff value.
@@ -838,7 +838,7 @@ void ps3_os_area_set_rtc_diff(u64 rtc_diff)
 		os_area_queue_work();
 	}
 }
-EXPORT_SYMBOL_GPL(ps3_os_area_set_rtc_diff);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_os_area_set_rtc_diff); */
 
 /**
  * ps3_os_area_get_av_multi_out - Returns the default video mode.
@@ -848,4 +848,4 @@ enum ps3_param_av_multi_out ps3_os_area_get_av_multi_out(void)
 {
     return saved_params.av_multi_out;
 }
-EXPORT_SYMBOL_GPL(ps3_os_area_get_av_multi_out);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_os_area_get_av_multi_out); */

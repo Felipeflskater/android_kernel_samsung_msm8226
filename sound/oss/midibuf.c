@@ -421,5 +421,5 @@ int MIDIbuf_avail(int dev)
 		return DATA_AVAIL (midi_in_buf[dev]);
 	return 0;
 }
-EXPORT_SYMBOL(MIDIbuf_avail);
+/* DISABLED: EXPORT_SYMBOL(MIDIbuf_avail); */
 

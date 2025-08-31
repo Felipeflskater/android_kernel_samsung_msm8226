@@ -57,7 +57,7 @@ unsigned long __generic_copy_from_user(void *to, const void __user *from,
 
 	return res;
 }
-EXPORT_SYMBOL(__generic_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(__generic_copy_from_user); */
 
 unsigned long __generic_copy_to_user(void __user *to, const void *from,
 				     unsigned long n)
@@ -101,7 +101,7 @@ unsigned long __generic_copy_to_user(void __user *to, const void *from,
 
 	return res;
 }
-EXPORT_SYMBOL(__generic_copy_to_user);
+/* DISABLED: EXPORT_SYMBOL(__generic_copy_to_user); */
 
 /*
  * Copy a null terminated string from userspace.
@@ -137,7 +137,7 @@ long strncpy_from_user(char *dst, const char __user *src, long count)
 
 	return res;
 }
-EXPORT_SYMBOL(strncpy_from_user);
+/* DISABLED: EXPORT_SYMBOL(strncpy_from_user); */
 
 /*
  * Return the size of a string (including the ending 0)
@@ -175,7 +175,7 @@ long strnlen_user(const char __user *src, long n)
 
 	return res;
 }
-EXPORT_SYMBOL(strnlen_user);
+/* DISABLED: EXPORT_SYMBOL(strnlen_user); */
 
 /*
  * Zero Userspace
@@ -219,4 +219,4 @@ unsigned long __clear_user(void __user *to, unsigned long n)
 
     return res;
 }
-EXPORT_SYMBOL(__clear_user);
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */

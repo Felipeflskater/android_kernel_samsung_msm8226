@@ -464,7 +464,7 @@ struct tsap_cb *irttp_open_tsap(__u8 stsap_sel, int credit, notify_t *notify)
 
 	return self;
 }
-EXPORT_SYMBOL(irttp_open_tsap);
+/* DISABLED: EXPORT_SYMBOL(irttp_open_tsap); */
 
 /*
  * Function irttp_close (handle)
@@ -541,7 +541,7 @@ int irttp_close_tsap(struct tsap_cb *self)
 
 	return 0;
 }
-EXPORT_SYMBOL(irttp_close_tsap);
+/* DISABLED: EXPORT_SYMBOL(irttp_close_tsap); */
 
 /*
  * Function irttp_udata_request (self, skb)
@@ -587,7 +587,7 @@ err:
 	dev_kfree_skb(skb);
 	return ret;
 }
-EXPORT_SYMBOL(irttp_udata_request);
+/* DISABLED: EXPORT_SYMBOL(irttp_udata_request); */
 
 
 /*
@@ -705,7 +705,7 @@ err:
 	dev_kfree_skb(skb);
 	return ret;
 }
-EXPORT_SYMBOL(irttp_data_request);
+/* DISABLED: EXPORT_SYMBOL(irttp_data_request); */
 
 /*
  * Function irttp_run_tx_queue (self)
@@ -1092,7 +1092,7 @@ void irttp_flow_request(struct tsap_cb *self, LOCAL_FLOW flow)
 		IRDA_DEBUG(1, "%s(), Unknown flow command!\n", __func__);
 	}
 }
-EXPORT_SYMBOL(irttp_flow_request);
+/* DISABLED: EXPORT_SYMBOL(irttp_flow_request); */
 
 /*
  * Function irttp_connect_request (self, dtsap_sel, daddr, qos)
@@ -1189,7 +1189,7 @@ int irttp_connect_request(struct tsap_cb *self, __u8 dtsap_sel,
 	return irlmp_connect_request(self->lsap, dtsap_sel, saddr, daddr, qos,
 				     tx_skb);
 }
-EXPORT_SYMBOL(irttp_connect_request);
+/* DISABLED: EXPORT_SYMBOL(irttp_connect_request); */
 
 /*
  * Function irttp_connect_confirm (handle, qos, skb)
@@ -1435,7 +1435,7 @@ int irttp_connect_response(struct tsap_cb *self, __u32 max_sdu_size,
 
 	return ret;
 }
-EXPORT_SYMBOL(irttp_connect_response);
+/* DISABLED: EXPORT_SYMBOL(irttp_connect_response); */
 
 /*
  * Function irttp_dup (self, instance)
@@ -1491,7 +1491,7 @@ struct tsap_cb *irttp_dup(struct tsap_cb *orig, void *instance)
 
 	return new;
 }
-EXPORT_SYMBOL(irttp_dup);
+/* DISABLED: EXPORT_SYMBOL(irttp_dup); */
 
 /*
  * Function irttp_disconnect_request (self)
@@ -1586,7 +1586,7 @@ int irttp_disconnect_request(struct tsap_cb *self, struct sk_buff *userdata,
 
 	return ret;
 }
-EXPORT_SYMBOL(irttp_disconnect_request);
+/* DISABLED: EXPORT_SYMBOL(irttp_disconnect_request); */
 
 /*
  * Function irttp_disconnect_indication (self, reason)

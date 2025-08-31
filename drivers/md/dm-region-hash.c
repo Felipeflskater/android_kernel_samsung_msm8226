@@ -122,31 +122,31 @@ sector_t dm_rh_region_to_sector(struct dm_region_hash *rh, region_t region)
 {
 	return region << rh->region_shift;
 }
-EXPORT_SYMBOL_GPL(dm_rh_region_to_sector);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_region_to_sector); */
 
 region_t dm_rh_bio_to_region(struct dm_region_hash *rh, struct bio *bio)
 {
 	return dm_rh_sector_to_region(rh, bio->bi_sector - rh->target_begin);
 }
-EXPORT_SYMBOL_GPL(dm_rh_bio_to_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_bio_to_region); */
 
 void *dm_rh_region_context(struct dm_region *reg)
 {
 	return reg->rh->context;
 }
-EXPORT_SYMBOL_GPL(dm_rh_region_context);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_region_context); */
 
 region_t dm_rh_get_region_key(struct dm_region *reg)
 {
 	return reg->key;
 }
-EXPORT_SYMBOL_GPL(dm_rh_get_region_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_get_region_key); */
 
 sector_t dm_rh_get_region_size(struct dm_region_hash *rh)
 {
 	return rh->region_size;
 }
-EXPORT_SYMBOL_GPL(dm_rh_get_region_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_get_region_size); */
 
 /*
  * FIXME: shall we pass in a structure instead of all these args to
@@ -229,7 +229,7 @@ struct dm_region_hash *dm_region_hash_create(
 
 	return rh;
 }
-EXPORT_SYMBOL_GPL(dm_region_hash_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_region_hash_create); */
 
 void dm_region_hash_destroy(struct dm_region_hash *rh)
 {
@@ -254,13 +254,13 @@ void dm_region_hash_destroy(struct dm_region_hash *rh)
 	vfree(rh->buckets);
 	kfree(rh);
 }
-EXPORT_SYMBOL_GPL(dm_region_hash_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_region_hash_destroy); */
 
 struct dm_dirty_log *dm_rh_dirty_log(struct dm_region_hash *rh)
 {
 	return rh->log;
 }
-EXPORT_SYMBOL_GPL(dm_rh_dirty_log);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_dirty_log); */
 
 static unsigned rh_hash(struct dm_region_hash *rh, region_t region)
 {
@@ -358,7 +358,7 @@ int dm_rh_get_state(struct dm_region_hash *rh, region_t region, int may_block)
 	 */
 	return r == 1 ? DM_RH_CLEAN : DM_RH_NOSYNC;
 }
-EXPORT_SYMBOL_GPL(dm_rh_get_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_get_state); */
 
 static void complete_resync_work(struct dm_region *reg, int success)
 {
@@ -434,7 +434,7 @@ void dm_rh_mark_nosync(struct dm_region_hash *rh, struct bio *bio)
 	if (recovering)
 		complete_resync_work(reg, 0);
 }
-EXPORT_SYMBOL_GPL(dm_rh_mark_nosync);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_mark_nosync); */
 
 void dm_rh_update_states(struct dm_region_hash *rh, int errors_handled)
 {
@@ -497,7 +497,7 @@ void dm_rh_update_states(struct dm_region_hash *rh, int errors_handled)
 
 	rh->log->type->flush(rh->log);
 }
-EXPORT_SYMBOL_GPL(dm_rh_update_states);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_update_states); */
 
 static void rh_inc(struct dm_region_hash *rh, region_t region)
 {
@@ -532,7 +532,7 @@ void dm_rh_inc_pending(struct dm_region_hash *rh, struct bio_list *bios)
 		rh_inc(rh, dm_rh_bio_to_region(rh, bio));
 	}
 }
-EXPORT_SYMBOL_GPL(dm_rh_inc_pending);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_inc_pending); */
 
 void dm_rh_dec(struct dm_region_hash *rh, region_t region)
 {
@@ -578,7 +578,7 @@ void dm_rh_dec(struct dm_region_hash *rh, region_t region)
 	if (should_wake)
 		rh->wakeup_workers(rh->context);
 }
-EXPORT_SYMBOL_GPL(dm_rh_dec);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_dec); */
 
 /*
  * Starts quiescing a region in preparation for recovery.
@@ -636,7 +636,7 @@ void dm_rh_recovery_prepare(struct dm_region_hash *rh)
 	if (atomic_dec_and_test(&rh->recovery_in_flight))
 		rh->wakeup_all_recovery_waiters(rh->context);
 }
-EXPORT_SYMBOL_GPL(dm_rh_recovery_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_recovery_prepare); */
 
 /*
  * Returns any quiesced regions.
@@ -655,7 +655,7 @@ struct dm_region *dm_rh_recovery_start(struct dm_region_hash *rh)
 
 	return reg;
 }
-EXPORT_SYMBOL_GPL(dm_rh_recovery_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_recovery_start); */
 
 void dm_rh_recovery_end(struct dm_region *reg, int success)
 {
@@ -671,20 +671,20 @@ void dm_rh_recovery_end(struct dm_region *reg, int success)
 
 	rh->wakeup_workers(rh->context);
 }
-EXPORT_SYMBOL_GPL(dm_rh_recovery_end);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_recovery_end); */
 
 /* Return recovery in flight count. */
 int dm_rh_recovery_in_flight(struct dm_region_hash *rh)
 {
 	return atomic_read(&rh->recovery_in_flight);
 }
-EXPORT_SYMBOL_GPL(dm_rh_recovery_in_flight);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_recovery_in_flight); */
 
 int dm_rh_flush(struct dm_region_hash *rh)
 {
 	return rh->log->type->flush(rh->log);
 }
-EXPORT_SYMBOL_GPL(dm_rh_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_flush); */
 
 void dm_rh_delay(struct dm_region_hash *rh, struct bio *bio)
 {
@@ -695,7 +695,7 @@ void dm_rh_delay(struct dm_region_hash *rh, struct bio *bio)
 	bio_list_add(&reg->delayed_bios, bio);
 	read_unlock(&rh->hash_lock);
 }
-EXPORT_SYMBOL_GPL(dm_rh_delay);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_delay); */
 
 void dm_rh_stop_recovery(struct dm_region_hash *rh)
 {
@@ -705,7 +705,7 @@ void dm_rh_stop_recovery(struct dm_region_hash *rh)
 	for (i = 0; i < rh->max_recovery; i++)
 		down(&rh->recovery_count);
 }
-EXPORT_SYMBOL_GPL(dm_rh_stop_recovery);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_stop_recovery); */
 
 void dm_rh_start_recovery(struct dm_region_hash *rh)
 {
@@ -716,7 +716,7 @@ void dm_rh_start_recovery(struct dm_region_hash *rh)
 
 	rh->wakeup_workers(rh->context);
 }
-EXPORT_SYMBOL_GPL(dm_rh_start_recovery);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_rh_start_recovery); */
 
 MODULE_DESCRIPTION(DM_NAME " region hash");
 MODULE_AUTHOR("Joe Thornber/Heinz Mauelshagen <dm-devel@redhat.com>");

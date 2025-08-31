@@ -710,7 +710,7 @@ int tm6000_xc5000_callback(void *ptr, int component, int command, int arg)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tm6000_xc5000_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_xc5000_callback); */
 
 /* Tuner callback to provide the proper gpio changes needed for xc2028 */
 
@@ -795,7 +795,7 @@ int tm6000_tuner_callback(void *ptr, int component, int command, int arg)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(tm6000_tuner_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_tuner_callback); */
 
 int tm6000_cards_setup(struct tm6000_core *dev)
 {

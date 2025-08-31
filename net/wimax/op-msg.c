@@ -170,7 +170,7 @@ error_new:
 	nlmsg_free(skb);
 	return ERR_PTR(result);
 }
-EXPORT_SYMBOL_GPL(wimax_msg_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg_alloc); */
 
 
 /**
@@ -195,7 +195,7 @@ const void *wimax_msg_data_len(struct sk_buff *msg, size_t *size)
 	*size = nla_len(nla);
 	return nla_data(nla);
 }
-EXPORT_SYMBOL_GPL(wimax_msg_data_len);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg_data_len); */
 
 
 /**
@@ -216,7 +216,7 @@ const void *wimax_msg_data(struct sk_buff *msg)
 	}
 	return nla_data(nla);
 }
-EXPORT_SYMBOL_GPL(wimax_msg_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg_data); */
 
 
 /**
@@ -237,7 +237,7 @@ ssize_t wimax_msg_len(struct sk_buff *msg)
 	}
 	return nla_len(nla);
 }
-EXPORT_SYMBOL_GPL(wimax_msg_len);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg_len); */
 
 
 /**
@@ -283,7 +283,7 @@ int wimax_msg_send(struct wimax_dev *wimax_dev, struct sk_buff *skb)
 	d_printf(1, dev, "CTX: genl multicast done\n");
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wimax_msg_send);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg_send); */
 
 
 /**
@@ -319,7 +319,7 @@ int wimax_msg(struct wimax_dev *wimax_dev, const char *pipe_name,
 		result = wimax_msg_send(wimax_dev, skb);
 	return result;
 }
-EXPORT_SYMBOL_GPL(wimax_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_msg); */
 
 
 static const struct nla_policy wimax_gnl_msg_policy[WIMAX_GNL_ATTR_MAX + 1] = {

@@ -548,7 +548,7 @@ bool sirfsoc_dma_filter_id(struct dma_chan *chan, void *chan_id)
 
 	return false;
 }
-EXPORT_SYMBOL(sirfsoc_dma_filter_id);
+/* DISABLED: EXPORT_SYMBOL(sirfsoc_dma_filter_id); */
 
 static int __devinit sirfsoc_dma_probe(struct platform_device *op)
 {

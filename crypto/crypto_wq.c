@@ -17,7 +17,7 @@
 #include <crypto/crypto_wq.h>
 
 struct workqueue_struct *kcrypto_wq;
-EXPORT_SYMBOL_GPL(kcrypto_wq);
+/* DISABLED: EXPORT_SYMBOL_GPL(kcrypto_wq); */
 
 static int __init crypto_wq_init(void)
 {

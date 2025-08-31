@@ -63,7 +63,7 @@ int reserve_pmc_hardware(perf_irq_t new_perf_irq)
 	raw_spin_unlock(&pmc_owner_lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(reserve_pmc_hardware);
+/* DISABLED: EXPORT_SYMBOL_GPL(reserve_pmc_hardware); */
 
 void release_pmc_hardware(void)
 {
@@ -76,7 +76,7 @@ void release_pmc_hardware(void)
 
 	raw_spin_unlock(&pmc_owner_lock);
 }
-EXPORT_SYMBOL_GPL(release_pmc_hardware);
+/* DISABLED: EXPORT_SYMBOL_GPL(release_pmc_hardware); */
 
 #ifdef CONFIG_PPC64
 void power4_enable_pmcs(void)

@@ -91,7 +91,7 @@ bool irq_work_queue(struct irq_work *work)
 	__irq_work_queue(work);
 	return true;
 }
-EXPORT_SYMBOL_GPL(irq_work_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_work_queue); */
 
 /*
  * Run the irq_work entries on this cpu. Requires to be ran from hardirq
@@ -129,7 +129,7 @@ void irq_work_run(void)
 		(void)cmpxchg(&work->flags, IRQ_WORK_BUSY, 0);
 	}
 }
-EXPORT_SYMBOL_GPL(irq_work_run);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_work_run); */
 
 /*
  * Synchronize against the irq_work @entry, ensures the entry is not
@@ -142,4 +142,4 @@ void irq_work_sync(struct irq_work *work)
 	while (work->flags & IRQ_WORK_BUSY)
 		cpu_relax();
 }
-EXPORT_SYMBOL_GPL(irq_work_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_work_sync); */

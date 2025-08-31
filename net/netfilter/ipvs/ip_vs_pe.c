@@ -113,7 +113,7 @@ int register_ip_vs_pe(struct ip_vs_pe *pe)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(register_ip_vs_pe);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_ip_vs_pe); */
 
 /* Unregister a pe from the pe list */
 int unregister_ip_vs_pe(struct ip_vs_pe *pe)
@@ -137,4 +137,4 @@ int unregister_ip_vs_pe(struct ip_vs_pe *pe)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(unregister_ip_vs_pe);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_ip_vs_pe); */

@@ -493,7 +493,7 @@ void *wcd9xxx_mbhc_cal_btn_det_mp(
 
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_mbhc_cal_btn_det_mp);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_mbhc_cal_btn_det_mp); */
 
 static void wcd9xxx_calibrate_hs_polling(struct wcd9xxx_mbhc *mbhc)
 {
@@ -4483,7 +4483,7 @@ int wcd9xxx_mbhc_start(struct wcd9xxx_mbhc *mbhc,
 	pr_debug("%s: leave %d\n", __func__, rc);
 	return rc;
 }
-EXPORT_SYMBOL(wcd9xxx_mbhc_start);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_mbhc_start); */
 
 void wcd9xxx_mbhc_stop(struct wcd9xxx_mbhc *mbhc)
 {
@@ -4495,7 +4495,7 @@ void wcd9xxx_mbhc_stop(struct wcd9xxx_mbhc *mbhc)
 		mbhc->mbhc_cal = NULL;
 	}
 }
-EXPORT_SYMBOL(wcd9xxx_mbhc_stop);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_mbhc_stop); */
 
 static enum wcd9xxx_micbias_num
 wcd9xxx_event_to_micbias(const enum wcd9xxx_notify_event event)
@@ -5165,7 +5165,7 @@ err_insert_irq:
 	pr_debug("%s: leave ret %d\n", __func__, ret);
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_mbhc_init);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_mbhc_init); */
 
 void wcd9xxx_mbhc_deinit(struct wcd9xxx_mbhc *mbhc)
 {
@@ -5189,7 +5189,7 @@ void wcd9xxx_mbhc_deinit(struct wcd9xxx_mbhc *mbhc)
 
 	wake_lock_destroy(&det_wake_lock);
 }
-EXPORT_SYMBOL(wcd9xxx_mbhc_deinit);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_mbhc_deinit); */
 
 MODULE_DESCRIPTION("wcd9xxx MBHC module");
 MODULE_LICENSE("GPL v2");

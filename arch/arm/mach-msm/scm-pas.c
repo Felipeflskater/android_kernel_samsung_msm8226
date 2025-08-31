@@ -169,7 +169,7 @@ int pas_init_image(enum pas_id id, const u8 *metadata, size_t size)
 		return ret;
 	return scm_ret;
 }
-EXPORT_SYMBOL(pas_init_image);
+/* DISABLED: EXPORT_SYMBOL(pas_init_image); */
 
 int pas_mem_setup(enum pas_id id, u32 start_addr, u32 len)
 {
@@ -191,7 +191,7 @@ int pas_mem_setup(enum pas_id id, u32 start_addr, u32 len)
 		return ret;
 	return scm_ret;
 }
-EXPORT_SYMBOL(pas_mem_setup);
+/* DISABLED: EXPORT_SYMBOL(pas_mem_setup); */
 
 int pas_auth_and_reset(enum pas_id id)
 {
@@ -211,7 +211,7 @@ int pas_auth_and_reset(enum pas_id id)
 
 	return scm_ret;
 }
-EXPORT_SYMBOL(pas_auth_and_reset);
+/* DISABLED: EXPORT_SYMBOL(pas_auth_and_reset); */
 
 int pas_shutdown(enum pas_id id)
 {
@@ -225,7 +225,7 @@ int pas_shutdown(enum pas_id id)
 
 	return scm_ret;
 }
-EXPORT_SYMBOL(pas_shutdown);
+/* DISABLED: EXPORT_SYMBOL(pas_shutdown); */
 
 static bool secure_pil = true;
 module_param(secure_pil, bool, S_IRUGO);
@@ -256,7 +256,7 @@ int pas_supported(enum pas_id id)
 
 	return ret_val;
 }
-EXPORT_SYMBOL(pas_supported);
+/* DISABLED: EXPORT_SYMBOL(pas_supported); */
 
 void scm_pas_init(enum msm_bus_fabric_master_type id)
 {

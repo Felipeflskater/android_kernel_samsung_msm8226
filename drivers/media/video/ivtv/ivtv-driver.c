@@ -1477,22 +1477,22 @@ static void __exit module_cleanup(void)
 
 /* Note: These symbols are exported because they are used by the ivtvfb
    framebuffer module and an infrared module for the IR-blaster. */
-EXPORT_SYMBOL(ivtv_set_irq_mask);
-EXPORT_SYMBOL(ivtv_api);
-EXPORT_SYMBOL(ivtv_vapi);
-EXPORT_SYMBOL(ivtv_vapi_result);
-EXPORT_SYMBOL(ivtv_clear_irq_mask);
-EXPORT_SYMBOL(ivtv_debug);
+/* DISABLED: EXPORT_SYMBOL(ivtv_set_irq_mask); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_api); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_vapi); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_vapi_result); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_clear_irq_mask); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_debug); */
 #ifdef CONFIG_VIDEO_ADV_DEBUG
-EXPORT_SYMBOL(ivtv_fw_debug);
+/* DISABLED: EXPORT_SYMBOL(ivtv_fw_debug); */
 #endif
-EXPORT_SYMBOL(ivtv_reset_ir_gpio);
-EXPORT_SYMBOL(ivtv_udma_setup);
-EXPORT_SYMBOL(ivtv_udma_unmap);
-EXPORT_SYMBOL(ivtv_udma_alloc);
-EXPORT_SYMBOL(ivtv_udma_prepare);
-EXPORT_SYMBOL(ivtv_init_on_first_open);
-EXPORT_SYMBOL(ivtv_firmware_check);
+/* DISABLED: EXPORT_SYMBOL(ivtv_reset_ir_gpio); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_udma_setup); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_udma_unmap); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_udma_alloc); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_udma_prepare); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_init_on_first_open); */
+/* DISABLED: EXPORT_SYMBOL(ivtv_firmware_check); */
 
 module_init(module_start);
 module_exit(module_cleanup);

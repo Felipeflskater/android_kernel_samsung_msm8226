@@ -50,7 +50,7 @@ void p9stat_free(struct p9_wstat *stbuf)
 	kfree(stbuf->muid);
 	kfree(stbuf->extension);
 }
-EXPORT_SYMBOL(p9stat_free);
+/* DISABLED: EXPORT_SYMBOL(p9stat_free); */
 
 size_t pdu_read(struct p9_fcall *pdu, void *data, size_t size)
 {
@@ -540,7 +540,7 @@ int p9stat_read(struct p9_client *clnt, char *buf, int len, struct p9_wstat *st)
 
 	return ret;
 }
-EXPORT_SYMBOL(p9stat_read);
+/* DISABLED: EXPORT_SYMBOL(p9stat_read); */
 
 int p9pdu_prepare(struct p9_fcall *pdu, int16_t tag, int8_t type)
 {
@@ -596,4 +596,4 @@ int p9dirent_read(struct p9_client *clnt, char *buf, int len,
 out:
 	return fake_pdu.offset;
 }
-EXPORT_SYMBOL(p9dirent_read);
+/* DISABLED: EXPORT_SYMBOL(p9dirent_read); */

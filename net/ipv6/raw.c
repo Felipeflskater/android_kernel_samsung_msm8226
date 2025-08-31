@@ -133,7 +133,7 @@ int rawv6_mh_filter_register(mh_filter_t filter)
 	rcu_assign_pointer(mh_filter, filter);
 	return 0;
 }
-EXPORT_SYMBOL(rawv6_mh_filter_register);
+/* DISABLED: EXPORT_SYMBOL(rawv6_mh_filter_register); */
 
 int rawv6_mh_filter_unregister(mh_filter_t filter)
 {
@@ -141,7 +141,7 @@ int rawv6_mh_filter_unregister(mh_filter_t filter)
 	synchronize_rcu();
 	return 0;
 }
-EXPORT_SYMBOL(rawv6_mh_filter_unregister);
+/* DISABLED: EXPORT_SYMBOL(rawv6_mh_filter_unregister); */
 
 #endif
 

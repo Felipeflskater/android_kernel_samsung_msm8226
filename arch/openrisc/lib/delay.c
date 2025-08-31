@@ -35,7 +35,7 @@ void __delay(unsigned long cycles)
 	while (get_cycles() < target)
 		cpu_relax();
 }
-EXPORT_SYMBOL(__delay);
+/* DISABLED: EXPORT_SYMBOL(__delay); */
 
 inline void __const_udelay(unsigned long xloops)
 {
@@ -45,16 +45,16 @@ inline void __const_udelay(unsigned long xloops)
 
 	__delay(loops >> 32);
 }
-EXPORT_SYMBOL(__const_udelay);
+/* DISABLED: EXPORT_SYMBOL(__const_udelay); */
 
 void __udelay(unsigned long usecs)
 {
 	__const_udelay(usecs * 0x10C7UL); /* 2**32 / 1000000 (rounded up) */
 }
-EXPORT_SYMBOL(__udelay);
+/* DISABLED: EXPORT_SYMBOL(__udelay); */
 
 void __ndelay(unsigned long nsecs)
 {
 	__const_udelay(nsecs * 0x5UL); /* 2**32 / 1000000000 (rounded up) */
 }
-EXPORT_SYMBOL(__ndelay);
+/* DISABLED: EXPORT_SYMBOL(__ndelay); */

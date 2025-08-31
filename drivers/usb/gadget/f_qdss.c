@@ -246,7 +246,7 @@ void usb_qdss_free_req(struct usb_qdss_ch *ch)
 		usb_ep_free_request(qdss->ctrl_out, req);
 	}
 }
-EXPORT_SYMBOL(usb_qdss_free_req);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_free_req); */
 
 int usb_qdss_alloc_req(struct usb_qdss_ch *ch, int no_write_buf,
 	int no_read_buf)
@@ -288,7 +288,7 @@ fail:
 	usb_qdss_free_req(ch);
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(usb_qdss_alloc_req);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_alloc_req); */
 
 static void clear_eps(struct usb_function *f)
 {
@@ -710,7 +710,7 @@ int usb_qdss_ctrl_read(struct usb_qdss_ch *ch, struct qdss_request *d_req)
 
 	return 0;
 }
-EXPORT_SYMBOL(usb_qdss_ctrl_read);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_ctrl_read); */
 
 int usb_qdss_ctrl_write(struct usb_qdss_ch *ch, struct qdss_request *d_req)
 {
@@ -754,7 +754,7 @@ int usb_qdss_ctrl_write(struct usb_qdss_ch *ch, struct qdss_request *d_req)
 
 	return 0;
 }
-EXPORT_SYMBOL(usb_qdss_ctrl_write);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_ctrl_write); */
 
 struct usb_qdss_ch *usb_qdss_open(const char *name, void *priv,
 	void (*notify)(void *, unsigned, struct qdss_request *,
@@ -815,7 +815,7 @@ struct usb_qdss_ch *usb_qdss_open(const char *name, void *priv,
 
 	return ch;
 }
-EXPORT_SYMBOL(usb_qdss_open);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_open); */
 
 void usb_qdss_close(struct usb_qdss_ch *ch)
 {
@@ -835,7 +835,7 @@ void usb_qdss_close(struct usb_qdss_ch *ch)
 	if (gadget_is_dwc3(gadget))
 		msm_dwc3_restart_usb_session(gadget);
 }
-EXPORT_SYMBOL(usb_qdss_close);
+/* DISABLED: EXPORT_SYMBOL(usb_qdss_close); */
 
 static void qdss_cleanup(void)
 {

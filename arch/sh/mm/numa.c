@@ -16,7 +16,7 @@
 #include <asm/sections.h>
 
 struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
-EXPORT_SYMBOL_GPL(node_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(node_data); */
 
 /*
  * On SH machines the conventional approach is to stash system RAM

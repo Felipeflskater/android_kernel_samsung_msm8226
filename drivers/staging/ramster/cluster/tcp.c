@@ -886,7 +886,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(r2net_register_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2net_register_handler); */
 
 void r2net_unregister_handler_list(struct list_head *list)
 {
@@ -902,7 +902,7 @@ void r2net_unregister_handler_list(struct list_head *list)
 	}
 	write_unlock(&r2net_handler_lock);
 }
-EXPORT_SYMBOL_GPL(r2net_unregister_handler_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2net_unregister_handler_list); */
 
 static struct r2net_msg_handler *r2net_handler_get(u32 msg_type, u32 key)
 {
@@ -1061,7 +1061,7 @@ void r2net_fill_node_map(unsigned long *map, unsigned bytes)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(r2net_fill_node_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2net_fill_node_map); */
 
 int r2net_send_message_vec(u32 msg_type, u32 key, struct kvec *caller_vec,
 			   size_t caller_veclen, u8 target_node, int *status)
@@ -1182,7 +1182,7 @@ out:
 	r2net_complete_nsw(nn, &nsw, 0, 0, 0);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(r2net_send_message_vec);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2net_send_message_vec); */
 
 int r2net_send_message(u32 msg_type, u32 key, void *data, u32 len,
 		       u8 target_node, int *status)
@@ -1194,7 +1194,7 @@ int r2net_send_message(u32 msg_type, u32 key, void *data, u32 len,
 	return r2net_send_message_vec(msg_type, key, &vec, 1,
 				      target_node, status);
 }
-EXPORT_SYMBOL_GPL(r2net_send_message);
+/* DISABLED: EXPORT_SYMBOL_GPL(r2net_send_message); */
 
 static int r2net_send_status_magic(struct socket *sock, struct r2net_msg *hdr,
 				   enum r2net_system_error syserr, int err)

@@ -395,7 +395,7 @@ struct dentry *debugfs_create_file(const char *name, umode_t mode,
 exit:
 	return dentry;
 }
-EXPORT_SYMBOL_GPL(debugfs_create_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_file); */
 
 /**
  * debugfs_create_dir - create a directory in the debugfs filesystem
@@ -421,7 +421,7 @@ struct dentry *debugfs_create_dir(const char *name, struct dentry *parent)
 				   S_IFDIR | S_IRWXU | S_IRUGO | S_IXUGO,
 				   parent, NULL, NULL);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_dir);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_dir); */
 
 /**
  * debugfs_create_symlink- create a symbolic link in the debugfs filesystem
@@ -462,7 +462,7 @@ struct dentry *debugfs_create_symlink(const char *name, struct dentry *parent,
 		kfree(link);
 	return result;
 }
-EXPORT_SYMBOL_GPL(debugfs_create_symlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_symlink); */
 
 static int __debugfs_remove(struct dentry *dentry, struct dentry *parent)
 {
@@ -512,7 +512,7 @@ void debugfs_remove(struct dentry *dentry)
 	if (!ret)
 		simple_release_fs(&debugfs_mount, &debugfs_mount_count);
 }
-EXPORT_SYMBOL_GPL(debugfs_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_remove); */
 
 /**
  * debugfs_remove_recursive - recursively removes a directory
@@ -570,7 +570,7 @@ void debugfs_remove_recursive(struct dentry *dentry)
 		simple_release_fs(&debugfs_mount, &debugfs_mount_count);
 	mutex_unlock(&parent->d_inode->i_mutex);
 }
-EXPORT_SYMBOL_GPL(debugfs_remove_recursive);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_remove_recursive); */
 
 /**
  * debugfs_rename - rename a file/directory in the debugfs filesystem
@@ -633,7 +633,7 @@ exit:
 	unlock_rename(new_dir, old_dir);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(debugfs_rename);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_rename); */
 
 /**
  * debugfs_initialized - Tells whether debugfs has been registered
@@ -642,7 +642,7 @@ bool debugfs_initialized(void)
 {
 	return debugfs_registered;
 }
-EXPORT_SYMBOL_GPL(debugfs_initialized);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_initialized); */
 
 
 static struct kobject *debug_kobj;

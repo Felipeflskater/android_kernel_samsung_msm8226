@@ -270,7 +270,7 @@ static unsigned char g_wr_buf[1024 + 3 + 2];
 #endif
 
 int touch_is_pressed;
-EXPORT_SYMBOL(touch_is_pressed);
+/* DISABLED: EXPORT_SYMBOL(touch_is_pressed); */
 
 enum fw_flash_mode {
 	ISP_FLASH,

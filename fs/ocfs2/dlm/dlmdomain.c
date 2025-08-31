@@ -765,7 +765,7 @@ void dlm_unregister_domain(struct dlm_ctxt *dlm)
 	}
 	dlm_put(dlm);
 }
-EXPORT_SYMBOL_GPL(dlm_unregister_domain);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_unregister_domain); */
 
 static int dlm_query_join_proto_check(char *proto_type, int node,
 				      struct dlm_protocol_version *ours,
@@ -2229,7 +2229,7 @@ leave:
 
 	return dlm;
 }
-EXPORT_SYMBOL_GPL(dlm_register_domain);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_register_domain); */
 
 static LIST_HEAD(dlm_join_handlers);
 
@@ -2318,7 +2318,7 @@ void dlm_setup_eviction_cb(struct dlm_eviction_cb *cb,
 	cb->ec_func = f;
 	cb->ec_data = data;
 }
-EXPORT_SYMBOL_GPL(dlm_setup_eviction_cb);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_setup_eviction_cb); */
 
 void dlm_register_eviction_cb(struct dlm_ctxt *dlm,
 			      struct dlm_eviction_cb *cb)
@@ -2327,7 +2327,7 @@ void dlm_register_eviction_cb(struct dlm_ctxt *dlm,
 	list_add_tail(&cb->ec_item, &dlm->dlm_eviction_callbacks);
 	up_write(&dlm_callback_sem);
 }
-EXPORT_SYMBOL_GPL(dlm_register_eviction_cb);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_register_eviction_cb); */
 
 void dlm_unregister_eviction_cb(struct dlm_eviction_cb *cb)
 {
@@ -2335,7 +2335,7 @@ void dlm_unregister_eviction_cb(struct dlm_eviction_cb *cb)
 	list_del_init(&cb->ec_item);
 	up_write(&dlm_callback_sem);
 }
-EXPORT_SYMBOL_GPL(dlm_unregister_eviction_cb);
+/* DISABLED: EXPORT_SYMBOL_GPL(dlm_unregister_eviction_cb); */
 
 static int __init dlm_init(void)
 {

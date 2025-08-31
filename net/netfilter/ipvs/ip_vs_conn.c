@@ -339,7 +339,7 @@ ip_vs_conn_in_get_proto(int af, const struct sk_buff *skb,
 
 	return ip_vs_conn_in_get(&p);
 }
-EXPORT_SYMBOL_GPL(ip_vs_conn_in_get_proto);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_vs_conn_in_get_proto); */
 
 /* Get reference to connection template */
 struct ip_vs_conn *ip_vs_ct_in_get(const struct ip_vs_conn_param *p)
@@ -442,7 +442,7 @@ ip_vs_conn_out_get_proto(int af, const struct sk_buff *skb,
 
 	return ip_vs_conn_out_get(&p);
 }
-EXPORT_SYMBOL_GPL(ip_vs_conn_out_get_proto);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip_vs_conn_out_get_proto); */
 
 /*
  *      Put back the conn and restart its timer with its timeout

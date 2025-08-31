@@ -265,7 +265,7 @@ void dib0070_ctrl_agc_filter(struct dvb_frontend *fe, u8 open)
 	}
 }
 
-EXPORT_SYMBOL(dib0070_ctrl_agc_filter);
+/* DISABLED: EXPORT_SYMBOL(dib0070_ctrl_agc_filter); */
 struct dib0070_tuning {
     u32 max_freq; /* for every frequency less than or equal to that field: this information is correct */
     u8 switch_trim;
@@ -555,7 +555,7 @@ u8 dib0070_get_rf_output(struct dvb_frontend *fe)
 	struct dib0070_state *state = fe->tuner_priv;
 	return (dib0070_read_reg(state, 0x07) >> 11) & 0x3;
 }
-EXPORT_SYMBOL(dib0070_get_rf_output);
+/* DISABLED: EXPORT_SYMBOL(dib0070_get_rf_output); */
 
 int dib0070_set_rf_output(struct dvb_frontend *fe, u8 no)
 {
@@ -567,7 +567,7 @@ int dib0070_set_rf_output(struct dvb_frontend *fe, u8 no)
 		no = 1;
 	return dib0070_write_reg(state, 0x07, rxrf2 | (no << 11));
 }
-EXPORT_SYMBOL(dib0070_set_rf_output);
+/* DISABLED: EXPORT_SYMBOL(dib0070_set_rf_output); */
 
 static const u16 dib0070_p1f_defaults[] =
 
@@ -646,7 +646,7 @@ u16 dib0070_wbd_offset(struct dvb_frontend *fe)
 
     return state->wbd_offset_3_3[state->wbd_gain_current - 6];
 }
-EXPORT_SYMBOL(dib0070_wbd_offset);
+/* DISABLED: EXPORT_SYMBOL(dib0070_wbd_offset); */
 
 #define pgm_read_word(w) (*w)
 static int dib0070_reset(struct dvb_frontend *fe)
@@ -773,7 +773,7 @@ free_mem:
 	fe->tuner_priv = NULL;
 	return NULL;
 }
-EXPORT_SYMBOL(dib0070_attach);
+/* DISABLED: EXPORT_SYMBOL(dib0070_attach); */
 
 MODULE_AUTHOR("Patrick Boettcher <pboettcher@dibcom.fr>");
 MODULE_DESCRIPTION("Driver for the DiBcom 0070 base-band RF Tuner");

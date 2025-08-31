@@ -749,7 +749,7 @@ err_init_sw:
 exit_sem_err:
 	return -1;
 }
-EXPORT_SYMBOL_GPL(mwifiex_add_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_add_card); */
 
 /*
  * This function removes the card.
@@ -841,7 +841,7 @@ exit_remove:
 exit_sem_err:
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mwifiex_remove_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_remove_card); */
 
 /*
  * This function initializes the module.

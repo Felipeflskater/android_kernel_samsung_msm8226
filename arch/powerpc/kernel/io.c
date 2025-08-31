@@ -40,7 +40,7 @@ void _insb(const volatile u8 __iomem *port, void *buf, long count)
 	} while (--count != 0);
 	asm volatile("twi 0,%0,0; isync" : : "r" (tmp));
 }
-EXPORT_SYMBOL(_insb);
+/* DISABLED: EXPORT_SYMBOL(_insb); */
 
 void _outsb(volatile u8 __iomem *port, const void *buf, long count)
 {
@@ -54,7 +54,7 @@ void _outsb(volatile u8 __iomem *port, const void *buf, long count)
 	} while (--count != 0);
 	asm volatile("sync");
 }
-EXPORT_SYMBOL(_outsb);
+/* DISABLED: EXPORT_SYMBOL(_outsb); */
 
 void _insw_ns(const volatile u16 __iomem *port, void *buf, long count)
 {
@@ -71,7 +71,7 @@ void _insw_ns(const volatile u16 __iomem *port, void *buf, long count)
 	} while (--count != 0);
 	asm volatile("twi 0,%0,0; isync" : : "r" (tmp));
 }
-EXPORT_SYMBOL(_insw_ns);
+/* DISABLED: EXPORT_SYMBOL(_insw_ns); */
 
 void _outsw_ns(volatile u16 __iomem *port, const void *buf, long count)
 {
@@ -85,7 +85,7 @@ void _outsw_ns(volatile u16 __iomem *port, const void *buf, long count)
 	} while (--count != 0);
 	asm volatile("sync");
 }
-EXPORT_SYMBOL(_outsw_ns);
+/* DISABLED: EXPORT_SYMBOL(_outsw_ns); */
 
 void _insl_ns(const volatile u32 __iomem *port, void *buf, long count)
 {
@@ -102,7 +102,7 @@ void _insl_ns(const volatile u32 __iomem *port, void *buf, long count)
 	} while (--count != 0);
 	asm volatile("twi 0,%0,0; isync" : : "r" (tmp));
 }
-EXPORT_SYMBOL(_insl_ns);
+/* DISABLED: EXPORT_SYMBOL(_insl_ns); */
 
 void _outsl_ns(volatile u32 __iomem *port, const void *buf, long count)
 {
@@ -116,7 +116,7 @@ void _outsl_ns(volatile u32 __iomem *port, const void *buf, long count)
 	} while (--count != 0);
 	asm volatile("sync");
 }
-EXPORT_SYMBOL(_outsl_ns);
+/* DISABLED: EXPORT_SYMBOL(_outsl_ns); */
 
 #define IO_CHECK_ALIGN(v,a) ((((unsigned long)(v)) & ((a) - 1)) == 0)
 
@@ -146,7 +146,7 @@ _memset_io(volatile void __iomem *addr, int c, unsigned long n)
 	}
 	__asm__ __volatile__ ("sync" : : : "memory");
 }
-EXPORT_SYMBOL(_memset_io);
+/* DISABLED: EXPORT_SYMBOL(_memset_io); */
 
 void _memcpy_fromio(void *dest, const volatile void __iomem *src,
 		    unsigned long n)
@@ -177,7 +177,7 @@ void _memcpy_fromio(void *dest, const volatile void __iomem *src,
 	}
 	__asm__ __volatile__ ("sync" : : : "memory");
 }
-EXPORT_SYMBOL(_memcpy_fromio);
+/* DISABLED: EXPORT_SYMBOL(_memcpy_fromio); */
 
 void _memcpy_toio(volatile void __iomem *dest, const void *src, unsigned long n)
 {
@@ -204,4 +204,4 @@ void _memcpy_toio(volatile void __iomem *dest, const void *src, unsigned long n)
 	}
 	__asm__ __volatile__ ("sync" : : : "memory");
 }
-EXPORT_SYMBOL(_memcpy_toio);
+/* DISABLED: EXPORT_SYMBOL(_memcpy_toio); */

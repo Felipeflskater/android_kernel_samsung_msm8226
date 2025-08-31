@@ -85,7 +85,7 @@ enum bp_state {
 static DEFINE_MUTEX(balloon_mutex);
 
 struct balloon_stats balloon_stats;
-EXPORT_SYMBOL_GPL(balloon_stats);
+/* DISABLED: EXPORT_SYMBOL_GPL(balloon_stats); */
 
 /* We increase/decrease in batches which fit in a page */
 static unsigned long frame_list[PAGE_SIZE / sizeof(unsigned long)];
@@ -495,7 +495,7 @@ void balloon_set_new_target(unsigned long target)
 	balloon_stats.target_pages = target;
 	schedule_delayed_work(&balloon_worker, 0);
 }
-EXPORT_SYMBOL_GPL(balloon_set_new_target);
+/* DISABLED: EXPORT_SYMBOL_GPL(balloon_set_new_target); */
 
 /**
  * alloc_xenballooned_pages - get pages that have been ballooned out
@@ -533,7 +533,7 @@ int alloc_xenballooned_pages(int nr_pages, struct page **pages, bool highmem)
 	mutex_unlock(&balloon_mutex);
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(alloc_xenballooned_pages);
+/* DISABLED: EXPORT_SYMBOL(alloc_xenballooned_pages); */
 
 /**
  * free_xenballooned_pages - return pages retrieved with get_ballooned_pages
@@ -557,7 +557,7 @@ void free_xenballooned_pages(int nr_pages, struct page **pages)
 
 	mutex_unlock(&balloon_mutex);
 }
-EXPORT_SYMBOL(free_xenballooned_pages);
+/* DISABLED: EXPORT_SYMBOL(free_xenballooned_pages); */
 
 static void __init balloon_add_region(unsigned long start_pfn,
 				      unsigned long pages)

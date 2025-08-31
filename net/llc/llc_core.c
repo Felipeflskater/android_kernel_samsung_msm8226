@@ -158,11 +158,11 @@ static void __exit llc_exit(void)
 module_init(llc_init);
 module_exit(llc_exit);
 
-EXPORT_SYMBOL(llc_sap_list);
-EXPORT_SYMBOL(llc_sap_list_lock);
-EXPORT_SYMBOL(llc_sap_find);
-EXPORT_SYMBOL(llc_sap_open);
-EXPORT_SYMBOL(llc_sap_close);
+/* DISABLED: EXPORT_SYMBOL(llc_sap_list); */
+/* DISABLED: EXPORT_SYMBOL(llc_sap_list_lock); */
+/* DISABLED: EXPORT_SYMBOL(llc_sap_find); */
+/* DISABLED: EXPORT_SYMBOL(llc_sap_open); */
+/* DISABLED: EXPORT_SYMBOL(llc_sap_close); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Procom 1997, Jay Schullist 2001, Arnaldo C. Melo 2001-2003");

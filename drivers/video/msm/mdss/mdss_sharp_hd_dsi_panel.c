@@ -1648,7 +1648,7 @@ int is_lcd_attached(void)
 {
 	return lcd_connected_status;
 }
-EXPORT_SYMBOL(is_lcd_attached);
+/* DISABLED: EXPORT_SYMBOL(is_lcd_attached); */
 
 static int __init lcd_attached_status(char *state)
 {
@@ -1666,7 +1666,7 @@ static int __init lcd_attached_status(char *state)
 				"lcd_attached" : "lcd_detached");
 	return 1;
 }
-/* DISABLED: __setup("lcd_attached=", lcd_attached_status); */
+/* DISABLED: __setup("lcd_attached=", lcd_attached_status); */ */
 
 static int __init detect_lcd_panel_vendor(char* read_id)
 {
@@ -1690,7 +1690,7 @@ static int __init detect_lcd_panel_vendor(char* read_id)
 	pr_info("%s: detected panel vendor --> %s [0x%x]\n", __func__, panel_vendor, lcd_id);
 	return 1;
 }
-/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */
+/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */ */
 
 #endif
 int mdss_dsi_panel_init(struct device_node *node,

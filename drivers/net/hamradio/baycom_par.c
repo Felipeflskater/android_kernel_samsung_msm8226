@@ -569,7 +569,7 @@ static int __init baycom_par_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("baycom_par=", baycom_par_setup); */
+/* DISABLED: __setup("baycom_par=", baycom_par_setup); */ */
 
 #endif /* MODULE */
 /* --------------------------------------------------------------------- */

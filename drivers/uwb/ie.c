@@ -58,7 +58,7 @@ struct uwb_ie_hdr *uwb_ie_next(void **ptr, size_t *len)
 
 	return hdr;
 }
-EXPORT_SYMBOL_GPL(uwb_ie_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_ie_next); */
 
 /**
  * uwb_ie_dump_hex - print IEs to a character buffer
@@ -313,7 +313,7 @@ int uwb_rc_ie_add(struct uwb_rc *uwb_rc,
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_ie_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_ie_add); */
 
 
 /*
@@ -377,4 +377,4 @@ int uwb_rc_ie_rm(struct uwb_rc *uwb_rc, enum uwb_ie element_id)
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_ie_rm);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_ie_rm); */

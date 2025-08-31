@@ -60,7 +60,7 @@
 #include <net/dsa.h>
 #include <asm/uaccess.h>
 
-/* DISABLED: __setup("ether=", netdev_boot_setup); */
+/* DISABLED: __setup("ether=", netdev_boot_setup); */ */
 
 /**
  * eth_header - create the Ethernet header
@@ -110,7 +110,7 @@ int eth_header(struct sk_buff *skb, struct net_device *dev,
 
 	return -ETH_HLEN;
 }
-EXPORT_SYMBOL(eth_header);
+/* DISABLED: EXPORT_SYMBOL(eth_header); */
 
 /**
  * eth_rebuild_header- rebuild the Ethernet MAC header.
@@ -143,7 +143,7 @@ int eth_rebuild_header(struct sk_buff *skb)
 
 	return 0;
 }
-EXPORT_SYMBOL(eth_rebuild_header);
+/* DISABLED: EXPORT_SYMBOL(eth_rebuild_header); */
 
 /**
  * eth_type_trans - determine the packet's protocol ID.
@@ -211,7 +211,7 @@ __be16 eth_type_trans(struct sk_buff *skb, struct net_device *dev)
 	 */
 	return htons(ETH_P_802_2);
 }
-EXPORT_SYMBOL(eth_type_trans);
+/* DISABLED: EXPORT_SYMBOL(eth_type_trans); */
 
 /**
  * eth_header_parse - extract hardware address from packet
@@ -224,7 +224,7 @@ int eth_header_parse(const struct sk_buff *skb, unsigned char *haddr)
 	memcpy(haddr, eth->h_source, ETH_ALEN);
 	return ETH_ALEN;
 }
-EXPORT_SYMBOL(eth_header_parse);
+/* DISABLED: EXPORT_SYMBOL(eth_header_parse); */
 
 /**
  * eth_header_cache - fill cache entry from neighbour
@@ -250,7 +250,7 @@ int eth_header_cache(const struct neighbour *neigh, struct hh_cache *hh, __be16 
 	hh->hh_len = ETH_HLEN;
 	return 0;
 }
-EXPORT_SYMBOL(eth_header_cache);
+/* DISABLED: EXPORT_SYMBOL(eth_header_cache); */
 
 /**
  * eth_header_cache_update - update cache entry
@@ -267,7 +267,7 @@ void eth_header_cache_update(struct hh_cache *hh,
 	memcpy(((u8 *) hh->hh_data) + HH_DATA_OFF(sizeof(struct ethhdr)),
 	       haddr, ETH_ALEN);
 }
-EXPORT_SYMBOL(eth_header_cache_update);
+/* DISABLED: EXPORT_SYMBOL(eth_header_cache_update); */
 
 /**
  * eth_mac_addr - set new Ethernet hardware address
@@ -291,7 +291,7 @@ int eth_mac_addr(struct net_device *dev, void *p)
 	dev->addr_assign_type &= ~NET_ADDR_RANDOM;
 	return 0;
 }
-EXPORT_SYMBOL(eth_mac_addr);
+/* DISABLED: EXPORT_SYMBOL(eth_mac_addr); */
 
 /**
  * eth_change_mtu - set new MTU size
@@ -308,7 +308,7 @@ int eth_change_mtu(struct net_device *dev, int new_mtu)
 	dev->mtu = new_mtu;
 	return 0;
 }
-EXPORT_SYMBOL(eth_change_mtu);
+/* DISABLED: EXPORT_SYMBOL(eth_change_mtu); */
 
 int eth_validate_addr(struct net_device *dev)
 {
@@ -317,7 +317,7 @@ int eth_validate_addr(struct net_device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(eth_validate_addr);
+/* DISABLED: EXPORT_SYMBOL(eth_validate_addr); */
 
 const struct header_ops eth_header_ops ____cacheline_aligned = {
 	.create		= eth_header,
@@ -346,7 +346,7 @@ void ether_setup(struct net_device *dev)
 	memset(dev->broadcast, 0xFF, ETH_ALEN);
 
 }
-EXPORT_SYMBOL(ether_setup);
+/* DISABLED: EXPORT_SYMBOL(ether_setup); */
 
 /**
  * alloc_etherdev_mqs - Allocates and sets up an Ethernet device
@@ -368,7 +368,7 @@ struct net_device *alloc_etherdev_mqs(int sizeof_priv, unsigned int txqs,
 {
 	return alloc_netdev_mqs(sizeof_priv, "eth%d", ether_setup, txqs, rxqs);
 }
-EXPORT_SYMBOL(alloc_etherdev_mqs);
+/* DISABLED: EXPORT_SYMBOL(alloc_etherdev_mqs); */
 
 static size_t _format_mac_addr(char *buf, int buflen,
 			       const unsigned char *addr, int len)
@@ -393,4 +393,4 @@ ssize_t sysfs_format_mac(char *buf, const unsigned char *addr, int len)
 	l += scnprintf(buf + l, PAGE_SIZE - l, "\n");
 	return (ssize_t)l;
 }
-EXPORT_SYMBOL(sysfs_format_mac);
+/* DISABLED: EXPORT_SYMBOL(sysfs_format_mac); */

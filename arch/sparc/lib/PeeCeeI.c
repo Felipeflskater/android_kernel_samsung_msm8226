@@ -17,7 +17,7 @@ void outsb(unsigned long __addr, const void *src, unsigned long count)
 	while (count--)
 		outb(*p++, addr);
 }
-EXPORT_SYMBOL(outsb);
+/* DISABLED: EXPORT_SYMBOL(outsb); */
 
 void outsw(unsigned long __addr, const void *src, unsigned long count)
 {
@@ -28,7 +28,7 @@ void outsw(unsigned long __addr, const void *src, unsigned long count)
 		src += sizeof(u16);
 	}
 }
-EXPORT_SYMBOL(outsw);
+/* DISABLED: EXPORT_SYMBOL(outsw); */
 
 void outsl(unsigned long __addr, const void *src, unsigned long count)
 {
@@ -82,7 +82,7 @@ void outsl(unsigned long __addr, const void *src, unsigned long count)
 		break;
 	}
 }
-EXPORT_SYMBOL(outsl);
+/* DISABLED: EXPORT_SYMBOL(outsl); */
 
 void insb(unsigned long __addr, void *dst, unsigned long count)
 {
@@ -110,7 +110,7 @@ void insb(unsigned long __addr, void *dst, unsigned long count)
 			*pb++ = inb(addr);
 	}
 }
-EXPORT_SYMBOL(insb);
+/* DISABLED: EXPORT_SYMBOL(insb); */
 
 void insw(unsigned long __addr, void *dst, unsigned long count)
 {
@@ -138,7 +138,7 @@ void insw(unsigned long __addr, void *dst, unsigned long count)
 			*ps = le16_to_cpu(inw(addr));
 	}
 }
-EXPORT_SYMBOL(insw);
+/* DISABLED: EXPORT_SYMBOL(insw); */
 
 void insl(unsigned long __addr, void *dst, unsigned long count)
 {
@@ -207,5 +207,5 @@ void insl(unsigned long __addr, void *dst, unsigned long count)
 		}
 	}
 }
-EXPORT_SYMBOL(insl);
+/* DISABLED: EXPORT_SYMBOL(insl); */
 

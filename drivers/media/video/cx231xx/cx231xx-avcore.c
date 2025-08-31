@@ -947,7 +947,7 @@ void cx231xx_enable656(struct cx231xx *dev)
 	status = vid_blk_write_byte(dev, TS1_PIN_CTL1, temp);
 
 }
-EXPORT_SYMBOL_GPL(cx231xx_enable656);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_enable656); */
 
 void cx231xx_disable656(struct cx231xx *dev)
 {
@@ -962,7 +962,7 @@ void cx231xx_disable656(struct cx231xx *dev)
 
 	status = vid_blk_write_byte(dev, TS1_PIN_CTL1, temp);
 }
-EXPORT_SYMBOL_GPL(cx231xx_disable656);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_disable656); */
 
 /*
  * Handle any video-mode specific overrides that are different
@@ -1070,7 +1070,7 @@ int cx231xx_unmute_audio(struct cx231xx *dev)
 {
 	return vid_blk_write_byte(dev, PATH1_VOL_CTL, 0x24);
 }
-EXPORT_SYMBOL_GPL(cx231xx_unmute_audio);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_unmute_audio); */
 
 int stopAudioFirmware(struct cx231xx *dev)
 {
@@ -1300,7 +1300,7 @@ int cx231xx_enable_i2c_port_3(struct cx231xx *dev, bool is_port_3)
 	return status;
 
 }
-EXPORT_SYMBOL_GPL(cx231xx_enable_i2c_port_3);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_enable_i2c_port_3); */
 
 void update_HH_register_after_set_DIF(struct cx231xx *dev)
 {
@@ -2673,7 +2673,7 @@ int cx231xx_capture_start(struct cx231xx *dev, int start, u8 media_type)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(cx231xx_capture_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_capture_start); */
 
 /*****************************************************************************
 *                   G P I O   B I T control functions                        *

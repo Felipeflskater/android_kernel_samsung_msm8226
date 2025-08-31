@@ -81,7 +81,7 @@
 int bt_is_running=0;
 #endif
 
-EXPORT_SYMBOL(bt_is_running);
+/* DISABLED: EXPORT_SYMBOL(bt_is_running); */
 
 static struct rfkill *bt_rfkill;
 

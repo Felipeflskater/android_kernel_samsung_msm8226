@@ -29,7 +29,7 @@ static struct apic apic_physflat;
 static struct apic apic_flat;
 
 struct apic __read_mostly *apic = &apic_flat;
-EXPORT_SYMBOL_GPL(apic);
+/* DISABLED: EXPORT_SYMBOL_GPL(apic); */
 
 static int flat_acpi_madt_oem_check(char *oem_id, char *oem_table_id)
 {

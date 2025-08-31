@@ -44,7 +44,7 @@ void *kmap(struct page *page)
 
 	return kva;
 }
-EXPORT_SYMBOL(kmap);
+/* DISABLED: EXPORT_SYMBOL(kmap); */
 
 void kunmap(struct page *page)
 {
@@ -54,7 +54,7 @@ void kunmap(struct page *page)
 		return;
 	kunmap_high(page);
 }
-EXPORT_SYMBOL(kunmap);
+/* DISABLED: EXPORT_SYMBOL(kunmap); */
 
 /*
  * Describe a single atomic mapping of a page on a given cpu at a
@@ -222,14 +222,14 @@ void *kmap_atomic_prot(struct page *page, pgprot_t prot)
 
 	return (void *)vaddr;
 }
-EXPORT_SYMBOL(kmap_atomic_prot);
+/* DISABLED: EXPORT_SYMBOL(kmap_atomic_prot); */
 
 void *kmap_atomic(struct page *page)
 {
 	/* PAGE_NONE is a magic value that tells us to check immutability. */
 	return kmap_atomic_prot(page, PAGE_NONE);
 }
-EXPORT_SYMBOL(kmap_atomic);
+/* DISABLED: EXPORT_SYMBOL(kmap_atomic); */
 
 void __kunmap_atomic(void *kvaddr)
 {
@@ -262,7 +262,7 @@ void __kunmap_atomic(void *kvaddr)
 	arch_flush_lazy_mmu_mode();
 	pagefault_enable();
 }
-EXPORT_SYMBOL(__kunmap_atomic);
+/* DISABLED: EXPORT_SYMBOL(__kunmap_atomic); */
 
 /*
  * This API is supposed to allow us to map memory without a "struct page".

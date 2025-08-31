@@ -35,7 +35,7 @@ static int __init hash_setup(char *str)
 		ima_hash = "md5";
 	return 1;
 }
-/* DISABLED: __setup("ima_hash=", hash_setup); */
+/* DISABLED: __setup("ima_hash=", hash_setup); */ */
 
 /*
  * ima_rdwr_violation_check
@@ -219,7 +219,7 @@ int ima_file_check(struct file *file, int mask)
 				 FILE_CHECK);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ima_file_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(ima_file_check); */
 
 static int __init init_ima(void)
 {

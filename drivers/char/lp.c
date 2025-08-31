@@ -1050,7 +1050,7 @@ static void lp_cleanup_module (void)
 	class_destroy(lp_class);
 }
 
-/* DISABLED: __setup("lp=", lp_setup); */
+/* DISABLED: __setup("lp=", lp_setup); */ */
 module_init(lp_init_module);
 module_exit(lp_cleanup_module);
 

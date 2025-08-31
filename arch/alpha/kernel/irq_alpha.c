@@ -19,7 +19,7 @@
 /* Hack minimum IPL during interrupt processing for broken hardware.  */
 #ifdef CONFIG_ALPHA_BROKEN_IRQ_MASK
 int __min_ipl;
-EXPORT_SYMBOL(__min_ipl);
+/* DISABLED: EXPORT_SYMBOL(__min_ipl); */
 #endif
 
 /*
@@ -34,7 +34,7 @@ dummy_perf(unsigned long vector, struct pt_regs *regs)
 }
 
 void (*perf_irq)(unsigned long, struct pt_regs *) = dummy_perf;
-EXPORT_SYMBOL(perf_irq);
+/* DISABLED: EXPORT_SYMBOL(perf_irq); */
 
 /*
  * The main interrupt entry point.

@@ -66,7 +66,7 @@ int iio_push_event(struct iio_dev *indio_dev, u64 ev_code, s64 timestamp)
 
 	return 0;
 }
-EXPORT_SYMBOL(iio_push_event);
+/* DISABLED: EXPORT_SYMBOL(iio_push_event); */
 
 /**
  * iio_event_poll() - poll the event queue to find out if it has data

@@ -32,7 +32,7 @@ static int __init ccw_timeout_log_setup(char *unused)
 	return 1;
 }
 
-/* DISABLED: __setup("ccw_timeout_log", ccw_timeout_log_setup); */
+/* DISABLED: __setup("ccw_timeout_log", ccw_timeout_log_setup); */ */
 
 static void ccw_timeout_log(struct ccw_device *cdev)
 {
@@ -1115,4 +1115,4 @@ fsm_func_t *dev_jumptable[NR_DEV_STATES][NR_DEV_EVENTS] = {
 	},
 };
 
-EXPORT_SYMBOL_GPL(ccw_device_set_timeout);
+/* DISABLED: EXPORT_SYMBOL_GPL(ccw_device_set_timeout); */

@@ -341,7 +341,7 @@ int soc_mbus_samples_per_pixel(const struct soc_mbus_pixelfmt *mf,
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(soc_mbus_samples_per_pixel);
+/* DISABLED: EXPORT_SYMBOL(soc_mbus_samples_per_pixel); */
 
 s32 soc_mbus_bytes_per_line(u32 width, const struct soc_mbus_pixelfmt *mf)
 {
@@ -359,7 +359,7 @@ s32 soc_mbus_bytes_per_line(u32 width, const struct soc_mbus_pixelfmt *mf)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(soc_mbus_bytes_per_line);
+/* DISABLED: EXPORT_SYMBOL(soc_mbus_bytes_per_line); */
 
 const struct soc_mbus_pixelfmt *soc_mbus_find_fmtdesc(
 	enum v4l2_mbus_pixelcode code,
@@ -374,14 +374,14 @@ const struct soc_mbus_pixelfmt *soc_mbus_find_fmtdesc(
 
 	return NULL;
 }
-EXPORT_SYMBOL(soc_mbus_find_fmtdesc);
+/* DISABLED: EXPORT_SYMBOL(soc_mbus_find_fmtdesc); */
 
 const struct soc_mbus_pixelfmt *soc_mbus_get_fmtdesc(
 	enum v4l2_mbus_pixelcode code)
 {
 	return soc_mbus_find_fmtdesc(code, mbus_fmt, ARRAY_SIZE(mbus_fmt));
 }
-EXPORT_SYMBOL(soc_mbus_get_fmtdesc);
+/* DISABLED: EXPORT_SYMBOL(soc_mbus_get_fmtdesc); */
 
 unsigned int soc_mbus_config_compatible(const struct v4l2_mbus_config *cfg,
 					unsigned int flags)
@@ -414,7 +414,7 @@ unsigned int soc_mbus_config_compatible(const struct v4l2_mbus_config *cfg,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(soc_mbus_config_compatible);
+/* DISABLED: EXPORT_SYMBOL(soc_mbus_config_compatible); */
 
 static int __init soc_mbus_init(void)
 {

@@ -66,61 +66,61 @@ void inv_iio_counters_set_i2cirq(enum irqtype type, int irq)
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_set_i2cirq);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_set_i2cirq); */
 
 void inv_iio_counters_tempread(int count)
 {
 	Counters.i2c_tempreads += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_tempread);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_tempread); */
 
 void inv_iio_counters_mpuread(int count)
 {
 	Counters.i2c_mpureads += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_mpuread);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_mpuread); */
 
 void inv_iio_counters_mpuwrite(int count)
 {
 	Counters.i2c_mpuwrites += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_mpuwrite);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_mpuwrite); */
 
 void inv_iio_counters_accelread(int count)
 {
 	Counters.i2c_accelreads += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_accelread);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_accelread); */
 
 void inv_iio_counters_accelwrite(int count)
 {
 	Counters.i2c_accelwrites += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_accelwrite);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_accelwrite); */
 
 void inv_iio_counters_compassread(int count)
 {
 	Counters.i2c_compassreads += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_compassread);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_compassread); */
 
 void inv_iio_counters_compasswrite(int count)
 {
 	Counters.i2c_compasswrites += count;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_compasswrite);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_compasswrite); */
 
 void inv_iio_counters_compassirq(void)
 {
 	Counters.i2c_compassirq++;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_compassirq);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_compassirq); */
 
 void inv_iio_counters_accelirq(void)
 {
 	Counters.i2c_accelirq++;
 }
-EXPORT_SYMBOL_GPL(inv_iio_counters_accelirq);
+/* DISABLED: EXPORT_SYMBOL_GPL(inv_iio_counters_accelirq); */
 
 static struct class_attribute inv_class_attr[] = {
 	__ATTR(i2c_counter, S_IRUGO, i2c_counters_show, NULL),

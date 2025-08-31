@@ -105,7 +105,7 @@ unsigned ceph_str_hash(int type, const char *s, unsigned len)
 		return -1;
 	}
 }
-EXPORT_SYMBOL(ceph_str_hash);
+/* DISABLED: EXPORT_SYMBOL(ceph_str_hash); */
 
 const char *ceph_str_hash_name(int type)
 {
@@ -118,4 +118,4 @@ const char *ceph_str_hash_name(int type)
 		return "unknown";
 	}
 }
-EXPORT_SYMBOL(ceph_str_hash_name);
+/* DISABLED: EXPORT_SYMBOL(ceph_str_hash_name); */

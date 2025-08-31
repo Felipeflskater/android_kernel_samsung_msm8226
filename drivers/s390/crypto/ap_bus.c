@@ -79,7 +79,7 @@ MODULE_LICENSE("GPL");
 int ap_domain_index = -1;	/* Adjunct Processor Domain Index */
 module_param_named(domain, ap_domain_index, int, 0000);
 MODULE_PARM_DESC(domain, "domain index for ap devices");
-EXPORT_SYMBOL(ap_domain_index);
+/* DISABLED: EXPORT_SYMBOL(ap_domain_index); */
 
 static int ap_thread_flag = 0;
 module_param_named(poll_thread, ap_thread_flag, int, 0000);
@@ -310,7 +310,7 @@ int ap_4096_commands_available(ap_qid_t qid)
 	return test_ap_facility(functions, 1) &&
 	       test_ap_facility(functions, 2);
 }
-EXPORT_SYMBOL(ap_4096_commands_available);
+/* DISABLED: EXPORT_SYMBOL(ap_4096_commands_available); */
 
 /**
  * ap_queue_enable_interruption(): Enable interruption on an AP.
@@ -416,7 +416,7 @@ int ap_send(ap_qid_t qid, unsigned long long psmid, void *msg, size_t length)
 		return -ENODEV;
 	}
 }
-EXPORT_SYMBOL(ap_send);
+/* DISABLED: EXPORT_SYMBOL(ap_send); */
 
 /**
  * __ap_recv(): Receive message from adjunct processor queue.
@@ -477,7 +477,7 @@ int ap_recv(ap_qid_t qid, unsigned long long *psmid, void *msg, size_t length)
 		return -ENODEV;
 	}
 }
-EXPORT_SYMBOL(ap_recv);
+/* DISABLED: EXPORT_SYMBOL(ap_recv); */
 
 /**
  * ap_query_queue(): Check if an AP queue is available.
@@ -851,7 +851,7 @@ void ap_flush_queue(struct ap_device *ap_dev)
 	__ap_flush_queue(ap_dev);
 	spin_unlock_bh(&ap_dev->lock);
 }
-EXPORT_SYMBOL(ap_flush_queue);
+/* DISABLED: EXPORT_SYMBOL(ap_flush_queue); */
 
 static int ap_device_remove(struct device *dev)
 {
@@ -883,13 +883,13 @@ int ap_driver_register(struct ap_driver *ap_drv, struct module *owner,
 	drv->name = name;
 	return driver_register(drv);
 }
-EXPORT_SYMBOL(ap_driver_register);
+/* DISABLED: EXPORT_SYMBOL(ap_driver_register); */
 
 void ap_driver_unregister(struct ap_driver *ap_drv)
 {
 	driver_unregister(&ap_drv->driver);
 }
-EXPORT_SYMBOL(ap_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL(ap_driver_unregister); */
 
 /*
  * AP bus attributes.
@@ -1489,7 +1489,7 @@ void ap_queue_message(struct ap_device *ap_dev, struct ap_message *ap_msg)
 	if (rc == -ENODEV)
 		device_unregister(&ap_dev->device);
 }
-EXPORT_SYMBOL(ap_queue_message);
+/* DISABLED: EXPORT_SYMBOL(ap_queue_message); */
 
 /**
  * ap_cancel_message(): Cancel a crypto request.
@@ -1518,7 +1518,7 @@ void ap_cancel_message(struct ap_device *ap_dev, struct ap_message *ap_msg)
 	}
 	spin_unlock_bh(&ap_dev->lock);
 }
-EXPORT_SYMBOL(ap_cancel_message);
+/* DISABLED: EXPORT_SYMBOL(ap_cancel_message); */
 
 /**
  * ap_poll_timeout(): AP receive polling for finished AP requests.

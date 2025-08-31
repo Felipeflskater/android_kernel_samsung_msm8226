@@ -58,7 +58,7 @@ xencomm_hypercall_console_io(int cmd, int count, char *str)
 	return xencomm_arch_hypercall_console_io
 		(cmd, count, xencomm_map_no_alloc(str, count));
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_console_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_console_io); */
 
 int
 xencomm_hypercall_event_channel_op(int cmd, void *op)
@@ -70,7 +70,7 @@ xencomm_hypercall_event_channel_op(int cmd, void *op)
 
 	return xencomm_arch_hypercall_event_channel_op(cmd, desc);
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_event_channel_op);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_event_channel_op); */
 
 int
 xencomm_hypercall_xen_version(int cmd, void *arg)
@@ -113,7 +113,7 @@ xencomm_hypercall_xen_version(int cmd, void *arg)
 
 	return xencomm_arch_hypercall_xen_version(cmd, desc);
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_xen_version);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_xen_version); */
 
 int
 xencomm_hypercall_physdev_op(int cmd, void *op)
@@ -217,7 +217,7 @@ xencomm_hypercall_grant_table_op(unsigned int cmd, void *op,
 
 	return xencomm_arch_hypercall_grant_table_op(cmd, desc, count);
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_grant_table_op);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_grant_table_op); */
 
 int
 xencomm_hypercall_sched_op(int cmd, void *arg)
@@ -256,7 +256,7 @@ xencomm_hypercall_sched_op(int cmd, void *arg)
 
 	return xencomm_arch_hypercall_sched_op(cmd, desc);
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_sched_op);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_sched_op); */
 
 int
 xencomm_hypercall_multicall(void *call_list, int nr_calls)
@@ -300,7 +300,7 @@ xencomm_hypercall_multicall(void *call_list, int nr_calls)
 
 	return xencomm_arch_hypercall_multicall(desc, nr_calls);
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_multicall);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_multicall); */
 
 int
 xencomm_hypercall_callback_op(int cmd, void *arg)
@@ -395,7 +395,7 @@ xencomm_hypercall_memory_op(unsigned int cmd, void *arg)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(xencomm_hypercall_memory_op);
+/* DISABLED: EXPORT_SYMBOL_GPL(xencomm_hypercall_memory_op); */
 
 int
 xencomm_hypercall_suspend(unsigned long srec)

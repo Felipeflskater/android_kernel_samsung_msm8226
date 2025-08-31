@@ -288,7 +288,7 @@ out:
 	write_unlock_irqrestore(&uwb_est_lock, flags);
 	return result;
 }
-EXPORT_SYMBOL_GPL(uwb_est_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_est_register); */
 
 
 /**
@@ -330,7 +330,7 @@ found:
 	write_unlock_irqrestore(&uwb_est_lock, flags);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(uwb_est_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_est_unregister); */
 
 
 /**
@@ -464,4 +464,4 @@ out:
 	read_unlock_irqrestore(&uwb_est_lock, flags);
 	return size;
 }
-EXPORT_SYMBOL_GPL(uwb_est_find_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_est_find_size); */

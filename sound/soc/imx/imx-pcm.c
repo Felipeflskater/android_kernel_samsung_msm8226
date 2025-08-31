@@ -31,7 +31,7 @@ int snd_imx_pcm_mmap(struct snd_pcm_substream *substream,
 			runtime->dma_bytes);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_imx_pcm_mmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_imx_pcm_mmap); */
 
 static int imx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm, int stream)
 {
@@ -80,7 +80,7 @@ int imx_pcm_new(struct snd_soc_pcm_runtime *rtd)
 out:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(imx_pcm_new);
+/* DISABLED: EXPORT_SYMBOL_GPL(imx_pcm_new); */
 
 void imx_pcm_free(struct snd_pcm *pcm)
 {
@@ -102,4 +102,4 @@ void imx_pcm_free(struct snd_pcm *pcm)
 		buf->area = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(imx_pcm_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(imx_pcm_free); */

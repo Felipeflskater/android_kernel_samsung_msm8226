@@ -285,7 +285,7 @@ sn_io_slot_fixup(struct pci_dev *dev)
 	sn_pci_fixup_slot(dev, pcidev_info, sn_irq_info);
 }
 
-EXPORT_SYMBOL(sn_io_slot_fixup);
+/* DISABLED: EXPORT_SYMBOL(sn_io_slot_fixup); */
 
 /*
  * sn_pci_controller_fixup() - This routine sets up a bus's resources

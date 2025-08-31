@@ -245,13 +245,13 @@ btcx_calc_skips(int line, int width, int *maxy,
 
 /* ---------------------------------------------------------- */
 
-EXPORT_SYMBOL(btcx_riscmem_alloc);
-EXPORT_SYMBOL(btcx_riscmem_free);
+/* DISABLED: EXPORT_SYMBOL(btcx_riscmem_alloc); */
+/* DISABLED: EXPORT_SYMBOL(btcx_riscmem_free); */
 
-EXPORT_SYMBOL(btcx_screen_clips);
-EXPORT_SYMBOL(btcx_align);
-EXPORT_SYMBOL(btcx_sort_clips);
-EXPORT_SYMBOL(btcx_calc_skips);
+/* DISABLED: EXPORT_SYMBOL(btcx_screen_clips); */
+/* DISABLED: EXPORT_SYMBOL(btcx_align); */
+/* DISABLED: EXPORT_SYMBOL(btcx_sort_clips); */
+/* DISABLED: EXPORT_SYMBOL(btcx_calc_skips); */
 
 /*
  * Local variables:

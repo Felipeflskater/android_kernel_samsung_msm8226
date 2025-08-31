@@ -83,7 +83,7 @@ out:
 	mutex_unlock(&stp_proto_mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(stp_proto_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(stp_proto_register); */
 
 void stp_proto_unregister(const struct stp_proto *proto)
 {
@@ -99,6 +99,6 @@ void stp_proto_unregister(const struct stp_proto *proto)
 		llc_sap_put(sap);
 	mutex_unlock(&stp_proto_mutex);
 }
-EXPORT_SYMBOL_GPL(stp_proto_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(stp_proto_unregister); */
 
 MODULE_LICENSE("GPL");

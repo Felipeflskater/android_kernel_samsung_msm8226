@@ -36,7 +36,7 @@ struct rpc_cred *rpc_lookup_cred(void)
 {
 	return rpcauth_lookupcred(&generic_auth, 0);
 }
-EXPORT_SYMBOL_GPL(rpc_lookup_cred);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_lookup_cred); */
 
 /*
  * Public call interface for looking up machine creds.
@@ -54,7 +54,7 @@ struct rpc_cred *rpc_lookup_machine_cred(const char *service_name)
 			service_name);
 	return generic_auth.au_ops->lookup_cred(&generic_auth, &acred, 0);
 }
-EXPORT_SYMBOL_GPL(rpc_lookup_machine_cred);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_lookup_machine_cred); */
 
 static struct rpc_cred *generic_bind_cred(struct rpc_task *task,
 		struct rpc_cred *cred, int lookupflags)

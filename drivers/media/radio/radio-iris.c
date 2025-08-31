@@ -609,7 +609,7 @@ int radio_hci_register_dev(struct radio_hci_dev *hdev)
 
 	return 0;
 }
-EXPORT_SYMBOL(radio_hci_register_dev);
+/* DISABLED: EXPORT_SYMBOL(radio_hci_register_dev); */
 
 int radio_hci_unregister_dev(struct radio_hci_dev *hdev)
 {
@@ -629,7 +629,7 @@ int radio_hci_unregister_dev(struct radio_hci_dev *hdev)
 
 	return 0;
 }
-EXPORT_SYMBOL(radio_hci_unregister_dev);
+/* DISABLED: EXPORT_SYMBOL(radio_hci_unregister_dev); */
 
 int radio_hci_recv_frame(struct sk_buff *skb)
 {
@@ -652,7 +652,7 @@ int radio_hci_recv_frame(struct sk_buff *skb)
 	kfree_skb(skb);
 	return 0;
 }
-EXPORT_SYMBOL(radio_hci_recv_frame);
+/* DISABLED: EXPORT_SYMBOL(radio_hci_recv_frame); */
 
 int radio_hci_send_cmd(struct radio_hci_dev *hdev, __u16 opcode, __u32 plen,
 		void *param)
@@ -686,7 +686,7 @@ int radio_hci_send_cmd(struct radio_hci_dev *hdev, __u16 opcode, __u32 plen,
 
 	return ret;
 }
-EXPORT_SYMBOL(radio_hci_send_cmd);
+/* DISABLED: EXPORT_SYMBOL(radio_hci_send_cmd); */
 
 static int hci_fm_enable_recv_req(struct radio_hci_dev *hdev,
 	unsigned long param)

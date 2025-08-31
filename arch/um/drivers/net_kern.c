@@ -676,7 +676,7 @@ static int __init eth_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("eth", eth_setup); */
+/* DISABLED: __setup("eth", eth_setup); */ */
 __uml_help(eth_setup,
 "eth[0-9]+=<transport>,<options>\n"
 "    Configure a network device.\n\n"

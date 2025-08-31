@@ -892,7 +892,7 @@ static int __init omap_mux_setup(char *options)
 
 	return 1;
 }
-/* DISABLED: __setup("omap_mux=", omap_mux_setup); */
+/* DISABLED: __setup("omap_mux=", omap_mux_setup); */ */
 
 /*
  * Note that the omap_mux=some.signal1=0x1234,some.signal2=0x1234

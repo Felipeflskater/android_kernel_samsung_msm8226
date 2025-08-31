@@ -65,7 +65,7 @@ irqreturn_t rproc_vq_interrupt(struct rproc *rproc, int notifyid)
 
 	return vring_interrupt(0, rvring->vq);
 }
-EXPORT_SYMBOL(rproc_vq_interrupt);
+/* DISABLED: EXPORT_SYMBOL(rproc_vq_interrupt); */
 
 static struct virtqueue *rp_find_vq(struct virtio_device *vdev,
 				    unsigned id,

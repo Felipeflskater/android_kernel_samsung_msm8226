@@ -314,7 +314,7 @@ static int __init babbage_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-/* DISABLED: __setup("otg_mode=", babbage_otg_mode); */
+/* DISABLED: __setup("otg_mode=", babbage_otg_mode); */ */
 
 static struct spi_board_info mx51_babbage_spi_board_info[] __initdata = {
 	{

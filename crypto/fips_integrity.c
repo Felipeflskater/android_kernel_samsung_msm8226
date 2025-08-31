@@ -307,7 +307,7 @@ do_integrity_check (void)
 	return -1;
 }
 
-EXPORT_SYMBOL_GPL(do_integrity_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_integrity_check); */
 
 #ifdef CONFIG_CRYPTO_FIPS_OLD_INTEGRITY_CHECK
 /*
@@ -450,5 +450,5 @@ void do_integrity_check(void)
 */	
 }
 
-EXPORT_SYMBOL_GPL(do_integrity_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_integrity_check); */
 #endif //CONFIG_CRYPTO_FIPS_OLD_INTEGRITY_CHECK

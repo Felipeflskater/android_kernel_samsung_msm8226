@@ -27,12 +27,12 @@
 #include "internal.h"
 
 LIST_HEAD(crypto_alg_list);
-EXPORT_SYMBOL_GPL(crypto_alg_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alg_list); */
 DECLARE_RWSEM(crypto_alg_sem);
-EXPORT_SYMBOL_GPL(crypto_alg_sem);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alg_sem); */
 
 BLOCKING_NOTIFIER_HEAD(crypto_chain);
-EXPORT_SYMBOL_GPL(crypto_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_chain); */
 
 static struct crypto_alg *crypto_larval_wait(struct crypto_alg *alg);
 
@@ -46,7 +46,7 @@ struct crypto_alg *crypto_mod_get(struct crypto_alg *alg)
 {
 	return try_module_get(alg->cra_module) ? crypto_alg_get(alg) : NULL;
 }
-EXPORT_SYMBOL_GPL(crypto_mod_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_mod_get); */
 
 void crypto_mod_put(struct crypto_alg *alg)
 {
@@ -55,7 +55,7 @@ void crypto_mod_put(struct crypto_alg *alg)
 	crypto_alg_put(alg);
 	module_put(module);
 }
-EXPORT_SYMBOL_GPL(crypto_mod_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_mod_put); */
 
 static inline int crypto_is_test_larval(struct crypto_larval *larval)
 {
@@ -130,7 +130,7 @@ struct crypto_larval *crypto_larval_alloc(const char *name, u32 type, u32 mask)
 
 	return larval;
 }
-EXPORT_SYMBOL_GPL(crypto_larval_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_larval_alloc); */
 
 static struct crypto_alg *crypto_larval_add(const char *name, u32 type,
 					    u32 mask)
@@ -171,7 +171,7 @@ void crypto_larval_kill(struct crypto_alg *alg)
 	complete_all(&larval->completion);
 	crypto_alg_put(alg);
 }
-EXPORT_SYMBOL_GPL(crypto_larval_kill);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_larval_kill); */
 
 static struct crypto_alg *crypto_larval_wait(struct crypto_alg *alg)
 {
@@ -208,7 +208,7 @@ struct crypto_alg *crypto_alg_lookup(const char *name, u32 type, u32 mask)
 
 	return alg;
 }
-EXPORT_SYMBOL_GPL(crypto_alg_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alg_lookup); */
 
 struct crypto_alg *crypto_larval_lookup(const char *name, u32 type, u32 mask)
 {
@@ -236,7 +236,7 @@ struct crypto_alg *crypto_larval_lookup(const char *name, u32 type, u32 mask)
 
 	return crypto_larval_add(name, type, mask);
 }
-EXPORT_SYMBOL_GPL(crypto_larval_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_larval_lookup); */
 
 int crypto_probing_notify(unsigned long val, void *v)
 {
@@ -250,7 +250,7 @@ int crypto_probing_notify(unsigned long val, void *v)
 
 	return ok;
 }
-EXPORT_SYMBOL_GPL(crypto_probing_notify);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_probing_notify); */
 
 struct crypto_alg *crypto_alg_mod_lookup(const char *name, u32 type, u32 mask)
 {
@@ -278,7 +278,7 @@ struct crypto_alg *crypto_alg_mod_lookup(const char *name, u32 type, u32 mask)
 	crypto_larval_kill(larval);
 	return alg;
 }
-EXPORT_SYMBOL_GPL(crypto_alg_mod_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alg_mod_lookup); */
 
 static int crypto_init_ops(struct crypto_tfm *tfm, u32 type, u32 mask)
 {
@@ -357,7 +357,7 @@ void crypto_shoot_alg(struct crypto_alg *alg)
 	alg->cra_flags |= CRYPTO_ALG_DYING;
 	up_write(&crypto_alg_sem);
 }
-EXPORT_SYMBOL_GPL(crypto_shoot_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shoot_alg); */
 
 #if FIPS_FUNC_TEST == 4
 int g_tfm_sz = 0;
@@ -404,7 +404,7 @@ out_err:
 out:
 	return tfm;
 }
-EXPORT_SYMBOL_GPL(__crypto_alloc_tfm);
+/* DISABLED: EXPORT_SYMBOL_GPL(__crypto_alloc_tfm); */
 
 /*
  *	crypto_alloc_base - Locate algorithm and allocate transform
@@ -465,7 +465,7 @@ err:
 
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_base); */
 
 void *crypto_create_tfm(struct crypto_alg *alg,
 			const struct crypto_type *frontend)
@@ -513,7 +513,7 @@ out_err:
 out:
 	return mem;
 }
-EXPORT_SYMBOL_GPL(crypto_create_tfm);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_create_tfm); */
 
 struct crypto_alg *crypto_find_alg(const char *alg_name,
 				   const struct crypto_type *frontend,
@@ -534,7 +534,7 @@ struct crypto_alg *crypto_find_alg(const char *alg_name,
 
 	return lookup(alg_name, type, mask);
 }
-EXPORT_SYMBOL_GPL(crypto_find_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_find_alg); */
 
 /*
  *	crypto_alloc_tfm - Locate algorithm and allocate transform
@@ -594,7 +594,7 @@ err:
 
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_tfm);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_tfm); */
 
 /*
  *	crypto_destroy_tfm - Free crypto transform
@@ -631,7 +631,7 @@ void crypto_destroy_tfm(void *mem, struct crypto_tfm *tfm)
     }
 #endif
 }
-EXPORT_SYMBOL_GPL(crypto_destroy_tfm);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_destroy_tfm); */
 
 int crypto_has_alg(const char *name, u32 type, u32 mask)
 {
@@ -645,7 +645,7 @@ int crypto_has_alg(const char *name, u32 type, u32 mask)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(crypto_has_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_has_alg); */
 
 MODULE_DESCRIPTION("Cryptographic core API");
 MODULE_LICENSE("GPL");

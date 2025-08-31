@@ -85,7 +85,7 @@ struct cbe_pmd_regs __iomem *cbe_get_pmd_regs(struct device_node *np)
 		return NULL;
 	return map->pmd_regs;
 }
-EXPORT_SYMBOL_GPL(cbe_get_pmd_regs);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_pmd_regs); */
 
 struct cbe_pmd_regs __iomem *cbe_get_cpu_pmd_regs(int cpu)
 {
@@ -94,7 +94,7 @@ struct cbe_pmd_regs __iomem *cbe_get_cpu_pmd_regs(int cpu)
 		return NULL;
 	return map->pmd_regs;
 }
-EXPORT_SYMBOL_GPL(cbe_get_cpu_pmd_regs);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_cpu_pmd_regs); */
 
 struct cbe_pmd_shadow_regs *cbe_get_pmd_shadow_regs(struct device_node *np)
 {
@@ -143,26 +143,26 @@ struct cbe_mic_tm_regs __iomem *cbe_get_cpu_mic_tm_regs(int cpu)
 		return NULL;
 	return map->mic_tm_regs;
 }
-EXPORT_SYMBOL_GPL(cbe_get_cpu_mic_tm_regs);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_cpu_mic_tm_regs); */
 
 u32 cbe_get_hw_thread_id(int cpu)
 {
 	return cbe_thread_map[cpu].thread_id;
 }
-EXPORT_SYMBOL_GPL(cbe_get_hw_thread_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_hw_thread_id); */
 
 u32 cbe_cpu_to_node(int cpu)
 {
 	return cbe_thread_map[cpu].cbe_id;
 }
-EXPORT_SYMBOL_GPL(cbe_cpu_to_node);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_cpu_to_node); */
 
 u32 cbe_node_to_cpu(int node)
 {
 	return cpumask_first(&cbe_local_mask[node]);
 
 }
-EXPORT_SYMBOL_GPL(cbe_node_to_cpu);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_node_to_cpu); */
 
 static struct device_node *cbe_get_be_node(int cpu_id)
 {

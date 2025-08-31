@@ -2953,7 +2953,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL(omap_dispc_register_isr);
+/* DISABLED: EXPORT_SYMBOL(omap_dispc_register_isr); */
 
 int omap_dispc_unregister_isr(omap_dispc_isr_t isr, void *arg, u32 mask)
 {
@@ -2987,7 +2987,7 @@ int omap_dispc_unregister_isr(omap_dispc_isr_t isr, void *arg, u32 mask)
 
 	return ret;
 }
-EXPORT_SYMBOL(omap_dispc_unregister_isr);
+/* DISABLED: EXPORT_SYMBOL(omap_dispc_unregister_isr); */
 
 #ifdef DEBUG
 static void print_irq_status(u32 status)

@@ -182,7 +182,7 @@ int ar7_gpio_enable(unsigned gpio)
 	return ar7_is_titan() ? ar7_gpio_enable_titan(gpio) :
 				ar7_gpio_enable_ar7(gpio);
 }
-EXPORT_SYMBOL(ar7_gpio_enable);
+/* DISABLED: EXPORT_SYMBOL(ar7_gpio_enable); */
 
 static inline int ar7_gpio_disable_ar7(unsigned gpio)
 {
@@ -209,7 +209,7 @@ int ar7_gpio_disable(unsigned gpio)
 	return ar7_is_titan() ? ar7_gpio_disable_titan(gpio) :
 				ar7_gpio_disable_ar7(gpio);
 }
-EXPORT_SYMBOL(ar7_gpio_disable);
+/* DISABLED: EXPORT_SYMBOL(ar7_gpio_disable); */
 
 struct titan_gpio_cfg {
 	u32 reg;

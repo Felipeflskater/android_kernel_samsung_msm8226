@@ -69,7 +69,7 @@ int iw_handler_set_spy(struct net_device *	dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(iw_handler_set_spy);
+/* DISABLED: EXPORT_SYMBOL(iw_handler_set_spy); */
 
 int iw_handler_get_spy(struct net_device *	dev,
 		       struct iw_request_info *	info,
@@ -101,7 +101,7 @@ int iw_handler_get_spy(struct net_device *	dev,
 		spydata->spy_stat[i].updated &= ~IW_QUAL_ALL_UPDATED;
 	return 0;
 }
-EXPORT_SYMBOL(iw_handler_get_spy);
+/* DISABLED: EXPORT_SYMBOL(iw_handler_get_spy); */
 
 /*------------------------------------------------------------------*/
 /*
@@ -128,7 +128,7 @@ int iw_handler_set_thrspy(struct net_device *	dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(iw_handler_set_thrspy);
+/* DISABLED: EXPORT_SYMBOL(iw_handler_set_thrspy); */
 
 /*------------------------------------------------------------------*/
 /*
@@ -152,7 +152,7 @@ int iw_handler_get_thrspy(struct net_device *	dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(iw_handler_get_thrspy);
+/* DISABLED: EXPORT_SYMBOL(iw_handler_get_thrspy); */
 
 /*------------------------------------------------------------------*/
 /*
@@ -229,4 +229,4 @@ void wireless_spy_update(struct net_device *	dev,
 		}
 	}
 }
-EXPORT_SYMBOL(wireless_spy_update);
+/* DISABLED: EXPORT_SYMBOL(wireless_spy_update); */

@@ -446,7 +446,7 @@ int altera_ci_irq(void *dev)
 
 	return 1;
 }
-EXPORT_SYMBOL(altera_ci_irq);
+/* DISABLED: EXPORT_SYMBOL(altera_ci_irq); */
 
 int altera_poll_ci_slot_status(struct dvb_ca_en50221 *en50221, int slot,
 								int open)
@@ -486,7 +486,7 @@ void altera_hw_filt_release(void *main_dev, int filt_nr)
 	}
 
 }
-EXPORT_SYMBOL(altera_hw_filt_release);
+/* DISABLED: EXPORT_SYMBOL(altera_hw_filt_release); */
 
 void altera_ci_release(void *dev, int ci_nr)
 {
@@ -518,7 +518,7 @@ void altera_ci_release(void *dev, int ci_nr)
 	}
 
 }
-EXPORT_SYMBOL(altera_ci_release);
+/* DISABLED: EXPORT_SYMBOL(altera_ci_release); */
 
 static void altera_pid_control(struct netup_hw_pid_filter *pid_filt,
 		u16 pid, int onoff)
@@ -601,7 +601,7 @@ int altera_pid_feed_control(void *demux_dev, int filt_nr,
 
 	return 0;
 }
-EXPORT_SYMBOL(altera_pid_feed_control);
+/* DISABLED: EXPORT_SYMBOL(altera_pid_feed_control); */
 
 int altera_ci_start_feed(struct dvb_demux_feed *feed, int num)
 {
@@ -702,7 +702,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL(altera_hw_filt_init);
+/* DISABLED: EXPORT_SYMBOL(altera_hw_filt_init); */
 
 int altera_ci_init(struct altera_ci_config *config, int ci_nr)
 {
@@ -803,7 +803,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL(altera_ci_init);
+/* DISABLED: EXPORT_SYMBOL(altera_ci_init); */
 
 int altera_ci_tuner_reset(void *dev, int ci_nr)
 {
@@ -834,4 +834,4 @@ int altera_ci_tuner_reset(void *dev, int ci_nr)
 
 	return 0;
 }
-EXPORT_SYMBOL(altera_ci_tuner_reset);
+/* DISABLED: EXPORT_SYMBOL(altera_ci_tuner_reset); */

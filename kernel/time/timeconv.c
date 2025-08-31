@@ -124,4 +124,4 @@ void time_to_tm(time_t totalsecs, int offset, struct tm *result)
 	result->tm_mon = y;
 	result->tm_mday = days + 1;
 }
-EXPORT_SYMBOL(time_to_tm);
+/* DISABLED: EXPORT_SYMBOL(time_to_tm); */

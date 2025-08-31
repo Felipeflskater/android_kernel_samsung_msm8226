@@ -73,7 +73,7 @@ void tcp_init_xmit_timers(struct sock *sk)
 	inet_csk_init_xmit_timers(sk, &tcp_write_timer, &tcp_delack_timer,
 				  &tcp_keepalive_timer);
 }
-EXPORT_SYMBOL(tcp_init_xmit_timers);
+/* DISABLED: EXPORT_SYMBOL(tcp_init_xmit_timers); */
 
 static void tcp_write_err(struct sock *sk)
 {
@@ -532,7 +532,7 @@ void tcp_syn_ack_timeout(struct sock *sk, struct request_sock *req)
 {
 	NET_INC_STATS_BH(sock_net(sk), LINUX_MIB_TCPTIMEOUTS);
 }
-EXPORT_SYMBOL(tcp_syn_ack_timeout);
+/* DISABLED: EXPORT_SYMBOL(tcp_syn_ack_timeout); */
 
 void tcp_set_keepalive(struct sock *sk, int val)
 {

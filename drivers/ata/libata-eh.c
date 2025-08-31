@@ -705,7 +705,7 @@ void ata_scsi_cmd_error_handler(struct Scsi_Host *host, struct ata_port *ap,
 		spin_unlock_wait(ap->lock);
 
 }
-EXPORT_SYMBOL(ata_scsi_cmd_error_handler);
+/* DISABLED: EXPORT_SYMBOL(ata_scsi_cmd_error_handler); */
 
 /**
  * ata_scsi_port_error_handler - recover the port after the commands
@@ -828,7 +828,7 @@ void ata_scsi_port_error_handler(struct Scsi_Host *host, struct ata_port *ap)
 
 	spin_unlock_irqrestore(ap->lock, flags);
 }
-EXPORT_SYMBOL_GPL(ata_scsi_port_error_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_port_error_handler); */
 
 /**
  *	ata_port_wait_eh - Wait for the currently pending EH to complete
@@ -863,7 +863,7 @@ void ata_port_wait_eh(struct ata_port *ap)
 		goto retry;
 	}
 }
-EXPORT_SYMBOL_GPL(ata_port_wait_eh);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_wait_eh); */
 
 static int ata_eh_nr_in_flight(struct ata_port *ap)
 {

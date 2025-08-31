@@ -2427,9 +2427,9 @@ static void __exit ebtables_fini(void)
 	printk(KERN_INFO "Ebtables v2.0 unregistered\n");
 }
 
-EXPORT_SYMBOL(ebt_register_table);
-EXPORT_SYMBOL(ebt_unregister_table);
-EXPORT_SYMBOL(ebt_do_table);
+/* DISABLED: EXPORT_SYMBOL(ebt_register_table); */
+/* DISABLED: EXPORT_SYMBOL(ebt_unregister_table); */
+/* DISABLED: EXPORT_SYMBOL(ebt_do_table); */
 module_init(ebtables_init);
 module_exit(ebtables_fini);
 MODULE_LICENSE("GPL");

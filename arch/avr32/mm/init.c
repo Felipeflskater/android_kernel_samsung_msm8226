@@ -28,7 +28,7 @@
 pgd_t swapper_pg_dir[PTRS_PER_PGD] __page_aligned_data;
 
 struct page *empty_zero_page;
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 /*
  * Cache of MMU context last used.

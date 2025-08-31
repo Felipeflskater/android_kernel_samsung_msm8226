@@ -2151,7 +2151,7 @@ void mmc_blk_disable_wr_packing(struct mmc_queue *mq)
 		mq->num_of_potential_packed_wr_reqs = 0;
 	}
 }
-EXPORT_SYMBOL(mmc_blk_disable_wr_packing);
+/* DISABLED: EXPORT_SYMBOL(mmc_blk_disable_wr_packing); */
 
 static int get_packed_trigger(int potential, struct mmc_card *card,
 			      struct request *req, int curr_trigger)
@@ -2290,7 +2290,7 @@ struct mmc_wr_pack_stats *mmc_blk_get_packed_statistics(struct mmc_card *card)
 
 	return &card->wr_pack_stats;
 }
-EXPORT_SYMBOL(mmc_blk_get_packed_statistics);
+/* DISABLED: EXPORT_SYMBOL(mmc_blk_get_packed_statistics); */
 
 void mmc_blk_init_packed_statistics(struct mmc_card *card)
 {
@@ -2310,7 +2310,7 @@ void mmc_blk_init_packed_statistics(struct mmc_card *card)
 	card->wr_pack_stats.enabled = true;
 	spin_unlock(&card->wr_pack_stats.lock);
 }
-EXPORT_SYMBOL(mmc_blk_init_packed_statistics);
+/* DISABLED: EXPORT_SYMBOL(mmc_blk_init_packed_statistics); */
 
 static u8 mmc_blk_prep_packed_list(struct mmc_queue *mq, struct request *req)
 {

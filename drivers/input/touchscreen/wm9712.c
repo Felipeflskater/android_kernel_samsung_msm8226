@@ -459,7 +459,7 @@ struct wm97xx_codec_drv wm9712_codec = {
 	.dig_restore = wm9712_dig_restore,
 	.aux_prepare = wm9712_aux_prepare,
 };
-EXPORT_SYMBOL_GPL(wm9712_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm9712_codec); */
 
 /* Module information */
 MODULE_AUTHOR("Liam Girdwood <lrg@slimlogic.co.uk>");

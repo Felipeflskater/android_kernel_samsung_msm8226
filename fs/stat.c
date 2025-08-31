@@ -35,7 +35,7 @@ void generic_fillattr(struct inode *inode, struct kstat *stat)
 	stat->blocks = inode->i_blocks;
 }
 
-EXPORT_SYMBOL(generic_fillattr);
+/* DISABLED: EXPORT_SYMBOL(generic_fillattr); */
 
 int vfs_getattr(struct vfsmount *mnt, struct dentry *dentry, struct kstat *stat)
 {
@@ -53,7 +53,7 @@ int vfs_getattr(struct vfsmount *mnt, struct dentry *dentry, struct kstat *stat)
 	return 0;
 }
 
-EXPORT_SYMBOL(vfs_getattr);
+/* DISABLED: EXPORT_SYMBOL(vfs_getattr); */
 
 int vfs_fstat(unsigned int fd, struct kstat *stat)
 {
@@ -67,7 +67,7 @@ int vfs_fstat(unsigned int fd, struct kstat *stat)
 	}
 	return error;
 }
-EXPORT_SYMBOL(vfs_fstat);
+/* DISABLED: EXPORT_SYMBOL(vfs_fstat); */
 
 int vfs_fstatat(int dfd, const char __user *filename, struct kstat *stat,
 		int flag)
@@ -94,19 +94,19 @@ int vfs_fstatat(int dfd, const char __user *filename, struct kstat *stat,
 out:
 	return error;
 }
-EXPORT_SYMBOL(vfs_fstatat);
+/* DISABLED: EXPORT_SYMBOL(vfs_fstatat); */
 
 int vfs_stat(const char __user *name, struct kstat *stat)
 {
 	return vfs_fstatat(AT_FDCWD, name, stat, 0);
 }
-EXPORT_SYMBOL(vfs_stat);
+/* DISABLED: EXPORT_SYMBOL(vfs_stat); */
 
 int vfs_lstat(const char __user *name, struct kstat *stat)
 {
 	return vfs_fstatat(AT_FDCWD, name, stat, AT_SYMLINK_NOFOLLOW);
 }
-EXPORT_SYMBOL(vfs_lstat);
+/* DISABLED: EXPORT_SYMBOL(vfs_lstat); */
 
 
 #ifdef __ARCH_WANT_OLD_STAT
@@ -432,7 +432,7 @@ void inode_add_bytes(struct inode *inode, loff_t bytes)
 	spin_unlock(&inode->i_lock);
 }
 
-EXPORT_SYMBOL(inode_add_bytes);
+/* DISABLED: EXPORT_SYMBOL(inode_add_bytes); */
 
 void inode_sub_bytes(struct inode *inode, loff_t bytes)
 {
@@ -447,7 +447,7 @@ void inode_sub_bytes(struct inode *inode, loff_t bytes)
 	spin_unlock(&inode->i_lock);
 }
 
-EXPORT_SYMBOL(inode_sub_bytes);
+/* DISABLED: EXPORT_SYMBOL(inode_sub_bytes); */
 
 loff_t inode_get_bytes(struct inode *inode)
 {
@@ -459,7 +459,7 @@ loff_t inode_get_bytes(struct inode *inode)
 	return ret;
 }
 
-EXPORT_SYMBOL(inode_get_bytes);
+/* DISABLED: EXPORT_SYMBOL(inode_get_bytes); */
 
 void inode_set_bytes(struct inode *inode, loff_t bytes)
 {
@@ -469,4 +469,4 @@ void inode_set_bytes(struct inode *inode, loff_t bytes)
 	inode->i_bytes = bytes & 511;
 }
 
-EXPORT_SYMBOL(inode_set_bytes);
+/* DISABLED: EXPORT_SYMBOL(inode_set_bytes); */

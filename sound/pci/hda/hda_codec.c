@@ -83,7 +83,7 @@ int snd_hda_add_codec_preset(struct hda_codec_preset_list *preset)
 	mutex_unlock(&preset_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_add_codec_preset);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_add_codec_preset); */
 
 int snd_hda_delete_codec_preset(struct hda_codec_preset_list *preset)
 {
@@ -92,7 +92,7 @@ int snd_hda_delete_codec_preset(struct hda_codec_preset_list *preset)
 	mutex_unlock(&preset_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_delete_codec_preset);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_delete_codec_preset); */
 
 #ifdef CONFIG_SND_HDA_POWER_SAVE
 static void hda_power_work(struct work_struct *work);
@@ -135,7 +135,7 @@ const char *snd_hda_get_jack_location(u32 cfg)
 	}
 	return "UNKNOWN";
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_jack_location);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_jack_location); */
 
 /**
  * snd_hda_get_jack_connectivity - Give a connectivity string of the jack
@@ -150,7 +150,7 @@ const char *snd_hda_get_jack_connectivity(u32 cfg)
 
 	return jack_locations[(cfg >> (AC_DEFCFG_LOCATION_SHIFT + 4)) & 3];
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_jack_connectivity);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_jack_connectivity); */
 
 /**
  * snd_hda_get_jack_type - Give a type string of the jack
@@ -171,7 +171,7 @@ const char *snd_hda_get_jack_type(u32 cfg)
 	return jack_types[(cfg & AC_DEFCFG_DEVICE)
 				>> AC_DEFCFG_DEVICE_SHIFT];
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_jack_type);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_jack_type); */
 
 /*
  * Compose a 32bit command word to be sent to the HD-audio controller
@@ -259,7 +259,7 @@ unsigned int snd_hda_codec_read(struct hda_codec *codec, hda_nid_t nid,
 		return -1;
 	return res;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_read);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_read); */
 
 /**
  * snd_hda_codec_write - send a single command without waiting for response
@@ -281,7 +281,7 @@ int snd_hda_codec_write(struct hda_codec *codec, hda_nid_t nid, int direct,
 	return codec_exec_verb(codec, cmd,
 			       codec->bus->sync_write ? &res : NULL);
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_write);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_write); */
 
 /**
  * snd_hda_sequence_write - sequence writes
@@ -296,7 +296,7 @@ void snd_hda_sequence_write(struct hda_codec *codec, const struct hda_verb *seq)
 	for (; seq->nid; seq++)
 		snd_hda_codec_write(codec, seq->nid, 0, seq->verb, seq->param);
 }
-EXPORT_SYMBOL_HDA(snd_hda_sequence_write);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_sequence_write); */
 
 /**
  * snd_hda_get_sub_nodes - get the range of sub nodes
@@ -318,7 +318,7 @@ int snd_hda_get_sub_nodes(struct hda_codec *codec, hda_nid_t nid,
 	*start_id = (parm >> 16) & 0x7fff;
 	return (int)(parm & 0x7fff);
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_sub_nodes);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_sub_nodes); */
 
 /* look up the cached results */
 static hda_nid_t *lookup_conn_list(struct snd_array *array, hda_nid_t nid)
@@ -375,7 +375,7 @@ int snd_hda_get_conn_list(struct hda_codec *codec, hda_nid_t nid,
 	added = true;
 	goto again;
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_conn_list);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_conn_list); */
 
 /**
  * snd_hda_get_connections - copy connection list
@@ -406,7 +406,7 @@ int snd_hda_get_connections(struct hda_codec *codec, hda_nid_t nid,
 	memcpy(conn_list, list, len * sizeof(hda_nid_t));
 	return len;
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_connections);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_connections); */
 
 /**
  * snd_hda_get_raw_connections - copy connection list without cache
@@ -559,7 +559,7 @@ int snd_hda_override_conn_list(struct hda_codec *codec, hda_nid_t nid, int len,
 	array->used = old_used;
 	return -ENOMEM;
 }
-EXPORT_SYMBOL_HDA(snd_hda_override_conn_list);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_override_conn_list); */
 
 /**
  * snd_hda_get_conn_index - get the connection index of the given NID
@@ -598,7 +598,7 @@ int snd_hda_get_conn_index(struct hda_codec *codec, hda_nid_t mux,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_conn_index);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_conn_index); */
 
 /**
  * snd_hda_queue_unsol_event - add an unsolicited event to queue
@@ -636,7 +636,7 @@ int snd_hda_queue_unsol_event(struct hda_bus *bus, u32 res, u32 res_ex)
 
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_queue_unsol_event);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_queue_unsol_event); */
 
 /*
  * process queued unsolicited events
@@ -796,7 +796,7 @@ int /*__devinit*/ snd_hda_bus_new(struct snd_card *card,
 		*busp = bus;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_bus_new);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_bus_new); */
 
 #ifdef CONFIG_SND_HDA_GENERIC
 #define is_generic_config(codec) \
@@ -1055,7 +1055,7 @@ int snd_hda_codec_set_pincfg(struct hda_codec *codec,
 {
 	return snd_hda_add_pincfg(codec, &codec->driver_pins, nid, cfg);
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_set_pincfg);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_set_pincfg); */
 
 /**
  * snd_hda_codec_get_pincfg - Obtain a pin-default configuration
@@ -1083,7 +1083,7 @@ unsigned int snd_hda_codec_get_pincfg(struct hda_codec *codec, hda_nid_t nid)
 		return pin->cfg;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_get_pincfg);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_get_pincfg); */
 
 /* restore all current pin configs */
 static void restore_pincfgs(struct hda_codec *codec)
@@ -1119,7 +1119,7 @@ void snd_hda_shutup_pins(struct hda_codec *codec)
 	}
 	codec->pins_shutup = 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_shutup_pins);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_shutup_pins); */
 
 #ifdef CONFIG_PM
 /* Restore the pin controls cleared previously via snd_hda_shutup_pins() */
@@ -1346,7 +1346,7 @@ int /*__devinit*/ snd_hda_codec_new(struct hda_bus *bus,
 	snd_hda_codec_free(codec);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_new);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_new); */
 
 /**
  * snd_hda_codec_configure - (Re-)configure the HD-audio codec
@@ -1392,7 +1392,7 @@ int snd_hda_codec_configure(struct hda_codec *codec)
 			 "%s %s", codec->vendor_name, codec->chip_name);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_configure);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_configure); */
 
 /**
  * snd_hda_codec_setup_stream - set up the codec for streaming
@@ -1458,7 +1458,7 @@ void snd_hda_codec_setup_stream(struct hda_codec *codec, hda_nid_t nid,
 		}
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_setup_stream);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_setup_stream); */
 
 static void really_cleanup_stream(struct hda_codec *codec,
 				  struct hda_cvt_setup *q);
@@ -1493,7 +1493,7 @@ void __snd_hda_codec_cleanup_stream(struct hda_codec *codec, hda_nid_t nid,
 			p->active = 0;
 	}
 }
-EXPORT_SYMBOL_HDA(__snd_hda_codec_cleanup_stream);
+/* DISABLED: EXPORT_SYMBOL_HDA(__snd_hda_codec_cleanup_stream); */
 
 static void really_cleanup_stream(struct hda_codec *codec,
 				  struct hda_cvt_setup *q)
@@ -1639,7 +1639,7 @@ u32 query_amp_caps(struct hda_codec *codec, hda_nid_t nid, int direction)
 	}
 	return info->amp_caps;
 }
-EXPORT_SYMBOL_HDA(query_amp_caps);
+/* DISABLED: EXPORT_SYMBOL_HDA(query_amp_caps); */
 
 /**
  * snd_hda_override_amp_caps - Override the AMP capabilities
@@ -1666,7 +1666,7 @@ int snd_hda_override_amp_caps(struct hda_codec *codec, hda_nid_t nid, int dir,
 	info->head.val |= INFO_AMP_CAPS;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_override_amp_caps);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_override_amp_caps); */
 
 static unsigned int
 query_caps_hash(struct hda_codec *codec, hda_nid_t nid, u32 key,
@@ -1705,7 +1705,7 @@ u32 snd_hda_query_pin_caps(struct hda_codec *codec, hda_nid_t nid)
 	return query_caps_hash(codec, nid, HDA_HASH_PINCAP_KEY(nid),
 			       read_pin_cap);
 }
-EXPORT_SYMBOL_HDA(snd_hda_query_pin_caps);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_query_pin_caps); */
 
 /**
  * snd_hda_override_pin_caps - Override the pin capabilities
@@ -1728,7 +1728,7 @@ int snd_hda_override_pin_caps(struct hda_codec *codec, hda_nid_t nid,
 	info->head.val |= INFO_AMP_CAPS;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_override_pin_caps);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_override_pin_caps); */
 
 /*
  * read the current volume to info
@@ -1793,7 +1793,7 @@ int snd_hda_codec_amp_read(struct hda_codec *codec, hda_nid_t nid, int ch,
 		return 0;
 	return get_vol_mute(codec, info, nid, ch, direction, index);
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_amp_read);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_amp_read); */
 
 /**
  * snd_hda_codec_amp_update - update the AMP value
@@ -1825,7 +1825,7 @@ int snd_hda_codec_amp_update(struct hda_codec *codec, hda_nid_t nid, int ch,
 	put_vol_mute(codec, info, nid, ch, direction, idx, val);
 	return 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_amp_update);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_amp_update); */
 
 /**
  * snd_hda_codec_amp_stereo - update the AMP stereo values
@@ -1851,7 +1851,7 @@ int snd_hda_codec_amp_stereo(struct hda_codec *codec, hda_nid_t nid,
 						idx, mask, val);
 	return ret;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_amp_stereo);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_amp_stereo); */
 
 #ifdef CONFIG_PM
 /**
@@ -1882,7 +1882,7 @@ void snd_hda_codec_resume_amp(struct hda_codec *codec)
 		}
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_resume_amp);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_resume_amp); */
 #endif /* CONFIG_PM */
 
 static u32 get_amp_max_value(struct hda_codec *codec, hda_nid_t nid, int dir,
@@ -1923,7 +1923,7 @@ int snd_hda_mixer_amp_volume_info(struct snd_kcontrol *kcontrol,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_info);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_info); */
 
 
 static inline unsigned int
@@ -1980,7 +1980,7 @@ int snd_hda_mixer_amp_volume_get(struct snd_kcontrol *kcontrol,
 		*valp = read_amp_value(codec, nid, 1, dir, idx, ofs);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_get); */
 
 /**
  * snd_hda_mixer_amp_volume_put - Put callback for a standard AMP mixer volume
@@ -2010,7 +2010,7 @@ int snd_hda_mixer_amp_volume_put(struct snd_kcontrol *kcontrol,
 	snd_hda_power_down(codec);
 	return change;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_volume_put); */
 
 /**
  * snd_hda_mixer_amp_volume_put - TLV callback for a standard AMP mixer volume
@@ -2048,7 +2048,7 @@ int snd_hda_mixer_amp_tlv(struct snd_kcontrol *kcontrol, int op_flag,
 		return -EFAULT;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_tlv);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_tlv); */
 
 /**
  * snd_hda_set_vmaster_tlv - Set TLV for a virtual master control
@@ -2076,7 +2076,7 @@ void snd_hda_set_vmaster_tlv(struct hda_codec *codec, hda_nid_t nid, int dir,
 	tlv[2] = -nums * step;
 	tlv[3] = step;
 }
-EXPORT_SYMBOL_HDA(snd_hda_set_vmaster_tlv);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_set_vmaster_tlv); */
 
 /* find a mixer control element with the given name */
 static struct snd_kcontrol *
@@ -2115,7 +2115,7 @@ struct snd_kcontrol *snd_hda_find_mixer_ctl(struct hda_codec *codec,
 {
 	return _snd_hda_find_mixer_ctl(codec, name, 0);
 }
-EXPORT_SYMBOL_HDA(snd_hda_find_mixer_ctl);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_find_mixer_ctl); */
 
 static int find_empty_mixer_ctl_idx(struct hda_codec *codec, const char *name)
 {
@@ -2173,7 +2173,7 @@ int snd_hda_ctl_add(struct hda_codec *codec, hda_nid_t nid,
 	item->flags = flags;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_ctl_add);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_ctl_add); */
 
 /**
  * snd_hda_add_nid - Assign a NID to a control element
@@ -2204,7 +2204,7 @@ int snd_hda_add_nid(struct hda_codec *codec, struct snd_kcontrol *kctl,
 	       kctl->id.name, kctl->id.index, index);
 	return -EINVAL;
 }
-EXPORT_SYMBOL_HDA(snd_hda_add_nid);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_add_nid); */
 
 /**
  * snd_hda_ctls_clear - Clear all controls assigned to the given codec
@@ -2463,7 +2463,7 @@ int __snd_hda_add_vmaster(struct hda_codec *codec, char *name,
 		*ctl_ret = kctl;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(__snd_hda_add_vmaster);
+/* DISABLED: EXPORT_SYMBOL_HDA(__snd_hda_add_vmaster); */
 
 /*
  * mute-LED control using vmaster
@@ -2540,7 +2540,7 @@ int snd_hda_add_vmaster_hook(struct hda_codec *codec,
 		return -ENOMEM;
 	return snd_hda_ctl_add(codec, 0, kctl);
 }
-EXPORT_SYMBOL_HDA(snd_hda_add_vmaster_hook);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_add_vmaster_hook); */
 
 /*
  * Call the hook with the current value for synchronization
@@ -2552,7 +2552,7 @@ void snd_hda_sync_vmaster_hook(struct hda_vmaster_mute_hook *hook)
 		return;
 	snd_ctl_sync_vmaster_hook(hook->sw_kctl);
 }
-EXPORT_SYMBOL_HDA(snd_hda_sync_vmaster_hook);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_sync_vmaster_hook); */
 
 
 /**
@@ -2572,7 +2572,7 @@ int snd_hda_mixer_amp_switch_info(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = 1;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_info);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_info); */
 
 /**
  * snd_hda_mixer_amp_switch_get - Get callback for a standard AMP mixer switch
@@ -2598,7 +2598,7 @@ int snd_hda_mixer_amp_switch_get(struct snd_kcontrol *kcontrol,
 			 HDA_AMP_MUTE) ? 0 : 1;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_get); */
 
 /**
  * snd_hda_mixer_amp_switch_put - Put callback for a standard AMP mixer switch
@@ -2632,7 +2632,7 @@ int snd_hda_mixer_amp_switch_put(struct snd_kcontrol *kcontrol,
 	snd_hda_power_down(codec);
 	return change;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_put); */
 
 #ifdef CONFIG_SND_HDA_INPUT_BEEP
 /**
@@ -2650,7 +2650,7 @@ int snd_hda_mixer_amp_switch_put_beep(struct snd_kcontrol *kcontrol,
 	snd_hda_enable_beep_device(codec, *valp);
 	return snd_hda_mixer_amp_switch_put(kcontrol, ucontrol);
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_put_beep);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_amp_switch_put_beep); */
 #endif /* CONFIG_SND_HDA_INPUT_BEEP */
 
 /*
@@ -2683,7 +2683,7 @@ int snd_hda_mixer_bind_switch_get(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&codec->control_mutex);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_switch_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_switch_get); */
 
 /**
  * snd_hda_mixer_bind_switch_put - Put callback for a bound volume control
@@ -2713,7 +2713,7 @@ int snd_hda_mixer_bind_switch_put(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&codec->control_mutex);
 	return err < 0 ? err : change;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_switch_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_switch_put); */
 
 /**
  * snd_hda_mixer_bind_ctls_info - Info callback for a generic bound control
@@ -2736,7 +2736,7 @@ int snd_hda_mixer_bind_ctls_info(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&codec->control_mutex);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_info);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_info); */
 
 /**
  * snd_hda_mixer_bind_ctls_get - Get callback for a generic bound control
@@ -2759,7 +2759,7 @@ int snd_hda_mixer_bind_ctls_get(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&codec->control_mutex);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_get); */
 
 /**
  * snd_hda_mixer_bind_ctls_put - Put callback for a generic bound control
@@ -2788,7 +2788,7 @@ int snd_hda_mixer_bind_ctls_put(struct snd_kcontrol *kcontrol,
 	mutex_unlock(&codec->control_mutex);
 	return err < 0 ? err : change;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_ctls_put); */
 
 /**
  * snd_hda_mixer_bind_tlv - TLV callback for a generic bound control
@@ -2811,7 +2811,7 @@ int snd_hda_mixer_bind_tlv(struct snd_kcontrol *kcontrol, int op_flag,
 	mutex_unlock(&codec->control_mutex);
 	return err;
 }
-EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_tlv);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_mixer_bind_tlv); */
 
 struct hda_ctl_ops snd_hda_bind_vol = {
 	.info = snd_hda_mixer_amp_volume_info,
@@ -2819,7 +2819,7 @@ struct hda_ctl_ops snd_hda_bind_vol = {
 	.put = snd_hda_mixer_amp_volume_put,
 	.tlv = snd_hda_mixer_amp_tlv
 };
-EXPORT_SYMBOL_HDA(snd_hda_bind_vol);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_bind_vol); */
 
 struct hda_ctl_ops snd_hda_bind_sw = {
 	.info = snd_hda_mixer_amp_switch_info,
@@ -2827,7 +2827,7 @@ struct hda_ctl_ops snd_hda_bind_sw = {
 	.put = snd_hda_mixer_amp_switch_put,
 	.tlv = snd_hda_mixer_amp_tlv
 };
-EXPORT_SYMBOL_HDA(snd_hda_bind_sw);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_bind_sw); */
 
 /*
  * SPDIF out controls
@@ -3098,7 +3098,7 @@ int snd_hda_create_spdif_out_ctls(struct hda_codec *codec,
 	spdif->status = convert_to_spdif_status(spdif->ctls);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_create_spdif_out_ctls);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_create_spdif_out_ctls); */
 
 struct hda_spdif_out *snd_hda_spdif_out_of_nid(struct hda_codec *codec,
 					       hda_nid_t nid)
@@ -3112,7 +3112,7 @@ struct hda_spdif_out *snd_hda_spdif_out_of_nid(struct hda_codec *codec,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_HDA(snd_hda_spdif_out_of_nid);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_spdif_out_of_nid); */
 
 void snd_hda_spdif_ctls_unassign(struct hda_codec *codec, int idx)
 {
@@ -3122,7 +3122,7 @@ void snd_hda_spdif_ctls_unassign(struct hda_codec *codec, int idx)
 	spdif->nid = (u16)-1;
 	mutex_unlock(&codec->spdif_mutex);
 }
-EXPORT_SYMBOL_HDA(snd_hda_spdif_ctls_unassign);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_spdif_ctls_unassign); */
 
 void snd_hda_spdif_ctls_assign(struct hda_codec *codec, int idx, hda_nid_t nid)
 {
@@ -3137,7 +3137,7 @@ void snd_hda_spdif_ctls_assign(struct hda_codec *codec, int idx, hda_nid_t nid)
 	}
 	mutex_unlock(&codec->spdif_mutex);
 }
-EXPORT_SYMBOL_HDA(snd_hda_spdif_ctls_assign);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_spdif_ctls_assign); */
 
 /*
  * SPDIF sharing with analog output
@@ -3180,7 +3180,7 @@ int snd_hda_create_spdif_share_sw(struct hda_codec *codec,
 	return snd_hda_ctl_add(codec, mout->dig_out_nid,
 			      snd_ctl_new1(&spdif_share_sw, mout));
 }
-EXPORT_SYMBOL_HDA(snd_hda_create_spdif_share_sw);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_create_spdif_share_sw); */
 
 /*
  * SPDIF input
@@ -3288,7 +3288,7 @@ int snd_hda_create_spdif_in_ctls(struct hda_codec *codec, hda_nid_t nid)
 		AC_DIG1_ENABLE;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_create_spdif_in_ctls);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_create_spdif_in_ctls); */
 
 #ifdef CONFIG_PM
 /*
@@ -3332,7 +3332,7 @@ int snd_hda_codec_write_cache(struct hda_codec *codec, hda_nid_t nid,
 	mutex_unlock(&codec->bus->cmd_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_write_cache);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_write_cache); */
 
 /**
  * snd_hda_codec_update_cache - check cache and write the cmd only when needed
@@ -3367,7 +3367,7 @@ int snd_hda_codec_update_cache(struct hda_codec *codec, hda_nid_t nid,
 	mutex_unlock(&codec->bus->cmd_mutex);
 	return snd_hda_codec_write_cache(codec, nid, direct, verb, parm);
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_update_cache);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_update_cache); */
 
 /**
  * snd_hda_codec_resume_cache - Resume the all commands from the cache
@@ -3388,7 +3388,7 @@ void snd_hda_codec_resume_cache(struct hda_codec *codec)
 				    get_cmd_cache_cmd(key), buffer->val);
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_resume_cache);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_resume_cache); */
 
 /**
  * snd_hda_sequence_write_cache - sequence writes with caching
@@ -3406,7 +3406,7 @@ void snd_hda_sequence_write_cache(struct hda_codec *codec,
 		snd_hda_codec_write_cache(codec, seq->nid, 0, seq->verb,
 					  seq->param);
 }
-EXPORT_SYMBOL_HDA(snd_hda_sequence_write_cache);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_sequence_write_cache); */
 #endif /* CONFIG_PM */
 
 void snd_hda_codec_set_power_to_all(struct hda_codec *codec, hda_nid_t fg,
@@ -3449,7 +3449,7 @@ void snd_hda_codec_set_power_to_all(struct hda_codec *codec, hda_nid_t fg,
 		} while (time_after_eq(end_time, jiffies));
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_set_power_to_all);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_set_power_to_all); */
 
 /*
  * set power state of the codec
@@ -3553,7 +3553,7 @@ int /*__devinit*/ snd_hda_build_controls(struct hda_bus *bus)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_build_controls);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_build_controls); */
 
 int snd_hda_codec_build_controls(struct hda_codec *codec)
 {
@@ -3671,7 +3671,7 @@ unsigned int snd_hda_calc_stream_format(unsigned int rate,
 
 	return val;
 }
-EXPORT_SYMBOL_HDA(snd_hda_calc_stream_format);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_calc_stream_format); */
 
 static unsigned int get_pcm_param(struct hda_codec *codec, hda_nid_t nid)
 {
@@ -3813,7 +3813,7 @@ int snd_hda_query_supported_pcm(struct hda_codec *codec, hda_nid_t nid,
 
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_query_supported_pcm);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_query_supported_pcm); */
 
 /**
  * snd_hda_is_supported_format - Check the validity of the format
@@ -3880,7 +3880,7 @@ int snd_hda_is_supported_format(struct hda_codec *codec, hda_nid_t nid,
 
 	return 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_is_supported_format);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_is_supported_format); */
 
 /*
  * PCM stuff
@@ -3958,7 +3958,7 @@ int snd_hda_codec_prepare(struct hda_codec *codec,
 	mutex_unlock(&codec->bus->prepare_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_prepare);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_prepare); */
 
 void snd_hda_codec_cleanup(struct hda_codec *codec,
 			   struct hda_pcm_stream *hinfo,
@@ -3968,7 +3968,7 @@ void snd_hda_codec_cleanup(struct hda_codec *codec,
 	hinfo->ops.cleanup(hinfo, codec, substream);
 	mutex_unlock(&codec->bus->prepare_mutex);
 }
-EXPORT_SYMBOL_HDA(snd_hda_codec_cleanup);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_codec_cleanup); */
 
 /* global */
 const char *snd_hda_pcm_type_name[HDA_PCM_NTYPES] = {
@@ -4115,7 +4115,7 @@ int __devinit snd_hda_build_pcms(struct hda_bus *bus)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_build_pcms);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_build_pcms); */
 
 /**
  * snd_hda_check_board_config - compare the current codec with the config table
@@ -4171,7 +4171,7 @@ int snd_hda_check_board_config(struct hda_codec *codec,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_check_board_config);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_check_board_config); */
 
 /**
  * snd_hda_check_board_codec_sid_config - compare the current codec
@@ -4232,7 +4232,7 @@ int snd_hda_check_board_codec_sid_config(struct hda_codec *codec,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_check_board_codec_sid_config);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_check_board_codec_sid_config); */
 
 /**
  * snd_hda_add_new_ctls - create controls from the array
@@ -4282,7 +4282,7 @@ int snd_hda_add_new_ctls(struct hda_codec *codec,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_add_new_ctls);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_add_new_ctls); */
 
 #ifdef CONFIG_SND_HDA_POWER_SAVE
 static void hda_power_work(struct work_struct *work)
@@ -4345,7 +4345,7 @@ void snd_hda_power_up(struct hda_codec *codec)
 	cancel_delayed_work(&codec->power_work);
 	codec->power_transition = 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_power_up);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_power_up); */
 
 #define power_save(codec)	\
 	((codec)->bus->power_save ? *(codec)->bus->power_save : 0)
@@ -4368,7 +4368,7 @@ void snd_hda_power_down(struct hda_codec *codec)
 				msecs_to_jiffies(power_save(codec) * 1000));
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_power_down);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_power_down); */
 
 /**
  * snd_hda_check_amp_list_power - Check the amp list and update the power
@@ -4418,7 +4418,7 @@ int snd_hda_check_amp_list_power(struct hda_codec *codec,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_check_amp_list_power);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_check_amp_list_power); */
 #endif
 
 /*
@@ -4442,7 +4442,7 @@ int snd_hda_ch_mode_info(struct hda_codec *codec,
 		chmode[uinfo->value.enumerated.item].channels);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_ch_mode_info);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_ch_mode_info); */
 
 /**
  * snd_hda_ch_mode_get - Get callback helper for the channel mode enum
@@ -4463,7 +4463,7 @@ int snd_hda_ch_mode_get(struct hda_codec *codec,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_ch_mode_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_ch_mode_get); */
 
 /**
  * snd_hda_ch_mode_put - Put callback helper for the channel mode enum
@@ -4487,7 +4487,7 @@ int snd_hda_ch_mode_put(struct hda_codec *codec,
 		snd_hda_sequence_write_cache(codec, chmode[mode].sequence);
 	return 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_ch_mode_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_ch_mode_put); */
 
 /*
  * input MUX helper
@@ -4512,7 +4512,7 @@ int snd_hda_input_mux_info(const struct hda_input_mux *imux,
 	strcpy(uinfo->value.enumerated.name, imux->items[index].label);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_input_mux_info);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_input_mux_info); */
 
 /**
  * snd_hda_input_mux_info_put - Put callback helper for the input-mux enum
@@ -4537,7 +4537,7 @@ int snd_hda_input_mux_put(struct hda_codec *codec,
 	*cur_val = idx;
 	return 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_input_mux_put);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_input_mux_put); */
 
 
 /*
@@ -4594,7 +4594,7 @@ void snd_hda_bus_reboot_notify(struct hda_bus *bus)
 			codec->patch_ops.reboot_notify(codec);
 	}
 }
-EXPORT_SYMBOL_HDA(snd_hda_bus_reboot_notify);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_bus_reboot_notify); */
 
 /**
  * snd_hda_multi_out_dig_open - open the digital out in the exclusive mode
@@ -4610,7 +4610,7 @@ int snd_hda_multi_out_dig_open(struct hda_codec *codec,
 	mutex_unlock(&codec->spdif_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_open);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_open); */
 
 /**
  * snd_hda_multi_out_dig_prepare - prepare the digital out stream
@@ -4626,7 +4626,7 @@ int snd_hda_multi_out_dig_prepare(struct hda_codec *codec,
 	mutex_unlock(&codec->spdif_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_prepare);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_prepare); */
 
 /**
  * snd_hda_multi_out_dig_cleanup - clean-up the digital out stream
@@ -4639,7 +4639,7 @@ int snd_hda_multi_out_dig_cleanup(struct hda_codec *codec,
 	mutex_unlock(&codec->spdif_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_cleanup);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_cleanup); */
 
 /**
  * snd_hda_multi_out_dig_close - release the digital out stream
@@ -4652,7 +4652,7 @@ int snd_hda_multi_out_dig_close(struct hda_codec *codec,
 	mutex_unlock(&codec->spdif_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_close);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_dig_close); */
 
 /**
  * snd_hda_multi_out_analog_open - open analog outputs
@@ -4702,7 +4702,7 @@ int snd_hda_multi_out_analog_open(struct hda_codec *codec,
 	return snd_pcm_hw_constraint_step(substream->runtime, 0,
 					  SNDRV_PCM_HW_PARAM_CHANNELS, 2);
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_open);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_open); */
 
 /**
  * snd_hda_multi_out_analog_prepare - Preapre the analog outputs.
@@ -4770,7 +4770,7 @@ int snd_hda_multi_out_analog_prepare(struct hda_codec *codec,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_prepare);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_prepare); */
 
 /**
  * snd_hda_multi_out_analog_cleanup - clean up the setting for analog out
@@ -4801,7 +4801,7 @@ int snd_hda_multi_out_analog_cleanup(struct hda_codec *codec,
 	mutex_unlock(&codec->spdif_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_cleanup);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_multi_out_analog_cleanup); */
 
 /*
  * Helper for automatic pin configuration
@@ -5129,7 +5129,7 @@ int snd_hda_parse_pin_defcfg(struct hda_codec *codec,
 
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_parse_pin_defcfg);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_parse_pin_defcfg); */
 
 int snd_hda_get_input_pin_attr(unsigned int def_conf)
 {
@@ -5150,7 +5150,7 @@ int snd_hda_get_input_pin_attr(unsigned int def_conf)
 		return INPUT_PIN_ATTR_FRONT;
 	return INPUT_PIN_ATTR_NORMAL;
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_input_pin_attr);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_input_pin_attr); */
 
 /**
  * hda_get_input_pin_label - Give a label for the given input pin
@@ -5254,7 +5254,7 @@ const char *hda_get_autocfg_input_label(struct hda_codec *codec,
 	return hda_get_input_pin_label(codec, cfg->inputs[input].pin,
 				       has_multiple_pins);
 }
-EXPORT_SYMBOL_HDA(hda_get_autocfg_input_label);
+/* DISABLED: EXPORT_SYMBOL_HDA(hda_get_autocfg_input_label); */
 
 /* return the position of NID in the list, or -1 if not found */
 static int find_idx_in_nid_list(hda_nid_t nid, const hda_nid_t *list, int nums)
@@ -5397,7 +5397,7 @@ int snd_hda_get_pin_label(struct hda_codec *codec, hda_nid_t nid,
 	strlcpy(label, name, maxlen);
 	return 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_get_pin_label);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_pin_label); */
 
 /**
  * snd_hda_add_imux_item - Add an item to input_mux
@@ -5431,7 +5431,7 @@ int snd_hda_add_imux_item(struct hda_input_mux *imux, const char *label,
 	imux->num_items++;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_add_imux_item);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_add_imux_item); */
 
 
 #ifdef CONFIG_PM
@@ -5457,7 +5457,7 @@ int snd_hda_suspend(struct hda_bus *bus)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_suspend);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_suspend); */
 
 /**
  * snd_hda_resume - resume the codecs
@@ -5480,7 +5480,7 @@ int snd_hda_resume(struct hda_bus *bus)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_resume);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_resume); */
 #endif /* CONFIG_PM */
 
 /*
@@ -5514,7 +5514,7 @@ void *snd_array_new(struct snd_array *array)
 	}
 	return snd_array_elem(array, array->used++);
 }
-EXPORT_SYMBOL_HDA(snd_array_new);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_array_new); */
 
 /**
  * snd_array_free - free the given array elements
@@ -5527,7 +5527,7 @@ void snd_array_free(struct snd_array *array)
 	array->alloced = 0;
 	array->list = NULL;
 }
-EXPORT_SYMBOL_HDA(snd_array_free);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_array_free); */
 
 /**
  * snd_print_pcm_bits - Print the supported PCM fmt bits to the string buffer
@@ -5548,7 +5548,7 @@ void snd_print_pcm_bits(int pcm, char *buf, int buflen)
 
 	buf[j] = '\0'; /* necessary when j == 0 */
 }
-EXPORT_SYMBOL_HDA(snd_print_pcm_bits);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_print_pcm_bits); */
 
 MODULE_DESCRIPTION("HDA codec core");
 MODULE_LICENSE("GPL");

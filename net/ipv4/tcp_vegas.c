@@ -98,7 +98,7 @@ void tcp_vegas_init(struct sock *sk)
 	vegas->baseRTT = 0x7fffffff;
 	vegas_enable(sk);
 }
-EXPORT_SYMBOL_GPL(tcp_vegas_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_vegas_init); */
 
 /* Do RTT sampling needed for Vegas.
  * Basically we:
@@ -129,7 +129,7 @@ void tcp_vegas_pkts_acked(struct sock *sk, u32 cnt, s32 rtt_us)
 	vegas->minRTT = min(vegas->minRTT, vrtt);
 	vegas->cntRTT++;
 }
-EXPORT_SYMBOL_GPL(tcp_vegas_pkts_acked);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_vegas_pkts_acked); */
 
 void tcp_vegas_state(struct sock *sk, u8 ca_state)
 {
@@ -139,7 +139,7 @@ void tcp_vegas_state(struct sock *sk, u8 ca_state)
 	else
 		vegas_disable(sk);
 }
-EXPORT_SYMBOL_GPL(tcp_vegas_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_vegas_state); */
 
 /*
  * If the connection is idle and we are restarting,
@@ -156,7 +156,7 @@ void tcp_vegas_cwnd_event(struct sock *sk, enum tcp_ca_event event)
 	    event == CA_EVENT_TX_START)
 		tcp_vegas_init(sk);
 }
-EXPORT_SYMBOL_GPL(tcp_vegas_cwnd_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_vegas_cwnd_event); */
 
 static inline u32 tcp_vegas_ssthresh(struct tcp_sock *tp)
 {
@@ -303,7 +303,7 @@ void tcp_vegas_get_info(struct sock *sk, u32 ext, struct sk_buff *skb)
 		nla_put(skb, INET_DIAG_VEGASINFO, sizeof(info), &info);
 	}
 }
-EXPORT_SYMBOL_GPL(tcp_vegas_get_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_vegas_get_info); */
 
 static struct tcp_congestion_ops tcp_vegas __read_mostly = {
 	.flags		= TCP_CONG_RTT_STAMP,

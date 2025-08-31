@@ -89,9 +89,9 @@ MODULE_PARM_DESC(tuner,    "tuner type");
 MODULE_PARM_DESC(card,     "card type");
 
 DEFINE_MUTEX(saa7134_devlist_lock);
-EXPORT_SYMBOL(saa7134_devlist_lock);
+/* DISABLED: EXPORT_SYMBOL(saa7134_devlist_lock); */
 LIST_HEAD(saa7134_devlist);
-EXPORT_SYMBOL(saa7134_devlist);
+/* DISABLED: EXPORT_SYMBOL(saa7134_devlist); */
 static LIST_HEAD(mops_list);
 static unsigned int saa7134_devcount;
 
@@ -1314,8 +1314,8 @@ void saa7134_ts_unregister(struct saa7134_mpeg_ops *ops)
 	mutex_unlock(&saa7134_devlist_lock);
 }
 
-EXPORT_SYMBOL(saa7134_ts_register);
-EXPORT_SYMBOL(saa7134_ts_unregister);
+/* DISABLED: EXPORT_SYMBOL(saa7134_ts_register); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_ts_unregister); */
 
 /* ----------------------------------------------------------- */
 
@@ -1348,17 +1348,17 @@ module_exit(saa7134_fini);
 
 /* ----------------------------------------------------------- */
 
-EXPORT_SYMBOL(saa7134_set_gpio);
-EXPORT_SYMBOL(saa7134_boards);
+/* DISABLED: EXPORT_SYMBOL(saa7134_set_gpio); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_boards); */
 
 /* ----------------- for the DMA sound modules --------------- */
 
-EXPORT_SYMBOL(saa7134_dmasound_init);
-EXPORT_SYMBOL(saa7134_dmasound_exit);
-EXPORT_SYMBOL(saa7134_pgtable_free);
-EXPORT_SYMBOL(saa7134_pgtable_build);
-EXPORT_SYMBOL(saa7134_pgtable_alloc);
-EXPORT_SYMBOL(saa7134_set_dmabits);
+/* DISABLED: EXPORT_SYMBOL(saa7134_dmasound_init); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_dmasound_exit); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_pgtable_free); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_pgtable_build); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_pgtable_alloc); */
+/* DISABLED: EXPORT_SYMBOL(saa7134_set_dmabits); */
 
 /* ----------------------------------------------------------- */
 /*

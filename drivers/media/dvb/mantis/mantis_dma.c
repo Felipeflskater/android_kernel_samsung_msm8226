@@ -84,7 +84,7 @@ int mantis_dma_exit(struct mantis_pci *mantis)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mantis_dma_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_dma_exit); */
 
 static inline int mantis_alloc_buffers(struct mantis_pci *mantis)
 {
@@ -146,7 +146,7 @@ int mantis_dma_init(struct mantis_pci *mantis)
 err:
 	return err;
 }
-EXPORT_SYMBOL_GPL(mantis_dma_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_dma_init); */
 
 static inline void mantis_risc_program(struct mantis_pci *mantis)
 {

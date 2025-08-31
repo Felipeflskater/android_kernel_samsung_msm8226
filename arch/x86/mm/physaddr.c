@@ -21,7 +21,7 @@ unsigned long __phys_addr(unsigned long x)
 	}
 	return x;
 }
-EXPORT_SYMBOL(__phys_addr);
+/* DISABLED: EXPORT_SYMBOL(__phys_addr); */
 
 bool __virt_addr_valid(unsigned long x)
 {
@@ -40,7 +40,7 @@ bool __virt_addr_valid(unsigned long x)
 
 	return pfn_valid(x >> PAGE_SHIFT);
 }
-EXPORT_SYMBOL(__virt_addr_valid);
+/* DISABLED: EXPORT_SYMBOL(__virt_addr_valid); */
 
 #else
 
@@ -52,7 +52,7 @@ unsigned long __phys_addr(unsigned long x)
 	VIRTUAL_BUG_ON(__vmalloc_start_set && is_vmalloc_addr((void *) x));
 	return x - PAGE_OFFSET;
 }
-EXPORT_SYMBOL(__phys_addr);
+/* DISABLED: EXPORT_SYMBOL(__phys_addr); */
 #endif
 
 bool __virt_addr_valid(unsigned long x)
@@ -65,6 +65,6 @@ bool __virt_addr_valid(unsigned long x)
 		return false;
 	return pfn_valid((x - PAGE_OFFSET) >> PAGE_SHIFT);
 }
-EXPORT_SYMBOL(__virt_addr_valid);
+/* DISABLED: EXPORT_SYMBOL(__virt_addr_valid); */
 
 #endif	/* CONFIG_X86_64 */

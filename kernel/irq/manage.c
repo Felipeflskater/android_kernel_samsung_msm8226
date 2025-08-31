@@ -70,7 +70,7 @@ void synchronize_irq(unsigned int irq)
 	 */
 	wait_event(desc->wait_for_threads, !atomic_read(&desc->threads_active));
 }
-EXPORT_SYMBOL(synchronize_irq);
+/* DISABLED: EXPORT_SYMBOL(synchronize_irq); */
 
 #ifdef CONFIG_SMP
 cpumask_var_t irq_default_affinity;
@@ -203,7 +203,7 @@ int irq_set_affinity_hint(unsigned int irq, const struct cpumask *m)
 	irq_put_desc_unlock(desc, flags);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_set_affinity_hint);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_set_affinity_hint); */
 
 static void irq_affinity_notify(struct work_struct *work)
 {
@@ -271,7 +271,7 @@ irq_set_affinity_notifier(unsigned int irq, struct irq_affinity_notify *notify)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_set_affinity_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_set_affinity_notifier); */
 
 #ifndef CONFIG_AUTO_IRQ_AFFINITY
 /*
@@ -387,7 +387,7 @@ void disable_irq_nosync(unsigned int irq)
 {
 	__disable_irq_nosync(irq);
 }
-EXPORT_SYMBOL(disable_irq_nosync);
+/* DISABLED: EXPORT_SYMBOL(disable_irq_nosync); */
 
 /**
  *	disable_irq - disable an irq and wait for completion
@@ -406,7 +406,7 @@ void disable_irq(unsigned int irq)
 	if (!__disable_irq_nosync(irq))
 		synchronize_irq(irq);
 }
-EXPORT_SYMBOL(disable_irq);
+/* DISABLED: EXPORT_SYMBOL(disable_irq); */
 
 void __enable_irq(struct irq_desc *desc, unsigned int irq, bool resume)
 {
@@ -467,7 +467,7 @@ void enable_irq(unsigned int irq)
 out:
 	irq_put_desc_busunlock(desc, flags);
 }
-EXPORT_SYMBOL(enable_irq);
+/* DISABLED: EXPORT_SYMBOL(enable_irq); */
 
 static int set_irq_wake_real(unsigned int irq, unsigned int on)
 {
@@ -529,7 +529,7 @@ int irq_set_irq_wake(unsigned int irq, unsigned int on)
 	irq_put_desc_busunlock(desc, flags);
 	return ret;
 }
-EXPORT_SYMBOL(irq_set_irq_wake);
+/* DISABLED: EXPORT_SYMBOL(irq_set_irq_wake); */
 
 /**
  *     irq_read_line - read the value on an irq line
@@ -555,7 +555,7 @@ int irq_read_line(unsigned int irq)
 	chip_bus_sync_unlock(desc);
 	return val;
 }
-EXPORT_SYMBOL_GPL(irq_read_line);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_read_line); */
 
 /*
  * Internal function that tells the architecture code whether a
@@ -909,7 +909,7 @@ static void irq_setup_forced_threading(struct irqaction *new)
  * allocate special interrupts that are part of the architecture.
  */
 static int
-/* DISABLED: __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new) */
+/* DISABLED: __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new) */ */
 {
 	struct irqaction *old, **old_ptr;
 	const char *old_name = NULL;
@@ -1190,7 +1190,7 @@ int setup_irq(unsigned int irq, struct irqaction *act)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(setup_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(setup_irq); */
 
 /*
  * Internal function to unregister an irqaction - used to free
@@ -1303,7 +1303,7 @@ void remove_irq(unsigned int irq, struct irqaction *act)
 	if (desc && !WARN_ON(irq_settings_is_per_cpu_devid(desc)))
 	    __free_irq(irq, act->dev_id);
 }
-EXPORT_SYMBOL_GPL(remove_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(remove_irq); */
 
 /**
  *	free_irq - free an interrupt allocated with request_irq
@@ -1333,7 +1333,7 @@ void free_irq(unsigned int irq, void *dev_id)
 
 	kfree(__free_irq(irq, dev_id));
 }
-EXPORT_SYMBOL(free_irq);
+/* DISABLED: EXPORT_SYMBOL(free_irq); */
 
 /**
  *	request_threaded_irq - allocate an interrupt line
@@ -1446,7 +1446,7 @@ int request_threaded_irq(unsigned int irq, irq_handler_t handler,
 #endif
 	return retval;
 }
-EXPORT_SYMBOL(request_threaded_irq);
+/* DISABLED: EXPORT_SYMBOL(request_threaded_irq); */
 
 /**
  *	request_any_context_irq - allocate an interrupt line
@@ -1483,7 +1483,7 @@ int request_any_context_irq(unsigned int irq, irq_handler_t handler,
 	ret = request_irq(irq, handler, flags, name, dev_id);
 	return !ret ? IRQC_IS_HARDIRQ : ret;
 }
-EXPORT_SYMBOL_GPL(request_any_context_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(request_any_context_irq); */
 
 void irq_set_pending(unsigned int irq)
 {
@@ -1496,7 +1496,7 @@ void irq_set_pending(unsigned int irq)
 		raw_spin_unlock_irqrestore(&desc->lock, flags);
 	}
 }
-EXPORT_SYMBOL_GPL(irq_set_pending);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_set_pending); */
 
 void enable_percpu_irq(unsigned int irq, unsigned int type)
 {

@@ -71,7 +71,7 @@ void __iomem *__ioremap(unsigned long phys_addr, size_t size,
 
 	return (void __iomem *)(offset + (char *)addr);
 }
-EXPORT_SYMBOL(__ioremap);
+/* DISABLED: EXPORT_SYMBOL(__ioremap); */
 
 void __iounmap(void __iomem *addr)
 {
@@ -90,4 +90,4 @@ void __iounmap(void __iomem *addr)
 
 	kfree (p);
 }
-EXPORT_SYMBOL(__iounmap);
+/* DISABLED: EXPORT_SYMBOL(__iounmap); */

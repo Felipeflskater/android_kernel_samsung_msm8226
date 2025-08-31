@@ -175,7 +175,7 @@ struct irlap_cb *irlap_open(struct net_device *dev, struct qos_info *qos,
 
 	return self;
 }
-EXPORT_SYMBOL(irlap_open);
+/* DISABLED: EXPORT_SYMBOL(irlap_open); */
 
 /*
  * Function __irlap_close (self)
@@ -236,7 +236,7 @@ void irlap_close(struct irlap_cb *self)
 	}
 	__irlap_close(lap);
 }
-EXPORT_SYMBOL(irlap_close);
+/* DISABLED: EXPORT_SYMBOL(irlap_close); */
 
 /*
  * Function irlap_connect_indication (self, skb)

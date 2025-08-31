@@ -21,14 +21,14 @@
  * CMOS/RTC registers.  See include/asm-i386/mc146818rtc.h for details.
  */
 volatile unsigned long cmos_lock;
-EXPORT_SYMBOL(cmos_lock);
+/* DISABLED: EXPORT_SYMBOL(cmos_lock); */
 #endif /* CONFIG_X86_32 */
 
 /* For two digit years assume time is always after that */
 #define CMOS_YEARS_OFFS 2000
 
 DEFINE_SPINLOCK(rtc_lock);
-EXPORT_SYMBOL(rtc_lock);
+/* DISABLED: EXPORT_SYMBOL(rtc_lock); */
 
 /*
  * In order to set the CMOS clock precisely, set_rtc_mmss has to be
@@ -168,7 +168,7 @@ unsigned char rtc_cmos_read(unsigned char addr)
 
 	return val;
 }
-EXPORT_SYMBOL(rtc_cmos_read);
+/* DISABLED: EXPORT_SYMBOL(rtc_cmos_read); */
 
 void rtc_cmos_write(unsigned char val, unsigned char addr)
 {
@@ -177,7 +177,7 @@ void rtc_cmos_write(unsigned char val, unsigned char addr)
 	outb(val, RTC_PORT(1));
 	lock_cmos_suffix(addr);
 }
-EXPORT_SYMBOL(rtc_cmos_write);
+/* DISABLED: EXPORT_SYMBOL(rtc_cmos_write); */
 
 int update_persistent_clock(struct timespec now)
 {
@@ -199,7 +199,7 @@ unsigned long long native_read_tsc(void)
 {
 	return __native_read_tsc();
 }
-EXPORT_SYMBOL(native_read_tsc);
+/* DISABLED: EXPORT_SYMBOL(native_read_tsc); */
 
 
 static struct resource rtc_resources[] = {

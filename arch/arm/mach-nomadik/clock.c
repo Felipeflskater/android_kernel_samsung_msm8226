@@ -18,19 +18,19 @@ unsigned long clk_get_rate(struct clk *clk)
 {
 	return clk->rate;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 /* enable and disable do nothing */
 int clk_enable(struct clk *clk)
 {
 	return 0;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 static struct clk clk_24 = {
 	.rate = 2400000,

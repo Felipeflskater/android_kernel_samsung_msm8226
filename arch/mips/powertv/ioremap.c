@@ -48,14 +48,14 @@
  * added to phys_addr_t value, yield a DMA address
  */
 struct ior_phys_to_dma _ior_phys_to_dma[IOR_NUM_PHYS_TO_DMA];
-EXPORT_SYMBOL(_ior_phys_to_dma);
+/* DISABLED: EXPORT_SYMBOL(_ior_phys_to_dma); */
 
 /*
  * Values that, when accessed by an index derived from a dma_addr_t and
  * added to that dma_addr_t value, yield a physical address
  */
 struct ior_dma_to_phys _ior_dma_to_phys[IOR_NUM_DMA_TO_PHYS];
-EXPORT_SYMBOL(_ior_dma_to_phys);
+/* DISABLED: EXPORT_SYMBOL(_ior_dma_to_phys); */
 
 /**
  * setup_dma_to_phys - set up conversion from DMA to physical addresses

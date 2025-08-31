@@ -51,8 +51,8 @@ extern irqreturn_t dec_intr_halt(int irq, void *dev_id);
 
 unsigned long dec_kn_slot_base, dec_kn_slot_size;
 
-EXPORT_SYMBOL(dec_kn_slot_base);
-EXPORT_SYMBOL(dec_kn_slot_size);
+/* DISABLED: EXPORT_SYMBOL(dec_kn_slot_base); */
+/* DISABLED: EXPORT_SYMBOL(dec_kn_slot_size); */
 
 int dec_tc_bus;
 
@@ -60,7 +60,7 @@ DEFINE_SPINLOCK(ioasic_ssr_lock);
 
 volatile u32 *ioasic_base;
 
-EXPORT_SYMBOL(ioasic_base);
+/* DISABLED: EXPORT_SYMBOL(ioasic_base); */
 
 /*
  * IRQ routing and priority tables.  Priorites are set as follows:
@@ -88,7 +88,7 @@ int dec_interrupt[DEC_NR_INTS] = {
 	[0 ... DEC_NR_INTS - 1] = -1
 };
 
-EXPORT_SYMBOL(dec_interrupt);
+/* DISABLED: EXPORT_SYMBOL(dec_interrupt); */
 
 int_ptr cpu_mask_nr_tbl[DEC_MAX_CPU_INTS][2] = {
 	{ { .i = ~0 }, { .p = dec_intr_unimplemented } },

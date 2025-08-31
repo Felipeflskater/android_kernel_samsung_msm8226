@@ -387,6 +387,6 @@ int suni_init(struct atm_dev *dev)
 	return 0;
 }
 
-EXPORT_SYMBOL(suni_init);
+/* DISABLED: EXPORT_SYMBOL(suni_init); */
 
 MODULE_LICENSE("GPL");

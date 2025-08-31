@@ -395,7 +395,7 @@ void dasd_eer_write(struct dasd_device *device, struct dasd_ccw_req *cqr,
 		break;
 	}
 }
-EXPORT_SYMBOL(dasd_eer_write);
+/* DISABLED: EXPORT_SYMBOL(dasd_eer_write); */
 
 /*
  * Start a sense subsystem status request.

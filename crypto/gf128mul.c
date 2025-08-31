@@ -151,7 +151,7 @@ void gf128mul_x_ble(be128 *r, const be128 *x)
 	r->a = cpu_to_le64((a << 1) ^ _tt);
 	r->b = cpu_to_le64((b << 1) | (a >> 63));
 }
-EXPORT_SYMBOL(gf128mul_x_ble);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_x_ble); */
 
 static void gf128mul_x8_lle(be128 *x)
 {
@@ -209,7 +209,7 @@ void gf128mul_lle(be128 *r, const be128 *b)
 		gf128mul_x8_lle(r);
 	}
 }
-EXPORT_SYMBOL(gf128mul_lle);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_lle); */
 
 void gf128mul_bbe(be128 *r, const be128 *b)
 {
@@ -247,7 +247,7 @@ void gf128mul_bbe(be128 *r, const be128 *b)
 		gf128mul_x8_bbe(r);
 	}
 }
-EXPORT_SYMBOL(gf128mul_bbe);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_bbe); */
 
 /*      This version uses 64k bytes of table space.
     A 16 byte buffer has to be multiplied by a 16 byte key
@@ -303,7 +303,7 @@ struct gf128mul_64k *gf128mul_init_64k_lle(const be128 *g)
 out:
 	return t;
 }
-EXPORT_SYMBOL(gf128mul_init_64k_lle);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_init_64k_lle); */
 
 struct gf128mul_64k *gf128mul_init_64k_bbe(const be128 *g)
 {
@@ -345,7 +345,7 @@ struct gf128mul_64k *gf128mul_init_64k_bbe(const be128 *g)
 out:
 	return t;
 }
-EXPORT_SYMBOL(gf128mul_init_64k_bbe);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_init_64k_bbe); */
 
 void gf128mul_free_64k(struct gf128mul_64k *t)
 {
@@ -355,7 +355,7 @@ void gf128mul_free_64k(struct gf128mul_64k *t)
 		kfree(t->t[i]);
 	kfree(t);
 }
-EXPORT_SYMBOL(gf128mul_free_64k);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_free_64k); */
 
 void gf128mul_64k_lle(be128 *a, struct gf128mul_64k *t)
 {
@@ -368,7 +368,7 @@ void gf128mul_64k_lle(be128 *a, struct gf128mul_64k *t)
 		be128_xor(r, r, &t->t[i]->t[ap[i]]);
 	*a = *r;
 }
-EXPORT_SYMBOL(gf128mul_64k_lle);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_64k_lle); */
 
 void gf128mul_64k_bbe(be128 *a, struct gf128mul_64k *t)
 {
@@ -381,7 +381,7 @@ void gf128mul_64k_bbe(be128 *a, struct gf128mul_64k *t)
 		be128_xor(r, r, &t->t[i]->t[ap[15 - i]]);
 	*a = *r;
 }
-EXPORT_SYMBOL(gf128mul_64k_bbe);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_64k_bbe); */
 
 /*      This version uses 4k bytes of table space.
     A 16 byte buffer has to be multiplied by a 16 byte key
@@ -419,7 +419,7 @@ struct gf128mul_4k *gf128mul_init_4k_lle(const be128 *g)
 out:
 	return t;
 }
-EXPORT_SYMBOL(gf128mul_init_4k_lle);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_init_4k_lle); */
 
 struct gf128mul_4k *gf128mul_init_4k_bbe(const be128 *g)
 {
@@ -441,7 +441,7 @@ struct gf128mul_4k *gf128mul_init_4k_bbe(const be128 *g)
 out:
 	return t;
 }
-EXPORT_SYMBOL(gf128mul_init_4k_bbe);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_init_4k_bbe); */
 
 void gf128mul_4k_lle(be128 *a, struct gf128mul_4k *t)
 {
@@ -456,7 +456,7 @@ void gf128mul_4k_lle(be128 *a, struct gf128mul_4k *t)
 	}
 	*a = *r;
 }
-EXPORT_SYMBOL(gf128mul_4k_lle);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_4k_lle); */
 
 void gf128mul_4k_bbe(be128 *a, struct gf128mul_4k *t)
 {
@@ -471,7 +471,7 @@ void gf128mul_4k_bbe(be128 *a, struct gf128mul_4k *t)
 	}
 	*a = *r;
 }
-EXPORT_SYMBOL(gf128mul_4k_bbe);
+/* DISABLED: EXPORT_SYMBOL(gf128mul_4k_bbe); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Functions for multiplying elements of GF(2^128)");

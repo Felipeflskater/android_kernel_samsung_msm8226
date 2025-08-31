@@ -518,7 +518,7 @@ void *hdmi_get_featuredata_from_sysfs_dev(struct device *device,
 		return NULL;
 
 } /* hdmi_tx_get_featuredata_from_sysfs_dev */
-EXPORT_SYMBOL(hdmi_get_featuredata_from_sysfs_dev);
+/* DISABLED: EXPORT_SYMBOL(hdmi_get_featuredata_from_sysfs_dev); */
 
 static ssize_t hdmi_tx_sysfs_rda_connected(struct device *dev,
 	struct device_attribute *attr, char *buf)
@@ -2550,7 +2550,7 @@ int msm_hdmi_register_audio_codec(struct platform_device *pdev,
 
 	return 0;
 } /* hdmi_tx_audio_register */
-EXPORT_SYMBOL(msm_hdmi_register_audio_codec);
+/* DISABLED: EXPORT_SYMBOL(msm_hdmi_register_audio_codec); */
 
 static int hdmi_tx_audio_setup(struct hdmi_tx_ctrl *hdmi_ctrl)
 {
@@ -2974,7 +2974,7 @@ int hdmi_hpd_status(void)
 {
 	return hdmi_ctrl_ext->hpd_state;
 }
-EXPORT_SYMBOL(hdmi_hpd_status);
+/* DISABLED: EXPORT_SYMBOL(hdmi_hpd_status); */
 #endif
 
 static int hdmi_tx_sysfs_enable_hpd(struct hdmi_tx_ctrl *hdmi_ctrl, int on)

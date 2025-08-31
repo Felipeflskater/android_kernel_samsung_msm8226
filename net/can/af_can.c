@@ -107,7 +107,7 @@ int can_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 		return -ENOIOCTLCMD;
 	}
 }
-EXPORT_SYMBOL(can_ioctl);
+/* DISABLED: EXPORT_SYMBOL(can_ioctl); */
 
 static void can_sock_destruct(struct sock *sk)
 {
@@ -304,7 +304,7 @@ int can_send(struct sk_buff *skb, int loop)
 
 	return 0;
 }
-EXPORT_SYMBOL(can_send);
+/* DISABLED: EXPORT_SYMBOL(can_send); */
 
 /*
  * af_can rx path
@@ -470,7 +470,7 @@ int can_rx_register(struct net_device *dev, canid_t can_id, canid_t mask,
 
 	return err;
 }
-EXPORT_SYMBOL(can_rx_register);
+/* DISABLED: EXPORT_SYMBOL(can_rx_register); */
 
 /*
  * can_rx_delete_receiver - rcu callback for single receiver entry removal
@@ -561,7 +561,7 @@ void can_rx_unregister(struct net_device *dev, canid_t can_id, canid_t mask,
 	if (r)
 		call_rcu(&r->rcu, can_rx_delete_receiver);
 }
-EXPORT_SYMBOL(can_rx_unregister);
+/* DISABLED: EXPORT_SYMBOL(can_rx_unregister); */
 
 static inline void deliver(struct sk_buff *skb, struct receiver *r)
 {
@@ -729,7 +729,7 @@ int can_proto_register(const struct can_proto *cp)
 
 	return err;
 }
-EXPORT_SYMBOL(can_proto_register);
+/* DISABLED: EXPORT_SYMBOL(can_proto_register); */
 
 /**
  * can_proto_unregister - unregister CAN transport protocol
@@ -748,7 +748,7 @@ void can_proto_unregister(const struct can_proto *cp)
 
 	proto_unregister(cp->prot);
 }
-EXPORT_SYMBOL(can_proto_unregister);
+/* DISABLED: EXPORT_SYMBOL(can_proto_unregister); */
 
 /*
  * af_can notifier to create/remove CAN netdevice specific structs

@@ -66,8 +66,8 @@ MODULE_AUTHOR("Brian S. Julin <bri@calyx.com>");
 MODULE_DESCRIPTION("HIL MLC serio");
 MODULE_LICENSE("Dual BSD/GPL");
 
-EXPORT_SYMBOL(hil_mlc_register);
-EXPORT_SYMBOL(hil_mlc_unregister);
+/* DISABLED: EXPORT_SYMBOL(hil_mlc_register); */
+/* DISABLED: EXPORT_SYMBOL(hil_mlc_unregister); */
 
 #define PREFIX "HIL MLC: "
 

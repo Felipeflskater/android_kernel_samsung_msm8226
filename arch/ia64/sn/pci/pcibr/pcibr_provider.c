@@ -260,6 +260,6 @@ pcibr_init_provider(void)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(sal_pcibr_slot_enable);
-EXPORT_SYMBOL_GPL(sal_pcibr_slot_disable);
-EXPORT_SYMBOL_GPL(sn_ioboard_to_pci_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(sal_pcibr_slot_enable); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sal_pcibr_slot_disable); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sn_ioboard_to_pci_bus); */

@@ -991,7 +991,7 @@ int es325_remote_route_enable(struct snd_soc_dai *dai)
 		return 0;
 	}
 }
-EXPORT_SYMBOL_GPL(es325_remote_route_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_remote_route_enable); */
 
 static int es325_put_internal_route_config(struct snd_kcontrol *kcontrol,
 					   struct snd_ctl_elem_value *ucontrol)
@@ -1892,7 +1892,7 @@ pdata_error:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es325_core_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(es325_core_probe); */
 
 static __init int es325_init(void)
 {

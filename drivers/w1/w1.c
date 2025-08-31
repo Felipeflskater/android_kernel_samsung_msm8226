@@ -724,7 +724,7 @@ void w1_master_search(void)
 
 	w1_search_process(master_dev, W1_SEARCH);
 }
-EXPORT_SYMBOL(w1_master_search);
+/* DISABLED: EXPORT_SYMBOL(w1_master_search); */
 #endif /* CONFIG_W1_SLAVE_DS28EL15 */
 
 static int __w1_attach_slave_device(struct w1_slave *sl)

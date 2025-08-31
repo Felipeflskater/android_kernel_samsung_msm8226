@@ -596,7 +596,7 @@ int qpnpint_register_controller(struct device_node *node,
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL(qpnpint_register_controller);
+/* DISABLED: EXPORT_SYMBOL(qpnpint_register_controller); */
 
 int qpnpint_unregister_controller(struct device_node *node)
 {
@@ -617,7 +617,7 @@ int qpnpint_unregister_controller(struct device_node *node)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL(qpnpint_unregister_controller);
+/* DISABLED: EXPORT_SYMBOL(qpnpint_unregister_controller); */
 
 static int __qpnpint_handle_irq(struct spmi_controller *spmi_ctrl,
 		       struct qpnp_irq_spec *spec,
@@ -691,14 +691,14 @@ int qpnpint_handle_irq(struct spmi_controller *spmi_ctrl,
 	return  __qpnpint_handle_irq(spmi_ctrl, spec, false);
 }
 
-EXPORT_SYMBOL(qpnpint_handle_irq);
+/* DISABLED: EXPORT_SYMBOL(qpnpint_handle_irq); */
 
 int qpnpint_show_irq(struct spmi_controller *spmi_ctrl,
 		       struct qpnp_irq_spec *spec)
 {
 	return  __qpnpint_handle_irq(spmi_ctrl, spec, true);
 }
-EXPORT_SYMBOL(qpnpint_show_irq);
+/* DISABLED: EXPORT_SYMBOL(qpnpint_show_irq); */
 
 int __init qpnpint_of_init(struct device_node *node, struct device_node *parent)
 {
@@ -721,4 +721,4 @@ int __init qpnpint_of_init(struct device_node *node, struct device_node *parent)
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnpint_of_init);
+/* DISABLED: EXPORT_SYMBOL(qpnpint_of_init); */

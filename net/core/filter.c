@@ -98,7 +98,7 @@ int sk_filter(struct sock *sk, struct sk_buff *skb)
 
 	return err;
 }
-EXPORT_SYMBOL(sk_filter);
+/* DISABLED: EXPORT_SYMBOL(sk_filter); */
 
 /**
  *	sk_run_filter - run a filter on a socket
@@ -372,7 +372,7 @@ load_b:
 
 	return 0;
 }
-EXPORT_SYMBOL(sk_run_filter);
+/* DISABLED: EXPORT_SYMBOL(sk_run_filter); */
 
 /*
  * Security :
@@ -584,7 +584,7 @@ int sk_chk_filter(struct sock_filter *filter, unsigned int flen)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(sk_chk_filter);
+/* DISABLED: EXPORT_SYMBOL(sk_chk_filter); */
 
 /**
  * 	sk_filter_release_rcu - Release a socket filter by rcu_head
@@ -597,7 +597,7 @@ void sk_filter_release_rcu(struct rcu_head *rcu)
 	bpf_jit_free(fp);
 	kfree(fp);
 }
-EXPORT_SYMBOL(sk_filter_release_rcu);
+/* DISABLED: EXPORT_SYMBOL(sk_filter_release_rcu); */
 
 /**
  *	sk_attach_filter - attach a socket filter
@@ -647,7 +647,7 @@ int sk_attach_filter(struct sock_fprog *fprog, struct sock *sk)
 		sk_filter_uncharge(sk, old_fp);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sk_attach_filter);
+/* DISABLED: EXPORT_SYMBOL_GPL(sk_attach_filter); */
 
 int sk_detach_filter(struct sock *sk)
 {
@@ -663,4 +663,4 @@ int sk_detach_filter(struct sock *sk)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(sk_detach_filter);
+/* DISABLED: EXPORT_SYMBOL_GPL(sk_detach_filter); */

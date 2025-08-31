@@ -239,7 +239,7 @@ void cache_clear (unsigned long paddr, int len)
 	mach_l2_flush(0);
 #endif
 }
-EXPORT_SYMBOL(cache_clear);
+/* DISABLED: EXPORT_SYMBOL(cache_clear); */
 
 
 /*
@@ -294,5 +294,5 @@ void cache_push (unsigned long paddr, int len)
 	mach_l2_flush(1);
 #endif
 }
-EXPORT_SYMBOL(cache_push);
+/* DISABLED: EXPORT_SYMBOL(cache_push); */
 

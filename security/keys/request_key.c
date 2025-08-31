@@ -62,7 +62,7 @@ void complete_request_key(struct key_construction *cons, int error)
 	key_put(cons->authkey);
 	kfree(cons);
 }
-EXPORT_SYMBOL(complete_request_key);
+/* DISABLED: EXPORT_SYMBOL(complete_request_key); */
 
 /*
  * Initialise a usermode helper that is going to have a specific session
@@ -618,7 +618,7 @@ int wait_for_key_construction(struct key *key, bool intr)
 		return key->type_data.reject_error;
 	return key_validate(key);
 }
-EXPORT_SYMBOL(wait_for_key_construction);
+/* DISABLED: EXPORT_SYMBOL(wait_for_key_construction); */
 
 /**
  * request_key - Request a key and wait for construction
@@ -655,7 +655,7 @@ struct key *request_key(struct key_type *type,
 	}
 	return key;
 }
-EXPORT_SYMBOL(request_key);
+/* DISABLED: EXPORT_SYMBOL(request_key); */
 
 /**
  * request_key_with_auxdata - Request a key with auxiliary data for the upcaller
@@ -691,7 +691,7 @@ struct key *request_key_with_auxdata(struct key_type *type,
 	}
 	return key;
 }
-EXPORT_SYMBOL(request_key_with_auxdata);
+/* DISABLED: EXPORT_SYMBOL(request_key_with_auxdata); */
 
 /*
  * request_key_async - Request a key (allow async construction)
@@ -716,7 +716,7 @@ struct key *request_key_async(struct key_type *type,
 				    callout_len, NULL, NULL,
 				    KEY_ALLOC_IN_QUOTA);
 }
-EXPORT_SYMBOL(request_key_async);
+/* DISABLED: EXPORT_SYMBOL(request_key_async); */
 
 /*
  * request a key with auxiliary data for the upcaller (allow async construction)
@@ -741,4 +741,4 @@ struct key *request_key_async_with_auxdata(struct key_type *type,
 	return request_key_and_link(type, description, callout_info,
 				    callout_len, aux, NULL, KEY_ALLOC_IN_QUOTA);
 }
-EXPORT_SYMBOL(request_key_async_with_auxdata);
+/* DISABLED: EXPORT_SYMBOL(request_key_async_with_auxdata); */

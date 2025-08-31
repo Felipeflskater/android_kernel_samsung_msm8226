@@ -542,7 +542,7 @@ void usb_serial_port_softint(struct usb_serial_port *port)
 {
 	schedule_work(&port->work);
 }
-EXPORT_SYMBOL_GPL(usb_serial_port_softint);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_port_softint); */
 
 static void usb_serial_port_work(struct work_struct *work)
 {
@@ -1128,7 +1128,7 @@ probe_error:
 	module_put(type->driver.owner);
 	return -EIO;
 }
-EXPORT_SYMBOL_GPL(usb_serial_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_probe); */
 
 void usb_serial_disconnect(struct usb_interface *interface)
 {
@@ -1166,7 +1166,7 @@ void usb_serial_disconnect(struct usb_interface *interface)
 	usb_serial_put(serial);
 	dev_info(dev, "device disconnected\n");
 }
-EXPORT_SYMBOL_GPL(usb_serial_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_disconnect); */
 
 int usb_serial_suspend(struct usb_interface *intf, pm_message_t message)
 {
@@ -1193,7 +1193,7 @@ int usb_serial_suspend(struct usb_interface *intf, pm_message_t message)
 err_out:
 	return r;
 }
-EXPORT_SYMBOL(usb_serial_suspend);
+/* DISABLED: EXPORT_SYMBOL(usb_serial_suspend); */
 
 int usb_serial_resume(struct usb_interface *intf)
 {
@@ -1208,7 +1208,7 @@ int usb_serial_resume(struct usb_interface *intf)
 
 	return rv;
 }
-EXPORT_SYMBOL(usb_serial_resume);
+/* DISABLED: EXPORT_SYMBOL(usb_serial_resume); */
 
 static const struct tty_operations serial_ops = {
 	.open =			serial_open,
@@ -1453,7 +1453,7 @@ int usb_serial_register_drivers(struct usb_driver *udriver,
 	usb_deregister(udriver);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(usb_serial_register_drivers);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_register_drivers); */
 
 /**
  * usb_serial_deregister_drivers - deregister drivers for a usb-serial module
@@ -1469,7 +1469,7 @@ void usb_serial_deregister_drivers(struct usb_driver *udriver,
 		usb_serial_deregister(*serial_drivers);
 	usb_deregister(udriver);
 }
-EXPORT_SYMBOL_GPL(usb_serial_deregister_drivers);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_serial_deregister_drivers); */
 
 /* Module information */
 MODULE_AUTHOR(DRIVER_AUTHOR);

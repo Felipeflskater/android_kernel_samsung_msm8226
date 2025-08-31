@@ -36,7 +36,7 @@ void sec_getlog_supply_fbinfo(void *p_fb, u32 xres, u32 yres, u32 bpp,
 		frame_buf_mark.frames = frames;
 	}
 }
-EXPORT_SYMBOL(sec_getlog_supply_fbinfo);
+/* DISABLED: EXPORT_SYMBOL(sec_getlog_supply_fbinfo); */
 
 static struct {
 	u32 special_mark_1;
@@ -69,7 +69,7 @@ void sec_getlog_supply_meminfo(u32 size0, u32 addr0, u32 size1, u32 addr1)
 	marks_ver_mark.mem[1].size = size1;
 	marks_ver_mark.mem[1].addr = addr1;
 }
-EXPORT_SYMBOL(sec_getlog_supply_meminfo);
+/* DISABLED: EXPORT_SYMBOL(sec_getlog_supply_meminfo); */
 
 /* mark for GetLog extraction */
 static struct {
@@ -107,7 +107,7 @@ void sec_getlog_supply_loggerinfo(void *p_main,
 	plat_log_mark.p_system = p_system + CONFIG_PHYS_OFFSET;
 	sec_getlog_trim((unsigned int *)&plat_log_mark.p_system);
 }
-EXPORT_SYMBOL(sec_getlog_supply_loggerinfo);
+/* DISABLED: EXPORT_SYMBOL(sec_getlog_supply_loggerinfo); */
 
 static struct {
 	u32 special_mark_1;
@@ -128,4 +128,4 @@ void sec_getlog_supply_kloginfo(void *klog_buf)
 	kernel_log_mark.klog_buf = klog_buf + CONFIG_PHYS_OFFSET;
 	sec_getlog_trim((unsigned int *)&kernel_log_mark.klog_buf);
 }
-EXPORT_SYMBOL(sec_getlog_supply_kloginfo);
+/* DISABLED: EXPORT_SYMBOL(sec_getlog_supply_kloginfo); */

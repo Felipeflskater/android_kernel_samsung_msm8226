@@ -112,7 +112,7 @@ int msm_spm_set_vdd(unsigned int cpu, unsigned int vlevel)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_spm_set_vdd);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_set_vdd); */
 
 /**
  * msm_spm_get_vdd(): Get core voltage
@@ -129,7 +129,7 @@ unsigned int msm_spm_get_vdd(unsigned int cpu)
 		dev = &per_cpu(msm_cpu_spm_device, cpu);
 	return dev->cpu_vdd;
 }
-EXPORT_SYMBOL(msm_spm_get_vdd);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_get_vdd); */
 
 static int msm_spm_dev_set_low_power_mode(struct msm_spm_device *dev,
 		unsigned int mode, bool notify_rpm)
@@ -237,7 +237,7 @@ int msm_spm_turn_on_cpu_rail(unsigned int cpu)
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_spm_turn_on_cpu_rail);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_turn_on_cpu_rail); */
 
 void msm_spm_reinit(void)
 {
@@ -245,7 +245,7 @@ void msm_spm_reinit(void)
 	for_each_possible_cpu(cpu)
 		msm_spm_drv_reinit(&per_cpu(msm_cpu_spm_device.reg_data, cpu));
 }
-EXPORT_SYMBOL(msm_spm_reinit);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_reinit); */
 
 /**
  * msm_spm_set_low_power_mode() - Configure SPM start address for low power mode
@@ -257,7 +257,7 @@ int msm_spm_set_low_power_mode(unsigned int mode, bool notify_rpm)
 	struct msm_spm_device *dev = &__get_cpu_var(msm_cpu_spm_device);
 	return msm_spm_dev_set_low_power_mode(dev, mode, notify_rpm);
 }
-EXPORT_SYMBOL(msm_spm_set_low_power_mode);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_set_low_power_mode); */
 
 /**
  * msm_spm_init(): Board initalization function
@@ -297,7 +297,7 @@ int msm_spm_l2_set_low_power_mode(unsigned int mode, bool notify_rpm)
 	return msm_spm_dev_set_low_power_mode(
 			&msm_spm_l2_device, mode, notify_rpm);
 }
-EXPORT_SYMBOL(msm_spm_l2_set_low_power_mode);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_l2_set_low_power_mode); */
 
 void msm_spm_l2_reinit(void)
 {
@@ -305,7 +305,7 @@ void msm_spm_l2_reinit(void)
 		return;
 	msm_spm_drv_reinit(&msm_spm_l2_device.reg_data);
 }
-EXPORT_SYMBOL(msm_spm_l2_reinit);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_l2_reinit); */
 
 /**
  * msm_spm_apcs_set_phase(): Set number of SMPS phases.
@@ -318,7 +318,7 @@ int msm_spm_apcs_set_phase(unsigned int phase_cnt)
 	return msm_spm_drv_set_pmic_data(&msm_spm_l2_device.reg_data,
 			MSM_SPM_PMIC_PHASE_PORT, phase_cnt);
 }
-EXPORT_SYMBOL(msm_spm_apcs_set_phase);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_apcs_set_phase); */
 
 /** msm_spm_enable_fts_lpm() : Enable FTS to switch to low power
  *                             when the cores are in low power modes
@@ -331,7 +331,7 @@ int msm_spm_enable_fts_lpm(uint32_t mode)
 	return msm_spm_drv_set_pmic_data(&msm_spm_l2_device.reg_data,
 			MSM_SPM_PMIC_PFM_PORT, mode);
 }
-EXPORT_SYMBOL(msm_spm_enable_fts_lpm);
+/* DISABLED: EXPORT_SYMBOL(msm_spm_enable_fts_lpm); */
 
 /**
  * msm_spm_l2_init(): Board initialization function

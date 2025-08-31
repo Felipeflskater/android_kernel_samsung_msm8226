@@ -502,5 +502,5 @@ void sysfs_remove_bin_file(struct kobject *kobj,
 	sysfs_hash_and_remove(kobj->sd, NULL, attr->attr.name);
 }
 
-EXPORT_SYMBOL_GPL(sysfs_create_bin_file);
-EXPORT_SYMBOL_GPL(sysfs_remove_bin_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_create_bin_file); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_bin_file); */

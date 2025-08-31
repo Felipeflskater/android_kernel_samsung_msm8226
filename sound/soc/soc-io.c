@@ -158,7 +158,7 @@ int snd_soc_codec_set_cache_io(struct snd_soc_codec *codec,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_set_cache_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_set_cache_io); */
 #else
 int snd_soc_codec_set_cache_io(struct snd_soc_codec *codec,
 			       int addr_bits, int data_bits,
@@ -166,5 +166,5 @@ int snd_soc_codec_set_cache_io(struct snd_soc_codec *codec,
 {
 	return -ENOTSUPP;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_set_cache_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_set_cache_io); */
 #endif

@@ -1292,7 +1292,7 @@ struct net_device *mwifiex_add_virtual_intf(struct wiphy *wiphy,
 #endif
 	return dev;
 }
-EXPORT_SYMBOL_GPL(mwifiex_add_virtual_intf);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_add_virtual_intf); */
 
 /*
  * del_virtual_intf: remove the virtual interface determined by dev
@@ -1326,7 +1326,7 @@ int mwifiex_del_virtual_intf(struct wiphy *wiphy, struct net_device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mwifiex_del_virtual_intf);
+/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_del_virtual_intf); */
 
 /* station cfg80211 operations */
 static struct cfg80211_ops mwifiex_cfg80211_ops = {

@@ -74,13 +74,13 @@ int ide_check_atapi_device(ide_drive_t *drive, const char *s)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ide_check_atapi_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_check_atapi_device); */
 
 void ide_init_pc(struct ide_atapi_pc *pc)
 {
 	memset(pc, 0, sizeof(*pc));
 }
-EXPORT_SYMBOL_GPL(ide_init_pc);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_init_pc); */
 
 /*
  * Add a special packet command request to the tail of the request queue,
@@ -111,7 +111,7 @@ put_req:
 	blk_put_request(rq);
 	return error;
 }
-EXPORT_SYMBOL_GPL(ide_queue_pc_tail);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_queue_pc_tail); */
 
 int ide_do_test_unit_ready(ide_drive_t *drive, struct gendisk *disk)
 {
@@ -122,7 +122,7 @@ int ide_do_test_unit_ready(ide_drive_t *drive, struct gendisk *disk)
 
 	return ide_queue_pc_tail(drive, disk, &pc, NULL, 0);
 }
-EXPORT_SYMBOL_GPL(ide_do_test_unit_ready);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_do_test_unit_ready); */
 
 int ide_do_start_stop(ide_drive_t *drive, struct gendisk *disk, int start)
 {
@@ -137,7 +137,7 @@ int ide_do_start_stop(ide_drive_t *drive, struct gendisk *disk, int start)
 
 	return ide_queue_pc_tail(drive, disk, &pc, NULL, 0);
 }
-EXPORT_SYMBOL_GPL(ide_do_start_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_do_start_stop); */
 
 int ide_set_media_lock(ide_drive_t *drive, struct gendisk *disk, int on)
 {
@@ -152,7 +152,7 @@ int ide_set_media_lock(ide_drive_t *drive, struct gendisk *disk, int on)
 
 	return ide_queue_pc_tail(drive, disk, &pc, NULL, 0);
 }
-EXPORT_SYMBOL_GPL(ide_set_media_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_set_media_lock); */
 
 void ide_create_request_sense_cmd(ide_drive_t *drive, struct ide_atapi_pc *pc)
 {
@@ -166,7 +166,7 @@ void ide_create_request_sense_cmd(ide_drive_t *drive, struct ide_atapi_pc *pc)
 		pc->req_xfer = 20;
 	}
 }
-EXPORT_SYMBOL_GPL(ide_create_request_sense_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_create_request_sense_cmd); */
 
 void ide_prep_sense(ide_drive_t *drive, struct request *rq)
 {
@@ -218,7 +218,7 @@ void ide_prep_sense(ide_drive_t *drive, struct request *rq)
 
 	drive->sense_rq_armed = true;
 }
-EXPORT_SYMBOL_GPL(ide_prep_sense);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_prep_sense); */
 
 int ide_queue_sense_rq(ide_drive_t *drive, void *special)
 {
@@ -237,7 +237,7 @@ int ide_queue_sense_rq(ide_drive_t *drive, void *special)
 	elv_add_request(drive->queue, &drive->sense_rq, ELEVATOR_INSERT_FRONT);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ide_queue_sense_rq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_queue_sense_rq); */
 
 /*
  * Called when an error was detected during the last packet command.
@@ -271,7 +271,7 @@ void ide_retry_pc(ide_drive_t *drive)
 		ide_complete_rq(drive, -EIO, blk_rq_bytes(failed_rq));
 	}
 }
-EXPORT_SYMBOL_GPL(ide_retry_pc);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_retry_pc); */
 
 int ide_cd_expiry(ide_drive_t *drive)
 {
@@ -303,7 +303,7 @@ int ide_cd_expiry(ide_drive_t *drive)
 	}
 	return wait;
 }
-EXPORT_SYMBOL_GPL(ide_cd_expiry);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_cd_expiry); */
 
 int ide_cd_get_xferlen(struct request *rq)
 {
@@ -318,7 +318,7 @@ int ide_cd_get_xferlen(struct request *rq)
 		return 0;
 	}
 }
-EXPORT_SYMBOL_GPL(ide_cd_get_xferlen);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_cd_get_xferlen); */
 
 void ide_read_bcount_and_ireason(ide_drive_t *drive, u16 *bcount, u8 *ireason)
 {
@@ -330,7 +330,7 @@ void ide_read_bcount_and_ireason(ide_drive_t *drive, u16 *bcount, u8 *ireason)
 	*bcount = (tf.lbah << 8) | tf.lbam;
 	*ireason = tf.nsect & 3;
 }
-EXPORT_SYMBOL_GPL(ide_read_bcount_and_ireason);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_read_bcount_and_ireason); */
 
 /*
  * Check the contents of the interrupt reason register and attempt to recover if
@@ -379,7 +379,7 @@ int ide_check_ireason(ide_drive_t *drive, struct request *rq, int len,
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(ide_check_ireason);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_check_ireason); */
 
 /*
  * This is the usual interrupt handler which will be called during a packet
@@ -726,4 +726,4 @@ ide_startstop_t ide_issue_pc(ide_drive_t *drive, struct ide_cmd *cmd)
 
 	return drq_int ? ide_started : ide_transfer_pc(drive);
 }
-EXPORT_SYMBOL_GPL(ide_issue_pc);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_issue_pc); */

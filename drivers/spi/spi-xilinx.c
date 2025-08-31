@@ -445,7 +445,7 @@ put_master:
 	spi_master_put(master);
 	return NULL;
 }
-EXPORT_SYMBOL(xilinx_spi_init);
+/* DISABLED: EXPORT_SYMBOL(xilinx_spi_init); */
 
 void xilinx_spi_deinit(struct spi_master *master)
 {
@@ -460,7 +460,7 @@ void xilinx_spi_deinit(struct spi_master *master)
 	release_mem_region(xspi->mem.start, resource_size(&xspi->mem));
 	spi_master_put(xspi->bitbang.master);
 }
-EXPORT_SYMBOL(xilinx_spi_deinit);
+/* DISABLED: EXPORT_SYMBOL(xilinx_spi_deinit); */
 
 static int __devinit xilinx_spi_probe(struct platform_device *dev)
 {

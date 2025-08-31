@@ -820,7 +820,7 @@ void sn95031_jack_detection(struct mfld_jack_data *jack_data)
 		snd_soc_jack_report(jack_data->mfld_jack,
 				SND_JACK_HEADSET, mask);
 }
-EXPORT_SYMBOL_GPL(sn95031_jack_detection);
+/* DISABLED: EXPORT_SYMBOL_GPL(sn95031_jack_detection); */
 
 /* codec registration */
 static int sn95031_codec_probe(struct snd_soc_codec *codec)

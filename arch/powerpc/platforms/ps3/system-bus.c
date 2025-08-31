@@ -198,7 +198,7 @@ int ps3_open_hv_device(struct ps3_system_bus_device *dev)
 	BUG();
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(ps3_open_hv_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_open_hv_device); */
 
 int ps3_close_hv_device(struct ps3_system_bus_device *dev)
 {
@@ -236,7 +236,7 @@ int ps3_close_hv_device(struct ps3_system_bus_device *dev)
 	BUG();
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(ps3_close_hv_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_close_hv_device); */
 
 #define dump_mmio_region(_a) _dump_mmio_region(_a, __func__, __LINE__)
 static void _dump_mmio_region(const struct ps3_mmio_region* r,
@@ -278,7 +278,7 @@ int ps3_mmio_region_create(struct ps3_mmio_region *r)
 {
 	return r->mmio_ops->create(r);
 }
-EXPORT_SYMBOL_GPL(ps3_mmio_region_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_mmio_region_create); */
 
 static int ps3_sb_free_mmio_region(struct ps3_mmio_region *r)
 {
@@ -308,7 +308,7 @@ int ps3_free_mmio_region(struct ps3_mmio_region *r)
 	return r->mmio_ops->free(r);
 }
 
-EXPORT_SYMBOL_GPL(ps3_free_mmio_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_free_mmio_region); */
 
 static const struct ps3_mmio_region_ops ps3_mmio_sb_region_ops = {
 	.create = ps3_sb_mmio_region_create,
@@ -341,7 +341,7 @@ int ps3_mmio_region_init(struct ps3_system_bus_device *dev,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_mmio_region_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_mmio_region_init); */
 
 static int ps3_system_bus_match(struct device *_dev,
 	struct device_driver *_drv)
@@ -783,7 +783,7 @@ int ps3_system_bus_device_register(struct ps3_system_bus_device *dev)
 	return result;
 }
 
-EXPORT_SYMBOL_GPL(ps3_system_bus_device_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_system_bus_device_register); */
 
 int ps3_system_bus_driver_register(struct ps3_system_bus_driver *drv)
 {
@@ -801,7 +801,7 @@ int ps3_system_bus_driver_register(struct ps3_system_bus_driver *drv)
 	return result;
 }
 
-EXPORT_SYMBOL_GPL(ps3_system_bus_driver_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_system_bus_driver_register); */
 
 void ps3_system_bus_driver_unregister(struct ps3_system_bus_driver *drv)
 {
@@ -810,4 +810,4 @@ void ps3_system_bus_driver_unregister(struct ps3_system_bus_driver *drv)
 	pr_debug(" <- %s:%d: %s\n", __func__, __LINE__, drv->core.name);
 }
 
-EXPORT_SYMBOL_GPL(ps3_system_bus_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_system_bus_driver_unregister); */

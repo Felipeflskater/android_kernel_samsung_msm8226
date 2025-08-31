@@ -1194,7 +1194,7 @@ int ieee80211_sta_ps_transition(struct ieee80211_sta *sta, bool start)
 
 	return 0;
 }
-EXPORT_SYMBOL(ieee80211_sta_ps_transition);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_sta_ps_transition); */
 
 static ieee80211_rx_result debug_noinline
 ieee80211_rx_h_uapsd_and_pspoll(struct ieee80211_rx_data *rx)
@@ -3163,7 +3163,7 @@ void ieee80211_rx(struct ieee80211_hw *hw, struct sk_buff *skb)
  drop:
 	kfree_skb(skb);
 }
-EXPORT_SYMBOL(ieee80211_rx);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_rx); */
 
 /* This is a version of the rx handler that can be called from hard irq
  * context. Post the skb on the queue and schedule the tasklet */
@@ -3177,4 +3177,4 @@ void ieee80211_rx_irqsafe(struct ieee80211_hw *hw, struct sk_buff *skb)
 	skb_queue_tail(&local->skb_queue, skb);
 	tasklet_schedule(&local->tasklet);
 }
-EXPORT_SYMBOL(ieee80211_rx_irqsafe);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_rx_irqsafe); */

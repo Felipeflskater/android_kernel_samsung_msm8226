@@ -35,7 +35,7 @@ int wcd9xxx_core_irq_init(
 
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_core_irq_init);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_core_irq_init); */
 
 int wcd9xxx_initialize_irq(
 	struct wcd9xxx_core_resource *wcd9xxx_core_res,
@@ -47,7 +47,7 @@ int wcd9xxx_initialize_irq(
 
 	return 0;
 }
-EXPORT_SYMBOL(wcd9xxx_initialize_irq);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_initialize_irq); */
 
 int wcd9xxx_core_res_init(
 	struct wcd9xxx_core_resource *wcd9xxx_core_res,
@@ -80,7 +80,7 @@ int wcd9xxx_core_res_init(
 
 	return 0;
 }
-EXPORT_SYMBOL(wcd9xxx_core_res_init);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_core_res_init); */
 
 void wcd9xxx_core_res_deinit(struct wcd9xxx_core_resource *wcd9xxx_core_res)
 {
@@ -90,7 +90,7 @@ void wcd9xxx_core_res_deinit(struct wcd9xxx_core_resource *wcd9xxx_core_res)
 	wcd9xxx_core_res->codec_reg_write = NULL;
 	wcd9xxx_core_res->codec_bulk_read = NULL;
 }
-EXPORT_SYMBOL(wcd9xxx_core_res_deinit);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_core_res_deinit); */
 
 enum wcd9xxx_pm_state wcd9xxx_pm_cmpxchg(
 		struct wcd9xxx_core_resource *wcd9xxx_core_res,
@@ -105,7 +105,7 @@ enum wcd9xxx_pm_state wcd9xxx_pm_cmpxchg(
 	mutex_unlock(&wcd9xxx_core_res->pm_lock);
 	return old;
 }
-EXPORT_SYMBOL(wcd9xxx_pm_cmpxchg);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_pm_cmpxchg); */
 
 int wcd9xxx_core_res_suspend(
 	struct wcd9xxx_core_resource *wcd9xxx_core_res,
@@ -158,7 +158,7 @@ int wcd9xxx_core_res_suspend(
 
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_core_res_suspend);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_core_res_suspend); */
 
 int wcd9xxx_core_res_resume(
 	struct wcd9xxx_core_resource *wcd9xxx_core_res)
@@ -182,16 +182,16 @@ int wcd9xxx_core_res_resume(
 
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_core_res_resume);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_core_res_resume); */
 
 enum wcd9xxx_intf_status wcd9xxx_get_intf_type(void)
 {
 	return wcd9xxx_intf;
 }
-EXPORT_SYMBOL(wcd9xxx_get_intf_type);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_get_intf_type); */
 
 void wcd9xxx_set_intf_type(enum wcd9xxx_intf_status intf_status)
 {
 	wcd9xxx_intf = intf_status;
 }
-EXPORT_SYMBOL(wcd9xxx_set_intf_type);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_set_intf_type); */

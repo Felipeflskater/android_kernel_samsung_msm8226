@@ -162,7 +162,7 @@ unmap_rq:
 	rq->bio = NULL;
 	return ret;
 }
-EXPORT_SYMBOL(blk_rq_map_user);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_map_user); */
 
 /**
  * blk_rq_map_user_iov - map user data to a request, for REQ_TYPE_BLOCK_PC usage
@@ -241,7 +241,7 @@ int blk_rq_map_user_iov(struct request_queue *q, struct request *rq,
 	rq->buffer = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(blk_rq_map_user_iov);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_map_user_iov); */
 
 /**
  * blk_rq_unmap_user - unmap a request with user data
@@ -273,7 +273,7 @@ int blk_rq_unmap_user(struct bio *bio)
 
 	return ret;
 }
-EXPORT_SYMBOL(blk_rq_unmap_user);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_unmap_user); */
 
 /**
  * blk_rq_map_kern - map kernel data to a request, for REQ_TYPE_BLOCK_PC usage
@@ -328,4 +328,4 @@ int blk_rq_map_kern(struct request_queue *q, struct request *rq, void *kbuf,
 	rq->buffer = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(blk_rq_map_kern);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_map_kern); */

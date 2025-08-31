@@ -197,4 +197,4 @@ unsigned long intc_get_pending(unsigned int group)
 {
 	return intc_readl(&intc0, INTREQ0 + 4 * group);
 }
-EXPORT_SYMBOL_GPL(intc_get_pending);
+/* DISABLED: EXPORT_SYMBOL_GPL(intc_get_pending); */

@@ -837,9 +837,9 @@ MODULE_AUTHOR("Stanislaw Skowronek <skylark@linux-mips.org>");
 MODULE_DESCRIPTION("PCI driver for SGI IOC3");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL_GPL(ioc3_register_submodule);
-EXPORT_SYMBOL_GPL(ioc3_unregister_submodule);
-EXPORT_SYMBOL_GPL(ioc3_ack);
-EXPORT_SYMBOL_GPL(ioc3_gpcr_set);
-EXPORT_SYMBOL_GPL(ioc3_disable);
-EXPORT_SYMBOL_GPL(ioc3_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_register_submodule); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_unregister_submodule); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_ack); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_gpcr_set); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_disable); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ioc3_enable); */

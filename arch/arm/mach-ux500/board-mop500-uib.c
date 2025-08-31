@@ -58,7 +58,7 @@ static int __init mop500_uib_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("uib=", mop500_uib_setup); */
+/* DISABLED: __setup("uib=", mop500_uib_setup); */ */
 
 /*
  * The UIBs are detected after the I2C host controllers are registered, so

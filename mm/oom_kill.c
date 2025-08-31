@@ -605,13 +605,13 @@ int register_oom_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&oom_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(register_oom_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_oom_notifier); */
 
 int unregister_oom_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&oom_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_oom_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_oom_notifier); */
 
 /*
  * Try to acquire the OOM killer lock for the zones in zonelist.  Returns zero

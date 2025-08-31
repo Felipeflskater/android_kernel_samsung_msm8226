@@ -234,7 +234,7 @@ void ia64_mca_printk(const char *fmt, ...)
 		spin_unlock(&mlogbuf_wlock);
 	}
 }
-EXPORT_SYMBOL(ia64_mca_printk);
+/* DISABLED: EXPORT_SYMBOL(ia64_mca_printk); */
 
 /*
  * Print buffered messages.
@@ -275,7 +275,7 @@ void ia64_mlogbuf_dump(void)
 		spin_unlock_irqrestore(&mlogbuf_rlock, flags);
 	}
 }
-EXPORT_SYMBOL(ia64_mlogbuf_dump);
+/* DISABLED: EXPORT_SYMBOL(ia64_mlogbuf_dump); */
 
 /*
  * Call this if system is going to down or if immediate flushing messages to
@@ -521,7 +521,7 @@ int mca_recover_range(unsigned long addr)
 
 	return search_mca_table(__start___mca_table, __stop___mca_table-1, addr);
 }
-EXPORT_SYMBOL_GPL(mca_recover_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(mca_recover_range); */
 
 #ifdef CONFIG_ACPI
 
@@ -847,8 +847,8 @@ ia64_unreg_MCA_extension(void)
 		ia64_mca_ucmc_extension = NULL;
 }
 
-EXPORT_SYMBOL(ia64_reg_MCA_extension);
-EXPORT_SYMBOL(ia64_unreg_MCA_extension);
+/* DISABLED: EXPORT_SYMBOL(ia64_reg_MCA_extension); */
+/* DISABLED: EXPORT_SYMBOL(ia64_unreg_MCA_extension); */
 
 
 static inline void
@@ -1768,7 +1768,7 @@ ia64_mca_disable_cpe_polling(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("disable_cpe_poll", ia64_mca_disable_cpe_polling); */
+/* DISABLED: __setup("disable_cpe_poll", ia64_mca_disable_cpe_polling); */ */
 
 static struct irqaction cmci_irqaction = {
 	.handler =	ia64_mca_cmc_int_handler,

@@ -1803,7 +1803,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(i915_read_mch_val);
+/* DISABLED: EXPORT_SYMBOL_GPL(i915_read_mch_val); */
 
 /**
  * i915_gpu_raise - raise GPU frequency limit
@@ -1830,7 +1830,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(i915_gpu_raise);
+/* DISABLED: EXPORT_SYMBOL_GPL(i915_gpu_raise); */
 
 /**
  * i915_gpu_lower - lower GPU frequency limit
@@ -1858,7 +1858,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(i915_gpu_lower);
+/* DISABLED: EXPORT_SYMBOL_GPL(i915_gpu_lower); */
 
 /**
  * i915_gpu_busy - indicate GPU business to IPS
@@ -1882,7 +1882,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(i915_gpu_busy);
+/* DISABLED: EXPORT_SYMBOL_GPL(i915_gpu_busy); */
 
 /**
  * i915_gpu_turbo_disable - disable graphics turbo
@@ -1912,7 +1912,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(i915_gpu_turbo_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(i915_gpu_turbo_disable); */
 
 /**
  * Tells the intel_ips driver that the i915 driver is now loaded, if

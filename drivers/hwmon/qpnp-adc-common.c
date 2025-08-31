@@ -899,7 +899,7 @@ int32_t qpnp_adc_scale_pmic_therm(struct qpnp_vadc_chip *vadc,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_pmic_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_pmic_therm); */
 
 int32_t qpnp_adc_scale_millidegc_pmic_voltage_thr(struct qpnp_vadc_chip *chip,
 		struct qpnp_adc_tm_btm_param *param,
@@ -951,7 +951,7 @@ int32_t qpnp_adc_scale_millidegc_pmic_voltage_thr(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_millidegc_pmic_voltage_thr);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_millidegc_pmic_voltage_thr); */
 
 /* Scales the ADC code to degC using the mapping
  * table for the XO thermistor.
@@ -978,7 +978,7 @@ int32_t qpnp_adc_tdkntcg_therm(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_tdkntcg_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tdkntcg_therm); */
 
 int32_t qpnp_adc_scale_batt_therm(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -997,7 +997,7 @@ int32_t qpnp_adc_scale_batt_therm(struct qpnp_vadc_chip *chip,
 			bat_voltage,
 			&adc_chan_result->physical);
 }
-EXPORT_SYMBOL(qpnp_adc_scale_batt_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_batt_therm); */
 
 int32_t qpnp_adc_scale_qrd_batt_therm(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -1016,7 +1016,7 @@ int32_t qpnp_adc_scale_qrd_batt_therm(struct qpnp_vadc_chip *chip,
 			bat_voltage,
 			&adc_chan_result->physical);
 }
-EXPORT_SYMBOL(qpnp_adc_scale_qrd_batt_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_qrd_batt_therm); */
 
 int32_t qpnp_adc_scale_qrd_skuaa_batt_therm(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -1035,7 +1035,7 @@ int32_t qpnp_adc_scale_qrd_skuaa_batt_therm(struct qpnp_vadc_chip *chip,
 			bat_voltage,
 			&adc_chan_result->physical);
 }
-EXPORT_SYMBOL(qpnp_adc_scale_qrd_skuaa_batt_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_qrd_skuaa_batt_therm); */
 
 int32_t qpnp_adc_scale_qrd_skug_batt_therm(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -1054,7 +1054,7 @@ int32_t qpnp_adc_scale_qrd_skug_batt_therm(struct qpnp_vadc_chip *chip,
 			bat_voltage,
 			&adc_chan_result->physical);
 }
-EXPORT_SYMBOL(qpnp_adc_scale_qrd_skug_batt_therm);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_qrd_skug_batt_therm); */
 int32_t qpnp_adc_scale_therm_pu1(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
 		const struct qpnp_adc_properties *adc_properties,
@@ -1072,7 +1072,7 @@ int32_t qpnp_adc_scale_therm_pu1(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_therm_pu1);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_therm_pu1); */
 
 int32_t qpnp_adc_scale_therm_pu2(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -1091,7 +1091,7 @@ int32_t qpnp_adc_scale_therm_pu2(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_therm_pu2);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_therm_pu2); */
 
 int32_t qpnp_adc_tm_scale_voltage_therm_pu2(struct qpnp_vadc_chip *chip,
 					uint32_t reg, int64_t *result)
@@ -1118,7 +1118,7 @@ int32_t qpnp_adc_tm_scale_voltage_therm_pu2(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_tm_scale_voltage_therm_pu2);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_scale_voltage_therm_pu2); */
 
 int32_t qpnp_adc_tm_scale_therm_voltage_pu2(struct qpnp_vadc_chip *chip,
 				struct qpnp_adc_tm_config *param)
@@ -1150,7 +1150,7 @@ int32_t qpnp_adc_tm_scale_therm_voltage_pu2(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_tm_scale_therm_voltage_pu2);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_scale_therm_voltage_pu2); */
 
 int32_t qpnp_adc_scale_batt_id(struct qpnp_vadc_chip *chip,
 		int32_t adc_code,
@@ -1167,7 +1167,7 @@ int32_t qpnp_adc_scale_batt_id(struct qpnp_vadc_chip *chip,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_batt_id);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_batt_id); */
 
 int32_t qpnp_adc_scale_default(struct qpnp_vadc_chip *vadc,
 		int32_t adc_code,
@@ -1230,7 +1230,7 @@ int32_t qpnp_adc_scale_default(struct qpnp_vadc_chip *vadc,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_scale_default);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_scale_default); */
 
 int32_t qpnp_adc_usb_scaler(struct qpnp_vadc_chip *chip,
 		struct qpnp_adc_tm_btm_param *param,
@@ -1252,7 +1252,7 @@ int32_t qpnp_adc_usb_scaler(struct qpnp_vadc_chip *chip,
 				param->low_thr);
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_usb_scaler);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_usb_scaler); */
 
 int32_t qpnp_adc_vbatt_rscaler(struct qpnp_vadc_chip *chip,
 		struct qpnp_adc_tm_btm_param *param,
@@ -1295,7 +1295,7 @@ int32_t qpnp_adc_vbatt_rscaler(struct qpnp_vadc_chip *chip,
 				*low_threshold);
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_vbatt_rscaler);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_vbatt_rscaler); */
 
 int32_t qpnp_adc_btm_scaler(struct qpnp_vadc_chip *chip,
 		struct qpnp_adc_tm_btm_param *param,
@@ -1348,7 +1348,7 @@ int32_t qpnp_adc_btm_scaler(struct qpnp_vadc_chip *chip,
 				*low_threshold);
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_btm_scaler);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_btm_scaler); */
 
 int32_t qpnp_vadc_check_result(int32_t *data)
 {
@@ -1359,7 +1359,7 @@ int32_t qpnp_vadc_check_result(int32_t *data)
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_vadc_check_result);
+/* DISABLED: EXPORT_SYMBOL(qpnp_vadc_check_result); */
 
 int qpnp_adc_get_revid_version(struct device *dev)
 {
@@ -1445,7 +1445,7 @@ int qpnp_adc_get_revid_version(struct device *dev)
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL(qpnp_adc_get_revid_version);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_get_revid_version); */
 
 int32_t qpnp_adc_get_devicetree_data(struct spmi_device *spmi,
 			struct qpnp_adc_drv *adc_qpnp)
@@ -1611,4 +1611,4 @@ int32_t qpnp_adc_get_devicetree_data(struct spmi_device *spmi,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_adc_get_devicetree_data);
+/* DISABLED: EXPORT_SYMBOL(qpnp_adc_get_devicetree_data); */

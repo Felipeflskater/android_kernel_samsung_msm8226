@@ -178,7 +178,7 @@ void rpipe_destroy(struct kref *_rpipe)
 	wa_put(rpipe->wa);
 	kfree(rpipe);
 }
-EXPORT_SYMBOL_GPL(rpipe_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpipe_destroy); */
 
 /*
  * Locate an idle rpipe, create an structure for it and return it
@@ -530,4 +530,4 @@ void rpipe_ep_disable(struct wahc *wa, struct usb_host_endpoint *ep)
 	}
 	mutex_unlock(&wa->rpipe_mutex);
 }
-EXPORT_SYMBOL_GPL(rpipe_ep_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpipe_ep_disable); */

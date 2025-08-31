@@ -2430,7 +2430,7 @@ struct address_space *__page_file_mapping(struct page *page)
 	VM_BUG_ON(!PageSwapCache(page));
 	return page_swap_info(page)->swap_file->f_mapping;
 }
-EXPORT_SYMBOL_GPL(__page_file_mapping);
+/* DISABLED: EXPORT_SYMBOL_GPL(__page_file_mapping); */
 
 pgoff_t __page_file_index(struct page *page)
 {
@@ -2438,7 +2438,7 @@ pgoff_t __page_file_index(struct page *page)
 	VM_BUG_ON(!PageSwapCache(page));
 	return swp_offset(swap);
 }
-EXPORT_SYMBOL_GPL(__page_file_index);
+/* DISABLED: EXPORT_SYMBOL_GPL(__page_file_index); */
 
 /*
  * add_swap_count_continuation - called when a swap count is duplicated

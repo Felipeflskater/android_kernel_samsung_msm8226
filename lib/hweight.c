@@ -24,7 +24,7 @@ unsigned int __sw_hweight32(unsigned int w)
 	return (res + (res >> 16)) & 0x000000FF;
 #endif
 }
-EXPORT_SYMBOL(__sw_hweight32);
+/* DISABLED: EXPORT_SYMBOL(__sw_hweight32); */
 
 unsigned int __sw_hweight16(unsigned int w)
 {
@@ -33,7 +33,7 @@ unsigned int __sw_hweight16(unsigned int w)
 	res = (res + (res >> 4)) & 0x0F0F;
 	return (res + (res >> 8)) & 0x00FF;
 }
-EXPORT_SYMBOL(__sw_hweight16);
+/* DISABLED: EXPORT_SYMBOL(__sw_hweight16); */
 
 unsigned int __sw_hweight8(unsigned int w)
 {
@@ -41,7 +41,7 @@ unsigned int __sw_hweight8(unsigned int w)
 	res = (res & 0x33) + ((res >> 2) & 0x33);
 	return (res + (res >> 4)) & 0x0F;
 }
-EXPORT_SYMBOL(__sw_hweight8);
+/* DISABLED: EXPORT_SYMBOL(__sw_hweight8); */
 
 unsigned long __sw_hweight64(__u64 w)
 {
@@ -64,4 +64,4 @@ unsigned long __sw_hweight64(__u64 w)
 #endif
 #endif
 }
-EXPORT_SYMBOL(__sw_hweight64);
+/* DISABLED: EXPORT_SYMBOL(__sw_hweight64); */

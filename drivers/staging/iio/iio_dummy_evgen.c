@@ -118,7 +118,7 @@ int iio_dummy_evgen_get_irq(void)
 		return -ENOMEM;
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_dummy_evgen_get_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_dummy_evgen_get_irq); */
 
 /**
  * iio_dummy_evgen_release_irq() - give the irq back.
@@ -134,7 +134,7 @@ int iio_dummy_evgen_release_irq(int irq)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(iio_dummy_evgen_release_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_dummy_evgen_release_irq); */
 
 static void iio_dummy_evgen_free(void)
 {

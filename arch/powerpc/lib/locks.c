@@ -78,4 +78,4 @@ void arch_spin_unlock_wait(arch_spinlock_t *lock)
 	HMT_medium();
 }
 
-EXPORT_SYMBOL(arch_spin_unlock_wait);
+/* DISABLED: EXPORT_SYMBOL(arch_spin_unlock_wait); */

@@ -2176,7 +2176,7 @@ bool stedma40_filter(struct dma_chan *chan, void *data)
 
 	return err == 0;
 }
-EXPORT_SYMBOL(stedma40_filter);
+/* DISABLED: EXPORT_SYMBOL(stedma40_filter); */
 
 static void __d40_set_prio_rt(struct d40_chan *d40c, int dev_type, bool src)
 {

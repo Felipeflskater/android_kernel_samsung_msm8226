@@ -58,7 +58,7 @@ int sn_dma_set_mask(struct device *dev, u64 dma_mask)
 	*dev->dma_mask = dma_mask;
 	return 1;
 }
-EXPORT_SYMBOL(sn_dma_set_mask);
+/* DISABLED: EXPORT_SYMBOL(sn_dma_set_mask); */
 
 /**
  * sn_dma_alloc_coherent - allocate memory for coherent DMA
@@ -354,7 +354,7 @@ u64 sn_dma_get_required_mask(struct device *dev)
 {
 	return DMA_BIT_MASK(64);
 }
-EXPORT_SYMBOL_GPL(sn_dma_get_required_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(sn_dma_get_required_mask); */
 
 char *sn_pci_get_legacy_mem(struct pci_bus *bus)
 {

@@ -310,7 +310,7 @@ struct rpmsg_endpoint *rpmsg_create_ept(struct rpmsg_channel *rpdev,
 {
 	return __rpmsg_create_ept(rpdev->vrp, rpdev, cb, priv, addr);
 }
-EXPORT_SYMBOL(rpmsg_create_ept);
+/* DISABLED: EXPORT_SYMBOL(rpmsg_create_ept); */
 
 /**
  * __rpmsg_destroy_ept() - destroy an existing rpmsg endpoint
@@ -349,7 +349,7 @@ void rpmsg_destroy_ept(struct rpmsg_endpoint *ept)
 {
 	__rpmsg_destroy_ept(ept->rpdev->vrp, ept);
 }
-EXPORT_SYMBOL(rpmsg_destroy_ept);
+/* DISABLED: EXPORT_SYMBOL(rpmsg_destroy_ept); */
 
 /*
  * when an rpmsg driver is probed with a channel, we seamlessly create
@@ -450,7 +450,7 @@ int register_rpmsg_driver(struct rpmsg_driver *rpdrv)
 	rpdrv->drv.bus = &rpmsg_bus;
 	return driver_register(&rpdrv->drv);
 }
-EXPORT_SYMBOL(register_rpmsg_driver);
+/* DISABLED: EXPORT_SYMBOL(register_rpmsg_driver); */
 
 /**
  * unregister_rpmsg_driver() - unregister an rpmsg driver from the rpmsg bus
@@ -462,7 +462,7 @@ void unregister_rpmsg_driver(struct rpmsg_driver *rpdrv)
 {
 	driver_unregister(&rpdrv->drv);
 }
-EXPORT_SYMBOL(unregister_rpmsg_driver);
+/* DISABLED: EXPORT_SYMBOL(unregister_rpmsg_driver); */
 
 static void rpmsg_release_device(struct device *dev)
 {
@@ -782,7 +782,7 @@ out:
 	mutex_unlock(&vrp->tx_lock);
 	return err;
 }
-EXPORT_SYMBOL(rpmsg_send_offchannel_raw);
+/* DISABLED: EXPORT_SYMBOL(rpmsg_send_offchannel_raw); */
 
 /* called when an rx buffer is used, and it's time to digest a message */
 static void rpmsg_recv_done(struct virtqueue *rvq)

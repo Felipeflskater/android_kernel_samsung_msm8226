@@ -232,12 +232,12 @@ MODULE_AUTHOR("Russell King");
 MODULE_DESCRIPTION("SA11x0 SSP PIO driver");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(ssp_write_word);
-EXPORT_SYMBOL(ssp_read_word);
-EXPORT_SYMBOL(ssp_flush);
-EXPORT_SYMBOL(ssp_enable);
-EXPORT_SYMBOL(ssp_disable);
-EXPORT_SYMBOL(ssp_save_state);
-EXPORT_SYMBOL(ssp_restore_state);
-EXPORT_SYMBOL(ssp_init);
-EXPORT_SYMBOL(ssp_exit);
+/* DISABLED: EXPORT_SYMBOL(ssp_write_word); */
+/* DISABLED: EXPORT_SYMBOL(ssp_read_word); */
+/* DISABLED: EXPORT_SYMBOL(ssp_flush); */
+/* DISABLED: EXPORT_SYMBOL(ssp_enable); */
+/* DISABLED: EXPORT_SYMBOL(ssp_disable); */
+/* DISABLED: EXPORT_SYMBOL(ssp_save_state); */
+/* DISABLED: EXPORT_SYMBOL(ssp_restore_state); */
+/* DISABLED: EXPORT_SYMBOL(ssp_init); */
+/* DISABLED: EXPORT_SYMBOL(ssp_exit); */

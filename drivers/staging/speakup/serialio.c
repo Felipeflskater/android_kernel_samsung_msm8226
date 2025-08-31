@@ -180,7 +180,7 @@ unsigned char spk_serial_in(void)
 	}
 	return inb_p(speakup_info.port_tts + UART_RX);
 }
-EXPORT_SYMBOL_GPL(spk_serial_in);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_serial_in); */
 
 unsigned char spk_serial_in_nowait(void)
 {
@@ -191,7 +191,7 @@ unsigned char spk_serial_in_nowait(void)
 		return 0;
 	return inb_p(speakup_info.port_tts + UART_RX);
 }
-EXPORT_SYMBOL_GPL(spk_serial_in_nowait);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_serial_in_nowait); */
 
 int spk_serial_out(const char ch)
 {
@@ -201,7 +201,7 @@ int spk_serial_out(const char ch)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spk_serial_out);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_serial_out); */
 
 void spk_serial_release(void)
 {
@@ -210,5 +210,5 @@ void spk_serial_release(void)
 	synth_release_region(speakup_info.port_tts, 8);
 	speakup_info.port_tts = 0;
 }
-EXPORT_SYMBOL_GPL(spk_serial_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_serial_release); */
 

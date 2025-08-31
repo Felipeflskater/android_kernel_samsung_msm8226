@@ -22,13 +22,13 @@ unsigned int ltq_get_cpu_ver(void)
 {
 	return soc_info.rev;
 }
-EXPORT_SYMBOL(ltq_get_cpu_ver);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_cpu_ver); */
 
 unsigned int ltq_get_soc_type(void)
 {
 	return soc_info.type;
 }
-EXPORT_SYMBOL(ltq_get_soc_type);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_soc_type); */
 
 const char *get_system_type(void)
 {

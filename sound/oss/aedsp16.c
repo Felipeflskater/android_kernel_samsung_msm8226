@@ -1369,5 +1369,5 @@ static int __init setup_aedsp16(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("aedsp16=", setup_aedsp16); */
+/* DISABLED: __setup("aedsp16=", setup_aedsp16); */ */
 #endif

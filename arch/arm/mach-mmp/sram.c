@@ -59,7 +59,7 @@ struct gen_pool *sram_get_gpool(char *pool_name)
 
 	return info->gpool;
 }
-EXPORT_SYMBOL(sram_get_gpool);
+/* DISABLED: EXPORT_SYMBOL(sram_get_gpool); */
 
 static int __devinit sram_probe(struct platform_device *pdev)
 {

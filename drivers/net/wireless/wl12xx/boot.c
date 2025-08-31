@@ -753,7 +753,7 @@ int wl1271_load_firmware(struct wl1271 *wl)
 out:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(wl1271_load_firmware);
+/* DISABLED: EXPORT_SYMBOL_GPL(wl1271_load_firmware); */
 
 int wl1271_boot(struct wl1271 *wl)
 {

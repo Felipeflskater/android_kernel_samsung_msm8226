@@ -43,7 +43,7 @@ void atari_microwire_cmd (int cmd)
 	while( tt_microwire.mask != 0x7ff)
 		;
 }
-EXPORT_SYMBOL(atari_microwire_cmd);
+/* DISABLED: EXPORT_SYMBOL(atari_microwire_cmd); */
 
 
 /* PSG base frequency */

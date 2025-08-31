@@ -12,9 +12,9 @@
 #include <linux/err.h>
 
 struct class *sensors_class;
-EXPORT_SYMBOL_GPL(sensors_class);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_class); */
 struct class *sensors_event_class;
-EXPORT_SYMBOL_GPL(sensors_event_class);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_event_class); */
 static atomic_t sensor_count;
 static struct device *symlink_dev;
 
@@ -49,7 +49,7 @@ int sensors_create_symlink(struct kobject *target,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(sensors_create_symlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_create_symlink); */
 
 void sensors_remove_symlink(struct kobject *target,
 		      const char *name)
@@ -60,7 +60,7 @@ void sensors_remove_symlink(struct kobject *target,
 
 	sysfs_delete_link(&symlink_dev->kobj, target, name);
 }
-EXPORT_SYMBOL_GPL(sensors_remove_symlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_remove_symlink); */
 
 
 int sensors_register(struct device *dev, void * drvdata,
@@ -88,7 +88,7 @@ int sensors_register(struct device *dev, void * drvdata,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sensors_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_register); */
 
 void sensors_unregister(struct device *dev,
 	struct device_attribute *attributes[])
@@ -98,7 +98,7 @@ void sensors_unregister(struct device *dev,
 	for (i = 0; attributes[i] != NULL; i++)
 		device_remove_file(dev, attributes[i]);
 }
-EXPORT_SYMBOL_GPL(sensors_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_unregister); */
 
 void destroy_sensor_class(void)
 {
@@ -112,7 +112,7 @@ void destroy_sensor_class(void)
 		sensors_event_class = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(destroy_sensor_class);
+/* DISABLED: EXPORT_SYMBOL_GPL(destroy_sensor_class); */
 
 static int __init sensors_class_init(void)
 {

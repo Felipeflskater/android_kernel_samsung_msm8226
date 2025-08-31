@@ -128,4 +128,4 @@ void *s3c_dma_get_ops(void)
 {
 	return &s3c_dma_ops;
 }
-EXPORT_SYMBOL(s3c_dma_get_ops);
+/* DISABLED: EXPORT_SYMBOL(s3c_dma_get_ops); */

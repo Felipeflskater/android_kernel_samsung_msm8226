@@ -191,7 +191,7 @@ err:
 	kfree(ca);
 	return result;
 }
-EXPORT_SYMBOL_GPL(mantis_ca_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_ca_init); */
 
 void mantis_ca_exit(struct mantis_pci *mantis)
 {
@@ -206,4 +206,4 @@ void mantis_ca_exit(struct mantis_pci *mantis)
 
 	kfree(ca);
 }
-EXPORT_SYMBOL_GPL(mantis_ca_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_ca_exit); */

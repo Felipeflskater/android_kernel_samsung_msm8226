@@ -216,7 +216,7 @@ const u32 cx2341x_mpeg_ctrls[] = {
 	V4L2_CID_MPEG_CX2341X_STREAM_INSERT_NAV_PACKETS,
 	0
 };
-EXPORT_SYMBOL(cx2341x_mpeg_ctrls);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_mpeg_ctrls); */
 
 static const struct cx2341x_mpeg_params default_params = {
 	/* misc */
@@ -851,7 +851,7 @@ int cx2341x_ctrl_query(const struct cx2341x_mpeg_params *params,
 
 	}
 }
-EXPORT_SYMBOL(cx2341x_ctrl_query);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_ctrl_query); */
 
 const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *p, u32 id)
 {
@@ -904,7 +904,7 @@ const char * const *cx2341x_ctrl_get_menu(const struct cx2341x_mpeg_params *p, u
 		return v4l2_ctrl_get_menu(id);
 	}
 }
-EXPORT_SYMBOL(cx2341x_ctrl_get_menu);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_ctrl_get_menu); */
 
 static void cx2341x_calc_audio_properties(struct cx2341x_mpeg_params *params)
 {
@@ -979,14 +979,14 @@ int cx2341x_ext_ctrls(struct cx2341x_mpeg_params *params, int busy,
 		cx2341x_calc_audio_properties(params);
 	return err;
 }
-EXPORT_SYMBOL(cx2341x_ext_ctrls);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_ext_ctrls); */
 
 void cx2341x_fill_defaults(struct cx2341x_mpeg_params *p)
 {
 	*p = default_params;
 	cx2341x_calc_audio_properties(p);
 }
-EXPORT_SYMBOL(cx2341x_fill_defaults);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_fill_defaults); */
 
 static int cx2341x_api(void *priv, cx2341x_mbox_func func,
 		       u32 cmd, int args, ...)
@@ -1131,7 +1131,7 @@ int cx2341x_update(void *priv, cx2341x_mbox_func func,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(cx2341x_update);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_update); */
 
 static const char *cx2341x_menu_item(const struct cx2341x_mpeg_params *p, u32 id)
 {
@@ -1235,7 +1235,7 @@ void cx2341x_log_status(const struct cx2341x_mpeg_params *p, const char *prefix)
 		p->video_chroma_median_filter_bottom,
 		p->video_chroma_median_filter_top);
 }
-EXPORT_SYMBOL(cx2341x_log_status);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_log_status); */
 
 
 
@@ -1678,14 +1678,14 @@ int cx2341x_handler_init(struct cx2341x_handler *cxhdl,
 
 	return 0;
 }
-EXPORT_SYMBOL(cx2341x_handler_init);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_handler_init); */
 
 void cx2341x_handler_set_50hz(struct cx2341x_handler *cxhdl, int is_50hz)
 {
 	cxhdl->is_50hz = is_50hz;
 	cxhdl->video_gop_size->default_value = cxhdl->is_50hz ? 12 : 15;
 }
-EXPORT_SYMBOL(cx2341x_handler_set_50hz);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_handler_set_50hz); */
 
 int cx2341x_handler_setup(struct cx2341x_handler *cxhdl)
 {
@@ -1709,7 +1709,7 @@ int cx2341x_handler_setup(struct cx2341x_handler *cxhdl)
 		return err;
 	return v4l2_ctrl_handler_setup(&cxhdl->hdl);
 }
-EXPORT_SYMBOL(cx2341x_handler_setup);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_handler_setup); */
 
 void cx2341x_handler_set_busy(struct cx2341x_handler *cxhdl, int busy)
 {
@@ -1723,4 +1723,4 @@ void cx2341x_handler_set_busy(struct cx2341x_handler *cxhdl, int busy)
 	v4l2_ctrl_grab(cxhdl->video_bitrate, busy);
 	v4l2_ctrl_grab(cxhdl->video_bitrate_peak, busy);
 }
-EXPORT_SYMBOL(cx2341x_handler_set_busy);
+/* DISABLED: EXPORT_SYMBOL(cx2341x_handler_set_busy); */

@@ -643,19 +643,19 @@ int pmic_lp_mode_control(enum switch_cmd cmd, enum vreg_lp_id id)
 {
 	return pmic_rpc_set_only(cmd, id, 0, 0, 2, LP_MODE_CONTROL_PROC);
 }
-EXPORT_SYMBOL(pmic_lp_mode_control);
+/* DISABLED: EXPORT_SYMBOL(pmic_lp_mode_control); */
 
 int pmic_vreg_set_level(enum vreg_id vreg, int level)
 {
 	return pmic_rpc_set_only(vreg, level, 0, 0, 2, VREG_SET_LEVEL_PROC);
 }
-EXPORT_SYMBOL(pmic_vreg_set_level);
+/* DISABLED: EXPORT_SYMBOL(pmic_vreg_set_level); */
 
 int pmic_vreg_pull_down_switch(enum switch_cmd cmd, enum vreg_pdown_id id)
 {
 	return pmic_rpc_set_only(cmd, id, 0, 0, 2, VREG_PULL_DOWN_SWITCH_PROC);
 }
-EXPORT_SYMBOL(pmic_vreg_pull_down_switch);
+/* DISABLED: EXPORT_SYMBOL(pmic_vreg_pull_down_switch); */
 
 int pmic_secure_mpp_control_digital_output(enum mpp_which which,
 	enum mpp_dlogic_level level,
@@ -664,7 +664,7 @@ int pmic_secure_mpp_control_digital_output(enum mpp_which which,
 	return pmic_rpc_set_only(which, level, out, 0, 3,
 				SECURE_MPP_CONFIG_DIGITAL_OUTPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_secure_mpp_control_digital_output);
+/* DISABLED: EXPORT_SYMBOL(pmic_secure_mpp_control_digital_output); */
 
 int pmic_secure_mpp_config_i_sink(enum mpp_which which,
 				enum mpp_i_sink_level level,
@@ -673,7 +673,7 @@ int pmic_secure_mpp_config_i_sink(enum mpp_which which,
 	return pmic_rpc_set_only(which, level, onoff, 0, 3,
 				SECURE_MPP_CONFIG_I_SINK_PROC);
 }
-EXPORT_SYMBOL(pmic_secure_mpp_config_i_sink);
+/* DISABLED: EXPORT_SYMBOL(pmic_secure_mpp_config_i_sink); */
 
 int pmic_secure_mpp_config_digital_input(enum mpp_which which,
 	enum mpp_dlogic_level level,
@@ -682,27 +682,27 @@ int pmic_secure_mpp_config_digital_input(enum mpp_which which,
 	return pmic_rpc_set_only(which, level, dbus, 0, 3,
 				SECURE_MPP_CONFIG_DIGITAL_INPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_secure_mpp_config_digital_input);
+/* DISABLED: EXPORT_SYMBOL(pmic_secure_mpp_config_digital_input); */
 
 int pmic_rtc_start(struct rtc_time *time)
 {
 	return pmic_rpc_set_struct(0, 0, (uint *)time, sizeof(*time),
 				RTC_START_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_start);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_start); */
 
 int pmic_rtc_stop(void)
 {
 	return pmic_rpc_set_only(0, 0, 0, 0, 0, RTC_STOP_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_stop);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_stop); */
 
 int pmic_rtc_get_time(struct rtc_time *time)
 {
 	return pmic_rpc_get_only((uint *)time, sizeof(*time),
 				RTC_GET_TIME_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_get_time);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_get_time); */
 
 int pmic_rtc_enable_alarm(enum rtc_alarm alarm,
 	struct rtc_time *time)
@@ -710,13 +710,13 @@ int pmic_rtc_enable_alarm(enum rtc_alarm alarm,
 	return pmic_rpc_set_struct(1, alarm, (uint *)time, sizeof(*time),
 				RTC_ENABLE_ALARM_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_enable_alarm);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_enable_alarm); */
 
 int pmic_rtc_disable_alarm(enum rtc_alarm alarm)
 {
 	return pmic_rpc_set_only(alarm, 0, 0, 0, 1, RTC_DISABLE_ALARM_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_disable_alarm);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_disable_alarm); */
 
 int pmic_rtc_get_alarm_time(enum rtc_alarm	alarm,
 	struct rtc_time *time)
@@ -724,28 +724,28 @@ int pmic_rtc_get_alarm_time(enum rtc_alarm	alarm,
 	return pmic_rpc_set_get(alarm, (uint *)time, sizeof(*time),
 				RTC_GET_ALARM_TIME_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_get_alarm_time);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_get_alarm_time); */
 
 int pmic_rtc_get_alarm_status(uint *status)
 {
 	return pmic_rpc_get_only(status, sizeof(*status),
 				RTC_GET_ALARM_STATUS_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_get_alarm_status);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_get_alarm_status); */
 
 int pmic_rtc_set_time_adjust(uint adjust)
 {
 	return pmic_rpc_set_only(adjust, 0, 0, 0, 1,
 				RTC_SET_TIME_ADJUST_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_set_time_adjust);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_set_time_adjust); */
 
 int pmic_rtc_get_time_adjust(uint *adjust)
 {
 	return pmic_rpc_get_only(adjust, sizeof(*adjust),
 				RTC_GET_TIME_ADJUST_PROC);
 }
-EXPORT_SYMBOL(pmic_rtc_get_time_adjust);
+/* DISABLED: EXPORT_SYMBOL(pmic_rtc_get_time_adjust); */
 
 /*
  * generic speaker
@@ -754,134 +754,134 @@ int pmic_speaker_cmd(const enum spkr_cmd cmd)
 {
 	return pmic_rpc_set_only(cmd, 0, 0, 0, 1, SPEAKER_CMD_PROC);
 }
-EXPORT_SYMBOL(pmic_speaker_cmd);
+/* DISABLED: EXPORT_SYMBOL(pmic_speaker_cmd); */
 
 int pmic_set_spkr_configuration(struct spkr_config_mode	*cfg)
 {
 	return pmic_rpc_set_struct(0, 0, (uint *)cfg, sizeof(*cfg),
 				SET_SPKR_CONFIGURATION_PROC);
 }
-EXPORT_SYMBOL(pmic_set_spkr_configuration);
+/* DISABLED: EXPORT_SYMBOL(pmic_set_spkr_configuration); */
 
 int pmic_get_spkr_configuration(struct spkr_config_mode *cfg)
 {
 	return pmic_rpc_get_only((uint *)cfg, sizeof(*cfg),
 				GET_SPKR_CONFIGURATION_PROC);
 }
-EXPORT_SYMBOL(pmic_get_spkr_configuration);
+/* DISABLED: EXPORT_SYMBOL(pmic_get_spkr_configuration); */
 
 int pmic_spkr_en_right_chan(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, SPKR_EN_RIGHT_CHAN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_right_chan);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_right_chan); */
 
 int pmic_spkr_is_right_chan_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_RIGHT_CHAN_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_right_chan_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_right_chan_en); */
 
 int pmic_spkr_en_left_chan(uint	enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, SPKR_EN_LEFT_CHAN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_left_chan);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_left_chan); */
 
 int pmic_spkr_is_left_chan_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_LEFT_CHAN_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_left_chan_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_left_chan_en); */
 
 int pmic_set_speaker_gain(enum spkr_gain gain)
 {
 	return pmic_rpc_set_only(gain, 0, 0, 0, 1, SET_SPEAKER_GAIN_PROC);
 }
-EXPORT_SYMBOL(pmic_set_speaker_gain);
+/* DISABLED: EXPORT_SYMBOL(pmic_set_speaker_gain); */
 
 int pmic_set_speaker_delay(enum spkr_dly delay)
 {
 	return pmic_rpc_set_only(delay, 0, 0, 0, 1, SET_SPEAKER_DELAY_PROC);
 }
-EXPORT_SYMBOL(pmic_set_speaker_delay);
+/* DISABLED: EXPORT_SYMBOL(pmic_set_speaker_delay); */
 
 int pmic_speaker_1k6_zin_enable(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1,
 				SPEAKER_1K6_ZIN_ENABLE_PROC);
 }
-EXPORT_SYMBOL(pmic_speaker_1k6_zin_enable);
+/* DISABLED: EXPORT_SYMBOL(pmic_speaker_1k6_zin_enable); */
 
 int pmic_spkr_set_mux_hpf_corner_freq(enum spkr_hpf_corner_freq	freq)
 {
 	return pmic_rpc_set_only(freq, 0, 0, 0, 1,
 				SPKR_SET_MUX_HPF_CORNER_FREQ_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_set_mux_hpf_corner_freq);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_set_mux_hpf_corner_freq); */
 
 int pmic_spkr_get_mux_hpf_corner_freq(enum spkr_hpf_corner_freq	*freq)
 {
 	return pmic_rpc_get_only(freq, sizeof(*freq),
 				SPKR_GET_MUX_HPF_CORNER_FREQ_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_get_mux_hpf_corner_freq);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_get_mux_hpf_corner_freq); */
 
 int pmic_spkr_select_usb_with_hpf_20hz(uint	enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1,
 				SPKR_SELECT_USB_WITH_HPF_20HZ_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_select_usb_with_hpf_20hz);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_select_usb_with_hpf_20hz); */
 
 int pmic_spkr_is_usb_with_hpf_20hz(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_USB_WITH_HPF_20HZ_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_usb_with_hpf_20hz);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_usb_with_hpf_20hz); */
 
 int pmic_spkr_bypass_mux(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, SPKR_BYPASS_MUX_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_bypass_mux);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_bypass_mux); */
 
 int pmic_spkr_is_mux_bypassed(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_MUX_BYPASSED_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_mux_bypassed);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_mux_bypassed); */
 
 int pmic_spkr_en_hpf(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, SPKR_EN_HPF_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_hpf);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_hpf); */
 
 int pmic_spkr_is_hpf_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_HPF_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_hpf_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_hpf_en); */
 
 int pmic_spkr_en_sink_curr_from_ref_volt_cir(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1,
 				SPKR_EN_SINK_CURR_FROM_REF_VOLT_CIR_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_sink_curr_from_ref_volt_cir);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_sink_curr_from_ref_volt_cir); */
 
 int pmic_spkr_is_sink_curr_from_ref_volt_cir_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_SINK_CURR_FROM_REF_VOLT_CIR_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_sink_curr_from_ref_volt_cir_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_sink_curr_from_ref_volt_cir_en); */
 
 /*
  * 	speaker indexed by left_right
@@ -890,55 +890,55 @@ int pmic_spkr_en(enum spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2, SPKR_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en); */
 
 int pmic_spkr_is_en(enum spkr_left_right left_right, uint *enabled)
 {
 	return pmic_rpc_set_get(left_right, enabled, sizeof(*enabled),
 				SPKR_IS_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_en); */
 
 int pmic_spkr_set_gain(enum spkr_left_right left_right, enum spkr_gain gain)
 {
 	return pmic_rpc_set_only(left_right, gain, 0, 0, 2, SPKR_SET_GAIN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_set_gain);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_set_gain); */
 
 int pmic_spkr_get_gain(enum spkr_left_right left_right, enum spkr_gain *gain)
 {
 	return pmic_rpc_set_get(left_right, gain, sizeof(*gain),
 				SPKR_GET_GAIN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_get_gain);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_get_gain); */
 
 int pmic_spkr_set_delay(enum spkr_left_right left_right, enum spkr_dly delay)
 {
 	return pmic_rpc_set_only(left_right, delay, 0, 0, 2,
 				SPKR_SET_DELAY_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_set_delay);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_set_delay); */
 
 int pmic_spkr_get_delay(enum spkr_left_right left_right, enum spkr_dly *delay)
 {
 	return pmic_rpc_set_get(left_right, delay, sizeof(*delay),
 				SPKR_GET_DELAY_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_get_delay);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_get_delay); */
 
 int pmic_spkr_en_mute(enum spkr_left_right left_right, uint enabled)
 {
 	return pmic_rpc_set_only(left_right, enabled, 0, 0, 2,
 				SPKR_EN_MUTE_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_mute);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_mute); */
 
 int pmic_spkr_is_mute_en(enum spkr_left_right left_right, uint *enabled)
 {
 	return pmic_rpc_set_get(left_right, enabled, sizeof(*enabled),
 				SPKR_IS_MUTE_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_mute_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_mute_en); */
 
 int pmic_spkr_set_vsel_ldo(enum spkr_left_right left_right,
 					enum spkr_ldo_v_sel vlt_cntrl)
@@ -946,21 +946,21 @@ int pmic_spkr_set_vsel_ldo(enum spkr_left_right left_right,
 	return pmic_rpc_set_only(left_right, vlt_cntrl, 0, 0, 2,
 			SPKR_SET_VSEL_LDO_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_set_vsel_ldo);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_set_vsel_ldo); */
 
 int pmic_spkr_set_boost(enum spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			SPKR_SET_BOOST_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_set_boost);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_set_boost); */
 
 int pmic_spkr_bypass_en(enum spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			SPKR_BYPASS_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_bypass_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_bypass_en); */
 
 /*
  * 	mic
@@ -969,115 +969,115 @@ int pmic_mic_en(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, MIC_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_mic_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_mic_en); */
 
 int pmic_mic_is_en(uint	*enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled), MIC_IS_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_mic_is_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_mic_is_en); */
 
 int pmic_mic_set_volt(enum mic_volt vol)
 {
 	return pmic_rpc_set_only(vol, 0, 0, 0, 1, MIC_SET_VOLT_PROC);
 }
-EXPORT_SYMBOL(pmic_mic_set_volt);
+/* DISABLED: EXPORT_SYMBOL(pmic_mic_set_volt); */
 
 int pmic_mic_get_volt(enum mic_volt *voltage)
 {
 	return pmic_rpc_get_only(voltage, sizeof(*voltage), MIC_GET_VOLT_PROC);
 }
-EXPORT_SYMBOL(pmic_mic_get_volt);
+/* DISABLED: EXPORT_SYMBOL(pmic_mic_get_volt); */
 
 int pmic_vib_mot_set_volt(uint vol)
 {
 	return pmic_rpc_set_only(vol, 0, 0, 0, 1, VIB_MOT_SET_VOLT_PROC);
 }
-EXPORT_SYMBOL(pmic_vib_mot_set_volt);
+/* DISABLED: EXPORT_SYMBOL(pmic_vib_mot_set_volt); */
 
 int pmic_vib_mot_set_mode(enum pm_vib_mot_mode mode)
 {
 	return pmic_rpc_set_only(mode, 0, 0, 0, 1, VIB_MOT_SET_MODE_PROC);
 }
-EXPORT_SYMBOL(pmic_vib_mot_set_mode);
+/* DISABLED: EXPORT_SYMBOL(pmic_vib_mot_set_mode); */
 
 int pmic_vib_mot_set_polarity(enum pm_vib_mot_pol pol)
 {
 	return pmic_rpc_set_only(pol, 0, 0, 0, 1, VIB_MOT_SET_POLARITY_PROC);
 }
-EXPORT_SYMBOL(pmic_vib_mot_set_polarity);
+/* DISABLED: EXPORT_SYMBOL(pmic_vib_mot_set_polarity); */
 
 int pmic_vid_en(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, VID_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_vid_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_vid_en); */
 
 int pmic_vid_is_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled), VID_IS_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_vid_is_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_vid_is_en); */
 
 int pmic_vid_load_detect_en(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, VID_LOAD_DETECT_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_vid_load_detect_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_vid_load_detect_en); */
 
 int pmic_set_led_intensity(enum ledtype type, int level)
 {
 	return pmic_rpc_set_only(type, level, 0, 0, 2, SET_LED_INTENSITY_PROC);
 }
-EXPORT_SYMBOL(pmic_set_led_intensity);
+/* DISABLED: EXPORT_SYMBOL(pmic_set_led_intensity); */
 
 int pmic_flash_led_set_current(const uint16_t milliamps)
 {
 	return pmic_rpc_set_only(milliamps, 0, 0, 0, 1,
 				FLASH_LED_SET_CURRENT_PROC);
 }
-EXPORT_SYMBOL(pmic_flash_led_set_current);
+/* DISABLED: EXPORT_SYMBOL(pmic_flash_led_set_current); */
 
 int pmic_flash_led_set_mode(enum flash_led_mode mode)
 {
 	return pmic_rpc_set_only((int)mode, 0, 0, 0, 1,
 				FLASH_LED_SET_MODE_PROC);
 }
-EXPORT_SYMBOL(pmic_flash_led_set_mode);
+/* DISABLED: EXPORT_SYMBOL(pmic_flash_led_set_mode); */
 
 int pmic_flash_led_set_polarity(enum flash_led_pol pol)
 {
 	return pmic_rpc_set_only((int)pol, 0, 0, 0, 1,
 				FLASH_LED_SET_POLARITY_PROC);
 }
-EXPORT_SYMBOL(pmic_flash_led_set_polarity);
+/* DISABLED: EXPORT_SYMBOL(pmic_flash_led_set_polarity); */
 
 int pmic_spkr_add_right_left_chan(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1,
 				SPKR_ADD_RIGHT_LEFT_CHAN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_add_right_left_chan);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_add_right_left_chan); */
 
 int pmic_spkr_is_right_left_chan_added(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_RIGHT_LEFT_CHAN_ADDED_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_right_left_chan_added);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_right_left_chan_added); */
 
 int pmic_spkr_en_stereo(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, SPKR_EN_STEREO_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_en_stereo);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_en_stereo); */
 
 int pmic_spkr_is_stereo_en(uint *enabled)
 {
 	return pmic_rpc_get_only(enabled, sizeof(*enabled),
 				SPKR_IS_STEREO_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_spkr_is_stereo_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_spkr_is_stereo_en); */
 
 int pmic_hsed_set_period(
 	enum hsed_controller controller,
@@ -1089,7 +1089,7 @@ int pmic_hsed_set_period(
 				 3,
 				 HSED_SET_PERIOD_PROC);
 }
-EXPORT_SYMBOL(pmic_hsed_set_period);
+/* DISABLED: EXPORT_SYMBOL(pmic_hsed_set_period); */
 
 int pmic_hsed_set_hysteresis(
 	enum hsed_controller controller,
@@ -1101,7 +1101,7 @@ int pmic_hsed_set_hysteresis(
 				 3,
 				 HSED_SET_HYSTERESIS_PROC);
 }
-EXPORT_SYMBOL(pmic_hsed_set_hysteresis);
+/* DISABLED: EXPORT_SYMBOL(pmic_hsed_set_hysteresis); */
 
 int pmic_hsed_set_current_threshold(
 	enum hsed_controller controller,
@@ -1113,7 +1113,7 @@ int pmic_hsed_set_current_threshold(
 				 3,
 				 HSED_SET_CURRENT_THRESHOLD_PROC);
 }
-EXPORT_SYMBOL(pmic_hsed_set_current_threshold);
+/* DISABLED: EXPORT_SYMBOL(pmic_hsed_set_current_threshold); */
 
 int pmic_hsed_enable(
 	enum hsed_controller controller,
@@ -1124,7 +1124,7 @@ int pmic_hsed_enable(
 				 2,
 				 HSED_ENABLE_PROC);
 }
-EXPORT_SYMBOL(pmic_hsed_enable);
+/* DISABLED: EXPORT_SYMBOL(pmic_hsed_enable); */
 
 int pmic_high_current_led_set_current(enum high_current_led led,
 		uint16_t milliamps)
@@ -1133,7 +1133,7 @@ int pmic_high_current_led_set_current(enum high_current_led led,
 			2,
 			HIGH_CURRENT_LED_SET_CURRENT_PROC);
 }
-EXPORT_SYMBOL(pmic_high_current_led_set_current);
+/* DISABLED: EXPORT_SYMBOL(pmic_high_current_led_set_current); */
 
 int pmic_high_current_led_set_polarity(enum high_current_led led,
 		enum flash_led_pol polarity)
@@ -1142,7 +1142,7 @@ int pmic_high_current_led_set_polarity(enum high_current_led led,
 			2,
 			HIGH_CURRENT_LED_SET_POLARITY_PROC);
 }
-EXPORT_SYMBOL(pmic_high_current_led_set_polarity);
+/* DISABLED: EXPORT_SYMBOL(pmic_high_current_led_set_polarity); */
 
 int pmic_high_current_led_set_mode(enum high_current_led led,
 		enum flash_led_mode mode)
@@ -1151,7 +1151,7 @@ int pmic_high_current_led_set_mode(enum high_current_led led,
 			2,
 			HIGH_CURRENT_LED_SET_MODE_PROC);
 }
-EXPORT_SYMBOL(pmic_high_current_led_set_mode);
+/* DISABLED: EXPORT_SYMBOL(pmic_high_current_led_set_mode); */
 
 int pmic_lp_force_lpm_control(enum switch_cmd cmd,
 		enum vreg_lpm_id vreg)
@@ -1160,7 +1160,7 @@ int pmic_lp_force_lpm_control(enum switch_cmd cmd,
 			2,
 			LP_FORCE_LPM_CONTROL_PROC);
 }
-EXPORT_SYMBOL(pmic_lp_force_lpm_control);
+/* DISABLED: EXPORT_SYMBOL(pmic_lp_force_lpm_control); */
 
 int pmic_low_current_led_set_ext_signal(enum low_current_led led,
 		enum ext_signal sig)
@@ -1169,7 +1169,7 @@ int pmic_low_current_led_set_ext_signal(enum low_current_led led,
 			2,
 			LOW_CURRENT_LED_SET_EXT_SIGNAL_PROC);
 }
-EXPORT_SYMBOL(pmic_low_current_led_set_ext_signal);
+/* DISABLED: EXPORT_SYMBOL(pmic_low_current_led_set_ext_signal); */
 
 int pmic_low_current_led_set_current(enum low_current_led led,
 		uint16_t milliamps)
@@ -1178,7 +1178,7 @@ int pmic_low_current_led_set_current(enum low_current_led led,
 			2,
 			LOW_CURRENT_LED_SET_CURRENT_PROC);
 }
-EXPORT_SYMBOL(pmic_low_current_led_set_current);
+/* DISABLED: EXPORT_SYMBOL(pmic_low_current_led_set_current); */
 
 /*
  * Head phone speaker
@@ -1188,28 +1188,28 @@ int pmic_hp_spkr_mstr_en(enum hp_spkr_left_right left_right, uint enable)
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			HP_SPKR_MSTR_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_mstr_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_mstr_en); */
 
 int pmic_hp_spkr_mute_en(enum hp_spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			HP_SPKR_MUTE_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_mute_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_mute_en); */
 
 int pmic_hp_spkr_prm_in_en(enum hp_spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			HP_SPKR_PRM_IN_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_prm_in_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_prm_in_en); */
 
 int pmic_hp_spkr_aux_in_en(enum hp_spkr_left_right left_right, uint enable)
 {
 	return pmic_rpc_set_only(left_right, enable, 0, 0, 2,
 			HP_SPKR_AUX_IN_EN_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_aux_in_en);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_aux_in_en); */
 
 int pmic_hp_spkr_ctrl_prm_gain_input(enum hp_spkr_left_right left_right,
 							uint prm_gain_ctl)
@@ -1217,7 +1217,7 @@ int pmic_hp_spkr_ctrl_prm_gain_input(enum hp_spkr_left_right left_right,
 	return pmic_rpc_set_only(left_right, prm_gain_ctl, 0, 0, 2,
 			HP_SPKR_CTRL_PRM_GAIN_INPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_ctrl_prm_gain_input);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_ctrl_prm_gain_input); */
 
 int pmic_hp_spkr_ctrl_aux_gain_input(enum hp_spkr_left_right left_right,
 							uint aux_gain_ctl)
@@ -1225,33 +1225,33 @@ int pmic_hp_spkr_ctrl_aux_gain_input(enum hp_spkr_left_right left_right,
 	return pmic_rpc_set_only(left_right, aux_gain_ctl, 0, 0, 2,
 			HP_SPKR_CTRL_AUX_GAIN_INPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_hp_spkr_ctrl_aux_gain_input);
+/* DISABLED: EXPORT_SYMBOL(pmic_hp_spkr_ctrl_aux_gain_input); */
 
 int pmic_xo_core_force_enable(uint enable)
 {
 	return pmic_rpc_set_only(enable, 0, 0, 0, 1, XO_CORE_FORCE_ENABLE);
 }
-EXPORT_SYMBOL(pmic_xo_core_force_enable);
+/* DISABLED: EXPORT_SYMBOL(pmic_xo_core_force_enable); */
 
 int pmic_gpio_direction_input(unsigned gpio)
 {
 	return pmic_rpc_set_only(gpio, 0, 0, 0, 1,
 			GPIO_SET_GPIO_DIRECTION_INPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_gpio_direction_input);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_direction_input); */
 
 int pmic_gpio_direction_output(unsigned gpio)
 {
 	return pmic_rpc_set_only(gpio, 0, 0, 0, 1,
 			GPIO_SET_GPIO_DIRECTION_OUTPUT_PROC);
 }
-EXPORT_SYMBOL(pmic_gpio_direction_output);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_direction_output); */
 
 int pmic_gpio_set_value(unsigned gpio, int value)
 {
 	return pmic_rpc_set_only(gpio, value, 0, 0, 2, GPIO_SET_PROC);
 }
-EXPORT_SYMBOL(pmic_gpio_set_value);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_set_value); */
 
 int pmic_gpio_get_value(unsigned gpio)
 {
@@ -1263,7 +1263,7 @@ int pmic_gpio_get_value(unsigned gpio)
 		return ret;
 	return value ? 1 : 0;
 }
-EXPORT_SYMBOL(pmic_gpio_get_value);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_get_value); */
 
 int pmic_gpio_get_direction(unsigned gpio)
 {
@@ -1276,11 +1276,11 @@ int pmic_gpio_get_direction(unsigned gpio)
 		return ret;
 	return dir;
 }
-EXPORT_SYMBOL(pmic_gpio_get_direction);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_get_direction); */
 
 int pmic_gpio_config(struct pm8xxx_gpio_rpc_cfg *param)
 {
 	return pmic_rpc_set_struct(0, 0, (uint *)param, sizeof(*param),
 			GPIO_SET_GPIO_CONFIG_PROC);
 }
-EXPORT_SYMBOL(pmic_gpio_config);
+/* DISABLED: EXPORT_SYMBOL(pmic_gpio_config); */

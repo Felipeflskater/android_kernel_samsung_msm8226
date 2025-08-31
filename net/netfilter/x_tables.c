@@ -83,7 +83,7 @@ xt_register_target(struct xt_target *target)
 	mutex_unlock(&xt[af].mutex);
 	return ret;
 }
-EXPORT_SYMBOL(xt_register_target);
+/* DISABLED: EXPORT_SYMBOL(xt_register_target); */
 
 void
 xt_unregister_target(struct xt_target *target)
@@ -94,7 +94,7 @@ xt_unregister_target(struct xt_target *target)
 	list_del(&target->list);
 	mutex_unlock(&xt[af].mutex);
 }
-EXPORT_SYMBOL(xt_unregister_target);
+/* DISABLED: EXPORT_SYMBOL(xt_unregister_target); */
 
 int
 xt_register_targets(struct xt_target *target, unsigned int n)
@@ -114,7 +114,7 @@ err:
 		xt_unregister_targets(target, i);
 	return err;
 }
-EXPORT_SYMBOL(xt_register_targets);
+/* DISABLED: EXPORT_SYMBOL(xt_register_targets); */
 
 void
 xt_unregister_targets(struct xt_target *target, unsigned int n)
@@ -122,7 +122,7 @@ xt_unregister_targets(struct xt_target *target, unsigned int n)
 	while (n-- > 0)
 		xt_unregister_target(&target[n]);
 }
-EXPORT_SYMBOL(xt_unregister_targets);
+/* DISABLED: EXPORT_SYMBOL(xt_unregister_targets); */
 
 int
 xt_register_match(struct xt_match *match)
@@ -139,7 +139,7 @@ xt_register_match(struct xt_match *match)
 
 	return ret;
 }
-EXPORT_SYMBOL(xt_register_match);
+/* DISABLED: EXPORT_SYMBOL(xt_register_match); */
 
 void
 xt_unregister_match(struct xt_match *match)
@@ -150,7 +150,7 @@ xt_unregister_match(struct xt_match *match)
 	list_del(&match->list);
 	mutex_unlock(&xt[af].mutex);
 }
-EXPORT_SYMBOL(xt_unregister_match);
+/* DISABLED: EXPORT_SYMBOL(xt_unregister_match); */
 
 int
 xt_register_matches(struct xt_match *match, unsigned int n)
@@ -170,7 +170,7 @@ err:
 		xt_unregister_matches(match, i);
 	return err;
 }
-EXPORT_SYMBOL(xt_register_matches);
+/* DISABLED: EXPORT_SYMBOL(xt_register_matches); */
 
 void
 xt_unregister_matches(struct xt_match *match, unsigned int n)
@@ -178,7 +178,7 @@ xt_unregister_matches(struct xt_match *match, unsigned int n)
 	while (n-- > 0)
 		xt_unregister_match(&match[n]);
 }
-EXPORT_SYMBOL(xt_unregister_matches);
+/* DISABLED: EXPORT_SYMBOL(xt_unregister_matches); */
 
 
 /*
@@ -215,7 +215,7 @@ struct xt_match *xt_find_match(u8 af, const char *name, u8 revision)
 
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(xt_find_match);
+/* DISABLED: EXPORT_SYMBOL(xt_find_match); */
 
 struct xt_match *
 xt_request_find_match(uint8_t nfproto, const char *name, uint8_t revision)
@@ -230,7 +230,7 @@ xt_request_find_match(uint8_t nfproto, const char *name, uint8_t revision)
 
 	return match;
 }
-EXPORT_SYMBOL_GPL(xt_request_find_match);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_request_find_match); */
 
 /* Find target, grabs ref.  Returns ERR_PTR() on error. */
 struct xt_target *xt_find_target(u8 af, const char *name, u8 revision)
@@ -260,7 +260,7 @@ struct xt_target *xt_find_target(u8 af, const char *name, u8 revision)
 
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(xt_find_target);
+/* DISABLED: EXPORT_SYMBOL(xt_find_target); */
 
 struct xt_target *xt_request_find_target(u8 af, const char *name, u8 revision)
 {
@@ -274,7 +274,7 @@ struct xt_target *xt_request_find_target(u8 af, const char *name, u8 revision)
 
 	return target;
 }
-EXPORT_SYMBOL_GPL(xt_request_find_target);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_request_find_target); */
 
 static int match_revfn(u8 af, const char *name, u8 revision, int *bestp)
 {
@@ -343,7 +343,7 @@ int xt_find_revision(u8 af, const char *name, u8 revision, int target,
 		*err = -EPROTONOSUPPORT;
 	return 1;
 }
-EXPORT_SYMBOL_GPL(xt_find_revision);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_find_revision); */
 
 static char *
 textify_hooks(char *buf, size_t size, unsigned int mask, uint8_t nfproto)
@@ -432,7 +432,7 @@ int xt_check_match(struct xt_mtchk_param *par,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_check_match);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_check_match); */
 
 #ifdef CONFIG_COMPAT
 int xt_compat_add_offset(u_int8_t af, unsigned int offset, int delta)
@@ -458,7 +458,7 @@ int xt_compat_add_offset(u_int8_t af, unsigned int offset, int delta)
 	xp->cur++;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_compat_add_offset);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_add_offset); */
 
 void xt_compat_flush_offsets(u_int8_t af)
 {
@@ -469,7 +469,7 @@ void xt_compat_flush_offsets(u_int8_t af)
 		xt[af].cur = 0;
 	}
 }
-EXPORT_SYMBOL_GPL(xt_compat_flush_offsets);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_flush_offsets); */
 
 int xt_compat_calc_jump(u_int8_t af, unsigned int offset)
 {
@@ -487,21 +487,21 @@ int xt_compat_calc_jump(u_int8_t af, unsigned int offset)
 	}
 	return left ? tmp[left - 1].delta : 0;
 }
-EXPORT_SYMBOL_GPL(xt_compat_calc_jump);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_calc_jump); */
 
 void xt_compat_init_offsets(u_int8_t af, unsigned int number)
 {
 	xt[af].number = number;
 	xt[af].cur = 0;
 }
-EXPORT_SYMBOL(xt_compat_init_offsets);
+/* DISABLED: EXPORT_SYMBOL(xt_compat_init_offsets); */
 
 int xt_compat_match_offset(const struct xt_match *match)
 {
 	u_int16_t csize = match->compatsize ? : match->matchsize;
 	return XT_ALIGN(match->matchsize) - COMPAT_XT_ALIGN(csize);
 }
-EXPORT_SYMBOL_GPL(xt_compat_match_offset);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_match_offset); */
 
 int xt_compat_match_from_user(struct xt_entry_match *m, void **dstptr,
 			      unsigned int *size)
@@ -528,7 +528,7 @@ int xt_compat_match_from_user(struct xt_entry_match *m, void **dstptr,
 	*dstptr += msize;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_compat_match_from_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_match_from_user); */
 
 int xt_compat_match_to_user(const struct xt_entry_match *m,
 			    void __user **dstptr, unsigned int *size)
@@ -556,7 +556,7 @@ int xt_compat_match_to_user(const struct xt_entry_match *m,
 	*dstptr += msize;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_compat_match_to_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_match_to_user); */
 #endif /* CONFIG_COMPAT */
 
 int xt_check_target(struct xt_tgchk_param *par,
@@ -607,7 +607,7 @@ int xt_check_target(struct xt_tgchk_param *par,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_check_target);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_check_target); */
 
 #ifdef CONFIG_COMPAT
 int xt_compat_target_offset(const struct xt_target *target)
@@ -615,7 +615,7 @@ int xt_compat_target_offset(const struct xt_target *target)
 	u_int16_t csize = target->compatsize ? : target->targetsize;
 	return XT_ALIGN(target->targetsize) - COMPAT_XT_ALIGN(csize);
 }
-EXPORT_SYMBOL_GPL(xt_compat_target_offset);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_target_offset); */
 
 void xt_compat_target_from_user(struct xt_entry_target *t, void **dstptr,
 				unsigned int *size)
@@ -641,7 +641,7 @@ void xt_compat_target_from_user(struct xt_entry_target *t, void **dstptr,
 	*size += off;
 	*dstptr += tsize;
 }
-EXPORT_SYMBOL_GPL(xt_compat_target_from_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_target_from_user); */
 
 int xt_compat_target_to_user(const struct xt_entry_target *t,
 			     void __user **dstptr, unsigned int *size)
@@ -669,7 +669,7 @@ int xt_compat_target_to_user(const struct xt_entry_target *t,
 	*dstptr += tsize;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xt_compat_target_to_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_target_to_user); */
 #endif
 
 struct xt_table_info *xt_alloc_table_info(unsigned int size)
@@ -708,7 +708,7 @@ struct xt_table_info *xt_alloc_table_info(unsigned int size)
 
 	return newinfo;
 }
-EXPORT_SYMBOL(xt_alloc_table_info);
+/* DISABLED: EXPORT_SYMBOL(xt_alloc_table_info); */
 
 void xt_free_table_info(struct xt_table_info *info)
 {
@@ -740,7 +740,7 @@ void xt_free_table_info(struct xt_table_info *info)
 
 	kfree(info);
 }
-EXPORT_SYMBOL(xt_free_table_info);
+/* DISABLED: EXPORT_SYMBOL(xt_free_table_info); */
 
 /* Find table by name, grabs mutex & ref.  Returns ERR_PTR() on error. */
 struct xt_table *xt_find_table_lock(struct net *net, u_int8_t af,
@@ -757,26 +757,26 @@ struct xt_table *xt_find_table_lock(struct net *net, u_int8_t af,
 	mutex_unlock(&xt[af].mutex);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(xt_find_table_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_find_table_lock); */
 
 void xt_table_unlock(struct xt_table *table)
 {
 	mutex_unlock(&xt[table->af].mutex);
 }
-EXPORT_SYMBOL_GPL(xt_table_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_table_unlock); */
 
 #ifdef CONFIG_COMPAT
 void xt_compat_lock(u_int8_t af)
 {
 	mutex_lock(&xt[af].compat_mutex);
 }
-EXPORT_SYMBOL_GPL(xt_compat_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_lock); */
 
 void xt_compat_unlock(u_int8_t af)
 {
 	mutex_unlock(&xt[af].compat_mutex);
 }
-EXPORT_SYMBOL_GPL(xt_compat_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_compat_unlock); */
 #endif
 
 DEFINE_PER_CPU(seqcount_t, xt_recseq);
@@ -884,7 +884,7 @@ xt_replace_table(struct xt_table *table,
 
 	return private;
 }
-EXPORT_SYMBOL_GPL(xt_replace_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_replace_table); */
 
 struct xt_table *xt_register_table(struct net *net,
 				   const struct xt_table *input_table,
@@ -939,7 +939,7 @@ out_free:
 out:
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL_GPL(xt_register_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_register_table); */
 
 void *xt_unregister_table(struct xt_table *table)
 {
@@ -953,7 +953,7 @@ void *xt_unregister_table(struct xt_table *table)
 
 	return private;
 }
-EXPORT_SYMBOL_GPL(xt_unregister_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_unregister_table); */
 
 #ifdef CONFIG_PROC_FS
 struct xt_names_priv {
@@ -1283,7 +1283,7 @@ struct nf_hook_ops *xt_hook_link(const struct xt_table *table, nf_hookfn *fn)
 
 	return ops;
 }
-EXPORT_SYMBOL_GPL(xt_hook_link);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_hook_link); */
 
 /**
  * xt_hook_unlink - remove hooks for a table
@@ -1295,7 +1295,7 @@ void xt_hook_unlink(const struct xt_table *table, struct nf_hook_ops *ops)
 	nf_unregister_hooks(ops, hweight32(table->valid_hooks));
 	kfree(ops);
 }
-EXPORT_SYMBOL_GPL(xt_hook_unlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_hook_unlink); */
 
 int xt_proto_init(struct net *net, u_int8_t af)
 {
@@ -1347,7 +1347,7 @@ out:
 	return -1;
 #endif
 }
-EXPORT_SYMBOL_GPL(xt_proto_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_proto_init); */
 
 void xt_proto_fini(struct net *net, u_int8_t af)
 {
@@ -1367,7 +1367,7 @@ void xt_proto_fini(struct net *net, u_int8_t af)
 	proc_net_remove(net, buf);
 #endif /*CONFIG_PROC_FS*/
 }
-EXPORT_SYMBOL_GPL(xt_proto_fini);
+/* DISABLED: EXPORT_SYMBOL_GPL(xt_proto_fini); */
 
 static int __net_init xt_net_init(struct net *net)
 {

@@ -212,7 +212,7 @@ unsigned long uncached_alloc_page(int starting_nid, int n_pages)
 
 	return 0;
 }
-EXPORT_SYMBOL(uncached_alloc_page);
+/* DISABLED: EXPORT_SYMBOL(uncached_alloc_page); */
 
 
 /*
@@ -236,7 +236,7 @@ void uncached_free_page(unsigned long uc_addr, int n_pages)
 
 	gen_pool_free(pool, uc_addr, n_pages * PAGE_SIZE);
 }
-EXPORT_SYMBOL(uncached_free_page);
+/* DISABLED: EXPORT_SYMBOL(uncached_free_page); */
 
 
 /*

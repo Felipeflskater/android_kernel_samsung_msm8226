@@ -148,7 +148,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(padata_do_parallel);
+/* DISABLED: EXPORT_SYMBOL(padata_do_parallel); */
 
 /*
  * padata_get_next - Get the next object that needs serialization.
@@ -347,7 +347,7 @@ void padata_do_serial(struct padata_priv *padata)
 
 	padata_reorder(pd);
 }
-EXPORT_SYMBOL(padata_do_serial);
+/* DISABLED: EXPORT_SYMBOL(padata_do_serial); */
 
 static int padata_setup_cpumasks(struct parallel_data *pd,
 				 const struct cpumask *pcpumask,
@@ -543,7 +543,7 @@ int padata_register_cpumask_notifier(struct padata_instance *pinst,
 	return blocking_notifier_chain_register(&pinst->cpumask_change_notifier,
 						nblock);
 }
-EXPORT_SYMBOL(padata_register_cpumask_notifier);
+/* DISABLED: EXPORT_SYMBOL(padata_register_cpumask_notifier); */
 
 /**
  * padata_unregister_cpumask_notifier - Unregisters cpumask notifier
@@ -559,7 +559,7 @@ int padata_unregister_cpumask_notifier(struct padata_instance *pinst,
 		&pinst->cpumask_change_notifier,
 		nblock);
 }
-EXPORT_SYMBOL(padata_unregister_cpumask_notifier);
+/* DISABLED: EXPORT_SYMBOL(padata_unregister_cpumask_notifier); */
 
 
 /* If cpumask contains no active cpu, we mark the instance as invalid. */
@@ -633,7 +633,7 @@ int padata_set_cpumasks(struct padata_instance *pinst, cpumask_var_t pcpumask,
 	return err;
 
 }
-EXPORT_SYMBOL(padata_set_cpumasks);
+/* DISABLED: EXPORT_SYMBOL(padata_set_cpumasks); */
 
 /**
  * padata_set_cpumask: Sets specified by @cpumask_type cpumask to the value
@@ -674,7 +674,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(padata_set_cpumask);
+/* DISABLED: EXPORT_SYMBOL(padata_set_cpumask); */
 
 static int __padata_add_cpu(struct padata_instance *pinst, int cpu)
 {
@@ -730,7 +730,7 @@ int padata_add_cpu(struct padata_instance *pinst, int cpu, int mask)
 
 	return err;
 }
-EXPORT_SYMBOL(padata_add_cpu);
+/* DISABLED: EXPORT_SYMBOL(padata_add_cpu); */
 
 static int __padata_remove_cpu(struct padata_instance *pinst, int cpu)
 {
@@ -789,7 +789,7 @@ int padata_remove_cpu(struct padata_instance *pinst, int cpu, int mask)
 
 	return err;
 }
-EXPORT_SYMBOL(padata_remove_cpu);
+/* DISABLED: EXPORT_SYMBOL(padata_remove_cpu); */
 
 /**
  * padata_start - start the parallel processing
@@ -811,7 +811,7 @@ int padata_start(struct padata_instance *pinst)
 
 	return err;
 }
-EXPORT_SYMBOL(padata_start);
+/* DISABLED: EXPORT_SYMBOL(padata_start); */
 
 /**
  * padata_stop - stop the parallel processing
@@ -824,7 +824,7 @@ void padata_stop(struct padata_instance *pinst)
 	__padata_stop(pinst);
 	mutex_unlock(&pinst->lock);
 }
-EXPORT_SYMBOL(padata_stop);
+/* DISABLED: EXPORT_SYMBOL(padata_stop); */
 
 #ifdef CONFIG_HOTPLUG_CPU
 
@@ -1042,7 +1042,7 @@ struct padata_instance *padata_alloc_possible(struct workqueue_struct *wq)
 {
 	return padata_alloc(wq, cpu_possible_mask, cpu_possible_mask);
 }
-EXPORT_SYMBOL(padata_alloc_possible);
+/* DISABLED: EXPORT_SYMBOL(padata_alloc_possible); */
 
 /**
  * padata_alloc - allocate and initialize a padata instance and specify
@@ -1110,7 +1110,7 @@ err_free_inst:
 err:
 	return NULL;
 }
-EXPORT_SYMBOL(padata_alloc);
+/* DISABLED: EXPORT_SYMBOL(padata_alloc); */
 
 /**
  * padata_free - free a padata instance
@@ -1121,4 +1121,4 @@ void padata_free(struct padata_instance *pinst)
 {
 	kobject_put(&pinst->kobj);
 }
-EXPORT_SYMBOL(padata_free);
+/* DISABLED: EXPORT_SYMBOL(padata_free); */

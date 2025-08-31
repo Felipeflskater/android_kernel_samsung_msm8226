@@ -1197,7 +1197,7 @@ int qdio_get_ssqd_desc(struct ccw_device *cdev,
 	DBF_EVENT("get ssqd:%4x", cdev->private->schid.sch_no);
 	return qdio_setup_get_ssqd(NULL, &cdev->private->schid, data);
 }
-EXPORT_SYMBOL_GPL(qdio_get_ssqd_desc);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_get_ssqd_desc); */
 
 static void qdio_shutdown_queues(struct ccw_device *cdev)
 {
@@ -1287,7 +1287,7 @@ no_cleanup:
 		return rc;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qdio_shutdown);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_shutdown); */
 
 /**
  * qdio_free - free data structures for a qdio subchannel
@@ -1313,7 +1313,7 @@ int qdio_free(struct ccw_device *cdev)
 	qdio_release_memory(irq_ptr);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qdio_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_free); */
 
 /**
  * qdio_allocate - allocate qdio queues and associated data
@@ -1373,7 +1373,7 @@ out_rel:
 out_err:
 	return -ENOMEM;
 }
-EXPORT_SYMBOL_GPL(qdio_allocate);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_allocate); */
 
 static void qdio_detect_hsicq(struct qdio_irq *irq_ptr)
 {
@@ -1469,7 +1469,7 @@ int qdio_establish(struct qdio_initialize *init_data)
 	qdio_setup_debug_entries(irq_ptr, cdev);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qdio_establish);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_establish); */
 
 /**
  * qdio_activate - activate queues on a qdio subchannel
@@ -1534,7 +1534,7 @@ out:
 	mutex_unlock(&irq_ptr->setup_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qdio_activate);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_activate); */
 
 static inline int buf_in_between(int bufnr, int start, int count)
 {
@@ -1702,7 +1702,7 @@ int do_QDIO(struct ccw_device *cdev, unsigned int callflags,
 				       callflags, bufnr, count);
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(do_QDIO);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_QDIO); */
 
 /**
  * qdio_start_irq - process input buffers
@@ -1746,7 +1746,7 @@ rescan:
 		return 1;
 
 }
-EXPORT_SYMBOL(qdio_start_irq);
+/* DISABLED: EXPORT_SYMBOL(qdio_start_irq); */
 
 /**
  * qdio_get_next_buffers - process input buffers
@@ -1799,7 +1799,7 @@ int qdio_get_next_buffers(struct ccw_device *cdev, int nr, int *bufnr,
 	q->qdio_error = 0;
 	return sub_buf(end, start);
 }
-EXPORT_SYMBOL(qdio_get_next_buffers);
+/* DISABLED: EXPORT_SYMBOL(qdio_get_next_buffers); */
 
 /**
  * qdio_stop_irq - disable interrupt processing for the device
@@ -1825,7 +1825,7 @@ int qdio_stop_irq(struct ccw_device *cdev, int nr)
 	else
 		return 1;
 }
-EXPORT_SYMBOL(qdio_stop_irq);
+/* DISABLED: EXPORT_SYMBOL(qdio_stop_irq); */
 
 static int __init init_QDIO(void)
 {

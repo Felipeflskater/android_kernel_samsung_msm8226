@@ -5613,7 +5613,7 @@ static int __init osst_setup (char *str)
   return 1;
 }
 
-/* DISABLED: __setup("osst=", osst_setup); */
+/* DISABLED: __setup("osst=", osst_setup); */ */
 
 #endif
 

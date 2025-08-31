@@ -151,7 +151,7 @@ unsigned long cpm_muram_alloc(unsigned long size, unsigned long align)
 
 	return start;
 }
-EXPORT_SYMBOL(cpm_muram_alloc);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_alloc); */
 
 /**
  * cpm_muram_free - free a chunk of multi-user ram
@@ -168,7 +168,7 @@ int cpm_muram_free(unsigned long offset)
 
 	return ret;
 }
-EXPORT_SYMBOL(cpm_muram_free);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_free); */
 
 /**
  * cpm_muram_alloc_fixed - reserve a specific region of multi-user ram
@@ -191,7 +191,7 @@ unsigned long cpm_muram_alloc_fixed(unsigned long offset, unsigned long size)
 
 	return start;
 }
-EXPORT_SYMBOL(cpm_muram_alloc_fixed);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_alloc_fixed); */
 
 /**
  * cpm_muram_addr - turn a muram offset into a virtual address
@@ -201,13 +201,13 @@ void __iomem *cpm_muram_addr(unsigned long offset)
 {
 	return muram_vbase + offset;
 }
-EXPORT_SYMBOL(cpm_muram_addr);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_addr); */
 
 unsigned long cpm_muram_offset(void __iomem *addr)
 {
 	return addr - (void __iomem *)muram_vbase;
 }
-EXPORT_SYMBOL(cpm_muram_offset);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_offset); */
 
 /**
  * cpm_muram_dma - turn a muram virtual address into a DMA address
@@ -217,7 +217,7 @@ dma_addr_t cpm_muram_dma(void __iomem *addr)
 {
 	return muram_pbase + ((u8 __iomem *)addr - muram_vbase);
 }
-EXPORT_SYMBOL(cpm_muram_dma);
+/* DISABLED: EXPORT_SYMBOL(cpm_muram_dma); */
 
 #if defined(CONFIG_CPM2) || defined(CONFIG_8xx_GPIO)
 

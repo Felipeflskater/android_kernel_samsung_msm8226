@@ -143,7 +143,7 @@ ide_startstop_t do_rw_taskfile(ide_drive_t *drive, struct ide_cmd *orig_cmd)
 		return ide_started;
 	}
 }
-EXPORT_SYMBOL_GPL(do_rw_taskfile);
+/* DISABLED: EXPORT_SYMBOL_GPL(do_rw_taskfile); */
 
 static ide_startstop_t task_no_data_intr(ide_drive_t *drive)
 {
@@ -277,7 +277,7 @@ void ide_pio_bytes(ide_drive_t *drive, struct ide_cmd *cmd,
 		len -= nr_bytes;
 	}
 }
-EXPORT_SYMBOL_GPL(ide_pio_bytes);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_pio_bytes); */
 
 static void ide_pio_datablock(ide_drive_t *drive, struct ide_cmd *cmd,
 			      unsigned int write)
@@ -456,7 +456,7 @@ put_req:
 	blk_put_request(rq);
 	return error;
 }
-EXPORT_SYMBOL(ide_raw_taskfile);
+/* DISABLED: EXPORT_SYMBOL(ide_raw_taskfile); */
 
 int ide_no_data_taskfile(ide_drive_t *drive, struct ide_cmd *cmd)
 {
@@ -464,7 +464,7 @@ int ide_no_data_taskfile(ide_drive_t *drive, struct ide_cmd *cmd)
 
 	return ide_raw_taskfile(drive, cmd, NULL, 0);
 }
-EXPORT_SYMBOL_GPL(ide_no_data_taskfile);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_no_data_taskfile); */
 
 #ifdef CONFIG_IDE_TASK_IOCTL
 int ide_taskfile_ioctl(ide_drive_t *drive, unsigned long arg)

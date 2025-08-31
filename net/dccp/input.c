@@ -383,7 +383,7 @@ discard:
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(dccp_rcv_established);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_rcv_established); */
 
 static int dccp_rcv_request_sent_state_process(struct sock *sk,
 					       struct sk_buff *skb,
@@ -706,7 +706,7 @@ discard:
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(dccp_rcv_state_process);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_rcv_state_process); */
 
 /**
  *  dccp_sample_rtt  -  Validate and finalise computation of RTT sample

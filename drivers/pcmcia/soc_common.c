@@ -72,7 +72,7 @@ void soc_pcmcia_debug(struct soc_pcmcia_socket *skt, const char *func,
 		va_end(args);
 	}
 }
-EXPORT_SYMBOL(soc_pcmcia_debug);
+/* DISABLED: EXPORT_SYMBOL(soc_pcmcia_debug); */
 
 #endif
 
@@ -104,7 +104,7 @@ void soc_common_pcmcia_get_timing(struct soc_pcmcia_socket *skt,
 	timing->attr =
 		calc_speed(skt->spd_attr, MAX_WIN, SOC_PCMCIA_3V_MEM_ACCESS);
 }
-EXPORT_SYMBOL(soc_common_pcmcia_get_timing);
+/* DISABLED: EXPORT_SYMBOL(soc_common_pcmcia_get_timing); */
 
 static void __soc_pcmcia_hw_shutdown(struct soc_pcmcia_socket *skt,
 	unsigned int nr)
@@ -692,7 +692,7 @@ void soc_pcmcia_init_one(struct soc_pcmcia_socket *skt,
 	for (i = 0; i < ARRAY_SIZE(skt->stat); i++)
 		skt->stat[i].gpio = -EINVAL;
 }
-EXPORT_SYMBOL(soc_pcmcia_init_one);
+/* DISABLED: EXPORT_SYMBOL(soc_pcmcia_init_one); */
 
 void soc_pcmcia_remove_one(struct soc_pcmcia_socket *skt)
 {
@@ -716,7 +716,7 @@ void soc_pcmcia_remove_one(struct soc_pcmcia_socket *skt)
 	release_resource(&skt->res_io);
 	release_resource(&skt->res_skt);
 }
-EXPORT_SYMBOL(soc_pcmcia_remove_one);
+/* DISABLED: EXPORT_SYMBOL(soc_pcmcia_remove_one); */
 
 int soc_pcmcia_add_one(struct soc_pcmcia_socket *skt)
 {
@@ -810,7 +810,7 @@ int soc_pcmcia_add_one(struct soc_pcmcia_socket *skt)
 
 	return ret;
 }
-EXPORT_SYMBOL(soc_pcmcia_add_one);
+/* DISABLED: EXPORT_SYMBOL(soc_pcmcia_add_one); */
 
 MODULE_AUTHOR("John Dorsey <john+@cs.cmu.edu>");
 MODULE_DESCRIPTION("Linux PCMCIA Card Services: Common SoC support");

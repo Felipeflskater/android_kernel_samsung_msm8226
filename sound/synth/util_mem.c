@@ -185,14 +185,14 @@ int snd_util_mem_avail(struct snd_util_memhdr *hdr)
 }
 
 
-EXPORT_SYMBOL(snd_util_memhdr_new);
-EXPORT_SYMBOL(snd_util_memhdr_free);
-EXPORT_SYMBOL(snd_util_mem_alloc);
-EXPORT_SYMBOL(snd_util_mem_free);
-EXPORT_SYMBOL(snd_util_mem_avail);
-EXPORT_SYMBOL(__snd_util_mem_alloc);
-EXPORT_SYMBOL(__snd_util_mem_free);
-EXPORT_SYMBOL(__snd_util_memblk_new);
+/* DISABLED: EXPORT_SYMBOL(snd_util_memhdr_new); */
+/* DISABLED: EXPORT_SYMBOL(snd_util_memhdr_free); */
+/* DISABLED: EXPORT_SYMBOL(snd_util_mem_alloc); */
+/* DISABLED: EXPORT_SYMBOL(snd_util_mem_free); */
+/* DISABLED: EXPORT_SYMBOL(snd_util_mem_avail); */
+/* DISABLED: EXPORT_SYMBOL(__snd_util_mem_alloc); */
+/* DISABLED: EXPORT_SYMBOL(__snd_util_mem_free); */
+/* DISABLED: EXPORT_SYMBOL(__snd_util_memblk_new); */
 
 /*
  *  INIT part

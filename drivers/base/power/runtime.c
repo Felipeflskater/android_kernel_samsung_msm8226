@@ -122,7 +122,7 @@ unsigned long pm_runtime_autosuspend_expiration(struct device *dev)
  out:
 	return expires;
 }
-EXPORT_SYMBOL_GPL(pm_runtime_autosuspend_expiration);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_autosuspend_expiration); */
 
 /**
  * rpm_check_suspend_allowed - Test whether a device may be suspended.
@@ -783,7 +783,7 @@ int pm_schedule_suspend(struct device *dev, unsigned int delay)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(pm_schedule_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_schedule_suspend); */
 
 /**
  * __pm_runtime_idle - Entry point for runtime idle operations.
@@ -815,7 +815,7 @@ int __pm_runtime_idle(struct device *dev, int rpmflags)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_idle);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_idle); */
 
 /**
  * __pm_runtime_suspend - Entry point for runtime put/suspend operations.
@@ -847,7 +847,7 @@ int __pm_runtime_suspend(struct device *dev, int rpmflags)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_suspend); */
 
 /**
  * __pm_runtime_resume - Entry point for runtime resume operations.
@@ -876,7 +876,7 @@ int __pm_runtime_resume(struct device *dev, int rpmflags)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_resume); */
 
 /**
  * __pm_runtime_set_status - Set runtime PM status of a device.
@@ -956,7 +956,7 @@ int __pm_runtime_set_status(struct device *dev, unsigned int status)
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_set_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_set_status); */
 
 /**
  * __pm_runtime_barrier - Cancel pending requests and wait for completions.
@@ -1038,7 +1038,7 @@ int pm_runtime_barrier(struct device *dev)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(pm_runtime_barrier);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_barrier); */
 
 /**
  * __pm_runtime_disable - Disable runtime PM of a device.
@@ -1087,7 +1087,7 @@ void __pm_runtime_disable(struct device *dev, bool check_resume)
  out:
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_disable); */
 
 /**
  * pm_runtime_enable - Enable runtime PM of a device.
@@ -1106,7 +1106,7 @@ void pm_runtime_enable(struct device *dev)
 
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_enable); */
 
 /**
  * pm_runtime_forbid - Block runtime PM of a device.
@@ -1129,7 +1129,7 @@ void pm_runtime_forbid(struct device *dev)
  out:
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_forbid);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_forbid); */
 
 /**
  * pm_runtime_allow - Unblock runtime PM of a device.
@@ -1150,7 +1150,7 @@ void pm_runtime_allow(struct device *dev)
  out:
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_allow);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_allow); */
 
 /**
  * pm_runtime_no_callbacks - Ignore runtime PM callbacks for a device.
@@ -1168,7 +1168,7 @@ void pm_runtime_no_callbacks(struct device *dev)
 	if (device_is_registered(dev))
 		rpm_sysfs_remove(dev);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_no_callbacks);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_no_callbacks); */
 
 /**
  * pm_runtime_irq_safe - Leave interrupts disabled during callbacks.
@@ -1189,7 +1189,7 @@ void pm_runtime_irq_safe(struct device *dev)
 	dev->power.irq_safe = 1;
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_irq_safe);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_irq_safe); */
 
 /**
  * update_autosuspend - Handle a change to a device's autosuspend settings.
@@ -1248,7 +1248,7 @@ void pm_runtime_set_autosuspend_delay(struct device *dev, int delay)
 	update_autosuspend(dev, old_delay, old_use);
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(pm_runtime_set_autosuspend_delay);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_runtime_set_autosuspend_delay); */
 
 /**
  * __pm_runtime_use_autosuspend - Set a device's use_autosuspend flag.
@@ -1269,7 +1269,7 @@ void __pm_runtime_use_autosuspend(struct device *dev, bool use)
 	update_autosuspend(dev, old_delay, old_use);
 	spin_unlock_irq(&dev->power.lock);
 }
-EXPORT_SYMBOL_GPL(__pm_runtime_use_autosuspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_runtime_use_autosuspend); */
 
 /**
  * pm_runtime_init - Initialize runtime PM fields in given device object.

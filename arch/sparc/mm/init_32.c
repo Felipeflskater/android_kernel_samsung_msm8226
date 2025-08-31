@@ -37,16 +37,16 @@
 #include <asm/leon.h>
 
 unsigned long *sparc_valid_addr_bitmap;
-EXPORT_SYMBOL(sparc_valid_addr_bitmap);
+/* DISABLED: EXPORT_SYMBOL(sparc_valid_addr_bitmap); */
 
 unsigned long phys_base;
-EXPORT_SYMBOL(phys_base);
+/* DISABLED: EXPORT_SYMBOL(phys_base); */
 
 unsigned long pfn_base;
-EXPORT_SYMBOL(pfn_base);
+/* DISABLED: EXPORT_SYMBOL(pfn_base); */
 
 unsigned long page_kernel;
-EXPORT_SYMBOL(page_kernel);
+/* DISABLED: EXPORT_SYMBOL(page_kernel); */
 
 struct sparc_phys_banks sp_banks[SPARC_PHYS_BANKS+1];
 unsigned long sparc_unmapped_base;
@@ -313,7 +313,7 @@ extern void srmmu_paging_init(void);
 extern void device_scan(void);
 
 pgprot_t PAGE_SHARED __read_mostly;
-EXPORT_SYMBOL(PAGE_SHARED);
+/* DISABLED: EXPORT_SYMBOL(PAGE_SHARED); */
 
 void __init paging_init(void)
 {
@@ -530,4 +530,4 @@ void sparc_flush_page_to_ram(struct page *page)
 	if (vaddr)
 		__flush_page_to_ram(vaddr);
 }
-EXPORT_SYMBOL(sparc_flush_page_to_ram);
+/* DISABLED: EXPORT_SYMBOL(sparc_flush_page_to_ram); */

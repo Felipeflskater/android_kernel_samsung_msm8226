@@ -44,7 +44,7 @@
 #ifdef CONFIG_CC_STACKPROTECTOR
 #include <linux/stackprotector.h>
 unsigned long __stack_chk_guard __read_mostly;
-EXPORT_SYMBOL(__stack_chk_guard);
+/* DISABLED: EXPORT_SYMBOL(__stack_chk_guard); */
 #endif
 
 static const char *processor_modes[] = {
@@ -79,20 +79,20 @@ void disable_hlt(void)
 	hlt_counter++;
 }
 
-EXPORT_SYMBOL(disable_hlt);
+/* DISABLED: EXPORT_SYMBOL(disable_hlt); */
 
 void enable_hlt(void)
 {
 	hlt_counter--;
 }
 
-EXPORT_SYMBOL(enable_hlt);
+/* DISABLED: EXPORT_SYMBOL(enable_hlt); */
 
 int get_hlt(void)
 {
 	return hlt_counter;
 }
-EXPORT_SYMBOL(get_hlt);
+/* DISABLED: EXPORT_SYMBOL(get_hlt); */
 
 static int __init nohlt_setup(char *__unused)
 {
@@ -106,8 +106,8 @@ static int __init hlt_setup(char *__unused)
 	return 1;
 }
 
-/* DISABLED: __setup("nohlt", nohlt_setup); */
-/* DISABLED: __setup("hlt", hlt_setup); */
+/* DISABLED: __setup("nohlt", nohlt_setup); */ */
+/* DISABLED: __setup("hlt", hlt_setup); */ */
 
 extern void call_with_stack(void (*fn)(void *), void *arg, void *sp);
 typedef void (*phys_reset_t)(unsigned long);
@@ -200,10 +200,10 @@ static void null_restart(char mode, const char *cmd)
  * Function pointers to optional machine specific functions
  */
 void (*pm_power_off)(void);
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 void (*arm_pm_restart)(char str, const char *cmd) = null_restart;
-EXPORT_SYMBOL_GPL(arm_pm_restart);
+/* DISABLED: EXPORT_SYMBOL_GPL(arm_pm_restart); */
 
 static void do_nothing(void *unused)
 {
@@ -223,7 +223,7 @@ void cpu_idle_wait(void)
 	/* kick all the CPUs so that they exit out of pm_idle */
 	smp_call_function(do_nothing, NULL, 1);
 }
-EXPORT_SYMBOL_GPL(cpu_idle_wait);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_idle_wait); */
 
 /*
  * This is our default idle handler.
@@ -242,7 +242,7 @@ static void default_idle(void)
 }
 
 void (*pm_idle)(void) = default_idle;
-EXPORT_SYMBOL(pm_idle);
+/* DISABLED: EXPORT_SYMBOL(pm_idle); */
 
 /*
  * The idle thread, has rather strange semantics for calling pm_idle,
@@ -303,7 +303,7 @@ int __init reboot_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("reboot=", reboot_setup); */
+/* DISABLED: __setup("reboot=", reboot_setup); */ */
 
 void machine_shutdown(void)
 {
@@ -524,7 +524,7 @@ void show_regs(struct pt_regs * regs)
 
 ATOMIC_NOTIFIER_HEAD(thread_notify_head);
 
-EXPORT_SYMBOL_GPL(thread_notify_head);
+/* DISABLED: EXPORT_SYMBOL_GPL(thread_notify_head); */
 
 /*
  * Free current thread data structures etc..
@@ -602,7 +602,7 @@ int dump_fpu (struct pt_regs *regs, struct user_fp *fp)
 
 	return used_math != 0;
 }
-EXPORT_SYMBOL(dump_fpu);
+/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
 
 /*
  * Shuffle the argument into the correct register before calling the
@@ -659,7 +659,7 @@ pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 
 	return do_fork(flags|CLONE_VM|CLONE_UNTRACED, 0, &regs, 0, NULL, NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 unsigned long get_wchan(struct task_struct *p)
 {

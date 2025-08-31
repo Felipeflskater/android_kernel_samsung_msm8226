@@ -222,7 +222,7 @@ int cvm_oct_free_work(void *work_queue_entry)
 
 	return 0;
 }
-EXPORT_SYMBOL(cvm_oct_free_work);
+/* DISABLED: EXPORT_SYMBOL(cvm_oct_free_work); */
 
 /**
  * cvm_oct_common_get_stats - get the low level ethernet statistics

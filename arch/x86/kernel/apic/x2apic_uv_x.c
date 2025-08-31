@@ -53,9 +53,9 @@ static enum uv_system_type uv_system_type;
 static u64 gru_start_paddr, gru_end_paddr;
 static union uvh_apicid uvh_apicid;
 int uv_min_hub_revision_id;
-EXPORT_SYMBOL_GPL(uv_min_hub_revision_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_min_hub_revision_id); */
 unsigned int uv_apicid_hibits;
-EXPORT_SYMBOL_GPL(uv_apicid_hibits);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_apicid_hibits); */
 static DEFINE_SPINLOCK(uv_nmi_lock);
 
 static struct apic apic_x2apic_uv_x;
@@ -165,25 +165,25 @@ int is_uv_system(void)
 {
 	return uv_system_type != UV_NONE;
 }
-EXPORT_SYMBOL_GPL(is_uv_system);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_uv_system); */
 
 DEFINE_PER_CPU(struct uv_hub_info_s, __uv_hub_info);
 EXPORT_PER_CPU_SYMBOL_GPL(__uv_hub_info);
 
 struct uv_blade_info *uv_blade_info;
-EXPORT_SYMBOL_GPL(uv_blade_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_blade_info); */
 
 short *uv_node_to_blade;
-EXPORT_SYMBOL_GPL(uv_node_to_blade);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_node_to_blade); */
 
 short *uv_cpu_to_blade;
-EXPORT_SYMBOL_GPL(uv_cpu_to_blade);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_cpu_to_blade); */
 
 short uv_possible_blades;
-EXPORT_SYMBOL_GPL(uv_possible_blades);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_possible_blades); */
 
 unsigned long sn_rtc_cycles_per_second;
-EXPORT_SYMBOL(sn_rtc_cycles_per_second);
+/* DISABLED: EXPORT_SYMBOL(sn_rtc_cycles_per_second); */
 
 static const struct cpumask *uv_target_cpus(void)
 {

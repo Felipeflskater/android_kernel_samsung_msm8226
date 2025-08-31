@@ -265,7 +265,7 @@ int mmu_notifier_register(struct mmu_notifier *mn, struct mm_struct *mm)
 {
 	return do_mmu_notifier_register(mn, mm, 1);
 }
-EXPORT_SYMBOL_GPL(mmu_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(mmu_notifier_register); */
 
 /*
  * Same as mmu_notifier_register but here the caller must hold the
@@ -275,7 +275,7 @@ int __mmu_notifier_register(struct mmu_notifier *mn, struct mm_struct *mm)
 {
 	return do_mmu_notifier_register(mn, mm, 0);
 }
-EXPORT_SYMBOL_GPL(__mmu_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(__mmu_notifier_register); */
 
 /* this is called after the last mmu_notifier_unregister() returned */
 void __mmu_notifier_mm_destroy(struct mm_struct *mm)
@@ -334,7 +334,7 @@ void mmu_notifier_unregister(struct mmu_notifier *mn, struct mm_struct *mm)
 
 	mmdrop(mm);
 }
-EXPORT_SYMBOL_GPL(mmu_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(mmu_notifier_unregister); */
 
 static int __init mmu_notifier_init(void)
 {

@@ -673,7 +673,7 @@ void ide_undecoded_slave(ide_drive_t *dev1)
 	dev1->dev_flags &= ~IDE_DFLAG_PRESENT;
 }
 
-EXPORT_SYMBOL_GPL(ide_undecoded_slave);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_undecoded_slave); */
 
 static int ide_probe_port(ide_hwif_t *hwif)
 {
@@ -922,7 +922,7 @@ void ide_register_region(struct gendisk *disk)
 			    disk->minors, NULL, exact_match, exact_lock, disk);
 }
 
-EXPORT_SYMBOL_GPL(ide_register_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_register_region); */
 
 void ide_unregister_region(struct gendisk *disk)
 {
@@ -930,7 +930,7 @@ void ide_unregister_region(struct gendisk *disk)
 			      disk->minors);
 }
 
-EXPORT_SYMBOL_GPL(ide_unregister_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_unregister_region); */
 
 void ide_init_disk(struct gendisk *disk, ide_drive_t *drive)
 {
@@ -943,7 +943,7 @@ void ide_init_disk(struct gendisk *disk, ide_drive_t *drive)
 	disk->queue = drive->queue;
 }
 
-EXPORT_SYMBOL_GPL(ide_init_disk);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_init_disk); */
 
 static void drive_release_dev (struct device *dev)
 {
@@ -1339,7 +1339,7 @@ struct ide_host *ide_host_alloc(const struct ide_port_info *d,
 
 	return host;
 }
-EXPORT_SYMBOL_GPL(ide_host_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_host_alloc); */
 
 static void ide_port_free(ide_hwif_t *hwif)
 {
@@ -1459,7 +1459,7 @@ int ide_host_register(struct ide_host *host, const struct ide_port_info *d,
 
 	return j ? 0 : -1;
 }
-EXPORT_SYMBOL_GPL(ide_host_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_host_register); */
 
 int ide_host_add(const struct ide_port_info *d, struct ide_hw **hws,
 		 unsigned int n_ports, struct ide_host **hostp)
@@ -1482,7 +1482,7 @@ int ide_host_add(const struct ide_port_info *d, struct ide_hw **hws,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ide_host_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_host_add); */
 
 static void __ide_port_unregister_devices(ide_hwif_t *hwif)
 {
@@ -1503,7 +1503,7 @@ void ide_port_unregister_devices(ide_hwif_t *hwif)
 	ide_port_init_devices_data(hwif);
 	mutex_unlock(&ide_cfg_mtx);
 }
-EXPORT_SYMBOL_GPL(ide_port_unregister_devices);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_port_unregister_devices); */
 
 /**
  *	ide_unregister		-	free an IDE interface
@@ -1563,7 +1563,7 @@ void ide_host_free(struct ide_host *host)
 
 	kfree(host);
 }
-EXPORT_SYMBOL_GPL(ide_host_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_host_free); */
 
 void ide_host_remove(struct ide_host *host)
 {
@@ -1577,7 +1577,7 @@ void ide_host_remove(struct ide_host *host)
 
 	ide_host_free(host);
 }
-EXPORT_SYMBOL_GPL(ide_host_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_host_remove); */
 
 void ide_port_scan(ide_hwif_t *hwif)
 {
@@ -1605,4 +1605,4 @@ void ide_port_scan(ide_hwif_t *hwif)
 	hwif_register_devices(hwif);
 	ide_proc_port_register_devices(hwif);
 }
-EXPORT_SYMBOL_GPL(ide_port_scan);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_port_scan); */

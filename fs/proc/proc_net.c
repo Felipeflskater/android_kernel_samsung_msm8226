@@ -54,7 +54,7 @@ int seq_open_net(struct inode *ino, struct file *f,
 #endif
 	return 0;
 }
-EXPORT_SYMBOL_GPL(seq_open_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(seq_open_net); */
 
 int single_open_net(struct inode *inode, struct file *file,
 		int (*show)(struct seq_file *, void *))
@@ -78,7 +78,7 @@ err_open:
 err_net:
 	return err;
 }
-EXPORT_SYMBOL_GPL(single_open_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(single_open_net); */
 
 int seq_release_net(struct inode *ino, struct file *f)
 {
@@ -90,7 +90,7 @@ int seq_release_net(struct inode *ino, struct file *f)
 	seq_release_private(ino, f);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(seq_release_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(seq_release_net); */
 
 int single_release_net(struct inode *ino, struct file *f)
 {
@@ -98,7 +98,7 @@ int single_release_net(struct inode *ino, struct file *f)
 	put_net(seq->private);
 	return single_release(ino, f);
 }
-EXPORT_SYMBOL_GPL(single_release_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(single_release_net); */
 
 static struct net *get_proc_task_net(struct inode *dir)
 {
@@ -183,13 +183,13 @@ struct proc_dir_entry *proc_net_fops_create(struct net *net,
 {
 	return proc_create(name, mode, net->proc_net, fops);
 }
-EXPORT_SYMBOL_GPL(proc_net_fops_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(proc_net_fops_create); */
 
 void proc_net_remove(struct net *net, const char *name)
 {
 	remove_proc_entry(name, net->proc_net);
 }
-EXPORT_SYMBOL_GPL(proc_net_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(proc_net_remove); */
 
 static __net_init int proc_net_ns_init(struct net *net)
 {

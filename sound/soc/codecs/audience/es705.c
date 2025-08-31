@@ -3203,7 +3203,7 @@ int es705_remote_route_enable(struct snd_soc_dai *dai)
 		return 0;
 	}
 }
-EXPORT_SYMBOL_GPL(es705_remote_route_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(es705_remote_route_enable); */
 
 int es705_put_veq_block(int volume)
 {
@@ -3380,7 +3380,7 @@ EXIT:
 			__func__, ret);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(es705_put_veq_block);
+/* DISABLED: EXPORT_SYMBOL_GPL(es705_put_veq_block); */
 
 static int es705_put_internal_route_config(struct snd_kcontrol *kcontrol,
 					   struct snd_ctl_elem_value *ucontrol)
@@ -4856,7 +4856,7 @@ pdata_error:
 	dev_dbg(es705_priv.dev, "%s(): exit with error\n", __func__);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es705_core_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(es705_core_probe); */
 
 static __init int es705_init(void)
 {

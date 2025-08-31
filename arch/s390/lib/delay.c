@@ -101,7 +101,7 @@ out:
 	local_irq_restore(flags);
 	preempt_enable();
 }
-EXPORT_SYMBOL(__udelay);
+/* DISABLED: EXPORT_SYMBOL(__udelay); */
 
 /*
  * Simple udelay variant. To be used on startup and reboot
@@ -128,4 +128,4 @@ void __ndelay(unsigned long long nsecs)
 	while (get_clock() < end)
 		barrier();
 }
-EXPORT_SYMBOL(__ndelay);
+/* DISABLED: EXPORT_SYMBOL(__ndelay); */

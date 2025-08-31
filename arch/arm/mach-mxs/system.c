@@ -138,7 +138,7 @@ error:
 	pr_err("%s(%p): module reset timeout\n", __func__, reset_addr);
 	return -ETIMEDOUT;
 }
-EXPORT_SYMBOL(mxs_reset_block);
+/* DISABLED: EXPORT_SYMBOL(mxs_reset_block); */
 
 int mxs_clkctrl_timeout(unsigned int reg_offset, unsigned int mask)
 {

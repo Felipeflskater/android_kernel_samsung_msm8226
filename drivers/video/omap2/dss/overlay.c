@@ -455,7 +455,7 @@ int omap_dss_get_num_overlays(void)
 {
 	return num_overlays;
 }
-EXPORT_SYMBOL(omap_dss_get_num_overlays);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_get_num_overlays); */
 
 struct omap_overlay *omap_dss_get_overlay(int num)
 {
@@ -464,7 +464,7 @@ struct omap_overlay *omap_dss_get_overlay(int num)
 
 	return &overlays[num];
 }
-EXPORT_SYMBOL(omap_dss_get_overlay);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_get_overlay); */
 
 void dss_init_overlays(struct platform_device *pdev)
 {

@@ -735,11 +735,11 @@ slhc_init(int rslots, int tslots)
 #endif /* CONFIG_INET */
 
 /* VJ header compression */
-EXPORT_SYMBOL(slhc_init);
-EXPORT_SYMBOL(slhc_free);
-EXPORT_SYMBOL(slhc_remember);
-EXPORT_SYMBOL(slhc_compress);
-EXPORT_SYMBOL(slhc_uncompress);
-EXPORT_SYMBOL(slhc_toss);
+/* DISABLED: EXPORT_SYMBOL(slhc_init); */
+/* DISABLED: EXPORT_SYMBOL(slhc_free); */
+/* DISABLED: EXPORT_SYMBOL(slhc_remember); */
+/* DISABLED: EXPORT_SYMBOL(slhc_compress); */
+/* DISABLED: EXPORT_SYMBOL(slhc_uncompress); */
+/* DISABLED: EXPORT_SYMBOL(slhc_toss); */
 
 MODULE_LICENSE("Dual BSD/GPL");

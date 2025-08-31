@@ -22,7 +22,7 @@
 #include <asm/cacheflush.h>
 
 HV_Topology smp_topology __write_once;
-EXPORT_SYMBOL(smp_topology);
+/* DISABLED: EXPORT_SYMBOL(smp_topology); */
 
 #if CHIP_HAS_IPI()
 static unsigned long __iomem *ipi_mappings[NR_CPUS];

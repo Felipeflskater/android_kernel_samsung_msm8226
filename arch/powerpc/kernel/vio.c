@@ -1047,8 +1047,8 @@ static void vio_cmo_set_dma_ops(struct vio_dev *viodev) {}
 static void vio_cmo_bus_init(void) {}
 static void vio_cmo_sysfs_init(void) { }
 #endif /* CONFIG_PPC_SMLPAR */
-EXPORT_SYMBOL(vio_cmo_entitlement_update);
-EXPORT_SYMBOL(vio_cmo_set_dev_desired);
+/* DISABLED: EXPORT_SYMBOL(vio_cmo_entitlement_update); */
+/* DISABLED: EXPORT_SYMBOL(vio_cmo_set_dev_desired); */
 
 static struct iommu_table *vio_build_iommu_table(struct vio_dev *dev)
 {
@@ -1175,7 +1175,7 @@ int __vio_register_driver(struct vio_driver *viodrv, struct module *owner,
 
 	return driver_register(&viodrv->driver);
 }
-EXPORT_SYMBOL(__vio_register_driver);
+/* DISABLED: EXPORT_SYMBOL(__vio_register_driver); */
 
 /**
  * vio_unregister_driver - Remove registration of vio driver.
@@ -1185,7 +1185,7 @@ void vio_unregister_driver(struct vio_driver *viodrv)
 {
 	driver_unregister(&viodrv->driver);
 }
-EXPORT_SYMBOL(vio_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(vio_unregister_driver); */
 
 /* vio_dev refcount hit 0 */
 static void __devinit vio_dev_release(struct device *dev)
@@ -1268,7 +1268,7 @@ struct vio_dev *vio_register_device_node(struct device_node *of_node)
 
 	return viodev;
 }
-EXPORT_SYMBOL(vio_register_device_node);
+/* DISABLED: EXPORT_SYMBOL(vio_register_device_node); */
 
 /**
  * vio_bus_init: - Initialize the virtual IO bus
@@ -1361,7 +1361,7 @@ void __devinit vio_unregister_device(struct vio_dev *viodev)
 {
 	device_unregister(&viodev->dev);
 }
-EXPORT_SYMBOL(vio_unregister_device);
+/* DISABLED: EXPORT_SYMBOL(vio_unregister_device); */
 
 static int vio_bus_match(struct device *dev, struct device_driver *drv)
 {
@@ -1411,7 +1411,7 @@ const void *vio_get_attribute(struct vio_dev *vdev, char *which, int *length)
 {
 	return of_get_property(vdev->dev.of_node, which, length);
 }
-EXPORT_SYMBOL(vio_get_attribute);
+/* DISABLED: EXPORT_SYMBOL(vio_get_attribute); */
 
 #ifdef CONFIG_PPC_PSERIES
 /* vio_find_name() - internal because only vio.c knows how we formatted the
@@ -1445,7 +1445,7 @@ struct vio_dev *vio_find_node(struct device_node *vnode)
 
 	return vio_find_name(kobj_name);
 }
-EXPORT_SYMBOL(vio_find_node);
+/* DISABLED: EXPORT_SYMBOL(vio_find_node); */
 
 int vio_enable_interrupts(struct vio_dev *dev)
 {
@@ -1454,7 +1454,7 @@ int vio_enable_interrupts(struct vio_dev *dev)
 		printk(KERN_ERR "vio: Error 0x%x enabling interrupts\n", rc);
 	return rc;
 }
-EXPORT_SYMBOL(vio_enable_interrupts);
+/* DISABLED: EXPORT_SYMBOL(vio_enable_interrupts); */
 
 int vio_disable_interrupts(struct vio_dev *dev)
 {
@@ -1463,5 +1463,5 @@ int vio_disable_interrupts(struct vio_dev *dev)
 		printk(KERN_ERR "vio: Error 0x%x disabling interrupts\n", rc);
 	return rc;
 }
-EXPORT_SYMBOL(vio_disable_interrupts);
+/* DISABLED: EXPORT_SYMBOL(vio_disable_interrupts); */
 #endif /* CONFIG_PPC_PSERIES */

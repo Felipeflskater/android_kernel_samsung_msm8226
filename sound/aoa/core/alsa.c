@@ -50,7 +50,7 @@ struct snd_card *aoa_get_card(void)
 		return aoa_card->alsa_card;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(aoa_get_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_get_card); */
 
 void aoa_alsa_cleanup(void)
 {
@@ -83,7 +83,7 @@ int aoa_snd_device_new(snd_device_type_t type,
 	}
 	return err;
 }
-EXPORT_SYMBOL_GPL(aoa_snd_device_new);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_snd_device_new); */
 
 int aoa_snd_ctl_add(struct snd_kcontrol* control)
 {
@@ -97,4 +97,4 @@ int aoa_snd_ctl_add(struct snd_kcontrol* control)
 		       err);
 	return err;
 }
-EXPORT_SYMBOL_GPL(aoa_snd_ctl_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(aoa_snd_ctl_add); */

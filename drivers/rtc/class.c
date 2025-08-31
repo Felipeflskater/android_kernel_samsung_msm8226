@@ -218,7 +218,7 @@ exit:
 			name, err);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(rtc_device_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_device_register); */
 
 
 /**
@@ -242,7 +242,7 @@ void rtc_device_unregister(struct rtc_device *rtc)
 		put_device(&rtc->dev);
 	}
 }
-EXPORT_SYMBOL_GPL(rtc_device_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_device_unregister); */
 
 static int __init rtc_init(void)
 {

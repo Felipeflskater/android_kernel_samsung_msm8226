@@ -419,4 +419,4 @@ static struct gpio_methods methods = {
 };
 
 struct gpio_methods *ftr_gpio_methods = &methods;
-EXPORT_SYMBOL_GPL(ftr_gpio_methods);
+/* DISABLED: EXPORT_SYMBOL_GPL(ftr_gpio_methods); */

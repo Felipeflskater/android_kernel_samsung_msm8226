@@ -265,7 +265,7 @@ int tima_is_pg_protected(unsigned long va)
 	return 0;
 }
 #endif	/* CONFIG_TIMA_RKP_30 */
-EXPORT_SYMBOL(tima_is_pg_protected);
+/* DISABLED: EXPORT_SYMBOL(tima_is_pg_protected); */
 #endif
 
 #ifdef	CONFIG_TIMA_RKP

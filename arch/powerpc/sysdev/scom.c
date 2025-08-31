@@ -27,7 +27,7 @@
 #include <asm/scom.h>
 
 const struct scom_controller *scom_controller;
-EXPORT_SYMBOL_GPL(scom_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(scom_controller); */
 
 struct device_node *scom_find_parent(struct device_node *node)
 {
@@ -47,7 +47,7 @@ struct device_node *scom_find_parent(struct device_node *node)
 	}
 	return par;
 }
-EXPORT_SYMBOL_GPL(scom_find_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(scom_find_parent); */
 
 scom_map_t scom_map_device(struct device_node *dev, int index)
 {
@@ -81,7 +81,7 @@ scom_map_t scom_map_device(struct device_node *dev, int index)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(scom_map_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(scom_map_device); */
 
 #ifdef CONFIG_SCOM_DEBUGFS
 struct scom_debug_entry {

@@ -87,7 +87,7 @@ static struct irq_chip rm9k_perfcounter_irq = {
 
 unsigned int rm9000_perfcount_irq;
 
-EXPORT_SYMBOL(rm9000_perfcount_irq);
+/* DISABLED: EXPORT_SYMBOL(rm9000_perfcount_irq); */
 
 void __init rm9k_cpu_irq_init(void)
 {

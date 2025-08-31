@@ -40,12 +40,12 @@ struct qeth_dbf_info qeth_dbf[QETH_DBF_INFOS] = {
 	[QETH_DBF_CTRL]  = {"qeth_control",
 		8, 1, QETH_DBF_CTRL_LEN, 5, &debug_hex_ascii_view, NULL},
 };
-EXPORT_SYMBOL_GPL(qeth_dbf);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_dbf); */
 
 struct qeth_card_list_struct qeth_core_card_list;
-EXPORT_SYMBOL_GPL(qeth_core_card_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_card_list); */
 struct kmem_cache *qeth_core_header_cache;
-EXPORT_SYMBOL_GPL(qeth_core_header_cache);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_header_cache); */
 static struct kmem_cache *qeth_qdio_outbuf_cache;
 
 static struct device *qeth_core_root_dev;
@@ -170,7 +170,7 @@ void qeth_set_allowed_threads(struct qeth_card *card, unsigned long threads,
 	spin_unlock_irqrestore(&card->thread_mask_lock, flags);
 	wake_up(&card->wait_q);
 }
-EXPORT_SYMBOL_GPL(qeth_set_allowed_threads);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_set_allowed_threads); */
 
 int qeth_threads_running(struct qeth_card *card, unsigned long threads)
 {
@@ -182,14 +182,14 @@ int qeth_threads_running(struct qeth_card *card, unsigned long threads)
 	spin_unlock_irqrestore(&card->thread_mask_lock, flags);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_threads_running);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_threads_running); */
 
 int qeth_wait_for_threads(struct qeth_card *card, unsigned long threads)
 {
 	return wait_event_interruptible(card->wait_q,
 			qeth_threads_running(card, threads) == 0);
 }
-EXPORT_SYMBOL_GPL(qeth_wait_for_threads);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_wait_for_threads); */
 
 void qeth_clear_working_pool_list(struct qeth_card *card)
 {
@@ -201,7 +201,7 @@ void qeth_clear_working_pool_list(struct qeth_card *card)
 			list_del(&pool_entry->list);
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_clear_working_pool_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_working_pool_list); */
 
 static int qeth_alloc_buffer_pool(struct qeth_card *card)
 {
@@ -249,7 +249,7 @@ int qeth_realloc_buffer_pool(struct qeth_card *card, int bufcnt)
 	card->qdio.init_pool.buf_count = bufcnt;
 	return qeth_alloc_buffer_pool(card);
 }
-EXPORT_SYMBOL_GPL(qeth_realloc_buffer_pool);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_realloc_buffer_pool); */
 
 static inline int qeth_cq_init(struct qeth_card *card)
 {
@@ -603,7 +603,7 @@ void qeth_clear_ipacmd_list(struct qeth_card *card)
 	spin_unlock_irqrestore(&card->lock, flags);
 	atomic_set(&card->write.irq_pending, 0);
 }
-EXPORT_SYMBOL_GPL(qeth_clear_ipacmd_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_ipacmd_list); */
 
 static int qeth_check_idx_response(struct qeth_card *card,
 	unsigned char *buffer)
@@ -681,7 +681,7 @@ void qeth_release_buffer(struct qeth_channel *channel,
 	spin_unlock_irqrestore(&channel->iob_lock, flags);
 	wake_up(&channel->wait_q);
 }
-EXPORT_SYMBOL_GPL(qeth_release_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_release_buffer); */
 
 static struct qeth_cmd_buffer *qeth_get_buffer(struct qeth_channel *channel)
 {
@@ -701,7 +701,7 @@ struct qeth_cmd_buffer *qeth_wait_for_buffer(struct qeth_channel *channel)
 		   ((buffer = qeth_get_buffer(channel)) != NULL));
 	return buffer;
 }
-EXPORT_SYMBOL_GPL(qeth_wait_for_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_wait_for_buffer); */
 
 void qeth_clear_cmd_buffers(struct qeth_channel *channel)
 {
@@ -712,7 +712,7 @@ void qeth_clear_cmd_buffers(struct qeth_channel *channel)
 	channel->buf_no = 0;
 	channel->io_buf_no = 0;
 }
-EXPORT_SYMBOL_GPL(qeth_clear_cmd_buffers);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_cmd_buffers); */
 
 static void qeth_send_control_data_cb(struct qeth_channel *channel,
 		  struct qeth_cmd_buffer *iob)
@@ -849,7 +849,7 @@ void qeth_clear_thread_start_bit(struct qeth_card *card, unsigned long thread)
 	spin_unlock_irqrestore(&card->thread_mask_lock, flags);
 	wake_up(&card->wait_q);
 }
-EXPORT_SYMBOL_GPL(qeth_clear_thread_start_bit);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_thread_start_bit); */
 
 void qeth_clear_thread_running_bit(struct qeth_card *card, unsigned long thread)
 {
@@ -860,7 +860,7 @@ void qeth_clear_thread_running_bit(struct qeth_card *card, unsigned long thread)
 	spin_unlock_irqrestore(&card->thread_mask_lock, flags);
 	wake_up(&card->wait_q);
 }
-EXPORT_SYMBOL_GPL(qeth_clear_thread_running_bit);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_thread_running_bit); */
 
 static int __qeth_do_run_thread(struct qeth_card *card, unsigned long thread)
 {
@@ -889,7 +889,7 @@ int qeth_do_run_thread(struct qeth_card *card, unsigned long thread)
 		   (rc = __qeth_do_run_thread(card, thread)) >= 0);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_do_run_thread);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_do_run_thread); */
 
 void qeth_schedule_recovery(struct qeth_card *card)
 {
@@ -897,7 +897,7 @@ void qeth_schedule_recovery(struct qeth_card *card)
 	if (qeth_set_thread_start_bit(card, QETH_RECOVER_THREAD) == 0)
 		schedule_work(&card->kernel_thread_starter);
 }
-EXPORT_SYMBOL_GPL(qeth_schedule_recovery);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_schedule_recovery); */
 
 static int qeth_get_problem(struct ccw_device *cdev, struct irb *irb)
 {
@@ -1208,7 +1208,7 @@ void qeth_clear_qdio_buffers(struct qeth_card *card)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_clear_qdio_buffers);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_clear_qdio_buffers); */
 
 static void qeth_free_buffer_pool(struct qeth_card *card)
 {
@@ -1608,7 +1608,7 @@ int qeth_qdio_clear_card(struct qeth_card *card, int use_halt)
 	card->state = CARD_STATE_DOWN;
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_qdio_clear_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_qdio_clear_card); */
 
 static int qeth_read_conf_data(struct qeth_card *card, void **buffer,
 			       int *length)
@@ -1955,7 +1955,7 @@ void qeth_prepare_control_data(struct qeth_card *card, int len,
 	       &card->seqno.pdu_hdr_ack, QETH_SEQ_NO_LENGTH);
 	QETH_DBF_HEX(CTRL, 2, iob->data, QETH_DBF_CTRL_LEN);
 }
-EXPORT_SYMBOL_GPL(qeth_prepare_control_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_prepare_control_data); */
 
 int qeth_send_control_data(struct qeth_card *card, int len,
 		struct qeth_cmd_buffer *iob,
@@ -2056,7 +2056,7 @@ error:
 	qeth_put_reply(reply);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_send_control_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_send_control_data); */
 
 static int qeth_cm_enable_cb(struct qeth_card *card, struct qeth_reply *reply,
 		unsigned long data)
@@ -2625,7 +2625,7 @@ void qeth_print_status_message(struct qeth_card *card)
 	else
 		qeth_print_status_no_portname(card);
 }
-EXPORT_SYMBOL_GPL(qeth_print_status_message);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_print_status_message); */
 
 static void qeth_initialize_working_pool_list(struct qeth_card *card)
 {
@@ -2769,7 +2769,7 @@ int qeth_init_qdio_queues(struct qeth_card *card)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_init_qdio_queues);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_init_qdio_queues); */
 
 static inline __u8 qeth_get_ipa_adp_type(enum qeth_link_types link_type)
 {
@@ -2813,7 +2813,7 @@ struct qeth_cmd_buffer *qeth_get_ipacmd_buffer(struct qeth_card *card,
 
 	return iob;
 }
-EXPORT_SYMBOL_GPL(qeth_get_ipacmd_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_get_ipacmd_buffer); */
 
 void qeth_prepare_ipa_cmd(struct qeth_card *card, struct qeth_cmd_buffer *iob,
 		char prot_type)
@@ -2823,7 +2823,7 @@ void qeth_prepare_ipa_cmd(struct qeth_card *card, struct qeth_cmd_buffer *iob,
 	memcpy(QETH_IPA_CMD_DEST_ADDR(iob->data),
 	       &card->token.ulp_connection_r, QETH_MPC_TOKEN_LENGTH);
 }
-EXPORT_SYMBOL_GPL(qeth_prepare_ipa_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_prepare_ipa_cmd); */
 
 int qeth_send_ipa_cmd(struct qeth_card *card, struct qeth_cmd_buffer *iob,
 		int (*reply_cb)(struct qeth_card *, struct qeth_reply*,
@@ -2851,7 +2851,7 @@ int qeth_send_ipa_cmd(struct qeth_card *card, struct qeth_cmd_buffer *iob,
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_send_ipa_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_send_ipa_cmd); */
 
 int qeth_send_startlan(struct qeth_card *card)
 {
@@ -2864,7 +2864,7 @@ int qeth_send_startlan(struct qeth_card *card)
 	rc = qeth_send_ipa_cmd(card, iob, NULL, NULL);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_send_startlan);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_send_startlan); */
 
 int qeth_default_setadapterparms_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -2879,7 +2879,7 @@ int qeth_default_setadapterparms_cb(struct qeth_card *card,
 			cmd->data.setadapterparms.hdr.return_code;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_default_setadapterparms_cb);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_default_setadapterparms_cb); */
 
 static int qeth_query_setadapterparms_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -2915,7 +2915,7 @@ struct qeth_cmd_buffer *qeth_get_adapter_cmd(struct qeth_card *card,
 
 	return iob;
 }
-EXPORT_SYMBOL_GPL(qeth_get_adapter_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_get_adapter_cmd); */
 
 int qeth_query_setadapterparms(struct qeth_card *card)
 {
@@ -2928,7 +2928,7 @@ int qeth_query_setadapterparms(struct qeth_card *card)
 	rc = qeth_send_ipa_cmd(card, iob, qeth_query_setadapterparms_cb, NULL);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_query_setadapterparms);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_query_setadapterparms); */
 
 static int qeth_query_ipassists_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -2961,7 +2961,7 @@ int qeth_query_ipassists(struct qeth_card *card, enum qeth_prot_versions prot)
 	rc = qeth_send_ipa_cmd(card, iob, qeth_query_ipassists_cb, NULL);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_query_ipassists);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_query_ipassists); */
 
 static int qeth_query_setdiagass_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -3064,7 +3064,7 @@ int qeth_hw_trap(struct qeth_card *card, enum qeth_diags_trap_action action)
 	}
 	return qeth_send_ipa_cmd(card, iob, qeth_hw_trap_cb, NULL);
 }
-EXPORT_SYMBOL_GPL(qeth_hw_trap);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_hw_trap); */
 
 int qeth_check_qdio_errors(struct qeth_card *card, struct qdio_buffer *buf,
 		unsigned int qdio_error, const char *dbftext)
@@ -3084,7 +3084,7 @@ int qeth_check_qdio_errors(struct qeth_card *card, struct qdio_buffer *buf,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_check_qdio_errors);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_check_qdio_errors); */
 
 void qeth_buffer_reclaim_work(struct work_struct *work)
 {
@@ -3169,7 +3169,7 @@ void qeth_queue_input_buffer(struct qeth_card *card, int index)
 					  QDIO_MAX_BUFFERS_PER_Q;
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_queue_input_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_queue_input_buffer); */
 
 static int qeth_handle_send_error(struct qeth_card *card,
 		struct qeth_qdio_out_buffer *buffer, unsigned int qdio_err)
@@ -3404,7 +3404,7 @@ void qeth_qdio_start_poll(struct ccw_device *ccwdev, int queue,
 	if (card->dev && (card->dev->flags & IFF_UP))
 		napi_schedule(&card->napi);
 }
-EXPORT_SYMBOL_GPL(qeth_qdio_start_poll);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_qdio_start_poll); */
 
 int qeth_configure_cq(struct qeth_card *card, enum qeth_cq cq)
 {
@@ -3433,7 +3433,7 @@ out:
 	return rc;
 
 }
-EXPORT_SYMBOL_GPL(qeth_configure_cq);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_configure_cq); */
 
 
 static void qeth_qdio_cq_handler(struct qeth_card *card,
@@ -3521,7 +3521,7 @@ void qeth_qdio_input_handler(struct ccw_device *ccwdev, unsigned int qdio_err,
 
 
 }
-EXPORT_SYMBOL_GPL(qeth_qdio_input_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_qdio_input_handler); */
 
 void qeth_qdio_output_handler(struct ccw_device *ccwdev,
 		unsigned int qdio_error, int __queue, int first_element,
@@ -3595,7 +3595,7 @@ void qeth_qdio_output_handler(struct ccw_device *ccwdev,
 		card->perf_stats.outbound_handler_time += qeth_get_micros() -
 			card->perf_stats.outbound_handler_start_time;
 }
-EXPORT_SYMBOL_GPL(qeth_qdio_output_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_qdio_output_handler); */
 
 int qeth_get_priority_queue(struct qeth_card *card, struct sk_buff *skb,
 			int ipv, int cast_type)
@@ -3634,7 +3634,7 @@ int qeth_get_priority_queue(struct qeth_card *card, struct sk_buff *skb,
 		return card->qdio.default_out_queue;
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_get_priority_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_get_priority_queue); */
 
 int qeth_get_elements_no(struct qeth_card *card, void *hdr,
 		     struct sk_buff *skb, int elems)
@@ -3652,7 +3652,7 @@ int qeth_get_elements_no(struct qeth_card *card, void *hdr,
 	}
 	return elements_needed;
 }
-EXPORT_SYMBOL_GPL(qeth_get_elements_no);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_get_elements_no); */
 
 int qeth_hdr_chk_and_bounce(struct sk_buff *skb, int len)
 {
@@ -3671,7 +3671,7 @@ int qeth_hdr_chk_and_bounce(struct sk_buff *skb, int len)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_hdr_chk_and_bounce);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_hdr_chk_and_bounce); */
 
 static inline void __qeth_fill_buffer(struct sk_buff *skb,
 	struct qdio_buffer *buffer, int is_tso, int *next_element_to_fill,
@@ -3833,7 +3833,7 @@ out:
 	atomic_set(&queue->state, QETH_OUT_Q_UNLOCKED);
 	return -EBUSY;
 }
-EXPORT_SYMBOL_GPL(qeth_do_send_packet_fast);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_do_send_packet_fast); */
 
 int qeth_do_send_packet(struct qeth_card *card, struct qeth_qdio_out_q *queue,
 		struct sk_buff *skb, struct qeth_hdr *hdr,
@@ -3919,7 +3919,7 @@ int qeth_do_send_packet(struct qeth_card *card, struct qeth_qdio_out_q *queue,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_do_send_packet);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_do_send_packet); */
 
 static int qeth_setadp_promisc_mode_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -3966,7 +3966,7 @@ void qeth_setadp_promisc_mode(struct qeth_card *card)
 	cmd->data.setadapterparms.data.mode = mode;
 	qeth_send_ipa_cmd(card, iob, qeth_setadp_promisc_mode_cb, NULL);
 }
-EXPORT_SYMBOL_GPL(qeth_setadp_promisc_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_setadp_promisc_mode); */
 
 int qeth_change_mtu(struct net_device *dev, int new_mtu)
 {
@@ -3989,7 +3989,7 @@ int qeth_change_mtu(struct net_device *dev, int new_mtu)
 	dev->mtu = new_mtu;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_change_mtu);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_change_mtu); */
 
 struct net_device_stats *qeth_get_stats(struct net_device *dev)
 {
@@ -4001,7 +4001,7 @@ struct net_device_stats *qeth_get_stats(struct net_device *dev)
 
 	return &card->stats;
 }
-EXPORT_SYMBOL_GPL(qeth_get_stats);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_get_stats); */
 
 static int qeth_setadpparms_change_macaddr_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -4041,7 +4041,7 @@ int qeth_setadpparms_change_macaddr(struct qeth_card *card)
 			       NULL);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_setadpparms_change_macaddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_setadpparms_change_macaddr); */
 
 static int qeth_setadpparms_set_access_ctrl_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -4186,7 +4186,7 @@ int qeth_set_access_ctrl_online(struct qeth_card *card)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_set_access_ctrl_online);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_set_access_ctrl_online); */
 
 void qeth_tx_timeout(struct net_device *dev)
 {
@@ -4197,7 +4197,7 @@ void qeth_tx_timeout(struct net_device *dev)
 	card->stats.tx_errors++;
 	qeth_schedule_recovery(card);
 }
-EXPORT_SYMBOL_GPL(qeth_tx_timeout);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_tx_timeout); */
 
 int qeth_mdio_read(struct net_device *dev, int phy_id, int regnum)
 {
@@ -4262,7 +4262,7 @@ int qeth_mdio_read(struct net_device *dev, int phy_id, int regnum)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_mdio_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_mdio_read); */
 
 static int qeth_send_ipa_snmp_cmd(struct qeth_card *card,
 		struct qeth_cmd_buffer *iob, int len,
@@ -4408,7 +4408,7 @@ int qeth_snmp_command(struct qeth_card *card, char __user *udata)
 	kfree(qinfo.udata);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_snmp_command);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_snmp_command); */
 
 static int qeth_setadpparms_query_oat_cb(struct qeth_card *card,
 		struct qeth_reply *reply, unsigned long data)
@@ -4506,7 +4506,7 @@ out_free:
 out:
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_query_oat_command);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_query_oat_command); */
 
 static inline int qeth_get_qdio_q_format(struct qeth_card *card)
 {
@@ -4834,7 +4834,7 @@ out:
 		dev_name(&card->gdev->dev), rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(qeth_core_hardsetup_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_hardsetup_card); */
 
 static inline int qeth_create_skb_frag(struct qeth_qdio_buffer *qethbuffer,
 		struct qdio_buffer_element *element,
@@ -4988,7 +4988,7 @@ no_mem:
 	card->stats.rx_dropped++;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(qeth_core_get_next_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_get_next_skb); */
 
 static void qeth_unregister_dbf_views(void)
 {
@@ -5011,7 +5011,7 @@ void qeth_dbf_longtext(debug_info_t *id, int level, char *fmt, ...)
 	va_end(args);
 	debug_text_event(id, level, dbf_txt_buf);
 }
-EXPORT_SYMBOL_GPL(qeth_dbf_longtext);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_dbf_longtext); */
 
 static int qeth_register_dbf_views(void)
 {
@@ -5368,7 +5368,7 @@ int qeth_core_get_sset_count(struct net_device *dev, int stringset)
 		return -EINVAL;
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_core_get_sset_count);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_get_sset_count); */
 
 void qeth_core_get_ethtool_stats(struct net_device *dev,
 		struct ethtool_stats *stats, u64 *data)
@@ -5418,7 +5418,7 @@ void qeth_core_get_ethtool_stats(struct net_device *dev,
 	data[35] = card->perf_stats.cq_cnt;
 	data[36] = card->perf_stats.cq_time;
 }
-EXPORT_SYMBOL_GPL(qeth_core_get_ethtool_stats);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_get_ethtool_stats); */
 
 void qeth_core_get_strings(struct net_device *dev, u32 stringset, u8 *data)
 {
@@ -5432,7 +5432,7 @@ void qeth_core_get_strings(struct net_device *dev, u32 stringset, u8 *data)
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(qeth_core_get_strings);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_get_strings); */
 
 void qeth_core_get_drvinfo(struct net_device *dev,
 		struct ethtool_drvinfo *info)
@@ -5450,7 +5450,7 @@ void qeth_core_get_drvinfo(struct net_device *dev,
 			CARD_WDEV_ID(card),
 			CARD_DDEV_ID(card));
 }
-EXPORT_SYMBOL_GPL(qeth_core_get_drvinfo);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_get_drvinfo); */
 
 int qeth_core_ethtool_get_settings(struct net_device *netdev,
 					struct ethtool_cmd *ecmd)
@@ -5540,7 +5540,7 @@ int qeth_core_ethtool_get_settings(struct net_device *netdev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(qeth_core_ethtool_get_settings);
+/* DISABLED: EXPORT_SYMBOL_GPL(qeth_core_ethtool_get_settings); */
 
 static int __init qeth_core_init(void)
 {

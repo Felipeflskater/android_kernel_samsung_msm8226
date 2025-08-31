@@ -74,7 +74,7 @@ unsigned ipath_debug = __IPATH_INFO;
 
 module_param_named(debug, ipath_debug, uint, S_IWUSR | S_IRUGO);
 MODULE_PARM_DESC(debug, "mask for debug prints");
-EXPORT_SYMBOL_GPL(ipath_debug);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipath_debug); */
 
 unsigned ipath_mtu4096 = 1; /* max 4KB IB mtu by default, if supported */
 module_param_named(mtu4096, ipath_mtu4096, uint, S_IRUGO);

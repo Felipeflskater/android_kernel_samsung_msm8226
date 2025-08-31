@@ -151,7 +151,7 @@ struct ip_vs_protocol * ip_vs_proto_get(unsigned short proto)
 
 	return NULL;
 }
-EXPORT_SYMBOL(ip_vs_proto_get);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_proto_get); */
 
 /*
  *	get ip_vs_protocol object data by netns and proto
@@ -177,7 +177,7 @@ ip_vs_proto_data_get(struct net *net, unsigned short proto)
 
 	return __ipvs_proto_data_get(ipvs, proto);
 }
-EXPORT_SYMBOL(ip_vs_proto_data_get);
+/* DISABLED: EXPORT_SYMBOL(ip_vs_proto_data_get); */
 
 /*
  *	Propagate event for state change to all protocols

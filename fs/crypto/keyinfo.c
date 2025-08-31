@@ -256,7 +256,7 @@ out:
 	memzero_explicit(raw_key, sizeof(raw_key));
 	return res;
 }
-EXPORT_SYMBOL(fscrypt_get_encryption_info);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_get_encryption_info); */
 
 void fscrypt_put_encryption_info(struct inode *inode, struct fscrypt_info *ci)
 {
@@ -273,4 +273,4 @@ void fscrypt_put_encryption_info(struct inode *inode, struct fscrypt_info *ci)
 
 	put_crypt_info(ci);
 }
-EXPORT_SYMBOL(fscrypt_put_encryption_info);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_put_encryption_info); */

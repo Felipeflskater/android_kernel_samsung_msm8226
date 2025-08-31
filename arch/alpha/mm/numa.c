@@ -19,7 +19,7 @@
 #include <asm/pgalloc.h>
 
 pg_data_t node_data[MAX_NUMNODES];
-EXPORT_SYMBOL(node_data);
+/* DISABLED: EXPORT_SYMBOL(node_data); */
 
 #undef DEBUG_DISCONTIG
 #ifdef DEBUG_DISCONTIG

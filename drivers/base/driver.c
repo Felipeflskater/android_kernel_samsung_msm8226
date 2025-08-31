@@ -56,7 +56,7 @@ int driver_for_each_device(struct device_driver *drv, struct device *start,
 	klist_iter_exit(&i);
 	return error;
 }
-EXPORT_SYMBOL_GPL(driver_for_each_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_for_each_device); */
 
 /**
  * driver_find_device - device iterator for locating a particular device.
@@ -91,7 +91,7 @@ struct device *driver_find_device(struct device_driver *drv,
 	klist_iter_exit(&i);
 	return dev;
 }
-EXPORT_SYMBOL_GPL(driver_find_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_find_device); */
 
 /**
  * driver_create_file - create sysfs file for driver.
@@ -108,7 +108,7 @@ int driver_create_file(struct device_driver *drv,
 		error = -EINVAL;
 	return error;
 }
-EXPORT_SYMBOL_GPL(driver_create_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_create_file); */
 
 /**
  * driver_remove_file - remove sysfs file for driver.
@@ -121,7 +121,7 @@ void driver_remove_file(struct device_driver *drv,
 	if (drv)
 		sysfs_remove_file(&drv->p->kobj, &attr->attr);
 }
-EXPORT_SYMBOL_GPL(driver_remove_file);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_remove_file); */
 
 static int driver_add_groups(struct device_driver *drv,
 			     const struct attribute_group **groups)
@@ -189,7 +189,7 @@ int driver_register(struct device_driver *drv)
 		bus_remove_driver(drv);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(driver_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_register); */
 
 /**
  * driver_unregister - remove driver from system.
@@ -206,7 +206,7 @@ void driver_unregister(struct device_driver *drv)
 	driver_remove_groups(drv, drv->groups);
 	bus_remove_driver(drv);
 }
-EXPORT_SYMBOL_GPL(driver_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_unregister); */
 
 /**
  * driver_find - locate driver on a bus by its name.
@@ -233,4 +233,4 @@ struct device_driver *driver_find(const char *name, struct bus_type *bus)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(driver_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(driver_find); */

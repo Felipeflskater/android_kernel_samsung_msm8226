@@ -67,14 +67,14 @@ int lrw_init_table(struct lrw_table_ctx *ctx, const u8 *tweak)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(lrw_init_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(lrw_init_table); */
 
 void lrw_free_table(struct lrw_table_ctx *ctx)
 {
 	if (ctx->table)
 		gf128mul_free_64k(ctx->table);
 }
-EXPORT_SYMBOL_GPL(lrw_free_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(lrw_free_table); */
 
 static int setkey(struct crypto_tfm *parent, const u8 *key,
 		  unsigned int keylen)
@@ -291,7 +291,7 @@ first:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(lrw_crypt);
+/* DISABLED: EXPORT_SYMBOL_GPL(lrw_crypt); */
 
 static int init_tfm(struct crypto_tfm *tfm)
 {

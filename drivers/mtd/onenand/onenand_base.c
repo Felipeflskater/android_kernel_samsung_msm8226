@@ -328,7 +328,7 @@ loff_t onenand_addr(struct onenand_chip *this, int block)
 		return (loff_t)block << this->erase_shift;
 	return flexonenand_addr(this, block);
 }
-EXPORT_SYMBOL(onenand_addr);
+/* DISABLED: EXPORT_SYMBOL(onenand_addr); */
 
 /**
  * onenand_get_density - [DEFAULT] Get OneNAND density
@@ -356,7 +356,7 @@ int flexonenand_region(struct mtd_info *mtd, loff_t addr)
 			break;
 	return i - 1;
 }
-EXPORT_SYMBOL(flexonenand_region);
+/* DISABLED: EXPORT_SYMBOL(flexonenand_region); */
 
 /**
  * onenand_command - [DEFAULT] Send command to OneNAND device
@@ -4154,8 +4154,8 @@ void onenand_release(struct mtd_info *mtd)
 	kfree(mtd->eraseregions);
 }
 
-EXPORT_SYMBOL_GPL(onenand_scan);
-EXPORT_SYMBOL_GPL(onenand_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(onenand_scan); */
+/* DISABLED: EXPORT_SYMBOL_GPL(onenand_release); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Kyungmin Park <kyungmin.park@samsung.com>");

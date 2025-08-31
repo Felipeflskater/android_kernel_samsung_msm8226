@@ -202,7 +202,7 @@ void sec_otg_set_dock_state(int enable)
 	}
 
 }
-EXPORT_SYMBOL(sec_otg_set_dock_state);
+/* DISABLED: EXPORT_SYMBOL(sec_otg_set_dock_state); */
 
 void sec_otg_set_id_state(int id)
 {
@@ -229,7 +229,7 @@ void sec_otg_set_id_state(int id)
 			queue_work(system_nrt_wq, &motg->sm_work);
 	}
 }
-EXPORT_SYMBOL(sec_otg_set_id_state);
+/* DISABLED: EXPORT_SYMBOL(sec_otg_set_id_state); */
 
 void msm_otg_set_smartdock_state(bool online)
 {
@@ -251,11 +251,11 @@ void msm_otg_set_smartdock_state(bool online)
 	else
 		queue_work(system_nrt_wq, &motg->sm_work);
 }
-EXPORT_SYMBOL_GPL(msm_otg_set_smartdock_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(msm_otg_set_smartdock_state); */
 
 int sec_handle_event(int enable)
 {
 	sec_otg_set_id_state(!enable);
 	return 0;
 }
-EXPORT_SYMBOL(sec_handle_event);
+/* DISABLED: EXPORT_SYMBOL(sec_handle_event); */

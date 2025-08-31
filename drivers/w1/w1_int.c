@@ -267,5 +267,5 @@ void w1_remove_master_device(struct w1_bus_master *bm)
 	__w1_remove_master_device(found);
 }
 
-EXPORT_SYMBOL(w1_add_master_device);
-EXPORT_SYMBOL(w1_remove_master_device);
+/* DISABLED: EXPORT_SYMBOL(w1_add_master_device); */
+/* DISABLED: EXPORT_SYMBOL(w1_remove_master_device); */

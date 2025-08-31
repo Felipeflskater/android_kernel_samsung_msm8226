@@ -25,7 +25,7 @@ struct tcw *tcw_get_intrg(struct tcw *tcw)
 {
 	return (struct tcw *) ((addr_t) tcw->intrg);
 }
-EXPORT_SYMBOL(tcw_get_intrg);
+/* DISABLED: EXPORT_SYMBOL(tcw_get_intrg); */
 
 /**
  * tcw_get_data - return pointer to input/output data associated with tcw
@@ -43,7 +43,7 @@ void *tcw_get_data(struct tcw *tcw)
 		return (void *) ((addr_t) tcw->output);
 	return NULL;
 }
-EXPORT_SYMBOL(tcw_get_data);
+/* DISABLED: EXPORT_SYMBOL(tcw_get_data); */
 
 /**
  * tcw_get_tccb - return pointer to tccb associated with tcw
@@ -55,7 +55,7 @@ struct tccb *tcw_get_tccb(struct tcw *tcw)
 {
 	return (struct tccb *) ((addr_t) tcw->tccb);
 }
-EXPORT_SYMBOL(tcw_get_tccb);
+/* DISABLED: EXPORT_SYMBOL(tcw_get_tccb); */
 
 /**
  * tcw_get_tsb - return pointer to tsb associated with tcw
@@ -67,7 +67,7 @@ struct tsb *tcw_get_tsb(struct tcw *tcw)
 {
 	return (struct tsb *) ((addr_t) tcw->tsb);
 }
-EXPORT_SYMBOL(tcw_get_tsb);
+/* DISABLED: EXPORT_SYMBOL(tcw_get_tsb); */
 
 /**
  * tcw_init - initialize tcw data structure
@@ -88,7 +88,7 @@ void tcw_init(struct tcw *tcw, int r, int w)
 	if (w)
 		tcw->w = 1;
 }
-EXPORT_SYMBOL(tcw_init);
+/* DISABLED: EXPORT_SYMBOL(tcw_init); */
 
 static inline size_t tca_size(struct tccb *tccb)
 {
@@ -177,7 +177,7 @@ void tcw_finalize(struct tcw *tcw, int num_tidaws)
 	tcw->tccbl = (sizeof(struct tccb) + tca_size(tccb) +
 		      sizeof(struct tccb_tcat) - 20) >> 2;
 }
-EXPORT_SYMBOL(tcw_finalize);
+/* DISABLED: EXPORT_SYMBOL(tcw_finalize); */
 
 /**
  * tcw_set_intrg - set the interrogate tcw address of a tcw
@@ -190,7 +190,7 @@ void tcw_set_intrg(struct tcw *tcw, struct tcw *intrg_tcw)
 {
 	tcw->intrg = (u32) ((addr_t) intrg_tcw);
 }
-EXPORT_SYMBOL(tcw_set_intrg);
+/* DISABLED: EXPORT_SYMBOL(tcw_set_intrg); */
 
 /**
  * tcw_set_data - set data address and tida flag of a tcw
@@ -215,7 +215,7 @@ void tcw_set_data(struct tcw *tcw, void *data, int use_tidal)
 			tcw->flags |= TCW_FLAGS_OUTPUT_TIDA;
 	}
 }
-EXPORT_SYMBOL(tcw_set_data);
+/* DISABLED: EXPORT_SYMBOL(tcw_set_data); */
 
 /**
  * tcw_set_tccb - set tccb address of a tcw
@@ -228,7 +228,7 @@ void tcw_set_tccb(struct tcw *tcw, struct tccb *tccb)
 {
 	tcw->tccb = (u64) ((addr_t) tccb);
 }
-EXPORT_SYMBOL(tcw_set_tccb);
+/* DISABLED: EXPORT_SYMBOL(tcw_set_tccb); */
 
 /**
  * tcw_set_tsb - set tsb address of a tcw
@@ -241,7 +241,7 @@ void tcw_set_tsb(struct tcw *tcw, struct tsb *tsb)
 {
 	tcw->tsb = (u64) ((addr_t) tsb);
 }
-EXPORT_SYMBOL(tcw_set_tsb);
+/* DISABLED: EXPORT_SYMBOL(tcw_set_tsb); */
 
 /**
  * tccb_init - initialize tccb
@@ -259,7 +259,7 @@ void tccb_init(struct tccb *tccb, size_t size, u32 sac)
 	tccb->tcah.sac = sac;
 	tccb->tcah.tcal = 12;
 }
-EXPORT_SYMBOL(tccb_init);
+/* DISABLED: EXPORT_SYMBOL(tccb_init); */
 
 /**
  * tsb_init - initialize tsb
@@ -271,7 +271,7 @@ void tsb_init(struct tsb *tsb)
 {
 	memset(tsb, 0, sizeof(*tsb));
 }
-EXPORT_SYMBOL(tsb_init);
+/* DISABLED: EXPORT_SYMBOL(tsb_init); */
 
 /**
  * tccb_add_dcw - add a dcw to the tccb
@@ -316,7 +316,7 @@ struct dcw *tccb_add_dcw(struct tccb *tccb, size_t tccb_size, u8 cmd, u8 flags,
 	tccb->tcah.tcal += size;
 	return dcw;
 }
-EXPORT_SYMBOL(tccb_add_dcw);
+/* DISABLED: EXPORT_SYMBOL(tccb_add_dcw); */
 
 /**
  * tcw_add_tidaw - add a tidaw to a tcw
@@ -347,4 +347,4 @@ struct tidaw *tcw_add_tidaw(struct tcw *tcw, int num_tidaws, u8 flags,
 	tidaw->addr = (u64) ((addr_t) addr);
 	return tidaw;
 }
-EXPORT_SYMBOL(tcw_add_tidaw);
+/* DISABLED: EXPORT_SYMBOL(tcw_add_tidaw); */

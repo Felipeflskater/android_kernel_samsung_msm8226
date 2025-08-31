@@ -141,20 +141,20 @@ struct bus_type eisa_bus_type = {
 	.match = eisa_bus_match,
 	.uevent = eisa_bus_uevent,
 };
-EXPORT_SYMBOL(eisa_bus_type);
+/* DISABLED: EXPORT_SYMBOL(eisa_bus_type); */
 
 int eisa_driver_register(struct eisa_driver *edrv)
 {
 	edrv->driver.bus = &eisa_bus_type;
 	return driver_register(&edrv->driver);
 }
-EXPORT_SYMBOL(eisa_driver_register);
+/* DISABLED: EXPORT_SYMBOL(eisa_driver_register); */
 
 void eisa_driver_unregister(struct eisa_driver *edrv)
 {
 	driver_unregister(&edrv->driver);
 }
-EXPORT_SYMBOL(eisa_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL(eisa_driver_unregister); */
 
 static ssize_t eisa_show_sig(struct device *dev, struct device_attribute *attr,
 			     char *buf)
@@ -464,4 +464,4 @@ module_param_array(disable_dev, int, &disable_dev_count, 0444);
 postcore_initcall(eisa_init);
 
 int EISA_bus;		/* for legacy drivers */
-EXPORT_SYMBOL(EISA_bus);
+/* DISABLED: EXPORT_SYMBOL(EISA_bus); */

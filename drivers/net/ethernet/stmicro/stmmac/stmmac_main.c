@@ -2046,7 +2046,7 @@ err:
 	return -EINVAL;
 }
 
-/* DISABLED: __setup("stmmaceth=", stmmac_cmdline_opt); */
+/* DISABLED: __setup("stmmaceth=", stmmac_cmdline_opt); */ */
 #endif
 
 MODULE_DESCRIPTION("STMMAC 10/100/1000 Ethernet device driver");

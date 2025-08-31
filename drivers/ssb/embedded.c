@@ -30,7 +30,7 @@ int ssb_watchdog_timer_set(struct ssb_bus *bus, u32 ticks)
 	}
 	return -ENODEV;
 }
-EXPORT_SYMBOL(ssb_watchdog_timer_set);
+/* DISABLED: EXPORT_SYMBOL(ssb_watchdog_timer_set); */
 
 u32 ssb_gpio_in(struct ssb_bus *bus, u32 mask)
 {
@@ -48,7 +48,7 @@ u32 ssb_gpio_in(struct ssb_bus *bus, u32 mask)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_in);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_in); */
 
 u32 ssb_gpio_out(struct ssb_bus *bus, u32 mask, u32 value)
 {
@@ -66,7 +66,7 @@ u32 ssb_gpio_out(struct ssb_bus *bus, u32 mask, u32 value)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_out);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_out); */
 
 u32 ssb_gpio_outen(struct ssb_bus *bus, u32 mask, u32 value)
 {
@@ -84,7 +84,7 @@ u32 ssb_gpio_outen(struct ssb_bus *bus, u32 mask, u32 value)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_outen);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_outen); */
 
 u32 ssb_gpio_control(struct ssb_bus *bus, u32 mask, u32 value)
 {
@@ -98,7 +98,7 @@ u32 ssb_gpio_control(struct ssb_bus *bus, u32 mask, u32 value)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_control);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_control); */
 
 u32 ssb_gpio_intmask(struct ssb_bus *bus, u32 mask, u32 value)
 {
@@ -116,7 +116,7 @@ u32 ssb_gpio_intmask(struct ssb_bus *bus, u32 mask, u32 value)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_intmask);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_intmask); */
 
 u32 ssb_gpio_polarity(struct ssb_bus *bus, u32 mask, u32 value)
 {
@@ -134,7 +134,7 @@ u32 ssb_gpio_polarity(struct ssb_bus *bus, u32 mask, u32 value)
 
 	return res;
 }
-EXPORT_SYMBOL(ssb_gpio_polarity);
+/* DISABLED: EXPORT_SYMBOL(ssb_gpio_polarity); */
 
 #ifdef CONFIG_SSB_DRIVER_GIGE
 static int gige_pci_init_callback(struct ssb_bus *bus, unsigned long data)

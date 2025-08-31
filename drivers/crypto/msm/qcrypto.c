@@ -3691,7 +3691,7 @@ int qcrypto_cipher_set_device(struct ablkcipher_request *req, unsigned int dev)
 
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_cipher_set_device);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_cipher_set_device); */
 
 int qcrypto_aead_set_device(struct aead_request *req, unsigned int dev)
 {
@@ -3706,7 +3706,7 @@ int qcrypto_aead_set_device(struct aead_request *req, unsigned int dev)
 
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_aead_set_device);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_aead_set_device); */
 
 int qcrypto_ahash_set_device(struct ahash_request *req, unsigned int dev)
 {
@@ -3721,7 +3721,7 @@ int qcrypto_ahash_set_device(struct ahash_request *req, unsigned int dev)
 
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_ahash_set_device);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_ahash_set_device); */
 
 int qcrypto_cipher_set_flag(struct ablkcipher_request *req, unsigned int flags)
 {
@@ -3742,7 +3742,7 @@ int qcrypto_cipher_set_flag(struct ablkcipher_request *req, unsigned int flags)
 	ctx->flags |= flags;
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_cipher_set_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_cipher_set_flag); */
 
 int qcrypto_aead_set_flag(struct aead_request *req, unsigned int flags)
 {
@@ -3763,7 +3763,7 @@ int qcrypto_aead_set_flag(struct aead_request *req, unsigned int flags)
 	ctx->flags |= flags;
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_aead_set_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_aead_set_flag); */
 
 int qcrypto_ahash_set_flag(struct ahash_request *req, unsigned int flags)
 {
@@ -3784,7 +3784,7 @@ int qcrypto_ahash_set_flag(struct ahash_request *req, unsigned int flags)
 	ctx->flags |= flags;
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_ahash_set_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_ahash_set_flag); */
 
 int qcrypto_cipher_clear_flag(struct ablkcipher_request *req,
 							unsigned int flags)
@@ -3795,7 +3795,7 @@ int qcrypto_cipher_clear_flag(struct ablkcipher_request *req,
 	return 0;
 
 };
-EXPORT_SYMBOL(qcrypto_cipher_clear_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_cipher_clear_flag); */
 
 int qcrypto_aead_clear_flag(struct aead_request *req, unsigned int flags)
 {
@@ -3805,7 +3805,7 @@ int qcrypto_aead_clear_flag(struct aead_request *req, unsigned int flags)
 	return 0;
 
 };
-EXPORT_SYMBOL(qcrypto_aead_clear_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_aead_clear_flag); */
 
 int qcrypto_ahash_clear_flag(struct ahash_request *req, unsigned int flags)
 {
@@ -3814,7 +3814,7 @@ int qcrypto_ahash_clear_flag(struct ahash_request *req, unsigned int flags)
 	ctx->flags &= ~flags;
 	return 0;
 };
-EXPORT_SYMBOL(qcrypto_ahash_clear_flag);
+/* DISABLED: EXPORT_SYMBOL(qcrypto_ahash_clear_flag); */
 
 static struct ahash_alg _qcrypto_ahash_algos[] = {
 	{

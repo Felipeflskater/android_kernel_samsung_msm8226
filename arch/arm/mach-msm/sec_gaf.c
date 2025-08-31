@@ -236,7 +236,7 @@ void sec_gaf_supply_rqinfo(unsigned short curr_offset, unsigned short rq_offset)
 			(*checksum) = ((*checksum) << 1) ^ memory[address];
 	}
 }
-EXPORT_SYMBOL(sec_gaf_supply_rqinfo);
+/* DISABLED: EXPORT_SYMBOL(sec_gaf_supply_rqinfo); */
 void dump_one_task_info(struct task_struct *tsk, bool isMain)
 {
 	char stat_array[3] = {'R', 'S', 'D'};

@@ -745,7 +745,7 @@ unsigned long kvm_hypercall(unsigned long *in,
 
 	return r3;
 }
-EXPORT_SYMBOL_GPL(kvm_hypercall);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_hypercall); */
 
 static int kvm_para_setup(void)
 {

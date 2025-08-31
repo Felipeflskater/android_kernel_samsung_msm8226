@@ -1623,7 +1623,7 @@ static void nfsiod_stop(void)
 }
 
 int nfs_net_id;
-EXPORT_SYMBOL_GPL(nfs_net_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs_net_id); */
 
 static int nfs_net_init(struct net *net)
 {

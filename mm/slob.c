@@ -518,7 +518,7 @@ void *__kmalloc_node(size_t size, gfp_t gfp, int node)
 	kmemleak_alloc(ret, size, 1, gfp);
 	return ret;
 }
-EXPORT_SYMBOL(__kmalloc_node);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc_node); */
 
 void kfree(const void *block)
 {
@@ -538,7 +538,7 @@ void kfree(const void *block)
 	} else
 		put_page(&sp->page);
 }
-EXPORT_SYMBOL(kfree);
+/* DISABLED: EXPORT_SYMBOL(kfree); */
 
 /* can't use ksize for kmem_cache_alloc memory, only kmalloc */
 size_t ksize(const void *block)
@@ -557,7 +557,7 @@ size_t ksize(const void *block)
 	} else
 		return sp->page.private;
 }
-EXPORT_SYMBOL(ksize);
+/* DISABLED: EXPORT_SYMBOL(ksize); */
 
 struct kmem_cache {
 	unsigned int size, align;
@@ -595,7 +595,7 @@ struct kmem_cache *kmem_cache_create(const char *name, size_t size,
 	kmemleak_alloc(c, sizeof(struct kmem_cache), 1, GFP_KERNEL);
 	return c;
 }
-EXPORT_SYMBOL(kmem_cache_create);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_create); */
 
 void kmem_cache_destroy(struct kmem_cache *c)
 {
@@ -604,7 +604,7 @@ void kmem_cache_destroy(struct kmem_cache *c)
 		rcu_barrier();
 	slob_free(c, sizeof(struct kmem_cache));
 }
-EXPORT_SYMBOL(kmem_cache_destroy);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_destroy); */
 
 void *kmem_cache_alloc_node(struct kmem_cache *c, gfp_t flags, int node)
 {
@@ -632,7 +632,7 @@ void *kmem_cache_alloc_node(struct kmem_cache *c, gfp_t flags, int node)
 	kmemleak_alloc_recursive(b, c->size, 1, c->flags, flags);
 	return b;
 }
-EXPORT_SYMBOL(kmem_cache_alloc_node);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_node); */
 
 static void __kmem_cache_free(void *b, int size)
 {
@@ -664,19 +664,19 @@ void kmem_cache_free(struct kmem_cache *c, void *b)
 
 	trace_kmem_cache_free(_RET_IP_, b);
 }
-EXPORT_SYMBOL(kmem_cache_free);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_free); */
 
 unsigned int kmem_cache_size(struct kmem_cache *c)
 {
 	return c->size;
 }
-EXPORT_SYMBOL(kmem_cache_size);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_size); */
 
 int kmem_cache_shrink(struct kmem_cache *d)
 {
 	return 0;
 }
-EXPORT_SYMBOL(kmem_cache_shrink);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_shrink); */
 
 static unsigned int slob_ready __read_mostly;
 

@@ -208,6 +208,6 @@ handle_station:
 	goto out;
 }
 
-EXPORT_SYMBOL(llc_add_pack);
-EXPORT_SYMBOL(llc_remove_pack);
-EXPORT_SYMBOL(llc_set_station_handler);
+/* DISABLED: EXPORT_SYMBOL(llc_add_pack); */
+/* DISABLED: EXPORT_SYMBOL(llc_remove_pack); */
+/* DISABLED: EXPORT_SYMBOL(llc_set_station_handler); */

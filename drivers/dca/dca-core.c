@@ -232,7 +232,7 @@ int dca_add_requester(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dca_add_requester);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca_add_requester); */
 
 /**
  * dca_remove_requester - remove a dca client from the list
@@ -263,7 +263,7 @@ int dca_remove_requester(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dca_remove_requester);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca_remove_requester); */
 
 /**
  * dca_common_get_tag - return the dca tag (serves both new and old api)
@@ -302,7 +302,7 @@ u8 dca3_get_tag(struct device *dev, int cpu)
 
 	return dca_common_get_tag(dev, cpu);
 }
-EXPORT_SYMBOL_GPL(dca3_get_tag);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca3_get_tag); */
 
 /**
  * dca_get_tag - return the dca tag for the given cpu (old api)
@@ -314,7 +314,7 @@ u8 dca_get_tag(int cpu)
 
 	return dca_common_get_tag(dev, cpu);
 }
-EXPORT_SYMBOL_GPL(dca_get_tag);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca_get_tag); */
 
 /**
  * alloc_dca_provider - get data struct for describing a dca provider
@@ -334,7 +334,7 @@ struct dca_provider *alloc_dca_provider(struct dca_ops *ops, int priv_size)
 
 	return dca;
 }
-EXPORT_SYMBOL_GPL(alloc_dca_provider);
+/* DISABLED: EXPORT_SYMBOL_GPL(alloc_dca_provider); */
 
 /**
  * free_dca_provider - release the dca provider data struct
@@ -345,7 +345,7 @@ void free_dca_provider(struct dca_provider *dca)
 {
 	kfree(dca);
 }
-EXPORT_SYMBOL_GPL(free_dca_provider);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_dca_provider); */
 
 /**
  * register_dca_provider - register a dca provider
@@ -403,7 +403,7 @@ int register_dca_provider(struct dca_provider *dca, struct device *dev)
 	kfree(newdomain);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(register_dca_provider);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_dca_provider); */
 
 /**
  * unregister_dca_provider - remove a dca provider
@@ -436,7 +436,7 @@ void unregister_dca_provider(struct dca_provider *dca, struct device *dev)
 
 	dca_sysfs_remove_provider(dca);
 }
-EXPORT_SYMBOL_GPL(unregister_dca_provider);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_dca_provider); */
 
 /**
  * dca_register_notify - register a client's notifier callback
@@ -445,7 +445,7 @@ void dca_register_notify(struct notifier_block *nb)
 {
 	blocking_notifier_chain_register(&dca_provider_chain, nb);
 }
-EXPORT_SYMBOL_GPL(dca_register_notify);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca_register_notify); */
 
 /**
  * dca_unregister_notify - remove a client's notifier callback
@@ -454,7 +454,7 @@ void dca_unregister_notify(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&dca_provider_chain, nb);
 }
-EXPORT_SYMBOL_GPL(dca_unregister_notify);
+/* DISABLED: EXPORT_SYMBOL_GPL(dca_unregister_notify); */
 
 static int __init dca_init(void)
 {

@@ -57,7 +57,7 @@ int pci_enable_pcie_error_reporting(struct pci_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pci_enable_pcie_error_reporting);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_enable_pcie_error_reporting); */
 
 int pci_disable_pcie_error_reporting(struct pci_dev *dev)
 {
@@ -80,7 +80,7 @@ int pci_disable_pcie_error_reporting(struct pci_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pci_disable_pcie_error_reporting);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_disable_pcie_error_reporting); */
 
 int pci_cleanup_aer_uncorrect_error_status(struct pci_dev *dev)
 {
@@ -97,7 +97,7 @@ int pci_cleanup_aer_uncorrect_error_status(struct pci_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pci_cleanup_aer_uncorrect_error_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_cleanup_aer_uncorrect_error_status); */
 
 /**
  * add_error_device - list device to be handled
@@ -620,7 +620,7 @@ void aer_recover_queue(int domain, unsigned int bus, unsigned int devfn,
 		       domain, bus, PCI_SLOT(devfn), PCI_FUNC(devfn));
 	spin_unlock_irqrestore(&aer_recover_ring_lock, flags);
 }
-EXPORT_SYMBOL_GPL(aer_recover_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(aer_recover_queue); */
 
 static void aer_recover_work_func(struct work_struct *work)
 {

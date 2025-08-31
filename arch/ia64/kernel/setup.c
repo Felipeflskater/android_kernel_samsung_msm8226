@@ -69,7 +69,7 @@
 
 #ifdef CONFIG_SMP
 unsigned long __per_cpu_offset[NR_CPUS];
-EXPORT_SYMBOL(__per_cpu_offset);
+/* DISABLED: EXPORT_SYMBOL(__per_cpu_offset); */
 #endif
 
 DEFINE_PER_CPU(struct cpuinfo_ia64, ia64_cpu_info);
@@ -98,9 +98,9 @@ static struct resource bss_resource = {
 unsigned long ia64_max_cacheline_size;
 
 unsigned long ia64_iobase;	/* virtual address for I/O accesses */
-EXPORT_SYMBOL(ia64_iobase);
+/* DISABLED: EXPORT_SYMBOL(ia64_iobase); */
 struct io_space io_space[MAX_IO_SPACES];
-EXPORT_SYMBOL(io_space);
+/* DISABLED: EXPORT_SYMBOL(io_space); */
 unsigned int num_io_spaces;
 
 /*
@@ -127,7 +127,7 @@ unsigned long ia64_cache_stride_shift = ~0;
  * page-size of 2^64.
  */
 unsigned long ia64_max_iommu_merge_mask = ~0UL;
-EXPORT_SYMBOL(ia64_max_iommu_merge_mask);
+/* DISABLED: EXPORT_SYMBOL(ia64_max_iommu_merge_mask); */
 
 /*
  * We use a special marker for the end of memory and it uses the extra (+1) slot

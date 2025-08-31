@@ -50,7 +50,7 @@ static int __init apc_setup(char *str)
 	}
 	return 0;
 }
-/* DISABLED: __setup("apc=", apc_setup); */
+/* DISABLED: __setup("apc=", apc_setup); */ */
 
 /* 
  * CPU idle callback function

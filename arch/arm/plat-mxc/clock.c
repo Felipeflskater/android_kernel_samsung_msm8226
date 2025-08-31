@@ -93,7 +93,7 @@ int clk_enable(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 /* This function decrements the reference count on the clock and disables
  * the clock when reference count is 0. The parent clock tree is
@@ -108,7 +108,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	mutex_unlock(&clocks_mutex);
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 /* Retrieve the *current* clock rate. If the clock itself
  * does not provide a special calculation routine, ask
@@ -125,7 +125,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return clk_get_rate(clk->parent);
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 /* Round the requested clock rate to the nearest supported
  * rate that is less than or equal to the requested rate.
@@ -138,7 +138,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return clk->round_rate(clk, rate);
 }
-EXPORT_SYMBOL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
 
 /* Set the clock to the requested clock rate. The rate must
  * match a supported rate exactly based on what clk_round_rate returns
@@ -156,7 +156,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
 
 /* Set the clock's parent to another clock source */
 int clk_set_parent(struct clk *clk, struct clk *parent)
@@ -186,7 +186,7 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return ret;
 }
-EXPORT_SYMBOL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
 
 /* Retrieve the clock's parent clock source */
 struct clk *clk_get_parent(struct clk *clk)
@@ -198,7 +198,7 @@ struct clk *clk_get_parent(struct clk *clk)
 
 	return clk->parent;
 }
-EXPORT_SYMBOL(clk_get_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
 
 /*
  * Get the resulting clock rate from a PLL register value and the input

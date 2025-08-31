@@ -10,10 +10,10 @@
 #include <linux/module.h>
 #include <linux/xz.h>
 
-EXPORT_SYMBOL(xz_dec_init);
-EXPORT_SYMBOL(xz_dec_reset);
-EXPORT_SYMBOL(xz_dec_run);
-EXPORT_SYMBOL(xz_dec_end);
+/* DISABLED: EXPORT_SYMBOL(xz_dec_init); */
+/* DISABLED: EXPORT_SYMBOL(xz_dec_reset); */
+/* DISABLED: EXPORT_SYMBOL(xz_dec_run); */
+/* DISABLED: EXPORT_SYMBOL(xz_dec_end); */
 
 MODULE_DESCRIPTION("XZ decompressor");
 MODULE_VERSION("1.0");

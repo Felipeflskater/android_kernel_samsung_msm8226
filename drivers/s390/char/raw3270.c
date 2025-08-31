@@ -1434,23 +1434,23 @@ MODULE_LICENSE("GPL");
 module_init(raw3270_init);
 module_exit(raw3270_exit);
 
-EXPORT_SYMBOL(raw3270_request_alloc);
-EXPORT_SYMBOL(raw3270_request_free);
-EXPORT_SYMBOL(raw3270_request_reset);
-EXPORT_SYMBOL(raw3270_request_set_cmd);
-EXPORT_SYMBOL(raw3270_request_add_data);
-EXPORT_SYMBOL(raw3270_request_set_data);
-EXPORT_SYMBOL(raw3270_request_set_idal);
-EXPORT_SYMBOL(raw3270_buffer_address);
-EXPORT_SYMBOL(raw3270_add_view);
-EXPORT_SYMBOL(raw3270_del_view);
-EXPORT_SYMBOL(raw3270_find_view);
-EXPORT_SYMBOL(raw3270_activate_view);
-EXPORT_SYMBOL(raw3270_deactivate_view);
-EXPORT_SYMBOL(raw3270_start);
-EXPORT_SYMBOL(raw3270_start_locked);
-EXPORT_SYMBOL(raw3270_start_irq);
-EXPORT_SYMBOL(raw3270_reset);
-EXPORT_SYMBOL(raw3270_register_notifier);
-EXPORT_SYMBOL(raw3270_unregister_notifier);
-EXPORT_SYMBOL(raw3270_wait_queue);
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_alloc); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_free); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_reset); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_set_cmd); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_add_data); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_set_data); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_request_set_idal); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_buffer_address); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_add_view); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_del_view); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_find_view); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_activate_view); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_deactivate_view); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_start); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_start_locked); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_start_irq); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_reset); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_register_notifier); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_unregister_notifier); */
+/* DISABLED: EXPORT_SYMBOL(raw3270_wait_queue); */

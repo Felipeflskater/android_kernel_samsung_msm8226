@@ -53,7 +53,7 @@ void phy_print_status(struct phy_device *phydev)
 
 	printk(KERN_CONT "\n");
 }
-EXPORT_SYMBOL(phy_print_status);
+/* DISABLED: EXPORT_SYMBOL(phy_print_status); */
 
 
 /**
@@ -280,7 +280,7 @@ int phy_ethtool_sset(struct phy_device *phydev, struct ethtool_cmd *cmd)
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_ethtool_sset);
+/* DISABLED: EXPORT_SYMBOL(phy_ethtool_sset); */
 
 int phy_ethtool_gset(struct phy_device *phydev, struct ethtool_cmd *cmd)
 {
@@ -297,7 +297,7 @@ int phy_ethtool_gset(struct phy_device *phydev, struct ethtool_cmd *cmd)
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_ethtool_gset);
+/* DISABLED: EXPORT_SYMBOL(phy_ethtool_gset); */
 
 /**
  * phy_mii_ioctl - generic PHY MII ioctl interface
@@ -375,7 +375,7 @@ int phy_mii_ioctl(struct phy_device *phydev,
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_mii_ioctl);
+/* DISABLED: EXPORT_SYMBOL(phy_mii_ioctl); */
 
 /**
  * phy_start_aneg - start auto-negotiation for this PHY device
@@ -414,7 +414,7 @@ out_unlock:
 	mutex_unlock(&phydev->lock);
 	return err;
 }
-EXPORT_SYMBOL(phy_start_aneg);
+/* DISABLED: EXPORT_SYMBOL(phy_start_aneg); */
 
 
 static void phy_change(struct work_struct *work);
@@ -609,7 +609,7 @@ int phy_start_interrupts(struct phy_device *phydev)
 
 	return err;
 }
-EXPORT_SYMBOL(phy_start_interrupts);
+/* DISABLED: EXPORT_SYMBOL(phy_start_interrupts); */
 
 /**
  * phy_stop_interrupts - disable interrupts from a PHY device
@@ -643,7 +643,7 @@ int phy_stop_interrupts(struct phy_device *phydev)
 
 	return err;
 }
-EXPORT_SYMBOL(phy_stop_interrupts);
+/* DISABLED: EXPORT_SYMBOL(phy_stop_interrupts); */
 
 
 /**
@@ -758,8 +758,8 @@ void phy_start(struct phy_device *phydev)
 	}
 	mutex_unlock(&phydev->lock);
 }
-EXPORT_SYMBOL(phy_stop);
-EXPORT_SYMBOL(phy_start);
+/* DISABLED: EXPORT_SYMBOL(phy_stop); */
+/* DISABLED: EXPORT_SYMBOL(phy_start); */
 
 /**
  * phy_state_machine - Handle the state machine

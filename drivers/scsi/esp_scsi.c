@@ -128,7 +128,7 @@ void scsi_esp_cmd(struct esp *esp, u8 val)
 
 	esp_write8(val, ESP_CMD);
 }
-EXPORT_SYMBOL(scsi_esp_cmd);
+/* DISABLED: EXPORT_SYMBOL(scsi_esp_cmd); */
 
 static void esp_event(struct esp *esp, u8 val)
 {
@@ -2142,7 +2142,7 @@ irqreturn_t scsi_esp_intr(int irq, void *dev_id)
 
 	return ret;
 }
-EXPORT_SYMBOL(scsi_esp_intr);
+/* DISABLED: EXPORT_SYMBOL(scsi_esp_intr); */
 
 static void esp_get_revision(struct esp *esp)
 {
@@ -2350,13 +2350,13 @@ int scsi_esp_register(struct esp *esp, struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(scsi_esp_register);
+/* DISABLED: EXPORT_SYMBOL(scsi_esp_register); */
 
 void scsi_esp_unregister(struct esp *esp)
 {
 	scsi_remove_host(esp->host);
 }
-EXPORT_SYMBOL(scsi_esp_unregister);
+/* DISABLED: EXPORT_SYMBOL(scsi_esp_unregister); */
 
 static int esp_target_alloc(struct scsi_target *starget)
 {
@@ -2632,7 +2632,7 @@ struct scsi_host_template scsi_esp_template = {
 	.max_sectors		= 0xffff,
 	.skip_settle_delay	= 1,
 };
-EXPORT_SYMBOL(scsi_esp_template);
+/* DISABLED: EXPORT_SYMBOL(scsi_esp_template); */
 
 static void esp_get_signalling(struct Scsi_Host *host)
 {

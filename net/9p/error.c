@@ -209,7 +209,7 @@ int p9_error_init(void)
 
 	return 1;
 }
-EXPORT_SYMBOL(p9_error_init);
+/* DISABLED: EXPORT_SYMBOL(p9_error_init); */
 
 /**
  * errstr2errno - convert error string to error number
@@ -246,4 +246,4 @@ int p9_errstr2errno(char *errstr, int len)
 
 	return -errno;
 }
-EXPORT_SYMBOL(p9_errstr2errno);
+/* DISABLED: EXPORT_SYMBOL(p9_errstr2errno); */

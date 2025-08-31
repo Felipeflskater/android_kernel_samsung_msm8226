@@ -548,7 +548,7 @@ void nand_wait_ready(struct mtd_info *mtd)
 	} while (time_before(jiffies, timeo));
 	led_trigger_event(nand_led_trigger, LED_OFF);
 }
-EXPORT_SYMBOL_GPL(nand_wait_ready);
+/* DISABLED: EXPORT_SYMBOL_GPL(nand_wait_ready); */
 
 /**
  * nand_command - [DEFAULT] Send command to NAND device
@@ -995,7 +995,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(nand_unlock);
+/* DISABLED: EXPORT_SYMBOL(nand_unlock); */
 
 /**
  * nand_lock - [REPLACEABLE] locks all blocks present in the device
@@ -1059,7 +1059,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(nand_lock);
+/* DISABLED: EXPORT_SYMBOL(nand_lock); */
 
 /**
  * nand_read_page_raw - [INTERN] read raw page data without ecc
@@ -3225,7 +3225,7 @@ int nand_scan_ident(struct mtd_info *mtd, int maxchips,
 
 	return 0;
 }
-EXPORT_SYMBOL(nand_scan_ident);
+/* DISABLED: EXPORT_SYMBOL(nand_scan_ident); */
 
 
 /**
@@ -3500,7 +3500,7 @@ int nand_scan_tail(struct mtd_info *mtd)
 	/* Build bad block table */
 	return chip->scan_bbt(mtd);
 }
-EXPORT_SYMBOL(nand_scan_tail);
+/* DISABLED: EXPORT_SYMBOL(nand_scan_tail); */
 
 /*
  * is_module_text_address() isn't exported, and it's mostly a pointless
@@ -3539,7 +3539,7 @@ int nand_scan(struct mtd_info *mtd, int maxchips)
 		ret = nand_scan_tail(mtd);
 	return ret;
 }
-EXPORT_SYMBOL(nand_scan);
+/* DISABLED: EXPORT_SYMBOL(nand_scan); */
 
 /**
  * nand_release - [NAND Interface] Free resources held by the NAND device
@@ -3564,7 +3564,7 @@ void nand_release(struct mtd_info *mtd)
 			& NAND_BBT_DYNAMICSTRUCT)
 		kfree(chip->badblock_pattern);
 }
-EXPORT_SYMBOL_GPL(nand_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(nand_release); */
 
 static int __init nand_base_init(void)
 {

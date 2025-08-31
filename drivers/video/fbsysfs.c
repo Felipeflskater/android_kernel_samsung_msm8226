@@ -67,7 +67,7 @@ struct fb_info *framebuffer_alloc(size_t size, struct device *dev)
 #undef PADDING
 #undef BYTES_PER_LONG
 }
-EXPORT_SYMBOL(framebuffer_alloc);
+/* DISABLED: EXPORT_SYMBOL(framebuffer_alloc); */
 
 /**
  * framebuffer_release - marks the structure available for freeing
@@ -83,7 +83,7 @@ void framebuffer_release(struct fb_info *info)
 	kfree(info->apertures);
 	kfree(info);
 }
-EXPORT_SYMBOL(framebuffer_release);
+/* DISABLED: EXPORT_SYMBOL(framebuffer_release); */
 
 static int activate(struct fb_info *fb_info, struct fb_var_screeninfo *var)
 {
@@ -573,5 +573,5 @@ void fb_bl_default_curve(struct fb_info *fb_info, u8 off, u8 min, u8 max)
 
 	mutex_unlock(&fb_info->bl_curve_mutex);
 }
-EXPORT_SYMBOL_GPL(fb_bl_default_curve);
+/* DISABLED: EXPORT_SYMBOL_GPL(fb_bl_default_curve); */
 #endif

@@ -45,7 +45,7 @@ int rdmsr_on_cpu(unsigned int cpu, u32 msr_no, u32 *l, u32 *h)
 
 	return err;
 }
-EXPORT_SYMBOL(rdmsr_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(rdmsr_on_cpu); */
 
 int wrmsr_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h)
 {
@@ -61,7 +61,7 @@ int wrmsr_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h)
 
 	return err;
 }
-EXPORT_SYMBOL(wrmsr_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(wrmsr_on_cpu); */
 
 static void __rwmsr_on_cpus(const struct cpumask *mask, u32 msr_no,
 			    struct msr *msrs,
@@ -95,7 +95,7 @@ void rdmsr_on_cpus(const struct cpumask *mask, u32 msr_no, struct msr *msrs)
 {
 	__rwmsr_on_cpus(mask, msr_no, msrs, __rdmsr_on_cpu);
 }
-EXPORT_SYMBOL(rdmsr_on_cpus);
+/* DISABLED: EXPORT_SYMBOL(rdmsr_on_cpus); */
 
 /*
  * wrmsr on a bunch of CPUs
@@ -109,7 +109,7 @@ void wrmsr_on_cpus(const struct cpumask *mask, u32 msr_no, struct msr *msrs)
 {
 	__rwmsr_on_cpus(mask, msr_no, msrs, __wrmsr_on_cpu);
 }
-EXPORT_SYMBOL(wrmsr_on_cpus);
+/* DISABLED: EXPORT_SYMBOL(wrmsr_on_cpus); */
 
 /* These "safe" variants are slower and should be used when the target MSR
    may not actually exist. */
@@ -141,7 +141,7 @@ int rdmsr_safe_on_cpu(unsigned int cpu, u32 msr_no, u32 *l, u32 *h)
 
 	return err ? err : rv.err;
 }
-EXPORT_SYMBOL(rdmsr_safe_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(rdmsr_safe_on_cpu); */
 
 int wrmsr_safe_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h)
 {
@@ -157,7 +157,7 @@ int wrmsr_safe_on_cpu(unsigned int cpu, u32 msr_no, u32 l, u32 h)
 
 	return err ? err : rv.err;
 }
-EXPORT_SYMBOL(wrmsr_safe_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(wrmsr_safe_on_cpu); */
 
 /*
  * These variants are significantly slower, but allows control over
@@ -188,7 +188,7 @@ int rdmsr_safe_regs_on_cpu(unsigned int cpu, u32 *regs)
 
 	return err ? err : rv.err;
 }
-EXPORT_SYMBOL(rdmsr_safe_regs_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(rdmsr_safe_regs_on_cpu); */
 
 int wrmsr_safe_regs_on_cpu(unsigned int cpu, u32 *regs)
 {
@@ -201,4 +201,4 @@ int wrmsr_safe_regs_on_cpu(unsigned int cpu, u32 *regs)
 
 	return err ? err : rv.err;
 }
-EXPORT_SYMBOL(wrmsr_safe_regs_on_cpu);
+/* DISABLED: EXPORT_SYMBOL(wrmsr_safe_regs_on_cpu); */

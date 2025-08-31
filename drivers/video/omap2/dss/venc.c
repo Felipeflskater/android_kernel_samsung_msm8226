@@ -273,7 +273,7 @@ const struct omap_video_timings omap_dss_pal_timings = {
 	.vfp		= 5,
 	.vbp		= 41,
 };
-EXPORT_SYMBOL(omap_dss_pal_timings);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_pal_timings); */
 
 const struct omap_video_timings omap_dss_ntsc_timings = {
 	.x_res		= 720,
@@ -286,7 +286,7 @@ const struct omap_video_timings omap_dss_ntsc_timings = {
 	.vfp		= 6,
 	.vbp		= 31,
 };
-EXPORT_SYMBOL(omap_dss_ntsc_timings);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_ntsc_timings); */
 
 static struct {
 	struct platform_device *pdev;

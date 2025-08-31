@@ -183,7 +183,7 @@ int ib_response_mad(struct ib_mad *mad)
 		((mad->mad_hdr.mgmt_class == IB_MGMT_CLASS_BM) &&
 		 (mad->mad_hdr.attr_mod & IB_BM_ATTR_MOD_RESP)));
 }
-EXPORT_SYMBOL(ib_response_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_response_mad); */
 
 /*
  * ib_register_mad_agent - Register to send/receive MADs
@@ -387,7 +387,7 @@ error2:
 error1:
 	return ret;
 }
-EXPORT_SYMBOL(ib_register_mad_agent);
+/* DISABLED: EXPORT_SYMBOL(ib_register_mad_agent); */
 
 static inline int is_snooping_sends(int mad_snoop_flags)
 {
@@ -501,7 +501,7 @@ error2:
 error1:
 	return ret;
 }
-EXPORT_SYMBOL(ib_register_mad_snoop);
+/* DISABLED: EXPORT_SYMBOL(ib_register_mad_snoop); */
 
 static inline void deref_mad_agent(struct ib_mad_agent_private *mad_agent_priv)
 {
@@ -585,7 +585,7 @@ int ib_unregister_mad_agent(struct ib_mad_agent *mad_agent)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ib_unregister_mad_agent);
+/* DISABLED: EXPORT_SYMBOL(ib_unregister_mad_agent); */
 
 static void dequeue_mad(struct ib_mad_list_head *mad_list)
 {
@@ -922,7 +922,7 @@ struct ib_mad_send_buf * ib_create_send_mad(struct ib_mad_agent *mad_agent,
 	atomic_inc(&mad_agent_priv->refcount);
 	return &mad_send_wr->send_buf;
 }
-EXPORT_SYMBOL(ib_create_send_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_create_send_mad); */
 
 int ib_get_mad_data_offset(u8 mgmt_class)
 {
@@ -938,7 +938,7 @@ int ib_get_mad_data_offset(u8 mgmt_class)
 	else
 		return IB_MGMT_MAD_HDR;
 }
-EXPORT_SYMBOL(ib_get_mad_data_offset);
+/* DISABLED: EXPORT_SYMBOL(ib_get_mad_data_offset); */
 
 int ib_is_mad_class_rmpp(u8 mgmt_class)
 {
@@ -951,7 +951,7 @@ int ib_is_mad_class_rmpp(u8 mgmt_class)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(ib_is_mad_class_rmpp);
+/* DISABLED: EXPORT_SYMBOL(ib_is_mad_class_rmpp); */
 
 void *ib_get_rmpp_segment(struct ib_mad_send_buf *send_buf, int seg_num)
 {
@@ -973,7 +973,7 @@ void *ib_get_rmpp_segment(struct ib_mad_send_buf *send_buf, int seg_num)
 	}
 	return mad_send_wr->cur_seg->data;
 }
-EXPORT_SYMBOL(ib_get_rmpp_segment);
+/* DISABLED: EXPORT_SYMBOL(ib_get_rmpp_segment); */
 
 static inline void *ib_get_payload(struct ib_mad_send_wr_private *mad_send_wr)
 {
@@ -999,7 +999,7 @@ void ib_free_send_mad(struct ib_mad_send_buf *send_buf)
 	kfree(send_buf->mad);
 	deref_mad_agent(mad_agent_priv);
 }
-EXPORT_SYMBOL(ib_free_send_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_free_send_mad); */
 
 int ib_send_mad(struct ib_mad_send_wr_private *mad_send_wr)
 {
@@ -1147,7 +1147,7 @@ error:
 		*bad_send_buf = send_buf;
 	return ret;
 }
-EXPORT_SYMBOL(ib_post_send_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_post_send_mad); */
 
 /*
  * ib_free_recv_mad - Returns data buffers used to receive
@@ -1175,7 +1175,7 @@ void ib_free_recv_mad(struct ib_mad_recv_wc *mad_recv_wc)
 		kmem_cache_free(ib_mad_cache, priv);
 	}
 }
-EXPORT_SYMBOL(ib_free_recv_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_free_recv_mad); */
 
 struct ib_mad_agent *ib_redirect_mad_qp(struct ib_qp *qp,
 					u8 rmpp_version,
@@ -1185,7 +1185,7 @@ struct ib_mad_agent *ib_redirect_mad_qp(struct ib_qp *qp,
 {
 	return ERR_PTR(-EINVAL);	/* XXX: for now */
 }
-EXPORT_SYMBOL(ib_redirect_mad_qp);
+/* DISABLED: EXPORT_SYMBOL(ib_redirect_mad_qp); */
 
 int ib_process_mad_wc(struct ib_mad_agent *mad_agent,
 		      struct ib_wc *wc)
@@ -1193,7 +1193,7 @@ int ib_process_mad_wc(struct ib_mad_agent *mad_agent,
 	printk(KERN_ERR PFX "ib_process_mad_wc() not implemented yet\n");
 	return 0;
 }
-EXPORT_SYMBOL(ib_process_mad_wc);
+/* DISABLED: EXPORT_SYMBOL(ib_process_mad_wc); */
 
 static int method_in_use(struct ib_mad_mgmt_method_table **method,
 			 struct ib_mad_reg_req *mad_reg_req)
@@ -2370,14 +2370,14 @@ int ib_modify_mad(struct ib_mad_agent *mad_agent,
 	spin_unlock_irqrestore(&mad_agent_priv->lock, flags);
 	return 0;
 }
-EXPORT_SYMBOL(ib_modify_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_modify_mad); */
 
 void ib_cancel_mad(struct ib_mad_agent *mad_agent,
 		   struct ib_mad_send_buf *send_buf)
 {
 	ib_modify_mad(mad_agent, send_buf, 0);
 }
-EXPORT_SYMBOL(ib_cancel_mad);
+/* DISABLED: EXPORT_SYMBOL(ib_cancel_mad); */
 
 static void local_completions(struct work_struct *work)
 {

@@ -867,7 +867,7 @@ struct ctl_path net_ipv4_ctl_path[] = {
 	{ .procname = "ipv4", },
 	{ },
 };
-EXPORT_SYMBOL_GPL(net_ipv4_ctl_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(net_ipv4_ctl_path); */
 
 static __net_init int ipv4_sysctl_init_net(struct net *net)
 {

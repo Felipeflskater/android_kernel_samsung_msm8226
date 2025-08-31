@@ -152,7 +152,7 @@ void mc13xxx_lock(struct mc13xxx *mc13xxx)
 	dev_dbg(&mc13xxx->spidev->dev, "%s from %pf\n",
 			__func__, __builtin_return_address(0));
 }
-EXPORT_SYMBOL(mc13xxx_lock);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_lock); */
 
 void mc13xxx_unlock(struct mc13xxx *mc13xxx)
 {
@@ -160,7 +160,7 @@ void mc13xxx_unlock(struct mc13xxx *mc13xxx)
 			__func__, __builtin_return_address(0));
 	mutex_unlock(&mc13xxx->lock);
 }
-EXPORT_SYMBOL(mc13xxx_unlock);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_unlock); */
 
 #define MC13XXX_REGOFFSET_SHIFT 25
 int mc13xxx_reg_read(struct mc13xxx *mc13xxx, unsigned int offset, u32 *val)
@@ -199,7 +199,7 @@ int mc13xxx_reg_read(struct mc13xxx *mc13xxx, unsigned int offset, u32 *val)
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_reg_read);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_reg_read); */
 
 int mc13xxx_reg_write(struct mc13xxx *mc13xxx, unsigned int offset, u32 val)
 {
@@ -235,7 +235,7 @@ int mc13xxx_reg_write(struct mc13xxx *mc13xxx, unsigned int offset, u32 val)
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_reg_write);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_reg_write); */
 
 int mc13xxx_reg_rmw(struct mc13xxx *mc13xxx, unsigned int offset,
 		u32 mask, u32 val)
@@ -253,7 +253,7 @@ int mc13xxx_reg_rmw(struct mc13xxx *mc13xxx, unsigned int offset,
 
 	return mc13xxx_reg_write(mc13xxx, offset, valread);
 }
-EXPORT_SYMBOL(mc13xxx_reg_rmw);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_reg_rmw); */
 
 int mc13xxx_irq_mask(struct mc13xxx *mc13xxx, int irq)
 {
@@ -275,7 +275,7 @@ int mc13xxx_irq_mask(struct mc13xxx *mc13xxx, int irq)
 
 	return mc13xxx_reg_write(mc13xxx, offmask, mask | irqbit);
 }
-EXPORT_SYMBOL(mc13xxx_irq_mask);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_mask); */
 
 int mc13xxx_irq_unmask(struct mc13xxx *mc13xxx, int irq)
 {
@@ -297,7 +297,7 @@ int mc13xxx_irq_unmask(struct mc13xxx *mc13xxx, int irq)
 
 	return mc13xxx_reg_write(mc13xxx, offmask, mask & ~irqbit);
 }
-EXPORT_SYMBOL(mc13xxx_irq_unmask);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_unmask); */
 
 int mc13xxx_irq_status(struct mc13xxx *mc13xxx, int irq,
 		int *enabled, int *pending)
@@ -332,7 +332,7 @@ int mc13xxx_irq_status(struct mc13xxx *mc13xxx, int irq,
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_irq_status);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_status); */
 
 int mc13xxx_irq_ack(struct mc13xxx *mc13xxx, int irq)
 {
@@ -343,7 +343,7 @@ int mc13xxx_irq_ack(struct mc13xxx *mc13xxx, int irq)
 
 	return mc13xxx_reg_write(mc13xxx, offstat, val);
 }
-EXPORT_SYMBOL(mc13xxx_irq_ack);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_ack); */
 
 int mc13xxx_irq_request_nounmask(struct mc13xxx *mc13xxx, int irq,
 		irq_handler_t handler, const char *name, void *dev)
@@ -362,7 +362,7 @@ int mc13xxx_irq_request_nounmask(struct mc13xxx *mc13xxx, int irq,
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_irq_request_nounmask);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_request_nounmask); */
 
 int mc13xxx_irq_request(struct mc13xxx *mc13xxx, int irq,
 		irq_handler_t handler, const char *name, void *dev)
@@ -382,7 +382,7 @@ int mc13xxx_irq_request(struct mc13xxx *mc13xxx, int irq,
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_irq_request);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_request); */
 
 int mc13xxx_irq_free(struct mc13xxx *mc13xxx, int irq, void *dev)
 {
@@ -402,7 +402,7 @@ int mc13xxx_irq_free(struct mc13xxx *mc13xxx, int irq, void *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(mc13xxx_irq_free);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_irq_free); */
 
 static inline irqreturn_t mc13xxx_irqhandler(struct mc13xxx *mc13xxx, int irq)
 {
@@ -556,7 +556,7 @@ int mc13xxx_get_flags(struct mc13xxx *mc13xxx)
 {
 	return mc13xxx->flags;
 }
-EXPORT_SYMBOL(mc13xxx_get_flags);
+/* DISABLED: EXPORT_SYMBOL(mc13xxx_get_flags); */
 
 #define MC13XXX_ADC1_CHAN0_SHIFT	5
 #define MC13XXX_ADC1_CHAN1_SHIFT	8
@@ -674,7 +674,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(mc13xxx_adc_do_conversion);
+/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_adc_do_conversion); */
 
 static int mc13xxx_add_subdevice_pdata(struct mc13xxx *mc13xxx,
 		const char *format, void *pdata, size_t pdata_size)

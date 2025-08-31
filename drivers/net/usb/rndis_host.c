@@ -63,7 +63,7 @@ void rndis_status(struct usbnet *dev, struct urb *urb)
 	// FIXME for keepalives, respond immediately (asynchronously)
 	// if not an RNDIS status, do like cdc_status(dev,urb) does
 }
-EXPORT_SYMBOL_GPL(rndis_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(rndis_status); */
 
 /*
  * RNDIS indicate messages.
@@ -217,7 +217,7 @@ int rndis_command(struct usbnet *dev, struct rndis_msg_hdr *buf, int buflen)
 	dev_dbg(&info->control->dev, "rndis response timeout\n");
 	return -ETIMEDOUT;
 }
-EXPORT_SYMBOL_GPL(rndis_command);
+/* DISABLED: EXPORT_SYMBOL_GPL(rndis_command); */
 
 /*
  * rndis_query:
@@ -461,7 +461,7 @@ fail:
 	kfree(u.buf);
 	return retval;
 }
-EXPORT_SYMBOL_GPL(generic_rndis_bind);
+/* DISABLED: EXPORT_SYMBOL_GPL(generic_rndis_bind); */
 
 static int rndis_bind(struct usbnet *dev, struct usb_interface *intf)
 {
@@ -483,7 +483,7 @@ void rndis_unbind(struct usbnet *dev, struct usb_interface *intf)
 
 	usbnet_cdc_unbind(dev, intf);
 }
-EXPORT_SYMBOL_GPL(rndis_unbind);
+/* DISABLED: EXPORT_SYMBOL_GPL(rndis_unbind); */
 
 /*
  * DATA -- host must not write zlps
@@ -534,7 +534,7 @@ int rndis_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
 	/* caller will usbnet_skb_return the remaining packet */
 	return 1;
 }
-EXPORT_SYMBOL_GPL(rndis_rx_fixup);
+/* DISABLED: EXPORT_SYMBOL_GPL(rndis_rx_fixup); */
 
 struct sk_buff *
 rndis_tx_fixup(struct usbnet *dev, struct sk_buff *skb, gfp_t flags)
@@ -581,7 +581,7 @@ fill:
 	/* FIXME make the last packet always be short ... */
 	return skb;
 }
-EXPORT_SYMBOL_GPL(rndis_tx_fixup);
+/* DISABLED: EXPORT_SYMBOL_GPL(rndis_tx_fixup); */
 
 
 static const struct driver_info	rndis_info = {

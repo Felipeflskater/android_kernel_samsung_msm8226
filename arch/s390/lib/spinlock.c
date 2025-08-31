@@ -23,7 +23,7 @@ static int __init spin_retry_setup(char *str)
 	spin_retry = simple_strtoul(str, &str, 0);
 	return 1;
 }
-/* DISABLED: __setup("spin_retry=", spin_retry_setup); */
+/* DISABLED: __setup("spin_retry=", spin_retry_setup); */ */
 
 void arch_spin_lock_wait(arch_spinlock_t *lp)
 {
@@ -51,7 +51,7 @@ void arch_spin_lock_wait(arch_spinlock_t *lp)
 			return;
 	}
 }
-EXPORT_SYMBOL(arch_spin_lock_wait);
+/* DISABLED: EXPORT_SYMBOL(arch_spin_lock_wait); */
 
 void arch_spin_lock_wait_flags(arch_spinlock_t *lp, unsigned long flags)
 {
@@ -84,7 +84,7 @@ void arch_spin_lock_wait_flags(arch_spinlock_t *lp, unsigned long flags)
 		local_irq_restore(flags);
 	}
 }
-EXPORT_SYMBOL(arch_spin_lock_wait_flags);
+/* DISABLED: EXPORT_SYMBOL(arch_spin_lock_wait_flags); */
 
 int arch_spin_trylock_retry(arch_spinlock_t *lp)
 {
@@ -99,7 +99,7 @@ int arch_spin_trylock_retry(arch_spinlock_t *lp)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(arch_spin_trylock_retry);
+/* DISABLED: EXPORT_SYMBOL(arch_spin_trylock_retry); */
 
 void arch_spin_relax(arch_spinlock_t *lock)
 {
@@ -110,7 +110,7 @@ void arch_spin_relax(arch_spinlock_t *lock)
 			smp_yield_cpu(~cpu);
 	}
 }
-EXPORT_SYMBOL(arch_spin_relax);
+/* DISABLED: EXPORT_SYMBOL(arch_spin_relax); */
 
 void _raw_read_lock_wait(arch_rwlock_t *rw)
 {
@@ -129,7 +129,7 @@ void _raw_read_lock_wait(arch_rwlock_t *rw)
 			return;
 	}
 }
-EXPORT_SYMBOL(_raw_read_lock_wait);
+/* DISABLED: EXPORT_SYMBOL(_raw_read_lock_wait); */
 
 void _raw_read_lock_wait_flags(arch_rwlock_t *rw, unsigned long flags)
 {
@@ -150,7 +150,7 @@ void _raw_read_lock_wait_flags(arch_rwlock_t *rw, unsigned long flags)
 			return;
 	}
 }
-EXPORT_SYMBOL(_raw_read_lock_wait_flags);
+/* DISABLED: EXPORT_SYMBOL(_raw_read_lock_wait_flags); */
 
 int _raw_read_trylock_retry(arch_rwlock_t *rw)
 {
@@ -166,7 +166,7 @@ int _raw_read_trylock_retry(arch_rwlock_t *rw)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(_raw_read_trylock_retry);
+/* DISABLED: EXPORT_SYMBOL(_raw_read_trylock_retry); */
 
 void _raw_write_lock_wait(arch_rwlock_t *rw)
 {
@@ -183,7 +183,7 @@ void _raw_write_lock_wait(arch_rwlock_t *rw)
 			return;
 	}
 }
-EXPORT_SYMBOL(_raw_write_lock_wait);
+/* DISABLED: EXPORT_SYMBOL(_raw_write_lock_wait); */
 
 void _raw_write_lock_wait_flags(arch_rwlock_t *rw, unsigned long flags)
 {
@@ -202,7 +202,7 @@ void _raw_write_lock_wait_flags(arch_rwlock_t *rw, unsigned long flags)
 			return;
 	}
 }
-EXPORT_SYMBOL(_raw_write_lock_wait_flags);
+/* DISABLED: EXPORT_SYMBOL(_raw_write_lock_wait_flags); */
 
 int _raw_write_trylock_retry(arch_rwlock_t *rw)
 {
@@ -216,4 +216,4 @@ int _raw_write_trylock_retry(arch_rwlock_t *rw)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(_raw_write_trylock_retry);
+/* DISABLED: EXPORT_SYMBOL(_raw_write_trylock_retry); */

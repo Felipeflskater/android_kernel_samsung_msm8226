@@ -2586,5 +2586,5 @@ static int eata2x_release(struct Scsi_Host *shost)
 #include "scsi_module.c"
 
 #ifndef MODULE
-/* DISABLED: __setup("eata=", option_setup); */
+/* DISABLED: __setup("eata=", option_setup); */ */
 #endif				/* end MODULE */

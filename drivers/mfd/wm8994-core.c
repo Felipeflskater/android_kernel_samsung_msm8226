@@ -48,7 +48,7 @@ int wm8994_reg_read(struct wm8994 *wm8994, unsigned short reg)
 	else
 		return val;
 }
-EXPORT_SYMBOL_GPL(wm8994_reg_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8994_reg_read); */
 
 /**
  * wm8994_bulk_read: Read multiple WM8994 registers
@@ -76,7 +76,7 @@ int wm8994_reg_write(struct wm8994 *wm8994, unsigned short reg,
 {
 	return regmap_write(wm8994->regmap, reg, val);
 }
-EXPORT_SYMBOL_GPL(wm8994_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8994_reg_write); */
 
 /**
  * wm8994_bulk_write: Write multiple WM8994 registers
@@ -91,7 +91,7 @@ int wm8994_bulk_write(struct wm8994 *wm8994, unsigned short reg,
 {
 	return regmap_raw_write(wm8994->regmap, reg, buf, count * sizeof(u16));
 }
-EXPORT_SYMBOL_GPL(wm8994_bulk_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8994_bulk_write); */
 
 /**
  * wm8994_set_bits: Set the value of a bitfield in a WM8994 register
@@ -106,7 +106,7 @@ int wm8994_set_bits(struct wm8994 *wm8994, unsigned short reg,
 {
 	return regmap_update_bits(wm8994->regmap, reg, mask, val);
 }
-EXPORT_SYMBOL_GPL(wm8994_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8994_set_bits); */
 
 static struct mfd_cell wm8994_regulator_devs[] = {
 	{

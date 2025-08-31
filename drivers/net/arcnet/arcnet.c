@@ -87,18 +87,18 @@ static struct ArcProto arc_proto_null =
 /* Exported function prototypes */
 int arcnet_debug = ARCNET_DEBUG;
 
-EXPORT_SYMBOL(arc_proto_map);
-EXPORT_SYMBOL(arc_proto_default);
-EXPORT_SYMBOL(arc_bcast_proto);
-EXPORT_SYMBOL(arc_raw_proto);
-EXPORT_SYMBOL(arcnet_unregister_proto);
-EXPORT_SYMBOL(arcnet_debug);
-EXPORT_SYMBOL(alloc_arcdev);
-EXPORT_SYMBOL(arcnet_interrupt);
-EXPORT_SYMBOL(arcnet_open);
-EXPORT_SYMBOL(arcnet_close);
-EXPORT_SYMBOL(arcnet_send_packet);
-EXPORT_SYMBOL(arcnet_timeout);
+/* DISABLED: EXPORT_SYMBOL(arc_proto_map); */
+/* DISABLED: EXPORT_SYMBOL(arc_proto_default); */
+/* DISABLED: EXPORT_SYMBOL(arc_bcast_proto); */
+/* DISABLED: EXPORT_SYMBOL(arc_raw_proto); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_unregister_proto); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_debug); */
+/* DISABLED: EXPORT_SYMBOL(alloc_arcdev); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_interrupt); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_open); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_close); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_send_packet); */
+/* DISABLED: EXPORT_SYMBOL(arcnet_timeout); */
 
 /* Internal function prototypes */
 static int arcnet_header(struct sk_buff *skb, struct net_device *dev,
@@ -166,7 +166,7 @@ void arcnet_dump_skb(struct net_device *dev,
 		       16, 1, skb->data, skb->len, true);
 }
 
-EXPORT_SYMBOL(arcnet_dump_skb);
+/* DISABLED: EXPORT_SYMBOL(arcnet_dump_skb); */
 #endif
 
 

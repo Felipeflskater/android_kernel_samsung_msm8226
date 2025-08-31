@@ -159,7 +159,7 @@ void machine_power_off(void)
 }
 
 void (*pm_power_off)(void) = machine_power_off;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /*
  * Create a kernel thread
@@ -176,7 +176,7 @@ pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 
 	return __kernel_thread(fn, arg, flags);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * Free current thread data structures etc..

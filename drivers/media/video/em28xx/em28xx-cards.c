@@ -2201,7 +2201,7 @@ int em28xx_tuner_callback(void *ptr, int component, int command, int arg)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(em28xx_tuner_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_tuner_callback); */
 
 static inline void em28xx_set_model(struct em28xx *dev)
 {

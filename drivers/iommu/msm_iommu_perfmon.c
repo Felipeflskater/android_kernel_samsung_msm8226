@@ -748,7 +748,7 @@ file_err:
 out:
 	return ret;
 }
-EXPORT_SYMBOL(msm_iommu_pm_iommu_register);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_pm_iommu_register); */
 
 void msm_iommu_pm_iommu_unregister(struct device *dev)
 {
@@ -775,7 +775,7 @@ remove_debugfs:
 
 	return;
 }
-EXPORT_SYMBOL(msm_iommu_pm_iommu_unregister);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_pm_iommu_unregister); */
 
 struct iommu_pmon *msm_iommu_pm_alloc(struct device *dev)
 {
@@ -790,7 +790,7 @@ struct iommu_pmon *msm_iommu_pm_alloc(struct device *dev)
 	iommu_pm_add_to_iommu_list(pmon_entry);
 	return pmon_entry;
 }
-EXPORT_SYMBOL(msm_iommu_pm_alloc);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_pm_alloc); */
 
 void msm_iommu_pm_free(struct device *dev)
 {
@@ -798,7 +798,7 @@ void msm_iommu_pm_free(struct device *dev)
 	if (pmon)
 		iommu_pm_del_from_iommu_list(pmon);
 }
-EXPORT_SYMBOL(msm_iommu_pm_free);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_pm_free); */
 
 void msm_iommu_attached(struct device *dev)
 {
@@ -816,7 +816,7 @@ void msm_iommu_attached(struct device *dev)
 		mutex_unlock(&pmon->lock);
 	}
 }
-EXPORT_SYMBOL(msm_iommu_attached);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_attached); */
 
 void msm_iommu_detached(struct device *dev)
 {
@@ -835,5 +835,5 @@ void msm_iommu_detached(struct device *dev)
 		mutex_unlock(&pmon->lock);
 	}
 }
-EXPORT_SYMBOL(msm_iommu_detached);
+/* DISABLED: EXPORT_SYMBOL(msm_iommu_detached); */
 

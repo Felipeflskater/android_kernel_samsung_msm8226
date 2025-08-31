@@ -75,7 +75,7 @@ struct rc_map *rc_map_get(const char *name)
 
 	return &map->map;
 }
-EXPORT_SYMBOL_GPL(rc_map_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_map_get); */
 
 int rc_map_register(struct rc_map_list *map)
 {
@@ -84,7 +84,7 @@ int rc_map_register(struct rc_map_list *map)
 	spin_unlock(&rc_map_lock);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rc_map_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_map_register); */
 
 void rc_map_unregister(struct rc_map_list *map)
 {
@@ -92,7 +92,7 @@ void rc_map_unregister(struct rc_map_list *map)
 	list_del(&map->list);
 	spin_unlock(&rc_map_lock);
 }
-EXPORT_SYMBOL_GPL(rc_map_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_map_unregister); */
 
 
 static struct rc_map_table empty[] = {
@@ -518,7 +518,7 @@ u32 rc_g_keycode_from_table(struct rc_dev *dev, u32 scancode)
 
 	return keycode;
 }
-EXPORT_SYMBOL_GPL(rc_g_keycode_from_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_g_keycode_from_table); */
 
 /**
  * ir_do_keyup() - internal function to signal the release of a keypress
@@ -555,7 +555,7 @@ void rc_keyup(struct rc_dev *dev)
 	ir_do_keyup(dev, true);
 	spin_unlock_irqrestore(&dev->keylock, flags);
 }
-EXPORT_SYMBOL_GPL(rc_keyup);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_keyup); */
 
 /**
  * ir_timer_keyup() - generates a keyup event after a timeout
@@ -611,7 +611,7 @@ void rc_repeat(struct rc_dev *dev)
 out:
 	spin_unlock_irqrestore(&dev->keylock, flags);
 }
-EXPORT_SYMBOL_GPL(rc_repeat);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_repeat); */
 
 /**
  * ir_do_keydown() - internal function to process a keypress
@@ -675,7 +675,7 @@ void rc_keydown(struct rc_dev *dev, int scancode, u8 toggle)
 	}
 	spin_unlock_irqrestore(&dev->keylock, flags);
 }
-EXPORT_SYMBOL_GPL(rc_keydown);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_keydown); */
 
 /**
  * rc_keydown_notimeout() - generates input event for a key press without
@@ -697,7 +697,7 @@ void rc_keydown_notimeout(struct rc_dev *dev, int scancode, u8 toggle)
 	ir_do_keydown(dev, scancode, keycode, toggle);
 	spin_unlock_irqrestore(&dev->keylock, flags);
 }
-EXPORT_SYMBOL_GPL(rc_keydown_notimeout);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_keydown_notimeout); */
 
 static int ir_open(struct input_dev *idev)
 {
@@ -1010,7 +1010,7 @@ struct rc_dev *rc_allocate_device(void)
 	__module_get(THIS_MODULE);
 	return dev;
 }
-EXPORT_SYMBOL_GPL(rc_allocate_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_allocate_device); */
 
 void rc_free_device(struct rc_dev *dev)
 {
@@ -1025,7 +1025,7 @@ void rc_free_device(struct rc_dev *dev)
 	kfree(dev);
 	module_put(THIS_MODULE);
 }
-EXPORT_SYMBOL_GPL(rc_free_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_free_device); */
 
 int rc_register_device(struct rc_dev *dev)
 {
@@ -1145,7 +1145,7 @@ out_unlock:
 	mutex_unlock(&dev->lock);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(rc_register_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_register_device); */
 
 void rc_unregister_device(struct rc_dev *dev)
 {
@@ -1169,7 +1169,7 @@ void rc_unregister_device(struct rc_dev *dev)
 	rc_free_device(dev);
 }
 
-EXPORT_SYMBOL_GPL(rc_unregister_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_unregister_device); */
 
 /*
  * Init/exit code for the module. Basically, creates/removes /sys/class/rc
@@ -1198,7 +1198,7 @@ module_init(rc_core_init);
 module_exit(rc_core_exit);
 
 int rc_core_debug;    /* ir_debug level (0,1,2) */
-EXPORT_SYMBOL_GPL(rc_core_debug);
+/* DISABLED: EXPORT_SYMBOL_GPL(rc_core_debug); */
 module_param_named(debug, rc_core_debug, int, 0644);
 
 MODULE_AUTHOR("Mauro Carvalho Chehab <mchehab@redhat.com>");

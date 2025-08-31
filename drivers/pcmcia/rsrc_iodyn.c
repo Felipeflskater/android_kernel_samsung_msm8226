@@ -168,4 +168,4 @@ struct pccard_resource_ops pccard_iodyn_ops = {
 	.init = static_init,
 	.exit = NULL,
 };
-EXPORT_SYMBOL(pccard_iodyn_ops);
+/* DISABLED: EXPORT_SYMBOL(pccard_iodyn_ops); */

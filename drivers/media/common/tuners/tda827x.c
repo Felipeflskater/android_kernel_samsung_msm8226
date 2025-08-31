@@ -901,7 +901,7 @@ struct dvb_frontend *tda827x_attach(struct dvb_frontend *fe, int addr,
 
 	return fe;
 }
-EXPORT_SYMBOL_GPL(tda827x_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(tda827x_attach); */
 
 MODULE_DESCRIPTION("DVB TDA827x driver");
 MODULE_AUTHOR("Hartmut Hackmann <hartmut.hackmann@t-online.de>");

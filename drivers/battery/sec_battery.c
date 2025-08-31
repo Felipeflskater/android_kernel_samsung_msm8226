@@ -182,7 +182,7 @@ static int sec_bat_get_fg_reset(char *val)
 	pr_info("%s, fg_reset:%d\n", __func__, fg_reset);
 	return 1;
 }
-/* DISABLED: __setup("fg_reset=", sec_bat_get_fg_reset); */
+/* DISABLED: __setup("fg_reset=", sec_bat_get_fg_reset); */ */
 
 
 int poweroff_charging;
@@ -195,7 +195,7 @@ static int sec_bat_is_lpm_check(char *str)
 
 	return poweroff_charging;
 }
-/* DISABLED: __setup("androidboot.mode=", sec_bat_is_lpm_check); */
+/* DISABLED: __setup("androidboot.mode=", sec_bat_is_lpm_check); */ */
 
 static bool sec_bat_is_lpm(struct sec_battery_info *battery)
 {

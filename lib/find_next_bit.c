@@ -58,7 +58,7 @@ found_first:
 found_middle:
 	return result + __ffs(tmp);
 }
-EXPORT_SYMBOL(find_next_bit);
+/* DISABLED: EXPORT_SYMBOL(find_next_bit); */
 #endif
 
 #ifndef find_next_zero_bit
@@ -104,7 +104,7 @@ found_first:
 found_middle:
 	return result + ffz(tmp);
 }
-EXPORT_SYMBOL(find_next_zero_bit);
+/* DISABLED: EXPORT_SYMBOL(find_next_zero_bit); */
 #endif
 
 #ifndef find_first_bit
@@ -132,7 +132,7 @@ unsigned long find_first_bit(const unsigned long *addr, unsigned long size)
 found:
 	return result + __ffs(tmp);
 }
-EXPORT_SYMBOL(find_first_bit);
+/* DISABLED: EXPORT_SYMBOL(find_first_bit); */
 #endif
 
 #ifndef find_first_zero_bit
@@ -160,7 +160,7 @@ unsigned long find_first_zero_bit(const unsigned long *addr, unsigned long size)
 found:
 	return result + ffz(tmp);
 }
-EXPORT_SYMBOL(find_first_zero_bit);
+/* DISABLED: EXPORT_SYMBOL(find_first_zero_bit); */
 #endif
 
 #ifdef __BIG_ENDIAN
@@ -232,7 +232,7 @@ found_middle:
 found_middle_swap:
 	return result + ffz(ext2_swab(tmp));
 }
-EXPORT_SYMBOL(find_next_zero_bit_le);
+/* DISABLED: EXPORT_SYMBOL(find_next_zero_bit_le); */
 #endif
 
 #ifndef find_next_bit_le
@@ -279,7 +279,7 @@ found_middle:
 found_middle_swap:
 	return result + __ffs(ext2_swab(tmp));
 }
-EXPORT_SYMBOL(find_next_bit_le);
+/* DISABLED: EXPORT_SYMBOL(find_next_bit_le); */
 #endif
 
 #endif /* __BIG_ENDIAN */

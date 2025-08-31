@@ -454,5 +454,5 @@ void hostap_remove_proc(local_info_t *local)
 }
 
 
-EXPORT_SYMBOL(hostap_init_proc);
-EXPORT_SYMBOL(hostap_remove_proc);
+/* DISABLED: EXPORT_SYMBOL(hostap_init_proc); */
+/* DISABLED: EXPORT_SYMBOL(hostap_remove_proc); */

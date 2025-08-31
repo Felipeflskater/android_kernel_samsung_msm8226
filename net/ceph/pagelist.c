@@ -26,7 +26,7 @@ int ceph_pagelist_release(struct ceph_pagelist *pl)
 	ceph_pagelist_free_reserve(pl);
 	return 0;
 }
-EXPORT_SYMBOL(ceph_pagelist_release);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_release); */
 
 static int ceph_pagelist_addpage(struct ceph_pagelist *pl)
 {
@@ -70,7 +70,7 @@ int ceph_pagelist_append(struct ceph_pagelist *pl, const void *buf, size_t len)
 	pl->room -= len;
 	return 0;
 }
-EXPORT_SYMBOL(ceph_pagelist_append);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_append); */
 
 /**
  * Allocate enough pages for a pagelist to append the given amount
@@ -93,7 +93,7 @@ int ceph_pagelist_reserve(struct ceph_pagelist *pl, size_t space)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ceph_pagelist_reserve);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_reserve); */
 
 /**
  * Free any pages that have been preallocated.
@@ -110,7 +110,7 @@ int ceph_pagelist_free_reserve(struct ceph_pagelist *pl)
 	BUG_ON(pl->num_pages_free);
 	return 0;
 }
-EXPORT_SYMBOL(ceph_pagelist_free_reserve);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_free_reserve); */
 
 /**
  * Create a truncation point.
@@ -122,7 +122,7 @@ void ceph_pagelist_set_cursor(struct ceph_pagelist *pl,
 	c->page_lru = pl->head.prev;
 	c->room = pl->room;
 }
-EXPORT_SYMBOL(ceph_pagelist_set_cursor);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_set_cursor); */
 
 /**
  * Truncate a pagelist to the given point. Move extra pages to reserve.
@@ -151,4 +151,4 @@ int ceph_pagelist_truncate(struct ceph_pagelist *pl,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ceph_pagelist_truncate);
+/* DISABLED: EXPORT_SYMBOL(ceph_pagelist_truncate); */

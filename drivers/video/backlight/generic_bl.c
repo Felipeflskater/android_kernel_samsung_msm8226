@@ -68,7 +68,7 @@ void genericbl_limit_intensity(int limit)
 	backlight_update_status(generic_backlight_device);
 	mutex_unlock(&bd->ops_lock);
 }
-EXPORT_SYMBOL(genericbl_limit_intensity);
+/* DISABLED: EXPORT_SYMBOL(genericbl_limit_intensity); */
 
 static const struct backlight_ops genericbl_ops = {
 	.options = BL_CORE_SUSPENDRESUME,

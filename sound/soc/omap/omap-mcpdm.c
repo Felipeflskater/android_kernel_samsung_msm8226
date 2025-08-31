@@ -438,7 +438,7 @@ void omap_mcpdm_configure_dn_offsets(struct snd_soc_pcm_runtime *rtd,
 
 	mcpdm->dn_rx_offset = MCPDM_DNOFST_RX1(rx1) | MCPDM_DNOFST_RX2(rx2);
 }
-EXPORT_SYMBOL_GPL(omap_mcpdm_configure_dn_offsets);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_mcpdm_configure_dn_offsets); */
 
 static __devinit int asoc_mcpdm_probe(struct platform_device *pdev)
 {

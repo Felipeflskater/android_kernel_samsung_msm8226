@@ -112,7 +112,7 @@ int stmpe_enable(struct stmpe *stmpe, unsigned int blocks)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_enable); */
 
 /**
  * stmpe_disable - disable blocks on an STMPE device
@@ -129,7 +129,7 @@ int stmpe_disable(struct stmpe *stmpe, unsigned int blocks)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_disable); */
 
 /**
  * stmpe_reg_read() - read a single STMPE register
@@ -146,7 +146,7 @@ int stmpe_reg_read(struct stmpe *stmpe, u8 reg)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_reg_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_reg_read); */
 
 /**
  * stmpe_reg_write() - write a single STMPE register
@@ -164,7 +164,7 @@ int stmpe_reg_write(struct stmpe *stmpe, u8 reg, u8 val)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_reg_write); */
 
 /**
  * stmpe_set_bits() - set the value of a bitfield in a STMPE register
@@ -183,7 +183,7 @@ int stmpe_set_bits(struct stmpe *stmpe, u8 reg, u8 mask, u8 val)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_set_bits); */
 
 /**
  * stmpe_block_read() - read multiple STMPE registers
@@ -202,7 +202,7 @@ int stmpe_block_read(struct stmpe *stmpe, u8 reg, u8 length, u8 *values)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_block_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_block_read); */
 
 /**
  * stmpe_block_write() - write multiple STMPE registers
@@ -222,7 +222,7 @@ int stmpe_block_write(struct stmpe *stmpe, u8 reg, u8 length,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_block_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_block_write); */
 
 /**
  * stmpe_set_altfunc()- set the alternate function for STMPE pins
@@ -279,7 +279,7 @@ out:
 	mutex_unlock(&stmpe->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(stmpe_set_altfunc);
+/* DISABLED: EXPORT_SYMBOL_GPL(stmpe_set_altfunc); */
 
 /*
  * GPIO (all variants)

@@ -176,7 +176,7 @@ static int __init xen_nofrontswap_selfshrink_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("noselfshrink", xen_nofrontswap_selfshrink_setup); */
+/* DISABLED: __setup("noselfshrink", xen_nofrontswap_selfshrink_setup); */ */
 
 /* Disable with kernel boot option. */
 static bool use_selfballooning __initdata = true;
@@ -187,7 +187,7 @@ static int __init xen_noselfballooning_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("noselfballooning", xen_noselfballooning_setup); */
+/* DISABLED: __setup("noselfballooning", xen_noselfballooning_setup); */ */
 #else /* !CONFIG_FRONTSWAP */
 /* Enable with kernel boot option. */
 static bool use_selfballooning __initdata = false;
@@ -198,7 +198,7 @@ static int __init xen_selfballooning_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("selfballooning", xen_selfballooning_setup); */
+/* DISABLED: __setup("selfballooning", xen_selfballooning_setup); */ */
 #endif /* CONFIG_FRONTSWAP */
 
 #define MB2PAGES(mb)	((mb) << (20 - PAGE_SHIFT))
@@ -503,7 +503,7 @@ int register_xen_selfballooning(struct device *dev)
 #endif
 	return error;
 }
-EXPORT_SYMBOL(register_xen_selfballooning);
+/* DISABLED: EXPORT_SYMBOL(register_xen_selfballooning); */
 
 static int __init xen_selfballoon_init(void)
 {

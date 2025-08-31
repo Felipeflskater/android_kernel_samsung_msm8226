@@ -491,7 +491,7 @@ relookup:
 
 	return p;
 }
-EXPORT_SYMBOL_GPL(inet_getpeer);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_getpeer); */
 
 void inet_putpeer(struct inet_peer *p)
 {
@@ -499,7 +499,7 @@ void inet_putpeer(struct inet_peer *p)
 	smp_mb__before_atomic_dec();
 	atomic_dec(&p->refcnt);
 }
-EXPORT_SYMBOL_GPL(inet_putpeer);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_putpeer); */
 
 /*
  *	Check transmit rate limitation for given message.
@@ -540,7 +540,7 @@ bool inet_peer_xrlim_allow(struct inet_peer *peer, int timeout)
 	peer->rate_tokens = token;
 	return rc;
 }
-EXPORT_SYMBOL(inet_peer_xrlim_allow);
+/* DISABLED: EXPORT_SYMBOL(inet_peer_xrlim_allow); */
 
 static void inetpeer_inval_rcu(struct rcu_head *head)
 {
@@ -575,4 +575,4 @@ void inetpeer_invalidate_tree(int family)
 out:
 	write_sequnlock_bh(&base->lock);
 }
-EXPORT_SYMBOL(inetpeer_invalidate_tree);
+/* DISABLED: EXPORT_SYMBOL(inetpeer_invalidate_tree); */

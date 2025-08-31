@@ -96,6 +96,6 @@ static int __init txx9_serial_config(char *ptr)
 		}
 	}
 }
-/* DISABLED: __setup("txx9_serial=", txx9_serial_config); */
+/* DISABLED: __setup("txx9_serial=", txx9_serial_config); */ */
 
 console_initcall(txx9_serial_init);

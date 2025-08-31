@@ -340,8 +340,8 @@ struct dvb_frontend *tea5761_attach(struct dvb_frontend *fe,
 }
 
 
-EXPORT_SYMBOL_GPL(tea5761_attach);
-EXPORT_SYMBOL_GPL(tea5761_autodetection);
+/* DISABLED: EXPORT_SYMBOL_GPL(tea5761_attach); */
+/* DISABLED: EXPORT_SYMBOL_GPL(tea5761_autodetection); */
 
 MODULE_DESCRIPTION("Philips TEA5761 FM tuner driver");
 MODULE_AUTHOR("Mauro Carvalho Chehab <mchehab@infradead.org>");

@@ -256,5 +256,5 @@ void snd_vx_free_firmware(struct vx_core *chip)
 
 #endif /* SND_VX_FW_LOADER */
 
-EXPORT_SYMBOL(snd_vx_setup_firmware);
-EXPORT_SYMBOL(snd_vx_free_firmware);
+/* DISABLED: EXPORT_SYMBOL(snd_vx_setup_firmware); */
+/* DISABLED: EXPORT_SYMBOL(snd_vx_free_firmware); */

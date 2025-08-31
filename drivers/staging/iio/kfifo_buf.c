@@ -155,12 +155,12 @@ struct iio_buffer *iio_kfifo_allocate(struct iio_dev *indio_dev)
 
 	return &kf->buffer;
 }
-EXPORT_SYMBOL(iio_kfifo_allocate);
+/* DISABLED: EXPORT_SYMBOL(iio_kfifo_allocate); */
 
 void iio_kfifo_free(struct iio_buffer *r)
 {
 	kfree(iio_to_kfifo(r));
 }
-EXPORT_SYMBOL(iio_kfifo_free);
+/* DISABLED: EXPORT_SYMBOL(iio_kfifo_free); */
 
 MODULE_LICENSE("GPL");

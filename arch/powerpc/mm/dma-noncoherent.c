@@ -248,7 +248,7 @@ __dma_alloc_coherent(struct device *dev, size_t size, dma_addr_t *handle, gfp_t 
  no_page:
 	return NULL;
 }
-EXPORT_SYMBOL(__dma_alloc_coherent);
+/* DISABLED: EXPORT_SYMBOL(__dma_alloc_coherent); */
 
 /*
  * free a page as defined by the above mapping.
@@ -310,7 +310,7 @@ void __dma_free_coherent(size_t size, void *vaddr)
 	       __func__, vaddr);
 	dump_stack();
 }
-EXPORT_SYMBOL(__dma_free_coherent);
+/* DISABLED: EXPORT_SYMBOL(__dma_free_coherent); */
 
 /*
  * make an area consistent.
@@ -341,7 +341,7 @@ void __dma_sync(void *vaddr, size_t size, int direction)
 		break;
 	}
 }
-EXPORT_SYMBOL(__dma_sync);
+/* DISABLED: EXPORT_SYMBOL(__dma_sync); */
 
 #ifdef CONFIG_HIGHMEM
 /*
@@ -398,7 +398,7 @@ void __dma_sync_page(struct page *page, unsigned long offset,
 	__dma_sync((void *)start, size, direction);
 #endif
 }
-EXPORT_SYMBOL(__dma_sync_page);
+/* DISABLED: EXPORT_SYMBOL(__dma_sync_page); */
 
 /*
  * Return the PFN for a given cpu virtual address returned by

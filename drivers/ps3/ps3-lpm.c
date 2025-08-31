@@ -186,7 +186,7 @@ void ps3_set_bookmark(u64 bookmark)
 	mtspr(SPRN_BKMK, bookmark);
 	asm volatile("nop;nop;nop;nop;nop;nop;nop;nop;nop;");
 }
-EXPORT_SYMBOL_GPL(ps3_set_bookmark);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_set_bookmark); */
 
 void ps3_set_pm_bookmark(u64 tag, u64 incident, u64 th_id)
 {
@@ -198,7 +198,7 @@ void ps3_set_pm_bookmark(u64 tag, u64 incident, u64 th_id)
 		(incident << 48) | (th_id << 32) | bookmark;
 	ps3_set_bookmark(bookmark);
 }
-EXPORT_SYMBOL_GPL(ps3_set_pm_bookmark);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_set_pm_bookmark); */
 
 /**
  * ps3_read_phys_ctr - Read physical counter registers.
@@ -242,7 +242,7 @@ u32 ps3_read_phys_ctr(u32 cpu, u32 phys_ctr)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_read_phys_ctr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_read_phys_ctr); */
 
 /**
  * ps3_write_phys_ctr - Write physical counter registers.
@@ -303,7 +303,7 @@ void ps3_write_phys_ctr(u32 cpu, u32 phys_ctr, u32 val)
 			"phys_ctr %u, val %u, %s\n", __func__, __LINE__,
 			phys_ctr, val, ps3_result(result));
 }
-EXPORT_SYMBOL_GPL(ps3_write_phys_ctr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_write_phys_ctr); */
 
 /**
  * ps3_read_ctr - Read counter.
@@ -324,7 +324,7 @@ u32 ps3_read_ctr(u32 cpu, u32 ctr)
 
 	return val;
 }
-EXPORT_SYMBOL_GPL(ps3_read_ctr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_read_ctr); */
 
 /**
  * ps3_write_ctr - Write counter.
@@ -351,7 +351,7 @@ void ps3_write_ctr(u32 cpu, u32 ctr, u32 val)
 
 	ps3_write_phys_ctr(cpu, phys_ctr, val);
 }
-EXPORT_SYMBOL_GPL(ps3_write_ctr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_write_ctr); */
 
 /**
  * ps3_read_pm07_control - Read counter control registers.
@@ -363,7 +363,7 @@ u32 ps3_read_pm07_control(u32 cpu, u32 ctr)
 {
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_read_pm07_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_read_pm07_control); */
 
 /**
  * ps3_write_pm07_control - Write counter control registers.
@@ -390,7 +390,7 @@ void ps3_write_pm07_control(u32 cpu, u32 ctr, u32 val)
 			"failed: ctr %u, %s\n", __func__, __LINE__, ctr,
 			ps3_result(result));
 }
-EXPORT_SYMBOL_GPL(ps3_write_pm07_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_write_pm07_control); */
 
 /**
  * ps3_read_pm - Read Other LPM control registers.
@@ -442,7 +442,7 @@ u32 ps3_read_pm(u32 cpu, enum pm_reg_name reg)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_read_pm);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_read_pm); */
 
 /**
  * ps3_write_pm - Write Other LPM control registers.
@@ -510,7 +510,7 @@ void ps3_write_pm(u32 cpu, enum pm_reg_name reg, u32 val)
 			"reg %u, %s\n", __func__, __LINE__, reg,
 			ps3_result(result));
 }
-EXPORT_SYMBOL_GPL(ps3_write_pm);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_write_pm); */
 
 /**
  * ps3_get_ctr_size - Get the size of a physical counter.
@@ -531,7 +531,7 @@ u32 ps3_get_ctr_size(u32 cpu, u32 phys_ctr)
 	pm_ctrl = ps3_read_pm(cpu, pm_control);
 	return (pm_ctrl & CBE_PM_16BIT_CTR(phys_ctr)) ? 16 : 32;
 }
-EXPORT_SYMBOL_GPL(ps3_get_ctr_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_get_ctr_size); */
 
 /**
  * ps3_set_ctr_size - Set the size of a physical counter to 16 or 32 bits.
@@ -563,7 +563,7 @@ void ps3_set_ctr_size(u32 cpu, u32 phys_ctr, u32 ctr_size)
 		BUG();
 	}
 }
-EXPORT_SYMBOL_GPL(ps3_set_ctr_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_set_ctr_size); */
 
 static u64 pm_translate_signal_group_number_on_island2(u64 subgroup)
 {
@@ -833,13 +833,13 @@ int ps3_set_signal(u64 signal_group, u8 signal_bit, u16 sub_unit,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ps3_set_signal);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_set_signal); */
 
 u32 ps3_get_hw_thread_id(int cpu)
 {
 	return get_hard_smp_processor_id(cpu);
 }
-EXPORT_SYMBOL_GPL(ps3_get_hw_thread_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_get_hw_thread_id); */
 
 /**
  * ps3_enable_pm - Enable the entire performance monitoring unit.
@@ -885,7 +885,7 @@ void ps3_enable_pm(u32 cpu)
 	if (use_start_stop_bookmark && !result && insert_bookmark)
 		ps3_set_bookmark(get_tb() | PS3_PM_BOOKMARK_START);
 }
-EXPORT_SYMBOL_GPL(ps3_enable_pm);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_enable_pm); */
 
 /**
  * ps3_disable_pm - Disable the entire performance monitoring unit.
@@ -912,7 +912,7 @@ void ps3_disable_pm(u32 cpu)
 	dev_dbg(sbd_core(), "%s:%u: tb_count %llu (%llxh)\n", __func__, __LINE__,
 		lpm_priv->tb_count, lpm_priv->tb_count);
 }
-EXPORT_SYMBOL_GPL(ps3_disable_pm);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_disable_pm); */
 
 /**
  * ps3_lpm_copy_tb - Copy data from the trace buffer to a kernel buffer.
@@ -967,7 +967,7 @@ int ps3_lpm_copy_tb(unsigned long offset, void *buf, unsigned long count,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_lpm_copy_tb);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_lpm_copy_tb); */
 
 /**
  * ps3_lpm_copy_tb_to_user - Copy data from the trace buffer to a user buffer.
@@ -1030,7 +1030,7 @@ int ps3_lpm_copy_tb_to_user(unsigned long offset, void __user *buf,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_lpm_copy_tb_to_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_lpm_copy_tb_to_user); */
 
 /**
  * ps3_get_and_clear_pm_interrupts -
@@ -1043,7 +1043,7 @@ u32 ps3_get_and_clear_pm_interrupts(u32 cpu)
 {
 	return ps3_read_pm(cpu, pm_status);
 }
-EXPORT_SYMBOL_GPL(ps3_get_and_clear_pm_interrupts);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_get_and_clear_pm_interrupts); */
 
 /**
  * ps3_enable_pm_interrupts -
@@ -1057,7 +1057,7 @@ void ps3_enable_pm_interrupts(u32 cpu, u32 thread, u32 mask)
 	if (mask)
 		ps3_write_pm(cpu, pm_status, mask);
 }
-EXPORT_SYMBOL_GPL(ps3_enable_pm_interrupts);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_enable_pm_interrupts); */
 
 /**
  * ps3_enable_pm_interrupts -
@@ -1070,7 +1070,7 @@ void ps3_disable_pm_interrupts(u32 cpu)
 	ps3_get_and_clear_pm_interrupts(cpu);
 	ps3_write_pm(cpu, pm_status, 0);
 }
-EXPORT_SYMBOL_GPL(ps3_disable_pm_interrupts);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_disable_pm_interrupts); */
 
 /**
  * ps3_lpm_open - Open the logical performance monitor device.
@@ -1163,7 +1163,7 @@ fail_align:
 	atomic_dec(&lpm_priv->open);
 	return result;
 }
-EXPORT_SYMBOL_GPL(ps3_lpm_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_lpm_open); */
 
 /**
  * ps3_lpm_close - Close the lpm device.
@@ -1183,7 +1183,7 @@ int ps3_lpm_close(void)
 	atomic_dec(&lpm_priv->open);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ps3_lpm_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_lpm_close); */
 
 static int __devinit ps3_lpm_probe(struct ps3_system_bus_device *dev)
 {

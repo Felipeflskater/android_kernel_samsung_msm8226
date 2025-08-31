@@ -183,7 +183,7 @@ bail:
 	mutex_unlock(&chip->lock);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_enable);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_enable); */
 
 /**
  * pm8xxx_batt_alarm_disable - disable one of the battery voltage threshold
@@ -239,7 +239,7 @@ bail:
 	mutex_unlock(&chip->lock);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_disable);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_disable); */
 
 /**
  * pm8xxx_batt_alarm_threshold_set - set the lower and upper alarm thresholds
@@ -334,7 +334,7 @@ bail:
 	mutex_unlock(&chip->lock);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_threshold_set);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_threshold_set); */
 
 /**
  * pm8xxx_batt_alarm_status_read - get status of both threshold comparators
@@ -371,7 +371,7 @@ int pm8xxx_batt_alarm_status_read(void)
 
 	return status;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_status_read);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_status_read); */
 
 /**
  * pm8xxx_batt_alarm_hold_time_set - set hold time of interrupt output *
@@ -409,7 +409,7 @@ int pm8xxx_batt_alarm_hold_time_set(enum pm8xxx_batt_alarm_hold_time hold_time)
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_hold_time_set);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_hold_time_set); */
 
 /**
  * pm8xxx_batt_alarm_pwm_rate_set - set battery alarm update rate *
@@ -480,7 +480,7 @@ int pm8xxx_batt_alarm_pwm_rate_set(int use_pwm, int clock_scaler,
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_pwm_rate_set);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_pwm_rate_set); */
 
 /*
  * Handle the BATT_ALARM interrupt:
@@ -552,7 +552,7 @@ int pm8xxx_batt_alarm_register_notifier(struct notifier_block *nb)
 	mutex_unlock(&chip->lock);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_register_notifier);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_register_notifier); */
 
 /**
  * pm8xxx_batt_alarm_unregister_notifier - unregister a notifier that is run
@@ -589,7 +589,7 @@ int pm8xxx_batt_alarm_unregister_notifier(struct notifier_block *nb)
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_batt_alarm_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_batt_alarm_unregister_notifier); */
 
 static int pm8xxx_batt_alarm_reg_init(struct pm8xxx_batt_alarm_chip *chip)
 {

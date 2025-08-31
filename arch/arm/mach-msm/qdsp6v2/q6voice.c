@@ -2444,7 +2444,7 @@ static void voice_auddev_cb_function(u32 evt_id,
 	}
 	return;
 }
-EXPORT_SYMBOL(voice_auddev_cb_function);
+/* DISABLED: EXPORT_SYMBOL(voice_auddev_cb_function); */
 
 int voice_set_voc_path_full(uint32_t set)
 {
@@ -2461,7 +2461,7 @@ int voice_set_voc_path_full(uint32_t set)
 
 	return 0;
 }
-EXPORT_SYMBOL(voice_set_voc_path_full);
+/* DISABLED: EXPORT_SYMBOL(voice_set_voc_path_full); */
 
 void voice_register_mvs_cb(ul_cb_fn ul_cb,
 			   dl_cb_fn dl_cb,

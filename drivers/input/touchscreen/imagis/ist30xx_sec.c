@@ -839,7 +839,7 @@ static struct attribute_group sec_touch_factory_attr_group = {
 };
 
 struct device *sec_touchkey;
-EXPORT_SYMBOL(sec_touchkey);
+/* DISABLED: EXPORT_SYMBOL(sec_touchkey); */
 struct device *sec_fac_dev;
 extern struct class *sec_class;
 
@@ -870,7 +870,7 @@ int sec_touch_sysfs(struct ist30xx_data *data)
 
 	return 0;
 }
-EXPORT_SYMBOL(sec_touch_sysfs);
+/* DISABLED: EXPORT_SYMBOL(sec_touch_sysfs); */
 int sec_fac_cmd_init(struct ist30xx_data *data)
 {
 	int i;
@@ -885,4 +885,4 @@ int sec_fac_cmd_init(struct ist30xx_data *data)
 
 	return 0;
 }
-EXPORT_SYMBOL(sec_fac_cmd_init);
+/* DISABLED: EXPORT_SYMBOL(sec_fac_cmd_init); */

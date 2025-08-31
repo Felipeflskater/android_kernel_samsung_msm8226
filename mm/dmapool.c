@@ -191,7 +191,7 @@ struct dma_pool *dma_pool_create(const char *name, struct device *dev,
 
 	return retval;
 }
-EXPORT_SYMBOL(dma_pool_create);
+/* DISABLED: EXPORT_SYMBOL(dma_pool_create); */
 
 static void pool_initialise_page(struct dma_pool *pool, struct dma_page *page)
 {
@@ -287,7 +287,7 @@ void dma_pool_destroy(struct dma_pool *pool)
 
 	kfree(pool);
 }
-EXPORT_SYMBOL(dma_pool_destroy);
+/* DISABLED: EXPORT_SYMBOL(dma_pool_destroy); */
 
 /**
  * dma_pool_alloc - get a block of consistent memory
@@ -337,7 +337,7 @@ void *dma_pool_alloc(struct dma_pool *pool, gfp_t mem_flags,
 	spin_unlock_irqrestore(&pool->lock, flags);
 	return retval;
 }
-EXPORT_SYMBOL(dma_pool_alloc);
+/* DISABLED: EXPORT_SYMBOL(dma_pool_alloc); */
 
 static struct dma_page *pool_find_page(struct dma_pool *pool, dma_addr_t dma)
 {
@@ -427,7 +427,7 @@ void dma_pool_free(struct dma_pool *pool, void *vaddr, dma_addr_t dma)
 	 */
 	spin_unlock_irqrestore(&pool->lock, flags);
 }
-EXPORT_SYMBOL(dma_pool_free);
+/* DISABLED: EXPORT_SYMBOL(dma_pool_free); */
 
 /*
  * Managed DMA pool
@@ -472,7 +472,7 @@ struct dma_pool *dmam_pool_create(const char *name, struct device *dev,
 
 	return pool;
 }
-EXPORT_SYMBOL(dmam_pool_create);
+/* DISABLED: EXPORT_SYMBOL(dmam_pool_create); */
 
 /**
  * dmam_pool_destroy - Managed dma_pool_destroy()
@@ -487,4 +487,4 @@ void dmam_pool_destroy(struct dma_pool *pool)
 	WARN_ON(devres_destroy(dev, dmam_pool_release, dmam_pool_match, pool));
 	dma_pool_destroy(pool);
 }
-EXPORT_SYMBOL(dmam_pool_destroy);
+/* DISABLED: EXPORT_SYMBOL(dmam_pool_destroy); */

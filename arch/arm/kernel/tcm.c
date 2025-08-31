@@ -82,7 +82,7 @@ void *tcm_alloc(size_t len)
 
 	return (void *) vaddr;
 }
-EXPORT_SYMBOL(tcm_alloc);
+/* DISABLED: EXPORT_SYMBOL(tcm_alloc); */
 
 /*
  * Free a chunk of TCM memory
@@ -91,19 +91,19 @@ void tcm_free(void *addr, size_t len)
 {
 	gen_pool_free(tcm_pool, (unsigned long) addr, len);
 }
-EXPORT_SYMBOL(tcm_free);
+/* DISABLED: EXPORT_SYMBOL(tcm_free); */
 
 bool tcm_dtcm_present(void)
 {
 	return dtcm_present;
 }
-EXPORT_SYMBOL(tcm_dtcm_present);
+/* DISABLED: EXPORT_SYMBOL(tcm_dtcm_present); */
 
 bool tcm_itcm_present(void)
 {
 	return itcm_present;
 }
-EXPORT_SYMBOL(tcm_itcm_present);
+/* DISABLED: EXPORT_SYMBOL(tcm_itcm_present); */
 
 static int __init setup_tcm_bank(u8 type, u8 bank, u8 banks,
 				  u32 *offset)

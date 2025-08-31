@@ -172,7 +172,7 @@ struct net_device *__ip_dev_find(struct net *net, __be32 addr, bool devref)
 	rcu_read_unlock();
 	return result;
 }
-EXPORT_SYMBOL(__ip_dev_find);
+/* DISABLED: EXPORT_SYMBOL(__ip_dev_find); */
 
 static void rtmsg_ifa(int event, struct in_ifaddr *, struct nlmsghdr *, u32);
 
@@ -227,7 +227,7 @@ void in_dev_finish_destroy(struct in_device *idev)
 	else
 		kfree(idev);
 }
-EXPORT_SYMBOL(in_dev_finish_destroy);
+/* DISABLED: EXPORT_SYMBOL(in_dev_finish_destroy); */
 
 static struct in_device *inetdev_init(struct net_device *dev)
 {
@@ -520,7 +520,7 @@ struct in_device *inetdev_by_index(struct net *net, int ifindex)
 	rcu_read_unlock();
 	return in_dev;
 }
-EXPORT_SYMBOL(inetdev_by_index);
+/* DISABLED: EXPORT_SYMBOL(inetdev_by_index); */
 
 /* Called only from RTNL semaphored context. No locks. */
 
@@ -1018,7 +1018,7 @@ out_unlock:
 	rcu_read_unlock();
 	return addr;
 }
-EXPORT_SYMBOL(inet_select_addr);
+/* DISABLED: EXPORT_SYMBOL(inet_select_addr); */
 
 static __be32 confirm_addr_indev(struct in_device *in_dev, __be32 dst,
 			      __be32 local, int scope)
@@ -1088,7 +1088,7 @@ __be32 inet_confirm_addr(struct in_device *in_dev,
 
 	return addr;
 }
-EXPORT_SYMBOL(inet_confirm_addr);
+/* DISABLED: EXPORT_SYMBOL(inet_confirm_addr); */
 
 /*
  *	Device notifier
@@ -1098,13 +1098,13 @@ int register_inetaddr_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&inetaddr_chain, nb);
 }
-EXPORT_SYMBOL(register_inetaddr_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_inetaddr_notifier); */
 
 int unregister_inetaddr_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&inetaddr_chain, nb);
 }
-EXPORT_SYMBOL(unregister_inetaddr_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_inetaddr_notifier); */
 
 /* Rename ifa_labels for a device name change. Make some effort to preserve
  * existing alias numbering and to create unique labels if possible.

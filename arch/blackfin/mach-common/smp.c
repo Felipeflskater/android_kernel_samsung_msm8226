@@ -283,7 +283,7 @@ int smp_call_function(void (*func)(void *info), void *info, int wait)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(smp_call_function);
+/* DISABLED: EXPORT_SYMBOL_GPL(smp_call_function); */
 
 int smp_call_function_single(int cpuid, void (*func) (void *info), void *info,
 				int wait)
@@ -300,7 +300,7 @@ int smp_call_function_single(int cpuid, void (*func) (void *info), void *info,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(smp_call_function_single);
+/* DISABLED: EXPORT_SYMBOL_GPL(smp_call_function_single); */
 
 void smp_send_reschedule(int cpu)
 {
@@ -483,7 +483,7 @@ void smp_icache_flush_range_others(unsigned long start, unsigned long end)
 		printk(KERN_WARNING "SMP: failed to run I-cache flush request on other CPUs\n");
 	preempt_enable();
 }
-EXPORT_SYMBOL_GPL(smp_icache_flush_range_others);
+/* DISABLED: EXPORT_SYMBOL_GPL(smp_icache_flush_range_others); */
 
 #ifdef __ARCH_SYNC_CORE_ICACHE
 unsigned long icache_invld_count[NR_CPUS];
@@ -494,7 +494,7 @@ void resync_core_icache(void)
 	icache_invld_count[cpu]++;
 	put_cpu();
 }
-EXPORT_SYMBOL(resync_core_icache);
+/* DISABLED: EXPORT_SYMBOL(resync_core_icache); */
 #endif
 
 #ifdef __ARCH_SYNC_CORE_DCACHE
@@ -508,7 +508,7 @@ void resync_core_dcache(void)
 	dcache_invld_count[cpu]++;
 	put_cpu();
 }
-EXPORT_SYMBOL(resync_core_dcache);
+/* DISABLED: EXPORT_SYMBOL(resync_core_dcache); */
 #endif
 
 #ifdef CONFIG_HOTPLUG_CPU

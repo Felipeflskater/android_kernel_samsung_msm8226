@@ -61,7 +61,7 @@ void register_early_suspend(struct early_suspend *handler)
 		handler->suspend(handler);
 	mutex_unlock(&early_suspend_lock);
 }
-EXPORT_SYMBOL(register_early_suspend);
+/* DISABLED: EXPORT_SYMBOL(register_early_suspend); */
 
 void unregister_early_suspend(struct early_suspend *handler)
 {
@@ -69,7 +69,7 @@ void unregister_early_suspend(struct early_suspend *handler)
 	list_del(&handler->link);
 	mutex_unlock(&early_suspend_lock);
 }
-EXPORT_SYMBOL(unregister_early_suspend);
+/* DISABLED: EXPORT_SYMBOL(unregister_early_suspend); */
 
 static void early_suspend(struct work_struct *work)
 {

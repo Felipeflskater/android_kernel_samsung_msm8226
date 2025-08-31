@@ -157,7 +157,7 @@ int vid_from_reg(int val, u8 vrm)
 		return 0;
 	}
 }
-EXPORT_SYMBOL(vid_from_reg);
+/* DISABLED: EXPORT_SYMBOL(vid_from_reg); */
 
 /*
  * After this point is the code to automatically determine which
@@ -299,7 +299,7 @@ u8 vid_which_vrm(void)
 	return 0;
 }
 #endif
-EXPORT_SYMBOL(vid_which_vrm);
+/* DISABLED: EXPORT_SYMBOL(vid_which_vrm); */
 
 MODULE_AUTHOR("Rudolf Marek <r.marek@assembler.cz>");
 

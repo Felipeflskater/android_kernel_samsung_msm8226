@@ -121,7 +121,7 @@ isp1763_reg_write32(struct isp1763_dev *dev, u16 reg, u32 data)
 #endif
 
 }
-EXPORT_SYMBOL(isp1763_reg_write32);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_write32); */
 
 
 /* Read a 32 bit Register of isp1763 */
@@ -161,7 +161,7 @@ isp1763_reg_read32(struct isp1763_dev *dev, u16 reg, u32 data)
 
 	return data;
 }
-EXPORT_SYMBOL(isp1763_reg_read32);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_read32); */
 
 
 /* Read a 16 bit Register of isp1763 */
@@ -187,7 +187,7 @@ isp1763_reg_read16(struct isp1763_dev * dev, u16 reg, u16 data)
 #endif
 	return data;
 }
-EXPORT_SYMBOL(isp1763_reg_read16);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_read16); */
 
 /* Write a 16 bit Register of isp1763 */
 void
@@ -206,7 +206,7 @@ isp1763_reg_write16(struct isp1763_dev *dev, u16 reg, u16 data)
 
 #endif
 }
-EXPORT_SYMBOL(isp1763_reg_write16);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_write16); */
 
 /* Read a 8 bit Register of isp1763 */
 u8
@@ -216,7 +216,7 @@ isp1763_reg_read8(struct isp1763_dev *dev, u16 reg, u8 data)
 	data = readb((dev->baseaddress + (reg)));
 	return data;
 }
-EXPORT_SYMBOL(isp1763_reg_read8);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_read8); */
 
 /* Write a 8 bit Register of isp1763 */
 void
@@ -225,7 +225,7 @@ isp1763_reg_write8(struct isp1763_dev *dev, u16 reg, u8 data)
 	reg <<= 1;
 	writeb(data, (dev->baseaddress + (reg)));
 }
-EXPORT_SYMBOL(isp1763_reg_write8);
+/* DISABLED: EXPORT_SYMBOL(isp1763_reg_write8); */
 
 
 /*--------------------------------------------------------------*
@@ -312,7 +312,7 @@ last:
 	return ((a < 0) || (a == 0)) ? 0 : (-1);
 
 }
-EXPORT_SYMBOL(isp1763_mem_read);
+/* DISABLED: EXPORT_SYMBOL(isp1763_mem_read); */
 
 
 /*--------------------------------------------------------------*
@@ -376,7 +376,7 @@ isp1763_mem_write(struct isp1763_dev *dev,
 	return ((a < 0) || (a == 0)) ? 0 : (-1);
 
 }
-EXPORT_SYMBOL(isp1763_mem_write);
+/* DISABLED: EXPORT_SYMBOL(isp1763_mem_write); */
 
 
 /*--------------------------------------------------------------*
@@ -433,7 +433,7 @@ isp1763_register_driver(struct isp1763_driver *drv)
 	hal_entry("%s: Exit\n", __FUNCTION__);
 	return result;
 }				/* End of isp1763_register_driver */
-EXPORT_SYMBOL(isp1763_register_driver);
+/* DISABLED: EXPORT_SYMBOL(isp1763_register_driver); */
 
 
 /*--------------------------------------------------------------*
@@ -473,7 +473,7 @@ isp1763_unregister_driver(struct isp1763_driver *drv)
 	}
 	hal_entry("%s: Exit\n", __FUNCTION__);
 }				/* End of isp1763_unregister_driver */
-EXPORT_SYMBOL(isp1763_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(isp1763_unregister_driver); */
 
 
 /*--------------------------------------------------------------*

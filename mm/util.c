@@ -34,7 +34,7 @@ char *kstrdup(const char *s, gfp_t gfp)
 		memcpy(buf, s, len);
 	return buf;
 }
-EXPORT_SYMBOL(kstrdup);
+/* DISABLED: EXPORT_SYMBOL(kstrdup); */
 
 /**
  * kstrndup - allocate space for and copy an existing string
@@ -58,7 +58,7 @@ char *kstrndup(const char *s, size_t max, gfp_t gfp)
 	}
 	return buf;
 }
-EXPORT_SYMBOL(kstrndup);
+/* DISABLED: EXPORT_SYMBOL(kstrndup); */
 
 /**
  * kmemdup - duplicate region of memory
@@ -76,7 +76,7 @@ void *kmemdup(const void *src, size_t len, gfp_t gfp)
 		memcpy(p, src, len);
 	return p;
 }
-EXPORT_SYMBOL(kmemdup);
+/* DISABLED: EXPORT_SYMBOL(kmemdup); */
 
 /**
  * memdup_user - duplicate memory region from user space
@@ -106,7 +106,7 @@ void *memdup_user(const void __user *src, size_t len)
 
 	return p;
 }
-EXPORT_SYMBOL(memdup_user);
+/* DISABLED: EXPORT_SYMBOL(memdup_user); */
 
 /**
  * __krealloc - like krealloc() but don't free @p.
@@ -138,7 +138,7 @@ void *__krealloc(const void *p, size_t new_size, gfp_t flags)
 
 	return ret;
 }
-EXPORT_SYMBOL(__krealloc);
+/* DISABLED: EXPORT_SYMBOL(__krealloc); */
 
 /**
  * krealloc - reallocate memory. The contents will remain unchanged.
@@ -166,7 +166,7 @@ void *krealloc(const void *p, size_t new_size, gfp_t flags)
 
 	return ret;
 }
-EXPORT_SYMBOL(krealloc);
+/* DISABLED: EXPORT_SYMBOL(krealloc); */
 
 /**
  * kzfree - like kfree but zero memory
@@ -190,7 +190,7 @@ void kzfree(const void *p)
 	memset(mem, 0, ks);
 	kfree(mem);
 }
-EXPORT_SYMBOL(kzfree);
+/* DISABLED: EXPORT_SYMBOL(kzfree); */
 
 /*
  * strndup_user - duplicate an existing string from user space
@@ -219,7 +219,7 @@ char *strndup_user(const char __user *s, long n)
 
 	return p;
 }
-EXPORT_SYMBOL(strndup_user);
+/* DISABLED: EXPORT_SYMBOL(strndup_user); */
 
 void __vma_link_list(struct mm_struct *mm, struct vm_area_struct *vma,
 		struct vm_area_struct *prev, struct rb_node *rb_parent)
@@ -304,7 +304,7 @@ int __attribute__((weak)) __get_user_pages_fast(unsigned long start,
 {
 	return 0;
 }
-EXPORT_SYMBOL_GPL(__get_user_pages_fast);
+/* DISABLED: EXPORT_SYMBOL_GPL(__get_user_pages_fast); */
 
 /**
  * get_user_pages_fast() - pin user pages in memory
@@ -343,7 +343,7 @@ int __attribute__((weak)) get_user_pages_fast(unsigned long start,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(get_user_pages_fast);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_user_pages_fast); */
 
 
 /**
@@ -402,7 +402,7 @@ void kvfree(const void *addr)
 	else
 		kfree(addr);
 }
-EXPORT_SYMBOL(kvfree);
+/* DISABLED: EXPORT_SYMBOL(kvfree); */
 
 struct address_space *page_mapping(struct page *page)
 {

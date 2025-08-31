@@ -188,7 +188,7 @@ int qmi_kernel_encode(struct msg_desc *desc,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(qmi_kernel_encode);
+/* DISABLED: EXPORT_SYMBOL(qmi_kernel_encode); */
 
 /**
  * qmi_encode_basic_elem() - Encodes elements of basic/primary data type
@@ -445,7 +445,7 @@ int qmi_kernel_decode(struct msg_desc *desc, void *out_c_struct,
 	else
 		return 0;
 }
-EXPORT_SYMBOL(qmi_kernel_decode);
+/* DISABLED: EXPORT_SYMBOL(qmi_kernel_decode); */
 
 /**
  * qmi_decode_basic_elem() - Decodes elements of basic/primary data type

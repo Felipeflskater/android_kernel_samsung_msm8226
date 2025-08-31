@@ -415,7 +415,7 @@ out_unlock:
 	goto out;
 }
 
-EXPORT_SYMBOL(inet6_bind);
+/* DISABLED: EXPORT_SYMBOL(inet6_bind); */
 
 int inet6_release(struct socket *sock)
 {
@@ -433,7 +433,7 @@ int inet6_release(struct socket *sock)
 	return inet_release(sock);
 }
 
-EXPORT_SYMBOL(inet6_release);
+/* DISABLED: EXPORT_SYMBOL(inet6_release); */
 
 void inet6_destroy_sock(struct sock *sk)
 {
@@ -461,7 +461,7 @@ void inet6_destroy_sock(struct sock *sk)
 	}
 }
 
-EXPORT_SYMBOL_GPL(inet6_destroy_sock);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_destroy_sock); */
 
 /*
  *	This does both peername and sockname.
@@ -502,7 +502,7 @@ int inet6_getname(struct socket *sock, struct sockaddr *uaddr,
 	return 0;
 }
 
-EXPORT_SYMBOL(inet6_getname);
+/* DISABLED: EXPORT_SYMBOL(inet6_getname); */
 
 int inet6_killaddr_ioctl(struct net *net, void __user *arg) {
 	struct in6_ifreq ireq;
@@ -554,7 +554,7 @@ int inet6_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 	return 0;
 }
 
-EXPORT_SYMBOL(inet6_ioctl);
+/* DISABLED: EXPORT_SYMBOL(inet6_ioctl); */
 
 const struct proto_ops inet6_stream_ops = {
 	.family		   = PF_INET6,
@@ -670,7 +670,7 @@ out_illegal:
 	goto out;
 }
 
-EXPORT_SYMBOL(inet6_register_protosw);
+/* DISABLED: EXPORT_SYMBOL(inet6_register_protosw); */
 
 void
 inet6_unregister_protosw(struct inet_protosw *p)
@@ -688,7 +688,7 @@ inet6_unregister_protosw(struct inet_protosw *p)
 	}
 }
 
-EXPORT_SYMBOL(inet6_unregister_protosw);
+/* DISABLED: EXPORT_SYMBOL(inet6_unregister_protosw); */
 
 int inet6_sk_rebuild_header(struct sock *sk)
 {
@@ -732,7 +732,7 @@ int inet6_sk_rebuild_header(struct sock *sk)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(inet6_sk_rebuild_header);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_sk_rebuild_header); */
 
 int ipv6_opt_accepted(struct sock *sk, struct sk_buff *skb)
 {
@@ -754,7 +754,7 @@ int ipv6_opt_accepted(struct sock *sk, struct sk_buff *skb)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(ipv6_opt_accepted);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipv6_opt_accepted); */
 
 static int ipv6_gso_pull_exthdrs(struct sk_buff *skb, int proto)
 {

@@ -53,7 +53,7 @@ void ax25_register_pid(struct ax25_protocol *ap)
 	write_unlock_bh(&protocol_list_lock);
 }
 
-EXPORT_SYMBOL_GPL(ax25_register_pid);
+/* DISABLED: EXPORT_SYMBOL_GPL(ax25_register_pid); */
 
 void ax25_protocol_release(unsigned int pid)
 {
@@ -81,7 +81,7 @@ out:
 	write_unlock_bh(&protocol_list_lock);
 }
 
-EXPORT_SYMBOL(ax25_protocol_release);
+/* DISABLED: EXPORT_SYMBOL(ax25_protocol_release); */
 
 void ax25_linkfail_register(struct ax25_linkfail *lf)
 {
@@ -90,7 +90,7 @@ void ax25_linkfail_register(struct ax25_linkfail *lf)
 	spin_unlock_bh(&linkfail_lock);
 }
 
-EXPORT_SYMBOL(ax25_linkfail_register);
+/* DISABLED: EXPORT_SYMBOL(ax25_linkfail_register); */
 
 void ax25_linkfail_release(struct ax25_linkfail *lf)
 {
@@ -99,7 +99,7 @@ void ax25_linkfail_release(struct ax25_linkfail *lf)
 	spin_unlock_bh(&linkfail_lock);
 }
 
-EXPORT_SYMBOL(ax25_linkfail_release);
+/* DISABLED: EXPORT_SYMBOL(ax25_linkfail_release); */
 
 int ax25_listen_register(ax25_address *callsign, struct net_device *dev)
 {
@@ -122,7 +122,7 @@ int ax25_listen_register(ax25_address *callsign, struct net_device *dev)
 	return 0;
 }
 
-EXPORT_SYMBOL(ax25_listen_register);
+/* DISABLED: EXPORT_SYMBOL(ax25_listen_register); */
 
 void ax25_listen_release(ax25_address *callsign, struct net_device *dev)
 {
@@ -156,7 +156,7 @@ void ax25_listen_release(ax25_address *callsign, struct net_device *dev)
 	spin_unlock_bh(&listen_lock);
 }
 
-EXPORT_SYMBOL(ax25_listen_release);
+/* DISABLED: EXPORT_SYMBOL(ax25_listen_release); */
 
 int (*ax25_protocol_function(unsigned int pid))(struct sk_buff *, ax25_cb *)
 {

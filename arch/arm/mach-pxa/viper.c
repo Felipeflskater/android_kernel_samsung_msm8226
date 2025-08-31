@@ -772,7 +772,7 @@ static int __init viper_tpm_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("tpm=", viper_tpm_setup); */
+/* DISABLED: __setup("tpm=", viper_tpm_setup); */ */
 
 static void __init viper_tpm_init(void)
 {

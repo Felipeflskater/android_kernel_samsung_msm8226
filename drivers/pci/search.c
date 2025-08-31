@@ -176,7 +176,7 @@ struct pci_dev *pci_get_domain_bus_and_slot(int domain, unsigned int bus,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(pci_get_domain_bus_and_slot);
+/* DISABLED: EXPORT_SYMBOL(pci_get_domain_bus_and_slot); */
 
 static int match_pci_dev_by_id(struct device *dev, void *data)
 {
@@ -347,13 +347,13 @@ exit:
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(pci_dev_present);
+/* DISABLED: EXPORT_SYMBOL(pci_dev_present); */
 
 /* For boot time work */
-EXPORT_SYMBOL(pci_find_bus);
-EXPORT_SYMBOL(pci_find_next_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_find_bus); */
+/* DISABLED: EXPORT_SYMBOL(pci_find_next_bus); */
 /* For everyone */
-EXPORT_SYMBOL(pci_get_device);
-EXPORT_SYMBOL(pci_get_subsys);
-EXPORT_SYMBOL(pci_get_slot);
-EXPORT_SYMBOL(pci_get_class);
+/* DISABLED: EXPORT_SYMBOL(pci_get_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_get_subsys); */
+/* DISABLED: EXPORT_SYMBOL(pci_get_slot); */
+/* DISABLED: EXPORT_SYMBOL(pci_get_class); */

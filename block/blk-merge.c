@@ -86,7 +86,7 @@ void blk_recount_segments(struct request_queue *q, struct bio *bio)
 	bio->bi_next = nxt;
 	bio->bi_flags |= (1 << BIO_SEG_VALID);
 }
-EXPORT_SYMBOL(blk_recount_segments);
+/* DISABLED: EXPORT_SYMBOL(blk_recount_segments); */
 
 static int blk_phys_contig_segment(struct request_queue *q, struct bio *bio,
 				   struct bio *nxt)
@@ -204,7 +204,7 @@ new_segment:
 
 	return nsegs;
 }
-EXPORT_SYMBOL(blk_rq_map_sg);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_map_sg); */
 
 static inline int ll_new_hw_segment(struct request_queue *q,
 				    struct request *req,

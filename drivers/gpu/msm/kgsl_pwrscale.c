@@ -43,7 +43,7 @@ void kgsl_pwrscale_sleep(struct kgsl_device *device)
 	queue_work(device->pwrscale.devfreq_wq,
 		&device->pwrscale.devfreq_suspend_ws);
 }
-EXPORT_SYMBOL(kgsl_pwrscale_sleep);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_sleep); */
 
 /*
  * kgsl_pwrscale_wake - notify governor that device is going on
@@ -73,7 +73,7 @@ void kgsl_pwrscale_wake(struct kgsl_device *device)
 	queue_work(device->pwrscale.devfreq_wq,
 		&device->pwrscale.devfreq_resume_ws);
 }
-EXPORT_SYMBOL(kgsl_pwrscale_wake);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_wake); */
 
 /*
  * kgsl_pwrscale_busy - update pwrscale state for new work
@@ -90,7 +90,7 @@ void kgsl_pwrscale_busy(struct kgsl_device *device)
 	if (device->pwrscale.on_time == 0)
 		device->pwrscale.on_time = ktime_to_us(ktime_get());
 }
-EXPORT_SYMBOL(kgsl_pwrscale_busy);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_busy); */
 
 /*
  * kgsl_pwrscale_update - update device busy statistics
@@ -131,7 +131,7 @@ void kgsl_pwrscale_update(struct kgsl_device *device)
 		queue_work(device->pwrscale.devfreq_wq,
 			&device->pwrscale.devfreq_notify_ws);
 }
-EXPORT_SYMBOL(kgsl_pwrscale_update);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_update); */
 
 /*
  * kgsl_pwrscale_disable - temporarily disable the governor
@@ -152,7 +152,7 @@ void kgsl_pwrscale_disable(struct kgsl_device *device)
 		kgsl_pwrctrl_pwrlevel_change(device, KGSL_PWRLEVEL_TURBO);
 	}
 }
-EXPORT_SYMBOL(kgsl_pwrscale_disable);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_disable); */
 
 /*
  * kgsl_pwrscale_enable - re-enable the governor
@@ -171,7 +171,7 @@ void kgsl_pwrscale_enable(struct kgsl_device *device)
 			&device->pwrscale.devfreq_resume_ws);
 	}
 }
-EXPORT_SYMBOL(kgsl_pwrscale_enable);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_enable); */
 
 /*
  * kgsl_devfreq_target - devfreq_dev_profile.target callback
@@ -250,7 +250,7 @@ int kgsl_devfreq_target(struct device *dev, unsigned long *freq, u32 flags)
 	kgsl_mutex_unlock(&device->mutex, &device->mutex_owner);
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_devfreq_target);
+/* DISABLED: EXPORT_SYMBOL(kgsl_devfreq_target); */
 
 /*
  * kgsl_devfreq_get_dev_status - devfreq_dev_profile.get_dev_status callback
@@ -306,7 +306,7 @@ int kgsl_devfreq_get_dev_status(struct device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_devfreq_get_dev_status);
+/* DISABLED: EXPORT_SYMBOL(kgsl_devfreq_get_dev_status); */
 
 /*
  * kgsl_devfreq_get_cur_freq - devfreq_dev_profile.get_cur_freq callback
@@ -331,7 +331,7 @@ int kgsl_devfreq_get_cur_freq(struct device *dev, unsigned long *freq)
 
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_devfreq_get_cur_freq);
+/* DISABLED: EXPORT_SYMBOL(kgsl_devfreq_get_cur_freq); */
 
 /*
  * kgsl_devfreq_add_notifier - add a fine grained notifier.
@@ -360,7 +360,7 @@ void kgsl_pwrscale_idle(struct kgsl_device *device)
 	queue_work(device->pwrscale.devfreq_wq,
 		&device->pwrscale.devfreq_notify_ws);
 }
-EXPORT_SYMBOL(kgsl_pwrscale_idle);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_idle); */
 
 /*
  * kgsl_devfreq_del_notifier - remove a fine grained notifier.
@@ -381,7 +381,7 @@ int kgsl_devfreq_del_notifier(struct device *dev, struct notifier_block *nb)
 
 	return srcu_notifier_chain_unregister(&device->pwrscale.nh, nb);
 }
-EXPORT_SYMBOL(kgsl_devfreq_del_notifier);
+/* DISABLED: EXPORT_SYMBOL(kgsl_devfreq_del_notifier); */
 
 /*
  * kgsl_pwrscale_init - Initialize pwrscale.
@@ -475,7 +475,7 @@ int kgsl_pwrscale_init(struct device *dev, const char *governor)
 
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_pwrscale_init);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_init); */
 
 /*
  * kgsl_pwrscale_close - clean up pwrscale
@@ -496,7 +496,7 @@ void kgsl_pwrscale_close(struct kgsl_device *device)
 	device->pwrscale.devfreq = NULL;
 	srcu_cleanup_notifier_head(&device->pwrscale.nh);
 }
-EXPORT_SYMBOL(kgsl_pwrscale_close);
+/* DISABLED: EXPORT_SYMBOL(kgsl_pwrscale_close); */
 
 static void do_devfreq_suspend(struct work_struct *work)
 {

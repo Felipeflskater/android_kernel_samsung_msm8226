@@ -541,7 +541,7 @@ int amba_device_add(struct amba_device *dev, struct resource *parent)
  err_out:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(amba_device_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(amba_device_add); */
 
 static void amba_device_initialize(struct amba_device *dev, const char *name)
 {
@@ -578,7 +578,7 @@ struct amba_device *amba_device_alloc(const char *name, resource_size_t base,
 
 	return dev;
 }
-EXPORT_SYMBOL_GPL(amba_device_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(amba_device_alloc); */
 
 /**
  *	amba_device_register - register an AMBA device
@@ -608,7 +608,7 @@ void amba_device_put(struct amba_device *dev)
 {
 	put_device(&dev->dev);
 }
-EXPORT_SYMBOL_GPL(amba_device_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(amba_device_put); */
 
 /**
  *	amba_device_unregister - unregister an AMBA device
@@ -721,10 +721,10 @@ void amba_release_regions(struct amba_device *dev)
 	release_mem_region(dev->res.start, size);
 }
 
-EXPORT_SYMBOL(amba_driver_register);
-EXPORT_SYMBOL(amba_driver_unregister);
-EXPORT_SYMBOL(amba_device_register);
-EXPORT_SYMBOL(amba_device_unregister);
-EXPORT_SYMBOL(amba_find_device);
-EXPORT_SYMBOL(amba_request_regions);
-EXPORT_SYMBOL(amba_release_regions);
+/* DISABLED: EXPORT_SYMBOL(amba_driver_register); */
+/* DISABLED: EXPORT_SYMBOL(amba_driver_unregister); */
+/* DISABLED: EXPORT_SYMBOL(amba_device_register); */
+/* DISABLED: EXPORT_SYMBOL(amba_device_unregister); */
+/* DISABLED: EXPORT_SYMBOL(amba_find_device); */
+/* DISABLED: EXPORT_SYMBOL(amba_request_regions); */
+/* DISABLED: EXPORT_SYMBOL(amba_release_regions); */

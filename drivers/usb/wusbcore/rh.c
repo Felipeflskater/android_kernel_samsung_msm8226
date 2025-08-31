@@ -154,7 +154,7 @@ int wusbhc_rh_status_data(struct usb_hcd *usb_hcd, char *_buf)
 			clear_bit(cnt + 1, buf);
 	return size;
 }
-EXPORT_SYMBOL_GPL(wusbhc_rh_status_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_rh_status_data); */
 
 /*
  * Return the hub's descriptor
@@ -391,7 +391,7 @@ int wusbhc_rh_control(struct usb_hcd *usb_hcd, u16 reqntype, u16 wValue,
 	}
 	return result;
 }
-EXPORT_SYMBOL_GPL(wusbhc_rh_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_rh_control); */
 
 int wusbhc_rh_suspend(struct usb_hcd *usb_hcd)
 {
@@ -401,7 +401,7 @@ int wusbhc_rh_suspend(struct usb_hcd *usb_hcd)
 	/* dump_stack(); */
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(wusbhc_rh_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_rh_suspend); */
 
 int wusbhc_rh_resume(struct usb_hcd *usb_hcd)
 {
@@ -411,7 +411,7 @@ int wusbhc_rh_resume(struct usb_hcd *usb_hcd)
 	/* dump_stack(); */
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(wusbhc_rh_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_rh_resume); */
 
 int wusbhc_rh_start_port_reset(struct usb_hcd *usb_hcd, unsigned port_idx)
 {
@@ -421,7 +421,7 @@ int wusbhc_rh_start_port_reset(struct usb_hcd *usb_hcd, unsigned port_idx)
 	WARN_ON(1);
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(wusbhc_rh_start_port_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_rh_start_port_reset); */
 
 static void wusb_port_init(struct wusb_port *port)
 {

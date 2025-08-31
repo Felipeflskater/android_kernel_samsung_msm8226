@@ -321,7 +321,7 @@ struct bus_type i2c_bus_type = {
 	.shutdown	= i2c_device_shutdown,
 	.pm		= &i2c_device_pm_ops,
 };
-EXPORT_SYMBOL_GPL(i2c_bus_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_bus_type); */
 
 static struct device_type i2c_client_type = {
 	.groups		= i2c_dev_attr_groups,
@@ -345,7 +345,7 @@ struct i2c_client *i2c_verify_client(struct device *dev)
 			? to_i2c_client(dev)
 			: NULL;
 }
-EXPORT_SYMBOL(i2c_verify_client);
+/* DISABLED: EXPORT_SYMBOL(i2c_verify_client); */
 
 
 /* This is a permissive address validity check, I2C address map constraints
@@ -456,7 +456,7 @@ void i2c_lock_adapter(struct i2c_adapter *adapter)
 	else
 		rt_mutex_lock(&adapter->bus_lock);
 }
-EXPORT_SYMBOL_GPL(i2c_lock_adapter);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_lock_adapter); */
 
 /**
  * i2c_trylock_adapter - Try to get exclusive access to an I2C bus segment
@@ -485,7 +485,7 @@ void i2c_unlock_adapter(struct i2c_adapter *adapter)
 	else
 		rt_mutex_unlock(&adapter->bus_lock);
 }
-EXPORT_SYMBOL_GPL(i2c_unlock_adapter);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_unlock_adapter); */
 
 /**
  * i2c_new_device - instantiate an i2c device
@@ -564,7 +564,7 @@ out_err_silent:
 	kfree(client);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(i2c_new_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_new_device); */
 
 
 /**
@@ -576,7 +576,7 @@ void i2c_unregister_device(struct i2c_client *client)
 {
 	device_unregister(&client->dev);
 }
-EXPORT_SYMBOL_GPL(i2c_unregister_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_unregister_device); */
 
 
 static const struct i2c_device_id dummy_id[] = {
@@ -628,7 +628,7 @@ struct i2c_client *i2c_new_dummy(struct i2c_adapter *adapter, u16 address)
 
 	return i2c_new_device(adapter, &info);
 }
-EXPORT_SYMBOL_GPL(i2c_new_dummy);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_new_dummy); */
 
 /* ------------------------------------------------------------------------- */
 
@@ -774,7 +774,7 @@ struct device_type i2c_adapter_type = {
 	.groups		= i2c_adapter_attr_groups,
 	.release	= i2c_adapter_dev_release,
 };
-EXPORT_SYMBOL_GPL(i2c_adapter_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_adapter_type); */
 
 #ifdef CONFIG_I2C_COMPAT
 static struct class_compat *i2c_adapter_compat_class;
@@ -920,7 +920,7 @@ retry:
 	adapter->nr = id;
 	return i2c_register_adapter(adapter);
 }
-EXPORT_SYMBOL(i2c_add_adapter);
+/* DISABLED: EXPORT_SYMBOL(i2c_add_adapter); */
 
 /**
  * i2c_add_numbered_adapter - declare i2c adapter, use static bus number
@@ -976,7 +976,7 @@ retry:
 		status = i2c_register_adapter(adap);
 	return status;
 }
-EXPORT_SYMBOL_GPL(i2c_add_numbered_adapter);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_add_numbered_adapter); */
 
 static int i2c_do_del_adapter(struct i2c_driver *driver,
 			      struct i2c_adapter *adapter)
@@ -1104,7 +1104,7 @@ int i2c_del_adapter(struct i2c_adapter *adap)
 
 	return 0;
 }
-EXPORT_SYMBOL(i2c_del_adapter);
+/* DISABLED: EXPORT_SYMBOL(i2c_del_adapter); */
 
 
 /* ------------------------------------------------------------------------- */
@@ -1119,7 +1119,7 @@ int i2c_for_each_dev(void *data, int (*fn)(struct device *, void *))
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(i2c_for_each_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_for_each_dev); */
 
 static int __process_new_driver(struct device *dev, void *data)
 {
@@ -1168,7 +1168,7 @@ int i2c_register_driver(struct module *owner, struct i2c_driver *driver)
 
 	return 0;
 }
-EXPORT_SYMBOL(i2c_register_driver);
+/* DISABLED: EXPORT_SYMBOL(i2c_register_driver); */
 
 static int __process_removed_driver(struct device *dev, void *data)
 {
@@ -1189,7 +1189,7 @@ void i2c_del_driver(struct i2c_driver *driver)
 	driver_unregister(&driver->driver);
 	pr_debug("i2c-core: driver [%s] unregistered\n", driver->driver.name);
 }
-EXPORT_SYMBOL(i2c_del_driver);
+/* DISABLED: EXPORT_SYMBOL(i2c_del_driver); */
 
 /* ------------------------------------------------------------------------- */
 
@@ -1210,7 +1210,7 @@ struct i2c_client *i2c_use_client(struct i2c_client *client)
 		return client;
 	return NULL;
 }
-EXPORT_SYMBOL(i2c_use_client);
+/* DISABLED: EXPORT_SYMBOL(i2c_use_client); */
 
 /**
  * i2c_release_client - release a use of the i2c client structure
@@ -1223,7 +1223,7 @@ void i2c_release_client(struct i2c_client *client)
 	if (client)
 		put_device(&client->dev);
 }
-EXPORT_SYMBOL(i2c_release_client);
+/* DISABLED: EXPORT_SYMBOL(i2c_release_client); */
 
 struct i2c_cmd_arg {
 	unsigned	cmd;
@@ -1248,7 +1248,7 @@ void i2c_clients_command(struct i2c_adapter *adap, unsigned int cmd, void *arg)
 	cmd_arg.arg = arg;
 	device_for_each_child(&adap->dev, &cmd_arg, i2c_cmd);
 }
-EXPORT_SYMBOL(i2c_clients_command);
+/* DISABLED: EXPORT_SYMBOL(i2c_clients_command); */
 
 static int __init i2c_init(void)
 {
@@ -1368,7 +1368,7 @@ int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
 		return -EOPNOTSUPP;
 	}
 }
-EXPORT_SYMBOL(i2c_transfer);
+/* DISABLED: EXPORT_SYMBOL(i2c_transfer); */
 
 /**
  * i2c_master_send - issue a single I2C message in master transmit mode
@@ -1397,7 +1397,7 @@ int i2c_master_send(const struct i2c_client *client, const char *buf, int count)
 	 */
 	return (ret == 1) ? count : ret;
 }
-EXPORT_SYMBOL(i2c_master_send);
+/* DISABLED: EXPORT_SYMBOL(i2c_master_send); */
 
 /**
  * i2c_master_recv - issue a single I2C message in master receive mode
@@ -1427,7 +1427,7 @@ int i2c_master_recv(const struct i2c_client *client, char *buf, int count)
 	 */
 	return (ret == 1) ? count : ret;
 }
-EXPORT_SYMBOL(i2c_master_recv);
+/* DISABLED: EXPORT_SYMBOL(i2c_master_recv); */
 
 /* ----------------------------------------------------
  * the i2c address scanning function
@@ -1568,7 +1568,7 @@ int i2c_probe_func_quick_read(struct i2c_adapter *adap, unsigned short addr)
 	return i2c_smbus_xfer(adap, addr, 0, I2C_SMBUS_READ, 0,
 			      I2C_SMBUS_QUICK, NULL) >= 0;
 }
-EXPORT_SYMBOL_GPL(i2c_probe_func_quick_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_probe_func_quick_read); */
 
 struct i2c_client *
 i2c_new_probed_device(struct i2c_adapter *adap,
@@ -1609,7 +1609,7 @@ i2c_new_probed_device(struct i2c_adapter *adap,
 	info->addr = addr_list[i];
 	return i2c_new_device(adap, info);
 }
-EXPORT_SYMBOL_GPL(i2c_new_probed_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2c_new_probed_device); */
 
 struct i2c_adapter *i2c_get_adapter(int nr)
 {
@@ -1623,13 +1623,13 @@ struct i2c_adapter *i2c_get_adapter(int nr)
 	mutex_unlock(&core_lock);
 	return adapter;
 }
-EXPORT_SYMBOL(i2c_get_adapter);
+/* DISABLED: EXPORT_SYMBOL(i2c_get_adapter); */
 
 void i2c_put_adapter(struct i2c_adapter *adap)
 {
 	module_put(adap->owner);
 }
-EXPORT_SYMBOL(i2c_put_adapter);
+/* DISABLED: EXPORT_SYMBOL(i2c_put_adapter); */
 
 /* The SMBus parts */
 
@@ -1709,7 +1709,7 @@ s32 i2c_smbus_read_byte(const struct i2c_client *client)
 				I2C_SMBUS_BYTE, &data);
 	return (status < 0) ? status : data.byte;
 }
-EXPORT_SYMBOL(i2c_smbus_read_byte);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_read_byte); */
 
 /**
  * i2c_smbus_write_byte - SMBus "send byte" protocol
@@ -1724,7 +1724,7 @@ s32 i2c_smbus_write_byte(const struct i2c_client *client, u8 value)
 	return i2c_smbus_xfer(client->adapter, client->addr, client->flags,
 	                      I2C_SMBUS_WRITE, value, I2C_SMBUS_BYTE, NULL);
 }
-EXPORT_SYMBOL(i2c_smbus_write_byte);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_write_byte); */
 
 /**
  * i2c_smbus_read_byte_data - SMBus "read byte" protocol
@@ -1744,7 +1744,7 @@ s32 i2c_smbus_read_byte_data(const struct i2c_client *client, u8 command)
 				I2C_SMBUS_BYTE_DATA, &data);
 	return (status < 0) ? status : data.byte;
 }
-EXPORT_SYMBOL(i2c_smbus_read_byte_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_read_byte_data); */
 
 /**
  * i2c_smbus_write_byte_data - SMBus "write byte" protocol
@@ -1764,7 +1764,7 @@ s32 i2c_smbus_write_byte_data(const struct i2c_client *client, u8 command,
 			      I2C_SMBUS_WRITE, command,
 			      I2C_SMBUS_BYTE_DATA, &data);
 }
-EXPORT_SYMBOL(i2c_smbus_write_byte_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_write_byte_data); */
 
 /**
  * i2c_smbus_read_word_data - SMBus "read word" protocol
@@ -1784,7 +1784,7 @@ s32 i2c_smbus_read_word_data(const struct i2c_client *client, u8 command)
 				I2C_SMBUS_WORD_DATA, &data);
 	return (status < 0) ? status : data.word;
 }
-EXPORT_SYMBOL(i2c_smbus_read_word_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_read_word_data); */
 
 /**
  * i2c_smbus_write_word_data - SMBus "write word" protocol
@@ -1804,7 +1804,7 @@ s32 i2c_smbus_write_word_data(const struct i2c_client *client, u8 command,
 			      I2C_SMBUS_WRITE, command,
 			      I2C_SMBUS_WORD_DATA, &data);
 }
-EXPORT_SYMBOL(i2c_smbus_write_word_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_write_word_data); */
 
 /**
  * i2c_smbus_process_call - SMBus "process call" protocol
@@ -1827,7 +1827,7 @@ s32 i2c_smbus_process_call(const struct i2c_client *client, u8 command,
 				I2C_SMBUS_PROC_CALL, &data);
 	return (status < 0) ? status : data.word;
 }
-EXPORT_SYMBOL(i2c_smbus_process_call);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_process_call); */
 
 /**
  * i2c_smbus_read_block_data - SMBus "block read" protocol
@@ -1859,7 +1859,7 @@ s32 i2c_smbus_read_block_data(const struct i2c_client *client, u8 command,
 	memcpy(values, &data.block[1], data.block[0]);
 	return data.block[0];
 }
-EXPORT_SYMBOL(i2c_smbus_read_block_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_read_block_data); */
 
 /**
  * i2c_smbus_write_block_data - SMBus "block write" protocol
@@ -1884,7 +1884,7 @@ s32 i2c_smbus_write_block_data(const struct i2c_client *client, u8 command,
 			      I2C_SMBUS_WRITE, command,
 			      I2C_SMBUS_BLOCK_DATA, &data);
 }
-EXPORT_SYMBOL(i2c_smbus_write_block_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_write_block_data); */
 
 /* Returns the number of read bytes */
 s32 i2c_smbus_read_i2c_block_data(const struct i2c_client *client, u8 command,
@@ -1905,7 +1905,7 @@ s32 i2c_smbus_read_i2c_block_data(const struct i2c_client *client, u8 command,
 	memcpy(values, &data.block[1], data.block[0]);
 	return data.block[0];
 }
-EXPORT_SYMBOL(i2c_smbus_read_i2c_block_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_read_i2c_block_data); */
 
 s32 i2c_smbus_write_i2c_block_data(const struct i2c_client *client, u8 command,
 				   u8 length, const u8 *values)
@@ -1920,7 +1920,7 @@ s32 i2c_smbus_write_i2c_block_data(const struct i2c_client *client, u8 command,
 			      I2C_SMBUS_WRITE, command,
 			      I2C_SMBUS_I2C_BLOCK_DATA, &data);
 }
-EXPORT_SYMBOL(i2c_smbus_write_i2c_block_data);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_write_i2c_block_data); */
 
 /* Simulate a SMBus command using the i2c protocol
    No checking of parameters is done!  */
@@ -2133,7 +2133,7 @@ s32 i2c_smbus_xfer(struct i2c_adapter *adapter, u16 addr, unsigned short flags,
 
 	return res;
 }
-EXPORT_SYMBOL(i2c_smbus_xfer);
+/* DISABLED: EXPORT_SYMBOL(i2c_smbus_xfer); */
 
 MODULE_AUTHOR("Simon G. Vogl <simon@tk.uni-linz.ac.at>");
 MODULE_DESCRIPTION("I2C-Bus main module");

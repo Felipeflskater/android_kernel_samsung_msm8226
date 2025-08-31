@@ -42,7 +42,7 @@ void baswap(bdaddr_t *dst, bdaddr_t *src)
 	for (i = 0; i < 6; i++)
 		d[i] = s[5 - i];
 }
-EXPORT_SYMBOL(baswap);
+/* DISABLED: EXPORT_SYMBOL(baswap); */
 
 char *batostr(bdaddr_t *ba)
 {
@@ -56,7 +56,7 @@ char *batostr(bdaddr_t *ba)
 
 	return str[i];
 }
-EXPORT_SYMBOL(batostr);
+/* DISABLED: EXPORT_SYMBOL(batostr); */
 
 /* Bluetooth error codes to Unix errno mapping */
 int bt_err(__u16 code)
@@ -149,4 +149,4 @@ int bt_err(__u16 code)
 		return ENOSYS;
 	}
 }
-EXPORT_SYMBOL(bt_err);
+/* DISABLED: EXPORT_SYMBOL(bt_err); */

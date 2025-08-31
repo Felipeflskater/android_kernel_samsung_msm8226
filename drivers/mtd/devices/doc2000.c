@@ -590,7 +590,7 @@ void DoC2k_init(struct mtd_info *mtd)
 		return;
 	}
 }
-EXPORT_SYMBOL_GPL(DoC2k_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(DoC2k_init); */
 
 static int doc_read(struct mtd_info *mtd, loff_t from, size_t len,
 		    size_t * retlen, u_char * buf)

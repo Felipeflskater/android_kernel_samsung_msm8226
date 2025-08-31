@@ -208,7 +208,7 @@ int usb_notify_dev_register(struct usb_notify_dev *udev)
 	dev_set_drvdata(udev->dev, udev);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_notify_dev_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_notify_dev_register); */
 
 void usb_notify_dev_unregister(struct usb_notify_dev *udev)
 {
@@ -216,16 +216,16 @@ void usb_notify_dev_unregister(struct usb_notify_dev *udev)
 	device_destroy(usb_notify_data.usb_notify_class, MKDEV(0, udev->index));
 	dev_set_drvdata(udev->dev, NULL);
 }
-EXPORT_SYMBOL_GPL(usb_notify_dev_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_notify_dev_unregister); */
 
 int usb_notify_class_init(void)
 {
 	return create_usb_notify_class();
 }
-EXPORT_SYMBOL_GPL(usb_notify_class_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_notify_class_init); */
 
 void usb_notify_class_exit(void)
 {
 	class_destroy(usb_notify_data.usb_notify_class);
 }
-EXPORT_SYMBOL_GPL(usb_notify_class_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_notify_class_exit); */

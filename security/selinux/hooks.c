@@ -120,7 +120,7 @@ static int __init enforcing_setup(char *str)
 #endif
 	return 1;
 }
-/* DISABLED: __setup("enforcing=", enforcing_setup); */
+/* DISABLED: __setup("enforcing=", enforcing_setup); */ */
 #endif
 
 #ifdef CONFIG_SECURITY_SELINUX_BOOTPARAM
@@ -137,7 +137,7 @@ static int __init selinux_enabled_setup(char *str)
 #endif
 	return 1;
 }
-/* DISABLED: __setup("selinux=", selinux_enabled_setup); */
+/* DISABLED: __setup("selinux=", selinux_enabled_setup); */ */
 #else
 int selinux_enabled = 1;
 #endif

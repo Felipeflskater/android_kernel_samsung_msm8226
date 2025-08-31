@@ -423,7 +423,7 @@ int msm8x10_wcd_bulk_write(struct wcd9xxx_core_resource *core_res,
 				(struct msm8x10_wcd *) core_res->parent;
 	return __msm8x10_wcd_bulk_write(msm8x10_wcd, reg, count, buf);
 }
-EXPORT_SYMBOL(msm8x10_wcd_bulk_write);
+/* DISABLED: EXPORT_SYMBOL(msm8x10_wcd_bulk_write); */
 
 int msm8x10_wcd_reg_read(struct wcd9xxx_core_resource *core_res,
 				unsigned short reg)
@@ -431,7 +431,7 @@ int msm8x10_wcd_reg_read(struct wcd9xxx_core_resource *core_res,
 	struct msm8x10_wcd *msm8x10_wcd = core_res->parent;
 	return __msm8x10_wcd_reg_read(msm8x10_wcd, reg);
 }
-EXPORT_SYMBOL(msm8x10_wcd_reg_read);
+/* DISABLED: EXPORT_SYMBOL(msm8x10_wcd_reg_read); */
 
 static int __msm8x10_wcd_bulk_read(struct msm8x10_wcd *msm8x10_wcd,
 		unsigned short reg, int count, u8 *buf)
@@ -458,7 +458,7 @@ int msm8x10_wcd_bulk_read(struct wcd9xxx_core_resource *core_res,
 				(struct msm8x10_wcd *) core_res->parent;
 	return __msm8x10_wcd_bulk_read(msm8x10_wcd, reg, count, buf);
 }
-EXPORT_SYMBOL(msm8x10_wcd_bulk_read);
+/* DISABLED: EXPORT_SYMBOL(msm8x10_wcd_bulk_read); */
 
 static int __msm8x10_wcd_reg_write(struct msm8x10_wcd *msm8x10_wcd,
 			unsigned short reg, u8 val)
@@ -493,7 +493,7 @@ int msm8x10_wcd_reg_write(struct wcd9xxx_core_resource *core_res,
 	struct msm8x10_wcd *msm8x10_wcd = core_res->parent;
 	return __msm8x10_wcd_reg_write(msm8x10_wcd, reg, val);
 }
-EXPORT_SYMBOL(msm8x10_wcd_reg_write);
+/* DISABLED: EXPORT_SYMBOL(msm8x10_wcd_reg_write); */
 
 static bool msm8x10_wcd_is_digital_gain_register(unsigned int reg)
 {
@@ -3157,7 +3157,7 @@ int msm8x10_wcd_hs_detect(struct snd_soc_codec *codec,
 	#endif
 	return 0;
 }
-EXPORT_SYMBOL_GPL(msm8x10_wcd_hs_detect);
+/* DISABLED: EXPORT_SYMBOL_GPL(msm8x10_wcd_hs_detect); */
 
 static int msm8x10_wcd_bringup(struct snd_soc_codec *codec)
 {

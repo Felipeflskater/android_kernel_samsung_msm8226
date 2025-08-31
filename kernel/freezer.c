@@ -13,7 +13,7 @@
 
 /* total number of freezing conditions in effect */
 atomic_t system_freezing_cnt = ATOMIC_INIT(0);
-EXPORT_SYMBOL(system_freezing_cnt);
+/* DISABLED: EXPORT_SYMBOL(system_freezing_cnt); */
 
 /* indicate whether PM freezing is in effect, protected by pm_mutex */
 bool pm_freezing;
@@ -47,7 +47,7 @@ bool freezing_slow_path(struct task_struct *p)
 
 	return false;
 }
-EXPORT_SYMBOL(freezing_slow_path);
+/* DISABLED: EXPORT_SYMBOL(freezing_slow_path); */
 
 /* Refrigerator is place where frozen processes are stored :-). */
 bool __refrigerator(bool check_kthr_stop)
@@ -86,7 +86,7 @@ bool __refrigerator(bool check_kthr_stop)
 
 	return was_frozen;
 }
-EXPORT_SYMBOL(__refrigerator);
+/* DISABLED: EXPORT_SYMBOL(__refrigerator); */
 
 static void fake_signal_wake_up(struct task_struct *p)
 {
@@ -183,4 +183,4 @@ bool set_freezable(void)
 
 	return try_to_freeze();
 }
-EXPORT_SYMBOL(set_freezable);
+/* DISABLED: EXPORT_SYMBOL(set_freezable); */

@@ -35,7 +35,7 @@ void __fsnotify_inode_delete(struct inode *inode)
 {
 	fsnotify_clear_marks_by_inode(inode);
 }
-EXPORT_SYMBOL_GPL(__fsnotify_inode_delete);
+/* DISABLED: EXPORT_SYMBOL_GPL(__fsnotify_inode_delete); */
 
 void __fsnotify_vfsmount_delete(struct vfsmount *mnt)
 {
@@ -125,7 +125,7 @@ int __fsnotify_parent(struct path *path, struct dentry *dentry, __u32 mask)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__fsnotify_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(__fsnotify_parent); */
 
 static int send_to_group(struct inode *to_tell, struct vfsmount *mnt,
 			 struct fsnotify_mark *inode_mark,
@@ -298,7 +298,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(fsnotify);
+/* DISABLED: EXPORT_SYMBOL_GPL(fsnotify); */
 
 static __init int fsnotify_init(void)
 {

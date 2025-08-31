@@ -571,7 +571,7 @@ struct clk *s3c_i2sv2_get_clock(struct snd_soc_dai *cpu_dai)
 	else
 		return i2s->iis_pclk;
 }
-EXPORT_SYMBOL_GPL(s3c_i2sv2_get_clock);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_i2sv2_get_clock); */
 
 /* default table of all avaialable root fs divisors */
 static unsigned int iis_fs_tab[] = { 256, 512, 384, 768 };
@@ -636,7 +636,7 @@ int s3c_i2sv2_iis_calc_rate(struct s3c_i2sv2_rate_calc *info,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(s3c_i2sv2_iis_calc_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_i2sv2_iis_calc_rate); */
 
 int s3c_i2sv2_probe(struct snd_soc_dai *dai,
 		    struct s3c_i2sv2_info *i2s,
@@ -675,7 +675,7 @@ int s3c_i2sv2_probe(struct snd_soc_dai *dai,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(s3c_i2sv2_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_i2sv2_probe); */
 
 #ifdef CONFIG_PM
 static int s3c2412_i2s_suspend(struct snd_soc_dai *dai)
@@ -752,6 +752,6 @@ int s3c_i2sv2_register_dai(struct device *dev, int id,
 
 	return snd_soc_register_dai(dev, drv);
 }
-EXPORT_SYMBOL_GPL(s3c_i2sv2_register_dai);
+/* DISABLED: EXPORT_SYMBOL_GPL(s3c_i2sv2_register_dai); */
 
 MODULE_LICENSE("GPL");

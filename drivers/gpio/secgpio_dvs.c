@@ -33,10 +33,10 @@
 
 /*sys fs*/
 struct class *secgpio_dvs_class;
-EXPORT_SYMBOL(secgpio_dvs_class);
+/* DISABLED: EXPORT_SYMBOL(secgpio_dvs_class); */
 
 struct device *secgpio_dotest;
-EXPORT_SYMBOL(secgpio_dotest);
+/* DISABLED: EXPORT_SYMBOL(secgpio_dotest); */
 
 /* extern GPIOMAP_RESULT GpioMap_result; */
 static struct gpio_dvs *gdvs_info;

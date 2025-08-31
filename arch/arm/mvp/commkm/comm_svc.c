@@ -155,7 +155,7 @@ CommSvc_RegisterImpl(const CommImpl *impl)
 	return Comm_RegisterImpl(impl);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_RegisterImpl);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_RegisterImpl); */
 #endif /* defined(__linux__) */
 
 
@@ -171,7 +171,7 @@ CommSvc_UnregisterImpl(const CommImpl *impl)
 	Comm_UnregisterImpl(impl);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_UnregisterImpl);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_UnregisterImpl); */
 #endif /* defined(__linux__) */
 
 
@@ -195,7 +195,7 @@ CommSvc_Alloc(const CommTranspInitArgs *transpArgs,
 	return Comm_Alloc(transpArgs, impl, inBH, newChannel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Alloc);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Alloc); */
 #endif /* defined(__linux__) */
 
 
@@ -213,7 +213,7 @@ CommSvc_Zombify(CommChannel channel,
 	return Comm_Zombify(channel, inBH);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Zombify);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Zombify); */
 #endif /* defined(__linux__) */
 
 
@@ -229,7 +229,7 @@ CommSvc_IsActive(CommChannel channel)
 	return Comm_IsActive(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_IsActive);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_IsActive); */
 #endif /* defined(__linux__) */
 
 
@@ -246,7 +246,7 @@ CommSvc_GetTranspInitArgs(CommChannel channel)
 	return Comm_GetTranspInitArgs(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_GetTranspInitArgs);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_GetTranspInitArgs); */
 #endif /* defined(__linux__) */
 
 
@@ -263,7 +263,7 @@ CommSvc_GetState(CommChannel channel)
 	return Comm_GetState(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_GetState);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_GetState); */
 #endif /* defined(__linux__) */
 
 
@@ -291,7 +291,7 @@ CommSvc_Write(CommChannel channel,
 	return Comm_Write(channel, packet, timeoutMillis);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Write);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Write); */
 #endif /* defined(__linux__) */
 
 
@@ -330,7 +330,7 @@ CommSvc_WriteVec(CommChannel channel,
 			     timeoutMillis, iovOffset, kern);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_WriteVec);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_WriteVec); */
 #endif /* defined(__linux__) */
 
 
@@ -348,7 +348,7 @@ CommSvc_Put(CommChannel channel)
 	Comm_Put(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Put);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Put); */
 #endif /* defined(__linux__) */
 
 
@@ -365,7 +365,7 @@ CommSvc_DispatchUnlock(CommChannel channel)
 	Comm_DispatchUnlock(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_DispatchUnlock);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_DispatchUnlock); */
 #endif /* defined(__linux__) */
 
 
@@ -387,7 +387,7 @@ CommSvc_Lock(CommChannel channel)
 	return Comm_Lock(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Lock);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Lock); */
 #endif /* defined(__linux__) */
 
 
@@ -406,7 +406,7 @@ CommSvc_Unlock(CommChannel channel)
 	Comm_Unlock(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_Unlock);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_Unlock); */
 #endif /* defined(__linux__) */
 
 
@@ -422,7 +422,7 @@ CommSvc_ScheduleAIOWork(CommOSWork *work)
 	return CommOS_ScheduleAIOWork(work);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_ScheduleAIOWork);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_ScheduleAIOWork); */
 #endif /* defined(__linux__) */
 
 
@@ -438,7 +438,7 @@ CommSvc_RequestInlineEvents(CommChannel channel)
 	return Comm_RequestInlineEvents(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_RequestInlineEvents);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_RequestInlineEvents); */
 #endif /* defined(__linux__) */
 
 
@@ -454,6 +454,6 @@ CommSvc_ReleaseInlineEvents(CommChannel channel)
 	return Comm_ReleaseInlineEvents(channel);
 }
 #if defined(__linux__)
-EXPORT_SYMBOL(CommSvc_ReleaseInlineEvents);
+/* DISABLED: EXPORT_SYMBOL(CommSvc_ReleaseInlineEvents); */
 #endif /* defined(__linux__) */
 

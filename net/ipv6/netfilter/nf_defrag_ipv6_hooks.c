@@ -132,7 +132,7 @@ static void __exit nf_defrag_fini(void)
 void nf_defrag_ipv6_enable(void)
 {
 }
-EXPORT_SYMBOL_GPL(nf_defrag_ipv6_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_defrag_ipv6_enable); */
 
 module_init(nf_defrag_init);
 module_exit(nf_defrag_fini);

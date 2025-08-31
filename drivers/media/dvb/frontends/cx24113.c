@@ -518,7 +518,7 @@ void cx24113_agc_callback(struct dvb_frontend *fe)
 		s = -25 - i*5;
 	} while (cx24113_set_gain_settings(state, s));
 }
-EXPORT_SYMBOL(cx24113_agc_callback);
+/* DISABLED: EXPORT_SYMBOL(cx24113_agc_callback); */
 
 static int cx24113_get_frequency(struct dvb_frontend *fe, u32 *frequency)
 {
@@ -607,7 +607,7 @@ error:
 
 	return NULL;
 }
-EXPORT_SYMBOL(cx24113_attach);
+/* DISABLED: EXPORT_SYMBOL(cx24113_attach); */
 
 module_param(debug, int, 0644);
 MODULE_PARM_DESC(debug, "Activates frontend debugging (default:0)");

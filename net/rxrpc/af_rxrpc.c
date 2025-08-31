@@ -324,7 +324,7 @@ out_notrans:
 	return call;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_begin_call);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_begin_call); */
 
 /**
  * rxrpc_kernel_end_call - Allow a kernel service to end a call it was using
@@ -340,7 +340,7 @@ void rxrpc_kernel_end_call(struct rxrpc_call *call)
 	rxrpc_put_call(call);
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_end_call);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_end_call); */
 
 /**
  * rxrpc_kernel_intercept_rx_messages - Intercept received RxRPC messages
@@ -362,7 +362,7 @@ void rxrpc_kernel_intercept_rx_messages(struct socket *sock,
 	rx->interceptor = interceptor;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_intercept_rx_messages);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_intercept_rx_messages); */
 
 /*
  * connect an RxRPC socket

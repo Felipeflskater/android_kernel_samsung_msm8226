@@ -91,8 +91,8 @@ void bcm_bt_unlock(int cookie)
 	}
 }
 
-EXPORT_SYMBOL(bcm_bt_lock);
-EXPORT_SYMBOL(bcm_bt_unlock);
+/* DISABLED: EXPORT_SYMBOL(bcm_bt_lock); */
+/* DISABLED: EXPORT_SYMBOL(bcm_bt_unlock); */
 
 static int btlock_open(struct inode *inode, struct file *file)
 {

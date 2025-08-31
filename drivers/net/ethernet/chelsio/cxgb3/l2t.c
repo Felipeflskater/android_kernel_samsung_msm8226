@@ -173,7 +173,7 @@ again:
 	return 0;
 }
 
-EXPORT_SYMBOL(t3_l2t_send_slow);
+/* DISABLED: EXPORT_SYMBOL(t3_l2t_send_slow); */
 
 void t3_l2t_send_event(struct t3cdev *dev, struct l2t_entry *e)
 {
@@ -210,7 +210,7 @@ again:
 	}
 }
 
-EXPORT_SYMBOL(t3_l2t_send_event);
+/* DISABLED: EXPORT_SYMBOL(t3_l2t_send_event); */
 
 /*
  * Allocate a free L2T entry.  Must be called with l2t_data.lock held.
@@ -273,7 +273,7 @@ void t3_l2e_free(struct l2t_data *d, struct l2t_entry *e)
 	atomic_inc(&d->nfree);
 }
 
-EXPORT_SYMBOL(t3_l2e_free);
+/* DISABLED: EXPORT_SYMBOL(t3_l2e_free); */
 
 /*
  * Update an L2T entry that was previously used for the same next hop as neigh.
@@ -364,7 +364,7 @@ done_rcu:
 	return e;
 }
 
-EXPORT_SYMBOL(t3_l2t_get);
+/* DISABLED: EXPORT_SYMBOL(t3_l2t_get); */
 
 /*
  * Called when address resolution fails for an L2T entry to handle packets

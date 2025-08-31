@@ -822,7 +822,7 @@ MODULE_DESCRIPTION("LGDT330X (ATSC 8VSB & ITU-T J.83 AnnexB 64/256 QAM) Demodula
 MODULE_AUTHOR("Wilson Michaels");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(lgdt330x_attach);
+/* DISABLED: EXPORT_SYMBOL(lgdt330x_attach); */
 
 /*
  * Local variables:

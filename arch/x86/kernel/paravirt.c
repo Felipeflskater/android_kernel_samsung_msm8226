@@ -482,9 +482,9 @@ struct pv_mmu_ops pv_mmu_ops = {
 	.set_fixmap = native_set_fixmap,
 };
 
-EXPORT_SYMBOL_GPL(pv_time_ops);
-EXPORT_SYMBOL    (pv_cpu_ops);
-EXPORT_SYMBOL    (pv_mmu_ops);
-EXPORT_SYMBOL_GPL(pv_apic_ops);
-EXPORT_SYMBOL_GPL(pv_info);
-EXPORT_SYMBOL    (pv_irq_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(pv_time_ops); */
+/* DISABLED: EXPORT_SYMBOL    (pv_cpu_ops); */
+/* DISABLED: EXPORT_SYMBOL    (pv_mmu_ops); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pv_apic_ops); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pv_info); */
+/* DISABLED: EXPORT_SYMBOL    (pv_irq_ops); */

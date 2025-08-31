@@ -58,7 +58,7 @@ int rds_trans_register(struct rds_transport *trans)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rds_trans_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rds_trans_register); */
 
 void rds_trans_unregister(struct rds_transport *trans)
 {
@@ -69,7 +69,7 @@ void rds_trans_unregister(struct rds_transport *trans)
 
 	up_write(&rds_trans_sem);
 }
-EXPORT_SYMBOL_GPL(rds_trans_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rds_trans_unregister); */
 
 void rds_trans_put(struct rds_transport *trans)
 {

@@ -129,13 +129,13 @@ int __vio_register_driver(struct vio_driver *viodrv, struct module *owner,
 
 	return driver_register(&viodrv->driver);
 }
-EXPORT_SYMBOL(__vio_register_driver);
+/* DISABLED: EXPORT_SYMBOL(__vio_register_driver); */
 
 void vio_unregister_driver(struct vio_driver *viodrv)
 {
 	driver_unregister(&viodrv->driver);
 }
-EXPORT_SYMBOL(vio_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(vio_unregister_driver); */
 
 static void vio_dev_release(struct device *dev)
 {

@@ -247,7 +247,7 @@ struct iovm_struct *omap_find_iovm_area(struct device *dev, u32 da)
 
 	return area;
 }
-EXPORT_SYMBOL_GPL(omap_find_iovm_area);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_find_iovm_area); */
 
 /*
  * This finds the hole(area) which fits the requested address and len
@@ -370,7 +370,7 @@ out:
 
 	return va;
 }
-EXPORT_SYMBOL_GPL(omap_da_to_va);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_da_to_va); */
 
 static void sgtable_fill_vmalloc(struct sg_table *sgt, void *_va)
 {
@@ -618,7 +618,7 @@ u32 omap_iommu_vmap(struct iommu_domain *domain, struct device *dev, u32 da,
 
 	return da + sgtable_offset(sgt);
 }
-EXPORT_SYMBOL_GPL(omap_iommu_vmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_vmap); */
 
 /**
  * omap_iommu_vunmap  -  release virtual mapping obtained by 'omap_iommu_vmap()'
@@ -645,7 +645,7 @@ omap_iommu_vunmap(struct iommu_domain *domain, struct device *dev, u32 da)
 		dev_dbg(obj->dev, "%s: No sgt\n", __func__);
 	return sgt;
 }
-EXPORT_SYMBOL_GPL(omap_iommu_vunmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_vunmap); */
 
 /**
  * omap_iommu_vmalloc  -  (d)-(p)-(v) address allocator and mapper
@@ -697,7 +697,7 @@ err_sgt_alloc:
 	vfree(va);
 	return da;
 }
-EXPORT_SYMBOL_GPL(omap_iommu_vmalloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_vmalloc); */
 
 /**
  * omap_iommu_vfree  -  release memory allocated by 'omap_iommu_vmalloc()'
@@ -719,7 +719,7 @@ void omap_iommu_vfree(struct iommu_domain *domain, struct device *dev,
 		dev_dbg(obj->dev, "%s: No sgt\n", __func__);
 	sgtable_free(sgt);
 }
-EXPORT_SYMBOL_GPL(omap_iommu_vfree);
+/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_vfree); */
 
 static int __init iovmm_init(void)
 {

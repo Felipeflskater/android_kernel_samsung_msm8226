@@ -684,7 +684,7 @@ int cx231xx_tuner_callback(void *ptr, int component, int command, int arg)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(cx231xx_tuner_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_tuner_callback); */
 
 void cx231xx_reset_out(struct cx231xx *dev)
 {

@@ -173,7 +173,7 @@ int gpio_get_value(unsigned gpio)
 
 	return __gpio_get_value(gpio);
 }
-EXPORT_SYMBOL(gpio_get_value);
+/* DISABLED: EXPORT_SYMBOL(gpio_get_value); */
 
 void gpio_set_value(unsigned gpio, int value)
 {
@@ -182,18 +182,18 @@ void gpio_set_value(unsigned gpio, int value)
 	else
 		__gpio_set_value(gpio, value);
 }
-EXPORT_SYMBOL(gpio_set_value);
+/* DISABLED: EXPORT_SYMBOL(gpio_set_value); */
 
 int gpio_to_irq(unsigned gpio)
 {
 	/* FIXME */
 	return -EINVAL;
 }
-EXPORT_SYMBOL(gpio_to_irq);
+/* DISABLED: EXPORT_SYMBOL(gpio_to_irq); */
 
 int irq_to_gpio(unsigned irq)
 {
 	/* FIXME */
 	return -EINVAL;
 }
-EXPORT_SYMBOL(irq_to_gpio);
+/* DISABLED: EXPORT_SYMBOL(irq_to_gpio); */

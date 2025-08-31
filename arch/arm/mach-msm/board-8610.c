@@ -136,7 +136,7 @@ void __init msm8610_add_drivers(void)
 }
 
 struct class *sec_class;
-EXPORT_SYMBOL(sec_class);
+/* DISABLED: EXPORT_SYMBOL(sec_class); */
 
 static void samsung_sys_class_init(void)
 {

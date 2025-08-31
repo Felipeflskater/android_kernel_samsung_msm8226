@@ -61,7 +61,7 @@ static int gnttab_free_count;
 static grant_ref_t gnttab_free_head;
 static DEFINE_SPINLOCK(gnttab_list_lock);
 unsigned long xen_hvm_resume_frames;
-EXPORT_SYMBOL_GPL(xen_hvm_resume_frames);
+/* DISABLED: EXPORT_SYMBOL_GPL(xen_hvm_resume_frames); */
 
 static union {
 	struct grant_entry_v1 *v1;
@@ -264,7 +264,7 @@ void gnttab_grant_foreign_access_ref(grant_ref_t ref, domid_t domid,
 	gnttab_interface->update_entry(ref, domid, frame,
 			   GTF_permit_access | (readonly ? GTF_readonly : 0));
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_ref); */
 
 int gnttab_grant_foreign_access(domid_t domid, unsigned long frame,
 				int readonly)
@@ -279,7 +279,7 @@ int gnttab_grant_foreign_access(domid_t domid, unsigned long frame,
 
 	return ref;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access); */
 
 void gnttab_update_subpage_entry_v2(grant_ref_t ref, domid_t domid,
 				    unsigned long frame, int flags,
@@ -312,7 +312,7 @@ int gnttab_grant_foreign_access_subpage_ref(grant_ref_t ref, domid_t domid,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_subpage_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_subpage_ref); */
 
 int gnttab_grant_foreign_access_subpage(domid_t domid, unsigned long frame,
 					int flags, unsigned page_off,
@@ -333,13 +333,13 @@ int gnttab_grant_foreign_access_subpage(domid_t domid, unsigned long frame,
 
 	return ref;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_subpage);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_subpage); */
 
 bool gnttab_subpage_grants_available(void)
 {
 	return gnttab_interface->update_subpage_entry != NULL;
 }
-EXPORT_SYMBOL_GPL(gnttab_subpage_grants_available);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_subpage_grants_available); */
 
 void gnttab_update_trans_entry_v2(grant_ref_t ref, domid_t domid,
 				  int flags, domid_t trans_domid,
@@ -369,7 +369,7 @@ int gnttab_grant_foreign_access_trans_ref(grant_ref_t ref, domid_t domid,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_trans_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_trans_ref); */
 
 int gnttab_grant_foreign_access_trans(domid_t domid, int flags,
 				      domid_t trans_domid,
@@ -390,13 +390,13 @@ int gnttab_grant_foreign_access_trans(domid_t domid, int flags,
 
 	return ref;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_trans);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_access_trans); */
 
 bool gnttab_trans_grants_available(void)
 {
 	return gnttab_interface->update_trans_entry != NULL;
 }
-EXPORT_SYMBOL_GPL(gnttab_trans_grants_available);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_trans_grants_available); */
 
 static int gnttab_query_foreign_access_v1(grant_ref_t ref)
 {
@@ -412,7 +412,7 @@ int gnttab_query_foreign_access(grant_ref_t ref)
 {
 	return gnttab_interface->query_foreign_access(ref);
 }
-EXPORT_SYMBOL_GPL(gnttab_query_foreign_access);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_query_foreign_access); */
 
 static int gnttab_end_foreign_access_ref_v1(grant_ref_t ref, int readonly)
 {
@@ -459,7 +459,7 @@ int gnttab_end_foreign_access_ref(grant_ref_t ref, int readonly)
 {
 	return gnttab_interface->end_foreign_access_ref(ref, readonly);
 }
-EXPORT_SYMBOL_GPL(gnttab_end_foreign_access_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_end_foreign_access_ref); */
 
 void gnttab_end_foreign_access(grant_ref_t ref, int readonly,
 			       unsigned long page)
@@ -475,7 +475,7 @@ void gnttab_end_foreign_access(grant_ref_t ref, int readonly,
 		       "WARNING: leaking g.e. and page still in use!\n");
 	}
 }
-EXPORT_SYMBOL_GPL(gnttab_end_foreign_access);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_end_foreign_access); */
 
 int gnttab_grant_foreign_transfer(domid_t domid, unsigned long pfn)
 {
@@ -488,14 +488,14 @@ int gnttab_grant_foreign_transfer(domid_t domid, unsigned long pfn)
 
 	return ref;
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_transfer);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_transfer); */
 
 void gnttab_grant_foreign_transfer_ref(grant_ref_t ref, domid_t domid,
 				       unsigned long pfn)
 {
 	gnttab_interface->update_entry(ref, domid, pfn, GTF_accept_transfer);
 }
-EXPORT_SYMBOL_GPL(gnttab_grant_foreign_transfer_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_grant_foreign_transfer_ref); */
 
 static unsigned long gnttab_end_foreign_transfer_ref_v1(grant_ref_t ref)
 {
@@ -563,7 +563,7 @@ unsigned long gnttab_end_foreign_transfer_ref(grant_ref_t ref)
 {
 	return gnttab_interface->end_foreign_transfer_ref(ref);
 }
-EXPORT_SYMBOL_GPL(gnttab_end_foreign_transfer_ref);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_end_foreign_transfer_ref); */
 
 unsigned long gnttab_end_foreign_transfer(grant_ref_t ref)
 {
@@ -571,13 +571,13 @@ unsigned long gnttab_end_foreign_transfer(grant_ref_t ref)
 	put_free_entry(ref);
 	return frame;
 }
-EXPORT_SYMBOL_GPL(gnttab_end_foreign_transfer);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_end_foreign_transfer); */
 
 void gnttab_free_grant_reference(grant_ref_t ref)
 {
 	put_free_entry(ref);
 }
-EXPORT_SYMBOL_GPL(gnttab_free_grant_reference);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_free_grant_reference); */
 
 void gnttab_free_grant_references(grant_ref_t head)
 {
@@ -598,7 +598,7 @@ void gnttab_free_grant_references(grant_ref_t head)
 	check_free_callbacks();
 	spin_unlock_irqrestore(&gnttab_list_lock, flags);
 }
-EXPORT_SYMBOL_GPL(gnttab_free_grant_references);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_free_grant_references); */
 
 int gnttab_alloc_grant_references(u16 count, grant_ref_t *head)
 {
@@ -611,13 +611,13 @@ int gnttab_alloc_grant_references(u16 count, grant_ref_t *head)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(gnttab_alloc_grant_references);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_alloc_grant_references); */
 
 int gnttab_empty_grant_references(const grant_ref_t *private_head)
 {
 	return (*private_head == GNTTAB_LIST_END);
 }
-EXPORT_SYMBOL_GPL(gnttab_empty_grant_references);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_empty_grant_references); */
 
 int gnttab_claim_grant_reference(grant_ref_t *private_head)
 {
@@ -627,7 +627,7 @@ int gnttab_claim_grant_reference(grant_ref_t *private_head)
 	*private_head = gnttab_entry(g);
 	return g;
 }
-EXPORT_SYMBOL_GPL(gnttab_claim_grant_reference);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_claim_grant_reference); */
 
 void gnttab_release_grant_reference(grant_ref_t *private_head,
 				    grant_ref_t release)
@@ -635,7 +635,7 @@ void gnttab_release_grant_reference(grant_ref_t *private_head,
 	gnttab_entry(release) = *private_head;
 	*private_head = release;
 }
-EXPORT_SYMBOL_GPL(gnttab_release_grant_reference);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_release_grant_reference); */
 
 void gnttab_request_free_callback(struct gnttab_free_callback *callback,
 				  void (*fn)(void *), void *arg, u16 count)
@@ -662,7 +662,7 @@ void gnttab_request_free_callback(struct gnttab_free_callback *callback,
 out:
 	spin_unlock_irqrestore(&gnttab_list_lock, flags);
 }
-EXPORT_SYMBOL_GPL(gnttab_request_free_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_request_free_callback); */
 
 void gnttab_cancel_free_callback(struct gnttab_free_callback *callback)
 {
@@ -678,7 +678,7 @@ void gnttab_cancel_free_callback(struct gnttab_free_callback *callback)
 	}
 	spin_unlock_irqrestore(&gnttab_list_lock, flags);
 }
-EXPORT_SYMBOL_GPL(gnttab_cancel_free_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_cancel_free_callback); */
 
 static int grow_gnttab_list(unsigned int more_frames)
 {
@@ -742,7 +742,7 @@ unsigned int gnttab_max_grant_frames(void)
 		return boot_max_nr_grant_frames;
 	return xen_max;
 }
-EXPORT_SYMBOL_GPL(gnttab_max_grant_frames);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_max_grant_frames); */
 
 int gnttab_map_refs(struct gnttab_map_grant_ref *map_ops,
 		    struct gnttab_map_grant_ref *kmap_ops,
@@ -779,7 +779,7 @@ int gnttab_map_refs(struct gnttab_map_grant_ref *map_ops,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(gnttab_map_refs);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_map_refs); */
 
 int gnttab_unmap_refs(struct gnttab_unmap_grant_ref *unmap_ops,
 		      struct gnttab_map_grant_ref *kmap_ops,
@@ -803,7 +803,7 @@ int gnttab_unmap_refs(struct gnttab_unmap_grant_ref *unmap_ops,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(gnttab_unmap_refs);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_unmap_refs); */
 
 static unsigned nr_status_frames(unsigned nr_grant_frames)
 {
@@ -1098,7 +1098,7 @@ int gnttab_init(void)
 	kfree(gnttab_list);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(gnttab_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(gnttab_init); */
 
 static int __devinit __gnttab_init(void)
 {

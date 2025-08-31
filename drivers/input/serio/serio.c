@@ -680,13 +680,13 @@ void serio_rescan(struct serio *serio)
 {
 	serio_queue_event(serio, NULL, SERIO_RESCAN_PORT);
 }
-EXPORT_SYMBOL(serio_rescan);
+/* DISABLED: EXPORT_SYMBOL(serio_rescan); */
 
 void serio_reconnect(struct serio *serio)
 {
 	serio_queue_event(serio, NULL, SERIO_RECONNECT_SUBTREE);
 }
-EXPORT_SYMBOL(serio_reconnect);
+/* DISABLED: EXPORT_SYMBOL(serio_reconnect); */
 
 /*
  * Submits register request to kseriod for subsequent execution.
@@ -697,7 +697,7 @@ void __serio_register_port(struct serio *serio, struct module *owner)
 	serio_init_port(serio);
 	serio_queue_event(serio, owner, SERIO_REGISTER_PORT);
 }
-EXPORT_SYMBOL(__serio_register_port);
+/* DISABLED: EXPORT_SYMBOL(__serio_register_port); */
 
 /*
  * Synchronously unregisters serio port.
@@ -709,7 +709,7 @@ void serio_unregister_port(struct serio *serio)
 	serio_destroy_port(serio);
 	mutex_unlock(&serio_mutex);
 }
-EXPORT_SYMBOL(serio_unregister_port);
+/* DISABLED: EXPORT_SYMBOL(serio_unregister_port); */
 
 /*
  * Safely unregisters children ports if they are present.
@@ -725,7 +725,7 @@ void serio_unregister_child_port(struct serio *serio)
 	}
 	mutex_unlock(&serio_mutex);
 }
-EXPORT_SYMBOL(serio_unregister_child_port);
+/* DISABLED: EXPORT_SYMBOL(serio_unregister_child_port); */
 
 
 /*
@@ -847,7 +847,7 @@ int __serio_register_driver(struct serio_driver *drv, struct module *owner, cons
 
 	return 0;
 }
-EXPORT_SYMBOL(__serio_register_driver);
+/* DISABLED: EXPORT_SYMBOL(__serio_register_driver); */
 
 void serio_unregister_driver(struct serio_driver *drv)
 {
@@ -871,7 +871,7 @@ start_over:
 	driver_unregister(&drv->driver);
 	mutex_unlock(&serio_mutex);
 }
-EXPORT_SYMBOL(serio_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(serio_unregister_driver); */
 
 static void serio_set_drv(struct serio *serio, struct serio_driver *drv)
 {
@@ -971,7 +971,7 @@ int serio_open(struct serio *serio, struct serio_driver *drv)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(serio_open);
+/* DISABLED: EXPORT_SYMBOL(serio_open); */
 
 /* called from serio_driver->connect/disconnect methods under serio_mutex */
 void serio_close(struct serio *serio)
@@ -981,7 +981,7 @@ void serio_close(struct serio *serio)
 
 	serio_set_drv(serio, NULL);
 }
-EXPORT_SYMBOL(serio_close);
+/* DISABLED: EXPORT_SYMBOL(serio_close); */
 
 irqreturn_t serio_interrupt(struct serio *serio,
 		unsigned char data, unsigned int dfl)
@@ -1002,7 +1002,7 @@ irqreturn_t serio_interrupt(struct serio *serio,
 
 	return ret;
 }
-EXPORT_SYMBOL(serio_interrupt);
+/* DISABLED: EXPORT_SYMBOL(serio_interrupt); */
 
 static struct bus_type serio_bus = {
 	.name		= "serio",

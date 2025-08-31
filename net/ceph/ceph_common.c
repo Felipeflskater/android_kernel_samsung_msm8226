@@ -37,7 +37,7 @@ const char *ceph_file_part(const char *s, int len)
 		e--;
 	return e;
 }
-EXPORT_SYMBOL(ceph_file_part);
+/* DISABLED: EXPORT_SYMBOL(ceph_file_part); */
 
 const char *ceph_msg_type_name(int type)
 {
@@ -69,7 +69,7 @@ const char *ceph_msg_type_name(int type)
 	default: return "unknown";
 	}
 }
-EXPORT_SYMBOL(ceph_msg_type_name);
+/* DISABLED: EXPORT_SYMBOL(ceph_msg_type_name); */
 
 /*
  * Initially learn our fsid, or verify an fsid matches.
@@ -87,7 +87,7 @@ int ceph_check_fsid(struct ceph_client *client, struct ceph_fsid *fsid)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ceph_check_fsid);
+/* DISABLED: EXPORT_SYMBOL(ceph_check_fsid); */
 
 static int strcmp_null(const char *s1, const char *s2)
 {
@@ -149,7 +149,7 @@ int ceph_compare_options(struct ceph_options *new_opt,
 	}
 	return -1;
 }
-EXPORT_SYMBOL(ceph_compare_options);
+/* DISABLED: EXPORT_SYMBOL(ceph_compare_options); */
 
 
 static int parse_fsid(const char *str, struct ceph_fsid *fsid)
@@ -236,7 +236,7 @@ void ceph_destroy_options(struct ceph_options *opt)
 	kfree(opt->mon_addr);
 	kfree(opt);
 }
-EXPORT_SYMBOL(ceph_destroy_options);
+/* DISABLED: EXPORT_SYMBOL(ceph_destroy_options); */
 
 /* get secret from key store */
 static int get_secret(struct ceph_crypto_key *dst, const char *name) {
@@ -427,13 +427,13 @@ out:
 	ceph_destroy_options(opt);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(ceph_parse_options);
+/* DISABLED: EXPORT_SYMBOL(ceph_parse_options); */
 
 u64 ceph_client_id(struct ceph_client *client)
 {
 	return client->monc.auth->global_id;
 }
-EXPORT_SYMBOL(ceph_client_id);
+/* DISABLED: EXPORT_SYMBOL(ceph_client_id); */
 
 /*
  * create a fresh client instance
@@ -487,7 +487,7 @@ fail:
 	kfree(client);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(ceph_create_client);
+/* DISABLED: EXPORT_SYMBOL(ceph_create_client); */
 
 void ceph_destroy_client(struct ceph_client *client)
 {
@@ -507,7 +507,7 @@ void ceph_destroy_client(struct ceph_client *client)
 	kfree(client);
 	dout("destroy_client %p done\n", client);
 }
-EXPORT_SYMBOL(ceph_destroy_client);
+/* DISABLED: EXPORT_SYMBOL(ceph_destroy_client); */
 
 /*
  * true if we have the mon map (and have thus joined the cluster)
@@ -549,7 +549,7 @@ int __ceph_open_session(struct ceph_client *client, unsigned long started)
 
 	return 0;
 }
-EXPORT_SYMBOL(__ceph_open_session);
+/* DISABLED: EXPORT_SYMBOL(__ceph_open_session); */
 
 
 int ceph_open_session(struct ceph_client *client)
@@ -565,7 +565,7 @@ int ceph_open_session(struct ceph_client *client)
 	mutex_unlock(&client->mount_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(ceph_open_session);
+/* DISABLED: EXPORT_SYMBOL(ceph_open_session); */
 
 
 static int __init init_ceph_lib(void)

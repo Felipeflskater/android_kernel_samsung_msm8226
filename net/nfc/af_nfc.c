@@ -76,7 +76,7 @@ int nfc_proto_register(const struct nfc_protocol *nfc_proto)
 
 	return rc;
 }
-EXPORT_SYMBOL(nfc_proto_register);
+/* DISABLED: EXPORT_SYMBOL(nfc_proto_register); */
 
 void nfc_proto_unregister(const struct nfc_protocol *nfc_proto)
 {
@@ -86,7 +86,7 @@ void nfc_proto_unregister(const struct nfc_protocol *nfc_proto)
 
 	proto_unregister(nfc_proto->proto);
 }
-EXPORT_SYMBOL(nfc_proto_unregister);
+/* DISABLED: EXPORT_SYMBOL(nfc_proto_unregister); */
 
 int __init af_nfc_init(void)
 {

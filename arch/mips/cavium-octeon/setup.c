@@ -51,11 +51,11 @@ static unsigned long long MAX_MEMORY = 512ull << 20;
 struct octeon_boot_descriptor *octeon_boot_desc_ptr;
 
 struct cvmx_bootinfo *octeon_bootinfo;
-EXPORT_SYMBOL(octeon_bootinfo);
+/* DISABLED: EXPORT_SYMBOL(octeon_bootinfo); */
 
 #ifdef CONFIG_CAVIUM_RESERVE32
 uint64_t octeon_reserve32_memory;
-EXPORT_SYMBOL(octeon_reserve32_memory);
+/* DISABLED: EXPORT_SYMBOL(octeon_reserve32_memory); */
 #endif
 
 static int octeon_uart;
@@ -72,7 +72,7 @@ int octeon_is_simulation(void)
 {
 	return octeon_bootinfo->board_type == CVMX_BOARD_TYPE_SIM;
 }
-EXPORT_SYMBOL(octeon_is_simulation);
+/* DISABLED: EXPORT_SYMBOL(octeon_is_simulation); */
 
 /**
  * Return true if Octeon is in PCI Host mode. This means
@@ -100,7 +100,7 @@ uint64_t octeon_get_clock_rate(void)
 
 	return sysinfo->cpu_clock_hz;
 }
-EXPORT_SYMBOL(octeon_get_clock_rate);
+/* DISABLED: EXPORT_SYMBOL(octeon_get_clock_rate); */
 
 static u64 octeon_io_clock_rate;
 
@@ -108,7 +108,7 @@ u64 octeon_get_io_clock_rate(void)
 {
 	return octeon_io_clock_rate;
 }
-EXPORT_SYMBOL(octeon_get_io_clock_rate);
+/* DISABLED: EXPORT_SYMBOL(octeon_get_io_clock_rate); */
 
 
 /**
@@ -743,7 +743,7 @@ int prom_putchar(char c)
 	cvmx_write_csr(CVMX_MIO_UARTX_THR(octeon_uart), c & 0xffull);
 	return 1;
 }
-EXPORT_SYMBOL(prom_putchar);
+/* DISABLED: EXPORT_SYMBOL(prom_putchar); */
 
 void prom_free_prom_memory(void)
 {

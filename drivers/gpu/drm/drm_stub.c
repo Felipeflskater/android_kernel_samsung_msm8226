@@ -38,13 +38,13 @@
 #include "drm_core.h"
 
 unsigned int drm_debug = 0;	/* 1 to enable debug output */
-EXPORT_SYMBOL(drm_debug);
+/* DISABLED: EXPORT_SYMBOL(drm_debug); */
 
 unsigned int drm_vblank_offdelay = 5000;    /* Default to 5000 msecs. */
-EXPORT_SYMBOL(drm_vblank_offdelay);
+/* DISABLED: EXPORT_SYMBOL(drm_vblank_offdelay); */
 
 unsigned int drm_timestamp_precision = 20;  /* Default to 20 usecs. */
-EXPORT_SYMBOL(drm_timestamp_precision);
+/* DISABLED: EXPORT_SYMBOL(drm_timestamp_precision); */
 
 MODULE_AUTHOR(CORE_AUTHOR);
 MODULE_DESCRIPTION(CORE_DESC);
@@ -80,7 +80,7 @@ int drm_err(const char *func, const char *format, ...)
 
 	return r;
 }
-EXPORT_SYMBOL(drm_err);
+/* DISABLED: EXPORT_SYMBOL(drm_err); */
 
 void drm_ut_debug_printk(unsigned int request_level,
 			 const char *prefix,
@@ -97,7 +97,7 @@ void drm_ut_debug_printk(unsigned int request_level,
 		va_end(args);
 	}
 }
-EXPORT_SYMBOL(drm_ut_debug_printk);
+/* DISABLED: EXPORT_SYMBOL(drm_ut_debug_printk); */
 
 static int drm_minor_get_id(struct drm_device *dev, int type)
 {
@@ -160,7 +160,7 @@ struct drm_master *drm_master_get(struct drm_master *master)
 	kref_get(&master->refcount);
 	return master;
 }
-EXPORT_SYMBOL(drm_master_get);
+/* DISABLED: EXPORT_SYMBOL(drm_master_get); */
 
 static void drm_master_destroy(struct kref *kref)
 {
@@ -206,7 +206,7 @@ void drm_master_put(struct drm_master **master)
 	kref_put(&(*master)->refcount, drm_master_destroy);
 	*master = NULL;
 }
-EXPORT_SYMBOL(drm_master_put);
+/* DISABLED: EXPORT_SYMBOL(drm_master_put); */
 
 int drm_setmaster_ioctl(struct drm_device *dev, void *data,
 			struct drm_file *file_priv)
@@ -319,7 +319,7 @@ int drm_fill_in_dev(struct drm_device *dev,
 	drm_lastclose(dev);
 	return retcode;
 }
-EXPORT_SYMBOL(drm_fill_in_dev);
+/* DISABLED: EXPORT_SYMBOL(drm_fill_in_dev); */
 
 
 /**
@@ -398,7 +398,7 @@ err_idr:
 	*minor = NULL;
 	return ret;
 }
-EXPORT_SYMBOL(drm_get_minor);
+/* DISABLED: EXPORT_SYMBOL(drm_get_minor); */
 
 /**
  * Put a secondary minor number.
@@ -430,7 +430,7 @@ int drm_put_minor(struct drm_minor **minor_p)
 	*minor_p = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(drm_put_minor);
+/* DISABLED: EXPORT_SYMBOL(drm_put_minor); */
 
 static void drm_unplug_minor(struct drm_minor *minor)
 {
@@ -499,7 +499,7 @@ void drm_put_dev(struct drm_device *dev)
 	}
 	kfree(dev);
 }
-EXPORT_SYMBOL(drm_put_dev);
+/* DISABLED: EXPORT_SYMBOL(drm_put_dev); */
 
 void drm_unplug_dev(struct drm_device *dev)
 {
@@ -517,4 +517,4 @@ void drm_unplug_dev(struct drm_device *dev)
 	}
 	mutex_unlock(&drm_global_mutex);
 }
-EXPORT_SYMBOL(drm_unplug_dev);
+/* DISABLED: EXPORT_SYMBOL(drm_unplug_dev); */

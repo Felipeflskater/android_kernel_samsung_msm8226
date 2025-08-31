@@ -24,7 +24,7 @@ int __initdata numa_off;
 nodemask_t numa_nodes_parsed __initdata;
 
 struct pglist_data *node_data[MAX_NUMNODES] __read_mostly;
-EXPORT_SYMBOL(node_data);
+/* DISABLED: EXPORT_SYMBOL(node_data); */
 
 static struct numa_meminfo numa_meminfo
 #ifndef CONFIG_MEMORY_HOTPLUG
@@ -70,7 +70,7 @@ int __cpuinit numa_cpu_node(int cpu)
 }
 
 cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
-EXPORT_SYMBOL(node_to_cpumask_map);
+/* DISABLED: EXPORT_SYMBOL(node_to_cpumask_map); */
 
 /*
  * Map cpu index to node index
@@ -455,7 +455,7 @@ int __node_distance(int from, int to)
 		return from == to ? LOCAL_DISTANCE : REMOTE_DISTANCE;
 	return numa_distance[from * numa_distance_cnt + to];
 }
-EXPORT_SYMBOL(__node_distance);
+/* DISABLED: EXPORT_SYMBOL(__node_distance); */
 
 /*
  * Sanity check to catch more bad NUMA configurations (they are amazingly
@@ -728,7 +728,7 @@ int __cpu_to_node(int cpu)
 	}
 	return per_cpu(x86_cpu_to_node_map, cpu);
 }
-EXPORT_SYMBOL(__cpu_to_node);
+/* DISABLED: EXPORT_SYMBOL(__cpu_to_node); */
 
 /*
  * Same function as cpu_to_node() but used if called before the
@@ -814,7 +814,7 @@ const struct cpumask *cpumask_of_node(int node)
 	}
 	return node_to_cpumask_map[node];
 }
-EXPORT_SYMBOL(cpumask_of_node);
+/* DISABLED: EXPORT_SYMBOL(cpumask_of_node); */
 
 #endif	/* !CONFIG_DEBUG_PER_CPU_MAPS */
 
@@ -830,5 +830,5 @@ int memory_add_physaddr_to_nid(u64 start)
 			nid = mi->blk[i].nid;
 	return nid;
 }
-EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid);
+/* DISABLED: EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid); */
 #endif

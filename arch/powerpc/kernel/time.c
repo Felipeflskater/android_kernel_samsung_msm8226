@@ -123,12 +123,12 @@ static DEFINE_PER_CPU(struct clock_event_device, decrementers);
 
 unsigned long tb_ticks_per_jiffy;
 unsigned long tb_ticks_per_usec = 100; /* sane default */
-EXPORT_SYMBOL(tb_ticks_per_usec);
+/* DISABLED: EXPORT_SYMBOL(tb_ticks_per_usec); */
 unsigned long tb_ticks_per_sec;
-EXPORT_SYMBOL(tb_ticks_per_sec);	/* for cputime_t conversions */
+/* DISABLED: EXPORT_SYMBOL(tb_ticks_per_sec);	/* for cputime_t conversions */ */
 
 DEFINE_SPINLOCK(rtc_lock);
-EXPORT_SYMBOL_GPL(rtc_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_lock); */
 
 static u64 tb_to_ns_scale __read_mostly;
 static unsigned tb_to_ns_shift __read_mostly;
@@ -138,9 +138,9 @@ extern struct timezone sys_tz;
 static long timezone_offset;
 
 unsigned long ppc_proc_freq;
-EXPORT_SYMBOL_GPL(ppc_proc_freq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ppc_proc_freq); */
 unsigned long ppc_tb_freq;
-EXPORT_SYMBOL_GPL(ppc_tb_freq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ppc_tb_freq); */
 
 #ifdef CONFIG_VIRT_CPU_ACCOUNTING
 /*
@@ -149,13 +149,13 @@ EXPORT_SYMBOL_GPL(ppc_tb_freq);
  * These are all stored as 0.64 fixed-point binary fractions.
  */
 u64 __cputime_jiffies_factor;
-EXPORT_SYMBOL(__cputime_jiffies_factor);
+/* DISABLED: EXPORT_SYMBOL(__cputime_jiffies_factor); */
 u64 __cputime_usec_factor;
-EXPORT_SYMBOL(__cputime_usec_factor);
+/* DISABLED: EXPORT_SYMBOL(__cputime_usec_factor); */
 u64 __cputime_sec_factor;
-EXPORT_SYMBOL(__cputime_sec_factor);
+/* DISABLED: EXPORT_SYMBOL(__cputime_sec_factor); */
 u64 __cputime_clockt_factor;
-EXPORT_SYMBOL(__cputime_clockt_factor);
+/* DISABLED: EXPORT_SYMBOL(__cputime_clockt_factor); */
 DEFINE_PER_CPU(unsigned long, cputime_last_delta);
 DEFINE_PER_CPU(unsigned long, cputime_scaled_last_delta);
 
@@ -342,7 +342,7 @@ void account_system_vtime(struct task_struct *tsk)
 	}
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(account_system_vtime);
+/* DISABLED: EXPORT_SYMBOL_GPL(account_system_vtime); */
 
 /*
  * Transfer the user and system times accumulated in the paca
@@ -389,13 +389,13 @@ void __delay(unsigned long loops)
 		HMT_medium();
 	}
 }
-EXPORT_SYMBOL(__delay);
+/* DISABLED: EXPORT_SYMBOL(__delay); */
 
 void udelay(unsigned long usecs)
 {
 	__delay(tb_ticks_per_usec * usecs);
 }
-EXPORT_SYMBOL(udelay);
+/* DISABLED: EXPORT_SYMBOL(udelay); */
 
 #ifdef CONFIG_SMP
 unsigned long profile_pc(struct pt_regs *regs)
@@ -407,7 +407,7 @@ unsigned long profile_pc(struct pt_regs *regs)
 
 	return pc;
 }
-EXPORT_SYMBOL(profile_pc);
+/* DISABLED: EXPORT_SYMBOL(profile_pc); */
 #endif
 
 #ifdef CONFIG_IRQ_WORK

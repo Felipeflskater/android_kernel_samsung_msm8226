@@ -151,7 +151,7 @@ dump_stack(void)
 {
 	show_stack(NULL, NULL);
 }
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 void
 set_nmi_handler(void (*handler)(struct pt_regs *))

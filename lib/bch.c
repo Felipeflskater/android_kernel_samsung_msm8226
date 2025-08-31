@@ -251,7 +251,7 @@ void encode_bch(struct bch_control *bch, const uint8_t *data,
 	if (ecc)
 		store_ecc8(bch, ecc, bch->ecc_buf);
 }
-EXPORT_SYMBOL_GPL(encode_bch);
+/* DISABLED: EXPORT_SYMBOL_GPL(encode_bch); */
 
 static inline int modulo(struct bch_control *bch, unsigned int v)
 {
@@ -1043,7 +1043,7 @@ int decode_bch(struct bch_control *bch, const uint8_t *data, unsigned int len,
 	}
 	return (err >= 0) ? err : -EBADMSG;
 }
-EXPORT_SYMBOL_GPL(decode_bch);
+/* DISABLED: EXPORT_SYMBOL_GPL(decode_bch); */
 
 /*
  * generate Galois field lookup tables
@@ -1334,7 +1334,7 @@ fail:
 	free_bch(bch);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(init_bch);
+/* DISABLED: EXPORT_SYMBOL_GPL(init_bch); */
 
 /**
  *  free_bch - free the BCH control structure
@@ -1361,7 +1361,7 @@ void free_bch(struct bch_control *bch)
 		kfree(bch);
 	}
 }
-EXPORT_SYMBOL_GPL(free_bch);
+/* DISABLED: EXPORT_SYMBOL_GPL(free_bch); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Ivan Djelic <ivan.djelic@parrot.com>");

@@ -16,32 +16,32 @@
 #include "sound_config.h"
 
 struct audio_operations *audio_devs[MAX_AUDIO_DEV];
-EXPORT_SYMBOL(audio_devs);
+/* DISABLED: EXPORT_SYMBOL(audio_devs); */
 
 int num_audiodevs;
-EXPORT_SYMBOL(num_audiodevs);
+/* DISABLED: EXPORT_SYMBOL(num_audiodevs); */
 
 struct mixer_operations *mixer_devs[MAX_MIXER_DEV];
-EXPORT_SYMBOL(mixer_devs);
+/* DISABLED: EXPORT_SYMBOL(mixer_devs); */
 
 int num_mixers;
-EXPORT_SYMBOL(num_mixers);
+/* DISABLED: EXPORT_SYMBOL(num_mixers); */
 
 struct synth_operations *synth_devs[MAX_SYNTH_DEV+MAX_MIDI_DEV];
-EXPORT_SYMBOL(synth_devs);
+/* DISABLED: EXPORT_SYMBOL(synth_devs); */
 
 int num_synths;
 
 struct midi_operations *midi_devs[MAX_MIDI_DEV];
-EXPORT_SYMBOL(midi_devs);
+/* DISABLED: EXPORT_SYMBOL(midi_devs); */
 
 int num_midis;
-EXPORT_SYMBOL(num_midis);
+/* DISABLED: EXPORT_SYMBOL(num_midis); */
 
 struct sound_timer_operations *sound_timer_devs[MAX_TIMER_DEV] = {
 	&default_sound_timer, NULL
 };
-EXPORT_SYMBOL(sound_timer_devs);
+/* DISABLED: EXPORT_SYMBOL(sound_timer_devs); */
 
 int num_sound_timers = 1;
 
@@ -105,7 +105,7 @@ int sound_install_audiodrv(int vers, char *name, struct audio_driver *driver,
 	audio_init_devices();
 	return num;
 }
-EXPORT_SYMBOL(sound_install_audiodrv);
+/* DISABLED: EXPORT_SYMBOL(sound_install_audiodrv); */
 
 int sound_install_mixer(int vers, char *name, struct mixer_operations *driver,
 	int driver_size, void *devc)
@@ -144,7 +144,7 @@ int sound_install_mixer(int vers, char *name, struct mixer_operations *driver,
 	mixer_devs[n] = op;
 	return n;
 }
-EXPORT_SYMBOL(sound_install_mixer);
+/* DISABLED: EXPORT_SYMBOL(sound_install_mixer); */
 
 void sound_unload_audiodev(int dev)
 {
@@ -154,7 +154,7 @@ void sound_unload_audiodev(int dev)
 		unregister_sound_dsp((dev<<4)+3);
 	}
 }
-EXPORT_SYMBOL(sound_unload_audiodev);
+/* DISABLED: EXPORT_SYMBOL(sound_unload_audiodev); */
 
 static int sound_alloc_audiodev(void)
 { 
@@ -177,7 +177,7 @@ int sound_alloc_mididev(void)
 		num_midis = i + 1;
 	return i;
 }
-EXPORT_SYMBOL(sound_alloc_mididev);
+/* DISABLED: EXPORT_SYMBOL(sound_alloc_mididev); */
 
 int sound_alloc_synthdev(void)
 {
@@ -192,7 +192,7 @@ int sound_alloc_synthdev(void)
 	}
 	return -1;
 }
-EXPORT_SYMBOL(sound_alloc_synthdev);
+/* DISABLED: EXPORT_SYMBOL(sound_alloc_synthdev); */
 
 int sound_alloc_mixerdev(void)
 {
@@ -204,7 +204,7 @@ int sound_alloc_mixerdev(void)
 		num_mixers = i + 1;
 	return i;
 }
-EXPORT_SYMBOL(sound_alloc_mixerdev);
+/* DISABLED: EXPORT_SYMBOL(sound_alloc_mixerdev); */
 
 int sound_alloc_timerdev(void)
 {
@@ -219,7 +219,7 @@ int sound_alloc_timerdev(void)
 	}
 	return -1;
 }
-EXPORT_SYMBOL(sound_alloc_timerdev);
+/* DISABLED: EXPORT_SYMBOL(sound_alloc_timerdev); */
 
 void sound_unload_mixerdev(int dev)
 {
@@ -229,7 +229,7 @@ void sound_unload_mixerdev(int dev)
 		num_mixers--;
 	}
 }
-EXPORT_SYMBOL(sound_unload_mixerdev);
+/* DISABLED: EXPORT_SYMBOL(sound_unload_mixerdev); */
 
 void sound_unload_mididev(int dev)
 {
@@ -238,19 +238,19 @@ void sound_unload_mididev(int dev)
 		unregister_sound_midi((dev<<4)+2);
 	}
 }
-EXPORT_SYMBOL(sound_unload_mididev);
+/* DISABLED: EXPORT_SYMBOL(sound_unload_mididev); */
 
 void sound_unload_synthdev(int dev)
 {
 	if (dev != -1)
 		synth_devs[dev] = NULL;
 }
-EXPORT_SYMBOL(sound_unload_synthdev);
+/* DISABLED: EXPORT_SYMBOL(sound_unload_synthdev); */
 
 void sound_unload_timerdev(int dev)
 {
 	if (dev != -1)
 		sound_timer_devs[dev] = NULL;
 }
-EXPORT_SYMBOL(sound_unload_timerdev);
+/* DISABLED: EXPORT_SYMBOL(sound_unload_timerdev); */
 

@@ -113,7 +113,7 @@ int fscrypt_process_policy(struct inode *inode,
 	       __func__);
 	return -EINVAL;
 }
-EXPORT_SYMBOL(fscrypt_process_policy);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_process_policy); */
 
 int fscrypt_get_policy(struct inode *inode, struct fscrypt_policy *policy)
 {
@@ -138,7 +138,7 @@ int fscrypt_get_policy(struct inode *inode, struct fscrypt_policy *policy)
 				FS_KEY_DESCRIPTOR_SIZE);
 	return 0;
 }
-EXPORT_SYMBOL(fscrypt_get_policy);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_get_policy); */
 
 int fscrypt_has_permitted_context(struct inode *parent, struct inode *child)
 {
@@ -176,7 +176,7 @@ int fscrypt_has_permitted_context(struct inode *parent, struct inode *child)
 		(parent_ci->ci_filename_mode == child_ci->ci_filename_mode) &&
 		(parent_ci->ci_flags == child_ci->ci_flags));
 }
-EXPORT_SYMBOL(fscrypt_has_permitted_context);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_has_permitted_context); */
 
 /**
  * fscrypt_inherit_context() - Sets a child context from its parent
@@ -226,4 +226,4 @@ int fscrypt_inherit_context(struct inode *parent, struct inode *child,
 		return res;
 	return preload ? fscrypt_get_encryption_info(child): 0;
 }
-EXPORT_SYMBOL(fscrypt_inherit_context);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_inherit_context); */

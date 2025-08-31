@@ -621,7 +621,7 @@ const struct i2c_algorithm i2c_bit_algo = {
 	.master_xfer	= bit_xfer,
 	.functionality	= bit_func,
 };
-EXPORT_SYMBOL(i2c_bit_algo);
+/* DISABLED: EXPORT_SYMBOL(i2c_bit_algo); */
 
 /*
  * registering functions to load algorithms at runtime
@@ -658,13 +658,13 @@ int i2c_bit_add_bus(struct i2c_adapter *adap)
 {
 	return __i2c_bit_add_bus(adap, i2c_add_adapter);
 }
-EXPORT_SYMBOL(i2c_bit_add_bus);
+/* DISABLED: EXPORT_SYMBOL(i2c_bit_add_bus); */
 
 int i2c_bit_add_numbered_bus(struct i2c_adapter *adap)
 {
 	return __i2c_bit_add_bus(adap, i2c_add_numbered_adapter);
 }
-EXPORT_SYMBOL(i2c_bit_add_numbered_bus);
+/* DISABLED: EXPORT_SYMBOL(i2c_bit_add_numbered_bus); */
 
 MODULE_AUTHOR("Simon G. Vogl <simon@tk.uni-linz.ac.at>");
 MODULE_DESCRIPTION("I2C-Bus bit-banging algorithm");

@@ -46,7 +46,7 @@ void rpc_init_rtt(struct rpc_rtt *rt, unsigned long timeo)
 		rt->ntimeouts[i] = 0;
 	}
 }
-EXPORT_SYMBOL_GPL(rpc_init_rtt);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_init_rtt); */
 
 /**
  * rpc_update_rtt - Update an RPC RTT estimator context
@@ -86,7 +86,7 @@ void rpc_update_rtt(struct rpc_rtt *rt, unsigned timer, long m)
 	if (*sdrtt < RPC_RTO_MIN)
 		*sdrtt = RPC_RTO_MIN;
 }
-EXPORT_SYMBOL_GPL(rpc_update_rtt);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_update_rtt); */
 
 /**
  * rpc_calc_rto - Provide an estimated timeout value
@@ -119,4 +119,4 @@ unsigned long rpc_calc_rto(struct rpc_rtt *rt, unsigned timer)
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(rpc_calc_rto);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_calc_rto); */

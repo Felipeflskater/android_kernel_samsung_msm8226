@@ -771,16 +771,16 @@ static void __exit ucb1x00_exit(void)
 module_init(ucb1x00_init);
 module_exit(ucb1x00_exit);
 
-EXPORT_SYMBOL(ucb1x00_io_set_dir);
-EXPORT_SYMBOL(ucb1x00_io_write);
-EXPORT_SYMBOL(ucb1x00_io_read);
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_io_set_dir); */
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_io_write); */
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_io_read); */
 
-EXPORT_SYMBOL(ucb1x00_adc_enable);
-EXPORT_SYMBOL(ucb1x00_adc_read);
-EXPORT_SYMBOL(ucb1x00_adc_disable);
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_adc_enable); */
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_adc_read); */
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_adc_disable); */
 
-EXPORT_SYMBOL(ucb1x00_register_driver);
-EXPORT_SYMBOL(ucb1x00_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(ucb1x00_unregister_driver); */
 
 MODULE_ALIAS("mcp:ucb1x00");
 MODULE_AUTHOR("Russell King <rmk@arm.linux.org.uk>");

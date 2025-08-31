@@ -179,7 +179,7 @@ out_einval:
 	rc = -EINVAL;
 	goto out;
 }
-EXPORT_SYMBOL(register_qdisc);
+/* DISABLED: EXPORT_SYMBOL(register_qdisc); */
 
 int unregister_qdisc(struct Qdisc_ops *qops)
 {
@@ -198,7 +198,7 @@ int unregister_qdisc(struct Qdisc_ops *qops)
 	write_unlock(&qdisc_mod_lock);
 	return err;
 }
-EXPORT_SYMBOL(unregister_qdisc);
+/* DISABLED: EXPORT_SYMBOL(unregister_qdisc); */
 
 /* We know handle. Find qdisc among all qdisc's attached to device
    (root qdisc, all its children, children of children etc.)
@@ -230,7 +230,7 @@ void qdisc_list_del(struct Qdisc *q)
 	if ((q->parent != TC_H_ROOT) && !(q->flags & TCQ_F_INGRESS))
 		list_del(&q->list);
 }
-EXPORT_SYMBOL(qdisc_list_del);
+/* DISABLED: EXPORT_SYMBOL(qdisc_list_del); */
 
 struct Qdisc *qdisc_lookup(struct net_device *dev, u32 handle)
 {
@@ -312,7 +312,7 @@ struct qdisc_rate_table *qdisc_get_rtab(struct tc_ratespec *r, struct nlattr *ta
 	}
 	return rtab;
 }
-EXPORT_SYMBOL(qdisc_get_rtab);
+/* DISABLED: EXPORT_SYMBOL(qdisc_get_rtab); */
 
 void qdisc_put_rtab(struct qdisc_rate_table *tab)
 {
@@ -331,7 +331,7 @@ void qdisc_put_rtab(struct qdisc_rate_table *tab)
 		}
 	}
 }
-EXPORT_SYMBOL(qdisc_put_rtab);
+/* DISABLED: EXPORT_SYMBOL(qdisc_put_rtab); */
 
 static LIST_HEAD(qdisc_stab_list);
 static DEFINE_SPINLOCK(qdisc_stab_lock);
@@ -417,7 +417,7 @@ void qdisc_put_stab(struct qdisc_size_table *tab)
 
 	spin_unlock(&qdisc_stab_lock);
 }
-EXPORT_SYMBOL(qdisc_put_stab);
+/* DISABLED: EXPORT_SYMBOL(qdisc_put_stab); */
 
 static int qdisc_dump_stab(struct sk_buff *skb, struct qdisc_size_table *stab)
 {
@@ -461,7 +461,7 @@ out:
 		pkt_len = 1;
 	qdisc_skb_cb(skb)->pkt_len = pkt_len;
 }
-EXPORT_SYMBOL(__qdisc_calculate_pkt_len);
+/* DISABLED: EXPORT_SYMBOL(__qdisc_calculate_pkt_len); */
 
 void qdisc_warn_nonwc(char *txt, struct Qdisc *qdisc)
 {
@@ -471,7 +471,7 @@ void qdisc_warn_nonwc(char *txt, struct Qdisc *qdisc)
 		qdisc->flags |= TCQ_F_WARN_NONWC;
 	}
 }
-EXPORT_SYMBOL(qdisc_warn_nonwc);
+/* DISABLED: EXPORT_SYMBOL(qdisc_warn_nonwc); */
 
 static enum hrtimer_restart qdisc_watchdog(struct hrtimer *timer)
 {
@@ -490,7 +490,7 @@ void qdisc_watchdog_init(struct qdisc_watchdog *wd, struct Qdisc *qdisc)
 	wd->timer.function = qdisc_watchdog;
 	wd->qdisc = qdisc;
 }
-EXPORT_SYMBOL(qdisc_watchdog_init);
+/* DISABLED: EXPORT_SYMBOL(qdisc_watchdog_init); */
 
 void qdisc_watchdog_schedule(struct qdisc_watchdog *wd, psched_time_t expires)
 {
@@ -505,14 +505,14 @@ void qdisc_watchdog_schedule(struct qdisc_watchdog *wd, psched_time_t expires)
 	time = ktime_add_ns(time, PSCHED_TICKS2NS(expires));
 	hrtimer_start(&wd->timer, time, HRTIMER_MODE_ABS);
 }
-EXPORT_SYMBOL(qdisc_watchdog_schedule);
+/* DISABLED: EXPORT_SYMBOL(qdisc_watchdog_schedule); */
 
 void qdisc_watchdog_cancel(struct qdisc_watchdog *wd)
 {
 	hrtimer_cancel(&wd->timer);
 	qdisc_unthrottled(wd->qdisc);
 }
-EXPORT_SYMBOL(qdisc_watchdog_cancel);
+/* DISABLED: EXPORT_SYMBOL(qdisc_watchdog_cancel); */
 
 static struct hlist_head *qdisc_class_hash_alloc(unsigned int n)
 {
@@ -576,7 +576,7 @@ void qdisc_class_hash_grow(struct Qdisc *sch, struct Qdisc_class_hash *clhash)
 
 	qdisc_class_hash_free(ohash, osize);
 }
-EXPORT_SYMBOL(qdisc_class_hash_grow);
+/* DISABLED: EXPORT_SYMBOL(qdisc_class_hash_grow); */
 
 int qdisc_class_hash_init(struct Qdisc_class_hash *clhash)
 {
@@ -590,13 +590,13 @@ int qdisc_class_hash_init(struct Qdisc_class_hash *clhash)
 	clhash->hashelems = 0;
 	return 0;
 }
-EXPORT_SYMBOL(qdisc_class_hash_init);
+/* DISABLED: EXPORT_SYMBOL(qdisc_class_hash_init); */
 
 void qdisc_class_hash_destroy(struct Qdisc_class_hash *clhash)
 {
 	qdisc_class_hash_free(clhash->hash, clhash->hashsize);
 }
-EXPORT_SYMBOL(qdisc_class_hash_destroy);
+/* DISABLED: EXPORT_SYMBOL(qdisc_class_hash_destroy); */
 
 void qdisc_class_hash_insert(struct Qdisc_class_hash *clhash,
 			     struct Qdisc_class_common *cl)
@@ -608,7 +608,7 @@ void qdisc_class_hash_insert(struct Qdisc_class_hash *clhash,
 	hlist_add_head(&cl->hnode, &clhash->hash[h]);
 	clhash->hashelems++;
 }
-EXPORT_SYMBOL(qdisc_class_hash_insert);
+/* DISABLED: EXPORT_SYMBOL(qdisc_class_hash_insert); */
 
 void qdisc_class_hash_remove(struct Qdisc_class_hash *clhash,
 			     struct Qdisc_class_common *cl)
@@ -616,7 +616,7 @@ void qdisc_class_hash_remove(struct Qdisc_class_hash *clhash,
 	hlist_del(&cl->hnode);
 	clhash->hashelems--;
 }
-EXPORT_SYMBOL(qdisc_class_hash_remove);
+/* DISABLED: EXPORT_SYMBOL(qdisc_class_hash_remove); */
 
 /* Allocate an unique handle from space managed by kernel
  * Possible range is [8000-FFFF]:0000 (0x8000 values)
@@ -664,7 +664,7 @@ void qdisc_tree_decrease_qlen(struct Qdisc *sch, unsigned int n)
 		sch->q.qlen -= n;
 	}
 }
-EXPORT_SYMBOL(qdisc_tree_decrease_qlen);
+/* DISABLED: EXPORT_SYMBOL(qdisc_tree_decrease_qlen); */
 
 static void notify_and_destroy(struct net *net, struct sk_buff *skb,
 			       struct nlmsghdr *n, u32 clid,
@@ -1056,7 +1056,7 @@ tc_qdisc_flow_control(struct net_device *dev, u32 tcm_handle, int enable_flow)
 			pr_err("tc_qdisc_flow_control: qdisc change failed");
 	}
 }
-EXPORT_SYMBOL(tc_qdisc_flow_control);
+/* DISABLED: EXPORT_SYMBOL(tc_qdisc_flow_control); */
 
 /*
  * Create/change qdisc.
@@ -1699,7 +1699,7 @@ int tc_classify_compat(struct sk_buff *skb, const struct tcf_proto *tp,
 	}
 	return -1;
 }
-EXPORT_SYMBOL(tc_classify_compat);
+/* DISABLED: EXPORT_SYMBOL(tc_classify_compat); */
 
 int tc_classify(struct sk_buff *skb, const struct tcf_proto *tp,
 		struct tcf_result *res)
@@ -1731,7 +1731,7 @@ reclassify:
 #endif
 	return err;
 }
-EXPORT_SYMBOL(tc_classify);
+/* DISABLED: EXPORT_SYMBOL(tc_classify); */
 
 void tcf_destroy(struct tcf_proto *tp)
 {
@@ -1749,7 +1749,7 @@ void tcf_destroy_chain(struct tcf_proto **fl)
 		tcf_destroy(tp);
 	}
 }
-EXPORT_SYMBOL(tcf_destroy_chain);
+/* DISABLED: EXPORT_SYMBOL(tcf_destroy_chain); */
 
 #ifdef CONFIG_PROC_FS
 static int psched_show(struct seq_file *seq, void *v)

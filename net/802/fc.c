@@ -128,4 +128,4 @@ struct net_device *alloc_fcdev(int sizeof_priv)
 {
 	return alloc_netdev(sizeof_priv, "fc%d", fc_setup);
 }
-EXPORT_SYMBOL(alloc_fcdev);
+/* DISABLED: EXPORT_SYMBOL(alloc_fcdev); */

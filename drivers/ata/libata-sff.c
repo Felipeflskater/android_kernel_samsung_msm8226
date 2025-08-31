@@ -68,7 +68,7 @@ const struct ata_port_operations ata_sff_port_ops = {
 
 	.lost_interrupt		= ata_sff_lost_interrupt,
 };
-EXPORT_SYMBOL_GPL(ata_sff_port_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_port_ops); */
 
 /**
  *	ata_sff_check_status - Read device status reg & clear interrupt
@@ -85,7 +85,7 @@ u8 ata_sff_check_status(struct ata_port *ap)
 {
 	return ioread8(ap->ioaddr.status_addr);
 }
-EXPORT_SYMBOL_GPL(ata_sff_check_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_check_status); */
 
 /**
  *	ata_sff_altstatus - Read device alternate status reg
@@ -172,7 +172,7 @@ void ata_sff_pause(struct ata_port *ap)
 	ata_sff_sync(ap);
 	ndelay(400);
 }
-EXPORT_SYMBOL_GPL(ata_sff_pause);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_pause); */
 
 /**
  *	ata_sff_dma_pause	-	Pause before commencing DMA
@@ -195,7 +195,7 @@ void ata_sff_dma_pause(struct ata_port *ap)
 	   corruption. */
 	BUG();
 }
-EXPORT_SYMBOL_GPL(ata_sff_dma_pause);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_dma_pause); */
 
 /**
  *	ata_sff_busy_sleep - sleep until BSY clears, or timeout
@@ -251,7 +251,7 @@ int ata_sff_busy_sleep(struct ata_port *ap,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_sff_busy_sleep);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_busy_sleep); */
 
 static int ata_sff_check_ready(struct ata_link *link)
 {
@@ -278,7 +278,7 @@ int ata_sff_wait_ready(struct ata_link *link, unsigned long deadline)
 {
 	return ata_wait_ready(link, deadline, ata_sff_check_ready);
 }
-EXPORT_SYMBOL_GPL(ata_sff_wait_ready);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_wait_ready); */
 
 /**
  *	ata_sff_set_devctl - Write device control reg
@@ -327,7 +327,7 @@ void ata_sff_dev_select(struct ata_port *ap, unsigned int device)
 	iowrite8(tmp, ap->ioaddr.device_addr);
 	ata_sff_pause(ap);	/* needed; also flushes, for mmio */
 }
-EXPORT_SYMBOL_GPL(ata_sff_dev_select);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_dev_select); */
 
 /**
  *	ata_dev_select - Select device 0/1 on ATA bus
@@ -398,7 +398,7 @@ void ata_sff_irq_on(struct ata_port *ap)
 	if (ap->ops->sff_irq_clear)
 		ap->ops->sff_irq_clear(ap);
 }
-EXPORT_SYMBOL_GPL(ata_sff_irq_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_irq_on); */
 
 /**
  *	ata_sff_tf_load - send taskfile registers to host controller
@@ -458,7 +458,7 @@ void ata_sff_tf_load(struct ata_port *ap, const struct ata_taskfile *tf)
 
 	ata_wait_idle(ap);
 }
-EXPORT_SYMBOL_GPL(ata_sff_tf_load);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_tf_load); */
 
 /**
  *	ata_sff_tf_read - input device's ATA taskfile shadow registers
@@ -499,7 +499,7 @@ void ata_sff_tf_read(struct ata_port *ap, struct ata_taskfile *tf)
 			WARN_ON_ONCE(1);
 	}
 }
-EXPORT_SYMBOL_GPL(ata_sff_tf_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_tf_read); */
 
 /**
  *	ata_sff_exec_command - issue ATA command to host controller
@@ -519,7 +519,7 @@ void ata_sff_exec_command(struct ata_port *ap, const struct ata_taskfile *tf)
 	iowrite8(tf->command, ap->ioaddr.command_addr);
 	ata_sff_pause(ap);
 }
-EXPORT_SYMBOL_GPL(ata_sff_exec_command);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_exec_command); */
 
 /**
  *	ata_tf_to_host - issue ATA taskfile to host controller
@@ -591,7 +591,7 @@ unsigned int ata_sff_data_xfer(struct ata_device *dev, unsigned char *buf,
 
 	return words << 1;
 }
-EXPORT_SYMBOL_GPL(ata_sff_data_xfer);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_data_xfer); */
 
 /**
  *	ata_sff_data_xfer32 - Transfer data by PIO
@@ -654,7 +654,7 @@ unsigned int ata_sff_data_xfer32(struct ata_device *dev, unsigned char *buf,
 	}
 	return (buflen + 1) & ~1;
 }
-EXPORT_SYMBOL_GPL(ata_sff_data_xfer32);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_data_xfer32); */
 
 /**
  *	ata_sff_data_xfer_noirq - Transfer data by PIO
@@ -684,7 +684,7 @@ unsigned int ata_sff_data_xfer_noirq(struct ata_device *dev, unsigned char *buf,
 
 	return consumed;
 }
-EXPORT_SYMBOL_GPL(ata_sff_data_xfer_noirq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_data_xfer_noirq); */
 
 /**
  *	ata_pio_sector - Transfer a sector of data.
@@ -1301,19 +1301,19 @@ fsm_start:
 
 	return poll_next;
 }
-EXPORT_SYMBOL_GPL(ata_sff_hsm_move);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_hsm_move); */
 
 void ata_sff_queue_work(struct work_struct *work)
 {
 	queue_work(ata_sff_wq, work);
 }
-EXPORT_SYMBOL_GPL(ata_sff_queue_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_queue_work); */
 
 void ata_sff_queue_delayed_work(struct delayed_work *dwork, unsigned long delay)
 {
 	queue_delayed_work(ata_sff_wq, dwork, delay);
 }
-EXPORT_SYMBOL_GPL(ata_sff_queue_delayed_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_queue_delayed_work); */
 
 void ata_sff_queue_pio_task(struct ata_link *link, unsigned long delay)
 {
@@ -1326,7 +1326,7 @@ void ata_sff_queue_pio_task(struct ata_link *link, unsigned long delay)
 	/* may fail if ata_sff_flush_pio_task() in progress */
 	ata_sff_queue_delayed_work(&ap->sff_pio_task, msecs_to_jiffies(delay));
 }
-EXPORT_SYMBOL_GPL(ata_sff_queue_pio_task);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_queue_pio_task); */
 
 void ata_sff_flush_pio_task(struct ata_port *ap)
 {
@@ -1496,7 +1496,7 @@ unsigned int ata_sff_qc_issue(struct ata_queued_cmd *qc)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_sff_qc_issue);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_qc_issue); */
 
 /**
  *	ata_sff_qc_fill_rtf - fill result TF using ->sff_tf_read
@@ -1516,7 +1516,7 @@ bool ata_sff_qc_fill_rtf(struct ata_queued_cmd *qc)
 	qc->ap->ops->sff_tf_read(qc->ap, &qc->result_tf);
 	return true;
 }
-EXPORT_SYMBOL_GPL(ata_sff_qc_fill_rtf);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_qc_fill_rtf); */
 
 static unsigned int ata_sff_idle_irq(struct ata_port *ap)
 {
@@ -1600,7 +1600,7 @@ unsigned int ata_sff_port_intr(struct ata_port *ap, struct ata_queued_cmd *qc)
 {
 	return __ata_sff_port_intr(ap, qc, false);
 }
-EXPORT_SYMBOL_GPL(ata_sff_port_intr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_port_intr); */
 
 static inline irqreturn_t __ata_sff_interrupt(int irq, void *dev_instance,
 	unsigned int (*port_intr)(struct ata_port *, struct ata_queued_cmd *))
@@ -1692,7 +1692,7 @@ irqreturn_t ata_sff_interrupt(int irq, void *dev_instance)
 {
 	return __ata_sff_interrupt(irq, dev_instance, ata_sff_port_intr);
 }
-EXPORT_SYMBOL_GPL(ata_sff_interrupt);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_interrupt); */
 
 /**
  *	ata_sff_lost_interrupt	-	Check for an apparent lost interrupt
@@ -1731,7 +1731,7 @@ void ata_sff_lost_interrupt(struct ata_port *ap)
 	   lost */
 	ata_sff_port_intr(ap, qc);
 }
-EXPORT_SYMBOL_GPL(ata_sff_lost_interrupt);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_lost_interrupt); */
 
 /**
  *	ata_sff_freeze - Freeze SFF controller port
@@ -1759,7 +1759,7 @@ void ata_sff_freeze(struct ata_port *ap)
 	if (ap->ops->sff_irq_clear)
 		ap->ops->sff_irq_clear(ap);
 }
-EXPORT_SYMBOL_GPL(ata_sff_freeze);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_freeze); */
 
 /**
  *	ata_sff_thaw - Thaw SFF controller port
@@ -1778,7 +1778,7 @@ void ata_sff_thaw(struct ata_port *ap)
 		ap->ops->sff_irq_clear(ap);
 	ata_sff_irq_on(ap);
 }
-EXPORT_SYMBOL_GPL(ata_sff_thaw);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_thaw); */
 
 /**
  *	ata_sff_prereset - prepare SFF link for reset
@@ -1821,7 +1821,7 @@ int ata_sff_prereset(struct ata_link *link, unsigned long deadline)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_sff_prereset);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_prereset); */
 
 /**
  *	ata_devchk - PATA device presence detection
@@ -1934,7 +1934,7 @@ unsigned int ata_sff_dev_classify(struct ata_device *dev, int present,
 
 	return class;
 }
-EXPORT_SYMBOL_GPL(ata_sff_dev_classify);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_dev_classify); */
 
 /**
  *	ata_sff_wait_after_reset - wait for devices to become ready after reset
@@ -2011,7 +2011,7 @@ int ata_sff_wait_after_reset(struct ata_link *link, unsigned int devmask,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ata_sff_wait_after_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_wait_after_reset); */
 
 static int ata_bus_softreset(struct ata_port *ap, unsigned int devmask,
 			     unsigned long deadline)
@@ -2087,7 +2087,7 @@ int ata_sff_softreset(struct ata_link *link, unsigned int *classes,
 	DPRINTK("EXIT, classes[0]=%u [1]=%u\n", classes[0], classes[1]);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_sff_softreset);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_softreset); */
 
 /**
  *	sata_sff_hardreset - reset host port via SATA phy reset
@@ -2120,7 +2120,7 @@ int sata_sff_hardreset(struct ata_link *link, unsigned int *class,
 	DPRINTK("EXIT, class=%u\n", *class);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(sata_sff_hardreset);
+/* DISABLED: EXPORT_SYMBOL_GPL(sata_sff_hardreset); */
 
 /**
  *	ata_sff_postreset - SFF postreset callback
@@ -2158,7 +2158,7 @@ void ata_sff_postreset(struct ata_link *link, unsigned int *classes)
 		ap->last_ctl = ap->ctl;
 	}
 }
-EXPORT_SYMBOL_GPL(ata_sff_postreset);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_postreset); */
 
 /**
  *	ata_sff_drain_fifo - Stock FIFO drain logic for SFF controllers
@@ -2190,7 +2190,7 @@ void ata_sff_drain_fifo(struct ata_queued_cmd *qc)
 		ata_port_dbg(ap, "drained %d bytes to clear DRQ\n", count);
 
 }
-EXPORT_SYMBOL_GPL(ata_sff_drain_fifo);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_drain_fifo); */
 
 /**
  *	ata_sff_error_handler - Stock error handler for SFF controller
@@ -2237,7 +2237,7 @@ void ata_sff_error_handler(struct ata_port *ap)
 	ata_do_eh(ap, ap->ops->prereset, softreset, hardreset,
 		  ap->ops->postreset);
 }
-EXPORT_SYMBOL_GPL(ata_sff_error_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_error_handler); */
 
 /**
  *	ata_sff_std_ports - initialize ioaddr with standard port offsets.
@@ -2263,7 +2263,7 @@ void ata_sff_std_ports(struct ata_ioports *ioaddr)
 	ioaddr->status_addr = ioaddr->cmd_addr + ATA_REG_STATUS;
 	ioaddr->command_addr = ioaddr->cmd_addr + ATA_REG_CMD;
 }
-EXPORT_SYMBOL_GPL(ata_sff_std_ports);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_sff_std_ports); */
 
 #ifdef CONFIG_PCI
 
@@ -2358,7 +2358,7 @@ int ata_pci_sff_init_host(struct ata_host *host)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_pci_sff_init_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_sff_init_host); */
 
 /**
  *	ata_pci_sff_prepare_host - helper to prepare PCI PIO-only SFF ATA host
@@ -2404,7 +2404,7 @@ err_out:
 	devres_release_group(&pdev->dev, NULL);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(ata_pci_sff_prepare_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_sff_prepare_host); */
 
 /**
  *	ata_pci_sff_activate_host - start SFF host, request IRQ and register it
@@ -2503,7 +2503,7 @@ out:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(ata_pci_sff_activate_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_sff_activate_host); */
 
 static const struct ata_port_info *ata_sff_find_valid_pi(
 					const struct ata_port_info * const *ppi)
@@ -2600,7 +2600,7 @@ int ata_pci_sff_init_one(struct pci_dev *pdev,
 {
 	return ata_pci_init_one(pdev, ppi, sht, host_priv, hflag, 0);
 }
-EXPORT_SYMBOL_GPL(ata_pci_sff_init_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_sff_init_one); */
 
 #endif /* CONFIG_PCI */
 
@@ -2627,7 +2627,7 @@ const struct ata_port_operations ata_bmdma_port_ops = {
 
 	.port_start		= ata_bmdma_port_start,
 };
-EXPORT_SYMBOL_GPL(ata_bmdma_port_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_port_ops); */
 
 const struct ata_port_operations ata_bmdma32_port_ops = {
 	.inherits		= &ata_bmdma_port_ops,
@@ -2635,7 +2635,7 @@ const struct ata_port_operations ata_bmdma32_port_ops = {
 	.sff_data_xfer		= ata_sff_data_xfer32,
 	.port_start		= ata_bmdma_port_start32,
 };
-EXPORT_SYMBOL_GPL(ata_bmdma32_port_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma32_port_ops); */
 
 /**
  *	ata_bmdma_fill_sg - Fill PCI IDE PRD table
@@ -2762,7 +2762,7 @@ void ata_bmdma_qc_prep(struct ata_queued_cmd *qc)
 
 	ata_bmdma_fill_sg(qc);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_qc_prep);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_qc_prep); */
 
 /**
  *	ata_bmdma_dumb_qc_prep - Prepare taskfile for submission
@@ -2780,7 +2780,7 @@ void ata_bmdma_dumb_qc_prep(struct ata_queued_cmd *qc)
 
 	ata_bmdma_fill_sg_dumb(qc);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_dumb_qc_prep);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_dumb_qc_prep); */
 
 /**
  *	ata_bmdma_qc_issue - issue taskfile to a BMDMA controller
@@ -2838,7 +2838,7 @@ unsigned int ata_bmdma_qc_issue(struct ata_queued_cmd *qc)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_qc_issue);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_qc_issue); */
 
 /**
  *	ata_bmdma_port_intr - Handle BMDMA port interrupt
@@ -2887,7 +2887,7 @@ unsigned int ata_bmdma_port_intr(struct ata_port *ap, struct ata_queued_cmd *qc)
 
 	return handled;
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_port_intr);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_port_intr); */
 
 /**
  *	ata_bmdma_interrupt - Default BMDMA ATA host interrupt handler
@@ -2907,7 +2907,7 @@ irqreturn_t ata_bmdma_interrupt(int irq, void *dev_instance)
 {
 	return __ata_sff_interrupt(irq, dev_instance, ata_bmdma_port_intr);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_interrupt);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_interrupt); */
 
 /**
  *	ata_bmdma_error_handler - Stock error handler for BMDMA controller
@@ -2966,7 +2966,7 @@ void ata_bmdma_error_handler(struct ata_port *ap)
 
 	ata_sff_error_handler(ap);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_error_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_error_handler); */
 
 /**
  *	ata_bmdma_post_internal_cmd - Stock post_internal_cmd for BMDMA
@@ -2986,7 +2986,7 @@ void ata_bmdma_post_internal_cmd(struct ata_queued_cmd *qc)
 		spin_unlock_irqrestore(ap->lock, flags);
 	}
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_post_internal_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_post_internal_cmd); */
 
 /**
  *	ata_bmdma_irq_clear - Clear PCI IDE BMDMA interrupt.
@@ -3008,7 +3008,7 @@ void ata_bmdma_irq_clear(struct ata_port *ap)
 
 	iowrite8(ioread8(mmio + ATA_DMA_STATUS), mmio + ATA_DMA_STATUS);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_irq_clear);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_irq_clear); */
 
 /**
  *	ata_bmdma_setup - Set up PCI IDE BMDMA transaction
@@ -3037,7 +3037,7 @@ void ata_bmdma_setup(struct ata_queued_cmd *qc)
 	/* issue r/w command */
 	ap->ops->sff_exec_command(ap, &qc->tf);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_setup); */
 
 /**
  *	ata_bmdma_start - Start a PCI IDE BMDMA transaction
@@ -3070,7 +3070,7 @@ void ata_bmdma_start(struct ata_queued_cmd *qc)
 	 * unnecessarily delayed for MMIO
 	 */
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_start); */
 
 /**
  *	ata_bmdma_stop - Stop PCI IDE BMDMA transfer
@@ -3095,7 +3095,7 @@ void ata_bmdma_stop(struct ata_queued_cmd *qc)
 	/* one-PIO-cycle guaranteed wait, per spec, for HDMA1:0 transition */
 	ata_sff_dma_pause(ap);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_stop); */
 
 /**
  *	ata_bmdma_status - Read PCI IDE BMDMA status
@@ -3112,7 +3112,7 @@ u8 ata_bmdma_status(struct ata_port *ap)
 {
 	return ioread8(ap->ioaddr.bmdma_addr + ATA_DMA_STATUS);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_status); */
 
 
 /**
@@ -3139,7 +3139,7 @@ int ata_bmdma_port_start(struct ata_port *ap)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_port_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_port_start); */
 
 /**
  *	ata_bmdma_port_start32 - Set port up for dma.
@@ -3160,7 +3160,7 @@ int ata_bmdma_port_start32(struct ata_port *ap)
 	ap->pflags |= ATA_PFLAG_PIO32 | ATA_PFLAG_PIO32CHANGE;
 	return ata_bmdma_port_start(ap);
 }
-EXPORT_SYMBOL_GPL(ata_bmdma_port_start32);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_bmdma_port_start32); */
 
 #ifdef CONFIG_PCI
 
@@ -3188,7 +3188,7 @@ int ata_pci_bmdma_clear_simplex(struct pci_dev *pdev)
 		return -EOPNOTSUPP;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_pci_bmdma_clear_simplex);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_bmdma_clear_simplex); */
 
 static void ata_bmdma_nodma(struct ata_host *host, const char *reason)
 {
@@ -3263,7 +3263,7 @@ void ata_pci_bmdma_init(struct ata_host *host)
 		    (unsigned long long)pci_resource_start(pdev, 4) + 8 * i);
 	}
 }
-EXPORT_SYMBOL_GPL(ata_pci_bmdma_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_bmdma_init); */
 
 /**
  *	ata_pci_bmdma_prepare_host - helper to prepare PCI BMDMA ATA host
@@ -3293,7 +3293,7 @@ int ata_pci_bmdma_prepare_host(struct pci_dev *pdev,
 	ata_pci_bmdma_init(*r_host);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ata_pci_bmdma_prepare_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_bmdma_prepare_host); */
 
 /**
  *	ata_pci_bmdma_init_one - Initialize/register BMDMA PCI IDE controller
@@ -3319,7 +3319,7 @@ int ata_pci_bmdma_init_one(struct pci_dev *pdev,
 {
 	return ata_pci_init_one(pdev, ppi, sht, host_priv, hflags, 1);
 }
-EXPORT_SYMBOL_GPL(ata_pci_bmdma_init_one);
+/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_bmdma_init_one); */
 
 #endif /* CONFIG_PCI */
 #endif /* CONFIG_ATA_BMDMA */

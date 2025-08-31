@@ -5,7 +5,7 @@
 int iommu_detected __read_mostly;
 
 struct dma_map_ops *dma_ops;
-EXPORT_SYMBOL(dma_ops);
+/* DISABLED: EXPORT_SYMBOL(dma_ops); */
 
 #define PREALLOC_DMA_DEBUG_ENTRIES (1 << 16)
 
@@ -21,4 +21,4 @@ struct dma_map_ops *dma_get_ops(struct device *dev)
 {
 	return dma_ops;
 }
-EXPORT_SYMBOL(dma_get_ops);
+/* DISABLED: EXPORT_SYMBOL(dma_get_ops); */

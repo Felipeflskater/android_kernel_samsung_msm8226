@@ -243,7 +243,7 @@ nodata:
 	skb = NULL;
 	goto out;
 }
-EXPORT_SYMBOL(__alloc_skb);
+/* DISABLED: EXPORT_SYMBOL(__alloc_skb); */
 
 /**
  * build_skb - build a network buffer
@@ -292,7 +292,7 @@ struct sk_buff *build_skb(void *data)
 
 	return skb;
 }
-EXPORT_SYMBOL(build_skb);
+/* DISABLED: EXPORT_SYMBOL(build_skb); */
 
 /**
  *	__netdev_alloc_skb - allocate an skbuff for rx on a specific device
@@ -319,7 +319,7 @@ struct sk_buff *__netdev_alloc_skb(struct net_device *dev,
 	}
 	return skb;
 }
-EXPORT_SYMBOL(__netdev_alloc_skb);
+/* DISABLED: EXPORT_SYMBOL(__netdev_alloc_skb); */
 
 void skb_add_rx_frag(struct sk_buff *skb, int i, struct page *page, int off,
 		     int size, unsigned int truesize)
@@ -329,7 +329,7 @@ void skb_add_rx_frag(struct sk_buff *skb, int i, struct page *page, int off,
 	skb->data_len += size;
 	skb->truesize += truesize;
 }
-EXPORT_SYMBOL(skb_add_rx_frag);
+/* DISABLED: EXPORT_SYMBOL(skb_add_rx_frag); */
 
 /**
  *	dev_alloc_skb - allocate an skbuff for receiving
@@ -351,7 +351,7 @@ struct sk_buff *dev_alloc_skb(unsigned int length)
 	 */
 	return __dev_alloc_skb(length, GFP_ATOMIC);
 }
-EXPORT_SYMBOL(dev_alloc_skb);
+/* DISABLED: EXPORT_SYMBOL(dev_alloc_skb); */
 
 static void skb_drop_list(struct sk_buff **listp)
 {
@@ -489,7 +489,7 @@ void __kfree_skb(struct sk_buff *skb)
 	skb_release_all(skb);
 	kfree_skbmem(skb);
 }
-EXPORT_SYMBOL(__kfree_skb);
+/* DISABLED: EXPORT_SYMBOL(__kfree_skb); */
 
 /**
  *	kfree_skb - free an sk_buff
@@ -509,7 +509,7 @@ void kfree_skb(struct sk_buff *skb)
 	trace_kfree_skb(skb, __builtin_return_address(0));
 	__kfree_skb(skb);
 }
-EXPORT_SYMBOL(kfree_skb);
+/* DISABLED: EXPORT_SYMBOL(kfree_skb); */
 
 /**
  *	consume_skb - free an skbuff
@@ -530,7 +530,7 @@ void consume_skb(struct sk_buff *skb)
 	trace_consume_skb(skb);
 	__kfree_skb(skb);
 }
-EXPORT_SYMBOL(consume_skb);
+/* DISABLED: EXPORT_SYMBOL(consume_skb); */
 
 /**
  * 	skb_recycle - clean up an skb for reuse
@@ -554,7 +554,7 @@ void skb_recycle(struct sk_buff *skb)
 	skb->data = skb->head + NET_SKB_PAD;
 	skb_reset_tail_pointer(skb);
 }
-EXPORT_SYMBOL(skb_recycle);
+/* DISABLED: EXPORT_SYMBOL(skb_recycle); */
 
 /**
  *	skb_recycle_check - check if skb can be reused for receive
@@ -577,7 +577,7 @@ bool skb_recycle_check(struct sk_buff *skb, int skb_size)
 
 	return true;
 }
-EXPORT_SYMBOL(skb_recycle_check);
+/* DISABLED: EXPORT_SYMBOL(skb_recycle_check); */
 
 static void __copy_skb_header(struct sk_buff *new, const struct sk_buff *old)
 {
@@ -670,7 +670,7 @@ struct sk_buff *skb_morph(struct sk_buff *dst, struct sk_buff *src)
 	skb_release_all(dst);
 	return __skb_clone(dst, src);
 }
-EXPORT_SYMBOL_GPL(skb_morph);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_morph); */
 
 /*	skb_copy_ubufs	-	copy userspace skb frags buffers to kernel
  *	@skb: the skb to modify
@@ -730,7 +730,7 @@ int skb_copy_ubufs(struct sk_buff *skb, gfp_t gfp_mask)
 	skb_shinfo(skb)->tx_flags &= ~SKBTX_DEV_ZEROCOPY;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(skb_copy_ubufs);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_copy_ubufs); */
 
 /**
  *	skb_clone	-	duplicate an sk_buff
@@ -773,7 +773,7 @@ struct sk_buff *skb_clone(struct sk_buff *skb, gfp_t gfp_mask)
 
 	return __skb_clone(n, skb);
 }
-EXPORT_SYMBOL(skb_clone);
+/* DISABLED: EXPORT_SYMBOL(skb_clone); */
 
 static void copy_skb_header(struct sk_buff *new, const struct sk_buff *old)
 {
@@ -835,7 +835,7 @@ struct sk_buff *skb_copy(const struct sk_buff *skb, gfp_t gfp_mask)
 	copy_skb_header(n, skb);
 	return n;
 }
-EXPORT_SYMBOL(skb_copy);
+/* DISABLED: EXPORT_SYMBOL(skb_copy); */
 
 /**
  *	__pskb_copy	-	create copy of an sk_buff with private head.
@@ -896,7 +896,7 @@ struct sk_buff *__pskb_copy(struct sk_buff *skb, int headroom, gfp_t gfp_mask)
 out:
 	return n;
 }
-EXPORT_SYMBOL(__pskb_copy);
+/* DISABLED: EXPORT_SYMBOL(__pskb_copy); */
 
 /**
  *	pskb_expand_head - reallocate header of &sk_buff
@@ -1013,7 +1013,7 @@ nofrags:
 nodata:
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(pskb_expand_head);
+/* DISABLED: EXPORT_SYMBOL(pskb_expand_head); */
 
 /* Make private copy of skb with writable head and some headroom */
 
@@ -1034,7 +1034,7 @@ struct sk_buff *skb_realloc_headroom(struct sk_buff *skb, unsigned int headroom)
 	}
 	return skb2;
 }
-EXPORT_SYMBOL(skb_realloc_headroom);
+/* DISABLED: EXPORT_SYMBOL(skb_realloc_headroom); */
 
 /**
  *	skb_copy_expand	-	copy and expand sk_buff
@@ -1101,7 +1101,7 @@ struct sk_buff *skb_copy_expand(const struct sk_buff *skb,
 
 	return n;
 }
-EXPORT_SYMBOL(skb_copy_expand);
+/* DISABLED: EXPORT_SYMBOL(skb_copy_expand); */
 
 /**
  *	skb_pad			-	zero pad the tail of an skb
@@ -1147,7 +1147,7 @@ free_skb:
 	kfree_skb(skb);
 	return err;
 }
-EXPORT_SYMBOL(skb_pad);
+/* DISABLED: EXPORT_SYMBOL(skb_pad); */
 
 /**
  *	skb_put - add data to a buffer
@@ -1168,7 +1168,7 @@ unsigned char *skb_put(struct sk_buff *skb, unsigned int len)
 		skb_over_panic(skb, len, __builtin_return_address(0));
 	return tmp;
 }
-EXPORT_SYMBOL(skb_put);
+/* DISABLED: EXPORT_SYMBOL(skb_put); */
 
 /**
  *	skb_push - add data to the start of a buffer
@@ -1187,7 +1187,7 @@ unsigned char *skb_push(struct sk_buff *skb, unsigned int len)
 		skb_under_panic(skb, len, __builtin_return_address(0));
 	return skb->data;
 }
-EXPORT_SYMBOL(skb_push);
+/* DISABLED: EXPORT_SYMBOL(skb_push); */
 
 /**
  *	skb_pull - remove data from the start of a buffer
@@ -1203,7 +1203,7 @@ unsigned char *skb_pull(struct sk_buff *skb, unsigned int len)
 {
 	return skb_pull_inline(skb, len);
 }
-EXPORT_SYMBOL(skb_pull);
+/* DISABLED: EXPORT_SYMBOL(skb_pull); */
 
 /**
  *	skb_trim - remove end from a buffer
@@ -1219,7 +1219,7 @@ void skb_trim(struct sk_buff *skb, unsigned int len)
 	if (skb->len > len)
 		__skb_trim(skb, len);
 }
-EXPORT_SYMBOL(skb_trim);
+/* DISABLED: EXPORT_SYMBOL(skb_trim); */
 
 /* Trims skb to length len. It can change skb pointers.
  */
@@ -1305,7 +1305,7 @@ done:
 
 	return 0;
 }
-EXPORT_SYMBOL(___pskb_trim);
+/* DISABLED: EXPORT_SYMBOL(___pskb_trim); */
 
 /**
  *	__pskb_pull_tail - advance tail of skb header
@@ -1447,7 +1447,7 @@ pull_pages:
 
 	return skb_tail_pointer(skb);
 }
-EXPORT_SYMBOL(__pskb_pull_tail);
+/* DISABLED: EXPORT_SYMBOL(__pskb_pull_tail); */
 
 /**
  *	skb_copy_bits - copy bits from skb to kernel buffer
@@ -1535,7 +1535,7 @@ int skb_copy_bits(const struct sk_buff *skb, int offset, void *to, int len)
 fault:
 	return -EFAULT;
 }
-EXPORT_SYMBOL(skb_copy_bits);
+/* DISABLED: EXPORT_SYMBOL(skb_copy_bits); */
 
 /*
  * Callback from splice_to_pipe(), if we need to release some pages
@@ -1844,7 +1844,7 @@ int skb_store_bits(struct sk_buff *skb, int offset, const void *from, int len)
 fault:
 	return -EFAULT;
 }
-EXPORT_SYMBOL(skb_store_bits);
+/* DISABLED: EXPORT_SYMBOL(skb_store_bits); */
 
 /* Checksum skb data. */
 
@@ -1917,7 +1917,7 @@ __wsum skb_checksum(const struct sk_buff *skb, int offset,
 
 	return csum;
 }
-EXPORT_SYMBOL(skb_checksum);
+/* DISABLED: EXPORT_SYMBOL(skb_checksum); */
 
 /* Both of above in one bottle. */
 
@@ -1996,7 +1996,7 @@ __wsum skb_copy_and_csum_bits(const struct sk_buff *skb, int offset,
 	BUG_ON(len);
 	return csum;
 }
-EXPORT_SYMBOL(skb_copy_and_csum_bits);
+/* DISABLED: EXPORT_SYMBOL(skb_copy_and_csum_bits); */
 
 void skb_copy_and_csum_dev(const struct sk_buff *skb, u8 *to)
 {
@@ -2023,7 +2023,7 @@ void skb_copy_and_csum_dev(const struct sk_buff *skb, u8 *to)
 		*((__sum16 *)(to + csstuff)) = csum_fold(csum);
 	}
 }
-EXPORT_SYMBOL(skb_copy_and_csum_dev);
+/* DISABLED: EXPORT_SYMBOL(skb_copy_and_csum_dev); */
 
 /**
  *	skb_dequeue - remove from the head of the queue
@@ -2044,7 +2044,7 @@ struct sk_buff *skb_dequeue(struct sk_buff_head *list)
 	spin_unlock_irqrestore(&list->lock, flags);
 	return result;
 }
-EXPORT_SYMBOL(skb_dequeue);
+/* DISABLED: EXPORT_SYMBOL(skb_dequeue); */
 
 /**
  *	skb_dequeue_tail - remove from the tail of the queue
@@ -2064,7 +2064,7 @@ struct sk_buff *skb_dequeue_tail(struct sk_buff_head *list)
 	spin_unlock_irqrestore(&list->lock, flags);
 	return result;
 }
-EXPORT_SYMBOL(skb_dequeue_tail);
+/* DISABLED: EXPORT_SYMBOL(skb_dequeue_tail); */
 
 /**
  *	skb_queue_purge - empty a list
@@ -2080,7 +2080,7 @@ void skb_queue_purge(struct sk_buff_head *list)
 	while ((skb = skb_dequeue(list)) != NULL)
 		kfree_skb(skb);
 }
-EXPORT_SYMBOL(skb_queue_purge);
+/* DISABLED: EXPORT_SYMBOL(skb_queue_purge); */
 
 /**
  *	skb_queue_head - queue a buffer at the list head
@@ -2101,7 +2101,7 @@ void skb_queue_head(struct sk_buff_head *list, struct sk_buff *newsk)
 	__skb_queue_head(list, newsk);
 	spin_unlock_irqrestore(&list->lock, flags);
 }
-EXPORT_SYMBOL(skb_queue_head);
+/* DISABLED: EXPORT_SYMBOL(skb_queue_head); */
 
 /**
  *	skb_queue_tail - queue a buffer at the list tail
@@ -2122,7 +2122,7 @@ void skb_queue_tail(struct sk_buff_head *list, struct sk_buff *newsk)
 	__skb_queue_tail(list, newsk);
 	spin_unlock_irqrestore(&list->lock, flags);
 }
-EXPORT_SYMBOL(skb_queue_tail);
+/* DISABLED: EXPORT_SYMBOL(skb_queue_tail); */
 
 /**
  *	skb_unlink	-	remove a buffer from a list
@@ -2142,7 +2142,7 @@ void skb_unlink(struct sk_buff *skb, struct sk_buff_head *list)
 	__skb_unlink(skb, list);
 	spin_unlock_irqrestore(&list->lock, flags);
 }
-EXPORT_SYMBOL(skb_unlink);
+/* DISABLED: EXPORT_SYMBOL(skb_unlink); */
 
 /**
  *	skb_append	-	append a buffer
@@ -2162,7 +2162,7 @@ void skb_append(struct sk_buff *old, struct sk_buff *newsk, struct sk_buff_head 
 	__skb_queue_after(list, old, newsk);
 	spin_unlock_irqrestore(&list->lock, flags);
 }
-EXPORT_SYMBOL(skb_append);
+/* DISABLED: EXPORT_SYMBOL(skb_append); */
 
 /**
  *	skb_insert	-	insert a buffer
@@ -2184,7 +2184,7 @@ void skb_insert(struct sk_buff *old, struct sk_buff *newsk, struct sk_buff_head 
 	__skb_insert(newsk, old->prev, old, list);
 	spin_unlock_irqrestore(&list->lock, flags);
 }
-EXPORT_SYMBOL(skb_insert);
+/* DISABLED: EXPORT_SYMBOL(skb_insert); */
 
 static inline void skb_split_inside_header(struct sk_buff *skb,
 					   struct sk_buff* skb1,
@@ -2263,7 +2263,7 @@ void skb_split(struct sk_buff *skb, struct sk_buff *skb1, const u32 len)
 	else		/* Second chunk has no header, nothing to copy. */
 		skb_split_no_header(skb, skb1, len, pos);
 }
-EXPORT_SYMBOL(skb_split);
+/* DISABLED: EXPORT_SYMBOL(skb_split); */
 
 /* Shifting from/to a cloned skb is a no-go.
  *
@@ -2427,7 +2427,7 @@ void skb_prepare_seq_read(struct sk_buff *skb, unsigned int from,
 	st->frag_idx = st->stepped_offset = 0;
 	st->frag_data = NULL;
 }
-EXPORT_SYMBOL(skb_prepare_seq_read);
+/* DISABLED: EXPORT_SYMBOL(skb_prepare_seq_read); */
 
 /**
  * skb_seq_read - Sequentially read skb data
@@ -2514,7 +2514,7 @@ next_skb:
 
 	return 0;
 }
-EXPORT_SYMBOL(skb_seq_read);
+/* DISABLED: EXPORT_SYMBOL(skb_seq_read); */
 
 /**
  * skb_abort_seq_read - Abort a sequential read of skb data
@@ -2528,7 +2528,7 @@ void skb_abort_seq_read(struct skb_seq_state *st)
 	if (st->frag_data)
 		kunmap_skb_frag(st->frag_data);
 }
-EXPORT_SYMBOL(skb_abort_seq_read);
+/* DISABLED: EXPORT_SYMBOL(skb_abort_seq_read); */
 
 #define TS_SKB_CB(state)	((struct skb_seq_state *) &((state)->cb))
 
@@ -2571,7 +2571,7 @@ unsigned int skb_find_text(struct sk_buff *skb, unsigned int from,
 	ret = textsearch_find(config, state);
 	return (ret <= to - from ? ret : UINT_MAX);
 }
-EXPORT_SYMBOL(skb_find_text);
+/* DISABLED: EXPORT_SYMBOL(skb_find_text); */
 
 /**
  * skb_append_datato_frags: - append the user data to a skb
@@ -2640,7 +2640,7 @@ int skb_append_datato_frags(struct sock *sk, struct sk_buff *skb,
 
 	return 0;
 }
-EXPORT_SYMBOL(skb_append_datato_frags);
+/* DISABLED: EXPORT_SYMBOL(skb_append_datato_frags); */
 
 /**
  *	skb_pull_rcsum - pull skb and update receive checksum
@@ -2661,7 +2661,7 @@ unsigned char *skb_pull_rcsum(struct sk_buff *skb, unsigned int len)
 	skb_postpull_rcsum(skb, skb->data, len);
 	return skb->data += len;
 }
-EXPORT_SYMBOL_GPL(skb_pull_rcsum);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_pull_rcsum); */
 
 /**
  *	skb_segment - Perform protocol segmentation on skb.
@@ -2833,7 +2833,7 @@ err:
 	}
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(skb_segment);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_segment); */
 
 int skb_gro_receive(struct sk_buff **head, struct sk_buff *skb)
 {
@@ -2946,7 +2946,7 @@ done:
 	NAPI_GRO_CB(skb)->same_flow = 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(skb_gro_receive);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_gro_receive); */
 
 void __init skb_init(void)
 {
@@ -3041,7 +3041,7 @@ int skb_to_sgvec(struct sk_buff *skb, struct scatterlist *sg, int offset, int le
 
 	return nsg;
 }
-EXPORT_SYMBOL_GPL(skb_to_sgvec);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_to_sgvec); */
 
 /**
  *	skb_cow_data - Check that a socket buffer's data buffers are writable
@@ -3151,7 +3151,7 @@ int skb_cow_data(struct sk_buff *skb, int tailbits, struct sk_buff **trailer)
 
 	return elt;
 }
-EXPORT_SYMBOL_GPL(skb_cow_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_cow_data); */
 
 static void sock_rmem_free(struct sk_buff *skb)
 {
@@ -3184,7 +3184,7 @@ int sock_queue_err_skb(struct sock *sk, struct sk_buff *skb)
 		sk->sk_data_ready(sk, len);
 	return 0;
 }
-EXPORT_SYMBOL(sock_queue_err_skb);
+/* DISABLED: EXPORT_SYMBOL(sock_queue_err_skb); */
 
 void skb_tstamp_tx(struct sk_buff *orig_skb,
 		struct skb_shared_hwtstamps *hwtstamps)
@@ -3223,7 +3223,7 @@ void skb_tstamp_tx(struct sk_buff *orig_skb,
 	if (err)
 		kfree_skb(skb);
 }
-EXPORT_SYMBOL_GPL(skb_tstamp_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_tstamp_tx); */
 
 void skb_complete_wifi_ack(struct sk_buff *skb, bool acked)
 {
@@ -3243,7 +3243,7 @@ void skb_complete_wifi_ack(struct sk_buff *skb, bool acked)
 	if (err)
 		kfree_skb(skb);
 }
-EXPORT_SYMBOL_GPL(skb_complete_wifi_ack);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_complete_wifi_ack); */
 
 
 /**
@@ -3273,7 +3273,7 @@ bool skb_partial_csum_set(struct sk_buff *skb, u16 start, u16 off)
 	skb->csum_offset = off;
 	return true;
 }
-EXPORT_SYMBOL_GPL(skb_partial_csum_set);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_partial_csum_set); */
 
 void __skb_warn_lro_forwarding(const struct sk_buff *skb)
 {
@@ -3281,7 +3281,7 @@ void __skb_warn_lro_forwarding(const struct sk_buff *skb)
 		pr_warning("%s: received packets cannot be forwarded"
 			   " while LRO is enabled\n", skb->dev->name);
 }
-EXPORT_SYMBOL(__skb_warn_lro_forwarding);
+/* DISABLED: EXPORT_SYMBOL(__skb_warn_lro_forwarding); */
 
 /**
  * skb_gso_transport_seglen - Return length of individual segments of a gso packet
@@ -3306,4 +3306,4 @@ unsigned int skb_gso_transport_seglen(const struct sk_buff *skb)
 	 */
 	return shinfo->gso_size;
 }
-EXPORT_SYMBOL_GPL(skb_gso_transport_seglen);
+/* DISABLED: EXPORT_SYMBOL_GPL(skb_gso_transport_seglen); */

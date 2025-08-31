@@ -1212,7 +1212,7 @@ error:
 	kfree(priv);
 	return NULL;
 }
-EXPORT_SYMBOL(tda10071_attach);
+/* DISABLED: EXPORT_SYMBOL(tda10071_attach); */
 
 static struct dvb_frontend_ops tda10071_ops = {
 	.delsys = { SYS_DVBS, SYS_DVBS2 },

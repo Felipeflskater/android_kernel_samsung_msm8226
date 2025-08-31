@@ -374,26 +374,26 @@ int msnd_disable_irq(multisound_dev_t *dev)
 }
 
 #ifndef LINUX20
-EXPORT_SYMBOL(msnd_register);
-EXPORT_SYMBOL(msnd_unregister);
+/* DISABLED: EXPORT_SYMBOL(msnd_register); */
+/* DISABLED: EXPORT_SYMBOL(msnd_unregister); */
 
-EXPORT_SYMBOL(msnd_init_queue);
+/* DISABLED: EXPORT_SYMBOL(msnd_init_queue); */
 
-EXPORT_SYMBOL(msnd_fifo_init);
-EXPORT_SYMBOL(msnd_fifo_free);
-EXPORT_SYMBOL(msnd_fifo_alloc);
-EXPORT_SYMBOL(msnd_fifo_make_empty);
-EXPORT_SYMBOL(msnd_fifo_write_io);
-EXPORT_SYMBOL(msnd_fifo_read_io);
-EXPORT_SYMBOL(msnd_fifo_write);
-EXPORT_SYMBOL(msnd_fifo_read);
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_init); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_free); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_alloc); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_make_empty); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_write_io); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_read_io); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_write); */
+/* DISABLED: EXPORT_SYMBOL(msnd_fifo_read); */
 
-EXPORT_SYMBOL(msnd_send_dsp_cmd);
-EXPORT_SYMBOL(msnd_send_word);
-EXPORT_SYMBOL(msnd_upload_host);
+/* DISABLED: EXPORT_SYMBOL(msnd_send_dsp_cmd); */
+/* DISABLED: EXPORT_SYMBOL(msnd_send_word); */
+/* DISABLED: EXPORT_SYMBOL(msnd_upload_host); */
 
-EXPORT_SYMBOL(msnd_enable_irq);
-EXPORT_SYMBOL(msnd_disable_irq);
+/* DISABLED: EXPORT_SYMBOL(msnd_enable_irq); */
+/* DISABLED: EXPORT_SYMBOL(msnd_disable_irq); */
 #endif
 
 #ifdef MODULE

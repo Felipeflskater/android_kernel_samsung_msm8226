@@ -22,23 +22,23 @@ extern char h8300_debug_device[];
 
 /* platform dependent support */
 
-EXPORT_SYMBOL(strnlen);
-EXPORT_SYMBOL(strrchr);
-EXPORT_SYMBOL(strstr);
-EXPORT_SYMBOL(strchr);
-EXPORT_SYMBOL(strcat);
-EXPORT_SYMBOL(strlen);
-EXPORT_SYMBOL(strcmp);
-EXPORT_SYMBOL(strncmp);
+/* DISABLED: EXPORT_SYMBOL(strnlen); */
+/* DISABLED: EXPORT_SYMBOL(strrchr); */
+/* DISABLED: EXPORT_SYMBOL(strstr); */
+/* DISABLED: EXPORT_SYMBOL(strchr); */
+/* DISABLED: EXPORT_SYMBOL(strcat); */
+/* DISABLED: EXPORT_SYMBOL(strlen); */
+/* DISABLED: EXPORT_SYMBOL(strcmp); */
+/* DISABLED: EXPORT_SYMBOL(strncmp); */
 
-EXPORT_SYMBOL(ip_fast_csum);
+/* DISABLED: EXPORT_SYMBOL(ip_fast_csum); */
 
-EXPORT_SYMBOL(kernel_thread);
-EXPORT_SYMBOL(enable_irq);
-EXPORT_SYMBOL(disable_irq);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+/* DISABLED: EXPORT_SYMBOL(enable_irq); */
+/* DISABLED: EXPORT_SYMBOL(disable_irq); */
 
 /* Networking helper routines. */
-EXPORT_SYMBOL(csum_partial_copy_nocheck);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
 
 /* The following are special because they're not called
    explicitly (the C compiler generates them).  Fortunately,
@@ -46,11 +46,11 @@ EXPORT_SYMBOL(csum_partial_copy_nocheck);
    it's OK to leave it out of version control.  */
 //EXPORT_SYMBOL(__ashrdi3);
 //EXPORT_SYMBOL(__lshrdi3);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memcmp);
-EXPORT_SYMBOL(memscan);
-EXPORT_SYMBOL(memmove);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memcmp); */
+/* DISABLED: EXPORT_SYMBOL(memscan); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
 
 /*
  * libgcc functions - functions that are used internally by the
@@ -77,25 +77,25 @@ extern void __umoddi3(void);
 extern void __umodsi3(void);
 
         /* gcc lib functions */
-EXPORT_SYMBOL(__gcc_bcmp);
-EXPORT_SYMBOL(__ashldi3);
-EXPORT_SYMBOL(__ashrdi3);
-EXPORT_SYMBOL(__cmpdi2);
-EXPORT_SYMBOL(__divdi3);
-EXPORT_SYMBOL(__divsi3);
-EXPORT_SYMBOL(__lshrdi3);
-EXPORT_SYMBOL(__moddi3);
-EXPORT_SYMBOL(__modsi3);
-EXPORT_SYMBOL(__muldi3);
-EXPORT_SYMBOL(__mulsi3);
-EXPORT_SYMBOL(__negdi2);
-EXPORT_SYMBOL(__ucmpdi2);
-EXPORT_SYMBOL(__udivdi3);
-EXPORT_SYMBOL(__udivmoddi4);
-EXPORT_SYMBOL(__udivsi3);
-EXPORT_SYMBOL(__umoddi3);
-EXPORT_SYMBOL(__umodsi3);
+/* DISABLED: EXPORT_SYMBOL(__gcc_bcmp); */
+/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
+/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__cmpdi2); */
+/* DISABLED: EXPORT_SYMBOL(__divdi3); */
+/* DISABLED: EXPORT_SYMBOL(__divsi3); */
+/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__moddi3); */
+/* DISABLED: EXPORT_SYMBOL(__modsi3); */
+/* DISABLED: EXPORT_SYMBOL(__muldi3); */
+/* DISABLED: EXPORT_SYMBOL(__mulsi3); */
+/* DISABLED: EXPORT_SYMBOL(__negdi2); */
+/* DISABLED: EXPORT_SYMBOL(__ucmpdi2); */
+/* DISABLED: EXPORT_SYMBOL(__udivdi3); */
+/* DISABLED: EXPORT_SYMBOL(__udivmoddi4); */
+/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
+/* DISABLED: EXPORT_SYMBOL(__umoddi3); */
+/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
 
-EXPORT_SYMBOL(h8300_reserved_gpio);
-EXPORT_SYMBOL(h8300_free_gpio);
-EXPORT_SYMBOL(h8300_set_gpio_dir);
+/* DISABLED: EXPORT_SYMBOL(h8300_reserved_gpio); */
+/* DISABLED: EXPORT_SYMBOL(h8300_free_gpio); */
+/* DISABLED: EXPORT_SYMBOL(h8300_set_gpio_dir); */

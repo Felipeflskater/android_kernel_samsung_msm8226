@@ -736,9 +736,9 @@ int libipw_wx_get_encodeext(struct libipw_device *ieee,
 	return 0;
 }
 
-EXPORT_SYMBOL(libipw_wx_set_encodeext);
-EXPORT_SYMBOL(libipw_wx_get_encodeext);
+/* DISABLED: EXPORT_SYMBOL(libipw_wx_set_encodeext); */
+/* DISABLED: EXPORT_SYMBOL(libipw_wx_get_encodeext); */
 
-EXPORT_SYMBOL(libipw_wx_get_scan);
-EXPORT_SYMBOL(libipw_wx_set_encode);
-EXPORT_SYMBOL(libipw_wx_get_encode);
+/* DISABLED: EXPORT_SYMBOL(libipw_wx_get_scan); */
+/* DISABLED: EXPORT_SYMBOL(libipw_wx_set_encode); */
+/* DISABLED: EXPORT_SYMBOL(libipw_wx_get_encode); */

@@ -588,7 +588,7 @@ struct v4l2_subdev *venc_sub_dev_init(struct v4l2_device *v4l2_dev,
 
 	return &venc->sd;
 }
-EXPORT_SYMBOL(venc_sub_dev_init);
+/* DISABLED: EXPORT_SYMBOL(venc_sub_dev_init); */
 
 static int venc_probe(struct platform_device *pdev)
 {

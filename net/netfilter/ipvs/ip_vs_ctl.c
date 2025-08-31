@@ -1865,7 +1865,7 @@ const struct ctl_path net_vs_ctl_path[] = {
 	{ .procname = "vs", },
 	{ }
 };
-EXPORT_SYMBOL_GPL(net_vs_ctl_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(net_vs_ctl_path); */
 #endif
 
 #ifdef CONFIG_PROC_FS

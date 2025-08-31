@@ -110,7 +110,7 @@ void __fcoe_get_lesb(struct fc_lport *lport,
 	lesb->lesb_fcs_error =
 			htonl(dev_get_stats(netdev, &temp)->rx_crc_errors);
 }
-EXPORT_SYMBOL_GPL(__fcoe_get_lesb);
+/* DISABLED: EXPORT_SYMBOL_GPL(__fcoe_get_lesb); */
 
 void fcoe_wwn_to_str(u64 wwn, char *buf, int len)
 {
@@ -121,7 +121,7 @@ void fcoe_wwn_to_str(u64 wwn, char *buf, int len)
 		 wwpn[0], wwpn[1], wwpn[2], wwpn[3],
 		 wwpn[4], wwpn[5], wwpn[6], wwpn[7]);
 }
-EXPORT_SYMBOL_GPL(fcoe_wwn_to_str);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_wwn_to_str); */
 
 /**
  * fcoe_validate_vport_create() - Validate a vport before creating it
@@ -164,7 +164,7 @@ out:
 	mutex_unlock(&n_port->lp_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(fcoe_validate_vport_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_validate_vport_create); */
 
 /**
  * fcoe_get_wwn() - Get the world wide name from LLD if it supports it
@@ -182,7 +182,7 @@ int fcoe_get_wwn(struct net_device *netdev, u64 *wwn, int type)
 		return ops->ndo_fcoe_get_wwn(netdev, wwn, type);
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(fcoe_get_wwn);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_get_wwn); */
 
 /**
  * fcoe_fc_crc() - Calculates the CRC for a given frame
@@ -219,7 +219,7 @@ u32 fcoe_fc_crc(struct fc_frame *fp)
 	}
 	return crc;
 }
-EXPORT_SYMBOL_GPL(fcoe_fc_crc);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_fc_crc); */
 
 /**
  * fcoe_start_io() - Start FCoE I/O
@@ -244,7 +244,7 @@ int fcoe_start_io(struct sk_buff *skb)
 	kfree_skb(skb);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fcoe_start_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_start_io); */
 
 
 /**
@@ -264,7 +264,7 @@ void fcoe_clean_pending_queue(struct fc_lport *lport)
 	}
 	spin_unlock_bh(&port->fcoe_pending_queue.lock);
 }
-EXPORT_SYMBOL_GPL(fcoe_clean_pending_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_clean_pending_queue); */
 
 /**
  * fcoe_check_wait_queue() - Attempt to clear the transmit backlog
@@ -322,7 +322,7 @@ out:
 		lport->qfull = 1;
 	spin_unlock_bh(&port->fcoe_pending_queue.lock);
 }
-EXPORT_SYMBOL_GPL(fcoe_check_wait_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_check_wait_queue); */
 
 /**
  * fcoe_queue_timer() - The fcoe queue timer
@@ -334,7 +334,7 @@ void fcoe_queue_timer(ulong lport)
 {
 	fcoe_check_wait_queue((struct fc_lport *)lport, NULL);
 }
-EXPORT_SYMBOL_GPL(fcoe_queue_timer);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_queue_timer); */
 
 /**
  * fcoe_get_paged_crc_eof() - Allocate a page to be used for the trailer CRC
@@ -381,7 +381,7 @@ int fcoe_get_paged_crc_eof(struct sk_buff *skb, int tlen,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fcoe_get_paged_crc_eof);
+/* DISABLED: EXPORT_SYMBOL_GPL(fcoe_get_paged_crc_eof); */
 
 /**
  * fcoe_transport_lookup - find an fcoe transport that matches a netdev
@@ -433,7 +433,7 @@ out_attach:
 	mutex_unlock(&ft_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(fcoe_transport_attach);
+/* DISABLED: EXPORT_SYMBOL(fcoe_transport_attach); */
 
 /**
  * fcoe_transport_detach - Detaches an FCoE transport
@@ -476,7 +476,7 @@ out_attach:
 	return rc;
 
 }
-EXPORT_SYMBOL(fcoe_transport_detach);
+/* DISABLED: EXPORT_SYMBOL(fcoe_transport_detach); */
 
 static int fcoe_transport_show(char *buffer, const struct kernel_param *kp)
 {

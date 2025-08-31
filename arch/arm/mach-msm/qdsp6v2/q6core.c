@@ -244,7 +244,7 @@ uint32_t core_get_adsp_version(void)
 		pr_info("apr registration failed\n");
 	return rc;
 }
-EXPORT_SYMBOL(core_get_adsp_version);
+/* DISABLED: EXPORT_SYMBOL(core_get_adsp_version); */
 
 static ssize_t apr_debug_write(struct file *file, const char __user *buf,
 				size_t count, loff_t *ppos)

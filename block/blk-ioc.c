@@ -27,7 +27,7 @@ void get_io_context(struct io_context *ioc)
 	BUG_ON(atomic_long_read(&ioc->refcount) <= 0);
 	atomic_long_inc(&ioc->refcount);
 }
-EXPORT_SYMBOL(get_io_context);
+/* DISABLED: EXPORT_SYMBOL(get_io_context); */
 
 static void icq_free_icq_rcu(struct rcu_head *head)
 {
@@ -153,7 +153,7 @@ void put_io_context(struct io_context *ioc)
 	if (free_ioc)
 		kmem_cache_free(iocontext_cachep, ioc);
 }
-EXPORT_SYMBOL(put_io_context);
+/* DISABLED: EXPORT_SYMBOL(put_io_context); */
 
 /* Called by the exiting task */
 void exit_io_context(struct task_struct *task)
@@ -285,7 +285,7 @@ struct io_context *get_task_io_context(struct task_struct *task,
 
 	return NULL;
 }
-EXPORT_SYMBOL(get_task_io_context);
+/* DISABLED: EXPORT_SYMBOL(get_task_io_context); */
 
 /**
  * ioc_lookup_icq - lookup io_cq from ioc
@@ -321,7 +321,7 @@ out:
 	rcu_read_unlock();
 	return icq;
 }
-EXPORT_SYMBOL(ioc_lookup_icq);
+/* DISABLED: EXPORT_SYMBOL(ioc_lookup_icq); */
 
 /**
  * ioc_create_icq - create and link io_cq
@@ -426,7 +426,7 @@ void ioc_cgroup_changed(struct io_context *ioc)
 	ioc_set_icq_flags(ioc, ICQ_CGROUP_CHANGED);
 	spin_unlock_irqrestore(&ioc->lock, flags);
 }
-EXPORT_SYMBOL(ioc_cgroup_changed);
+/* DISABLED: EXPORT_SYMBOL(ioc_cgroup_changed); */
 
 /**
  * icq_get_changed - fetch and clear icq changed mask
@@ -448,7 +448,7 @@ unsigned icq_get_changed(struct io_cq *icq)
 	}
 	return changed;
 }
-EXPORT_SYMBOL(icq_get_changed);
+/* DISABLED: EXPORT_SYMBOL(icq_get_changed); */
 
 static int __init blk_ioc_init(void)
 {

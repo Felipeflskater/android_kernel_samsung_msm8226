@@ -44,7 +44,7 @@ u8 inline jornada_ssp_reverse(u8 byte)
 		((0x02 & byte) << 5) |
 		((0x01 & byte) << 7);
 };
-EXPORT_SYMBOL(jornada_ssp_reverse);
+/* DISABLED: EXPORT_SYMBOL(jornada_ssp_reverse); */
 
 /**
  * jornada_ssp_byte - waits for ready ssp bus and sends byte
@@ -75,7 +75,7 @@ int jornada_ssp_byte(u8 byte)
 
 	return jornada_ssp_reverse(ret);
 };
-EXPORT_SYMBOL(jornada_ssp_byte);
+/* DISABLED: EXPORT_SYMBOL(jornada_ssp_byte); */
 
 /**
  * jornada_ssp_inout - decide if input is command or trading byte
@@ -102,7 +102,7 @@ int jornada_ssp_inout(u8 byte)
 
 	return ret;
 };
-EXPORT_SYMBOL(jornada_ssp_inout);
+/* DISABLED: EXPORT_SYMBOL(jornada_ssp_inout); */
 
 /**
  * jornada_ssp_start - enable mcu
@@ -115,7 +115,7 @@ void jornada_ssp_start(void)
 	udelay(50);
 	return;
 };
-EXPORT_SYMBOL(jornada_ssp_start);
+/* DISABLED: EXPORT_SYMBOL(jornada_ssp_start); */
 
 /**
  * jornada_ssp_end - disable mcu and turn off lock
@@ -127,7 +127,7 @@ void jornada_ssp_end(void)
 	spin_unlock_irqrestore(&jornada_ssp_lock, jornada_ssp_flags);
 	return;
 };
-EXPORT_SYMBOL(jornada_ssp_end);
+/* DISABLED: EXPORT_SYMBOL(jornada_ssp_end); */
 
 static int __devinit jornada_ssp_probe(struct platform_device *dev)
 {

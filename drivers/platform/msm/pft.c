@@ -681,7 +681,7 @@ int pft_get_key_index(struct bio *bio, u32 *key_index,
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_get_key_index);
+/* DISABLED: EXPORT_SYMBOL(pft_get_key_index); */
 
 /**
  * pft_bio_get_inode() - get the inode from a bio.
@@ -757,7 +757,7 @@ bool pft_allow_merge_bio(struct bio *bio1, struct bio *bio2)
 
 	return allow;
 }
-EXPORT_SYMBOL(pft_allow_merge_bio);
+/* DISABLED: EXPORT_SYMBOL(pft_allow_merge_bio); */
 
 /**
  * pft_inode_create() - file creation callback.
@@ -804,7 +804,7 @@ int pft_inode_create(struct inode *dir, struct dentry *dentry, umode_t mode)
 	return 0;
 
 }
-EXPORT_SYMBOL(pft_inode_create);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_create); */
 
 /**
  * pft_inode_post_create() - file creation callback.
@@ -861,7 +861,7 @@ int pft_inode_post_create(struct inode *dir, struct dentry *dentry,
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_inode_post_create);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_post_create); */
 
 /**
  * pft_inode_mknod() - mknode file hook (callback)
@@ -887,7 +887,7 @@ int pft_inode_mknod(struct inode *dir, struct dentry *dentry,
 
 	return rc;
 }
-EXPORT_SYMBOL(pft_inode_mknod);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_mknod); */
 
 /**
  * pft_inode_rename() - file rename hook.
@@ -930,7 +930,7 @@ int pft_inode_rename(struct inode *inode, struct dentry *dentry,
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_inode_rename);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_rename); */
 
 /**
  * pft_file_open() - file open hook (callback).
@@ -1005,7 +1005,7 @@ int pft_file_open(struct file *filp, const struct cred *cred)
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_file_open);
+/* DISABLED: EXPORT_SYMBOL(pft_file_open); */
 
 /**
  * pft_file_permission() - check file access permission.
@@ -1077,7 +1077,7 @@ int pft_file_permission(struct file *filp, int mask)
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_file_permission);
+/* DISABLED: EXPORT_SYMBOL(pft_file_permission); */
 
 /**
  * pft_sync_file() - sync the file.
@@ -1133,7 +1133,7 @@ int pft_file_close(struct file *filp)
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_file_close);
+/* DISABLED: EXPORT_SYMBOL(pft_file_close); */
 
 /**
  * pft_inode_unlink() - Delete file hook.
@@ -1175,7 +1175,7 @@ int pft_inode_unlink(struct inode *dir, struct dentry *dentry)
 
 	return 0;
 }
-EXPORT_SYMBOL(pft_inode_unlink);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_unlink); */
 
 /**
  * pft_inode_set_xattr() - set/remove xattr callback.
@@ -1210,7 +1210,7 @@ int pft_inode_set_xattr(struct dentry *dentry, const char *name)
 	/* Only PFT kernel driver allows to set the PFE xattr */
 	return -EACCES;
 }
-EXPORT_SYMBOL(pft_inode_set_xattr);
+/* DISABLED: EXPORT_SYMBOL(pft_inode_set_xattr); */
 
 /**
  * pft_close_opened_enc_files() - Close all the currently open

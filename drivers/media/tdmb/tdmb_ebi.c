@@ -179,7 +179,7 @@ unsigned long tdmb_get_if_handle(void)
 {
 	return (unsigned long)v_addr_ebi_cs_base;
 }
-EXPORT_SYMBOL_GPL(tdmb_get_if_handle);
+/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_get_if_handle); */
 
 static int tdmb_ebi_init(struct platform_device *pdev)
 {

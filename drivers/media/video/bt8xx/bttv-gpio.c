@@ -126,14 +126,14 @@ int bttv_sub_register(struct bttv_sub_driver *sub, char *wanted)
 	snprintf(sub->wanted,sizeof(sub->wanted),"%s",wanted);
 	return driver_register(&sub->drv);
 }
-EXPORT_SYMBOL(bttv_sub_register);
+/* DISABLED: EXPORT_SYMBOL(bttv_sub_register); */
 
 int bttv_sub_unregister(struct bttv_sub_driver *sub)
 {
 	driver_unregister(&sub->drv);
 	return 0;
 }
-EXPORT_SYMBOL(bttv_sub_unregister);
+/* DISABLED: EXPORT_SYMBOL(bttv_sub_unregister); */
 
 /* ----------------------------------------------------------------------- */
 /* external: gpio access functions                                         */

@@ -510,7 +510,7 @@ int kgsl_cffdump_waitirq(struct kgsl_device *device)
 
 	return 1;
 }
-EXPORT_SYMBOL(kgsl_cffdump_waitirq);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cffdump_waitirq); */
 
 static int subbuf_start_handler(struct rchan_buf *buf,
 	void *subbuf, void *prev_subbuf, uint prev_padding)
@@ -645,7 +645,7 @@ done:
 	mutex_unlock(&kgsl_driver.devlock);
 	return ret;
 }
-EXPORT_SYMBOL(kgsl_cff_dump_enable_set);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cff_dump_enable_set); */
 
 int kgsl_cff_dump_enable_get(void *data, u64 *val)
 {
@@ -653,7 +653,7 @@ int kgsl_cff_dump_enable_get(void *data, u64 *val)
 	*val = device->cff_dump_enable;
 	return 0;
 }
-EXPORT_SYMBOL(kgsl_cff_dump_enable_get);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cff_dump_enable_get); */
 
 /*
  * kgsl_cffdump_capture_ib_desc() - Capture CFF for a list of IB's
@@ -696,4 +696,4 @@ int kgsl_cffdump_capture_ib_desc(struct kgsl_device *device,
 done:
 	return ret;
 }
-EXPORT_SYMBOL(kgsl_cffdump_capture_ib_desc);
+/* DISABLED: EXPORT_SYMBOL(kgsl_cffdump_capture_ib_desc); */

@@ -845,7 +845,7 @@ int melfas_power(struct i2c_client *client,bool onoff)
 	return 0;
 }
 
-EXPORT_SYMBOL(melfas_power);
+/* DISABLED: EXPORT_SYMBOL(melfas_power); */
 
 /* mms_reboot - IC reset */ 
 static void mms_reboot(struct mms_ts_info *info)

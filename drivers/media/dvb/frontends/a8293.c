@@ -177,7 +177,7 @@ err:
 	kfree(priv);
 	return NULL;
 }
-EXPORT_SYMBOL(a8293_attach);
+/* DISABLED: EXPORT_SYMBOL(a8293_attach); */
 
 MODULE_AUTHOR("Antti Palosaari <crope@iki.fi>");
 MODULE_DESCRIPTION("Allegro A8293 SEC driver");

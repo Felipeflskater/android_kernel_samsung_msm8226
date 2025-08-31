@@ -219,7 +219,7 @@ unsigned long dev_trans_start(struct net_device *dev)
 	dev->trans_start = res;
 	return res;
 }
-EXPORT_SYMBOL(dev_trans_start);
+/* DISABLED: EXPORT_SYMBOL(dev_trans_start); */
 
 static void dev_watchdog(unsigned long arg)
 {
@@ -307,7 +307,7 @@ void netif_carrier_on(struct net_device *dev)
 			__netdev_watchdog_up(dev);
 	}
 }
-EXPORT_SYMBOL(netif_carrier_on);
+/* DISABLED: EXPORT_SYMBOL(netif_carrier_on); */
 
 /**
  *	netif_carrier_off - clear carrier
@@ -323,7 +323,7 @@ void netif_carrier_off(struct net_device *dev)
 		linkwatch_fire_event(dev);
 	}
 }
-EXPORT_SYMBOL(netif_carrier_off);
+/* DISABLED: EXPORT_SYMBOL(netif_carrier_off); */
 
 /**
  * 	netif_notify_peers - notify network peers about existence of @dev
@@ -341,7 +341,7 @@ void netif_notify_peers(struct net_device *dev)
 	call_netdevice_notifiers(NETDEV_NOTIFY_PEERS, dev);
 	rtnl_unlock();
 }
-EXPORT_SYMBOL(netif_notify_peers);
+/* DISABLED: EXPORT_SYMBOL(netif_notify_peers); */
 
 /* "NOOP" scheduler: the best scheduler, recommended for all interfaces
    under all circumstances. It is difficult to invent anything faster or
@@ -383,7 +383,7 @@ struct Qdisc noop_qdisc = {
 	.dev_queue	=	&noop_netdev_queue,
 	.busylock	=	__SPIN_LOCK_UNLOCKED(noop_qdisc.busylock),
 };
-EXPORT_SYMBOL(noop_qdisc);
+/* DISABLED: EXPORT_SYMBOL(noop_qdisc); */
 
 static struct Qdisc_ops noqueue_qdisc_ops __read_mostly = {
 	.id		=	"noqueue",
@@ -543,7 +543,7 @@ struct Qdisc_ops pfifo_fast_ops __read_mostly = {
 	.dump		=	pfifo_fast_dump,
 	.owner		=	THIS_MODULE,
 };
-EXPORT_SYMBOL(pfifo_fast_ops);
+/* DISABLED: EXPORT_SYMBOL(pfifo_fast_ops); */
 
 struct Qdisc *qdisc_alloc(struct netdev_queue *dev_queue,
 			  struct Qdisc_ops *ops)
@@ -601,7 +601,7 @@ struct Qdisc *qdisc_create_dflt(struct netdev_queue *dev_queue,
 errout:
 	return NULL;
 }
-EXPORT_SYMBOL(qdisc_create_dflt);
+/* DISABLED: EXPORT_SYMBOL(qdisc_create_dflt); */
 
 /* Under qdisc_lock(qdisc) and BH! */
 
@@ -618,7 +618,7 @@ void qdisc_reset(struct Qdisc *qdisc)
 		qdisc->q.qlen = 0;
 	}
 }
-EXPORT_SYMBOL(qdisc_reset);
+/* DISABLED: EXPORT_SYMBOL(qdisc_reset); */
 
 static void qdisc_rcu_free(struct rcu_head *head)
 {
@@ -656,7 +656,7 @@ void qdisc_destroy(struct Qdisc *qdisc)
 	 */
 	call_rcu(&qdisc->rcu_head, qdisc_rcu_free);
 }
-EXPORT_SYMBOL(qdisc_destroy);
+/* DISABLED: EXPORT_SYMBOL(qdisc_destroy); */
 
 /* Attach toplevel qdisc to device queue. */
 struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
@@ -682,7 +682,7 @@ struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
 
 	return oqdisc;
 }
-EXPORT_SYMBOL(dev_graft_qdisc);
+/* DISABLED: EXPORT_SYMBOL(dev_graft_qdisc); */
 
 static void attach_one_default_qdisc(struct net_device *dev,
 				     struct netdev_queue *dev_queue,
@@ -765,7 +765,7 @@ void dev_activate(struct net_device *dev)
 		dev_watchdog_up(dev);
 	}
 }
-EXPORT_SYMBOL(dev_activate);
+/* DISABLED: EXPORT_SYMBOL(dev_activate); */
 
 static void dev_deactivate_queue(struct net_device *dev,
 				 struct netdev_queue *dev_queue,
@@ -859,7 +859,7 @@ void dev_deactivate(struct net_device *dev)
 	dev_deactivate_many(&single);
 	list_del(&single);
 }
-EXPORT_SYMBOL(dev_deactivate);
+/* DISABLED: EXPORT_SYMBOL(dev_deactivate); */
 
 static void dev_init_scheduler_queue(struct net_device *dev,
 				     struct netdev_queue *dev_queue,

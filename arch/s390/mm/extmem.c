@@ -770,9 +770,9 @@ void segment_warning(int rc, char *seg_name)
 	}
 }
 
-EXPORT_SYMBOL(segment_load);
-EXPORT_SYMBOL(segment_unload);
-EXPORT_SYMBOL(segment_save);
-EXPORT_SYMBOL(segment_type);
-EXPORT_SYMBOL(segment_modify_shared);
-EXPORT_SYMBOL(segment_warning);
+/* DISABLED: EXPORT_SYMBOL(segment_load); */
+/* DISABLED: EXPORT_SYMBOL(segment_unload); */
+/* DISABLED: EXPORT_SYMBOL(segment_save); */
+/* DISABLED: EXPORT_SYMBOL(segment_type); */
+/* DISABLED: EXPORT_SYMBOL(segment_modify_shared); */
+/* DISABLED: EXPORT_SYMBOL(segment_warning); */

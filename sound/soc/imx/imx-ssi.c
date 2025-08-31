@@ -518,7 +518,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.reset		= imx_ssi_ac97_reset,
 	.warm_reset	= imx_ssi_ac97_warm_reset
 };
-EXPORT_SYMBOL_GPL(soc_ac97_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
 
 static int imx_ssi_probe(struct platform_device *pdev)
 {

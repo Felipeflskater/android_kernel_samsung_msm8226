@@ -38,7 +38,7 @@ void use_mm(struct mm_struct *mm)
 	if (active_mm != mm)
 		mmdrop(active_mm);
 }
-EXPORT_SYMBOL_GPL(use_mm);
+/* DISABLED: EXPORT_SYMBOL_GPL(use_mm); */
 
 /*
  * unuse_mm
@@ -59,4 +59,4 @@ void unuse_mm(struct mm_struct *mm)
 	enter_lazy_tlb(mm, tsk);
 	task_unlock(tsk);
 }
-EXPORT_SYMBOL_GPL(unuse_mm);
+/* DISABLED: EXPORT_SYMBOL_GPL(unuse_mm); */

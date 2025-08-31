@@ -338,17 +338,17 @@ MODULE_AUTHOR("Krzysztof Halasa <khc@pm.waw.pl>");
 MODULE_DESCRIPTION("HDLC support module");
 MODULE_LICENSE("GPL v2");
 
-EXPORT_SYMBOL(hdlc_change_mtu);
-EXPORT_SYMBOL(hdlc_start_xmit);
-EXPORT_SYMBOL(hdlc_open);
-EXPORT_SYMBOL(hdlc_close);
-EXPORT_SYMBOL(hdlc_ioctl);
-EXPORT_SYMBOL(alloc_hdlcdev);
-EXPORT_SYMBOL(unregister_hdlc_device);
-EXPORT_SYMBOL(register_hdlc_protocol);
-EXPORT_SYMBOL(unregister_hdlc_protocol);
-EXPORT_SYMBOL(attach_hdlc_protocol);
-EXPORT_SYMBOL(detach_hdlc_protocol);
+/* DISABLED: EXPORT_SYMBOL(hdlc_change_mtu); */
+/* DISABLED: EXPORT_SYMBOL(hdlc_start_xmit); */
+/* DISABLED: EXPORT_SYMBOL(hdlc_open); */
+/* DISABLED: EXPORT_SYMBOL(hdlc_close); */
+/* DISABLED: EXPORT_SYMBOL(hdlc_ioctl); */
+/* DISABLED: EXPORT_SYMBOL(alloc_hdlcdev); */
+/* DISABLED: EXPORT_SYMBOL(unregister_hdlc_device); */
+/* DISABLED: EXPORT_SYMBOL(register_hdlc_protocol); */
+/* DISABLED: EXPORT_SYMBOL(unregister_hdlc_protocol); */
+/* DISABLED: EXPORT_SYMBOL(attach_hdlc_protocol); */
+/* DISABLED: EXPORT_SYMBOL(detach_hdlc_protocol); */
 
 static struct packet_type hdlc_packet_type __read_mostly = {
 	.type = cpu_to_be16(ETH_P_HDLC),

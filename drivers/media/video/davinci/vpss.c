@@ -166,7 +166,7 @@ int vpss_select_ccdc_source(enum vpss_ccdc_source_sel src_sel)
 	oper_cfg.hw_ops.select_ccdc_source(src_sel);
 	return 0;
 }
-EXPORT_SYMBOL(vpss_select_ccdc_source);
+/* DISABLED: EXPORT_SYMBOL(vpss_select_ccdc_source); */
 
 static int dm644x_clear_wbl_overflow(enum vpss_wbl_sel wbl_sel)
 {
@@ -190,7 +190,7 @@ int vpss_clear_wbl_overflow(enum vpss_wbl_sel wbl_sel)
 
 	return oper_cfg.hw_ops.clear_wbl_overflow(wbl_sel);
 }
-EXPORT_SYMBOL(vpss_clear_wbl_overflow);
+/* DISABLED: EXPORT_SYMBOL(vpss_clear_wbl_overflow); */
 
 /*
  *  dm355_enable_clock - Enable VPSS Clock
@@ -334,7 +334,7 @@ int vpss_enable_clock(enum vpss_clock_sel clock_sel, int en)
 
 	return oper_cfg.hw_ops.enable_clock(clock_sel, en);
 }
-EXPORT_SYMBOL(vpss_enable_clock);
+/* DISABLED: EXPORT_SYMBOL(vpss_enable_clock); */
 
 void dm365_vpss_set_sync_pol(struct vpss_sync_pol sync)
 {
@@ -346,7 +346,7 @@ void dm365_vpss_set_sync_pol(struct vpss_sync_pol sync)
 
 	isp5_write(val, DM365_ISP5_CCDCMUX);
 }
-EXPORT_SYMBOL(dm365_vpss_set_sync_pol);
+/* DISABLED: EXPORT_SYMBOL(dm365_vpss_set_sync_pol); */
 
 void dm365_vpss_set_pg_frame_size(struct vpss_pg_frame_size frame_size)
 {
@@ -355,7 +355,7 @@ void dm365_vpss_set_pg_frame_size(struct vpss_pg_frame_size frame_size)
 	current_reg |= (frame_size.pplen - 1);
 	isp5_write(current_reg, DM365_ISP5_PG_FRAME_SIZE);
 }
-EXPORT_SYMBOL(dm365_vpss_set_pg_frame_size);
+/* DISABLED: EXPORT_SYMBOL(dm365_vpss_set_pg_frame_size); */
 
 static int __init vpss_probe(struct platform_device *pdev)
 {

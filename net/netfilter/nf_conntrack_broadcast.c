@@ -77,6 +77,6 @@ int nf_conntrack_broadcast_help(struct sk_buff *skb,
 out:
 	return NF_ACCEPT;
 }
-EXPORT_SYMBOL_GPL(nf_conntrack_broadcast_help);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_broadcast_help); */
 
 MODULE_LICENSE("GPL");

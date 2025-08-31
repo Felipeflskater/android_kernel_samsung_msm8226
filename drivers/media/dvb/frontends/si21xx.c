@@ -941,7 +941,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-EXPORT_SYMBOL(si21xx_attach);
+/* DISABLED: EXPORT_SYMBOL(si21xx_attach); */
 
 module_param(debug, int, 0644);
 MODULE_PARM_DESC(debug, "Turn on/off frontend debugging (default:off).");

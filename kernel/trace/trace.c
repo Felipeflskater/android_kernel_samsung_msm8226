@@ -134,7 +134,7 @@ static int __init set_cmdline_ftrace(char *str)
 	ring_buffer_expanded = 1;
 	return 1;
 }
-/* DISABLED: __setup("ftrace=", set_cmdline_ftrace); */
+/* DISABLED: __setup("ftrace=", set_cmdline_ftrace); */ */
 
 static int __init set_ftrace_dump_on_oops(char *str)
 {
@@ -150,7 +150,7 @@ static int __init set_ftrace_dump_on_oops(char *str)
 
         return 0;
 }
-/* DISABLED: __setup("ftrace_dump_on_oops", set_ftrace_dump_on_oops); */
+/* DISABLED: __setup("ftrace_dump_on_oops", set_ftrace_dump_on_oops); */ */
 
 unsigned long long ns2usecs(cycle_t nsec)
 {
@@ -181,7 +181,7 @@ int filter_current_check_discard(struct ring_buffer *buffer,
 {
 	return filter_check_discard(call, rec, buffer, event);
 }
-EXPORT_SYMBOL_GPL(filter_current_check_discard);
+/* DISABLED: EXPORT_SYMBOL_GPL(filter_current_check_discard); */
 
 cycle_t ftrace_now(int cpu)
 {
@@ -371,7 +371,7 @@ void tracing_on(void)
 	 */
 	global_trace.buffer_disabled = 0;
 }
-EXPORT_SYMBOL_GPL(tracing_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracing_on); */
 
 /**
  * tracing_off - turn off tracing buffers
@@ -393,7 +393,7 @@ void tracing_off(void)
 	 */
 	global_trace.buffer_disabled = 1;
 }
-EXPORT_SYMBOL_GPL(tracing_off);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracing_off); */
 
 /**
  * tracing_is_on - show state of ring buffers enabled
@@ -404,7 +404,7 @@ int tracing_is_on(void)
 		return ring_buffer_record_is_on(global_trace.buffer);
 	return !global_trace.buffer_disabled;
 }
-EXPORT_SYMBOL_GPL(tracing_is_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracing_is_on); */
 
 /**
  * trace_wake_up - wake up tasks waiting for trace input
@@ -435,7 +435,7 @@ static int __init set_buf_size(char *str)
 	trace_buf_size = buf_size;
 	return 1;
 }
-/* DISABLED: __setup("trace_buf_size=", set_buf_size); */
+/* DISABLED: __setup("trace_buf_size=", set_buf_size); */ */
 
 static int __init set_tracing_thresh(char *str)
 {
@@ -450,7 +450,7 @@ static int __init set_tracing_thresh(char *str)
 	tracing_thresh = threshhold * 1000;
 	return 1;
 }
-/* DISABLED: __setup("tracing_thresh=", set_tracing_thresh); */
+/* DISABLED: __setup("tracing_thresh=", set_tracing_thresh); */ */
 
 unsigned long nsecs_to_usecs(unsigned long nsecs)
 {
@@ -1213,7 +1213,7 @@ tracing_generic_entry_update(struct trace_entry *entry, unsigned long flags,
 		((pc & SOFTIRQ_MASK) ? TRACE_FLAG_SOFTIRQ : 0) |
 		(need_resched() ? TRACE_FLAG_NEED_RESCHED : 0);
 }
-EXPORT_SYMBOL_GPL(tracing_generic_entry_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(tracing_generic_entry_update); */
 
 struct ring_buffer_event *
 trace_buffer_lock_reserve(struct ring_buffer *buffer,
@@ -1265,7 +1265,7 @@ trace_current_buffer_lock_reserve(struct ring_buffer **current_rb,
 	return trace_buffer_lock_reserve(*current_rb,
 					 type, len, flags, pc);
 }
-EXPORT_SYMBOL_GPL(trace_current_buffer_lock_reserve);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_current_buffer_lock_reserve); */
 
 void trace_current_buffer_unlock_commit(struct ring_buffer *buffer,
 					struct ring_buffer_event *event,
@@ -1273,7 +1273,7 @@ void trace_current_buffer_unlock_commit(struct ring_buffer *buffer,
 {
 	__trace_buffer_unlock_commit(buffer, event, flags, pc, 1);
 }
-EXPORT_SYMBOL_GPL(trace_current_buffer_unlock_commit);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_current_buffer_unlock_commit); */
 
 void trace_nowake_buffer_unlock_commit(struct ring_buffer *buffer,
 				       struct ring_buffer_event *event,
@@ -1281,7 +1281,7 @@ void trace_nowake_buffer_unlock_commit(struct ring_buffer *buffer,
 {
 	__trace_buffer_unlock_commit(buffer, event, flags, pc, 0);
 }
-EXPORT_SYMBOL_GPL(trace_nowake_buffer_unlock_commit);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_nowake_buffer_unlock_commit); */
 
 void trace_nowake_buffer_unlock_commit_regs(struct ring_buffer *buffer,
 					    struct ring_buffer_event *event,
@@ -1293,14 +1293,14 @@ void trace_nowake_buffer_unlock_commit_regs(struct ring_buffer *buffer,
 	ftrace_trace_stack_regs(buffer, flags, 0, pc, regs);
 	ftrace_trace_userstack(buffer, flags, pc);
 }
-EXPORT_SYMBOL_GPL(trace_nowake_buffer_unlock_commit_regs);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_nowake_buffer_unlock_commit_regs); */
 
 void trace_current_buffer_discard_commit(struct ring_buffer *buffer,
 					 struct ring_buffer_event *event)
 {
 	ring_buffer_discard_commit(buffer, event);
 }
-EXPORT_SYMBOL_GPL(trace_current_buffer_discard_commit);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_current_buffer_discard_commit); */
 
 void
 trace_function(struct trace_array *tr,
@@ -1601,7 +1601,7 @@ out:
 
 	return len;
 }
-EXPORT_SYMBOL_GPL(trace_vbprintk);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_vbprintk); */
 
 int trace_array_printk(struct trace_array *tr,
 		       unsigned long ip, const char *fmt, ...)
@@ -1682,7 +1682,7 @@ int trace_vprintk(unsigned long ip, const char *fmt, va_list args)
 {
 	return trace_array_vprintk(&global_trace, ip, fmt, args);
 }
-EXPORT_SYMBOL_GPL(trace_vprintk);
+/* DISABLED: EXPORT_SYMBOL_GPL(trace_vprintk); */
 
 static void trace_iterator_increment(struct trace_iterator *iter)
 {
@@ -5078,7 +5078,7 @@ void ftrace_dump(enum ftrace_dump_mode oops_dump_mode)
  	atomic_dec(&dump_running);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ftrace_dump);
+/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_dump); */
 
 __init static int tracer_alloc_buffers(void)
 {

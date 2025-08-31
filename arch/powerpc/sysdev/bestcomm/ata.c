@@ -98,7 +98,7 @@ bcom_ata_init(int queue_len, int maxbufsize)
 
 	return tsk;
 }
-EXPORT_SYMBOL_GPL(bcom_ata_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_ata_init); */
 
 void bcom_ata_rx_prepare(struct bcom_task *tsk)
 {
@@ -112,7 +112,7 @@ void bcom_ata_rx_prepare(struct bcom_task *tsk)
 
 	bcom_set_initiator(tsk->tasknum, BCOM_INITIATOR_ATA_RX);
 }
-EXPORT_SYMBOL_GPL(bcom_ata_rx_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_ata_rx_prepare); */
 
 void bcom_ata_tx_prepare(struct bcom_task *tsk)
 {
@@ -126,7 +126,7 @@ void bcom_ata_tx_prepare(struct bcom_task *tsk)
 
 	bcom_set_initiator(tsk->tasknum, BCOM_INITIATOR_ATA_TX);
 }
-EXPORT_SYMBOL_GPL(bcom_ata_tx_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_ata_tx_prepare); */
 
 void bcom_ata_reset_bd(struct bcom_task *tsk)
 {
@@ -141,14 +141,14 @@ void bcom_ata_reset_bd(struct bcom_task *tsk)
 	var = (struct bcom_ata_var *) bcom_task_var(tsk->tasknum);
 	var->bd_start = var->bd_base;
 }
-EXPORT_SYMBOL_GPL(bcom_ata_reset_bd);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_ata_reset_bd); */
 
 void bcom_ata_release(struct bcom_task *tsk)
 {
 	/* Nothing special for the ATA tasks */
 	bcom_task_free(tsk);
 }
-EXPORT_SYMBOL_GPL(bcom_ata_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_ata_release); */
 
 
 MODULE_DESCRIPTION("BestComm ATA task driver");

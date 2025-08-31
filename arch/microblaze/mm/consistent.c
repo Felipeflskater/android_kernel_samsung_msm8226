@@ -155,7 +155,7 @@ void *consistent_alloc(gfp_t gfp, size_t size, dma_addr_t *dma_handle)
 
 	return ret;
 }
-EXPORT_SYMBOL(consistent_alloc);
+/* DISABLED: EXPORT_SYMBOL(consistent_alloc); */
 
 /*
  * free page(s) as defined by the above mapping.
@@ -207,7 +207,7 @@ void consistent_free(size_t size, void *vaddr)
 	flush_tlb_all();
 #endif
 }
-EXPORT_SYMBOL(consistent_free);
+/* DISABLED: EXPORT_SYMBOL(consistent_free); */
 
 /*
  * make an area consistent.
@@ -239,7 +239,7 @@ void consistent_sync(void *vaddr, size_t size, int direction)
 		break;
 	}
 }
-EXPORT_SYMBOL(consistent_sync);
+/* DISABLED: EXPORT_SYMBOL(consistent_sync); */
 
 /*
  * consistent_sync_page makes memory consistent. identical
@@ -252,4 +252,4 @@ void consistent_sync_page(struct page *page, unsigned long offset,
 	unsigned long start = (unsigned long)page_address(page) + offset;
 	consistent_sync((void *)start, size, direction);
 }
-EXPORT_SYMBOL(consistent_sync_page);
+/* DISABLED: EXPORT_SYMBOL(consistent_sync_page); */

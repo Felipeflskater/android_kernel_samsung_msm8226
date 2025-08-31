@@ -408,7 +408,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-EXPORT_SYMBOL(lgs8gl5_attach);
+/* DISABLED: EXPORT_SYMBOL(lgs8gl5_attach); */
 
 
 static struct dvb_frontend_ops lgs8gl5_ops = {

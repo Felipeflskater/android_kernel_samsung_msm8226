@@ -15,7 +15,7 @@
 #include "blk.h"
 
 unsigned long blk_max_low_pfn;
-EXPORT_SYMBOL(blk_max_low_pfn);
+/* DISABLED: EXPORT_SYMBOL(blk_max_low_pfn); */
 
 unsigned long blk_max_pfn;
 
@@ -34,7 +34,7 @@ void blk_queue_prep_rq(struct request_queue *q, prep_rq_fn *pfn)
 {
 	q->prep_rq_fn = pfn;
 }
-EXPORT_SYMBOL(blk_queue_prep_rq);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_prep_rq); */
 
 /**
  * blk_queue_unprep_rq - set an unprepare_request function for queue
@@ -51,7 +51,7 @@ void blk_queue_unprep_rq(struct request_queue *q, unprep_rq_fn *ufn)
 {
 	q->unprep_rq_fn = ufn;
 }
-EXPORT_SYMBOL(blk_queue_unprep_rq);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_unprep_rq); */
 
 /**
  * blk_queue_merge_bvec - set a merge_bvec function for queue
@@ -73,31 +73,31 @@ void blk_queue_merge_bvec(struct request_queue *q, merge_bvec_fn *mbfn)
 {
 	q->merge_bvec_fn = mbfn;
 }
-EXPORT_SYMBOL(blk_queue_merge_bvec);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_merge_bvec); */
 
 void blk_queue_softirq_done(struct request_queue *q, softirq_done_fn *fn)
 {
 	q->softirq_done_fn = fn;
 }
-EXPORT_SYMBOL(blk_queue_softirq_done);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_softirq_done); */
 
 void blk_queue_rq_timeout(struct request_queue *q, unsigned int timeout)
 {
 	q->rq_timeout = timeout;
 }
-EXPORT_SYMBOL_GPL(blk_queue_rq_timeout);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_rq_timeout); */
 
 void blk_queue_rq_timed_out(struct request_queue *q, rq_timed_out_fn *fn)
 {
 	q->rq_timed_out_fn = fn;
 }
-EXPORT_SYMBOL_GPL(blk_queue_rq_timed_out);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_rq_timed_out); */
 
 void blk_queue_lld_busy(struct request_queue *q, lld_busy_fn *fn)
 {
 	q->lld_busy_fn = fn;
 }
-EXPORT_SYMBOL_GPL(blk_queue_lld_busy);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_lld_busy); */
 
 /**
  * blk_urgent_request() - Set an urgent_request handler function for queue
@@ -109,7 +109,7 @@ void blk_urgent_request(struct request_queue *q, request_fn_proc *fn)
 {
 	q->urgent_request_fn = fn;
 }
-EXPORT_SYMBOL(blk_urgent_request);
+/* DISABLED: EXPORT_SYMBOL(blk_urgent_request); */
 
 /**
  * blk_set_default_limits - reset limits to default values
@@ -137,7 +137,7 @@ void blk_set_default_limits(struct queue_limits *lim)
 	lim->misaligned = 0;
 	lim->cluster = 1;
 }
-EXPORT_SYMBOL(blk_set_default_limits);
+/* DISABLED: EXPORT_SYMBOL(blk_set_default_limits); */
 
 /**
  * blk_set_stacking_limits - set default limits for stacking devices
@@ -159,7 +159,7 @@ void blk_set_stacking_limits(struct queue_limits *lim)
 
 	lim->max_sectors = BLK_DEF_MAX_SECTORS;
 }
-EXPORT_SYMBOL(blk_set_stacking_limits);
+/* DISABLED: EXPORT_SYMBOL(blk_set_stacking_limits); */
 
 /**
  * blk_queue_make_request - define an alternate make_request function for a device
@@ -202,7 +202,7 @@ void blk_queue_make_request(struct request_queue *q, make_request_fn *mfn)
 	 */
 	blk_queue_bounce_limit(q, BLK_BOUNCE_HIGH);
 }
-EXPORT_SYMBOL(blk_queue_make_request);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_make_request); */
 
 /**
  * blk_queue_bounce_limit - set bounce buffer limit for queue
@@ -241,7 +241,7 @@ void blk_queue_bounce_limit(struct request_queue *q, u64 dma_mask)
 		q->limits.bounce_pfn = b_pfn;
 	}
 }
-EXPORT_SYMBOL(blk_queue_bounce_limit);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_bounce_limit); */
 
 /**
  * blk_limits_max_hw_sectors - set hard and soft limit of max sectors for request
@@ -271,7 +271,7 @@ void blk_limits_max_hw_sectors(struct queue_limits *limits, unsigned int max_hw_
 	limits->max_sectors = min_t(unsigned int, max_hw_sectors,
 				    BLK_DEF_MAX_SECTORS);
 }
-EXPORT_SYMBOL(blk_limits_max_hw_sectors);
+/* DISABLED: EXPORT_SYMBOL(blk_limits_max_hw_sectors); */
 
 /**
  * blk_queue_max_hw_sectors - set max sectors for a request for this queue
@@ -285,7 +285,7 @@ void blk_queue_max_hw_sectors(struct request_queue *q, unsigned int max_hw_secto
 {
 	blk_limits_max_hw_sectors(&q->limits, max_hw_sectors);
 }
-EXPORT_SYMBOL(blk_queue_max_hw_sectors);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_max_hw_sectors); */
 
 /**
  * blk_queue_max_discard_sectors - set max sectors for a single discard
@@ -297,7 +297,7 @@ void blk_queue_max_discard_sectors(struct request_queue *q,
 {
 	q->limits.max_discard_sectors = max_discard_sectors;
 }
-EXPORT_SYMBOL(blk_queue_max_discard_sectors);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_max_discard_sectors); */
 
 /**
  * blk_queue_max_segments - set max hw segments for a request for this queue
@@ -318,7 +318,7 @@ void blk_queue_max_segments(struct request_queue *q, unsigned short max_segments
 
 	q->limits.max_segments = max_segments;
 }
-EXPORT_SYMBOL(blk_queue_max_segments);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_max_segments); */
 
 /**
  * blk_queue_max_segment_size - set max segment size for blk_rq_map_sg
@@ -339,7 +339,7 @@ void blk_queue_max_segment_size(struct request_queue *q, unsigned int max_size)
 
 	q->limits.max_segment_size = max_size;
 }
-EXPORT_SYMBOL(blk_queue_max_segment_size);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_max_segment_size); */
 
 /**
  * blk_queue_logical_block_size - set logical block size for the queue
@@ -361,7 +361,7 @@ void blk_queue_logical_block_size(struct request_queue *q, unsigned short size)
 	if (q->limits.io_min < q->limits.physical_block_size)
 		q->limits.io_min = q->limits.physical_block_size;
 }
-EXPORT_SYMBOL(blk_queue_logical_block_size);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_logical_block_size); */
 
 /**
  * blk_queue_physical_block_size - set physical block size for the queue
@@ -383,7 +383,7 @@ void blk_queue_physical_block_size(struct request_queue *q, unsigned int size)
 	if (q->limits.io_min < q->limits.physical_block_size)
 		q->limits.io_min = q->limits.physical_block_size;
 }
-EXPORT_SYMBOL(blk_queue_physical_block_size);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_physical_block_size); */
 
 /**
  * blk_queue_alignment_offset - set physical block alignment offset
@@ -402,7 +402,7 @@ void blk_queue_alignment_offset(struct request_queue *q, unsigned int offset)
 		offset & (q->limits.physical_block_size - 1);
 	q->limits.misaligned = 0;
 }
-EXPORT_SYMBOL(blk_queue_alignment_offset);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_alignment_offset); */
 
 /**
  * blk_limits_io_min - set minimum request size for a device
@@ -425,7 +425,7 @@ void blk_limits_io_min(struct queue_limits *limits, unsigned int min)
 	if (limits->io_min < limits->physical_block_size)
 		limits->io_min = limits->physical_block_size;
 }
-EXPORT_SYMBOL(blk_limits_io_min);
+/* DISABLED: EXPORT_SYMBOL(blk_limits_io_min); */
 
 /**
  * blk_queue_io_min - set minimum request size for the queue
@@ -445,7 +445,7 @@ void blk_queue_io_min(struct request_queue *q, unsigned int min)
 {
 	blk_limits_io_min(&q->limits, min);
 }
-EXPORT_SYMBOL(blk_queue_io_min);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_io_min); */
 
 /**
  * blk_limits_io_opt - set optimal request size for a device
@@ -464,7 +464,7 @@ void blk_limits_io_opt(struct queue_limits *limits, unsigned int opt)
 {
 	limits->io_opt = opt;
 }
-EXPORT_SYMBOL(blk_limits_io_opt);
+/* DISABLED: EXPORT_SYMBOL(blk_limits_io_opt); */
 
 /**
  * blk_queue_io_opt - set optimal request size for the queue
@@ -483,7 +483,7 @@ void blk_queue_io_opt(struct request_queue *q, unsigned int opt)
 {
 	blk_limits_io_opt(&q->limits, opt);
 }
-EXPORT_SYMBOL(blk_queue_io_opt);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_io_opt); */
 
 /**
  * blk_queue_stack_limits - inherit underlying queue limits for stacked drivers
@@ -494,7 +494,7 @@ void blk_queue_stack_limits(struct request_queue *t, struct request_queue *b)
 {
 	blk_stack_limits(&t->limits, &b->limits, 0);
 }
-EXPORT_SYMBOL(blk_queue_stack_limits);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_stack_limits); */
 
 /**
  * blk_stack_limits - adjust queue_limits for stacked devices
@@ -623,7 +623,7 @@ int blk_stack_limits(struct queue_limits *t, struct queue_limits *b,
 
 	return ret;
 }
-EXPORT_SYMBOL(blk_stack_limits);
+/* DISABLED: EXPORT_SYMBOL(blk_stack_limits); */
 
 /**
  * bdev_stack_limits - adjust queue limits for stacked drivers
@@ -645,7 +645,7 @@ int bdev_stack_limits(struct queue_limits *t, struct block_device *bdev,
 
 	return blk_stack_limits(t, &bq->limits, start);
 }
-EXPORT_SYMBOL(bdev_stack_limits);
+/* DISABLED: EXPORT_SYMBOL(bdev_stack_limits); */
 
 /**
  * disk_stack_limits - adjust queue limits for stacked drivers
@@ -672,7 +672,7 @@ void disk_stack_limits(struct gendisk *disk, struct block_device *bdev,
 		       top, bottom);
 	}
 }
-EXPORT_SYMBOL(disk_stack_limits);
+/* DISABLED: EXPORT_SYMBOL(disk_stack_limits); */
 
 /**
  * blk_queue_dma_pad - set pad mask
@@ -688,7 +688,7 @@ void blk_queue_dma_pad(struct request_queue *q, unsigned int mask)
 {
 	q->dma_pad_mask = mask;
 }
-EXPORT_SYMBOL(blk_queue_dma_pad);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_dma_pad); */
 
 /**
  * blk_queue_update_dma_pad - update pad mask
@@ -705,7 +705,7 @@ void blk_queue_update_dma_pad(struct request_queue *q, unsigned int mask)
 	if (mask > q->dma_pad_mask)
 		q->dma_pad_mask = mask;
 }
-EXPORT_SYMBOL(blk_queue_update_dma_pad);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_update_dma_pad); */
 
 /**
  * blk_queue_dma_drain - Set up a drain buffer for excess dma.
@@ -742,7 +742,7 @@ int blk_queue_dma_drain(struct request_queue *q,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(blk_queue_dma_drain);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_dma_drain); */
 
 /**
  * blk_queue_segment_boundary - set boundary rules for segment merging
@@ -759,7 +759,7 @@ void blk_queue_segment_boundary(struct request_queue *q, unsigned long mask)
 
 	q->limits.seg_boundary_mask = mask;
 }
-EXPORT_SYMBOL(blk_queue_segment_boundary);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_segment_boundary); */
 
 /**
  * blk_queue_dma_alignment - set dma length and memory alignment
@@ -775,7 +775,7 @@ void blk_queue_dma_alignment(struct request_queue *q, int mask)
 {
 	q->dma_alignment = mask;
 }
-EXPORT_SYMBOL(blk_queue_dma_alignment);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_dma_alignment); */
 
 /**
  * blk_queue_update_dma_alignment - update dma length and memory alignment
@@ -798,7 +798,7 @@ void blk_queue_update_dma_alignment(struct request_queue *q, int mask)
 	if (mask > q->dma_alignment)
 		q->dma_alignment = mask;
 }
-EXPORT_SYMBOL(blk_queue_update_dma_alignment);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_update_dma_alignment); */
 
 /**
  * blk_queue_flush - configure queue's cache flush capability
@@ -818,13 +818,13 @@ void blk_queue_flush(struct request_queue *q, unsigned int flush)
 
 	q->flush_flags = flush & (REQ_FLUSH | REQ_FUA);
 }
-EXPORT_SYMBOL_GPL(blk_queue_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_flush); */
 
 void blk_queue_flush_queueable(struct request_queue *q, bool queueable)
 {
 	q->flush_not_queueable = !queueable;
 }
-EXPORT_SYMBOL_GPL(blk_queue_flush_queueable);
+/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_flush_queueable); */
 
 static int __init blk_settings_init(void)
 {

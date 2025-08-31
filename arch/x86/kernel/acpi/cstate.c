@@ -53,7 +53,7 @@ void acpi_processor_power_init_bm_check(struct acpi_processor_flags *flags,
 	    (c->x86 > 0xf || (c->x86 == 6 && c->x86_model >= 0x0f)))
 			flags->bm_control = 0;
 }
-EXPORT_SYMBOL(acpi_processor_power_init_bm_check);
+/* DISABLED: EXPORT_SYMBOL(acpi_processor_power_init_bm_check); */
 
 /* The code below handles cstate entry with monitor-mwait pair on Intel*/
 
@@ -148,7 +148,7 @@ int acpi_processor_ffh_cstate_probe(unsigned int cpu,
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(acpi_processor_ffh_cstate_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_processor_ffh_cstate_probe); */
 
 /*
  * This uses new MONITOR/MWAIT instructions on P4 processors with PNI,
@@ -182,7 +182,7 @@ void acpi_processor_ffh_cstate_enter(struct acpi_processor_cx *cx)
 	mwait_idle_with_hints(percpu_entry->states[cx->index].eax,
 	                      percpu_entry->states[cx->index].ecx);
 }
-EXPORT_SYMBOL_GPL(acpi_processor_ffh_cstate_enter);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_processor_ffh_cstate_enter); */
 
 static int __init ffh_cstate_init(void)
 {

@@ -133,7 +133,7 @@ int dvb_generic_open(struct inode *inode, struct file *file)
 	dvbdev->users--;
 	return 0;
 }
-EXPORT_SYMBOL(dvb_generic_open);
+/* DISABLED: EXPORT_SYMBOL(dvb_generic_open); */
 
 
 int dvb_generic_release(struct inode *inode, struct file *file)
@@ -152,7 +152,7 @@ int dvb_generic_release(struct inode *inode, struct file *file)
 	dvbdev->users++;
 	return 0;
 }
-EXPORT_SYMBOL(dvb_generic_release);
+/* DISABLED: EXPORT_SYMBOL(dvb_generic_release); */
 
 
 long dvb_generic_ioctl(struct file *file,
@@ -168,7 +168,7 @@ long dvb_generic_ioctl(struct file *file,
 
 	return dvb_usercopy(file, cmd, arg, dvbdev->kernel_ioctl);
 }
-EXPORT_SYMBOL(dvb_generic_ioctl);
+/* DISABLED: EXPORT_SYMBOL(dvb_generic_ioctl); */
 
 
 static int dvbdev_get_free_id (struct dvb_adapter *adap, int type)
@@ -271,7 +271,7 @@ int dvb_register_device(struct dvb_adapter *adap, struct dvb_device **pdvbdev,
 
 	return 0;
 }
-EXPORT_SYMBOL(dvb_register_device);
+/* DISABLED: EXPORT_SYMBOL(dvb_register_device); */
 
 
 void dvb_unregister_device(struct dvb_device *dvbdev)
@@ -289,7 +289,7 @@ void dvb_unregister_device(struct dvb_device *dvbdev)
 	kfree (dvbdev->fops);
 	kfree (dvbdev);
 }
-EXPORT_SYMBOL(dvb_unregister_device);
+/* DISABLED: EXPORT_SYMBOL(dvb_unregister_device); */
 
 static int dvbdev_check_free_adapter_num(int num)
 {
@@ -362,7 +362,7 @@ int dvb_register_adapter(struct dvb_adapter *adap, const char *name,
 
 	return num;
 }
-EXPORT_SYMBOL(dvb_register_adapter);
+/* DISABLED: EXPORT_SYMBOL(dvb_register_adapter); */
 
 
 int dvb_unregister_adapter(struct dvb_adapter *adap)
@@ -372,7 +372,7 @@ int dvb_unregister_adapter(struct dvb_adapter *adap)
 	mutex_unlock(&dvbdev_register_lock);
 	return 0;
 }
-EXPORT_SYMBOL(dvb_unregister_adapter);
+/* DISABLED: EXPORT_SYMBOL(dvb_unregister_adapter); */
 
 /* if the miracle happens and "generic_usercopy()" is included into
    the kernel, then this can vanish. please don't make the mistake and

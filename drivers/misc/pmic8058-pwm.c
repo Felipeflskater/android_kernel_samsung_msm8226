@@ -595,7 +595,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 
 	return pwm;
 }
-EXPORT_SYMBOL(pwm_request);
+/* DISABLED: EXPORT_SYMBOL(pwm_request); */
 
 /*
  * pwm_free - free a PWM device
@@ -619,7 +619,7 @@ void pwm_free(struct pwm_device *pwm)
 	pm8058_pwm_bank_enable(pwm, 0);
 	mutex_unlock(&pwm->chip->pwm_mutex);
 }
-EXPORT_SYMBOL(pwm_free);
+/* DISABLED: EXPORT_SYMBOL(pwm_free); */
 
 /*
  * pwm_config - change a PWM device configuration
@@ -669,7 +669,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pwm_config);
+/* DISABLED: EXPORT_SYMBOL(pwm_config); */
 
 /*
  * pwm_enable - start a PWM output toggling
@@ -698,7 +698,7 @@ int pwm_enable(struct pwm_device *pwm)
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pwm_enable);
+/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
 
 /*
  * pwm_disable - stop a PWM output toggling
@@ -720,7 +720,7 @@ void pwm_disable(struct pwm_device *pwm)
 	}
 	mutex_unlock(&pwm->chip->pwm_mutex);
 }
-EXPORT_SYMBOL(pwm_disable);
+/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
 
 /**
  * pm8058_pwm_config_period - change PWM period
@@ -758,7 +758,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_pwm_config_period);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_config_period); */
 
 /**
  * pm8058_pwm_config_duty_cycle - change PWM duty cycle
@@ -819,7 +819,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_pwm_config_duty_cycle);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_config_duty_cycle); */
 
 /**
  * pm8058_pwm_lut_config - change a PWM device configuration to use LUT
@@ -894,7 +894,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_pwm_lut_config);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_lut_config); */
 
 /**
  * pm8058_pwm_lut_enable - control a PWM device to start/stop LUT ramp
@@ -924,7 +924,7 @@ int pm8058_pwm_lut_enable(struct pwm_device *pwm, int start)
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(pm8058_pwm_lut_enable);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_lut_enable); */
 
 #define SSBI_REG_ADDR_LED_BASE		0x131
 #define SSBI_REG_ADDR_LED(n)		(SSBI_REG_ADDR_LED_BASE + (n))
@@ -991,7 +991,7 @@ int pm8058_pwm_config_led(struct pwm_device *pwm, int id,
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_pwm_config_led);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_config_led); */
 
 int pm8058_pwm_set_dtest(struct pwm_device *pwm, int enable)
 {
@@ -1019,7 +1019,7 @@ int pm8058_pwm_set_dtest(struct pwm_device *pwm, int enable)
 	}
 	return rc;
 }
-EXPORT_SYMBOL(pm8058_pwm_set_dtest);
+/* DISABLED: EXPORT_SYMBOL(pm8058_pwm_set_dtest); */
 
 static int __devinit pmic8058_pwm_probe(struct platform_device *pdev)
 {

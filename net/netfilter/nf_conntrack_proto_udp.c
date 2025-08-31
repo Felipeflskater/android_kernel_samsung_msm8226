@@ -275,7 +275,7 @@ struct nf_conntrack_l4proto nf_conntrack_l4proto_udp4 __read_mostly =
 #endif
 #endif
 };
-EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_udp4);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_udp4); */
 
 struct nf_conntrack_l4proto nf_conntrack_l4proto_udp6 __read_mostly =
 {
@@ -310,4 +310,4 @@ struct nf_conntrack_l4proto nf_conntrack_l4proto_udp6 __read_mostly =
 	.ctl_table		= udp_sysctl_table,
 #endif
 };
-EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_udp6);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_udp6); */

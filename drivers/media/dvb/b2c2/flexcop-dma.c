@@ -27,7 +27,7 @@ int flexcop_dma_allocate(struct pci_dev *pdev,
 	}
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(flexcop_dma_allocate);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_allocate); */
 
 void flexcop_dma_free(struct flexcop_dma *dma)
 {
@@ -35,7 +35,7 @@ void flexcop_dma_free(struct flexcop_dma *dma)
 			dma->cpu_addr0, dma->dma_addr0);
 	memset(dma,0,sizeof(struct flexcop_dma));
 }
-EXPORT_SYMBOL(flexcop_dma_free);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_free); */
 
 int flexcop_dma_config(struct flexcop_device *fc,
 		struct flexcop_dma *dma,
@@ -64,7 +64,7 @@ int flexcop_dma_config(struct flexcop_device *fc,
 
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_dma_config);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_config); */
 
 /* start the DMA transfers, but not the DMA IRQs */
 int flexcop_dma_xfer_control(struct flexcop_device *fc,
@@ -106,7 +106,7 @@ int flexcop_dma_xfer_control(struct flexcop_device *fc,
 	deb_rdump("reg: %03x: %x\n",r0xc,v0xc.raw);
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_dma_xfer_control);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_xfer_control); */
 
 static int flexcop_dma_remap(struct flexcop_device *fc,
 		flexcop_dma_index_t dma_idx,
@@ -135,7 +135,7 @@ int flexcop_dma_control_size_irq(struct flexcop_device *fc,
 	fc->write_ibi_reg(fc,ctrl_208,v);
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_dma_control_size_irq);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_control_size_irq); */
 
 int flexcop_dma_control_timer_irq(struct flexcop_device *fc,
 		flexcop_dma_index_t no,
@@ -152,7 +152,7 @@ int flexcop_dma_control_timer_irq(struct flexcop_device *fc,
 	fc->write_ibi_reg(fc,ctrl_208,v);
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_dma_control_timer_irq);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_control_timer_irq); */
 
 /* 1 cycles = 1.97 msec */
 int flexcop_dma_config_timer(struct flexcop_device *fc,
@@ -168,5 +168,5 @@ int flexcop_dma_config_timer(struct flexcop_device *fc,
 	fc->write_ibi_reg(fc,r,v);
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_dma_config_timer);
+/* DISABLED: EXPORT_SYMBOL(flexcop_dma_config_timer); */
 

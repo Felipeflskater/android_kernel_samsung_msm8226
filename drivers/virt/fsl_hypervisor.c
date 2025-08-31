@@ -769,7 +769,7 @@ int fsl_hv_failover_register(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&failover_subscribers, nb);
 }
-EXPORT_SYMBOL(fsl_hv_failover_register);
+/* DISABLED: EXPORT_SYMBOL(fsl_hv_failover_register); */
 
 /*
  * Unregister a callback for failover events
@@ -778,7 +778,7 @@ int fsl_hv_failover_unregister(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&failover_subscribers, nb);
 }
-EXPORT_SYMBOL(fsl_hv_failover_unregister);
+/* DISABLED: EXPORT_SYMBOL(fsl_hv_failover_unregister); */
 
 /*
  * Return TRUE if we're running under FSL hypervisor

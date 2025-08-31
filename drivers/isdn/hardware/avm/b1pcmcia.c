@@ -186,10 +186,10 @@ int b1pcmcia_delcard(unsigned int port, unsigned irq)
 	return -ESRCH;
 }
 
-EXPORT_SYMBOL(b1pcmcia_addcard_b1);
-EXPORT_SYMBOL(b1pcmcia_addcard_m1);
-EXPORT_SYMBOL(b1pcmcia_addcard_m2);
-EXPORT_SYMBOL(b1pcmcia_delcard);
+/* DISABLED: EXPORT_SYMBOL(b1pcmcia_addcard_b1); */
+/* DISABLED: EXPORT_SYMBOL(b1pcmcia_addcard_m1); */
+/* DISABLED: EXPORT_SYMBOL(b1pcmcia_addcard_m2); */
+/* DISABLED: EXPORT_SYMBOL(b1pcmcia_delcard); */
 
 static struct capi_driver capi_driver_b1pcmcia = {
 	.name		= "b1pcmcia",

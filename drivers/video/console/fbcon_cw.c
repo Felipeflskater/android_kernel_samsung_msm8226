@@ -401,7 +401,7 @@ void fbcon_rotate_cw(struct fbcon_ops *ops)
 	ops->cursor = cw_cursor;
 	ops->update_start = cw_update_start;
 }
-EXPORT_SYMBOL(fbcon_rotate_cw);
+/* DISABLED: EXPORT_SYMBOL(fbcon_rotate_cw); */
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Console Rotation (90 degrees) Support");

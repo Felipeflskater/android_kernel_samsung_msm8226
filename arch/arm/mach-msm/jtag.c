@@ -1049,7 +1049,7 @@ void msm_jtag_save_state(void)
 	if (etm.save_restore_enabled)
 		etm_save_state(cpu);
 }
-EXPORT_SYMBOL(msm_jtag_save_state);
+/* DISABLED: EXPORT_SYMBOL(msm_jtag_save_state); */
 
 /**
  * msm_jtag_restore_state - restore debug and etm registers
@@ -1098,7 +1098,7 @@ void msm_jtag_restore_state(void)
 	if (etm.save_restore_enabled)
 		etm_restore_state(cpu);
 }
-EXPORT_SYMBOL(msm_jtag_restore_state);
+/* DISABLED: EXPORT_SYMBOL(msm_jtag_restore_state); */
 
 static int __init msm_jtag_dbg_init(void)
 {

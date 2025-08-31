@@ -169,7 +169,7 @@ struct input_polled_dev *input_allocate_polled_device(void)
 
 	return dev;
 }
-EXPORT_SYMBOL(input_allocate_polled_device);
+/* DISABLED: EXPORT_SYMBOL(input_allocate_polled_device); */
 
 /**
  * input_free_polled_device - free memory allocated for polled device
@@ -185,7 +185,7 @@ void input_free_polled_device(struct input_polled_dev *dev)
 		kfree(dev);
 	}
 }
-EXPORT_SYMBOL(input_free_polled_device);
+/* DISABLED: EXPORT_SYMBOL(input_free_polled_device); */
 
 /**
  * input_register_polled_device - register polled device
@@ -233,7 +233,7 @@ int input_register_polled_device(struct input_polled_dev *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(input_register_polled_device);
+/* DISABLED: EXPORT_SYMBOL(input_register_polled_device); */
 
 /**
  * input_unregister_polled_device - unregister polled device
@@ -250,4 +250,4 @@ void input_unregister_polled_device(struct input_polled_dev *dev)
 
 	input_unregister_device(dev->input);
 }
-EXPORT_SYMBOL(input_unregister_polled_device);
+/* DISABLED: EXPORT_SYMBOL(input_unregister_polled_device); */

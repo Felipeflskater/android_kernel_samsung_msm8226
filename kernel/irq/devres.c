@@ -70,7 +70,7 @@ int devm_request_threaded_irq(struct device *dev, unsigned int irq,
 
 	return 0;
 }
-EXPORT_SYMBOL(devm_request_threaded_irq);
+/* DISABLED: EXPORT_SYMBOL(devm_request_threaded_irq); */
 
 /**
  *	devm_free_irq - free an interrupt
@@ -91,4 +91,4 @@ void devm_free_irq(struct device *dev, unsigned int irq, void *dev_id)
 			       &match_data));
 	free_irq(irq, dev_id);
 }
-EXPORT_SYMBOL(devm_free_irq);
+/* DISABLED: EXPORT_SYMBOL(devm_free_irq); */

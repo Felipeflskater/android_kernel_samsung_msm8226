@@ -199,7 +199,7 @@ static struct list_head ptype_all __read_mostly;	/* Taps */
  * semaphore held.
  */
 DEFINE_RWLOCK(dev_base_lock);
-EXPORT_SYMBOL(dev_base_lock);
+/* DISABLED: EXPORT_SYMBOL(dev_base_lock); */
 
 static inline void dev_base_seq_inc(struct net *net)
 {
@@ -416,7 +416,7 @@ void dev_add_pack(struct packet_type *pt)
 	list_add_rcu(&pt->list, head);
 	spin_unlock(&ptype_lock);
 }
-EXPORT_SYMBOL(dev_add_pack);
+/* DISABLED: EXPORT_SYMBOL(dev_add_pack); */
 
 /**
  *	__dev_remove_pack	 - remove packet handler
@@ -449,7 +449,7 @@ void __dev_remove_pack(struct packet_type *pt)
 out:
 	spin_unlock(&ptype_lock);
 }
-EXPORT_SYMBOL(__dev_remove_pack);
+/* DISABLED: EXPORT_SYMBOL(__dev_remove_pack); */
 
 /**
  *	dev_remove_pack	 - remove packet handler
@@ -469,7 +469,7 @@ void dev_remove_pack(struct packet_type *pt)
 
 	synchronize_net();
 }
-EXPORT_SYMBOL(dev_remove_pack);
+/* DISABLED: EXPORT_SYMBOL(dev_remove_pack); */
 
 /******************************************************************************
 
@@ -533,7 +533,7 @@ int netdev_boot_setup_check(struct net_device *dev)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(netdev_boot_setup_check);
+/* DISABLED: EXPORT_SYMBOL(netdev_boot_setup_check); */
 
 
 /**
@@ -594,7 +594,7 @@ int __init netdev_boot_setup(char *str)
 	return netdev_boot_setup_add(str, &map);
 }
 
-/* DISABLED: __setup("netdev=", netdev_boot_setup); */
+/* DISABLED: __setup("netdev=", netdev_boot_setup); */ */
 
 /*******************************************************************************
 
@@ -626,7 +626,7 @@ struct net_device *__dev_get_by_name(struct net *net, const char *name)
 
 	return NULL;
 }
-EXPORT_SYMBOL(__dev_get_by_name);
+/* DISABLED: EXPORT_SYMBOL(__dev_get_by_name); */
 
 /**
  *	dev_get_by_name_rcu	- find a device by its name
@@ -652,7 +652,7 @@ struct net_device *dev_get_by_name_rcu(struct net *net, const char *name)
 
 	return NULL;
 }
-EXPORT_SYMBOL(dev_get_by_name_rcu);
+/* DISABLED: EXPORT_SYMBOL(dev_get_by_name_rcu); */
 
 /**
  *	dev_get_by_name		- find a device by its name
@@ -677,7 +677,7 @@ struct net_device *dev_get_by_name(struct net *net, const char *name)
 	rcu_read_unlock();
 	return dev;
 }
-EXPORT_SYMBOL(dev_get_by_name);
+/* DISABLED: EXPORT_SYMBOL(dev_get_by_name); */
 
 /**
  *	__dev_get_by_index - find a device by its ifindex
@@ -703,7 +703,7 @@ struct net_device *__dev_get_by_index(struct net *net, int ifindex)
 
 	return NULL;
 }
-EXPORT_SYMBOL(__dev_get_by_index);
+/* DISABLED: EXPORT_SYMBOL(__dev_get_by_index); */
 
 /**
  *	dev_get_by_index_rcu - find a device by its ifindex
@@ -728,7 +728,7 @@ struct net_device *dev_get_by_index_rcu(struct net *net, int ifindex)
 
 	return NULL;
 }
-EXPORT_SYMBOL(dev_get_by_index_rcu);
+/* DISABLED: EXPORT_SYMBOL(dev_get_by_index_rcu); */
 
 
 /**
@@ -753,7 +753,7 @@ struct net_device *dev_get_by_index(struct net *net, int ifindex)
 	rcu_read_unlock();
 	return dev;
 }
-EXPORT_SYMBOL(dev_get_by_index);
+/* DISABLED: EXPORT_SYMBOL(dev_get_by_index); */
 
 /**
  *	dev_getbyhwaddr_rcu - find a device by its hardware address
@@ -781,7 +781,7 @@ struct net_device *dev_getbyhwaddr_rcu(struct net *net, unsigned short type,
 
 	return NULL;
 }
-EXPORT_SYMBOL(dev_getbyhwaddr_rcu);
+/* DISABLED: EXPORT_SYMBOL(dev_getbyhwaddr_rcu); */
 
 struct net_device *__dev_getfirstbyhwtype(struct net *net, unsigned short type)
 {
@@ -794,7 +794,7 @@ struct net_device *__dev_getfirstbyhwtype(struct net *net, unsigned short type)
 
 	return NULL;
 }
-EXPORT_SYMBOL(__dev_getfirstbyhwtype);
+/* DISABLED: EXPORT_SYMBOL(__dev_getfirstbyhwtype); */
 
 struct net_device *dev_getfirstbyhwtype(struct net *net, unsigned short type)
 {
@@ -810,7 +810,7 @@ struct net_device *dev_getfirstbyhwtype(struct net *net, unsigned short type)
 	rcu_read_unlock();
 	return ret;
 }
-EXPORT_SYMBOL(dev_getfirstbyhwtype);
+/* DISABLED: EXPORT_SYMBOL(dev_getfirstbyhwtype); */
 
 /**
  *	dev_get_by_flags_rcu - find any device with given flags
@@ -837,7 +837,7 @@ struct net_device *dev_get_by_flags_rcu(struct net *net, unsigned short if_flags
 	}
 	return ret;
 }
-EXPORT_SYMBOL(dev_get_by_flags_rcu);
+/* DISABLED: EXPORT_SYMBOL(dev_get_by_flags_rcu); */
 
 /**
  *	dev_valid_name - check if name is okay for network device
@@ -863,7 +863,7 @@ bool dev_valid_name(const char *name)
 	}
 	return true;
 }
-EXPORT_SYMBOL(dev_valid_name);
+/* DISABLED: EXPORT_SYMBOL(dev_valid_name); */
 
 /**
  *	__dev_alloc_name - allocate a name for a device
@@ -958,7 +958,7 @@ int dev_alloc_name(struct net_device *dev, const char *name)
 		strlcpy(dev->name, buf, IFNAMSIZ);
 	return ret;
 }
-EXPORT_SYMBOL(dev_alloc_name);
+/* DISABLED: EXPORT_SYMBOL(dev_alloc_name); */
 
 static int dev_get_valid_name(struct net_device *dev, const char *name)
 {
@@ -1091,7 +1091,7 @@ void netdev_features_change(struct net_device *dev)
 {
 	call_netdevice_notifiers(NETDEV_FEAT_CHANGE, dev);
 }
-EXPORT_SYMBOL(netdev_features_change);
+/* DISABLED: EXPORT_SYMBOL(netdev_features_change); */
 
 /**
  *	netdev_state_change - device changes state
@@ -1108,13 +1108,13 @@ void netdev_state_change(struct net_device *dev)
 		rtmsg_ifinfo(RTM_NEWLINK, dev, 0);
 	}
 }
-EXPORT_SYMBOL(netdev_state_change);
+/* DISABLED: EXPORT_SYMBOL(netdev_state_change); */
 
 int netdev_bonding_change(struct net_device *dev, unsigned long event)
 {
 	return call_netdevice_notifiers(event, dev);
 }
-EXPORT_SYMBOL(netdev_bonding_change);
+/* DISABLED: EXPORT_SYMBOL(netdev_bonding_change); */
 
 /**
  *	dev_load 	- load a network module
@@ -1144,7 +1144,7 @@ void dev_load(struct net *net, const char *name)
 			       name);
 	}
 }
-EXPORT_SYMBOL(dev_load);
+/* DISABLED: EXPORT_SYMBOL(dev_load); */
 
 static int __dev_open(struct net_device *dev)
 {
@@ -1210,7 +1210,7 @@ int dev_open(struct net_device *dev)
 
 	return ret;
 }
-EXPORT_SYMBOL(dev_open);
+/* DISABLED: EXPORT_SYMBOL(dev_open); */
 
 static int __dev_close_many(struct list_head *head)
 {
@@ -1307,7 +1307,7 @@ int dev_close(struct net_device *dev)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(dev_close);
+/* DISABLED: EXPORT_SYMBOL(dev_close); */
 
 
 /**
@@ -1333,7 +1333,7 @@ void dev_disable_lro(struct net_device *dev)
 	if (unlikely(dev->features & NETIF_F_LRO))
 		netdev_WARN(dev, "failed to disable LRO!\n");
 }
-EXPORT_SYMBOL(dev_disable_lro);
+/* DISABLED: EXPORT_SYMBOL(dev_disable_lro); */
 
 
 static int dev_boot_phase = 1;
@@ -1403,7 +1403,7 @@ outroll:
 	raw_notifier_chain_unregister(&netdev_chain, nb);
 	goto unlock;
 }
-EXPORT_SYMBOL(register_netdevice_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_netdevice_notifier); */
 
 /**
  *	unregister_netdevice_notifier - unregister a network notifier block
@@ -1444,7 +1444,7 @@ unlock:
 	rtnl_unlock();
 	return err;
 }
-EXPORT_SYMBOL(unregister_netdevice_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_netdevice_notifier); */
 
 /**
  *	call_netdevice_notifiers - call all network notifier blocks
@@ -1460,7 +1460,7 @@ int call_netdevice_notifiers(unsigned long val, struct net_device *dev)
 	ASSERT_RTNL();
 	return raw_notifier_call_chain(&netdev_chain, val, dev);
 }
-EXPORT_SYMBOL(call_netdevice_notifiers);
+/* DISABLED: EXPORT_SYMBOL(call_netdevice_notifiers); */
 
 static struct static_key netstamp_needed __read_mostly;
 #ifdef HAVE_JUMP_LABEL
@@ -1484,7 +1484,7 @@ void net_enable_timestamp(void)
 #endif
 	static_key_slow_inc(&netstamp_needed);
 }
-EXPORT_SYMBOL(net_enable_timestamp);
+/* DISABLED: EXPORT_SYMBOL(net_enable_timestamp); */
 
 void net_disable_timestamp(void)
 {
@@ -1496,7 +1496,7 @@ void net_disable_timestamp(void)
 #endif
 	static_key_slow_dec(&netstamp_needed);
 }
-EXPORT_SYMBOL(net_disable_timestamp);
+/* DISABLED: EXPORT_SYMBOL(net_disable_timestamp); */
 
 static inline void net_timestamp_set(struct sk_buff *skb)
 {
@@ -1631,7 +1631,7 @@ int dev_forward_skb(struct net_device *dev, struct sk_buff *skb)
 	nf_reset_trace(skb);
 	return netif_rx(skb);
 }
-EXPORT_SYMBOL_GPL(dev_forward_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(dev_forward_skb); */
 
 static inline int deliver_skb(struct sk_buff *skb,
 			      struct packet_type *pt_prev,
@@ -1776,7 +1776,7 @@ int netif_set_real_num_tx_queues(struct net_device *dev, unsigned int txq)
 	dev->real_num_tx_queues = txq;
 	return 0;
 }
-EXPORT_SYMBOL(netif_set_real_num_tx_queues);
+/* DISABLED: EXPORT_SYMBOL(netif_set_real_num_tx_queues); */
 
 #ifdef CONFIG_RPS
 /**
@@ -1808,7 +1808,7 @@ int netif_set_real_num_rx_queues(struct net_device *dev, unsigned int rxq)
 	dev->real_num_rx_queues = rxq;
 	return 0;
 }
-EXPORT_SYMBOL(netif_set_real_num_rx_queues);
+/* DISABLED: EXPORT_SYMBOL(netif_set_real_num_rx_queues); */
 #endif
 
 static inline void __netif_reschedule(struct Qdisc *q)
@@ -1830,7 +1830,7 @@ void __netif_schedule(struct Qdisc *q)
 	if (!test_and_set_bit(__QDISC_STATE_SCHED, &q->state))
 		__netif_reschedule(q);
 }
-EXPORT_SYMBOL(__netif_schedule);
+/* DISABLED: EXPORT_SYMBOL(__netif_schedule); */
 
 void dev_kfree_skb_irq(struct sk_buff *skb)
 {
@@ -1846,7 +1846,7 @@ void dev_kfree_skb_irq(struct sk_buff *skb)
 		local_irq_restore(flags);
 	}
 }
-EXPORT_SYMBOL(dev_kfree_skb_irq);
+/* DISABLED: EXPORT_SYMBOL(dev_kfree_skb_irq); */
 
 void dev_kfree_skb_any(struct sk_buff *skb)
 {
@@ -1855,7 +1855,7 @@ void dev_kfree_skb_any(struct sk_buff *skb)
 	else
 		dev_kfree_skb(skb);
 }
-EXPORT_SYMBOL(dev_kfree_skb_any);
+/* DISABLED: EXPORT_SYMBOL(dev_kfree_skb_any); */
 
 
 /**
@@ -1871,7 +1871,7 @@ void netif_device_detach(struct net_device *dev)
 		netif_tx_stop_all_queues(dev);
 	}
 }
-EXPORT_SYMBOL(netif_device_detach);
+/* DISABLED: EXPORT_SYMBOL(netif_device_detach); */
 
 /**
  * netif_device_attach - mark device as attached
@@ -1887,7 +1887,7 @@ void netif_device_attach(struct net_device *dev)
 		__netdev_watchdog_up(dev);
 	}
 }
-EXPORT_SYMBOL(netif_device_attach);
+/* DISABLED: EXPORT_SYMBOL(netif_device_attach); */
 
 static void skb_warn_bad_offload(const struct sk_buff *skb)
 {
@@ -1946,7 +1946,7 @@ out_set_summed:
 out:
 	return ret;
 }
-EXPORT_SYMBOL(skb_checksum_help);
+/* DISABLED: EXPORT_SYMBOL(skb_checksum_help); */
 
 /**
  *	skb_gso_segment - Perform segmentation on skb.
@@ -2012,7 +2012,7 @@ struct sk_buff *skb_gso_segment(struct sk_buff *skb,
 
 	return segs;
 }
-EXPORT_SYMBOL(skb_gso_segment);
+/* DISABLED: EXPORT_SYMBOL(skb_gso_segment); */
 
 /* Take action when hardware reception checksum errors are detected. */
 #ifdef CONFIG_BUG
@@ -2023,7 +2023,7 @@ void netdev_rx_csum_fault(struct net_device *dev)
 		dump_stack();
 	}
 }
-EXPORT_SYMBOL(netdev_rx_csum_fault);
+/* DISABLED: EXPORT_SYMBOL(netdev_rx_csum_fault); */
 #endif
 
 /* Actually, we should eliminate this check as soon as we know, that:
@@ -2162,7 +2162,7 @@ netdev_features_t netif_skb_features(struct sk_buff *skb)
 		return harmonize_features(skb, protocol, features);
 	}
 }
-EXPORT_SYMBOL(netif_skb_features);
+/* DISABLED: EXPORT_SYMBOL(netif_skb_features); */
 
 /*
  * Returns true if either:
@@ -2315,7 +2315,7 @@ u16 __skb_tx_hash(const struct net_device *dev, const struct sk_buff *skb,
 
 	return (u16) (((u64) hash * qcount) >> 32) + qoffset;
 }
-EXPORT_SYMBOL(__skb_tx_hash);
+/* DISABLED: EXPORT_SYMBOL(__skb_tx_hash); */
 
 static inline u16 dev_cap_txqueue(struct net_device *dev, u16 queue_index)
 {
@@ -2589,7 +2589,7 @@ out:
 	rcu_read_unlock_bh();
 	return rc;
 }
-EXPORT_SYMBOL(dev_queue_xmit);
+/* DISABLED: EXPORT_SYMBOL(dev_queue_xmit); */
 
 
 /*=======================================================================
@@ -2642,13 +2642,13 @@ void __skb_get_rxhash(struct sk_buff *skb)
 
 	skb->rxhash = hash;
 }
-EXPORT_SYMBOL(__skb_get_rxhash);
+/* DISABLED: EXPORT_SYMBOL(__skb_get_rxhash); */
 
 #ifdef CONFIG_RPS
 
 /* One global table that all flow-based protocols share. */
 struct rps_sock_flow_table __rcu *rps_sock_flow_table __read_mostly;
-EXPORT_SYMBOL(rps_sock_flow_table);
+/* DISABLED: EXPORT_SYMBOL(rps_sock_flow_table); */
 
 struct static_key rps_needed __read_mostly;
 
@@ -2829,7 +2829,7 @@ bool rps_may_expire_flow(struct net_device *dev, u16 rxq_index,
 	rcu_read_unlock();
 	return expire;
 }
-EXPORT_SYMBOL(rps_may_expire_flow);
+/* DISABLED: EXPORT_SYMBOL(rps_may_expire_flow); */
 
 #endif /* CONFIG_RFS_ACCEL */
 
@@ -2964,7 +2964,7 @@ int netif_rx(struct sk_buff *skb)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(netif_rx);
+/* DISABLED: EXPORT_SYMBOL(netif_rx); */
 
 int netif_rx_ni(struct sk_buff *skb)
 {
@@ -2978,7 +2978,7 @@ int netif_rx_ni(struct sk_buff *skb)
 
 	return err;
 }
-EXPORT_SYMBOL(netif_rx_ni);
+/* DISABLED: EXPORT_SYMBOL(netif_rx_ni); */
 
 static void net_tx_action(struct softirq_action *h)
 {
@@ -3043,7 +3043,7 @@ static void net_tx_action(struct softirq_action *h)
 /* This hook is defined here for ATM LANE */
 int (*br_fdb_test_addr_hook)(struct net_device *dev,
 			     unsigned char *addr) __read_mostly;
-EXPORT_SYMBOL_GPL(br_fdb_test_addr_hook);
+/* DISABLED: EXPORT_SYMBOL_GPL(br_fdb_test_addr_hook); */
 #endif
 
 #ifdef CONFIG_NET_CLS_ACT
@@ -3139,7 +3139,7 @@ int netdev_rx_handler_register(struct net_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(netdev_rx_handler_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(netdev_rx_handler_register); */
 
 /**
  *	netdev_rx_handler_unregister - unregister receive handler
@@ -3161,7 +3161,7 @@ void netdev_rx_handler_unregister(struct net_device *dev)
 	synchronize_net();
 	RCU_INIT_POINTER(dev->rx_handler_data, NULL);
 }
-EXPORT_SYMBOL_GPL(netdev_rx_handler_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(netdev_rx_handler_unregister); */
 
 static int __netif_receive_skb(struct sk_buff *skb)
 {
@@ -3330,7 +3330,7 @@ int netif_receive_skb(struct sk_buff *skb)
 	rcu_read_unlock();
 	return ret;
 }
-EXPORT_SYMBOL(netif_receive_skb);
+/* DISABLED: EXPORT_SYMBOL(netif_receive_skb); */
 
 /* Network device is going away, flush any packets still pending
  * Called with irqs disabled.
@@ -3405,7 +3405,7 @@ inline void napi_gro_flush(struct napi_struct *napi)
 	napi->gro_count = 0;
 	napi->gro_list = NULL;
 }
-EXPORT_SYMBOL(napi_gro_flush);
+/* DISABLED: EXPORT_SYMBOL(napi_gro_flush); */
 
 enum gro_result dev_gro_receive(struct napi_struct *napi, struct sk_buff *skb)
 {
@@ -3497,7 +3497,7 @@ normal:
 	ret = GRO_NORMAL;
 	goto pull;
 }
-EXPORT_SYMBOL(dev_gro_receive);
+/* DISABLED: EXPORT_SYMBOL(dev_gro_receive); */
 
 static inline gro_result_t
 __napi_gro_receive(struct napi_struct *napi, struct sk_buff *skb)
@@ -3544,7 +3544,7 @@ gro_result_t napi_skb_finish(gro_result_t ret, struct sk_buff *skb)
 
 	return ret;
 }
-EXPORT_SYMBOL(napi_skb_finish);
+/* DISABLED: EXPORT_SYMBOL(napi_skb_finish); */
 
 void skb_gro_reset_offset(struct sk_buff *skb)
 {
@@ -3559,7 +3559,7 @@ void skb_gro_reset_offset(struct sk_buff *skb)
 		NAPI_GRO_CB(skb)->frag0_len = skb_frag_size(&skb_shinfo(skb)->frags[0]);
 	}
 }
-EXPORT_SYMBOL(skb_gro_reset_offset);
+/* DISABLED: EXPORT_SYMBOL(skb_gro_reset_offset); */
 
 gro_result_t napi_gro_receive(struct napi_struct *napi, struct sk_buff *skb)
 {
@@ -3567,7 +3567,7 @@ gro_result_t napi_gro_receive(struct napi_struct *napi, struct sk_buff *skb)
 
 	return napi_skb_finish(__napi_gro_receive(napi, skb), skb);
 }
-EXPORT_SYMBOL(napi_gro_receive);
+/* DISABLED: EXPORT_SYMBOL(napi_gro_receive); */
 
 static void napi_reuse_skb(struct napi_struct *napi, struct sk_buff *skb)
 {
@@ -3593,7 +3593,7 @@ struct sk_buff *napi_get_frags(struct napi_struct *napi)
 	}
 	return skb;
 }
-EXPORT_SYMBOL(napi_get_frags);
+/* DISABLED: EXPORT_SYMBOL(napi_get_frags); */
 
 gro_result_t napi_frags_finish(struct napi_struct *napi, struct sk_buff *skb,
 			       gro_result_t ret)
@@ -3620,7 +3620,7 @@ gro_result_t napi_frags_finish(struct napi_struct *napi, struct sk_buff *skb,
 
 	return ret;
 }
-EXPORT_SYMBOL(napi_frags_finish);
+/* DISABLED: EXPORT_SYMBOL(napi_frags_finish); */
 
 struct sk_buff *napi_frags_skb(struct napi_struct *napi)
 {
@@ -3657,7 +3657,7 @@ struct sk_buff *napi_frags_skb(struct napi_struct *napi)
 out:
 	return skb;
 }
-EXPORT_SYMBOL(napi_frags_skb);
+/* DISABLED: EXPORT_SYMBOL(napi_frags_skb); */
 
 gro_result_t napi_gro_frags(struct napi_struct *napi)
 {
@@ -3668,7 +3668,7 @@ gro_result_t napi_gro_frags(struct napi_struct *napi)
 
 	return napi_frags_finish(napi, skb, __napi_gro_receive(napi, skb));
 }
-EXPORT_SYMBOL(napi_gro_frags);
+/* DISABLED: EXPORT_SYMBOL(napi_gro_frags); */
 
 /*
  * net_rps_action sends any pending IPI's for rps.
@@ -3771,7 +3771,7 @@ void __napi_schedule(struct napi_struct *n)
 	____napi_schedule(&__get_cpu_var(softnet_data), n);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(__napi_schedule);
+/* DISABLED: EXPORT_SYMBOL(__napi_schedule); */
 
 void __napi_complete(struct napi_struct *n)
 {
@@ -3782,7 +3782,7 @@ void __napi_complete(struct napi_struct *n)
 	smp_mb__before_clear_bit();
 	clear_bit(NAPI_STATE_SCHED, &n->state);
 }
-EXPORT_SYMBOL(__napi_complete);
+/* DISABLED: EXPORT_SYMBOL(__napi_complete); */
 
 void napi_complete(struct napi_struct *n)
 {
@@ -3800,7 +3800,7 @@ void napi_complete(struct napi_struct *n)
 	__napi_complete(n);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(napi_complete);
+/* DISABLED: EXPORT_SYMBOL(napi_complete); */
 
 void netif_napi_add(struct net_device *dev, struct napi_struct *napi,
 		    int (*poll)(struct napi_struct *, int), int weight)
@@ -3819,7 +3819,7 @@ void netif_napi_add(struct net_device *dev, struct napi_struct *napi,
 #endif
 	set_bit(NAPI_STATE_SCHED, &napi->state);
 }
-EXPORT_SYMBOL(netif_napi_add);
+/* DISABLED: EXPORT_SYMBOL(netif_napi_add); */
 
 void netif_napi_del(struct napi_struct *napi)
 {
@@ -3837,7 +3837,7 @@ void netif_napi_del(struct napi_struct *napi)
 	napi->gro_list = NULL;
 	napi->gro_count = 0;
 }
-EXPORT_SYMBOL(netif_napi_del);
+/* DISABLED: EXPORT_SYMBOL(netif_napi_del); */
 
 static void net_rx_action(struct softirq_action *h)
 {
@@ -3943,7 +3943,7 @@ int register_gifconf(unsigned int family, gifconf_func_t *gifconf)
 	gifconf_list[family] = gifconf;
 	return 0;
 }
-EXPORT_SYMBOL(register_gifconf);
+/* DISABLED: EXPORT_SYMBOL(register_gifconf); */
 
 
 /*
@@ -4453,7 +4453,7 @@ int netdev_set_master(struct net_device *slave, struct net_device *master)
 		dev_put(old);
 	return 0;
 }
-EXPORT_SYMBOL(netdev_set_master);
+/* DISABLED: EXPORT_SYMBOL(netdev_set_master); */
 
 /**
  *	netdev_set_bond_master	-	set up bonding master/slave pair
@@ -4482,7 +4482,7 @@ int netdev_set_bond_master(struct net_device *slave, struct net_device *master)
 	rtmsg_ifinfo(RTM_NEWLINK, slave, IFF_SLAVE);
 	return 0;
 }
-EXPORT_SYMBOL(netdev_set_bond_master);
+/* DISABLED: EXPORT_SYMBOL(netdev_set_bond_master); */
 
 static void dev_change_rx_flags(struct net_device *dev, int flags)
 {
@@ -4560,7 +4560,7 @@ int dev_set_promiscuity(struct net_device *dev, int inc)
 		dev_set_rx_mode(dev);
 	return err;
 }
-EXPORT_SYMBOL(dev_set_promiscuity);
+/* DISABLED: EXPORT_SYMBOL(dev_set_promiscuity); */
 
 /**
  *	dev_set_allmulti	- update allmulti count on a device
@@ -4603,7 +4603,7 @@ int dev_set_allmulti(struct net_device *dev, int inc)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(dev_set_allmulti);
+/* DISABLED: EXPORT_SYMBOL(dev_set_allmulti); */
 
 /*
  *	Upload unicast and multicast address lists to device and
@@ -4675,7 +4675,7 @@ unsigned dev_get_flags(const struct net_device *dev)
 
 	return flags;
 }
-EXPORT_SYMBOL(dev_get_flags);
+/* DISABLED: EXPORT_SYMBOL(dev_get_flags); */
 
 int __dev_change_flags(struct net_device *dev, unsigned int flags)
 {
@@ -4778,7 +4778,7 @@ int dev_change_flags(struct net_device *dev, unsigned int flags)
 	__dev_notify_flags(dev, old_flags);
 	return ret;
 }
-EXPORT_SYMBOL(dev_change_flags);
+/* DISABLED: EXPORT_SYMBOL(dev_change_flags); */
 
 /**
  *	dev_set_mtu - Change maximum transfer unit
@@ -4812,7 +4812,7 @@ int dev_set_mtu(struct net_device *dev, int new_mtu)
 		call_netdevice_notifiers(NETDEV_CHANGEMTU, dev);
 	return err;
 }
-EXPORT_SYMBOL(dev_set_mtu);
+/* DISABLED: EXPORT_SYMBOL(dev_set_mtu); */
 
 /**
  *	dev_set_group - Change group this device belongs to
@@ -4823,7 +4823,7 @@ void dev_set_group(struct net_device *dev, int new_group)
 {
 	dev->group = new_group;
 }
-EXPORT_SYMBOL(dev_set_group);
+/* DISABLED: EXPORT_SYMBOL(dev_set_group); */
 
 /**
  *	dev_set_mac_address - Change Media Access Control Address
@@ -4849,7 +4849,7 @@ int dev_set_mac_address(struct net_device *dev, struct sockaddr *sa)
 	add_device_randomness(dev->dev_addr, dev->addr_len);
 	return err;
 }
-EXPORT_SYMBOL(dev_set_mac_address);
+/* DISABLED: EXPORT_SYMBOL(dev_set_mac_address); */
 
 /*
  *	Perform the SIOCxIFxxx calls, inside rcu_read_lock()
@@ -5432,7 +5432,7 @@ void netdev_update_features(struct net_device *dev)
 	if (__netdev_update_features(dev))
 		netdev_features_change(dev);
 }
-EXPORT_SYMBOL(netdev_update_features);
+/* DISABLED: EXPORT_SYMBOL(netdev_update_features); */
 
 /**
  *	netdev_change_features - recalculate device features
@@ -5449,7 +5449,7 @@ void netdev_change_features(struct net_device *dev)
 	__netdev_update_features(dev);
 	netdev_features_change(dev);
 }
-EXPORT_SYMBOL(netdev_change_features);
+/* DISABLED: EXPORT_SYMBOL(netdev_change_features); */
 
 /**
  *	netif_stacked_transfer_operstate -	transfer operstate
@@ -5476,7 +5476,7 @@ void netif_stacked_transfer_operstate(const struct net_device *rootdev,
 			netif_carrier_off(dev);
 	}
 }
-EXPORT_SYMBOL(netif_stacked_transfer_operstate);
+/* DISABLED: EXPORT_SYMBOL(netif_stacked_transfer_operstate); */
 
 #ifdef CONFIG_RPS
 static int netif_alloc_rx_queues(struct net_device *dev)
@@ -5649,7 +5649,7 @@ err_uninit:
 		dev->netdev_ops->ndo_uninit(dev);
 	goto out;
 }
-EXPORT_SYMBOL(register_netdevice);
+/* DISABLED: EXPORT_SYMBOL(register_netdevice); */
 
 /**
  *	init_dummy_netdev	- init a dummy network device for NAPI
@@ -5689,7 +5689,7 @@ int init_dummy_netdev(struct net_device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(init_dummy_netdev);
+/* DISABLED: EXPORT_SYMBOL_GPL(init_dummy_netdev); */
 
 
 /**
@@ -5714,7 +5714,7 @@ int register_netdev(struct net_device *dev)
 	rtnl_unlock();
 	return err;
 }
-EXPORT_SYMBOL(register_netdev);
+/* DISABLED: EXPORT_SYMBOL(register_netdev); */
 
 int netdev_refcnt_read(const struct net_device *dev)
 {
@@ -5724,7 +5724,7 @@ int netdev_refcnt_read(const struct net_device *dev)
 		refcnt += *per_cpu_ptr(dev->pcpu_refcnt, i);
 	return refcnt;
 }
-EXPORT_SYMBOL(netdev_refcnt_read);
+/* DISABLED: EXPORT_SYMBOL(netdev_refcnt_read); */
 
 /*
  * netdev_wait_allrefs - wait until all references are gone.
@@ -5873,7 +5873,7 @@ void netdev_stats_to_stats64(struct rtnl_link_stats64 *stats64,
 		dst[i] = src[i];
 #endif
 }
-EXPORT_SYMBOL(netdev_stats_to_stats64);
+/* DISABLED: EXPORT_SYMBOL(netdev_stats_to_stats64); */
 
 /**
  *	dev_get_stats	- get network device statistics
@@ -5901,7 +5901,7 @@ struct rtnl_link_stats64 *dev_get_stats(struct net_device *dev,
 	storage->rx_dropped += atomic_long_read(&dev->rx_dropped);
 	return storage;
 }
-EXPORT_SYMBOL(dev_get_stats);
+/* DISABLED: EXPORT_SYMBOL(dev_get_stats); */
 
 struct netdev_queue *dev_ingress_queue_create(struct net_device *dev)
 {
@@ -6025,7 +6025,7 @@ free_p:
 	kfree(p);
 	return NULL;
 }
-EXPORT_SYMBOL(alloc_netdev_mqs);
+/* DISABLED: EXPORT_SYMBOL(alloc_netdev_mqs); */
 
 /**
  *	free_netdev - free network device
@@ -6069,7 +6069,7 @@ void free_netdev(struct net_device *dev)
 	/* will free via device release */
 	put_device(&dev->dev);
 }
-EXPORT_SYMBOL(free_netdev);
+/* DISABLED: EXPORT_SYMBOL(free_netdev); */
 
 /**
  *	synchronize_net -  Synchronize with packet receive processing
@@ -6085,7 +6085,7 @@ void synchronize_net(void)
 	else
 		synchronize_rcu();
 }
-EXPORT_SYMBOL(synchronize_net);
+/* DISABLED: EXPORT_SYMBOL(synchronize_net); */
 
 /**
  *	unregister_netdevice_queue - remove device from the kernel
@@ -6112,7 +6112,7 @@ void unregister_netdevice_queue(struct net_device *dev, struct list_head *head)
 		net_set_todo(dev);
 	}
 }
-EXPORT_SYMBOL(unregister_netdevice_queue);
+/* DISABLED: EXPORT_SYMBOL(unregister_netdevice_queue); */
 
 /**
  *	unregister_netdevice_many - unregister many devices
@@ -6128,7 +6128,7 @@ void unregister_netdevice_many(struct list_head *head)
 			net_set_todo(dev);
 	}
 }
-EXPORT_SYMBOL(unregister_netdevice_many);
+/* DISABLED: EXPORT_SYMBOL(unregister_netdevice_many); */
 
 /**
  *	unregister_netdev - remove device from the kernel
@@ -6147,7 +6147,7 @@ void unregister_netdev(struct net_device *dev)
 	unregister_netdevice(dev);
 	rtnl_unlock();
 }
-EXPORT_SYMBOL(unregister_netdev);
+/* DISABLED: EXPORT_SYMBOL(unregister_netdev); */
 
 /**
  *	dev_change_net_namespace - move device to different nethost namespace
@@ -6261,7 +6261,7 @@ int dev_change_net_namespace(struct net_device *dev, struct net *net, const char
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(dev_change_net_namespace);
+/* DISABLED: EXPORT_SYMBOL_GPL(dev_change_net_namespace); */
 
 static int dev_cpu_callback(struct notifier_block *nfb,
 			    unsigned long action,
@@ -6354,7 +6354,7 @@ netdev_features_t netdev_increment_features(netdev_features_t all,
 
 	return all;
 }
-EXPORT_SYMBOL(netdev_increment_features);
+/* DISABLED: EXPORT_SYMBOL(netdev_increment_features); */
 
 static struct hlist_head *netdev_create_hash(void)
 {
@@ -6428,7 +6428,7 @@ int __netdev_printk(const char *level, const struct net_device *dev,
 
 	return r;
 }
-EXPORT_SYMBOL(__netdev_printk);
+/* DISABLED: EXPORT_SYMBOL(__netdev_printk); */
 
 int netdev_printk(const char *level, const struct net_device *dev,
 		  const char *format, ...)
@@ -6447,7 +6447,7 @@ int netdev_printk(const char *level, const struct net_device *dev,
 
 	return r;
 }
-EXPORT_SYMBOL(netdev_printk);
+/* DISABLED: EXPORT_SYMBOL(netdev_printk); */
 
 #define define_netdev_printk_level(func, level)			\
 int func(const struct net_device *dev, const char *fmt, ...)	\
@@ -6466,7 +6466,7 @@ int func(const struct net_device *dev, const char *fmt, ...)	\
 								\
 	return r;						\
 }								\
-EXPORT_SYMBOL(func);
+/* DISABLED: EXPORT_SYMBOL(func); */
 
 define_netdev_printk_level(netdev_emerg, KERN_EMERG);
 define_netdev_printk_level(netdev_alert, KERN_ALERT);

@@ -76,7 +76,7 @@ int pm8xxx_vibrator_config(struct pm8xxx_vib_config *vib_config)
 
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_vibrator_config);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_vibrator_config); */
 
 /* REVISIT: just for debugging, will be removed in final working version */
 static void __dump_vib_regs(struct pm8xxx_vib *vib, char *msg)

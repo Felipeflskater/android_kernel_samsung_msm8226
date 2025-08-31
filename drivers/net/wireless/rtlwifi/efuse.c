@@ -151,7 +151,7 @@ u8 efuse_read_1byte(struct ieee80211_hw *hw, u16 address)
 		return 0xFF;
 
 }
-EXPORT_SYMBOL(efuse_read_1byte);
+/* DISABLED: EXPORT_SYMBOL(efuse_read_1byte); */
 
 void efuse_write_1byte(struct ieee80211_hw *hw, u16 address, u8 value)
 {
@@ -516,7 +516,7 @@ void rtl_efuse_shadow_map_update(struct ieee80211_hw *hw)
 	       rtlpriv->cfg->maps[EFUSE_HWSET_MAX_SIZE]);
 
 }
-EXPORT_SYMBOL(rtl_efuse_shadow_map_update);
+/* DISABLED: EXPORT_SYMBOL(rtl_efuse_shadow_map_update); */
 
 void efuse_force_write_vendor_Id(struct ieee80211_hw *hw)
 {

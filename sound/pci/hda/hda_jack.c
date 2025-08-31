@@ -33,7 +33,7 @@ bool is_jack_detectable(struct hda_codec *codec, hda_nid_t nid)
 		return false;
 	return true;
 }
-EXPORT_SYMBOL_HDA(is_jack_detectable);
+/* DISABLED: EXPORT_SYMBOL_HDA(is_jack_detectable); */
 
 /* execute pin sense measurement */
 static u32 read_pin_sense(struct hda_codec *codec, hda_nid_t nid)
@@ -66,7 +66,7 @@ snd_hda_jack_tbl_get(struct hda_codec *codec, hda_nid_t nid)
 			return jack;
 	return NULL;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_get);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_get); */
 
 /**
  * snd_hda_jack_tbl_get_from_tag - query the jack-table entry for the given tag
@@ -84,7 +84,7 @@ snd_hda_jack_tbl_get_from_tag(struct hda_codec *codec, unsigned char tag)
 			return jack;
 	return NULL;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_get_from_tag);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_get_from_tag); */
 
 /**
  * snd_hda_jack_tbl_new - create a jack-table entry for the given NID
@@ -104,7 +104,7 @@ snd_hda_jack_tbl_new(struct hda_codec *codec, hda_nid_t nid)
 	jack->tag = codec->jacktbl.used;
 	return jack;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_new);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_tbl_new); */
 
 void snd_hda_jack_tbl_clear(struct hda_codec *codec)
 {
@@ -147,7 +147,7 @@ void snd_hda_jack_set_dirty_all(struct hda_codec *codec)
 		if (jack->nid)
 			jack->jack_dirty = 1;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_set_dirty_all);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_set_dirty_all); */
 
 /**
  * snd_hda_pin_sense - execute pin sense measurement
@@ -166,7 +166,7 @@ u32 snd_hda_pin_sense(struct hda_codec *codec, hda_nid_t nid)
 	}
 	return read_pin_sense(codec, nid);
 }
-EXPORT_SYMBOL_HDA(snd_hda_pin_sense);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_pin_sense); */
 
 #define get_jack_plug_state(sense) !!(sense & AC_PINSENSE_PRESENCE)
 
@@ -182,7 +182,7 @@ int snd_hda_jack_detect(struct hda_codec *codec, hda_nid_t nid)
 	u32 sense = snd_hda_pin_sense(codec, nid);
 	return get_jack_plug_state(sense);
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_detect);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_detect); */
 
 /**
  * snd_hda_jack_detect_enable - enable the jack-detection
@@ -202,7 +202,7 @@ int snd_hda_jack_detect_enable(struct hda_codec *codec, hda_nid_t nid,
 					 AC_VERB_SET_UNSOLICITED_ENABLE,
 					 AC_USRSP_EN | jack->tag);
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_detect_enable);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_detect_enable); */
 
 /**
  * snd_hda_jack_report_sync - sync the states of all jacks and report if changed
@@ -226,7 +226,7 @@ void snd_hda_jack_report_sync(struct hda_codec *codec)
 #endif
 		}
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_report_sync);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_report_sync); */
 
 #ifdef CONFIG_SND_HDA_INPUT_JACK
 /* guess the jack type from the pin-config */
@@ -295,7 +295,7 @@ int snd_hda_jack_add_kctl(struct hda_codec *codec, hda_nid_t nid,
 #endif
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_add_kctl);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_add_kctl); */
 
 static int add_jack_kctl(struct hda_codec *codec, hda_nid_t nid,
 			 const struct auto_pin_cfg *cfg,
@@ -372,4 +372,4 @@ int snd_hda_jack_add_kctls(struct hda_codec *codec,
 		return err;
 	return 0;
 }
-EXPORT_SYMBOL_HDA(snd_hda_jack_add_kctls);
+/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_jack_add_kctls); */

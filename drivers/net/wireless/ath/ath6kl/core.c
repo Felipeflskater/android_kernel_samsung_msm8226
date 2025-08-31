@@ -196,7 +196,7 @@ err_wq:
 
 	return ret;
 }
-EXPORT_SYMBOL(ath6kl_core_init);
+/* DISABLED: EXPORT_SYMBOL(ath6kl_core_init); */
 
 struct ath6kl *ath6kl_core_create(struct device *dev)
 {
@@ -259,7 +259,7 @@ struct ath6kl *ath6kl_core_create(struct device *dev)
 
 	return ar;
 }
-EXPORT_SYMBOL(ath6kl_core_create);
+/* DISABLED: EXPORT_SYMBOL(ath6kl_core_create); */
 
 void ath6kl_core_cleanup(struct ath6kl *ar)
 {
@@ -286,13 +286,13 @@ void ath6kl_core_cleanup(struct ath6kl *ar)
 
 	ath6kl_cfg80211_cleanup(ar);
 }
-EXPORT_SYMBOL(ath6kl_core_cleanup);
+/* DISABLED: EXPORT_SYMBOL(ath6kl_core_cleanup); */
 
 void ath6kl_core_destroy(struct ath6kl *ar)
 {
 	ath6kl_cfg80211_destroy(ar);
 }
-EXPORT_SYMBOL(ath6kl_core_destroy);
+/* DISABLED: EXPORT_SYMBOL(ath6kl_core_destroy); */
 
 MODULE_AUTHOR("Qualcomm Atheros");
 MODULE_DESCRIPTION("Core module for AR600x SDIO and USB devices.");

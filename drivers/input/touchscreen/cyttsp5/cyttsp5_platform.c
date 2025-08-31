@@ -321,7 +321,7 @@ struct cyttsp5_platform_data _cyttsp5_platform_data = {
 #endif
 };
 
-EXPORT_SYMBOL(_cyttsp5_platform_data);
+/* DISABLED: EXPORT_SYMBOL(_cyttsp5_platform_data); */
 
 #endif //#if 1
 

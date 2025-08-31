@@ -87,7 +87,7 @@ int ks8695_gpio_interrupt(unsigned int pin, unsigned int type)
 
 	return 0;
 }
-EXPORT_SYMBOL(ks8695_gpio_interrupt);
+/* DISABLED: EXPORT_SYMBOL(ks8695_gpio_interrupt); */
 
 
 
@@ -215,7 +215,7 @@ int irq_to_gpio(unsigned int irq)
 
 	return (irq - KS8695_IRQ_EXTERN0);
 }
-EXPORT_SYMBOL(irq_to_gpio);
+/* DISABLED: EXPORT_SYMBOL(irq_to_gpio); */
 
 /* GPIOLIB interface */
 

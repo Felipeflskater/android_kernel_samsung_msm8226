@@ -112,4 +112,4 @@ int nvram_getenv(char *name, char *val, size_t val_len)
 	}
 	return NVRAM_ERR_ENVNOTFOUND;
 }
-EXPORT_SYMBOL(nvram_getenv);
+/* DISABLED: EXPORT_SYMBOL(nvram_getenv); */

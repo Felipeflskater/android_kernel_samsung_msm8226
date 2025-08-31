@@ -238,7 +238,7 @@ u32 fscrypt_fname_encrypted_size(struct inode *inode, u32 ilen)
 		ilen = FS_CRYPTO_BLOCK_SIZE;
 	return size_round_up(ilen, padding);
 }
-EXPORT_SYMBOL(fscrypt_fname_encrypted_size);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_fname_encrypted_size); */
 
 /**
  * fscrypt_fname_crypto_alloc_obuff() -
@@ -263,7 +263,7 @@ int fscrypt_fname_alloc_buffer(struct inode *inode,
 		return -ENOMEM;
 	return 0;
 }
-EXPORT_SYMBOL(fscrypt_fname_alloc_buffer);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_fname_alloc_buffer); */
 
 /**
  * fscrypt_fname_crypto_free_buffer() -
@@ -277,7 +277,7 @@ void fscrypt_fname_free_buffer(struct fscrypt_str *crypto_str)
 	kfree(crypto_str->name);
 	crypto_str->name = NULL;
 }
-EXPORT_SYMBOL(fscrypt_fname_free_buffer);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_fname_free_buffer); */
 
 /**
  * fscrypt_fname_disk_to_usr() - converts a filename from disk space to user
@@ -322,7 +322,7 @@ int fscrypt_fname_disk_to_usr(struct inode *inode,
 	oname->len = ret + 1;
 	return ret + 1;
 }
-EXPORT_SYMBOL(fscrypt_fname_disk_to_usr);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_fname_disk_to_usr); */
 
 /**
  * fscrypt_fname_usr_to_disk() - converts a filename from user space to disk
@@ -347,7 +347,7 @@ int fscrypt_fname_usr_to_disk(struct inode *inode,
 	 */
 	return -EACCES;
 }
-EXPORT_SYMBOL(fscrypt_fname_usr_to_disk);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_fname_usr_to_disk); */
 
 int fscrypt_setup_filename(struct inode *dir, const struct qstr *iname,
 			      int lookup, struct fscrypt_name *fname)
@@ -415,7 +415,7 @@ errout:
 	fscrypt_fname_free_buffer(&fname->crypto_buf);
 	return ret;
 }
-EXPORT_SYMBOL(fscrypt_setup_filename);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_setup_filename); */
 
 void fscrypt_free_filename(struct fscrypt_name *fname)
 {
@@ -424,4 +424,4 @@ void fscrypt_free_filename(struct fscrypt_name *fname)
 	fname->usr_fname = NULL;
 	fname->disk_name.name = NULL;
 }
-EXPORT_SYMBOL(fscrypt_free_filename);
+/* DISABLED: EXPORT_SYMBOL(fscrypt_free_filename); */

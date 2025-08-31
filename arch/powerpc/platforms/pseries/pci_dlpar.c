@@ -62,7 +62,7 @@ pcibios_find_pci_bus(struct device_node *dn)
 
 	return find_bus_among_children(pdn->phb->bus, dn);
 }
-EXPORT_SYMBOL_GPL(pcibios_find_pci_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_find_pci_bus); */
 
 /**
  * pcibios_remove_pci_devices - remove all devices under this bus
@@ -87,7 +87,7 @@ void pcibios_remove_pci_devices(struct pci_bus *bus)
  		pci_stop_and_remove_bus_device(dev);
  	}
 }
-EXPORT_SYMBOL_GPL(pcibios_remove_pci_devices);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_remove_pci_devices); */
 
 /**
  * pcibios_add_pci_devices - adds new pci devices to bus
@@ -131,7 +131,7 @@ void pcibios_add_pci_devices(struct pci_bus * bus)
 	}
 	pcibios_finish_adding_to_bus(bus);
 }
-EXPORT_SYMBOL_GPL(pcibios_add_pci_devices);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_add_pci_devices); */
 
 struct pci_controller * __devinit init_phb_dynamic(struct device_node *dn)
 {
@@ -158,7 +158,7 @@ struct pci_controller * __devinit init_phb_dynamic(struct device_node *dn)
 
 	return phb;
 }
-EXPORT_SYMBOL_GPL(init_phb_dynamic);
+/* DISABLED: EXPORT_SYMBOL_GPL(init_phb_dynamic); */
 
 /* RPA-specific bits for removing PHBs */
 int remove_phb_dynamic(struct pci_controller *phb)
@@ -209,4 +209,4 @@ int remove_phb_dynamic(struct pci_controller *phb)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(remove_phb_dynamic);
+/* DISABLED: EXPORT_SYMBOL_GPL(remove_phb_dynamic); */

@@ -92,7 +92,7 @@ int wm97xx_reg_read(struct wm97xx *wm, u16 reg)
 	else
 		return -1;
 }
-EXPORT_SYMBOL_GPL(wm97xx_reg_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_reg_read); */
 
 void wm97xx_reg_write(struct wm97xx *wm, u16 reg, u16 val)
 {
@@ -111,7 +111,7 @@ void wm97xx_reg_write(struct wm97xx *wm, u16 reg, u16 val)
 	if (wm->ac97)
 		wm->ac97->bus->ops->write(wm->ac97, reg, val);
 }
-EXPORT_SYMBOL_GPL(wm97xx_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_reg_write); */
 
 /**
  * wm97xx_read_aux_adc - Read the aux adc.
@@ -166,7 +166,7 @@ int wm97xx_read_aux_adc(struct wm97xx *wm, u16 adcsel)
 	mutex_unlock(&wm->codec_mutex);
 	return (rc == RC_VALID ? auxval & 0xfff : -EBUSY);
 }
-EXPORT_SYMBOL_GPL(wm97xx_read_aux_adc);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_read_aux_adc); */
 
 /**
  * wm97xx_get_gpio - Get the status of a codec GPIO.
@@ -192,7 +192,7 @@ enum wm97xx_gpio_status wm97xx_get_gpio(struct wm97xx *wm, u32 gpio)
 	mutex_unlock(&wm->codec_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(wm97xx_get_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_get_gpio); */
 
 /**
  * wm97xx_set_gpio - Set the status of a codec GPIO.
@@ -222,7 +222,7 @@ void wm97xx_set_gpio(struct wm97xx *wm, u32 gpio,
 		wm97xx_reg_write(wm, AC97_GPIO_STATUS, reg);
 	mutex_unlock(&wm->codec_mutex);
 }
-EXPORT_SYMBOL_GPL(wm97xx_set_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_set_gpio); */
 
 /*
  * Codec GPIO pin configuration, this sets pin direction, polarity,
@@ -269,7 +269,7 @@ void wm97xx_config_gpio(struct wm97xx *wm, u32 gpio, enum wm97xx_gpio_dir dir,
 	wm97xx_reg_write(wm, AC97_GPIO_CFG, reg);
 	mutex_unlock(&wm->codec_mutex);
 }
-EXPORT_SYMBOL_GPL(wm97xx_config_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_config_gpio); */
 
 /*
  * Configure the WM97XX_PRP value to use while system is suspended.
@@ -286,7 +286,7 @@ void wm97xx_set_suspend_mode(struct wm97xx *wm, u16 mode)
 	wm->suspend_mode = mode;
 	device_init_wakeup(&wm->input_dev->dev, mode != 0);
 }
-EXPORT_SYMBOL_GPL(wm97xx_set_suspend_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_set_suspend_mode); */
 
 /*
  * Handle a pen down interrupt.
@@ -809,7 +809,7 @@ int wm97xx_register_mach_ops(struct wm97xx *wm,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wm97xx_register_mach_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_register_mach_ops); */
 
 void wm97xx_unregister_mach_ops(struct wm97xx *wm)
 {
@@ -817,7 +817,7 @@ void wm97xx_unregister_mach_ops(struct wm97xx *wm)
 	wm->mach_ops = NULL;
 	mutex_unlock(&wm->codec_mutex);
 }
-EXPORT_SYMBOL_GPL(wm97xx_unregister_mach_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm97xx_unregister_mach_ops); */
 
 static struct device_driver wm97xx_driver = {
 	.name =		"wm97xx-ts",

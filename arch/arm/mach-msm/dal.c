@@ -557,7 +557,7 @@ int daldevice_attach(uint32_t device_id, char *port, int cpu,
 
 	return ret;
 }
-EXPORT_SYMBOL(daldevice_attach);
+/* DISABLED: EXPORT_SYMBOL(daldevice_attach); */
 
 static void dalrpc_ddi_prologue(uint32_t ddi_idx, struct daldevice_handle *h,
 							uint32_t idx_async)
@@ -600,7 +600,7 @@ norpc:
 
 	return 0;
 }
-EXPORT_SYMBOL(daldevice_detach);
+/* DISABLED: EXPORT_SYMBOL(daldevice_detach); */
 
 uint32_t dalrpc_fcn_0(uint32_t ddi_idx, void *handle, uint32_t s1)
 {
@@ -624,7 +624,7 @@ uint32_t dalrpc_fcn_0(uint32_t ddi_idx, void *handle, uint32_t s1)
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_0);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_0); */
 
 uint32_t dalrpc_fcn_1(uint32_t ddi_idx, void *handle, uint32_t s1,
 		      uint32_t s2)
@@ -650,7 +650,7 @@ uint32_t dalrpc_fcn_1(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_1);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_1); */
 
 uint32_t dalrpc_fcn_2(uint32_t ddi_idx, void *handle, uint32_t s1,
 		      uint32_t *p_s2)
@@ -678,7 +678,7 @@ uint32_t dalrpc_fcn_2(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_2);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_2); */
 
 uint32_t dalrpc_fcn_3(uint32_t ddi_idx, void *handle, uint32_t s1,
 		      uint32_t s2, uint32_t s3)
@@ -705,7 +705,7 @@ uint32_t dalrpc_fcn_3(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_3);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_3); */
 
 uint32_t dalrpc_fcn_4(uint32_t ddi_idx, void *handle, uint32_t s1,
 		      uint32_t s2, uint32_t *p_s3)
@@ -734,7 +734,7 @@ uint32_t dalrpc_fcn_4(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_4);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_4); */
 
 uint32_t dalrpc_fcn_5(uint32_t ddi_idx, void *handle, const void *ibuf,
 		      uint32_t ilen)
@@ -769,7 +769,7 @@ uint32_t dalrpc_fcn_5(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_5);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_5); */
 
 uint32_t dalrpc_fcn_6(uint32_t ddi_idx, void *handle, uint32_t s1,
 		      const void *ibuf, uint32_t ilen)
@@ -800,7 +800,7 @@ uint32_t dalrpc_fcn_6(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_6);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_6); */
 
 uint32_t dalrpc_fcn_7(uint32_t ddi_idx, void *handle, const void *ibuf,
 		      uint32_t ilen, void *obuf, uint32_t olen,
@@ -845,7 +845,7 @@ uint32_t dalrpc_fcn_7(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_7);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_7); */
 
 uint32_t dalrpc_fcn_8(uint32_t ddi_idx, void *handle, const void *ibuf,
 		      uint32_t ilen, void *obuf, uint32_t olen)
@@ -887,7 +887,7 @@ uint32_t dalrpc_fcn_8(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_8);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_8); */
 
 uint32_t dalrpc_fcn_9(uint32_t ddi_idx, void *handle, void *obuf,
 		      uint32_t olen)
@@ -923,7 +923,7 @@ uint32_t dalrpc_fcn_9(uint32_t ddi_idx, void *handle, void *obuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_9);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_9); */
 
 uint32_t dalrpc_fcn_10(uint32_t ddi_idx, void *handle, uint32_t s1,
 		       const void *ibuf, uint32_t ilen, void *obuf,
@@ -968,7 +968,7 @@ uint32_t dalrpc_fcn_10(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_10);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_10); */
 
 uint32_t dalrpc_fcn_11(uint32_t ddi_idx, void *handle, uint32_t s1,
 		       void *obuf, uint32_t olen)
@@ -1005,7 +1005,7 @@ uint32_t dalrpc_fcn_11(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_11);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_11); */
 
 uint32_t dalrpc_fcn_12(uint32_t ddi_idx, void *handle, uint32_t s1,
 		       void *obuf, uint32_t olen, uint32_t *oalen)
@@ -1043,7 +1043,7 @@ uint32_t dalrpc_fcn_12(uint32_t ddi_idx, void *handle, uint32_t s1,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_12);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_12); */
 
 uint32_t dalrpc_fcn_13(uint32_t ddi_idx, void *handle, const void *ibuf,
 		       uint32_t ilen, const void *ibuf2, uint32_t ilen2,
@@ -1089,7 +1089,7 @@ uint32_t dalrpc_fcn_13(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_13);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_13); */
 
 uint32_t dalrpc_fcn_14(uint32_t ddi_idx, void *handle, const void *ibuf,
 		       uint32_t ilen, void *obuf, uint32_t olen,
@@ -1141,7 +1141,7 @@ uint32_t dalrpc_fcn_14(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_14);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_14); */
 
 uint32_t dalrpc_fcn_15(uint32_t ddi_idx, void *handle, const void *ibuf,
 		       uint32_t ilen, const void *ibuf2, uint32_t ilen2,
@@ -1197,7 +1197,7 @@ uint32_t dalrpc_fcn_15(uint32_t ddi_idx, void *handle, const void *ibuf,
 	mutex_unlock(&h->client_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dalrpc_fcn_15);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_fcn_15); */
 
 void *dalrpc_alloc_event(void *handle)
 {
@@ -1222,7 +1222,7 @@ void *dalrpc_alloc_event(void *handle)
 
 	return ev;
 }
-EXPORT_SYMBOL(dalrpc_alloc_event);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_alloc_event); */
 
 void *dalrpc_alloc_cb(void *handle,
 		      void (*fn)(void *, uint32_t, void *, uint32_t),
@@ -1249,7 +1249,7 @@ void *dalrpc_alloc_cb(void *handle,
 
 	return cb;
 }
-EXPORT_SYMBOL(dalrpc_alloc_cb);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_alloc_cb); */
 
 void dalrpc_dealloc_event(void *handle,
 			  void *ev_h)
@@ -1265,7 +1265,7 @@ void dalrpc_dealloc_event(void *handle,
 	mutex_unlock(&h->port->event_list_lock);
 	kfree(ev);
 }
-EXPORT_SYMBOL(dalrpc_dealloc_event);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_dealloc_event); */
 
 void dalrpc_dealloc_cb(void *handle,
 		       void *cb_h)
@@ -1281,7 +1281,7 @@ void dalrpc_dealloc_cb(void *handle,
 	mutex_unlock(&h->port->cb_list_lock);
 	kfree(cb);
 }
-EXPORT_SYMBOL(dalrpc_dealloc_cb);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_dealloc_cb); */
 
 static int event_occurred(int num_events, struct dalrpc_event_handle **events,
 			  int *occurred)
@@ -1323,4 +1323,4 @@ int dalrpc_event_wait_multiple(int num, void **ev_h, int timeout)
 	else
 		return -ETIMEDOUT;
 }
-EXPORT_SYMBOL(dalrpc_event_wait_multiple);
+/* DISABLED: EXPORT_SYMBOL(dalrpc_event_wait_multiple); */

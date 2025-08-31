@@ -30,13 +30,13 @@ void gpio_line_config(int line, int direction)
 	}
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(gpio_line_config);
+/* DISABLED: EXPORT_SYMBOL(gpio_line_config); */
 
 int gpio_line_get(int line)
 {
 	return !!(*IOP3XX_GPID & (1 << line));
 }
-EXPORT_SYMBOL(gpio_line_get);
+/* DISABLED: EXPORT_SYMBOL(gpio_line_get); */
 
 void gpio_line_set(int line, int value)
 {
@@ -50,7 +50,7 @@ void gpio_line_set(int line, int value)
 	}
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(gpio_line_set);
+/* DISABLED: EXPORT_SYMBOL(gpio_line_set); */
 
 static int iop3xx_gpio_direction_input(struct gpio_chip *chip, unsigned gpio)
 {

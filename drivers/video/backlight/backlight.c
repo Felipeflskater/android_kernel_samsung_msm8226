@@ -269,7 +269,7 @@ void backlight_force_update(struct backlight_device *bd,
 	mutex_unlock(&bd->ops_lock);
 	backlight_generate_event(bd, reason);
 }
-EXPORT_SYMBOL(backlight_force_update);
+/* DISABLED: EXPORT_SYMBOL(backlight_force_update); */
 
 /**
  * backlight_device_register - create and register a new object of
@@ -341,7 +341,7 @@ struct backlight_device *backlight_device_register(const char *name,
 
 	return new_bd;
 }
-EXPORT_SYMBOL(backlight_device_register);
+/* DISABLED: EXPORT_SYMBOL(backlight_device_register); */
 
 /**
  * backlight_device_unregister - unregisters a backlight device object.
@@ -367,7 +367,7 @@ void backlight_device_unregister(struct backlight_device *bd)
 	backlight_unregister_fb(bd);
 	device_unregister(&bd->dev);
 }
-EXPORT_SYMBOL(backlight_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(backlight_device_unregister); */
 
 static void __exit backlight_class_exit(void)
 {

@@ -23,7 +23,7 @@
 
 const kernel_cap_t __cap_empty_set = CAP_EMPTY_SET;
 
-EXPORT_SYMBOL(__cap_empty_set);
+/* DISABLED: EXPORT_SYMBOL(__cap_empty_set); */
 
 int file_caps_enabled = 1;
 
@@ -32,7 +32,7 @@ static int __init file_caps_disable(char *str)
 	file_caps_enabled = 0;
 	return 1;
 }
-/* DISABLED: __setup("no_file_caps", file_caps_disable); */
+/* DISABLED: __setup("no_file_caps", file_caps_disable); */ */
 
 /*
  * More recent versions of libcap are available from:
@@ -390,7 +390,7 @@ bool ns_capable(struct user_namespace *ns, int cap)
 	}
 	return false;
 }
-EXPORT_SYMBOL(ns_capable);
+/* DISABLED: EXPORT_SYMBOL(ns_capable); */
 
 /**
  * capable - Determine if the current task has a superior capability in effect
@@ -406,7 +406,7 @@ bool capable(int cap)
 {
 	return ns_capable(&init_user_ns, cap);
 }
-EXPORT_SYMBOL(capable);
+/* DISABLED: EXPORT_SYMBOL(capable); */
 
 /**
  * nsown_capable - Check superior capability to one's own user_ns

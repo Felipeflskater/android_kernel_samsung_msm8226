@@ -67,7 +67,7 @@ void *mpc85xx_cache_sram_alloc(unsigned int size,
 
 	return (unsigned char *)cache_sram->base_virt + offset;
 }
-EXPORT_SYMBOL(mpc85xx_cache_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(mpc85xx_cache_sram_alloc); */
 
 void mpc85xx_cache_sram_free(void *ptr)
 {
@@ -78,7 +78,7 @@ void mpc85xx_cache_sram_free(void *ptr)
 	rh_free(cache_sram->rh, ptr - cache_sram->base_virt);
 	spin_unlock_irqrestore(&cache_sram->lock, flags);
 }
-EXPORT_SYMBOL(mpc85xx_cache_sram_free);
+/* DISABLED: EXPORT_SYMBOL(mpc85xx_cache_sram_free); */
 
 int __init instantiate_cache_sram(struct platform_device *dev,
 		struct sram_parameters sram_params)

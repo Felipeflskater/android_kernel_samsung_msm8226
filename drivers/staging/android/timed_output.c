@@ -95,7 +95,7 @@ err_create_file:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(timed_output_dev_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(timed_output_dev_register); */
 
 void timed_output_dev_unregister(struct timed_output_dev *tdev)
 {
@@ -103,7 +103,7 @@ void timed_output_dev_unregister(struct timed_output_dev *tdev)
 	dev_set_drvdata(tdev->dev, NULL);
 	device_destroy(timed_output_class, MKDEV(0, tdev->index));
 }
-EXPORT_SYMBOL_GPL(timed_output_dev_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(timed_output_dev_unregister); */
 
 static int __init timed_output_init(void)
 {

@@ -436,7 +436,7 @@ marvel_specify_io7(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("io7=", marvel_specify_io7); */
+/* DISABLED: __setup("io7=", marvel_specify_io7); */ */
 
 void __init
 marvel_init_arch(void)
@@ -829,12 +829,12 @@ marvel_iowrite8(u8 b, void __iomem *xaddr)
 }
 
 #ifndef CONFIG_ALPHA_GENERIC
-EXPORT_SYMBOL(marvel_ioremap);
-EXPORT_SYMBOL(marvel_iounmap);
-EXPORT_SYMBOL(marvel_is_mmio);
-EXPORT_SYMBOL(marvel_ioportmap);
-EXPORT_SYMBOL(marvel_ioread8);
-EXPORT_SYMBOL(marvel_iowrite8);
+/* DISABLED: EXPORT_SYMBOL(marvel_ioremap); */
+/* DISABLED: EXPORT_SYMBOL(marvel_iounmap); */
+/* DISABLED: EXPORT_SYMBOL(marvel_is_mmio); */
+/* DISABLED: EXPORT_SYMBOL(marvel_ioportmap); */
+/* DISABLED: EXPORT_SYMBOL(marvel_ioread8); */
+/* DISABLED: EXPORT_SYMBOL(marvel_iowrite8); */
 #endif
 
 /*

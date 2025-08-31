@@ -61,7 +61,7 @@ void *dma_alloc_coherent(struct device *dev,
 	*dma_handle = addr;
 	return page_address(pg);
 }
-EXPORT_SYMBOL(dma_alloc_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
 
 /*
  * Free memory that was allocated with dma_alloc_coherent.
@@ -71,7 +71,7 @@ void dma_free_coherent(struct device *dev, size_t size,
 {
 	homecache_free_pages((unsigned long)vaddr, get_order(size));
 }
-EXPORT_SYMBOL(dma_free_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
 
 /*
  * The map routines "map" the specified address range for DMA
@@ -122,14 +122,14 @@ dma_addr_t dma_map_single(struct device *dev, void *ptr, size_t size,
 
 	return dma_addr;
 }
-EXPORT_SYMBOL(dma_map_single);
+/* DISABLED: EXPORT_SYMBOL(dma_map_single); */
 
 void dma_unmap_single(struct device *dev, dma_addr_t dma_addr, size_t size,
 		 enum dma_data_direction direction)
 {
 	BUG_ON(!valid_dma_direction(direction));
 }
-EXPORT_SYMBOL(dma_unmap_single);
+/* DISABLED: EXPORT_SYMBOL(dma_unmap_single); */
 
 int dma_map_sg(struct device *dev, struct scatterlist *sglist, int nents,
 	   enum dma_data_direction direction)
@@ -148,14 +148,14 @@ int dma_map_sg(struct device *dev, struct scatterlist *sglist, int nents,
 
 	return nents;
 }
-EXPORT_SYMBOL(dma_map_sg);
+/* DISABLED: EXPORT_SYMBOL(dma_map_sg); */
 
 void dma_unmap_sg(struct device *dev, struct scatterlist *sg, int nhwentries,
 	     enum dma_data_direction direction)
 {
 	BUG_ON(!valid_dma_direction(direction));
 }
-EXPORT_SYMBOL(dma_unmap_sg);
+/* DISABLED: EXPORT_SYMBOL(dma_unmap_sg); */
 
 dma_addr_t dma_map_page(struct device *dev, struct page *page,
 			unsigned long offset, size_t size,
@@ -168,21 +168,21 @@ dma_addr_t dma_map_page(struct device *dev, struct page *page,
 
 	return page_to_pa(page) + offset;
 }
-EXPORT_SYMBOL(dma_map_page);
+/* DISABLED: EXPORT_SYMBOL(dma_map_page); */
 
 void dma_unmap_page(struct device *dev, dma_addr_t dma_address, size_t size,
 	       enum dma_data_direction direction)
 {
 	BUG_ON(!valid_dma_direction(direction));
 }
-EXPORT_SYMBOL(dma_unmap_page);
+/* DISABLED: EXPORT_SYMBOL(dma_unmap_page); */
 
 void dma_sync_single_for_cpu(struct device *dev, dma_addr_t dma_handle,
 			     size_t size, enum dma_data_direction direction)
 {
 	BUG_ON(!valid_dma_direction(direction));
 }
-EXPORT_SYMBOL(dma_sync_single_for_cpu);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_single_for_cpu); */
 
 void dma_sync_single_for_device(struct device *dev, dma_addr_t dma_handle,
 				size_t size, enum dma_data_direction direction)
@@ -195,7 +195,7 @@ void dma_sync_single_for_device(struct device *dev, dma_addr_t dma_handle,
 	for (i = start; i <= end; ++i)
 		homecache_flush_cache(pfn_to_page(i), 0);
 }
-EXPORT_SYMBOL(dma_sync_single_for_device);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_single_for_device); */
 
 void dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sg, int nelems,
 		    enum dma_data_direction direction)
@@ -203,7 +203,7 @@ void dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sg, int nelems,
 	BUG_ON(!valid_dma_direction(direction));
 	WARN_ON(nelems == 0 || sg[0].length == 0);
 }
-EXPORT_SYMBOL(dma_sync_sg_for_cpu);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_sg_for_cpu); */
 
 /*
  * Flush and invalidate cache for scatterlist.
@@ -222,7 +222,7 @@ void dma_sync_sg_for_device(struct device *dev, struct scatterlist *sglist,
 					   sg_dma_len(sg), direction);
 	}
 }
-EXPORT_SYMBOL(dma_sync_sg_for_device);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_sg_for_device); */
 
 void dma_sync_single_range_for_cpu(struct device *dev, dma_addr_t dma_handle,
 				   unsigned long offset, size_t size,
@@ -230,7 +230,7 @@ void dma_sync_single_range_for_cpu(struct device *dev, dma_addr_t dma_handle,
 {
 	dma_sync_single_for_cpu(dev, dma_handle + offset, size, direction);
 }
-EXPORT_SYMBOL(dma_sync_single_range_for_cpu);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_single_range_for_cpu); */
 
 void dma_sync_single_range_for_device(struct device *dev,
 				      dma_addr_t dma_handle,
@@ -239,7 +239,7 @@ void dma_sync_single_range_for_device(struct device *dev,
 {
 	dma_sync_single_for_device(dev, dma_handle + offset, size, direction);
 }
-EXPORT_SYMBOL(dma_sync_single_range_for_device);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_single_range_for_device); */
 
 /*
  * dma_alloc_noncoherent() returns non-cacheable memory, so there's no
@@ -249,4 +249,4 @@ void dma_cache_sync(struct device *dev, void *vaddr, size_t size,
 		    enum dma_data_direction direction)
 {
 }
-EXPORT_SYMBOL(dma_cache_sync);
+/* DISABLED: EXPORT_SYMBOL(dma_cache_sync); */

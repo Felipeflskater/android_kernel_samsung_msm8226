@@ -480,7 +480,7 @@ void set_personality_ia32(bool x32)
 		current_thread_info()->status |= TS_COMPAT;
 	}
 }
-EXPORT_SYMBOL_GPL(set_personality_ia32);
+/* DISABLED: EXPORT_SYMBOL_GPL(set_personality_ia32); */
 
 /*
  * Called from fs/proc with a reference on @p to find the function

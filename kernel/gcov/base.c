@@ -51,7 +51,7 @@ void __gcov_init(struct gcov_info *info)
 		gcov_event(GCOV_ADD, info);
 	mutex_unlock(&gcov_lock);
 }
-EXPORT_SYMBOL(__gcov_init);
+/* DISABLED: EXPORT_SYMBOL(__gcov_init); */
 
 /*
  * These functions may be referenced by gcc-generated profiling code but serve
@@ -61,25 +61,25 @@ void __gcov_flush(void)
 {
 	/* Unused. */
 }
-EXPORT_SYMBOL(__gcov_flush);
+/* DISABLED: EXPORT_SYMBOL(__gcov_flush); */
 
 void __gcov_merge_add(gcov_type *counters, unsigned int n_counters)
 {
 	/* Unused. */
 }
-EXPORT_SYMBOL(__gcov_merge_add);
+/* DISABLED: EXPORT_SYMBOL(__gcov_merge_add); */
 
 void __gcov_merge_single(gcov_type *counters, unsigned int n_counters)
 {
 	/* Unused. */
 }
-EXPORT_SYMBOL(__gcov_merge_single);
+/* DISABLED: EXPORT_SYMBOL(__gcov_merge_single); */
 
 void __gcov_merge_delta(gcov_type *counters, unsigned int n_counters)
 {
 	/* Unused. */
 }
-EXPORT_SYMBOL(__gcov_merge_delta);
+/* DISABLED: EXPORT_SYMBOL(__gcov_merge_delta); */
 
 /**
  * gcov_enable_events - enable event reporting through gcov_event()

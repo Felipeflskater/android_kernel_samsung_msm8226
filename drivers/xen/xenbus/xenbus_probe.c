@@ -64,10 +64,10 @@
 
 
 int xen_store_evtchn;
-EXPORT_SYMBOL_GPL(xen_store_evtchn);
+/* DISABLED: EXPORT_SYMBOL_GPL(xen_store_evtchn); */
 
 struct xenstore_domain_interface *xen_store_interface;
-EXPORT_SYMBOL_GPL(xen_store_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(xen_store_interface); */
 
 static unsigned long xen_store_mfn;
 
@@ -93,7 +93,7 @@ int xenbus_match(struct device *_dev, struct device_driver *_drv)
 
 	return match_device(drv->ids, to_xenbus_device(_dev)) != NULL;
 }
-EXPORT_SYMBOL_GPL(xenbus_match);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_match); */
 
 
 static void free_otherend_details(struct xenbus_device *dev)
@@ -161,7 +161,7 @@ int xenbus_read_otherend_details(struct xenbus_device *xendev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xenbus_read_otherend_details);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_read_otherend_details); */
 
 void xenbus_otherend_changed(struct xenbus_watch *watch,
 			     const char **vec, unsigned int len,
@@ -201,7 +201,7 @@ void xenbus_otherend_changed(struct xenbus_watch *watch,
 	if (drv->otherend_changed)
 		drv->otherend_changed(dev, state);
 }
-EXPORT_SYMBOL_GPL(xenbus_otherend_changed);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_otherend_changed); */
 
 int xenbus_dev_probe(struct device *_dev)
 {
@@ -247,7 +247,7 @@ fail:
 	xenbus_switch_state(dev, XenbusStateClosed);
 	return err;
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_probe); */
 
 int xenbus_dev_remove(struct device *_dev)
 {
@@ -266,7 +266,7 @@ int xenbus_dev_remove(struct device *_dev)
 	xenbus_switch_state(dev, XenbusStateClosed);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_remove); */
 
 void xenbus_dev_shutdown(struct device *_dev)
 {
@@ -289,7 +289,7 @@ void xenbus_dev_shutdown(struct device *_dev)
  out:
 	put_device(&dev->dev);
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_shutdown);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_shutdown); */
 
 int xenbus_register_driver_common(struct xenbus_driver *drv,
 				  struct xen_bus_type *bus)
@@ -298,13 +298,13 @@ int xenbus_register_driver_common(struct xenbus_driver *drv,
 
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(xenbus_register_driver_common);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_register_driver_common); */
 
 void xenbus_unregister_driver(struct xenbus_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(xenbus_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_unregister_driver); */
 
 struct xb_find_info {
 	struct xenbus_device *dev;
@@ -399,7 +399,7 @@ struct device_attribute xenbus_dev_attrs[] = {
 	__ATTR_RO(modalias),
 	__ATTR_NULL
 };
-EXPORT_SYMBOL_GPL(xenbus_dev_attrs);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_attrs); */
 
 int xenbus_probe_node(struct xen_bus_type *bus,
 		      const char *type,
@@ -456,7 +456,7 @@ fail:
 	kfree(xendev);
 	return err;
 }
-EXPORT_SYMBOL_GPL(xenbus_probe_node);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_probe_node); */
 
 static int xenbus_probe_device_type(struct xen_bus_type *bus, const char *type)
 {
@@ -498,7 +498,7 @@ int xenbus_probe_devices(struct xen_bus_type *bus)
 	kfree(dir);
 	return err;
 }
-EXPORT_SYMBOL_GPL(xenbus_probe_devices);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_probe_devices); */
 
 static unsigned int char_count(const char *str, char c)
 {
@@ -559,7 +559,7 @@ void xenbus_dev_changed(const char *node, struct xen_bus_type *bus)
 
 	kfree(root);
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_changed);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_changed); */
 
 int xenbus_dev_suspend(struct device *dev)
 {
@@ -580,7 +580,7 @@ int xenbus_dev_suspend(struct device *dev)
 		       "xenbus: suspend %s failed: %i\n", dev_name(dev), err);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_suspend); */
 
 int xenbus_dev_resume(struct device *dev)
 {
@@ -624,7 +624,7 @@ int xenbus_dev_resume(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_resume); */
 
 int xenbus_dev_cancel(struct device *dev)
 {
@@ -632,7 +632,7 @@ int xenbus_dev_cancel(struct device *dev)
 	DPRINTK("cancel");
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xenbus_dev_cancel);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_cancel); */
 
 /* A flag to determine if xenstored is 'ready' (i.e. has started) */
 int xenstored_ready;
@@ -649,13 +649,13 @@ int register_xenstore_notifier(struct notifier_block *nb)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_xenstore_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_xenstore_notifier); */
 
 void unregister_xenstore_notifier(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&xenstore_chain, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_xenstore_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_xenstore_notifier); */
 
 void xenbus_probe(struct work_struct *unused)
 {
@@ -664,7 +664,7 @@ void xenbus_probe(struct work_struct *unused)
 	/* Notify others that xenstore is up */
 	blocking_notifier_call_chain(&xenstore_chain, 0, NULL);
 }
-EXPORT_SYMBOL_GPL(xenbus_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_probe); */
 
 static int __init xenbus_probe_initcall(void)
 {

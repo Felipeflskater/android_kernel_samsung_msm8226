@@ -65,7 +65,7 @@ static struct notifier_block alpha_panic_block = {
 
 
 struct hwrpb_struct *hwrpb;
-EXPORT_SYMBOL(hwrpb);
+/* DISABLED: EXPORT_SYMBOL(hwrpb); */
 unsigned long srm_hae;
 
 int alpha_l1i_cacheshape;
@@ -81,7 +81,7 @@ unsigned long alpha_verbose_mcheck = CONFIG_VERBOSE_MCHECK_ON;
 
 #ifdef CONFIG_NUMA
 struct cpumask node_to_cpumask_map[MAX_NUMNODES] __read_mostly;
-EXPORT_SYMBOL(node_to_cpumask_map);
+/* DISABLED: EXPORT_SYMBOL(node_to_cpumask_map); */
 #endif
 
 /* Which processor we booted from.  */
@@ -116,7 +116,7 @@ unsigned long alpha_agpgart_size = DEFAULT_AGP_APER_SIZE;
 #ifdef CONFIG_ALPHA_GENERIC
 struct alpha_machine_vector alpha_mv;
 int alpha_using_srm;
-EXPORT_SYMBOL(alpha_using_srm);
+/* DISABLED: EXPORT_SYMBOL(alpha_using_srm); */
 #endif
 
 static struct alpha_machine_vector *get_sysvec(unsigned long, unsigned long,
@@ -143,7 +143,7 @@ struct screen_info screen_info = {
 	.orig_video_points = 16
 };
 
-EXPORT_SYMBOL(screen_info);
+/* DISABLED: EXPORT_SYMBOL(screen_info); */
 
 /*
  * The direct map I/O window, if any.  This should be the same
@@ -152,8 +152,8 @@ EXPORT_SYMBOL(screen_info);
 
 unsigned long __direct_map_base;
 unsigned long __direct_map_size;
-EXPORT_SYMBOL(__direct_map_base);
-EXPORT_SYMBOL(__direct_map_size);
+/* DISABLED: EXPORT_SYMBOL(__direct_map_base); */
+/* DISABLED: EXPORT_SYMBOL(__direct_map_size); */
 
 /*
  * Declare all of the machine vectors.

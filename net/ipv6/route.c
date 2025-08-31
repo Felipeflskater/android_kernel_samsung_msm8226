@@ -713,7 +713,7 @@ struct dst_entry * ip6_route_lookup(struct net *net, struct flowi6 *fl6,
 {
 	return fib6_rule_lookup(net, fl6, flags, ip6_pol_route_lookup);
 }
-EXPORT_SYMBOL_GPL(ip6_route_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip6_route_lookup); */
 
 struct rt6_info *rt6_lookup(struct net *net, const struct in6_addr *daddr,
 			    const struct in6_addr *saddr, int oif, int strict)
@@ -739,7 +739,7 @@ struct rt6_info *rt6_lookup(struct net *net, const struct in6_addr *daddr,
 	return NULL;
 }
 
-EXPORT_SYMBOL(rt6_lookup);
+/* DISABLED: EXPORT_SYMBOL(rt6_lookup); */
 
 /* ip6_ins_rt is called with FREE table->tb6_lock.
    It takes new route entry, the addition fails by any reason the
@@ -976,7 +976,7 @@ struct dst_entry * ip6_route_output(struct net *net, const struct sock *sk,
 	return fib6_rule_lookup(net, fl6, flags, ip6_pol_route_output);
 }
 
-EXPORT_SYMBOL(ip6_route_output);
+/* DISABLED: EXPORT_SYMBOL(ip6_route_output); */
 
 struct dst_entry *ip6_blackhole_route(struct net *net, struct dst_entry *dst_orig)
 {
@@ -1116,14 +1116,14 @@ void ip6_update_pmtu(struct sk_buff *skb, struct net *net, __be32 mtu,
 		ip6_rt_update_pmtu(dst, ntohl(mtu));
 	dst_release(dst);
 }
-EXPORT_SYMBOL_GPL(ip6_update_pmtu);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip6_update_pmtu); */
 
 void ip6_sk_update_pmtu(struct sk_buff *skb, struct sock *sk, __be32 mtu)
 {
 	ip6_update_pmtu(skb, sock_net(sk), mtu,
 			sk->sk_bound_dev_if, sk->sk_mark, sk->sk_uid);
 }
-EXPORT_SYMBOL_GPL(ip6_sk_update_pmtu);
+/* DISABLED: EXPORT_SYMBOL_GPL(ip6_sk_update_pmtu); */
 
 static unsigned int ip6_default_advmss(const struct dst_entry *dst)
 {
@@ -1312,7 +1312,7 @@ int ip6_dst_hoplimit(struct dst_entry *dst)
 	}
 	return hoplimit;
 }
-EXPORT_SYMBOL(ip6_dst_hoplimit);
+/* DISABLED: EXPORT_SYMBOL(ip6_dst_hoplimit); */
 
 /*
  *

@@ -279,5 +279,5 @@ otg_ulpi_create(struct usb_phy_io_ops *ops,
 
 	return phy;
 }
-EXPORT_SYMBOL_GPL(otg_ulpi_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(otg_ulpi_create); */
 

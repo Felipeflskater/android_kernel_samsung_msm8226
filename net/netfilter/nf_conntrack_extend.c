@@ -41,7 +41,7 @@ void __nf_ct_ext_destroy(struct nf_conn *ct)
 		rcu_read_unlock();
 	}
 }
-EXPORT_SYMBOL(__nf_ct_ext_destroy);
+/* DISABLED: EXPORT_SYMBOL(__nf_ct_ext_destroy); */
 
 static void *
 nf_ct_ext_create(struct nf_ct_ext **ext, enum nf_ct_ext_id id,
@@ -119,7 +119,7 @@ void *__nf_ct_ext_add_length(struct nf_conn *ct, enum nf_ct_ext_id id,
 	memset((void *)new + newoff, 0, newlen - newoff);
 	return (void *)new + newoff;
 }
-EXPORT_SYMBOL(__nf_ct_ext_add_length);
+/* DISABLED: EXPORT_SYMBOL(__nf_ct_ext_add_length); */
 
 static void update_alloc_size(struct nf_ct_ext_type *type)
 {
@@ -177,7 +177,7 @@ out:
 	mutex_unlock(&nf_ct_ext_type_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(nf_ct_extend_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_extend_register); */
 
 /* This MUST be called in process context. */
 void nf_ct_extend_unregister(struct nf_ct_ext_type *type)
@@ -188,4 +188,4 @@ void nf_ct_extend_unregister(struct nf_ct_ext_type *type)
 	mutex_unlock(&nf_ct_ext_type_mutex);
 	rcu_barrier(); /* Wait for completion of call_rcu()'s */
 }
-EXPORT_SYMBOL_GPL(nf_ct_extend_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_extend_unregister); */

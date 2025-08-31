@@ -118,7 +118,7 @@ bool vgacon_text_force(void)
 {
 	return vgacon_text_mode_force ? true : false;
 }
-EXPORT_SYMBOL(vgacon_text_force);
+/* DISABLED: EXPORT_SYMBOL(vgacon_text_force); */
 
 static int __init text_mode(char *str)
 {
@@ -127,7 +127,7 @@ static int __init text_mode(char *str)
 }
 
 /* force text mode - used by kernel modesetting */
-/* DISABLED: __setup("nomodeset", text_mode); */
+/* DISABLED: __setup("nomodeset", text_mode); */ */
 
 static int __init no_scroll(char *str)
 {
@@ -140,7 +140,7 @@ static int __init no_scroll(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("no-scroll", no_scroll); */
+/* DISABLED: __setup("no-scroll", no_scroll); */ */
 
 /*
  * By replacing the four outb_p with two back to back outw, we can reduce

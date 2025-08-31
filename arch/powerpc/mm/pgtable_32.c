@@ -39,7 +39,7 @@
 
 unsigned long ioremap_base;
 unsigned long ioremap_bot;
-EXPORT_SYMBOL(ioremap_bot);	/* aka VMALLOC_END */
+/* DISABLED: EXPORT_SYMBOL(ioremap_bot);	/* aka VMALLOC_END */ */
 
 #if defined(CONFIG_6xx) || defined(CONFIG_POWER3)
 #define HAVE_BATS	1
@@ -131,7 +131,7 @@ ioremap(phys_addr_t addr, unsigned long size)
 	return __ioremap_caller(addr, size, _PAGE_NO_CACHE | _PAGE_GUARDED,
 				__builtin_return_address(0));
 }
-EXPORT_SYMBOL(ioremap);
+/* DISABLED: EXPORT_SYMBOL(ioremap); */
 
 void __iomem *
 ioremap_wc(phys_addr_t addr, unsigned long size)
@@ -139,7 +139,7 @@ ioremap_wc(phys_addr_t addr, unsigned long size)
 	return __ioremap_caller(addr, size, _PAGE_NO_CACHE,
 				__builtin_return_address(0));
 }
-EXPORT_SYMBOL(ioremap_wc);
+/* DISABLED: EXPORT_SYMBOL(ioremap_wc); */
 
 void __iomem *
 ioremap_prot(phys_addr_t addr, unsigned long size, unsigned long flags)
@@ -161,7 +161,7 @@ ioremap_prot(phys_addr_t addr, unsigned long size, unsigned long flags)
 
 	return __ioremap_caller(addr, size, flags, __builtin_return_address(0));
 }
-EXPORT_SYMBOL(ioremap_prot);
+/* DISABLED: EXPORT_SYMBOL(ioremap_prot); */
 
 void __iomem *
 __ioremap(phys_addr_t addr, unsigned long size, unsigned long flags)
@@ -261,7 +261,7 @@ __ioremap_caller(phys_addr_t addr, unsigned long size, unsigned long flags,
 out:
 	return (void __iomem *) (v + ((unsigned long)addr & ~PAGE_MASK));
 }
-EXPORT_SYMBOL(__ioremap);
+/* DISABLED: EXPORT_SYMBOL(__ioremap); */
 
 void iounmap(volatile void __iomem *addr)
 {
@@ -274,7 +274,7 @@ void iounmap(volatile void __iomem *addr)
 	if (addr > high_memory && (unsigned long) addr < ioremap_bot)
 		vunmap((void *) (PAGE_MASK & (unsigned long)addr));
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 int map_page(unsigned long va, phys_addr_t pa, int flags)
 {

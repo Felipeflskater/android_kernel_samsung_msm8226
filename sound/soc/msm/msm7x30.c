@@ -42,9 +42,9 @@
 
 static struct platform_device *msm_audio_snd_device;
 struct audio_locks the_locks;
-EXPORT_SYMBOL(the_locks);
+/* DISABLED: EXPORT_SYMBOL(the_locks); */
 struct msm_volume msm_vol_ctl;
-EXPORT_SYMBOL(msm_vol_ctl);
+/* DISABLED: EXPORT_SYMBOL(msm_vol_ctl); */
 static struct snd_kcontrol_new snd_msm_controls[];
 
 char snddev_name[AUDIO_DEV_CTL_MAX_DEV][44];

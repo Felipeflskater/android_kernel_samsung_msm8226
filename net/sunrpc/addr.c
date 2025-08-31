@@ -135,7 +135,7 @@ size_t rpc_ntop(const struct sockaddr *sap, char *buf, const size_t buflen)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rpc_ntop);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_ntop); */
 
 static size_t rpc_pton4(const char *buf, const size_t buflen,
 			struct sockaddr *sap, const size_t salen)
@@ -253,7 +253,7 @@ size_t rpc_pton(struct net *net, const char *buf, const size_t buflen,
 			return rpc_pton6(net, buf, buflen, sap, salen);
 	return rpc_pton4(buf, buflen, sap, salen);
 }
-EXPORT_SYMBOL_GPL(rpc_pton);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_pton); */
 
 /**
  * rpc_sockaddr2uaddr - Construct a universal address string from @sap.
@@ -357,4 +357,4 @@ size_t rpc_uaddr2sockaddr(struct net *net, const char *uaddr,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(rpc_uaddr2sockaddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_uaddr2sockaddr); */

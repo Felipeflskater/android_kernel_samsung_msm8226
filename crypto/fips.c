@@ -20,7 +20,7 @@ int fips_enabled;
 #endif
 // change@wtl.kSingh - In FIPS mode always enable this flag - ends
 
-EXPORT_SYMBOL_GPL(fips_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(fips_enabled); */
 
 /* Process kernel command-line parameter at boot time. fips=0 or fips=1 */
 static int fips_enable(char *str)
@@ -31,4 +31,4 @@ static int fips_enable(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("fips=", fips_enable); */
+/* DISABLED: __setup("fips=", fips_enable); */ */

@@ -106,7 +106,7 @@ error_unregister_id:
 error_ret:
 	return ret;
 }
-EXPORT_SYMBOL(iio_trigger_register);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_register); */
 
 void iio_trigger_unregister(struct iio_trigger *trig_info)
 {
@@ -119,7 +119,7 @@ void iio_trigger_unregister(struct iio_trigger *trig_info)
 	/* Possible issue in here */
 	device_unregister(&trig_info->dev);
 }
-EXPORT_SYMBOL(iio_trigger_unregister);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_unregister); */
 
 static struct iio_trigger *iio_trigger_find_by_name(const char *name,
 						    size_t len)
@@ -147,14 +147,14 @@ void iio_trigger_poll(struct iio_trigger *trig, s64 time)
 				generic_handle_irq(trig->subirq_base + i);
 			}
 }
-EXPORT_SYMBOL(iio_trigger_poll);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_poll); */
 
 irqreturn_t iio_trigger_generic_data_rdy_poll(int irq, void *private)
 {
 	iio_trigger_poll(private, iio_get_time_ns());
 	return IRQ_HANDLED;
 }
-EXPORT_SYMBOL(iio_trigger_generic_data_rdy_poll);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_generic_data_rdy_poll); */
 
 void iio_trigger_poll_chained(struct iio_trigger *trig, s64 time)
 {
@@ -166,7 +166,7 @@ void iio_trigger_poll_chained(struct iio_trigger *trig, s64 time)
 				handle_nested_irq(trig->subirq_base + i);
 			}
 }
-EXPORT_SYMBOL(iio_trigger_poll_chained);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_poll_chained); */
 
 void iio_trigger_notify_done(struct iio_trigger *trig)
 {
@@ -176,7 +176,7 @@ void iio_trigger_notify_done(struct iio_trigger *trig)
 			/* Missed and interrupt so launch new poll now */
 			iio_trigger_poll(trig, 0);
 }
-EXPORT_SYMBOL(iio_trigger_notify_done);
+/* DISABLED: EXPORT_SYMBOL(iio_trigger_notify_done); */
 
 /* Trigger Consumer related functions */
 static int iio_trigger_get_irq(struct iio_trigger *trig)
@@ -261,7 +261,7 @@ irqreturn_t iio_pollfunc_store_time(int irq, void *p)
 	pf->timestamp = iio_get_time_ns();
 	return IRQ_WAKE_THREAD;
 }
-EXPORT_SYMBOL(iio_pollfunc_store_time);
+/* DISABLED: EXPORT_SYMBOL(iio_pollfunc_store_time); */
 
 struct iio_poll_func
 *iio_alloc_pollfunc(irqreturn_t (*h)(int irq, void *p),
@@ -291,14 +291,14 @@ struct iio_poll_func
 
 	return pf;
 }
-EXPORT_SYMBOL_GPL(iio_alloc_pollfunc);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_alloc_pollfunc); */
 
 void iio_dealloc_pollfunc(struct iio_poll_func *pf)
 {
 	kfree(pf->name);
 	kfree(pf);
 }
-EXPORT_SYMBOL_GPL(iio_dealloc_pollfunc);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_dealloc_pollfunc); */
 
 /**
  * iio_trigger_read_current() - trigger consumer sysfs query which trigger
@@ -472,14 +472,14 @@ struct iio_trigger *iio_allocate_trigger(const char *fmt, ...)
 	}
 	return trig;
 }
-EXPORT_SYMBOL(iio_allocate_trigger);
+/* DISABLED: EXPORT_SYMBOL(iio_allocate_trigger); */
 
 void iio_free_trigger(struct iio_trigger *trig)
 {
 	if (trig)
 		put_device(&trig->dev);
 }
-EXPORT_SYMBOL(iio_free_trigger);
+/* DISABLED: EXPORT_SYMBOL(iio_free_trigger); */
 
 void iio_device_register_trigger_consumer(struct iio_dev *indio_dev)
 {
@@ -499,11 +499,11 @@ int iio_triggered_buffer_postenable(struct iio_dev *indio_dev)
 	return iio_trigger_attach_poll_func(indio_dev->trig,
 					    indio_dev->pollfunc);
 }
-EXPORT_SYMBOL(iio_triggered_buffer_postenable);
+/* DISABLED: EXPORT_SYMBOL(iio_triggered_buffer_postenable); */
 
 int iio_triggered_buffer_predisable(struct iio_dev *indio_dev)
 {
 	return iio_trigger_dettach_poll_func(indio_dev->trig,
 					     indio_dev->pollfunc);
 }
-EXPORT_SYMBOL(iio_triggered_buffer_predisable);
+/* DISABLED: EXPORT_SYMBOL(iio_triggered_buffer_predisable); */

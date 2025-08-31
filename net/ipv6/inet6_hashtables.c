@@ -57,7 +57,7 @@ int __inet6_hash(struct sock *sk, struct inet_timewait_sock *tw)
 	sock_prot_inuse_add(sock_net(sk), sk->sk_prot, 1);
 	return twrefcnt;
 }
-EXPORT_SYMBOL(__inet6_hash);
+/* DISABLED: EXPORT_SYMBOL(__inet6_hash); */
 
 /*
  * Sockets in TCP_CLOSE state are _always_ taken out of the hash, so
@@ -123,7 +123,7 @@ out:
 	rcu_read_unlock();
 	return sk;
 }
-EXPORT_SYMBOL(__inet6_lookup_established);
+/* DISABLED: EXPORT_SYMBOL(__inet6_lookup_established); */
 
 static inline int compute_score(struct sock *sk, struct net *net,
 				const unsigned short hnum,
@@ -193,7 +193,7 @@ begin:
 	return result;
 }
 
-EXPORT_SYMBOL_GPL(inet6_lookup_listener);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_lookup_listener); */
 
 struct sock *inet6_lookup(struct net *net, struct inet_hashinfo *hashinfo,
 			  const struct in6_addr *saddr, const __be16 sport,
@@ -209,7 +209,7 @@ struct sock *inet6_lookup(struct net *net, struct inet_hashinfo *hashinfo,
 	return sk;
 }
 
-EXPORT_SYMBOL_GPL(inet6_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_lookup); */
 
 static int __inet6_check_established(struct inet_timewait_death_row *death_row,
 				     struct sock *sk, const __u16 lport,
@@ -301,4 +301,4 @@ int inet6_hash_connect(struct inet_timewait_death_row *death_row,
 			__inet6_check_established, __inet6_hash);
 }
 
-EXPORT_SYMBOL_GPL(inet6_hash_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet6_hash_connect); */

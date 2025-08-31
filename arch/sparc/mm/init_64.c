@@ -146,7 +146,7 @@ static void __init read_obp_memory(const char *property,
 
 unsigned long sparc64_valid_addr_bitmap[VALID_ADDR_BITMAP_BYTES /
 					sizeof(unsigned long)];
-EXPORT_SYMBOL(sparc64_valid_addr_bitmap);
+/* DISABLED: EXPORT_SYMBOL(sparc64_valid_addr_bitmap); */
 
 /* Kernel physical address base and size in bytes.  */
 unsigned long kern_base __read_mostly;
@@ -158,7 +158,7 @@ extern unsigned int sparc_ramdisk_image;
 extern unsigned int sparc_ramdisk_size;
 
 struct page *mem_map_zero __read_mostly;
-EXPORT_SYMBOL(mem_map_zero);
+/* DISABLED: EXPORT_SYMBOL(mem_map_zero); */
 
 unsigned int sparc64_highest_unlocked_tlb_ent __read_mostly;
 
@@ -375,7 +375,7 @@ void flush_dcache_page(struct page *page)
 out:
 	put_cpu();
 }
-EXPORT_SYMBOL(flush_dcache_page);
+/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
 
 void __kprobes flush_icache_range(unsigned long start, unsigned long end)
 {
@@ -403,7 +403,7 @@ void __kprobes flush_icache_range(unsigned long start, unsigned long end)
 		}
 	}
 }
-EXPORT_SYMBOL(flush_icache_range);
+/* DISABLED: EXPORT_SYMBOL(flush_icache_range); */
 
 void mmu_info(struct seq_file *m)
 {
@@ -612,7 +612,7 @@ void __flush_dcache_range(unsigned long start, unsigned long end)
 					       "i" (ASI_DCACHE_INVALIDATE));
 	}
 }
-EXPORT_SYMBOL(__flush_dcache_range);
+/* DISABLED: EXPORT_SYMBOL(__flush_dcache_range); */
 
 /* get_new_mmu_context() uses "cache + 1".  */
 DEFINE_SPINLOCK(ctx_alloc_lock);
@@ -876,9 +876,9 @@ static void init_node_masks_nonnuma(void)
 #ifdef CONFIG_NEED_MULTIPLE_NODES
 struct pglist_data *node_data[MAX_NUMNODES];
 
-EXPORT_SYMBOL(numa_cpu_lookup_table);
-EXPORT_SYMBOL(numa_cpumask_lookup_table);
-EXPORT_SYMBOL(node_data);
+/* DISABLED: EXPORT_SYMBOL(numa_cpu_lookup_table); */
+/* DISABLED: EXPORT_SYMBOL(numa_cpumask_lookup_table); */
+/* DISABLED: EXPORT_SYMBOL(node_data); */
 
 struct mdesc_mlgroup {
 	u64	node;
@@ -2081,24 +2081,24 @@ void free_initrd_mem(unsigned long start, unsigned long end)
 #define __ACCESS_BITS_4V (_PAGE_ACCESSED_4V | _PAGE_READ_4V | _PAGE_R)
 
 pgprot_t PAGE_KERNEL __read_mostly;
-EXPORT_SYMBOL(PAGE_KERNEL);
+/* DISABLED: EXPORT_SYMBOL(PAGE_KERNEL); */
 
 pgprot_t PAGE_KERNEL_LOCKED __read_mostly;
 pgprot_t PAGE_COPY __read_mostly;
 
 pgprot_t PAGE_SHARED __read_mostly;
-EXPORT_SYMBOL(PAGE_SHARED);
+/* DISABLED: EXPORT_SYMBOL(PAGE_SHARED); */
 
 unsigned long pg_iobits __read_mostly;
 
 unsigned long _PAGE_IE __read_mostly;
-EXPORT_SYMBOL(_PAGE_IE);
+/* DISABLED: EXPORT_SYMBOL(_PAGE_IE); */
 
 unsigned long _PAGE_E __read_mostly;
-EXPORT_SYMBOL(_PAGE_E);
+/* DISABLED: EXPORT_SYMBOL(_PAGE_E); */
 
 unsigned long _PAGE_CACHE __read_mostly;
-EXPORT_SYMBOL(_PAGE_CACHE);
+/* DISABLED: EXPORT_SYMBOL(_PAGE_CACHE); */
 
 #ifdef CONFIG_SPARSEMEM_VMEMMAP
 unsigned long vmemmap_table[VMEMMAP_SIZE];

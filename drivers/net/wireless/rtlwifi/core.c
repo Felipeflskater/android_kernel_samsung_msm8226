@@ -73,7 +73,7 @@ void rtl_fw_cb(const struct firmware *firmware, void *context)
 	/*init rfkill */
 	rtl_init_rfkill(hw);
 }
-EXPORT_SYMBOL(rtl_fw_cb);
+/* DISABLED: EXPORT_SYMBOL(rtl_fw_cb); */
 
 /*mutex for start & stop is must here. */
 static int rtl_op_start(struct ieee80211_hw *hw)

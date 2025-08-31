@@ -346,7 +346,7 @@ int dma_alloc_descriptor_ring(DMA_DescriptorRing_t *ring,	/* Descriptor ring to 
 	return dma_init_descriptor_ring(ring, numDescriptors);
 }
 
-EXPORT_SYMBOL(dma_alloc_descriptor_ring);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_descriptor_ring); */
 
 /****************************************************************************/
 /**
@@ -368,7 +368,7 @@ void dma_free_descriptor_ring(DMA_DescriptorRing_t *ring	/* Descriptor to releas
 	ring->physAddr = 0;
 }
 
-EXPORT_SYMBOL(dma_free_descriptor_ring);
+/* DISABLED: EXPORT_SYMBOL(dma_free_descriptor_ring); */
 
 /****************************************************************************/
 /**
@@ -405,7 +405,7 @@ int dma_init_descriptor_ring(DMA_DescriptorRing_t *ring,	/* Descriptor ring to i
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_init_descriptor_ring);
+/* DISABLED: EXPORT_SYMBOL(dma_init_descriptor_ring); */
 
 /****************************************************************************/
 /**
@@ -452,7 +452,7 @@ int dma_calculate_descriptor_count(DMA_Device_t device,	/* DMA Device that this 
 	return numDescriptors;
 }
 
-EXPORT_SYMBOL(dma_calculate_descriptor_count);
+/* DISABLED: EXPORT_SYMBOL(dma_calculate_descriptor_count); */
 
 /****************************************************************************/
 /**
@@ -496,7 +496,7 @@ int dma_add_descriptors(DMA_DescriptorRing_t *ring,	/* Descriptor ring to add de
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_add_descriptors);
+/* DISABLED: EXPORT_SYMBOL(dma_add_descriptors); */
 
 /****************************************************************************/
 /**
@@ -548,7 +548,7 @@ int dma_set_device_descriptor_ring(DMA_Device_t device,	/* Device to update the 
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_set_device_descriptor_ring);
+/* DISABLED: EXPORT_SYMBOL(dma_set_device_descriptor_ring); */
 
 /****************************************************************************/
 /**
@@ -577,7 +577,7 @@ int dma_get_device_descriptor_ring(DMA_Device_t device,	/* Device to retrieve th
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_get_device_descriptor_ring);
+/* DISABLED: EXPORT_SYMBOL(dma_get_device_descriptor_ring); */
 
 /****************************************************************************/
 /**
@@ -1004,9 +1004,9 @@ DMA_Handle_t dma_request_channel(DMA_Device_t dev)
 	return dma_request_channel_dbg(dev, __FILE__, __LINE__);
 }
 
-EXPORT_SYMBOL(dma_request_channel_dbg);
+/* DISABLED: EXPORT_SYMBOL(dma_request_channel_dbg); */
 #endif
-EXPORT_SYMBOL(dma_request_channel);
+/* DISABLED: EXPORT_SYMBOL(dma_request_channel); */
 
 /****************************************************************************/
 /**
@@ -1047,7 +1047,7 @@ out:
 	return rc;
 }
 
-EXPORT_SYMBOL(dma_free_channel);
+/* DISABLED: EXPORT_SYMBOL(dma_free_channel); */
 
 /****************************************************************************/
 /**
@@ -1073,7 +1073,7 @@ int dma_device_is_channel_shared(DMA_Device_t device	/* Device to check. */
 	return ((devAttr->flags & DMA_DEVICE_FLAG_IS_DEDICATED) == 0);
 }
 
-EXPORT_SYMBOL(dma_device_is_channel_shared);
+/* DISABLED: EXPORT_SYMBOL(dma_device_is_channel_shared); */
 
 /****************************************************************************/
 /**
@@ -1195,7 +1195,7 @@ int dma_alloc_descriptors(DMA_Handle_t handle,	/* DMA Handle */
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_alloc_descriptors);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_descriptors); */
 
 /****************************************************************************/
 /**
@@ -1326,7 +1326,7 @@ int dma_alloc_double_dst_descriptors(DMA_Handle_t handle,	/* DMA Handle */
 	return numDescriptors;
 }
 
-EXPORT_SYMBOL(dma_alloc_double_dst_descriptors);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_double_dst_descriptors); */
 
 /****************************************************************************/
 /**
@@ -1360,7 +1360,7 @@ int dma_start_transfer(DMA_Handle_t handle)
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_start_transfer);
+/* DISABLED: EXPORT_SYMBOL(dma_start_transfer); */
 
 /****************************************************************************/
 /**
@@ -1386,7 +1386,7 @@ int dma_stop_transfer(DMA_Handle_t handle)
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_stop_transfer);
+/* DISABLED: EXPORT_SYMBOL(dma_stop_transfer); */
 
 /****************************************************************************/
 /**
@@ -1418,7 +1418,7 @@ int dma_wait_transfer_done(DMA_Handle_t handle)
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_wait_transfer_done);
+/* DISABLED: EXPORT_SYMBOL(dma_wait_transfer_done); */
 
 /****************************************************************************/
 /**
@@ -1478,7 +1478,7 @@ int dma_transfer(DMA_Handle_t handle,	/* DMA Handle */
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_transfer);
+/* DISABLED: EXPORT_SYMBOL(dma_transfer); */
 
 /****************************************************************************/
 /**
@@ -1515,4 +1515,4 @@ int dma_set_device_handler(DMA_Device_t dev,	/* Device to set the callback for. 
 	return 0;
 }
 
-EXPORT_SYMBOL(dma_set_device_handler);
+/* DISABLED: EXPORT_SYMBOL(dma_set_device_handler); */

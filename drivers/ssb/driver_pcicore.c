@@ -723,4 +723,4 @@ int ssb_pcicore_dev_irqvecs_enable(struct ssb_pcicore *pc,
 out:
 	return err;
 }
-EXPORT_SYMBOL(ssb_pcicore_dev_irqvecs_enable);
+/* DISABLED: EXPORT_SYMBOL(ssb_pcicore_dev_irqvecs_enable); */

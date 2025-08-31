@@ -53,7 +53,7 @@ int __bitmap_empty(const unsigned long *bitmap, int bits)
 
 	return 1;
 }
-EXPORT_SYMBOL(__bitmap_empty);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_empty); */
 
 int __bitmap_full(const unsigned long *bitmap, int bits)
 {
@@ -68,7 +68,7 @@ int __bitmap_full(const unsigned long *bitmap, int bits)
 
 	return 1;
 }
-EXPORT_SYMBOL(__bitmap_full);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_full); */
 
 int __bitmap_equal(const unsigned long *bitmap1,
 		const unsigned long *bitmap2, int bits)
@@ -84,7 +84,7 @@ int __bitmap_equal(const unsigned long *bitmap1,
 
 	return 1;
 }
-EXPORT_SYMBOL(__bitmap_equal);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_equal); */
 
 void __bitmap_complement(unsigned long *dst, const unsigned long *src, int bits)
 {
@@ -95,7 +95,7 @@ void __bitmap_complement(unsigned long *dst, const unsigned long *src, int bits)
 	if (bits % BITS_PER_LONG)
 		dst[k] = ~src[k] & BITMAP_LAST_WORD_MASK(bits);
 }
-EXPORT_SYMBOL(__bitmap_complement);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_complement); */
 
 /**
  * __bitmap_shift_right - logical right shift of the bits in a bitmap
@@ -140,7 +140,7 @@ void __bitmap_shift_right(unsigned long *dst,
 	if (off)
 		memset(&dst[lim - off], 0, off*sizeof(unsigned long));
 }
-EXPORT_SYMBOL(__bitmap_shift_right);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_shift_right); */
 
 
 /**
@@ -183,7 +183,7 @@ void __bitmap_shift_left(unsigned long *dst,
 	if (off)
 		memset(dst, 0, off*sizeof(unsigned long));
 }
-EXPORT_SYMBOL(__bitmap_shift_left);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_shift_left); */
 
 int __bitmap_and(unsigned long *dst, const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -196,7 +196,7 @@ int __bitmap_and(unsigned long *dst, const unsigned long *bitmap1,
 		result |= (dst[k] = bitmap1[k] & bitmap2[k]);
 	return result != 0;
 }
-EXPORT_SYMBOL(__bitmap_and);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_and); */
 
 void __bitmap_or(unsigned long *dst, const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -207,7 +207,7 @@ void __bitmap_or(unsigned long *dst, const unsigned long *bitmap1,
 	for (k = 0; k < nr; k++)
 		dst[k] = bitmap1[k] | bitmap2[k];
 }
-EXPORT_SYMBOL(__bitmap_or);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_or); */
 
 void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -218,7 +218,7 @@ void __bitmap_xor(unsigned long *dst, const unsigned long *bitmap1,
 	for (k = 0; k < nr; k++)
 		dst[k] = bitmap1[k] ^ bitmap2[k];
 }
-EXPORT_SYMBOL(__bitmap_xor);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_xor); */
 
 int __bitmap_andnot(unsigned long *dst, const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -231,7 +231,7 @@ int __bitmap_andnot(unsigned long *dst, const unsigned long *bitmap1,
 		result |= (dst[k] = bitmap1[k] & ~bitmap2[k]);
 	return result != 0;
 }
-EXPORT_SYMBOL(__bitmap_andnot);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_andnot); */
 
 int __bitmap_intersects(const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -246,7 +246,7 @@ int __bitmap_intersects(const unsigned long *bitmap1,
 			return 1;
 	return 0;
 }
-EXPORT_SYMBOL(__bitmap_intersects);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_intersects); */
 
 int __bitmap_subset(const unsigned long *bitmap1,
 				const unsigned long *bitmap2, int bits)
@@ -261,7 +261,7 @@ int __bitmap_subset(const unsigned long *bitmap1,
 			return 0;
 	return 1;
 }
-EXPORT_SYMBOL(__bitmap_subset);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_subset); */
 
 int __bitmap_weight(const unsigned long *bitmap, int bits)
 {
@@ -275,7 +275,7 @@ int __bitmap_weight(const unsigned long *bitmap, int bits)
 
 	return w;
 }
-EXPORT_SYMBOL(__bitmap_weight);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_weight); */
 
 void bitmap_set(unsigned long *map, int start, int nr)
 {
@@ -296,7 +296,7 @@ void bitmap_set(unsigned long *map, int start, int nr)
 		*p |= mask_to_set;
 	}
 }
-EXPORT_SYMBOL(bitmap_set);
+/* DISABLED: EXPORT_SYMBOL(bitmap_set); */
 
 void bitmap_clear(unsigned long *map, int start, int nr)
 {
@@ -317,7 +317,7 @@ void bitmap_clear(unsigned long *map, int start, int nr)
 		*p &= ~mask_to_clear;
 	}
 }
-EXPORT_SYMBOL(bitmap_clear);
+/* DISABLED: EXPORT_SYMBOL(bitmap_clear); */
 
 /**
  * bitmap_find_next_zero_area - find a contiguous aligned zero area
@@ -356,7 +356,7 @@ again:
 	}
 	return index;
 }
-EXPORT_SYMBOL(bitmap_find_next_zero_area_off);
+/* DISABLED: EXPORT_SYMBOL(bitmap_find_next_zero_area_off); */
 
 /*
  * Bitmap printing & parsing functions: first version by Bill Irwin,
@@ -403,7 +403,7 @@ int bitmap_scnprintf(char *buf, unsigned int buflen,
 	}
 	return len;
 }
-EXPORT_SYMBOL(bitmap_scnprintf);
+/* DISABLED: EXPORT_SYMBOL(bitmap_scnprintf); */
 
 /**
  * __bitmap_parse - convert an ASCII hex string into a bitmap.
@@ -489,7 +489,7 @@ int __bitmap_parse(const char *buf, unsigned int buflen,
 
 	return 0;
 }
-EXPORT_SYMBOL(__bitmap_parse);
+/* DISABLED: EXPORT_SYMBOL(__bitmap_parse); */
 
 /**
  * bitmap_parse_user - convert an ASCII hex string in a user buffer into a bitmap
@@ -516,7 +516,7 @@ int bitmap_parse_user(const char __user *ubuf,
 				ulen, 1, maskp, nmaskbits);
 
 }
-EXPORT_SYMBOL(bitmap_parse_user);
+/* DISABLED: EXPORT_SYMBOL(bitmap_parse_user); */
 
 /*
  * bscnl_emit(buf, buflen, rbot, rtop, bp)
@@ -576,7 +576,7 @@ int bitmap_scnlistprintf(char *buf, unsigned int buflen,
 	}
 	return len;
 }
-EXPORT_SYMBOL(bitmap_scnlistprintf);
+/* DISABLED: EXPORT_SYMBOL(bitmap_scnlistprintf); */
 
 /**
  * __bitmap_parselist - convert list format ASCII string to bitmap
@@ -681,7 +681,7 @@ int bitmap_parselist(const char *bp, unsigned long *maskp, int nmaskbits)
 
 	return __bitmap_parselist(bp, len, 0, maskp, nmaskbits);
 }
-EXPORT_SYMBOL(bitmap_parselist);
+/* DISABLED: EXPORT_SYMBOL(bitmap_parselist); */
 
 
 /**
@@ -708,7 +708,7 @@ int bitmap_parselist_user(const char __user *ubuf,
 	return __bitmap_parselist((const char __force *)ubuf,
 					ulen, 1, maskp, nmaskbits);
 }
-EXPORT_SYMBOL(bitmap_parselist_user);
+/* DISABLED: EXPORT_SYMBOL(bitmap_parselist_user); */
 
 
 /**
@@ -835,7 +835,7 @@ void bitmap_remap(unsigned long *dst, const unsigned long *src,
 			set_bit(bitmap_ord_to_pos(new, n % w, bits), dst);
 	}
 }
-EXPORT_SYMBOL(bitmap_remap);
+/* DISABLED: EXPORT_SYMBOL(bitmap_remap); */
 
 /**
  * bitmap_bitremap - Apply map defined by a pair of bitmaps to a single bit
@@ -873,7 +873,7 @@ int bitmap_bitremap(int oldbit, const unsigned long *old,
 	else
 		return bitmap_ord_to_pos(new, n % w, bits);
 }
-EXPORT_SYMBOL(bitmap_bitremap);
+/* DISABLED: EXPORT_SYMBOL(bitmap_bitremap); */
 
 /**
  * bitmap_onto - translate one bitmap relative to another
@@ -1002,7 +1002,7 @@ void bitmap_onto(unsigned long *dst, const unsigned long *orig,
 		m++;
 	}
 }
-EXPORT_SYMBOL(bitmap_onto);
+/* DISABLED: EXPORT_SYMBOL(bitmap_onto); */
 
 /**
  * bitmap_fold - fold larger bitmap into smaller, modulo specified size
@@ -1027,7 +1027,7 @@ void bitmap_fold(unsigned long *dst, const unsigned long *orig,
 	for_each_set_bit(oldbit, orig, bits)
 		set_bit(oldbit % sz, dst);
 }
-EXPORT_SYMBOL(bitmap_fold);
+/* DISABLED: EXPORT_SYMBOL(bitmap_fold); */
 
 /*
  * Common code for bitmap_*_region() routines.
@@ -1131,7 +1131,7 @@ int bitmap_find_free_region(unsigned long *bitmap, int bits, int order)
 	}
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(bitmap_find_free_region);
+/* DISABLED: EXPORT_SYMBOL(bitmap_find_free_region); */
 
 /**
  * bitmap_release_region - release allocated bitmap region
@@ -1148,7 +1148,7 @@ void bitmap_release_region(unsigned long *bitmap, int pos, int order)
 {
 	__reg_op(bitmap, pos, order, REG_OP_RELEASE);
 }
-EXPORT_SYMBOL(bitmap_release_region);
+/* DISABLED: EXPORT_SYMBOL(bitmap_release_region); */
 
 /**
  * bitmap_allocate_region - allocate bitmap region
@@ -1168,7 +1168,7 @@ int bitmap_allocate_region(unsigned long *bitmap, int pos, int order)
 	__reg_op(bitmap, pos, order, REG_OP_ALLOC);
 	return 0;
 }
-EXPORT_SYMBOL(bitmap_allocate_region);
+/* DISABLED: EXPORT_SYMBOL(bitmap_allocate_region); */
 
 /**
  * bitmap_copy_le - copy a bitmap, putting the bits into little-endian order.
@@ -1190,4 +1190,4 @@ void bitmap_copy_le(void *dst, const unsigned long *src, int nbits)
 			d[i] = cpu_to_le32(src[i]);
 	}
 }
-EXPORT_SYMBOL(bitmap_copy_le);
+/* DISABLED: EXPORT_SYMBOL(bitmap_copy_le); */

@@ -82,7 +82,7 @@ void hpi_send_recv(struct hpi_message *phm, struct hpi_response *phr)
 	hpi_send_recv_f(phm, phr, HOWNER_KERNEL);
 }
 
-EXPORT_SYMBOL(hpi_send_recv);
+/* DISABLED: EXPORT_SYMBOL(hpi_send_recv); */
 /* for radio-asihpi */
 
 int asihpi_hpi_release(struct file *file)

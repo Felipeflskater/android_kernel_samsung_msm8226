@@ -130,7 +130,7 @@ void __iomem *ioremap(unsigned long offset, unsigned long size)
 	sprintf(name, "phys_%08x", (u32)offset);
 	return _sparc_alloc_io(0, offset, size, name);
 }
-EXPORT_SYMBOL(ioremap);
+/* DISABLED: EXPORT_SYMBOL(ioremap); */
 
 /*
  * Comlimentary to ioremap().
@@ -156,7 +156,7 @@ void iounmap(volatile void __iomem *virtual)
 		kfree(res);
 	}
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 void __iomem *of_ioremap(struct resource *res, unsigned long offset,
 			 unsigned long size, char *name)
@@ -165,13 +165,13 @@ void __iomem *of_ioremap(struct resource *res, unsigned long offset,
 			       res->start + offset,
 			       size, name);
 }
-EXPORT_SYMBOL(of_ioremap);
+/* DISABLED: EXPORT_SYMBOL(of_ioremap); */
 
 void of_iounmap(struct resource *res, void __iomem *base, unsigned long size)
 {
 	iounmap(base);
 }
-EXPORT_SYMBOL(of_iounmap);
+/* DISABLED: EXPORT_SYMBOL(of_iounmap); */
 
 /*
  * Meat of mapping
@@ -253,7 +253,7 @@ void sbus_set_sbus64(struct device *dev, int x)
 {
 	printk("sbus_set_sbus64: unsupported\n");
 }
-EXPORT_SYMBOL(sbus_set_sbus64);
+/* DISABLED: EXPORT_SYMBOL(sbus_set_sbus64); */
 
 /*
  * Allocate a chunk of memory suitable for DMA.
@@ -658,7 +658,7 @@ struct dma_map_ops pci32_dma_ops = {
 	.sync_sg_for_cpu	= pci32_sync_sg_for_cpu,
 	.sync_sg_for_device	= pci32_sync_sg_for_device,
 };
-EXPORT_SYMBOL(pci32_dma_ops);
+/* DISABLED: EXPORT_SYMBOL(pci32_dma_ops); */
 
 #endif /* CONFIG_PCI || CONFIG_SPARC_LEON */
 
@@ -668,7 +668,7 @@ struct dma_map_ops *dma_ops = &pci32_dma_ops;
 struct dma_map_ops *dma_ops = &sbus_dma_ops;
 #endif
 
-EXPORT_SYMBOL(dma_ops);
+/* DISABLED: EXPORT_SYMBOL(dma_ops); */
 
 
 /*
@@ -685,7 +685,7 @@ int dma_supported(struct device *dev, u64 mask)
 #endif
 	return 0;
 }
-EXPORT_SYMBOL(dma_supported);
+/* DISABLED: EXPORT_SYMBOL(dma_supported); */
 
 #ifdef CONFIG_PROC_FS
 

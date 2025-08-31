@@ -260,7 +260,7 @@ int relay_buf_full(struct rchan_buf *buf)
 	size_t ready = buf->subbufs_produced - buf->subbufs_consumed;
 	return (ready >= buf->chan->n_subbufs) ? 1 : 0;
 }
-EXPORT_SYMBOL_GPL(relay_buf_full);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_buf_full); */
 
 /*
  * High-level relay kernel API and associated functions.
@@ -402,7 +402,7 @@ void relay_reset(struct rchan *chan)
 			__relay_reset(chan->buf[i], 0);
 	mutex_unlock(&relay_channels_mutex);
 }
-EXPORT_SYMBOL_GPL(relay_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_reset); */
 
 static inline void relay_set_buf_dentry(struct rchan_buf *buf,
 					struct dentry *dentry)
@@ -619,7 +619,7 @@ free_bufs:
 	mutex_unlock(&relay_channels_mutex);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(relay_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_open); */
 
 struct rchan_percpu_buf_dispatcher {
 	struct rchan_buf *buf;
@@ -770,7 +770,7 @@ toobig:
 	buf->chan->last_toobig = length;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(relay_switch_subbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_switch_subbuf); */
 
 /**
  *	relay_subbufs_consumed - update the buffer's sub-buffers-consumed count
@@ -804,7 +804,7 @@ void relay_subbufs_consumed(struct rchan *chan,
 	else
 		buf->subbufs_consumed += subbufs_consumed;
 }
-EXPORT_SYMBOL_GPL(relay_subbufs_consumed);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_subbufs_consumed); */
 
 /**
  *	relay_close - close the channel
@@ -836,7 +836,7 @@ void relay_close(struct rchan *chan)
 	kref_put(&chan->kref, relay_destroy_channel);
 	mutex_unlock(&relay_channels_mutex);
 }
-EXPORT_SYMBOL_GPL(relay_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_close); */
 
 /**
  *	relay_flush - close the channel
@@ -862,7 +862,7 @@ void relay_flush(struct rchan *chan)
 			relay_switch_subbuf(chan->buf[i], 0);
 	mutex_unlock(&relay_channels_mutex);
 }
-EXPORT_SYMBOL_GPL(relay_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_flush); */
 
 /**
  *	relay_file_open - open file op for relay files
@@ -1354,7 +1354,7 @@ const struct file_operations relay_file_operations = {
 	.release	= relay_file_release,
 	.splice_read	= relay_file_splice_read,
 };
-EXPORT_SYMBOL_GPL(relay_file_operations);
+/* DISABLED: EXPORT_SYMBOL_GPL(relay_file_operations); */
 
 static __init int relay_init(void)
 {

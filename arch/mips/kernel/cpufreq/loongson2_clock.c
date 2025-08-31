@@ -37,7 +37,7 @@ struct cpufreq_frequency_table loongson2_clockmod_table[] = {
 	{DC_DISABLE, 0},
 	{DC_RESV, CPUFREQ_TABLE_END},
 };
-EXPORT_SYMBOL_GPL(loongson2_clockmod_table);
+/* DISABLED: EXPORT_SYMBOL_GPL(loongson2_clockmod_table); */
 
 static struct clk cpu_clk = {
 	.name = "cpu_clk",
@@ -49,7 +49,7 @@ struct clk *clk_get(struct device *dev, const char *id)
 {
 	return &cpu_clk;
 }
-EXPORT_SYMBOL(clk_get);
+/* DISABLED: EXPORT_SYMBOL(clk_get); */
 
 static void propagate_rate(struct clk *clk)
 {
@@ -69,29 +69,29 @@ int clk_enable(struct clk *clk)
 {
 	return 0;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 unsigned long clk_get_rate(struct clk *clk)
 {
 	return (unsigned long)clk->rate;
 }
-EXPORT_SYMBOL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
 
 void clk_put(struct clk *clk)
 {
 }
-EXPORT_SYMBOL(clk_put);
+/* DISABLED: EXPORT_SYMBOL(clk_put); */
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
 	return clk_set_rate_ex(clk, rate, 0);
 }
-EXPORT_SYMBOL_GPL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_rate); */
 
 int clk_set_rate_ex(struct clk *clk, unsigned long rate, int algo_id)
 {
@@ -129,7 +129,7 @@ int clk_set_rate_ex(struct clk *clk, unsigned long rate, int algo_id)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_set_rate_ex);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_rate_ex); */
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -145,7 +145,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return rate;
 }
-EXPORT_SYMBOL_GPL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_round_rate); */
 
 /*
  * This is the simple version of Loongson-2 wait, Maybe we need do this in
@@ -164,7 +164,7 @@ void loongson2_cpu_wait(void)
 	LOONGSON_CHIPCFG0 = cpu_freq;	/* Restore CPU state */
 	spin_unlock_irqrestore(&loongson2_wait_lock, flags);
 }
-EXPORT_SYMBOL_GPL(loongson2_cpu_wait);
+/* DISABLED: EXPORT_SYMBOL_GPL(loongson2_cpu_wait); */
 
 MODULE_AUTHOR("Yanhua <yanh@lemote.com>");
 MODULE_DESCRIPTION("cpufreq driver for Loongson 2F");

@@ -162,5 +162,5 @@ module_exit(telephony_exit);
 
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(phone_register_device);
-EXPORT_SYMBOL(phone_unregister_device);
+/* DISABLED: EXPORT_SYMBOL(phone_register_device); */
+/* DISABLED: EXPORT_SYMBOL(phone_unregister_device); */

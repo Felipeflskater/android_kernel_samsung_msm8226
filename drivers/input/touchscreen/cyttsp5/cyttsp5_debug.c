@@ -333,7 +333,7 @@ cyttsp5_debug_probe_alloc_failed:
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-EXPORT_SYMBOL(cyttsp5_debug_probe);
+/* DISABLED: EXPORT_SYMBOL(cyttsp5_debug_probe); */
 
 int cyttsp5_debug_release(struct device *dev)
 {
@@ -354,4 +354,4 @@ cyttsp5_debug_release_exit:
 	kfree(dd);
 	return rc;
 }
-EXPORT_SYMBOL(cyttsp5_debug_release);
+/* DISABLED: EXPORT_SYMBOL(cyttsp5_debug_release); */

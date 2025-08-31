@@ -67,7 +67,7 @@ int eventfd_signal(struct eventfd_ctx *ctx, int n)
 
 	return n;
 }
-EXPORT_SYMBOL_GPL(eventfd_signal);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_signal); */
 
 static void eventfd_free_ctx(struct eventfd_ctx *ctx)
 {
@@ -92,7 +92,7 @@ struct eventfd_ctx *eventfd_ctx_get(struct eventfd_ctx *ctx)
 	kref_get(&ctx->kref);
 	return ctx;
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_get); */
 
 /**
  * eventfd_ctx_put - Releases a reference to the internal eventfd context.
@@ -105,7 +105,7 @@ void eventfd_ctx_put(struct eventfd_ctx *ctx)
 {
 	kref_put(&ctx->kref, eventfd_free);
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_put); */
 
 static int eventfd_release(struct inode *inode, struct file *file)
 {
@@ -169,7 +169,7 @@ int eventfd_ctx_remove_wait_queue(struct eventfd_ctx *ctx, wait_queue_t *wait,
 
 	return *cnt != 0 ? 0 : -EAGAIN;
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_remove_wait_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_remove_wait_queue); */
 
 /**
  * eventfd_ctx_read - Reads the eventfd counter or wait if it is zero.
@@ -223,7 +223,7 @@ ssize_t eventfd_ctx_read(struct eventfd_ctx *ctx, int no_wait, __u64 *cnt)
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_read); */
 
 static ssize_t eventfd_read(struct file *file, char __user *buf, size_t count,
 			    loff_t *ppos)
@@ -320,7 +320,7 @@ struct file *eventfd_fget(int fd)
 
 	return file;
 }
-EXPORT_SYMBOL_GPL(eventfd_fget);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_fget); */
 
 /**
  * eventfd_ctx_fdget - Acquires a reference to the internal eventfd context.
@@ -344,7 +344,7 @@ struct eventfd_ctx *eventfd_ctx_fdget(int fd)
 
 	return ctx;
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_fdget);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_fdget); */
 
 /**
  * eventfd_ctx_fileget - Acquires a reference to the internal eventfd context.
@@ -362,7 +362,7 @@ struct eventfd_ctx *eventfd_ctx_fileget(struct file *file)
 
 	return eventfd_ctx_get(file->private_data);
 }
-EXPORT_SYMBOL_GPL(eventfd_ctx_fileget);
+/* DISABLED: EXPORT_SYMBOL_GPL(eventfd_ctx_fileget); */
 
 /**
  * eventfd_file_create - Creates an eventfd file pointer.

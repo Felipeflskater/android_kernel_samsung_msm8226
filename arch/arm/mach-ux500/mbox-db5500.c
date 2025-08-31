@@ -110,7 +110,7 @@ exit:
 	spin_unlock(&mbox->lock);
 	return res;
 }
-EXPORT_SYMBOL(mbox_send);
+/* DISABLED: EXPORT_SYMBOL(mbox_send); */
 
 #if defined(CONFIG_DEBUG_FS)
 /*
@@ -501,7 +501,7 @@ struct mbox *mbox_setup(u8 mbox_id, mbox_recv_cb_t *mbox_cb, void *priv)
 exit:
 	return mbox;
 }
-EXPORT_SYMBOL(mbox_setup);
+/* DISABLED: EXPORT_SYMBOL(mbox_setup); */
 
 
 int __init mbox_probe(struct platform_device *pdev)

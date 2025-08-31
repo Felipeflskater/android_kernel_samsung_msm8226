@@ -33,7 +33,7 @@ void spu_switch_notify(struct spu *spu, struct spu_context *ctx)
 	blocking_notifier_call_chain(&spu_switch_notifier,
 				     ctx ? ctx->object_id : 0, spu);
 }
-EXPORT_SYMBOL_GPL(spu_switch_notify);
+/* DISABLED: EXPORT_SYMBOL_GPL(spu_switch_notify); */
 
 int spu_switch_event_register(struct notifier_block *n)
 {
@@ -43,13 +43,13 @@ int spu_switch_event_register(struct notifier_block *n)
 		notify_spus_active();
 	return ret;
 }
-EXPORT_SYMBOL_GPL(spu_switch_event_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(spu_switch_event_register); */
 
 int spu_switch_event_unregister(struct notifier_block *n)
 {
 	return blocking_notifier_chain_unregister(&spu_switch_notifier, n);
 }
-EXPORT_SYMBOL_GPL(spu_switch_event_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(spu_switch_event_unregister); */
 
 void spu_set_profile_private_kref(struct spu_context *ctx,
 				  struct kref *prof_info_kref,
@@ -58,11 +58,11 @@ void spu_set_profile_private_kref(struct spu_context *ctx,
 	ctx->prof_priv_kref = prof_info_kref;
 	ctx->prof_priv_release = prof_info_release;
 }
-EXPORT_SYMBOL_GPL(spu_set_profile_private_kref);
+/* DISABLED: EXPORT_SYMBOL_GPL(spu_set_profile_private_kref); */
 
 void *spu_get_profile_private_kref(struct spu_context *ctx)
 {
 	return ctx->prof_priv_kref;
 }
-EXPORT_SYMBOL_GPL(spu_get_profile_private_kref);
+/* DISABLED: EXPORT_SYMBOL_GPL(spu_get_profile_private_kref); */
 

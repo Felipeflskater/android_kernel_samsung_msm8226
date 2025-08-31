@@ -148,7 +148,7 @@ struct dma_map_ops arm_dma_ops = {
 	.sync_sg_for_device	= arm_dma_sync_sg_for_device,
 	.set_dma_mask		= arm_dma_set_mask,
 };
-EXPORT_SYMBOL(arm_dma_ops);
+/* DISABLED: EXPORT_SYMBOL(arm_dma_ops); */
 
 static u64 get_coherent_dma_mask(struct device *dev)
 {
@@ -1035,7 +1035,7 @@ int dma_supported(struct device *dev, u64 mask)
 		return 0;
 	return 1;
 }
-EXPORT_SYMBOL(dma_supported);
+/* DISABLED: EXPORT_SYMBOL(dma_supported); */
 
 static int arm_dma_set_mask(struct device *dev, u64 dma_mask)
 {

@@ -75,7 +75,7 @@ struct auth_domain *unix_domain_find(char *name)
 		rv = auth_domain_lookup(name, &new->h);
 	}
 }
-EXPORT_SYMBOL_GPL(unix_domain_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(unix_domain_find); */
 
 
 /**************************************************
@@ -358,7 +358,7 @@ void svcauth_unix_purge(void)
 		cache_purge(sn->ip_map_cache);
 	}
 }
-EXPORT_SYMBOL_GPL(svcauth_unix_purge);
+/* DISABLED: EXPORT_SYMBOL_GPL(svcauth_unix_purge); */
 
 static inline struct ip_map *
 ip_map_cached_get(struct svc_xprt *xprt)
@@ -735,7 +735,7 @@ svcauth_unix_set_client(struct svc_rqst *rqstp)
 	return SVC_OK;
 }
 
-EXPORT_SYMBOL_GPL(svcauth_unix_set_client);
+/* DISABLED: EXPORT_SYMBOL_GPL(svcauth_unix_set_client); */
 
 static int
 svcauth_null_accept(struct svc_rqst *rqstp, __be32 *authp)

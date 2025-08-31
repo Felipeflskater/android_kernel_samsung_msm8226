@@ -277,7 +277,7 @@ int msm_rpc_client_in_reset(struct msm_rpc_client *client)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_rpc_client_in_reset);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_client_in_reset); */
 
 /*
  * Interface to be used to register the client.
@@ -360,7 +360,7 @@ struct msm_rpc_client *msm_rpc_register_client(
 
 	return client;
 }
-EXPORT_SYMBOL(msm_rpc_register_client);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_register_client); */
 
 /*
  * Interface to be used to register the client.
@@ -444,7 +444,7 @@ struct msm_rpc_client *msm_rpc_register_client2(
 
 	return client;
 }
-EXPORT_SYMBOL(msm_rpc_register_client2);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_register_client2); */
 
 /*
  * Register callbacks for modem state changes.
@@ -475,7 +475,7 @@ int msm_rpc_register_reset_callbacks(
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_register_reset_callbacks);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_register_reset_callbacks); */
 
 /*
  * Interface to be used to unregister the client
@@ -507,7 +507,7 @@ int msm_rpc_unregister_client(struct msm_rpc_client *client)
 	kfree(client);
 	return 0;
 }
-EXPORT_SYMBOL(msm_rpc_unregister_client);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_unregister_client); */
 
 /*
  * Interface to be used to send a client request.
@@ -628,7 +628,7 @@ int msm_rpc_client_req(struct msm_rpc_client *client, uint32_t proc,
 	mutex_unlock(&client->req_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_client_req);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_client_req); */
 
 /*
  * Interface to be used to send a client request.
@@ -748,7 +748,7 @@ int msm_rpc_client_req2(struct msm_rpc_client *client, uint32_t proc,
 	mutex_unlock(&client->req_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_client_req2);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_client_req2); */
 
 /*
  * Interface to be used to start accepted reply message required in
@@ -785,7 +785,7 @@ void *msm_rpc_start_accepted_reply(struct msm_rpc_client *client,
 	client->cb_xdr.out_index = sizeof(*reply);
 	return reply + 1;
 }
-EXPORT_SYMBOL(msm_rpc_start_accepted_reply);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_start_accepted_reply); */
 
 /*
  * Interface to be used to send accepted reply required in callback handling.
@@ -812,7 +812,7 @@ int msm_rpc_send_accepted_reply(struct msm_rpc_client *client, uint32_t size)
 	mutex_unlock(&client->cb_xdr.out_lock);
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpc_send_accepted_reply);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_send_accepted_reply); */
 
 /*
  * Interface to be used to add a callback function.
@@ -860,7 +860,7 @@ int msm_rpc_add_cb_func(struct msm_rpc_client *client, void *cb_func)
 
 	return cb_item->cb_id;
 }
-EXPORT_SYMBOL(msm_rpc_add_cb_func);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_add_cb_func); */
 
 /*
  * Interface to be used to get a callback function from a callback ID.
@@ -889,7 +889,7 @@ void *msm_rpc_get_cb_func(struct msm_rpc_client *client, uint32_t cb_id)
 	spin_unlock_irqrestore(&client->cb_list_lock, flags);
 	return NULL;
 }
-EXPORT_SYMBOL(msm_rpc_get_cb_func);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_get_cb_func); */
 
 /*
  * Interface to be used to remove a callback function.
@@ -919,4 +919,4 @@ void msm_rpc_remove_cb_func(struct msm_rpc_client *client, void *cb_func)
 	}
 	spin_unlock_irqrestore(&client->cb_list_lock, flags);
 }
-EXPORT_SYMBOL(msm_rpc_remove_cb_func);
+/* DISABLED: EXPORT_SYMBOL(msm_rpc_remove_cb_func); */

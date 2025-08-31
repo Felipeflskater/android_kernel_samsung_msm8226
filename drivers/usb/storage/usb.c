@@ -193,7 +193,7 @@ int usb_stor_suspend(struct usb_interface *iface, pm_message_t message)
 	mutex_unlock(&us->dev_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_stor_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_suspend); */
 
 int usb_stor_resume(struct usb_interface *iface)
 {
@@ -208,7 +208,7 @@ int usb_stor_resume(struct usb_interface *iface)
 	mutex_unlock(&us->dev_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_stor_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_resume); */
 
 int usb_stor_reset_resume(struct usb_interface *iface)
 {
@@ -223,7 +223,7 @@ int usb_stor_reset_resume(struct usb_interface *iface)
 	 * the device */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_stor_reset_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_reset_resume); */
 
 #endif /* CONFIG_PM */
 
@@ -242,7 +242,7 @@ int usb_stor_pre_reset(struct usb_interface *iface)
 	mutex_lock(&us->dev_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_stor_pre_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_pre_reset); */
 
 int usb_stor_post_reset(struct usb_interface *iface)
 {
@@ -259,7 +259,7 @@ int usb_stor_post_reset(struct usb_interface *iface)
 	mutex_unlock(&us->dev_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_stor_post_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_post_reset); */
 
 /*
  * fill_inquiry_response takes an unsigned char array (which must
@@ -303,7 +303,7 @@ void fill_inquiry_response(struct us_data *us, unsigned char *data,
 
 	usb_stor_set_xfer_buf(data, data_len, us->srb);
 }
-EXPORT_SYMBOL_GPL(fill_inquiry_response);
+/* DISABLED: EXPORT_SYMBOL_GPL(fill_inquiry_response); */
 
 static int usb_stor_control_thread(void * __us)
 {
@@ -991,7 +991,7 @@ BadDevice:
 	release_everything(us);
 	return result;
 }
-EXPORT_SYMBOL_GPL(usb_stor_probe1);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_probe1); */
 
 /* Second part of general USB mass-storage probing */
 int usb_stor_probe2(struct us_data *us)
@@ -1056,7 +1056,7 @@ BadDevice:
 	release_everything(us);
 	return result;
 }
-EXPORT_SYMBOL_GPL(usb_stor_probe2);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_probe2); */
 
 /* Handle a USB mass-storage disconnect */
 void usb_stor_disconnect(struct usb_interface *intf)
@@ -1067,7 +1067,7 @@ void usb_stor_disconnect(struct usb_interface *intf)
 	quiesce_and_remove_host(us);
 	release_everything(us);
 }
-EXPORT_SYMBOL_GPL(usb_stor_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_disconnect); */
 
 /* The main probe routine for standard devices */
 static int storage_probe(struct usb_interface *intf,

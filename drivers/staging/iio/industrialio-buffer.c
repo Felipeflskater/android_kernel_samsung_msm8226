@@ -73,7 +73,7 @@ void iio_buffer_init(struct iio_buffer *buffer)
 	INIT_LIST_HEAD(&buffer->demux_list);
 	init_waitqueue_head(&buffer->pollq);
 }
-EXPORT_SYMBOL(iio_buffer_init);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_init); */
 
 static ssize_t iio_show_scan_index(struct device *dev,
 				   struct device_attribute *attr,
@@ -336,7 +336,7 @@ error_cleanup_dynamic:
 
 	return ret;
 }
-EXPORT_SYMBOL(iio_buffer_register);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_register); */
 
 void iio_buffer_unregister(struct iio_dev *indio_dev)
 {
@@ -344,7 +344,7 @@ void iio_buffer_unregister(struct iio_dev *indio_dev)
 	kfree(indio_dev->buffer->scan_el_group.attrs);
 	__iio_buffer_attr_cleanup(indio_dev);
 }
-EXPORT_SYMBOL(iio_buffer_unregister);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_unregister); */
 
 ssize_t iio_buffer_read_length(struct device *dev,
 			       struct device_attribute *attr,
@@ -359,7 +359,7 @@ ssize_t iio_buffer_read_length(struct device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(iio_buffer_read_length);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_read_length); */
 
 ssize_t iio_buffer_write_length(struct device *dev,
 				struct device_attribute *attr,
@@ -391,7 +391,7 @@ ssize_t iio_buffer_write_length(struct device *dev,
 
 	return ret ? ret : len;
 }
-EXPORT_SYMBOL(iio_buffer_write_length);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_write_length); */
 
 ssize_t iio_buffer_store_enable(struct device *dev,
 				struct device_attribute *attr,
@@ -481,7 +481,7 @@ error_ret:
 	mutex_unlock(&indio_dev->mlock);
 	return ret;
 }
-EXPORT_SYMBOL(iio_buffer_store_enable);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_store_enable); */
 
 ssize_t iio_buffer_show_enable(struct device *dev,
 			       struct device_attribute *attr,
@@ -490,7 +490,7 @@ ssize_t iio_buffer_show_enable(struct device *dev,
 	struct iio_dev *indio_dev = dev_get_drvdata(dev);
 	return sprintf(buf, "%d\n", iio_buffer_enabled(indio_dev));
 }
-EXPORT_SYMBOL(iio_buffer_show_enable);
+/* DISABLED: EXPORT_SYMBOL(iio_buffer_show_enable); */
 
 /* note NULL used as error indicator as it doesn't make sense. */
 static const unsigned long *iio_scan_mask_match(const unsigned long *av_masks,
@@ -548,7 +548,7 @@ int iio_sw_buffer_preenable(struct iio_dev *indio_dev)
 					   indio_dev->active_scan_mask);
 	return 0;
 }
-EXPORT_SYMBOL(iio_sw_buffer_preenable);
+/* DISABLED: EXPORT_SYMBOL(iio_sw_buffer_preenable); */
 
 /**
  * iio_scan_mask_set() - set particular bit in the scan mask
@@ -590,7 +590,7 @@ int iio_scan_mask_set(struct iio_dev *indio_dev,
 
 	return 0;
 };
-EXPORT_SYMBOL_GPL(iio_scan_mask_set);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_scan_mask_set); */
 
 int iio_scan_mask_query(struct iio_dev *indio_dev,
 			struct iio_buffer *buffer, int bit)
@@ -603,7 +603,7 @@ int iio_scan_mask_query(struct iio_dev *indio_dev,
 
 	return test_bit(bit, buffer->scan_mask);
 };
-EXPORT_SYMBOL_GPL(iio_scan_mask_query);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_scan_mask_query); */
 
 /**
  * struct iio_demux_table() - table describing demux memcpy ops
@@ -640,7 +640,7 @@ int iio_push_to_buffer(struct iio_buffer *buffer, unsigned char *data,
 
 	return buffer->access->store_to(buffer, dataout, timestamp);
 }
-EXPORT_SYMBOL_GPL(iio_push_to_buffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_push_to_buffer); */
 
 int iio_update_demux(struct iio_dev *indio_dev)
 {
@@ -735,4 +735,4 @@ error_clear_mux_table:
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(iio_update_demux);
+/* DISABLED: EXPORT_SYMBOL_GPL(iio_update_demux); */

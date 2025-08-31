@@ -97,7 +97,7 @@ int avail_to_resrv_perfctr_nmi_bit(unsigned int counter)
 
 	return !test_bit(counter, perfctr_nmi_owner);
 }
-EXPORT_SYMBOL(avail_to_resrv_perfctr_nmi_bit);
+/* DISABLED: EXPORT_SYMBOL(avail_to_resrv_perfctr_nmi_bit); */
 
 int reserve_perfctr_nmi(unsigned int msr)
 {
@@ -112,7 +112,7 @@ int reserve_perfctr_nmi(unsigned int msr)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(reserve_perfctr_nmi);
+/* DISABLED: EXPORT_SYMBOL(reserve_perfctr_nmi); */
 
 void release_perfctr_nmi(unsigned int msr)
 {
@@ -125,7 +125,7 @@ void release_perfctr_nmi(unsigned int msr)
 
 	clear_bit(counter, perfctr_nmi_owner);
 }
-EXPORT_SYMBOL(release_perfctr_nmi);
+/* DISABLED: EXPORT_SYMBOL(release_perfctr_nmi); */
 
 int reserve_evntsel_nmi(unsigned int msr)
 {
@@ -140,7 +140,7 @@ int reserve_evntsel_nmi(unsigned int msr)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(reserve_evntsel_nmi);
+/* DISABLED: EXPORT_SYMBOL(reserve_evntsel_nmi); */
 
 void release_evntsel_nmi(unsigned int msr)
 {
@@ -153,4 +153,4 @@ void release_evntsel_nmi(unsigned int msr)
 
 	clear_bit(counter, evntsel_nmi_owner);
 }
-EXPORT_SYMBOL(release_evntsel_nmi);
+/* DISABLED: EXPORT_SYMBOL(release_evntsel_nmi); */

@@ -183,7 +183,7 @@ struct bio *bio_alloc_mddev(gfp_t gfp_mask, int nr_iovecs,
 	b->bi_destructor = mddev_bio_destructor;
 	return b;
 }
-EXPORT_SYMBOL_GPL(bio_alloc_mddev);
+/* DISABLED: EXPORT_SYMBOL_GPL(bio_alloc_mddev); */
 
 struct bio *bio_clone_mddev(struct bio *bio, gfp_t gfp_mask,
 			    struct mddev *mddev)
@@ -215,7 +215,7 @@ struct bio *bio_clone_mddev(struct bio *bio, gfp_t gfp_mask,
 
 	return b;
 }
-EXPORT_SYMBOL_GPL(bio_clone_mddev);
+/* DISABLED: EXPORT_SYMBOL_GPL(bio_clone_mddev); */
 
 void md_trim_bio(struct bio *bio, int offset, int size)
 {
@@ -264,7 +264,7 @@ void md_trim_bio(struct bio *bio, int offset, int size)
 		sofar += bvec->bv_len;
 	}
 }
-EXPORT_SYMBOL_GPL(md_trim_bio);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_trim_bio); */
 
 /*
  * We have a system wide 'event count' that is incremented
@@ -283,7 +283,7 @@ void md_new_event(struct mddev *mddev)
 	atomic_inc(&md_event_count);
 	wake_up(&md_event_waiters);
 }
-EXPORT_SYMBOL_GPL(md_new_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_new_event); */
 
 /* Alternate version that can be called from interrupts
  * when calling sysfs_notify isn't needed.
@@ -398,7 +398,7 @@ void mddev_suspend(struct mddev *mddev)
 
 	del_timer_sync(&mddev->safemode_timer);
 }
-EXPORT_SYMBOL_GPL(mddev_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(mddev_suspend); */
 
 void mddev_resume(struct mddev *mddev)
 {
@@ -409,13 +409,13 @@ void mddev_resume(struct mddev *mddev)
 	md_wakeup_thread(mddev->thread);
 	md_wakeup_thread(mddev->sync_thread); /* possibly kick off a reshape */
 }
-EXPORT_SYMBOL_GPL(mddev_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(mddev_resume); */
 
 int mddev_congested(struct mddev *mddev, int bits)
 {
 	return mddev->suspended;
 }
-EXPORT_SYMBOL(mddev_congested);
+/* DISABLED: EXPORT_SYMBOL(mddev_congested); */
 
 /*
  * Generic flush handling for md
@@ -499,7 +499,7 @@ void md_flush_request(struct mddev *mddev, struct bio *bio)
 	INIT_WORK(&mddev->flush_work, submit_flushes);
 	queue_work(md_wq, &mddev->flush_work);
 }
-EXPORT_SYMBOL(md_flush_request);
+/* DISABLED: EXPORT_SYMBOL(md_flush_request); */
 
 /* Support for plugging.
  * This mirrors the plugging support in request_queue, but does not
@@ -555,7 +555,7 @@ int mddev_check_plugged(struct mddev *mddev)
 	list_add(&mdcb->cb.list, &plug->cb_list);
 	return 1;
 }
-EXPORT_SYMBOL_GPL(mddev_check_plugged);
+/* DISABLED: EXPORT_SYMBOL_GPL(mddev_check_plugged); */
 
 static inline struct mddev *mddev_get(struct mddev *mddev)
 {
@@ -615,7 +615,7 @@ void mddev_init(struct mddev *mddev)
 	mddev->resync_max = MaxSector;
 	mddev->level = LEVEL_NONE;
 }
-EXPORT_SYMBOL_GPL(mddev_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(mddev_init); */
 
 static struct mddev * mddev_find(dev_t unit)
 {
@@ -904,7 +904,7 @@ int sync_page_io(struct md_rdev *rdev, sector_t sector, int size,
 	bio_put(bio);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(sync_page_io);
+/* DISABLED: EXPORT_SYMBOL_GPL(sync_page_io); */
 
 static int read_disk_sb(struct md_rdev * rdev, int size)
 {
@@ -1062,7 +1062,7 @@ int md_check_no_bitmap(struct mddev *mddev)
 		mdname(mddev), mddev->pers->name);
 	return 1;
 }
-EXPORT_SYMBOL(md_check_no_bitmap);
+/* DISABLED: EXPORT_SYMBOL(md_check_no_bitmap); */
 
 /*
  * load_super for 0.90.0 
@@ -1993,7 +1993,7 @@ int md_integrity_register(struct mddev *mddev)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(md_integrity_register);
+/* DISABLED: EXPORT_SYMBOL(md_integrity_register); */
 
 /* Disable data integrity if non-capable/non-matching disk is being added */
 void md_integrity_add_rdev(struct md_rdev *rdev, struct mddev *mddev)
@@ -2011,7 +2011,7 @@ void md_integrity_add_rdev(struct md_rdev *rdev, struct mddev *mddev)
 	printk(KERN_NOTICE "disabling data integrity on %s\n", mdname(mddev));
 	blk_integrity_unregister(mddev->gendisk);
 }
-EXPORT_SYMBOL(md_integrity_add_rdev);
+/* DISABLED: EXPORT_SYMBOL(md_integrity_add_rdev); */
 
 static int bind_rdev_to_array(struct md_rdev * rdev, struct mddev * mddev)
 {
@@ -3115,7 +3115,7 @@ int md_rdev_init(struct md_rdev *rdev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(md_rdev_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_rdev_init); */
 /*
  * Import a device. If 'super_format' >= 0, then sanity check the superblock
  *
@@ -4972,7 +4972,7 @@ int md_run(struct mddev *mddev)
 	sysfs_notify(&mddev->kobj, NULL, "degraded");
 	return 0;
 }
-EXPORT_SYMBOL_GPL(md_run);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_run); */
 
 static int do_md_run(struct mddev *mddev)
 {
@@ -5118,7 +5118,7 @@ void md_stop_writes(struct mddev *mddev)
 	__md_stop_writes(mddev);
 	mddev_unlock(mddev);
 }
-EXPORT_SYMBOL_GPL(md_stop_writes);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_stop_writes); */
 
 static void __md_stop(struct mddev *mddev)
 {
@@ -5144,7 +5144,7 @@ void md_stop(struct mddev *mddev)
 		bioset_free(mddev->bio_set);
 }
 
-EXPORT_SYMBOL_GPL(md_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_stop); */
 
 static int md_set_readonly(struct mddev *mddev, struct block_device *bdev)
 {
@@ -5933,7 +5933,7 @@ void md_set_array_sectors(struct mddev *mddev, sector_t array_sectors)
 
 	mddev->array_sectors = array_sectors;
 }
-EXPORT_SYMBOL(md_set_array_sectors);
+/* DISABLED: EXPORT_SYMBOL(md_set_array_sectors); */
 
 static int update_size(struct mddev *mddev, sector_t num_sectors)
 {
@@ -7063,7 +7063,7 @@ int md_allow_write(struct mddev *mddev)
 	else
 		return 0;
 }
-EXPORT_SYMBOL_GPL(md_allow_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_allow_write); */
 
 #define SYNC_MARKS	10
 #define	SYNC_MARK_STEP	(3*HZ)
@@ -7408,7 +7408,7 @@ void md_do_sync(struct mddev *mddev)
 	goto out;
 
 }
-EXPORT_SYMBOL_GPL(md_do_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_do_sync); */
 
 static int remove_and_add_spares(struct mddev *mddev)
 {
@@ -7695,7 +7695,7 @@ void md_wait_for_blocked_rdev(struct md_rdev *rdev, struct mddev *mddev)
 			   msecs_to_jiffies(5000));
 	rdev_dec_pending(rdev, mddev);
 }
-EXPORT_SYMBOL(md_wait_for_blocked_rdev);
+/* DISABLED: EXPORT_SYMBOL(md_wait_for_blocked_rdev); */
 
 
 /* Bad block management.
@@ -7795,7 +7795,7 @@ retry:
 
 	return rv;
 }
-EXPORT_SYMBOL_GPL(md_is_badblock);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_is_badblock); */
 
 /*
  * Add a range of bad blocks to the table.
@@ -7959,7 +7959,7 @@ int rdev_set_badblocks(struct md_rdev *rdev, sector_t s, int sectors,
 	}
 	return rv;
 }
-EXPORT_SYMBOL_GPL(rdev_set_badblocks);
+/* DISABLED: EXPORT_SYMBOL_GPL(rdev_set_badblocks); */
 
 /*
  * Remove a range of bad blocks from the table.
@@ -8062,7 +8062,7 @@ int rdev_clear_badblocks(struct md_rdev *rdev, sector_t s, int sectors)
 				  s + rdev->data_offset,
 				  sectors);
 }
-EXPORT_SYMBOL_GPL(rdev_clear_badblocks);
+/* DISABLED: EXPORT_SYMBOL_GPL(rdev_clear_badblocks); */
 
 /*
  * Acknowledge all bad blocks in a list.
@@ -8090,7 +8090,7 @@ void md_ack_all_badblocks(struct badblocks *bb)
 	}
 	write_sequnlock_irq(&bb->lock);
 }
-EXPORT_SYMBOL_GPL(md_ack_all_badblocks);
+/* DISABLED: EXPORT_SYMBOL_GPL(md_ack_all_badblocks); */
 
 /* sysfs access to bad-blocks list.
  * We present two files.
@@ -8380,16 +8380,16 @@ module_param(start_dirty_degraded, int, S_IRUGO|S_IWUSR);
 
 module_param_call(new_array, add_named_array, NULL, NULL, S_IWUSR);
 
-EXPORT_SYMBOL(register_md_personality);
-EXPORT_SYMBOL(unregister_md_personality);
-EXPORT_SYMBOL(md_error);
-EXPORT_SYMBOL(md_done_sync);
-EXPORT_SYMBOL(md_write_start);
-EXPORT_SYMBOL(md_write_end);
-EXPORT_SYMBOL(md_register_thread);
-EXPORT_SYMBOL(md_unregister_thread);
-EXPORT_SYMBOL(md_wakeup_thread);
-EXPORT_SYMBOL(md_check_recovery);
+/* DISABLED: EXPORT_SYMBOL(register_md_personality); */
+/* DISABLED: EXPORT_SYMBOL(unregister_md_personality); */
+/* DISABLED: EXPORT_SYMBOL(md_error); */
+/* DISABLED: EXPORT_SYMBOL(md_done_sync); */
+/* DISABLED: EXPORT_SYMBOL(md_write_start); */
+/* DISABLED: EXPORT_SYMBOL(md_write_end); */
+/* DISABLED: EXPORT_SYMBOL(md_register_thread); */
+/* DISABLED: EXPORT_SYMBOL(md_unregister_thread); */
+/* DISABLED: EXPORT_SYMBOL(md_wakeup_thread); */
+/* DISABLED: EXPORT_SYMBOL(md_check_recovery); */
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("MD RAID framework");
 MODULE_ALIAS("md");

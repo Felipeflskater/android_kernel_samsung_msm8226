@@ -261,7 +261,7 @@ again:
 	}
 	return 0;
 }
-EXPORT_SYMBOL(cxgb4_l2t_send);
+/* DISABLED: EXPORT_SYMBOL(cxgb4_l2t_send); */
 
 /*
  * Allocate a free L2T entry.  Must be called with l2t_data.lock held.
@@ -332,7 +332,7 @@ void cxgb4_l2t_release(struct l2t_entry *e)
 	if (atomic_dec_and_test(&e->refcnt))
 		t4_l2e_free(e);
 }
-EXPORT_SYMBOL(cxgb4_l2t_release);
+/* DISABLED: EXPORT_SYMBOL(cxgb4_l2t_release); */
 
 /*
  * Update an L2T entry that was previously used for the same next hop as neigh.
@@ -409,7 +409,7 @@ done:
 	write_unlock_bh(&d->lock);
 	return e;
 }
-EXPORT_SYMBOL(cxgb4_l2t_get);
+/* DISABLED: EXPORT_SYMBOL(cxgb4_l2t_get); */
 
 /*
  * Called when address resolution fails for an L2T entry to handle packets

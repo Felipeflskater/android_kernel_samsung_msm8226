@@ -220,7 +220,7 @@ unsigned long atari_register_vme_int(void)
 	free_vme_vec_bitmap |= 1 << i;
 	return VME_SOURCE_BASE + i;
 }
-EXPORT_SYMBOL(atari_register_vme_int);
+/* DISABLED: EXPORT_SYMBOL(atari_register_vme_int); */
 
 
 void atari_unregister_vme_int(unsigned long irq)
@@ -230,6 +230,6 @@ void atari_unregister_vme_int(unsigned long irq)
 		free_vme_vec_bitmap &= ~(1 << irq);
 	}
 }
-EXPORT_SYMBOL(atari_unregister_vme_int);
+/* DISABLED: EXPORT_SYMBOL(atari_unregister_vme_int); */
 
 

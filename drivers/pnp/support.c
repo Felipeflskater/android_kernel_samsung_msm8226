@@ -30,7 +30,7 @@ int pnp_is_active(struct pnp_dev *dev)
 		return 1;
 }
 
-EXPORT_SYMBOL(pnp_is_active);
+/* DISABLED: EXPORT_SYMBOL(pnp_is_active); */
 
 /*
  * Functionally similar to acpi_ex_eisa_id_to_string(), but that's

@@ -749,7 +749,7 @@ static int __init ioapic_pirq_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pirq=", ioapic_pirq_setup); */
+/* DISABLED: __setup("pirq=", ioapic_pirq_setup); */ */
 #endif /* CONFIG_X86_32 */
 
 /*
@@ -1133,7 +1133,7 @@ int IO_APIC_get_PCI_irq_vector(int bus, int slot, int pin,
 	}
 	return best_guess;
 }
-EXPORT_SYMBOL(IO_APIC_get_PCI_irq_vector);
+/* DISABLED: EXPORT_SYMBOL(IO_APIC_get_PCI_irq_vector); */
 
 void lock_vector_lock(void)
 {
@@ -1950,7 +1950,7 @@ static __init int setup_show_lapic(char *arg)
 
 	return 1;
 }
-/* DISABLED: __setup("show_lapic=", setup_show_lapic); */
+/* DISABLED: __setup("show_lapic=", setup_show_lapic); */ */
 
 __apicdebuginit(int) print_ICs(void)
 {
@@ -2209,7 +2209,7 @@ static int __init notimercheck(char *s)
 	no_timer_check = 1;
 	return 1;
 }
-/* DISABLED: __setup("no_timer_check", notimercheck); */
+/* DISABLED: __setup("no_timer_check", notimercheck); */ */
 
 /*
  * There is a nasty bug in some older SMP boards, their mptable lies

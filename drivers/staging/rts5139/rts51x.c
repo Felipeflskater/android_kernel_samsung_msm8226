@@ -917,7 +917,7 @@ struct usb_device_id rts5139_usb_ids[] = {
 	{USB_DEVICE(0x0BDA, 0x0129)},
 	{}			/* Terminating entry */
 };
-EXPORT_SYMBOL_GPL(rts5139_usb_ids);
+/* DISABLED: EXPORT_SYMBOL_GPL(rts5139_usb_ids); */
 
 MODULE_DEVICE_TABLE(usb, rts5139_usb_ids);
 

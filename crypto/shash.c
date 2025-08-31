@@ -29,7 +29,7 @@ int shash_no_setkey(struct crypto_shash *tfm, const u8 *key,
 {
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(shash_no_setkey);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_no_setkey); */
 
 static int shash_setkey_unaligned(struct crypto_shash *tfm, const u8 *key,
 				  unsigned int keylen)
@@ -63,7 +63,7 @@ int crypto_shash_setkey(struct crypto_shash *tfm, const u8 *key,
 
 	return shash->setkey(tfm, key, keylen);
 }
-EXPORT_SYMBOL_GPL(crypto_shash_setkey);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shash_setkey); */
 
 static inline unsigned int shash_align_buffer_size(unsigned len,
 						   unsigned long mask)
@@ -112,7 +112,7 @@ int crypto_shash_update(struct shash_desc *desc, const u8 *data,
 
 	return shash->update(desc, data, len);
 }
-EXPORT_SYMBOL_GPL(crypto_shash_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shash_update); */
 
 static int shash_final_unaligned(struct shash_desc *desc, u8 *out)
 {
@@ -152,7 +152,7 @@ int crypto_shash_final(struct shash_desc *desc, u8 *out)
 
 	return shash->final(desc, out);
 }
-EXPORT_SYMBOL_GPL(crypto_shash_final);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shash_final); */
 
 static int shash_finup_unaligned(struct shash_desc *desc, const u8 *data,
 				 unsigned int len, u8 *out)
@@ -178,7 +178,7 @@ int crypto_shash_finup(struct shash_desc *desc, const u8 *data,
 
 	return shash->finup(desc, data, len, out);
 }
-EXPORT_SYMBOL_GPL(crypto_shash_finup);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shash_finup); */
 
 static int shash_digest_unaligned(struct shash_desc *desc, const u8 *data,
 				  unsigned int len, u8 *out)
@@ -204,7 +204,7 @@ int crypto_shash_digest(struct shash_desc *desc, const u8 *data,
 
 	return shash->digest(desc, data, len, out);
 }
-EXPORT_SYMBOL_GPL(crypto_shash_digest);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_shash_digest); */
 
 static int shash_default_export(struct shash_desc *desc, void *out)
 {
@@ -258,7 +258,7 @@ int shash_ahash_update(struct ahash_request *req, struct shash_desc *desc)
 
 	return nbytes;
 }
-EXPORT_SYMBOL_GPL(shash_ahash_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_ahash_update); */
 
 static int shash_async_update(struct ahash_request *req)
 {
@@ -294,7 +294,7 @@ int shash_ahash_finup(struct ahash_request *req, struct shash_desc *desc)
 
 	return nbytes;
 }
-EXPORT_SYMBOL_GPL(shash_ahash_finup);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_ahash_finup); */
 
 static int shash_async_finup(struct ahash_request *req)
 {
@@ -333,7 +333,7 @@ int shash_ahash_digest(struct ahash_request *req, struct shash_desc *desc)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(shash_ahash_digest);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_ahash_digest); */
 
 static int shash_async_digest(struct ahash_request *req)
 {
@@ -632,7 +632,7 @@ struct crypto_shash *crypto_alloc_shash(const char *alg_name, u32 type,
 
 	return crypto_alloc_tfm(alg_name, &crypto_shash_type, type, mask);
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_shash);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_shash); */
 
 static int shash_prepare_alg(struct shash_alg *alg)
 {
@@ -678,13 +678,13 @@ int crypto_register_shash(struct shash_alg *alg)
 
 	return crypto_register_alg(base);
 }
-EXPORT_SYMBOL_GPL(crypto_register_shash);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_shash); */
 
 int crypto_unregister_shash(struct shash_alg *alg)
 {
 	return crypto_unregister_alg(&alg->base);
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_shash);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_shash); */
 
 int crypto_register_shashes(struct shash_alg *algs, int count)
 {
@@ -704,7 +704,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(crypto_register_shashes);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_shashes); */
 
 int crypto_unregister_shashes(struct shash_alg *algs, int count)
 {
@@ -720,7 +720,7 @@ int crypto_unregister_shashes(struct shash_alg *algs, int count)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_shashes);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_shashes); */
 
 int shash_register_instance(struct crypto_template *tmpl,
 			    struct shash_instance *inst)
@@ -738,14 +738,14 @@ int shash_register_instance(struct crypto_template *tmpl,
 
 	return crypto_register_instance(tmpl, shash_crypto_instance(inst));
 }
-EXPORT_SYMBOL_GPL(shash_register_instance);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_register_instance); */
 
 void shash_free_instance(struct crypto_instance *inst)
 {
 	crypto_drop_spawn(crypto_instance_ctx(inst));
 	kfree(shash_instance(inst));
 }
-EXPORT_SYMBOL_GPL(shash_free_instance);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_free_instance); */
 
 int crypto_init_shash_spawn(struct crypto_shash_spawn *spawn,
 			    struct shash_alg *alg,
@@ -759,7 +759,7 @@ int crypto_init_shash_spawn(struct crypto_shash_spawn *spawn,
 	return crypto_init_spawn2(&spawn->base, &alg->base, inst,
 				  &crypto_shash_type);
 }
-EXPORT_SYMBOL_GPL(crypto_init_shash_spawn);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_init_shash_spawn); */
 
 struct shash_alg *shash_attr_alg(struct rtattr *rta, u32 type, u32 mask)
 {
@@ -769,7 +769,7 @@ struct shash_alg *shash_attr_alg(struct rtattr *rta, u32 type, u32 mask)
 	return IS_ERR(alg) ? ERR_CAST(alg) :
 	       container_of(alg, struct shash_alg, base);
 }
-EXPORT_SYMBOL_GPL(shash_attr_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(shash_attr_alg); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Synchronous cryptographic hash type");

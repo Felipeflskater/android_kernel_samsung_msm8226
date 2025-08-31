@@ -46,7 +46,7 @@ int rtc_read_time(struct rtc_device *rtc, struct rtc_time *tm)
 	mutex_unlock(&rtc->ops_lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_read_time);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_read_time); */
 
 int rtc_set_time(struct rtc_device *rtc, struct rtc_time *tm)
 {
@@ -77,7 +77,7 @@ int rtc_set_time(struct rtc_device *rtc, struct rtc_time *tm)
 	schedule_work(&rtc->irqwork);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_set_time);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_set_time); */
 
 int rtc_set_mmss(struct rtc_device *rtc, unsigned long secs)
 {
@@ -119,7 +119,7 @@ int rtc_set_mmss(struct rtc_device *rtc, unsigned long secs)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_set_mmss);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_set_mmss); */
 
 static int rtc_read_alarm_internal(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 {
@@ -321,7 +321,7 @@ int rtc_read_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_read_alarm);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_read_alarm); */
 
 static int __rtc_set_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 {
@@ -378,7 +378,7 @@ int rtc_set_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 	mutex_unlock(&rtc->ops_lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_set_alarm);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_set_alarm); */
 
 /* Called once per device from rtc_device_register */
 int rtc_initialize_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
@@ -411,7 +411,7 @@ int rtc_initialize_alarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 	mutex_unlock(&rtc->ops_lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_initialize_alarm);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_initialize_alarm); */
 
 #ifdef CONFIG_RTC_AUTO_PWRON
 int rtc_set_bootalarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
@@ -434,7 +434,7 @@ int rtc_set_bootalarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 /*	mutex_unlock(&rtc->ops_lock); */
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_set_bootalarm);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_set_bootalarm); */
 
 int rtc_get_bootalarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 {
@@ -456,7 +456,7 @@ int rtc_get_bootalarm(struct rtc_device *rtc, struct rtc_wkalrm *alarm)
 /*	mutex_unlock(&rtc->ops_lock); */
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_get_bootalarm);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_get_bootalarm); */
 #endif /* CONFIG_AUTO_PWRON */
 
 int rtc_alarm_irq_enable(struct rtc_device *rtc, unsigned int enabled)
@@ -484,7 +484,7 @@ int rtc_alarm_irq_enable(struct rtc_device *rtc, unsigned int enabled)
 	mutex_unlock(&rtc->ops_lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_alarm_irq_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_alarm_irq_enable); */
 
 int rtc_update_irq_enable(struct rtc_device *rtc, unsigned int enabled)
 {
@@ -535,7 +535,7 @@ out:
 	return err;
 
 }
-EXPORT_SYMBOL_GPL(rtc_update_irq_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_update_irq_enable); */
 
 
 /**
@@ -628,7 +628,7 @@ void rtc_update_irq(struct rtc_device *rtc,
 {
 	schedule_work(&rtc->irqwork);
 }
-EXPORT_SYMBOL_GPL(rtc_update_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_update_irq); */
 
 static int __rtc_match(struct device *dev, void *data)
 {
@@ -657,14 +657,14 @@ struct rtc_device *rtc_class_open(char *name)
 
 	return rtc;
 }
-EXPORT_SYMBOL_GPL(rtc_class_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_class_open); */
 
 void rtc_class_close(struct rtc_device *rtc)
 {
 	module_put(rtc->owner);
 	put_device(&rtc->dev);
 }
-EXPORT_SYMBOL_GPL(rtc_class_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_class_close); */
 
 int rtc_irq_register(struct rtc_device *rtc, struct rtc_task *task)
 {
@@ -688,7 +688,7 @@ int rtc_irq_register(struct rtc_device *rtc, struct rtc_task *task)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(rtc_irq_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_irq_register); */
 
 void rtc_irq_unregister(struct rtc_device *rtc, struct rtc_task *task)
 {
@@ -697,7 +697,7 @@ void rtc_irq_unregister(struct rtc_device *rtc, struct rtc_task *task)
 		rtc->irq_task = NULL;
 	spin_unlock_irq(&rtc->irq_task_lock);
 }
-EXPORT_SYMBOL_GPL(rtc_irq_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_irq_unregister); */
 
 static int rtc_update_hrtimer(struct rtc_device *rtc, int enabled)
 {
@@ -754,7 +754,7 @@ retry:
 	spin_unlock_irqrestore(&rtc->irq_task_lock, flags);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_irq_set_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_irq_set_state); */
 
 /**
  * rtc_irq_set_freq - set 2^N Hz periodic IRQ frequency for IRQ
@@ -790,7 +790,7 @@ retry:
 	spin_unlock_irqrestore(&rtc->irq_task_lock, flags);
 	return err;
 }
-EXPORT_SYMBOL_GPL(rtc_irq_set_freq);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtc_irq_set_freq); */
 
 /**
  * rtc_timer_enqueue - Adds a rtc_timer to the rtc_device timerqueue

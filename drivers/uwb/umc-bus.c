@@ -72,7 +72,7 @@ int umc_controller_reset(struct umc_dev *umc)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(umc_controller_reset);
+/* DISABLED: EXPORT_SYMBOL_GPL(umc_controller_reset); */
 
 /**
  * umc_match_pci_id - match a UMC driver to a UMC device's parent PCI device.
@@ -91,7 +91,7 @@ int umc_match_pci_id(struct umc_driver *umc_drv, struct umc_dev *umc)
 	pci = to_pci_dev(umc->dev.parent);
 	return pci_match_id(id_table, pci) != NULL;
 }
-EXPORT_SYMBOL_GPL(umc_match_pci_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(umc_match_pci_id); */
 
 static int umc_bus_rescan_helper(struct device *dev, void *data)
 {
@@ -224,7 +224,7 @@ struct bus_type umc_bus_type = {
 	.resume         = umc_device_resume,
 	.dev_attrs	= umc_dev_attrs,
 };
-EXPORT_SYMBOL_GPL(umc_bus_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(umc_bus_type); */
 
 static int __init umc_bus_init(void)
 {

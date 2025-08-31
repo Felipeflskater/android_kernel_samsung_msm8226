@@ -79,8 +79,8 @@
 unsigned long max_mapnr;
 struct page *mem_map;
 
-EXPORT_SYMBOL(max_mapnr);
-EXPORT_SYMBOL(mem_map);
+/* DISABLED: EXPORT_SYMBOL(max_mapnr); */
+/* DISABLED: EXPORT_SYMBOL(mem_map); */
 #endif
 
 unsigned long num_physpages;
@@ -93,8 +93,8 @@ unsigned long num_physpages;
  */
 void * high_memory;
 
-EXPORT_SYMBOL(num_physpages);
-EXPORT_SYMBOL(high_memory);
+/* DISABLED: EXPORT_SYMBOL(num_physpages); */
+/* DISABLED: EXPORT_SYMBOL(high_memory); */
 
 /*
  * Randomize the address space (stacks, mmaps, brk, etc.).
@@ -114,7 +114,7 @@ static int __init disable_randmaps(char *s)
 	randomize_va_space = 0;
 	return 1;
 }
-/* DISABLED: __setup("norandmaps", disable_randmaps); */
+/* DISABLED: __setup("norandmaps", disable_randmaps); */ */
 
 unsigned long zero_pfn __read_mostly;
 unsigned long highest_memmap_pfn __read_mostly;
@@ -161,7 +161,7 @@ static void add_mm_counter_fast(struct mm_struct *mm, int member, int val)
 #define TASK_RSS_EVENTS_THRESH	(64)
 
 #if defined(CONFIG_VMWARE_MVP)
-EXPORT_SYMBOL_GPL(get_mm_counter);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_mm_counter); */
 #endif
 
 static void check_sync_rss_stat(struct task_struct *task)
@@ -1557,7 +1557,7 @@ int zap_vma_ptes(struct vm_area_struct *vma, unsigned long address,
 	zap_page_range_single(vma, address, size, NULL);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(zap_vma_ptes);
+/* DISABLED: EXPORT_SYMBOL_GPL(zap_vma_ptes); */
 
 #ifdef CONFIG_CMA_PINPAGE_MIGRATION
 static struct page *__alloc_nonmovable_userpage(struct page *page,
@@ -2064,7 +2064,7 @@ next_page:
 	} while (nr_pages);
 	return i;
 }
-EXPORT_SYMBOL(__get_user_pages);
+/* DISABLED: EXPORT_SYMBOL(__get_user_pages); */
 
 /*
  * fixup_user_fault() - manually resolve a user page fault
@@ -2194,7 +2194,7 @@ int get_user_pages(struct task_struct *tsk, struct mm_struct *mm,
 	return __get_user_pages(tsk, mm, start, nr_pages, flags, pages, vmas,
 				NULL);
 }
-EXPORT_SYMBOL(get_user_pages);
+/* DISABLED: EXPORT_SYMBOL(get_user_pages); */
 
 /**
  * get_dump_page() - pin user page in memory while writing it to core dump
@@ -2314,7 +2314,7 @@ int vm_insert_page(struct vm_area_struct *vma, unsigned long addr,
 	vma->vm_flags |= VM_INSERTPAGE;
 	return insert_page(vma, addr, page, vma->vm_page_prot);
 }
-EXPORT_SYMBOL(vm_insert_page);
+/* DISABLED: EXPORT_SYMBOL(vm_insert_page); */
 
 static int insert_pfn(struct vm_area_struct *vma, unsigned long addr,
 			unsigned long pfn, pgprot_t prot)
@@ -2390,7 +2390,7 @@ int vm_insert_pfn(struct vm_area_struct *vma, unsigned long addr,
 
 	return ret;
 }
-EXPORT_SYMBOL(vm_insert_pfn);
+/* DISABLED: EXPORT_SYMBOL(vm_insert_pfn); */
 
 int vm_insert_mixed(struct vm_area_struct *vma, unsigned long addr,
 			unsigned long pfn)
@@ -2415,7 +2415,7 @@ int vm_insert_mixed(struct vm_area_struct *vma, unsigned long addr,
 	}
 	return insert_pfn(vma, addr, pfn, vma->vm_page_prot);
 }
-EXPORT_SYMBOL(vm_insert_mixed);
+/* DISABLED: EXPORT_SYMBOL(vm_insert_mixed); */
 
 /*
  * maps a range of physical memory into the requested pages. the old
@@ -2557,7 +2557,7 @@ int remap_pfn_range(struct vm_area_struct *vma, unsigned long addr,
 
 	return err;
 }
-EXPORT_SYMBOL(remap_pfn_range);
+/* DISABLED: EXPORT_SYMBOL(remap_pfn_range); */
 
 /**
  * vm_iomap_memory - remap memory to userspace
@@ -2604,7 +2604,7 @@ int vm_iomap_memory(struct vm_area_struct *vma, phys_addr_t start, unsigned long
 	/* Ok, let it rip */
 	return io_remap_pfn_range(vma, vma->vm_start, pfn, vm_len, vma->vm_page_prot);
 }
-EXPORT_SYMBOL(vm_iomap_memory);
+/* DISABLED: EXPORT_SYMBOL(vm_iomap_memory); */
 
 static int apply_to_pte_range(struct mm_struct *mm, pmd_t *pmd,
 				     unsigned long addr, unsigned long end,
@@ -2705,7 +2705,7 @@ int apply_to_page_range(struct mm_struct *mm, unsigned long addr,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(apply_to_page_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(apply_to_page_range); */
 
 /*
  * handle_pte_fault chooses page fault handler according to an entry
@@ -3162,7 +3162,7 @@ void unmap_mapping_range(struct address_space *mapping,
 		unmap_mapping_range_list(&mapping->i_mmap_nonlinear, &details);
 	mutex_unlock(&mapping->i_mmap_mutex);
 }
-EXPORT_SYMBOL(unmap_mapping_range);
+/* DISABLED: EXPORT_SYMBOL(unmap_mapping_range); */
 
 /*
  * We enter with non-exclusive mmap_sem (to exclude vma changes,
@@ -4005,7 +4005,7 @@ int follow_pfn(struct vm_area_struct *vma, unsigned long address,
 	pte_unmap_unlock(ptep, ptl);
 	return 0;
 }
-EXPORT_SYMBOL(follow_pfn);
+/* DISABLED: EXPORT_SYMBOL(follow_pfn); */
 
 #ifdef CONFIG_HAVE_IOREMAP_PROT
 int follow_phys(struct vm_area_struct *vma,
@@ -4216,7 +4216,7 @@ void might_fault(void)
 	if (!in_atomic() && current->mm)
 		might_lock_read(&current->mm->mmap_sem);
 }
-EXPORT_SYMBOL(might_fault);
+/* DISABLED: EXPORT_SYMBOL(might_fault); */
 #endif
 
 #if defined(CONFIG_TRANSPARENT_HUGEPAGE) || defined(CONFIG_HUGETLBFS)

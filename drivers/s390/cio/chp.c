@@ -92,7 +92,7 @@ u8 chp_get_sch_opm(struct subchannel *sch)
 	}
 	return opm;
 }
-EXPORT_SYMBOL_GPL(chp_get_sch_opm);
+/* DISABLED: EXPORT_SYMBOL_GPL(chp_get_sch_opm); */
 
 /**
  * chp_is_registered - check if a channel-path is registered
@@ -543,7 +543,7 @@ int chp_ssd_get_mask(struct chsc_ssd_info *ssd, struct chp_link *link)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(chp_ssd_get_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(chp_ssd_get_mask); */
 
 static inline int info_bit_num(struct chp_id id)
 {

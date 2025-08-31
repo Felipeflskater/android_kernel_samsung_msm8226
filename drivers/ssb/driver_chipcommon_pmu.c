@@ -612,8 +612,8 @@ void ssb_pmu_set_ldo_paref(struct ssb_chipcommon *cc, bool on)
 	chipco_read32(cc, SSB_CHIPCO_PMU_MINRES_MSK); //SPEC FIXME found via mmiotrace - dummy read?
 }
 
-EXPORT_SYMBOL(ssb_pmu_set_ldo_voltage);
-EXPORT_SYMBOL(ssb_pmu_set_ldo_paref);
+/* DISABLED: EXPORT_SYMBOL(ssb_pmu_set_ldo_voltage); */
+/* DISABLED: EXPORT_SYMBOL(ssb_pmu_set_ldo_paref); */
 
 u32 ssb_pmu_get_cpu_clock(struct ssb_chipcommon *cc)
 {
@@ -673,4 +673,4 @@ void ssb_pmu_spuravoid_pllupdate(struct ssb_chipcommon *cc, int spuravoid)
 
 	chipco_set32(cc, SSB_CHIPCO_PMU_CTL, pmu_ctl);
 }
-EXPORT_SYMBOL_GPL(ssb_pmu_spuravoid_pllupdate);
+/* DISABLED: EXPORT_SYMBOL_GPL(ssb_pmu_spuravoid_pllupdate); */

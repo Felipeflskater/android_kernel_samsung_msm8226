@@ -180,7 +180,7 @@ void snd_ctl_notify(struct snd_card *card, unsigned int mask,
 	read_unlock(&card->ctl_files_rwlock);
 }
 
-EXPORT_SYMBOL(snd_ctl_notify);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_notify); */
 
 /**
  * snd_ctl_new - create a control instance from the template
@@ -262,7 +262,7 @@ struct snd_kcontrol *snd_ctl_new1(const struct snd_kcontrol_new *ncontrol,
 	return snd_ctl_new(&kctl, access);
 }
 
-EXPORT_SYMBOL(snd_ctl_new1);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_new1); */
 
 /**
  * snd_ctl_free_one - release the control instance
@@ -281,7 +281,7 @@ void snd_ctl_free_one(struct snd_kcontrol *kcontrol)
 	}
 }
 
-EXPORT_SYMBOL(snd_ctl_free_one);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_free_one); */
 
 static bool snd_ctl_remove_numid_conflict(struct snd_card *card,
 					  unsigned int count)
@@ -375,7 +375,7 @@ int snd_ctl_add(struct snd_card *card, struct snd_kcontrol *kcontrol)
 	return err;
 }
 
-EXPORT_SYMBOL(snd_ctl_add);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_add); */
 
 /**
  * snd_ctl_replace - replace the control instance of the card
@@ -441,7 +441,7 @@ error:
 	snd_ctl_free_one(kcontrol);
 	return ret;
 }
-EXPORT_SYMBOL(snd_ctl_replace);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_replace); */
 
 /**
  * snd_ctl_remove - remove the control from the card and release it
@@ -470,7 +470,7 @@ int snd_ctl_remove(struct snd_card *card, struct snd_kcontrol *kcontrol)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_ctl_remove);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_remove); */
 
 /**
  * snd_ctl_remove_id - remove the control of the given id and release it
@@ -498,7 +498,7 @@ int snd_ctl_remove_id(struct snd_card *card, struct snd_ctl_elem_id *id)
 	return ret;
 }
 
-EXPORT_SYMBOL(snd_ctl_remove_id);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_remove_id); */
 
 /**
  * snd_ctl_remove_user_ctl - remove and release the unlocked user control
@@ -585,7 +585,7 @@ int snd_ctl_activate_id(struct snd_card *card, struct snd_ctl_elem_id *id,
 		snd_ctl_notify(card, SNDRV_CTL_EVENT_MASK_INFO, id);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_ctl_activate_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ctl_activate_id); */
 
 /**
  * snd_ctl_rename_id - replace the id of a control on the card
@@ -616,7 +616,7 @@ int snd_ctl_rename_id(struct snd_card *card, struct snd_ctl_elem_id *src_id,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_ctl_rename_id);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_rename_id); */
 
 /**
  * snd_ctl_find_numid - find the control instance with the given number-id
@@ -643,7 +643,7 @@ struct snd_kcontrol *snd_ctl_find_numid(struct snd_card *card, unsigned int numi
 	return NULL;
 }
 
-EXPORT_SYMBOL(snd_ctl_find_numid);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_find_numid); */
 
 /**
  * snd_ctl_find_id - find the control instance with the given id
@@ -684,7 +684,7 @@ struct snd_kcontrol *snd_ctl_find_id(struct snd_card *card,
 	return NULL;
 }
 
-EXPORT_SYMBOL(snd_ctl_find_id);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_find_id); */
 
 static int snd_ctl_card_info(struct snd_card *card, struct snd_ctl_file * ctl,
 			     unsigned int cmd, void __user *arg)
@@ -1531,7 +1531,7 @@ int snd_ctl_register_ioctl(snd_kctl_ioctl_func_t fcn)
 	return _snd_ctl_register_ioctl(fcn, &snd_control_ioctls);
 }
 
-EXPORT_SYMBOL(snd_ctl_register_ioctl);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_register_ioctl); */
 
 #ifdef CONFIG_COMPAT
 int snd_ctl_register_ioctl_compat(snd_kctl_ioctl_func_t fcn)
@@ -1539,7 +1539,7 @@ int snd_ctl_register_ioctl_compat(snd_kctl_ioctl_func_t fcn)
 	return _snd_ctl_register_ioctl(fcn, &snd_control_compat_ioctls);
 }
 
-EXPORT_SYMBOL(snd_ctl_register_ioctl_compat);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_register_ioctl_compat); */
 #endif
 
 /*
@@ -1571,7 +1571,7 @@ int snd_ctl_unregister_ioctl(snd_kctl_ioctl_func_t fcn)
 	return _snd_ctl_unregister_ioctl(fcn, &snd_control_ioctls);
 }
 
-EXPORT_SYMBOL(snd_ctl_unregister_ioctl);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_unregister_ioctl); */
 
 #ifdef CONFIG_COMPAT
 int snd_ctl_unregister_ioctl_compat(snd_kctl_ioctl_func_t fcn)
@@ -1579,7 +1579,7 @@ int snd_ctl_unregister_ioctl_compat(snd_kctl_ioctl_func_t fcn)
 	return _snd_ctl_unregister_ioctl(fcn, &snd_control_compat_ioctls);
 }
 
-EXPORT_SYMBOL(snd_ctl_unregister_ioctl_compat);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_unregister_ioctl_compat); */
 #endif
 
 static int snd_ctl_fasync(int fd, struct file * file, int on)
@@ -1712,7 +1712,7 @@ int snd_ctl_boolean_mono_info(struct snd_kcontrol *kcontrol,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_ctl_boolean_mono_info);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_boolean_mono_info); */
 
 int snd_ctl_boolean_stereo_info(struct snd_kcontrol *kcontrol,
 				struct snd_ctl_elem_info *uinfo)
@@ -1724,7 +1724,7 @@ int snd_ctl_boolean_stereo_info(struct snd_kcontrol *kcontrol,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_ctl_boolean_stereo_info);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_boolean_stereo_info); */
 
 /**
  * snd_ctl_enum_info - fills the info structure for an enumerated control
@@ -1750,4 +1750,4 @@ int snd_ctl_enum_info(struct snd_ctl_elem_info *info, unsigned int channels,
 		sizeof(info->value.enumerated.name));
 	return 0;
 }
-EXPORT_SYMBOL(snd_ctl_enum_info);
+/* DISABLED: EXPORT_SYMBOL(snd_ctl_enum_info); */

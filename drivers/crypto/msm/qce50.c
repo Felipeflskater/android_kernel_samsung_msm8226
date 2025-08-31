@@ -4476,7 +4476,7 @@ static int _qce_resume(void *handle)
 }
 
 struct qce_pm_table qce_pm_table  = {_qce_suspend, _qce_resume};
-EXPORT_SYMBOL(qce_pm_table);
+/* DISABLED: EXPORT_SYMBOL(qce_pm_table); */
 
 int qce_aead_req(void *handle, struct qce_req *q_req)
 {
@@ -4691,7 +4691,7 @@ bad:
 
 	return rc;
 }
-EXPORT_SYMBOL(qce_aead_req);
+/* DISABLED: EXPORT_SYMBOL(qce_aead_req); */
 
 int qce_ablk_cipher_req(void *handle, struct qce_req *c_req)
 {
@@ -4797,7 +4797,7 @@ bad:
 	}
 	return rc;
 }
-EXPORT_SYMBOL(qce_ablk_cipher_req);
+/* DISABLED: EXPORT_SYMBOL(qce_ablk_cipher_req); */
 
 int qce_process_sha_req(void *handle, struct qce_sha_req *sreq)
 {
@@ -4859,7 +4859,7 @@ bad:
 	}
 	return rc;
 }
-EXPORT_SYMBOL(qce_process_sha_req);
+/* DISABLED: EXPORT_SYMBOL(qce_process_sha_req); */
 
 int qce_f8_req(void *handle, struct qce_f8_req *req,
 			void *cookie, qce_comp_func_ptr_t qce_cb)
@@ -4977,7 +4977,7 @@ bad:
 					DMA_BIDIRECTIONAL : DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f8_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f8_req); */
 
 int qce_f8_multi_pkt_req(void *handle, struct qce_f8_multi_pkt_req *mreq,
 			void *cookie, qce_comp_func_ptr_t qce_cb)
@@ -5087,7 +5087,7 @@ bad:
 				DMA_BIDIRECTIONAL : DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f8_multi_pkt_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f8_multi_pkt_req); */
 
 int qce_f9_req(void *handle, struct qce_f9_req *req, void *cookie,
 			qce_comp_func_ptr_t qce_cb)
@@ -5155,7 +5155,7 @@ bad:
 				req->msize, DMA_TO_DEVICE);
 	return rc;
 }
-EXPORT_SYMBOL(qce_f9_req);
+/* DISABLED: EXPORT_SYMBOL(qce_f9_req); */
 
 static int __qce_get_device_tree_data(struct platform_device *pdev,
 		struct qce_device *pce_dev)
@@ -5381,7 +5381,7 @@ int qce_enable_clk(void *handle)
 	}
 	return rc;
 }
-EXPORT_SYMBOL(qce_enable_clk);
+/* DISABLED: EXPORT_SYMBOL(qce_enable_clk); */
 
 int qce_disable_clk(void *handle)
 {
@@ -5397,7 +5397,7 @@ int qce_disable_clk(void *handle)
 
 	return rc;
 }
-EXPORT_SYMBOL(qce_disable_clk);
+/* DISABLED: EXPORT_SYMBOL(qce_disable_clk); */
 
 /* crypto engine open function. */
 void *qce_open(struct platform_device *pdev, int *rc)
@@ -5470,7 +5470,7 @@ err_pce_dev:
 	kfree(pce_dev);
 	return NULL;
 }
-EXPORT_SYMBOL(qce_open);
+/* DISABLED: EXPORT_SYMBOL(qce_open); */
 
 /* crypto engine close function. */
 int qce_close(void *handle)
@@ -5496,7 +5496,7 @@ int qce_close(void *handle)
 
 	return 0;
 }
-EXPORT_SYMBOL(qce_close);
+/* DISABLED: EXPORT_SYMBOL(qce_close); */
 
 #define OTA_SUPPORT_MASK (1 << CRYPTO_ENCR_SNOW3G_SEL |\
 				1 << CRYPTO_ENCR_KASUMI_SEL |\
@@ -5546,7 +5546,7 @@ int qce_hw_support(void *handle, struct ce_hw_support *ce_support)
 	ce_support->ce_device = pce_dev->ce_sps.ce_device;
 	return 0;
 }
-EXPORT_SYMBOL(qce_hw_support);
+/* DISABLED: EXPORT_SYMBOL(qce_hw_support); */
 
 
 MODULE_LICENSE("GPL v2");

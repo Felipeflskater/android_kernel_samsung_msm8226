@@ -37,7 +37,7 @@ int elf_check_arch(const struct elf32_hdr *x)
 	}
 	return 1;
 }
-EXPORT_SYMBOL(elf_check_arch);
+/* DISABLED: EXPORT_SYMBOL(elf_check_arch); */
 
 void elf_set_personality(const struct elf32_hdr *x)
 {
@@ -74,7 +74,7 @@ void elf_set_personality(const struct elf32_hdr *x)
 		clear_thread_flag(TIF_USING_IWMMXT);
 	}
 }
-EXPORT_SYMBOL(elf_set_personality);
+/* DISABLED: EXPORT_SYMBOL(elf_set_personality); */
 
 /*
  * Set READ_IMPLIES_EXEC if:
@@ -89,4 +89,4 @@ int arm_elf_read_implies_exec(const struct elf32_hdr *x, int executable_stack)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(arm_elf_read_implies_exec);
+/* DISABLED: EXPORT_SYMBOL(arm_elf_read_implies_exec); */

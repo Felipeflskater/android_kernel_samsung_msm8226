@@ -2613,7 +2613,7 @@ void msm8226_enable_ear_micbias(bool state)
 	mutex_unlock(&jack_mutex);
 }
 
-EXPORT_SYMBOL(msm8226_enable_ear_micbias);
+/* DISABLED: EXPORT_SYMBOL(msm8226_enable_ear_micbias); */
 
 #endif
 #ifndef CONFIG_SAMSUNG_JACK //ms01 mbhc not used

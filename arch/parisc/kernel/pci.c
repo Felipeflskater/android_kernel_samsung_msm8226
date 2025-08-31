@@ -84,7 +84,7 @@ u##size in##type (int addr) \
 	if (!parisc_pci_hba[b]) return (u##size) -1; \
 	return pci_port->in##type(parisc_pci_hba[b], PCI_PORT_ADDR(addr)); \
 } \
-EXPORT_SYMBOL(in##type);
+/* DISABLED: EXPORT_SYMBOL(in##type); */
 
 PCI_PORT_IN(b,  8)
 PCI_PORT_IN(w, 16)
@@ -99,7 +99,7 @@ void out##type (u##size d, int addr) \
 	if (!parisc_pci_hba[b]) return; \
 	pci_port->out##type(parisc_pci_hba[b], PCI_PORT_ADDR(addr), d); \
 } \
-EXPORT_SYMBOL(out##type);
+/* DISABLED: EXPORT_SYMBOL(out##type); */
 
 PCI_PORT_OUT(b,  8)
 PCI_PORT_OUT(w, 16)

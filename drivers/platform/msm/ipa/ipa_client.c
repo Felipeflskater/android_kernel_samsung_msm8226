@@ -307,7 +307,7 @@ fail:
 	ipa_dec_client_disable_clks();
 	return result;
 }
-EXPORT_SYMBOL(ipa_connect);
+/* DISABLED: EXPORT_SYMBOL(ipa_connect); */
 
 /**
  * ipa_disconnect() - low-level IPA client disconnect
@@ -389,7 +389,7 @@ int ipa_disconnect(u32 clnt_hdl)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipa_disconnect);
+/* DISABLED: EXPORT_SYMBOL(ipa_disconnect); */
 
 /**
  * ipa_resume() - low-level IPA client resume
@@ -426,7 +426,7 @@ int ipa_resume(u32 clnt_hdl)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipa_resume);
+/* DISABLED: EXPORT_SYMBOL(ipa_resume); */
 
 /**
 * ipa_suspend() - low-level IPA client suspend
@@ -467,4 +467,4 @@ int ipa_suspend(u32 clnt_hdl)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipa_suspend);
+/* DISABLED: EXPORT_SYMBOL(ipa_suspend); */

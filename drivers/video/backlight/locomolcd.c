@@ -105,7 +105,7 @@ void locomolcd_power(int on)
 
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(locomolcd_power);
+/* DISABLED: EXPORT_SYMBOL(locomolcd_power); */
 
 
 static int current_intensity;

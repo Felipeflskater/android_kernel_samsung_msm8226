@@ -57,7 +57,7 @@ cycles_t get_cycles(void)
 
 	return (((cycles_t)high) << 32) | low;
 }
-EXPORT_SYMBOL(get_cycles);
+/* DISABLED: EXPORT_SYMBOL(get_cycles); */
 #endif
 
 /*

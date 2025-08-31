@@ -50,13 +50,13 @@ int rpc_pipefs_notifier_register(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_cond_register(&rpc_pipefs_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(rpc_pipefs_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_pipefs_notifier_register); */
 
 void rpc_pipefs_notifier_unregister(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&rpc_pipefs_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(rpc_pipefs_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_pipefs_notifier_unregister); */
 
 static void rpc_purge_list(wait_queue_head_t *waitq, struct list_head *head,
 		void (*destroy_msg)(struct rpc_pipe_msg *), int err)
@@ -116,7 +116,7 @@ ssize_t rpc_pipe_generic_upcall(struct file *filp, struct rpc_pipe_msg *msg,
 	msg->errno = 0;
 	return mlen;
 }
-EXPORT_SYMBOL_GPL(rpc_pipe_generic_upcall);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_pipe_generic_upcall); */
 
 /**
  * rpc_queue_upcall - queue an upcall message to userspace
@@ -156,7 +156,7 @@ rpc_queue_upcall(struct rpc_pipe *pipe, struct rpc_pipe_msg *msg)
 	}
 	return res;
 }
-EXPORT_SYMBOL_GPL(rpc_queue_upcall);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_queue_upcall); */
 
 static inline void
 rpc_inode_setowner(struct inode *inode, void *private)
@@ -571,7 +571,7 @@ void rpc_destroy_pipe_data(struct rpc_pipe *pipe)
 {
 	kfree(pipe);
 }
-EXPORT_SYMBOL_GPL(rpc_destroy_pipe_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_destroy_pipe_data); */
 
 struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *ops, int flags)
 {
@@ -585,7 +585,7 @@ struct rpc_pipe *rpc_mkpipe_data(const struct rpc_pipe_ops *ops, int flags)
 	pipe->flags = flags;
 	return pipe;
 }
-EXPORT_SYMBOL_GPL(rpc_mkpipe_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_mkpipe_data); */
 
 static int __rpc_mkpipe_dentry(struct inode *dir, struct dentry *dentry,
 			       umode_t mode,
@@ -631,7 +631,7 @@ int rpc_rmdir(struct dentry *dentry)
 	dput(parent);
 	return error;
 }
-EXPORT_SYMBOL_GPL(rpc_rmdir);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_rmdir); */
 
 static int __rpc_unlink(struct inode *dir, struct dentry *dentry)
 {
@@ -870,7 +870,7 @@ out_err:
 			err);
 	goto out;
 }
-EXPORT_SYMBOL_GPL(rpc_mkpipe_dentry);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_mkpipe_dentry); */
 
 /**
  * rpc_unlink - remove a pipe
@@ -895,7 +895,7 @@ rpc_unlink(struct dentry *dentry)
 	dput(parent);
 	return error;
 }
-EXPORT_SYMBOL_GPL(rpc_unlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_unlink); */
 
 enum {
 	RPCAUTH_info,
@@ -1067,7 +1067,7 @@ struct dentry *rpc_d_lookup_sb(const struct super_block *sb,
 
 	return d_lookup(sb->s_root, &dir);
 }
-EXPORT_SYMBOL_GPL(rpc_d_lookup_sb);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_d_lookup_sb); */
 
 void rpc_pipefs_init_net(struct net *net)
 {
@@ -1092,7 +1092,7 @@ struct super_block *rpc_get_sb_net(const struct net *net)
 	mutex_unlock(&sn->pipefs_sb_lock);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(rpc_get_sb_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_get_sb_net); */
 
 void rpc_put_sb_net(const struct net *net)
 {
@@ -1101,7 +1101,7 @@ void rpc_put_sb_net(const struct net *net)
 	BUG_ON(sn->pipefs_sb == NULL);
 	mutex_unlock(&sn->pipefs_sb_lock);
 }
-EXPORT_SYMBOL_GPL(rpc_put_sb_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_put_sb_net); */
 
 static int
 rpc_fill_super(struct super_block *sb, void *data, int silent)

@@ -249,7 +249,7 @@ int uv_setup_irq(char *irq_name, int cpu, int mmr_blade,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(uv_setup_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_setup_irq); */
 
 /*
  * Tear down a mapping of an irq and vector, and disable the specified MMR that
@@ -282,4 +282,4 @@ void uv_teardown_irq(unsigned int irq)
 	spin_unlock_irqrestore(&uv_irq_lock, irqflags);
 	destroy_irq(irq);
 }
-EXPORT_SYMBOL_GPL(uv_teardown_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(uv_teardown_irq); */

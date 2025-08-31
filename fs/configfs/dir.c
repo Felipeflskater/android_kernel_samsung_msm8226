@@ -1142,7 +1142,7 @@ out_unlock_fs:
 
 	return ret;
 }
-EXPORT_SYMBOL(configfs_depend_item);
+/* DISABLED: EXPORT_SYMBOL(configfs_depend_item); */
 
 /*
  * Release the dependent linkage.  This is much simpler than
@@ -1171,7 +1171,7 @@ void configfs_undepend_item(struct configfs_subsystem *subsys,
 	 */
 	spin_unlock(&configfs_dirent_lock);
 }
-EXPORT_SYMBOL(configfs_undepend_item);
+/* DISABLED: EXPORT_SYMBOL(configfs_undepend_item); */
 
 static int configfs_mkdir(struct inode *dir, struct dentry *dentry, umode_t mode)
 {
@@ -1764,5 +1764,5 @@ void configfs_unregister_subsystem(struct configfs_subsystem *subsys)
 	configfs_release_fs();
 }
 
-EXPORT_SYMBOL(configfs_register_subsystem);
-EXPORT_SYMBOL(configfs_unregister_subsystem);
+/* DISABLED: EXPORT_SYMBOL(configfs_register_subsystem); */
+/* DISABLED: EXPORT_SYMBOL(configfs_unregister_subsystem); */

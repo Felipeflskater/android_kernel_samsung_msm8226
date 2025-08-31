@@ -359,7 +359,7 @@ int bgpio_remove(struct bgpio_chip *bgc)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(bgpio_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(bgpio_remove); */
 
 int bgpio_init(struct bgpio_chip *bgc, struct device *dev,
 	       unsigned long sz, void __iomem *dat, void __iomem *set,
@@ -397,7 +397,7 @@ int bgpio_init(struct bgpio_chip *bgc, struct device *dev,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(bgpio_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(bgpio_init); */
 
 #ifdef CONFIG_GPIO_GENERIC_PLATFORM
 

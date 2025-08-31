@@ -1363,7 +1363,7 @@ static int pm8058_get_charge_batt(void)
 		temp = 1;
 	return temp;
 }
-EXPORT_SYMBOL(pm8058_get_charge_batt);
+/* DISABLED: EXPORT_SYMBOL(pm8058_get_charge_batt); */
 
 static int pm8058_set_charge_batt(int on)
 {
@@ -1381,7 +1381,7 @@ static int pm8058_set_charge_batt(int on)
 	return pm8xxx_writeb(pm8058_chg.dev->parent, PM8058_CHG_CNTRL, temp);
 
 }
-EXPORT_SYMBOL(pm8058_set_charge_batt);
+/* DISABLED: EXPORT_SYMBOL(pm8058_set_charge_batt); */
 
 static int get_charge_batt(void *data, u64 * val)
 {

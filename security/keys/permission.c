@@ -81,7 +81,7 @@ use_these_perms:
 	/* let LSM be the final arbiter */
 	return security_key_permission(key_ref, cred, perm);
 }
-EXPORT_SYMBOL(key_task_permission);
+/* DISABLED: EXPORT_SYMBOL(key_task_permission); */
 
 /**
  * key_validate - Validate a key.
@@ -115,4 +115,4 @@ int key_validate(struct key *key)
 error:
 	return ret;
 }
-EXPORT_SYMBOL(key_validate);
+/* DISABLED: EXPORT_SYMBOL(key_validate); */

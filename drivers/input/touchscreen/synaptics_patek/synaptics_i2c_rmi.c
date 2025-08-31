@@ -1531,7 +1531,7 @@ int synaptics_proximity_no_sleep_set(bool enables)
 
 	return retval;
 }
-EXPORT_SYMBOL(synaptics_proximity_no_sleep_set);
+/* DISABLED: EXPORT_SYMBOL(synaptics_proximity_no_sleep_set); */
 
 static int synaptics_rmi4_f51_set_enables(struct synaptics_rmi4_data *rmi4_data)
 {
@@ -1691,7 +1691,7 @@ int synaptics_rmi4_proximity_enables(unsigned char enables)
 #endif
 	return 0;
 }
-EXPORT_SYMBOL(synaptics_rmi4_proximity_enables);
+/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_proximity_enables); */
 #endif
 
 static int synaptics_rmi4_check_status(struct synaptics_rmi4_data *rmi4_data)
@@ -2760,7 +2760,7 @@ void samsung_switching_tsp(int flip)
 		}
 	}
 }
-EXPORT_SYMBOL(samsung_switching_tsp);
+/* DISABLED: EXPORT_SYMBOL(samsung_switching_tsp); */
 #endif
 
 #ifdef CHARGER_NOTIFIER

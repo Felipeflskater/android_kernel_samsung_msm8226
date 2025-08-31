@@ -435,14 +435,14 @@ void ib_sa_register_client(struct ib_sa_client *client)
 	atomic_set(&client->users, 1);
 	init_completion(&client->comp);
 }
-EXPORT_SYMBOL(ib_sa_register_client);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_register_client); */
 
 void ib_sa_unregister_client(struct ib_sa_client *client)
 {
 	ib_sa_client_put(client);
 	wait_for_completion(&client->comp);
 }
-EXPORT_SYMBOL(ib_sa_unregister_client);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_unregister_client); */
 
 /**
  * ib_sa_cancel_query - try to cancel an SA query
@@ -470,7 +470,7 @@ void ib_sa_cancel_query(int id, struct ib_sa_query *query)
 
 	ib_cancel_mad(agent, mad_buf);
 }
-EXPORT_SYMBOL(ib_sa_cancel_query);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_cancel_query); */
 
 static u8 get_src_path_mask(struct ib_device *device, u8 port_num)
 {
@@ -524,7 +524,7 @@ int ib_init_ah_from_path(struct ib_device *device, u8 port_num,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ib_init_ah_from_path);
+/* DISABLED: EXPORT_SYMBOL(ib_init_ah_from_path); */
 
 static int alloc_mad(struct ib_sa_query *query, gfp_t gfp_mask)
 {
@@ -614,7 +614,7 @@ void ib_sa_unpack_path(void *attribute, struct ib_sa_path_rec *rec)
 {
 	ib_unpack(path_rec_table, ARRAY_SIZE(path_rec_table), attribute, rec);
 }
-EXPORT_SYMBOL(ib_sa_unpack_path);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_unpack_path); */
 
 static void ib_sa_path_rec_callback(struct ib_sa_query *sa_query,
 				    int status,
@@ -729,7 +729,7 @@ err1:
 	kfree(query);
 	return ret;
 }
-EXPORT_SYMBOL(ib_sa_path_rec_get);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_path_rec_get); */
 
 static void ib_sa_service_rec_callback(struct ib_sa_query *sa_query,
 				    int status,
@@ -852,7 +852,7 @@ err1:
 	kfree(query);
 	return ret;
 }
-EXPORT_SYMBOL(ib_sa_service_rec_query);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_service_rec_query); */
 
 static void ib_sa_mcmember_rec_callback(struct ib_sa_query *sa_query,
 					int status,

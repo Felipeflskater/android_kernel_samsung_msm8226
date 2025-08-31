@@ -76,7 +76,7 @@ u8 get_omap3_evm_rev(void)
 {
 	return omap3_evm_version;
 }
-EXPORT_SYMBOL(get_omap3_evm_rev);
+/* DISABLED: EXPORT_SYMBOL(get_omap3_evm_rev); */
 
 static void __init omap3_evm_get_revision(void)
 {

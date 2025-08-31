@@ -42,11 +42,11 @@ static DEFINE_SPINLOCK(pause_on_oops_lock);
 #define CONFIG_PANIC_TIMEOUT 0
 #endif
 int panic_timeout = CONFIG_PANIC_TIMEOUT;
-EXPORT_SYMBOL_GPL(panic_timeout);
+/* DISABLED: EXPORT_SYMBOL_GPL(panic_timeout); */
 
 ATOMIC_NOTIFIER_HEAD(panic_notifier_list);
 
-EXPORT_SYMBOL(panic_notifier_list);
+/* DISABLED: EXPORT_SYMBOL(panic_notifier_list); */
 
 static long no_blink(int state)
 {
@@ -55,7 +55,7 @@ static long no_blink(int state)
 
 /* Returns how long it waited in ms */
 long (*panic_blink)(int state);
-EXPORT_SYMBOL(panic_blink);
+/* DISABLED: EXPORT_SYMBOL(panic_blink); */
 
 /*
  * Stop ourself in panic -- architecture code may override this
@@ -211,7 +211,7 @@ void panic(const char *fmt, ...)
 	}
 }
 
-EXPORT_SYMBOL(panic);
+/* DISABLED: EXPORT_SYMBOL(panic); */
 
 
 struct tnt {
@@ -280,7 +280,7 @@ int test_taint(unsigned flag)
 {
 	return test_bit(flag, &tainted_mask);
 }
-EXPORT_SYMBOL(test_taint);
+/* DISABLED: EXPORT_SYMBOL(test_taint); */
 
 unsigned long get_taint(void)
 {
@@ -310,7 +310,7 @@ void add_taint(unsigned flag)
 
 	set_bit(flag, &tainted_mask);
 }
-EXPORT_SYMBOL(add_taint);
+/* DISABLED: EXPORT_SYMBOL(add_taint); */
 
 static void spin_msec(int msecs)
 {
@@ -467,7 +467,7 @@ void warn_slowpath_fmt(const char *file, int line, const char *fmt, ...)
 			     TAINT_WARN, &args);
 	va_end(args.args);
 }
-EXPORT_SYMBOL(warn_slowpath_fmt);
+/* DISABLED: EXPORT_SYMBOL(warn_slowpath_fmt); */
 
 void warn_slowpath_fmt_taint(const char *file, int line,
 			     unsigned taint, const char *fmt, ...)
@@ -480,14 +480,14 @@ void warn_slowpath_fmt_taint(const char *file, int line,
 			     taint, &args);
 	va_end(args.args);
 }
-EXPORT_SYMBOL(warn_slowpath_fmt_taint);
+/* DISABLED: EXPORT_SYMBOL(warn_slowpath_fmt_taint); */
 
 void warn_slowpath_null(const char *file, int line)
 {
 	warn_slowpath_common(file, line, __builtin_return_address(0),
 			     TAINT_WARN, NULL);
 }
-EXPORT_SYMBOL(warn_slowpath_null);
+/* DISABLED: EXPORT_SYMBOL(warn_slowpath_null); */
 #endif
 
 #ifdef CONFIG_CC_STACKPROTECTOR
@@ -501,7 +501,7 @@ void __stack_chk_fail(void)
 	panic("stack-protector: Kernel stack is corrupted in: %p\n",
 		__builtin_return_address(0));
 }
-EXPORT_SYMBOL(__stack_chk_fail);
+/* DISABLED: EXPORT_SYMBOL(__stack_chk_fail); */
 
 #endif
 

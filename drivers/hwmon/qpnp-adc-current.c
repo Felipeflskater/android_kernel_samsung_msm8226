@@ -640,7 +640,7 @@ int32_t qpnp_iadc_comp_result(struct qpnp_iadc_chip *iadc, int64_t *result)
 {
 	return qpnp_iadc_comp(result, iadc, iadc->die_temp);
 }
-EXPORT_SYMBOL(qpnp_iadc_comp_result);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_comp_result); */
 
 static int qpnp_iadc_rds_trim_update_check(struct qpnp_iadc_chip *iadc)
 {
@@ -1028,7 +1028,7 @@ fail:
 	mutex_unlock(&iadc->adc->adc_lock);
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_iadc_calibrate_for_trim);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_calibrate_for_trim); */
 
 static void qpnp_iadc_work(struct work_struct *work)
 {
@@ -1084,7 +1084,7 @@ struct qpnp_iadc_chip *qpnp_get_iadc(struct device *dev, const char *name)
 			return iadc;
 	return ERR_PTR(-EPROBE_DEFER);
 }
-EXPORT_SYMBOL(qpnp_get_iadc);
+/* DISABLED: EXPORT_SYMBOL(qpnp_get_iadc); */
 
 int32_t qpnp_iadc_get_rsense(struct qpnp_iadc_chip *iadc, int32_t *rsense)
 {
@@ -1129,7 +1129,7 @@ int32_t qpnp_iadc_get_rsense(struct qpnp_iadc_chip *iadc, int32_t *rsense)
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_iadc_get_rsense);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_get_rsense); */
 
 static int32_t qpnp_check_pmic_temp(struct qpnp_iadc_chip *iadc)
 {
@@ -1249,7 +1249,7 @@ fail:
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_iadc_read);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_read); */
 
 int32_t qpnp_iadc_get_gain_and_offset(struct qpnp_iadc_chip *iadc,
 					struct qpnp_iadc_calib *result)
@@ -1281,21 +1281,21 @@ int32_t qpnp_iadc_get_gain_and_offset(struct qpnp_iadc_chip *iadc,
 
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_iadc_get_gain_and_offset);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_get_gain_and_offset); */
 
 int qpnp_iadc_skip_calibration(struct qpnp_iadc_chip *iadc)
 {
 	iadc->skip_auto_calibrations = true;
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_iadc_skip_calibration);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_skip_calibration); */
 
 int qpnp_iadc_resume_calibration(struct qpnp_iadc_chip *iadc)
 {
 	iadc->skip_auto_calibrations = false;
 	return 0;
 }
-EXPORT_SYMBOL(qpnp_iadc_resume_calibration);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_resume_calibration); */
 
 int32_t qpnp_iadc_vadc_sync_read(struct qpnp_iadc_chip *iadc,
 	enum qpnp_iadc_channels i_channel, struct qpnp_iadc_result *i_result,
@@ -1403,7 +1403,7 @@ fail:
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_iadc_vadc_sync_read);
+/* DISABLED: EXPORT_SYMBOL(qpnp_iadc_vadc_sync_read); */
 
 static ssize_t qpnp_iadc_show(struct device *dev,
 			struct device_attribute *devattr, char *buf)

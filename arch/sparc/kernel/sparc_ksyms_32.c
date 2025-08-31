@@ -21,26 +21,26 @@ struct poll {
 };
 
 /* from entry.S */
-EXPORT_SYMBOL(__udelay);
-EXPORT_SYMBOL(__ndelay);
+/* DISABLED: EXPORT_SYMBOL(__udelay); */
+/* DISABLED: EXPORT_SYMBOL(__ndelay); */
 
 /* from head_32.S */
-EXPORT_SYMBOL(__ret_efault);
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(__ret_efault); */
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 /* Defined using magic */
 #ifndef CONFIG_SMP
-EXPORT_SYMBOL(BTFIXUP_CALL(___xchg32));
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(___xchg32)); */
 #else
-EXPORT_SYMBOL(BTFIXUP_CALL(__hard_smp_processor_id));
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(__hard_smp_processor_id)); */
 #endif
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_unlockarea));
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_lockarea));
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_get_scsi_sgl));
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_get_scsi_one));
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_release_scsi_sgl));
-EXPORT_SYMBOL(BTFIXUP_CALL(mmu_release_scsi_one));
-EXPORT_SYMBOL(BTFIXUP_CALL(pgprot_noncached));
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_unlockarea)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_lockarea)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_get_scsi_sgl)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_get_scsi_one)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_release_scsi_sgl)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(mmu_release_scsi_one)); */
+/* DISABLED: EXPORT_SYMBOL(BTFIXUP_CALL(pgprot_noncached)); */
 
 /* Exporting a symbol from /init/main.c */
-EXPORT_SYMBOL(saved_command_line);
+/* DISABLED: EXPORT_SYMBOL(saved_command_line); */

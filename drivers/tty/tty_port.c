@@ -31,7 +31,7 @@ void tty_port_init(struct tty_port *port)
 	port->closing_wait = (3000 * HZ) / 100;
 	kref_init(&port->kref);
 }
-EXPORT_SYMBOL(tty_port_init);
+/* DISABLED: EXPORT_SYMBOL(tty_port_init); */
 
 int tty_port_alloc_xmit_buf(struct tty_port *port)
 {
@@ -44,7 +44,7 @@ int tty_port_alloc_xmit_buf(struct tty_port *port)
 		return -ENOMEM;
 	return 0;
 }
-EXPORT_SYMBOL(tty_port_alloc_xmit_buf);
+/* DISABLED: EXPORT_SYMBOL(tty_port_alloc_xmit_buf); */
 
 void tty_port_free_xmit_buf(struct tty_port *port)
 {
@@ -55,7 +55,7 @@ void tty_port_free_xmit_buf(struct tty_port *port)
 	}
 	mutex_unlock(&port->buf_mutex);
 }
-EXPORT_SYMBOL(tty_port_free_xmit_buf);
+/* DISABLED: EXPORT_SYMBOL(tty_port_free_xmit_buf); */
 
 static void tty_port_destructor(struct kref *kref)
 {
@@ -73,7 +73,7 @@ void tty_port_put(struct tty_port *port)
 	if (port)
 		kref_put(&port->kref, tty_port_destructor);
 }
-EXPORT_SYMBOL(tty_port_put);
+/* DISABLED: EXPORT_SYMBOL(tty_port_put); */
 
 /**
  *	tty_port_tty_get	-	get a tty reference
@@ -93,7 +93,7 @@ struct tty_struct *tty_port_tty_get(struct tty_port *port)
 	spin_unlock_irqrestore(&port->lock, flags);
 	return tty;
 }
-EXPORT_SYMBOL(tty_port_tty_get);
+/* DISABLED: EXPORT_SYMBOL(tty_port_tty_get); */
 
 /**
  *	tty_port_tty_set	-	set the tty of a port
@@ -114,7 +114,7 @@ void tty_port_tty_set(struct tty_port *port, struct tty_struct *tty)
 	port->tty = tty_kref_get(tty);
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-EXPORT_SYMBOL(tty_port_tty_set);
+/* DISABLED: EXPORT_SYMBOL(tty_port_tty_set); */
 
 static void tty_port_shutdown(struct tty_port *port)
 {
@@ -150,7 +150,7 @@ void tty_port_hangup(struct tty_port *port)
 	wake_up_interruptible(&port->delta_msr_wait);
 	tty_port_shutdown(port);
 }
-EXPORT_SYMBOL(tty_port_hangup);
+/* DISABLED: EXPORT_SYMBOL(tty_port_hangup); */
 
 /**
  *	tty_port_carrier_raised	-	carrier raised check
@@ -167,7 +167,7 @@ int tty_port_carrier_raised(struct tty_port *port)
 		return 1;
 	return port->ops->carrier_raised(port);
 }
-EXPORT_SYMBOL(tty_port_carrier_raised);
+/* DISABLED: EXPORT_SYMBOL(tty_port_carrier_raised); */
 
 /**
  *	tty_port_raise_dtr_rts	-	Raise DTR/RTS
@@ -183,7 +183,7 @@ void tty_port_raise_dtr_rts(struct tty_port *port)
 	if (port->ops->dtr_rts)
 		port->ops->dtr_rts(port, 1);
 }
-EXPORT_SYMBOL(tty_port_raise_dtr_rts);
+/* DISABLED: EXPORT_SYMBOL(tty_port_raise_dtr_rts); */
 
 /**
  *	tty_port_lower_dtr_rts	-	Lower DTR/RTS
@@ -199,7 +199,7 @@ void tty_port_lower_dtr_rts(struct tty_port *port)
 	if (port->ops->dtr_rts)
 		port->ops->dtr_rts(port, 0);
 }
-EXPORT_SYMBOL(tty_port_lower_dtr_rts);
+/* DISABLED: EXPORT_SYMBOL(tty_port_lower_dtr_rts); */
 
 /**
  *	tty_port_block_til_ready	-	Waiting logic for tty open
@@ -313,7 +313,7 @@ int tty_port_block_til_ready(struct tty_port *port,
 	spin_unlock_irqrestore(&port->lock, flags);
 	return retval;
 }
-EXPORT_SYMBOL(tty_port_block_til_ready);
+/* DISABLED: EXPORT_SYMBOL(tty_port_block_til_ready); */
 
 int tty_port_close_start(struct tty_port *port,
 				struct tty_struct *tty, struct file *filp)
@@ -377,7 +377,7 @@ int tty_port_close_start(struct tty_port *port,
 	   shutdown path */
 	return 1;
 }
-EXPORT_SYMBOL(tty_port_close_start);
+/* DISABLED: EXPORT_SYMBOL(tty_port_close_start); */
 
 void tty_port_close_end(struct tty_port *port, struct tty_struct *tty)
 {
@@ -399,7 +399,7 @@ void tty_port_close_end(struct tty_port *port, struct tty_struct *tty)
 	wake_up_interruptible(&port->close_wait);
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-EXPORT_SYMBOL(tty_port_close_end);
+/* DISABLED: EXPORT_SYMBOL(tty_port_close_end); */
 
 void tty_port_close(struct tty_port *port, struct tty_struct *tty,
 							struct file *filp)
@@ -411,7 +411,7 @@ void tty_port_close(struct tty_port *port, struct tty_struct *tty,
 	tty_port_close_end(port, tty);
 	tty_port_tty_set(port, NULL);
 }
-EXPORT_SYMBOL(tty_port_close);
+/* DISABLED: EXPORT_SYMBOL(tty_port_close); */
 
 int tty_port_open(struct tty_port *port, struct tty_struct *tty,
 							struct file *filp)
@@ -445,4 +445,4 @@ int tty_port_open(struct tty_port *port, struct tty_struct *tty,
 	return tty_port_block_til_ready(port, tty, filp);
 }
 
-EXPORT_SYMBOL(tty_port_open);
+/* DISABLED: EXPORT_SYMBOL(tty_port_open); */

@@ -115,7 +115,7 @@ out_nofile:
 
 	return ret;
 }
-EXPORT_SYMBOL(sec_check_execpath);
+/* DISABLED: EXPORT_SYMBOL(sec_check_execpath); */
 
 static int sec_restrict_fork(void)
 {
@@ -260,7 +260,7 @@ int kernel_execve(const char *filename,
  out:
 	return ret;
 }
-EXPORT_SYMBOL(kernel_execve);
+/* DISABLED: EXPORT_SYMBOL(kernel_execve); */
 
 /*
  * Since loff_t is a 64 bit type we avoid a lot of ABI hassle

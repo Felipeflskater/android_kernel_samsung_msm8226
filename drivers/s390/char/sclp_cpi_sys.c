@@ -410,7 +410,7 @@ int sclp_cpi_set_data(const char *system, const char *sysplex, const char *type,
 
 	return rc;
 }
-EXPORT_SYMBOL(sclp_cpi_set_data);
+/* DISABLED: EXPORT_SYMBOL(sclp_cpi_set_data); */
 
 static int __init cpi_init(void)
 {

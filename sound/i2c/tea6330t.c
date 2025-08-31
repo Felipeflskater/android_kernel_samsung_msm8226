@@ -366,8 +366,8 @@ int snd_tea6330t_update_mixer(struct snd_card *card,
       	return err;
 }
 
-EXPORT_SYMBOL(snd_tea6330t_detect);
-EXPORT_SYMBOL(snd_tea6330t_update_mixer);
+/* DISABLED: EXPORT_SYMBOL(snd_tea6330t_detect); */
+/* DISABLED: EXPORT_SYMBOL(snd_tea6330t_update_mixer); */
 
 /*
  *  INIT part

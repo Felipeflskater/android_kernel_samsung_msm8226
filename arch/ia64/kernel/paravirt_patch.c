@@ -211,7 +211,7 @@ static int __init setup_noreplace_paravirt(char *str)
 	noreplace_paravirt = 1;
 	return 1;
 }
-/* DISABLED: __setup("noreplace-paravirt", setup_noreplace_paravirt); */
+/* DISABLED: __setup("noreplace-paravirt", setup_noreplace_paravirt); */ */
 
 #ifdef ASM_SUPPORTED
 static void __init_or_module

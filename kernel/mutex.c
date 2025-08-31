@@ -47,7 +47,7 @@ __mutex_init(struct mutex *lock, const char *name, struct lock_class_key *key)
 	debug_mutex_init(lock, name, key);
 }
 
-EXPORT_SYMBOL(__mutex_init);
+/* DISABLED: EXPORT_SYMBOL(__mutex_init); */
 
 #ifndef CONFIG_DEBUG_LOCK_ALLOC
 /*
@@ -91,7 +91,7 @@ void __sched mutex_lock(struct mutex *lock)
 	mutex_set_owner(lock);
 }
 
-EXPORT_SYMBOL(mutex_lock);
+/* DISABLED: EXPORT_SYMBOL(mutex_lock); */
 #endif
 
 static __used noinline void __sched __mutex_unlock_slowpath(atomic_t *lock_count);
@@ -124,7 +124,7 @@ void __sched mutex_unlock(struct mutex *lock)
 	__mutex_fastpath_unlock(&lock->count, __mutex_unlock_slowpath);
 }
 
-EXPORT_SYMBOL(mutex_unlock);
+/* DISABLED: EXPORT_SYMBOL(mutex_unlock); */
 
 /*
  * Lock a mutex (possibly interruptible), slowpath:
@@ -270,7 +270,7 @@ mutex_lock_nested(struct mutex *lock, unsigned int subclass)
 	__mutex_lock_common(lock, TASK_UNINTERRUPTIBLE, subclass, NULL, _RET_IP_);
 }
 
-EXPORT_SYMBOL_GPL(mutex_lock_nested);
+/* DISABLED: EXPORT_SYMBOL_GPL(mutex_lock_nested); */
 
 void __sched
 _mutex_lock_nest_lock(struct mutex *lock, struct lockdep_map *nest)
@@ -279,7 +279,7 @@ _mutex_lock_nest_lock(struct mutex *lock, struct lockdep_map *nest)
 	__mutex_lock_common(lock, TASK_UNINTERRUPTIBLE, 0, nest, _RET_IP_);
 }
 
-EXPORT_SYMBOL_GPL(_mutex_lock_nest_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(_mutex_lock_nest_lock); */
 
 int __sched
 mutex_lock_killable_nested(struct mutex *lock, unsigned int subclass)
@@ -287,7 +287,7 @@ mutex_lock_killable_nested(struct mutex *lock, unsigned int subclass)
 	might_sleep();
 	return __mutex_lock_common(lock, TASK_KILLABLE, subclass, NULL, _RET_IP_);
 }
-EXPORT_SYMBOL_GPL(mutex_lock_killable_nested);
+/* DISABLED: EXPORT_SYMBOL_GPL(mutex_lock_killable_nested); */
 
 int __sched
 mutex_lock_interruptible_nested(struct mutex *lock, unsigned int subclass)
@@ -297,7 +297,7 @@ mutex_lock_interruptible_nested(struct mutex *lock, unsigned int subclass)
 				   subclass, NULL, _RET_IP_);
 }
 
-EXPORT_SYMBOL_GPL(mutex_lock_interruptible_nested);
+/* DISABLED: EXPORT_SYMBOL_GPL(mutex_lock_interruptible_nested); */
 #endif
 
 /*
@@ -379,7 +379,7 @@ int __sched mutex_lock_interruptible(struct mutex *lock)
 	return ret;
 }
 
-EXPORT_SYMBOL(mutex_lock_interruptible);
+/* DISABLED: EXPORT_SYMBOL(mutex_lock_interruptible); */
 
 int __sched mutex_lock_killable(struct mutex *lock)
 {
@@ -393,7 +393,7 @@ int __sched mutex_lock_killable(struct mutex *lock)
 
 	return ret;
 }
-EXPORT_SYMBOL(mutex_lock_killable);
+/* DISABLED: EXPORT_SYMBOL(mutex_lock_killable); */
 
 static __used noinline void __sched
 __mutex_lock_slowpath(atomic_t *lock_count)
@@ -471,7 +471,7 @@ int __sched mutex_trylock(struct mutex *lock)
 
 	return ret;
 }
-EXPORT_SYMBOL(mutex_trylock);
+/* DISABLED: EXPORT_SYMBOL(mutex_trylock); */
 
 /**
  * atomic_dec_and_mutex_lock - return holding mutex if we dec to 0
@@ -495,7 +495,7 @@ int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock)
 	/* we hit 0, and we hold the lock */
 	return 1;
 }
-EXPORT_SYMBOL(atomic_dec_and_mutex_lock);
+/* DISABLED: EXPORT_SYMBOL(atomic_dec_and_mutex_lock); */
 #ifdef CONFIG_ARCH_MSM8610
 struct task_struct * mutex_get_owner(struct mutex *lock)
 {
@@ -508,5 +508,5 @@ struct task_struct * mutex_get_owner(struct mutex *lock)
 
 	return owner;
 }
-EXPORT_SYMBOL(mutex_get_owner);
+/* DISABLED: EXPORT_SYMBOL(mutex_get_owner); */
 #endif

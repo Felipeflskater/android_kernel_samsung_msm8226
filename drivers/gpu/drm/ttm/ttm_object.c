@@ -178,7 +178,7 @@ out_err1:
 out_err0:
 	return ret;
 }
-EXPORT_SYMBOL(ttm_base_object_init);
+/* DISABLED: EXPORT_SYMBOL(ttm_base_object_init); */
 
 static void ttm_release_base(struct kref *kref)
 {
@@ -211,7 +211,7 @@ void ttm_base_object_unref(struct ttm_base_object **p_base)
 	kref_put(&base->refcount, ttm_release_base);
 	write_unlock(&tdev->object_lock);
 }
-EXPORT_SYMBOL(ttm_base_object_unref);
+/* DISABLED: EXPORT_SYMBOL(ttm_base_object_unref); */
 
 struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *tfile,
 					       uint32_t key)
@@ -241,7 +241,7 @@ struct ttm_base_object *ttm_base_object_lookup(struct ttm_object_file *tfile,
 
 	return base;
 }
-EXPORT_SYMBOL(ttm_base_object_lookup);
+/* DISABLED: EXPORT_SYMBOL(ttm_base_object_lookup); */
 
 int ttm_ref_object_add(struct ttm_object_file *tfile,
 		       struct ttm_base_object *base,
@@ -305,7 +305,7 @@ int ttm_ref_object_add(struct ttm_object_file *tfile,
 
 	return ret;
 }
-EXPORT_SYMBOL(ttm_ref_object_add);
+/* DISABLED: EXPORT_SYMBOL(ttm_ref_object_add); */
 
 static void ttm_ref_object_release(struct kref *kref)
 {
@@ -349,7 +349,7 @@ int ttm_ref_object_base_unref(struct ttm_object_file *tfile,
 	write_unlock(&tfile->lock);
 	return 0;
 }
-EXPORT_SYMBOL(ttm_ref_object_base_unref);
+/* DISABLED: EXPORT_SYMBOL(ttm_ref_object_base_unref); */
 
 void ttm_object_file_release(struct ttm_object_file **p_tfile)
 {
@@ -378,7 +378,7 @@ void ttm_object_file_release(struct ttm_object_file **p_tfile)
 	write_unlock(&tfile->lock);
 	ttm_object_file_unref(&tfile);
 }
-EXPORT_SYMBOL(ttm_object_file_release);
+/* DISABLED: EXPORT_SYMBOL(ttm_object_file_release); */
 
 struct ttm_object_file *ttm_object_file_init(struct ttm_object_device *tdev,
 					     unsigned int hash_order)
@@ -413,7 +413,7 @@ out_err:
 
 	return NULL;
 }
-EXPORT_SYMBOL(ttm_object_file_init);
+/* DISABLED: EXPORT_SYMBOL(ttm_object_file_init); */
 
 struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global
 						 *mem_glob,
@@ -436,7 +436,7 @@ struct ttm_object_device *ttm_object_device_init(struct ttm_mem_global
 	kfree(tdev);
 	return NULL;
 }
-EXPORT_SYMBOL(ttm_object_device_init);
+/* DISABLED: EXPORT_SYMBOL(ttm_object_device_init); */
 
 void ttm_object_device_release(struct ttm_object_device **p_tdev)
 {
@@ -450,4 +450,4 @@ void ttm_object_device_release(struct ttm_object_device **p_tdev)
 
 	kfree(tdev);
 }
-EXPORT_SYMBOL(ttm_object_device_release);
+/* DISABLED: EXPORT_SYMBOL(ttm_object_device_release); */

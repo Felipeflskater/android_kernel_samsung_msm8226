@@ -68,8 +68,8 @@ int gsc_claim_irq(struct gsc_irq *i, int irq)
 	return irq;
 }
 
-EXPORT_SYMBOL(gsc_alloc_irq);
-EXPORT_SYMBOL(gsc_claim_irq);
+/* DISABLED: EXPORT_SYMBOL(gsc_alloc_irq); */
+/* DISABLED: EXPORT_SYMBOL(gsc_claim_irq); */
 
 /* Common interrupt demultiplexer used by Asp, Lasi & Wax.  */
 irqreturn_t gsc_asic_intr(int gsc_asic_irq, void *dev)

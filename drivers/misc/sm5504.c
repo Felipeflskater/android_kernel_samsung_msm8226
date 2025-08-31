@@ -179,9 +179,9 @@ static int bcd_scan = 0;		// L Cable check
 #define	ADC_OPEN			0x1f
 
 int uart_sm5504_connecting;
-EXPORT_SYMBOL(uart_sm5504_connecting);
+/* DISABLED: EXPORT_SYMBOL(uart_sm5504_connecting); */
 int detached_sm5504_status;
-EXPORT_SYMBOL(detached_sm5504_status);
+/* DISABLED: EXPORT_SYMBOL(detached_sm5504_status); */
 static int jig_state;
 
 struct sm5504_usbsw {
@@ -653,14 +653,14 @@ int dock_det(void)
 {
 	return local_usbsw->dock_attached;
 }
-EXPORT_SYMBOL(dock_det);
+/* DISABLED: EXPORT_SYMBOL(dock_det); */
 #endif
 
 int check_sm5504_jig_state(void)
 {
 	return jig_state;
 }
-EXPORT_SYMBOL(check_sm5504_jig_state);
+/* DISABLED: EXPORT_SYMBOL(check_sm5504_jig_state); */
 
 #if defined(CONFIG_TOUCHSCREEN_IST30XX)
 extern void charger_enable(int enable);

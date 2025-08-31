@@ -201,7 +201,7 @@ void caif_free_client(struct cflayer *adap_layer)
 	servl = container_obj(adap_layer->dn);
 	servl->release(&servl->layer);
 }
-EXPORT_SYMBOL(caif_free_client);
+/* DISABLED: EXPORT_SYMBOL(caif_free_client); */
 
 void caif_client_register_refcnt(struct cflayer *adapt_layer,
 					void (*hold)(struct cflayer *lyr),
@@ -214,4 +214,4 @@ void caif_client_register_refcnt(struct cflayer *adapt_layer,
 	service->hold = hold;
 	service->put = put;
 }
-EXPORT_SYMBOL(caif_client_register_refcnt);
+/* DISABLED: EXPORT_SYMBOL(caif_client_register_refcnt); */

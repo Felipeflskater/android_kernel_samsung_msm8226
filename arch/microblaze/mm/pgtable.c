@@ -43,7 +43,7 @@
 
 unsigned long ioremap_base;
 unsigned long ioremap_bot;
-EXPORT_SYMBOL(ioremap_bot);
+/* DISABLED: EXPORT_SYMBOL(ioremap_bot); */
 
 #ifndef CONFIG_SMP
 struct pgtable_cache_struct quicklists;
@@ -126,14 +126,14 @@ void __iomem *ioremap(phys_addr_t addr, unsigned long size)
 {
 	return __ioremap(addr, size, _PAGE_NO_CACHE);
 }
-EXPORT_SYMBOL(ioremap);
+/* DISABLED: EXPORT_SYMBOL(ioremap); */
 
 void iounmap(void *addr)
 {
 	if (addr > high_memory && (unsigned long) addr < ioremap_bot)
 		vfree((void *) (PAGE_MASK & (unsigned long) addr));
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 
 int map_page(unsigned long va, phys_addr_t pa, int flags)

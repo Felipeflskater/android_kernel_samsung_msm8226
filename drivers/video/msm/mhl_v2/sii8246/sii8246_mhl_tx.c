@@ -1496,7 +1496,7 @@ static int mhl_power_on_cb(struct notifier_block *this, unsigned long event,
 		mhl_enable_irq(mhl->pdata);
 	return 1;
 }
-EXPORT_SYMBOL(mhl_power_on_cb);
+/* DISABLED: EXPORT_SYMBOL(mhl_power_on_cb); */
 
 int process_msc_commands(struct mhl_tx *mhl, struct cbus_msg *cbus_packet)
 {

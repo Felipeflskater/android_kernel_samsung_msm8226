@@ -171,7 +171,7 @@ void octeon_mdiobus_force_mod_depencency(void)
 {
 	/* Let ethernet drivers force us to be loaded.  */
 }
-EXPORT_SYMBOL(octeon_mdiobus_force_mod_depencency);
+/* DISABLED: EXPORT_SYMBOL(octeon_mdiobus_force_mod_depencency); */
 
 static int __init octeon_mdiobus_mod_init(void)
 {

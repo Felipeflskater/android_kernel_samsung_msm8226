@@ -740,11 +740,11 @@ void hdlcdrv_unregister(struct net_device *dev)
 
 /* --------------------------------------------------------------------- */
 
-EXPORT_SYMBOL(hdlcdrv_receiver);
-EXPORT_SYMBOL(hdlcdrv_transmitter);
-EXPORT_SYMBOL(hdlcdrv_arbitrate);
-EXPORT_SYMBOL(hdlcdrv_register);
-EXPORT_SYMBOL(hdlcdrv_unregister);
+/* DISABLED: EXPORT_SYMBOL(hdlcdrv_receiver); */
+/* DISABLED: EXPORT_SYMBOL(hdlcdrv_transmitter); */
+/* DISABLED: EXPORT_SYMBOL(hdlcdrv_arbitrate); */
+/* DISABLED: EXPORT_SYMBOL(hdlcdrv_register); */
+/* DISABLED: EXPORT_SYMBOL(hdlcdrv_unregister); */
 
 /* --------------------------------------------------------------------- */
 

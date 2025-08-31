@@ -437,7 +437,7 @@ register_user_hw_breakpoint(struct perf_event_attr *attr,
 	return perf_event_create_kernel_counter(attr, -1, tsk, triggered,
 						context);
 }
-EXPORT_SYMBOL_GPL(register_user_hw_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_user_hw_breakpoint); */
 
 /**
  * modify_user_hw_breakpoint - modify a user-space hardware breakpoint
@@ -474,7 +474,7 @@ int modify_user_hw_breakpoint(struct perf_event *bp, struct perf_event_attr *att
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(modify_user_hw_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(modify_user_hw_breakpoint); */
 
 /**
  * unregister_hw_breakpoint - unregister a user-space hardware breakpoint
@@ -486,7 +486,7 @@ void unregister_hw_breakpoint(struct perf_event *bp)
 		return;
 	perf_event_release_kernel(bp);
 }
-EXPORT_SYMBOL_GPL(unregister_hw_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_hw_breakpoint); */
 
 /**
  * register_wide_hw_breakpoint - register a wide breakpoint in the kernel
@@ -537,7 +537,7 @@ fail:
 	free_percpu(cpu_events);
 	return (void __percpu __force *)ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(register_wide_hw_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_wide_hw_breakpoint); */
 
 /**
  * unregister_wide_hw_breakpoint - unregister a wide breakpoint in the kernel
@@ -554,7 +554,7 @@ void unregister_wide_hw_breakpoint(struct perf_event * __percpu *cpu_events)
 	}
 	free_percpu(cpu_events);
 }
-EXPORT_SYMBOL_GPL(unregister_wide_hw_breakpoint);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_wide_hw_breakpoint); */
 
 static struct notifier_block hw_breakpoint_exceptions_nb = {
 	.notifier_call = hw_breakpoint_exceptions_notify,

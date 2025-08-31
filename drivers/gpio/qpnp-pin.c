@@ -641,7 +641,7 @@ int qpnp_pin_config(int gpio, struct qpnp_pin_cfg *param)
 
 	return rc;
 }
-EXPORT_SYMBOL(qpnp_pin_config);
+/* DISABLED: EXPORT_SYMBOL(qpnp_pin_config); */
 
 #define Q_MAX_CHIP_NAME 128
 int qpnp_pin_map(const char *name, uint32_t pmic_pin)
@@ -666,7 +666,7 @@ int qpnp_pin_map(const char *name, uint32_t pmic_pin)
 	mutex_unlock(&qpnp_pin_chips_lock);
 	return -EINVAL;
 }
-EXPORT_SYMBOL(qpnp_pin_map);
+/* DISABLED: EXPORT_SYMBOL(qpnp_pin_map); */
 
 static int qpnp_pin_to_irq(struct gpio_chip *gpio_chip, unsigned offset)
 {

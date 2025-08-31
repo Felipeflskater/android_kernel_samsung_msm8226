@@ -146,9 +146,9 @@ int af9005_rc_decode(struct dvb_usb_device *d, u8 * data, int len, u32 * event,
 	return 0;
 }
 
-EXPORT_SYMBOL(rc_map_af9005_table);
-EXPORT_SYMBOL(rc_map_af9005_table_size);
-EXPORT_SYMBOL(af9005_rc_decode);
+/* DISABLED: EXPORT_SYMBOL(rc_map_af9005_table); */
+/* DISABLED: EXPORT_SYMBOL(rc_map_af9005_table_size); */
+/* DISABLED: EXPORT_SYMBOL(af9005_rc_decode); */
 
 MODULE_AUTHOR("Luca Olivetti <luca@ventoso.org>");
 MODULE_DESCRIPTION

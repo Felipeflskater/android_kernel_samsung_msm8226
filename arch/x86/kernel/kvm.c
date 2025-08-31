@@ -153,7 +153,7 @@ void kvm_async_pf_task_wait(u32 token)
 
 	return;
 }
-EXPORT_SYMBOL_GPL(kvm_async_pf_task_wait);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_async_pf_task_wait); */
 
 static void apf_task_wake_one(struct kvm_task_sleep_node *n)
 {
@@ -220,7 +220,7 @@ again:
 	spin_unlock(&b->lock);
 	return;
 }
-EXPORT_SYMBOL_GPL(kvm_async_pf_task_wake);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_async_pf_task_wake); */
 
 u32 kvm_read_and_reset_pf_reason(void)
 {
@@ -233,7 +233,7 @@ u32 kvm_read_and_reset_pf_reason(void)
 
 	return reason;
 }
-EXPORT_SYMBOL_GPL(kvm_read_and_reset_pf_reason);
+/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_and_reset_pf_reason); */
 
 dotraplinkage void __kprobes
 do_async_page_fault(struct pt_regs *regs, unsigned long error_code)

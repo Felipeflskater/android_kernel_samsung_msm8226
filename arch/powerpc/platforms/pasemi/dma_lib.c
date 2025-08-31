@@ -58,7 +58,7 @@ unsigned int pasemi_read_iob_reg(unsigned int reg)
 {
 	return in_le32(iob_regs+reg);
 }
-EXPORT_SYMBOL(pasemi_read_iob_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_read_iob_reg); */
 
 /* pasemi_write_iob_reg - write IOB register
  * @reg: Register to write to (offset into PCI CFG space)
@@ -68,7 +68,7 @@ void pasemi_write_iob_reg(unsigned int reg, unsigned int val)
 {
 	out_le32(iob_regs+reg, val);
 }
-EXPORT_SYMBOL(pasemi_write_iob_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_write_iob_reg); */
 
 /* pasemi_read_mac_reg - read MAC register
  * @intf: MAC interface
@@ -78,7 +78,7 @@ unsigned int pasemi_read_mac_reg(int intf, unsigned int reg)
 {
 	return in_le32(mac_regs[intf]+reg);
 }
-EXPORT_SYMBOL(pasemi_read_mac_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_read_mac_reg); */
 
 /* pasemi_write_mac_reg - write MAC register
  * @intf: MAC interface
@@ -89,7 +89,7 @@ void pasemi_write_mac_reg(int intf, unsigned int reg, unsigned int val)
 {
 	out_le32(mac_regs[intf]+reg, val);
 }
-EXPORT_SYMBOL(pasemi_write_mac_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_write_mac_reg); */
 
 /* pasemi_read_dma_reg - read DMA register
  * @reg: Register to read (offset into PCI CFG space)
@@ -98,7 +98,7 @@ unsigned int pasemi_read_dma_reg(unsigned int reg)
 {
 	return in_le32(dma_regs+reg);
 }
-EXPORT_SYMBOL(pasemi_read_dma_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_read_dma_reg); */
 
 /* pasemi_write_dma_reg - write DMA register
  * @reg: Register to write to (offset into PCI CFG space)
@@ -108,7 +108,7 @@ void pasemi_write_dma_reg(unsigned int reg, unsigned int val)
 {
 	out_le32(dma_regs+reg, val);
 }
-EXPORT_SYMBOL(pasemi_write_dma_reg);
+/* DISABLED: EXPORT_SYMBOL(pasemi_write_dma_reg); */
 
 static int pasemi_alloc_tx_chan(enum pasemi_dmachan_type type)
 {
@@ -216,7 +216,7 @@ void *pasemi_dma_alloc_chan(enum pasemi_dmachan_type type,
 
 	return chan;
 }
-EXPORT_SYMBOL(pasemi_dma_alloc_chan);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_alloc_chan); */
 
 /* pasemi_dma_free_chan - Free a previously allocated channel
  * @chan: Channel to free
@@ -240,7 +240,7 @@ void pasemi_dma_free_chan(struct pasemi_dmachan *chan)
 
 	kfree(chan->priv);
 }
-EXPORT_SYMBOL(pasemi_dma_free_chan);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_free_chan); */
 
 /* pasemi_dma_alloc_ring - Allocate descriptor ring for a channel
  * @chan: Channel for which to allocate
@@ -267,7 +267,7 @@ int pasemi_dma_alloc_ring(struct pasemi_dmachan *chan, int ring_size)
 
 	return 0;
 }
-EXPORT_SYMBOL(pasemi_dma_alloc_ring);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_alloc_ring); */
 
 /* pasemi_dma_free_ring - Free an allocated descriptor ring for a channel
  * @chan: Channel for which to free the descriptor ring
@@ -284,7 +284,7 @@ void pasemi_dma_free_ring(struct pasemi_dmachan *chan)
 	chan->ring_size = 0;
 	chan->ring_dma = 0;
 }
-EXPORT_SYMBOL(pasemi_dma_free_ring);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_free_ring); */
 
 /* pasemi_dma_start_chan - Start a DMA channel
  * @chan: Channel to start
@@ -301,7 +301,7 @@ void pasemi_dma_start_chan(const struct pasemi_dmachan *chan, const u32 cmdsta)
 		pasemi_write_dma_reg(PAS_DMA_TXCHAN_TCMDSTA(chan->chno),
 				     cmdsta | PAS_DMA_TXCHAN_TCMDSTA_EN);
 }
-EXPORT_SYMBOL(pasemi_dma_start_chan);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_start_chan); */
 
 /* pasemi_dma_stop_chan - Stop a DMA channel
  * @chan: Channel to stop
@@ -347,7 +347,7 @@ int pasemi_dma_stop_chan(const struct pasemi_dmachan *chan)
 
 	return 0;
 }
-EXPORT_SYMBOL(pasemi_dma_stop_chan);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_stop_chan); */
 
 /* pasemi_dma_alloc_buf - Allocate a buffer to use for DMA
  * @chan: Channel to allocate for
@@ -364,7 +364,7 @@ void *pasemi_dma_alloc_buf(struct pasemi_dmachan *chan, int size,
 {
 	return dma_alloc_coherent(&dma_pdev->dev, size, handle, GFP_KERNEL);
 }
-EXPORT_SYMBOL(pasemi_dma_alloc_buf);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_alloc_buf); */
 
 /* pasemi_dma_free_buf - Free a buffer used for DMA
  * @chan: Channel the buffer was allocated for
@@ -378,7 +378,7 @@ void pasemi_dma_free_buf(struct pasemi_dmachan *chan, int size,
 {
 	dma_free_coherent(&dma_pdev->dev, size, handle, GFP_KERNEL);
 }
-EXPORT_SYMBOL(pasemi_dma_free_buf);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_free_buf); */
 
 /* pasemi_dma_alloc_flag - Allocate a flag (event) for channel synchronization
  *
@@ -398,7 +398,7 @@ retry:
 
 	return bit;
 }
-EXPORT_SYMBOL(pasemi_dma_alloc_flag);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_alloc_flag); */
 
 
 /* pasemi_dma_free_flag - Deallocates a flag (event)
@@ -412,7 +412,7 @@ void pasemi_dma_free_flag(int flag)
 	BUG_ON(flag >= MAX_FLAGS);
 	set_bit(flag, flags_free);
 }
-EXPORT_SYMBOL(pasemi_dma_free_flag);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_free_flag); */
 
 
 /* pasemi_dma_set_flag - Sets a flag (event) to 1
@@ -428,7 +428,7 @@ void pasemi_dma_set_flag(int flag)
 	else
 		pasemi_write_dma_reg(PAS_DMA_TXF_SFLG1, 1 << flag);
 }
-EXPORT_SYMBOL(pasemi_dma_set_flag);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_set_flag); */
 
 /* pasemi_dma_clear_flag - Sets a flag (event) to 0
  * @flag: Flag number to set inactive
@@ -443,7 +443,7 @@ void pasemi_dma_clear_flag(int flag)
 	else
 		pasemi_write_dma_reg(PAS_DMA_TXF_CFLG1, 1 << flag);
 }
-EXPORT_SYMBOL(pasemi_dma_clear_flag);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_clear_flag); */
 
 /* pasemi_dma_alloc_fun - Allocate a function engine
  *
@@ -463,7 +463,7 @@ retry:
 
 	return bit;
 }
-EXPORT_SYMBOL(pasemi_dma_alloc_fun);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_alloc_fun); */
 
 
 /* pasemi_dma_free_fun - Deallocates a function engine
@@ -477,7 +477,7 @@ void pasemi_dma_free_fun(int fun)
 	BUG_ON(fun >= MAX_FLAGS);
 	set_bit(fun, fun_free);
 }
-EXPORT_SYMBOL(pasemi_dma_free_fun);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_free_fun); */
 
 
 static void *map_onedev(struct pci_dev *p, int index)
@@ -631,4 +631,4 @@ out:
 	spin_unlock(&init_lock);
 	return err;
 }
-EXPORT_SYMBOL(pasemi_dma_init);
+/* DISABLED: EXPORT_SYMBOL(pasemi_dma_init); */

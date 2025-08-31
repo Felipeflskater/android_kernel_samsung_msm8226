@@ -32,7 +32,7 @@ spinlock_t cris_atomic_locks[] = {
 
 /* CPU masks */
 cpumask_t phys_cpu_present_map = CPU_MASK_NONE;
-EXPORT_SYMBOL(phys_cpu_present_map);
+/* DISABLED: EXPORT_SYMBOL(phys_cpu_present_map); */
 
 /* Variables used during SMP boot */
 volatile int cpu_now_booting = 0;

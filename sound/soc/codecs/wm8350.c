@@ -1422,7 +1422,7 @@ int wm8350_hp_jack_detect(struct snd_soc_codec *codec, enum wm8350_jack which,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wm8350_hp_jack_detect);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_hp_jack_detect); */
 
 static irqreturn_t wm8350_mic_handler(int irq, void *data)
 {
@@ -1480,7 +1480,7 @@ int wm8350_mic_jack_detect(struct snd_soc_codec *codec,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wm8350_mic_jack_detect);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_mic_jack_detect); */
 
 #define WM8350_RATES (SNDRV_PCM_RATE_8000_96000)
 

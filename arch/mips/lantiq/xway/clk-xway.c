@@ -185,7 +185,7 @@ unsigned int ltq_get_io_region_clock(void)
 		return (ret + 2) / 4;
 	}
 }
-EXPORT_SYMBOL(ltq_get_io_region_clock);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_io_region_clock); */
 
 unsigned int ltq_get_fpi_bus_clock(int fpi)
 {
@@ -195,7 +195,7 @@ unsigned int ltq_get_fpi_bus_clock(int fpi)
 		ret >>= 1;
 	return ret;
 }
-EXPORT_SYMBOL(ltq_get_fpi_bus_clock);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_fpi_bus_clock); */
 
 unsigned int ltq_get_cpu_hz(void)
 {
@@ -210,7 +210,7 @@ unsigned int ltq_get_cpu_hz(void)
 		return DDR_HZ >> 1;
 	}
 }
-EXPORT_SYMBOL(ltq_get_cpu_hz);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_cpu_hz); */
 
 unsigned int ltq_get_fpi_hz(void)
 {
@@ -220,4 +220,4 @@ unsigned int ltq_get_fpi_hz(void)
 		return ddr_clock >> 1;
 	return ddr_clock;
 }
-EXPORT_SYMBOL(ltq_get_fpi_hz);
+/* DISABLED: EXPORT_SYMBOL(ltq_get_fpi_hz); */

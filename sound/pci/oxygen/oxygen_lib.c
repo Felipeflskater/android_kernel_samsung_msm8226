@@ -717,14 +717,14 @@ err_card:
 	snd_card_free(card);
 	return err;
 }
-EXPORT_SYMBOL(oxygen_pci_probe);
+/* DISABLED: EXPORT_SYMBOL(oxygen_pci_probe); */
 
 void oxygen_pci_remove(struct pci_dev *pci)
 {
 	snd_card_free(pci_get_drvdata(pci));
 	pci_set_drvdata(pci, NULL);
 }
-EXPORT_SYMBOL(oxygen_pci_remove);
+/* DISABLED: EXPORT_SYMBOL(oxygen_pci_remove); */
 
 #ifdef CONFIG_PM
 int oxygen_pci_suspend(struct pci_dev *pci, pm_message_t state)
@@ -759,7 +759,7 @@ int oxygen_pci_suspend(struct pci_dev *pci, pm_message_t state)
 	pci_set_power_state(pci, pci_choose_state(pci, state));
 	return 0;
 }
-EXPORT_SYMBOL(oxygen_pci_suspend);
+/* DISABLED: EXPORT_SYMBOL(oxygen_pci_suspend); */
 
 static const u32 registers_to_restore[OXYGEN_IO_SIZE / 32] = {
 	0xffffffff, 0x00ff077f, 0x00011d08, 0x007f00ff,
@@ -820,7 +820,7 @@ int oxygen_pci_resume(struct pci_dev *pci)
 	snd_power_change_state(card, SNDRV_CTL_POWER_D0);
 	return 0;
 }
-EXPORT_SYMBOL(oxygen_pci_resume);
+/* DISABLED: EXPORT_SYMBOL(oxygen_pci_resume); */
 #endif /* CONFIG_PM */
 
 void oxygen_pci_shutdown(struct pci_dev *pci)
@@ -831,4 +831,4 @@ void oxygen_pci_shutdown(struct pci_dev *pci)
 	oxygen_shutdown(chip);
 	chip->model.cleanup(chip);
 }
-EXPORT_SYMBOL(oxygen_pci_shutdown);
+/* DISABLED: EXPORT_SYMBOL(oxygen_pci_shutdown); */

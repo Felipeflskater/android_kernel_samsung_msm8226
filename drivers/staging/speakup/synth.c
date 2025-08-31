@@ -28,7 +28,7 @@ struct speakup_info_t speakup_info = {
 	.spinlock = __SPIN_LOCK_UNLOCKED(speakup_info.spinlock),
 	.flushing = 0,
 };
-EXPORT_SYMBOL_GPL(speakup_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(speakup_info); */
 
 static int do_synth_init(struct spk_synth *in_synth);
 
@@ -59,7 +59,7 @@ int spk_serial_synth_probe(struct spk_synth *synth)
 	synth->alive = 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spk_serial_synth_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_serial_synth_probe); */
 
 /* Main loop of the progression thread: keep eating from the buffer
  * and push to the serial port, waiting as needed
@@ -131,7 +131,7 @@ void spk_do_catch_up(struct spk_synth *synth)
 	}
 	spk_serial_out(synth->procspeech);
 }
-EXPORT_SYMBOL_GPL(spk_do_catch_up);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_do_catch_up); */
 
 const char *spk_synth_immediate(struct spk_synth *synth, const char *buff)
 {
@@ -147,20 +147,20 @@ const char *spk_synth_immediate(struct spk_synth *synth, const char *buff)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spk_synth_immediate);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_synth_immediate); */
 
 void spk_synth_flush(struct spk_synth *synth)
 {
 	spk_serial_out(synth->clear);
 }
-EXPORT_SYMBOL_GPL(spk_synth_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_synth_flush); */
 
 int spk_synth_is_alive_nop(struct spk_synth *synth)
 {
 	synth->alive = 1;
 	return 1;
 }
-EXPORT_SYMBOL_GPL(spk_synth_is_alive_nop);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_synth_is_alive_nop); */
 
 int spk_synth_is_alive_restart(struct spk_synth *synth)
 {
@@ -175,7 +175,7 @@ int spk_synth_is_alive_restart(struct spk_synth *synth)
 	pr_warn("%s: can't restart synth\n", synth->long_name);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(spk_synth_is_alive_restart);
+/* DISABLED: EXPORT_SYMBOL_GPL(spk_synth_is_alive_restart); */
 
 static void thread_wake_up(u_long data)
 {
@@ -236,7 +236,7 @@ void synth_printf(const char *fmt, ...)
 		synth_buffer_add(*p++);
 	synth_start();
 }
-EXPORT_SYMBOL_GPL(synth_printf);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_printf); */
 
 static int index_count;
 static int sentence_count;
@@ -307,13 +307,13 @@ int synth_request_region(unsigned long start, unsigned long n)
 	synth_res.flags = IORESOURCE_BUSY;
 	return request_resource(parent, &synth_res);
 }
-EXPORT_SYMBOL_GPL(synth_request_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_request_region); */
 
 int synth_release_region(unsigned long start, unsigned long n)
 {
 	return release_resource(&synth_res);
 }
-EXPORT_SYMBOL_GPL(synth_release_region);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_release_region); */
 
 struct var_t synth_time_vars[] = {
 	{ DELAY, .u.n = {NULL, 100, 100, 2000, 0, 0, NULL } },
@@ -441,7 +441,7 @@ int synth_add(struct spk_synth *in_synth)
 	mutex_unlock(&spk_mutex);
 	return status;
 }
-EXPORT_SYMBOL_GPL(synth_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_add); */
 
 void synth_remove(struct spk_synth *in_synth)
 {
@@ -458,6 +458,6 @@ void synth_remove(struct spk_synth *in_synth)
 	module_status = 0;
 	mutex_unlock(&spk_mutex);
 }
-EXPORT_SYMBOL_GPL(synth_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_remove); */
 
 short spk_punc_masks[] = { 0, SOME, MOST, PUNC, PUNC|B_SYM };

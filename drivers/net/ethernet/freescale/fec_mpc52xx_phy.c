@@ -155,6 +155,6 @@ struct platform_driver mpc52xx_fec_mdio_driver = {
 };
 
 /* let fec driver call it, since this has to be registered before it */
-EXPORT_SYMBOL_GPL(mpc52xx_fec_mdio_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpc52xx_fec_mdio_driver); */
 
 MODULE_LICENSE("Dual BSD/GPL");

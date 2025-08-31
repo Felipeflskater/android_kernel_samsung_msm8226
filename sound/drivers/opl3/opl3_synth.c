@@ -64,7 +64,7 @@ char snd_opl3_regmap[MAX_OPL2_VOICES][4] =
 	{ 0x12, 0x15, 0x00, 0x00 }	/* is selected (only left reg block) */
 };
 
-EXPORT_SYMBOL(snd_opl3_regmap);
+/* DISABLED: EXPORT_SYMBOL(snd_opl3_regmap); */
 
 /*
  * prototypes
@@ -304,7 +304,7 @@ int snd_opl3_load_patch(struct snd_opl3 *opl3,
 
 	return 0;
 }
-EXPORT_SYMBOL(snd_opl3_load_patch);
+/* DISABLED: EXPORT_SYMBOL(snd_opl3_load_patch); */
 
 /*
  * find a patch with the given program and bank numbers, returns its pointer
@@ -334,7 +334,7 @@ struct fm_patch *snd_opl3_find_patch(struct snd_opl3 *opl3, int prog, int bank,
 	opl3->patch_table[key] = patch;
 	return patch;
 }
-EXPORT_SYMBOL(snd_opl3_find_patch);
+/* DISABLED: EXPORT_SYMBOL(snd_opl3_find_patch); */
 
 /*
  * Clear all patches of the given OPL3 instance
@@ -395,7 +395,7 @@ void snd_opl3_reset(struct snd_opl3 * opl3)
 	opl3->rhythm = 0;
 }
 
-EXPORT_SYMBOL(snd_opl3_reset);
+/* DISABLED: EXPORT_SYMBOL(snd_opl3_reset); */
 
 static int snd_opl3_play_note(struct snd_opl3 * opl3, struct snd_dm_fm_note * note)
 {

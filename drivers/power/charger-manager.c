@@ -717,7 +717,7 @@ out:
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cm_suspend_again);
+/* DISABLED: EXPORT_SYMBOL_GPL(cm_suspend_again); */
 
 /**
  * setup_charger_manager - initialize charger_global_desc data
@@ -752,7 +752,7 @@ int setup_charger_manager(struct charger_global_desc *gd)
 	g_desc = gd;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(setup_charger_manager);
+/* DISABLED: EXPORT_SYMBOL_GPL(setup_charger_manager); */
 
 static int charger_manager_probe(struct platform_device *pdev)
 {

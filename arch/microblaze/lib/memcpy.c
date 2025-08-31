@@ -185,5 +185,5 @@ void *memcpy(void *v_dst, const void *v_src, __kernel_size_t c)
 	return v_dst;
 }
 #endif /* CONFIG_OPT_LIB_FUNCTION */
-EXPORT_SYMBOL(memcpy);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
 #endif /* __HAVE_ARCH_MEMCPY */

@@ -179,7 +179,7 @@ int oem_rapi_client_streaming_function(
 				   oem_rapi_client_streaming_function_ret,
 				   ret, -1);
 }
-EXPORT_SYMBOL(oem_rapi_client_streaming_function);
+/* DISABLED: EXPORT_SYMBOL(oem_rapi_client_streaming_function); */
 
 int oem_rapi_client_close(void)
 {
@@ -192,7 +192,7 @@ int oem_rapi_client_close(void)
 	mutex_unlock(&oem_rapi_client_lock);
 	return 0;
 }
-EXPORT_SYMBOL(oem_rapi_client_close);
+/* DISABLED: EXPORT_SYMBOL(oem_rapi_client_close); */
 
 struct msm_rpc_client *oem_rapi_client_init(void)
 {
@@ -208,7 +208,7 @@ struct msm_rpc_client *oem_rapi_client_init(void)
 	mutex_unlock(&oem_rapi_client_lock);
 	return rpc_client;
 }
-EXPORT_SYMBOL(oem_rapi_client_init);
+/* DISABLED: EXPORT_SYMBOL(oem_rapi_client_init); */
 
 #if defined(CONFIG_DEBUG_FS)
 

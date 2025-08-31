@@ -59,7 +59,7 @@ void usb_wwan_dtr_rts(struct usb_serial_port *port, int on)
 
 	intfdata->send_setup(port);
 }
-EXPORT_SYMBOL(usb_wwan_dtr_rts);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_dtr_rts); */
 
 void usb_wwan_set_termios(struct tty_struct *tty,
 			  struct usb_serial_port *port,
@@ -75,7 +75,7 @@ void usb_wwan_set_termios(struct tty_struct *tty,
 	if (intfdata->send_setup)
 		intfdata->send_setup(port);
 }
-EXPORT_SYMBOL(usb_wwan_set_termios);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_set_termios); */
 
 int usb_wwan_tiocmget(struct tty_struct *tty)
 {
@@ -94,7 +94,7 @@ int usb_wwan_tiocmget(struct tty_struct *tty)
 
 	return value;
 }
-EXPORT_SYMBOL(usb_wwan_tiocmget);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_tiocmget); */
 
 int usb_wwan_tiocmset(struct tty_struct *tty,
 		      unsigned int set, unsigned int clear)
@@ -121,7 +121,7 @@ int usb_wwan_tiocmset(struct tty_struct *tty,
 		portdata->dtr_state = 0;
 	return intfdata->send_setup(port);
 }
-EXPORT_SYMBOL(usb_wwan_tiocmset);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_tiocmset); */
 
 static int get_serial_info(struct usb_serial_port *port,
 			   struct serial_struct __user *retinfo)
@@ -198,7 +198,7 @@ int usb_wwan_ioctl(struct tty_struct *tty,
 
 	return -ENOIOCTLCMD;
 }
-EXPORT_SYMBOL(usb_wwan_ioctl);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_ioctl); */
 
 /* Write */
 int usb_wwan_write(struct tty_struct *tty, struct usb_serial_port *port,
@@ -277,7 +277,7 @@ int usb_wwan_write(struct tty_struct *tty, struct usb_serial_port *port,
 	dbg("%s: wrote (did %d)", __func__, count);
 	return count;
 }
-EXPORT_SYMBOL(usb_wwan_write);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_write); */
 
 static void usb_wwan_in_work(struct work_struct *w)
 {
@@ -453,7 +453,7 @@ int usb_wwan_write_room(struct tty_struct *tty)
 	dbg("%s: %d", __func__, data_len);
 	return data_len;
 }
-EXPORT_SYMBOL(usb_wwan_write_room);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_write_room); */
 
 int usb_wwan_chars_in_buffer(struct tty_struct *tty)
 {
@@ -475,7 +475,7 @@ int usb_wwan_chars_in_buffer(struct tty_struct *tty)
 	dbg("%s: %d", __func__, data_len);
 	return data_len;
 }
-EXPORT_SYMBOL(usb_wwan_chars_in_buffer);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_chars_in_buffer); */
 
 void usb_wwan_throttle(struct tty_struct *tty)
 {
@@ -485,7 +485,7 @@ void usb_wwan_throttle(struct tty_struct *tty)
 
 	dbg("%s:\n", __func__);
 }
-EXPORT_SYMBOL(usb_wwan_throttle);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_throttle); */
 
 void usb_wwan_unthrottle(struct tty_struct *tty)
 {
@@ -500,7 +500,7 @@ void usb_wwan_unthrottle(struct tty_struct *tty)
 
 	queue_work(system_nrt_wq, &portdata->in_work);
 }
-EXPORT_SYMBOL(usb_wwan_unthrottle);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_unthrottle); */
 
 int usb_wwan_open(struct tty_struct *tty, struct usb_serial_port *port)
 {
@@ -554,7 +554,7 @@ int usb_wwan_open(struct tty_struct *tty, struct usb_serial_port *port)
 
 	return 0;
 }
-EXPORT_SYMBOL(usb_wwan_open);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_open); */
 
 static void unbusy_queued_urb(struct urb *urb,
 					struct usb_wwan_port_private *portdata)
@@ -604,7 +604,7 @@ void usb_wwan_close(struct usb_serial_port *port)
 		serial->interface->needs_remote_wakeup = 0;
 	}
 }
-EXPORT_SYMBOL(usb_wwan_close);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_close); */
 
 /* Helper functions used by usb_wwan_setup_urbs */
 static struct urb *usb_wwan_setup_urb(struct usb_serial *serial, int endpoint,
@@ -724,7 +724,7 @@ bail_out_error:
 	kfree(portdata);
 	return 1;
 }
-EXPORT_SYMBOL(usb_wwan_startup);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_startup); */
 
 static void stop_read_write_urbs(struct usb_serial *serial)
 {
@@ -746,7 +746,7 @@ void usb_wwan_disconnect(struct usb_serial *serial)
 
 	stop_read_write_urbs(serial);
 }
-EXPORT_SYMBOL(usb_wwan_disconnect);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_disconnect); */
 
 void usb_wwan_release(struct usb_serial *serial)
 {
@@ -790,7 +790,7 @@ void usb_wwan_release(struct usb_serial *serial)
 		kfree(usb_get_serial_port_data(port));
 	}
 }
-EXPORT_SYMBOL(usb_wwan_release);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_release); */
 
 #ifdef CONFIG_PM
 int usb_wwan_suspend(struct usb_serial *serial, pm_message_t message)
@@ -814,7 +814,7 @@ int usb_wwan_suspend(struct usb_serial *serial, pm_message_t message)
 
 	return 0;
 }
-EXPORT_SYMBOL(usb_wwan_suspend);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_suspend); */
 
 static int play_delayed(struct usb_serial_port *port)
 {
@@ -906,7 +906,7 @@ int usb_wwan_resume(struct usb_serial *serial)
 
 	return 0;
 }
-EXPORT_SYMBOL(usb_wwan_resume);
+/* DISABLED: EXPORT_SYMBOL(usb_wwan_resume); */
 #endif
 
 MODULE_AUTHOR(DRIVER_AUTHOR);

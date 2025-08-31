@@ -134,4 +134,4 @@ static int __init acpi_sleep_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_sleep=", acpi_sleep_setup); */
+/* DISABLED: __setup("acpi_sleep=", acpi_sleep_setup); */ */

@@ -145,7 +145,7 @@ void subdev_8255_interrupt(struct comedi_device *dev,
 
 	comedi_event(dev, s);
 }
-EXPORT_SYMBOL(subdev_8255_interrupt);
+/* DISABLED: EXPORT_SYMBOL(subdev_8255_interrupt); */
 
 static int subdev_8255_cb(int dir, int port, int data, unsigned long arg)
 {
@@ -359,7 +359,7 @@ int subdev_8255_init(struct comedi_device *dev, struct comedi_subdevice *s,
 
 	return 0;
 }
-EXPORT_SYMBOL(subdev_8255_init);
+/* DISABLED: EXPORT_SYMBOL(subdev_8255_init); */
 
 int subdev_8255_init_irq(struct comedi_device *dev, struct comedi_subdevice *s,
 			 int (*cb) (int, int, int, unsigned long),
@@ -379,13 +379,13 @@ int subdev_8255_init_irq(struct comedi_device *dev, struct comedi_subdevice *s,
 
 	return 0;
 }
-EXPORT_SYMBOL(subdev_8255_init_irq);
+/* DISABLED: EXPORT_SYMBOL(subdev_8255_init_irq); */
 
 void subdev_8255_cleanup(struct comedi_device *dev, struct comedi_subdevice *s)
 {
 	kfree(s->private);
 }
-EXPORT_SYMBOL(subdev_8255_cleanup);
+/* DISABLED: EXPORT_SYMBOL(subdev_8255_cleanup); */
 
 /*
 

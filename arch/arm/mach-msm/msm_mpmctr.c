@@ -36,7 +36,7 @@ uint32_t msm_mpm_get_count(void)
 	pr_debug("mpm sclk sync:(%u)", count);
 	return count;
 }
-EXPORT_SYMBOL(msm_mpm_get_count);
+/* DISABLED: EXPORT_SYMBOL(msm_mpm_get_count); */
 
 static inline void msm_mpmctr_show_count(void)
 {

@@ -804,7 +804,7 @@ fail_unlock:
 	pr_err("pm8xxx adc error with %d\n", rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_adc_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_read); */
 
 uint32_t pm8xxx_adc_mpp_config_read(uint32_t mpp_num,
 			enum pm8xxx_adc_channels channel,
@@ -854,7 +854,7 @@ fail:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_adc_mpp_config_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_mpp_config_read); */
 
 uint32_t pm8xxx_adc_btm_configure(struct pm8xxx_adc_arb_btm_param *btm_param)
 {
@@ -945,7 +945,7 @@ write_err:
 	pr_debug("%s: with error code %d\n", __func__, rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_configure);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_configure); */
 
 static uint32_t pm8xxx_adc_btm_read(uint32_t channel)
 {
@@ -1014,7 +1014,7 @@ uint32_t pm8xxx_adc_btm_start(void)
 {
 	return pm8xxx_adc_btm_read(CHANNEL_BATT_THERM);
 }
-EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_start); */
 
 uint32_t pm8xxx_adc_btm_end(void)
 {
@@ -1043,7 +1043,7 @@ uint32_t pm8xxx_adc_btm_end(void)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_end);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_btm_end); */
 
 static ssize_t pm8xxx_adc_show(struct device *dev,
 			struct device_attribute *devattr, char *buf)

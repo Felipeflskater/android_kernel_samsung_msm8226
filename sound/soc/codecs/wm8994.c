@@ -3358,7 +3358,7 @@ int wm8994_mic_detect(struct snd_soc_codec *codec, struct snd_soc_jack *jack,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wm8994_mic_detect);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8994_mic_detect); */
 
 static irqreturn_t wm8994_mic_irq(int irq, void *data)
 {
@@ -3697,7 +3697,7 @@ int wm8958_mic_detect(struct snd_soc_codec *codec, struct snd_soc_jack *jack,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(wm8958_mic_detect);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm8958_mic_detect); */
 
 static irqreturn_t wm8958_mic_irq(int irq, void *data)
 {

@@ -53,7 +53,7 @@ bool sysrq_on(void)
 {
 	return sysrq_enabled || sysrq_always_enabled;
 }
-EXPORT_SYMBOL(sysrq_on);
+/* DISABLED: EXPORT_SYMBOL(sysrq_on); */
 
 /*
  * A value of 1 means 'all', other nonzero values are an op mask:
@@ -73,7 +73,7 @@ static int __init sysrq_always_enabled_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("sysrq_always_enabled", sysrq_always_enabled_setup); */
+/* DISABLED: __setup("sysrq_always_enabled", sysrq_always_enabled_setup); */ */
 
 
 static void sysrq_handle_loglevel(int key)
@@ -553,7 +553,7 @@ void handle_sysrq(int key)
 	if (sysrq_on())
 		__handle_sysrq(key, true);
 }
-EXPORT_SYMBOL(handle_sysrq);
+/* DISABLED: EXPORT_SYMBOL(handle_sysrq); */
 
 #ifdef CONFIG_INPUT
 
@@ -851,13 +851,13 @@ int register_sysrq_key(int key, struct sysrq_key_op *op_p)
 {
 	return __sysrq_swap_key_ops(key, op_p, NULL);
 }
-EXPORT_SYMBOL(register_sysrq_key);
+/* DISABLED: EXPORT_SYMBOL(register_sysrq_key); */
 
 int unregister_sysrq_key(int key, struct sysrq_key_op *op_p)
 {
 	return __sysrq_swap_key_ops(key, NULL, op_p);
 }
-EXPORT_SYMBOL(unregister_sysrq_key);
+/* DISABLED: EXPORT_SYMBOL(unregister_sysrq_key); */
 
 #ifdef CONFIG_PROC_FS
 /*

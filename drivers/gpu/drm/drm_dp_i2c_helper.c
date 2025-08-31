@@ -205,4 +205,4 @@ i2c_dp_aux_add_bus(struct i2c_adapter *adapter)
 	error = i2c_add_adapter(adapter);
 	return error;
 }
-EXPORT_SYMBOL(i2c_dp_aux_add_bus);
+/* DISABLED: EXPORT_SYMBOL(i2c_dp_aux_add_bus); */

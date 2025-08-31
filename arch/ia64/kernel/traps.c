@@ -25,7 +25,7 @@
 #include <asm/setup.h>
 
 fpswa_interface_t *fpswa_interface;
-EXPORT_SYMBOL(fpswa_interface);
+/* DISABLED: EXPORT_SYMBOL(fpswa_interface); */
 
 void __init
 trap_init (void)

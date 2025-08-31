@@ -314,7 +314,7 @@ int kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0,
 		      &regs, 0, NULL, NULL);
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * Free current thread data structures etc..
@@ -397,7 +397,7 @@ int dump_fpu(struct pt_regs *regs, elf_fpregset_t *fpu)
 	return 0; /* Task didn't use the fpu at all. */
 #endif
 }
-EXPORT_SYMBOL(dump_fpu);
+/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
 
 asmlinkage void ret_from_fork(void);
 

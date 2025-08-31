@@ -189,7 +189,7 @@ int kdb_get_kbd_char(void)
 
 	return keychar & 0xff;
 }
-EXPORT_SYMBOL_GPL(kdb_get_kbd_char);
+/* DISABLED: EXPORT_SYMBOL_GPL(kdb_get_kbd_char); */
 
 /*
  * Best effort cleanup of ENTER break codes on leaving KDB. Called on

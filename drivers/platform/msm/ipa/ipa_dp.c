@@ -1082,7 +1082,7 @@ fail_sps_api:
 fail_bad_param:
 	return result;
 }
-EXPORT_SYMBOL(ipa_setup_sys_pipe);
+/* DISABLED: EXPORT_SYMBOL(ipa_setup_sys_pipe); */
 
 /**
  * ipa_teardown_sys_pipe() - Teardown the system-BAM pipe and cleanup IPA EP
@@ -1108,7 +1108,7 @@ int ipa_teardown_sys_pipe(u32 clnt_hdl)
 
 	return 0;
 }
-EXPORT_SYMBOL(ipa_teardown_sys_pipe);
+/* DISABLED: EXPORT_SYMBOL(ipa_teardown_sys_pipe); */
 
 /**
  * ipa_tx_comp_usr_notify_release() - Callback function which will call the
@@ -1244,7 +1244,7 @@ fail_mem_alloc:
 fail_gen:
 	return -EFAULT;
 }
-EXPORT_SYMBOL(ipa_tx_dp);
+/* DISABLED: EXPORT_SYMBOL(ipa_tx_dp); */
 
 static void ipa_wq_handle_rx(struct work_struct *work)
 {

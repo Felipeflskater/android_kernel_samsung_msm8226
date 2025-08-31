@@ -2431,7 +2431,7 @@ void stop_airo_card( struct net_device *dev, int freeres )
 	free_netdev( dev );
 }
 
-EXPORT_SYMBOL(stop_airo_card);
+/* DISABLED: EXPORT_SYMBOL(stop_airo_card); */
 
 static int wll_header_parse(const struct sk_buff *skb, unsigned char *haddr)
 {
@@ -2941,7 +2941,7 @@ struct net_device *init_airo_card( unsigned short irq, int port, int is_pcmcia,
 	return _init_airo_card ( irq, port, is_pcmcia, NULL, dmdev);
 }
 
-EXPORT_SYMBOL(init_airo_card);
+/* DISABLED: EXPORT_SYMBOL(init_airo_card); */
 
 static int waitbusy (struct airo_info *ai) {
 	int delay = 0;
@@ -2976,7 +2976,7 @@ int reset_airo_card( struct net_device *dev )
 	return 0;
 }
 
-EXPORT_SYMBOL(reset_airo_card);
+/* DISABLED: EXPORT_SYMBOL(reset_airo_card); */
 
 static void airo_send_event(struct net_device *dev) {
 	struct airo_info *ai = dev->ml_priv;

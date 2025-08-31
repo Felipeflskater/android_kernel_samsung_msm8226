@@ -740,6 +740,6 @@ static int Ti3026_preinit(struct matrox_fb_info *minfo)
 struct matrox_switch matrox_millennium = {
 	Ti3026_preinit, Ti3026_reset, Ti3026_init, Ti3026_restore
 };
-EXPORT_SYMBOL(matrox_millennium);
+/* DISABLED: EXPORT_SYMBOL(matrox_millennium); */
 #endif
 MODULE_LICENSE("GPL");

@@ -171,7 +171,7 @@ u8 iic_get_target_id(int cpu)
 	return per_cpu(cpu_iic, cpu).target_id;
 }
 
-EXPORT_SYMBOL_GPL(iic_get_target_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(iic_get_target_id); */
 
 #ifdef CONFIG_SMP
 
@@ -190,7 +190,7 @@ struct irq_domain *iic_get_irq_host(int node)
 {
 	return iic_host;
 }
-EXPORT_SYMBOL_GPL(iic_get_irq_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(iic_get_irq_host); */
 
 static void iic_request_ipi(int msg)
 {

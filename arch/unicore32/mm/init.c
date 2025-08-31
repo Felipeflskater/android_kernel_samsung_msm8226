@@ -226,7 +226,7 @@ int pfn_valid(unsigned long pfn)
 {
 	return memblock_is_memory(pfn << PAGE_SHIFT);
 }
-EXPORT_SYMBOL(pfn_valid);
+/* DISABLED: EXPORT_SYMBOL(pfn_valid); */
 
 static void uc32_memory_present(void)
 {
@@ -514,5 +514,5 @@ static int __init keepinitrd_setup(char *__unused)
 	return 1;
 }
 
-/* DISABLED: __setup("keepinitrd", keepinitrd_setup); */
+/* DISABLED: __setup("keepinitrd", keepinitrd_setup); */ */
 #endif

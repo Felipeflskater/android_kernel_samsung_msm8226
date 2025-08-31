@@ -240,7 +240,7 @@ int rxrpc_kernel_send_data(struct rxrpc_call *call, struct msghdr *msg,
 	return ret;
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_send_data);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_send_data); */
 
 /*
  * rxrpc_kernel_abort_call - Allow a kernel service to abort a call
@@ -265,7 +265,7 @@ void rxrpc_kernel_abort_call(struct rxrpc_call *call, u32 abort_code)
 	_leave("");
 }
 
-EXPORT_SYMBOL(rxrpc_kernel_abort_call);
+/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_abort_call); */
 
 /*
  * send a message through a server socket

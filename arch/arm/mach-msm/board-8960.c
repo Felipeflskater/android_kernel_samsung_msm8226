@@ -3012,7 +3012,7 @@ void peripheral_connect()
 out:
 	mutex_unlock(&hsic_status_lock);
 }
-EXPORT_SYMBOL(peripheral_connect);
+/* DISABLED: EXPORT_SYMBOL(peripheral_connect); */
 
 void peripheral_disconnect()
 {
@@ -3024,7 +3024,7 @@ void peripheral_disconnect()
 out:
 	mutex_unlock(&hsic_status_lock);
 }
-EXPORT_SYMBOL(peripheral_disconnect);
+/* DISABLED: EXPORT_SYMBOL(peripheral_disconnect); */
 
 static void __init msm8960_init_smsc_hub(void)
 {

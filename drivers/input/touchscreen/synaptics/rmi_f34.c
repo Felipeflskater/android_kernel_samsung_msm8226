@@ -135,20 +135,20 @@ void FN_34_inthandler(struct rmi_function_info *rmifninfo,
 	/* set a sysfs value that the user mode can read - only upper 4 bits are the status */
 	fn34data->status = status & 0xf0; /* successful is $80, anything else is failure */
 }
-EXPORT_SYMBOL(FN_34_inthandler);
+/* DISABLED: EXPORT_SYMBOL(FN_34_inthandler); */
 
 void FN_34_attention(struct rmi_function_info *rmifninfo)
 {
 
 }
-EXPORT_SYMBOL(FN_34_attention);
+/* DISABLED: EXPORT_SYMBOL(FN_34_attention); */
 
 int FN_34_config(struct rmi_function_info *rmifninfo)
 {
 	pr_debug("%s: RMI4 function $34 config\n", __func__);
 	return 0;
 }
-EXPORT_SYMBOL(FN_34_config);
+/* DISABLED: EXPORT_SYMBOL(FN_34_config); */
 
 
 int FN_34_init(struct rmi_function_device *function_device)
@@ -225,7 +225,7 @@ int FN_34_init(struct rmi_function_device *function_device)
 
 	return retval;
 }
-EXPORT_SYMBOL(FN_34_init);
+/* DISABLED: EXPORT_SYMBOL(FN_34_init); */
 
 int FN_34_detect(struct rmi_function_info *rmifninfo,
 	struct rmi_function_descriptor *fndescr, unsigned int interruptCount)
@@ -267,7 +267,7 @@ int FN_34_detect(struct rmi_function_info *rmifninfo,
 
 	return retval;
 }
-EXPORT_SYMBOL(FN_34_detect);
+/* DISABLED: EXPORT_SYMBOL(FN_34_detect); */
 
 static ssize_t rmi_fn_34_bootloaderid_show(struct device *dev,
 				struct device_attribute *attr, char *buf)

@@ -192,7 +192,7 @@ void put_page(struct page *page)
 	else if (put_page_testzero(page))
 		__put_single_page(page);
 }
-EXPORT_SYMBOL(put_page);
+/* DISABLED: EXPORT_SYMBOL(put_page); */
 
 /*
  * This function is exported but must not be called by anything other
@@ -256,7 +256,7 @@ bool __get_page_tail(struct page *page)
 	}
 	return got;
 }
-EXPORT_SYMBOL(__get_page_tail);
+/* DISABLED: EXPORT_SYMBOL(__get_page_tail); */
 
 /**
  * put_pages_list() - release a list of pages
@@ -275,7 +275,7 @@ void put_pages_list(struct list_head *pages)
 		page_cache_release(victim);
 	}
 }
-EXPORT_SYMBOL(put_pages_list);
+/* DISABLED: EXPORT_SYMBOL(put_pages_list); */
 
 static void pagevec_lru_move_fn(struct pagevec *pvec,
 				void (*move_fn)(struct page *page, void *arg),
@@ -445,7 +445,7 @@ void mark_page_accessed(struct page *page)
 		SetPageReferenced(page);
 	}
 }
-EXPORT_SYMBOL(mark_page_accessed);
+/* DISABLED: EXPORT_SYMBOL(mark_page_accessed); */
 
 void __lru_cache_add(struct page *page, enum lru_list lru)
 {
@@ -456,7 +456,7 @@ void __lru_cache_add(struct page *page, enum lru_list lru)
 		__pagevec_lru_add(pvec, lru);
 	put_cpu_var(lru_add_pvecs);
 }
-EXPORT_SYMBOL(__lru_cache_add);
+/* DISABLED: EXPORT_SYMBOL(__lru_cache_add); */
 
 /**
  * lru_cache_add_lru - add a page to a page list
@@ -703,7 +703,7 @@ void release_pages(struct page **pages, int nr, int cold)
 
 	free_hot_cold_page_list(&pages_to_free, cold);
 }
-EXPORT_SYMBOL(release_pages);
+/* DISABLED: EXPORT_SYMBOL(release_pages); */
 
 /*
  * The pages which we're about to release may be in the deferred lru-addition
@@ -721,7 +721,7 @@ void __pagevec_release(struct pagevec *pvec)
 	release_pages(pvec->pages, pagevec_count(pvec), pvec->cold);
 	pagevec_reinit(pvec);
 }
-EXPORT_SYMBOL(__pagevec_release);
+/* DISABLED: EXPORT_SYMBOL(__pagevec_release); */
 
 #ifdef CONFIG_TRANSPARENT_HUGEPAGE
 /* used by __split_huge_page_refcount() */
@@ -802,7 +802,7 @@ void __pagevec_lru_add(struct pagevec *pvec, enum lru_list lru)
 
 	pagevec_lru_move_fn(pvec, __pagevec_lru_add_fn, (void *)lru);
 }
-EXPORT_SYMBOL(__pagevec_lru_add);
+/* DISABLED: EXPORT_SYMBOL(__pagevec_lru_add); */
 
 /**
  * pagevec_lookup - gang pagecache lookup
@@ -826,7 +826,7 @@ unsigned pagevec_lookup(struct pagevec *pvec, struct address_space *mapping,
 	pvec->nr = find_get_pages(mapping, start, nr_pages, pvec->pages);
 	return pagevec_count(pvec);
 }
-EXPORT_SYMBOL(pagevec_lookup);
+/* DISABLED: EXPORT_SYMBOL(pagevec_lookup); */
 
 unsigned pagevec_lookup_tag(struct pagevec *pvec, struct address_space *mapping,
 		pgoff_t *index, int tag, unsigned nr_pages)
@@ -835,7 +835,7 @@ unsigned pagevec_lookup_tag(struct pagevec *pvec, struct address_space *mapping,
 					nr_pages, pvec->pages);
 	return pagevec_count(pvec);
 }
-EXPORT_SYMBOL(pagevec_lookup_tag);
+/* DISABLED: EXPORT_SYMBOL(pagevec_lookup_tag); */
 
 /*
  * Perform any setup for the swap system

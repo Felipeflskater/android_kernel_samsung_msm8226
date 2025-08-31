@@ -25,7 +25,7 @@ bool selinux_is_enabled(void)
 	return selinux_enabled;
 #endif
 }
-EXPORT_SYMBOL_GPL(selinux_is_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(selinux_is_enabled); */
 
 bool selinux_is_enforcing(void)
 {
@@ -35,4 +35,4 @@ bool selinux_is_enforcing(void)
 	return selinux_enforcing;
 #endif
 }
-EXPORT_SYMBOL_GPL(selinux_is_enforcing);
+/* DISABLED: EXPORT_SYMBOL_GPL(selinux_is_enforcing); */

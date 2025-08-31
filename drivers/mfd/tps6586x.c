@@ -165,25 +165,25 @@ int tps6586x_write(struct device *dev, int reg, uint8_t val)
 {
 	return __tps6586x_write(to_i2c_client(dev), reg, val);
 }
-EXPORT_SYMBOL_GPL(tps6586x_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_write); */
 
 int tps6586x_writes(struct device *dev, int reg, int len, uint8_t *val)
 {
 	return __tps6586x_writes(to_i2c_client(dev), reg, len, val);
 }
-EXPORT_SYMBOL_GPL(tps6586x_writes);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_writes); */
 
 int tps6586x_read(struct device *dev, int reg, uint8_t *val)
 {
 	return __tps6586x_read(to_i2c_client(dev), reg, val);
 }
-EXPORT_SYMBOL_GPL(tps6586x_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_read); */
 
 int tps6586x_reads(struct device *dev, int reg, int len, uint8_t *val)
 {
 	return __tps6586x_reads(to_i2c_client(dev), reg, len, val);
 }
-EXPORT_SYMBOL_GPL(tps6586x_reads);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_reads); */
 
 int tps6586x_set_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -205,7 +205,7 @@ out:
 	mutex_unlock(&tps6586x->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(tps6586x_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_set_bits); */
 
 int tps6586x_clr_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -227,7 +227,7 @@ out:
 	mutex_unlock(&tps6586x->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(tps6586x_clr_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_clr_bits); */
 
 int tps6586x_update(struct device *dev, int reg, uint8_t val, uint8_t mask)
 {
@@ -249,7 +249,7 @@ out:
 	mutex_unlock(&tps6586x->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(tps6586x_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps6586x_update); */
 
 static int tps6586x_gpio_get(struct gpio_chip *gc, unsigned offset)
 {

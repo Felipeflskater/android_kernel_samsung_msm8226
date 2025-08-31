@@ -402,7 +402,7 @@ void adreno_dump_fields(struct kgsl_device *device,
 		sstr = "        ";
 	}
 }
-EXPORT_SYMBOL(adreno_dump_fields);
+/* DISABLED: EXPORT_SYMBOL(adreno_dump_fields); */
 
 int adreno_dump(struct kgsl_device *device, int manual)
 {

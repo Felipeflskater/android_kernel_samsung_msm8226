@@ -169,7 +169,7 @@ int caam_jr_register(struct device *ctrldev, struct device **rdev)
 
 	return -ENODEV;
 }
-EXPORT_SYMBOL(caam_jr_register);
+/* DISABLED: EXPORT_SYMBOL(caam_jr_register); */
 
 /**
  * caam_jr_deregister() - Deregister an API and release the queue.
@@ -201,7 +201,7 @@ int caam_jr_deregister(struct device *rdev)
 
 	return 0;
 }
-EXPORT_SYMBOL(caam_jr_deregister);
+/* DISABLED: EXPORT_SYMBOL(caam_jr_deregister); */
 
 /**
  * caam_jr_enqueue() - Enqueue a job descriptor head. Returns 0 if OK,
@@ -284,7 +284,7 @@ int caam_jr_enqueue(struct device *dev, u32 *desc,
 
 	return 0;
 }
-EXPORT_SYMBOL(caam_jr_enqueue);
+/* DISABLED: EXPORT_SYMBOL(caam_jr_enqueue); */
 
 static int caam_reset_hw_jr(struct device *dev)
 {

@@ -208,7 +208,7 @@ struct platform_device exynos4_device_sysmmu = {
 	.num_resources	= ARRAY_SIZE(exynos4_sysmmu_resource),
 	.resource	= exynos4_sysmmu_resource,
 };
-EXPORT_SYMBOL(exynos4_device_sysmmu);
+/* DISABLED: EXPORT_SYMBOL(exynos4_device_sysmmu); */
 
 static struct clk *sysmmu_clk[S5P_SYSMMU_TOTAL_IPNUM];
 void sysmmu_clk_init(struct device *dev, sysmmu_ips ips)

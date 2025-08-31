@@ -188,13 +188,13 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 	return ret;
 }
 
-EXPORT_SYMBOL(clk_enable);
-EXPORT_SYMBOL(clk_disable);
-EXPORT_SYMBOL(clk_get_rate);
-EXPORT_SYMBOL(clk_round_rate);
-EXPORT_SYMBOL(clk_set_rate);
-EXPORT_SYMBOL(clk_get_parent);
-EXPORT_SYMBOL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
+/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
 
 /* base clocks */
 

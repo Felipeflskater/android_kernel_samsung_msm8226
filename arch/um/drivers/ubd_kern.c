@@ -231,7 +231,7 @@ static int fake_ide_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("fake_ide", fake_ide_setup); */
+/* DISABLED: __setup("fake_ide", fake_ide_setup); */ */
 
 __uml_help(fake_ide_setup,
 "fake_ide\n"
@@ -394,7 +394,7 @@ static int ubd_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ubd", ubd_setup); */
+/* DISABLED: __setup("ubd", ubd_setup); */ */
 __uml_help(ubd_setup,
 "ubd<n><flags>=<filename>[(:|,)<filename2>]\n"
 "    This is used to associate a device with a file in the underlying\n"
@@ -427,7 +427,7 @@ static int udb_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("udb", udb_setup); */
+/* DISABLED: __setup("udb", udb_setup); */ */
 __uml_help(udb_setup,
 "udb\n"
 "    This option is here solely to catch ubd -> udb typos, which can be\n"

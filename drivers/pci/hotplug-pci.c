@@ -18,4 +18,4 @@ unsigned int __devinit pci_do_scan_bus(struct pci_bus *bus)
 
 	return max;
 }
-EXPORT_SYMBOL(pci_do_scan_bus);
+/* DISABLED: EXPORT_SYMBOL(pci_do_scan_bus); */

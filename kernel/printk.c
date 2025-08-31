@@ -88,7 +88,6 @@ int console_printk[4] = {
  * their unblank() callback or not. So let's export it.
  */
 int oops_in_progress;
-EXPORT_SYMBOL(oops_in_progress);
 
 /*
  * console_sem protects the console_drivers list, and also
@@ -97,7 +96,6 @@ EXPORT_SYMBOL(oops_in_progress);
  */
 static DEFINE_SEMAPHORE(console_sem);
 struct console *console_drivers;
-EXPORT_SYMBOL_GPL(console_drivers);
 
 /*
  * This is used for debugging the mess that is the VT code by
@@ -151,7 +149,6 @@ static struct console_cmdline console_cmdline[MAX_CMDLINECONSOLES];
 static int selected_console = -1;
 static int preferred_console = -1;
 int console_set_on_cmdline;
-EXPORT_SYMBOL(console_set_on_cmdline);
 
 /* Flag: console code may call schedule() */
 static int console_may_schedule;
@@ -437,7 +434,7 @@ static int __init sec_log_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("sec_log=", sec_log_setup); */
+/* DISABLED: __setup("sec_log=", sec_log_setup); */ */
 
 #else
 
@@ -520,7 +517,7 @@ static int __init boot_delay_setup(char *str)
 		boot_delay, preset_lpj, lpj, HZ, loops_per_msec);
 	return 1;
 }
-/* DISABLED: __setup("boot_delay=", boot_delay_setup); */
+/* DISABLED: __setup("boot_delay=", boot_delay_setup); */ */
 
 static void boot_delay_msec(void)
 {
@@ -1269,8 +1266,6 @@ out_restore_irqs:
 
 	return printed_len;
 }
-EXPORT_SYMBOL(printk);
-EXPORT_SYMBOL(vprintk);
 
 #else
 
@@ -1362,7 +1357,7 @@ static int __init console_setup(char *str)
 	console_set_on_cmdline = 1;
 	return 1;
 }
-/* DISABLED: __setup("console=", console_setup); */
+/* DISABLED: __setup("console=", console_setup); */ */
 
 /**
  * add_preferred_console - add a device to the list of preferred consoles.
@@ -1402,14 +1397,13 @@ int update_console_cmdline(char *name, int idx, char *name_new, int idx_new, cha
 }
 
 bool console_suspend_enabled = 1;
-EXPORT_SYMBOL(console_suspend_enabled);
 
 static int __init console_suspend_disable(char *str)
 {
 	console_suspend_enabled = 0;
 	return 1;
 }
-/* DISABLED: __setup("no_console_suspend", console_suspend_disable); */
+/* DISABLED: __setup("no_console_suspend", console_suspend_disable); */ */
 module_param_named(console_suspend, console_suspend_enabled,
 		bool, S_IRUGO | S_IWUSR);
 MODULE_PARM_DESC(console_suspend, "suspend console during suspend"
@@ -1506,7 +1500,6 @@ void console_lock(void)
 	console_locked = 1;
 	console_may_schedule = 1;
 }
-EXPORT_SYMBOL(console_lock);
 
 /**
  * console_trylock - try to lock the console system for exclusive use.
@@ -1528,7 +1521,6 @@ int console_trylock(void)
 	console_may_schedule = 0;
 	return 1;
 }
-EXPORT_SYMBOL(console_trylock);
 
 int is_console_locked(void)
 {
@@ -1644,7 +1636,6 @@ again:
 	if (wake_klogd)
 		wake_up_klogd();
 }
-EXPORT_SYMBOL(console_unlock);
 
 /**
  * console_conditional_schedule - yield the CPU if required
@@ -1660,7 +1651,6 @@ void __sched console_conditional_schedule(void)
 	if (console_may_schedule)
 		cond_resched();
 }
-EXPORT_SYMBOL(console_conditional_schedule);
 
 void console_unblank(void)
 {
@@ -1715,7 +1705,6 @@ void console_stop(struct console *console)
 	console->flags &= ~CON_ENABLED;
 	console_unlock();
 }
-EXPORT_SYMBOL(console_stop);
 
 void console_start(struct console *console)
 {
@@ -1723,7 +1712,6 @@ void console_start(struct console *console)
 	console->flags |= CON_ENABLED;
 	console_unlock();
 }
-EXPORT_SYMBOL(console_start);
 
 static int __read_mostly keep_bootcon;
 
@@ -1908,7 +1896,6 @@ void register_console(struct console *newcon)
 			newcon->name, newcon->index);
 	}
 }
-EXPORT_SYMBOL(register_console);
 
 int unregister_console(struct console *console)
 {
@@ -1946,7 +1933,6 @@ int unregister_console(struct console *console)
 	console_sysfs_notify();
 	return res;
 }
-EXPORT_SYMBOL(unregister_console);
 
 static int __init printk_late_init(void)
 {
@@ -1998,7 +1984,6 @@ int __printk_ratelimit(const char *func)
 {
 	return ___ratelimit(&printk_ratelimit_state, func);
 }
-EXPORT_SYMBOL(__printk_ratelimit);
 
 /**
  * printk_timed_ratelimit - caller-controlled printk ratelimiting
@@ -2021,7 +2006,6 @@ bool printk_timed_ratelimit(unsigned long *caller_jiffies,
 	}
 	return false;
 }
-EXPORT_SYMBOL(printk_timed_ratelimit);
 
 static DEFINE_SPINLOCK(dump_list_lock);
 static LIST_HEAD(dump_list);
@@ -2054,7 +2038,6 @@ int kmsg_dump_register(struct kmsg_dumper *dumper)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(kmsg_dump_register);
 
 /**
  * kmsg_dump_unregister - unregister a kmsg dumper.
@@ -2079,7 +2062,6 @@ int kmsg_dump_unregister(struct kmsg_dumper *dumper)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(kmsg_dump_unregister);
 
 /**
  * kmsg_dump - dump kernel log to kernel message dumpers.

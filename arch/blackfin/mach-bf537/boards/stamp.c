@@ -3019,4 +3019,4 @@ int bfin_get_ether_addr(char *addr)
 	*(u16 *)(&(addr[4])) = bfin_read16(FLASH_MAC + 4);
 	return 0;
 }
-EXPORT_SYMBOL(bfin_get_ether_addr);
+/* DISABLED: EXPORT_SYMBOL(bfin_get_ether_addr); */

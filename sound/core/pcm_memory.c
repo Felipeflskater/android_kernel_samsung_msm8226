@@ -128,7 +128,7 @@ int snd_pcm_lib_preallocate_free_for_all(struct snd_pcm *pcm)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_pcm_lib_preallocate_free_for_all);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_preallocate_free_for_all); */
 
 #ifdef CONFIG_SND_VERBOSE_PROCFS
 /*
@@ -276,7 +276,7 @@ int snd_pcm_lib_preallocate_pages(struct snd_pcm_substream *substream,
 	return snd_pcm_lib_preallocate_pages1(substream, size, max);
 }
 
-EXPORT_SYMBOL(snd_pcm_lib_preallocate_pages);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_preallocate_pages); */
 
 /**
  * snd_pcm_lib_preallocate_pages_for_all - pre-allocation for continuous memory type (all substreams)
@@ -305,7 +305,7 @@ int snd_pcm_lib_preallocate_pages_for_all(struct snd_pcm *pcm,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_pcm_lib_preallocate_pages_for_all);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_preallocate_pages_for_all); */
 
 #ifdef CONFIG_SND_DMA_SGBUF
 /**
@@ -326,7 +326,7 @@ struct page *snd_pcm_sgbuf_ops_page(struct snd_pcm_substream *substream, unsigne
 	return sgbuf->page_table[idx];
 }
 
-EXPORT_SYMBOL(snd_pcm_sgbuf_ops_page);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_sgbuf_ops_page); */
 
 /*
  * compute the max chunk size with continuous pages on sg-buffer
@@ -352,7 +352,7 @@ unsigned int snd_pcm_sgbuf_get_chunk_size(struct snd_pcm_substream *substream,
 	/* ok, all on continuous pages */
 	return size;
 }
-EXPORT_SYMBOL(snd_pcm_sgbuf_get_chunk_size);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_sgbuf_get_chunk_size); */
 #endif /* CONFIG_SND_DMA_SGBUF */
 
 /**
@@ -408,7 +408,7 @@ int snd_pcm_lib_malloc_pages(struct snd_pcm_substream *substream, size_t size)
 	return 1;			/* area was changed */
 }
 
-EXPORT_SYMBOL(snd_pcm_lib_malloc_pages);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_malloc_pages); */
 
 /**
  * snd_pcm_lib_free_pages - release the allocated DMA buffer.
@@ -436,7 +436,7 @@ int snd_pcm_lib_free_pages(struct snd_pcm_substream *substream)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_pcm_lib_free_pages);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_free_pages); */
 
 int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *substream,
 				      size_t size, gfp_t gfp_flags)
@@ -457,7 +457,7 @@ int _snd_pcm_lib_alloc_vmalloc_buffer(struct snd_pcm_substream *substream,
 	runtime->dma_bytes = size;
 	return 1;
 }
-EXPORT_SYMBOL(_snd_pcm_lib_alloc_vmalloc_buffer);
+/* DISABLED: EXPORT_SYMBOL(_snd_pcm_lib_alloc_vmalloc_buffer); */
 
 /**
  * snd_pcm_lib_free_vmalloc_buffer - free vmalloc buffer
@@ -475,7 +475,7 @@ int snd_pcm_lib_free_vmalloc_buffer(struct snd_pcm_substream *substream)
 	runtime->dma_area = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(snd_pcm_lib_free_vmalloc_buffer);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_free_vmalloc_buffer); */
 
 /**
  * snd_pcm_lib_get_vmalloc_page - map vmalloc buffer offset to page struct
@@ -490,4 +490,4 @@ struct page *snd_pcm_lib_get_vmalloc_page(struct snd_pcm_substream *substream,
 {
 	return vmalloc_to_page(substream->runtime->dma_area + offset);
 }
-EXPORT_SYMBOL(snd_pcm_lib_get_vmalloc_page);
+/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_get_vmalloc_page); */

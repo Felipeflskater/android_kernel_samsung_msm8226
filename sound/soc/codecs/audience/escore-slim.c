@@ -355,7 +355,7 @@ int escore_remote_cfg_slim_rx(int dai_id)
 		rc = escore->remote_cfg_slim_rx(dai_id);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(escore_remote_cfg_slim_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_remote_cfg_slim_rx); */
 
 int escore_remote_cfg_slim_tx(int dai_id)
 {
@@ -368,7 +368,7 @@ int escore_remote_cfg_slim_tx(int dai_id)
 		rc = escore->remote_cfg_slim_tx(dai_id);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(escore_remote_cfg_slim_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_remote_cfg_slim_tx); */
 
 int escore_remote_close_slim_rx(int dai_id)
 {
@@ -381,7 +381,7 @@ int escore_remote_close_slim_rx(int dai_id)
 		rc = escore->remote_close_slim_rx(dai_id);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(escore_remote_close_slim_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_remote_close_slim_rx); */
 
 int escore_remote_close_slim_tx(int dai_id)
 {
@@ -394,7 +394,7 @@ int escore_remote_close_slim_tx(int dai_id)
 		rc = escore->remote_close_slim_tx(dai_id);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(escore_remote_close_slim_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_remote_close_slim_tx); */
 
 void escore_init_slim_slave(struct slim_device *sbdev)
 {
@@ -495,7 +495,7 @@ int escore_slim_set_channel_map(struct snd_soc_dai *dai,
 {
 	return 0;
 }
-EXPORT_SYMBOL_GPL(escore_slim_set_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_set_channel_map); */
 
 int escore_slim_get_channel_map(struct snd_soc_dai *dai,
 			       unsigned int *tx_num, unsigned int *tx_slot,
@@ -503,7 +503,7 @@ int escore_slim_get_channel_map(struct snd_soc_dai *dai,
 {
 	return 0;
 }
-EXPORT_SYMBOL_GPL(escore_slim_get_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_get_channel_map); */
 
 static int escore_slim_set_tristate(struct snd_soc_dai *dai, int tristate)
 {
@@ -528,7 +528,7 @@ int escore_slim_startup(struct snd_pcm_substream *substream,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(escore_slim_startup);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_startup); */
 
 void escore_slim_shutdown(struct snd_pcm_substream *substream,
 				struct snd_soc_dai *dai)
@@ -545,7 +545,7 @@ void escore_slim_shutdown(struct snd_pcm_substream *substream,
 
 	return;
 }
-EXPORT_SYMBOL_GPL(escore_slim_shutdown);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_shutdown); */
 
 int escore_slim_hw_params(struct snd_pcm_substream *substream,
 			 struct snd_pcm_hw_params *params,
@@ -615,7 +615,7 @@ int escore_slim_hw_params(struct snd_pcm_substream *substream,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(escore_slim_hw_params);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_hw_params); */
 
 static int escore_slim_hw_free(struct snd_pcm_substream *substream,
 			      struct snd_soc_dai *dai)
@@ -661,7 +661,7 @@ int escore_slim_trigger(struct snd_pcm_substream *substream,
 {
 	return 0;
 }
-EXPORT_SYMBOL_GPL(escore_slim_trigger);
+/* DISABLED: EXPORT_SYMBOL_GPL(escore_slim_trigger); */
 
 struct snd_soc_dai_ops escore_slim_port_dai_ops = {
 	.set_fmt	= escore_slim_set_dai_fmt,

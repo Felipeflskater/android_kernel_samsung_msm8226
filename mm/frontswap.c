@@ -32,7 +32,7 @@ static struct frontswap_ops frontswap_ops __read_mostly;
  * function call that checks a non-global.
  */
 bool frontswap_enabled __read_mostly;
-EXPORT_SYMBOL(frontswap_enabled);
+/* DISABLED: EXPORT_SYMBOL(frontswap_enabled); */
 
 /*
  * If enabled, frontswap_store will return failure even on success.  As
@@ -85,7 +85,7 @@ struct frontswap_ops frontswap_register_ops(struct frontswap_ops *ops)
 	frontswap_enabled = true;
 	return old;
 }
-EXPORT_SYMBOL(frontswap_register_ops);
+/* DISABLED: EXPORT_SYMBOL(frontswap_register_ops); */
 
 /*
  * Enable/disable frontswap writethrough (see above).
@@ -94,7 +94,7 @@ void frontswap_writethrough(bool enable)
 {
 	frontswap_writethrough_enabled = enable;
 }
-EXPORT_SYMBOL(frontswap_writethrough);
+/* DISABLED: EXPORT_SYMBOL(frontswap_writethrough); */
 
 /*
  * Called when a swap device is swapon'd.
@@ -108,7 +108,7 @@ void __frontswap_init(unsigned type)
 		return;
 	frontswap_ops.init(type);
 }
-EXPORT_SYMBOL(__frontswap_init);
+/* DISABLED: EXPORT_SYMBOL(__frontswap_init); */
 
 static inline void __frontswap_clear(struct swap_info_struct *sis, pgoff_t offset)
 {
@@ -155,7 +155,7 @@ int __frontswap_store(struct page *page)
 		ret = -1;
 	return ret;
 }
-EXPORT_SYMBOL(__frontswap_store);
+/* DISABLED: EXPORT_SYMBOL(__frontswap_store); */
 
 /*
  * "Get" data from frontswap associated with swaptype and offset that were
@@ -178,7 +178,7 @@ int __frontswap_load(struct page *page)
 		inc_frontswap_loads();
 	return ret;
 }
-EXPORT_SYMBOL(__frontswap_load);
+/* DISABLED: EXPORT_SYMBOL(__frontswap_load); */
 
 /*
  * Invalidate any data from frontswap associated with the specified swaptype
@@ -195,7 +195,7 @@ void __frontswap_invalidate_page(unsigned type, pgoff_t offset)
 		inc_frontswap_invalidates();
 	}
 }
-EXPORT_SYMBOL(__frontswap_invalidate_page);
+/* DISABLED: EXPORT_SYMBOL(__frontswap_invalidate_page); */
 
 /*
  * Invalidate all data from frontswap associated with all offsets for the
@@ -212,7 +212,7 @@ void __frontswap_invalidate_area(unsigned type)
 	atomic_set(&sis->frontswap_pages, 0);
 	memset(sis->frontswap_map, 0, sis->max / sizeof(long));
 }
-EXPORT_SYMBOL(__frontswap_invalidate_area);
+/* DISABLED: EXPORT_SYMBOL(__frontswap_invalidate_area); */
 
 static unsigned long __frontswap_curr_pages(void)
 {
@@ -311,7 +311,7 @@ void frontswap_shrink(unsigned long target_pages)
 		try_to_unuse(type, true, pages_to_unuse);
 	return;
 }
-EXPORT_SYMBOL(frontswap_shrink);
+/* DISABLED: EXPORT_SYMBOL(frontswap_shrink); */
 
 /*
  * Count and return the number of frontswap pages across all
@@ -328,7 +328,7 @@ unsigned long frontswap_curr_pages(void)
 
 	return totalpages;
 }
-EXPORT_SYMBOL(frontswap_curr_pages);
+/* DISABLED: EXPORT_SYMBOL(frontswap_curr_pages); */
 
 static int __init init_frontswap(void)
 {

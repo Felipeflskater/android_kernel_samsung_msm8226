@@ -30,7 +30,7 @@
 #endif
 
 const char *fb_mode_option;
-EXPORT_SYMBOL_GPL(fb_mode_option);
+/* DISABLED: EXPORT_SYMBOL_GPL(fb_mode_option); */
 
 /*
  *  Standard video mode definitions (taken from XFree86)
@@ -472,7 +472,7 @@ const struct fb_videomode vesa_modes[] = {
 	{ NULL, 75, 1920, 1440, 3367, 352, 144, 56, 1, 224, 3,
 	  FB_SYNC_VERT_HIGH_ACT, FB_VMODE_NONINTERLACED, FB_MODE_IS_VESA },
 };
-EXPORT_SYMBOL(vesa_modes);
+/* DISABLED: EXPORT_SYMBOL(vesa_modes); */
 #endif /* CONFIG_FB_MODE_HELPERS */
 
 /**
@@ -1044,7 +1044,7 @@ void fb_destroy_modelist(struct list_head *head)
 		kfree(pos);
 	}
 }
-EXPORT_SYMBOL_GPL(fb_destroy_modelist);
+/* DISABLED: EXPORT_SYMBOL_GPL(fb_destroy_modelist); */
 
 /**
  * fb_videomode_to_modelist - convert mode array to mode list
@@ -1123,15 +1123,15 @@ const struct fb_videomode *fb_find_best_display(const struct fb_monspecs *specs,
 finished:
 	return best;
 }
-EXPORT_SYMBOL(fb_find_best_display);
+/* DISABLED: EXPORT_SYMBOL(fb_find_best_display); */
 
-EXPORT_SYMBOL(fb_videomode_to_var);
-EXPORT_SYMBOL(fb_var_to_videomode);
-EXPORT_SYMBOL(fb_mode_is_equal);
-EXPORT_SYMBOL(fb_add_videomode);
-EXPORT_SYMBOL(fb_match_mode);
-EXPORT_SYMBOL(fb_find_best_mode);
-EXPORT_SYMBOL(fb_find_nearest_mode);
-EXPORT_SYMBOL(fb_videomode_to_modelist);
-EXPORT_SYMBOL(fb_find_mode);
-EXPORT_SYMBOL(fb_find_mode_cvt);
+/* DISABLED: EXPORT_SYMBOL(fb_videomode_to_var); */
+/* DISABLED: EXPORT_SYMBOL(fb_var_to_videomode); */
+/* DISABLED: EXPORT_SYMBOL(fb_mode_is_equal); */
+/* DISABLED: EXPORT_SYMBOL(fb_add_videomode); */
+/* DISABLED: EXPORT_SYMBOL(fb_match_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_find_best_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_find_nearest_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_videomode_to_modelist); */
+/* DISABLED: EXPORT_SYMBOL(fb_find_mode); */
+/* DISABLED: EXPORT_SYMBOL(fb_find_mode_cvt); */

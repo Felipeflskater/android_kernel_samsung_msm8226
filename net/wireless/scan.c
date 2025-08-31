@@ -92,7 +92,7 @@ void cfg80211_scan_done(struct cfg80211_scan_request *request, bool aborted)
 	request->aborted = aborted;
 	queue_work(cfg80211_wq, &wiphy_to_dev(request->wiphy)->scan_done_wk);
 }
-EXPORT_SYMBOL(cfg80211_scan_done);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_scan_done); */
 
 void __cfg80211_sched_scan_results(struct work_struct *wk)
 {
@@ -118,7 +118,7 @@ void cfg80211_sched_scan_results(struct wiphy *wiphy)
 		queue_work(cfg80211_wq,
 			   &wiphy_to_dev(wiphy)->sched_scan_results_wk);
 }
-EXPORT_SYMBOL(cfg80211_sched_scan_results);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_sched_scan_results); */
 
 void cfg80211_sched_scan_stopped(struct wiphy *wiphy)
 {
@@ -128,7 +128,7 @@ void cfg80211_sched_scan_stopped(struct wiphy *wiphy)
 	__cfg80211_stop_sched_scan(rdev, true);
 	mutex_unlock(&rdev->sched_scan_mtx);
 }
-EXPORT_SYMBOL(cfg80211_sched_scan_stopped);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_sched_scan_stopped); */
 
 int __cfg80211_stop_sched_scan(struct cfg80211_registered_device *rdev,
 			       bool driver_initiated)
@@ -226,7 +226,7 @@ const u8 *cfg80211_find_ie(u8 eid, const u8 *ies, int len)
 		return NULL;
 	return ies;
 }
-EXPORT_SYMBOL(cfg80211_find_ie);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_find_ie); */
 
 const u8 *cfg80211_find_vendor_ie(unsigned int oui, u8 oui_type,
 				  const u8 *ies, int len)
@@ -253,7 +253,7 @@ const u8 *cfg80211_find_vendor_ie(unsigned int oui, u8 oui_type,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(cfg80211_find_vendor_ie);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_find_vendor_ie); */
 
 static int cmp_ies(u8 num, u8 *ies1, size_t len1, u8 *ies2, size_t len2)
 {
@@ -492,7 +492,7 @@ struct cfg80211_bss *cfg80211_get_bss(struct wiphy *wiphy,
 		return NULL;
 	return &res->pub;
 }
-EXPORT_SYMBOL(cfg80211_get_bss);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_get_bss); */
 
 struct cfg80211_bss *cfg80211_get_mesh(struct wiphy *wiphy,
 				       struct ieee80211_channel *channel,
@@ -519,7 +519,7 @@ struct cfg80211_bss *cfg80211_get_mesh(struct wiphy *wiphy,
 		return NULL;
 	return &res->pub;
 }
-EXPORT_SYMBOL(cfg80211_get_mesh);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_get_mesh); */
 
 
 static void rb_insert_bss(struct cfg80211_registered_device *dev,
@@ -805,7 +805,7 @@ cfg80211_inform_bss(struct wiphy *wiphy,
 	/* cfg80211_bss_update gives us a referenced result */
 	return &res->pub;
 }
-EXPORT_SYMBOL(cfg80211_inform_bss);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_inform_bss); */
 
 struct cfg80211_bss *
 cfg80211_inform_bss_frame(struct wiphy *wiphy,
@@ -874,7 +874,7 @@ cfg80211_inform_bss_frame(struct wiphy *wiphy,
 	/* cfg80211_bss_update gives us a referenced result */
 	return &res->pub;
 }
-EXPORT_SYMBOL(cfg80211_inform_bss_frame);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_inform_bss_frame); */
 
 void cfg80211_ref_bss(struct cfg80211_bss *pub)
 {
@@ -886,7 +886,7 @@ void cfg80211_ref_bss(struct cfg80211_bss *pub)
 	bss = container_of(pub, struct cfg80211_internal_bss, pub);
 	kref_get(&bss->ref);
 }
-EXPORT_SYMBOL(cfg80211_ref_bss);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_ref_bss); */
 
 void cfg80211_put_bss(struct cfg80211_bss *pub)
 {
@@ -898,7 +898,7 @@ void cfg80211_put_bss(struct cfg80211_bss *pub)
 	bss = container_of(pub, struct cfg80211_internal_bss, pub);
 	kref_put(&bss->ref, bss_release);
 }
-EXPORT_SYMBOL(cfg80211_put_bss);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_put_bss); */
 
 void cfg80211_unlink_bss(struct wiphy *wiphy, struct cfg80211_bss *pub)
 {
@@ -917,7 +917,7 @@ void cfg80211_unlink_bss(struct wiphy *wiphy, struct cfg80211_bss *pub)
 	}
 	spin_unlock_bh(&dev->bss_lock);
 }
-EXPORT_SYMBOL(cfg80211_unlink_bss);
+/* DISABLED: EXPORT_SYMBOL(cfg80211_unlink_bss); */
 
 #ifdef CONFIG_CFG80211_WEXT
 int cfg80211_wext_siwscan(struct net_device *dev,
@@ -1051,7 +1051,7 @@ int cfg80211_wext_siwscan(struct net_device *dev,
 	cfg80211_unlock_rdev(rdev);
 	return err;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_siwscan);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_siwscan); */
 
 static void ieee80211_scan_add_ies(struct iw_request_info *info,
 				   struct cfg80211_bss *bss,
@@ -1365,5 +1365,5 @@ int cfg80211_wext_giwscan(struct net_device *dev,
 	cfg80211_unlock_rdev(rdev);
 	return res;
 }
-EXPORT_SYMBOL_GPL(cfg80211_wext_giwscan);
+/* DISABLED: EXPORT_SYMBOL_GPL(cfg80211_wext_giwscan); */
 #endif

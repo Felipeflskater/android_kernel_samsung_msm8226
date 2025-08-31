@@ -222,4 +222,4 @@ fail_gpio_dir_out:
 fail:
 	return rc;
 }
-EXPORT_SYMBOL(chip_power_qrf6285);
+/* DISABLED: EXPORT_SYMBOL(chip_power_qrf6285); */

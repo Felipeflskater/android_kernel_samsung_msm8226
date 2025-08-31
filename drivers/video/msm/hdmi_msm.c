@@ -80,7 +80,7 @@ struct hdmi_msm_state_type *hdmi_msm_state;
 static bool hdcp_feature_on = true;
 
 DEFINE_MUTEX(hdmi_msm_state_mutex);
-EXPORT_SYMBOL(hdmi_msm_state_mutex);
+/* DISABLED: EXPORT_SYMBOL(hdmi_msm_state_mutex); */
 static DEFINE_MUTEX(hdcp_auth_state_mutex);
 
 static void hdmi_msm_dump_regs(const char *prefix);
@@ -624,7 +624,7 @@ uint32 hdmi_msm_get_io_base(void)
 {
 	return (uint32)MSM_HDMI_BASE;
 }
-EXPORT_SYMBOL(hdmi_msm_get_io_base);
+/* DISABLED: EXPORT_SYMBOL(hdmi_msm_get_io_base); */
 
 /* Table indicating the video format supported by the HDMI TX Core v1.0 */
 /* Valid Pixel-Clock rates: 25.2MHz, 27MHz, 27.03MHz, 74.25MHz, 148.5MHz */
@@ -3333,7 +3333,7 @@ int hdmi_audio_enable(bool on , u32 fifo_water_mark)
 
 	return 0;
 }
-EXPORT_SYMBOL(hdmi_audio_enable);
+/* DISABLED: EXPORT_SYMBOL(hdmi_audio_enable); */
 
 #define HDMI_AUDIO_PKT_CTRL			0x0020
 #define HDMI_AUDIO_SAMPLE_SEND_ENABLE		1
@@ -3355,7 +3355,7 @@ int hdmi_audio_packet_enable(bool on)
 	HDMI_INP(HDMI_AUDIO_PKT_CTRL));
 	return 0;
 }
-EXPORT_SYMBOL(hdmi_audio_packet_enable);
+/* DISABLED: EXPORT_SYMBOL(hdmi_audio_packet_enable); */
 
 
 /* TO-DO: return -EINVAL when num_of_channels and channel_allocation
@@ -3479,7 +3479,7 @@ int hdmi_msm_audio_info_setup(bool enabled, u32 num_of_channels,
 	return 0;
 
 }
-EXPORT_SYMBOL(hdmi_msm_audio_info_setup);
+/* DISABLED: EXPORT_SYMBOL(hdmi_msm_audio_info_setup); */
 
 static void hdmi_msm_en_gc_packet(boolean av_mute_is_requested)
 {
@@ -3556,7 +3556,7 @@ int hdmi_msm_audio_get_sample_rate(void)
 {
 	return msm_hdmi_sample_rate;
 }
-EXPORT_SYMBOL(hdmi_msm_audio_get_sample_rate);
+/* DISABLED: EXPORT_SYMBOL(hdmi_msm_audio_get_sample_rate); */
 
 void hdmi_msm_audio_sample_rate_reset(int rate)
 {
@@ -3570,7 +3570,7 @@ void hdmi_msm_audio_sample_rate_reset(int rate)
 	else
 		hdmi_msm_turn_on();
 }
-EXPORT_SYMBOL(hdmi_msm_audio_sample_rate_reset);
+/* DISABLED: EXPORT_SYMBOL(hdmi_msm_audio_sample_rate_reset); */
 
 static void hdmi_msm_audio_setup(void)
 {
@@ -4451,7 +4451,7 @@ void mhl_connect_api(boolean on)
 				external_common_state->sdev.state);
 	}
 }
-EXPORT_SYMBOL(mhl_connect_api);
+/* DISABLED: EXPORT_SYMBOL(mhl_connect_api); */
 
 /* Note that power-off will also be called when the cable-remove event is
  * processed on the user-space and as a result the framebuffer is powered

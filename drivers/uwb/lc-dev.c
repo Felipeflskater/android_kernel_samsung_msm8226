@@ -61,7 +61,7 @@ int uwb_notifs_register(struct uwb_rc *rc, struct uwb_notifs_handler *new)
 	mutex_unlock(&rc->notifs_chain.mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(uwb_notifs_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_notifs_register); */
 
 /*
  * Remove event handler (callback)
@@ -74,7 +74,7 @@ int uwb_notifs_deregister(struct uwb_rc *rc, struct uwb_notifs_handler *entry)
 	mutex_unlock(&rc->notifs_chain.mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(uwb_notifs_deregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_notifs_deregister); */
 
 /*
  * Notify all event handlers of a given event on @rc
@@ -360,7 +360,7 @@ struct uwb_dev *uwb_dev_try_get(struct uwb_rc *rc, struct uwb_dev *uwb_dev)
 	else
 		return NULL;
 }
-EXPORT_SYMBOL_GPL(uwb_dev_try_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_dev_try_get); */
 
 
 /**
@@ -482,4 +482,4 @@ int uwb_dev_for_each(struct uwb_rc *rc, uwb_dev_for_each_f function, void *priv)
 {
 	return device_for_each_child(&rc->uwb_dev.dev, priv, function);
 }
-EXPORT_SYMBOL_GPL(uwb_dev_for_each);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_dev_for_each); */

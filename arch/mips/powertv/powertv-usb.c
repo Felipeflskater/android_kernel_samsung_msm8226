@@ -357,7 +357,7 @@ void platform_configure_usb_ehci()
 {
 	platform_configure_usb();
 }
-EXPORT_SYMBOL(platform_configure_usb_ehci);
+/* DISABLED: EXPORT_SYMBOL(platform_configure_usb_ehci); */
 
 /*
  * Set up the USB OHCI interface
@@ -366,7 +366,7 @@ void platform_configure_usb_ohci()
 {
 	platform_configure_usb();
 }
-EXPORT_SYMBOL(platform_configure_usb_ohci);
+/* DISABLED: EXPORT_SYMBOL(platform_configure_usb_ohci); */
 
 /*
  * Shut the USB EHCI interface down
@@ -375,7 +375,7 @@ void platform_unconfigure_usb_ehci()
 {
 	platform_unconfigure_usb();
 }
-EXPORT_SYMBOL(platform_unconfigure_usb_ehci);
+/* DISABLED: EXPORT_SYMBOL(platform_unconfigure_usb_ehci); */
 
 /*
  * Shut the USB OHCI interface down
@@ -384,7 +384,7 @@ void platform_unconfigure_usb_ohci()
 {
 	platform_unconfigure_usb();
 }
-EXPORT_SYMBOL(platform_unconfigure_usb_ohci);
+/* DISABLED: EXPORT_SYMBOL(platform_unconfigure_usb_ohci); */
 
 /**
  * platform_devices_init - sets up USB device resourse.

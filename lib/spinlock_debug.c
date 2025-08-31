@@ -33,7 +33,7 @@ void __raw_spin_lock_init(raw_spinlock_t *lock, const char *name,
 	lock->owner_cpu = -1;
 }
 
-EXPORT_SYMBOL(__raw_spin_lock_init);
+/* DISABLED: EXPORT_SYMBOL(__raw_spin_lock_init); */
 
 void __rwlock_init(rwlock_t *lock, const char *name,
 		   struct lock_class_key *key)
@@ -51,7 +51,7 @@ void __rwlock_init(rwlock_t *lock, const char *name,
 	lock->owner_cpu = -1;
 }
 
-EXPORT_SYMBOL(__rwlock_init);
+/* DISABLED: EXPORT_SYMBOL(__rwlock_init); */
 
 #ifdef CONFIG_SEC_DEBUG_SPINLOCK_PANIC
 #define DBG_HRT_MAX 10

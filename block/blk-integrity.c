@@ -72,7 +72,7 @@ new_segment:
 
 	return segments;
 }
-EXPORT_SYMBOL(blk_rq_count_integrity_sg);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_count_integrity_sg); */
 
 /**
  * blk_rq_map_integrity_sg - Map integrity metadata into a scatterlist
@@ -126,7 +126,7 @@ new_segment:
 
 	return segments;
 }
-EXPORT_SYMBOL(blk_rq_map_integrity_sg);
+/* DISABLED: EXPORT_SYMBOL(blk_rq_map_integrity_sg); */
 
 /**
  * blk_integrity_compare - Compare integrity profile of two disks
@@ -180,7 +180,7 @@ int blk_integrity_compare(struct gendisk *gd1, struct gendisk *gd2)
 
 	return 0;
 }
-EXPORT_SYMBOL(blk_integrity_compare);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_compare); */
 
 int blk_integrity_merge_rq(struct request_queue *q, struct request *req,
 			   struct request *next)
@@ -194,7 +194,7 @@ int blk_integrity_merge_rq(struct request_queue *q, struct request *req,
 
 	return 0;
 }
-EXPORT_SYMBOL(blk_integrity_merge_rq);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_merge_rq); */
 
 int blk_integrity_merge_bio(struct request_queue *q, struct request *req,
 			    struct bio *bio)
@@ -214,7 +214,7 @@ int blk_integrity_merge_bio(struct request_queue *q, struct request *req,
 
 	return 0;
 }
-EXPORT_SYMBOL(blk_integrity_merge_bio);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_merge_bio); */
 
 struct integrity_sysfs_entry {
 	struct attribute attr;
@@ -367,7 +367,7 @@ bool blk_integrity_is_initialized(struct gendisk *disk)
 
 	return (bi && bi->name && strcmp(bi->name, bi_unsupported_name) != 0);
 }
-EXPORT_SYMBOL(blk_integrity_is_initialized);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_is_initialized); */
 
 /**
  * blk_integrity_register - Register a gendisk as being integrity-capable
@@ -422,7 +422,7 @@ int blk_integrity_register(struct gendisk *disk, struct blk_integrity *template)
 
 	return 0;
 }
-EXPORT_SYMBOL(blk_integrity_register);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_register); */
 
 /**
  * blk_integrity_unregister - Remove block integrity profile
@@ -445,4 +445,4 @@ void blk_integrity_unregister(struct gendisk *disk)
 	kobject_put(&bi->kobj);
 	disk->integrity = NULL;
 }
-EXPORT_SYMBOL(blk_integrity_unregister);
+/* DISABLED: EXPORT_SYMBOL(blk_integrity_unregister); */

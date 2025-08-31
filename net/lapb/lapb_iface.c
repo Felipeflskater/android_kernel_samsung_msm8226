@@ -423,14 +423,14 @@ int lapb_data_transmit(struct lapb_cb *lapb, struct sk_buff *skb)
 	return used;
 }
 
-EXPORT_SYMBOL(lapb_register);
-EXPORT_SYMBOL(lapb_unregister);
-EXPORT_SYMBOL(lapb_getparms);
-EXPORT_SYMBOL(lapb_setparms);
-EXPORT_SYMBOL(lapb_connect_request);
-EXPORT_SYMBOL(lapb_disconnect_request);
-EXPORT_SYMBOL(lapb_data_request);
-EXPORT_SYMBOL(lapb_data_received);
+/* DISABLED: EXPORT_SYMBOL(lapb_register); */
+/* DISABLED: EXPORT_SYMBOL(lapb_unregister); */
+/* DISABLED: EXPORT_SYMBOL(lapb_getparms); */
+/* DISABLED: EXPORT_SYMBOL(lapb_setparms); */
+/* DISABLED: EXPORT_SYMBOL(lapb_connect_request); */
+/* DISABLED: EXPORT_SYMBOL(lapb_disconnect_request); */
+/* DISABLED: EXPORT_SYMBOL(lapb_data_request); */
+/* DISABLED: EXPORT_SYMBOL(lapb_data_received); */
 
 static int __init lapb_init(void)
 {

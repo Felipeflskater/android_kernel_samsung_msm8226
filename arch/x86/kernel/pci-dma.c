@@ -18,7 +18,7 @@
 static int forbid_dac __read_mostly;
 
 struct dma_map_ops *dma_ops = &nommu_dma_ops;
-EXPORT_SYMBOL(dma_ops);
+/* DISABLED: EXPORT_SYMBOL(dma_ops); */
 
 static int iommu_sac_force __read_mostly;
 
@@ -62,7 +62,7 @@ struct device x86_dma_fallback_dev = {
 	.coherent_dma_mask = ISA_DMA_BIT_MASK,
 	.dma_mask = &x86_dma_fallback_dev.coherent_dma_mask,
 };
-EXPORT_SYMBOL(x86_dma_fallback_dev);
+/* DISABLED: EXPORT_SYMBOL(x86_dma_fallback_dev); */
 
 /* Number of entries preallocated for DMA-API debugging */
 #define PREALLOC_DMA_DEBUG_ENTRIES       32768
@@ -76,7 +76,7 @@ int dma_set_mask(struct device *dev, u64 mask)
 
 	return 0;
 }
-EXPORT_SYMBOL(dma_set_mask);
+/* DISABLED: EXPORT_SYMBOL(dma_set_mask); */
 
 void __init pci_iommu_alloc(void)
 {
@@ -250,7 +250,7 @@ int dma_supported(struct device *dev, u64 mask)
 
 	return 1;
 }
-EXPORT_SYMBOL(dma_supported);
+/* DISABLED: EXPORT_SYMBOL(dma_supported); */
 
 static int __init pci_iommu_init(void)
 {

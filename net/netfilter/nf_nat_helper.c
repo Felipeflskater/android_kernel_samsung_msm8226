@@ -150,7 +150,7 @@ void nf_nat_set_seq_adjust(struct nf_conn *ct, enum ip_conntrack_info ctinfo,
 	adjust_tcp_sequence(ntohl(seq), off, ct, ctinfo);
 	nf_conntrack_event_cache(IPCT_NATSEQADJ, ct);
 }
-EXPORT_SYMBOL_GPL(nf_nat_set_seq_adjust);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_set_seq_adjust); */
 
 void nf_nat_tcp_seq_adjust(struct sk_buff *skb, struct nf_conn *ct,
 			   u32 ctinfo, int off)
@@ -163,7 +163,7 @@ void nf_nat_tcp_seq_adjust(struct sk_buff *skb, struct nf_conn *ct,
 	th = (struct tcphdr *)(skb_network_header(skb)+ ip_hdrlen(skb));
 	nf_nat_set_seq_adjust(ct, ctinfo, th->seq, off);
 }
-EXPORT_SYMBOL_GPL(nf_nat_tcp_seq_adjust);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_tcp_seq_adjust); */
 
 /* Generic function for mangling variable-length address changes inside
  * NATed TCP connections (like the PORT XXX,XXX,XXX,XXX,XXX,XXX
@@ -214,7 +214,7 @@ int __nf_nat_mangle_tcp_packet(struct sk_buff *skb,
 
 	return 1;
 }
-EXPORT_SYMBOL(__nf_nat_mangle_tcp_packet);
+/* DISABLED: EXPORT_SYMBOL(__nf_nat_mangle_tcp_packet); */
 
 /* Generic function for mangling variable-length address changes inside
  * NATed UDP connections (like the CONNECT DATA XXXXX MESG XXXXX INDEX XXXXX
@@ -268,7 +268,7 @@ nf_nat_mangle_udp_packet(struct sk_buff *skb,
 
 	return 1;
 }
-EXPORT_SYMBOL(nf_nat_mangle_udp_packet);
+/* DISABLED: EXPORT_SYMBOL(nf_nat_mangle_udp_packet); */
 
 /* Adjust one found SACK option including checksum correction */
 static void
@@ -432,4 +432,4 @@ void nf_nat_follow_master(struct nf_conn *ct,
 		= ct->master->tuplehash[!exp->dir].tuple.src.u3;
 	nf_nat_setup_info(ct, &range, NF_NAT_MANIP_DST);
 }
-EXPORT_SYMBOL(nf_nat_follow_master);
+/* DISABLED: EXPORT_SYMBOL(nf_nat_follow_master); */

@@ -94,7 +94,7 @@
 #define DEFAULT_DMA_HINT_REG	0
 
 struct sba_device *sba_list;
-EXPORT_SYMBOL_GPL(sba_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(sba_list); */
 
 static unsigned long ioc_needs_fdc = 0;
 

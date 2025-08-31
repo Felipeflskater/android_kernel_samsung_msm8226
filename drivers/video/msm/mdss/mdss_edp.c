@@ -1800,7 +1800,7 @@ static int __init edp_current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-/* DISABLED: __setup("androidboot.boot_recovery=", edp_current_boot_mode); */
+/* DISABLED: __setup("androidboot.boot_recovery=", edp_current_boot_mode); */ */
 #endif
 
 static const struct of_device_id msm_mdss_edp_dt_match[] = {

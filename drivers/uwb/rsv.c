@@ -89,7 +89,7 @@ const char *uwb_rsv_state_str(enum uwb_rsv_state state)
 		return "unknown";
 	return rsv_states[state];
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_state_str);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_state_str); */
 
 /**
  * uwb_rsv_type_str - return a string for a reservation type
@@ -101,7 +101,7 @@ const char *uwb_rsv_type_str(enum uwb_drp_type type)
 		return "invalid";
 	return rsv_types[type];
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_type_str);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_type_str); */
 
 void uwb_rsv_dump(char *text, struct uwb_rsv *rsv)
 {
@@ -499,7 +499,7 @@ struct uwb_rsv *uwb_rsv_create(struct uwb_rc *rc, uwb_rsv_cb_f cb, void *pal_pri
 
 	return rsv;
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_create); */
 
 void uwb_rsv_remove(struct uwb_rsv *rsv)
 {
@@ -533,7 +533,7 @@ void uwb_rsv_destroy(struct uwb_rsv *rsv)
 {
 	uwb_rsv_put(rsv);
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_destroy); */
 
 /**
  * usb_rsv_establish - start a reservation establishment
@@ -583,7 +583,7 @@ out:
 	mutex_unlock(&rc->rsvs_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_establish);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_establish); */
 
 /**
  * uwb_rsv_modify - modify an already established reservation
@@ -598,7 +598,7 @@ int uwb_rsv_modify(struct uwb_rsv *rsv, int max_mas, int min_mas, int max_interv
 {
 	return -ENOSYS;
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_modify);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_modify); */
 
 /*
  * move an already established reservation (rc->rsvs_mutex must to be
@@ -676,7 +676,7 @@ void uwb_rsv_terminate(struct uwb_rsv *rsv)
 
 	mutex_unlock(&rc->rsvs_mutex);
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_terminate);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_terminate); */
 
 /**
  * uwb_rsv_accept - accept a new reservation from a peer
@@ -698,7 +698,7 @@ void uwb_rsv_accept(struct uwb_rsv *rsv, uwb_rsv_cb_f cb, void *pal_priv)
 	rsv->pal_priv = pal_priv;
 	rsv->state    = UWB_RSV_STATE_T_ACCEPTED;
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_accept);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_accept); */
 
 /*
  * Is a received DRP IE for this reservation?
@@ -791,7 +791,7 @@ void uwb_rsv_get_usable_mas(struct uwb_rsv *rsv, struct uwb_mas_bm *mas)
 	bitmap_zero(mas->bm, UWB_NUM_MAS);
 	bitmap_andnot(mas->bm, rsv->mas.bm, rsv->rc->cnflt_alien_bitmap.bm, UWB_NUM_MAS);
 }
-EXPORT_SYMBOL_GPL(uwb_rsv_get_usable_mas);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rsv_get_usable_mas); */
 
 /**
  * uwb_rsv_find - find a reservation for a received DRP IE.

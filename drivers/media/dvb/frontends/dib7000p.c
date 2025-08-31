@@ -409,7 +409,7 @@ int dib7000p_set_wbd_ref(struct dvb_frontend *demod, u16 value)
 	state->wbd_ref = value;
 	return dib7000p_write_word(state, 105, (dib7000p_read_word(state, 105) & 0xf000) | value);
 }
-EXPORT_SYMBOL(dib7000p_set_wbd_ref);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_set_wbd_ref); */
 
 int dib7000p_get_agc_values(struct dvb_frontend *fe,
 		u16 *agc_global, u16 *agc1, u16 *agc2, u16 *wbd)
@@ -427,7 +427,7 @@ int dib7000p_get_agc_values(struct dvb_frontend *fe,
 
 	return 0;
 }
-EXPORT_SYMBOL(dib7000p_get_agc_values);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_get_agc_values); */
 
 static void dib7000p_reset_pll(struct dib7000p_state *state)
 {
@@ -506,7 +506,7 @@ int dib7000p_update_pll(struct dvb_frontend *fe, struct dibx000_bandwidth_config
 	}
 	return -EIO;
 }
-EXPORT_SYMBOL(dib7000p_update_pll);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_update_pll); */
 
 static int dib7000p_reset_gpio(struct dib7000p_state *st)
 {
@@ -544,7 +544,7 @@ int dib7000p_set_gpio(struct dvb_frontend *demod, u8 num, u8 dir, u8 val)
 	struct dib7000p_state *state = demod->demodulator_priv;
 	return dib7000p_cfg_gpio(state, num, dir, val);
 }
-EXPORT_SYMBOL(dib7000p_set_gpio);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_set_gpio); */
 
 static u16 dib7000p_defaults[] = {
 	// auto search configuration
@@ -935,7 +935,7 @@ u32 dib7000p_ctrl_timf(struct dvb_frontend *fe, u8 op, u32 timf)
 	dib7000p_set_bandwidth(state, state->current_bandwidth);
 	return state->timf;
 }
-EXPORT_SYMBOL(dib7000p_ctrl_timf);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_ctrl_timf); */
 
 static void dib7000p_set_channel(struct dib7000p_state *state,
 				 struct dtv_frontend_properties *ch, u8 seq)
@@ -1673,14 +1673,14 @@ rx_memory_error:
 	kfree(tx);
 	return ret;
 }
-EXPORT_SYMBOL(dib7000pc_detection);
+/* DISABLED: EXPORT_SYMBOL(dib7000pc_detection); */
 
 struct i2c_adapter *dib7000p_get_i2c_master(struct dvb_frontend *demod, enum dibx000_i2c_interface intf, int gating)
 {
 	struct dib7000p_state *st = demod->demodulator_priv;
 	return dibx000_get_i2c_adapter(&st->i2c_master, intf, gating);
 }
-EXPORT_SYMBOL(dib7000p_get_i2c_master);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_get_i2c_master); */
 
 int dib7000p_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 {
@@ -1690,7 +1690,7 @@ int dib7000p_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 	dprintk("PID filter enabled %d", onoff);
 	return dib7000p_write_word(state, 235, val);
 }
-EXPORT_SYMBOL(dib7000p_pid_filter_ctrl);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_pid_filter_ctrl); */
 
 int dib7000p_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 {
@@ -1698,7 +1698,7 @@ int dib7000p_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 	dprintk("PID filter: index %x, PID %d, OnOff %d", id, pid, onoff);
 	return dib7000p_write_word(state, 241 + id, onoff ? (1 << 13) | pid : 0);
 }
-EXPORT_SYMBOL(dib7000p_pid_filter);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_pid_filter); */
 
 int dib7000p_i2c_enumeration(struct i2c_adapter *i2c, int no_of_demods, u8 default_addr, struct dib7000p_config cfg[])
 {
@@ -1759,7 +1759,7 @@ int dib7000p_i2c_enumeration(struct i2c_adapter *i2c, int no_of_demods, u8 defau
 	kfree(dpst);
 	return 0;
 }
-EXPORT_SYMBOL(dib7000p_i2c_enumeration);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_i2c_enumeration); */
 
 static const s32 lut_1000ln_mant[] = {
 	6908, 6956, 7003, 7047, 7090, 7131, 7170, 7208, 7244, 7279, 7313, 7346, 7377, 7408, 7438, 7467, 7495, 7523, 7549, 7575, 7600
@@ -2022,7 +2022,7 @@ struct i2c_adapter *dib7090_get_i2c_tuner(struct dvb_frontend *fe)
 	struct dib7000p_state *st = fe->demodulator_priv;
 	return &st->dib7090_tuner_adap;
 }
-EXPORT_SYMBOL(dib7090_get_i2c_tuner);
+/* DISABLED: EXPORT_SYMBOL(dib7090_get_i2c_tuner); */
 
 static int dib7090_host_bus_drive(struct dib7000p_state *state, u8 drive)
 {
@@ -2337,13 +2337,13 @@ int dib7090_tuner_sleep(struct dvb_frontend *fe, int onoff)
 
 	return 0;
 }
-EXPORT_SYMBOL(dib7090_tuner_sleep);
+/* DISABLED: EXPORT_SYMBOL(dib7090_tuner_sleep); */
 
 int dib7090_get_adc_power(struct dvb_frontend *fe)
 {
 	return dib7000p_get_adc_power(fe);
 }
-EXPORT_SYMBOL(dib7090_get_adc_power);
+/* DISABLED: EXPORT_SYMBOL(dib7090_get_adc_power); */
 
 int dib7090_slave_reset(struct dvb_frontend *fe)
 {
@@ -2356,7 +2356,7 @@ int dib7090_slave_reset(struct dvb_frontend *fe)
 	dib7000p_write_word(state, 1032, 0xffff);
 	return 0;
 }
-EXPORT_SYMBOL(dib7090_slave_reset);
+/* DISABLED: EXPORT_SYMBOL(dib7090_slave_reset); */
 
 static struct dvb_frontend_ops dib7000p_ops;
 struct dvb_frontend *dib7000p_attach(struct i2c_adapter *i2c_adap, u8 i2c_addr, struct dib7000p_config *cfg)
@@ -2424,7 +2424,7 @@ error:
 	kfree(st);
 	return NULL;
 }
-EXPORT_SYMBOL(dib7000p_attach);
+/* DISABLED: EXPORT_SYMBOL(dib7000p_attach); */
 
 static struct dvb_frontend_ops dib7000p_ops = {
 	.delsys = { SYS_DVBT },

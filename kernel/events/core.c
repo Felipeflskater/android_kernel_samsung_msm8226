@@ -1502,7 +1502,7 @@ void perf_event_disable(struct perf_event *event)
 	_perf_event_disable(event);
 	perf_event_ctx_unlock(event, ctx);
 }
-EXPORT_SYMBOL_GPL(perf_event_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_disable); */
 
 static void perf_set_shadow_time(struct perf_event *event,
 				 struct perf_event_context *ctx,
@@ -2019,7 +2019,7 @@ void perf_event_enable(struct perf_event *event)
 	_perf_event_enable(event);
 	perf_event_ctx_unlock(event, ctx);
 }
-EXPORT_SYMBOL_GPL(perf_event_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_enable); */
 
 static int _perf_event_refresh(struct perf_event *event, int refresh)
 {
@@ -2049,7 +2049,7 @@ int perf_event_refresh(struct perf_event *event, int refresh)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(perf_event_refresh);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_refresh); */
 
 static void ctx_sched_out(struct perf_event_context *ctx,
 			  struct perf_cpu_context *cpuctx,
@@ -3141,7 +3141,7 @@ int perf_event_release_kernel(struct perf_event *event)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(perf_event_release_kernel);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_release_kernel); */
 
 /*
  * Called when the last reference to the file is gone.
@@ -3236,7 +3236,7 @@ u64 perf_event_read_value(struct perf_event *event, u64 *enabled, u64 *running)
 
 	return total;
 }
-EXPORT_SYMBOL_GPL(perf_event_read_value);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_read_value); */
 
 static int perf_event_read_group(struct perf_event *event,
 				   u64 read_format, char __user *buf)
@@ -4105,14 +4105,14 @@ int perf_register_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
 	perf_guest_cbs = cbs;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(perf_register_guest_info_callbacks);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_register_guest_info_callbacks); */
 
 int perf_unregister_guest_info_callbacks(struct perf_guest_info_callbacks *cbs)
 {
 	perf_guest_cbs = NULL;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(perf_unregister_guest_info_callbacks);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_unregister_guest_info_callbacks); */
 
 static void __perf_event_header__init_id(struct perf_event_header *header,
 					 struct perf_sample_data *data,
@@ -5301,7 +5301,7 @@ int perf_swevent_get_recursion_context(void)
 
 	return get_recursion_context(swhash->recursion);
 }
-EXPORT_SYMBOL_GPL(perf_swevent_get_recursion_context);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_swevent_get_recursion_context); */
 
 inline void perf_swevent_put_recursion_context(int rctx)
 {
@@ -5592,7 +5592,7 @@ void perf_tp_event(u64 addr, u64 count, void *record, int entry_size,
 
 	perf_swevent_put_recursion_context(rctx);
 }
-EXPORT_SYMBOL_GPL(perf_tp_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_tp_event); */
 
 static void tp_perf_event_destroy(struct perf_event *event)
 {
@@ -6958,7 +6958,7 @@ err_free:
 err:
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(perf_event_create_kernel_counter);
+/* DISABLED: EXPORT_SYMBOL_GPL(perf_event_create_kernel_counter); */
 
 static void sync_child_event(struct perf_event *child_event,
 			       struct task_struct *child)

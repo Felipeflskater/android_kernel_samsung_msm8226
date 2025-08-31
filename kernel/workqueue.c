@@ -271,12 +271,12 @@ struct workqueue_struct *system_nrt_wq __read_mostly;
 struct workqueue_struct *system_unbound_wq __read_mostly;
 struct workqueue_struct *system_freezable_wq __read_mostly;
 struct workqueue_struct *system_nrt_freezable_wq __read_mostly;
-EXPORT_SYMBOL_GPL(system_wq);
-EXPORT_SYMBOL_GPL(system_long_wq);
-EXPORT_SYMBOL_GPL(system_nrt_wq);
-EXPORT_SYMBOL_GPL(system_unbound_wq);
-EXPORT_SYMBOL_GPL(system_freezable_wq);
-EXPORT_SYMBOL_GPL(system_nrt_freezable_wq);
+/* DISABLED: EXPORT_SYMBOL_GPL(system_wq); */
+/* DISABLED: EXPORT_SYMBOL_GPL(system_long_wq); */
+/* DISABLED: EXPORT_SYMBOL_GPL(system_nrt_wq); */
+/* DISABLED: EXPORT_SYMBOL_GPL(system_unbound_wq); */
+/* DISABLED: EXPORT_SYMBOL_GPL(system_freezable_wq); */
+/* DISABLED: EXPORT_SYMBOL_GPL(system_nrt_freezable_wq); */
 
 #define CREATE_TRACE_POINTS
 #include <trace/events/workqueue.h>
@@ -441,13 +441,13 @@ void __init_work(struct work_struct *work, int onstack)
 	else
 		debug_object_init(work, &work_debug_descr);
 }
-EXPORT_SYMBOL_GPL(__init_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(__init_work); */
 
 void destroy_work_on_stack(struct work_struct *work)
 {
 	debug_object_free(work, &work_debug_descr);
 }
-EXPORT_SYMBOL_GPL(destroy_work_on_stack);
+/* DISABLED: EXPORT_SYMBOL_GPL(destroy_work_on_stack); */
 
 #else
 static inline void debug_work_activate(struct work_struct *work) { }
@@ -1085,7 +1085,7 @@ int queue_work(struct workqueue_struct *wq, struct work_struct *work)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(queue_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(queue_work); */
 
 /**
  * queue_work_on - queue work on specific cpu
@@ -1109,7 +1109,7 @@ queue_work_on(int cpu, struct workqueue_struct *wq, struct work_struct *work)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(queue_work_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(queue_work_on); */
 
 static void delayed_work_timer_fn(unsigned long __data)
 {
@@ -1135,7 +1135,7 @@ int queue_delayed_work(struct workqueue_struct *wq,
 
 	return queue_delayed_work_on(-1, wq, dwork, delay);
 }
-EXPORT_SYMBOL_GPL(queue_delayed_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(queue_delayed_work); */
 
 /**
  * queue_delayed_work_on - queue work on specific CPU after delay
@@ -1188,7 +1188,7 @@ int queue_delayed_work_on(int cpu, struct workqueue_struct *wq,
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(queue_delayed_work_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(queue_delayed_work_on); */
 
 /**
  * worker_enter_idle - enter idle state
@@ -2431,7 +2431,7 @@ void flush_workqueue(struct workqueue_struct *wq)
 out_unlock:
 	mutex_unlock(&wq->flush_mutex);
 }
-EXPORT_SYMBOL_GPL(flush_workqueue);
+/* DISABLED: EXPORT_SYMBOL_GPL(flush_workqueue); */
 
 /**
  * drain_workqueue - drain a workqueue
@@ -2484,7 +2484,7 @@ reflush:
 		wq->flags &= ~WQ_DRAINING;
 	spin_unlock(&workqueue_lock);
 }
-EXPORT_SYMBOL_GPL(drain_workqueue);
+/* DISABLED: EXPORT_SYMBOL_GPL(drain_workqueue); */
 
 static bool start_flush_work(struct work_struct *work, struct wq_barrier *barr,
 			     bool wait_executing)
@@ -2567,7 +2567,7 @@ bool flush_work(struct work_struct *work)
 	} else
 		return false;
 }
-EXPORT_SYMBOL_GPL(flush_work);
+/* DISABLED: EXPORT_SYMBOL_GPL(flush_work); */
 
 static bool wait_on_cpu_work(struct global_cwq *gcwq, struct work_struct *work)
 {
@@ -2638,7 +2638,7 @@ bool flush_work_sync(struct work_struct *work)
 
 	return pending || waited;
 }
-EXPORT_SYMBOL_GPL(flush_work_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(flush_work_sync); */
 
 /*
  * Upon a successful return (>= 0), the caller "owns" WORK_STRUCT_PENDING bit,
@@ -2732,7 +2732,7 @@ bool cancel_work_sync(struct work_struct *work)
 {
 	return __cancel_work_timer(work, NULL);
 }
-EXPORT_SYMBOL_GPL(cancel_work_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(cancel_work_sync); */
 
 /**
  * flush_delayed_work - wait for a dwork to finish executing the last queueing
@@ -2753,7 +2753,7 @@ bool flush_delayed_work(struct delayed_work *dwork)
 			     get_work_cwq(&dwork->work)->wq, &dwork->work);
 	return flush_work(&dwork->work);
 }
-EXPORT_SYMBOL(flush_delayed_work);
+/* DISABLED: EXPORT_SYMBOL(flush_delayed_work); */
 
 /**
  * flush_delayed_work_sync - wait for a dwork to finish
@@ -2774,7 +2774,7 @@ bool flush_delayed_work_sync(struct delayed_work *dwork)
 			     get_work_cwq(&dwork->work)->wq, &dwork->work);
 	return flush_work_sync(&dwork->work);
 }
-EXPORT_SYMBOL(flush_delayed_work_sync);
+/* DISABLED: EXPORT_SYMBOL(flush_delayed_work_sync); */
 
 /**
  * cancel_delayed_work_sync - cancel a delayed work and wait for it to finish
@@ -2789,7 +2789,7 @@ bool cancel_delayed_work_sync(struct delayed_work *dwork)
 {
 	return __cancel_work_timer(&dwork->work, &dwork->timer);
 }
-EXPORT_SYMBOL(cancel_delayed_work_sync);
+/* DISABLED: EXPORT_SYMBOL(cancel_delayed_work_sync); */
 
 /**
  * schedule_work - put work task in global workqueue
@@ -2806,7 +2806,7 @@ int schedule_work(struct work_struct *work)
 {
 	return queue_work(system_wq, work);
 }
-EXPORT_SYMBOL(schedule_work);
+/* DISABLED: EXPORT_SYMBOL(schedule_work); */
 
 /*
  * schedule_work_on - put work task on a specific cpu
@@ -2819,7 +2819,7 @@ int schedule_work_on(int cpu, struct work_struct *work)
 {
 	return queue_work_on(cpu, system_wq, work);
 }
-EXPORT_SYMBOL(schedule_work_on);
+/* DISABLED: EXPORT_SYMBOL(schedule_work_on); */
 
 /**
  * schedule_delayed_work - put work task in global workqueue after delay
@@ -2834,7 +2834,7 @@ int schedule_delayed_work(struct delayed_work *dwork,
 {
 	return queue_delayed_work(system_wq, dwork, delay);
 }
-EXPORT_SYMBOL(schedule_delayed_work);
+/* DISABLED: EXPORT_SYMBOL(schedule_delayed_work); */
 
 /**
  * schedule_delayed_work_on - queue work in global workqueue on CPU after delay
@@ -2850,7 +2850,7 @@ int schedule_delayed_work_on(int cpu,
 {
 	return queue_delayed_work_on(cpu, system_wq, dwork, delay);
 }
-EXPORT_SYMBOL(schedule_delayed_work_on);
+/* DISABLED: EXPORT_SYMBOL(schedule_delayed_work_on); */
 
 /**
  * schedule_on_each_cpu - execute a function synchronously on each online CPU
@@ -2917,7 +2917,7 @@ void flush_scheduled_work(void)
 {
 	flush_workqueue(system_wq);
 }
-EXPORT_SYMBOL(flush_scheduled_work);
+/* DISABLED: EXPORT_SYMBOL(flush_scheduled_work); */
 
 /**
  * execute_in_process_context - reliably execute the routine with user context
@@ -2943,7 +2943,7 @@ int execute_in_process_context(work_func_t fn, struct execute_work *ew)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(execute_in_process_context);
+/* DISABLED: EXPORT_SYMBOL_GPL(execute_in_process_context); */
 
 int keventd_up(void)
 {
@@ -3111,7 +3111,7 @@ err:
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(__alloc_workqueue_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(__alloc_workqueue_key); */
 
 /**
  * destroy_workqueue - safely terminate a workqueue
@@ -3154,7 +3154,7 @@ void destroy_workqueue(struct workqueue_struct *wq)
 	free_cwqs(wq);
 	kfree(wq);
 }
-EXPORT_SYMBOL_GPL(destroy_workqueue);
+/* DISABLED: EXPORT_SYMBOL_GPL(destroy_workqueue); */
 
 /**
  * workqueue_set_max_active - adjust max_active of a workqueue
@@ -3190,7 +3190,7 @@ void workqueue_set_max_active(struct workqueue_struct *wq, int max_active)
 
 	spin_unlock(&workqueue_lock);
 }
-EXPORT_SYMBOL_GPL(workqueue_set_max_active);
+/* DISABLED: EXPORT_SYMBOL_GPL(workqueue_set_max_active); */
 
 /**
  * workqueue_congested - test whether a workqueue is congested
@@ -3210,7 +3210,7 @@ bool workqueue_congested(unsigned int cpu, struct workqueue_struct *wq)
 
 	return !list_empty(&cwq->delayed_works);
 }
-EXPORT_SYMBOL_GPL(workqueue_congested);
+/* DISABLED: EXPORT_SYMBOL_GPL(workqueue_congested); */
 
 /**
  * work_cpu - return the last known associated cpu for @work
@@ -3225,7 +3225,7 @@ unsigned int work_cpu(struct work_struct *work)
 
 	return gcwq ? gcwq->cpu : WORK_CPU_NONE;
 }
-EXPORT_SYMBOL_GPL(work_cpu);
+/* DISABLED: EXPORT_SYMBOL_GPL(work_cpu); */
 
 /**
  * work_busy - test whether a work is currently pending or running
@@ -3260,7 +3260,7 @@ unsigned int work_busy(struct work_struct *work)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(work_busy);
+/* DISABLED: EXPORT_SYMBOL_GPL(work_busy); */
 
 /*
  * CPU hotplug.
@@ -3774,7 +3774,7 @@ long work_on_cpu(unsigned int cpu, long (*fn)(void *), void *arg)
 	flush_work(&wfc.work);
 	return wfc.ret;
 }
-EXPORT_SYMBOL_GPL(work_on_cpu);
+/* DISABLED: EXPORT_SYMBOL_GPL(work_on_cpu); */
 #endif /* CONFIG_SMP */
 
 #ifdef CONFIG_FREEZER
@@ -4142,6 +4142,6 @@ int queue_work_front(struct workqueue_struct *wq, struct work_struct *work)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(queue_work_front);
+/* DISABLED: EXPORT_SYMBOL_GPL(queue_work_front); */
 #endif
 

@@ -104,14 +104,14 @@ static int __init hpet_setup(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("hpet=", hpet_setup); */
+/* DISABLED: __setup("hpet=", hpet_setup); */ */
 
 static int __init disable_hpet(char *str)
 {
 	boot_hpet_disable = 1;
 	return 1;
 }
-/* DISABLED: __setup("nohpet", disable_hpet); */
+/* DISABLED: __setup("nohpet", disable_hpet); */ */
 
 static inline int is_hpet_capable(void)
 {
@@ -130,7 +130,7 @@ int is_hpet_enabled(void)
 {
 	return is_hpet_capable() && hpet_legacy_int_enabled;
 }
-EXPORT_SYMBOL_GPL(is_hpet_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_hpet_enabled); */
 
 static void _hpet_print_config(const char *function, int line)
 {
@@ -991,7 +991,7 @@ int hpet_register_irq_handler(rtc_irq_handler handler)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(hpet_register_irq_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_register_irq_handler); */
 
 /*
  * Deregisters the IRQ handler registered with hpet_register_irq_handler()
@@ -1005,7 +1005,7 @@ void hpet_unregister_irq_handler(rtc_irq_handler handler)
 	irq_handler = NULL;
 	hpet_rtc_flags = 0;
 }
-EXPORT_SYMBOL_GPL(hpet_unregister_irq_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_unregister_irq_handler); */
 
 /*
  * Timer 1 for RTC emulation. We use one shot mode, as periodic mode
@@ -1049,7 +1049,7 @@ int hpet_rtc_timer_init(void)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(hpet_rtc_timer_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_rtc_timer_init); */
 
 static void hpet_disable_rtc_channel(void)
 {
@@ -1075,7 +1075,7 @@ int hpet_mask_rtc_irq_bit(unsigned long bit_mask)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(hpet_mask_rtc_irq_bit);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_mask_rtc_irq_bit); */
 
 int hpet_set_rtc_irq_bit(unsigned long bit_mask)
 {
@@ -1094,7 +1094,7 @@ int hpet_set_rtc_irq_bit(unsigned long bit_mask)
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(hpet_set_rtc_irq_bit);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_set_rtc_irq_bit); */
 
 int hpet_set_alarm_time(unsigned char hrs, unsigned char min,
 			unsigned char sec)
@@ -1108,7 +1108,7 @@ int hpet_set_alarm_time(unsigned char hrs, unsigned char min,
 
 	return 1;
 }
-EXPORT_SYMBOL_GPL(hpet_set_alarm_time);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_set_alarm_time); */
 
 int hpet_set_periodic_freq(unsigned long freq)
 {
@@ -1128,13 +1128,13 @@ int hpet_set_periodic_freq(unsigned long freq)
 	}
 	return 1;
 }
-EXPORT_SYMBOL_GPL(hpet_set_periodic_freq);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_set_periodic_freq); */
 
 int hpet_rtc_dropped_irq(void)
 {
 	return is_hpet_enabled();
 }
-EXPORT_SYMBOL_GPL(hpet_rtc_dropped_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_rtc_dropped_irq); */
 
 static void hpet_rtc_timer_reinit(void)
 {
@@ -1205,5 +1205,5 @@ irqreturn_t hpet_rtc_interrupt(int irq, void *dev_id)
 	}
 	return IRQ_HANDLED;
 }
-EXPORT_SYMBOL_GPL(hpet_rtc_interrupt);
+/* DISABLED: EXPORT_SYMBOL_GPL(hpet_rtc_interrupt); */
 #endif

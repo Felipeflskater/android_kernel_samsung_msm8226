@@ -36,11 +36,11 @@
 /*
  * String functions
  */
-EXPORT_SYMBOL(memset);
-EXPORT_SYMBOL(memcpy);
-EXPORT_SYMBOL(memmove);
+/* DISABLED: EXPORT_SYMBOL(memset); */
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
+/* DISABLED: EXPORT_SYMBOL(memmove); */
 
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 /*
  * gcc internal math functions
@@ -57,29 +57,29 @@ extern unsigned int __umodsi3(unsigned int, unsigned int);
 extern unsigned long long __umoddi3(unsigned long long, unsigned long long);
 extern unsigned long long __udivdi3(unsigned long long, unsigned long long);
 
-EXPORT_SYMBOL(__ashldi3);
-EXPORT_SYMBOL(__ashrdi3);
-EXPORT_SYMBOL(__lshrdi3);
-EXPORT_SYMBOL(__divsi3);
-EXPORT_SYMBOL(__modsi3);
-EXPORT_SYMBOL(__muldi3);
-EXPORT_SYMBOL(__mulsi3);
-EXPORT_SYMBOL(__udivsi3);
-EXPORT_SYMBOL(__umodsi3);
-EXPORT_SYMBOL(__udivdi3);
-EXPORT_SYMBOL(__umoddi3);
+/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
+/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
+/* DISABLED: EXPORT_SYMBOL(__divsi3); */
+/* DISABLED: EXPORT_SYMBOL(__modsi3); */
+/* DISABLED: EXPORT_SYMBOL(__muldi3); */
+/* DISABLED: EXPORT_SYMBOL(__mulsi3); */
+/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
+/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
+/* DISABLED: EXPORT_SYMBOL(__udivdi3); */
+/* DISABLED: EXPORT_SYMBOL(__umoddi3); */
 
 #ifdef CONFIG_NET
 /*
  * Networking support
  */
-EXPORT_SYMBOL(csum_partial_copy_generic);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_generic); */
 #endif /* CONFIG_NET */
 
 /*
  * Architecture-specific symbols
  */
-EXPORT_SYMBOL(__xtensa_copy_user);
+/* DISABLED: EXPORT_SYMBOL(__xtensa_copy_user); */
 
 /*
  * Kernel hacking ...
@@ -89,9 +89,9 @@ EXPORT_SYMBOL(__xtensa_copy_user);
 // FIXME EXPORT_SYMBOL(screen_info);
 #endif
 
-EXPORT_SYMBOL(outsb);
-EXPORT_SYMBOL(outsw);
-EXPORT_SYMBOL(outsl);
-EXPORT_SYMBOL(insb);
-EXPORT_SYMBOL(insw);
-EXPORT_SYMBOL(insl);
+/* DISABLED: EXPORT_SYMBOL(outsb); */
+/* DISABLED: EXPORT_SYMBOL(outsw); */
+/* DISABLED: EXPORT_SYMBOL(outsl); */
+/* DISABLED: EXPORT_SYMBOL(insb); */
+/* DISABLED: EXPORT_SYMBOL(insw); */
+/* DISABLED: EXPORT_SYMBOL(insl); */

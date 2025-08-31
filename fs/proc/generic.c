@@ -658,7 +658,7 @@ struct proc_dir_entry *proc_symlink(const char *name,
 	}
 	return ent;
 }
-EXPORT_SYMBOL(proc_symlink);
+/* DISABLED: EXPORT_SYMBOL(proc_symlink); */
 
 struct proc_dir_entry *proc_mkdir_mode(const char *name, umode_t mode,
 		struct proc_dir_entry *parent)
@@ -674,7 +674,7 @@ struct proc_dir_entry *proc_mkdir_mode(const char *name, umode_t mode,
 	}
 	return ent;
 }
-EXPORT_SYMBOL(proc_mkdir_mode);
+/* DISABLED: EXPORT_SYMBOL(proc_mkdir_mode); */
 
 struct proc_dir_entry *proc_net_mkdir(struct net *net, const char *name,
 		struct proc_dir_entry *parent)
@@ -691,14 +691,14 @@ struct proc_dir_entry *proc_net_mkdir(struct net *net, const char *name,
 	}
 	return ent;
 }
-EXPORT_SYMBOL_GPL(proc_net_mkdir);
+/* DISABLED: EXPORT_SYMBOL_GPL(proc_net_mkdir); */
 
 struct proc_dir_entry *proc_mkdir(const char *name,
 		struct proc_dir_entry *parent)
 {
 	return proc_mkdir_mode(name, S_IRUGO | S_IXUGO, parent);
 }
-EXPORT_SYMBOL(proc_mkdir);
+/* DISABLED: EXPORT_SYMBOL(proc_mkdir); */
 
 struct proc_dir_entry *create_proc_entry(const char *name, umode_t mode,
 					 struct proc_dir_entry *parent)
@@ -727,7 +727,7 @@ struct proc_dir_entry *create_proc_entry(const char *name, umode_t mode,
 	}
 	return ent;
 }
-EXPORT_SYMBOL(create_proc_entry);
+/* DISABLED: EXPORT_SYMBOL(create_proc_entry); */
 
 struct proc_dir_entry *proc_create_data(const char *name, umode_t mode,
 					struct proc_dir_entry *parent,
@@ -762,7 +762,7 @@ out_free:
 out:
 	return NULL;
 }
-EXPORT_SYMBOL(proc_create_data);
+/* DISABLED: EXPORT_SYMBOL(proc_create_data); */
 
 static void free_proc_entry(struct proc_dir_entry *de)
 {
@@ -850,4 +850,4 @@ void remove_proc_entry(const char *name, struct proc_dir_entry *parent)
 			de->parent->name, de->name, de->subdir->name);
 	pde_put(de);
 }
-EXPORT_SYMBOL(remove_proc_entry);
+/* DISABLED: EXPORT_SYMBOL(remove_proc_entry); */

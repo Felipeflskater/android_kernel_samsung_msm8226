@@ -127,14 +127,14 @@ void set_gptimer_pwidth(unsigned int timer_id, uint32_t value)
 	bfin_write(&timer_regs[timer_id]->width, value);
 	SSYNC();
 }
-EXPORT_SYMBOL(set_gptimer_pwidth);
+/* DISABLED: EXPORT_SYMBOL(set_gptimer_pwidth); */
 
 uint32_t get_gptimer_pwidth(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return bfin_read(&timer_regs[timer_id]->width);
 }
-EXPORT_SYMBOL(get_gptimer_pwidth);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_pwidth); */
 
 void set_gptimer_period(unsigned int timer_id, uint32_t period)
 {
@@ -142,28 +142,28 @@ void set_gptimer_period(unsigned int timer_id, uint32_t period)
 	bfin_write(&timer_regs[timer_id]->period, period);
 	SSYNC();
 }
-EXPORT_SYMBOL(set_gptimer_period);
+/* DISABLED: EXPORT_SYMBOL(set_gptimer_period); */
 
 uint32_t get_gptimer_period(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return bfin_read(&timer_regs[timer_id]->period);
 }
-EXPORT_SYMBOL(get_gptimer_period);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_period); */
 
 uint32_t get_gptimer_count(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return bfin_read(&timer_regs[timer_id]->counter);
 }
-EXPORT_SYMBOL(get_gptimer_count);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_count); */
 
 uint32_t get_gptimer_status(unsigned int group)
 {
 	tassert(group < BFIN_TIMER_NUM_GROUP);
 	return bfin_read(&group_regs[group]->status);
 }
-EXPORT_SYMBOL(get_gptimer_status);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_status); */
 
 void set_gptimer_status(unsigned int group, uint32_t value)
 {
@@ -171,7 +171,7 @@ void set_gptimer_status(unsigned int group, uint32_t value)
 	bfin_write(&group_regs[group]->status, value);
 	SSYNC();
 }
-EXPORT_SYMBOL(set_gptimer_status);
+/* DISABLED: EXPORT_SYMBOL(set_gptimer_status); */
 
 static uint32_t read_gptimer_status(unsigned int timer_id)
 {
@@ -183,35 +183,35 @@ int get_gptimer_intr(unsigned int timer_id)
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return !!(read_gptimer_status(timer_id) & timil_mask[timer_id]);
 }
-EXPORT_SYMBOL(get_gptimer_intr);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_intr); */
 
 void clear_gptimer_intr(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	bfin_write(&group_regs[BFIN_TIMER_OCTET(timer_id)]->status, timil_mask[timer_id]);
 }
-EXPORT_SYMBOL(clear_gptimer_intr);
+/* DISABLED: EXPORT_SYMBOL(clear_gptimer_intr); */
 
 int get_gptimer_over(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return !!(read_gptimer_status(timer_id) & tovf_mask[timer_id]);
 }
-EXPORT_SYMBOL(get_gptimer_over);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_over); */
 
 void clear_gptimer_over(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	bfin_write(&group_regs[BFIN_TIMER_OCTET(timer_id)]->status, tovf_mask[timer_id]);
 }
-EXPORT_SYMBOL(clear_gptimer_over);
+/* DISABLED: EXPORT_SYMBOL(clear_gptimer_over); */
 
 int get_gptimer_run(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return !!(read_gptimer_status(timer_id) & trun_mask[timer_id]);
 }
-EXPORT_SYMBOL(get_gptimer_run);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_run); */
 
 void set_gptimer_config(unsigned int timer_id, uint16_t config)
 {
@@ -219,14 +219,14 @@ void set_gptimer_config(unsigned int timer_id, uint16_t config)
 	bfin_write(&timer_regs[timer_id]->config, config);
 	SSYNC();
 }
-EXPORT_SYMBOL(set_gptimer_config);
+/* DISABLED: EXPORT_SYMBOL(set_gptimer_config); */
 
 uint16_t get_gptimer_config(unsigned int timer_id)
 {
 	tassert(timer_id < MAX_BLACKFIN_GPTIMERS);
 	return bfin_read(&timer_regs[timer_id]->config);
 }
-EXPORT_SYMBOL(get_gptimer_config);
+/* DISABLED: EXPORT_SYMBOL(get_gptimer_config); */
 
 void enable_gptimers(uint16_t mask)
 {
@@ -238,7 +238,7 @@ void enable_gptimers(uint16_t mask)
 	}
 	SSYNC();
 }
-EXPORT_SYMBOL(enable_gptimers);
+/* DISABLED: EXPORT_SYMBOL(enable_gptimers); */
 
 static void _disable_gptimers(uint16_t mask)
 {
@@ -260,14 +260,14 @@ void disable_gptimers(uint16_t mask)
 			bfin_write(&group_regs[BFIN_TIMER_OCTET(i)]->status, trun_mask[i]);
 	SSYNC();
 }
-EXPORT_SYMBOL(disable_gptimers);
+/* DISABLED: EXPORT_SYMBOL(disable_gptimers); */
 
 void disable_gptimers_sync(uint16_t mask)
 {
 	_disable_gptimers(mask);
 	SSYNC();
 }
-EXPORT_SYMBOL(disable_gptimers_sync);
+/* DISABLED: EXPORT_SYMBOL(disable_gptimers_sync); */
 
 void set_gptimer_pulse_hi(unsigned int timer_id)
 {
@@ -275,7 +275,7 @@ void set_gptimer_pulse_hi(unsigned int timer_id)
 	bfin_write_or(&timer_regs[timer_id]->config, TIMER_PULSE_HI);
 	SSYNC();
 }
-EXPORT_SYMBOL(set_gptimer_pulse_hi);
+/* DISABLED: EXPORT_SYMBOL(set_gptimer_pulse_hi); */
 
 void clear_gptimer_pulse_hi(unsigned int timer_id)
 {
@@ -283,7 +283,7 @@ void clear_gptimer_pulse_hi(unsigned int timer_id)
 	bfin_write_and(&timer_regs[timer_id]->config, ~TIMER_PULSE_HI);
 	SSYNC();
 }
-EXPORT_SYMBOL(clear_gptimer_pulse_hi);
+/* DISABLED: EXPORT_SYMBOL(clear_gptimer_pulse_hi); */
 
 uint16_t get_enabled_gptimers(void)
 {
@@ -293,7 +293,7 @@ uint16_t get_enabled_gptimers(void)
 		result |= (bfin_read(&group_regs[i]->enable) << (i << 3));
 	return result;
 }
-EXPORT_SYMBOL(get_enabled_gptimers);
+/* DISABLED: EXPORT_SYMBOL(get_enabled_gptimers); */
 
 MODULE_AUTHOR("Axel Weiss (awe@aglaia-gmbh.de)");
 MODULE_DESCRIPTION("Blackfin General Purpose Timers API");

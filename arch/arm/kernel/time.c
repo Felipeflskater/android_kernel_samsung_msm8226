@@ -41,7 +41,7 @@ static struct sys_timer *system_timer;
     defined(CONFIG_NVRAM) || defined(CONFIG_NVRAM_MODULE)
 /* this needs a better home */
 DEFINE_SPINLOCK(rtc_lock);
-EXPORT_SYMBOL(rtc_lock);
+/* DISABLED: EXPORT_SYMBOL(rtc_lock); */
 #endif	/* pc-style 'CMOS' RTC support */
 
 /* change this if you have some constant time drift */
@@ -67,7 +67,7 @@ unsigned long profile_pc(struct pt_regs *regs)
 
 	return frame.pc;
 }
-EXPORT_SYMBOL(profile_pc);
+/* DISABLED: EXPORT_SYMBOL(profile_pc); */
 #endif
 
 #ifdef CONFIG_ARCH_USES_GETTIMEOFFSET

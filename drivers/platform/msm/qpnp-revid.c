@@ -92,7 +92,7 @@ struct pmic_revid_data *get_revid_data(struct device_node *dev_node)
 	mutex_unlock(&revid_chips_lock);
 	return ERR_PTR(-EINVAL);
 }
-EXPORT_SYMBOL(get_revid_data);
+/* DISABLED: EXPORT_SYMBOL(get_revid_data); */
 
 #define PM8941_PERIPHERAL_SUBTYPE	0x01
 #define PM8226_PERIPHERAL_SUBTYPE	0x04

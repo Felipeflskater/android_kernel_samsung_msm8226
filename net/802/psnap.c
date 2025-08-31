@@ -93,8 +93,8 @@ static int snap_request(struct datalink_proto *dl,
 /*
  *	Set up the SNAP layer
  */
-EXPORT_SYMBOL(register_snap_client);
-EXPORT_SYMBOL(unregister_snap_client);
+/* DISABLED: EXPORT_SYMBOL(register_snap_client); */
+/* DISABLED: EXPORT_SYMBOL(unregister_snap_client); */
 
 static const char snap_err_msg[] __initconst =
 	KERN_CRIT "SNAP - unable to register with 802.2\n";

@@ -1467,7 +1467,7 @@ ignore_char:
 	spin_lock(&port->lock);
 	return lsr;
 }
-EXPORT_SYMBOL_GPL(serial8250_rx_chars);
+/* DISABLED: EXPORT_SYMBOL_GPL(serial8250_rx_chars); */
 
 void serial8250_tx_chars(struct uart_8250_port *up)
 {
@@ -1512,7 +1512,7 @@ void serial8250_tx_chars(struct uart_8250_port *up)
 	if (uart_circ_empty(xmit))
 		__stop_tx(up);
 }
-EXPORT_SYMBOL_GPL(serial8250_tx_chars);
+/* DISABLED: EXPORT_SYMBOL_GPL(serial8250_tx_chars); */
 
 unsigned int serial8250_modem_status(struct uart_8250_port *up)
 {
@@ -1537,7 +1537,7 @@ unsigned int serial8250_modem_status(struct uart_8250_port *up)
 
 	return status;
 }
-EXPORT_SYMBOL_GPL(serial8250_modem_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(serial8250_modem_status); */
 
 /*
  * This handles the interrupt from one port.
@@ -1567,7 +1567,7 @@ int serial8250_handle_irq(struct uart_port *port, unsigned int iir)
 	spin_unlock_irqrestore(&port->lock, flags);
 	return 1;
 }
-EXPORT_SYMBOL_GPL(serial8250_handle_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(serial8250_handle_irq); */
 
 static int serial8250_default_handle_irq(struct uart_port *port)
 {
@@ -2446,7 +2446,7 @@ serial8250_do_set_termios(struct uart_port *port, struct ktermios *termios,
 	if (tty_termios_baud_rate(termios))
 		tty_termios_encode_baud_rate(termios, baud, baud);
 }
-EXPORT_SYMBOL(serial8250_do_set_termios);
+/* DISABLED: EXPORT_SYMBOL(serial8250_do_set_termios); */
 
 static void
 serial8250_set_termios(struct uart_port *port, struct ktermios *termios,
@@ -2477,7 +2477,7 @@ void serial8250_do_pm(struct uart_port *port, unsigned int state,
 
 	serial8250_set_sleep(p, state != 0);
 }
-EXPORT_SYMBOL(serial8250_do_pm);
+/* DISABLED: EXPORT_SYMBOL(serial8250_do_pm); */
 
 static void
 serial8250_pm(struct uart_port *port, unsigned int state,
@@ -2723,7 +2723,7 @@ void serial8250_set_isa_configurator(
 {
 	serial8250_isa_config = v;
 }
-EXPORT_SYMBOL(serial8250_set_isa_configurator);
+/* DISABLED: EXPORT_SYMBOL(serial8250_set_isa_configurator); */
 
 static void __init serial8250_isa_init_ports(void)
 {
@@ -3255,7 +3255,7 @@ int serial8250_register_port(struct uart_port *port)
 
 	return ret;
 }
-EXPORT_SYMBOL(serial8250_register_port);
+/* DISABLED: EXPORT_SYMBOL(serial8250_register_port); */
 
 /**
  *	serial8250_unregister_port - remove a 16x50 serial port at runtime
@@ -3281,7 +3281,7 @@ void serial8250_unregister_port(int line)
 	}
 	mutex_unlock(&serial_mutex);
 }
-EXPORT_SYMBOL(serial8250_unregister_port);
+/* DISABLED: EXPORT_SYMBOL(serial8250_unregister_port); */
 
 static int __init serial8250_init(void)
 {
@@ -3357,8 +3357,8 @@ static void __exit serial8250_exit(void)
 module_init(serial8250_init);
 module_exit(serial8250_exit);
 
-EXPORT_SYMBOL(serial8250_suspend_port);
-EXPORT_SYMBOL(serial8250_resume_port);
+/* DISABLED: EXPORT_SYMBOL(serial8250_suspend_port); */
+/* DISABLED: EXPORT_SYMBOL(serial8250_resume_port); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Generic 8250/16x50 serial driver");

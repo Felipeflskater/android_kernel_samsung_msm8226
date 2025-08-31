@@ -31,7 +31,7 @@ void speakup_start_ttys(void)
 			start_tty(vc_cons[i].d->port.tty);
 	}
 }
-EXPORT_SYMBOL_GPL(speakup_start_ttys);
+/* DISABLED: EXPORT_SYMBOL_GPL(speakup_start_ttys); */
 
 static void speakup_stop_ttys(void)
 {
@@ -57,7 +57,7 @@ int synth_buffer_empty(void)
 {
 	return (buff_in == buff_out);
 }
-EXPORT_SYMBOL_GPL(synth_buffer_empty);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_buffer_empty); */
 
 void synth_buffer_add(char ch)
 {
@@ -88,7 +88,7 @@ char synth_buffer_getc(void)
 		buff_out = synth_buffer;
 	return ch;
 }
-EXPORT_SYMBOL_GPL(synth_buffer_getc);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_buffer_getc); */
 
 char synth_buffer_peek(void)
 {
@@ -96,11 +96,11 @@ char synth_buffer_peek(void)
 		return 0;
 	return *buff_out;
 }
-EXPORT_SYMBOL_GPL(synth_buffer_peek);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_buffer_peek); */
 
 void synth_buffer_clear(void)
 {
 	buff_in = buff_out = synth_buffer;
 	return;
 }
-EXPORT_SYMBOL_GPL(synth_buffer_clear);
+/* DISABLED: EXPORT_SYMBOL_GPL(synth_buffer_clear); */

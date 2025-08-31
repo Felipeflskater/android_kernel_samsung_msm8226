@@ -114,7 +114,7 @@ struct bio_integrity_payload *bio_integrity_alloc_bioset(struct bio *bio,
 
 	return bip;
 }
-EXPORT_SYMBOL(bio_integrity_alloc_bioset);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_alloc_bioset); */
 
 /**
  * bio_integrity_alloc - Allocate integrity payload and attach it to bio
@@ -132,7 +132,7 @@ struct bio_integrity_payload *bio_integrity_alloc(struct bio *bio,
 {
 	return bio_integrity_alloc_bioset(bio, gfp_mask, nr_vecs, fs_bio_set);
 }
-EXPORT_SYMBOL(bio_integrity_alloc);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_alloc); */
 
 /**
  * bio_integrity_free - Free bio integrity payload
@@ -160,7 +160,7 @@ void bio_integrity_free(struct bio *bio, struct bio_set *bs)
 
 	bio->bi_integrity = NULL;
 }
-EXPORT_SYMBOL(bio_integrity_free);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_free); */
 
 /**
  * bio_integrity_add_page - Attach integrity metadata
@@ -192,7 +192,7 @@ int bio_integrity_add_page(struct bio *bio, struct page *page,
 
 	return len;
 }
-EXPORT_SYMBOL(bio_integrity_add_page);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_add_page); */
 
 static int bdev_integrity_enabled(struct block_device *bdev, int rw)
 {
@@ -229,7 +229,7 @@ int bio_integrity_enabled(struct bio *bio)
 
 	return bdev_integrity_enabled(bio->bi_bdev, bio_data_dir(bio));
 }
-EXPORT_SYMBOL(bio_integrity_enabled);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_enabled); */
 
 /**
  * bio_integrity_hw_sectors - Convert 512b sectors to hardware ditto
@@ -267,7 +267,7 @@ unsigned int bio_integrity_tag_size(struct bio *bio)
 
 	return bi->tag_size * (bio->bi_size / bi->sector_size);
 }
-EXPORT_SYMBOL(bio_integrity_tag_size);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_tag_size); */
 
 int bio_integrity_tag(struct bio *bio, void *tag_buf, unsigned int len, int set)
 {
@@ -314,7 +314,7 @@ int bio_integrity_set_tag(struct bio *bio, void *tag_buf, unsigned int len)
 
 	return bio_integrity_tag(bio, tag_buf, len, 1);
 }
-EXPORT_SYMBOL(bio_integrity_set_tag);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_set_tag); */
 
 /**
  * bio_integrity_get_tag - Retrieve a tag buffer from a bio
@@ -332,7 +332,7 @@ int bio_integrity_get_tag(struct bio *bio, void *tag_buf, unsigned int len)
 
 	return bio_integrity_tag(bio, tag_buf, len, 0);
 }
-EXPORT_SYMBOL(bio_integrity_get_tag);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_get_tag); */
 
 /**
  * bio_integrity_generate - Generate integrity metadata for a bio
@@ -474,7 +474,7 @@ int bio_integrity_prep(struct bio *bio)
 
 	return 0;
 }
-EXPORT_SYMBOL(bio_integrity_prep);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_prep); */
 
 /**
  * bio_integrity_verify - Verify integrity metadata for a bio
@@ -577,7 +577,7 @@ void bio_integrity_endio(struct bio *bio, int error)
 	INIT_WORK(&bip->bip_work, bio_integrity_verify_fn);
 	queue_work(kintegrityd_wq, &bip->bip_work);
 }
-EXPORT_SYMBOL(bio_integrity_endio);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_endio); */
 
 /**
  * bio_integrity_mark_head - Advance bip_vec skip bytes
@@ -650,7 +650,7 @@ void bio_integrity_advance(struct bio *bio, unsigned int bytes_done)
 	nr_sectors = bio_integrity_hw_sectors(bi, bytes_done >> 9);
 	bio_integrity_mark_head(bip, nr_sectors * bi->tuple_size);
 }
-EXPORT_SYMBOL(bio_integrity_advance);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_advance); */
 
 /**
  * bio_integrity_trim - Trim integrity vector
@@ -679,7 +679,7 @@ void bio_integrity_trim(struct bio *bio, unsigned int offset,
 	bio_integrity_mark_head(bip, offset * bi->tuple_size);
 	bio_integrity_mark_tail(bip, sectors * bi->tuple_size);
 }
-EXPORT_SYMBOL(bio_integrity_trim);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_trim); */
 
 /**
  * bio_integrity_split - Split integrity metadata
@@ -723,7 +723,7 @@ void bio_integrity_split(struct bio *bio, struct bio_pair *bp, int sectors)
 	bp->bip1.bip_vcnt = bp->bip2.bip_vcnt = 1;
 	bp->bip1.bip_idx = bp->bip2.bip_idx = 0;
 }
-EXPORT_SYMBOL(bio_integrity_split);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_split); */
 
 /**
  * bio_integrity_clone - Callback for cloning bios with integrity metadata
@@ -756,7 +756,7 @@ int bio_integrity_clone(struct bio *bio, struct bio *bio_src,
 
 	return 0;
 }
-EXPORT_SYMBOL(bio_integrity_clone);
+/* DISABLED: EXPORT_SYMBOL(bio_integrity_clone); */
 
 int bioset_integrity_create(struct bio_set *bs, int pool_size)
 {
@@ -773,14 +773,14 @@ int bioset_integrity_create(struct bio_set *bs, int pool_size)
 
 	return 0;
 }
-EXPORT_SYMBOL(bioset_integrity_create);
+/* DISABLED: EXPORT_SYMBOL(bioset_integrity_create); */
 
 void bioset_integrity_free(struct bio_set *bs)
 {
 	if (bs->bio_integrity_pool)
 		mempool_destroy(bs->bio_integrity_pool);
 }
-EXPORT_SYMBOL(bioset_integrity_free);
+/* DISABLED: EXPORT_SYMBOL(bioset_integrity_free); */
 
 void __init bio_integrity_init(void)
 {

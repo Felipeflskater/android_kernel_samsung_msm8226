@@ -190,7 +190,7 @@ int ocfs2_stack_glue_register(struct ocfs2_stack_plugin *plugin)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(ocfs2_stack_glue_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_stack_glue_register); */
 
 void ocfs2_stack_glue_unregister(struct ocfs2_stack_plugin *plugin)
 {
@@ -211,7 +211,7 @@ void ocfs2_stack_glue_unregister(struct ocfs2_stack_plugin *plugin)
 	}
 	spin_unlock(&ocfs2_stack_lock);
 }
-EXPORT_SYMBOL_GPL(ocfs2_stack_glue_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_stack_glue_unregister); */
 
 void ocfs2_stack_glue_set_max_proto_version(struct ocfs2_protocol_version *max_proto)
 {
@@ -229,7 +229,7 @@ void ocfs2_stack_glue_set_max_proto_version(struct ocfs2_protocol_version *max_p
 	}
 	spin_unlock(&ocfs2_stack_lock);
 }
-EXPORT_SYMBOL_GPL(ocfs2_stack_glue_set_max_proto_version);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_stack_glue_set_max_proto_version); */
 
 
 /*
@@ -252,7 +252,7 @@ int ocfs2_dlm_lock(struct ocfs2_cluster_connection *conn,
 	return active_stack->sp_ops->dlm_lock(conn, mode, lksb, flags,
 					      name, namelen);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_lock); */
 
 int ocfs2_dlm_unlock(struct ocfs2_cluster_connection *conn,
 		     struct ocfs2_dlm_lksb *lksb,
@@ -262,37 +262,37 @@ int ocfs2_dlm_unlock(struct ocfs2_cluster_connection *conn,
 
 	return active_stack->sp_ops->dlm_unlock(conn, lksb, flags);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_unlock); */
 
 int ocfs2_dlm_lock_status(struct ocfs2_dlm_lksb *lksb)
 {
 	return active_stack->sp_ops->lock_status(lksb);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_lock_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_lock_status); */
 
 int ocfs2_dlm_lvb_valid(struct ocfs2_dlm_lksb *lksb)
 {
 	return active_stack->sp_ops->lvb_valid(lksb);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_lvb_valid);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_lvb_valid); */
 
 void *ocfs2_dlm_lvb(struct ocfs2_dlm_lksb *lksb)
 {
 	return active_stack->sp_ops->lock_lvb(lksb);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_lvb);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_lvb); */
 
 void ocfs2_dlm_dump_lksb(struct ocfs2_dlm_lksb *lksb)
 {
 	active_stack->sp_ops->dump_lksb(lksb);
 }
-EXPORT_SYMBOL_GPL(ocfs2_dlm_dump_lksb);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_dlm_dump_lksb); */
 
 int ocfs2_stack_supports_plocks(void)
 {
 	return active_stack && active_stack->sp_ops->plock;
 }
-EXPORT_SYMBOL_GPL(ocfs2_stack_supports_plocks);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_stack_supports_plocks); */
 
 /*
  * ocfs2_plock() can only be safely called if
@@ -306,7 +306,7 @@ int ocfs2_plock(struct ocfs2_cluster_connection *conn, u64 ino,
 		return active_stack->sp_ops->plock(conn, ino, file, cmd, fl);
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL_GPL(ocfs2_plock);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_plock); */
 
 int ocfs2_cluster_connect(const char *stack_name,
 			  const char *group,
@@ -371,7 +371,7 @@ out_free:
 out:
 	return rc;
 }
-EXPORT_SYMBOL_GPL(ocfs2_cluster_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_cluster_connect); */
 
 /* The caller will ensure all nodes have the same cluster stack */
 int ocfs2_cluster_connect_agnostic(const char *group,
@@ -389,7 +389,7 @@ int ocfs2_cluster_connect_agnostic(const char *group,
 	return ocfs2_cluster_connect(stack_name, group, grouplen, lproto,
 				     recovery_handler, recovery_data, conn);
 }
-EXPORT_SYMBOL_GPL(ocfs2_cluster_connect_agnostic);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_cluster_connect_agnostic); */
 
 /* If hangup_pending is 0, the stack driver will be dropped */
 int ocfs2_cluster_disconnect(struct ocfs2_cluster_connection *conn,
@@ -410,7 +410,7 @@ int ocfs2_cluster_disconnect(struct ocfs2_cluster_connection *conn,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ocfs2_cluster_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_cluster_disconnect); */
 
 /*
  * Leave the group for this filesystem.  This is executed by a userspace
@@ -458,13 +458,13 @@ void ocfs2_cluster_hangup(const char *group, int grouplen)
 	/* cluster_disconnect() was called with hangup_pending==1 */
 	ocfs2_stack_driver_put();
 }
-EXPORT_SYMBOL_GPL(ocfs2_cluster_hangup);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_cluster_hangup); */
 
 int ocfs2_cluster_this_node(unsigned int *node)
 {
 	return active_stack->sp_ops->this_node(node);
 }
-EXPORT_SYMBOL_GPL(ocfs2_cluster_this_node);
+/* DISABLED: EXPORT_SYMBOL_GPL(ocfs2_cluster_this_node); */
 
 
 /*

@@ -727,7 +727,7 @@ void maxdsm_set_regmap(struct regmap *regmap)
 	dbg_maxdsm("Regmap for maxdsm was set by 0x%p",
 			maxdsm.regmap);
 }
-EXPORT_SYMBOL_GPL(maxdsm_set_regmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_set_regmap); */
 
 static int maxdsm_check_ignore_mask(uint32_t reg, uint32_t mask)
 {
@@ -897,7 +897,7 @@ void maxdsm_log_update(const void *byte_log_array,
 
 	mutex_unlock(&maxdsm_log_lock);
 }
-EXPORT_SYMBOL_GPL(maxdsm_log_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_log_update); */
 
 void maxdsm_read_logbuf_reg(void)
 {
@@ -967,7 +967,7 @@ int maxdsm_get_dump_status(void)
 
 	return !ret ? (new_log_avail & 0x03) : ret;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_dump_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_dump_status); */
 
 void maxdsm_update_param(void)
 {
@@ -986,7 +986,7 @@ void maxdsm_update_param(void)
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(maxdsm_update_param);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_update_param); */
 
 static void maxdsm_log_free(void **byte_log_array, void **int_log_array,
 		void **afterbyte_log_array, void **after_int_log_array)
@@ -1364,7 +1364,7 @@ out:
 
 	return (ssize_t)rc;
 }
-EXPORT_SYMBOL_GPL(maxdsm_log_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_log_prepare); */
 #endif /* USE_DSM_LOG */
 
 #ifdef USE_DSM_UPDATE_CAL
@@ -1391,7 +1391,7 @@ ssize_t maxdsm_cal_prepare(char *buf)
 
 	return (ssize_t)rc;
 }
-EXPORT_SYMBOL_GPL(maxdsm_cal_prepare);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_prepare); */
 #endif /* USE_DSM_UPDATE_CAL */
 
 static int maxdsm_set_param(struct param_set_data *data, int size)
@@ -1436,7 +1436,7 @@ uint32_t maxdsm_get_platform_type(void)
 	dbg_maxdsm("platform_type=%d", maxdsm.platform_type);
 	return maxdsm.platform_type;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_platform_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_platform_type); */
 
 int maxdsm_update_feature_en_adc(int apply)
 {
@@ -1472,7 +1472,7 @@ int maxdsm_update_feature_en_adc(int apply)
 
 	return maxdsm_set_param(&data, 1);
 }
-EXPORT_SYMBOL_GPL(maxdsm_update_feature_en_adc);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_update_feature_en_adc); */
 
 int maxdsm_set_feature_en(int on)
 {
@@ -1517,7 +1517,7 @@ int maxdsm_set_feature_en(int on)
 
 	return maxdsm_set_param(&data, 1);
 }
-EXPORT_SYMBOL_GPL(maxdsm_set_feature_en);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_set_feature_en); */
 
 int maxdsm_set_rdc_temp(uint32_t rdc, uint32_t temp)
 {
@@ -1541,7 +1541,7 @@ int maxdsm_set_rdc_temp(uint32_t rdc, uint32_t temp)
 			data,
 			sizeof(data) / sizeof(struct param_set_data));
 }
-EXPORT_SYMBOL_GPL(maxdsm_set_rdc_temp);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_set_rdc_temp); */
 
 int maxdsm_set_dsm_onoff_status(int on)
 {
@@ -1557,7 +1557,7 @@ int maxdsm_set_dsm_onoff_status(int on)
 			data,
 			sizeof(data) / sizeof(struct param_set_data));
 }
-EXPORT_SYMBOL_GPL(maxdsm_set_dsm_onoff_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_set_dsm_onoff_status); */
 
 uint32_t maxdsm_get_dcresistance(void)
 {
@@ -1567,7 +1567,7 @@ uint32_t maxdsm_get_dcresistance(void)
 	return maxdsm.param[PARAM_RDC]
 				<< maxdsm.param[PARAM_RDC_SZ];
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_dcresistance);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_dcresistance); */
 
 uint32_t maxdsm_get_dsm_onoff_status(void)
 {
@@ -1772,37 +1772,37 @@ int maxdsm_update_info(uint32_t *pinfo)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(maxdsm_update_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_update_info); */
 
 int maxdsm_get_port_id(void)
 {
 	return maxdsm.port_id;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_port_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_port_id); */
 
 int maxdsm_get_rx_mod_id(void)
 {
 	return maxdsm.rx_mod_id;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_rx_mod_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_rx_mod_id); */
 
 int maxdsm_get_tx_mod_id(void)
 {
 	return maxdsm.tx_mod_id;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_tx_mod_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_tx_mod_id); */
 
 int maxdsm_get_spk_state(void)
 {
 	return maxdsm.spk_state;
 }
-EXPORT_SYMBOL_GPL(maxdsm_get_spk_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_get_spk_state); */
 
 void maxdsm_set_spk_state(int state)
 {
 	maxdsm.spk_state = state;
 }
-EXPORT_SYMBOL_GPL(maxdsm_set_spk_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_set_spk_state); */
 
 int maxdsm_set_pilot_signal_state(int on)
 {
@@ -2136,7 +2136,7 @@ int maxdsm_deinit(void)
 
 	return misc_deregister(&dsm_ctrl_miscdev);
 }
-EXPORT_SYMBOL_GPL(maxdsm_deinit);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_deinit); */
 
 int maxdsm_init(void)
 {
@@ -2155,7 +2155,7 @@ int maxdsm_init(void)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(maxdsm_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_init); */
 
 MODULE_DESCRIPTION("Module for test Maxim DSM");
 MODULE_LICENSE("GPL");

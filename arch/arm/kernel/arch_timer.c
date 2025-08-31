@@ -343,7 +343,7 @@ cycle_t arch_counter_get_cntpct(void)
 {
 	return get_cntpct_func();
 }
-EXPORT_SYMBOL(arch_counter_get_cntpct);
+/* DISABLED: EXPORT_SYMBOL(arch_counter_get_cntpct); */
 
 static cycle_t arch_counter_read(struct clocksource *cs)
 {

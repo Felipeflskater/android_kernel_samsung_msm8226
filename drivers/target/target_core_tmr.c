@@ -63,7 +63,7 @@ int core_tmr_alloc_req(
 
 	return 0;
 }
-EXPORT_SYMBOL(core_tmr_alloc_req);
+/* DISABLED: EXPORT_SYMBOL(core_tmr_alloc_req); */
 
 void core_tmr_release_req(
 	struct se_tmr_req *tmr)

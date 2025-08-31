@@ -159,12 +159,12 @@ void msgqueue_flush(MsgQueue_t *msgq)
 	msgq->qe = NULL;
 }
 
-EXPORT_SYMBOL(msgqueue_initialise);
-EXPORT_SYMBOL(msgqueue_free);
-EXPORT_SYMBOL(msgqueue_msglength);
-EXPORT_SYMBOL(msgqueue_getmsg);
-EXPORT_SYMBOL(msgqueue_addmsg);
-EXPORT_SYMBOL(msgqueue_flush);
+/* DISABLED: EXPORT_SYMBOL(msgqueue_initialise); */
+/* DISABLED: EXPORT_SYMBOL(msgqueue_free); */
+/* DISABLED: EXPORT_SYMBOL(msgqueue_msglength); */
+/* DISABLED: EXPORT_SYMBOL(msgqueue_getmsg); */
+/* DISABLED: EXPORT_SYMBOL(msgqueue_addmsg); */
+/* DISABLED: EXPORT_SYMBOL(msgqueue_flush); */
 
 MODULE_AUTHOR("Russell King");
 MODULE_DESCRIPTION("SCSI message queue handling");

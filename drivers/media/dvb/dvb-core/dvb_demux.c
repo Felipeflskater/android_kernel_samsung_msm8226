@@ -454,7 +454,7 @@ next_prefix_lookup:
 
 	return found;
 }
-EXPORT_SYMBOL(dvb_dmx_video_pattern_search);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_video_pattern_search); */
 
 /**
  * dvb_dmx_notify_section_event() - Notify demux event for all filters of a
@@ -493,7 +493,7 @@ int dvb_dmx_notify_section_event(struct dvb_demux_feed *feed,
 
 	return 0;
 }
-EXPORT_SYMBOL(dvb_dmx_notify_section_event);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_notify_section_event); */
 
 static int dvb_dmx_check_pes_end(struct dvb_demux_feed *feed)
 {
@@ -870,7 +870,7 @@ int dvb_demux_push_idx_event(struct dvb_demux_feed *feed,
 
 	return ret;
 }
-EXPORT_SYMBOL(dvb_demux_push_idx_event);
+/* DISABLED: EXPORT_SYMBOL(dvb_demux_push_idx_event); */
 
 static inline void dvb_dmx_notify_indexing(struct dvb_demux_feed *feed)
 {
@@ -901,7 +901,7 @@ void dvb_dmx_notify_idx_events(struct dvb_demux_feed *feed)
 	dvb_dmx_notify_indexing(feed);
 	spin_unlock(&feed->demux->lock);
 }
-EXPORT_SYMBOL(dvb_dmx_notify_idx_events);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_notify_idx_events); */
 
 static void dvb_dmx_process_pattern_result(struct dvb_demux_feed *feed,
 		struct dvb_dmx_video_patterns_results *patterns, int pattern,
@@ -1033,7 +1033,7 @@ void dvb_dmx_process_idx_pattern(struct dvb_demux_feed *feed,
 		curr_pusi_tsp, prev_pusi_tsp);
 	spin_unlock(&feed->demux->lock);
 }
-EXPORT_SYMBOL(dvb_dmx_process_idx_pattern);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_process_idx_pattern); */
 
 static void dvb_dmx_index(struct dvb_demux_feed *feed,
 		const u8 *buf,
@@ -1495,7 +1495,7 @@ void dvb_dmx_swfilter_packet(struct dvb_demux *demux, const u8 *buf,
 	dvb_dmx_swfilter_one_packet(demux, buf, timestamp);
 	spin_unlock(&demux->lock);
 }
-EXPORT_SYMBOL(dvb_dmx_swfilter_packet);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter_packet); */
 
 void dvb_dmx_swfilter_section_packets(struct dvb_demux *demux, const u8 *buf,
 			      size_t count)
@@ -1541,7 +1541,7 @@ void dvb_dmx_swfilter_section_packets(struct dvb_demux *demux, const u8 *buf,
 	if (dvb_demux_performancecheck)
 		demux->total_process_time += dvb_dmx_calc_time_delta(pre_time);
 }
-EXPORT_SYMBOL(dvb_dmx_swfilter_section_packets);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter_section_packets); */
 
 void dvb_dmx_swfilter_packets(struct dvb_demux *demux, const u8 *buf,
 			      size_t count)
@@ -1569,7 +1569,7 @@ void dvb_dmx_swfilter_packets(struct dvb_demux *demux, const u8 *buf,
 		demux->total_process_time += dvb_dmx_calc_time_delta(pre_time);
 }
 
-EXPORT_SYMBOL(dvb_dmx_swfilter_packets);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter_packets); */
 
 static inline int find_next_packet(const u8 *buf, int pos, size_t count,
 				   const int pktsize, const int leadingbytes)
@@ -1703,13 +1703,13 @@ void dvb_dmx_swfilter(struct dvb_demux *demux, const u8 *buf, size_t count)
 {
 	_dvb_dmx_swfilter(demux, buf, count, 188, 0);
 }
-EXPORT_SYMBOL(dvb_dmx_swfilter);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter); */
 
 void dvb_dmx_swfilter_204(struct dvb_demux *demux, const u8 *buf, size_t count)
 {
 	_dvb_dmx_swfilter(demux, buf, count, 204, 0);
 }
-EXPORT_SYMBOL(dvb_dmx_swfilter_204);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter_204); */
 
 void dvb_dmx_swfilter_format(
 			struct dvb_demux *demux,
@@ -1741,7 +1741,7 @@ void dvb_dmx_swfilter_format(
 		break;
 	}
 }
-EXPORT_SYMBOL(dvb_dmx_swfilter_format);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_swfilter_format); */
 
 static struct dvb_demux_filter *dvb_dmx_filter_alloc(struct dvb_demux *demux)
 {
@@ -1824,7 +1824,7 @@ const struct dvb_dmx_video_patterns *dvb_dmx_get_pattern(u64 dmx_idx_pattern)
 		return NULL;
 	}
 }
-EXPORT_SYMBOL(dvb_dmx_get_pattern);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_get_pattern); */
 
 static void dvb_dmx_init_idx_state(struct dvb_demux_feed *feed)
 {
@@ -3297,7 +3297,7 @@ int dvb_dmx_init(struct dvb_demux *dvbdemux)
 	return 0;
 }
 
-EXPORT_SYMBOL(dvb_dmx_init);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_init); */
 
 void dvb_dmx_release(struct dvb_demux *dvbdemux)
 {
@@ -3311,4 +3311,4 @@ void dvb_dmx_release(struct dvb_demux *dvbdemux)
 	vfree(dvbdemux->rec_info_pool);
 }
 
-EXPORT_SYMBOL(dvb_dmx_release);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmx_release); */

@@ -93,7 +93,7 @@ out_err:
 	item->object = NULL;
 	return ret;
 }
-EXPORT_SYMBOL(drm_global_item_ref);
+/* DISABLED: EXPORT_SYMBOL(drm_global_item_ref); */
 
 void drm_global_item_unref(struct drm_global_reference *ref)
 {
@@ -108,5 +108,5 @@ void drm_global_item_unref(struct drm_global_reference *ref)
 	}
 	mutex_unlock(&item->mutex);
 }
-EXPORT_SYMBOL(drm_global_item_unref);
+/* DISABLED: EXPORT_SYMBOL(drm_global_item_unref); */
 

@@ -43,7 +43,7 @@
 #define MPIDR_LEVEL2_SHIFT 16
 
 struct cputopo_arm cpu_topology[NR_CPUS];
-EXPORT_SYMBOL_GPL(cpu_topology);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_topology); */
 
 const struct cpumask *cpu_coregroup_mask(int cpu)
 {

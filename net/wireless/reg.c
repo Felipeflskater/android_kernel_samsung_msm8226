@@ -755,7 +755,7 @@ int freq_reg_info(struct wiphy *wiphy,
 				  reg_rule,
 				  NULL);
 }
-EXPORT_SYMBOL(freq_reg_info);
+/* DISABLED: EXPORT_SYMBOL(freq_reg_info); */
 
 #ifdef CONFIG_CFG80211_REG_DEBUG
 static const char *reg_initiator_name(enum nl80211_reg_initiator initiator)
@@ -1314,7 +1314,7 @@ void wiphy_apply_custom_regulatory(struct wiphy *wiphy,
 	 */
 	WARN_ON(!bands_set);
 }
-EXPORT_SYMBOL(wiphy_apply_custom_regulatory);
+/* DISABLED: EXPORT_SYMBOL(wiphy_apply_custom_regulatory); */
 
 /*
  * Return value which can be used by ignore_request() to indicate
@@ -1729,7 +1729,7 @@ int regulatory_hint_user(const char *alpha2)
 
 	return 0;
 }
-EXPORT_SYMBOL(regulatory_hint_user);
+/* DISABLED: EXPORT_SYMBOL(regulatory_hint_user); */
 
 /* Driver hints */
 int regulatory_hint(struct wiphy *wiphy, const char *alpha2)
@@ -1756,7 +1756,7 @@ int regulatory_hint(struct wiphy *wiphy, const char *alpha2)
 
 	return 0;
 }
-EXPORT_SYMBOL(regulatory_hint);
+/* DISABLED: EXPORT_SYMBOL(regulatory_hint); */
 
 /*
  * We hold wdev_lock() here so we cannot hold cfg80211_mutex() and

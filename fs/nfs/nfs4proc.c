@@ -622,7 +622,7 @@ int nfs41_setup_sequence(struct nfs4_session *session,
 	res->sr_status = 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(nfs41_setup_sequence);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs41_setup_sequence); */
 
 int nfs4_setup_sequence(const struct nfs_server *server,
 			struct nfs4_sequence_args *args,
@@ -3430,7 +3430,7 @@ void nfs4_reset_read(struct rpc_task *task, struct nfs_read_data *data)
 	task->tk_ops = data->mds_ops;
 	rpc_task_reset_client(task, NFS_CLIENT(data->inode));
 }
-EXPORT_SYMBOL_GPL(nfs4_reset_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_reset_read); */
 
 static int nfs4_write_done_cb(struct rpc_task *task, struct nfs_write_data *data)
 {
@@ -3470,7 +3470,7 @@ void nfs4_reset_write(struct rpc_task *task, struct nfs_write_data *data)
 	task->tk_ops        = data->mds_ops;
 	rpc_task_reset_client(task, NFS_CLIENT(data->inode));
 }
-EXPORT_SYMBOL_GPL(nfs4_reset_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_reset_write); */
 
 static void nfs4_proc_write_setup(struct nfs_write_data *data, struct rpc_message *msg)
 {
@@ -5690,7 +5690,7 @@ int nfs4_init_ds_session(struct nfs_client *clp)
 	return ret;
 
 }
-EXPORT_SYMBOL_GPL(nfs4_init_ds_session);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_init_ds_session); */
 
 
 /*
@@ -6246,7 +6246,7 @@ int nfs4_proc_getdevicelist(struct nfs_server *server,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(nfs4_proc_getdevicelist);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_proc_getdevicelist); */
 
 static int
 _nfs4_proc_getdeviceinfo(struct nfs_server *server, struct pnfs_device *pdev)
@@ -6283,7 +6283,7 @@ int nfs4_proc_getdeviceinfo(struct nfs_server *server, struct pnfs_device *pdev)
 	} while (exception.retry);
 	return err;
 }
-EXPORT_SYMBOL_GPL(nfs4_proc_getdeviceinfo);
+/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_proc_getdeviceinfo); */
 
 static void nfs4_layoutcommit_prepare(struct rpc_task *task, void *calldata)
 {

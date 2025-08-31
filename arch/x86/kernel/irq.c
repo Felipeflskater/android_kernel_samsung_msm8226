@@ -228,7 +228,7 @@ void smp_x86_platform_ipi(struct pt_regs *regs)
 	set_irq_regs(old_regs);
 }
 
-EXPORT_SYMBOL_GPL(vector_used_by_percpu_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(vector_used_by_percpu_irq); */
 
 #ifdef CONFIG_HOTPLUG_CPU
 /* A cpu has been removed from cpu_online_mask.  Reset irq affinities. */

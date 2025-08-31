@@ -36,7 +36,7 @@ struct scatterlist *sg_next(struct scatterlist *sg)
 
 	return sg;
 }
-EXPORT_SYMBOL(sg_next);
+/* DISABLED: EXPORT_SYMBOL(sg_next); */
 
 /**
  * sg_last - return the last scatterlist entry in a list
@@ -70,7 +70,7 @@ struct scatterlist *sg_last(struct scatterlist *sgl, unsigned int nents)
 #endif
 	return ret;
 }
-EXPORT_SYMBOL(sg_last);
+/* DISABLED: EXPORT_SYMBOL(sg_last); */
 
 /**
  * sg_init_table - Initialize SG table
@@ -94,7 +94,7 @@ void sg_init_table(struct scatterlist *sgl, unsigned int nents)
 #endif
 	sg_mark_end(&sgl[nents - 1]);
 }
-EXPORT_SYMBOL(sg_init_table);
+/* DISABLED: EXPORT_SYMBOL(sg_init_table); */
 
 /**
  * sg_init_one - Initialize a single entry sg list
@@ -108,7 +108,7 @@ void sg_init_one(struct scatterlist *sg, const void *buf, unsigned int buflen)
 	sg_init_table(sg, 1);
 	sg_set_buf(sg, buf, buflen);
 }
-EXPORT_SYMBOL(sg_init_one);
+/* DISABLED: EXPORT_SYMBOL(sg_init_one); */
 
 /*
  * The default behaviour of sg_alloc_table() is to use these kmalloc/kfree
@@ -189,7 +189,7 @@ void __sg_free_table(struct sg_table *table, unsigned int max_ents,
 
 	table->sgl = NULL;
 }
-EXPORT_SYMBOL(__sg_free_table);
+/* DISABLED: EXPORT_SYMBOL(__sg_free_table); */
 
 /**
  * sg_free_table - Free a previously allocated sg table
@@ -200,7 +200,7 @@ void sg_free_table(struct sg_table *table)
 {
 	__sg_free_table(table, SG_MAX_SINGLE_ALLOC, sg_kfree);
 }
-EXPORT_SYMBOL(sg_free_table);
+/* DISABLED: EXPORT_SYMBOL(sg_free_table); */
 
 /**
  * __sg_alloc_table - Allocate and initialize an sg table with given allocator
@@ -294,7 +294,7 @@ int __sg_alloc_table(struct sg_table *table, unsigned int nents,
 
 	return 0;
 }
-EXPORT_SYMBOL(__sg_alloc_table);
+/* DISABLED: EXPORT_SYMBOL(__sg_alloc_table); */
 
 /**
  * sg_alloc_table - Allocate and initialize an sg table
@@ -318,7 +318,7 @@ int sg_alloc_table(struct sg_table *table, unsigned int nents, gfp_t gfp_mask)
 
 	return ret;
 }
-EXPORT_SYMBOL(sg_alloc_table);
+/* DISABLED: EXPORT_SYMBOL(sg_alloc_table); */
 
 /**
  * sg_miter_start - start mapping iteration over a sg list
@@ -343,7 +343,7 @@ void sg_miter_start(struct sg_mapping_iter *miter, struct scatterlist *sgl,
 	WARN_ON(!(flags & (SG_MITER_TO_SG | SG_MITER_FROM_SG)));
 	miter->__flags = flags;
 }
-EXPORT_SYMBOL(sg_miter_start);
+/* DISABLED: EXPORT_SYMBOL(sg_miter_start); */
 
 /**
  * sg_miter_next - proceed mapping iterator to the next mapping
@@ -398,7 +398,7 @@ bool sg_miter_next(struct sg_mapping_iter *miter)
 
 	return true;
 }
-EXPORT_SYMBOL(sg_miter_next);
+/* DISABLED: EXPORT_SYMBOL(sg_miter_next); */
 
 /**
  * sg_miter_stop - stop mapping iteration
@@ -437,7 +437,7 @@ void sg_miter_stop(struct sg_mapping_iter *miter)
 		miter->consumed = 0;
 	}
 }
-EXPORT_SYMBOL(sg_miter_stop);
+/* DISABLED: EXPORT_SYMBOL(sg_miter_stop); */
 
 /**
  * sg_copy_buffer - Copy data between a linear buffer and an SG list
@@ -502,7 +502,7 @@ size_t sg_copy_from_buffer(struct scatterlist *sgl, unsigned int nents,
 {
 	return sg_copy_buffer(sgl, nents, buf, buflen, 0);
 }
-EXPORT_SYMBOL(sg_copy_from_buffer);
+/* DISABLED: EXPORT_SYMBOL(sg_copy_from_buffer); */
 
 /**
  * sg_copy_to_buffer - Copy from an SG list to a linear buffer
@@ -519,4 +519,4 @@ size_t sg_copy_to_buffer(struct scatterlist *sgl, unsigned int nents,
 {
 	return sg_copy_buffer(sgl, nents, buf, buflen, 1);
 }
-EXPORT_SYMBOL(sg_copy_to_buffer);
+/* DISABLED: EXPORT_SYMBOL(sg_copy_to_buffer); */

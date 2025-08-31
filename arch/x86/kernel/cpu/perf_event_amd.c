@@ -656,7 +656,7 @@ void amd_pmu_enable_virt(void)
 	x86_pmu_disable_all();
 	x86_pmu_enable_all(0);
 }
-EXPORT_SYMBOL_GPL(amd_pmu_enable_virt);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_pmu_enable_virt); */
 
 void amd_pmu_disable_virt(void)
 {
@@ -674,4 +674,4 @@ void amd_pmu_disable_virt(void)
 	x86_pmu_disable_all();
 	x86_pmu_enable_all(0);
 }
-EXPORT_SYMBOL_GPL(amd_pmu_disable_virt);
+/* DISABLED: EXPORT_SYMBOL_GPL(amd_pmu_disable_virt); */

@@ -433,13 +433,13 @@ void msm_tlmm_set_hdrive(enum msm_tlmm_hdrive_tgt tgt, int drv_str)
 {
 	msm_tlmm_set_field(tlmm_hdrv_cfgs, tgt, 3, drv_str);
 }
-EXPORT_SYMBOL(msm_tlmm_set_hdrive);
+/* DISABLED: EXPORT_SYMBOL(msm_tlmm_set_hdrive); */
 
 void msm_tlmm_set_pull(enum msm_tlmm_pull_tgt tgt, int pull)
 {
 	msm_tlmm_set_field(tlmm_pull_cfgs, tgt, 2, pull);
 }
-EXPORT_SYMBOL(msm_tlmm_set_pull);
+/* DISABLED: EXPORT_SYMBOL(msm_tlmm_set_pull); */
 
 int gpio_tlmm_config(unsigned config, unsigned disable)
 {
@@ -454,7 +454,7 @@ int gpio_tlmm_config(unsigned config, unsigned disable)
 
 	return 0;
 }
-EXPORT_SYMBOL(gpio_tlmm_config);
+/* DISABLED: EXPORT_SYMBOL(gpio_tlmm_config); */
 
 int msm_gpio_install_direct_irq(unsigned gpio, unsigned irq,
 					unsigned int input_polarity)
@@ -472,7 +472,7 @@ int msm_gpio_install_direct_irq(unsigned gpio, unsigned irq,
 
 	return 0;
 }
-EXPORT_SYMBOL(msm_gpio_install_direct_irq);
+/* DISABLED: EXPORT_SYMBOL(msm_gpio_install_direct_irq); */
 
 /*
  * This lock class tells lockdep that GPIO irqs are in a different

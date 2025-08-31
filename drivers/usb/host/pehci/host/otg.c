@@ -39,7 +39,7 @@ phci_register_otg_device(struct isp1763_dev *dev)
 
 	return NULL;
 }
-EXPORT_SYMBOL(phci_register_otg_device);
+/* DISABLED: EXPORT_SYMBOL(phci_register_otg_device); */
 
 /*suspend the otg port(0)
  * needed when port is switching
@@ -58,7 +58,7 @@ phci_suspend_otg_port(struct isp1763_dev *dev, u32 command)
 	huburb->complete(huburb);
 	return status;
 }
-EXPORT_SYMBOL(phci_suspend_otg_port);
+/* DISABLED: EXPORT_SYMBOL(phci_suspend_otg_port); */
 
 /*set the flag to enumerate the device*/
 int
@@ -80,7 +80,7 @@ phci_enumerate_otg_port(struct isp1763_dev *dev, u32 command)
 	huburb->status = -EINPROGRESS;
 	return 0;
 }
-EXPORT_SYMBOL(phci_enumerate_otg_port);
+/* DISABLED: EXPORT_SYMBOL(phci_enumerate_otg_port); */
 
 /*host controller resume sequence at otg port*/
 int
@@ -99,7 +99,7 @@ phci_resume_otg_port(struct isp1763_dev *dev, u32 command)
 	huburb->status = -EINPROGRESS;
 	return 0;
 }
-EXPORT_SYMBOL(phci_resume_otg_port);
+/* DISABLED: EXPORT_SYMBOL(phci_resume_otg_port); */
 /*host controller remote wakeup sequence at otg port*/
 int
 phci_remotewakeup(struct isp1763_dev *dev)
@@ -118,7 +118,7 @@ phci_remotewakeup(struct isp1763_dev *dev)
     huburb->status = -EINPROGRESS;
     return 0;
 }
-EXPORT_SYMBOL(phci_remotewakeup);
+/* DISABLED: EXPORT_SYMBOL(phci_remotewakeup); */
 
 /*host controller wakeup sequence at otg port*/
 int
@@ -140,7 +140,7 @@ phci_resume_wakeup(struct isp1763_dev *dev)
     huburb->status = -EINPROGRESS;
     return 0;
 }
-EXPORT_SYMBOL(phci_resume_wakeup);
+/* DISABLED: EXPORT_SYMBOL(phci_resume_wakeup); */
 
 struct isp1763_driver *host_driver;
 struct isp1763_driver *device_driver;
@@ -155,7 +155,7 @@ pehci_delrhtimer(struct isp1763_dev *dev)
 	del_timer(&usb_hcd->rh_timer);
 
 }
-EXPORT_SYMBOL(pehci_delrhtimer);
+/* DISABLED: EXPORT_SYMBOL(pehci_delrhtimer); */
 
 int
 pehci_Deinitialize(struct isp1763_dev *dev)
@@ -170,7 +170,7 @@ pehci_Deinitialize(struct isp1763_dev *dev)
 	}
 return 0;
 }
-EXPORT_SYMBOL(pehci_Deinitialize);
+/* DISABLED: EXPORT_SYMBOL(pehci_Deinitialize); */
 
 int
 pehci_Reinitialize(struct isp1763_dev *dev)
@@ -184,6 +184,6 @@ pehci_Reinitialize(struct isp1763_dev *dev)
 	}
 return 0;
 }
-EXPORT_SYMBOL(pehci_Reinitialize);
+/* DISABLED: EXPORT_SYMBOL(pehci_Reinitialize); */
 
 

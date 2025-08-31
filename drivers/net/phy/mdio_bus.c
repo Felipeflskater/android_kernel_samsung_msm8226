@@ -65,7 +65,7 @@ struct mii_bus *mdiobus_alloc_size(size_t size)
 
 	return bus;
 }
-EXPORT_SYMBOL(mdiobus_alloc_size);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_alloc_size); */
 
 /**
  * mdiobus_release - mii_bus device release callback
@@ -149,7 +149,7 @@ error:
 	device_del(&bus->dev);
 	return err;
 }
-EXPORT_SYMBOL(mdiobus_register);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_register); */
 
 void mdiobus_unregister(struct mii_bus *bus)
 {
@@ -165,7 +165,7 @@ void mdiobus_unregister(struct mii_bus *bus)
 		bus->phy_map[i] = NULL;
 	}
 }
-EXPORT_SYMBOL(mdiobus_unregister);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_unregister); */
 
 /**
  * mdiobus_free - free a struct mii_bus
@@ -190,7 +190,7 @@ void mdiobus_free(struct mii_bus *bus)
 
 	put_device(&bus->dev);
 }
-EXPORT_SYMBOL(mdiobus_free);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_free); */
 
 struct phy_device *mdiobus_scan(struct mii_bus *bus, int addr)
 {
@@ -209,7 +209,7 @@ struct phy_device *mdiobus_scan(struct mii_bus *bus, int addr)
 
 	return phydev;
 }
-EXPORT_SYMBOL(mdiobus_scan);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_scan); */
 
 /**
  * mdiobus_read - Convenience function for reading a given MII mgmt register
@@ -233,7 +233,7 @@ int mdiobus_read(struct mii_bus *bus, int addr, u32 regnum)
 
 	return retval;
 }
-EXPORT_SYMBOL(mdiobus_read);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_read); */
 
 /**
  * mdiobus_write - Convenience function for writing a given MII mgmt register
@@ -258,7 +258,7 @@ int mdiobus_write(struct mii_bus *bus, int addr, u32 regnum, u16 val)
 
 	return err;
 }
-EXPORT_SYMBOL(mdiobus_write);
+/* DISABLED: EXPORT_SYMBOL(mdiobus_write); */
 
 /**
  * mdio_bus_match - determine if given PHY driver supports the given PHY device
@@ -393,7 +393,7 @@ struct bus_type mdio_bus_type = {
 	.match		= mdio_bus_match,
 	.pm		= MDIO_BUS_PM_OPS,
 };
-EXPORT_SYMBOL(mdio_bus_type);
+/* DISABLED: EXPORT_SYMBOL(mdio_bus_type); */
 
 int __init mdio_bus_init(void)
 {

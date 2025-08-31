@@ -142,7 +142,7 @@ int rtc_dev_update_irq_enable_emul(struct rtc_device *rtc, unsigned int enabled)
 	else
 		return clear_uie(rtc);
 }
-EXPORT_SYMBOL(rtc_dev_update_irq_enable_emul);
+/* DISABLED: EXPORT_SYMBOL(rtc_dev_update_irq_enable_emul); */
 
 #endif /* CONFIG_RTC_INTF_DEV_UIE_EMUL */
 

@@ -24,12 +24,12 @@ static struct list_head *first_device = &pernet_list;
 static DEFINE_MUTEX(net_mutex);
 
 LIST_HEAD(net_namespace_list);
-EXPORT_SYMBOL_GPL(net_namespace_list);
+/* DISABLED: EXPORT_SYMBOL_GPL(net_namespace_list); */
 
 struct net init_net = {
 	.dev_base_head = LIST_HEAD_INIT(init_net.dev_base_head),
 };
-EXPORT_SYMBOL(init_net);
+/* DISABLED: EXPORT_SYMBOL(init_net); */
 
 #define INITIAL_NET_GEN_PTRS	13 /* +1 for len +2 for rcu_head */
 
@@ -331,7 +331,7 @@ void __put_net(struct net *net)
 
 	queue_work(netns_wq, &net_cleanup_work);
 }
-EXPORT_SYMBOL_GPL(__put_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(__put_net); */
 
 struct net *get_net_ns_by_fd(int fd)
 {
@@ -385,7 +385,7 @@ struct net *get_net_ns_by_pid(pid_t pid)
 	rcu_read_unlock();
 	return net;
 }
-EXPORT_SYMBOL_GPL(get_net_ns_by_pid);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_net_ns_by_pid); */
 
 static __net_init int net_ns_net_init(struct net *net)
 {
@@ -562,7 +562,7 @@ int register_pernet_subsys(struct pernet_operations *ops)
 	mutex_unlock(&net_mutex);
 	return error;
 }
-EXPORT_SYMBOL_GPL(register_pernet_subsys);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_pernet_subsys); */
 
 /**
  *      unregister_pernet_subsys - unregister a network namespace subsystem
@@ -579,7 +579,7 @@ void unregister_pernet_subsys(struct pernet_operations *ops)
 	unregister_pernet_operations(ops);
 	mutex_unlock(&net_mutex);
 }
-EXPORT_SYMBOL_GPL(unregister_pernet_subsys);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_pernet_subsys); */
 
 /**
  *      register_pernet_device - register a network namespace device
@@ -610,7 +610,7 @@ int register_pernet_device(struct pernet_operations *ops)
 	mutex_unlock(&net_mutex);
 	return error;
 }
-EXPORT_SYMBOL_GPL(register_pernet_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_pernet_device); */
 
 /**
  *      unregister_pernet_device - unregister a network namespace netdevice
@@ -629,7 +629,7 @@ void unregister_pernet_device(struct pernet_operations *ops)
 	unregister_pernet_operations(ops);
 	mutex_unlock(&net_mutex);
 }
-EXPORT_SYMBOL_GPL(unregister_pernet_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_pernet_device); */
 
 #ifdef CONFIG_NET_NS
 static void *netns_get(struct task_struct *task)

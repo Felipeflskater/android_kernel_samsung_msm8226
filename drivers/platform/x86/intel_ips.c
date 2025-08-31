@@ -1476,7 +1476,7 @@ ips_link_to_i915_driver(void)
 	 */
 	late_i915_load = true;
 }
-EXPORT_SYMBOL_GPL(ips_link_to_i915_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(ips_link_to_i915_driver); */
 
 static DEFINE_PCI_DEVICE_TABLE(ips_id_table) = {
 	{ PCI_DEVICE(PCI_VENDOR_ID_INTEL,

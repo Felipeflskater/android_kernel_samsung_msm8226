@@ -134,7 +134,7 @@ err1:
 	kfree(entry);
 	return ret;
 }
-EXPORT_SYMBOL(mISDN_dsp_element_register);
+/* DISABLED: EXPORT_SYMBOL(mISDN_dsp_element_register); */
 
 void mISDN_dsp_element_unregister(struct mISDN_dsp_element *elem)
 {
@@ -154,7 +154,7 @@ void mISDN_dsp_element_unregister(struct mISDN_dsp_element *elem)
 		}
 	printk(KERN_ERR "%s: element %s not in list.\n", __func__, elem->name);
 }
-EXPORT_SYMBOL(mISDN_dsp_element_unregister);
+/* DISABLED: EXPORT_SYMBOL(mISDN_dsp_element_unregister); */
 
 int dsp_pipeline_module_init(void)
 {

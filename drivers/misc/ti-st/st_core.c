@@ -604,7 +604,7 @@ long st_register(struct st_proto_s *new_proto)
 	}
 	pr_debug("done %s(%d) ", __func__, new_proto->chnl_id);
 }
-EXPORT_SYMBOL_GPL(st_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(st_register); */
 
 /* to unregister a protocol -
  * to be called from protocol stack driver
@@ -686,7 +686,7 @@ long st_write(struct sk_buff *skb)
 }
 
 /* for protocols making use of shared transport */
-EXPORT_SYMBOL_GPL(st_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(st_unregister); */
 
 /********************************************************************/
 /*

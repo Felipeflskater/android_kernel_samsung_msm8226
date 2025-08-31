@@ -194,7 +194,7 @@ void hermes_struct_init(struct hermes *hw, void __iomem *address,
 	hw->eeprom_pda = false;
 	hw->ops = &hermes_ops_local;
 }
-EXPORT_SYMBOL(hermes_struct_init);
+/* DISABLED: EXPORT_SYMBOL(hermes_struct_init); */
 
 static int hermes_init(struct hermes *hw)
 {

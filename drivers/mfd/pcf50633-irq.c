@@ -37,7 +37,7 @@ int pcf50633_register_irq(struct pcf50633 *pcf, int irq,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pcf50633_register_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_register_irq); */
 
 int pcf50633_free_irq(struct pcf50633 *pcf, int irq)
 {
@@ -50,7 +50,7 @@ int pcf50633_free_irq(struct pcf50633 *pcf, int irq)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pcf50633_free_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_free_irq); */
 
 static int __pcf50633_irq_mask_set(struct pcf50633 *pcf, int irq, u8 mask)
 {
@@ -81,7 +81,7 @@ int pcf50633_irq_mask(struct pcf50633 *pcf, int irq)
 
 	return __pcf50633_irq_mask_set(pcf, irq, 1);
 }
-EXPORT_SYMBOL_GPL(pcf50633_irq_mask);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_irq_mask); */
 
 int pcf50633_irq_unmask(struct pcf50633 *pcf, int irq)
 {
@@ -89,7 +89,7 @@ int pcf50633_irq_unmask(struct pcf50633 *pcf, int irq)
 
 	return __pcf50633_irq_mask_set(pcf, irq, 0);
 }
-EXPORT_SYMBOL_GPL(pcf50633_irq_unmask);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_irq_unmask); */
 
 int pcf50633_irq_mask_get(struct pcf50633 *pcf, int irq)
 {
@@ -100,7 +100,7 @@ int pcf50633_irq_mask_get(struct pcf50633 *pcf, int irq)
 
 	return pcf->mask_regs[reg] & bits;
 }
-EXPORT_SYMBOL_GPL(pcf50633_irq_mask_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_irq_mask_get); */
 
 static void pcf50633_irq_call_handler(struct pcf50633 *pcf, int irq)
 {

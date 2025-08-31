@@ -59,7 +59,7 @@
 #define FIRMWARE_MAX_STALL	50			/* 50us */
 
 int erst_disable;
-EXPORT_SYMBOL_GPL(erst_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_disable); */
 
 static struct acpi_table_erst *erst_tab;
 
@@ -428,7 +428,7 @@ ssize_t erst_get_record_count(void)
 
 	return count;
 }
-EXPORT_SYMBOL_GPL(erst_get_record_count);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_get_record_count); */
 
 #define ERST_RECORD_ID_CACHE_SIZE_MIN	16
 #define ERST_RECORD_ID_CACHE_SIZE_MAX	1024
@@ -477,7 +477,7 @@ int erst_get_record_id_begin(int *pos)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(erst_get_record_id_begin);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_get_record_id_begin); */
 
 /* erst_record_id_cache.lock must be held by caller */
 static int __erst_record_id_cache_add_one(void)
@@ -595,7 +595,7 @@ out_unlock:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(erst_get_record_id_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_get_record_id_next); */
 
 /* erst_record_id_cache.lock must be held by caller */
 static void __erst_record_id_cache_compact(void)
@@ -632,7 +632,7 @@ void erst_get_record_id_end(void)
 	__erst_record_id_cache_compact();
 	mutex_unlock(&erst_record_id_cache.lock);
 }
-EXPORT_SYMBOL_GPL(erst_get_record_id_end);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_get_record_id_end); */
 
 static int __erst_write_to_storage(u64 offset)
 {
@@ -816,7 +816,7 @@ int erst_write(const struct cper_record_header *record)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(erst_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_write); */
 
 static int __erst_read_to_erange(u64 record_id, u64 *offset)
 {
@@ -871,7 +871,7 @@ ssize_t erst_read(u64 record_id, struct cper_record_header *record,
 	raw_spin_unlock_irqrestore(&erst_lock, flags);
 	return len;
 }
-EXPORT_SYMBOL_GPL(erst_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_read); */
 
 int erst_clear(u64 record_id)
 {
@@ -903,7 +903,7 @@ out:
 	mutex_unlock(&erst_record_id_cache.lock);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(erst_clear);
+/* DISABLED: EXPORT_SYMBOL_GPL(erst_clear); */
 
 static int __init setup_erst_disable(char *str)
 {
@@ -911,7 +911,7 @@ static int __init setup_erst_disable(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("erst_disable", setup_erst_disable); */
+/* DISABLED: __setup("erst_disable", setup_erst_disable); */ */
 
 static int erst_check_table(struct acpi_table_erst *erst_tab)
 {

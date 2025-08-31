@@ -45,7 +45,7 @@ struct proto pingv6_prot = {
 	.get_port =	ping_get_port,
 	.obj_size =	sizeof(struct raw6_sock),
 };
-EXPORT_SYMBOL_GPL(pingv6_prot);
+/* DISABLED: EXPORT_SYMBOL_GPL(pingv6_prot); */
 
 static struct inet_protosw pingv6_protosw = {
 	.type =      SOCK_DGRAM,

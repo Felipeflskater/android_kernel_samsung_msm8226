@@ -139,7 +139,7 @@ int snd_iprintf(struct snd_info_buffer *buffer, const char *fmt, ...)
 	return res;
 }
 
-EXPORT_SYMBOL(snd_iprintf);
+/* DISABLED: EXPORT_SYMBOL(snd_iprintf); */
 
 /*
 
@@ -147,7 +147,7 @@ EXPORT_SYMBOL(snd_iprintf);
 
 static struct proc_dir_entry *snd_proc_root;
 struct snd_info_entry *snd_seq_root;
-EXPORT_SYMBOL(snd_seq_root);
+/* DISABLED: EXPORT_SYMBOL(snd_seq_root); */
 
 #ifdef CONFIG_SND_OSSEMUL
 struct snd_info_entry *snd_oss_root;
@@ -726,7 +726,7 @@ int snd_info_get_line(struct snd_info_buffer *buffer, char *line, int len)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_info_get_line);
+/* DISABLED: EXPORT_SYMBOL(snd_info_get_line); */
 
 /**
  * snd_info_get_str - parse a string token
@@ -764,7 +764,7 @@ const char *snd_info_get_str(char *dest, const char *src, int len)
 	return src;
 }
 
-EXPORT_SYMBOL(snd_info_get_str);
+/* DISABLED: EXPORT_SYMBOL(snd_info_get_str); */
 
 /**
  * snd_info_create_entry - create an info entry
@@ -819,7 +819,7 @@ struct snd_info_entry *snd_info_create_module_entry(struct module * module,
 	return entry;
 }
 
-EXPORT_SYMBOL(snd_info_create_module_entry);
+/* DISABLED: EXPORT_SYMBOL(snd_info_create_module_entry); */
 
 /**
  * snd_info_create_card_entry - create an info entry for the given card
@@ -844,7 +844,7 @@ struct snd_info_entry *snd_info_create_card_entry(struct snd_card *card,
 	return entry;
 }
 
-EXPORT_SYMBOL(snd_info_create_card_entry);
+/* DISABLED: EXPORT_SYMBOL(snd_info_create_card_entry); */
 
 static void snd_info_disconnect(struct snd_info_entry *entry)
 {
@@ -920,7 +920,7 @@ int snd_card_proc_new(struct snd_card *card, const char *name,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_card_proc_new);
+/* DISABLED: EXPORT_SYMBOL(snd_card_proc_new); */
 
 /**
  * snd_info_free_entry - release the info entry
@@ -943,7 +943,7 @@ void snd_info_free_entry(struct snd_info_entry * entry)
 	kfree(entry);
 }
 
-EXPORT_SYMBOL(snd_info_free_entry);
+/* DISABLED: EXPORT_SYMBOL(snd_info_free_entry); */
 
 /**
  * snd_info_register - register the info entry
@@ -977,7 +977,7 @@ int snd_info_register(struct snd_info_entry * entry)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_info_register);
+/* DISABLED: EXPORT_SYMBOL(snd_info_register); */
 
 /*
 

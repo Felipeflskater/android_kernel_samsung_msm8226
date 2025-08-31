@@ -950,7 +950,7 @@ static struct isapnp_device_id id_table[] __devinitdata = {
 MODULE_DEVICE_TABLE(isapnp, id_table);
 #endif
 
-/* DISABLED: __setup("ncr5380=", do_NCR5380_setup); */
-/* DISABLED: __setup("ncr53c400=", do_NCR53C400_setup); */
-/* DISABLED: __setup("ncr53c400a=", do_NCR53C400A_setup); */
-/* DISABLED: __setup("dtc3181e=", do_DTC3181E_setup); */
+/* DISABLED: __setup("ncr5380=", do_NCR5380_setup); */ */
+/* DISABLED: __setup("ncr53c400=", do_NCR53C400_setup); */ */
+/* DISABLED: __setup("ncr53c400a=", do_NCR53C400A_setup); */ */
+/* DISABLED: __setup("dtc3181e=", do_DTC3181E_setup); */ */

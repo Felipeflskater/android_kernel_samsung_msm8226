@@ -101,7 +101,7 @@ unsigned long probe_irq_on(void)
 
 	return mask;
 }
-EXPORT_SYMBOL(probe_irq_on);
+/* DISABLED: EXPORT_SYMBOL(probe_irq_on); */
 
 /**
  *	probe_irq_mask - scan a bitmap of interrupt lines
@@ -136,7 +136,7 @@ unsigned int probe_irq_mask(unsigned long val)
 
 	return mask & val;
 }
-EXPORT_SYMBOL(probe_irq_mask);
+/* DISABLED: EXPORT_SYMBOL(probe_irq_mask); */
 
 /**
  *	probe_irq_off	- end an interrupt autodetect
@@ -181,5 +181,5 @@ int probe_irq_off(unsigned long val)
 
 	return irq_found;
 }
-EXPORT_SYMBOL(probe_irq_off);
+/* DISABLED: EXPORT_SYMBOL(probe_irq_off); */
 

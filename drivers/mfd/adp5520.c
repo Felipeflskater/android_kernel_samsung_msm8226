@@ -92,13 +92,13 @@ int adp5520_write(struct device *dev, int reg, uint8_t val)
 {
 	return __adp5520_write(to_i2c_client(dev), reg, val);
 }
-EXPORT_SYMBOL_GPL(adp5520_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_write); */
 
 int adp5520_read(struct device *dev, int reg, uint8_t *val)
 {
 	return __adp5520_read(to_i2c_client(dev), reg, val);
 }
-EXPORT_SYMBOL_GPL(adp5520_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_read); */
 
 int adp5520_set_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -118,7 +118,7 @@ int adp5520_set_bits(struct device *dev, int reg, uint8_t bit_mask)
 	mutex_unlock(&chip->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(adp5520_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_set_bits); */
 
 int adp5520_clr_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -138,7 +138,7 @@ int adp5520_clr_bits(struct device *dev, int reg, uint8_t bit_mask)
 	mutex_unlock(&chip->lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(adp5520_clr_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_clr_bits); */
 
 int adp5520_register_notifier(struct device *dev, struct notifier_block *nb,
 				unsigned int events)
@@ -156,7 +156,7 @@ int adp5520_register_notifier(struct device *dev, struct notifier_block *nb,
 
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(adp5520_register_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_register_notifier); */
 
 int adp5520_unregister_notifier(struct device *dev, struct notifier_block *nb,
 				unsigned int events)
@@ -169,7 +169,7 @@ int adp5520_unregister_notifier(struct device *dev, struct notifier_block *nb,
 
 	return blocking_notifier_chain_unregister(&chip->notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(adp5520_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(adp5520_unregister_notifier); */
 
 static irqreturn_t adp5520_irq_thread(int irq, void *data)
 {

@@ -298,7 +298,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-EXPORT_SYMBOL(zl10039_attach);
+/* DISABLED: EXPORT_SYMBOL(zl10039_attach); */
 
 module_param(debug, int, 0644);
 MODULE_PARM_DESC(debug, "Turn on/off frontend debugging (default:off).");

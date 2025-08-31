@@ -224,7 +224,7 @@ void __init config_mac(void)
  */
 
 struct mac_model *macintosh_config;
-EXPORT_SYMBOL(macintosh_config);
+/* DISABLED: EXPORT_SYMBOL(macintosh_config); */
 
 static struct mac_model mac_data_table[] = {
 	/*
@@ -843,7 +843,7 @@ struct platform_device scc_a_pdev = {
 	.num_resources  = ARRAY_SIZE(scc_a_rsrcs),
 	.resource       = scc_a_rsrcs,
 };
-EXPORT_SYMBOL(scc_a_pdev);
+/* DISABLED: EXPORT_SYMBOL(scc_a_pdev); */
 
 struct platform_device scc_b_pdev = {
 	.name           = "scc",
@@ -851,7 +851,7 @@ struct platform_device scc_b_pdev = {
 	.num_resources  = ARRAY_SIZE(scc_b_rsrcs),
 	.resource       = scc_b_rsrcs,
 };
-EXPORT_SYMBOL(scc_b_pdev);
+/* DISABLED: EXPORT_SYMBOL(scc_b_pdev); */
 
 static void __init mac_identify(void)
 {

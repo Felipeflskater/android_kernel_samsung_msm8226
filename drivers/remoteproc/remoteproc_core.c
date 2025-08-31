@@ -1185,7 +1185,7 @@ unlock_mutex:
 	mutex_unlock(&rproc->lock);
 	return ret;
 }
-EXPORT_SYMBOL(rproc_boot);
+/* DISABLED: EXPORT_SYMBOL(rproc_boot); */
 
 /**
  * rproc_shutdown() - power off the remote processor
@@ -1247,7 +1247,7 @@ out:
 	if (!ret)
 		module_put(dev->driver->owner);
 }
-EXPORT_SYMBOL(rproc_shutdown);
+/* DISABLED: EXPORT_SYMBOL(rproc_shutdown); */
 
 /**
  * rproc_release() - completely deletes the existence of a remote processor
@@ -1360,7 +1360,7 @@ struct rproc *rproc_get_by_name(const char *name)
 
 	return rproc;
 }
-EXPORT_SYMBOL(rproc_get_by_name);
+/* DISABLED: EXPORT_SYMBOL(rproc_get_by_name); */
 
 /**
  * rproc_put() - decrement the refcount of a remote processor, and shut it down
@@ -1383,7 +1383,7 @@ void rproc_put(struct rproc *rproc)
 	/* downref rproc's refcount */
 	kref_put(&rproc->refcount, rproc_release);
 }
-EXPORT_SYMBOL(rproc_put);
+/* DISABLED: EXPORT_SYMBOL(rproc_put); */
 
 /**
  * rproc_register() - register a remote processor
@@ -1443,7 +1443,7 @@ int rproc_register(struct rproc *rproc)
 
 	return ret;
 }
-EXPORT_SYMBOL(rproc_register);
+/* DISABLED: EXPORT_SYMBOL(rproc_register); */
 
 /**
  * rproc_alloc() - allocate a remote processor handle
@@ -1506,7 +1506,7 @@ struct rproc *rproc_alloc(struct device *dev, const char *name,
 
 	return rproc;
 }
-EXPORT_SYMBOL(rproc_alloc);
+/* DISABLED: EXPORT_SYMBOL(rproc_alloc); */
 
 /**
  * rproc_free() - free an rproc handle that was allocated by rproc_alloc
@@ -1525,7 +1525,7 @@ void rproc_free(struct rproc *rproc)
 
 	kfree(rproc);
 }
-EXPORT_SYMBOL(rproc_free);
+/* DISABLED: EXPORT_SYMBOL(rproc_free); */
 
 /**
  * rproc_unregister() - unregister a remote processor
@@ -1569,7 +1569,7 @@ int rproc_unregister(struct rproc *rproc)
 
 	return 0;
 }
-EXPORT_SYMBOL(rproc_unregister);
+/* DISABLED: EXPORT_SYMBOL(rproc_unregister); */
 
 static int __init remoteproc_init(void)
 {

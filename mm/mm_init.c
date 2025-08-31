@@ -138,7 +138,7 @@ early_param("mminit_loglevel", set_mminit_loglevel);
 #endif /* CONFIG_DEBUG_MEMORY_INIT */
 
 struct kobject *mm_kobj;
-EXPORT_SYMBOL_GPL(mm_kobj);
+/* DISABLED: EXPORT_SYMBOL_GPL(mm_kobj); */
 
 static int __init mm_sysfs_init(void)
 {

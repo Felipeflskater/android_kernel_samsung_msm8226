@@ -913,13 +913,13 @@ static void __exit cx8802_fini(void)
 
 module_init(cx8802_init);
 module_exit(cx8802_fini);
-EXPORT_SYMBOL(cx8802_buf_prepare);
-EXPORT_SYMBOL(cx8802_buf_queue);
-EXPORT_SYMBOL(cx8802_cancel_buffers);
+/* DISABLED: EXPORT_SYMBOL(cx8802_buf_prepare); */
+/* DISABLED: EXPORT_SYMBOL(cx8802_buf_queue); */
+/* DISABLED: EXPORT_SYMBOL(cx8802_cancel_buffers); */
 
-EXPORT_SYMBOL(cx8802_register_driver);
-EXPORT_SYMBOL(cx8802_unregister_driver);
-EXPORT_SYMBOL(cx8802_get_driver);
+/* DISABLED: EXPORT_SYMBOL(cx8802_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(cx8802_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL(cx8802_get_driver); */
 /* ----------------------------------------------------------- */
 /*
  * Local variables:

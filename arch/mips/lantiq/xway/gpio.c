@@ -40,13 +40,13 @@ int gpio_to_irq(unsigned int gpio)
 {
 	return -EINVAL;
 }
-EXPORT_SYMBOL(gpio_to_irq);
+/* DISABLED: EXPORT_SYMBOL(gpio_to_irq); */
 
 int irq_to_gpio(unsigned int gpio)
 {
 	return -EINVAL;
 }
-EXPORT_SYMBOL(irq_to_gpio);
+/* DISABLED: EXPORT_SYMBOL(irq_to_gpio); */
 
 int ltq_gpio_request(unsigned int pin, unsigned int alt0,
 	unsigned int alt1, unsigned int dir, const char *name)
@@ -81,7 +81,7 @@ int ltq_gpio_request(unsigned int pin, unsigned int alt0,
 			LTQ_GPIO_ALTSEL1, pin);
 	return 0;
 }
-EXPORT_SYMBOL(ltq_gpio_request);
+/* DISABLED: EXPORT_SYMBOL(ltq_gpio_request); */
 
 static void ltq_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
 {

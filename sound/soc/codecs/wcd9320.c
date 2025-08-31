@@ -6961,7 +6961,7 @@ int taiko_hs_detect(struct snd_soc_codec *codec,
 		taiko->mbhc_started = true;
 	return rc;
 }
-EXPORT_SYMBOL(taiko_hs_detect);
+/* DISABLED: EXPORT_SYMBOL(taiko_hs_detect); */
 
 void taiko_hs_detect_exit(struct snd_soc_codec *codec)
 {
@@ -6969,7 +6969,7 @@ void taiko_hs_detect_exit(struct snd_soc_codec *codec)
 	wcd9xxx_mbhc_stop(&taiko->mbhc);
 	taiko->mbhc_started = false;
 }
-EXPORT_SYMBOL(taiko_hs_detect_exit);
+/* DISABLED: EXPORT_SYMBOL(taiko_hs_detect_exit); */
 
 void taiko_event_register(
 	int (*machine_event_cb)(struct snd_soc_codec *codec,
@@ -6979,7 +6979,7 @@ void taiko_event_register(
 	struct taiko_priv *taiko = snd_soc_codec_get_drvdata(codec);
 	taiko->machine_codec_event_cb = machine_event_cb;
 }
-EXPORT_SYMBOL(taiko_event_register);
+/* DISABLED: EXPORT_SYMBOL(taiko_event_register); */
 
 static void taiko_init_slim_slave_cfg(struct snd_soc_codec *codec)
 {

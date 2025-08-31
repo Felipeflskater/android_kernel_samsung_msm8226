@@ -499,7 +499,7 @@ int pnx4008_get_fb_addresses(int fb_type, void **virt_addr,
 	return ret;
 }
 
-EXPORT_SYMBOL(pnx4008_get_fb_addresses);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_get_fb_addresses); */
 
 int pnx4008_alloc_dum_channel(int dev_id)
 {
@@ -516,7 +516,7 @@ int pnx4008_alloc_dum_channel(int dev_id)
 	}
 }
 
-EXPORT_SYMBOL(pnx4008_alloc_dum_channel);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_alloc_dum_channel); */
 
 int pnx4008_free_dum_channel(int channr, int dev_id)
 {
@@ -532,7 +532,7 @@ int pnx4008_free_dum_channel(int channr, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_free_dum_channel);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_free_dum_channel); */
 
 int pnx4008_put_dum_channel_uf(struct dumchannel_uf chan_uf, int dev_id)
 {
@@ -561,7 +561,7 @@ int pnx4008_put_dum_channel_uf(struct dumchannel_uf chan_uf, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_put_dum_channel_uf);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_put_dum_channel_uf); */
 
 int pnx4008_set_dum_channel_sync(int channr, int val, int dev_id)
 {
@@ -583,7 +583,7 @@ int pnx4008_set_dum_channel_sync(int channr, int val, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_set_dum_channel_sync);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_set_dum_channel_sync); */
 
 int pnx4008_set_dum_channel_dirty_detect(int channr, int val, int dev_id)
 {
@@ -603,7 +603,7 @@ int pnx4008_set_dum_channel_dirty_detect(int channr, int val, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_set_dum_channel_dirty_detect);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_set_dum_channel_dirty_detect); */
 
 #if 0 /* Functions not used currently, but likely to be used in future */
 
@@ -644,7 +644,7 @@ int pnx4008_get_dum_channel_uf(struct dumchannel_uf *p_chan_uf, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_get_dum_channel_uf);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_get_dum_channel_uf); */
 
 int pnx4008_get_dum_channel_config(int channr, int dev_id)
 {
@@ -664,7 +664,7 @@ int pnx4008_get_dum_channel_config(int channr, int dev_id)
 	return (chan.dum_ch_conf & DUM_CHANNEL_CFG_MASK);
 }
 
-EXPORT_SYMBOL(pnx4008_get_dum_channel_config);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_get_dum_channel_config); */
 
 int pnx4008_force_update_dum_channel(int channr, int dev_id)
 {
@@ -679,7 +679,7 @@ int pnx4008_force_update_dum_channel(int channr, int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_force_update_dum_channel);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_force_update_dum_channel); */
 
 #endif
 
@@ -698,7 +698,7 @@ int pnx4008_sdum_mmap(struct fb_info *info, struct vm_area_struct *vma,
 	return -EINVAL;
 }
 
-EXPORT_SYMBOL(pnx4008_sdum_mmap);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_sdum_mmap); */
 
 int pnx4008_set_dum_exit_notification(int dev_id)
 {
@@ -711,7 +711,7 @@ int pnx4008_set_dum_exit_notification(int dev_id)
 	return 0;
 }
 
-EXPORT_SYMBOL(pnx4008_set_dum_exit_notification);
+/* DISABLED: EXPORT_SYMBOL(pnx4008_set_dum_exit_notification); */
 
 /* Platform device driver for DUM */
 

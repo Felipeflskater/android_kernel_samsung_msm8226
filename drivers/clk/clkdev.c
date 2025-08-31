@@ -73,7 +73,7 @@ struct clk *clk_get_sys(const char *dev_id, const char *con_id)
 
 	return cl ? cl->clk : ERR_PTR(-ENOENT);
 }
-EXPORT_SYMBOL(clk_get_sys);
+/* DISABLED: EXPORT_SYMBOL(clk_get_sys); */
 
 struct clk *clk_get(struct device *dev, const char *con_id)
 {
@@ -81,7 +81,7 @@ struct clk *clk_get(struct device *dev, const char *con_id)
 
 	return clk_get_sys(dev_id, con_id);
 }
-EXPORT_SYMBOL(clk_get);
+/* DISABLED: EXPORT_SYMBOL(clk_get); */
 
 static void devm_clk_release(struct device *dev, void *res)
 {
@@ -106,13 +106,13 @@ struct clk *devm_clk_get(struct device *dev, const char *id)
 
 	return clk;
 }
-EXPORT_SYMBOL(devm_clk_get);
+/* DISABLED: EXPORT_SYMBOL(devm_clk_get); */
 
 void clk_put(struct clk *clk)
 {
 	__clk_put(clk);
 }
-EXPORT_SYMBOL(clk_put);
+/* DISABLED: EXPORT_SYMBOL(clk_put); */
 
 void clkdev_add(struct clk_lookup *cl)
 {
@@ -120,7 +120,7 @@ void clkdev_add(struct clk_lookup *cl)
 	list_add_tail(&cl->node, &clocks);
 	mutex_unlock(&clocks_mutex);
 }
-EXPORT_SYMBOL(clkdev_add);
+/* DISABLED: EXPORT_SYMBOL(clkdev_add); */
 
 void clkdev_add_table(struct clk_lookup *cl, size_t num)
 {
@@ -167,7 +167,7 @@ clkdev_alloc(struct clk *clk, const char *con_id, const char *dev_fmt, ...)
 
 	return &cla->cl;
 }
-EXPORT_SYMBOL(clkdev_alloc);
+/* DISABLED: EXPORT_SYMBOL(clkdev_alloc); */
 
 int clk_add_alias(const char *alias, const char *alias_dev_name, char *id,
 	struct device *dev)
@@ -185,7 +185,7 @@ int clk_add_alias(const char *alias, const char *alias_dev_name, char *id,
 	clkdev_add(l);
 	return 0;
 }
-EXPORT_SYMBOL(clk_add_alias);
+/* DISABLED: EXPORT_SYMBOL(clk_add_alias); */
 
 /*
  * clkdev_drop - remove a clock dynamically allocated
@@ -197,4 +197,4 @@ void clkdev_drop(struct clk_lookup *cl)
 	mutex_unlock(&clocks_mutex);
 	kfree(cl);
 }
-EXPORT_SYMBOL(clkdev_drop);
+/* DISABLED: EXPORT_SYMBOL(clkdev_drop); */

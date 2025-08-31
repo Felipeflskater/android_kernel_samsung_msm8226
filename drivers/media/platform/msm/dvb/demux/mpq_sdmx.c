@@ -268,7 +268,7 @@ out:
 	return ret;
 
 }
-EXPORT_SYMBOL(sdmx_get_version);
+/* DISABLED: EXPORT_SYMBOL(sdmx_get_version); */
 
 /*
  * Initializes a new secure demux instance and returns a handle of the instance.
@@ -343,7 +343,7 @@ int sdmx_open_session(int *session_handle)
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_open_session);
+/* DISABLED: EXPORT_SYMBOL(sdmx_open_session); */
 
 /*
  * Closes a secure demux instance.
@@ -401,7 +401,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_close_session);
+/* DISABLED: EXPORT_SYMBOL(sdmx_close_session); */
 
 /*
  * Configures an open secure demux instance.
@@ -466,7 +466,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_set_session_cfg);
+/* DISABLED: EXPORT_SYMBOL(sdmx_set_session_cfg); */
 
 /*
  * Creates a new secure demux filter and returns a filter handle
@@ -557,7 +557,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_add_filter);
+/* DISABLED: EXPORT_SYMBOL(sdmx_add_filter); */
 
 /*
  * Removes a secure demux filter
@@ -609,7 +609,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_remove_filter);
+/* DISABLED: EXPORT_SYMBOL(sdmx_remove_filter); */
 
 /*
  * Associates a key ladder index for the specified pid
@@ -666,7 +666,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_set_kl_ind);
+/* DISABLED: EXPORT_SYMBOL(sdmx_set_kl_ind); */
 
 /*
  * Adds the specified pid to an existing raw (recording) filter
@@ -720,7 +720,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_add_raw_pid);
+/* DISABLED: EXPORT_SYMBOL(sdmx_add_raw_pid); */
 
 /*
  * Removes the specified pid from a raw (recording) filter
@@ -774,7 +774,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_remove_raw_pid);
+/* DISABLED: EXPORT_SYMBOL(sdmx_remove_raw_pid); */
 
 /*
  * Call secure demux to perform processing on the specified input buffer
@@ -859,7 +859,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_process);
+/* DISABLED: EXPORT_SYMBOL(sdmx_process); */
 
 /*
  * Returns session-level & filter-level debug counters
@@ -924,7 +924,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_get_dbg_counters);
+/* DISABLED: EXPORT_SYMBOL(sdmx_get_dbg_counters); */
 
 /*
  * Reset debug counters
@@ -974,7 +974,7 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(sdmx_reset_dbg_counters);
+/* DISABLED: EXPORT_SYMBOL(sdmx_reset_dbg_counters); */
 
 /*
  * Set debug log verbosity level

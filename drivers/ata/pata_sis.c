@@ -649,7 +649,7 @@ static const struct ata_port_info sis_info133_early = {
 };
 
 /* Privately shared with the SiS180 SATA driver, not for use elsewhere */
-EXPORT_SYMBOL_GPL(sis_info133_for_sata);
+/* DISABLED: EXPORT_SYMBOL_GPL(sis_info133_for_sata); */
 
 static void sis_fixup(struct pci_dev *pdev, struct sis_chipset *sis)
 {

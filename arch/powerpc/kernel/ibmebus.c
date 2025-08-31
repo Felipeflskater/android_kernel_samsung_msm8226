@@ -214,13 +214,13 @@ int ibmebus_register_driver(struct of_platform_driver *drv)
 	drv->driver.bus = &ibmebus_bus_type;
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL(ibmebus_register_driver);
+/* DISABLED: EXPORT_SYMBOL(ibmebus_register_driver); */
 
 void ibmebus_unregister_driver(struct of_platform_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(ibmebus_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(ibmebus_unregister_driver); */
 
 int ibmebus_request_irq(u32 ist, irq_handler_t handler,
 			unsigned long irq_flags, const char *devname,
@@ -233,7 +233,7 @@ int ibmebus_request_irq(u32 ist, irq_handler_t handler,
 
 	return request_irq(irq, handler, irq_flags, devname, dev_id);
 }
-EXPORT_SYMBOL(ibmebus_request_irq);
+/* DISABLED: EXPORT_SYMBOL(ibmebus_request_irq); */
 
 void ibmebus_free_irq(u32 ist, void *dev_id)
 {
@@ -242,7 +242,7 @@ void ibmebus_free_irq(u32 ist, void *dev_id)
 	free_irq(irq, dev_id);
 	irq_dispose_mapping(irq);
 }
-EXPORT_SYMBOL(ibmebus_free_irq);
+/* DISABLED: EXPORT_SYMBOL(ibmebus_free_irq); */
 
 static char *ibmebus_chomp(const char *in, size_t count)
 {
@@ -724,7 +724,7 @@ struct bus_type ibmebus_bus_type = {
 	.dev_attrs = ibmebus_bus_device_attrs,
 	.pm        = IBMEBUS_BUS_PM_OPS_PTR,
 };
-EXPORT_SYMBOL(ibmebus_bus_type);
+/* DISABLED: EXPORT_SYMBOL(ibmebus_bus_type); */
 
 static int __init ibmebus_bus_init(void)
 {

@@ -393,7 +393,7 @@ int vga_get(struct pci_dev *pdev, unsigned int rsrc, int interruptible)
 	}
 	return rc;
 }
-EXPORT_SYMBOL(vga_get);
+/* DISABLED: EXPORT_SYMBOL(vga_get); */
 
 int vga_tryget(struct pci_dev *pdev, unsigned int rsrc)
 {
@@ -420,7 +420,7 @@ bail:
 	spin_unlock_irqrestore(&vga_lock, flags);
 	return rc;
 }
-EXPORT_SYMBOL(vga_tryget);
+/* DISABLED: EXPORT_SYMBOL(vga_tryget); */
 
 void vga_put(struct pci_dev *pdev, unsigned int rsrc)
 {
@@ -440,7 +440,7 @@ void vga_put(struct pci_dev *pdev, unsigned int rsrc)
 bail:
 	spin_unlock_irqrestore(&vga_lock, flags);
 }
-EXPORT_SYMBOL(vga_put);
+/* DISABLED: EXPORT_SYMBOL(vga_put); */
 
 /* Rules for using a bridge to control a VGA descendant decoding:
    if a bridge has only one VGA descendant then it can be used
@@ -706,7 +706,7 @@ void vga_set_legacy_decoding(struct pci_dev *pdev, unsigned int decodes)
 {
 	__vga_set_legacy_decoding(pdev, decodes, false);
 }
-EXPORT_SYMBOL(vga_set_legacy_decoding);
+/* DISABLED: EXPORT_SYMBOL(vga_set_legacy_decoding); */
 
 /* call with NULL to unregister */
 int vga_client_register(struct pci_dev *pdev, void *cookie,
@@ -732,7 +732,7 @@ bail:
 	return ret;
 
 }
-EXPORT_SYMBOL(vga_client_register);
+/* DISABLED: EXPORT_SYMBOL(vga_client_register); */
 
 /*
  * Char driver implementation

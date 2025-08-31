@@ -265,7 +265,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clock_lock, flags);
 }
-EXPORT_SYMBOL_GPL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_disable); */
 
 static int __clk_enable(struct clk *clk)
 {
@@ -308,7 +308,7 @@ int clk_enable(struct clk *clk)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_enable); */
 
 static LIST_HEAD(root_clks);
 
@@ -452,7 +452,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_register); */
 
 void clk_unregister(struct clk *clk)
 {
@@ -462,7 +462,7 @@ void clk_unregister(struct clk *clk)
 	clk_teardown_mapping(clk);
 	mutex_unlock(&clock_list_sem);
 }
-EXPORT_SYMBOL_GPL(clk_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_unregister); */
 
 void clk_enable_init_clocks(void)
 {
@@ -477,7 +477,7 @@ unsigned long clk_get_rate(struct clk *clk)
 {
 	return clk->rate;
 }
-EXPORT_SYMBOL_GPL(clk_get_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_get_rate); */
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -505,7 +505,7 @@ out_unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_set_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_rate); */
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -537,13 +537,13 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(clk_set_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_parent); */
 
 struct clk *clk_get_parent(struct clk *clk)
 {
 	return clk->parent;
 }
-EXPORT_SYMBOL_GPL(clk_get_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_get_parent); */
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -559,7 +559,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return clk_get_rate(clk);
 }
-EXPORT_SYMBOL_GPL(clk_round_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_round_rate); */
 
 long clk_round_parent(struct clk *clk, unsigned long target,
 		      unsigned long *best_freq, unsigned long *parent_freq,
@@ -651,7 +651,7 @@ long clk_round_parent(struct clk *clk, unsigned long target,
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(clk_round_parent);
+/* DISABLED: EXPORT_SYMBOL_GPL(clk_round_parent); */
 
 #ifdef CONFIG_PM
 static void clks_core_resume(void)

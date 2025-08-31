@@ -52,7 +52,7 @@ MPI mpi_alloc(unsigned nlimbs)
 	a->nbits = 0;
 	return a;
 }
-EXPORT_SYMBOL_GPL(mpi_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_alloc); */
 
 mpi_ptr_t mpi_alloc_limb_space(unsigned nlimbs)
 {
@@ -127,7 +127,7 @@ void mpi_free(MPI a)
 		pr_info("invalid flag value in mpi\n");
 	kfree(a);
 }
-EXPORT_SYMBOL_GPL(mpi_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(mpi_free); */
 
 /****************
  * Note: This copy function should not interpret the MPI

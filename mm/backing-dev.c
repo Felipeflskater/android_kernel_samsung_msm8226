@@ -20,13 +20,13 @@ struct backing_dev_info default_backing_dev_info = {
 	.state		= 0,
 	.capabilities	= BDI_CAP_MAP_COPY,
 };
-EXPORT_SYMBOL_GPL(default_backing_dev_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(default_backing_dev_info); */
 
 struct backing_dev_info noop_backing_dev_info = {
 	.name		= "noop",
 	.capabilities	= BDI_CAP_NO_ACCT_AND_WRITEBACK,
 };
-EXPORT_SYMBOL_GPL(noop_backing_dev_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(noop_backing_dev_info); */
 
 static struct class *bdi_class;
 
@@ -573,13 +573,13 @@ int bdi_register(struct backing_dev_info *bdi, struct device *parent,
 	trace_writeback_bdi_register(bdi);
 	return 0;
 }
-EXPORT_SYMBOL(bdi_register);
+/* DISABLED: EXPORT_SYMBOL(bdi_register); */
 
 int bdi_register_dev(struct backing_dev_info *bdi, dev_t dev)
 {
 	return bdi_register(bdi, NULL, "%u:%u", MAJOR(dev), MINOR(dev));
 }
-EXPORT_SYMBOL(bdi_register_dev);
+/* DISABLED: EXPORT_SYMBOL(bdi_register_dev); */
 
 /*
  * Remove bdi from the global list and shutdown any threads we have running
@@ -651,7 +651,7 @@ void bdi_unregister(struct backing_dev_info *bdi)
 		device_unregister(dev);
 	}
 }
-EXPORT_SYMBOL(bdi_unregister);
+/* DISABLED: EXPORT_SYMBOL(bdi_unregister); */
 
 static void bdi_wb_init(struct bdi_writeback *wb, struct backing_dev_info *bdi)
 {
@@ -712,7 +712,7 @@ err:
 
 	return err;
 }
-EXPORT_SYMBOL(bdi_init);
+/* DISABLED: EXPORT_SYMBOL(bdi_init); */
 
 void bdi_destroy(struct backing_dev_info *bdi)
 {
@@ -748,7 +748,7 @@ void bdi_destroy(struct backing_dev_info *bdi)
 
 	prop_local_destroy_percpu(&bdi->completions);
 }
-EXPORT_SYMBOL(bdi_destroy);
+/* DISABLED: EXPORT_SYMBOL(bdi_destroy); */
 
 /*
  * For use from filesystems to quickly init and register a bdi associated
@@ -775,7 +775,7 @@ int bdi_setup_and_register(struct backing_dev_info *bdi, char *name,
 
 	return 0;
 }
-EXPORT_SYMBOL(bdi_setup_and_register);
+/* DISABLED: EXPORT_SYMBOL(bdi_setup_and_register); */
 
 static wait_queue_head_t congestion_wqh[2] = {
 		__WAIT_QUEUE_HEAD_INITIALIZER(congestion_wqh[0]),
@@ -795,7 +795,7 @@ void clear_bdi_congested(struct backing_dev_info *bdi, int sync)
 	if (waitqueue_active(wqh))
 		wake_up(wqh);
 }
-EXPORT_SYMBOL(clear_bdi_congested);
+/* DISABLED: EXPORT_SYMBOL(clear_bdi_congested); */
 
 void set_bdi_congested(struct backing_dev_info *bdi, int sync)
 {
@@ -805,7 +805,7 @@ void set_bdi_congested(struct backing_dev_info *bdi, int sync)
 	if (!test_and_set_bit(bit, &bdi->state))
 		atomic_inc(&nr_bdi_congested[sync]);
 }
-EXPORT_SYMBOL(set_bdi_congested);
+/* DISABLED: EXPORT_SYMBOL(set_bdi_congested); */
 
 /**
  * congestion_wait - wait for a backing_dev to become uncongested
@@ -832,7 +832,7 @@ long congestion_wait(int sync, long timeout)
 
 	return ret;
 }
-EXPORT_SYMBOL(congestion_wait);
+/* DISABLED: EXPORT_SYMBOL(congestion_wait); */
 
 /**
  * wait_iff_congested - Conditionally wait for a backing_dev to become uncongested or a zone to complete writes
@@ -900,4 +900,4 @@ out:
 
 	return ret;
 }
-EXPORT_SYMBOL(wait_iff_congested);
+/* DISABLED: EXPORT_SYMBOL(wait_iff_congested); */

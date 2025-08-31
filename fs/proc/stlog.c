@@ -712,7 +712,7 @@ asmlinkage int vstlog(const char *fmt, va_list args)
 	return printed_len;
 }
 
-EXPORT_SYMBOL(vstlog);
+/* DISABLED: EXPORT_SYMBOL(vstlog); */
 
 /**
  * stlog - print a storage message
@@ -730,7 +730,7 @@ asmlinkage int stlog(const char *fmt, ...)
 
 	return r;
 }
-EXPORT_SYMBOL(stlog);
+/* DISABLED: EXPORT_SYMBOL(stlog); */
 
 
 

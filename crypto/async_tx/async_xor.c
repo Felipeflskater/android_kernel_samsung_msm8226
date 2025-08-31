@@ -226,7 +226,7 @@ async_xor(struct page *dest, struct page **src_list, unsigned int offset,
 		return NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(async_xor);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_xor); */
 
 static int page_is_zero(struct page *p, unsigned int offset, size_t len)
 {
@@ -332,7 +332,7 @@ async_xor_val(struct page *dest, struct page **src_list, unsigned int offset,
 
 	return tx;
 }
-EXPORT_SYMBOL_GPL(async_xor_val);
+/* DISABLED: EXPORT_SYMBOL_GPL(async_xor_val); */
 
 MODULE_AUTHOR("Intel Corporation");
 MODULE_DESCRIPTION("asynchronous xor/xor-zero-sum api");

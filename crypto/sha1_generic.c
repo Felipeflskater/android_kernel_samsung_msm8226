@@ -71,7 +71,7 @@ int crypto_sha1_update(struct shash_desc *desc, const u8 *data,
 
 	return 0;
 }
-EXPORT_SYMBOL(crypto_sha1_update);
+/* DISABLED: EXPORT_SYMBOL(crypto_sha1_update); */
 
 
 /* Add padding and return the message digest. */

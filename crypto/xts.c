@@ -236,7 +236,7 @@ first:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(xts_crypt);
+/* DISABLED: EXPORT_SYMBOL_GPL(xts_crypt); */
 
 static int init_tfm(struct crypto_tfm *tfm)
 {

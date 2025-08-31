@@ -115,7 +115,7 @@ int fcp_avc_transaction(struct fw_unit *unit,
 
 	return ret;
 }
-EXPORT_SYMBOL(fcp_avc_transaction);
+/* DISABLED: EXPORT_SYMBOL(fcp_avc_transaction); */
 
 /**
  * fcp_bus_reset - inform the target handler about a bus reset
@@ -139,7 +139,7 @@ void fcp_bus_reset(struct fw_unit *unit)
 	}
 	spin_unlock_irq(&transactions_lock);
 }
-EXPORT_SYMBOL(fcp_bus_reset);
+/* DISABLED: EXPORT_SYMBOL(fcp_bus_reset); */
 
 /* checks whether the response matches the masked bytes in response_buffer */
 static bool is_matching_response(struct fcp_transaction *transaction,

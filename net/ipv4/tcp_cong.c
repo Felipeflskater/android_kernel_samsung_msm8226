@@ -59,7 +59,7 @@ int tcp_register_congestion_control(struct tcp_congestion_ops *ca)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(tcp_register_congestion_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_register_congestion_control); */
 
 /*
  * Remove congestion control algorithm, called from
@@ -73,7 +73,7 @@ void tcp_unregister_congestion_control(struct tcp_congestion_ops *ca)
 	list_del_rcu(&ca->list);
 	spin_unlock(&tcp_cong_list_lock);
 }
-EXPORT_SYMBOL_GPL(tcp_unregister_congestion_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_unregister_congestion_control); */
 
 /* Assign choice of congestion control. */
 void tcp_init_congestion_control(struct sock *sk)
@@ -297,7 +297,7 @@ int tcp_is_cwnd_limited(const struct sock *sk, u32 in_flight)
 		return 1;
 	return left <= tcp_max_tso_deferred_mss(tp);
 }
-EXPORT_SYMBOL_GPL(tcp_is_cwnd_limited);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_is_cwnd_limited); */
 
 /*
  * Slow start is used when congestion window is less than slow start
@@ -322,7 +322,7 @@ void tcp_slow_start(struct tcp_sock *tp)
 			tp->snd_cwnd++;
 	}
 }
-EXPORT_SYMBOL_GPL(tcp_slow_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_slow_start); */
 
 /* In theory this is tp->snd_cwnd += 1 / tp->snd_cwnd (or alternative w) */
 void tcp_cong_avoid_ai(struct tcp_sock *tp, u32 w)
@@ -335,7 +335,7 @@ void tcp_cong_avoid_ai(struct tcp_sock *tp, u32 w)
 		tp->snd_cwnd_cnt++;
 	}
 }
-EXPORT_SYMBOL_GPL(tcp_cong_avoid_ai);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_cong_avoid_ai); */
 
 /*
  * TCP Reno congestion control
@@ -358,7 +358,7 @@ void tcp_reno_cong_avoid(struct sock *sk, u32 ack, u32 in_flight)
 	else
 		tcp_cong_avoid_ai(tp, tp->snd_cwnd);
 }
-EXPORT_SYMBOL_GPL(tcp_reno_cong_avoid);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_reno_cong_avoid); */
 
 /* Slow start threshold is half the congestion window (min 2) */
 u32 tcp_reno_ssthresh(struct sock *sk)
@@ -366,7 +366,7 @@ u32 tcp_reno_ssthresh(struct sock *sk)
 	const struct tcp_sock *tp = tcp_sk(sk);
 	return max(tp->snd_cwnd >> 1U, 2U);
 }
-EXPORT_SYMBOL_GPL(tcp_reno_ssthresh);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_reno_ssthresh); */
 
 /* Lower bound on congestion window with halving. */
 u32 tcp_reno_min_cwnd(const struct sock *sk)
@@ -374,7 +374,7 @@ u32 tcp_reno_min_cwnd(const struct sock *sk)
 	const struct tcp_sock *tp = tcp_sk(sk);
 	return tp->snd_ssthresh/2;
 }
-EXPORT_SYMBOL_GPL(tcp_reno_min_cwnd);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_reno_min_cwnd); */
 
 struct tcp_congestion_ops tcp_reno = {
 	.flags		= TCP_CONG_NON_RESTRICTED,
@@ -396,4 +396,4 @@ struct tcp_congestion_ops tcp_init_congestion_ops  = {
 	.cong_avoid	= tcp_reno_cong_avoid,
 	.min_cwnd	= tcp_reno_min_cwnd,
 };
-EXPORT_SYMBOL_GPL(tcp_init_congestion_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(tcp_init_congestion_ops); */

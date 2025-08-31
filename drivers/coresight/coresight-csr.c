@@ -104,7 +104,7 @@ void msm_qdss_csr_enable_bam_to_usb(void)
 
 	CSR_LOCK(drvdata);
 }
-EXPORT_SYMBOL(msm_qdss_csr_enable_bam_to_usb);
+/* DISABLED: EXPORT_SYMBOL(msm_qdss_csr_enable_bam_to_usb); */
 
 void msm_qdss_csr_disable_bam_to_usb(void)
 {
@@ -119,7 +119,7 @@ void msm_qdss_csr_disable_bam_to_usb(void)
 
 	CSR_LOCK(drvdata);
 }
-EXPORT_SYMBOL(msm_qdss_csr_disable_bam_to_usb);
+/* DISABLED: EXPORT_SYMBOL(msm_qdss_csr_disable_bam_to_usb); */
 
 void msm_qdss_csr_disable_flush(void)
 {
@@ -134,7 +134,7 @@ void msm_qdss_csr_disable_flush(void)
 
 	CSR_LOCK(drvdata);
 }
-EXPORT_SYMBOL(msm_qdss_csr_disable_flush);
+/* DISABLED: EXPORT_SYMBOL(msm_qdss_csr_disable_flush); */
 
 int coresight_csr_hwctrl_set(uint64_t addr, uint32_t val)
 {
@@ -158,7 +158,7 @@ int coresight_csr_hwctrl_set(uint64_t addr, uint32_t val)
 
 	return ret;
 }
-EXPORT_SYMBOL(coresight_csr_hwctrl_set);
+/* DISABLED: EXPORT_SYMBOL(coresight_csr_hwctrl_set); */
 
 void coresight_csr_set_byte_cntr(uint32_t count)
 {
@@ -171,7 +171,7 @@ void coresight_csr_set_byte_cntr(uint32_t count)
 
 	CSR_LOCK(drvdata);
 }
-EXPORT_SYMBOL(coresight_csr_set_byte_cntr);
+/* DISABLED: EXPORT_SYMBOL(coresight_csr_set_byte_cntr); */
 
 static int __devinit csr_probe(struct platform_device *pdev)
 {

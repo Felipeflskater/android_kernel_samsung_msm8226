@@ -44,7 +44,7 @@ int fib_default_rule_add(struct fib_rules_ops *ops,
 	list_add_tail(&r->list, &ops->rules_list);
 	return 0;
 }
-EXPORT_SYMBOL(fib_default_rule_add);
+/* DISABLED: EXPORT_SYMBOL(fib_default_rule_add); */
 
 u32 fib_default_rule_pref(struct fib_rules_ops *ops)
 {
@@ -62,7 +62,7 @@ u32 fib_default_rule_pref(struct fib_rules_ops *ops)
 
 	return 0;
 }
-EXPORT_SYMBOL(fib_default_rule_pref);
+/* DISABLED: EXPORT_SYMBOL(fib_default_rule_pref); */
 
 static void notify_rule_change(int event, struct fib_rule *rule,
 			       struct fib_rules_ops *ops, struct nlmsghdr *nlh,
@@ -149,7 +149,7 @@ fib_rules_register(const struct fib_rules_ops *tmpl, struct net *net)
 
 	return ops;
 }
-EXPORT_SYMBOL_GPL(fib_rules_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(fib_rules_register); */
 
 static void fib_rules_cleanup_ops(struct fib_rules_ops *ops)
 {
@@ -181,7 +181,7 @@ void fib_rules_unregister(struct fib_rules_ops *ops)
 
 	call_rcu(&ops->rcu, fib_rules_put_rcu);
 }
-EXPORT_SYMBOL_GPL(fib_rules_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(fib_rules_unregister); */
 
 static int uid_range_set(struct fib_kuid_range *range)
 {
@@ -278,7 +278,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(fib_rules_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(fib_rules_lookup); */
 
 static int validate_rulemsg(struct fib_rule_hdr *frh, struct nlattr **tb,
 			    struct fib_rules_ops *ops)

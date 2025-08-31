@@ -730,7 +730,7 @@ void edac_pci_handle_pe(struct edac_pci_ctl_info *pci, const char *msg)
 	 */
 	edac_pci_do_parity_check();
 }
-EXPORT_SYMBOL_GPL(edac_pci_handle_pe);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_handle_pe); */
 
 
 /*
@@ -755,7 +755,7 @@ void edac_pci_handle_npe(struct edac_pci_ctl_info *pci, const char *msg)
 	 */
 	edac_pci_do_parity_check();
 }
-EXPORT_SYMBOL_GPL(edac_pci_handle_npe);
+/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_handle_npe); */
 
 /*
  * Define the PCI parameter to the module

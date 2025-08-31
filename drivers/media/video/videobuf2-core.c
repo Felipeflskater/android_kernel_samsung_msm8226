@@ -422,7 +422,7 @@ int vb2_querybuf(struct vb2_queue *q, struct v4l2_buffer *b)
 
 	return __fill_v4l2_buffer(vb, b);
 }
-EXPORT_SYMBOL(vb2_querybuf);
+/* DISABLED: EXPORT_SYMBOL(vb2_querybuf); */
 
 /**
  * __verify_userptr_ops() - verify that all memory operations required for
@@ -592,7 +592,7 @@ int vb2_reqbufs(struct vb2_queue *q, struct v4l2_requestbuffers *req)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_reqbufs);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_reqbufs); */
 
 /**
  * vb2_create_bufs() - Allocate buffers and any required auxiliary structs
@@ -716,7 +716,7 @@ int vb2_create_bufs(struct vb2_queue *q, struct v4l2_create_buffers *create)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_create_bufs);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_create_bufs); */
 
 /**
  * vb2_plane_vaddr() - Return a kernel virtual address of a given plane
@@ -736,7 +736,7 @@ void *vb2_plane_vaddr(struct vb2_buffer *vb, unsigned int plane_no)
 	return call_memop(q, vaddr, vb->planes[plane_no].mem_priv);
 
 }
-EXPORT_SYMBOL_GPL(vb2_plane_vaddr);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_plane_vaddr); */
 
 /**
  * vb2_plane_cookie() - Return allocator specific cookie for the given plane
@@ -758,7 +758,7 @@ void *vb2_plane_cookie(struct vb2_buffer *vb, unsigned int plane_no)
 
 	return call_memop(q, cookie, vb->planes[plane_no].mem_priv);
 }
-EXPORT_SYMBOL_GPL(vb2_plane_cookie);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_plane_cookie); */
 
 /**
  * vb2_buffer_done() - inform videobuf that an operation on a buffer is finished
@@ -796,7 +796,7 @@ void vb2_buffer_done(struct vb2_buffer *vb, enum vb2_buffer_state state)
 	/* Inform any processes that may be waiting for buffers */
 	wake_up(&q->done_wq);
 }
-EXPORT_SYMBOL_GPL(vb2_buffer_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_buffer_done); */
 
 /**
  * __fill_vb2_buffer() - fill a vb2_buffer with information provided in
@@ -1055,7 +1055,7 @@ int vb2_prepare_buf(struct vb2_queue *q, struct v4l2_buffer *b)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_prepare_buf);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_prepare_buf); */
 
 /**
  * vb2_qbuf() - Queue a buffer from userspace
@@ -1175,7 +1175,7 @@ unlock:
 		up_read(mmap_sem);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(vb2_qbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_qbuf); */
 
 /**
  * __vb2_wait_for_done_vb() - wait for a buffer to become available
@@ -1289,7 +1289,7 @@ int vb2_wait_for_all_buffers(struct vb2_queue *q)
 	wait_event(q->done_wq, !atomic_read(&q->queued_count));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_wait_for_all_buffers);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_wait_for_all_buffers); */
 
 /**
  * vb2_dqbuf() - Dequeue a buffer to the userspace
@@ -1361,7 +1361,7 @@ int vb2_dqbuf(struct vb2_queue *q, struct v4l2_buffer *b, bool nonblocking)
 	vb->state = VB2_BUF_STATE_DEQUEUED;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_dqbuf);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_dqbuf); */
 
 /**
  * __vb2_queue_cancel() - cancel and stop (pause) streaming
@@ -1454,7 +1454,7 @@ int vb2_streamon(struct vb2_queue *q, enum v4l2_buf_type type)
 	dprintk(3, "Streamon successful\n");
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_streamon);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_streamon); */
 
 
 /**
@@ -1498,7 +1498,7 @@ int vb2_streamoff(struct vb2_queue *q, enum v4l2_buf_type type)
 	dprintk(3, "Streamoff successful\n");
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_streamoff);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_streamoff); */
 
 /**
  * __find_plane_by_offset() - find plane associated with the given offset off
@@ -1595,7 +1595,7 @@ int vb2_mmap(struct vb2_queue *q, struct vm_area_struct *vma)
 	dprintk(3, "Buffer %d, plane %d successfully mapped\n", buffer, plane);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_mmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_mmap); */
 
 #ifndef CONFIG_MMU
 unsigned long vb2_get_unmapped_area(struct vb2_queue *q,
@@ -1625,7 +1625,7 @@ unsigned long vb2_get_unmapped_area(struct vb2_queue *q,
 
 	return (unsigned long)vb2_plane_vaddr(vb, plane);
 }
-EXPORT_SYMBOL_GPL(vb2_get_unmapped_area);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_get_unmapped_area); */
 #endif
 
 static int __vb2_init_fileio(struct vb2_queue *q, int read);
@@ -1697,7 +1697,7 @@ unsigned int vb2_poll(struct vb2_queue *q, struct file *file, poll_table *wait)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_poll);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_poll); */
 
 /**
  * vb2_queue_init() - initialize a videobuf2 queue
@@ -1731,7 +1731,7 @@ int vb2_queue_init(struct vb2_queue *q)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vb2_queue_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_queue_init); */
 
 /**
  * vb2_queue_release() - stop streaming, release the queue and free memory
@@ -1747,7 +1747,7 @@ void vb2_queue_release(struct vb2_queue *q)
 	__vb2_queue_cancel(q);
 	__vb2_queue_free(q, q->num_buffers);
 }
-EXPORT_SYMBOL_GPL(vb2_queue_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_queue_release); */
 
 /**
  * struct vb2_fileio_buf - buffer context used by file io emulator
@@ -2090,14 +2090,14 @@ size_t vb2_read(struct vb2_queue *q, char __user *data, size_t count,
 {
 	return __vb2_perform_fileio(q, data, count, ppos, nonblocking, 1);
 }
-EXPORT_SYMBOL_GPL(vb2_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_read); */
 
 size_t vb2_write(struct vb2_queue *q, char __user *data, size_t count,
 		loff_t *ppos, int nonblocking)
 {
 	return __vb2_perform_fileio(q, data, count, ppos, nonblocking, 0);
 }
-EXPORT_SYMBOL_GPL(vb2_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(vb2_write); */
 
 MODULE_DESCRIPTION("Driver helper framework for Video for Linux 2");
 MODULE_AUTHOR("Pawel Osciak <pawel@osciak.com>, Marek Szyprowski");

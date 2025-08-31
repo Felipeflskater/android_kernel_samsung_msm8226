@@ -29,7 +29,7 @@ int tc_register_driver(struct tc_driver *tdrv)
 {
 	return driver_register(&tdrv->driver);
 }
-EXPORT_SYMBOL(tc_register_driver);
+/* DISABLED: EXPORT_SYMBOL(tc_register_driver); */
 
 /**
  * tc_unregister_driver - unregister a TC driver
@@ -44,7 +44,7 @@ void tc_unregister_driver(struct tc_driver *tdrv)
 {
 	driver_unregister(&tdrv->driver);
 }
-EXPORT_SYMBOL(tc_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(tc_unregister_driver); */
 
 /**
  * tc_match_device - tell if a TC device structure has a matching
@@ -71,7 +71,7 @@ const struct tc_device_id *tc_match_device(struct tc_driver *tdrv,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(tc_match_device);
+/* DISABLED: EXPORT_SYMBOL(tc_match_device); */
 
 /**
  * tc_bus_match - Tell if a device structure has a matching
@@ -100,7 +100,7 @@ struct bus_type tc_bus_type = {
 	.name	= "tc",
 	.match	= tc_bus_match,
 };
-EXPORT_SYMBOL(tc_bus_type);
+/* DISABLED: EXPORT_SYMBOL(tc_bus_type); */
 
 static int __init tc_driver_init(void)
 {

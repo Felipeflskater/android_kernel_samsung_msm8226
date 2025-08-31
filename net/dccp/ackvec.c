@@ -360,7 +360,7 @@ int dccp_ackvec_parsed_add(struct list_head *head, u8 *vec, u8 len, u8 nonce)
 	list_add_tail(&new->node, head);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dccp_ackvec_parsed_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_ackvec_parsed_add); */
 
 void dccp_ackvec_parsed_cleanup(struct list_head *parsed_chunks)
 {
@@ -370,7 +370,7 @@ void dccp_ackvec_parsed_cleanup(struct list_head *parsed_chunks)
 		kfree(cur);
 	INIT_LIST_HEAD(parsed_chunks);
 }
-EXPORT_SYMBOL_GPL(dccp_ackvec_parsed_cleanup);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_ackvec_parsed_cleanup); */
 
 int __init dccp_ackvec_init(void)
 {

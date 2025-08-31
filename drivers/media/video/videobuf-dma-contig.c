@@ -349,7 +349,7 @@ void videobuf_queue_dma_contig_init(struct videobuf_queue *q,
 	videobuf_queue_core_init(q, ops, dev, irqlock, type, field, msize,
 				 priv, &qops, ext_lock);
 }
-EXPORT_SYMBOL_GPL(videobuf_queue_dma_contig_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_dma_contig_init); */
 
 dma_addr_t videobuf_to_dma_contig(struct videobuf_buffer *buf)
 {
@@ -360,7 +360,7 @@ dma_addr_t videobuf_to_dma_contig(struct videobuf_buffer *buf)
 
 	return mem->dma_handle;
 }
-EXPORT_SYMBOL_GPL(videobuf_to_dma_contig);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_to_dma_contig); */
 
 void videobuf_dma_contig_free(struct videobuf_queue *q,
 			      struct videobuf_buffer *buf)
@@ -393,7 +393,7 @@ void videobuf_dma_contig_free(struct videobuf_queue *q,
 		mem->vaddr = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(videobuf_dma_contig_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_contig_free); */
 
 MODULE_DESCRIPTION("helper module to manage video4linux dma contig buffers");
 MODULE_AUTHOR("Magnus Damm");

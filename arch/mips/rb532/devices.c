@@ -55,13 +55,13 @@ void set_latch_u5(unsigned char or_mask, unsigned char nand_mask)
 
 	spin_unlock_irqrestore(&dev3.lock, flags);
 }
-EXPORT_SYMBOL(set_latch_u5);
+/* DISABLED: EXPORT_SYMBOL(set_latch_u5); */
 
 unsigned char get_latch_u5(void)
 {
 	return dev3.state;
 }
-EXPORT_SYMBOL(get_latch_u5);
+/* DISABLED: EXPORT_SYMBOL(get_latch_u5); */
 
 static struct resource korina_dev0_res[] = {
 	{
@@ -337,6 +337,6 @@ static int __init setup_kmac(char *s)
 	return 0;
 }
 
-/* DISABLED: __setup("kmac=", setup_kmac); */
+/* DISABLED: __setup("kmac=", setup_kmac); */ */
 
 arch_initcall(plat_setup_devices);

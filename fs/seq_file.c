@@ -80,7 +80,7 @@ int seq_open(struct file *file, const struct seq_operations *op)
 	file->f_mode &= ~FMODE_PWRITE;
 	return 0;
 }
-EXPORT_SYMBOL(seq_open);
+/* DISABLED: EXPORT_SYMBOL(seq_open); */
 
 static int traverse(struct seq_file *m, loff_t offset)
 {
@@ -311,7 +311,7 @@ Efault:
 	err = -EFAULT;
 	goto Done;
 }
-EXPORT_SYMBOL(seq_read);
+/* DISABLED: EXPORT_SYMBOL(seq_read); */
 
 /**
  *	seq_lseek -	->llseek() method for sequential files.
@@ -357,7 +357,7 @@ loff_t seq_lseek(struct file *file, loff_t offset, int origin)
 	mutex_unlock(&m->lock);
 	return retval;
 }
-EXPORT_SYMBOL(seq_lseek);
+/* DISABLED: EXPORT_SYMBOL(seq_lseek); */
 
 /**
  *	seq_release -	free the structures associated with sequential file.
@@ -378,7 +378,7 @@ int seq_release(struct inode *inode, struct file *file)
 	kfree(m);
 	return 0;
 }
-EXPORT_SYMBOL(seq_release);
+/* DISABLED: EXPORT_SYMBOL(seq_release); */
 
 /**
  *	seq_escape -	print string into buffer, escaping some characters
@@ -414,7 +414,7 @@ int seq_escape(struct seq_file *m, const char *s, const char *esc)
 	m->count = p - m->buf;
         return 0;
 }
-EXPORT_SYMBOL(seq_escape);
+/* DISABLED: EXPORT_SYMBOL(seq_escape); */
 
 int seq_printf(struct seq_file *m, const char *f, ...)
 {
@@ -433,7 +433,7 @@ int seq_printf(struct seq_file *m, const char *f, ...)
 	seq_set_overflow(m);
 	return -1;
 }
-EXPORT_SYMBOL(seq_printf);
+/* DISABLED: EXPORT_SYMBOL(seq_printf); */
 
 /**
  *	mangle_path -	mangle and copy path to buffer beginning
@@ -465,7 +465,7 @@ char *mangle_path(char *s, const char *p, const char *esc)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(mangle_path);
+/* DISABLED: EXPORT_SYMBOL(mangle_path); */
 
 /**
  * seq_path - seq_file interface to print a pathname
@@ -494,7 +494,7 @@ int seq_path(struct seq_file *m, const struct path *path, const char *esc)
 
 	return res;
 }
-EXPORT_SYMBOL(seq_path);
+/* DISABLED: EXPORT_SYMBOL(seq_path); */
 
 /*
  * Same as seq_path, but relative to supplied root.
@@ -562,7 +562,7 @@ int seq_bitmap(struct seq_file *m, const unsigned long *bits,
 	seq_set_overflow(m);
 	return -1;
 }
-EXPORT_SYMBOL(seq_bitmap);
+/* DISABLED: EXPORT_SYMBOL(seq_bitmap); */
 
 int seq_bitmap_list(struct seq_file *m, const unsigned long *bits,
 		unsigned int nr_bits)
@@ -578,7 +578,7 @@ int seq_bitmap_list(struct seq_file *m, const unsigned long *bits,
 	seq_set_overflow(m);
 	return -1;
 }
-EXPORT_SYMBOL(seq_bitmap_list);
+/* DISABLED: EXPORT_SYMBOL(seq_bitmap_list); */
 
 static void *single_start(struct seq_file *p, loff_t *pos)
 {
@@ -614,7 +614,7 @@ int single_open(struct file *file, int (*show)(struct seq_file *, void *),
 	}
 	return res;
 }
-EXPORT_SYMBOL(single_open);
+/* DISABLED: EXPORT_SYMBOL(single_open); */
 
 int single_release(struct inode *inode, struct file *file)
 {
@@ -623,7 +623,7 @@ int single_release(struct inode *inode, struct file *file)
 	kfree(op);
 	return res;
 }
-EXPORT_SYMBOL(single_release);
+/* DISABLED: EXPORT_SYMBOL(single_release); */
 
 int seq_release_private(struct inode *inode, struct file *file)
 {
@@ -633,7 +633,7 @@ int seq_release_private(struct inode *inode, struct file *file)
 	seq->private = NULL;
 	return seq_release(inode, file);
 }
-EXPORT_SYMBOL(seq_release_private);
+/* DISABLED: EXPORT_SYMBOL(seq_release_private); */
 
 void *__seq_open_private(struct file *f, const struct seq_operations *ops,
 		int psize)
@@ -659,14 +659,14 @@ out_free:
 out:
 	return NULL;
 }
-EXPORT_SYMBOL(__seq_open_private);
+/* DISABLED: EXPORT_SYMBOL(__seq_open_private); */
 
 int seq_open_private(struct file *filp, const struct seq_operations *ops,
 		int psize)
 {
 	return __seq_open_private(filp, ops, psize) ? 0 : -ENOMEM;
 }
-EXPORT_SYMBOL(seq_open_private);
+/* DISABLED: EXPORT_SYMBOL(seq_open_private); */
 
 int seq_putc(struct seq_file *m, char c)
 {
@@ -676,7 +676,7 @@ int seq_putc(struct seq_file *m, char c)
 	}
 	return -1;
 }
-EXPORT_SYMBOL(seq_putc);
+/* DISABLED: EXPORT_SYMBOL(seq_putc); */
 
 int seq_puts(struct seq_file *m, const char *s)
 {
@@ -689,7 +689,7 @@ int seq_puts(struct seq_file *m, const char *s)
 	seq_set_overflow(m);
 	return -1;
 }
-EXPORT_SYMBOL(seq_puts);
+/* DISABLED: EXPORT_SYMBOL(seq_puts); */
 
 /*
  * A helper routine for putting decimal numbers without rich format of printf().
@@ -723,7 +723,7 @@ overflow:
 	seq_set_overflow(m);
 	return -1;
 }
-EXPORT_SYMBOL(seq_put_decimal_ull);
+/* DISABLED: EXPORT_SYMBOL(seq_put_decimal_ull); */
 
 int seq_put_decimal_ll(struct seq_file *m, char delimiter,
 			long long num)
@@ -741,7 +741,7 @@ int seq_put_decimal_ll(struct seq_file *m, char delimiter,
 	return seq_put_decimal_ull(m, delimiter, num);
 
 }
-EXPORT_SYMBOL(seq_put_decimal_ll);
+/* DISABLED: EXPORT_SYMBOL(seq_put_decimal_ll); */
 
 /**
  * seq_write - write arbitrary data to buffer
@@ -761,7 +761,7 @@ int seq_write(struct seq_file *seq, const void *data, size_t len)
 	seq_set_overflow(seq);
 	return -1;
 }
-EXPORT_SYMBOL(seq_write);
+/* DISABLED: EXPORT_SYMBOL(seq_write); */
 
 /**
  * seq_pad - write padding spaces to buffer
@@ -776,7 +776,7 @@ void seq_pad(struct seq_file *m, char c)
 	if (c)
 		seq_putc(m, c);
 }
-EXPORT_SYMBOL(seq_pad);
+/* DISABLED: EXPORT_SYMBOL(seq_pad); */
 
 struct list_head *seq_list_start(struct list_head *head, loff_t pos)
 {
@@ -788,7 +788,7 @@ struct list_head *seq_list_start(struct list_head *head, loff_t pos)
 
 	return NULL;
 }
-EXPORT_SYMBOL(seq_list_start);
+/* DISABLED: EXPORT_SYMBOL(seq_list_start); */
 
 struct list_head *seq_list_start_head(struct list_head *head, loff_t pos)
 {
@@ -797,7 +797,7 @@ struct list_head *seq_list_start_head(struct list_head *head, loff_t pos)
 
 	return seq_list_start(head, pos - 1);
 }
-EXPORT_SYMBOL(seq_list_start_head);
+/* DISABLED: EXPORT_SYMBOL(seq_list_start_head); */
 
 struct list_head *seq_list_next(void *v, struct list_head *head, loff_t *ppos)
 {
@@ -807,7 +807,7 @@ struct list_head *seq_list_next(void *v, struct list_head *head, loff_t *ppos)
 	++*ppos;
 	return lh == head ? NULL : lh;
 }
-EXPORT_SYMBOL(seq_list_next);
+/* DISABLED: EXPORT_SYMBOL(seq_list_next); */
 
 /**
  * seq_hlist_start - start an iteration of a hlist
@@ -825,7 +825,7 @@ struct hlist_node *seq_hlist_start(struct hlist_head *head, loff_t pos)
 			return node;
 	return NULL;
 }
-EXPORT_SYMBOL(seq_hlist_start);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_start); */
 
 /**
  * seq_hlist_start_head - start an iteration of a hlist
@@ -842,7 +842,7 @@ struct hlist_node *seq_hlist_start_head(struct hlist_head *head, loff_t pos)
 
 	return seq_hlist_start(head, pos - 1);
 }
-EXPORT_SYMBOL(seq_hlist_start_head);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_start_head); */
 
 /**
  * seq_hlist_next - move to the next position of the hlist
@@ -863,7 +863,7 @@ struct hlist_node *seq_hlist_next(void *v, struct hlist_head *head,
 	else
 		return node->next;
 }
-EXPORT_SYMBOL(seq_hlist_next);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_next); */
 
 /**
  * seq_hlist_start_rcu - start an iteration of a hlist protected by RCU
@@ -886,7 +886,7 @@ struct hlist_node *seq_hlist_start_rcu(struct hlist_head *head,
 			return node;
 	return NULL;
 }
-EXPORT_SYMBOL(seq_hlist_start_rcu);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_start_rcu); */
 
 /**
  * seq_hlist_start_head_rcu - start an iteration of a hlist protected by RCU
@@ -908,7 +908,7 @@ struct hlist_node *seq_hlist_start_head_rcu(struct hlist_head *head,
 
 	return seq_hlist_start_rcu(head, pos - 1);
 }
-EXPORT_SYMBOL(seq_hlist_start_head_rcu);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_start_head_rcu); */
 
 /**
  * seq_hlist_next_rcu - move to the next position of the hlist protected by RCU
@@ -934,4 +934,4 @@ struct hlist_node *seq_hlist_next_rcu(void *v,
 	else
 		return rcu_dereference(node->next);
 }
-EXPORT_SYMBOL(seq_hlist_next_rcu);
+/* DISABLED: EXPORT_SYMBOL(seq_hlist_next_rcu); */

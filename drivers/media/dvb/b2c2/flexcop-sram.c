@@ -53,13 +53,13 @@ int flexcop_sram_set_dest(struct flexcop_device *fc, flexcop_sram_dest_t dest,
 
 	return 0;
 }
-EXPORT_SYMBOL(flexcop_sram_set_dest);
+/* DISABLED: EXPORT_SYMBOL(flexcop_sram_set_dest); */
 
 void flexcop_wan_set_speed(struct flexcop_device *fc, flexcop_wan_speed_t s)
 {
 	flexcop_set_ibi_value(wan_ctrl_reg_71c,wan_speed_sig,s);
 }
-EXPORT_SYMBOL(flexcop_wan_set_speed);
+/* DISABLED: EXPORT_SYMBOL(flexcop_wan_set_speed); */
 
 void flexcop_sram_ctrl(struct flexcop_device *fc, int usb_wan, int sramdma, int maximumfill)
 {
@@ -69,7 +69,7 @@ void flexcop_sram_ctrl(struct flexcop_device *fc, int usb_wan, int sramdma, int 
 	v.sram_dest_reg_714.ctrl_maximumfill = maximumfill;
 	fc->write_ibi_reg(fc,sram_dest_reg_714,v);
 }
-EXPORT_SYMBOL(flexcop_sram_ctrl);
+/* DISABLED: EXPORT_SYMBOL(flexcop_sram_ctrl); */
 
 #if 0
 static void flexcop_sram_write(struct adapter *adapter, u32 bank, u32 addr, u8 *buf, u32 len)

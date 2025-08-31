@@ -189,7 +189,7 @@ end_clock:
 exit:
 	mutex_unlock(&octeon2_usb_clocks_mutex);
 }
-EXPORT_SYMBOL(octeon2_usb_clocks_start);
+/* DISABLED: EXPORT_SYMBOL(octeon2_usb_clocks_start); */
 
 void octeon2_usb_clocks_stop(void)
 {
@@ -197,4 +197,4 @@ void octeon2_usb_clocks_stop(void)
 	octeon2_usb_clock_start_cnt--;
 	mutex_unlock(&octeon2_usb_clocks_mutex);
 }
-EXPORT_SYMBOL(octeon2_usb_clocks_stop);
+/* DISABLED: EXPORT_SYMBOL(octeon2_usb_clocks_stop); */

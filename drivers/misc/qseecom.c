@@ -2548,7 +2548,7 @@ err:
 	mutex_unlock(&app_access_lock);
 	return ret;
 }
-EXPORT_SYMBOL(qseecom_start_app);
+/* DISABLED: EXPORT_SYMBOL(qseecom_start_app); */
 
 int qseecom_shutdown_app(struct qseecom_handle **handle)
 {
@@ -2611,7 +2611,7 @@ int qseecom_shutdown_app(struct qseecom_handle **handle)
 
 	return ret;
 }
-EXPORT_SYMBOL(qseecom_shutdown_app);
+/* DISABLED: EXPORT_SYMBOL(qseecom_shutdown_app); */
 
 int qseecom_send_command(struct qseecom_handle *handle, void *send_buf,
 			uint32_t sbuf_len, void *resp_buf, uint32_t rbuf_len)
@@ -2685,7 +2685,7 @@ int qseecom_send_command(struct qseecom_handle *handle, void *send_buf,
 			req.resp_len, req.resp_buf);
 	return ret;
 }
-EXPORT_SYMBOL(qseecom_send_command);
+/* DISABLED: EXPORT_SYMBOL(qseecom_send_command); */
 
 int qseecom_set_bandwidth(struct qseecom_handle *handle, bool high)
 {
@@ -2720,7 +2720,7 @@ int qseecom_set_bandwidth(struct qseecom_handle *handle, bool high)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(qseecom_set_bandwidth);
+/* DISABLED: EXPORT_SYMBOL(qseecom_set_bandwidth); */
 
 static int qseecom_send_resp(void)
 {

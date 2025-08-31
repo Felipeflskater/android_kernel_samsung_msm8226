@@ -143,7 +143,7 @@ int dm_btree_empty(struct dm_btree_info *info, dm_block_t *root)
 	*root = dm_block_location(b);
 	return unlock_block(info, b);
 }
-EXPORT_SYMBOL_GPL(dm_btree_empty);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_empty); */
 
 /*----------------------------------------------------------------*/
 
@@ -304,7 +304,7 @@ out:
 
 	return r;
 }
-EXPORT_SYMBOL_GPL(dm_btree_del);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_del); */
 
 /*----------------------------------------------------------------*/
 
@@ -381,7 +381,7 @@ int dm_btree_lookup(struct dm_btree_info *info, dm_block_t root,
 
 	return r;
 }
-EXPORT_SYMBOL_GPL(dm_btree_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_lookup); */
 
 /*
  * Splits a node by creating a sibling node and shifting half the nodes
@@ -747,7 +747,7 @@ int dm_btree_insert(struct dm_btree_info *info, dm_block_t root,
 {
 	return insert(info, root, keys, value, new_root, NULL);
 }
-EXPORT_SYMBOL_GPL(dm_btree_insert);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_insert); */
 
 int dm_btree_insert_notify(struct dm_btree_info *info, dm_block_t root,
 			   uint64_t *keys, void *value, dm_block_t *new_root,
@@ -756,7 +756,7 @@ int dm_btree_insert_notify(struct dm_btree_info *info, dm_block_t root,
 {
 	return insert(info, root, keys, value, new_root, inserted);
 }
-EXPORT_SYMBOL_GPL(dm_btree_insert_notify);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_insert_notify); */
 
 /*----------------------------------------------------------------*/
 
@@ -812,4 +812,4 @@ int dm_btree_find_highest_key(struct dm_btree_info *info, dm_block_t root,
 
 	return r ? r : count;
 }
-EXPORT_SYMBOL_GPL(dm_btree_find_highest_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_find_highest_key); */

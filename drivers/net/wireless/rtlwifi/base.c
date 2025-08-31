@@ -411,7 +411,7 @@ void rtl_init_rfkill(struct ieee80211_hw *hw)
 
 	wiphy_rfkill_start_polling(hw->wiphy);
 }
-EXPORT_SYMBOL(rtl_init_rfkill);
+/* DISABLED: EXPORT_SYMBOL(rtl_init_rfkill); */
 
 void rtl_deinit_rfkill(struct ieee80211_hw *hw)
 {
@@ -825,7 +825,7 @@ int rtlwifi_rate_mapping(struct ieee80211_hw *hw,
 	}
 	return rate_idx;
 }
-EXPORT_SYMBOL(rtlwifi_rate_mapping);
+/* DISABLED: EXPORT_SYMBOL(rtlwifi_rate_mapping); */
 
 void rtl_get_tcb_desc(struct ieee80211_hw *hw,
 		      struct ieee80211_tx_info *info,
@@ -900,7 +900,7 @@ void rtl_get_tcb_desc(struct ieee80211_hw *hw,
 		tcb_desc->packet_bw = false;
 	}
 }
-EXPORT_SYMBOL(rtl_get_tcb_desc);
+/* DISABLED: EXPORT_SYMBOL(rtl_get_tcb_desc); */
 
 bool rtl_action_proc(struct ieee80211_hw *hw, struct sk_buff *skb, u8 is_tx)
 {

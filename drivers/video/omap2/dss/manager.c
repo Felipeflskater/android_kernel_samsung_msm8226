@@ -591,7 +591,7 @@ int omap_dss_get_num_overlay_managers(void)
 {
 	return num_managers;
 }
-EXPORT_SYMBOL(omap_dss_get_num_overlay_managers);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_get_num_overlay_managers); */
 
 struct omap_overlay_manager *omap_dss_get_overlay_manager(int num)
 {
@@ -600,7 +600,7 @@ struct omap_overlay_manager *omap_dss_get_overlay_manager(int num)
 
 	return &managers[num];
 }
-EXPORT_SYMBOL(omap_dss_get_overlay_manager);
+/* DISABLED: EXPORT_SYMBOL(omap_dss_get_overlay_manager); */
 
 int dss_mgr_simple_check(struct omap_overlay_manager *mgr,
 		const struct omap_overlay_manager_info *info)

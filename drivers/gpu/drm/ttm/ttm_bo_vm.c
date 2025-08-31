@@ -291,7 +291,7 @@ out_unref:
 	ttm_bo_unref(&bo);
 	return ret;
 }
-EXPORT_SYMBOL(ttm_bo_mmap);
+/* DISABLED: EXPORT_SYMBOL(ttm_bo_mmap); */
 
 int ttm_fbdev_mmap(struct vm_area_struct *vma, struct ttm_buffer_object *bo)
 {
@@ -303,7 +303,7 @@ int ttm_fbdev_mmap(struct vm_area_struct *vma, struct ttm_buffer_object *bo)
 	vma->vm_flags |= VM_RESERVED | VM_IO | VM_MIXEDMAP | VM_DONTEXPAND;
 	return 0;
 }
-EXPORT_SYMBOL(ttm_fbdev_mmap);
+/* DISABLED: EXPORT_SYMBOL(ttm_fbdev_mmap); */
 
 
 ssize_t ttm_bo_io(struct ttm_bo_device *bdev, struct file *filp,

@@ -38,4 +38,4 @@ sn_flush_all_caches(long flush_addr, long bytes)
 	flush_icache_range(addr, addr + bytes);
 	mb();
 }
-EXPORT_SYMBOL(sn_flush_all_caches);
+/* DISABLED: EXPORT_SYMBOL(sn_flush_all_caches); */

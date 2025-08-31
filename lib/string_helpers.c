@@ -65,4 +65,4 @@ int string_get_size(u64 size, const enum string_size_units units,
 
 	return 0;
 }
-EXPORT_SYMBOL(string_get_size);
+/* DISABLED: EXPORT_SYMBOL(string_get_size); */

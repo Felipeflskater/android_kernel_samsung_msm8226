@@ -44,6 +44,6 @@ found:
 	/* Not found */
 	return size;
 }
-EXPORT_SYMBOL(find_last_bit);
+/* DISABLED: EXPORT_SYMBOL(find_last_bit); */
 
 #endif

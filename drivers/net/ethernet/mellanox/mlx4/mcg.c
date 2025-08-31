@@ -884,7 +884,7 @@ int mlx4_multicast_attach(struct mlx4_dev *dev, struct mlx4_qp *qp, u8 gid[16],
 	return mlx4_qp_attach_common(dev, qp, gid, block_mcast_loopback,
 					prot, MLX4_MC_STEER);
 }
-EXPORT_SYMBOL_GPL(mlx4_multicast_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_multicast_attach); */
 
 int mlx4_multicast_detach(struct mlx4_dev *dev, struct mlx4_qp *qp, u8 gid[16],
 			  enum mlx4_protocol prot)
@@ -901,7 +901,7 @@ int mlx4_multicast_detach(struct mlx4_dev *dev, struct mlx4_qp *qp, u8 gid[16],
 
 	return mlx4_qp_detach_common(dev, qp, gid, prot, MLX4_MC_STEER);
 }
-EXPORT_SYMBOL_GPL(mlx4_multicast_detach);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_multicast_detach); */
 
 int mlx4_unicast_attach(struct mlx4_dev *dev,
 			struct mlx4_qp *qp, u8 gid[16],
@@ -921,7 +921,7 @@ int mlx4_unicast_attach(struct mlx4_dev *dev,
 	return mlx4_qp_attach_common(dev, qp, gid, block_mcast_loopback,
 					prot, MLX4_UC_STEER);
 }
-EXPORT_SYMBOL_GPL(mlx4_unicast_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unicast_attach); */
 
 int mlx4_unicast_detach(struct mlx4_dev *dev, struct mlx4_qp *qp,
 			       u8 gid[16], enum mlx4_protocol prot)
@@ -938,7 +938,7 @@ int mlx4_unicast_detach(struct mlx4_dev *dev, struct mlx4_qp *qp,
 
 	return mlx4_qp_detach_common(dev, qp, gid, prot, MLX4_UC_STEER);
 }
-EXPORT_SYMBOL_GPL(mlx4_unicast_detach);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unicast_detach); */
 
 int mlx4_PROMISC_wrapper(struct mlx4_dev *dev, int slave,
 			 struct mlx4_vhcr *vhcr,
@@ -978,7 +978,7 @@ int mlx4_multicast_promisc_add(struct mlx4_dev *dev, u32 qpn, u8 port)
 
 	return add_promisc_qp(dev, port, MLX4_MC_STEER, qpn);
 }
-EXPORT_SYMBOL_GPL(mlx4_multicast_promisc_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_multicast_promisc_add); */
 
 int mlx4_multicast_promisc_remove(struct mlx4_dev *dev, u32 qpn, u8 port)
 {
@@ -990,7 +990,7 @@ int mlx4_multicast_promisc_remove(struct mlx4_dev *dev, u32 qpn, u8 port)
 
 	return remove_promisc_qp(dev, port, MLX4_MC_STEER, qpn);
 }
-EXPORT_SYMBOL_GPL(mlx4_multicast_promisc_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_multicast_promisc_remove); */
 
 int mlx4_unicast_promisc_add(struct mlx4_dev *dev, u32 qpn, u8 port)
 {
@@ -1002,7 +1002,7 @@ int mlx4_unicast_promisc_add(struct mlx4_dev *dev, u32 qpn, u8 port)
 
 	return add_promisc_qp(dev, port, MLX4_UC_STEER, qpn);
 }
-EXPORT_SYMBOL_GPL(mlx4_unicast_promisc_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unicast_promisc_add); */
 
 int mlx4_unicast_promisc_remove(struct mlx4_dev *dev, u32 qpn, u8 port)
 {
@@ -1014,7 +1014,7 @@ int mlx4_unicast_promisc_remove(struct mlx4_dev *dev, u32 qpn, u8 port)
 
 	return remove_promisc_qp(dev, port, MLX4_UC_STEER, qpn);
 }
-EXPORT_SYMBOL_GPL(mlx4_unicast_promisc_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_unicast_promisc_remove); */
 
 int mlx4_init_mcg_table(struct mlx4_dev *dev)
 {

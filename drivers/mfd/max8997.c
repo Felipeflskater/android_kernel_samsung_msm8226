@@ -62,7 +62,7 @@ int max8997_read_reg(struct i2c_client *i2c, u8 reg, u8 *dest)
 	*dest = ret;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max8997_read_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(max8997_read_reg); */
 
 int max8997_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -77,7 +77,7 @@ int max8997_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max8997_bulk_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(max8997_bulk_read); */
 
 int max8997_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 {
@@ -89,7 +89,7 @@ int max8997_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 	mutex_unlock(&max8997->iolock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(max8997_write_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(max8997_write_reg); */
 
 int max8997_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -104,7 +104,7 @@ int max8997_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(max8997_bulk_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(max8997_bulk_write); */
 
 int max8997_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 {
@@ -121,7 +121,7 @@ int max8997_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 	mutex_unlock(&max8997->iolock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(max8997_update_reg);
+/* DISABLED: EXPORT_SYMBOL_GPL(max8997_update_reg); */
 
 static int max8997_i2c_probe(struct i2c_client *i2c,
 			    const struct i2c_device_id *id)

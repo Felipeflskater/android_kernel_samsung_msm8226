@@ -171,6 +171,6 @@ void ht_destroy_irq(unsigned int irq)
 	kfree(cfg);
 }
 
-EXPORT_SYMBOL(__ht_create_irq);
-EXPORT_SYMBOL(ht_create_irq);
-EXPORT_SYMBOL(ht_destroy_irq);
+/* DISABLED: EXPORT_SYMBOL(__ht_create_irq); */
+/* DISABLED: EXPORT_SYMBOL(ht_create_irq); */
+/* DISABLED: EXPORT_SYMBOL(ht_destroy_irq); */

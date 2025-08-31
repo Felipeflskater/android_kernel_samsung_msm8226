@@ -50,7 +50,7 @@ void ib_copy_ah_attr_to_user(struct ib_uverbs_ah_attr *dst,
 	dst->port_num 	    	   = src->port_num;
 	dst->reserved 		   = 0;
 }
-EXPORT_SYMBOL(ib_copy_ah_attr_to_user);
+/* DISABLED: EXPORT_SYMBOL(ib_copy_ah_attr_to_user); */
 
 void ib_copy_qp_attr_to_user(struct ib_uverbs_qp_attr *dst,
 			     struct ib_qp_attr *src)
@@ -89,7 +89,7 @@ void ib_copy_qp_attr_to_user(struct ib_uverbs_qp_attr *dst,
 	dst->alt_timeout	= src->alt_timeout;
 	memset(dst->reserved, 0, sizeof(dst->reserved));
 }
-EXPORT_SYMBOL(ib_copy_qp_attr_to_user);
+/* DISABLED: EXPORT_SYMBOL(ib_copy_qp_attr_to_user); */
 
 void ib_copy_path_rec_to_user(struct ib_user_path_rec *dst,
 			      struct ib_sa_path_rec *src)
@@ -115,7 +115,7 @@ void ib_copy_path_rec_to_user(struct ib_user_path_rec *dst,
 	dst->preference		= src->preference;
 	dst->packet_life_time_selector = src->packet_life_time_selector;
 }
-EXPORT_SYMBOL(ib_copy_path_rec_to_user);
+/* DISABLED: EXPORT_SYMBOL(ib_copy_path_rec_to_user); */
 
 void ib_copy_path_rec_from_user(struct ib_sa_path_rec *dst,
 				struct ib_user_path_rec *src)
@@ -141,4 +141,4 @@ void ib_copy_path_rec_from_user(struct ib_sa_path_rec *dst,
 	dst->preference		= src->preference;
 	dst->packet_life_time_selector = src->packet_life_time_selector;
 }
-EXPORT_SYMBOL(ib_copy_path_rec_from_user);
+/* DISABLED: EXPORT_SYMBOL(ib_copy_path_rec_from_user); */

@@ -28,7 +28,7 @@ struct resource ioport_resource = {
 	.end	= IO_SPACE_LIMIT,
 	.flags	= IORESOURCE_IO,
 };
-EXPORT_SYMBOL(ioport_resource);
+/* DISABLED: EXPORT_SYMBOL(ioport_resource); */
 
 struct resource iomem_resource = {
 	.name	= "PCI mem",
@@ -36,7 +36,7 @@ struct resource iomem_resource = {
 	.end	= -1,
 	.flags	= IORESOURCE_MEM,
 };
-EXPORT_SYMBOL(iomem_resource);
+/* DISABLED: EXPORT_SYMBOL(iomem_resource); */
 
 /* constraints to be met while allocating resources */
 struct resource_constraint {
@@ -268,7 +268,7 @@ int request_resource(struct resource *root, struct resource *new)
 	return conflict ? -EBUSY : 0;
 }
 
-EXPORT_SYMBOL(request_resource);
+/* DISABLED: EXPORT_SYMBOL(request_resource); */
 
 /**
  * locate_resource - locate an already reserved I/O or memory resource
@@ -286,7 +286,7 @@ struct resource *locate_resource(struct resource *root, struct resource *search)
 	write_unlock(&resource_lock);
 	return found;
 }
-EXPORT_SYMBOL(locate_resource);
+/* DISABLED: EXPORT_SYMBOL(locate_resource); */
 
 /**
  * release_resource - release a previously reserved resource
@@ -302,7 +302,7 @@ int release_resource(struct resource *old)
 	return retval;
 }
 
-EXPORT_SYMBOL(release_resource);
+/* DISABLED: EXPORT_SYMBOL(release_resource); */
 
 #if !defined(CONFIG_ARCH_HAS_WALK_MEMORY)
 /*
@@ -589,7 +589,7 @@ int allocate_resource(struct resource *root, struct resource *new,
 	return err;
 }
 
-EXPORT_SYMBOL(allocate_resource);
+/* DISABLED: EXPORT_SYMBOL(allocate_resource); */
 
 /**
  * lookup_resource - find an existing resource by a resource start address
@@ -782,7 +782,7 @@ int adjust_resource(struct resource *res, resource_size_t start, resource_size_t
 	write_unlock(&resource_lock);
 	return result;
 }
-EXPORT_SYMBOL(adjust_resource);
+/* DISABLED: EXPORT_SYMBOL(adjust_resource); */
 
 static void __init __reserve_region_with_split(struct resource *root,
 		resource_size_t start, resource_size_t end,
@@ -939,7 +939,7 @@ struct resource * __request_region(struct resource *parent,
 	write_unlock(&resource_lock);
 	return res;
 }
-EXPORT_SYMBOL(__request_region);
+/* DISABLED: EXPORT_SYMBOL(__request_region); */
 
 /**
  * __check_region - check if a resource region is busy or free
@@ -969,7 +969,7 @@ int __check_region(struct resource *parent, resource_size_t start,
 	kfree(res);
 	return 0;
 }
-EXPORT_SYMBOL(__check_region);
+/* DISABLED: EXPORT_SYMBOL(__check_region); */
 
 /**
  * __release_region - release a previously reserved resource region
@@ -1018,7 +1018,7 @@ void __release_region(struct resource *parent, resource_size_t start,
 		"<%016llx-%016llx>\n", (unsigned long long)start,
 		(unsigned long long)end);
 }
-EXPORT_SYMBOL(__release_region);
+/* DISABLED: EXPORT_SYMBOL(__release_region); */
 
 /*
  * Managed region resource
@@ -1068,7 +1068,7 @@ struct resource * __devm_request_region(struct device *dev,
 
 	return res;
 }
-EXPORT_SYMBOL(__devm_request_region);
+/* DISABLED: EXPORT_SYMBOL(__devm_request_region); */
 
 void __devm_release_region(struct device *dev, struct resource *parent,
 			   resource_size_t start, resource_size_t n)
@@ -1079,7 +1079,7 @@ void __devm_release_region(struct device *dev, struct resource *parent,
 	WARN_ON(devres_destroy(dev, devm_region_release, devm_region_match,
 			       &match_data));
 }
-EXPORT_SYMBOL(__devm_release_region);
+/* DISABLED: EXPORT_SYMBOL(__devm_release_region); */
 
 /*
  * Called from init/main.c to reserve IO ports.
@@ -1112,7 +1112,7 @@ static int __init reserve_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("reserve=", reserve_setup); */
+/* DISABLED: __setup("reserve=", reserve_setup); */ */
 
 /*
  * Check if the requested addr and size spans more than any slot in the
@@ -1213,4 +1213,4 @@ static int __init strict_iomem(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("iomem=", strict_iomem); */
+/* DISABLED: __setup("iomem=", strict_iomem); */ */

@@ -183,7 +183,7 @@ int comedi_driver_register(struct comedi_driver *driver)
 
 	return 0;
 }
-EXPORT_SYMBOL(comedi_driver_register);
+/* DISABLED: EXPORT_SYMBOL(comedi_driver_register); */
 
 int comedi_driver_unregister(struct comedi_driver *driver)
 {
@@ -223,7 +223,7 @@ int comedi_driver_unregister(struct comedi_driver *driver)
 	}
 	return -EINVAL;
 }
-EXPORT_SYMBOL(comedi_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL(comedi_driver_unregister); */
 
 static int postconfig(struct comedi_device *dev)
 {
@@ -629,7 +629,7 @@ unsigned int comedi_buf_write_alloc(struct comedi_async *async,
 	smp_mb();
 	return nbytes;
 }
-EXPORT_SYMBOL(comedi_buf_write_alloc);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_write_alloc); */
 
 /* allocates nothing unless it can completely fulfill the request */
 unsigned int comedi_buf_write_alloc_strict(struct comedi_async *async,
@@ -663,7 +663,7 @@ unsigned comedi_buf_write_free(struct comedi_async *async, unsigned int nbytes)
 
 	return nbytes;
 }
-EXPORT_SYMBOL(comedi_buf_write_free);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_write_free); */
 
 /* allocates a chunk for the reader from filled (and munged) buffer space */
 unsigned comedi_buf_read_alloc(struct comedi_async *async, unsigned nbytes)
@@ -678,7 +678,7 @@ unsigned comedi_buf_read_alloc(struct comedi_async *async, unsigned nbytes)
 	smp_rmb();
 	return nbytes;
 }
-EXPORT_SYMBOL(comedi_buf_read_alloc);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_read_alloc); */
 
 /* transfers control of a chunk from reader to free buffer space */
 unsigned comedi_buf_read_free(struct comedi_async *async, unsigned int nbytes)
@@ -697,7 +697,7 @@ unsigned comedi_buf_read_free(struct comedi_async *async, unsigned int nbytes)
 	async->buf_read_ptr %= async->prealloc_bufsz;
 	return nbytes;
 }
-EXPORT_SYMBOL(comedi_buf_read_free);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_read_free); */
 
 void comedi_buf_memcpy_to(struct comedi_async *async, unsigned int offset,
 			  const void *data, unsigned int num_bytes)
@@ -723,7 +723,7 @@ void comedi_buf_memcpy_to(struct comedi_async *async, unsigned int offset,
 		write_ptr = 0;
 	}
 }
-EXPORT_SYMBOL(comedi_buf_memcpy_to);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_memcpy_to); */
 
 void comedi_buf_memcpy_from(struct comedi_async *async, unsigned int offset,
 			    void *dest, unsigned int nbytes)
@@ -750,7 +750,7 @@ void comedi_buf_memcpy_from(struct comedi_async *async, unsigned int offset,
 		read_ptr = 0;
 	}
 }
-EXPORT_SYMBOL(comedi_buf_memcpy_from);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_memcpy_from); */
 
 unsigned int comedi_buf_read_n_available(struct comedi_async *async)
 {
@@ -766,7 +766,7 @@ unsigned int comedi_buf_read_n_available(struct comedi_async *async)
 	smp_rmb();
 	return num_bytes;
 }
-EXPORT_SYMBOL(comedi_buf_read_n_available);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_read_n_available); */
 
 int comedi_buf_get(struct comedi_async *async, short *x)
 {
@@ -779,7 +779,7 @@ int comedi_buf_get(struct comedi_async *async, short *x)
 	comedi_buf_read_free(async, sizeof(short));
 	return 1;
 }
-EXPORT_SYMBOL(comedi_buf_get);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_get); */
 
 int comedi_buf_put(struct comedi_async *async, short x)
 {
@@ -793,7 +793,7 @@ int comedi_buf_put(struct comedi_async *async, short x)
 	comedi_buf_write_free(async, sizeof(short));
 	return 1;
 }
-EXPORT_SYMBOL(comedi_buf_put);
+/* DISABLED: EXPORT_SYMBOL(comedi_buf_put); */
 
 void comedi_reset_async_buf(struct comedi_async *async)
 {
@@ -872,24 +872,24 @@ int comedi_pci_auto_config(struct pci_dev *pcidev, const char *board_name)
 	return comedi_auto_config(&pcidev->dev, board_name,
 				  options, ARRAY_SIZE(options));
 }
-EXPORT_SYMBOL_GPL(comedi_pci_auto_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(comedi_pci_auto_config); */
 
 void comedi_pci_auto_unconfig(struct pci_dev *pcidev)
 {
 	comedi_auto_unconfig(&pcidev->dev);
 }
-EXPORT_SYMBOL_GPL(comedi_pci_auto_unconfig);
+/* DISABLED: EXPORT_SYMBOL_GPL(comedi_pci_auto_unconfig); */
 
 int comedi_usb_auto_config(struct usb_device *usbdev, const char *board_name)
 {
 	BUG_ON(usbdev == NULL);
 	return comedi_auto_config(&usbdev->dev, board_name, NULL, 0);
 }
-EXPORT_SYMBOL_GPL(comedi_usb_auto_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(comedi_usb_auto_config); */
 
 void comedi_usb_auto_unconfig(struct usb_device *usbdev)
 {
 	BUG_ON(usbdev == NULL);
 	comedi_auto_unconfig(&usbdev->dev);
 }
-EXPORT_SYMBOL_GPL(comedi_usb_auto_unconfig);
+/* DISABLED: EXPORT_SYMBOL_GPL(comedi_usb_auto_unconfig); */

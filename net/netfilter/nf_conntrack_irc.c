@@ -37,7 +37,7 @@ unsigned int (*nf_nat_irc_hook)(struct sk_buff *skb,
 				unsigned int matchoff,
 				unsigned int matchlen,
 				struct nf_conntrack_expect *exp) __read_mostly;
-EXPORT_SYMBOL_GPL(nf_nat_irc_hook);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_irc_hook); */
 
 MODULE_AUTHOR("Harald Welte <laforge@netfilter.org>");
 MODULE_DESCRIPTION("IRC (DCC) connection tracking helper");

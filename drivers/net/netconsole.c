@@ -62,7 +62,7 @@ static int __init option_setup(char *opt)
 	strlcpy(config, opt, MAX_PARAM_LENGTH);
 	return 1;
 }
-/* DISABLED: __setup("netconsole=", option_setup); */
+/* DISABLED: __setup("netconsole=", option_setup); */ */
 #endif	/* MODULE */
 
 /* Linked list of all configured targets */

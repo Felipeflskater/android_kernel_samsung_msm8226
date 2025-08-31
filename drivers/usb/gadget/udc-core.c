@@ -79,7 +79,7 @@ int usb_gadget_map_request(struct usb_gadget *gadget,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usb_gadget_map_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_gadget_map_request); */
 
 void usb_gadget_unmap_request(struct usb_gadget *gadget,
 		struct usb_request *req, int is_in)
@@ -97,7 +97,7 @@ void usb_gadget_unmap_request(struct usb_gadget *gadget,
 				is_in ? DMA_TO_DEVICE : DMA_FROM_DEVICE);
 	}
 }
-EXPORT_SYMBOL_GPL(usb_gadget_unmap_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_gadget_unmap_request); */
 
 /* ------------------------------------------------------------------------- */
 
@@ -244,7 +244,7 @@ err2:
 err1:
 	return ret;
 }
-EXPORT_SYMBOL_GPL(usb_add_gadget_udc);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_add_gadget_udc); */
 
 static int udc_is_newstyle(struct usb_udc *udc)
 {
@@ -307,7 +307,7 @@ found:
 	kobject_uevent(&udc->dev.kobj, KOBJ_REMOVE);
 	device_unregister(&udc->dev);
 }
-EXPORT_SYMBOL_GPL(usb_del_gadget_udc);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_del_gadget_udc); */
 
 /* ------------------------------------------------------------------------- */
 
@@ -368,7 +368,7 @@ err1:
 	mutex_unlock(&udc_lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(usb_gadget_probe_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_gadget_probe_driver); */
 
 int usb_gadget_unregister_driver(struct usb_gadget_driver *driver)
 {
@@ -389,7 +389,7 @@ int usb_gadget_unregister_driver(struct usb_gadget_driver *driver)
 	mutex_unlock(&udc_lock);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(usb_gadget_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_gadget_unregister_driver); */
 
 /* ------------------------------------------------------------------------- */
 

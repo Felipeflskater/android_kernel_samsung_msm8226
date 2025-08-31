@@ -61,7 +61,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 
 	return ret;
 }
-EXPORT_SYMBOL(pwm_config);
+/* DISABLED: EXPORT_SYMBOL(pwm_config); */
 
 int pwm_enable(struct pwm_device *pwm)
 {
@@ -75,7 +75,7 @@ int pwm_enable(struct pwm_device *pwm)
 							pwm->label, ret);
 	return ret;
 }
-EXPORT_SYMBOL(pwm_enable);
+/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
 
 void pwm_disable(struct pwm_device *pwm)
 {
@@ -89,7 +89,7 @@ void pwm_disable(struct pwm_device *pwm)
 							pwm->label, ret);
 	return;
 }
-EXPORT_SYMBOL(pwm_disable);
+/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
 
 struct pwm_device *pwm_request(int pwm_id, const char *label)
 {
@@ -105,13 +105,13 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 
 	return ERR_PTR(-ENOENT);
 }
-EXPORT_SYMBOL(pwm_request);
+/* DISABLED: EXPORT_SYMBOL(pwm_request); */
 
 void pwm_free(struct pwm_device *pwm)
 {
 	pwm_disable(pwm);
 }
-EXPORT_SYMBOL(pwm_free);
+/* DISABLED: EXPORT_SYMBOL(pwm_free); */
 
 static int __devinit ab8500_pwm_probe(struct platform_device *pdev)
 {

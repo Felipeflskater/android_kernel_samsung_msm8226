@@ -152,7 +152,7 @@ static int __init setup_test_suspend(char *value)
 	printk(warn_bad_state, value);
 	return 0;
 }
-/* DISABLED: __setup("test_suspend", setup_test_suspend); */
+/* DISABLED: __setup("test_suspend", setup_test_suspend); */ */
 
 static int __init test_suspend(void)
 {

@@ -231,14 +231,14 @@ int apple_bl_register(void)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(apple_bl_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(apple_bl_register); */
 
 void apple_bl_unregister(void)
 {
 	if (atomic_xchg(&apple_bl_registered, 0) == 1)
 		acpi_bus_unregister_driver(&apple_bl_driver);
 }
-EXPORT_SYMBOL_GPL(apple_bl_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(apple_bl_unregister); */
 
 static int __init apple_bl_init(void)
 {

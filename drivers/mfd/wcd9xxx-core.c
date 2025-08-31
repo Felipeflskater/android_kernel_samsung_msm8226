@@ -117,7 +117,7 @@ int wcd9xxx_reg_read(
 	return __wcd9xxx_reg_read(wcd9xxx, reg);
 
 }
-EXPORT_SYMBOL(wcd9xxx_reg_read);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_reg_read); */
 
 static int wcd9xxx_write(struct wcd9xxx *wcd9xxx, unsigned short reg,
 			int bytes, void *src, bool interface_reg)
@@ -156,7 +156,7 @@ int wcd9xxx_reg_write(
 	struct wcd9xxx *wcd9xxx = (struct wcd9xxx *) core_res->parent;
 	return __wcd9xxx_reg_write(wcd9xxx, reg, val);
 }
-EXPORT_SYMBOL(wcd9xxx_reg_write);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_reg_write); */
 
 static u8 wcd9xxx_pgd_la;
 static u8 wcd9xxx_inf_la;
@@ -175,7 +175,7 @@ int wcd9xxx_interface_reg_read(struct wcd9xxx *wcd9xxx, unsigned short reg)
 	else
 		return val;
 }
-EXPORT_SYMBOL(wcd9xxx_interface_reg_read);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_interface_reg_read); */
 
 int wcd9xxx_interface_reg_write(struct wcd9xxx *wcd9xxx, unsigned short reg,
 		     u8 val)
@@ -188,7 +188,7 @@ int wcd9xxx_interface_reg_write(struct wcd9xxx *wcd9xxx, unsigned short reg,
 
 	return ret;
 }
-EXPORT_SYMBOL(wcd9xxx_interface_reg_write);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_interface_reg_write); */
 
 static int __wcd9xxx_bulk_read(
 	struct wcd9xxx *wcd9xxx,
@@ -213,7 +213,7 @@ int wcd9xxx_bulk_read(
 			(struct wcd9xxx *) core_res->parent;
 	return __wcd9xxx_bulk_read(wcd9xxx, reg, count, buf);
 }
-EXPORT_SYMBOL(wcd9xxx_bulk_read);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_bulk_read); */
 
 static int __wcd9xxx_bulk_write(struct wcd9xxx *wcd9xxx, unsigned short reg,
 		     int count, u8 *buf)
@@ -235,7 +235,7 @@ int wcd9xxx_bulk_write(
 			(struct wcd9xxx *) core_res->parent;
 	return __wcd9xxx_bulk_write(wcd9xxx, reg, count, buf);
 }
-EXPORT_SYMBOL(wcd9xxx_bulk_write);
+/* DISABLED: EXPORT_SYMBOL(wcd9xxx_bulk_write); */
 
 static int wcd9xxx_slim_read_device(struct wcd9xxx *wcd9xxx, unsigned short reg,
 				int bytes, void *dest, bool interface)

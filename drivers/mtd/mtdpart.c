@@ -250,7 +250,7 @@ void mtd_erase_callback(struct erase_info *instr)
 	if (instr->callback)
 		instr->callback(instr);
 }
-EXPORT_SYMBOL_GPL(mtd_erase_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_erase_callback); */
 
 static int part_lock(struct mtd_info *mtd, loff_t ofs, uint64_t len)
 {
@@ -596,7 +596,7 @@ err_inv:
 	free_partition(new);
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(mtd_add_partition);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_add_partition); */
 
 int mtd_del_partition(struct mtd_info *master, int partno)
 {
@@ -619,7 +619,7 @@ int mtd_del_partition(struct mtd_info *master, int partno)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(mtd_del_partition);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_del_partition); */
 
 /*
  * This function, given a master MTD object and a partition table, creates
@@ -689,7 +689,7 @@ int register_mtd_parser(struct mtd_part_parser *p)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(register_mtd_parser);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_mtd_parser); */
 
 int deregister_mtd_parser(struct mtd_part_parser *p)
 {
@@ -698,7 +698,7 @@ int deregister_mtd_parser(struct mtd_part_parser *p)
 	spin_unlock(&part_parser_lock);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(deregister_mtd_parser);
+/* DISABLED: EXPORT_SYMBOL_GPL(deregister_mtd_parser); */
 
 /*
  * Do not forget to update 'parse_mtd_partitions()' kerneldoc comment if you
@@ -772,4 +772,4 @@ int mtd_is_partition(struct mtd_info *mtd)
 
 	return ispart;
 }
-EXPORT_SYMBOL_GPL(mtd_is_partition);
+/* DISABLED: EXPORT_SYMBOL_GPL(mtd_is_partition); */

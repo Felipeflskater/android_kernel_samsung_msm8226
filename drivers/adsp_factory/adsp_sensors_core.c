@@ -26,12 +26,12 @@
 #include <linux/adsp_sensors_core.h>
 
 struct class *sensors_class;
-EXPORT_SYMBOL_GPL(sensors_class);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_class); */
 #ifdef CONFIG_SENSOR_USE_SYMLINK
 struct class *event_class;
-EXPORT_SYMBOL_GPL(event_class);
+/* DISABLED: EXPORT_SYMBOL_GPL(event_class); */
 struct device *event_dev;
-EXPORT_SYMBOL_GPL(event_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(event_dev); */
 #endif
 /**
 * Create sysfs interface
@@ -61,7 +61,7 @@ struct device *sensors_classdev_register(char *sensors_name)
 	printk(KERN_INFO "Registered sensors device: %s\n", sensors_name);
 	return dev;
 }
-EXPORT_SYMBOL_GPL(sensors_classdev_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_classdev_register); */
 
 /**
 * sensors_classdev_unregister - unregisters a object of sensor device.
@@ -71,7 +71,7 @@ void sensors_classdev_unregister(struct device *dev)
 {
 	device_unregister(dev);
 }
-EXPORT_SYMBOL_GPL(sensors_classdev_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_classdev_unregister); */
 #ifdef CONFIG_SENSOR_USE_SYMLINK
 int sensors_initialize_symlink(struct input_dev *input_dev)
 {
@@ -95,7 +95,7 @@ int sensors_initialize_symlink(struct input_dev *input_dev)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(sensors_initialize_symlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_initialize_symlink); */
 void sensors_delete_symlink(struct input_dev *input_dev)
 {
 	if(event_dev)
@@ -103,7 +103,7 @@ void sensors_delete_symlink(struct input_dev *input_dev)
 		&input_dev->dev.kobj,
 		input_dev->name);
 }
-EXPORT_SYMBOL_GPL(sensors_delete_symlink);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_delete_symlink); */
 #endif
 int sensors_register(struct device *dev, void *drvdata,
 struct device_attribute *attributes[], char *name)
@@ -128,13 +128,13 @@ struct device_attribute *attributes[], char *name)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sensors_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_register); */
 
 void sensors_unregister(struct device *dev)
 {
 	device_unregister(dev);
 }
-EXPORT_SYMBOL_GPL(sensors_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(sensors_unregister); */
 
 static int __init sensors_class_init(void)
 {

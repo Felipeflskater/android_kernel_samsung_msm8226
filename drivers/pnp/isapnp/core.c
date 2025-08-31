@@ -890,11 +890,11 @@ int isapnp_cfg_end(void)
  *  Initialization.
  */
 
-EXPORT_SYMBOL(isapnp_protocol);
-EXPORT_SYMBOL(isapnp_present);
-EXPORT_SYMBOL(isapnp_cfg_begin);
-EXPORT_SYMBOL(isapnp_cfg_end);
-EXPORT_SYMBOL(isapnp_write_byte);
+/* DISABLED: EXPORT_SYMBOL(isapnp_protocol); */
+/* DISABLED: EXPORT_SYMBOL(isapnp_present); */
+/* DISABLED: EXPORT_SYMBOL(isapnp_cfg_begin); */
+/* DISABLED: EXPORT_SYMBOL(isapnp_cfg_end); */
+/* DISABLED: EXPORT_SYMBOL(isapnp_write_byte); */
 
 static int isapnp_get_resources(struct pnp_dev *dev)
 {
@@ -1105,7 +1105,7 @@ static int __init isapnp_setup_disable(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("noisapnp", isapnp_setup_disable); */
+/* DISABLED: __setup("noisapnp", isapnp_setup_disable); */ */
 
 /* format is: isapnp=rdp,reset,skip_pci_scan,verbose */
 
@@ -1117,4 +1117,4 @@ static int __init isapnp_setup_isapnp(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("isapnp=", isapnp_setup_isapnp); */
+/* DISABLED: __setup("isapnp=", isapnp_setup_isapnp); */ */

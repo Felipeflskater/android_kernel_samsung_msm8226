@@ -40,7 +40,7 @@
 static u8 pmi_slow_mode_limit[MAX_CBE];
 
 bool cbe_cpufreq_has_pmi = false;
-EXPORT_SYMBOL_GPL(cbe_cpufreq_has_pmi);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_cpufreq_has_pmi); */
 
 /*
  * hardware specific functions
@@ -73,7 +73,7 @@ int cbe_cpufreq_set_pmode_pmi(int cpu, unsigned int pmode)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cbe_cpufreq_set_pmode_pmi);
+/* DISABLED: EXPORT_SYMBOL_GPL(cbe_cpufreq_set_pmode_pmi); */
 
 
 static void cbe_cpufreq_handle_pmi(pmi_message_t pmi_msg)

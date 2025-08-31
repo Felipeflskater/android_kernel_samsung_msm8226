@@ -348,7 +348,7 @@ bad_desc:
 	dev_info(&dev->udev->dev, "bad CDC descriptors\n");
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(usbnet_generic_cdc_bind);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_generic_cdc_bind); */
 
 void usbnet_cdc_unbind(struct usbnet *dev, struct usb_interface *intf)
 {
@@ -371,7 +371,7 @@ void usbnet_cdc_unbind(struct usbnet *dev, struct usb_interface *intf)
 		info->control = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(usbnet_cdc_unbind);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_cdc_unbind); */
 
 /*-------------------------------------------------------------------------
  *
@@ -434,7 +434,7 @@ void usbnet_cdc_status(struct usbnet *dev, struct urb *urb)
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(usbnet_cdc_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_cdc_status); */
 
 int usbnet_cdc_bind(struct usbnet *dev, struct usb_interface *intf)
 {
@@ -461,7 +461,7 @@ int usbnet_cdc_bind(struct usbnet *dev, struct usb_interface *intf)
 	 */
 	return 0;
 }
-EXPORT_SYMBOL_GPL(usbnet_cdc_bind);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_cdc_bind); */
 
 static int cdc_manage_power(struct usbnet *dev, int on)
 {

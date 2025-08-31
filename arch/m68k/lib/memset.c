@@ -71,4 +71,4 @@ void *memset(void *s, int c, size_t count)
 	}
 	return xs;
 }
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(memset); */

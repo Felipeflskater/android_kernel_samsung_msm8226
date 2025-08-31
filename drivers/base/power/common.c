@@ -50,7 +50,7 @@ int dev_pm_get_subsys_data(struct device *dev)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(dev_pm_get_subsys_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_get_subsys_data); */
 
 /**
  * dev_pm_put_subsys_data - Drop reference to power.subsys_data.
@@ -84,4 +84,4 @@ int dev_pm_put_subsys_data(struct device *dev)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(dev_pm_put_subsys_data);
+/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_put_subsys_data); */

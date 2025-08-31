@@ -108,7 +108,7 @@ int comedi_pcm_cmdtest(struct comedi_device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL(comedi_pcm_cmdtest);
+/* DISABLED: EXPORT_SYMBOL(comedi_pcm_cmdtest); */
 
 MODULE_AUTHOR("Comedi http://www.comedi.org");
 MODULE_DESCRIPTION("Comedi low-level driver");

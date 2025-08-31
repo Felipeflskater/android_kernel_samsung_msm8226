@@ -49,7 +49,7 @@ unsigned long thread_saved_pc(struct task_struct *tsk)
 static void (*pm_idle)(void) = NULL;
 
 void (*pm_power_off)(void) = NULL;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /*
  * We use this is we don't have any better
@@ -130,7 +130,7 @@ static int __init idle_setup (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("idle=", idle_setup); */
+/* DISABLED: __setup("idle=", idle_setup); */ */
 
 void show_regs(struct pt_regs * regs)
 {

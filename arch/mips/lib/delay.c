@@ -26,7 +26,7 @@ inline void __delay(unsigned int loops)
 	: "=r" (loops)
 	: "0" (loops));
 }
-EXPORT_SYMBOL(__delay);
+/* DISABLED: EXPORT_SYMBOL(__delay); */
 
 /*
  * Division by multiplication: you don't have to worry about
@@ -45,7 +45,7 @@ void __udelay(unsigned long us)
 
 	__delay((us * 0x000010c7ull * HZ * lpj) >> 32);
 }
-EXPORT_SYMBOL(__udelay);
+/* DISABLED: EXPORT_SYMBOL(__udelay); */
 
 void __ndelay(unsigned long ns)
 {
@@ -53,4 +53,4 @@ void __ndelay(unsigned long ns)
 
 	__delay((ns * 0x00000005ull * HZ * lpj) >> 32);
 }
-EXPORT_SYMBOL(__ndelay);
+/* DISABLED: EXPORT_SYMBOL(__ndelay); */

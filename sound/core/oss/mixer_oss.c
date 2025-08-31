@@ -1419,4 +1419,4 @@ static void __exit alsa_mixer_oss_exit(void)
 module_init(alsa_mixer_oss_init)
 module_exit(alsa_mixer_oss_exit)
 
-EXPORT_SYMBOL(snd_mixer_oss_ioctl_card);
+/* DISABLED: EXPORT_SYMBOL(snd_mixer_oss_ioctl_card); */

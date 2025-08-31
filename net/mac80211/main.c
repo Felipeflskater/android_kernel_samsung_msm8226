@@ -345,7 +345,7 @@ void ieee80211_restart_hw(struct ieee80211_hw *hw)
 
 	schedule_work(&local->restart_work);
 }
-EXPORT_SYMBOL(ieee80211_restart_hw);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_restart_hw); */
 
 static void ieee80211_recalc_smps_work(struct work_struct *work)
 {
@@ -438,7 +438,7 @@ void ieee80211_napi_schedule(struct ieee80211_hw *hw)
 
 	napi_schedule(&local->napi);
 }
-EXPORT_SYMBOL(ieee80211_napi_schedule);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_napi_schedule); */
 
 void ieee80211_napi_complete(struct ieee80211_hw *hw)
 {
@@ -446,7 +446,7 @@ void ieee80211_napi_complete(struct ieee80211_hw *hw)
 
 	napi_complete(&local->napi);
 }
-EXPORT_SYMBOL(ieee80211_napi_complete);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_napi_complete); */
 
 /* There isn't a lot of sense in it, but you can transmit anything you like */
 static const struct ieee80211_txrx_stypes
@@ -665,7 +665,7 @@ struct ieee80211_hw *ieee80211_alloc_hw(size_t priv_data_len,
 
 	return &local->hw;
 }
-EXPORT_SYMBOL(ieee80211_alloc_hw);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_alloc_hw); */
 
 int ieee80211_register_hw(struct ieee80211_hw *hw)
 {
@@ -976,7 +976,7 @@ int ieee80211_register_hw(struct ieee80211_hw *hw)
 	kfree(local->int_scan_req);
 	return result;
 }
-EXPORT_SYMBOL(ieee80211_register_hw);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_register_hw); */
 
 void ieee80211_unregister_hw(struct ieee80211_hw *hw)
 {
@@ -1028,7 +1028,7 @@ void ieee80211_unregister_hw(struct ieee80211_hw *hw)
 	ieee80211_led_exit(local);
 	kfree(local->int_scan_req);
 }
-EXPORT_SYMBOL(ieee80211_unregister_hw);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_unregister_hw); */
 
 static int ieee80211_free_ack_frame(int id, void *p, void *data)
 {
@@ -1053,7 +1053,7 @@ void ieee80211_free_hw(struct ieee80211_hw *hw)
 
 	wiphy_free(local->hw.wiphy);
 }
-EXPORT_SYMBOL(ieee80211_free_hw);
+/* DISABLED: EXPORT_SYMBOL(ieee80211_free_hw); */
 
 static int __init ieee80211_init(void)
 {

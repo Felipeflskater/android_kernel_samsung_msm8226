@@ -418,7 +418,7 @@ void ath9k_hw_set_rx_bufsize(struct ath_hw *ah, u16 buf_size)
 {
 	REG_WRITE(ah, AR_DATABUF_SIZE, buf_size & AR_DATABUF_SIZE_MASK);
 }
-EXPORT_SYMBOL(ath9k_hw_set_rx_bufsize);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_rx_bufsize); */
 
 void ath9k_hw_addrxbuf_edma(struct ath_hw *ah, u32 rxdp,
 			    enum ath9k_rx_qtype qtype)
@@ -428,7 +428,7 @@ void ath9k_hw_addrxbuf_edma(struct ath_hw *ah, u32 rxdp,
 	else
 		REG_WRITE(ah, AR_LP_RXDP, rxdp);
 }
-EXPORT_SYMBOL(ath9k_hw_addrxbuf_edma);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_addrxbuf_edma); */
 
 int ath9k_hw_process_rxdesc_edma(struct ath_hw *ah, struct ath_rx_status *rxs,
 				 void *buf_addr)
@@ -534,7 +534,7 @@ int ath9k_hw_process_rxdesc_edma(struct ath_hw *ah, struct ath_rx_status *rxs,
 
 	return 0;
 }
-EXPORT_SYMBOL(ath9k_hw_process_rxdesc_edma);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_process_rxdesc_edma); */
 
 void ath9k_hw_reset_txstatus_ring(struct ath_hw *ah)
 {
@@ -564,4 +564,4 @@ void ath9k_hw_setup_statusring(struct ath_hw *ah, void *ts_start,
 
 	ath9k_hw_reset_txstatus_ring(ah);
 }
-EXPORT_SYMBOL(ath9k_hw_setup_statusring);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setup_statusring); */

@@ -42,7 +42,7 @@
 static unsigned long phys_initrd_start __initdata = 0;
 static unsigned long phys_initrd_size __initdata = 0;
 int msm_krait_need_wfe_fixup;
-EXPORT_SYMBOL(msm_krait_need_wfe_fixup);
+/* DISABLED: EXPORT_SYMBOL(msm_krait_need_wfe_fixup); */
 
 static int __init early_initrd(char *p)
 {
@@ -219,7 +219,7 @@ static void __init arm_bootmem_init(unsigned long start_pfn,
 #ifdef CONFIG_ZONE_DMA
 
 unsigned long arm_dma_zone_size __read_mostly;
-EXPORT_SYMBOL(arm_dma_zone_size);
+/* DISABLED: EXPORT_SYMBOL(arm_dma_zone_size); */
 
 /*
  * The DMA mask corresponding to the maximum bus address allocatable
@@ -337,7 +337,7 @@ int pfn_valid(unsigned long pfn)
 {
 	return memblock_is_memory(__pfn_to_phys(pfn));
 }
-EXPORT_SYMBOL(pfn_valid);
+/* DISABLED: EXPORT_SYMBOL(pfn_valid); */
 #endif
 
 #ifndef CONFIG_SPARSEMEM
@@ -379,13 +379,13 @@ static int __init meminfo_cmp(const void *_a, const void *_b)
 }
 
 phys_addr_t memory_hole_offset;
-EXPORT_SYMBOL(memory_hole_offset);
+/* DISABLED: EXPORT_SYMBOL(memory_hole_offset); */
 phys_addr_t memory_hole_start;
-EXPORT_SYMBOL(memory_hole_start);
+/* DISABLED: EXPORT_SYMBOL(memory_hole_start); */
 phys_addr_t memory_hole_end;
-EXPORT_SYMBOL(memory_hole_end);
+/* DISABLED: EXPORT_SYMBOL(memory_hole_end); */
 unsigned long memory_hole_align;
-EXPORT_SYMBOL(memory_hole_align);
+/* DISABLED: EXPORT_SYMBOL(memory_hole_align); */
 unsigned long virtual_hole_start;
 unsigned long virtual_hole_end;
 
@@ -541,7 +541,7 @@ int _early_pfn_valid(unsigned long pfn)
 	} while (left < right);
 	return 0;
 }
-EXPORT_SYMBOL(_early_pfn_valid);
+/* DISABLED: EXPORT_SYMBOL(_early_pfn_valid); */
 #endif
 
 void __init bootmem_init(void)
@@ -1015,7 +1015,7 @@ static int __init keepinitrd_setup(char *__unused)
 	return 1;
 }
 
-/* DISABLED: __setup("keepinitrd", keepinitrd_setup); */
+/* DISABLED: __setup("keepinitrd", keepinitrd_setup); */ */
 #endif
 
 #ifdef CONFIG_MSM_KRAIT_WFE_FIXUP

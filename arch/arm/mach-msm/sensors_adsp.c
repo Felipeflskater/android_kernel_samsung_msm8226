@@ -106,7 +106,7 @@ if (sns_ctl.dev_class == NULL) {
 return sns_ctl.dev_class;
 }
 
-EXPORT_SYMBOL(get_adsp_sensor_class);
+/* DISABLED: EXPORT_SYMBOL(get_adsp_sensor_class); */
 #endif
 static int sensors_adsp_probe(struct platform_device *pdev)
 {

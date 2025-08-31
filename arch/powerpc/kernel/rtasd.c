@@ -477,7 +477,7 @@ void rtas_cancel_event_scan(void)
 {
 	cancel_delayed_work_sync(&event_scan_work);
 }
-EXPORT_SYMBOL_GPL(rtas_cancel_event_scan);
+/* DISABLED: EXPORT_SYMBOL_GPL(rtas_cancel_event_scan); */
 
 static int __init rtas_init(void)
 {
@@ -541,7 +541,7 @@ static int __init surveillance_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("surveillance=", surveillance_setup); */
+/* DISABLED: __setup("surveillance=", surveillance_setup); */ */
 
 static int __init rtasmsgs_setup(char *str)
 {
@@ -552,4 +552,4 @@ static int __init rtasmsgs_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("rtasmsgs=", rtasmsgs_setup); */
+/* DISABLED: __setup("rtasmsgs=", rtasmsgs_setup); */ */

@@ -48,7 +48,7 @@ int hvc_get_chars(uint32_t vtermno, char *buf, int count)
 	return 0;
 }
 
-EXPORT_SYMBOL(hvc_get_chars);
+/* DISABLED: EXPORT_SYMBOL(hvc_get_chars); */
 
 
 /**
@@ -78,4 +78,4 @@ int hvc_put_chars(uint32_t vtermno, const char *buf, int count)
 	return -EIO;
 }
 
-EXPORT_SYMBOL(hvc_put_chars);
+/* DISABLED: EXPORT_SYMBOL(hvc_put_chars); */

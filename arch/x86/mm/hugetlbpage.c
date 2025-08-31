@@ -439,5 +439,5 @@ static __init int setup_hugepagesz(char *opt)
 	}
 	return 1;
 }
-/* DISABLED: __setup("hugepagesz=", setup_hugepagesz); */
+/* DISABLED: __setup("hugepagesz=", setup_hugepagesz); */ */
 #endif

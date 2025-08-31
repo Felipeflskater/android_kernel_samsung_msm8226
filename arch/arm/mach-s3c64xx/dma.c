@@ -137,7 +137,7 @@ int s3c2410_dma_config(enum dma_ch channel, int xferunit)
 
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_config);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_config); */
 
 static void s3c64xx_dma_fill_lli(struct s3c2410_dma_chan *chan,
 				 struct pl080s_lli *lli,
@@ -325,7 +325,7 @@ int s3c2410_dma_ctrl(enum dma_ch channel, enum s3c2410_chan_op op)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL(s3c2410_dma_ctrl);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_ctrl); */
 
 /* s3c2410_dma_enque
  *
@@ -412,7 +412,7 @@ err_buff:
 	return ret;
 }
 
-EXPORT_SYMBOL(s3c2410_dma_enqueue);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_enqueue); */
 
 
 int s3c2410_dma_devconfig(enum dma_ch channel,
@@ -460,7 +460,7 @@ int s3c2410_dma_devconfig(enum dma_ch channel,
 
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_devconfig);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_devconfig); */
 
 
 int s3c2410_dma_getposition(enum dma_ch channel,
@@ -480,7 +480,7 @@ int s3c2410_dma_getposition(enum dma_ch channel,
 
 	return 0;
 }
-EXPORT_SYMBOL(s3c2410_dma_getposition);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_getposition); */
 
 /* s3c2410_request_dma
  *
@@ -520,7 +520,7 @@ int s3c2410_dma_request(enum dma_ch channel,
 	return chan->number | DMACH_LOW_LEVEL;
 }
 
-EXPORT_SYMBOL(s3c2410_dma_request);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_request); */
 
 /* s3c2410_dma_free
  *
@@ -562,7 +562,7 @@ int s3c2410_dma_free(enum dma_ch channel, struct s3c2410_dma_client *client)
 	return 0;
 }
 
-EXPORT_SYMBOL(s3c2410_dma_free);
+/* DISABLED: EXPORT_SYMBOL(s3c2410_dma_free); */
 
 static irqreturn_t s3c64xx_dma_irq(int irq, void *pw)
 {

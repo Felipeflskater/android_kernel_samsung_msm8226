@@ -79,12 +79,12 @@
  *     dentry2->d_lock
  */
 int sysctl_vfs_cache_pressure __read_mostly = 100;
-EXPORT_SYMBOL_GPL(sysctl_vfs_cache_pressure);
+/* DISABLED: EXPORT_SYMBOL_GPL(sysctl_vfs_cache_pressure); */
 
 static __cacheline_aligned_in_smp DEFINE_SPINLOCK(dcache_lru_lock);
 __cacheline_aligned_in_smp DEFINE_SEQLOCK(rename_lock);
 
-EXPORT_SYMBOL(rename_lock);
+/* DISABLED: EXPORT_SYMBOL(rename_lock); */
 
 static struct kmem_cache *dentry_cache __read_mostly;
 
@@ -253,14 +253,14 @@ void take_dentry_name_snapshot(struct name_snapshot *name, struct dentry *dentry
 		name->name = name->inline_name;
 	}
 }
-EXPORT_SYMBOL(take_dentry_name_snapshot);
+/* DISABLED: EXPORT_SYMBOL(take_dentry_name_snapshot); */
 
 void release_dentry_name_snapshot(struct name_snapshot *name)
 {
 	if (unlikely(name->name != name->inline_name))
 		kfree(name->name);
 }
-EXPORT_SYMBOL(release_dentry_name_snapshot);
+/* DISABLED: EXPORT_SYMBOL(release_dentry_name_snapshot); */
 
 /**
  * dentry_rcuwalk_barrier - invalidate in-progress rcu-walk lookups
@@ -465,7 +465,7 @@ void __d_drop(struct dentry *dentry)
 		dentry_rcuwalk_barrier(dentry);
 	}
 }
-EXPORT_SYMBOL(__d_drop);
+/* DISABLED: EXPORT_SYMBOL(__d_drop); */
 
 void d_drop(struct dentry *dentry)
 {
@@ -473,7 +473,7 @@ void d_drop(struct dentry *dentry)
 	__d_drop(dentry);
 	spin_unlock(&dentry->d_lock);
 }
-EXPORT_SYMBOL(d_drop);
+/* DISABLED: EXPORT_SYMBOL(d_drop); */
 
 /*
  * d_clear_need_lookup - drop a dentry from cache and clear the need lookup flag
@@ -491,7 +491,7 @@ void d_clear_need_lookup(struct dentry *dentry)
 	dentry->d_flags &= ~DCACHE_NEED_LOOKUP;
 	spin_unlock(&dentry->d_lock);
 }
-EXPORT_SYMBOL(d_clear_need_lookup);
+/* DISABLED: EXPORT_SYMBOL(d_clear_need_lookup); */
 
 /*
  * Finish off a dentry we've decided to kill.
@@ -604,7 +604,7 @@ kill_it:
 	if (dentry)
 		goto repeat;
 }
-EXPORT_SYMBOL(dput);
+/* DISABLED: EXPORT_SYMBOL(dput); */
 
 /**
  * d_invalidate - invalidate a dentry
@@ -661,7 +661,7 @@ int d_invalidate(struct dentry * dentry)
 	spin_unlock(&dentry->d_lock);
 	return 0;
 }
-EXPORT_SYMBOL(d_invalidate);
+/* DISABLED: EXPORT_SYMBOL(d_invalidate); */
 
 /* This must be called with d_lock held */
 static inline void __dget_dlock(struct dentry *dentry)
@@ -699,7 +699,7 @@ repeat:
 	spin_unlock(&ret->d_lock);
 	return ret;
 }
-EXPORT_SYMBOL(dget_parent);
+/* DISABLED: EXPORT_SYMBOL(dget_parent); */
 
 /**
  * d_find_alias - grab a hashed alias of inode
@@ -765,7 +765,7 @@ struct dentry *d_find_alias(struct inode *inode)
 	}
 	return de;
 }
-EXPORT_SYMBOL(d_find_alias);
+/* DISABLED: EXPORT_SYMBOL(d_find_alias); */
 
 /*
  *	Try to kill dentries associated with this inode.
@@ -790,7 +790,7 @@ restart:
 	}
 	spin_unlock(&inode->i_lock);
 }
-EXPORT_SYMBOL(d_prune_aliases);
+/* DISABLED: EXPORT_SYMBOL(d_prune_aliases); */
 
 /*
  * Try to throw away a dentry - free the inode, dput the parent.
@@ -939,7 +939,7 @@ void shrink_dcache_sb(struct super_block *sb)
 	}
 	spin_unlock(&dcache_lru_lock);
 }
-EXPORT_SYMBOL(shrink_dcache_sb);
+/* DISABLED: EXPORT_SYMBOL(shrink_dcache_sb); */
 
 /*
  * destroy a single subtree of dentries for unmount
@@ -1149,7 +1149,7 @@ rename_retry_unlocked:
 	write_seqlock(&rename_lock);
 	goto again;
 }
-EXPORT_SYMBOL(have_submounts);
+/* DISABLED: EXPORT_SYMBOL(have_submounts); */
 
 /*
  * Search the dentry child list for the specified parent,
@@ -1288,7 +1288,7 @@ void shrink_dcache_parent(struct dentry * parent)
 		cond_resched();
 	}
 }
-EXPORT_SYMBOL(shrink_dcache_parent);
+/* DISABLED: EXPORT_SYMBOL(shrink_dcache_parent); */
 
 /**
  * __d_alloc	-	allocate a dcache entry
@@ -1373,7 +1373,7 @@ struct dentry *d_alloc(struct dentry * parent, const struct qstr *name)
 
 	return dentry;
 }
-EXPORT_SYMBOL(d_alloc);
+/* DISABLED: EXPORT_SYMBOL(d_alloc); */
 
 struct dentry *d_alloc_pseudo(struct super_block *sb, const struct qstr *name)
 {
@@ -1382,7 +1382,7 @@ struct dentry *d_alloc_pseudo(struct super_block *sb, const struct qstr *name)
 		dentry->d_flags |= DCACHE_DISCONNECTED;
 	return dentry;
 }
-EXPORT_SYMBOL(d_alloc_pseudo);
+/* DISABLED: EXPORT_SYMBOL(d_alloc_pseudo); */
 
 struct dentry *d_alloc_name(struct dentry *parent, const char *name)
 {
@@ -1393,7 +1393,7 @@ struct dentry *d_alloc_name(struct dentry *parent, const char *name)
 	q.hash = full_name_hash(q.name, q.len);
 	return d_alloc(parent, &q);
 }
-EXPORT_SYMBOL(d_alloc_name);
+/* DISABLED: EXPORT_SYMBOL(d_alloc_name); */
 
 void d_set_d_op(struct dentry *dentry, const struct dentry_operations *op)
 {
@@ -1417,7 +1417,7 @@ void d_set_d_op(struct dentry *dentry, const struct dentry_operations *op)
 		dentry->d_flags |= DCACHE_OP_PRUNE;
 
 }
-EXPORT_SYMBOL(d_set_d_op);
+/* DISABLED: EXPORT_SYMBOL(d_set_d_op); */
 
 static void __d_instantiate(struct dentry *dentry, struct inode *inode)
 {
@@ -1458,7 +1458,7 @@ void d_instantiate(struct dentry *entry, struct inode * inode)
 		spin_unlock(&inode->i_lock);
 	security_d_instantiate(entry, inode);
 }
-EXPORT_SYMBOL(d_instantiate);
+/* DISABLED: EXPORT_SYMBOL(d_instantiate); */
 
 /**
  * d_instantiate_unique - instantiate a non-aliased dentry
@@ -1533,7 +1533,7 @@ struct dentry *d_instantiate_unique(struct dentry *entry, struct inode *inode)
 	return result;
 }
 
-EXPORT_SYMBOL(d_instantiate_unique);
+/* DISABLED: EXPORT_SYMBOL(d_instantiate_unique); */
 
 struct dentry *d_make_root(struct inode *root_inode)
 {
@@ -1550,7 +1550,7 @@ struct dentry *d_make_root(struct inode *root_inode)
 	}
 	return res;
 }
-EXPORT_SYMBOL(d_make_root);
+/* DISABLED: EXPORT_SYMBOL(d_make_root); */
 
 static struct dentry * __d_find_any_alias(struct inode *inode)
 {
@@ -1579,7 +1579,7 @@ struct dentry *d_find_any_alias(struct inode *inode)
 	spin_unlock(&inode->i_lock);
 	return de;
 }
-EXPORT_SYMBOL(d_find_any_alias);
+/* DISABLED: EXPORT_SYMBOL(d_find_any_alias); */
 
 /**
  * d_obtain_alias - find or allocate a dentry for a given inode
@@ -1648,7 +1648,7 @@ struct dentry *d_obtain_alias(struct inode *inode)
 	iput(inode);
 	return res;
 }
-EXPORT_SYMBOL(d_obtain_alias);
+/* DISABLED: EXPORT_SYMBOL(d_obtain_alias); */
 
 /**
  * d_splice_alias - splice a disconnected dentry into the tree if one exists
@@ -1693,7 +1693,7 @@ struct dentry *d_splice_alias(struct inode *inode, struct dentry *dentry)
 		d_add(dentry, inode);
 	return new;
 }
-EXPORT_SYMBOL(d_splice_alias);
+/* DISABLED: EXPORT_SYMBOL(d_splice_alias); */
 
 /**
  * d_add_ci - lookup or allocate new dentry with case-exact name
@@ -1776,7 +1776,7 @@ err_out:
 	iput(inode);
 	return ERR_PTR(error);
 }
-EXPORT_SYMBOL(d_add_ci);
+/* DISABLED: EXPORT_SYMBOL(d_add_ci); */
 
 /**
  * __d_lookup_rcu - search for a dentry (racy, store-free)
@@ -1909,7 +1909,7 @@ struct dentry *d_lookup(const struct dentry *parent, const struct qstr *name)
 	} while (read_seqretry(&rename_lock, seq));
 	return dentry;
 }
-EXPORT_SYMBOL(d_lookup);
+/* DISABLED: EXPORT_SYMBOL(d_lookup); */
 
 /**
  * __d_lookup - search for a dentry (racy)
@@ -2054,7 +2054,7 @@ int d_validate(struct dentry *dentry, struct dentry *dparent)
 
 	return 0;
 }
-EXPORT_SYMBOL(d_validate);
+/* DISABLED: EXPORT_SYMBOL(d_validate); */
 
 /*
  * When a file is deleted, we have two options:
@@ -2107,7 +2107,7 @@ again:
 
 	fsnotify_nameremove(dentry, isdir);
 }
-EXPORT_SYMBOL(d_delete);
+/* DISABLED: EXPORT_SYMBOL(d_delete); */
 
 static void __d_rehash(struct dentry * entry, struct hlist_bl_head *b)
 {
@@ -2136,7 +2136,7 @@ void d_rehash(struct dentry * entry)
 	_d_rehash(entry);
 	spin_unlock(&entry->d_lock);
 }
-EXPORT_SYMBOL(d_rehash);
+/* DISABLED: EXPORT_SYMBOL(d_rehash); */
 
 /**
  * dentry_update_name_case - update case insensitive dentry with a new name
@@ -2163,7 +2163,7 @@ void dentry_update_name_case(struct dentry *dentry, struct qstr *name)
 	write_seqcount_end(&dentry->d_seq);
 	spin_unlock(&dentry->d_lock);
 }
-EXPORT_SYMBOL(dentry_update_name_case);
+/* DISABLED: EXPORT_SYMBOL(dentry_update_name_case); */
 
 static void switch_names(struct dentry *dentry, struct dentry *target)
 {
@@ -2333,7 +2333,7 @@ void d_move(struct dentry *dentry, struct dentry *target)
 	__d_move(dentry, target);
 	write_sequnlock(&rename_lock);
 }
-EXPORT_SYMBOL(d_move);
+/* DISABLED: EXPORT_SYMBOL(d_move); */
 
 /**
  * d_ancestor - search for an ancestor
@@ -2522,7 +2522,7 @@ out_nolock:
 	iput(inode);
 	return actual;
 }
-EXPORT_SYMBOL_GPL(d_materialise_unique);
+/* DISABLED: EXPORT_SYMBOL_GPL(d_materialise_unique); */
 
 static int prepend(char **buffer, int *buflen, const char *str, int namelen)
 {
@@ -2739,7 +2739,7 @@ char *d_path(const struct path *path, char *buf, int buflen)
 	path_put(&root);
 	return res;
 }
-EXPORT_SYMBOL(d_path);
+/* DISABLED: EXPORT_SYMBOL(d_path); */
 
 /**
  * d_path_with_unreachable - return the path of a dentry
@@ -2837,7 +2837,7 @@ char *dentry_path_raw(struct dentry *dentry, char *buf, int buflen)
 
 	return retval;
 }
-EXPORT_SYMBOL(dentry_path_raw);
+/* DISABLED: EXPORT_SYMBOL(dentry_path_raw); */
 
 char *dentry_path(struct dentry *dentry, char *buf, int buflen)
 {
@@ -3081,7 +3081,7 @@ ino_t find_inode_number(struct dentry *dir, struct qstr *name)
 	}
 	return ino;
 }
-EXPORT_SYMBOL(find_inode_number);
+/* DISABLED: EXPORT_SYMBOL(find_inode_number); */
 
 static __initdata unsigned long dhash_entries;
 static int __init set_dhash_entries(char *str)
@@ -3091,7 +3091,7 @@ static int __init set_dhash_entries(char *str)
 	dhash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-/* DISABLED: __setup("dhash_entries=", set_dhash_entries); */
+/* DISABLED: __setup("dhash_entries=", set_dhash_entries); */ */
 
 static void __init dcache_init_early(void)
 {
@@ -3149,9 +3149,9 @@ static void __init dcache_init(void)
 
 /* SLAB cache for __getname() consumers */
 struct kmem_cache *names_cachep __read_mostly;
-EXPORT_SYMBOL(names_cachep);
+/* DISABLED: EXPORT_SYMBOL(names_cachep); */
 
-EXPORT_SYMBOL(d_genocide);
+/* DISABLED: EXPORT_SYMBOL(d_genocide); */
 
 void __init vfs_caches_init_early(void)
 {

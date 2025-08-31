@@ -17,7 +17,7 @@ void __init_waitqueue_head(wait_queue_head_t *q, const char *name, struct lock_c
 	INIT_LIST_HEAD(&q->task_list);
 }
 
-EXPORT_SYMBOL(__init_waitqueue_head);
+/* DISABLED: EXPORT_SYMBOL(__init_waitqueue_head); */
 
 void add_wait_queue(wait_queue_head_t *q, wait_queue_t *wait)
 {
@@ -28,7 +28,7 @@ void add_wait_queue(wait_queue_head_t *q, wait_queue_t *wait)
 	__add_wait_queue(q, wait);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(add_wait_queue);
+/* DISABLED: EXPORT_SYMBOL(add_wait_queue); */
 
 void add_wait_queue_exclusive(wait_queue_head_t *q, wait_queue_t *wait)
 {
@@ -39,7 +39,7 @@ void add_wait_queue_exclusive(wait_queue_head_t *q, wait_queue_t *wait)
 	__add_wait_queue_tail(q, wait);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(add_wait_queue_exclusive);
+/* DISABLED: EXPORT_SYMBOL(add_wait_queue_exclusive); */
 
 void remove_wait_queue(wait_queue_head_t *q, wait_queue_t *wait)
 {
@@ -49,7 +49,7 @@ void remove_wait_queue(wait_queue_head_t *q, wait_queue_t *wait)
 	__remove_wait_queue(q, wait);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(remove_wait_queue);
+/* DISABLED: EXPORT_SYMBOL(remove_wait_queue); */
 
 
 /*
@@ -76,7 +76,7 @@ prepare_to_wait(wait_queue_head_t *q, wait_queue_t *wait, int state)
 	set_current_state(state);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(prepare_to_wait);
+/* DISABLED: EXPORT_SYMBOL(prepare_to_wait); */
 
 void
 prepare_to_wait_exclusive(wait_queue_head_t *q, wait_queue_t *wait, int state)
@@ -90,7 +90,7 @@ prepare_to_wait_exclusive(wait_queue_head_t *q, wait_queue_t *wait, int state)
 	set_current_state(state);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(prepare_to_wait_exclusive);
+/* DISABLED: EXPORT_SYMBOL(prepare_to_wait_exclusive); */
 
 /**
  * finish_wait - clean up after waiting in a queue
@@ -125,7 +125,7 @@ void finish_wait(wait_queue_head_t *q, wait_queue_t *wait)
 		spin_unlock_irqrestore(&q->lock, flags);
 	}
 }
-EXPORT_SYMBOL(finish_wait);
+/* DISABLED: EXPORT_SYMBOL(finish_wait); */
 
 /**
  * abort_exclusive_wait - abort exclusive waiting in a queue
@@ -158,7 +158,7 @@ void abort_exclusive_wait(wait_queue_head_t *q, wait_queue_t *wait,
 		__wake_up_locked_key(q, mode, key);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-EXPORT_SYMBOL(abort_exclusive_wait);
+/* DISABLED: EXPORT_SYMBOL(abort_exclusive_wait); */
 
 int autoremove_wake_function(wait_queue_t *wait, unsigned mode, int sync, void *key)
 {
@@ -168,7 +168,7 @@ int autoremove_wake_function(wait_queue_t *wait, unsigned mode, int sync, void *
 		list_del_init(&wait->task_list);
 	return ret;
 }
-EXPORT_SYMBOL(autoremove_wake_function);
+/* DISABLED: EXPORT_SYMBOL(autoremove_wake_function); */
 
 int wake_bit_function(wait_queue_t *wait, unsigned mode, int sync, void *arg)
 {
@@ -183,7 +183,7 @@ int wake_bit_function(wait_queue_t *wait, unsigned mode, int sync, void *arg)
 	else
 		return autoremove_wake_function(wait, mode, sync, key);
 }
-EXPORT_SYMBOL(wake_bit_function);
+/* DISABLED: EXPORT_SYMBOL(wake_bit_function); */
 
 /*
  * To allow interruptible waiting and asynchronous (i.e. nonblocking)
@@ -204,7 +204,7 @@ __wait_on_bit(wait_queue_head_t *wq, struct wait_bit_queue *q,
 	finish_wait(wq, &q->wait);
 	return ret;
 }
-EXPORT_SYMBOL(__wait_on_bit);
+/* DISABLED: EXPORT_SYMBOL(__wait_on_bit); */
 
 int __sched out_of_line_wait_on_bit(void *word, int bit,
 					int (*action)(void *), unsigned mode)
@@ -214,7 +214,7 @@ int __sched out_of_line_wait_on_bit(void *word, int bit,
 
 	return __wait_on_bit(wq, &wait, action, mode);
 }
-EXPORT_SYMBOL(out_of_line_wait_on_bit);
+/* DISABLED: EXPORT_SYMBOL(out_of_line_wait_on_bit); */
 
 int __sched
 __wait_on_bit_lock(wait_queue_head_t *wq, struct wait_bit_queue *q,
@@ -235,7 +235,7 @@ __wait_on_bit_lock(wait_queue_head_t *wq, struct wait_bit_queue *q,
 	finish_wait(wq, &q->wait);
 	return 0;
 }
-EXPORT_SYMBOL(__wait_on_bit_lock);
+/* DISABLED: EXPORT_SYMBOL(__wait_on_bit_lock); */
 
 int __sched out_of_line_wait_on_bit_lock(void *word, int bit,
 					int (*action)(void *), unsigned mode)
@@ -245,7 +245,7 @@ int __sched out_of_line_wait_on_bit_lock(void *word, int bit,
 
 	return __wait_on_bit_lock(wq, &wait, action, mode);
 }
-EXPORT_SYMBOL(out_of_line_wait_on_bit_lock);
+/* DISABLED: EXPORT_SYMBOL(out_of_line_wait_on_bit_lock); */
 
 void __wake_up_bit(wait_queue_head_t *wq, void *word, int bit)
 {
@@ -253,7 +253,7 @@ void __wake_up_bit(wait_queue_head_t *wq, void *word, int bit)
 	if (waitqueue_active(wq))
 		__wake_up(wq, TASK_NORMAL, 1, &key);
 }
-EXPORT_SYMBOL(__wake_up_bit);
+/* DISABLED: EXPORT_SYMBOL(__wake_up_bit); */
 
 /**
  * wake_up_bit - wake up a waiter on a bit
@@ -276,7 +276,7 @@ void wake_up_bit(void *word, int bit)
 {
 	__wake_up_bit(bit_waitqueue(word, bit), word, bit);
 }
-EXPORT_SYMBOL(wake_up_bit);
+/* DISABLED: EXPORT_SYMBOL(wake_up_bit); */
 
 wait_queue_head_t *bit_waitqueue(void *word, int bit)
 {
@@ -286,4 +286,4 @@ wait_queue_head_t *bit_waitqueue(void *word, int bit)
 
 	return &zone->wait_table[hash_long(val, zone->wait_table_bits)];
 }
-EXPORT_SYMBOL(bit_waitqueue);
+/* DISABLED: EXPORT_SYMBOL(bit_waitqueue); */

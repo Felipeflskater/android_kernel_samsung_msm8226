@@ -363,7 +363,7 @@ l1_event(struct layer1 *l1, u_int event)
 	}
 	return err;
 }
-EXPORT_SYMBOL(l1_event);
+/* DISABLED: EXPORT_SYMBOL(l1_event); */
 
 int
 create_l1(struct dchannel *dch, dchannel_l1callback *dcb) {
@@ -388,7 +388,7 @@ create_l1(struct dchannel *dch, dchannel_l1callback *dcb) {
 	dch->l1 = nl1;
 	return 0;
 }
-EXPORT_SYMBOL(create_l1);
+/* DISABLED: EXPORT_SYMBOL(create_l1); */
 
 int
 l1_init(u_int *deb)

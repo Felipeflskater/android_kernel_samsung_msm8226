@@ -477,7 +477,7 @@ size_t slab_buffer_size(struct kmem_cache *cachep)
 {
 	return cachep->buffer_size;
 }
-EXPORT_SYMBOL(slab_buffer_size);
+/* DISABLED: EXPORT_SYMBOL(slab_buffer_size); */
 #endif
 
 /*
@@ -557,7 +557,7 @@ struct cache_sizes malloc_sizes[] = {
 	CACHE(ULONG_MAX)
 #undef CACHE
 };
-EXPORT_SYMBOL(malloc_sizes);
+/* DISABLED: EXPORT_SYMBOL(malloc_sizes); */
 
 /* Must match cache_sizes above. Out of line to keep cache footprint low. */
 struct cache_names {
@@ -854,7 +854,7 @@ static int __init noaliencache_setup(char *s)
 	use_alien_caches = 0;
 	return 1;
 }
-/* DISABLED: __setup("noaliencache", noaliencache_setup); */
+/* DISABLED: __setup("noaliencache", noaliencache_setup); */ */
 
 static int __init slab_max_order_setup(char *str)
 {
@@ -865,7 +865,7 @@ static int __init slab_max_order_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("slab_max_order=", slab_max_order_setup); */
+/* DISABLED: __setup("slab_max_order=", slab_max_order_setup); */ */
 
 #ifdef CONFIG_NUMA
 /*
@@ -2556,7 +2556,7 @@ oops:
 	}
 	return cachep;
 }
-EXPORT_SYMBOL(kmem_cache_create);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_create); */
 
 #if DEBUG
 static void check_irq_off(void)
@@ -2712,7 +2712,7 @@ int kmem_cache_shrink(struct kmem_cache *cachep)
 	put_online_cpus();
 	return ret;
 }
-EXPORT_SYMBOL(kmem_cache_shrink);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_shrink); */
 
 /**
  * kmem_cache_destroy - delete a cache
@@ -2756,7 +2756,7 @@ void kmem_cache_destroy(struct kmem_cache *cachep)
 	mutex_unlock(&cache_chain_mutex);
 	put_online_cpus();
 }
-EXPORT_SYMBOL(kmem_cache_destroy);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_destroy); */
 
 /*
  * Get the memory for a slab management obj.
@@ -3770,7 +3770,7 @@ void *kmem_cache_alloc(struct kmem_cache *cachep, gfp_t flags)
 
 	return ret;
 }
-EXPORT_SYMBOL(kmem_cache_alloc);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc); */
 
 #ifdef CONFIG_TRACING
 void *
@@ -3784,7 +3784,7 @@ kmem_cache_alloc_trace(size_t size, struct kmem_cache *cachep, gfp_t flags)
 		      size, slab_buffer_size(cachep), flags);
 	return ret;
 }
-EXPORT_SYMBOL(kmem_cache_alloc_trace);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_trace); */
 #endif
 
 #ifdef CONFIG_NUMA
@@ -3799,7 +3799,7 @@ void *kmem_cache_alloc_node(struct kmem_cache *cachep, gfp_t flags, int nodeid)
 
 	return ret;
 }
-EXPORT_SYMBOL(kmem_cache_alloc_node);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_node); */
 
 #ifdef CONFIG_TRACING
 void *kmem_cache_alloc_node_trace(size_t size,
@@ -3816,7 +3816,7 @@ void *kmem_cache_alloc_node_trace(size_t size,
 			   flags, nodeid);
 	return ret;
 }
-EXPORT_SYMBOL(kmem_cache_alloc_node_trace);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_node_trace); */
 #endif
 
 static __always_inline void *
@@ -3836,20 +3836,20 @@ void *__kmalloc_node(size_t size, gfp_t flags, int node)
 	return __do_kmalloc_node(size, flags, node,
 			__builtin_return_address(0));
 }
-EXPORT_SYMBOL(__kmalloc_node);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc_node); */
 
 void *__kmalloc_node_track_caller(size_t size, gfp_t flags,
 		int node, unsigned long caller)
 {
 	return __do_kmalloc_node(size, flags, node, (void *)caller);
 }
-EXPORT_SYMBOL(__kmalloc_node_track_caller);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc_node_track_caller); */
 #else
 void *__kmalloc_node(size_t size, gfp_t flags, int node)
 {
 	return __do_kmalloc_node(size, flags, node, NULL);
 }
-EXPORT_SYMBOL(__kmalloc_node);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc_node); */
 #endif /* CONFIG_DEBUG_SLAB || CONFIG_TRACING */
 #endif /* CONFIG_NUMA */
 
@@ -3887,20 +3887,20 @@ void *__kmalloc(size_t size, gfp_t flags)
 {
 	return __do_kmalloc(size, flags, __builtin_return_address(0));
 }
-EXPORT_SYMBOL(__kmalloc);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc); */
 
 void *__kmalloc_track_caller(size_t size, gfp_t flags, unsigned long caller)
 {
 	return __do_kmalloc(size, flags, (void *)caller);
 }
-EXPORT_SYMBOL(__kmalloc_track_caller);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc_track_caller); */
 
 #else
 void *__kmalloc(size_t size, gfp_t flags)
 {
 	return __do_kmalloc(size, flags, NULL);
 }
-EXPORT_SYMBOL(__kmalloc);
+/* DISABLED: EXPORT_SYMBOL(__kmalloc); */
 #endif
 
 /**
@@ -3924,7 +3924,7 @@ void kmem_cache_free(struct kmem_cache *cachep, void *objp)
 
 	trace_kmem_cache_free(_RET_IP_, objp);
 }
-EXPORT_SYMBOL(kmem_cache_free);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_free); */
 
 /**
  * kfree - free previously allocated memory
@@ -3952,13 +3952,13 @@ void kfree(const void *objp)
 	__cache_free(c, (void *)objp, __builtin_return_address(0));
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(kfree);
+/* DISABLED: EXPORT_SYMBOL(kfree); */
 
 unsigned int kmem_cache_size(struct kmem_cache *cachep)
 {
 	return obj_size(cachep);
 }
-EXPORT_SYMBOL(kmem_cache_size);
+/* DISABLED: EXPORT_SYMBOL(kmem_cache_size); */
 
 /*
  * This initializes kmem_list3 or resizes various caches for all nodes.
@@ -4679,4 +4679,4 @@ size_t ksize(const void *objp)
 
 	return obj_size(virt_to_cache(objp));
 }
-EXPORT_SYMBOL(ksize);
+/* DISABLED: EXPORT_SYMBOL(ksize); */

@@ -133,7 +133,7 @@ int ipcomp_input(struct xfrm_state *x, struct sk_buff *skb)
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(ipcomp_input);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipcomp_input); */
 
 static int ipcomp_compress(struct xfrm_state *x, struct sk_buff *skb)
 {
@@ -198,7 +198,7 @@ out_ok:
 	skb_push(skb, -skb_network_offset(skb));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ipcomp_output);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipcomp_output); */
 
 static void ipcomp_free_scratches(void)
 {
@@ -336,7 +336,7 @@ void ipcomp_destroy(struct xfrm_state *x)
 	mutex_unlock(&ipcomp_resource_mutex);
 	kfree(ipcd);
 }
-EXPORT_SYMBOL_GPL(ipcomp_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipcomp_destroy); */
 
 int ipcomp_init_state(struct xfrm_state *x)
 {
@@ -379,7 +379,7 @@ error:
 	kfree(ipcd);
 	goto out;
 }
-EXPORT_SYMBOL_GPL(ipcomp_init_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(ipcomp_init_state); */
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("IP Payload Compression Protocol (IPComp) - RFC3173");

@@ -285,7 +285,7 @@ u32 dccp_timestamp(void)
 	do_div(delta, 10);
 	return delta;
 }
-EXPORT_SYMBOL_GPL(dccp_timestamp);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_timestamp); */
 
 void __init dccp_timestamping_init(void)
 {

@@ -752,7 +752,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 
 	return pwm;
 }
-EXPORT_SYMBOL_GPL(pwm_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_request); */
 
 /**
  * pwm_free - free a PWM device
@@ -780,7 +780,7 @@ void pwm_free(struct pwm_device *pwm)
 		pm8xxx_pwm_bank_enable(pwm, 0);
 	mutex_unlock(&pwm->chip->pwm_mutex);
 }
-EXPORT_SYMBOL_GPL(pwm_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_free); */
 
 /**
  * pwm_config - change a PWM device configuration
@@ -841,7 +841,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_config); */
 
 /**
  * pwm_enable - start a PWM output toggling
@@ -887,7 +887,7 @@ int pwm_enable(struct pwm_device *pwm)
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pwm_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_enable); */
 
 /**
  * pwm_disable - stop a PWM output toggling
@@ -914,7 +914,7 @@ void pwm_disable(struct pwm_device *pwm)
 	}
 	mutex_unlock(&pwm->chip->pwm_mutex);
 }
-EXPORT_SYMBOL_GPL(pwm_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pwm_disable); */
 
 /**
  * pm8xxx_pwm_config_period - change PWM period
@@ -958,7 +958,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(pm8xxx_pwm_config_period);
+/* DISABLED: EXPORT_SYMBOL(pm8xxx_pwm_config_period); */
 
 /**
  * pm8xxx_pwm_config_pwm_value - change a PWM device configuration
@@ -1004,7 +1004,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_pwm_config_pwm_value);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_pwm_config_pwm_value); */
 
 /**
  * pm8xxx_pwm_lut_config - change a PWM device configuration to use LUT
@@ -1108,7 +1108,7 @@ out_unlock:
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_pwm_lut_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_pwm_lut_config); */
 
 /**
  * pm8xxx_pwm_lut_enable - control a PWM device to start/stop LUT ramp
@@ -1151,7 +1151,7 @@ int pm8xxx_pwm_lut_enable(struct pwm_device *pwm, int start)
 	mutex_unlock(&pwm->chip->pwm_mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pm8xxx_pwm_lut_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_pwm_lut_enable); */
 
 #if defined(CONFIG_DEBUG_FS)
 

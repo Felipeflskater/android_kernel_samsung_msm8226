@@ -1160,7 +1160,7 @@ static int __init setup_iommu_fixed(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("iommu_fixed=", setup_iommu_fixed); */
+/* DISABLED: __setup("iommu_fixed=", setup_iommu_fixed); */ */
 
 static u64 cell_dma_get_required_mask(struct device *dev)
 {

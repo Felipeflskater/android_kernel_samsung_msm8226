@@ -1590,7 +1590,7 @@ void samsung_switching_tkey(int flip)
 		}
 	}
 }
-EXPORT_SYMBOL(samsung_switching_tkey);
+/* DISABLED: EXPORT_SYMBOL(samsung_switching_tkey); */
 #endif
 
 static int abov_tk_input_open(struct input_dev *dev)

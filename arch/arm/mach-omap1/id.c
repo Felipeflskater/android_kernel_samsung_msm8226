@@ -65,7 +65,7 @@ unsigned int omap_rev(void)
 {
 	return omap_revision;
 }
-EXPORT_SYMBOL(omap_rev);
+/* DISABLED: EXPORT_SYMBOL(omap_rev); */
 
 /*
  * Get OMAP type from PROD_ID.

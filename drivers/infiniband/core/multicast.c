@@ -657,7 +657,7 @@ err:
 	kfree(member);
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL(ib_sa_join_multicast);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_join_multicast); */
 
 void ib_sa_free_multicast(struct ib_sa_multicast *multicast)
 {
@@ -688,7 +688,7 @@ void ib_sa_free_multicast(struct ib_sa_multicast *multicast)
 	ib_sa_client_put(member->client);
 	kfree(member);
 }
-EXPORT_SYMBOL(ib_sa_free_multicast);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_free_multicast); */
 
 int ib_sa_get_mcmember_rec(struct ib_device *device, u8 port_num,
 			   union ib_gid *mgid, struct ib_sa_mcmember_rec *rec)
@@ -714,7 +714,7 @@ int ib_sa_get_mcmember_rec(struct ib_device *device, u8 port_num,
 
 	return ret;
 }
-EXPORT_SYMBOL(ib_sa_get_mcmember_rec);
+/* DISABLED: EXPORT_SYMBOL(ib_sa_get_mcmember_rec); */
 
 int ib_init_ah_from_mcmember(struct ib_device *device, u8 port_num,
 			     struct ib_sa_mcmember_rec *rec,
@@ -744,7 +744,7 @@ int ib_init_ah_from_mcmember(struct ib_device *device, u8 port_num,
 
 	return 0;
 }
-EXPORT_SYMBOL(ib_init_ah_from_mcmember);
+/* DISABLED: EXPORT_SYMBOL(ib_init_ah_from_mcmember); */
 
 static void mcast_groups_event(struct mcast_port *port,
 			       enum mcast_group_state state)

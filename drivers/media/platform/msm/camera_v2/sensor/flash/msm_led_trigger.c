@@ -167,7 +167,7 @@ int32_t s5k4ecgx_set_flash(int mode)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(s5k4ecgx_set_flash);
+/* DISABLED: EXPORT_SYMBOL(s5k4ecgx_set_flash); */
 #endif
 static int32_t msm_led_trigger_config(struct msm_led_flash_ctrl_t *fctrl,
 	void *data)
@@ -450,7 +450,7 @@ int set_led_flash(int mode)
 
     return rc;
 }
-EXPORT_SYMBOL(set_led_flash);
+/* DISABLED: EXPORT_SYMBOL(set_led_flash); */
 #endif
 
 module_init(msm_led_trigger_add_driver);

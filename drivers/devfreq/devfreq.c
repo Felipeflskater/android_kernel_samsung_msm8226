@@ -106,7 +106,7 @@ int devfreq_get_freq_level(struct devfreq *devfreq, unsigned long freq)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(devfreq_get_freq_level);
+/* DISABLED: EXPORT_SYMBOL(devfreq_get_freq_level); */
 
 /**
  * devfreq_update_status() - Update statistics of devfreq behavior
@@ -226,7 +226,7 @@ int update_devfreq(struct devfreq *devfreq)
 	devfreq->previous_freq = freq;
 	return err;
 }
-EXPORT_SYMBOL(update_devfreq);
+/* DISABLED: EXPORT_SYMBOL(update_devfreq); */
 
 /**
  * devfreq_monitor() - Periodically poll devfreq objects.
@@ -265,7 +265,7 @@ void devfreq_monitor_start(struct devfreq *devfreq)
 		queue_delayed_work(devfreq_wq, &devfreq->work,
 			msecs_to_jiffies(devfreq->profile->polling_ms));
 }
-EXPORT_SYMBOL(devfreq_monitor_start);
+/* DISABLED: EXPORT_SYMBOL(devfreq_monitor_start); */
 
 /**
  * devfreq_monitor_stop() - Stop load monitoring of a devfreq instance
@@ -279,7 +279,7 @@ void devfreq_monitor_stop(struct devfreq *devfreq)
 {
 	cancel_delayed_work_sync(&devfreq->work);
 }
-EXPORT_SYMBOL(devfreq_monitor_stop);
+/* DISABLED: EXPORT_SYMBOL(devfreq_monitor_stop); */
 
 /**
  * devfreq_monitor_suspend() - Suspend load monitoring of a devfreq instance
@@ -305,7 +305,7 @@ void devfreq_monitor_suspend(struct devfreq *devfreq)
 	mutex_unlock(&devfreq->lock);
 	cancel_delayed_work_sync(&devfreq->work);
 }
-EXPORT_SYMBOL(devfreq_monitor_suspend);
+/* DISABLED: EXPORT_SYMBOL(devfreq_monitor_suspend); */
 
 /**
  * devfreq_monitor_resume() - Resume load monitoring of a devfreq instance
@@ -330,7 +330,7 @@ void devfreq_monitor_resume(struct devfreq *devfreq)
 out:
 	mutex_unlock(&devfreq->lock);
 }
-EXPORT_SYMBOL(devfreq_monitor_resume);
+/* DISABLED: EXPORT_SYMBOL(devfreq_monitor_resume); */
 
 /**
  * devfreq_interval_update() - Update device devfreq monitoring interval
@@ -377,7 +377,7 @@ void devfreq_interval_update(struct devfreq *devfreq, unsigned int *delay)
 out:
 	mutex_unlock(&devfreq->lock);
 }
-EXPORT_SYMBOL(devfreq_interval_update);
+/* DISABLED: EXPORT_SYMBOL(devfreq_interval_update); */
 
 /**
  * devfreq_notifier_call() - Notify that the device frequency requirements
@@ -573,7 +573,7 @@ err_dev:
 err_out:
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL(devfreq_add_device);
+/* DISABLED: EXPORT_SYMBOL(devfreq_add_device); */
 
 /**
  * devfreq_remove_device() - Remove devfreq feature from a device.
@@ -588,7 +588,7 @@ int devfreq_remove_device(struct devfreq *devfreq)
 
 	return 0;
 }
-EXPORT_SYMBOL(devfreq_remove_device);
+/* DISABLED: EXPORT_SYMBOL(devfreq_remove_device); */
 
 /**
  * devfreq_suspend_device() - Suspend devfreq of a device.
@@ -605,7 +605,7 @@ int devfreq_suspend_device(struct devfreq *devfreq)
 	return devfreq->governor->event_handler(devfreq,
 				DEVFREQ_GOV_SUSPEND, NULL);
 }
-EXPORT_SYMBOL(devfreq_suspend_device);
+/* DISABLED: EXPORT_SYMBOL(devfreq_suspend_device); */
 
 /**
  * devfreq_resume_device() - Resume devfreq of a device.
@@ -622,7 +622,7 @@ int devfreq_resume_device(struct devfreq *devfreq)
 	return devfreq->governor->event_handler(devfreq,
 				DEVFREQ_GOV_RESUME, NULL);
 }
-EXPORT_SYMBOL(devfreq_resume_device);
+/* DISABLED: EXPORT_SYMBOL(devfreq_resume_device); */
 
 /**
  * devfreq_add_governor() - Add devfreq governor
@@ -687,7 +687,7 @@ err_out:
 
 	return err;
 }
-EXPORT_SYMBOL(devfreq_add_governor);
+/* DISABLED: EXPORT_SYMBOL(devfreq_add_governor); */
 
 /**
  * devfreq_remove_device() - Remove devfreq feature from a device.
@@ -742,7 +742,7 @@ err_out:
 
 	return err;
 }
-EXPORT_SYMBOL(devfreq_remove_governor);
+/* DISABLED: EXPORT_SYMBOL(devfreq_remove_governor); */
 
 static ssize_t show_governor(struct device *dev,
 			     struct device_attribute *attr, char *buf)

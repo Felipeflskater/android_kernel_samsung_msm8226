@@ -440,7 +440,7 @@ char *hid_resolv_usage(unsigned usage, struct seq_file *f) {
 		seq_printf(f, "%04x", usage & 0xffff);
 	return buf;
 }
-EXPORT_SYMBOL_GPL(hid_resolv_usage);
+/* DISABLED: EXPORT_SYMBOL_GPL(hid_resolv_usage); */
 
 static void tab(int n, struct seq_file *f) {
 	seq_printf(f, "%*s", n, "");
@@ -542,7 +542,7 @@ void hid_dump_field(struct hid_field *field, int n, struct seq_file *f) {
 	seq_printf(f, "%s", HID_MAIN_ITEM_BUFFERED_BYTE & j ? "BufferedByte " : "");
 	seq_printf(f, ")\n");
 }
-EXPORT_SYMBOL_GPL(hid_dump_field);
+/* DISABLED: EXPORT_SYMBOL_GPL(hid_dump_field); */
 
 void hid_dump_device(struct hid_device *device, struct seq_file *f)
 {
@@ -572,7 +572,7 @@ void hid_dump_device(struct hid_device *device, struct seq_file *f)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(hid_dump_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(hid_dump_device); */
 
 /* enqueue string to 'events' ring buffer */
 void hid_debug_event(struct hid_device *hdev, char *buf)
@@ -589,7 +589,7 @@ void hid_debug_event(struct hid_device *hdev, char *buf)
 
 	wake_up_interruptible(&hdev->debug_wait);
 }
-EXPORT_SYMBOL_GPL(hid_debug_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(hid_debug_event); */
 
 void hid_dump_input(struct hid_device *hdev, struct hid_usage *usage, __s32 value)
 {
@@ -608,7 +608,7 @@ void hid_dump_input(struct hid_device *hdev, struct hid_usage *usage, __s32 valu
         wake_up_interruptible(&hdev->debug_wait);
 
 }
-EXPORT_SYMBOL_GPL(hid_dump_input);
+/* DISABLED: EXPORT_SYMBOL_GPL(hid_dump_input); */
 
 static const char *events[EV_MAX + 1] = {
 	[EV_SYN] = "Sync",			[EV_KEY] = "Key",

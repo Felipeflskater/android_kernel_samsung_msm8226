@@ -107,10 +107,10 @@ struct bus_type iucv_bus = {
 	.match = iucv_bus_match,
 	.pm = &iucv_pm_ops,
 };
-EXPORT_SYMBOL(iucv_bus);
+/* DISABLED: EXPORT_SYMBOL(iucv_bus); */
 
 struct device *iucv_root;
-EXPORT_SYMBOL(iucv_root);
+/* DISABLED: EXPORT_SYMBOL(iucv_root); */
 
 static int iucv_available;
 
@@ -791,7 +791,7 @@ out_mutex:
 	mutex_unlock(&iucv_register_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(iucv_register);
+/* DISABLED: EXPORT_SYMBOL(iucv_register); */
 
 /**
  * iucv_unregister
@@ -824,7 +824,7 @@ void iucv_unregister(struct iucv_handler *handler, int smp)
 		iucv_setmask_mp();
 	mutex_unlock(&iucv_register_mutex);
 }
-EXPORT_SYMBOL(iucv_unregister);
+/* DISABLED: EXPORT_SYMBOL(iucv_unregister); */
 
 static int iucv_reboot_event(struct notifier_block *this,
 			     unsigned long event, void *ptr)
@@ -890,7 +890,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_path_accept);
+/* DISABLED: EXPORT_SYMBOL(iucv_path_accept); */
 
 /**
  * iucv_path_connect
@@ -958,7 +958,7 @@ out:
 	spin_unlock_bh(&iucv_table_lock);
 	return rc;
 }
-EXPORT_SYMBOL(iucv_path_connect);
+/* DISABLED: EXPORT_SYMBOL(iucv_path_connect); */
 
 /**
  * iucv_path_quiesce:
@@ -990,7 +990,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_path_quiesce);
+/* DISABLED: EXPORT_SYMBOL(iucv_path_quiesce); */
 
 /**
  * iucv_path_resume:
@@ -1052,7 +1052,7 @@ out:
 	preempt_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_path_sever);
+/* DISABLED: EXPORT_SYMBOL(iucv_path_sever); */
 
 /**
  * iucv_message_purge
@@ -1090,7 +1090,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_purge);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_purge); */
 
 /**
  * iucv_message_receive_iprmdata
@@ -1185,7 +1185,7 @@ int __iucv_message_receive(struct iucv_path *path, struct iucv_message *msg,
 out:
 	return rc;
 }
-EXPORT_SYMBOL(__iucv_message_receive);
+/* DISABLED: EXPORT_SYMBOL(__iucv_message_receive); */
 
 /**
  * iucv_message_receive
@@ -1217,7 +1217,7 @@ int iucv_message_receive(struct iucv_path *path, struct iucv_message *msg,
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_receive);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_receive); */
 
 /**
  * iucv_message_reject
@@ -1251,7 +1251,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_reject);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_reject); */
 
 /**
  * iucv_message_reply
@@ -1300,7 +1300,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_reply);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_reply); */
 
 /**
  * __iucv_message_send
@@ -1354,7 +1354,7 @@ int __iucv_message_send(struct iucv_path *path, struct iucv_message *msg,
 out:
 	return rc;
 }
-EXPORT_SYMBOL(__iucv_message_send);
+/* DISABLED: EXPORT_SYMBOL(__iucv_message_send); */
 
 /**
  * iucv_message_send
@@ -1383,7 +1383,7 @@ int iucv_message_send(struct iucv_path *path, struct iucv_message *msg,
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_send);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_send); */
 
 /**
  * iucv_message_send2way
@@ -1445,7 +1445,7 @@ out:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(iucv_message_send2way);
+/* DISABLED: EXPORT_SYMBOL(iucv_message_send2way); */
 
 /**
  * iucv_path_pending
@@ -1993,7 +1993,7 @@ struct iucv_interface iucv_if = {
 	.bus = NULL,
 	.root = NULL,
 };
-EXPORT_SYMBOL(iucv_if);
+/* DISABLED: EXPORT_SYMBOL(iucv_if); */
 
 /**
  * iucv_init

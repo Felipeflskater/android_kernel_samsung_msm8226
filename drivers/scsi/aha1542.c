@@ -961,7 +961,7 @@ static int __init do_setup(char *str)
 	return count<setup_idx;
 }
 
-/* DISABLED: __setup("aha1542=",do_setup); */
+/* DISABLED: __setup("aha1542=",do_setup); */ */
 #endif
 
 /* return non-zero on detection */

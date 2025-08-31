@@ -294,7 +294,7 @@ int rtllib_wx_get_scan(struct rtllib_device *ieee,
 
 	return err;
 }
-EXPORT_SYMBOL(rtllib_wx_get_scan);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_get_scan); */
 
 int rtllib_wx_set_encode(struct rtllib_device *ieee,
 			    struct iw_request_info *info,
@@ -469,7 +469,7 @@ int rtllib_wx_set_encode(struct rtllib_device *ieee,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_wx_set_encode);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_set_encode); */
 
 int rtllib_wx_get_encode(struct rtllib_device *ieee,
 			    struct iw_request_info *info,
@@ -513,7 +513,7 @@ int rtllib_wx_get_encode(struct rtllib_device *ieee,
 
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_wx_get_encode);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_get_encode); */
 
 int rtllib_wx_set_encode_ext(struct rtllib_device *ieee,
 			       struct iw_request_info *info,
@@ -675,7 +675,7 @@ done:
 	}
 	return ret;
 }
-EXPORT_SYMBOL(rtllib_wx_set_encode_ext);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_set_encode_ext); */
 
 int rtllib_wx_get_encode_ext(struct rtllib_device *ieee,
 			       struct iw_request_info *info,
@@ -780,7 +780,7 @@ int rtllib_wx_set_mlme(struct rtllib_device *ieee,
 
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_wx_set_mlme);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_set_mlme); */
 
 int rtllib_wx_set_auth(struct rtllib_device *ieee,
 			       struct iw_request_info *info,
@@ -833,7 +833,7 @@ int rtllib_wx_set_auth(struct rtllib_device *ieee,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_wx_set_auth);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_set_auth); */
 
 int rtllib_wx_set_gen_ie(struct rtllib_device *ieee, u8 *ie, size_t len)
 {
@@ -876,4 +876,4 @@ int rtllib_wx_set_gen_ie(struct rtllib_device *ieee, u8 *ie, size_t len)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(rtllib_wx_set_gen_ie);
+/* DISABLED: EXPORT_SYMBOL(rtllib_wx_set_gen_ie); */

@@ -110,7 +110,7 @@ egpioreq:
 	kfree(cd);
 	return ret;
 }
-EXPORT_SYMBOL(mmc_cd_gpio_request);
+/* DISABLED: EXPORT_SYMBOL(mmc_cd_gpio_request); */
 
 void mmc_cd_gpio_free(struct mmc_host *host)
 {
@@ -126,4 +126,4 @@ void mmc_cd_gpio_free(struct mmc_host *host)
 	host->hotplug.handler_priv = NULL;
    
 }
-EXPORT_SYMBOL(mmc_cd_gpio_free);
+/* DISABLED: EXPORT_SYMBOL(mmc_cd_gpio_free); */

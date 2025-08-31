@@ -290,7 +290,7 @@ int sdio_claim_irq(struct sdio_func *func, sdio_irq_handler_t *handler)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(sdio_claim_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(sdio_claim_irq); */
 
 /**
  *	sdio_release_irq - release the IRQ for a SDIO function
@@ -330,5 +330,5 @@ int sdio_release_irq(struct sdio_func *func)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sdio_release_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(sdio_release_irq); */
 

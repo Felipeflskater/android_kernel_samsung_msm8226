@@ -396,7 +396,7 @@ int sram_free(const void *addr)
 #endif
 		return -1;
 }
-EXPORT_SYMBOL(sram_free);
+/* DISABLED: EXPORT_SYMBOL(sram_free); */
 
 void *l1_data_A_sram_alloc(size_t size)
 {
@@ -423,7 +423,7 @@ void *l1_data_A_sram_alloc(size_t size)
 	return NULL;
 #endif
 }
-EXPORT_SYMBOL(l1_data_A_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(l1_data_A_sram_alloc); */
 
 int l1_data_A_sram_free(const void *addr)
 {
@@ -447,7 +447,7 @@ int l1_data_A_sram_free(const void *addr)
 	return -1;
 #endif
 }
-EXPORT_SYMBOL(l1_data_A_sram_free);
+/* DISABLED: EXPORT_SYMBOL(l1_data_A_sram_free); */
 
 void *l1_data_B_sram_alloc(size_t size)
 {
@@ -474,7 +474,7 @@ void *l1_data_B_sram_alloc(size_t size)
 	return NULL;
 #endif
 }
-EXPORT_SYMBOL(l1_data_B_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(l1_data_B_sram_alloc); */
 
 int l1_data_B_sram_free(const void *addr)
 {
@@ -498,7 +498,7 @@ int l1_data_B_sram_free(const void *addr)
 	return -1;
 #endif
 }
-EXPORT_SYMBOL(l1_data_B_sram_free);
+/* DISABLED: EXPORT_SYMBOL(l1_data_B_sram_free); */
 
 void *l1_data_sram_alloc(size_t size)
 {
@@ -509,7 +509,7 @@ void *l1_data_sram_alloc(size_t size)
 
 	return addr;
 }
-EXPORT_SYMBOL(l1_data_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(l1_data_sram_alloc); */
 
 void *l1_data_sram_zalloc(size_t size)
 {
@@ -520,7 +520,7 @@ void *l1_data_sram_zalloc(size_t size)
 
 	return addr;
 }
-EXPORT_SYMBOL(l1_data_sram_zalloc);
+/* DISABLED: EXPORT_SYMBOL(l1_data_sram_zalloc); */
 
 int l1_data_sram_free(const void *addr)
 {
@@ -530,7 +530,7 @@ int l1_data_sram_free(const void *addr)
 		ret = l1_data_B_sram_free(addr);
 	return ret;
 }
-EXPORT_SYMBOL(l1_data_sram_free);
+/* DISABLED: EXPORT_SYMBOL(l1_data_sram_free); */
 
 void *l1_inst_sram_alloc(size_t size)
 {
@@ -557,7 +557,7 @@ void *l1_inst_sram_alloc(size_t size)
 	return NULL;
 #endif
 }
-EXPORT_SYMBOL(l1_inst_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(l1_inst_sram_alloc); */
 
 int l1_inst_sram_free(const void *addr)
 {
@@ -581,7 +581,7 @@ int l1_inst_sram_free(const void *addr)
 	return -1;
 #endif
 }
-EXPORT_SYMBOL(l1_inst_sram_free);
+/* DISABLED: EXPORT_SYMBOL(l1_inst_sram_free); */
 
 /* L1 Scratchpad memory allocate function */
 void *l1sram_alloc(size_t size)
@@ -666,7 +666,7 @@ void *l2_sram_alloc(size_t size)
 	return NULL;
 #endif
 }
-EXPORT_SYMBOL(l2_sram_alloc);
+/* DISABLED: EXPORT_SYMBOL(l2_sram_alloc); */
 
 void *l2_sram_zalloc(size_t size)
 {
@@ -677,7 +677,7 @@ void *l2_sram_zalloc(size_t size)
 
 	return addr;
 }
-EXPORT_SYMBOL(l2_sram_zalloc);
+/* DISABLED: EXPORT_SYMBOL(l2_sram_zalloc); */
 
 int l2_sram_free(const void *addr)
 {
@@ -699,7 +699,7 @@ int l2_sram_free(const void *addr)
 	return -1;
 #endif
 }
-EXPORT_SYMBOL(l2_sram_free);
+/* DISABLED: EXPORT_SYMBOL(l2_sram_free); */
 
 int sram_free_with_lsl(const void *addr)
 {
@@ -718,7 +718,7 @@ int sram_free_with_lsl(const void *addr)
 
 	return ret;
 }
-EXPORT_SYMBOL(sram_free_with_lsl);
+/* DISABLED: EXPORT_SYMBOL(sram_free_with_lsl); */
 
 /* Allocate memory and keep in L1 SRAM List (lsl) so that the resources are
  * tracked.  These are designed for userspace so that when a process exits,
@@ -756,7 +756,7 @@ void *sram_alloc_with_lsl(size_t size, unsigned long flags)
 	mm->context.sram_list = lsl;
 	return addr;
 }
-EXPORT_SYMBOL(sram_alloc_with_lsl);
+/* DISABLED: EXPORT_SYMBOL(sram_alloc_with_lsl); */
 
 #ifdef CONFIG_PROC_FS
 /* Once we get a real allocator, we'll throw all of this away.

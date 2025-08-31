@@ -902,7 +902,7 @@ error_msg_to_dev:
 error_alloc:
 	return result;
 }
-EXPORT_SYMBOL_GPL(i2400m_cmd_enter_powersave);
+/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_cmd_enter_powersave); */
 
 
 /*

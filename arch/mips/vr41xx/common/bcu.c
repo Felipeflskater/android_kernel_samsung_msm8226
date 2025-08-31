@@ -59,14 +59,14 @@ unsigned long vr41xx_get_vtclock_frequency(void)
 	return vr41xx_vtclock;
 }
 
-EXPORT_SYMBOL_GPL(vr41xx_get_vtclock_frequency);
+/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_get_vtclock_frequency); */
 
 unsigned long vr41xx_get_tclock_frequency(void)
 {
 	return vr41xx_tclock;
 }
 
-EXPORT_SYMBOL_GPL(vr41xx_get_tclock_frequency);
+/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_get_tclock_frequency); */
 
 static inline uint16_t read_clkspeed(void)
 {
@@ -219,4 +219,4 @@ void vr41xx_calculate_clock_frequency(void)
 	vr41xx_tclock = calculate_tclock(clkspeed, pclock, vr41xx_vtclock);
 }
 
-EXPORT_SYMBOL_GPL(vr41xx_calculate_clock_frequency);
+/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_calculate_clock_frequency); */

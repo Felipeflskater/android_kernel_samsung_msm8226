@@ -712,7 +712,7 @@ const struct file_operations b1ctl_proc_fops = {
 	.llseek		= seq_lseek,
 	.release	= single_release,
 };
-EXPORT_SYMBOL(b1ctl_proc_fops);
+/* DISABLED: EXPORT_SYMBOL(b1ctl_proc_fops); */
 
 /* ------------------------------------------------------------- */
 
@@ -769,28 +769,28 @@ void avmcard_dma_free(avmcard_dmainfo *p)
 	kfree(p);
 }
 
-EXPORT_SYMBOL(avmcard_dma_alloc);
-EXPORT_SYMBOL(avmcard_dma_free);
+/* DISABLED: EXPORT_SYMBOL(avmcard_dma_alloc); */
+/* DISABLED: EXPORT_SYMBOL(avmcard_dma_free); */
 
 #endif
 
-EXPORT_SYMBOL(b1_irq_table);
+/* DISABLED: EXPORT_SYMBOL(b1_irq_table); */
 
-EXPORT_SYMBOL(b1_alloc_card);
-EXPORT_SYMBOL(b1_free_card);
-EXPORT_SYMBOL(b1_detect);
-EXPORT_SYMBOL(b1_getrevision);
-EXPORT_SYMBOL(b1_load_t4file);
-EXPORT_SYMBOL(b1_load_config);
-EXPORT_SYMBOL(b1_loaded);
-EXPORT_SYMBOL(b1_load_firmware);
-EXPORT_SYMBOL(b1_reset_ctr);
-EXPORT_SYMBOL(b1_register_appl);
-EXPORT_SYMBOL(b1_release_appl);
-EXPORT_SYMBOL(b1_send_message);
+/* DISABLED: EXPORT_SYMBOL(b1_alloc_card); */
+/* DISABLED: EXPORT_SYMBOL(b1_free_card); */
+/* DISABLED: EXPORT_SYMBOL(b1_detect); */
+/* DISABLED: EXPORT_SYMBOL(b1_getrevision); */
+/* DISABLED: EXPORT_SYMBOL(b1_load_t4file); */
+/* DISABLED: EXPORT_SYMBOL(b1_load_config); */
+/* DISABLED: EXPORT_SYMBOL(b1_loaded); */
+/* DISABLED: EXPORT_SYMBOL(b1_load_firmware); */
+/* DISABLED: EXPORT_SYMBOL(b1_reset_ctr); */
+/* DISABLED: EXPORT_SYMBOL(b1_register_appl); */
+/* DISABLED: EXPORT_SYMBOL(b1_release_appl); */
+/* DISABLED: EXPORT_SYMBOL(b1_send_message); */
 
-EXPORT_SYMBOL(b1_parse_version);
-EXPORT_SYMBOL(b1_interrupt);
+/* DISABLED: EXPORT_SYMBOL(b1_parse_version); */
+/* DISABLED: EXPORT_SYMBOL(b1_interrupt); */
 
 static int __init b1_init(void)
 {

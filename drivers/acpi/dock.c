@@ -273,7 +273,7 @@ int is_dock_device(acpi_handle handle)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(is_dock_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(is_dock_device); */
 
 /**
  * dock_present - see if the dock station is present.
@@ -563,7 +563,7 @@ int register_dock_notifier(struct notifier_block *nb)
 
 	return atomic_notifier_chain_register(&dock_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(register_dock_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_dock_notifier); */
 
 /**
  * unregister_dock_notifier - remove yourself from the dock notifier list
@@ -576,7 +576,7 @@ void unregister_dock_notifier(struct notifier_block *nb)
 
 	atomic_notifier_chain_unregister(&dock_notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_dock_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_dock_notifier); */
 
 /**
  * register_hotplug_dock_device - register a hotplug function
@@ -620,7 +620,7 @@ register_hotplug_dock_device(acpi_handle handle, const struct acpi_dock_ops *ops
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(register_hotplug_dock_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_hotplug_dock_device); */
 
 /**
  * unregister_hotplug_dock_device - remove yourself from the hotplug list
@@ -640,7 +640,7 @@ void unregister_hotplug_dock_device(acpi_handle handle)
 			dock_del_hotplug_device(dock_station, dd);
 	}
 }
-EXPORT_SYMBOL_GPL(unregister_hotplug_dock_device);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_hotplug_dock_device); */
 
 /**
  * handle_eject_request - handle an undock request checking for error conditions

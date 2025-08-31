@@ -143,7 +143,7 @@ void set_trace_device(struct device *dev)
 {
 	dev_hash_value = hash_string(DEVSEED, dev_name(dev), DEVHASH);
 }
-EXPORT_SYMBOL(set_trace_device);
+/* DISABLED: EXPORT_SYMBOL(set_trace_device); */
 
 /*
  * We could just take the "tracedata" index into the .tracedata
@@ -164,7 +164,7 @@ void generate_resume_trace(const void *tracedata, unsigned int user)
 	file_hash_value = hash_string(lineno, file, FILEHASH);
 	set_magic_time(user_hash_value, file_hash_value, dev_hash_value);
 }
-EXPORT_SYMBOL(generate_resume_trace);
+/* DISABLED: EXPORT_SYMBOL(generate_resume_trace); */
 
 extern char __tracedata_start, __tracedata_end;
 static int show_file_hash(unsigned int value)

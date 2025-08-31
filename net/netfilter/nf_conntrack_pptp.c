@@ -47,25 +47,25 @@ int
 			     struct nf_conn *ct, enum ip_conntrack_info ctinfo,
 			     unsigned int protoff, struct PptpControlHeader *ctlh,
 			     union pptp_ctrl_union *pptpReq) __read_mostly;
-EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_outbound);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_outbound); */
 
 int
 (*nf_nat_pptp_hook_inbound)(struct sk_buff *skb,
 			    struct nf_conn *ct, enum ip_conntrack_info ctinfo,
 			    unsigned int protoff, struct PptpControlHeader *ctlh,
 			    union pptp_ctrl_union *pptpReq) __read_mostly;
-EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_inbound);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_inbound); */
 
 void
 (*nf_nat_pptp_hook_exp_gre)(struct nf_conntrack_expect *expect_orig,
 			    struct nf_conntrack_expect *expect_reply)
 			    __read_mostly;
-EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_exp_gre);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_exp_gre); */
 
 void
 (*nf_nat_pptp_hook_expectfn)(struct nf_conn *ct,
 			     struct nf_conntrack_expect *exp) __read_mostly;
-EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_expectfn);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_pptp_hook_expectfn); */
 
 #if defined(DEBUG) || defined(CONFIG_DYNAMIC_DEBUG)
 /* PptpControlMessageType names */
@@ -87,7 +87,7 @@ const char *const pptp_msg_name[] = {
 	"WAN_ERROR_NOTIFY",
 	"SET_LINK_INFO"
 };
-EXPORT_SYMBOL(pptp_msg_name);
+/* DISABLED: EXPORT_SYMBOL(pptp_msg_name); */
 #endif
 
 #define SECS *HZ

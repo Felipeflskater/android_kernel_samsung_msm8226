@@ -177,7 +177,7 @@ static struct clock_event_device clkevt = {
 };
 
 void __iomem *at91_st_base;
-EXPORT_SYMBOL_GPL(at91_st_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(at91_st_base); */
 
 void __init at91rm9200_ioremap_st(u32 addr)
 {

@@ -121,7 +121,7 @@ const struct soc_camera_format_xlate *soc_camera_xlate_by_fourcc(
 			return icd->user_formats + i;
 	return NULL;
 }
-EXPORT_SYMBOL(soc_camera_xlate_by_fourcc);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_xlate_by_fourcc); */
 
 /**
  * soc_camera_apply_board_flags() - apply platform SOCAM_SENSOR_INVERT_* flags
@@ -155,7 +155,7 @@ unsigned long soc_camera_apply_board_flags(struct soc_camera_link *icl,
 
 	return flags;
 }
-EXPORT_SYMBOL(soc_camera_apply_board_flags);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_apply_board_flags); */
 
 #define pixfmtstr(x) (x) & 0xff, ((x) >> 8) & 0xff, ((x) >> 16) & 0xff, \
 	((x) >> 24) & 0xff
@@ -676,14 +676,14 @@ void soc_camera_lock(struct vb2_queue *vq)
 	struct soc_camera_device *icd = vb2_get_drv_priv(vq);
 	mutex_lock(&icd->video_lock);
 }
-EXPORT_SYMBOL(soc_camera_lock);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_lock); */
 
 void soc_camera_unlock(struct vb2_queue *vq)
 {
 	struct soc_camera_device *icd = vb2_get_drv_priv(vq);
 	mutex_unlock(&icd->video_lock);
 }
-EXPORT_SYMBOL(soc_camera_unlock);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_unlock); */
 
 static struct v4l2_file_operations soc_camera_fops = {
 	.owner		= THIS_MODULE,
@@ -1325,7 +1325,7 @@ edevreg:
 	mutex_unlock(&list_lock);
 	return ret;
 }
-EXPORT_SYMBOL(soc_camera_host_register);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_host_register); */
 
 /* Unregister all clients! */
 void soc_camera_host_unregister(struct soc_camera_host *ici)
@@ -1343,7 +1343,7 @@ void soc_camera_host_unregister(struct soc_camera_host *ici)
 
 	v4l2_device_unregister(&ici->v4l2_dev);
 }
-EXPORT_SYMBOL(soc_camera_host_unregister);
+/* DISABLED: EXPORT_SYMBOL(soc_camera_host_unregister); */
 
 /* Image capture device */
 static int soc_camera_device_register(struct soc_camera_device *icd)

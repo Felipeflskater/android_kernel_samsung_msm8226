@@ -140,7 +140,7 @@ struct jz4740_dma_chan *jz4740_dma_request(void *dev, const char *name)
 
 	return dma;
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_request); */
 
 void jz4740_dma_configure(struct jz4740_dma_chan *dma,
 	const struct jz4740_dma_config *config)
@@ -176,33 +176,33 @@ void jz4740_dma_configure(struct jz4740_dma_chan *dma,
 	jz4740_dma_write(JZ_REG_DMA_STATUS_CTRL(dma->id), 0);
 	jz4740_dma_write(JZ_REG_DMA_REQ_TYPE(dma->id), config->request_type);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_configure);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_configure); */
 
 void jz4740_dma_set_src_addr(struct jz4740_dma_chan *dma, dma_addr_t src)
 {
 	jz4740_dma_write(JZ_REG_DMA_SRC_ADDR(dma->id), src);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_set_src_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_set_src_addr); */
 
 void jz4740_dma_set_dst_addr(struct jz4740_dma_chan *dma, dma_addr_t dst)
 {
 	jz4740_dma_write(JZ_REG_DMA_DST_ADDR(dma->id), dst);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_set_dst_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_set_dst_addr); */
 
 void jz4740_dma_set_transfer_count(struct jz4740_dma_chan *dma, uint32_t count)
 {
 	count >>= dma->transfer_shift;
 	jz4740_dma_write(JZ_REG_DMA_TRANSFER_COUNT(dma->id), count);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_set_transfer_count);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_set_transfer_count); */
 
 void jz4740_dma_set_complete_cb(struct jz4740_dma_chan *dma,
 	jz4740_dma_complete_callback_t cb)
 {
 	dma->complete_cb = cb;
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_set_complete_cb);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_set_complete_cb); */
 
 void jz4740_dma_free(struct jz4740_dma_chan *dma)
 {
@@ -210,7 +210,7 @@ void jz4740_dma_free(struct jz4740_dma_chan *dma)
 	dma->complete_cb = NULL;
 	dma->used = 0;
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_free); */
 
 void jz4740_dma_enable(struct jz4740_dma_chan *dma)
 {
@@ -223,14 +223,14 @@ void jz4740_dma_enable(struct jz4740_dma_chan *dma)
 			JZ_DMA_CTRL_ENABLE,
 			JZ_DMA_CTRL_HALT | JZ_DMA_CTRL_ENABLE);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_enable); */
 
 void jz4740_dma_disable(struct jz4740_dma_chan *dma)
 {
 	jz4740_dma_write_mask(JZ_REG_DMA_STATUS_CTRL(dma->id), 0,
 			JZ_DMA_STATUS_CTRL_ENABLE);
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_disable); */
 
 uint32_t jz4740_dma_get_residue(const struct jz4740_dma_chan *dma)
 {
@@ -238,7 +238,7 @@ uint32_t jz4740_dma_get_residue(const struct jz4740_dma_chan *dma)
 	residue = jz4740_dma_read(JZ_REG_DMA_TRANSFER_COUNT(dma->id));
 	return residue << dma->transfer_shift;
 }
-EXPORT_SYMBOL_GPL(jz4740_dma_get_residue);
+/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_dma_get_residue); */
 
 static void jz4740_dma_chan_irq(struct jz4740_dma_chan *dma)
 {

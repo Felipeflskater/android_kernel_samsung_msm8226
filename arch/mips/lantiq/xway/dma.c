@@ -74,7 +74,7 @@ ltq_dma_enable_irq(struct ltq_dma_channel *ch)
 	ltq_dma_w32_mask(0, 1 << ch->nr, LTQ_DMA_IRNEN);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_enable_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_enable_irq); */
 
 void
 ltq_dma_disable_irq(struct ltq_dma_channel *ch)
@@ -86,7 +86,7 @@ ltq_dma_disable_irq(struct ltq_dma_channel *ch)
 	ltq_dma_w32_mask(1 << ch->nr, 0, LTQ_DMA_IRNEN);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_disable_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_disable_irq); */
 
 void
 ltq_dma_ack_irq(struct ltq_dma_channel *ch)
@@ -98,7 +98,7 @@ ltq_dma_ack_irq(struct ltq_dma_channel *ch)
 	ltq_dma_w32(DMA_IRQ_ACK, LTQ_DMA_CIS);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_ack_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_ack_irq); */
 
 void
 ltq_dma_open(struct ltq_dma_channel *ch)
@@ -111,7 +111,7 @@ ltq_dma_open(struct ltq_dma_channel *ch)
 	ltq_dma_enable_irq(ch);
 	local_irq_restore(flag);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_open); */
 
 void
 ltq_dma_close(struct ltq_dma_channel *ch)
@@ -124,7 +124,7 @@ ltq_dma_close(struct ltq_dma_channel *ch)
 	ltq_dma_disable_irq(ch);
 	local_irq_restore(flag);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_close); */
 
 static void
 ltq_dma_alloc(struct ltq_dma_channel *ch)
@@ -162,7 +162,7 @@ ltq_dma_alloc_tx(struct ltq_dma_channel *ch)
 	ltq_dma_w32(DMA_WEIGHT | DMA_TX, LTQ_DMA_CCTRL);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_alloc_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_alloc_tx); */
 
 void
 ltq_dma_alloc_rx(struct ltq_dma_channel *ch)
@@ -177,7 +177,7 @@ ltq_dma_alloc_rx(struct ltq_dma_channel *ch)
 	ltq_dma_w32(DMA_WEIGHT, LTQ_DMA_CCTRL);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_alloc_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_alloc_rx); */
 
 void
 ltq_dma_free(struct ltq_dma_channel *ch)
@@ -188,7 +188,7 @@ ltq_dma_free(struct ltq_dma_channel *ch)
 	dma_free_coherent(NULL, LTQ_DESC_NUM * LTQ_DESC_SIZE,
 		ch->desc_base, ch->phys);
 }
-EXPORT_SYMBOL_GPL(ltq_dma_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_free); */
 
 void
 ltq_dma_init_port(int p)
@@ -213,7 +213,7 @@ ltq_dma_init_port(int p)
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(ltq_dma_init_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(ltq_dma_init_port); */
 
 int __init
 ltq_dma_init(void)

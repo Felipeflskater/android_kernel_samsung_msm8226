@@ -81,7 +81,7 @@ QP_EnqueueSpace(QPHandle *qp)
 
 	return FreeSpace(head, phantom, qp->queueSize);
 }
-EXPORT_SYMBOL(QP_EnqueueSpace);
+/* DISABLED: EXPORT_SYMBOL(QP_EnqueueSpace); */
 
 
 /**
@@ -161,7 +161,7 @@ QP_EnqueueSegment(QPHandle *qp,
 
 	return bufSize;
 }
-EXPORT_SYMBOL(QP_EnqueueSegment);
+/* DISABLED: EXPORT_SYMBOL(QP_EnqueueSegment); */
 
 
 /**
@@ -186,7 +186,7 @@ QP_EnqueueCommit(QPHandle *qp)
 	qp->produceQ->tail = phantom;
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_EnqueueCommit);
+/* DISABLED: EXPORT_SYMBOL(QP_EnqueueCommit); */
 
 
 /**
@@ -218,7 +218,7 @@ QP_DequeueSpace(QPHandle *qp)
 
 	return bytesAvailable;
 }
-EXPORT_SYMBOL(QP_DequeueSpace);
+/* DISABLED: EXPORT_SYMBOL(QP_DequeueSpace); */
 
 
 /**
@@ -303,7 +303,7 @@ QP_DequeueSegment(QPHandle *qp,
 
 	return bytesDesired;
 }
-EXPORT_SYMBOL(QP_DequeueSegment);
+/* DISABLED: EXPORT_SYMBOL(QP_DequeueSegment); */
 
 
 /**
@@ -329,7 +329,7 @@ QP_DequeueCommit(QPHandle *qp)
 	qp->consumeQ->head = phantom;
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_DequeueCommit);
+/* DISABLED: EXPORT_SYMBOL(QP_DequeueCommit); */
 
 
 /**
@@ -355,7 +355,7 @@ QP_EnqueueReset(QPHandle *qp)
 	qp->produceQ->phantom_tail = tail;
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_EnqueueReset);
+/* DISABLED: EXPORT_SYMBOL(QP_EnqueueReset); */
 
 /**
  *  @brief Resets the phantom head pointer and discards any pending
@@ -380,5 +380,5 @@ QP_DequeueReset(QPHandle *qp)
 	qp->consumeQ->phantom_head = head;
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_DequeueReset);
+/* DISABLED: EXPORT_SYMBOL(QP_DequeueReset); */
 

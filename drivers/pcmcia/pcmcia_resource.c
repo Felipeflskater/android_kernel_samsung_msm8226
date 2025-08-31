@@ -198,7 +198,7 @@ int pcmcia_read_config_byte(struct pcmcia_device *p_dev, off_t where, u8 *val)
 {
 	return pcmcia_access_config(p_dev, where, val, pcmcia_read_cis_mem);
 }
-EXPORT_SYMBOL(pcmcia_read_config_byte);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_read_config_byte); */
 
 
 /**
@@ -211,7 +211,7 @@ int pcmcia_write_config_byte(struct pcmcia_device *p_dev, off_t where, u8 val)
 {
 	return pcmcia_access_config(p_dev, where, &val, pcmcia_write_cis_mem);
 }
-EXPORT_SYMBOL(pcmcia_write_config_byte);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_write_config_byte); */
 
 
 /**
@@ -243,7 +243,7 @@ int pcmcia_map_mem_page(struct pcmcia_device *p_dev, struct resource *res,
 	mutex_unlock(&s->ops_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(pcmcia_map_mem_page);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_map_mem_page); */
 
 
 /**
@@ -292,7 +292,7 @@ unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL(pcmcia_fixup_iowidth);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_fixup_iowidth); */
 
 
 /**
@@ -333,7 +333,7 @@ unlock:
 
 	return ret;
 }
-EXPORT_SYMBOL(pcmcia_fixup_vpp);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_fixup_vpp); */
 
 
 /**
@@ -469,7 +469,7 @@ int pcmcia_release_window(struct pcmcia_device *p_dev, struct resource *res)
 
 	return 0;
 } /* pcmcia_release_window */
-EXPORT_SYMBOL(pcmcia_release_window);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_release_window); */
 
 
 /**
@@ -615,7 +615,7 @@ int pcmcia_enable_device(struct pcmcia_device *p_dev)
 	mutex_unlock(&s->ops_mutex);
 	return 0;
 } /* pcmcia_enable_device */
-EXPORT_SYMBOL(pcmcia_enable_device);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_enable_device); */
 
 
 /**
@@ -681,7 +681,7 @@ out:
 
 	return ret;
 } /* pcmcia_request_io */
-EXPORT_SYMBOL(pcmcia_request_io);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_request_io); */
 
 
 /**
@@ -710,7 +710,7 @@ int __must_check pcmcia_request_irq(struct pcmcia_device *p_dev,
 
 	return ret;
 }
-EXPORT_SYMBOL(pcmcia_request_irq);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_request_irq); */
 
 
 /**
@@ -748,7 +748,7 @@ __pcmcia_request_exclusive_irq(struct pcmcia_device *p_dev,
 
 	return ret;
 } /* pcmcia_request_exclusive_irq */
-EXPORT_SYMBOL(__pcmcia_request_exclusive_irq);
+/* DISABLED: EXPORT_SYMBOL(__pcmcia_request_exclusive_irq); */
 
 
 #ifdef CONFIG_PCMCIA_PROBE
@@ -963,7 +963,7 @@ int pcmcia_request_window(struct pcmcia_device *p_dev, struct resource *res,
 
 	return 0;
 } /* pcmcia_request_window */
-EXPORT_SYMBOL(pcmcia_request_window);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_request_window); */
 
 
 /**
@@ -997,4 +997,4 @@ void pcmcia_disable_device(struct pcmcia_device *p_dev)
 		p_dev->_irq = 0;
 	}
 }
-EXPORT_SYMBOL(pcmcia_disable_device);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_disable_device); */

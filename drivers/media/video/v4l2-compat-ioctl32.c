@@ -1185,4 +1185,4 @@ long v4l2_compat_ioctl32(struct file *file, unsigned int cmd, unsigned long arg)
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(v4l2_compat_ioctl32);
+/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_compat_ioctl32); */

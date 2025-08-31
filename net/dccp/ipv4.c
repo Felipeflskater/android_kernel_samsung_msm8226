@@ -141,7 +141,7 @@ failure:
 	goto out;
 }
 
-EXPORT_SYMBOL_GPL(dccp_v4_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_v4_connect); */
 
 /*
  * This routine does path mtu discovery as defined in RFC1191.
@@ -372,7 +372,7 @@ void dccp_v4_send_check(struct sock *sk, struct sk_buff *skb)
 						 inet->inet_daddr);
 }
 
-EXPORT_SYMBOL_GPL(dccp_v4_send_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_v4_send_check); */
 
 static inline u64 dccp_v4_init_sequence(const struct sk_buff *skb)
 {
@@ -440,7 +440,7 @@ put_and_exit:
 	goto exit;
 }
 
-EXPORT_SYMBOL_GPL(dccp_v4_request_recv_sock);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_v4_request_recv_sock); */
 
 static struct sock *dccp_v4_hnd_req(struct sock *sk, struct sk_buff *skb)
 {
@@ -661,7 +661,7 @@ drop:
 	return -1;
 }
 
-EXPORT_SYMBOL_GPL(dccp_v4_conn_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_v4_conn_request); */
 
 int dccp_v4_do_rcv(struct sock *sk, struct sk_buff *skb)
 {
@@ -720,7 +720,7 @@ discard:
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(dccp_v4_do_rcv);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_v4_do_rcv); */
 
 /**
  *	dccp_invalid_packet  -  check for malformed packets
@@ -793,7 +793,7 @@ int dccp_invalid_packet(struct sk_buff *skb)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(dccp_invalid_packet);
+/* DISABLED: EXPORT_SYMBOL_GPL(dccp_invalid_packet); */
 
 /* this is called when real data arrives */
 static int dccp_v4_rcv(struct sk_buff *skb)

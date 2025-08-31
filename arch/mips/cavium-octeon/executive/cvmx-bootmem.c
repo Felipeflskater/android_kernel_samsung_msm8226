@@ -123,7 +123,7 @@ void *cvmx_bootmem_alloc_named(uint64_t size, uint64_t alignment, char *name)
 {
     return cvmx_bootmem_alloc_named_range(size, 0, 0, alignment, name);
 }
-EXPORT_SYMBOL(cvmx_bootmem_alloc_named);
+/* DISABLED: EXPORT_SYMBOL(cvmx_bootmem_alloc_named); */
 
 int cvmx_bootmem_free_named(char *name)
 {
@@ -134,7 +134,7 @@ struct cvmx_bootmem_named_block_desc *cvmx_bootmem_find_named_block(char *name)
 {
 	return cvmx_bootmem_phy_named_block_find(name, 0);
 }
-EXPORT_SYMBOL(cvmx_bootmem_find_named_block);
+/* DISABLED: EXPORT_SYMBOL(cvmx_bootmem_find_named_block); */
 
 void cvmx_bootmem_lock(void)
 {

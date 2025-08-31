@@ -4604,7 +4604,7 @@ MODULE_DEVICE_TABLE(pnp, floppy_pnpids);
 
 #else
 
-/* DISABLED: __setup("floppy=", floppy_setup); */
+/* DISABLED: __setup("floppy=", floppy_setup); */ */
 module_init(floppy_init)
 #endif
 

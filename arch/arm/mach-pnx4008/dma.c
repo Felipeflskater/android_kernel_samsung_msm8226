@@ -66,7 +66,7 @@ struct pnx4008_dma_ll *pnx4008_alloc_ll_entry(dma_addr_t * ll_dma)
 	return ll;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_alloc_ll_entry);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_alloc_ll_entry); */
 
 void pnx4008_free_ll_entry(struct pnx4008_dma_ll * ll, dma_addr_t ll_dma)
 {
@@ -89,7 +89,7 @@ void pnx4008_free_ll_entry(struct pnx4008_dma_ll * ll, dma_addr_t ll_dma)
 	}
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_free_ll_entry);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_free_ll_entry); */
 
 void pnx4008_free_ll(u32 ll_dma, struct pnx4008_dma_ll * ll)
 {
@@ -106,7 +106,7 @@ void pnx4008_free_ll(u32 ll_dma, struct pnx4008_dma_ll * ll)
 	}
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_free_ll);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_free_ll); */
 
 static int dma_channels_requested = 0;
 
@@ -184,7 +184,7 @@ int pnx4008_request_channel(char *name, int ch,
 	return i;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_request_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_request_channel); */
 
 void pnx4008_free_channel(int ch)
 {
@@ -204,7 +204,7 @@ void pnx4008_free_channel(int ch)
 	pnx4008_dma_unlock();
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_free_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_free_channel); */
 
 int pnx4008_config_dma(int ahb_m1_be, int ahb_m2_be, int enable)
 {
@@ -250,7 +250,7 @@ int pnx4008_config_dma(int ahb_m1_be, int ahb_m2_be, int enable)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_config_dma);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_config_dma); */
 
 int pnx4008_dma_pack_control(const struct pnx4008_dma_ch_ctrl * ch_ctrl,
 			     unsigned long *ctrl)
@@ -424,7 +424,7 @@ out:
 	return err;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_pack_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_pack_control); */
 
 int pnx4008_dma_parse_control(unsigned long ctrl,
 			      struct pnx4008_dma_ch_ctrl * ch_ctrl)
@@ -508,7 +508,7 @@ out:
 	return err;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_parse_control);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_parse_control); */
 
 int pnx4008_dma_pack_config(const struct pnx4008_dma_ch_config * ch_cfg,
 			    unsigned long *cfg)
@@ -623,7 +623,7 @@ out:
 	return err;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_pack_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_pack_config); */
 
 int pnx4008_dma_parse_config(unsigned long cfg,
 			     struct pnx4008_dma_ch_config * ch_cfg)
@@ -688,7 +688,7 @@ out:
 	return err;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_parse_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_parse_config); */
 
 void pnx4008_dma_split_head_entry(struct pnx4008_dma_config * config,
 				  struct pnx4008_dma_ch_ctrl * ctrl)
@@ -810,7 +810,7 @@ void pnx4008_dma_split_head_entry(struct pnx4008_dma_config * config,
 	}
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_split_head_entry);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_split_head_entry); */
 
 void pnx4008_dma_split_ll_entry(struct pnx4008_dma_ll * cur_ll,
 				struct pnx4008_dma_ch_ctrl * ctrl)
@@ -932,7 +932,7 @@ void pnx4008_dma_split_ll_entry(struct pnx4008_dma_ll * cur_ll,
 	}
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_split_ll_entry);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_split_ll_entry); */
 
 int pnx4008_config_channel(int ch, struct pnx4008_dma_config * config)
 {
@@ -956,7 +956,7 @@ int pnx4008_config_channel(int ch, struct pnx4008_dma_config * config)
 
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_config_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_config_channel); */
 
 int pnx4008_channel_get_config(int ch, struct pnx4008_dma_config * config)
 {
@@ -977,7 +977,7 @@ int pnx4008_channel_get_config(int ch, struct pnx4008_dma_config * config)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_channel_get_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_channel_get_config); */
 
 int pnx4008_dma_ch_enable(int ch)
 {
@@ -995,7 +995,7 @@ int pnx4008_dma_ch_enable(int ch)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_ch_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_ch_enable); */
 
 int pnx4008_dma_ch_disable(int ch)
 {
@@ -1013,7 +1013,7 @@ int pnx4008_dma_ch_disable(int ch)
 	return 0;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_ch_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_ch_disable); */
 
 int pnx4008_dma_ch_enabled(int ch)
 {
@@ -1029,7 +1029,7 @@ int pnx4008_dma_ch_enabled(int ch)
 	return ch_cfg & 1;
 }
 
-EXPORT_SYMBOL_GPL(pnx4008_dma_ch_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(pnx4008_dma_ch_enabled); */
 
 static irqreturn_t dma_irq_handler(int irq, void *dev_id)
 {

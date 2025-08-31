@@ -613,7 +613,7 @@ err:
 		goto try_again;
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(dbgp_external_startup);
+/* DISABLED: EXPORT_SYMBOL_GPL(dbgp_external_startup); */
 
 static int ehci_reset_port(int port)
 {
@@ -996,7 +996,7 @@ int dbgp_reset_prep(void)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dbgp_reset_prep);
+/* DISABLED: EXPORT_SYMBOL_GPL(dbgp_reset_prep); */
 
 #ifdef CONFIG_KGDB
 

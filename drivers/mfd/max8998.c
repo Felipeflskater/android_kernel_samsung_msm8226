@@ -67,7 +67,7 @@ int max8998_read_reg(struct i2c_client *i2c, u8 reg, u8 *dest)
 	*dest = ret;
 	return 0;
 }
-EXPORT_SYMBOL(max8998_read_reg);
+/* DISABLED: EXPORT_SYMBOL(max8998_read_reg); */
 
 int max8998_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -82,7 +82,7 @@ int max8998_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-EXPORT_SYMBOL(max8998_bulk_read);
+/* DISABLED: EXPORT_SYMBOL(max8998_bulk_read); */
 
 int max8998_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 {
@@ -94,7 +94,7 @@ int max8998_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 	mutex_unlock(&max8998->iolock);
 	return ret;
 }
-EXPORT_SYMBOL(max8998_write_reg);
+/* DISABLED: EXPORT_SYMBOL(max8998_write_reg); */
 
 int max8998_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -109,7 +109,7 @@ int max8998_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-EXPORT_SYMBOL(max8998_bulk_write);
+/* DISABLED: EXPORT_SYMBOL(max8998_bulk_write); */
 
 int max8998_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 {
@@ -126,7 +126,7 @@ int max8998_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 	mutex_unlock(&max8998->iolock);
 	return ret;
 }
-EXPORT_SYMBOL(max8998_update_reg);
+/* DISABLED: EXPORT_SYMBOL(max8998_update_reg); */
 
 static int max8998_i2c_probe(struct i2c_client *i2c,
 			    const struct i2c_device_id *id)

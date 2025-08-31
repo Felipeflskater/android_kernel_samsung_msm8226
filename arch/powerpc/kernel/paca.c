@@ -121,7 +121,7 @@ struct slb_shadow slb_shadow[] __cacheline_aligned = {
  * processor (not thread).
  */
 struct paca_struct *paca;
-EXPORT_SYMBOL(paca);
+/* DISABLED: EXPORT_SYMBOL(paca); */
 
 struct paca_struct boot_paca;
 

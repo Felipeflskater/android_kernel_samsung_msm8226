@@ -54,7 +54,7 @@ void dma_sync_single_for_device(struct device *dev, dma_addr_t handle,
 	}
 }
 
-EXPORT_SYMBOL(dma_sync_single_for_device);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_single_for_device); */
 dma_addr_t dma_map_single(struct device *dev, void *addr, size_t size,
 			  enum dma_data_direction dir)
 {
@@ -62,7 +62,7 @@ dma_addr_t dma_map_single(struct device *dev, void *addr, size_t size,
 	flush_dcache_range(handle, size);
 	return handle;
 }
-EXPORT_SYMBOL(dma_map_single);
+/* DISABLED: EXPORT_SYMBOL(dma_map_single); */
 
 dma_addr_t dma_map_page(struct device *dev, struct page *page,
 			unsigned long offset, size_t size,
@@ -72,4 +72,4 @@ dma_addr_t dma_map_page(struct device *dev, struct page *page,
 	dma_sync_single_for_device(dev, handle, size, dir);
 	return handle;
 }
-EXPORT_SYMBOL(dma_map_page);
+/* DISABLED: EXPORT_SYMBOL(dma_map_page); */

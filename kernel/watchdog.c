@@ -62,7 +62,7 @@ static int __init hardlockup_panic_setup(char *str)
 		watchdog_enabled = 0;
 	return 1;
 }
-/* DISABLED: __setup("nmi_watchdog=", hardlockup_panic_setup); */
+/* DISABLED: __setup("nmi_watchdog=", hardlockup_panic_setup); */ */
 #endif
 
 unsigned int __read_mostly softlockup_panic =
@@ -74,14 +74,14 @@ static int __init softlockup_panic_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("softlockup_panic=", softlockup_panic_setup); */
+/* DISABLED: __setup("softlockup_panic=", softlockup_panic_setup); */ */
 
 static int __init nowatchdog_setup(char *str)
 {
 	watchdog_enabled = 0;
 	return 1;
 }
-/* DISABLED: __setup("nowatchdog", nowatchdog_setup); */
+/* DISABLED: __setup("nowatchdog", nowatchdog_setup); */ */
 
 /* deprecated */
 static int __init nosoftlockup_setup(char *str)
@@ -89,7 +89,7 @@ static int __init nosoftlockup_setup(char *str)
 	watchdog_enabled = 0;
 	return 1;
 }
-/* DISABLED: __setup("nosoftlockup", nosoftlockup_setup); */
+/* DISABLED: __setup("nosoftlockup", nosoftlockup_setup); */ */
 /*  */
 
 /*
@@ -138,7 +138,7 @@ void touch_softlockup_watchdog(void)
 {
 	__this_cpu_write(watchdog_touch_ts, 0);
 }
-EXPORT_SYMBOL(touch_softlockup_watchdog);
+/* DISABLED: EXPORT_SYMBOL(touch_softlockup_watchdog); */
 
 void touch_all_softlockup_watchdogs(void)
 {
@@ -166,7 +166,7 @@ void touch_nmi_watchdog(void)
 	__raw_get_cpu_var(watchdog_nmi_touch) = true;
 	touch_softlockup_watchdog();
 }
-EXPORT_SYMBOL(touch_nmi_watchdog);
+/* DISABLED: EXPORT_SYMBOL(touch_nmi_watchdog); */
 
 #endif
 

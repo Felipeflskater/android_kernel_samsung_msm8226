@@ -182,7 +182,7 @@ commit:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(usb_amd_find_chipset_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_amd_find_chipset_info); */
 
 /*
  * The hardware normally enables the A-link power management feature, which
@@ -312,13 +312,13 @@ void usb_amd_quirk_pll_disable(void)
 {
 	usb_amd_quirk_pll(1);
 }
-EXPORT_SYMBOL_GPL(usb_amd_quirk_pll_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_amd_quirk_pll_disable); */
 
 void usb_amd_quirk_pll_enable(void)
 {
 	usb_amd_quirk_pll(0);
 }
-EXPORT_SYMBOL_GPL(usb_amd_quirk_pll_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_amd_quirk_pll_enable); */
 
 void usb_amd_dev_put(void)
 {
@@ -351,7 +351,7 @@ void usb_amd_dev_put(void)
 	if (smbus)
 		pci_dev_put(smbus);
 }
-EXPORT_SYMBOL_GPL(usb_amd_dev_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_amd_dev_put); */
 
 /*
  * Make sure the controller is completely inactive, unable to
@@ -381,7 +381,7 @@ void uhci_reset_hc(struct pci_dev *pdev, unsigned long base)
 	outw(0, base + UHCI_USBINTR);
 	outw(0, base + UHCI_USBCMD);
 }
-EXPORT_SYMBOL_GPL(uhci_reset_hc);
+/* DISABLED: EXPORT_SYMBOL_GPL(uhci_reset_hc); */
 
 /*
  * Initialize a controller that was newly discovered or has just been
@@ -432,7 +432,7 @@ reset_needed:
 	uhci_reset_hc(pdev, base);
 	return 1;
 }
-EXPORT_SYMBOL_GPL(uhci_check_and_reset_hc);
+/* DISABLED: EXPORT_SYMBOL_GPL(uhci_check_and_reset_hc); */
 
 static inline int io_type_enabled(struct pci_dev *pdev, unsigned int mask)
 {
@@ -771,7 +771,7 @@ bool usb_is_intel_switchable_xhci(struct pci_dev *pdev)
 	return usb_is_intel_ppt_switchable_xhci(pdev) ||
 		usb_is_intel_lpt_switchable_xhci(pdev);
 }
-EXPORT_SYMBOL_GPL(usb_is_intel_switchable_xhci);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_is_intel_switchable_xhci); */
 
 /*
  * Intel's Panther Point chipset has two host controllers (EHCI and xHCI) that
@@ -852,14 +852,14 @@ void usb_enable_xhci_ports(struct pci_dev *xhci_pdev)
 	dev_dbg(&xhci_pdev->dev, "USB 2.0 ports that are now switched over "
 			"to xHCI: 0x%x\n", ports_available);
 }
-EXPORT_SYMBOL_GPL(usb_enable_xhci_ports);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_enable_xhci_ports); */
 
 void usb_disable_xhci_ports(struct pci_dev *xhci_pdev)
 {
 	pci_write_config_dword(xhci_pdev, USB_INTEL_USB3_PSSEN, 0x0);
 	pci_write_config_dword(xhci_pdev, USB_INTEL_XUSB2PR, 0x0);
 }
-EXPORT_SYMBOL_GPL(usb_disable_xhci_ports);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_disable_xhci_ports); */
 
 /**
  * PCI Quirks for xHCI.

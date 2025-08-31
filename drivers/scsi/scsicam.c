@@ -49,7 +49,7 @@ unsigned char *scsi_bios_ptable(struct block_device *dev)
 	}
 	return res;
 }
-EXPORT_SYMBOL(scsi_bios_ptable);
+/* DISABLED: EXPORT_SYMBOL(scsi_bios_ptable); */
 
 /**
  * scsicam_bios_param - Determine geometry of a disk in cylinders/heads/sectors.
@@ -106,7 +106,7 @@ int scsicam_bios_param(struct block_device *bdev, sector_t capacity, int *ip)
 
 	return 0;
 }
-EXPORT_SYMBOL(scsicam_bios_param);
+/* DISABLED: EXPORT_SYMBOL(scsicam_bios_param); */
 
 /**
  * scsi_partsize - Parse cylinders/heads/sectors from PC partition table
@@ -191,7 +191,7 @@ int scsi_partsize(unsigned char *buf, unsigned long capacity,
 	}
 	return -1;
 }
-EXPORT_SYMBOL(scsi_partsize);
+/* DISABLED: EXPORT_SYMBOL(scsi_partsize); */
 
 /*
  * Function : static int setsize(unsigned long capacity,unsigned int *cyls,

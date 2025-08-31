@@ -1377,5 +1377,5 @@ MODULE_DESCRIPTION("Philips TDA10045H & TDA10046H DVB-T Demodulator");
 MODULE_AUTHOR("Andrew de Quincey & Robert Schlabbach");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(tda10045_attach);
-EXPORT_SYMBOL(tda10046_attach);
+/* DISABLED: EXPORT_SYMBOL(tda10045_attach); */
+/* DISABLED: EXPORT_SYMBOL(tda10046_attach); */

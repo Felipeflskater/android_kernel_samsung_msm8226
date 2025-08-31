@@ -44,7 +44,7 @@
  * Set in pm platform drivers (apc.c and pmc.c)
  */
 void (*pm_idle)(void);
-EXPORT_SYMBOL(pm_idle);
+/* DISABLED: EXPORT_SYMBOL(pm_idle); */
 
 /* 
  * Power-off handler instantiation for pm.h compliance
@@ -52,7 +52,7 @@ EXPORT_SYMBOL(pm_idle);
  * handler when auxio is not present-- unused for now...
  */
 void (*pm_power_off)(void) = machine_power_off;
-EXPORT_SYMBOL(pm_power_off);
+/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
 
 /*
  * sysctl - toggle power-off restriction for serial console 
@@ -324,7 +324,7 @@ void dump_stack(void)
 	show_stack(current, ksp);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 /*
  * Note: sparc64 has a pretty intricated thread_saved_pc, check it out.
@@ -679,7 +679,7 @@ pid_t kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 			     "g1", "g2", "g3", "o0", "o1", "memory", "cc");
 	return retval;
 }
-EXPORT_SYMBOL(kernel_thread);
+/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
 
 unsigned long get_wchan(struct task_struct *task)
 {

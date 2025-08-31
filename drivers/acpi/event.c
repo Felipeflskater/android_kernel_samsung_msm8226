@@ -129,19 +129,19 @@ int acpi_notifier_call_chain(struct acpi_device *dev, u32 type, u32 data)
 	return (blocking_notifier_call_chain(&acpi_chain_head, 0, (void *)&event)
                         == NOTIFY_BAD) ? -EINVAL : 0;
 }
-EXPORT_SYMBOL(acpi_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL(acpi_notifier_call_chain); */
 
 int register_acpi_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&acpi_chain_head, nb);
 }
-EXPORT_SYMBOL(register_acpi_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_acpi_notifier); */
 
 int unregister_acpi_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&acpi_chain_head, nb);
 }
-EXPORT_SYMBOL(unregister_acpi_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_acpi_notifier); */
 
 #ifdef CONFIG_NET
 static unsigned int acpi_event_seqnum;
@@ -244,7 +244,7 @@ int acpi_bus_generate_netlink_event(const char *device_class,
 	return 0;
 }
 
-EXPORT_SYMBOL(acpi_bus_generate_netlink_event);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_generate_netlink_event); */
 
 static int acpi_event_genetlink_init(void)
 {
@@ -270,7 +270,7 @@ int acpi_bus_generate_netlink_event(const char *device_class,
 	return 0;
 }
 
-EXPORT_SYMBOL(acpi_bus_generate_netlink_event);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_generate_netlink_event); */
 
 static int acpi_event_genetlink_init(void)
 {

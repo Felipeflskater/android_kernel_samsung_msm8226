@@ -27,10 +27,10 @@ csum_partial_copy_from_user(const void __user *src, void *dst, int len,
 
 	return csum_partial(dst, len, sum);
 }
-EXPORT_SYMBOL(csum_partial_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
 
 /* These are from csum_64plus.S */
-EXPORT_SYMBOL(csum_partial);
-EXPORT_SYMBOL(csum_partial_copy);
-EXPORT_SYMBOL(ip_compute_csum);
-EXPORT_SYMBOL(ip_fast_csum);
+/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+/* DISABLED: EXPORT_SYMBOL(csum_partial_copy); */
+/* DISABLED: EXPORT_SYMBOL(ip_compute_csum); */
+/* DISABLED: EXPORT_SYMBOL(ip_fast_csum); */

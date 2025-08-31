@@ -691,7 +691,7 @@ void dib0090_dcc_freq(struct dvb_frontend *fe, u8 fast)
 		dib0090_write_reg(state, 0x04, 1);
 }
 
-EXPORT_SYMBOL(dib0090_dcc_freq);
+/* DISABLED: EXPORT_SYMBOL(dib0090_dcc_freq); */
 
 static const u16 bb_ramp_pwm_normal_socs[] = {
 	550,			/* max BB gain in 10th of dB */
@@ -1153,7 +1153,7 @@ void dib0090_pwm_gain_reset(struct dvb_frontend *fe)
 	}
 }
 
-EXPORT_SYMBOL(dib0090_pwm_gain_reset);
+/* DISABLED: EXPORT_SYMBOL(dib0090_pwm_gain_reset); */
 
 void dib0090_set_dc_servo(struct dvb_frontend *fe, u8 DC_servo_cutoff)
 {
@@ -1161,7 +1161,7 @@ void dib0090_set_dc_servo(struct dvb_frontend *fe, u8 DC_servo_cutoff)
 	if (DC_servo_cutoff < 4)
 		dib0090_write_reg(state, 0x04, DC_servo_cutoff);
 }
-EXPORT_SYMBOL(dib0090_set_dc_servo);
+/* DISABLED: EXPORT_SYMBOL(dib0090_set_dc_servo); */
 
 static u32 dib0090_get_slow_adc_val(struct dib0090_state *state)
 {
@@ -1332,7 +1332,7 @@ int dib0090_gain_control(struct dvb_frontend *fe)
 	return ret;
 }
 
-EXPORT_SYMBOL(dib0090_gain_control);
+/* DISABLED: EXPORT_SYMBOL(dib0090_gain_control); */
 
 void dib0090_get_current_gain(struct dvb_frontend *fe, u16 * rf, u16 * bb, u16 * rf_gain_limit, u16 * rflt)
 {
@@ -1347,7 +1347,7 @@ void dib0090_get_current_gain(struct dvb_frontend *fe, u16 * rf, u16 * bb, u16 *
 		*rflt = (state->rf_lt_def >> 10) & 0x7;
 }
 
-EXPORT_SYMBOL(dib0090_get_current_gain);
+/* DISABLED: EXPORT_SYMBOL(dib0090_get_current_gain); */
 
 u16 dib0090_get_wbd_target(struct dvb_frontend *fe)
 {
@@ -1386,14 +1386,14 @@ u16 dib0090_get_wbd_target(struct dvb_frontend *fe)
 
 	return state->wbd_offset + wbd_tcold;
 }
-EXPORT_SYMBOL(dib0090_get_wbd_target);
+/* DISABLED: EXPORT_SYMBOL(dib0090_get_wbd_target); */
 
 u16 dib0090_get_wbd_offset(struct dvb_frontend *fe)
 {
 	struct dib0090_state *state = fe->tuner_priv;
 	return state->wbd_offset;
 }
-EXPORT_SYMBOL(dib0090_get_wbd_offset);
+/* DISABLED: EXPORT_SYMBOL(dib0090_get_wbd_offset); */
 
 int dib0090_set_switch(struct dvb_frontend *fe, u8 sw1, u8 sw2, u8 sw3)
 {
@@ -1404,7 +1404,7 @@ int dib0090_set_switch(struct dvb_frontend *fe, u8 sw1, u8 sw2, u8 sw3)
 
 	return 0;
 }
-EXPORT_SYMBOL(dib0090_set_switch);
+/* DISABLED: EXPORT_SYMBOL(dib0090_set_switch); */
 
 int dib0090_set_vga(struct dvb_frontend *fe, u8 onoff)
 {
@@ -1414,7 +1414,7 @@ int dib0090_set_vga(struct dvb_frontend *fe, u8 onoff)
 			| ((onoff & 1) << 15));
 	return 0;
 }
-EXPORT_SYMBOL(dib0090_set_vga);
+/* DISABLED: EXPORT_SYMBOL(dib0090_set_vga); */
 
 int dib0090_update_rframp_7090(struct dvb_frontend *fe, u8 cfg_sensitivity)
 {
@@ -1435,7 +1435,7 @@ int dib0090_update_rframp_7090(struct dvb_frontend *fe, u8 cfg_sensitivity)
 
 	return 0;
 }
-EXPORT_SYMBOL(dib0090_update_rframp_7090);
+/* DISABLED: EXPORT_SYMBOL(dib0090_update_rframp_7090); */
 
 static const u16 dib0090_defaults[] = {
 
@@ -2090,7 +2090,7 @@ int dib0090_update_tuning_table_7090(struct dvb_frontend *fe,
 			| ((tune->lna_tune << 6) & 0x07c0));
 	return 0;
 }
-EXPORT_SYMBOL(dib0090_update_tuning_table_7090);
+/* DISABLED: EXPORT_SYMBOL(dib0090_update_tuning_table_7090); */
 
 static int dib0090_captrim_search(struct dib0090_state *state, enum frontend_tune_state *tune_state)
 {
@@ -2546,7 +2546,7 @@ enum frontend_tune_state dib0090_get_tune_state(struct dvb_frontend *fe)
 	return state->tune_state;
 }
 
-EXPORT_SYMBOL(dib0090_get_tune_state);
+/* DISABLED: EXPORT_SYMBOL(dib0090_get_tune_state); */
 
 int dib0090_set_tune_state(struct dvb_frontend *fe, enum frontend_tune_state tune_state)
 {
@@ -2556,7 +2556,7 @@ int dib0090_set_tune_state(struct dvb_frontend *fe, enum frontend_tune_state tun
 	return 0;
 }
 
-EXPORT_SYMBOL(dib0090_set_tune_state);
+/* DISABLED: EXPORT_SYMBOL(dib0090_set_tune_state); */
 
 static int dib0090_get_frequency(struct dvb_frontend *fe, u32 * frequency)
 {
@@ -2652,7 +2652,7 @@ struct dvb_frontend *dib0090_register(struct dvb_frontend *fe, struct i2c_adapte
 	return NULL;
 }
 
-EXPORT_SYMBOL(dib0090_register);
+/* DISABLED: EXPORT_SYMBOL(dib0090_register); */
 
 struct dvb_frontend *dib0090_fw_register(struct dvb_frontend *fe, struct i2c_adapter *i2c, const struct dib0090_config *config)
 {
@@ -2678,7 +2678,7 @@ free_mem:
 	fe->tuner_priv = NULL;
 	return NULL;
 }
-EXPORT_SYMBOL(dib0090_fw_register);
+/* DISABLED: EXPORT_SYMBOL(dib0090_fw_register); */
 
 MODULE_AUTHOR("Patrick Boettcher <pboettcher@dibcom.fr>");
 MODULE_AUTHOR("Olivier Grenie <olivier.grenie@dibcom.fr>");

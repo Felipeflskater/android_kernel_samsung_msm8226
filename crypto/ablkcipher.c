@@ -63,7 +63,7 @@ void __ablkcipher_walk_complete(struct ablkcipher_walk *walk)
 		kfree(p);
 	}
 }
-EXPORT_SYMBOL_GPL(__ablkcipher_walk_complete);
+/* DISABLED: EXPORT_SYMBOL_GPL(__ablkcipher_walk_complete); */
 
 static inline void ablkcipher_queue_write(struct ablkcipher_walk *walk,
 					  struct ablkcipher_buffer *p)
@@ -157,7 +157,7 @@ err:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(ablkcipher_walk_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(ablkcipher_walk_done); */
 
 static inline int ablkcipher_next_slow(struct ablkcipher_request *req,
 				       struct ablkcipher_walk *walk,
@@ -314,7 +314,7 @@ int ablkcipher_walk_phys(struct ablkcipher_request *req,
 	walk->blocksize = crypto_tfm_alg_blocksize(req->base.tfm);
 	return ablkcipher_walk_first(req, walk);
 }
-EXPORT_SYMBOL_GPL(ablkcipher_walk_phys);
+/* DISABLED: EXPORT_SYMBOL_GPL(ablkcipher_walk_phys); */
 
 static int setkey_unaligned(struct crypto_ablkcipher *tfm, const u8 *key,
 			    unsigned int keylen)
@@ -446,7 +446,7 @@ const struct crypto_type crypto_ablkcipher_type = {
 #endif
 	.report = crypto_ablkcipher_report,
 };
-EXPORT_SYMBOL_GPL(crypto_ablkcipher_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ablkcipher_type); */
 
 static int no_givdecrypt(struct skcipher_givcrypt_request *req)
 {
@@ -527,7 +527,7 @@ const struct crypto_type crypto_givcipher_type = {
 #endif
 	.report = crypto_givcipher_report,
 };
-EXPORT_SYMBOL_GPL(crypto_givcipher_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_givcipher_type); */
 
 const char *crypto_default_geniv(const struct crypto_alg *alg)
 {
@@ -661,7 +661,7 @@ struct crypto_alg *crypto_lookup_skcipher(const char *name, u32 type, u32 mask)
 
 	return ERR_PTR(crypto_givcipher_default(alg, type, mask));
 }
-EXPORT_SYMBOL_GPL(crypto_lookup_skcipher);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_lookup_skcipher); */
 
 int crypto_grab_skcipher(struct crypto_skcipher_spawn *spawn, const char *name,
 			 u32 type, u32 mask)
@@ -685,7 +685,7 @@ int crypto_grab_skcipher(struct crypto_skcipher_spawn *spawn, const char *name,
 	crypto_mod_put(alg);
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_grab_skcipher);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_grab_skcipher); */
 
 struct crypto_ablkcipher *crypto_alloc_ablkcipher(const char *alg_name,
 						  u32 type, u32 mask)
@@ -723,7 +723,7 @@ err:
 
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_ablkcipher);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_ablkcipher); */
 
 static int __init skcipher_module_init(void)
 {

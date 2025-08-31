@@ -34,13 +34,13 @@ void cpu_maps_update_begin(void)
 {
 	mutex_lock(&cpu_add_remove_lock);
 }
-EXPORT_SYMBOL(cpu_notifier_register_begin);
+/* DISABLED: EXPORT_SYMBOL(cpu_notifier_register_begin); */
 
 void cpu_maps_update_done(void)
 {
 	mutex_unlock(&cpu_add_remove_lock);
 }
-EXPORT_SYMBOL(cpu_notifier_register_done);
+/* DISABLED: EXPORT_SYMBOL(cpu_notifier_register_done); */
 
 static RAW_NOTIFIER_HEAD(cpu_chain);
 
@@ -75,7 +75,7 @@ void get_online_cpus(void)
 	mutex_unlock(&cpu_hotplug.lock);
 
 }
-EXPORT_SYMBOL_GPL(get_online_cpus);
+/* DISABLED: EXPORT_SYMBOL_GPL(get_online_cpus); */
 
 void put_online_cpus(void)
 {
@@ -91,7 +91,7 @@ void put_online_cpus(void)
 	mutex_unlock(&cpu_hotplug.lock);
 
 }
-EXPORT_SYMBOL_GPL(put_online_cpus);
+/* DISABLED: EXPORT_SYMBOL_GPL(put_online_cpus); */
 
 /*
  * This ensures that the hotplug operation can begin only when the
@@ -198,8 +198,8 @@ static void cpu_notify_nofail(unsigned long val, void *v)
 {
 	BUG_ON(cpu_notify(val, v));
 }
-EXPORT_SYMBOL(register_cpu_notifier);
-EXPORT_SYMBOL(__register_cpu_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_cpu_notifier); */
+/* DISABLED: EXPORT_SYMBOL(__register_cpu_notifier); */
 
 void __ref unregister_cpu_notifier(struct notifier_block *nb)
 {
@@ -207,13 +207,13 @@ void __ref unregister_cpu_notifier(struct notifier_block *nb)
 	raw_notifier_chain_unregister(&cpu_chain, nb);
 	cpu_maps_update_done();
 }
-EXPORT_SYMBOL(unregister_cpu_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_cpu_notifier); */
 
 void __ref __unregister_cpu_notifier(struct notifier_block *nb)
 {
 	raw_notifier_chain_unregister(&cpu_chain, nb);
 }
-EXPORT_SYMBOL(__unregister_cpu_notifier);
+/* DISABLED: EXPORT_SYMBOL(__unregister_cpu_notifier); */
 
 static inline void check_for_tasks(int cpu)
 {
@@ -331,7 +331,7 @@ out:
 	cpu_maps_update_done();
 	return err;
 }
-EXPORT_SYMBOL(cpu_down);
+/* DISABLED: EXPORT_SYMBOL(cpu_down); */
 #endif /*CONFIG_HOTPLUG_CPU*/
 
 /* Requires cpu_add_remove_lock to be held */
@@ -425,7 +425,7 @@ out:
 	cpu_maps_update_done();
 	return err;
 }
-EXPORT_SYMBOL_GPL(cpu_up);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_up); */
 
 #ifdef CONFIG_PM_SLEEP_SMP
 static cpumask_var_t frozen_cpus;
@@ -612,10 +612,10 @@ const unsigned long cpu_bit_bitmap[BITS_PER_LONG+1][BITS_TO_LONGS(NR_CPUS)] = {
 	MASK_DECLARE_8(48),	MASK_DECLARE_8(56),
 #endif
 };
-EXPORT_SYMBOL_GPL(cpu_bit_bitmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpu_bit_bitmap); */
 
 const DECLARE_BITMAP(cpu_all_bits, NR_CPUS) = CPU_BITS_ALL;
-EXPORT_SYMBOL(cpu_all_bits);
+/* DISABLED: EXPORT_SYMBOL(cpu_all_bits); */
 
 #ifdef CONFIG_INIT_ALL_POSSIBLE
 static DECLARE_BITMAP(cpu_possible_bits, CONFIG_NR_CPUS) __read_mostly
@@ -624,19 +624,19 @@ static DECLARE_BITMAP(cpu_possible_bits, CONFIG_NR_CPUS) __read_mostly
 static DECLARE_BITMAP(cpu_possible_bits, CONFIG_NR_CPUS) __read_mostly;
 #endif
 const struct cpumask *const cpu_possible_mask = to_cpumask(cpu_possible_bits);
-EXPORT_SYMBOL(cpu_possible_mask);
+/* DISABLED: EXPORT_SYMBOL(cpu_possible_mask); */
 
 static DECLARE_BITMAP(cpu_online_bits, CONFIG_NR_CPUS) __read_mostly;
 const struct cpumask *const cpu_online_mask = to_cpumask(cpu_online_bits);
-EXPORT_SYMBOL(cpu_online_mask);
+/* DISABLED: EXPORT_SYMBOL(cpu_online_mask); */
 
 static DECLARE_BITMAP(cpu_present_bits, CONFIG_NR_CPUS) __read_mostly;
 const struct cpumask *const cpu_present_mask = to_cpumask(cpu_present_bits);
-EXPORT_SYMBOL(cpu_present_mask);
+/* DISABLED: EXPORT_SYMBOL(cpu_present_mask); */
 
 static DECLARE_BITMAP(cpu_active_bits, CONFIG_NR_CPUS) __read_mostly;
 const struct cpumask *const cpu_active_mask = to_cpumask(cpu_active_bits);
-EXPORT_SYMBOL(cpu_active_mask);
+/* DISABLED: EXPORT_SYMBOL(cpu_active_mask); */
 
 void set_cpu_possible(unsigned int cpu, bool possible)
 {
@@ -693,16 +693,16 @@ void idle_notifier_register(struct notifier_block *n)
 {
 	atomic_notifier_chain_register(&idle_notifier, n);
 }
-EXPORT_SYMBOL_GPL(idle_notifier_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(idle_notifier_register); */
 
 void idle_notifier_unregister(struct notifier_block *n)
 {
 	atomic_notifier_chain_unregister(&idle_notifier, n);
 }
-EXPORT_SYMBOL_GPL(idle_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(idle_notifier_unregister); */
 
 void idle_notifier_call_chain(unsigned long val)
 {
 	atomic_notifier_call_chain(&idle_notifier, val, NULL);
 }
-EXPORT_SYMBOL_GPL(idle_notifier_call_chain);
+/* DISABLED: EXPORT_SYMBOL_GPL(idle_notifier_call_chain); */

@@ -870,7 +870,7 @@ pdata_error:
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(es515_core_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(es515_core_probe); */
 
 static __init int es515_init(void)
 {

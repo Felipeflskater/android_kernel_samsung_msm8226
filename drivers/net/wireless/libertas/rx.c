@@ -159,7 +159,7 @@ done:
 	lbs_deb_leave_args(LBS_DEB_RX, "ret %d", ret);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(lbs_process_rxed_packet);
+/* DISABLED: EXPORT_SYMBOL_GPL(lbs_process_rxed_packet); */
 
 /**
  * convert_mv_rate_to_radiotap - converts Tx/Rx rates from Marvell WLAN format

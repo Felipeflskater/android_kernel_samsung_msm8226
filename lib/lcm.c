@@ -13,4 +13,4 @@ unsigned long lcm(unsigned long a, unsigned long b)
 
 	return a;
 }
-EXPORT_SYMBOL_GPL(lcm);
+/* DISABLED: EXPORT_SYMBOL_GPL(lcm); */

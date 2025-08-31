@@ -814,7 +814,7 @@ snd_sf_linear_to_log(unsigned int amount, int offset, int ratio)
 	return v;
 }
 
-EXPORT_SYMBOL(snd_sf_linear_to_log);
+/* DISABLED: EXPORT_SYMBOL(snd_sf_linear_to_log); */
 
 
 #define OFFSET_MSEC		653117		/* base = 1000 */

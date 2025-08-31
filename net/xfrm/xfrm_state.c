@@ -203,7 +203,7 @@ int xfrm_register_type(const struct xfrm_type *type, unsigned short family)
 	xfrm_state_unlock_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_register_type);
+/* DISABLED: EXPORT_SYMBOL(xfrm_register_type); */
 
 int xfrm_unregister_type(const struct xfrm_type *type, unsigned short family)
 {
@@ -222,7 +222,7 @@ int xfrm_unregister_type(const struct xfrm_type *type, unsigned short family)
 	xfrm_state_unlock_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_unregister_type);
+/* DISABLED: EXPORT_SYMBOL(xfrm_unregister_type); */
 
 static const struct xfrm_type *xfrm_get_type(u8 proto, unsigned short family)
 {
@@ -286,7 +286,7 @@ out:
 	xfrm_state_unlock_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_register_mode);
+/* DISABLED: EXPORT_SYMBOL(xfrm_register_mode); */
 
 int xfrm_unregister_mode(struct xfrm_mode *mode, int family)
 {
@@ -312,7 +312,7 @@ int xfrm_unregister_mode(struct xfrm_mode *mode, int family)
 	xfrm_state_unlock_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_unregister_mode);
+/* DISABLED: EXPORT_SYMBOL(xfrm_unregister_mode); */
 
 static struct xfrm_mode *xfrm_get_mode(unsigned int encap, int family)
 {
@@ -510,7 +510,7 @@ struct xfrm_state *xfrm_state_alloc(struct net *net)
 	}
 	return x;
 }
-EXPORT_SYMBOL(xfrm_state_alloc);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_alloc); */
 
 void __xfrm_state_destroy(struct xfrm_state *x)
 {
@@ -523,7 +523,7 @@ void __xfrm_state_destroy(struct xfrm_state *x)
 	spin_unlock_bh(&xfrm_state_gc_lock);
 	schedule_work(&net->xfrm.state_gc_work);
 }
-EXPORT_SYMBOL(__xfrm_state_destroy);
+/* DISABLED: EXPORT_SYMBOL(__xfrm_state_destroy); */
 
 int __xfrm_state_delete(struct xfrm_state *x)
 {
@@ -551,7 +551,7 @@ int __xfrm_state_delete(struct xfrm_state *x)
 
 	return err;
 }
-EXPORT_SYMBOL(__xfrm_state_delete);
+/* DISABLED: EXPORT_SYMBOL(__xfrm_state_delete); */
 
 int xfrm_state_delete(struct xfrm_state *x)
 {
@@ -563,7 +563,7 @@ int xfrm_state_delete(struct xfrm_state *x)
 
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_delete);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_delete); */
 
 #ifdef CONFIG_SECURITY_NETWORK_XFRM
 static inline int
@@ -639,7 +639,7 @@ out:
 	wake_up(&net->xfrm.km_waitq);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_flush);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_flush); */
 
 void xfrm_sad_getinfo(struct net *net, struct xfrmk_sadinfo *si)
 {
@@ -649,7 +649,7 @@ void xfrm_sad_getinfo(struct net *net, struct xfrmk_sadinfo *si)
 	si->sadhmcnt = xfrm_state_hashmax;
 	spin_unlock_bh(&xfrm_state_lock);
 }
-EXPORT_SYMBOL(xfrm_sad_getinfo);
+/* DISABLED: EXPORT_SYMBOL(xfrm_sad_getinfo); */
 
 static int
 xfrm_init_tempstate(struct xfrm_state *x, const struct flowi *fl,
@@ -926,7 +926,7 @@ xfrm_stateonly_find(struct net *net, u32 mark,
 
 	return rx;
 }
-EXPORT_SYMBOL(xfrm_stateonly_find);
+/* DISABLED: EXPORT_SYMBOL(xfrm_stateonly_find); */
 
 static void __xfrm_state_insert(struct xfrm_state *x)
 {
@@ -989,7 +989,7 @@ void xfrm_state_insert(struct xfrm_state *x)
 	__xfrm_state_insert(x);
 	spin_unlock_bh(&xfrm_state_lock);
 }
-EXPORT_SYMBOL(xfrm_state_insert);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_insert); */
 
 /* xfrm_state_lock is held */
 static struct xfrm_state *__find_acq_core(struct net *net, struct xfrm_mark *m,
@@ -1123,7 +1123,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_add);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_add); */
 
 #ifdef CONFIG_XFRM_MIGRATE
 static struct xfrm_state *xfrm_state_clone(struct xfrm_state *orig, int *errp)
@@ -1248,7 +1248,7 @@ struct xfrm_state * xfrm_migrate_state_find(struct xfrm_migrate *m)
 
 	return NULL;
 }
-EXPORT_SYMBOL(xfrm_migrate_state_find);
+/* DISABLED: EXPORT_SYMBOL(xfrm_migrate_state_find); */
 
 struct xfrm_state * xfrm_state_migrate(struct xfrm_state *x,
 				       struct xfrm_migrate *m)
@@ -1278,7 +1278,7 @@ error:
 	xfrm_state_put(xc);
 	return NULL;
 }
-EXPORT_SYMBOL(xfrm_state_migrate);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_migrate); */
 #endif
 
 int xfrm_state_update(struct xfrm_state *x)
@@ -1350,7 +1350,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_update);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_update); */
 
 int xfrm_state_check_expire(struct xfrm_state *x)
 {
@@ -1375,7 +1375,7 @@ int xfrm_state_check_expire(struct xfrm_state *x)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(xfrm_state_check_expire);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_check_expire); */
 
 struct xfrm_state *
 xfrm_state_lookup(struct net *net, u32 mark, const xfrm_address_t *daddr, __be32 spi,
@@ -1388,7 +1388,7 @@ xfrm_state_lookup(struct net *net, u32 mark, const xfrm_address_t *daddr, __be32
 	spin_unlock_bh(&xfrm_state_lock);
 	return x;
 }
-EXPORT_SYMBOL(xfrm_state_lookup);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_lookup); */
 
 struct xfrm_state *
 xfrm_state_lookup_byaddr(struct net *net, u32 mark,
@@ -1402,7 +1402,7 @@ xfrm_state_lookup_byaddr(struct net *net, u32 mark,
 	spin_unlock_bh(&xfrm_state_lock);
 	return x;
 }
-EXPORT_SYMBOL(xfrm_state_lookup_byaddr);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_lookup_byaddr); */
 
 struct xfrm_state *
 xfrm_find_acq(struct net *net, struct xfrm_mark *mark, u8 mode, u32 reqid, u8 proto,
@@ -1417,7 +1417,7 @@ xfrm_find_acq(struct net *net, struct xfrm_mark *mark, u8 mode, u32 reqid, u8 pr
 
 	return x;
 }
-EXPORT_SYMBOL(xfrm_find_acq);
+/* DISABLED: EXPORT_SYMBOL(xfrm_find_acq); */
 
 #ifdef CONFIG_XFRM_SUB_POLICY
 int
@@ -1436,7 +1436,7 @@ xfrm_tmpl_sort(struct xfrm_tmpl **dst, struct xfrm_tmpl **src, int n,
 	xfrm_state_put_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_tmpl_sort);
+/* DISABLED: EXPORT_SYMBOL(xfrm_tmpl_sort); */
 
 int
 xfrm_state_sort(struct xfrm_state **dst, struct xfrm_state **src, int n,
@@ -1454,7 +1454,7 @@ xfrm_state_sort(struct xfrm_state **dst, struct xfrm_state **src, int n,
 	xfrm_state_put_afinfo(afinfo);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_sort);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_sort); */
 #endif
 
 /* Silly enough, but I'm lazy to build resolution list */
@@ -1488,7 +1488,7 @@ struct xfrm_state *xfrm_find_acq_byseq(struct net *net, u32 mark, u32 seq)
 	spin_unlock_bh(&xfrm_state_lock);
 	return x;
 }
-EXPORT_SYMBOL(xfrm_find_acq_byseq);
+/* DISABLED: EXPORT_SYMBOL(xfrm_find_acq_byseq); */
 
 u32 xfrm_get_acqseq(void)
 {
@@ -1501,7 +1501,7 @@ u32 xfrm_get_acqseq(void)
 
 	return res;
 }
-EXPORT_SYMBOL(xfrm_get_acqseq);
+/* DISABLED: EXPORT_SYMBOL(xfrm_get_acqseq); */
 
 int xfrm_alloc_spi(struct xfrm_state *x, u32 low, u32 high)
 {
@@ -1556,7 +1556,7 @@ unlock:
 
 	return err;
 }
-EXPORT_SYMBOL(xfrm_alloc_spi);
+/* DISABLED: EXPORT_SYMBOL(xfrm_alloc_spi); */
 
 int xfrm_state_walk(struct net *net, struct xfrm_state_walk *walk,
 		    int (*func)(struct xfrm_state *, int, void*),
@@ -1596,7 +1596,7 @@ out:
 	spin_unlock_bh(&xfrm_state_lock);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_walk);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_walk); */
 
 void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto)
 {
@@ -1605,7 +1605,7 @@ void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto)
 	walk->state = XFRM_STATE_DEAD;
 	walk->seq = 0;
 }
-EXPORT_SYMBOL(xfrm_state_walk_init);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_walk_init); */
 
 void xfrm_state_walk_done(struct xfrm_state_walk *walk)
 {
@@ -1616,7 +1616,7 @@ void xfrm_state_walk_done(struct xfrm_state_walk *walk)
 	list_del(&walk->all);
 	spin_unlock_bh(&xfrm_state_lock);
 }
-EXPORT_SYMBOL(xfrm_state_walk_done);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_walk_done); */
 
 static void xfrm_replay_timer_handler(unsigned long data)
 {
@@ -1658,8 +1658,8 @@ void km_state_notify(struct xfrm_state *x, const struct km_event *c)
 	read_unlock(&xfrm_km_lock);
 }
 
-EXPORT_SYMBOL(km_policy_notify);
-EXPORT_SYMBOL(km_state_notify);
+/* DISABLED: EXPORT_SYMBOL(km_policy_notify); */
+/* DISABLED: EXPORT_SYMBOL(km_state_notify); */
 
 void km_state_expired(struct xfrm_state *x, int hard, u32 pid)
 {
@@ -1675,7 +1675,7 @@ void km_state_expired(struct xfrm_state *x, int hard, u32 pid)
 		wake_up(&net->xfrm.km_waitq);
 }
 
-EXPORT_SYMBOL(km_state_expired);
+/* DISABLED: EXPORT_SYMBOL(km_state_expired); */
 /*
  * We send to all registered managers regardless of failure
  * We are happy with one success
@@ -1694,7 +1694,7 @@ int km_query(struct xfrm_state *x, struct xfrm_tmpl *t, struct xfrm_policy *pol)
 	read_unlock(&xfrm_km_lock);
 	return err;
 }
-EXPORT_SYMBOL(km_query);
+/* DISABLED: EXPORT_SYMBOL(km_query); */
 
 int km_new_mapping(struct xfrm_state *x, xfrm_address_t *ipaddr, __be16 sport)
 {
@@ -1711,7 +1711,7 @@ int km_new_mapping(struct xfrm_state *x, xfrm_address_t *ipaddr, __be16 sport)
 	read_unlock(&xfrm_km_lock);
 	return err;
 }
-EXPORT_SYMBOL(km_new_mapping);
+/* DISABLED: EXPORT_SYMBOL(km_new_mapping); */
 
 void km_policy_expired(struct xfrm_policy *pol, int dir, int hard, u32 pid)
 {
@@ -1726,7 +1726,7 @@ void km_policy_expired(struct xfrm_policy *pol, int dir, int hard, u32 pid)
 	if (hard)
 		wake_up(&net->xfrm.km_waitq);
 }
-EXPORT_SYMBOL(km_policy_expired);
+/* DISABLED: EXPORT_SYMBOL(km_policy_expired); */
 
 #ifdef CONFIG_XFRM_MIGRATE
 int km_migrate(const struct xfrm_selector *sel, u8 dir, u8 type,
@@ -1748,7 +1748,7 @@ int km_migrate(const struct xfrm_selector *sel, u8 dir, u8 type,
 	read_unlock(&xfrm_km_lock);
 	return err;
 }
-EXPORT_SYMBOL(km_migrate);
+/* DISABLED: EXPORT_SYMBOL(km_migrate); */
 #endif
 
 int km_report(struct net *net, u8 proto, struct xfrm_selector *sel, xfrm_address_t *addr)
@@ -1768,7 +1768,7 @@ int km_report(struct net *net, u8 proto, struct xfrm_selector *sel, xfrm_address
 	read_unlock(&xfrm_km_lock);
 	return err;
 }
-EXPORT_SYMBOL(km_report);
+/* DISABLED: EXPORT_SYMBOL(km_report); */
 
 int xfrm_user_policy(struct sock *sk, int optname, u8 __user *optval, int optlen)
 {
@@ -1808,7 +1808,7 @@ out:
 	kfree(data);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_user_policy);
+/* DISABLED: EXPORT_SYMBOL(xfrm_user_policy); */
 
 int xfrm_register_km(struct xfrm_mgr *km)
 {
@@ -1817,7 +1817,7 @@ int xfrm_register_km(struct xfrm_mgr *km)
 	write_unlock_bh(&xfrm_km_lock);
 	return 0;
 }
-EXPORT_SYMBOL(xfrm_register_km);
+/* DISABLED: EXPORT_SYMBOL(xfrm_register_km); */
 
 int xfrm_unregister_km(struct xfrm_mgr *km)
 {
@@ -1826,7 +1826,7 @@ int xfrm_unregister_km(struct xfrm_mgr *km)
 	write_unlock_bh(&xfrm_km_lock);
 	return 0;
 }
-EXPORT_SYMBOL(xfrm_unregister_km);
+/* DISABLED: EXPORT_SYMBOL(xfrm_unregister_km); */
 
 int xfrm_state_register_afinfo(struct xfrm_state_afinfo *afinfo)
 {
@@ -1843,7 +1843,7 @@ int xfrm_state_register_afinfo(struct xfrm_state_afinfo *afinfo)
 	write_unlock_bh(&xfrm_state_afinfo_lock);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_register_afinfo);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_register_afinfo); */
 
 int xfrm_state_unregister_afinfo(struct xfrm_state_afinfo *afinfo)
 {
@@ -1862,7 +1862,7 @@ int xfrm_state_unregister_afinfo(struct xfrm_state_afinfo *afinfo)
 	write_unlock_bh(&xfrm_state_afinfo_lock);
 	return err;
 }
-EXPORT_SYMBOL(xfrm_state_unregister_afinfo);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_unregister_afinfo); */
 
 static struct xfrm_state_afinfo *xfrm_state_get_afinfo(unsigned int family)
 {
@@ -1895,7 +1895,7 @@ void xfrm_state_delete_tunnel(struct xfrm_state *x)
 		x->tunnel = NULL;
 	}
 }
-EXPORT_SYMBOL(xfrm_state_delete_tunnel);
+/* DISABLED: EXPORT_SYMBOL(xfrm_state_delete_tunnel); */
 
 int xfrm_state_mtu(struct xfrm_state *x, int mtu)
 {
@@ -1996,14 +1996,14 @@ error:
 	return err;
 }
 
-EXPORT_SYMBOL(__xfrm_init_state);
+/* DISABLED: EXPORT_SYMBOL(__xfrm_init_state); */
 
 int xfrm_init_state(struct xfrm_state *x)
 {
 	return __xfrm_init_state(x, true);
 }
 
-EXPORT_SYMBOL(xfrm_init_state);
+/* DISABLED: EXPORT_SYMBOL(xfrm_init_state); */
 
 int __net_init xfrm_state_init(struct net *net)
 {
@@ -2124,7 +2124,7 @@ void xfrm_audit_state_add(struct xfrm_state *x, int result,
 	audit_log_format(audit_buf, " res=%u", result);
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_add); */
 
 void xfrm_audit_state_delete(struct xfrm_state *x, int result,
 			     uid_t auid, u32 sessionid, u32 secid)
@@ -2139,7 +2139,7 @@ void xfrm_audit_state_delete(struct xfrm_state *x, int result,
 	audit_log_format(audit_buf, " res=%u", result);
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_delete);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_delete); */
 
 void xfrm_audit_state_replay_overflow(struct xfrm_state *x,
 				      struct sk_buff *skb)
@@ -2157,7 +2157,7 @@ void xfrm_audit_state_replay_overflow(struct xfrm_state *x,
 	audit_log_format(audit_buf, " spi=%u(0x%x)", spi, spi);
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_replay_overflow);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_replay_overflow); */
 
 void xfrm_audit_state_replay(struct xfrm_state *x,
 			     struct sk_buff *skb, __be32 net_seq)
@@ -2174,7 +2174,7 @@ void xfrm_audit_state_replay(struct xfrm_state *x,
 			 spi, spi, ntohl(net_seq));
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_replay);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_replay); */
 
 void xfrm_audit_state_notfound_simple(struct sk_buff *skb, u16 family)
 {
@@ -2186,7 +2186,7 @@ void xfrm_audit_state_notfound_simple(struct sk_buff *skb, u16 family)
 	xfrm_audit_helper_pktinfo(skb, family, audit_buf);
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_notfound_simple);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_notfound_simple); */
 
 void xfrm_audit_state_notfound(struct sk_buff *skb, u16 family,
 			       __be32 net_spi, __be32 net_seq)
@@ -2203,7 +2203,7 @@ void xfrm_audit_state_notfound(struct sk_buff *skb, u16 family,
 			 spi, spi, ntohl(net_seq));
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_notfound);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_notfound); */
 
 void xfrm_audit_state_icvfail(struct xfrm_state *x,
 			      struct sk_buff *skb, u8 proto)
@@ -2223,5 +2223,5 @@ void xfrm_audit_state_icvfail(struct xfrm_state *x,
 	}
 	audit_log_end(audit_buf);
 }
-EXPORT_SYMBOL_GPL(xfrm_audit_state_icvfail);
+/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_state_icvfail); */
 #endif /* CONFIG_AUDITSYSCALL */

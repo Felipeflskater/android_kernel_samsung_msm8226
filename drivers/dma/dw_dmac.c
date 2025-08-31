@@ -443,14 +443,14 @@ inline dma_addr_t dw_dma_get_src_addr(struct dma_chan *chan)
 	struct dw_dma_chan *dwc = to_dw_dma_chan(chan);
 	return channel_readl(dwc, SAR);
 }
-EXPORT_SYMBOL(dw_dma_get_src_addr);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_get_src_addr); */
 
 inline dma_addr_t dw_dma_get_dst_addr(struct dma_chan *chan)
 {
 	struct dw_dma_chan *dwc = to_dw_dma_chan(chan);
 	return channel_readl(dwc, DAR);
 }
-EXPORT_SYMBOL(dw_dma_get_dst_addr);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_get_dst_addr); */
 
 /* called with dwc->lock held and all DMAC interrupts disabled */
 static void dwc_handle_cyclic(struct dw_dma *dw, struct dw_dma_chan *dwc,
@@ -1150,7 +1150,7 @@ int dw_dma_cyclic_start(struct dma_chan *chan)
 
 	return 0;
 }
-EXPORT_SYMBOL(dw_dma_cyclic_start);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_cyclic_start); */
 
 /**
  * dw_dma_cyclic_stop - stop the cyclic DMA transfer
@@ -1172,7 +1172,7 @@ void dw_dma_cyclic_stop(struct dma_chan *chan)
 
 	spin_unlock_irqrestore(&dwc->lock, flags);
 }
-EXPORT_SYMBOL(dw_dma_cyclic_stop);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_cyclic_stop); */
 
 /**
  * dw_dma_cyclic_prep - prepare the cyclic DMA transfer
@@ -1325,7 +1325,7 @@ out_err:
 	clear_bit(DW_DMA_IS_CYCLIC, &dwc->flags);
 	return (struct dw_cyclic_desc *)retval;
 }
-EXPORT_SYMBOL(dw_dma_cyclic_prep);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_cyclic_prep); */
 
 /**
  * dw_dma_cyclic_free - free a prepared cyclic DMA transfer
@@ -1363,7 +1363,7 @@ void dw_dma_cyclic_free(struct dma_chan *chan)
 
 	clear_bit(DW_DMA_IS_CYCLIC, &dwc->flags);
 }
-EXPORT_SYMBOL(dw_dma_cyclic_free);
+/* DISABLED: EXPORT_SYMBOL(dw_dma_cyclic_free); */
 
 /*----------------------------------------------------------------------*/
 

@@ -37,13 +37,13 @@ int in_user_timers_area(struct mm_struct *mm, unsigned long addr)
 	return (addr >= user_timers_vma.vm_start) &&
 		(addr < user_timers_vma.vm_end);
 }
-EXPORT_SYMBOL(in_user_timers_area);
+/* DISABLED: EXPORT_SYMBOL(in_user_timers_area); */
 
 struct vm_area_struct *get_user_timers_vma(struct mm_struct *mm)
 {
 	return &user_timers_vma;
 }
-EXPORT_SYMBOL(get_user_timers_vma);
+/* DISABLED: EXPORT_SYMBOL(get_user_timers_vma); */
 
 int get_user_timer_page(struct vm_area_struct *vma,
 	struct mm_struct *mm, unsigned long start, unsigned int gup_flags,
@@ -103,7 +103,7 @@ int get_user_timer_page(struct vm_area_struct *vma,
 	*goto_next_page = 1;
 	return 0;
 }
-EXPORT_SYMBOL(get_user_timer_page);
+/* DISABLED: EXPORT_SYMBOL(get_user_timer_page); */
 
 void setup_user_timer_offset(unsigned long addr)
 {
@@ -116,7 +116,7 @@ void setup_user_timer_offset(unsigned long addr)
 		USER_ACCESS_TIMER_OFFSET);
 	*timer_offset = addr;
 }
-EXPORT_SYMBOL(setup_user_timer_offset);
+/* DISABLED: EXPORT_SYMBOL(setup_user_timer_offset); */
 
 void set_user_accessible_timer_flag(bool flag)
 {
@@ -129,4 +129,4 @@ void set_user_accessible_timer_flag(bool flag)
 		USER_ACCESS_FEATURE_OFFSET);
 	*timer_offset = (flag ? USER_ACCESS_FEATURE_FLAG : 0);
 }
-EXPORT_SYMBOL(set_user_accessible_timer_flag);
+/* DISABLED: EXPORT_SYMBOL(set_user_accessible_timer_flag); */

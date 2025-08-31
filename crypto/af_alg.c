@@ -85,7 +85,7 @@ unlock:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(af_alg_register_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_register_type); */
 
 int af_alg_unregister_type(const struct af_alg_type *type)
 {
@@ -106,7 +106,7 @@ int af_alg_unregister_type(const struct af_alg_type *type)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(af_alg_unregister_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_unregister_type); */
 
 static void alg_do_release(const struct af_alg_type *type, void *private)
 {
@@ -125,7 +125,7 @@ int af_alg_release(struct socket *sock)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(af_alg_release);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_release); */
 
 static int alg_bind(struct socket *sock, struct sockaddr *uaddr, int addr_len)
 {
@@ -270,7 +270,7 @@ unlock:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(af_alg_accept);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_accept); */
 
 static int alg_accept(struct socket *sock, struct socket *newsock, int flags)
 {
@@ -384,7 +384,7 @@ int af_alg_make_sg(struct af_alg_sgl *sgl, void __user *addr, int len,
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(af_alg_make_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_make_sg); */
 
 void af_alg_free_sg(struct af_alg_sgl *sgl)
 {
@@ -395,7 +395,7 @@ void af_alg_free_sg(struct af_alg_sgl *sgl)
 		put_page(sgl->pages[i]);
 	} while (!sg_is_last(sgl->sg + (i++)));
 }
-EXPORT_SYMBOL_GPL(af_alg_free_sg);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_free_sg); */
 
 int af_alg_cmsg_send(struct msghdr *msg, struct af_alg_control *con)
 {
@@ -430,7 +430,7 @@ int af_alg_cmsg_send(struct msghdr *msg, struct af_alg_control *con)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(af_alg_cmsg_send);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_cmsg_send); */
 
 int af_alg_wait_for_completion(int err, struct af_alg_completion *completion)
 {
@@ -445,7 +445,7 @@ int af_alg_wait_for_completion(int err, struct af_alg_completion *completion)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(af_alg_wait_for_completion);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_wait_for_completion); */
 
 void af_alg_complete(struct crypto_async_request *req, int err)
 {
@@ -457,7 +457,7 @@ void af_alg_complete(struct crypto_async_request *req, int err)
 	completion->err = err;
 	complete(&completion->completion);
 }
-EXPORT_SYMBOL_GPL(af_alg_complete);
+/* DISABLED: EXPORT_SYMBOL_GPL(af_alg_complete); */
 
 static int __init af_alg_init(void)
 {

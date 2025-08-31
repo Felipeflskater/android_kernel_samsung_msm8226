@@ -50,7 +50,7 @@ int mmc_app_cmd(struct mmc_host *host, struct mmc_card *card)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mmc_app_cmd);
+/* DISABLED: EXPORT_SYMBOL_GPL(mmc_app_cmd); */
 
 /**
  *	mmc_wait_for_app_cmd - start an application command and wait for
@@ -116,7 +116,7 @@ int mmc_wait_for_app_cmd(struct mmc_host *host, struct mmc_card *card,
 	return err;
 }
 
-EXPORT_SYMBOL(mmc_wait_for_app_cmd);
+/* DISABLED: EXPORT_SYMBOL(mmc_wait_for_app_cmd); */
 
 int mmc_app_set_bus_width(struct mmc_card *card, int width)
 {

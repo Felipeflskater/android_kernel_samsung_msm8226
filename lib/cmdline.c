@@ -154,6 +154,6 @@ unsigned long long memparse(const char *ptr, char **retptr)
 }
 
 
-EXPORT_SYMBOL(memparse);
-EXPORT_SYMBOL(get_option);
-EXPORT_SYMBOL(get_options);
+/* DISABLED: EXPORT_SYMBOL(memparse); */
+/* DISABLED: EXPORT_SYMBOL(get_option); */
+/* DISABLED: EXPORT_SYMBOL(get_options); */

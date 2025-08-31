@@ -89,7 +89,7 @@ int wm831x_isinkv_values[WM831X_ISINK_MAX_ISEL + 1] = {
 	23170,
 	27554,
 };
-EXPORT_SYMBOL_GPL(wm831x_isinkv_values);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_isinkv_values); */
 
 static int wm831x_reg_locked(struct wm831x *wm831x, unsigned short reg)
 {
@@ -134,7 +134,7 @@ void wm831x_reg_lock(struct wm831x *wm831x)
 	}
 
 }
-EXPORT_SYMBOL_GPL(wm831x_reg_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_reg_lock); */
 
 /**
  * wm831x_reg_unlock: Unlock user keyed registers
@@ -160,7 +160,7 @@ int wm831x_reg_unlock(struct wm831x *wm831x)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(wm831x_reg_unlock);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_reg_unlock); */
 
 static bool wm831x_reg_readable(struct device *dev, unsigned int reg)
 {
@@ -526,7 +526,7 @@ int wm831x_reg_read(struct wm831x *wm831x, unsigned short reg)
 	else
 		return val;
 }
-EXPORT_SYMBOL_GPL(wm831x_reg_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_reg_read); */
 
 /**
  * wm831x_bulk_read: Read multiple WM831x registers
@@ -541,7 +541,7 @@ int wm831x_bulk_read(struct wm831x *wm831x, unsigned short reg,
 {
 	return regmap_bulk_read(wm831x->regmap, reg, buf, count);
 }
-EXPORT_SYMBOL_GPL(wm831x_bulk_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_bulk_read); */
 
 static int wm831x_write(struct wm831x *wm831x, unsigned short reg,
 			int bytes, void *src)
@@ -586,7 +586,7 @@ int wm831x_reg_write(struct wm831x *wm831x, unsigned short reg,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(wm831x_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_reg_write); */
 
 /**
  * wm831x_set_bits: Set the value of a bitfield in a WM831x register
@@ -612,7 +612,7 @@ int wm831x_set_bits(struct wm831x *wm831x, unsigned short reg,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(wm831x_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_set_bits); */
 
 static struct resource wm831x_dcdc1_resources[] = {
 	{
@@ -1611,7 +1611,7 @@ struct regmap_config wm831x_regmap_config = {
 	.writeable_reg = wm831x_reg_writeable,
 	.volatile_reg = wm831x_reg_volatile,
 };
-EXPORT_SYMBOL_GPL(wm831x_regmap_config);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_regmap_config); */
 
 /*
  * Instantiate the generic non-control parts of the device.
@@ -1931,7 +1931,7 @@ void wm831x_device_shutdown(struct wm831x *wm831x)
 		wm831x_set_bits(wm831x, WM831X_POWER_STATE, WM831X_CHIP_ON, 0);
 	}
 }
-EXPORT_SYMBOL_GPL(wm831x_device_shutdown);
+/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_device_shutdown); */
 
 MODULE_DESCRIPTION("Core support for the WM831X AudioPlus PMIC");
 MODULE_LICENSE("GPL");

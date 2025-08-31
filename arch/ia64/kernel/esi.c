@@ -147,7 +147,7 @@ int ia64_esi_call (efi_guid_t guid, struct ia64_sal_retval *isrvp,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_GPL(ia64_esi_call);
+/* DISABLED: EXPORT_SYMBOL_GPL(ia64_esi_call); */
 
 int ia64_esi_call_phys (efi_guid_t guid, struct ia64_sal_retval *isrvp,
 			u64 func, u64 arg1, u64 arg2, u64 arg3, u64 arg4,
@@ -195,7 +195,7 @@ int ia64_esi_call_phys (efi_guid_t guid, struct ia64_sal_retval *isrvp,
 	}
 	return -1;
 }
-EXPORT_SYMBOL_GPL(ia64_esi_call_phys);
+/* DISABLED: EXPORT_SYMBOL_GPL(ia64_esi_call_phys); */
 
 static void __exit esi_exit (void)
 {

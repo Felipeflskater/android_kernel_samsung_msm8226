@@ -1066,11 +1066,11 @@ void __exit cdebug_exit(void)
 
 #endif
 
-EXPORT_SYMBOL(cdebbuf_free);
-EXPORT_SYMBOL(capi_cmsg2message);
-EXPORT_SYMBOL(capi_message2cmsg);
-EXPORT_SYMBOL(capi_cmsg_header);
-EXPORT_SYMBOL(capi_cmd2str);
-EXPORT_SYMBOL(capi_cmsg2str);
-EXPORT_SYMBOL(capi_message2str);
-EXPORT_SYMBOL(capi_info2str);
+/* DISABLED: EXPORT_SYMBOL(cdebbuf_free); */
+/* DISABLED: EXPORT_SYMBOL(capi_cmsg2message); */
+/* DISABLED: EXPORT_SYMBOL(capi_message2cmsg); */
+/* DISABLED: EXPORT_SYMBOL(capi_cmsg_header); */
+/* DISABLED: EXPORT_SYMBOL(capi_cmd2str); */
+/* DISABLED: EXPORT_SYMBOL(capi_cmsg2str); */
+/* DISABLED: EXPORT_SYMBOL(capi_message2str); */
+/* DISABLED: EXPORT_SYMBOL(capi_info2str); */

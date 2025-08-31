@@ -445,7 +445,7 @@ void fbcon_rotate_ud(struct fbcon_ops *ops)
 	ops->cursor = ud_cursor;
 	ops->update_start = ud_update_start;
 }
-EXPORT_SYMBOL(fbcon_rotate_ud);
+/* DISABLED: EXPORT_SYMBOL(fbcon_rotate_ud); */
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Console Rotation (180 degrees) Support");

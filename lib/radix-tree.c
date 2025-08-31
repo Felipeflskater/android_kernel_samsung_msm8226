@@ -297,7 +297,7 @@ int radix_tree_preload(gfp_t gfp_mask)
 	WARN_ON_ONCE(!(gfp_mask & __GFP_WAIT));
 	return __radix_tree_preload(gfp_mask);
 }
-EXPORT_SYMBOL(radix_tree_preload);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_preload); */
 
 /*
  * The same as above function, except we don't guarantee preloading happens.
@@ -312,7 +312,7 @@ int radix_tree_maybe_preload(gfp_t gfp_mask)
 	preempt_disable();
 	return 0;
 }
-EXPORT_SYMBOL(radix_tree_maybe_preload);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_maybe_preload); */
 
 /*
  *	Return the maximum key which can be store into a
@@ -442,7 +442,7 @@ int radix_tree_insert(struct radix_tree_root *root,
 
 	return 0;
 }
-EXPORT_SYMBOL(radix_tree_insert);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_insert); */
 
 /*
  * is_slot == 1 : search for the slot.
@@ -502,7 +502,7 @@ void **radix_tree_lookup_slot(struct radix_tree_root *root, unsigned long index)
 {
 	return (void **)radix_tree_lookup_element(root, index, 1);
 }
-EXPORT_SYMBOL(radix_tree_lookup_slot);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_lookup_slot); */
 
 /**
  *	radix_tree_lookup    -    perform lookup operation on a radix tree
@@ -520,7 +520,7 @@ void *radix_tree_lookup(struct radix_tree_root *root, unsigned long index)
 {
 	return radix_tree_lookup_element(root, index, 0);
 }
-EXPORT_SYMBOL(radix_tree_lookup);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_lookup); */
 
 /**
  *	radix_tree_tag_set - set a tag on a radix tree node
@@ -565,7 +565,7 @@ void *radix_tree_tag_set(struct radix_tree_root *root,
 
 	return slot;
 }
-EXPORT_SYMBOL(radix_tree_tag_set);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_tag_set); */
 
 /**
  *	radix_tree_tag_clear - clear a tag on a radix tree node
@@ -628,7 +628,7 @@ void *radix_tree_tag_clear(struct radix_tree_root *root,
 out:
 	return slot;
 }
-EXPORT_SYMBOL(radix_tree_tag_clear);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_tag_clear); */
 
 /**
  * radix_tree_tag_get - get a tag on a radix tree node
@@ -685,7 +685,7 @@ int radix_tree_tag_get(struct radix_tree_root *root,
 		height--;
 	}
 }
-EXPORT_SYMBOL(radix_tree_tag_get);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_tag_get); */
 
 /**
  * radix_tree_next_chunk - find next chunk of slots for iteration
@@ -801,7 +801,7 @@ restart:
 
 	return node->slots + offset;
 }
-EXPORT_SYMBOL(radix_tree_next_chunk);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_next_chunk); */
 
 /**
  * radix_tree_range_tag_if_tagged - for each item in given range set given
@@ -931,7 +931,7 @@ next:
 
 	return tagged;
 }
-EXPORT_SYMBOL(radix_tree_range_tag_if_tagged);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_range_tag_if_tagged); */
 
 
 /**
@@ -969,7 +969,7 @@ unsigned long radix_tree_next_hole(struct radix_tree_root *root,
 
 	return index;
 }
-EXPORT_SYMBOL(radix_tree_next_hole);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_next_hole); */
 
 /**
  *	radix_tree_prev_hole    -    find the prev hole (not-present entry)
@@ -1006,7 +1006,7 @@ unsigned long radix_tree_prev_hole(struct radix_tree_root *root,
 
 	return index;
 }
-EXPORT_SYMBOL(radix_tree_prev_hole);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_prev_hole); */
 
 /**
  *	radix_tree_gang_lookup - perform multiple lookup on a radix tree
@@ -1048,7 +1048,7 @@ radix_tree_gang_lookup(struct radix_tree_root *root, void **results,
 
 	return ret;
 }
-EXPORT_SYMBOL(radix_tree_gang_lookup);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_gang_lookup); */
 
 /**
  *	radix_tree_gang_lookup_index - perform multiple lookup on a radix tree
@@ -1091,7 +1091,7 @@ radix_tree_gang_lookup_index(struct radix_tree_root *root, void **results,
 
 	return ret;
 }
-EXPORT_SYMBOL(radix_tree_gang_lookup_index);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_gang_lookup_index); */
 
 /**
  *	radix_tree_gang_lookup_slot - perform multiple slot lookup on radix tree
@@ -1133,7 +1133,7 @@ radix_tree_gang_lookup_slot(struct radix_tree_root *root,
 
 	return ret;
 }
-EXPORT_SYMBOL(radix_tree_gang_lookup_slot);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_gang_lookup_slot); */
 
 /**
  *	radix_tree_gang_lookup_tag - perform multiple lookup on a radix tree
@@ -1170,7 +1170,7 @@ radix_tree_gang_lookup_tag(struct radix_tree_root *root, void **results,
 
 	return ret;
 }
-EXPORT_SYMBOL(radix_tree_gang_lookup_tag);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_gang_lookup_tag); */
 
 /**
  *	radix_tree_gang_lookup_tag_slot - perform multiple slot lookup on a
@@ -1205,7 +1205,7 @@ radix_tree_gang_lookup_tag_slot(struct radix_tree_root *root, void ***results,
 
 	return ret;
 }
-EXPORT_SYMBOL(radix_tree_gang_lookup_tag_slot);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_gang_lookup_tag_slot); */
 
 #if defined(CONFIG_SHMEM) && defined(CONFIG_SWAP)
 #include <linux/sched.h> /* for cond_resched() */
@@ -1452,7 +1452,7 @@ void *radix_tree_delete(struct radix_tree_root *root, unsigned long index)
 out:
 	return slot;
 }
-EXPORT_SYMBOL(radix_tree_delete);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_delete); */
 
 /**
  *	radix_tree_tagged - test whether any items in the tree are tagged
@@ -1463,7 +1463,7 @@ int radix_tree_tagged(struct radix_tree_root *root, unsigned int tag)
 {
 	return root_tag_get(root, tag);
 }
-EXPORT_SYMBOL(radix_tree_tagged);
+/* DISABLED: EXPORT_SYMBOL(radix_tree_tagged); */
 
 static void
 radix_tree_node_ctor(void *node)

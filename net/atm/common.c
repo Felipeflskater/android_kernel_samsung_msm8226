@@ -32,10 +32,10 @@
 #include "signaling.h"		/* for WAITING and sigd_attach */
 
 struct hlist_head vcc_hash[VCC_HTABLE_SIZE];
-EXPORT_SYMBOL(vcc_hash);
+/* DISABLED: EXPORT_SYMBOL(vcc_hash); */
 
 DEFINE_RWLOCK(vcc_sklist_lock);
-EXPORT_SYMBOL(vcc_sklist_lock);
+/* DISABLED: EXPORT_SYMBOL(vcc_sklist_lock); */
 
 static ATOMIC_NOTIFIER_HEAD(atm_dev_notify_chain);
 
@@ -53,7 +53,7 @@ void vcc_insert_socket(struct sock *sk)
 	__vcc_insert_socket(sk);
 	write_unlock_irq(&vcc_sklist_lock);
 }
-EXPORT_SYMBOL(vcc_insert_socket);
+/* DISABLED: EXPORT_SYMBOL(vcc_insert_socket); */
 
 static void vcc_remove_socket(struct sock *sk)
 {
@@ -212,7 +212,7 @@ void vcc_release_async(struct atm_vcc *vcc, int reply)
 	clear_bit(ATM_VF_WAITING, &vcc->flags);
 	sk->sk_state_change(sk);
 }
-EXPORT_SYMBOL(vcc_release_async);
+/* DISABLED: EXPORT_SYMBOL(vcc_release_async); */
 
 void vcc_process_recv_queue(struct atm_vcc *vcc)
 {
@@ -232,7 +232,7 @@ void vcc_process_recv_queue(struct atm_vcc *vcc)
 		vcc->push(vcc, skb);
 	}
 }
-EXPORT_SYMBOL(vcc_process_recv_queue);
+/* DISABLED: EXPORT_SYMBOL(vcc_process_recv_queue); */
 
 void atm_dev_signal_change(struct atm_dev *dev, char signal)
 {
@@ -249,7 +249,7 @@ void atm_dev_signal_change(struct atm_dev *dev, char signal)
 
 	atomic_notifier_call_chain(&atm_dev_notify_chain, signal, dev);
 }
-EXPORT_SYMBOL(atm_dev_signal_change);
+/* DISABLED: EXPORT_SYMBOL(atm_dev_signal_change); */
 
 void atm_dev_release_vccs(struct atm_dev *dev)
 {
@@ -272,7 +272,7 @@ void atm_dev_release_vccs(struct atm_dev *dev)
 	}
 	write_unlock_irq(&vcc_sklist_lock);
 }
-EXPORT_SYMBOL(atm_dev_release_vccs);
+/* DISABLED: EXPORT_SYMBOL(atm_dev_release_vccs); */
 
 static int adjust_tp(struct atm_trafprm *tp, unsigned char aal)
 {
@@ -833,13 +833,13 @@ int register_atmdevice_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&atm_dev_notify_chain, nb);
 }
-EXPORT_SYMBOL_GPL(register_atmdevice_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_atmdevice_notifier); */
 
 void unregister_atmdevice_notifier(struct notifier_block *nb)
 {
 	atomic_notifier_chain_unregister(&atm_dev_notify_chain, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_atmdevice_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_atmdevice_notifier); */
 
 static int __init atm_init(void)
 {

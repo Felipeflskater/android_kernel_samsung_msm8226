@@ -1928,7 +1928,7 @@ int pm8921_charger_register_vbus_sn(void (*callback)(int))
 	notify_vbus_state_func_ptr = callback;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pm8921_charger_register_vbus_sn);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_charger_register_vbus_sn); */
 
 /* this is passed to the hsusb via platform_data msm_otg_pdata */
 void pm8921_charger_unregister_vbus_sn(void (*callback)(int))
@@ -1936,7 +1936,7 @@ void pm8921_charger_unregister_vbus_sn(void (*callback)(int))
 	pr_debug("%p\n", callback);
 	notify_vbus_state_func_ptr = NULL;
 }
-EXPORT_SYMBOL_GPL(pm8921_charger_unregister_vbus_sn);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_charger_unregister_vbus_sn); */
 
 static void notify_usb_of_the_plugin_event(int plugin)
 {
@@ -2052,7 +2052,7 @@ void pm8921_charger_vbus_draw(unsigned int mA)
 		 */
 		usb_chg_current = set_usb_now_ma;
 }
-EXPORT_SYMBOL_GPL(pm8921_charger_vbus_draw);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_charger_vbus_draw); */
 
 int pm8921_is_usb_chg_plugged_in(void)
 {
@@ -2062,7 +2062,7 @@ int pm8921_is_usb_chg_plugged_in(void)
 	}
 	return is_usb_chg_plugged_in(the_chip);
 }
-EXPORT_SYMBOL(pm8921_is_usb_chg_plugged_in);
+/* DISABLED: EXPORT_SYMBOL(pm8921_is_usb_chg_plugged_in); */
 
 int pm8921_is_dc_chg_plugged_in(void)
 {
@@ -2072,7 +2072,7 @@ int pm8921_is_dc_chg_plugged_in(void)
 	}
 	return is_dc_chg_plugged_in(the_chip);
 }
-EXPORT_SYMBOL(pm8921_is_dc_chg_plugged_in);
+/* DISABLED: EXPORT_SYMBOL(pm8921_is_dc_chg_plugged_in); */
 
 int pm8921_is_battery_present(void)
 {
@@ -2082,7 +2082,7 @@ int pm8921_is_battery_present(void)
 	}
 	return get_prop_batt_present(the_chip);
 }
-EXPORT_SYMBOL(pm8921_is_battery_present);
+/* DISABLED: EXPORT_SYMBOL(pm8921_is_battery_present); */
 
 int pm8921_is_batfet_closed(void)
 {
@@ -2092,7 +2092,7 @@ int pm8921_is_batfet_closed(void)
 	}
 	return is_batfet_closed(the_chip);
 }
-EXPORT_SYMBOL(pm8921_is_batfet_closed);
+/* DISABLED: EXPORT_SYMBOL(pm8921_is_batfet_closed); */
 /*
  * Disabling the charge current limit causes current
  * current limits to have no monitoring. An adequate charger
@@ -2112,7 +2112,7 @@ int pm8921_disable_input_current_limit(bool disable)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(pm8921_disable_input_current_limit);
+/* DISABLED: EXPORT_SYMBOL(pm8921_disable_input_current_limit); */
 
 int pm8917_set_under_voltage_detection_threshold(int mv)
 {
@@ -2122,7 +2122,7 @@ int pm8917_set_under_voltage_detection_threshold(int mv)
 	}
 	return pm_chg_uvd_threshold_set(the_chip, mv);
 }
-EXPORT_SYMBOL(pm8917_set_under_voltage_detection_threshold);
+/* DISABLED: EXPORT_SYMBOL(pm8917_set_under_voltage_detection_threshold); */
 
 int pm8921_set_max_battery_charge_current(int ma)
 {
@@ -2132,7 +2132,7 @@ int pm8921_set_max_battery_charge_current(int ma)
 	}
 	return pm_chg_ibatmax_set(the_chip, ma);
 }
-EXPORT_SYMBOL(pm8921_set_max_battery_charge_current);
+/* DISABLED: EXPORT_SYMBOL(pm8921_set_max_battery_charge_current); */
 
 int pm8921_disable_source_current(bool disable)
 {
@@ -2147,7 +2147,7 @@ int pm8921_disable_source_current(bool disable)
 
 	return pm_chg_charge_dis(the_chip, disable);
 }
-EXPORT_SYMBOL(pm8921_disable_source_current);
+/* DISABLED: EXPORT_SYMBOL(pm8921_disable_source_current); */
 
 int pm8921_regulate_input_voltage(int voltage)
 {
@@ -2186,7 +2186,7 @@ int pm8921_usb_ovp_set_threshold(enum pm8921_usb_ov_threshold ov)
 	return pm_chg_masked_write(the_chip, USB_OVP_CONTROL,
 				USB_OV_THRESHOLD_MASK, temp);
 }
-EXPORT_SYMBOL(pm8921_usb_ovp_set_threshold);
+/* DISABLED: EXPORT_SYMBOL(pm8921_usb_ovp_set_threshold); */
 
 #define USB_DEBOUNCE_TIME_MASK	0x06
 #define USB_DEBOUNCE_TIME_SHIFT 1
@@ -2209,7 +2209,7 @@ int pm8921_usb_ovp_set_hystersis(enum pm8921_usb_debounce_time ms)
 	return pm_chg_masked_write(the_chip, USB_OVP_CONTROL,
 				USB_DEBOUNCE_TIME_MASK, temp);
 }
-EXPORT_SYMBOL(pm8921_usb_ovp_set_hystersis);
+/* DISABLED: EXPORT_SYMBOL(pm8921_usb_ovp_set_hystersis); */
 
 #define USB_OVP_DISABLE_MASK	0x80
 int pm8921_usb_ovp_disable(int disable)
@@ -2265,7 +2265,7 @@ bool pm8921_is_battery_charging(int *source)
 
 	return is_charging;
 }
-EXPORT_SYMBOL(pm8921_is_battery_charging);
+/* DISABLED: EXPORT_SYMBOL(pm8921_is_battery_charging); */
 
 int pm8921_set_usb_power_supply_type(enum power_supply_type type)
 {
@@ -2282,7 +2282,7 @@ int pm8921_set_usb_power_supply_type(enum power_supply_type type)
 	power_supply_changed(&the_chip->dc_psy);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pm8921_set_usb_power_supply_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm8921_set_usb_power_supply_type); */
 
 int pm8921_batt_temperature(void)
 {

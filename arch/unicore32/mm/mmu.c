@@ -36,7 +36,7 @@
  * zero-initialized data and COW.
  */
 struct page *empty_zero_page;
-EXPORT_SYMBOL(empty_zero_page);
+/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
 
 /*
  * The pmd table for the upper-most set of pages.
@@ -44,10 +44,10 @@ EXPORT_SYMBOL(empty_zero_page);
 pmd_t *top_pmd;
 
 pgprot_t pgprot_user;
-EXPORT_SYMBOL(pgprot_user);
+/* DISABLED: EXPORT_SYMBOL(pgprot_user); */
 
 pgprot_t pgprot_kernel;
-EXPORT_SYMBOL(pgprot_kernel);
+/* DISABLED: EXPORT_SYMBOL(pgprot_kernel); */
 
 static int __init noalign_setup(char *__unused)
 {
@@ -56,7 +56,7 @@ static int __init noalign_setup(char *__unused)
 	set_cr(cr_alignment);
 	return 1;
 }
-/* DISABLED: __setup("noalign", noalign_setup); */
+/* DISABLED: __setup("noalign", noalign_setup); */ */
 
 void adjust_cr(unsigned long mask, unsigned long set)
 {
@@ -127,7 +127,7 @@ const struct mem_type *get_mem_type(unsigned int type)
 {
 	return type < ARRAY_SIZE(mem_types) ? &mem_types[type] : NULL;
 }
-EXPORT_SYMBOL(get_mem_type);
+/* DISABLED: EXPORT_SYMBOL(get_mem_type); */
 
 /*
  * Adjust the PMD section entries according to the CPU in use.

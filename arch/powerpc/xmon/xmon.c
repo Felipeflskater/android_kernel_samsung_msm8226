@@ -560,7 +560,7 @@ int xmon(struct pt_regs *excp)
 
 	return xmon_core(excp, 0);
 }
-EXPORT_SYMBOL(xmon);
+/* DISABLED: EXPORT_SYMBOL(xmon); */
 
 irqreturn_t xmon_irq(int irq, void *d)
 {

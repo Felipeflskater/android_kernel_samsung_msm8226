@@ -56,7 +56,7 @@
 
 #ifndef __tilegx__
 unsigned long VMALLOC_RESERVE = CONFIG_VMALLOC_RESERVE;
-EXPORT_SYMBOL(VMALLOC_RESERVE);
+/* DISABLED: EXPORT_SYMBOL(VMALLOC_RESERVE); */
 #endif
 
 /* Create an L2 page table */
@@ -193,7 +193,7 @@ static void __init page_table_range_init(unsigned long start,
 static int __initdata ktext_hash = 1;  /* .text pages */
 static int __initdata kdata_hash = 1;  /* .data and .bss pages */
 int __write_once hash_default = 1;     /* kernel allocator pages */
-EXPORT_SYMBOL(hash_default);
+/* DISABLED: EXPORT_SYMBOL(hash_default); */
 int __write_once kstack_hash = 1;      /* if no homecaching, use h4h */
 #endif /* CHIP_HAS_CBOX_HOME_MAP */
 
@@ -992,7 +992,7 @@ static int __init set_initfree(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("initfree=", set_initfree); */
+/* DISABLED: __setup("initfree=", set_initfree); */ */
 
 static void free_init_pages(char *what, unsigned long begin, unsigned long end)
 {

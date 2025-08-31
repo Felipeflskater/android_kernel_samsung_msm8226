@@ -221,7 +221,7 @@ void __iomem *__ioremap(unsigned long physaddr, unsigned long size, int cachefla
 
 	return (void __iomem *)retaddr;
 }
-EXPORT_SYMBOL(__ioremap);
+/* DISABLED: EXPORT_SYMBOL(__ioremap); */
 
 /*
  * Unmap a ioremap()ed region again
@@ -237,7 +237,7 @@ void iounmap(void __iomem *addr)
 	free_io_area((__force void *)addr);
 #endif
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 /*
  * __iounmap unmaps nearly everything, so be careful
@@ -364,4 +364,4 @@ void kernel_set_cachemode(void *addr, unsigned long size, int cmode)
 
 	flush_tlb_all();
 }
-EXPORT_SYMBOL(kernel_set_cachemode);
+/* DISABLED: EXPORT_SYMBOL(kernel_set_cachemode); */

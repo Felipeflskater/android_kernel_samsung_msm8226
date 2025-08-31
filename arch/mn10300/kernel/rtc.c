@@ -18,7 +18,7 @@
 #include <asm/rtc.h>
 
 DEFINE_SPINLOCK(rtc_lock);
-EXPORT_SYMBOL(rtc_lock);
+/* DISABLED: EXPORT_SYMBOL(rtc_lock); */
 
 /*
  * Read the current RTC time

@@ -190,7 +190,7 @@ struct tifm_adapter *tifm_alloc_adapter(unsigned int num_sockets,
 	}
 	return fm;
 }
-EXPORT_SYMBOL(tifm_alloc_adapter);
+/* DISABLED: EXPORT_SYMBOL(tifm_alloc_adapter); */
 
 int tifm_add_adapter(struct tifm_adapter *fm)
 {
@@ -215,7 +215,7 @@ int tifm_add_adapter(struct tifm_adapter *fm)
 
 	return rc;
 }
-EXPORT_SYMBOL(tifm_add_adapter);
+/* DISABLED: EXPORT_SYMBOL(tifm_add_adapter); */
 
 void tifm_remove_adapter(struct tifm_adapter *fm)
 {
@@ -232,20 +232,20 @@ void tifm_remove_adapter(struct tifm_adapter *fm)
 	spin_unlock(&tifm_adapter_lock);
 	device_del(&fm->dev);
 }
-EXPORT_SYMBOL(tifm_remove_adapter);
+/* DISABLED: EXPORT_SYMBOL(tifm_remove_adapter); */
 
 void tifm_free_adapter(struct tifm_adapter *fm)
 {
 	put_device(&fm->dev);
 }
-EXPORT_SYMBOL(tifm_free_adapter);
+/* DISABLED: EXPORT_SYMBOL(tifm_free_adapter); */
 
 void tifm_free_device(struct device *dev)
 {
 	struct tifm_dev *sock = container_of(dev, struct tifm_dev, dev);
 	kfree(sock);
 }
-EXPORT_SYMBOL(tifm_free_device);
+/* DISABLED: EXPORT_SYMBOL(tifm_free_device); */
 
 struct tifm_dev *tifm_alloc_device(struct tifm_adapter *fm, unsigned int id,
 				   unsigned char type)
@@ -276,41 +276,41 @@ struct tifm_dev *tifm_alloc_device(struct tifm_adapter *fm, unsigned int id,
 	}
 	return sock;
 }
-EXPORT_SYMBOL(tifm_alloc_device);
+/* DISABLED: EXPORT_SYMBOL(tifm_alloc_device); */
 
 void tifm_eject(struct tifm_dev *sock)
 {
 	struct tifm_adapter *fm = dev_get_drvdata(sock->dev.parent);
 	fm->eject(fm, sock);
 }
-EXPORT_SYMBOL(tifm_eject);
+/* DISABLED: EXPORT_SYMBOL(tifm_eject); */
 
 int tifm_has_ms_pif(struct tifm_dev *sock)
 {
 	struct tifm_adapter *fm = dev_get_drvdata(sock->dev.parent);
 	return fm->has_ms_pif(fm, sock);
 }
-EXPORT_SYMBOL(tifm_has_ms_pif);
+/* DISABLED: EXPORT_SYMBOL(tifm_has_ms_pif); */
 
 int tifm_map_sg(struct tifm_dev *sock, struct scatterlist *sg, int nents,
 		int direction)
 {
 	return pci_map_sg(to_pci_dev(sock->dev.parent), sg, nents, direction);
 }
-EXPORT_SYMBOL(tifm_map_sg);
+/* DISABLED: EXPORT_SYMBOL(tifm_map_sg); */
 
 void tifm_unmap_sg(struct tifm_dev *sock, struct scatterlist *sg, int nents,
 		   int direction)
 {
 	pci_unmap_sg(to_pci_dev(sock->dev.parent), sg, nents, direction);
 }
-EXPORT_SYMBOL(tifm_unmap_sg);
+/* DISABLED: EXPORT_SYMBOL(tifm_unmap_sg); */
 
 void tifm_queue_work(struct work_struct *work)
 {
 	queue_work(workqueue, work);
 }
-EXPORT_SYMBOL(tifm_queue_work);
+/* DISABLED: EXPORT_SYMBOL(tifm_queue_work); */
 
 int tifm_register_driver(struct tifm_driver *drv)
 {
@@ -318,13 +318,13 @@ int tifm_register_driver(struct tifm_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL(tifm_register_driver);
+/* DISABLED: EXPORT_SYMBOL(tifm_register_driver); */
 
 void tifm_unregister_driver(struct tifm_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(tifm_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(tifm_unregister_driver); */
 
 static int __init tifm_init(void)
 {

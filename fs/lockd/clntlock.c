@@ -71,7 +71,7 @@ struct nlm_host *nlmclnt_init(const struct nlmclnt_initdata *nlm_init)
 
 	return host;
 }
-EXPORT_SYMBOL_GPL(nlmclnt_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(nlmclnt_init); */
 
 /**
  * nlmclnt_done - Release resources allocated by nlmclnt_init()
@@ -85,7 +85,7 @@ void nlmclnt_done(struct nlm_host *host)
 	nlmclnt_release_host(host);
 	lockd_down(net);
 }
-EXPORT_SYMBOL_GPL(nlmclnt_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(nlmclnt_done); */
 
 /*
  * Queue up a lock for blocking so that the GRANTED request can see it

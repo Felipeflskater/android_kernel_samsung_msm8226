@@ -282,7 +282,7 @@ int pcmcia_loop_config(struct pcmcia_device *p_dev,
 	kfree(cfg_mem);
 	return ret;
 }
-EXPORT_SYMBOL(pcmcia_loop_config);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_loop_config); */
 
 
 struct pcmcia_loop_mem {
@@ -333,7 +333,7 @@ int pcmcia_loop_tuple(struct pcmcia_device *p_dev, cisdata_t code,
 	return pccard_loop_tuple(p_dev->socket, p_dev->func, code, NULL,
 				 &loop, pcmcia_do_loop_tuple);
 }
-EXPORT_SYMBOL(pcmcia_loop_tuple);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_loop_tuple); */
 
 
 struct pcmcia_loop_get {
@@ -387,7 +387,7 @@ size_t pcmcia_get_tuple(struct pcmcia_device *p_dev, cisdata_t code,
 
 	return get.len;
 }
-EXPORT_SYMBOL(pcmcia_get_tuple);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_get_tuple); */
 
 
 /**
@@ -434,5 +434,5 @@ int pcmcia_get_mac_from_cis(struct pcmcia_device *p_dev, struct net_device *dev)
 {
 	return pcmcia_loop_tuple(p_dev, CISTPL_FUNCE, pcmcia_do_get_mac, dev);
 }
-EXPORT_SYMBOL(pcmcia_get_mac_from_cis);
+/* DISABLED: EXPORT_SYMBOL(pcmcia_get_mac_from_cis); */
 

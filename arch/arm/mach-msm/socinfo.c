@@ -459,7 +459,7 @@ uint32_t socinfo_get_id(void)
 {
 	return (socinfo) ? socinfo->v1.id : 0;
 }
-EXPORT_SYMBOL_GPL(socinfo_get_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(socinfo_get_id); */
 
 uint32_t socinfo_get_version(void)
 {
@@ -624,7 +624,7 @@ enum msm_cpu socinfo_get_msm_cpu(void)
 {
 	return cur_cpu;
 }
-EXPORT_SYMBOL_GPL(socinfo_get_msm_cpu);
+/* DISABLED: EXPORT_SYMBOL_GPL(socinfo_get_msm_cpu); */
 
 static ssize_t
 socinfo_show_id(struct sys_device *dev,

@@ -217,19 +217,19 @@ void rpc_init_priority_wait_queue(struct rpc_wait_queue *queue, const char *qnam
 {
 	__rpc_init_priority_wait_queue(queue, qname, RPC_NR_PRIORITY);
 }
-EXPORT_SYMBOL_GPL(rpc_init_priority_wait_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_init_priority_wait_queue); */
 
 void rpc_init_wait_queue(struct rpc_wait_queue *queue, const char *qname)
 {
 	__rpc_init_priority_wait_queue(queue, qname, 1);
 }
-EXPORT_SYMBOL_GPL(rpc_init_wait_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_init_wait_queue); */
 
 void rpc_destroy_wait_queue(struct rpc_wait_queue *queue)
 {
 	del_timer_sync(&queue->timer_list.timer);
 }
-EXPORT_SYMBOL_GPL(rpc_destroy_wait_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_destroy_wait_queue); */
 
 static int rpc_wait_bit_killable(void *word)
 {
@@ -297,7 +297,7 @@ int __rpc_wait_for_completion_task(struct rpc_task *task, int (*action)(void *))
 	return out_of_line_wait_on_bit(&task->tk_runstate, RPC_TASK_ACTIVE,
 			action, TASK_KILLABLE);
 }
-EXPORT_SYMBOL_GPL(__rpc_wait_for_completion_task);
+/* DISABLED: EXPORT_SYMBOL_GPL(__rpc_wait_for_completion_task); */
 
 /*
  * Make an RPC task runnable.
@@ -360,7 +360,7 @@ void rpc_sleep_on(struct rpc_wait_queue *q, struct rpc_task *task,
 	__rpc_sleep_on_priority(q, task, action, task->tk_priority);
 	spin_unlock_bh(&q->lock);
 }
-EXPORT_SYMBOL_GPL(rpc_sleep_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_sleep_on); */
 
 void rpc_sleep_on_priority(struct rpc_wait_queue *q, struct rpc_task *task,
 		rpc_action action, int priority)
@@ -427,7 +427,7 @@ int rpc_queue_empty(struct rpc_wait_queue *queue)
 	spin_unlock_bh(&queue->lock);
 	return res == 0;
 }
-EXPORT_SYMBOL_GPL(rpc_queue_empty);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_queue_empty); */
 
 /*
  * Wake up a task on a specific queue
@@ -438,7 +438,7 @@ void rpc_wake_up_queued_task(struct rpc_wait_queue *queue, struct rpc_task *task
 	rpc_wake_up_task_queue_locked(queue, task);
 	spin_unlock_bh(&queue->lock);
 }
-EXPORT_SYMBOL_GPL(rpc_wake_up_queued_task);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_wake_up_queued_task); */
 
 /*
  * Wake up the next task on a priority queue.
@@ -522,7 +522,7 @@ struct rpc_task *rpc_wake_up_first(struct rpc_wait_queue *queue,
 
 	return task;
 }
-EXPORT_SYMBOL_GPL(rpc_wake_up_first);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_wake_up_first); */
 
 static bool rpc_wake_up_next_func(struct rpc_task *task, void *data)
 {
@@ -536,7 +536,7 @@ struct rpc_task *rpc_wake_up_next(struct rpc_wait_queue *queue)
 {
 	return rpc_wake_up_first(queue, rpc_wake_up_next_func, NULL);
 }
-EXPORT_SYMBOL_GPL(rpc_wake_up_next);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_wake_up_next); */
 
 /**
  * rpc_wake_up - wake up all rpc_tasks
@@ -564,7 +564,7 @@ void rpc_wake_up(struct rpc_wait_queue *queue)
 	}
 	spin_unlock_bh(&queue->lock);
 }
-EXPORT_SYMBOL_GPL(rpc_wake_up);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_wake_up); */
 
 /**
  * rpc_wake_up_status - wake up all rpc_tasks and set their status value.
@@ -594,7 +594,7 @@ void rpc_wake_up_status(struct rpc_wait_queue *queue, int status)
 	}
 	spin_unlock_bh(&queue->lock);
 }
-EXPORT_SYMBOL_GPL(rpc_wake_up_status);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_wake_up_status); */
 
 static void __rpc_queue_timer_fn(unsigned long ptr)
 {
@@ -633,7 +633,7 @@ void rpc_delay(struct rpc_task *task, unsigned long delay)
 	task->tk_timeout = delay;
 	rpc_sleep_on(&delay_queue, task, __rpc_atrun);
 }
-EXPORT_SYMBOL_GPL(rpc_delay);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_delay); */
 
 /*
  * Helper to call task->tk_ops->rpc_call_prepare
@@ -688,7 +688,7 @@ void rpc_exit(struct rpc_task *task, int status)
 	if (RPC_IS_QUEUED(task))
 		rpc_wake_up_queued_task(task->tk_waitqueue, task);
 }
-EXPORT_SYMBOL_GPL(rpc_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_exit); */
 
 void rpc_release_calldata(const struct rpc_call_ops *ops, void *calldata)
 {
@@ -842,7 +842,7 @@ void *rpc_malloc(struct rpc_task *task, size_t size)
 			task->tk_pid, size, buf);
 	return &buf->data;
 }
-EXPORT_SYMBOL_GPL(rpc_malloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_malloc); */
 
 /**
  * rpc_free - free buffer allocated via rpc_malloc
@@ -868,7 +868,7 @@ void rpc_free(void *buffer)
 	else
 		kfree(buf);
 }
-EXPORT_SYMBOL_GPL(rpc_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_free); */
 
 /*
  * Creation and deletion of RPC task structures
@@ -995,13 +995,13 @@ void rpc_put_task(struct rpc_task *task)
 {
 	rpc_do_put_task(task, NULL);
 }
-EXPORT_SYMBOL_GPL(rpc_put_task);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_put_task); */
 
 void rpc_put_task_async(struct rpc_task *task)
 {
 	rpc_do_put_task(task, task->tk_workqueue);
 }
-EXPORT_SYMBOL_GPL(rpc_put_task_async);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpc_put_task_async); */
 
 static void rpc_release_task(struct rpc_task *task)
 {

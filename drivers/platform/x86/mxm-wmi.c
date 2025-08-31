@@ -63,7 +63,7 @@ int mxm_wmi_call_mxds(int adapter)
 	return 0;
 			    
 }
-EXPORT_SYMBOL_GPL(mxm_wmi_call_mxds);
+/* DISABLED: EXPORT_SYMBOL_GPL(mxm_wmi_call_mxds); */
 
 int mxm_wmi_call_mxmx(int adapter)
 {
@@ -88,7 +88,7 @@ int mxm_wmi_call_mxmx(int adapter)
 	return 0;
 			    
 }
-EXPORT_SYMBOL_GPL(mxm_wmi_call_mxmx);
+/* DISABLED: EXPORT_SYMBOL_GPL(mxm_wmi_call_mxmx); */
 
 bool mxm_wmi_supported(void)
 {
@@ -96,7 +96,7 @@ bool mxm_wmi_supported(void)
 	guid_valid = wmi_has_guid(MXM_WMMX_GUID);
 	return guid_valid;
 }
-EXPORT_SYMBOL_GPL(mxm_wmi_supported);
+/* DISABLED: EXPORT_SYMBOL_GPL(mxm_wmi_supported); */
 
 static int __init mxm_wmi_init(void)
 {

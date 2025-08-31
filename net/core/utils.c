@@ -33,7 +33,7 @@
 #include <asm/uaccess.h>
 
 int net_msg_warn __read_mostly = 1;
-EXPORT_SYMBOL(net_msg_warn);
+/* DISABLED: EXPORT_SYMBOL(net_msg_warn); */
 
 DEFINE_RATELIMIT_STATE(net_ratelimit_state, 5 * HZ, 10);
 /*
@@ -43,7 +43,7 @@ int net_ratelimit(void)
 {
 	return __ratelimit(&net_ratelimit_state);
 }
-EXPORT_SYMBOL(net_ratelimit);
+/* DISABLED: EXPORT_SYMBOL(net_ratelimit); */
 
 /*
  * Convert an ASCII string to binary IP.
@@ -77,7 +77,7 @@ __be32 in_aton(const char *str)
 	}
 	return htonl(l);
 }
-EXPORT_SYMBOL(in_aton);
+/* DISABLED: EXPORT_SYMBOL(in_aton); */
 
 #define IN6PTON_XDIGIT		0x00010000
 #define IN6PTON_DIGIT		0x00020000
@@ -162,7 +162,7 @@ out:
 		*end = s;
 	return ret;
 }
-EXPORT_SYMBOL(in4_pton);
+/* DISABLED: EXPORT_SYMBOL(in4_pton); */
 
 int in6_pton(const char *src, int srclen,
 	     u8 *dst,
@@ -279,7 +279,7 @@ out:
 		*end = s;
 	return ret;
 }
-EXPORT_SYMBOL(in6_pton);
+/* DISABLED: EXPORT_SYMBOL(in6_pton); */
 
 void inet_proto_csum_replace4(__sum16 *sum, struct sk_buff *skb,
 			      __be32 from, __be32 to, int pseudohdr)
@@ -295,7 +295,7 @@ void inet_proto_csum_replace4(__sum16 *sum, struct sk_buff *skb,
 		*sum = ~csum_fold(csum_partial(diff, sizeof(diff),
 				csum_unfold(*sum)));
 }
-EXPORT_SYMBOL(inet_proto_csum_replace4);
+/* DISABLED: EXPORT_SYMBOL(inet_proto_csum_replace4); */
 
 void inet_proto_csum_replace16(__sum16 *sum, struct sk_buff *skb,
 			       const __be32 *from, const __be32 *to,
@@ -315,7 +315,7 @@ void inet_proto_csum_replace16(__sum16 *sum, struct sk_buff *skb,
 		*sum = ~csum_fold(csum_partial(diff, sizeof(diff),
 				  csum_unfold(*sum)));
 }
-EXPORT_SYMBOL(inet_proto_csum_replace16);
+/* DISABLED: EXPORT_SYMBOL(inet_proto_csum_replace16); */
 
 int mac_pton(const char *s, u8 *mac)
 {
@@ -339,4 +339,4 @@ int mac_pton(const char *s, u8 *mac)
 	}
 	return 1;
 }
-EXPORT_SYMBOL(mac_pton);
+/* DISABLED: EXPORT_SYMBOL(mac_pton); */

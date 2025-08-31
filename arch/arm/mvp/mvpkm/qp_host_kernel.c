@@ -331,7 +331,7 @@ out:
 	QPUnlock();
 	return rc;
 }
-EXPORT_SYMBOL(QP_Attach);
+/* DISABLED: EXPORT_SYMBOL(QP_Attach); */
 
 /**
  * @brief Detaches the host to the shared memory region.
@@ -422,7 +422,7 @@ QP_RegisterListener(const QPListener listener)
 
 	return rc;
 }
-EXPORT_SYMBOL(QP_RegisterListener);
+/* DISABLED: EXPORT_SYMBOL(QP_RegisterListener); */
 
 
 /**
@@ -448,7 +448,7 @@ QP_UnregisterListener(const QPListener listener)
 	QPUnlock();
 	return rc;
 }
-EXPORT_SYMBOL(QP_UnregisterListener);
+/* DISABLED: EXPORT_SYMBOL(QP_UnregisterListener); */
 
 
 /**
@@ -477,7 +477,7 @@ QP_RegisterDetachCB(QPHandle *qp,
 	QP_DBG("%s: Registered detach callback\n", __func__);
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_RegisterDetachCB);
+/* DISABLED: EXPORT_SYMBOL(QP_RegisterDetachCB); */
 
 
 /**
@@ -491,7 +491,7 @@ int32 QP_Notify(QPInitArgs *args)
 {
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_Notify);
+/* DISABLED: EXPORT_SYMBOL(QP_Notify); */
 
 
 /**
@@ -539,5 +539,5 @@ int32 QP_NotifyListener(QPInitArgs *args)
 
 	return QP_SUCCESS;
 }
-EXPORT_SYMBOL(QP_Detach);
+/* DISABLED: EXPORT_SYMBOL(QP_Detach); */
 

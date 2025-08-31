@@ -1343,7 +1343,7 @@ MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("channel measurement facility base driver\n"
 		   "Copyright 2003 IBM Corporation\n");
 
-EXPORT_SYMBOL_GPL(enable_cmf);
-EXPORT_SYMBOL_GPL(disable_cmf);
-EXPORT_SYMBOL_GPL(cmf_read);
-EXPORT_SYMBOL_GPL(cmf_readall);
+/* DISABLED: EXPORT_SYMBOL_GPL(enable_cmf); */
+/* DISABLED: EXPORT_SYMBOL_GPL(disable_cmf); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cmf_read); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cmf_readall); */

@@ -141,7 +141,7 @@ static struct list_head inetsw[SOCK_MAX];
 static DEFINE_SPINLOCK(inetsw_lock);
 
 struct ipv4_config ipv4_config;
-EXPORT_SYMBOL(ipv4_config);
+/* DISABLED: EXPORT_SYMBOL(ipv4_config); */
 
 /* New destruction routine */
 
@@ -173,7 +173,7 @@ void inet_sock_destruct(struct sock *sk)
 	dst_release(rcu_dereference_check(sk->sk_dst_cache, 1));
 	sk_refcnt_debug_dec(sk);
 }
-EXPORT_SYMBOL(inet_sock_destruct);
+/* DISABLED: EXPORT_SYMBOL(inet_sock_destruct); */
 
 /*
  *	The routines beyond this point handle the behaviour of an AF_INET
@@ -236,13 +236,13 @@ out:
 	release_sock(sk);
 	return err;
 }
-EXPORT_SYMBOL(inet_listen);
+/* DISABLED: EXPORT_SYMBOL(inet_listen); */
 
 u32 inet_ehash_secret __read_mostly;
-EXPORT_SYMBOL(inet_ehash_secret);
+/* DISABLED: EXPORT_SYMBOL(inet_ehash_secret); */
 
 u32 ipv6_hash_secret __read_mostly;
-EXPORT_SYMBOL(ipv6_hash_secret);
+/* DISABLED: EXPORT_SYMBOL(ipv6_hash_secret); */
 
 /*
  * inet_ehash_secret must be set exactly once, and to a non nul value
@@ -259,7 +259,7 @@ void build_ehash_secret(void)
 	if (cmpxchg(&inet_ehash_secret, 0, rnd) == 0)
 		get_random_bytes(&ipv6_hash_secret, sizeof(ipv6_hash_secret));
 }
-EXPORT_SYMBOL(build_ehash_secret);
+/* DISABLED: EXPORT_SYMBOL(build_ehash_secret); */
 
 static inline int inet_netns_ok(struct net *net, int protocol)
 {
@@ -475,11 +475,11 @@ int inet_release(struct socket *sock)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(inet_release);
+/* DISABLED: EXPORT_SYMBOL(inet_release); */
 
 /* It is off by default, see below. */
 int sysctl_ip_nonlocal_bind __read_mostly;
-EXPORT_SYMBOL(sysctl_ip_nonlocal_bind);
+/* DISABLED: EXPORT_SYMBOL(sysctl_ip_nonlocal_bind); */
 
 int inet_bind(struct socket *sock, struct sockaddr *uaddr, int addr_len)
 {
@@ -571,7 +571,7 @@ out_release_sock:
 out:
 	return err;
 }
-EXPORT_SYMBOL(inet_bind);
+/* DISABLED: EXPORT_SYMBOL(inet_bind); */
 
 int inet_dgram_connect(struct socket *sock, struct sockaddr * uaddr,
 		       int addr_len, int flags)
@@ -587,7 +587,7 @@ int inet_dgram_connect(struct socket *sock, struct sockaddr * uaddr,
 		return -EAGAIN;
 	return sk->sk_prot->connect(sk, (struct sockaddr *)uaddr, addr_len);
 }
-EXPORT_SYMBOL(inet_dgram_connect);
+/* DISABLED: EXPORT_SYMBOL(inet_dgram_connect); */
 
 static long inet_wait_for_connect(struct sock *sk, long timeo)
 {
@@ -700,7 +700,7 @@ sock_error:
 		sock->state = SS_DISCONNECTING;
 	goto out;
 }
-EXPORT_SYMBOL(inet_stream_connect);
+/* DISABLED: EXPORT_SYMBOL(inet_stream_connect); */
 
 /*
  *	Accept a pending connection. The TCP layer now gives BSD semantics.
@@ -729,7 +729,7 @@ int inet_accept(struct socket *sock, struct socket *newsock, int flags)
 do_err:
 	return err;
 }
-EXPORT_SYMBOL(inet_accept);
+/* DISABLED: EXPORT_SYMBOL(inet_accept); */
 
 
 /*
@@ -761,7 +761,7 @@ int inet_getname(struct socket *sock, struct sockaddr *uaddr,
 	*uaddr_len = sizeof(*sin);
 	return 0;
 }
-EXPORT_SYMBOL(inet_getname);
+/* DISABLED: EXPORT_SYMBOL(inet_getname); */
 
 int inet_sendmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *msg,
 		 size_t size)
@@ -777,7 +777,7 @@ int inet_sendmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *msg,
 
 	return sk->sk_prot->sendmsg(iocb, sk, msg, size);
 }
-EXPORT_SYMBOL(inet_sendmsg);
+/* DISABLED: EXPORT_SYMBOL(inet_sendmsg); */
 
 ssize_t inet_sendpage(struct socket *sock, struct page *page, int offset,
 		      size_t size, int flags)
@@ -795,7 +795,7 @@ ssize_t inet_sendpage(struct socket *sock, struct page *page, int offset,
 		return sk->sk_prot->sendpage(sk, page, offset, size, flags);
 	return sock_no_sendpage(sock, page, offset, size, flags);
 }
-EXPORT_SYMBOL(inet_sendpage);
+/* DISABLED: EXPORT_SYMBOL(inet_sendpage); */
 
 int inet_recvmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *msg,
 		 size_t size, int flags)
@@ -812,7 +812,7 @@ int inet_recvmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *msg,
 		msg->msg_namelen = addr_len;
 	return err;
 }
-EXPORT_SYMBOL(inet_recvmsg);
+/* DISABLED: EXPORT_SYMBOL(inet_recvmsg); */
 
 int inet_shutdown(struct socket *sock, int how)
 {
@@ -867,7 +867,7 @@ int inet_shutdown(struct socket *sock, int how)
 	release_sock(sk);
 	return err;
 }
-EXPORT_SYMBOL(inet_shutdown);
+/* DISABLED: EXPORT_SYMBOL(inet_shutdown); */
 
 /*
  *	ioctl() calls you can issue on an INET socket. Most of these are
@@ -925,7 +925,7 @@ int inet_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 	}
 	return err;
 }
-EXPORT_SYMBOL(inet_ioctl);
+/* DISABLED: EXPORT_SYMBOL(inet_ioctl); */
 
 #ifdef CONFIG_COMPAT
 static int inet_compat_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
@@ -966,7 +966,7 @@ const struct proto_ops inet_stream_ops = {
 	.compat_ioctl	   = inet_compat_ioctl,
 #endif
 };
-EXPORT_SYMBOL(inet_stream_ops);
+/* DISABLED: EXPORT_SYMBOL(inet_stream_ops); */
 
 const struct proto_ops inet_dgram_ops = {
 	.family		   = PF_INET,
@@ -993,7 +993,7 @@ const struct proto_ops inet_dgram_ops = {
 	.compat_ioctl	   = inet_compat_ioctl,
 #endif
 };
-EXPORT_SYMBOL(inet_dgram_ops);
+/* DISABLED: EXPORT_SYMBOL(inet_dgram_ops); */
 
 /*
  * For SOCK_RAW sockets; should be the same as inet_dgram_ops but without
@@ -1127,7 +1127,7 @@ out_illegal:
 	       p->type);
 	goto out;
 }
-EXPORT_SYMBOL(inet_register_protosw);
+/* DISABLED: EXPORT_SYMBOL(inet_register_protosw); */
 
 void inet_unregister_protosw(struct inet_protosw *p)
 {
@@ -1142,7 +1142,7 @@ void inet_unregister_protosw(struct inet_protosw *p)
 		synchronize_net();
 	}
 }
-EXPORT_SYMBOL(inet_unregister_protosw);
+/* DISABLED: EXPORT_SYMBOL(inet_unregister_protosw); */
 
 /*
  *      Shall we try to damage output packets if routing dev changes?
@@ -1245,7 +1245,7 @@ int inet_sk_rebuild_header(struct sock *sk)
 
 	return err;
 }
-EXPORT_SYMBOL(inet_sk_rebuild_header);
+/* DISABLED: EXPORT_SYMBOL(inet_sk_rebuild_header); */
 
 static int inet_gso_send_check(struct sk_buff *skb)
 {
@@ -1473,7 +1473,7 @@ int inet_ctl_sock_create(struct sock **sk, unsigned short family,
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(inet_ctl_sock_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(inet_ctl_sock_create); */
 
 unsigned long snmp_fold_field(void __percpu *mib[], int offt)
 {
@@ -1486,7 +1486,7 @@ unsigned long snmp_fold_field(void __percpu *mib[], int offt)
 	}
 	return res;
 }
-EXPORT_SYMBOL_GPL(snmp_fold_field);
+/* DISABLED: EXPORT_SYMBOL_GPL(snmp_fold_field); */
 
 #if BITS_PER_LONG==32
 
@@ -1512,7 +1512,7 @@ u64 snmp_fold_field64(void __percpu *mib[], int offt, size_t syncp_offset)
 	}
 	return res;
 }
-EXPORT_SYMBOL_GPL(snmp_fold_field64);
+/* DISABLED: EXPORT_SYMBOL_GPL(snmp_fold_field64); */
 #endif
 
 int snmp_mib_init(void __percpu *ptr[2], size_t mibsize, size_t align)
@@ -1532,7 +1532,7 @@ int snmp_mib_init(void __percpu *ptr[2], size_t mibsize, size_t align)
 #endif
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snmp_mib_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(snmp_mib_init); */
 
 void snmp_mib_free(void __percpu *ptr[SNMP_ARRAY_SZ])
 {
@@ -1544,7 +1544,7 @@ void snmp_mib_free(void __percpu *ptr[SNMP_ARRAY_SZ])
 		ptr[i] = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(snmp_mib_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(snmp_mib_free); */
 
 #ifdef CONFIG_IP_MULTICAST
 static const struct net_protocol igmp_protocol = {

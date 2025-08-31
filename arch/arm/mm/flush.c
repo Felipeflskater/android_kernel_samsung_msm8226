@@ -299,7 +299,7 @@ void flush_dcache_page(struct page *page)
 		set_bit(PG_dcache_clean, &page->flags);
 	}
 }
-EXPORT_SYMBOL(flush_dcache_page);
+/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
 
 /*
  * Ensure cache coherency for the kernel mapping of this page. We can
@@ -332,7 +332,7 @@ void flush_kernel_dcache_page(struct page *page)
 		}
 	}
 }
-EXPORT_SYMBOL(flush_kernel_dcache_page);
+/* DISABLED: EXPORT_SYMBOL(flush_kernel_dcache_page); */
 
 /*
  * Flush an anonymous page so that users of get_user_pages()

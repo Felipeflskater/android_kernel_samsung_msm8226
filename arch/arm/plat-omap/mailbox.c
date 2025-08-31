@@ -114,7 +114,7 @@ out:
 	spin_unlock_bh(&mq->lock);
 	return ret;
 }
-EXPORT_SYMBOL(omap_mbox_msg_send);
+/* DISABLED: EXPORT_SYMBOL(omap_mbox_msg_send); */
 
 static void mbox_tx_tasklet(unsigned long tx_data)
 {
@@ -347,14 +347,14 @@ struct omap_mbox *omap_mbox_get(const char *name, struct notifier_block *nb)
 
 	return mbox;
 }
-EXPORT_SYMBOL(omap_mbox_get);
+/* DISABLED: EXPORT_SYMBOL(omap_mbox_get); */
 
 void omap_mbox_put(struct omap_mbox *mbox, struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&mbox->notifier, nb);
 	omap_mbox_fini(mbox);
 }
-EXPORT_SYMBOL(omap_mbox_put);
+/* DISABLED: EXPORT_SYMBOL(omap_mbox_put); */
 
 static struct class omap_mbox_class = { .name = "mbox", };
 
@@ -385,7 +385,7 @@ err_out:
 		device_unregister(mboxes[i]->dev);
 	return ret;
 }
-EXPORT_SYMBOL(omap_mbox_register);
+/* DISABLED: EXPORT_SYMBOL(omap_mbox_register); */
 
 int omap_mbox_unregister(void)
 {
@@ -399,7 +399,7 @@ int omap_mbox_unregister(void)
 	mboxes = NULL;
 	return 0;
 }
-EXPORT_SYMBOL(omap_mbox_unregister);
+/* DISABLED: EXPORT_SYMBOL(omap_mbox_unregister); */
 
 static int __init omap_mbox_init(void)
 {

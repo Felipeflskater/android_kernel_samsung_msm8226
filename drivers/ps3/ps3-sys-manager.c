@@ -672,7 +672,7 @@ int ps3_sys_manager_get_wol(void)
 
 	return (user_wake_sources & PS3_SM_WAKE_W_O_L) != 0;
 }
-EXPORT_SYMBOL_GPL(ps3_sys_manager_get_wol);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_sys_manager_get_wol); */
 
 /**
  * ps3_sys_manager_set_wol - Set wake-on-lan setting.
@@ -692,7 +692,7 @@ void ps3_sys_manager_set_wol(int state)
 		user_wake_sources &= ~PS3_SM_WAKE_W_O_L;
 	mutex_unlock(&mutex);
 }
-EXPORT_SYMBOL_GPL(ps3_sys_manager_set_wol);
+/* DISABLED: EXPORT_SYMBOL_GPL(ps3_sys_manager_set_wol); */
 
 /**
  * ps3_sys_manager_work - Asynchronous read handler.

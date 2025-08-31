@@ -146,34 +146,34 @@ u8 omap_readb(u32 pa)
 {
 	return __raw_readb(OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_readb);
+/* DISABLED: EXPORT_SYMBOL(omap_readb); */
 
 u16 omap_readw(u32 pa)
 {
 	return __raw_readw(OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_readw);
+/* DISABLED: EXPORT_SYMBOL(omap_readw); */
 
 u32 omap_readl(u32 pa)
 {
 	return __raw_readl(OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_readl);
+/* DISABLED: EXPORT_SYMBOL(omap_readl); */
 
 void omap_writeb(u8 v, u32 pa)
 {
 	__raw_writeb(v, OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_writeb);
+/* DISABLED: EXPORT_SYMBOL(omap_writeb); */
 
 void omap_writew(u16 v, u32 pa)
 {
 	__raw_writew(v, OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_writew);
+/* DISABLED: EXPORT_SYMBOL(omap_writew); */
 
 void omap_writel(u32 v, u32 pa)
 {
 	__raw_writel(v, OMAP1_IO_ADDRESS(pa));
 }
-EXPORT_SYMBOL(omap_writel);
+/* DISABLED: EXPORT_SYMBOL(omap_writel); */

@@ -219,7 +219,7 @@ int posix_clock_register(struct posix_clock *clk, dev_t devid)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(posix_clock_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(posix_clock_register); */
 
 static void delete_clock(struct kref *kref)
 {
@@ -239,7 +239,7 @@ void posix_clock_unregister(struct posix_clock *clk)
 
 	kref_put(&clk->kref, delete_clock);
 }
-EXPORT_SYMBOL_GPL(posix_clock_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(posix_clock_unregister); */
 
 struct posix_clock_desc {
 	struct file *fp;

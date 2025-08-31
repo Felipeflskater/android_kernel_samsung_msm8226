@@ -240,7 +240,7 @@ struct srp_rport *srp_rport_add(struct Scsi_Host *shost,
 
 	return rport;
 }
-EXPORT_SYMBOL_GPL(srp_rport_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_rport_add); */
 
 /**
  * srp_rport_del  -  remove a SRP remote port
@@ -262,7 +262,7 @@ void srp_rport_del(struct srp_rport *rport)
 	transport_destroy_device(dev);
 	put_device(dev);
 }
-EXPORT_SYMBOL_GPL(srp_rport_del);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_rport_del); */
 
 static int do_srp_rport_del(struct device *dev, void *data)
 {
@@ -282,7 +282,7 @@ void srp_remove_host(struct Scsi_Host *shost)
 {
 	device_for_each_child(&shost->shost_gendev, NULL, do_srp_rport_del);
 }
-EXPORT_SYMBOL_GPL(srp_remove_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_remove_host); */
 
 static int srp_tsk_mgmt_response(struct Scsi_Host *shost, u64 nexus, u64 tm_id,
 				 int result)
@@ -335,7 +335,7 @@ srp_attach_transport(struct srp_function_template *ft)
 
 	return &i->t;
 }
-EXPORT_SYMBOL_GPL(srp_attach_transport);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_attach_transport); */
 
 /**
  * srp_release_transport  -  release SRP transport template instance
@@ -350,7 +350,7 @@ void srp_release_transport(struct scsi_transport_template *t)
 
 	kfree(i);
 }
-EXPORT_SYMBOL_GPL(srp_release_transport);
+/* DISABLED: EXPORT_SYMBOL_GPL(srp_release_transport); */
 
 static __init int srp_transport_init(void)
 {

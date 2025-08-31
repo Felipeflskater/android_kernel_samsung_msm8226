@@ -75,7 +75,7 @@ struct key_type key_type_keyring = {
 	.describe	= keyring_describe,
 	.read		= keyring_read,
 };
-EXPORT_SYMBOL(key_type_keyring);
+/* DISABLED: EXPORT_SYMBOL(key_type_keyring); */
 
 /*
  * Semaphore to serialise link/link calls to prevent two link calls in parallel
@@ -494,7 +494,7 @@ key_ref_t keyring_search(key_ref_t keyring,
 	return keyring_search_aux(keyring, current->cred,
 				  type, description, type->match, false);
 }
-EXPORT_SYMBOL(keyring_search);
+/* DISABLED: EXPORT_SYMBOL(keyring_search); */
 
 /*
  * Search the given keyring only (no recursion).
@@ -961,7 +961,7 @@ int key_link(struct key *keyring, struct key *key)
 
 	return ret;
 }
-EXPORT_SYMBOL(key_link);
+/* DISABLED: EXPORT_SYMBOL(key_link); */
 
 /**
  * key_unlink - Unlink the first link to a key from a keyring.
@@ -1047,7 +1047,7 @@ nomem:
 	up_write(&keyring->sem);
 	goto error;
 }
-EXPORT_SYMBOL(key_unlink);
+/* DISABLED: EXPORT_SYMBOL(key_unlink); */
 
 /*
  * Dispose of a keyring list after the RCU grace period, releasing the keys it
@@ -1105,7 +1105,7 @@ int keyring_clear(struct key *keyring)
 
 	return ret;
 }
-EXPORT_SYMBOL(keyring_clear);
+/* DISABLED: EXPORT_SYMBOL(keyring_clear); */
 
 /*
  * Dispose of the links from a revoked keyring.

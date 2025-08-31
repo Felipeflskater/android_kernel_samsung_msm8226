@@ -87,7 +87,7 @@ void impd1_tweak_control(struct device *dev, u32 mask, u32 val)
 	writel(cur | val, impd1->base + IMPD1_CTRL);
 }
 
-EXPORT_SYMBOL(impd1_tweak_control);
+/* DISABLED: EXPORT_SYMBOL(impd1_tweak_control); */
 
 /*
  * CLCD support

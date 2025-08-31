@@ -793,7 +793,7 @@ out_err:
 	nd->intent.open.file = ERR_CAST(dentry);
 	goto out;
 }
-EXPORT_SYMBOL_GPL(lookup_instantiate_filp);
+/* DISABLED: EXPORT_SYMBOL_GPL(lookup_instantiate_filp); */
 
 /**
  * nameidata_to_filp - convert a nameidata to an open filp.
@@ -846,7 +846,7 @@ struct file *dentry_open(struct dentry *dentry, struct vfsmount *mnt, int flags,
 	f->f_flags = flags;
 	return __dentry_open(dentry, mnt, f, NULL, cred);
 }
-EXPORT_SYMBOL(dentry_open);
+/* DISABLED: EXPORT_SYMBOL(dentry_open); */
 
 static void __put_unused_fd(struct files_struct *files, unsigned int fd)
 {
@@ -864,7 +864,7 @@ void put_unused_fd(unsigned int fd)
 	spin_unlock(&files->file_lock);
 }
 
-EXPORT_SYMBOL(put_unused_fd);
+/* DISABLED: EXPORT_SYMBOL(put_unused_fd); */
 
 /*
  * Install a file pointer in the fd array.
@@ -890,7 +890,7 @@ void fd_install(unsigned int fd, struct file *file)
 	spin_unlock(&files->file_lock);
 }
 
-EXPORT_SYMBOL(fd_install);
+/* DISABLED: EXPORT_SYMBOL(fd_install); */
 
 static inline int build_open_flags(int flags, umode_t mode, struct open_flags *op)
 {
@@ -970,7 +970,7 @@ struct file *filp_open(const char *filename, int flags, umode_t mode)
 	int lookup = build_open_flags(flags, mode, &op);
 	return do_filp_open(AT_FDCWD, filename, &op, lookup);
 }
-EXPORT_SYMBOL(filp_open);
+/* DISABLED: EXPORT_SYMBOL(filp_open); */
 
 struct file *file_open_root(struct dentry *dentry, struct vfsmount *mnt,
 			    const char *filename, int flags)
@@ -984,7 +984,7 @@ struct file *file_open_root(struct dentry *dentry, struct vfsmount *mnt,
 			return ERR_PTR(-ENOTDIR);
 	return do_file_open_root(dentry, mnt, filename, &op, lookup);
 }
-EXPORT_SYMBOL(file_open_root);
+/* DISABLED: EXPORT_SYMBOL(file_open_root); */
 
 long do_sys_open(int dfd, const char __user *filename, int flags, umode_t mode)
 {
@@ -1075,7 +1075,7 @@ int filp_close(struct file *filp, fl_owner_t id)
 	return retval;
 }
 
-EXPORT_SYMBOL(filp_close);
+/* DISABLED: EXPORT_SYMBOL(filp_close); */
 
 /*
  * Careful here! We test whether the file pointer is NULL before
@@ -1120,7 +1120,7 @@ out_unlock:
 	spin_unlock(&files->file_lock);
 	return -EBADF;
 }
-EXPORT_SYMBOL(sys_close);
+/* DISABLED: EXPORT_SYMBOL(sys_close); */
 
 /*
  * This routine simulates a hangup on the tty, to arrange that users
@@ -1148,7 +1148,7 @@ int generic_file_open(struct inode * inode, struct file * filp)
 	return 0;
 }
 
-EXPORT_SYMBOL(generic_file_open);
+/* DISABLED: EXPORT_SYMBOL(generic_file_open); */
 
 /*
  * This is used by subsystems that don't want seekable
@@ -1162,4 +1162,4 @@ int nonseekable_open(struct inode *inode, struct file *filp)
 	return 0;
 }
 
-EXPORT_SYMBOL(nonseekable_open);
+/* DISABLED: EXPORT_SYMBOL(nonseekable_open); */

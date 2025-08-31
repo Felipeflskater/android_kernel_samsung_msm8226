@@ -506,7 +506,7 @@ int smsm_check_for_modem_crash(void)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(smsm_check_for_modem_crash);
+/* DISABLED: EXPORT_SYMBOL(smsm_check_for_modem_crash); */
 
 /* the spinlock is used to synchronize between the
  * irq handler and code that mutates the channel
@@ -757,7 +757,7 @@ int smd_remote_ss_to_edge(const char *name)
 
 	return -EINVAL;
 }
-EXPORT_SYMBOL(smd_remote_ss_to_edge);
+/* DISABLED: EXPORT_SYMBOL(smd_remote_ss_to_edge); */
 
 /*
  * Returns a pointer to the subsystem name or NULL if no
@@ -776,7 +776,7 @@ const char *smd_edge_to_subsystem(uint32_t type)
 	}
 	return subsys;
 }
-EXPORT_SYMBOL(smd_edge_to_subsystem);
+/* DISABLED: EXPORT_SYMBOL(smd_edge_to_subsystem); */
 
 /*
  * Returns a pointer to the subsystem name given the
@@ -805,7 +805,7 @@ const char *smd_pid_to_subsystem(uint32_t pid)
 
 	return subsys;
 }
-EXPORT_SYMBOL(smd_pid_to_subsystem);
+/* DISABLED: EXPORT_SYMBOL(smd_pid_to_subsystem); */
 
 static void smd_reset_edge(void *void_ch, unsigned new_state,
 				int is_word_access_ch)
@@ -1467,7 +1467,7 @@ void smd_sleep_exit(void)
 		tasklet_schedule(&smd_fake_irq_tasklet);
 	}
 }
-EXPORT_SYMBOL(smd_sleep_exit);
+/* DISABLED: EXPORT_SYMBOL(smd_sleep_exit); */
 
 static int smd_is_packet(struct smd_alloc_elm *alloc_elm)
 {
@@ -2005,7 +2005,7 @@ int smd_named_open_on_edge(const char *name, uint32_t edge,
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_named_open_on_edge);
+/* DISABLED: EXPORT_SYMBOL(smd_named_open_on_edge); */
 
 
 int smd_open(const char *name, smd_channel_t **_ch,
@@ -2014,7 +2014,7 @@ int smd_open(const char *name, smd_channel_t **_ch,
 	return smd_named_open_on_edge(name, SMD_APPS_MODEM, _ch, priv,
 				      notify);
 }
-EXPORT_SYMBOL(smd_open);
+/* DISABLED: EXPORT_SYMBOL(smd_open); */
 
 int smd_close(smd_channel_t *ch)
 {
@@ -2048,7 +2048,7 @@ int smd_close(smd_channel_t *ch)
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_close);
+/* DISABLED: EXPORT_SYMBOL(smd_close); */
 
 int smd_write_start(smd_channel_t *ch, int len)
 {
@@ -2093,7 +2093,7 @@ int smd_write_start(smd_channel_t *ch, int len)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(smd_write_start);
+/* DISABLED: EXPORT_SYMBOL(smd_write_start); */
 
 int smd_write_segment(smd_channel_t *ch, void *data, int len, int user_buf)
 {
@@ -2124,7 +2124,7 @@ int smd_write_segment(smd_channel_t *ch, void *data, int len, int user_buf)
 
 	return bytes_written;
 }
-EXPORT_SYMBOL(smd_write_segment);
+/* DISABLED: EXPORT_SYMBOL(smd_write_segment); */
 
 int smd_write_end(smd_channel_t *ch)
 {
@@ -2140,7 +2140,7 @@ int smd_write_end(smd_channel_t *ch)
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_write_end);
+/* DISABLED: EXPORT_SYMBOL(smd_write_end); */
 
 int smd_write_segment_avail(smd_channel_t *ch)
 {
@@ -2163,7 +2163,7 @@ int smd_write_segment_avail(smd_channel_t *ch)
 
 	return n > SMD_HEADER_SIZE ? n - SMD_HEADER_SIZE : 0;
 }
-EXPORT_SYMBOL(smd_write_segment_avail);
+/* DISABLED: EXPORT_SYMBOL(smd_write_segment_avail); */
 
 int smd_read(smd_channel_t *ch, void *data, int len)
 {
@@ -2174,7 +2174,7 @@ int smd_read(smd_channel_t *ch, void *data, int len)
 
 	return ch->read(ch, data, len, 0);
 }
-EXPORT_SYMBOL(smd_read);
+/* DISABLED: EXPORT_SYMBOL(smd_read); */
 
 int smd_read_user_buffer(smd_channel_t *ch, void *data, int len)
 {
@@ -2185,7 +2185,7 @@ int smd_read_user_buffer(smd_channel_t *ch, void *data, int len)
 
 	return ch->read(ch, data, len, 1);
 }
-EXPORT_SYMBOL(smd_read_user_buffer);
+/* DISABLED: EXPORT_SYMBOL(smd_read_user_buffer); */
 
 int smd_read_from_cb(smd_channel_t *ch, void *data, int len)
 {
@@ -2196,7 +2196,7 @@ int smd_read_from_cb(smd_channel_t *ch, void *data, int len)
 
 	return ch->read_from_cb(ch, data, len, 0);
 }
-EXPORT_SYMBOL(smd_read_from_cb);
+/* DISABLED: EXPORT_SYMBOL(smd_read_from_cb); */
 
 int smd_write(smd_channel_t *ch, const void *data, int len)
 {
@@ -2207,7 +2207,7 @@ int smd_write(smd_channel_t *ch, const void *data, int len)
 
 	return ch->pending_pkt_sz ? -EBUSY : ch->write(ch, data, len, 0);
 }
-EXPORT_SYMBOL(smd_write);
+/* DISABLED: EXPORT_SYMBOL(smd_write); */
 
 int smd_write_user_buffer(smd_channel_t *ch, const void *data, int len)
 {
@@ -2218,7 +2218,7 @@ int smd_write_user_buffer(smd_channel_t *ch, const void *data, int len)
 
 	return ch->pending_pkt_sz ? -EBUSY : ch->write(ch, data, len, 1);
 }
-EXPORT_SYMBOL(smd_write_user_buffer);
+/* DISABLED: EXPORT_SYMBOL(smd_write_user_buffer); */
 
 int smd_read_avail(smd_channel_t *ch)
 {
@@ -2229,7 +2229,7 @@ int smd_read_avail(smd_channel_t *ch)
 
 	return ch->read_avail(ch);
 }
-EXPORT_SYMBOL(smd_read_avail);
+/* DISABLED: EXPORT_SYMBOL(smd_read_avail); */
 
 int smd_write_avail(smd_channel_t *ch)
 {
@@ -2240,21 +2240,21 @@ int smd_write_avail(smd_channel_t *ch)
 
 	return ch->write_avail(ch);
 }
-EXPORT_SYMBOL(smd_write_avail);
+/* DISABLED: EXPORT_SYMBOL(smd_write_avail); */
 
 void smd_enable_read_intr(smd_channel_t *ch)
 {
 	if (ch)
 		ch->half_ch->set_fBLOCKREADINTR(ch->send, 0);
 }
-EXPORT_SYMBOL(smd_enable_read_intr);
+/* DISABLED: EXPORT_SYMBOL(smd_enable_read_intr); */
 
 void smd_disable_read_intr(smd_channel_t *ch)
 {
 	if (ch)
 		ch->half_ch->set_fBLOCKREADINTR(ch->send, 1);
 }
-EXPORT_SYMBOL(smd_disable_read_intr);
+/* DISABLED: EXPORT_SYMBOL(smd_disable_read_intr); */
 
 /**
  * Enable/disable receive interrupts for the remote processor used by a
@@ -2308,7 +2308,7 @@ int smd_mask_receive_interrupt(smd_channel_t *ch, bool mask,
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_mask_receive_interrupt);
+/* DISABLED: EXPORT_SYMBOL(smd_mask_receive_interrupt); */
 
 int smd_wait_until_readable(smd_channel_t *ch, int bytes)
 {
@@ -2329,7 +2329,7 @@ int smd_cur_packet_size(smd_channel_t *ch)
 
 	return ch->current_packet;
 }
-EXPORT_SYMBOL(smd_cur_packet_size);
+/* DISABLED: EXPORT_SYMBOL(smd_cur_packet_size); */
 
 int smd_tiocmget(smd_channel_t *ch)
 {
@@ -2345,7 +2345,7 @@ int smd_tiocmget(smd_channel_t *ch)
 		(ch->half_ch->get_fCTS(ch->send) ? TIOCM_RTS : 0) |
 		(ch->half_ch->get_fDSR(ch->send) ? TIOCM_DTR : 0);
 }
-EXPORT_SYMBOL(smd_tiocmget);
+/* DISABLED: EXPORT_SYMBOL(smd_tiocmget); */
 
 /* this api will be called while holding smd_lock */
 int
@@ -2374,7 +2374,7 @@ smd_tiocmset_from_cb(smd_channel_t *ch, unsigned int set, unsigned int clear)
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_tiocmset_from_cb);
+/* DISABLED: EXPORT_SYMBOL(smd_tiocmset_from_cb); */
 
 int smd_tiocmset(smd_channel_t *ch, unsigned int set, unsigned int clear)
 {
@@ -2391,7 +2391,7 @@ int smd_tiocmset(smd_channel_t *ch, unsigned int set, unsigned int clear)
 
 	return 0;
 }
-EXPORT_SYMBOL(smd_tiocmset);
+/* DISABLED: EXPORT_SYMBOL(smd_tiocmset); */
 
 int smd_is_pkt_avail(smd_channel_t *ch)
 {
@@ -2409,7 +2409,7 @@ int smd_is_pkt_avail(smd_channel_t *ch)
 
 	return ch->current_packet ? 1 : 0;
 }
-EXPORT_SYMBOL(smd_is_pkt_avail);
+/* DISABLED: EXPORT_SYMBOL(smd_is_pkt_avail); */
 
 static int smsm_cb_init(void)
 {
@@ -2554,7 +2554,7 @@ void smsm_reset_modem(unsigned mode)
 
 	smsm_change_state(SMSM_APPS_STATE, mode, mode);
 }
-EXPORT_SYMBOL(smsm_reset_modem);
+/* DISABLED: EXPORT_SYMBOL(smsm_reset_modem); */
 
 void smsm_reset_modem_cont(void)
 {
@@ -2571,7 +2571,7 @@ void smsm_reset_modem_cont(void)
 	wmb();
 	spin_unlock_irqrestore(&smem_lock, flags);
 }
-EXPORT_SYMBOL(smsm_reset_modem_cont);
+/* DISABLED: EXPORT_SYMBOL(smsm_reset_modem_cont); */
 
 static void smsm_cb_snapshot(uint32_t use_wakelock)
 {
@@ -2810,7 +2810,7 @@ int smsm_change_intr_mask(uint32_t smsm_entry,
 
 	return 0;
 }
-EXPORT_SYMBOL(smsm_change_intr_mask);
+/* DISABLED: EXPORT_SYMBOL(smsm_change_intr_mask); */
 
 int smsm_get_intr_mask(uint32_t smsm_entry, uint32_t *intr_mask)
 {
@@ -2828,7 +2828,7 @@ int smsm_get_intr_mask(uint32_t smsm_entry, uint32_t *intr_mask)
 	*intr_mask = __raw_readl(SMSM_INTR_MASK_ADDR(smsm_entry, SMSM_APPS));
 	return 0;
 }
-EXPORT_SYMBOL(smsm_get_intr_mask);
+/* DISABLED: EXPORT_SYMBOL(smsm_get_intr_mask); */
 
 int smsm_change_state(uint32_t smsm_entry,
 		      uint32_t clear_mask, uint32_t set_mask)
@@ -2859,7 +2859,7 @@ int smsm_change_state(uint32_t smsm_entry,
 
 	return 0;
 }
-EXPORT_SYMBOL(smsm_change_state);
+/* DISABLED: EXPORT_SYMBOL(smsm_change_state); */
 
 uint32_t smsm_get_state(uint32_t smsm_entry)
 {
@@ -2880,7 +2880,7 @@ uint32_t smsm_get_state(uint32_t smsm_entry)
 
 	return rv;
 }
-EXPORT_SYMBOL(smsm_get_state);
+/* DISABLED: EXPORT_SYMBOL(smsm_get_state); */
 
 /**
  * Performs SMSM callback client notifiction.
@@ -3060,7 +3060,7 @@ cleanup:
 	mutex_unlock(&smsm_lock);
 	return ret;
 }
-EXPORT_SYMBOL(smsm_state_cb_register);
+/* DISABLED: EXPORT_SYMBOL(smsm_state_cb_register); */
 
 
 /**
@@ -3134,7 +3134,7 @@ int smsm_state_cb_deregister(uint32_t smsm_entry, uint32_t mask,
 	mutex_unlock(&smsm_lock);
 	return ret;
 }
-EXPORT_SYMBOL(smsm_state_cb_deregister);
+/* DISABLED: EXPORT_SYMBOL(smsm_state_cb_deregister); */
 
 static int restart_notifier_cb(struct notifier_block *this,
 				  unsigned long code,

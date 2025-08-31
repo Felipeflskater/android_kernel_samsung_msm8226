@@ -87,7 +87,7 @@ void *wcnss_prealloc_get(unsigned int size)
 
 	return NULL;
 }
-EXPORT_SYMBOL(wcnss_prealloc_get);
+/* DISABLED: EXPORT_SYMBOL(wcnss_prealloc_get); */
 
 int wcnss_prealloc_put(void *ptr)
 {
@@ -106,4 +106,4 @@ int wcnss_prealloc_put(void *ptr)
 
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_prealloc_put);
+/* DISABLED: EXPORT_SYMBOL(wcnss_prealloc_put); */

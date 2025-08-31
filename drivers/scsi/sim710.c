@@ -86,7 +86,7 @@ param_setup(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("sim710=", param_setup); */
+/* DISABLED: __setup("sim710=", param_setup); */ */
 
 static struct scsi_host_template sim710_driver_template = {
 	.name			= "LSI (Symbios) 710 MCA/EISA",

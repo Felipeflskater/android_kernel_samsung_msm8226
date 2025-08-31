@@ -279,7 +279,7 @@ void fc_get_host_port_state(struct Scsi_Host *shost)
 		}
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_get_host_port_state);
+/* DISABLED: EXPORT_SYMBOL(fc_get_host_port_state); */
 
 /**
  * fc_get_host_speed() - Return the speed of the given Scsi_Host
@@ -291,7 +291,7 @@ void fc_get_host_speed(struct Scsi_Host *shost)
 
 	fc_host_speed(shost) = lport->link_speed;
 }
-EXPORT_SYMBOL(fc_get_host_speed);
+/* DISABLED: EXPORT_SYMBOL(fc_get_host_speed); */
 
 /**
  * fc_get_host_stats() - Return the Scsi_Host's statistics
@@ -341,7 +341,7 @@ struct fc_host_statistics *fc_get_host_stats(struct Scsi_Host *shost)
 	fcoe_stats->dumped_frames = -1;
 	return fcoe_stats;
 }
-EXPORT_SYMBOL(fc_get_host_stats);
+/* DISABLED: EXPORT_SYMBOL(fc_get_host_stats); */
 
 /**
  * fc_lport_flogi_fill() - Fill in FLOGI command for request
@@ -541,7 +541,7 @@ int fc_fabric_login(struct fc_lport *lport)
 
 	return rc;
 }
-EXPORT_SYMBOL(fc_fabric_login);
+/* DISABLED: EXPORT_SYMBOL(fc_fabric_login); */
 
 /**
  * __fc_linkup() - Handler for transport linkup events
@@ -572,7 +572,7 @@ void fc_linkup(struct fc_lport *lport)
 	__fc_linkup(lport);
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_linkup);
+/* DISABLED: EXPORT_SYMBOL(fc_linkup); */
 
 /**
  * __fc_linkdown() - Handler for transport linkdown events
@@ -602,7 +602,7 @@ void fc_linkdown(struct fc_lport *lport)
 	__fc_linkdown(lport);
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_linkdown);
+/* DISABLED: EXPORT_SYMBOL(fc_linkdown); */
 
 /**
  * fc_fabric_logoff() - Logout of the fabric
@@ -625,7 +625,7 @@ int fc_fabric_logoff(struct fc_lport *lport)
 	cancel_delayed_work_sync(&lport->retry_work);
 	return 0;
 }
-EXPORT_SYMBOL(fc_fabric_logoff);
+/* DISABLED: EXPORT_SYMBOL(fc_fabric_logoff); */
 
 /**
  * fc_lport_destroy() - Unregister a fc_lport
@@ -651,7 +651,7 @@ int fc_lport_destroy(struct fc_lport *lport)
 	fc_fc4_del_lport(lport);
 	return 0;
 }
-EXPORT_SYMBOL(fc_lport_destroy);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_destroy); */
 
 /**
  * fc_set_mfs() - Set the maximum frame size for a local port
@@ -683,7 +683,7 @@ int fc_set_mfs(struct fc_lport *lport, u32 mfs)
 
 	return rc;
 }
-EXPORT_SYMBOL(fc_set_mfs);
+/* DISABLED: EXPORT_SYMBOL(fc_set_mfs); */
 
 /**
  * fc_lport_disc_callback() - Callback for discovery events
@@ -783,7 +783,7 @@ void fc_lport_set_local_id(struct fc_lport *lport, u32 port_id)
 	}
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_lport_set_local_id);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_set_local_id); */
 
 /**
  * fc_lport_recv_flogi_req() - Receive a FLOGI request
@@ -990,7 +990,7 @@ int fc_lport_reset(struct fc_lport *lport)
 	mutex_unlock(&lport->lp_mutex);
 	return 0;
 }
-EXPORT_SYMBOL(fc_lport_reset);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_reset); */
 
 /**
  * fc_lport_reset_locked() - Reset the local port w/ the lport lock held
@@ -1650,7 +1650,7 @@ out:
 err:
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_lport_logo_resp);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_logo_resp); */
 
 /**
  * fc_rport_enter_logo() - Logout of the fabric
@@ -1791,7 +1791,7 @@ out:
 err:
 	mutex_unlock(&lport->lp_mutex);
 }
-EXPORT_SYMBOL(fc_lport_flogi_resp);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_flogi_resp); */
 
 /**
  * fc_rport_enter_flogi() - Send a FLOGI request to the fabric manager
@@ -1844,7 +1844,7 @@ int fc_lport_config(struct fc_lport *lport)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_lport_config);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_config); */
 
 /**
  * fc_lport_init() - Initialize the lport layer for a local port
@@ -1882,7 +1882,7 @@ int fc_lport_init(struct fc_lport *lport)
 
 	return 0;
 }
-EXPORT_SYMBOL(fc_lport_init);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_init); */
 
 /**
  * fc_lport_bsg_resp() - The common response handler for FC Passthrough requests
@@ -2132,4 +2132,4 @@ int fc_lport_bsg_request(struct fc_bsg_job *job)
 	mutex_unlock(&lport->lp_mutex);
 	return rc;
 }
-EXPORT_SYMBOL(fc_lport_bsg_request);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_bsg_request); */

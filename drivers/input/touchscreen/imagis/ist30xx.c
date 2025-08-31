@@ -65,7 +65,7 @@ bool ist30xx_initialized = 0;
 static int touch_is_pressed = 0;
 
 struct ist30xx_data *ts_data;
-EXPORT_SYMBOL(ts_data);
+/* DISABLED: EXPORT_SYMBOL(ts_data); */
 
 static struct delayed_work work_reset_check;
 #if IST30XX_EVENT_MODE
@@ -181,7 +181,7 @@ void tsp_start_read_rawdata(void)
 
 	add_timer(&rawdata_timer);
 }
-EXPORT_SYMBOL(tsp_start_read_rawdata);
+/* DISABLED: EXPORT_SYMBOL(tsp_start_read_rawdata); */
 
 void tsp_stop_read_rawdata(void)
 {
@@ -189,21 +189,21 @@ void tsp_stop_read_rawdata(void)
 
 	del_timer(&rawdata_timer);
 }
-EXPORT_SYMBOL(tsp_stop_read_rawdata);
+/* DISABLED: EXPORT_SYMBOL(tsp_stop_read_rawdata); */
 #else
 void tsp_start_read_rawdata(void)
 {
 	tsp_info("%s: not define!\n", __func__);
 	return;
 }
-EXPORT_SYMBOL(tsp_start_read_rawdata);
+/* DISABLED: EXPORT_SYMBOL(tsp_start_read_rawdata); */
 
 void tsp_stop_read_rawdata(void)
 {
 	tsp_info("%s: not defind!\n", __func__);
 	return;
 }
-EXPORT_SYMBOL(tsp_stop_read_rawdata);
+/* DISABLED: EXPORT_SYMBOL(tsp_stop_read_rawdata); */
 #endif
 
 int prev_dbg_level = IST30XX_DEBUG_LEVEL;
@@ -1220,7 +1220,7 @@ void ist30xx_set_ta_mode(bool charging)
 
 	ist30xx_scheduled_reset();
 }
-EXPORT_SYMBOL(ist30xx_set_ta_mode);
+/* DISABLED: EXPORT_SYMBOL(ist30xx_set_ta_mode); */
 
 void ist30xx_set_call_mode(int mode)
 {
@@ -1235,7 +1235,7 @@ void ist30xx_set_call_mode(int mode)
 
 	ist30xx_scheduled_reset();
 }
-EXPORT_SYMBOL(ist30xx_set_call_mode);
+/* DISABLED: EXPORT_SYMBOL(ist30xx_set_call_mode); */
 
 void ist30xx_set_cover_mode(int mode)
 {
@@ -1250,7 +1250,7 @@ void ist30xx_set_cover_mode(int mode)
 
 	ist30xx_scheduled_reset();
 }
-EXPORT_SYMBOL(ist30xx_set_cover_mode);
+/* DISABLED: EXPORT_SYMBOL(ist30xx_set_cover_mode); */
 
 void charger_enable(int enable)
 {

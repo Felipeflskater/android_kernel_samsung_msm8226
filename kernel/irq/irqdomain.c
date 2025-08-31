@@ -246,7 +246,7 @@ struct irq_domain *irq_find_host(struct device_node *node)
 	mutex_unlock(&irq_domain_mutex);
 	return found;
 }
-EXPORT_SYMBOL_GPL(irq_find_host);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_find_host); */
 
 /**
  * irq_set_default_host() - Set a "default" irq domain
@@ -385,7 +385,7 @@ unsigned int irq_create_mapping(struct irq_domain *domain,
 
 	return virq;
 }
-EXPORT_SYMBOL_GPL(irq_create_mapping);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_create_mapping); */
 
 unsigned int irq_create_of_mapping(struct device_node *controller,
 				   const u32 *intspec, unsigned int intsize)
@@ -434,7 +434,7 @@ unsigned int irq_create_of_mapping(struct device_node *controller,
 		irq_set_irq_type(virq, type);
 	return virq;
 }
-EXPORT_SYMBOL_GPL(irq_create_of_mapping);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_create_of_mapping); */
 
 /**
  * irq_dispose_mapping() - Unmap an interrupt
@@ -486,7 +486,7 @@ void irq_dispose_mapping(unsigned int virq)
 
 	irq_free_desc(virq);
 }
-EXPORT_SYMBOL_GPL(irq_dispose_mapping);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_dispose_mapping); */
 
 /**
  * irq_find_mapping() - Find a linux irq from an hw irq number.
@@ -527,7 +527,7 @@ unsigned int irq_find_mapping(struct irq_domain *domain,
 	} while(i != hint);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_find_mapping);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_find_mapping); */
 
 /**
  * irq_radix_revmap_lookup() - Find a linux irq from a hw irq number.
@@ -713,7 +713,7 @@ int irq_domain_xlate_onecell(struct irq_domain *d, struct device_node *ctrlr,
 	*out_type = IRQ_TYPE_NONE;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_domain_xlate_onecell);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_domain_xlate_onecell); */
 
 /**
  * irq_domain_xlate_twocell() - Generic xlate for direct two cell bindings
@@ -732,7 +732,7 @@ int irq_domain_xlate_twocell(struct irq_domain *d, struct device_node *ctrlr,
 	*out_type = intspec[1] & IRQ_TYPE_SENSE_MASK;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_domain_xlate_twocell);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_domain_xlate_twocell); */
 
 /**
  * irq_domain_xlate_onetwocell() - Generic xlate for one or two cell bindings
@@ -756,13 +756,13 @@ int irq_domain_xlate_onetwocell(struct irq_domain *d,
 	*out_type = (intsize > 1) ? intspec[1] : IRQ_TYPE_NONE;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(irq_domain_xlate_onetwocell);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_domain_xlate_onetwocell); */
 
 const struct irq_domain_ops irq_domain_simple_ops = {
 	.map = irq_domain_simple_map,
 	.xlate = irq_domain_xlate_onetwocell,
 };
-EXPORT_SYMBOL_GPL(irq_domain_simple_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_domain_simple_ops); */
 
 #ifdef CONFIG_OF_IRQ
 void irq_domain_generate_simple(const struct of_device_id *match,
@@ -776,5 +776,5 @@ void irq_domain_generate_simple(const struct of_device_id *match,
 		irq_domain_add_legacy(node, 32, irq_start, 0,
 				      &irq_domain_simple_ops, NULL);
 }
-EXPORT_SYMBOL_GPL(irq_domain_generate_simple);
+/* DISABLED: EXPORT_SYMBOL_GPL(irq_domain_generate_simple); */
 #endif

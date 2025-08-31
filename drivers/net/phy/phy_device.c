@@ -43,7 +43,7 @@ void phy_device_free(struct phy_device *phydev)
 {
 	kfree(phydev);
 }
-EXPORT_SYMBOL(phy_device_free);
+/* DISABLED: EXPORT_SYMBOL(phy_device_free); */
 
 static void phy_device_release(struct device *dev)
 {
@@ -89,7 +89,7 @@ int phy_register_fixup(const char *bus_id, u32 phy_uid, u32 phy_uid_mask,
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_register_fixup);
+/* DISABLED: EXPORT_SYMBOL(phy_register_fixup); */
 
 /* Registers a fixup to be run on any PHY with the UID in phy_uid */
 int phy_register_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask,
@@ -97,7 +97,7 @@ int phy_register_fixup_for_uid(u32 phy_uid, u32 phy_uid_mask,
 {
 	return phy_register_fixup(PHY_ANY_ID, phy_uid, phy_uid_mask, run);
 }
-EXPORT_SYMBOL(phy_register_fixup_for_uid);
+/* DISABLED: EXPORT_SYMBOL(phy_register_fixup_for_uid); */
 
 /* Registers a fixup to be run on the PHY with id string bus_id */
 int phy_register_fixup_for_id(const char *bus_id,
@@ -105,7 +105,7 @@ int phy_register_fixup_for_id(const char *bus_id,
 {
 	return phy_register_fixup(bus_id, PHY_ANY_UID, 0xffffffff, run);
 }
-EXPORT_SYMBOL(phy_register_fixup_for_id);
+/* DISABLED: EXPORT_SYMBOL(phy_register_fixup_for_id); */
 
 /*
  * Returns 1 if fixup matches phydev in bus_id and phy_uid.
@@ -147,7 +147,7 @@ int phy_scan_fixups(struct phy_device *phydev)
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_scan_fixups);
+/* DISABLED: EXPORT_SYMBOL(phy_scan_fixups); */
 
 static struct phy_device* phy_device_create(struct mii_bus *bus,
 					    int addr, int phy_id)
@@ -230,7 +230,7 @@ int get_phy_id(struct mii_bus *bus, int addr, u32 *phy_id)
 
 	return 0;
 }
-EXPORT_SYMBOL(get_phy_id);
+/* DISABLED: EXPORT_SYMBOL(get_phy_id); */
 
 /**
  * get_phy_device - reads the specified PHY device and returns its @phy_device struct
@@ -258,7 +258,7 @@ struct phy_device * get_phy_device(struct mii_bus *bus, int addr)
 
 	return dev;
 }
-EXPORT_SYMBOL(get_phy_device);
+/* DISABLED: EXPORT_SYMBOL(get_phy_device); */
 
 /**
  * phy_device_register - Register the phy device on the MDIO bus
@@ -289,7 +289,7 @@ int phy_device_register(struct phy_device *phydev)
 	phydev->bus->phy_map[phydev->addr] = NULL;
 	return err;
 }
-EXPORT_SYMBOL(phy_device_register);
+/* DISABLED: EXPORT_SYMBOL(phy_device_register); */
 
 /**
  * phy_find_first - finds the first PHY device on the bus
@@ -305,7 +305,7 @@ struct phy_device *phy_find_first(struct mii_bus *bus)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(phy_find_first);
+/* DISABLED: EXPORT_SYMBOL(phy_find_first); */
 
 /**
  * phy_prepare_link - prepares the PHY layer to monitor link status
@@ -350,7 +350,7 @@ int phy_connect_direct(struct net_device *dev, struct phy_device *phydev,
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_connect_direct);
+/* DISABLED: EXPORT_SYMBOL(phy_connect_direct); */
 
 /**
  * phy_connect - connect an ethernet device to a PHY device
@@ -391,7 +391,7 @@ struct phy_device * phy_connect(struct net_device *dev, const char *bus_id,
 
 	return phydev;
 }
-EXPORT_SYMBOL(phy_connect);
+/* DISABLED: EXPORT_SYMBOL(phy_connect); */
 
 /**
  * phy_disconnect - disable interrupts, stop state machine, and detach a PHY device
@@ -408,7 +408,7 @@ void phy_disconnect(struct phy_device *phydev)
 
 	phy_detach(phydev);
 }
-EXPORT_SYMBOL(phy_disconnect);
+/* DISABLED: EXPORT_SYMBOL(phy_disconnect); */
 
 int phy_init_hw(struct phy_device *phydev)
 {
@@ -514,7 +514,7 @@ struct phy_device *phy_attach(struct net_device *dev,
 
 	return phydev;
 }
-EXPORT_SYMBOL(phy_attach);
+/* DISABLED: EXPORT_SYMBOL(phy_attach); */
 
 /**
  * phy_detach - detach a PHY device from its network device
@@ -532,7 +532,7 @@ void phy_detach(struct phy_device *phydev)
 	if (phydev->dev.driver == &genphy_driver.driver)
 		device_release_driver(&phydev->dev);
 }
-EXPORT_SYMBOL(phy_detach);
+/* DISABLED: EXPORT_SYMBOL(phy_detach); */
 
 
 /* Generic PHY support and helper functions */
@@ -649,7 +649,7 @@ int genphy_restart_aneg(struct phy_device *phydev)
 
 	return ctl;
 }
-EXPORT_SYMBOL(genphy_restart_aneg);
+/* DISABLED: EXPORT_SYMBOL(genphy_restart_aneg); */
 
 
 /**
@@ -691,7 +691,7 @@ int genphy_config_aneg(struct phy_device *phydev)
 
 	return result;
 }
-EXPORT_SYMBOL(genphy_config_aneg);
+/* DISABLED: EXPORT_SYMBOL(genphy_config_aneg); */
 
 /**
  * genphy_update_link - update link status in @phydev
@@ -724,7 +724,7 @@ int genphy_update_link(struct phy_device *phydev)
 
 	return 0;
 }
-EXPORT_SYMBOL(genphy_update_link);
+/* DISABLED: EXPORT_SYMBOL(genphy_update_link); */
 
 /**
  * genphy_read_status - check the link status and update current link state
@@ -820,7 +820,7 @@ int genphy_read_status(struct phy_device *phydev)
 
 	return 0;
 }
-EXPORT_SYMBOL(genphy_read_status);
+/* DISABLED: EXPORT_SYMBOL(genphy_read_status); */
 
 static int genphy_config_init(struct phy_device *phydev)
 {
@@ -881,7 +881,7 @@ int genphy_suspend(struct phy_device *phydev)
 
 	return 0;
 }
-EXPORT_SYMBOL(genphy_suspend);
+/* DISABLED: EXPORT_SYMBOL(genphy_suspend); */
 
 int genphy_resume(struct phy_device *phydev)
 {
@@ -896,7 +896,7 @@ int genphy_resume(struct phy_device *phydev)
 
 	return 0;
 }
-EXPORT_SYMBOL(genphy_resume);
+/* DISABLED: EXPORT_SYMBOL(genphy_resume); */
 
 /**
  * phy_probe - probe and init a PHY device
@@ -986,13 +986,13 @@ int phy_driver_register(struct phy_driver *new_driver)
 
 	return 0;
 }
-EXPORT_SYMBOL(phy_driver_register);
+/* DISABLED: EXPORT_SYMBOL(phy_driver_register); */
 
 void phy_driver_unregister(struct phy_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(phy_driver_unregister);
+/* DISABLED: EXPORT_SYMBOL(phy_driver_unregister); */
 
 static struct phy_driver genphy_driver = {
 	.phy_id		= 0xffffffff,

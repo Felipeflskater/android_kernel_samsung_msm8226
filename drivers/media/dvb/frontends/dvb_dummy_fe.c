@@ -271,6 +271,6 @@ MODULE_DESCRIPTION("DVB DUMMY Frontend");
 MODULE_AUTHOR("Emard");
 MODULE_LICENSE("GPL");
 
-EXPORT_SYMBOL(dvb_dummy_fe_ofdm_attach);
-EXPORT_SYMBOL(dvb_dummy_fe_qam_attach);
-EXPORT_SYMBOL(dvb_dummy_fe_qpsk_attach);
+/* DISABLED: EXPORT_SYMBOL(dvb_dummy_fe_ofdm_attach); */
+/* DISABLED: EXPORT_SYMBOL(dvb_dummy_fe_qam_attach); */
+/* DISABLED: EXPORT_SYMBOL(dvb_dummy_fe_qpsk_attach); */

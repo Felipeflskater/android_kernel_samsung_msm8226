@@ -74,7 +74,7 @@ unsigned long __init_new_context(void)
 
 	return ctx;
 }
-EXPORT_SYMBOL_GPL(__init_new_context);
+/* DISABLED: EXPORT_SYMBOL_GPL(__init_new_context); */
 
 /*
  * Set up the context for a new address space.
@@ -93,7 +93,7 @@ void __destroy_context(unsigned long ctx)
 {
 	clear_bit(ctx, context_map);
 }
-EXPORT_SYMBOL_GPL(__destroy_context);
+/* DISABLED: EXPORT_SYMBOL_GPL(__destroy_context); */
 
 /*
  * We're finished using the context for an address space.

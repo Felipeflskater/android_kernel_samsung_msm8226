@@ -43,13 +43,13 @@ int register_acpi_hed_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&acpi_hed_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(register_acpi_hed_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_acpi_hed_notifier); */
 
 void unregister_acpi_hed_notifier(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&acpi_hed_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_acpi_hed_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_acpi_hed_notifier); */
 
 /*
  * SCI to report hardware error is forwarded to the listeners of HED,

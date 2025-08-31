@@ -703,7 +703,7 @@ unsigned long des_ekey(u32 *pe, const u8 *k)
 	/* Zero if weak key */
 	return w;
 }
-EXPORT_SYMBOL_GPL(des_ekey);
+/* DISABLED: EXPORT_SYMBOL_GPL(des_ekey); */
 
 /*
  * Decryption key expansion

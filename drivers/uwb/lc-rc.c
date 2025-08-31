@@ -105,7 +105,7 @@ void uwb_rc_init(struct uwb_rc *rc)
 	uwb_rsv_init(rc);
 	uwb_rc_pal_init(rc);
 }
-EXPORT_SYMBOL_GPL(uwb_rc_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_init); */
 
 
 struct uwb_rc *uwb_rc_alloc(void)
@@ -117,7 +117,7 @@ struct uwb_rc *uwb_rc_alloc(void)
 	uwb_rc_init(rc);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_alloc); */
 
 static struct attribute *rc_attrs[] = {
 		&dev_attr_mac_address.attr,
@@ -294,7 +294,7 @@ error_rc_start:
 	uwbd_stop(rc);
 	return result;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_add); */
 
 
 static int uwb_dev_offair_helper(struct device *dev, void *priv)
@@ -332,7 +332,7 @@ void uwb_rc_rm(struct uwb_rc *rc)
  	uwb_beca_release(rc);
 	uwb_dev_rm(&rc->uwb_dev);
 }
-EXPORT_SYMBOL_GPL(uwb_rc_rm);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_rm); */
 
 static int find_rc_try_get(struct device *dev, void *data)
 {
@@ -371,7 +371,7 @@ struct uwb_rc *__uwb_rc_try_get(struct uwb_rc *target_rc)
 	}
 	return rc;
 }
-EXPORT_SYMBOL_GPL(__uwb_rc_try_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(__uwb_rc_try_get); */
 
 /*
  * RC get for external refcount acquirers...
@@ -425,7 +425,7 @@ struct uwb_rc *uwb_rc_get_by_grandpa(const struct device *grandpa_dev)
 		rc = dev_get_drvdata(dev);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_get_by_grandpa);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_get_by_grandpa); */
 
 /**
  * Find a radio controller by device address
@@ -460,7 +460,7 @@ struct uwb_rc *uwb_rc_get_by_dev(const struct uwb_dev_addr *addr)
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(uwb_rc_get_by_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_get_by_dev); */
 
 /**
  * Drop a reference on a radio controller
@@ -472,4 +472,4 @@ void uwb_rc_put(struct uwb_rc *rc)
 {
 	__uwb_rc_put(rc);
 }
-EXPORT_SYMBOL_GPL(uwb_rc_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_put); */

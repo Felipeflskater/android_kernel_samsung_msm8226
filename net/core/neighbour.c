@@ -123,7 +123,7 @@ unsigned long neigh_rand_reach_time(unsigned long base)
 {
 	return base ? (net_random() % base) + (base >> 1) : 0;
 }
-EXPORT_SYMBOL(neigh_rand_reach_time);
+/* DISABLED: EXPORT_SYMBOL(neigh_rand_reach_time); */
 
 
 static int neigh_forced_gc(struct neigh_table *tbl)
@@ -258,7 +258,7 @@ void neigh_changeaddr(struct neigh_table *tbl, struct net_device *dev)
 	neigh_flush_dev(tbl, dev);
 	write_unlock_bh(&tbl->lock);
 }
-EXPORT_SYMBOL(neigh_changeaddr);
+/* DISABLED: EXPORT_SYMBOL(neigh_changeaddr); */
 
 int neigh_ifdown(struct neigh_table *tbl, struct net_device *dev)
 {
@@ -271,7 +271,7 @@ int neigh_ifdown(struct neigh_table *tbl, struct net_device *dev)
 	pneigh_queue_purge(&tbl->proxy_queue);
 	return 0;
 }
-EXPORT_SYMBOL(neigh_ifdown);
+/* DISABLED: EXPORT_SYMBOL(neigh_ifdown); */
 
 static struct neighbour *neigh_alloc(struct neigh_table *tbl, struct net_device *dev)
 {
@@ -441,7 +441,7 @@ struct neighbour *neigh_lookup(struct neigh_table *tbl, const void *pkey,
 	rcu_read_unlock_bh();
 	return n;
 }
-EXPORT_SYMBOL(neigh_lookup);
+/* DISABLED: EXPORT_SYMBOL(neigh_lookup); */
 
 struct neighbour *neigh_lookup_nodev(struct neigh_table *tbl, struct net *net,
 				     const void *pkey)
@@ -472,7 +472,7 @@ struct neighbour *neigh_lookup_nodev(struct neigh_table *tbl, struct net *net,
 	rcu_read_unlock_bh();
 	return n;
 }
-EXPORT_SYMBOL(neigh_lookup_nodev);
+/* DISABLED: EXPORT_SYMBOL(neigh_lookup_nodev); */
 
 struct neighbour *neigh_create(struct neigh_table *tbl, const void *pkey,
 			       struct net_device *dev)
@@ -559,7 +559,7 @@ out_neigh_release:
 	neigh_release(n);
 	goto out;
 }
-EXPORT_SYMBOL(neigh_create);
+/* DISABLED: EXPORT_SYMBOL(neigh_create); */
 
 static u32 pneigh_hash(const void *pkey, int key_len)
 {
@@ -596,7 +596,7 @@ struct pneigh_entry *__pneigh_lookup(struct neigh_table *tbl,
 	return __pneigh_lookup_1(tbl->phash_buckets[hash_val],
 				 net, pkey, key_len, dev);
 }
-EXPORT_SYMBOL_GPL(__pneigh_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pneigh_lookup); */
 
 struct pneigh_entry * pneigh_lookup(struct neigh_table *tbl,
 				    struct net *net, const void *pkey,
@@ -642,7 +642,7 @@ struct pneigh_entry * pneigh_lookup(struct neigh_table *tbl,
 out:
 	return n;
 }
-EXPORT_SYMBOL(pneigh_lookup);
+/* DISABLED: EXPORT_SYMBOL(pneigh_lookup); */
 
 
 int pneigh_delete(struct neigh_table *tbl, struct net *net, const void *pkey,
@@ -740,7 +740,7 @@ void neigh_destroy(struct neighbour *neigh)
 	atomic_dec(&neigh->tbl->entries);
 	kfree_rcu(neigh, rcu);
 }
-EXPORT_SYMBOL(neigh_destroy);
+/* DISABLED: EXPORT_SYMBOL(neigh_destroy); */
 
 /* Neighbour state is suspicious;
    disable fast path.
@@ -1038,7 +1038,7 @@ out_unlock_bh:
 	local_bh_enable();
 	return rc;
 }
-EXPORT_SYMBOL(__neigh_event_send);
+/* DISABLED: EXPORT_SYMBOL(__neigh_event_send); */
 
 static void neigh_update_hhs(struct neighbour *neigh)
 {
@@ -1230,7 +1230,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL(neigh_update);
+/* DISABLED: EXPORT_SYMBOL(neigh_update); */
 
 struct neighbour *neigh_event_ns(struct neigh_table *tbl,
 				 u8 *lladdr, void *saddr,
@@ -1243,7 +1243,7 @@ struct neighbour *neigh_event_ns(struct neigh_table *tbl,
 			     NEIGH_UPDATE_F_OVERRIDE);
 	return neigh;
 }
-EXPORT_SYMBOL(neigh_event_ns);
+/* DISABLED: EXPORT_SYMBOL(neigh_event_ns); */
 
 /* called with read_lock_bh(&n->lock); */
 static void neigh_hh_init(struct neighbour *n, struct dst_entry *dst)
@@ -1281,7 +1281,7 @@ int neigh_compat_output(struct neighbour *neigh, struct sk_buff *skb)
 
 	return dev_queue_xmit(skb);
 }
-EXPORT_SYMBOL(neigh_compat_output);
+/* DISABLED: EXPORT_SYMBOL(neigh_compat_output); */
 
 /* Slow and careful. */
 
@@ -1323,7 +1323,7 @@ out_kfree_skb:
 	kfree_skb(skb);
 	goto out;
 }
-EXPORT_SYMBOL(neigh_resolve_output);
+/* DISABLED: EXPORT_SYMBOL(neigh_resolve_output); */
 
 /* As fast as possible without hh cache */
 
@@ -1348,13 +1348,13 @@ int neigh_connected_output(struct neighbour *neigh, struct sk_buff *skb)
 	}
 	return err;
 }
-EXPORT_SYMBOL(neigh_connected_output);
+/* DISABLED: EXPORT_SYMBOL(neigh_connected_output); */
 
 int neigh_direct_output(struct neighbour *neigh, struct sk_buff *skb)
 {
 	return dev_queue_xmit(skb);
 }
-EXPORT_SYMBOL(neigh_direct_output);
+/* DISABLED: EXPORT_SYMBOL(neigh_direct_output); */
 
 static void neigh_proxy_process(unsigned long arg)
 {
@@ -1415,7 +1415,7 @@ void pneigh_enqueue(struct neigh_table *tbl, struct neigh_parms *p,
 	mod_timer(&tbl->proxy_timer, sched_next);
 	spin_unlock(&tbl->proxy_queue.lock);
 }
-EXPORT_SYMBOL(pneigh_enqueue);
+/* DISABLED: EXPORT_SYMBOL(pneigh_enqueue); */
 
 static inline struct neigh_parms *lookup_neigh_parms(struct neigh_table *tbl,
 						      struct net *net, int ifindex)
@@ -1467,7 +1467,7 @@ struct neigh_parms *neigh_parms_alloc(struct net_device *dev,
 	}
 	return p;
 }
-EXPORT_SYMBOL(neigh_parms_alloc);
+/* DISABLED: EXPORT_SYMBOL(neigh_parms_alloc); */
 
 static void neigh_rcu_free_parms(struct rcu_head *head)
 {
@@ -1498,7 +1498,7 @@ void neigh_parms_release(struct neigh_table *tbl, struct neigh_parms *parms)
 	write_unlock_bh(&tbl->lock);
 	NEIGH_PRINTK1("neigh_parms_release: not found\n");
 }
-EXPORT_SYMBOL(neigh_parms_release);
+/* DISABLED: EXPORT_SYMBOL(neigh_parms_release); */
 
 static void neigh_parms_destroy(struct neigh_parms *parms)
 {
@@ -1546,7 +1546,7 @@ void neigh_table_init_no_netlink(struct neigh_table *tbl)
 	tbl->last_flush = now;
 	tbl->last_rand	= now + tbl->parms.reachable_time * 20;
 }
-EXPORT_SYMBOL(neigh_table_init_no_netlink);
+/* DISABLED: EXPORT_SYMBOL(neigh_table_init_no_netlink); */
 
 void neigh_table_init(struct neigh_table *tbl)
 {
@@ -1568,7 +1568,7 @@ void neigh_table_init(struct neigh_table *tbl)
 		dump_stack();
 	}
 }
-EXPORT_SYMBOL(neigh_table_init);
+/* DISABLED: EXPORT_SYMBOL(neigh_table_init); */
 
 int neigh_table_clear(struct neigh_table *tbl)
 {
@@ -1604,7 +1604,7 @@ int neigh_table_clear(struct neigh_table *tbl)
 
 	return 0;
 }
-EXPORT_SYMBOL(neigh_table_clear);
+/* DISABLED: EXPORT_SYMBOL(neigh_table_clear); */
 
 static int neigh_delete(struct sk_buff *skb, struct nlmsghdr *nlh, void *arg)
 {
@@ -2350,7 +2350,7 @@ void neigh_for_each(struct neigh_table *tbl, void (*cb)(struct neighbour *, void
 	read_unlock(&tbl->lock);
 	rcu_read_unlock_bh();
 }
-EXPORT_SYMBOL(neigh_for_each);
+/* DISABLED: EXPORT_SYMBOL(neigh_for_each); */
 
 /* The tbl->lock must be held as a writer and BH disabled. */
 void __neigh_for_each_release(struct neigh_table *tbl,
@@ -2385,7 +2385,7 @@ void __neigh_for_each_release(struct neigh_table *tbl,
 		}
 	}
 }
-EXPORT_SYMBOL(__neigh_for_each_release);
+/* DISABLED: EXPORT_SYMBOL(__neigh_for_each_release); */
 
 #ifdef CONFIG_PROC_FS
 
@@ -2582,7 +2582,7 @@ void *neigh_seq_start(struct seq_file *seq, loff_t *pos, struct neigh_table *tbl
 
 	return *pos ? neigh_get_idx_any(seq, pos) : SEQ_START_TOKEN;
 }
-EXPORT_SYMBOL(neigh_seq_start);
+/* DISABLED: EXPORT_SYMBOL(neigh_seq_start); */
 
 void *neigh_seq_next(struct seq_file *seq, void *v, loff_t *pos)
 {
@@ -2609,14 +2609,14 @@ out:
 	++(*pos);
 	return rc;
 }
-EXPORT_SYMBOL(neigh_seq_next);
+/* DISABLED: EXPORT_SYMBOL(neigh_seq_next); */
 
 void neigh_seq_stop(struct seq_file *seq, void *v)
 	__releases(rcu_bh)
 {
 	rcu_read_unlock_bh();
 }
-EXPORT_SYMBOL(neigh_seq_stop);
+/* DISABLED: EXPORT_SYMBOL(neigh_seq_stop); */
 
 /* statistics via seq_file */
 
@@ -2756,7 +2756,7 @@ void neigh_app_ns(struct neighbour *n)
 {
 	__neigh_notify(n, RTM_GETNEIGH, NLM_F_REQUEST);
 }
-EXPORT_SYMBOL(neigh_app_ns);
+/* DISABLED: EXPORT_SYMBOL(neigh_app_ns); */
 #endif /* CONFIG_ARPD */
 
 #ifdef CONFIG_SYSCTL
@@ -3012,7 +3012,7 @@ free:
 err:
 	return -ENOBUFS;
 }
-EXPORT_SYMBOL(neigh_sysctl_register);
+/* DISABLED: EXPORT_SYMBOL(neigh_sysctl_register); */
 
 void neigh_sysctl_unregister(struct neigh_parms *p)
 {
@@ -3024,7 +3024,7 @@ void neigh_sysctl_unregister(struct neigh_parms *p)
 		kfree(t);
 	}
 }
-EXPORT_SYMBOL(neigh_sysctl_unregister);
+/* DISABLED: EXPORT_SYMBOL(neigh_sysctl_unregister); */
 
 #endif	/* CONFIG_SYSCTL */
 

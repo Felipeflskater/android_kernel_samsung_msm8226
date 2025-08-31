@@ -12,13 +12,13 @@ void *memcpy(void *to, const void *from, size_t n)
 	return __memcpy(to, from, n);
 #endif
 }
-EXPORT_SYMBOL(memcpy);
+/* DISABLED: EXPORT_SYMBOL(memcpy); */
 
 void *memset(void *s, int c, size_t count)
 {
 	return __memset(s, c, count);
 }
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(memset); */
 
 void *memmove(void *dest, const void *src, size_t n)
 {
@@ -205,4 +205,4 @@ void *memmove(void *dest, const void *src, size_t n)
 	return ret;
 
 }
-EXPORT_SYMBOL(memmove);
+/* DISABLED: EXPORT_SYMBOL(memmove); */

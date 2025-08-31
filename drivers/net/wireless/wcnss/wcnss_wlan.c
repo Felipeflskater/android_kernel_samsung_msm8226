@@ -597,7 +597,7 @@ void wcnss_riva_log_debug_regs(void)
 	wcnss_riva_dump_pmic_regs();
 
 }
-EXPORT_SYMBOL(wcnss_riva_log_debug_regs);
+/* DISABLED: EXPORT_SYMBOL(wcnss_riva_log_debug_regs); */
 
 void wcnss_pronto_is_a2xb_bus_stall(void *tst_addr, u32 fifo_mask, char *type)
 {
@@ -872,7 +872,7 @@ void wcnss_pronto_log_debug_regs(void)
 	reg = readl_relaxed(penv->alarms_tactl);
 	pr_err("ALARMS_TACTL %08x\n", reg);
 }
-EXPORT_SYMBOL(wcnss_pronto_log_debug_regs);
+/* DISABLED: EXPORT_SYMBOL(wcnss_pronto_log_debug_regs); */
 
 #ifdef CONFIG_WCNSS_IRIS_REGISTER_DUMP
 static void wcnss_log_iris_regs(void)
@@ -963,7 +963,7 @@ void wcnss_reset_intr(void)
 		__raw_writel(1 << 24, MSM_APCS_GCC_BASE + 0x8);
 	}
 }
-EXPORT_SYMBOL(wcnss_reset_intr);
+/* DISABLED: EXPORT_SYMBOL(wcnss_reset_intr); */
 
 void wcnss_reset_fiq(bool clk_chk_en)
 {
@@ -985,7 +985,7 @@ void wcnss_reset_fiq(bool clk_chk_en)
 		wcnss_riva_log_debug_regs();
 	}
 }
-EXPORT_SYMBOL(wcnss_reset_fiq);
+/* DISABLED: EXPORT_SYMBOL(wcnss_reset_fiq); */
 
 static int wcnss_create_sysfs(struct device *dev)
 {
@@ -1206,7 +1206,7 @@ void wcnss_flush_delayed_boot_votes()
 {
 	flush_delayed_work(&penv->wcnss_work);
 }
-EXPORT_SYMBOL(wcnss_flush_delayed_boot_votes);
+/* DISABLED: EXPORT_SYMBOL(wcnss_flush_delayed_boot_votes); */
 
 static int __devexit
 wcnss_wlan_ctrl_remove(struct platform_device *pdev)
@@ -1272,7 +1272,7 @@ void wcnss_get_monotonic_boottime(struct timespec *ts)
 {
 	get_monotonic_boottime(ts);
 }
-EXPORT_SYMBOL(wcnss_get_monotonic_boottime);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_monotonic_boottime); */
 
 
 struct device *wcnss_wlan_get_device(void)
@@ -1281,7 +1281,7 @@ struct device *wcnss_wlan_get_device(void)
 		return &penv->pdev->dev;
 	return NULL;
 }
-EXPORT_SYMBOL(wcnss_wlan_get_device);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_get_device); */
 
 struct platform_device *wcnss_get_platform_device(void)
 {
@@ -1289,7 +1289,7 @@ struct platform_device *wcnss_get_platform_device(void)
 		return penv->pdev;
 	return NULL;
 }
-EXPORT_SYMBOL(wcnss_get_platform_device);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_platform_device); */
 
 struct wcnss_wlan_config *wcnss_get_wlan_config(void)
 {
@@ -1297,7 +1297,7 @@ struct wcnss_wlan_config *wcnss_get_wlan_config(void)
 		return &penv->wlan_config;
 	return NULL;
 }
-EXPORT_SYMBOL(wcnss_get_wlan_config);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_wlan_config); */
 
 int wcnss_is_hw_pronto_ver3(void)
 {
@@ -1305,7 +1305,7 @@ int wcnss_is_hw_pronto_ver3(void)
 		return penv->wlan_config.is_pronto_v3;
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_is_hw_pronto_ver3);
+/* DISABLED: EXPORT_SYMBOL(wcnss_is_hw_pronto_ver3); */
 
 int wcnss_device_ready(void)
 {
@@ -1314,7 +1314,7 @@ int wcnss_device_ready(void)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_device_ready);
+/* DISABLED: EXPORT_SYMBOL(wcnss_device_ready); */
 
 bool wcnss_cbc_complete(void)
 {
@@ -1323,7 +1323,7 @@ bool wcnss_cbc_complete(void)
 		return true;
 	return false;
 }
-EXPORT_SYMBOL(wcnss_cbc_complete);
+/* DISABLED: EXPORT_SYMBOL(wcnss_cbc_complete); */
 
 int wcnss_device_is_shutdown(void)
 {
@@ -1331,7 +1331,7 @@ int wcnss_device_is_shutdown(void)
 		return 1;
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_device_is_shutdown);
+/* DISABLED: EXPORT_SYMBOL(wcnss_device_is_shutdown); */
 
 struct resource *wcnss_wlan_get_memory_map(struct device *dev)
 {
@@ -1339,7 +1339,7 @@ struct resource *wcnss_wlan_get_memory_map(struct device *dev)
 		return penv->mmio_res;
 	return NULL;
 }
-EXPORT_SYMBOL(wcnss_wlan_get_memory_map);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_get_memory_map); */
 
 int wcnss_wlan_get_dxe_tx_irq(struct device *dev)
 {
@@ -1348,7 +1348,7 @@ int wcnss_wlan_get_dxe_tx_irq(struct device *dev)
 		return penv->tx_irq_res->start;
 	return WCNSS_WLAN_IRQ_INVALID;
 }
-EXPORT_SYMBOL(wcnss_wlan_get_dxe_tx_irq);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_get_dxe_tx_irq); */
 
 int wcnss_wlan_get_dxe_rx_irq(struct device *dev)
 {
@@ -1357,7 +1357,7 @@ int wcnss_wlan_get_dxe_rx_irq(struct device *dev)
 		return penv->rx_irq_res->start;
 	return WCNSS_WLAN_IRQ_INVALID;
 }
-EXPORT_SYMBOL(wcnss_wlan_get_dxe_rx_irq);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_get_dxe_rx_irq); */
 
 void wcnss_wlan_register_pm_ops(struct device *dev,
 				const struct dev_pm_ops *pm_ops)
@@ -1365,7 +1365,7 @@ void wcnss_wlan_register_pm_ops(struct device *dev,
 	if (penv && dev && (dev == &penv->pdev->dev) && pm_ops)
 		penv->pm_ops = pm_ops;
 }
-EXPORT_SYMBOL(wcnss_wlan_register_pm_ops);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_register_pm_ops); */
 
 void wcnss_wlan_unregister_pm_ops(struct device *dev,
 				const struct dev_pm_ops *pm_ops)
@@ -1382,7 +1382,7 @@ void wcnss_wlan_unregister_pm_ops(struct device *dev,
 		penv->pm_ops = NULL;
 	}
 }
-EXPORT_SYMBOL(wcnss_wlan_unregister_pm_ops);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_unregister_pm_ops); */
 
 void wcnss_register_thermal_mitigation(struct device *dev,
 				void (*tm_notify)(struct device *, int))
@@ -1390,7 +1390,7 @@ void wcnss_register_thermal_mitigation(struct device *dev,
 	if (penv && dev && tm_notify)
 		penv->tm_notify = tm_notify;
 }
-EXPORT_SYMBOL(wcnss_register_thermal_mitigation);
+/* DISABLED: EXPORT_SYMBOL(wcnss_register_thermal_mitigation); */
 
 void wcnss_unregister_thermal_mitigation(
 				void (*tm_notify)(struct device *, int))
@@ -1401,7 +1401,7 @@ void wcnss_unregister_thermal_mitigation(
 		penv->tm_notify = NULL;
 	}
 }
-EXPORT_SYMBOL(wcnss_unregister_thermal_mitigation);
+/* DISABLED: EXPORT_SYMBOL(wcnss_unregister_thermal_mitigation); */
 
 unsigned int wcnss_get_serial_number(void)
 {
@@ -1409,7 +1409,7 @@ unsigned int wcnss_get_serial_number(void)
 		return penv->serial_number;
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_get_serial_number);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_serial_number); */
 
 int wcnss_get_wlan_mac_address(char mac_addr[WLAN_MAC_ADDR_SIZE])
 {
@@ -1423,7 +1423,7 @@ int wcnss_get_wlan_mac_address(char mac_addr[WLAN_MAC_ADDR_SIZE])
 		penv->wlan_nv_macAddr[4], penv->wlan_nv_macAddr[5]);
 	return 0;
 }
-EXPORT_SYMBOL(wcnss_get_wlan_mac_address);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_wlan_mac_address); */
 
 static int enable_wcnss_suspend_notify;
 
@@ -1455,7 +1455,7 @@ int wcnss_wlan_iris_xo_mode(void)
 		return penv->iris_xo_mode_set;
 	return -ENODEV;
 }
-EXPORT_SYMBOL(wcnss_wlan_iris_xo_mode);
+/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_iris_xo_mode); */
 
 
 void wcnss_suspend_notify(void)
@@ -1478,7 +1478,7 @@ void wcnss_suspend_notify(void)
 	writel_relaxed(reg, pmu_spare_reg);
 	spin_unlock_irqrestore(&reg_spinlock, flags);
 }
-EXPORT_SYMBOL(wcnss_suspend_notify);
+/* DISABLED: EXPORT_SYMBOL(wcnss_suspend_notify); */
 
 void wcnss_resume_notify(void)
 {
@@ -1501,7 +1501,7 @@ void wcnss_resume_notify(void)
 	writel_relaxed(reg, pmu_spare_reg);
 	spin_unlock_irqrestore(&reg_spinlock, flags);
 }
-EXPORT_SYMBOL(wcnss_resume_notify);
+/* DISABLED: EXPORT_SYMBOL(wcnss_resume_notify); */
 
 static int wcnss_wlan_suspend(struct device *dev)
 {
@@ -1526,14 +1526,14 @@ void wcnss_prevent_suspend()
 	if (penv)
 		wake_lock(&penv->wcnss_wake_lock);
 }
-EXPORT_SYMBOL(wcnss_prevent_suspend);
+/* DISABLED: EXPORT_SYMBOL(wcnss_prevent_suspend); */
 
 void wcnss_allow_suspend()
 {
 	if (penv)
 		wake_unlock(&penv->wcnss_wake_lock);
 }
-EXPORT_SYMBOL(wcnss_allow_suspend);
+/* DISABLED: EXPORT_SYMBOL(wcnss_allow_suspend); */
 
 int wcnss_hardware_type(void)
 {
@@ -1542,7 +1542,7 @@ int wcnss_hardware_type(void)
 	else
 		return -ENODEV;
 }
-EXPORT_SYMBOL(wcnss_hardware_type);
+/* DISABLED: EXPORT_SYMBOL(wcnss_hardware_type); */
 
 int fw_cal_data_available(void)
 {
@@ -1560,7 +1560,7 @@ u32 wcnss_get_wlan_rx_buff_count(void)
 		return WCNSS_DEF_WLAN_RX_BUFF_COUNT;
 
 }
-EXPORT_SYMBOL(wcnss_get_wlan_rx_buff_count);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_wlan_rx_buff_count); */
 
 int wcnss_set_wlan_unsafe_channel(u16 *unsafe_ch_list, u16 ch_count)
 {
@@ -1573,7 +1573,7 @@ int wcnss_set_wlan_unsafe_channel(u16 *unsafe_ch_list, u16 ch_count)
 	} else
 		return -ENODEV;
 }
-EXPORT_SYMBOL(wcnss_set_wlan_unsafe_channel);
+/* DISABLED: EXPORT_SYMBOL(wcnss_set_wlan_unsafe_channel); */
 
 int wcnss_get_wlan_unsafe_channel(u16 *unsafe_ch_list, u16 buffer_size,
 					u16 *ch_count)
@@ -1589,7 +1589,7 @@ int wcnss_get_wlan_unsafe_channel(u16 *unsafe_ch_list, u16 buffer_size,
 	} else
 		return -ENODEV;
 }
-EXPORT_SYMBOL(wcnss_get_wlan_unsafe_channel);
+/* DISABLED: EXPORT_SYMBOL(wcnss_get_wlan_unsafe_channel); */
 
 static int wcnss_smd_tx(void *data, int len)
 {
@@ -2695,7 +2695,7 @@ void wcnss_flush_work(struct work_struct *work)
 	if (cnss_work != NULL)
 		cancel_work_sync(cnss_work);
 }
-EXPORT_SYMBOL(wcnss_flush_work);
+/* DISABLED: EXPORT_SYMBOL(wcnss_flush_work); */
 
 /* wlan prop driver cannot invoke show_stack
  * function directly, so to invoke this function it
@@ -2705,7 +2705,7 @@ void wcnss_dump_stack(struct task_struct *task)
 {
 	show_stack(task, NULL);
 }
-EXPORT_SYMBOL(wcnss_dump_stack);
+/* DISABLED: EXPORT_SYMBOL(wcnss_dump_stack); */
 
 /* wlan prop driver cannot invoke cancel_delayed_work_sync
  * function directly, so to invoke this function it call
@@ -2717,7 +2717,7 @@ void wcnss_flush_delayed_work(struct delayed_work *dwork)
 	if (cnss_dwork != NULL)
 		cancel_delayed_work_sync(cnss_dwork);
 }
-EXPORT_SYMBOL(wcnss_flush_delayed_work);
+/* DISABLED: EXPORT_SYMBOL(wcnss_flush_delayed_work); */
 
 static int wcnss_node_open(struct inode *inode, struct file *file)
 {

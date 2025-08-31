@@ -177,7 +177,7 @@ int mantis_uart_init(struct mantis_pci *mantis)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(mantis_uart_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_uart_init); */
 
 void mantis_uart_exit(struct mantis_pci *mantis)
 {
@@ -185,4 +185,4 @@ void mantis_uart_exit(struct mantis_pci *mantis)
 	mmwrite(mmread(MANTIS_UART_CTL) & 0xffef, MANTIS_UART_CTL);
 	flush_work_sync(&mantis->uart_work);
 }
-EXPORT_SYMBOL_GPL(mantis_uart_exit);
+/* DISABLED: EXPORT_SYMBOL_GPL(mantis_uart_exit); */

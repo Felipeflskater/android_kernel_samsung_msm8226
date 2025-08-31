@@ -137,7 +137,7 @@ pps_register_source_exit:
 
 	return NULL;
 }
-EXPORT_SYMBOL(pps_register_source);
+/* DISABLED: EXPORT_SYMBOL(pps_register_source); */
 
 /* pps_unregister_source - remove a PPS source from the system
  * @pps: the PPS source
@@ -154,7 +154,7 @@ void pps_unregister_source(struct pps_device *pps)
 	/* don't have to kfree(pps) here because it will be done on
 	 * device destruction */
 }
-EXPORT_SYMBOL(pps_unregister_source);
+/* DISABLED: EXPORT_SYMBOL(pps_unregister_source); */
 
 /* pps_event - register a PPS event into the system
  * @pps: the PPS device
@@ -233,4 +233,4 @@ void pps_event(struct pps_device *pps, struct pps_event_time *ts, int event,
 
 	spin_unlock_irqrestore(&pps->lock, flags);
 }
-EXPORT_SYMBOL(pps_event);
+/* DISABLED: EXPORT_SYMBOL(pps_event); */

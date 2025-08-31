@@ -343,7 +343,7 @@ static int __init pcm043_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-/* DISABLED: __setup("otg_mode=", pcm043_otg_mode); */
+/* DISABLED: __setup("otg_mode=", pcm043_otg_mode); */ */
 
 static struct esdhc_platform_data sd1_pdata = {
 	.wp_gpio = SD1_GPIO_WP,

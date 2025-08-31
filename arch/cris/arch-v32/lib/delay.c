@@ -25,4 +25,4 @@ void cris_delay10ns(u32 n10ns)
 	while (REG_RD(timer, regi_timer0, r_time) - t0 < n10ns)
 		;
 }
-EXPORT_SYMBOL(cris_delay10ns);
+/* DISABLED: EXPORT_SYMBOL(cris_delay10ns); */

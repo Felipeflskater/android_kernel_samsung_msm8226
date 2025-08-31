@@ -1051,7 +1051,7 @@ spi_dv_device(struct scsi_device *sdev)
 	spi_dv_in_progress(starget) = 0;
 	scsi_device_put(sdev);
 }
-EXPORT_SYMBOL(spi_dv_device);
+/* DISABLED: EXPORT_SYMBOL(spi_dv_device); */
 
 struct work_queue_wrapper {
 	struct work_struct	work;
@@ -1107,7 +1107,7 @@ spi_schedule_dv_device(struct scsi_device *sdev)
 
 	schedule_work(&wqw->work);
 }
-EXPORT_SYMBOL(spi_schedule_dv_device);
+/* DISABLED: EXPORT_SYMBOL(spi_schedule_dv_device); */
 
 /**
  * spi_display_xfer_agreement - Print the current target transfer agreement
@@ -1169,7 +1169,7 @@ void spi_display_xfer_agreement(struct scsi_target *starget)
 				tp->width ? "wide " : "");
 	}
 }
-EXPORT_SYMBOL(spi_display_xfer_agreement);
+/* DISABLED: EXPORT_SYMBOL(spi_display_xfer_agreement); */
 
 int spi_populate_width_msg(unsigned char *msg, int width)
 {
@@ -1179,7 +1179,7 @@ int spi_populate_width_msg(unsigned char *msg, int width)
 	msg[3] = width;
 	return 4;
 }
-EXPORT_SYMBOL_GPL(spi_populate_width_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_populate_width_msg); */
 
 int spi_populate_sync_msg(unsigned char *msg, int period, int offset)
 {
@@ -1190,7 +1190,7 @@ int spi_populate_sync_msg(unsigned char *msg, int period, int offset)
 	msg[4] = offset;
 	return 5;
 }
-EXPORT_SYMBOL_GPL(spi_populate_sync_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_populate_sync_msg); */
 
 int spi_populate_ppr_msg(unsigned char *msg, int period, int offset,
 		int width, int options)
@@ -1205,7 +1205,7 @@ int spi_populate_ppr_msg(unsigned char *msg, int period, int offset,
 	msg[7] = options;
 	return 8;
 }
-EXPORT_SYMBOL_GPL(spi_populate_ppr_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(spi_populate_ppr_msg); */
 
 #ifdef CONFIG_SCSI_CONSTANTS
 static const char * const one_byte_msgs[] = {
@@ -1311,7 +1311,7 @@ int spi_print_msg(const unsigned char *msg)
 		printk("reserved ");
 	return len;
 }
-EXPORT_SYMBOL(spi_print_msg);
+/* DISABLED: EXPORT_SYMBOL(spi_print_msg); */
 
 #else  /* ifndef CONFIG_SCSI_CONSTANTS */
 
@@ -1339,7 +1339,7 @@ int spi_print_msg(const unsigned char *msg)
 		printk("%02x ", msg[0]);
 	return len;
 }
-EXPORT_SYMBOL(spi_print_msg);
+/* DISABLED: EXPORT_SYMBOL(spi_print_msg); */
 #endif /* ! CONFIG_SCSI_CONSTANTS */
 
 static int spi_device_match(struct attribute_container *cont,
@@ -1557,7 +1557,7 @@ spi_attach_transport(struct spi_function_template *ft)
 
 	return &i->t;
 }
-EXPORT_SYMBOL(spi_attach_transport);
+/* DISABLED: EXPORT_SYMBOL(spi_attach_transport); */
 
 void spi_release_transport(struct scsi_transport_template *t)
 {
@@ -1568,7 +1568,7 @@ void spi_release_transport(struct scsi_transport_template *t)
 
 	kfree(i);
 }
-EXPORT_SYMBOL(spi_release_transport);
+/* DISABLED: EXPORT_SYMBOL(spi_release_transport); */
 
 static __init int spi_transport_init(void)
 {

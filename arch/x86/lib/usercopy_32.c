@@ -73,7 +73,7 @@ clear_user(void __user *to, unsigned long n)
 		__do_clear_user(to, n);
 	return n;
 }
-EXPORT_SYMBOL(clear_user);
+/* DISABLED: EXPORT_SYMBOL(clear_user); */
 
 /**
  * __clear_user: - Zero a block of memory in user space, with less checking.
@@ -92,7 +92,7 @@ __clear_user(void __user *to, unsigned long n)
 	__do_clear_user(to, n);
 	return n;
 }
-EXPORT_SYMBOL(__clear_user);
+/* DISABLED: EXPORT_SYMBOL(__clear_user); */
 
 /**
  * strnlen_user: - Get the size of a string in user space.
@@ -136,7 +136,7 @@ long strnlen_user(const char __user *s, long n)
 		:"cc");
 	return res & mask;
 }
-EXPORT_SYMBOL(strnlen_user);
+/* DISABLED: EXPORT_SYMBOL(strnlen_user); */
 
 #ifdef CONFIG_X86_INTEL_USERCOPY
 static unsigned long
@@ -693,7 +693,7 @@ survive:
 		n = __copy_user_intel(to, from, n);
 	return n;
 }
-EXPORT_SYMBOL(__copy_to_user_ll);
+/* DISABLED: EXPORT_SYMBOL(__copy_to_user_ll); */
 
 unsigned long __copy_from_user_ll(void *to, const void __user *from,
 					unsigned long n)
@@ -704,7 +704,7 @@ unsigned long __copy_from_user_ll(void *to, const void __user *from,
 		n = __copy_user_zeroing_intel(to, from, n);
 	return n;
 }
-EXPORT_SYMBOL(__copy_from_user_ll);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user_ll); */
 
 unsigned long __copy_from_user_ll_nozero(void *to, const void __user *from,
 					 unsigned long n)
@@ -716,7 +716,7 @@ unsigned long __copy_from_user_ll_nozero(void *to, const void __user *from,
 				      (const void *)from, n);
 	return n;
 }
-EXPORT_SYMBOL(__copy_from_user_ll_nozero);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user_ll_nozero); */
 
 unsigned long __copy_from_user_ll_nocache(void *to, const void __user *from,
 					unsigned long n)
@@ -731,7 +731,7 @@ unsigned long __copy_from_user_ll_nocache(void *to, const void __user *from,
 #endif
 	return n;
 }
-EXPORT_SYMBOL(__copy_from_user_ll_nocache);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user_ll_nocache); */
 
 unsigned long __copy_from_user_ll_nocache_nozero(void *to, const void __user *from,
 					unsigned long n)
@@ -746,7 +746,7 @@ unsigned long __copy_from_user_ll_nocache_nozero(void *to, const void __user *fr
 #endif
 	return n;
 }
-EXPORT_SYMBOL(__copy_from_user_ll_nocache_nozero);
+/* DISABLED: EXPORT_SYMBOL(__copy_from_user_ll_nocache_nozero); */
 
 /**
  * copy_to_user: - Copy a block of data into user space.
@@ -768,7 +768,7 @@ copy_to_user(void __user *to, const void *from, unsigned long n)
 		n = __copy_to_user(to, from, n);
 	return n;
 }
-EXPORT_SYMBOL(copy_to_user);
+/* DISABLED: EXPORT_SYMBOL(copy_to_user); */
 
 /**
  * copy_from_user: - Copy a block of data from user space.
@@ -795,10 +795,10 @@ _copy_from_user(void *to, const void __user *from, unsigned long n)
 		memset(to, 0, n);
 	return n;
 }
-EXPORT_SYMBOL(_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(_copy_from_user); */
 
 void copy_from_user_overflow(void)
 {
 	WARN(1, "Buffer overflow detected!\n");
 }
-EXPORT_SYMBOL(copy_from_user_overflow);
+/* DISABLED: EXPORT_SYMBOL(copy_from_user_overflow); */

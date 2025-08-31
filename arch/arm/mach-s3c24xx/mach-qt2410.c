@@ -306,7 +306,7 @@ static int __init qt2410_tft_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("tft=", qt2410_tft_setup); */
+/* DISABLED: __setup("tft=", qt2410_tft_setup); */ */
 
 static void __init qt2410_map_io(void)
 {

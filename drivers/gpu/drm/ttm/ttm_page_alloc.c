@@ -877,7 +877,7 @@ int ttm_pool_populate(struct ttm_tt *ttm)
 	ttm->state = tt_unbound;
 	return 0;
 }
-EXPORT_SYMBOL(ttm_pool_populate);
+/* DISABLED: EXPORT_SYMBOL(ttm_pool_populate); */
 
 void ttm_pool_unpopulate(struct ttm_tt *ttm)
 {
@@ -894,7 +894,7 @@ void ttm_pool_unpopulate(struct ttm_tt *ttm)
 	}
 	ttm->state = tt_unpopulated;
 }
-EXPORT_SYMBOL(ttm_pool_unpopulate);
+/* DISABLED: EXPORT_SYMBOL(ttm_pool_unpopulate); */
 
 int ttm_page_alloc_debugfs(struct seq_file *m, void *data)
 {
@@ -916,4 +916,4 @@ int ttm_page_alloc_debugfs(struct seq_file *m, void *data)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ttm_page_alloc_debugfs);
+/* DISABLED: EXPORT_SYMBOL(ttm_page_alloc_debugfs); */

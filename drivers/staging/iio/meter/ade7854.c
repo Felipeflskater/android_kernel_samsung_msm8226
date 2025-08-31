@@ -585,7 +585,7 @@ error_free_dev:
 
 	return ret;
 }
-EXPORT_SYMBOL(ade7854_probe);
+/* DISABLED: EXPORT_SYMBOL(ade7854_probe); */
 
 int ade7854_remove(struct iio_dev *indio_dev)
 {
@@ -594,7 +594,7 @@ int ade7854_remove(struct iio_dev *indio_dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(ade7854_remove);
+/* DISABLED: EXPORT_SYMBOL(ade7854_remove); */
 
 MODULE_AUTHOR("Barry Song <21cnbao@gmail.com>");
 MODULE_DESCRIPTION("Analog Devices ADE7854/58/68/78 Polyphase Energy Meter");

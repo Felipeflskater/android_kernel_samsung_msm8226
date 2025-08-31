@@ -215,7 +215,7 @@ void set_ncm_ready(bool ready)
 		terminal_mode_vendor_id = 0;
 	}
 }
-EXPORT_SYMBOL(set_ncm_ready);
+/* DISABLED: EXPORT_SYMBOL(set_ncm_ready); */
 
 static ssize_t terminal_version_show(struct device *dev,
 		struct device_attribute *attr, char *buf)

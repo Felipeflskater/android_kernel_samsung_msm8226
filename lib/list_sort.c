@@ -139,7 +139,7 @@ void list_sort(void *priv, struct list_head *head,
 
 	merge_and_restore_back_links(priv, cmp, head, part[max_lev], list);
 }
-EXPORT_SYMBOL(list_sort);
+/* DISABLED: EXPORT_SYMBOL(list_sort); */
 
 #ifdef CONFIG_TEST_LIST_SORT
 

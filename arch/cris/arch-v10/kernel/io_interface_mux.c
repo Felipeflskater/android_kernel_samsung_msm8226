@@ -1174,9 +1174,9 @@ static int cris_io_interface_init(void)
 module_init(cris_io_interface_init);
 
 
-EXPORT_SYMBOL(cris_request_io_interface);
-EXPORT_SYMBOL(cris_free_io_interface);
-EXPORT_SYMBOL(cris_io_interface_allocate_pins);
-EXPORT_SYMBOL(cris_io_interface_free_pins);
-EXPORT_SYMBOL(cris_io_interface_register_watcher);
-EXPORT_SYMBOL(cris_io_interface_delete_watcher);
+/* DISABLED: EXPORT_SYMBOL(cris_request_io_interface); */
+/* DISABLED: EXPORT_SYMBOL(cris_free_io_interface); */
+/* DISABLED: EXPORT_SYMBOL(cris_io_interface_allocate_pins); */
+/* DISABLED: EXPORT_SYMBOL(cris_io_interface_free_pins); */
+/* DISABLED: EXPORT_SYMBOL(cris_io_interface_register_watcher); */
+/* DISABLED: EXPORT_SYMBOL(cris_io_interface_delete_watcher); */

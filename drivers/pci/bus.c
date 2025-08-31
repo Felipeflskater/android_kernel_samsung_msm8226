@@ -33,13 +33,13 @@ void pci_add_resource_offset(struct list_head *resources, struct resource *res,
 	window->offset = offset;
 	list_add_tail(&window->list, resources);
 }
-EXPORT_SYMBOL(pci_add_resource_offset);
+/* DISABLED: EXPORT_SYMBOL(pci_add_resource_offset); */
 
 void pci_add_resource(struct list_head *resources, struct resource *res)
 {
 	pci_add_resource_offset(resources, res, 0);
 }
-EXPORT_SYMBOL(pci_add_resource);
+/* DISABLED: EXPORT_SYMBOL(pci_add_resource); */
 
 void pci_free_resource_list(struct list_head *resources)
 {
@@ -50,7 +50,7 @@ void pci_free_resource_list(struct list_head *resources)
 		kfree(window);
 	}
 }
-EXPORT_SYMBOL(pci_free_resource_list);
+/* DISABLED: EXPORT_SYMBOL(pci_free_resource_list); */
 
 void pci_bus_add_resource(struct pci_bus *bus, struct resource *res,
 			  unsigned int flags)
@@ -82,7 +82,7 @@ struct resource *pci_bus_resource_n(const struct pci_bus *bus, int n)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(pci_bus_resource_n);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_bus_resource_n); */
 
 void pci_bus_remove_resources(struct pci_bus *bus)
 {
@@ -323,9 +323,9 @@ void pci_walk_bus(struct pci_bus *top, int (*cb)(struct pci_dev *, void *),
 	}
 	up_read(&pci_bus_sem);
 }
-EXPORT_SYMBOL_GPL(pci_walk_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_walk_bus); */
 
-EXPORT_SYMBOL(pci_bus_alloc_resource);
-EXPORT_SYMBOL_GPL(pci_bus_add_device);
-EXPORT_SYMBOL(pci_bus_add_devices);
-EXPORT_SYMBOL(pci_enable_bridges);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_alloc_resource); */
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_bus_add_device); */
+/* DISABLED: EXPORT_SYMBOL(pci_bus_add_devices); */
+/* DISABLED: EXPORT_SYMBOL(pci_enable_bridges); */

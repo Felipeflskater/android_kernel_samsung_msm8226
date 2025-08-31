@@ -62,7 +62,7 @@ int snd_emux_new(struct snd_emux **remu)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emux_new);
+/* DISABLED: EXPORT_SYMBOL(snd_emux_new); */
 
 /*
  */
@@ -136,7 +136,7 @@ int snd_emux_register(struct snd_emux *emu, struct snd_card *card, int index, ch
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emux_register);
+/* DISABLED: EXPORT_SYMBOL(snd_emux_register); */
 
 /*
  */
@@ -172,7 +172,7 @@ int snd_emux_free(struct snd_emux *emu)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emux_free);
+/* DISABLED: EXPORT_SYMBOL(snd_emux_free); */
 
 
 /*

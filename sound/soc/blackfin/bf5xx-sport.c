@@ -88,7 +88,7 @@ int sport_set_multichannel(struct sport_device *sport,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_set_multichannel);
+/* DISABLED: EXPORT_SYMBOL(sport_set_multichannel); */
 
 int sport_config_rx(struct sport_device *sport, unsigned int rcr1,
 		unsigned int rcr2, unsigned int clkdiv, unsigned int fsdiv)
@@ -105,7 +105,7 @@ int sport_config_rx(struct sport_device *sport, unsigned int rcr1,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_config_rx);
+/* DISABLED: EXPORT_SYMBOL(sport_config_rx); */
 
 int sport_config_tx(struct sport_device *sport, unsigned int tcr1,
 		unsigned int tcr2, unsigned int clkdiv, unsigned int fsdiv)
@@ -122,7 +122,7 @@ int sport_config_tx(struct sport_device *sport, unsigned int tcr1,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_config_tx);
+/* DISABLED: EXPORT_SYMBOL(sport_config_tx); */
 
 static void setup_desc(struct dmasg *desc, void *buf, int fragcount,
 		size_t fragsize, unsigned int cfg,
@@ -269,7 +269,7 @@ int sport_rx_start(struct sport_device *sport)
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_rx_start);
+/* DISABLED: EXPORT_SYMBOL(sport_rx_start); */
 
 int sport_rx_stop(struct sport_device *sport)
 {
@@ -291,7 +291,7 @@ int sport_rx_stop(struct sport_device *sport)
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_rx_stop);
+/* DISABLED: EXPORT_SYMBOL(sport_rx_stop); */
 
 static inline int sport_hook_tx_dummy(struct sport_device *sport)
 {
@@ -351,7 +351,7 @@ int sport_tx_start(struct sport_device *sport)
 	sport->tx_run = 1;
 	return 0;
 }
-EXPORT_SYMBOL(sport_tx_start);
+/* DISABLED: EXPORT_SYMBOL(sport_tx_start); */
 
 int sport_tx_stop(struct sport_device *sport)
 {
@@ -371,7 +371,7 @@ int sport_tx_stop(struct sport_device *sport)
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_tx_stop);
+/* DISABLED: EXPORT_SYMBOL(sport_tx_stop); */
 
 static inline int compute_wdsize(size_t wdsize)
 {
@@ -449,7 +449,7 @@ int sport_config_rx_dma(struct sport_device *sport, void *buf,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_config_rx_dma);
+/* DISABLED: EXPORT_SYMBOL(sport_config_rx_dma); */
 
 int sport_config_tx_dma(struct sport_device *sport, void *buf, \
 		int fragcount, size_t fragsize)
@@ -513,7 +513,7 @@ int sport_config_tx_dma(struct sport_device *sport, void *buf, \
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_config_tx_dma);
+/* DISABLED: EXPORT_SYMBOL(sport_config_tx_dma); */
 
 /* setup dummy dma descriptor ring, which don't generate interrupts,
  * the x_modify is set to 0 */
@@ -589,7 +589,7 @@ unsigned long sport_curr_offset_rx(struct sport_device *sport)
 
 	return (unsigned char *)curr - sport->rx_buf;
 }
-EXPORT_SYMBOL(sport_curr_offset_rx);
+/* DISABLED: EXPORT_SYMBOL(sport_curr_offset_rx); */
 
 unsigned long sport_curr_offset_tx(struct sport_device *sport)
 {
@@ -597,7 +597,7 @@ unsigned long sport_curr_offset_tx(struct sport_device *sport)
 
 	return (unsigned char *)curr - sport->tx_buf;
 }
-EXPORT_SYMBOL(sport_curr_offset_tx);
+/* DISABLED: EXPORT_SYMBOL(sport_curr_offset_tx); */
 
 void sport_incfrag(struct sport_device *sport, int *frag, int tx)
 {
@@ -608,7 +608,7 @@ void sport_incfrag(struct sport_device *sport, int *frag, int tx)
 	if (tx == 0 && *frag == sport->rx_frags)
 		*frag = 0;
 }
-EXPORT_SYMBOL(sport_incfrag);
+/* DISABLED: EXPORT_SYMBOL(sport_incfrag); */
 
 void sport_decfrag(struct sport_device *sport, int *frag, int tx)
 {
@@ -619,7 +619,7 @@ void sport_decfrag(struct sport_device *sport, int *frag, int tx)
 	if (tx == 0 && *frag == 0)
 		*frag = sport->rx_frags;
 }
-EXPORT_SYMBOL(sport_decfrag);
+/* DISABLED: EXPORT_SYMBOL(sport_decfrag); */
 
 static int sport_check_status(struct sport_device *sport,
 		unsigned int *sport_stat,
@@ -773,7 +773,7 @@ int sport_set_rx_callback(struct sport_device *sport,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_set_rx_callback);
+/* DISABLED: EXPORT_SYMBOL(sport_set_rx_callback); */
 
 int sport_set_tx_callback(struct sport_device *sport,
 		void (*tx_callback)(void *), void *tx_data)
@@ -784,7 +784,7 @@ int sport_set_tx_callback(struct sport_device *sport,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_set_tx_callback);
+/* DISABLED: EXPORT_SYMBOL(sport_set_tx_callback); */
 
 int sport_set_err_callback(struct sport_device *sport,
 		void (*err_callback)(void *), void *err_data)
@@ -795,7 +795,7 @@ int sport_set_err_callback(struct sport_device *sport,
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_set_err_callback);
+/* DISABLED: EXPORT_SYMBOL(sport_set_err_callback); */
 
 static int sport_config_pdev(struct platform_device *pdev, struct sport_param *param)
 {
@@ -966,7 +966,7 @@ __init_err0:
 	peripheral_free_list(param.pin_req);
 	return NULL;
 }
-EXPORT_SYMBOL(sport_init);
+/* DISABLED: EXPORT_SYMBOL(sport_init); */
 
 void sport_done(struct sport_device *sport)
 {
@@ -1000,7 +1000,7 @@ void sport_done(struct sport_device *sport)
 	peripheral_free_list(sport->pin_req);
 	kfree(sport);
 }
-EXPORT_SYMBOL(sport_done);
+/* DISABLED: EXPORT_SYMBOL(sport_done); */
 
 /*
 * It is only used to send several bytes when dma is not enabled
@@ -1087,7 +1087,7 @@ __over:
 
 	return 0;
 }
-EXPORT_SYMBOL(sport_send_and_recv);
+/* DISABLED: EXPORT_SYMBOL(sport_send_and_recv); */
 
 MODULE_AUTHOR("Roy Huang");
 MODULE_DESCRIPTION("SPORT driver for ADI Blackfin");

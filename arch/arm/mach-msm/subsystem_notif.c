@@ -83,7 +83,7 @@ void *subsys_notif_register_notifier(
 
 	return subsys;
 }
-EXPORT_SYMBOL(subsys_notif_register_notifier);
+/* DISABLED: EXPORT_SYMBOL(subsys_notif_register_notifier); */
 
 int subsys_notif_unregister_notifier(void *subsys_handle,
 				struct notifier_block *nb)
@@ -100,7 +100,7 @@ int subsys_notif_unregister_notifier(void *subsys_handle,
 
 	return ret;
 }
-EXPORT_SYMBOL(subsys_notif_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL(subsys_notif_unregister_notifier); */
 
 void *subsys_notif_add_subsys(const char *subsys_name)
 {
@@ -144,7 +144,7 @@ void *subsys_notif_add_subsys(const char *subsys_name)
 done:
 	return subsys;
 }
-EXPORT_SYMBOL(subsys_notif_add_subsys);
+/* DISABLED: EXPORT_SYMBOL(subsys_notif_add_subsys); */
 
 int subsys_notif_queue_notification(void *subsys_handle,
 					enum subsys_notif_type notif_type,
@@ -165,7 +165,7 @@ int subsys_notif_queue_notification(void *subsys_handle,
 			data);
 	return ret;
 }
-EXPORT_SYMBOL(subsys_notif_queue_notification);
+/* DISABLED: EXPORT_SYMBOL(subsys_notif_queue_notification); */
 
 #if defined(SUBSYS_RESTART_DEBUG)
 static const char *notif_to_string(enum subsys_notif_type notif_type)

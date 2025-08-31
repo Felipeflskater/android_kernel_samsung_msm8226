@@ -79,7 +79,7 @@ int intc_irq_lookup(const char *chipname, intc_enum enum_id)
 
 	return irq;
 }
-EXPORT_SYMBOL_GPL(intc_irq_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(intc_irq_lookup); */
 
 static int add_virq_to_pirq(unsigned int irq, unsigned int virq)
 {

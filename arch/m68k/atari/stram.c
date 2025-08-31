@@ -136,7 +136,7 @@ void *atari_stram_alloc(unsigned long size, const char *owner)
 	pr_debug("atari_stram_alloc: returning %pR\n", res);
 	return (void *)res->start;
 }
-EXPORT_SYMBOL(atari_stram_alloc);
+/* DISABLED: EXPORT_SYMBOL(atari_stram_alloc); */
 
 
 void atari_stram_free(void *addr)
@@ -157,4 +157,4 @@ void atari_stram_free(void *addr)
 	release_resource(res);
 	kfree(res);
 }
-EXPORT_SYMBOL(atari_stram_free);
+/* DISABLED: EXPORT_SYMBOL(atari_stram_free); */

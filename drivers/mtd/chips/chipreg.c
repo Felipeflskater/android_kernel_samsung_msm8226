@@ -94,10 +94,10 @@ void map_destroy(struct mtd_info *mtd)
 	kfree(mtd);
 }
 
-EXPORT_SYMBOL(register_mtd_chip_driver);
-EXPORT_SYMBOL(unregister_mtd_chip_driver);
-EXPORT_SYMBOL(do_map_probe);
-EXPORT_SYMBOL(map_destroy);
+/* DISABLED: EXPORT_SYMBOL(register_mtd_chip_driver); */
+/* DISABLED: EXPORT_SYMBOL(unregister_mtd_chip_driver); */
+/* DISABLED: EXPORT_SYMBOL(do_map_probe); */
+/* DISABLED: EXPORT_SYMBOL(map_destroy); */
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("David Woodhouse <dwmw2@infradead.org>");

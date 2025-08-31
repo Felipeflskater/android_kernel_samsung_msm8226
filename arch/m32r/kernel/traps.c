@@ -176,7 +176,7 @@ void dump_stack(void)
 	show_trace(current, &stack);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static void show_registers(struct pt_regs *regs)
 {

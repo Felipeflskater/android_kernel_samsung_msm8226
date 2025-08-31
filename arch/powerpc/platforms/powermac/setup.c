@@ -95,11 +95,11 @@ int sccdbg;
 #endif
 
 sys_ctrler_t sys_ctrler = SYS_CTRLER_UNKNOWN;
-EXPORT_SYMBOL(sys_ctrler);
+/* DISABLED: EXPORT_SYMBOL(sys_ctrler); */
 
 #ifdef CONFIG_PMAC_SMU
 unsigned long smu_cmdbuf_abs;
-EXPORT_SYMBOL(smu_cmdbuf_abs);
+/* DISABLED: EXPORT_SYMBOL(smu_cmdbuf_abs); */
 #endif
 
 static void pmac_show_cpuinfo(struct seq_file *m)
@@ -347,7 +347,7 @@ static void __init pmac_setup_arch(void)
 void note_scsi_host(struct device_node *node, void *host)
 {
 }
-EXPORT_SYMBOL(note_scsi_host);
+/* DISABLED: EXPORT_SYMBOL(note_scsi_host); */
 #endif
 
 static int initializing = 1;

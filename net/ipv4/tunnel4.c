@@ -53,7 +53,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL(xfrm4_tunnel_register);
+/* DISABLED: EXPORT_SYMBOL(xfrm4_tunnel_register); */
 
 int xfrm4_tunnel_deregister(struct xfrm_tunnel *handler, unsigned short family)
 {
@@ -80,7 +80,7 @@ int xfrm4_tunnel_deregister(struct xfrm_tunnel *handler, unsigned short family)
 
 	return ret;
 }
-EXPORT_SYMBOL(xfrm4_tunnel_deregister);
+/* DISABLED: EXPORT_SYMBOL(xfrm4_tunnel_deregister); */
 
 #define for_each_tunnel_rcu(head, handler)		\
 	for (handler = rcu_dereference(head);		\

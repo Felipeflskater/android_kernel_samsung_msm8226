@@ -770,8 +770,8 @@ ace2type(struct nfs4_ace *ace)
 	return -1;
 }
 
-EXPORT_SYMBOL(nfs4_acl_posix_to_nfsv4);
-EXPORT_SYMBOL(nfs4_acl_nfsv4_to_posix);
+/* DISABLED: EXPORT_SYMBOL(nfs4_acl_posix_to_nfsv4); */
+/* DISABLED: EXPORT_SYMBOL(nfs4_acl_nfsv4_to_posix); */
 
 struct nfs4_acl *
 nfs4_acl_new(int n)
@@ -835,6 +835,6 @@ nfs4_acl_write_who(int who, char *p)
 	return -1;
 }
 
-EXPORT_SYMBOL(nfs4_acl_new);
-EXPORT_SYMBOL(nfs4_acl_get_whotype);
-EXPORT_SYMBOL(nfs4_acl_write_who);
+/* DISABLED: EXPORT_SYMBOL(nfs4_acl_new); */
+/* DISABLED: EXPORT_SYMBOL(nfs4_acl_get_whotype); */
+/* DISABLED: EXPORT_SYMBOL(nfs4_acl_write_who); */

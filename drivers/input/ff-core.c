@@ -177,7 +177,7 @@ int input_ff_upload(struct input_dev *dev, struct ff_effect *effect,
 	mutex_unlock(&ff->mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(input_ff_upload);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_upload); */
 
 /*
  * Erases the effect if the requester is also the effect owner. The mutex
@@ -236,7 +236,7 @@ int input_ff_erase(struct input_dev *dev, int effect_id, struct file *file)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(input_ff_erase);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_erase); */
 
 /*
  * flush_effects - erase all effects owned by a file handle
@@ -296,7 +296,7 @@ int input_ff_event(struct input_dev *dev, unsigned int type,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(input_ff_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_event); */
 
 /**
  * input_ff_create() - create force-feedback device
@@ -355,7 +355,7 @@ int input_ff_create(struct input_dev *dev, unsigned int max_effects)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(input_ff_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_create); */
 
 /**
  * input_ff_destroy() - frees force feedback portion of input device
@@ -379,4 +379,4 @@ void input_ff_destroy(struct input_dev *dev)
 		dev->ff = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(input_ff_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_destroy); */

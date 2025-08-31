@@ -86,7 +86,7 @@ __wsum csum_tcpudp_nofold(unsigned long saddr, unsigned long daddr,
 	result = (result & 0xffffffffUL) + (result >> 32);
 	return (__force __wsum)result;
 }
-EXPORT_SYMBOL(csum_tcpudp_nofold);
+/* DISABLED: EXPORT_SYMBOL(csum_tcpudp_nofold); */
 
 /*
  * Do a 64-bit checksum on an arbitrary memory area..

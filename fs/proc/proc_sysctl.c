@@ -1279,7 +1279,7 @@ struct ctl_table_header *register_sysctl(const char *path, struct ctl_table *tab
 	return __register_sysctl_table(&sysctl_table_root.default_set,
 					path, table);
 }
-EXPORT_SYMBOL(register_sysctl);
+/* DISABLED: EXPORT_SYMBOL(register_sysctl); */
 
 static char *append_path(const char *path, char *pos, const char *name)
 {
@@ -1475,7 +1475,7 @@ struct ctl_table_header *register_sysctl_paths(const struct ctl_path *path,
 	return __register_sysctl_paths(&sysctl_table_root.default_set,
 					path, table);
 }
-EXPORT_SYMBOL(register_sysctl_paths);
+/* DISABLED: EXPORT_SYMBOL(register_sysctl_paths); */
 
 /**
  * register_sysctl_table - register a sysctl table hierarchy
@@ -1492,7 +1492,7 @@ struct ctl_table_header *register_sysctl_table(struct ctl_table *table)
 
 	return register_sysctl_paths(null_path, table);
 }
-EXPORT_SYMBOL(register_sysctl_table);
+/* DISABLED: EXPORT_SYMBOL(register_sysctl_table); */
 
 static void put_links(struct ctl_table_header *header)
 {
@@ -1579,7 +1579,7 @@ void unregister_sysctl_table(struct ctl_table_header * header)
 	drop_sysctl_table(header);
 	spin_unlock(&sysctl_lock);
 }
-EXPORT_SYMBOL(unregister_sysctl_table);
+/* DISABLED: EXPORT_SYMBOL(unregister_sysctl_table); */
 
 void setup_sysctl_set(struct ctl_table_set *set,
 	struct ctl_table_root *root,

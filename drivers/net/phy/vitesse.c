@@ -81,7 +81,7 @@ int vsc824x_add_skew(struct phy_device *phydev)
 
 	return err;
 }
-EXPORT_SYMBOL(vsc824x_add_skew);
+/* DISABLED: EXPORT_SYMBOL(vsc824x_add_skew); */
 
 static int vsc824x_config_init(struct phy_device *phydev)
 {

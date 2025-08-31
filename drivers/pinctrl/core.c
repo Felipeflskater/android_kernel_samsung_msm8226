@@ -66,19 +66,19 @@ const char *pinctrl_dev_get_name(struct pinctrl_dev *pctldev)
 	/* We're not allowed to register devices without name */
 	return pctldev->desc->name;
 }
-EXPORT_SYMBOL_GPL(pinctrl_dev_get_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_dev_get_name); */
 
 const char *pinctrl_dev_get_devname(struct pinctrl_dev *pctldev)
 {
 	return dev_name(pctldev->dev);
 }
-EXPORT_SYMBOL_GPL(pinctrl_dev_get_devname);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_dev_get_devname); */
 
 void *pinctrl_dev_get_drvdata(struct pinctrl_dev *pctldev)
 {
 	return pctldev->driver_data;
 }
-EXPORT_SYMBOL_GPL(pinctrl_dev_get_drvdata);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_dev_get_drvdata); */
 
 /**
  * get_pinctrl_dev_from_devname() - look up pin controller device
@@ -171,7 +171,7 @@ bool pin_is_valid(struct pinctrl_dev *pctldev, int pin)
 
 	return pindesc != NULL;
 }
-EXPORT_SYMBOL_GPL(pin_is_valid);
+/* DISABLED: EXPORT_SYMBOL_GPL(pin_is_valid); */
 
 /* Deletes a range of pin descriptors */
 static void pinctrl_free_pindescs(struct pinctrl_dev *pctldev,
@@ -323,7 +323,7 @@ void pinctrl_add_gpio_range(struct pinctrl_dev *pctldev,
 	list_add_tail(&range->node, &pctldev->gpio_ranges);
 	mutex_unlock(&pinctrl_mutex);
 }
-EXPORT_SYMBOL_GPL(pinctrl_add_gpio_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_add_gpio_range); */
 
 void pinctrl_add_gpio_ranges(struct pinctrl_dev *pctldev,
 			     struct pinctrl_gpio_range *ranges,
@@ -334,7 +334,7 @@ void pinctrl_add_gpio_ranges(struct pinctrl_dev *pctldev,
 	for (i = 0; i < nranges; i++)
 		pinctrl_add_gpio_range(pctldev, &ranges[i]);
 }
-EXPORT_SYMBOL_GPL(pinctrl_add_gpio_ranges);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_add_gpio_ranges); */
 
 struct pinctrl_dev *pinctrl_find_and_add_gpio_range(const char *devname,
 		struct pinctrl_gpio_range *range)
@@ -352,7 +352,7 @@ struct pinctrl_dev *pinctrl_find_and_add_gpio_range(const char *devname,
 	pinctrl_add_gpio_range(pctldev, range);
 	return pctldev;
 }
-EXPORT_SYMBOL_GPL(pinctrl_find_and_add_gpio_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_find_and_add_gpio_range); */
 
 /**
  * pinctrl_find_gpio_range_from_pin() - locate the GPIO range for a pin
@@ -376,7 +376,7 @@ pinctrl_find_gpio_range_from_pin(struct pinctrl_dev *pctldev,
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(pinctrl_find_gpio_range_from_pin);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_find_gpio_range_from_pin); */
 
 /**
  * pinctrl_remove_gpio_range() - remove a range of GPIOs fro a pin controller
@@ -390,7 +390,7 @@ void pinctrl_remove_gpio_range(struct pinctrl_dev *pctldev,
 	list_del(&range->node);
 	mutex_unlock(&pinctrl_mutex);
 }
-EXPORT_SYMBOL_GPL(pinctrl_remove_gpio_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_remove_gpio_range); */
 
 /**
  * pinctrl_get_group_selector() - returns the group selector for a group
@@ -455,7 +455,7 @@ int pinctrl_request_gpio(unsigned gpio)
 	mutex_unlock(&pinctrl_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pinctrl_request_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_request_gpio); */
 
 /**
  * pinctrl_free_gpio() - free control on a single pin, currently used as GPIO
@@ -487,7 +487,7 @@ void pinctrl_free_gpio(unsigned gpio)
 
 	mutex_unlock(&pinctrl_mutex);
 }
-EXPORT_SYMBOL_GPL(pinctrl_free_gpio);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_free_gpio); */
 
 static int pinctrl_gpio_direction(unsigned gpio, bool input)
 {
@@ -522,7 +522,7 @@ int pinctrl_gpio_direction_input(unsigned gpio)
 	mutex_unlock(&pinctrl_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pinctrl_gpio_direction_input);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_gpio_direction_input); */
 
 /**
  * pinctrl_gpio_direction_output() - request a GPIO pin to go into output mode
@@ -540,7 +540,7 @@ int pinctrl_gpio_direction_output(unsigned gpio)
 	mutex_unlock(&pinctrl_mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pinctrl_gpio_direction_output);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_gpio_direction_output); */
 
 static struct pinctrl_state *find_state(struct pinctrl *p,
 					const char *name)
@@ -756,7 +756,7 @@ struct pinctrl *pinctrl_get(struct device *dev)
 
 	return p;
 }
-EXPORT_SYMBOL_GPL(pinctrl_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_get); */
 
 static void pinctrl_put_locked(struct pinctrl *p, bool inlist)
 {
@@ -813,7 +813,7 @@ void pinctrl_put(struct pinctrl *p)
 	kref_put(&p->users, pinctrl_release);
 	mutex_unlock(&pinctrl_mutex);
 }
-EXPORT_SYMBOL_GPL(pinctrl_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_put); */
 
 static struct pinctrl_state *pinctrl_lookup_state_locked(struct pinctrl *p,
 							 const char *name)
@@ -849,7 +849,7 @@ struct pinctrl_state *pinctrl_lookup_state(struct pinctrl *p, const char *name)
 
 	return s;
 }
-EXPORT_SYMBOL_GPL(pinctrl_lookup_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_lookup_state); */
 
 static int pinctrl_select_state_locked(struct pinctrl *p,
 				       struct pinctrl_state *state)
@@ -928,7 +928,7 @@ int pinctrl_select_state(struct pinctrl *p, struct pinctrl_state *state)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pinctrl_select_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_select_state); */
 
 static void devm_pinctrl_release(struct device *dev, void *res)
 {
@@ -960,7 +960,7 @@ struct pinctrl *devm_pinctrl_get(struct device *dev)
 
 	return p;
 }
-EXPORT_SYMBOL_GPL(devm_pinctrl_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_pinctrl_get); */
 
 static int devm_pinctrl_match(struct device *dev, void *res, void *data)
 {
@@ -983,7 +983,7 @@ void devm_pinctrl_put(struct pinctrl *p)
 			       devm_pinctrl_match, p));
 	pinctrl_put(p);
 }
-EXPORT_SYMBOL_GPL(devm_pinctrl_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(devm_pinctrl_put); */
 
 int pinctrl_register_map(struct pinctrl_map const *maps, unsigned num_maps,
 			 bool dup, bool locked)
@@ -1099,7 +1099,7 @@ int pinctrl_force_sleep(struct pinctrl_dev *pctldev)
 		return pinctrl_select_state(pctldev->p, pctldev->hog_sleep);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pinctrl_force_sleep);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_force_sleep); */
 
 /**
  * pinctrl_force_default() - turn a given controller device into default state
@@ -1111,7 +1111,7 @@ int pinctrl_force_default(struct pinctrl_dev *pctldev)
 		return pinctrl_select_state(pctldev->p, pctldev->hog_default);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pinctrl_force_default);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_force_default); */
 
 #ifdef CONFIG_DEBUG_FS
 
@@ -1587,7 +1587,7 @@ out_err:
 	kfree(pctldev);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(pinctrl_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_register); */
 
 /**
  * pinctrl_unregister() - unregister pinmux
@@ -1621,7 +1621,7 @@ void pinctrl_unregister(struct pinctrl_dev *pctldev)
 
 	mutex_unlock(&pinctrl_mutex);
 }
-EXPORT_SYMBOL_GPL(pinctrl_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(pinctrl_unregister); */
 
 static int __init pinctrl_init(void)
 {

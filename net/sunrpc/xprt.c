@@ -124,7 +124,7 @@ out:
 	spin_unlock(&xprt_list_lock);
 	return result;
 }
-EXPORT_SYMBOL_GPL(xprt_register_transport);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_register_transport); */
 
 /**
  * xprt_unregister_transport - unregister a transport implementation
@@ -156,7 +156,7 @@ out:
 	spin_unlock(&xprt_list_lock);
 	return result;
 }
-EXPORT_SYMBOL_GPL(xprt_unregister_transport);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_unregister_transport); */
 
 /**
  * xprt_load_transport - load a transport implementation
@@ -184,7 +184,7 @@ int xprt_load_transport(const char *transport_name)
 out:
 	return result;
 }
-EXPORT_SYMBOL_GPL(xprt_load_transport);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_load_transport); */
 
 /**
  * xprt_reserve_xprt - serialize write access to transports
@@ -227,7 +227,7 @@ out_sleep:
 	rpc_sleep_on_priority(&xprt->sending, task, NULL, priority);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xprt_reserve_xprt);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_reserve_xprt); */
 
 static void xprt_clear_locked(struct rpc_xprt *xprt)
 {
@@ -284,7 +284,7 @@ out_sleep:
 	rpc_sleep_on_priority(&xprt->sending, task, NULL, priority);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(xprt_reserve_xprt_cong);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_reserve_xprt_cong); */
 
 static inline int xprt_lock_write(struct rpc_xprt *xprt, struct rpc_task *task)
 {
@@ -365,7 +365,7 @@ void xprt_release_xprt(struct rpc_xprt *xprt, struct rpc_task *task)
 		__xprt_lock_write_next(xprt);
 	}
 }
-EXPORT_SYMBOL_GPL(xprt_release_xprt);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_release_xprt); */
 
 /**
  * xprt_release_xprt_cong - allow other requests to use a transport
@@ -382,7 +382,7 @@ void xprt_release_xprt_cong(struct rpc_xprt *xprt, struct rpc_task *task)
 		__xprt_lock_write_next_cong(xprt);
 	}
 }
-EXPORT_SYMBOL_GPL(xprt_release_xprt_cong);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_release_xprt_cong); */
 
 static inline void xprt_release_write(struct rpc_xprt *xprt, struct rpc_task *task)
 {
@@ -435,7 +435,7 @@ void xprt_release_rqst_cong(struct rpc_task *task)
 {
 	__xprt_put_cong(task->tk_xprt, task->tk_rqstp);
 }
-EXPORT_SYMBOL_GPL(xprt_release_rqst_cong);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_release_rqst_cong); */
 
 /**
  * xprt_adjust_cwnd - adjust transport congestion window
@@ -467,7 +467,7 @@ void xprt_adjust_cwnd(struct rpc_task *task, int result)
 	xprt->cwnd = cwnd;
 	__xprt_put_cong(xprt, req);
 }
-EXPORT_SYMBOL_GPL(xprt_adjust_cwnd);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_adjust_cwnd); */
 
 /**
  * xprt_wake_pending_tasks - wake all tasks on a transport's pending queue
@@ -482,7 +482,7 @@ void xprt_wake_pending_tasks(struct rpc_xprt *xprt, int status)
 	else
 		rpc_wake_up(&xprt->pending);
 }
-EXPORT_SYMBOL_GPL(xprt_wake_pending_tasks);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_wake_pending_tasks); */
 
 /**
  * xprt_wait_for_buffer_space - wait for transport output buffer to clear
@@ -501,7 +501,7 @@ void xprt_wait_for_buffer_space(struct rpc_task *task, rpc_action action)
 	task->tk_timeout = RPC_IS_SOFT(task) ? req->rq_timeout : 0;
 	rpc_sleep_on(&xprt->pending, task, action);
 }
-EXPORT_SYMBOL_GPL(xprt_wait_for_buffer_space);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_wait_for_buffer_space); */
 
 /**
  * xprt_write_space - wake the task waiting for transport output buffer space
@@ -522,7 +522,7 @@ void xprt_write_space(struct rpc_xprt *xprt)
 	}
 	spin_unlock_bh(&xprt->transport_lock);
 }
-EXPORT_SYMBOL_GPL(xprt_write_space);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_write_space); */
 
 /**
  * xprt_set_retrans_timeout_def - set a request's retransmit timeout
@@ -536,7 +536,7 @@ void xprt_set_retrans_timeout_def(struct rpc_task *task)
 {
 	task->tk_timeout = task->tk_rqstp->rq_timeout;
 }
-EXPORT_SYMBOL_GPL(xprt_set_retrans_timeout_def);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_set_retrans_timeout_def); */
 
 /*
  * xprt_set_retrans_timeout_rtt - set a request's retransmit timeout
@@ -557,7 +557,7 @@ void xprt_set_retrans_timeout_rtt(struct rpc_task *task)
 	if (task->tk_timeout > max_timeout || task->tk_timeout == 0)
 		task->tk_timeout = max_timeout;
 }
-EXPORT_SYMBOL_GPL(xprt_set_retrans_timeout_rtt);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_set_retrans_timeout_rtt); */
 
 static void xprt_reset_majortimeo(struct rpc_rqst *req)
 {
@@ -633,7 +633,7 @@ void xprt_disconnect_done(struct rpc_xprt *xprt)
 	xprt_wake_pending_tasks(xprt, -EAGAIN);
 	spin_unlock_bh(&xprt->transport_lock);
 }
-EXPORT_SYMBOL_GPL(xprt_disconnect_done);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_disconnect_done); */
 
 /**
  * xprt_force_disconnect - force a transport to disconnect
@@ -784,7 +784,7 @@ struct rpc_rqst *xprt_lookup_rqst(struct rpc_xprt *xprt, __be32 xid)
 	xprt->stat.bad_xids++;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(xprt_lookup_rqst);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_lookup_rqst); */
 
 static void xprt_update_rtt(struct rpc_task *task)
 {
@@ -828,7 +828,7 @@ void xprt_complete_rqst(struct rpc_task *task, int copied)
 	req->rq_reply_bytes_recvd = copied;
 	rpc_wake_up_queued_task(&xprt->pending, task);
 }
-EXPORT_SYMBOL_GPL(xprt_complete_rqst);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_complete_rqst); */
 
 static void xprt_timer(struct rpc_task *task)
 {
@@ -1009,7 +1009,7 @@ out_init_req:
 	xprt_request_init(task, xprt);
 	spin_unlock(&xprt->reserve_lock);
 }
-EXPORT_SYMBOL_GPL(xprt_alloc_slot);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_alloc_slot); */
 
 void xprt_lock_and_alloc_slot(struct rpc_xprt *xprt, struct rpc_task *task)
 {
@@ -1023,7 +1023,7 @@ void xprt_lock_and_alloc_slot(struct rpc_xprt *xprt, struct rpc_task *task)
 		xprt_release_write(xprt, task);
 	}
 }
-EXPORT_SYMBOL_GPL(xprt_lock_and_alloc_slot);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_lock_and_alloc_slot); */
 
 static void xprt_free_slot(struct rpc_xprt *xprt, struct rpc_rqst *req)
 {
@@ -1082,7 +1082,7 @@ out_free:
 out:
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(xprt_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_alloc); */
 
 void xprt_free(struct rpc_xprt *xprt)
 {
@@ -1090,7 +1090,7 @@ void xprt_free(struct rpc_xprt *xprt)
 	xprt_free_all_slots(xprt);
 	kfree(xprt);
 }
-EXPORT_SYMBOL_GPL(xprt_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(xprt_free); */
 
 /**
  * xprt_reserve - allocate an RPC request slot

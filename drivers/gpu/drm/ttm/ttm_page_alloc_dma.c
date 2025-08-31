@@ -916,7 +916,7 @@ int ttm_dma_populate(struct ttm_dma_tt *ttm_dma, struct device *dev)
 	ttm->state = tt_unbound;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ttm_dma_populate);
+/* DISABLED: EXPORT_SYMBOL_GPL(ttm_dma_populate); */
 
 /* Get good estimation how many pages are free in pools */
 static int ttm_dma_pool_get_num_unused_pages(void)
@@ -998,7 +998,7 @@ void ttm_dma_unpopulate(struct ttm_dma_tt *ttm_dma, struct device *dev)
 		ttm_dma_page_pool_free(pool, npages);
 	ttm->state = tt_unpopulated;
 }
-EXPORT_SYMBOL_GPL(ttm_dma_unpopulate);
+/* DISABLED: EXPORT_SYMBOL_GPL(ttm_dma_unpopulate); */
 
 /**
  * Callback for mm to request pool to reduce number of page held.
@@ -1131,4 +1131,4 @@ int ttm_dma_page_alloc_debugfs(struct seq_file *m, void *data)
 	mutex_unlock(&_manager->lock);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ttm_dma_page_alloc_debugfs);
+/* DISABLED: EXPORT_SYMBOL_GPL(ttm_dma_page_alloc_debugfs); */

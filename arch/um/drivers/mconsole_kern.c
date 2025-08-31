@@ -872,7 +872,7 @@ static int mconsole_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("mconsole=", mconsole_setup); */
+/* DISABLED: __setup("mconsole=", mconsole_setup); */ */
 
 __uml_help(mconsole_setup,
 "mconsole=notify:<socket>\n"
@@ -915,4 +915,4 @@ char *mconsole_notify_socket(void)
 	return notify_socket;
 }
 
-EXPORT_SYMBOL(mconsole_notify_socket);
+/* DISABLED: EXPORT_SYMBOL(mconsole_notify_socket); */

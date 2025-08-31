@@ -105,7 +105,7 @@ void __iomem *sun3_ioremap(unsigned long phys, unsigned long size,
 	return (void __iomem *)ret;
 
 }
-EXPORT_SYMBOL(sun3_ioremap);
+/* DISABLED: EXPORT_SYMBOL(sun3_ioremap); */
 
 
 void __iomem *__ioremap(unsigned long phys, unsigned long size, int cache)
@@ -114,13 +114,13 @@ void __iomem *__ioremap(unsigned long phys, unsigned long size, int cache)
 	return sun3_ioremap(phys, size, SUN3_PAGE_TYPE_IO);
 
 }
-EXPORT_SYMBOL(__ioremap);
+/* DISABLED: EXPORT_SYMBOL(__ioremap); */
 
 void iounmap(void __iomem *addr)
 {
 	vfree((void *)(PAGE_MASK & (unsigned long)addr));
 }
-EXPORT_SYMBOL(iounmap);
+/* DISABLED: EXPORT_SYMBOL(iounmap); */
 
 /* sun3_map_test(addr, val) -- Reads a byte from addr, storing to val,
  * trapping the potential read fault.  Returns 0 if the access faulted,
@@ -158,4 +158,4 @@ int sun3_map_test(unsigned long addr, char *val)
 
 	return ret;
 }
-EXPORT_SYMBOL(sun3_map_test);
+/* DISABLED: EXPORT_SYMBOL(sun3_map_test); */

@@ -16,31 +16,31 @@
 #include <asm/page.h>
 
 #ifndef MULTI_CPU
-EXPORT_SYMBOL(cpu_dcache_clean_area);
-EXPORT_SYMBOL(cpu_set_pte_ext);
+/* DISABLED: EXPORT_SYMBOL(cpu_dcache_clean_area); */
+/* DISABLED: EXPORT_SYMBOL(cpu_set_pte_ext); */
 #ifdef CONFIG_TIMA_RKP_L2_TABLES
-EXPORT_SYMBOL(cpu_tima_set_pte_ext);
+/* DISABLED: EXPORT_SYMBOL(cpu_tima_set_pte_ext); */
 #endif
 #else
-EXPORT_SYMBOL(processor);
+/* DISABLED: EXPORT_SYMBOL(processor); */
 #endif
 
 #ifndef MULTI_CACHE
-EXPORT_SYMBOL(__cpuc_flush_kern_all);
-EXPORT_SYMBOL(__cpuc_flush_user_all);
-EXPORT_SYMBOL(__cpuc_flush_user_range);
-EXPORT_SYMBOL(__cpuc_coherent_kern_range);
-EXPORT_SYMBOL(__cpuc_flush_dcache_area);
+/* DISABLED: EXPORT_SYMBOL(__cpuc_flush_kern_all); */
+/* DISABLED: EXPORT_SYMBOL(__cpuc_flush_user_all); */
+/* DISABLED: EXPORT_SYMBOL(__cpuc_flush_user_range); */
+/* DISABLED: EXPORT_SYMBOL(__cpuc_coherent_kern_range); */
+/* DISABLED: EXPORT_SYMBOL(__cpuc_flush_dcache_area); */
 #else
-EXPORT_SYMBOL(cpu_cache);
+/* DISABLED: EXPORT_SYMBOL(cpu_cache); */
 #endif
 
 #ifdef CONFIG_MMU
 #ifndef MULTI_USER
-EXPORT_SYMBOL(__cpu_clear_user_highpage);
-EXPORT_SYMBOL(__cpu_copy_user_highpage);
+/* DISABLED: EXPORT_SYMBOL(__cpu_clear_user_highpage); */
+/* DISABLED: EXPORT_SYMBOL(__cpu_copy_user_highpage); */
 #else
-EXPORT_SYMBOL(cpu_user);
+/* DISABLED: EXPORT_SYMBOL(cpu_user); */
 #endif
 #endif
 
@@ -50,5 +50,5 @@ EXPORT_SYMBOL(cpu_user);
  * (booting a new kernel from within a running kernel.)
  */
 #ifdef MULTI_TLB
-EXPORT_SYMBOL(cpu_tlb);
+/* DISABLED: EXPORT_SYMBOL(cpu_tlb); */
 #endif

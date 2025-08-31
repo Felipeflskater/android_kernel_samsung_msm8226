@@ -51,7 +51,7 @@ static DECLARE_WAIT_QUEUE_HEAD(soc_pm_waitq);
 
 #ifdef CONFIG_DEBUG_FS
 struct dentry *snd_soc_debugfs_root;
-EXPORT_SYMBOL_GPL(snd_soc_debugfs_root);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_debugfs_root); */
 #endif
 
 static DEFINE_MUTEX(client_mutex);
@@ -495,7 +495,7 @@ struct snd_pcm_substream *snd_soc_get_dai_substream(struct snd_soc_card *card,
 	dev_dbg(card->dev, "failed to find dai link %s\n", dai_link);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_dai_substream);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_dai_substream); */
 
 struct snd_soc_pcm_runtime *snd_soc_get_pcm_runtime(struct snd_soc_card *card,
 		const char *dai_link)
@@ -509,7 +509,7 @@ struct snd_soc_pcm_runtime *snd_soc_get_pcm_runtime(struct snd_soc_card *card,
 	dev_dbg(card->dev, "failed to find rtd %s\n", dai_link);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_pcm_runtime);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_pcm_runtime); */
 
 #ifdef CONFIG_SND_SOC_AC97_BUS
 /* unregister ac97 codec */
@@ -678,7 +678,7 @@ int snd_soc_suspend(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_suspend); */
 
 /* deferred resume work, so resume can complete before we finished
  * setting our codec back up, which can be very slow on I2C
@@ -831,7 +831,7 @@ int snd_soc_resume(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_resume); */
 #else
 #define snd_soc_suspend NULL
 #define snd_soc_resume NULL
@@ -1864,14 +1864,14 @@ int snd_soc_poweroff(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_poweroff);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_poweroff); */
 
 const struct dev_pm_ops snd_soc_pm_ops = {
 	.suspend = snd_soc_suspend,
 	.resume = snd_soc_resume,
 	.poweroff = snd_soc_poweroff,
 };
-EXPORT_SYMBOL_GPL(snd_soc_pm_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_pm_ops); */
 
 /* ASoC platform driver */
 static struct platform_driver soc_driver = {
@@ -1900,7 +1900,7 @@ int snd_soc_codec_volatile_register(struct snd_soc_codec *codec,
 	else
 		return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_volatile_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_volatile_register); */
 
 /**
  * snd_soc_codec_readable_register: Report if a register is readable.
@@ -1918,7 +1918,7 @@ int snd_soc_codec_readable_register(struct snd_soc_codec *codec,
 	else
 		return 1;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_readable_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_readable_register); */
 
 /**
  * snd_soc_codec_writable_register: Report if a register is writable.
@@ -1936,7 +1936,7 @@ int snd_soc_codec_writable_register(struct snd_soc_codec *codec,
 	else
 		return 1;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_writable_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_writable_register); */
 
 int snd_soc_platform_read(struct snd_soc_platform *platform,
 					unsigned int reg)
@@ -1954,7 +1954,7 @@ int snd_soc_platform_read(struct snd_soc_platform *platform,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_platform_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_platform_read); */
 
 int snd_soc_platform_write(struct snd_soc_platform *platform,
 					 unsigned int reg, unsigned int val)
@@ -1968,7 +1968,7 @@ int snd_soc_platform_write(struct snd_soc_platform *platform,
 	trace_snd_soc_preg_write(platform, reg, val);
 	return platform->driver->write(platform, reg, val);
 }
-EXPORT_SYMBOL_GPL(snd_soc_platform_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_platform_write); */
 
 /**
  * snd_soc_new_ac97_codec - initailise AC97 device
@@ -2009,7 +2009,7 @@ int snd_soc_new_ac97_codec(struct snd_soc_codec *codec,
 	mutex_unlock(&codec->mutex);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_new_ac97_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_new_ac97_codec); */
 
 /**
  * snd_soc_free_ac97_codec - free AC97 codec device
@@ -2029,7 +2029,7 @@ void snd_soc_free_ac97_codec(struct snd_soc_codec *codec)
 	codec->ac97_created = 0;
 	mutex_unlock(&codec->mutex);
 }
-EXPORT_SYMBOL_GPL(snd_soc_free_ac97_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_free_ac97_codec); */
 
 unsigned int snd_soc_read(struct snd_soc_codec *codec, unsigned int reg)
 {
@@ -2049,7 +2049,7 @@ unsigned int snd_soc_read(struct snd_soc_codec *codec, unsigned int reg)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_read); */
 
 unsigned int snd_soc_write(struct snd_soc_codec *codec,
 			   unsigned int reg, unsigned int val)
@@ -2066,14 +2066,14 @@ unsigned int snd_soc_write(struct snd_soc_codec *codec,
 	else
 		return -EIO;
 }
-EXPORT_SYMBOL_GPL(snd_soc_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_write); */
 
 unsigned int snd_soc_bulk_write_raw(struct snd_soc_codec *codec,
 				    unsigned int reg, const void *data, size_t len)
 {
 	return codec->bulk_write_raw(codec, reg, data, len);
 }
-EXPORT_SYMBOL_GPL(snd_soc_bulk_write_raw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_bulk_write_raw); */
 
 /**
  * snd_soc_update_bits - update codec register bits
@@ -2113,7 +2113,7 @@ int snd_soc_update_bits(struct snd_soc_codec *codec, unsigned short reg,
 
 	return change;
 }
-EXPORT_SYMBOL_GPL(snd_soc_update_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_update_bits); */
 
 /**
  * snd_soc_update_bits_locked - update codec register bits
@@ -2138,7 +2138,7 @@ int snd_soc_update_bits_locked(struct snd_soc_codec *codec,
 
 	return change;
 }
-EXPORT_SYMBOL_GPL(snd_soc_update_bits_locked);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_update_bits_locked); */
 
 /**
  * snd_soc_test_bits - test register for change
@@ -2164,7 +2164,7 @@ int snd_soc_test_bits(struct snd_soc_codec *codec, unsigned short reg,
 
 	return change;
 }
-EXPORT_SYMBOL_GPL(snd_soc_test_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_test_bits); */
 
 /**
  * snd_soc_set_runtime_hwparams - set the runtime hardware parameters
@@ -2189,7 +2189,7 @@ int snd_soc_set_runtime_hwparams(struct snd_pcm_substream *substream,
 	runtime->hw.fifo_size = hw->fifo_size;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_set_runtime_hwparams);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_set_runtime_hwparams); */
 
 /**
  * snd_soc_cnew - create new control
@@ -2236,7 +2236,7 @@ struct snd_kcontrol *snd_soc_cnew(const struct snd_kcontrol_new *_template,
 
 	return kcontrol;
 }
-EXPORT_SYMBOL_GPL(snd_soc_cnew);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_cnew); */
 
 static int snd_soc_add_controls(struct snd_card *card, struct device *dev,
 	const struct snd_kcontrol_new *controls, int num_controls,
@@ -2276,7 +2276,7 @@ int snd_soc_add_codec_controls(struct snd_soc_codec *codec,
 	return snd_soc_add_controls(card, codec->dev, controls, num_controls,
 			codec->name_prefix, codec);
 }
-EXPORT_SYMBOL_GPL(snd_soc_add_codec_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_add_codec_controls); */
 
 /**
  * snd_soc_add_platform_controls - add an array of controls to a platform.
@@ -2296,7 +2296,7 @@ int snd_soc_add_platform_controls(struct snd_soc_platform *platform,
 	return snd_soc_add_controls(card, platform->dev, controls, num_controls,
 			NULL, platform);
 }
-EXPORT_SYMBOL_GPL(snd_soc_add_platform_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_add_platform_controls); */
 
 /**
  * snd_soc_add_card_controls - add an array of controls to a SoC card.
@@ -2316,7 +2316,7 @@ int snd_soc_add_card_controls(struct snd_soc_card *soc_card,
 	return snd_soc_add_controls(card, soc_card->dev, controls, num_controls,
 			NULL, soc_card);
 }
-EXPORT_SYMBOL_GPL(snd_soc_add_card_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_add_card_controls); */
 
 /**
  * snd_soc_add_dai_controls - add an array of controls to a DAI.
@@ -2336,7 +2336,7 @@ int snd_soc_add_dai_controls(struct snd_soc_dai *dai,
 	return snd_soc_add_controls(card, dai->dev, controls, num_controls,
 			NULL, dai);
 }
-EXPORT_SYMBOL_GPL(snd_soc_add_dai_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_add_dai_controls); */
 
 /**
  * snd_soc_info_enum_double - enumerated double mixer info callback
@@ -2364,7 +2364,7 @@ int snd_soc_info_enum_double(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_enum_double); */
 
 /**
  * snd_soc_get_enum_double - enumerated double mixer get callback
@@ -2393,7 +2393,7 @@ int snd_soc_get_enum_double(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_enum_double); */
 
 /**
  * snd_soc_put_enum_double - enumerated double mixer put callback
@@ -2427,7 +2427,7 @@ int snd_soc_put_enum_double(struct snd_kcontrol *kcontrol,
 
 	return snd_soc_update_bits_locked(codec, e->reg, mask, val);
 }
-EXPORT_SYMBOL_GPL(snd_soc_put_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_put_enum_double); */
 
 /**
  * snd_soc_get_value_enum_double - semi enumerated double mixer get callback
@@ -2466,7 +2466,7 @@ int snd_soc_get_value_enum_double(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_value_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_value_enum_double); */
 
 /**
  * snd_soc_put_value_enum_double - semi enumerated double mixer put callback
@@ -2501,7 +2501,7 @@ int snd_soc_put_value_enum_double(struct snd_kcontrol *kcontrol,
 
 	return snd_soc_update_bits_locked(codec, e->reg, mask, val);
 }
-EXPORT_SYMBOL_GPL(snd_soc_put_value_enum_double);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_put_value_enum_double); */
 
 /**
  * snd_soc_info_enum_ext - external enumerated single mixer info callback
@@ -2528,7 +2528,7 @@ int snd_soc_info_enum_ext(struct snd_kcontrol *kcontrol,
 		snd_soc_get_enum_text(e, uinfo->value.enumerated.item));
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_enum_ext);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_enum_ext); */
 
 /**
  * snd_soc_info_volsw_ext - external single mixer info callback
@@ -2554,7 +2554,7 @@ int snd_soc_info_volsw_ext(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = max;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_volsw_ext);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_volsw_ext); */
 
 /**
  * snd_soc_info_multi_ext - external single mixer info callback
@@ -2587,7 +2587,7 @@ int snd_soc_info_multi_ext(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = platform_max;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_multi_ext);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_multi_ext); */
 
 /**
  * snd_soc_info_volsw - single mixer info callback
@@ -2620,7 +2620,7 @@ int snd_soc_info_volsw(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = platform_max;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_volsw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_volsw); */
 
 /**
  * snd_soc_get_volsw - single mixer get callback
@@ -2666,7 +2666,7 @@ int snd_soc_get_volsw(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_volsw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_volsw); */
 
 /**
  * snd_soc_put_volsw - single mixer put callback
@@ -2722,7 +2722,7 @@ int snd_soc_put_volsw(struct snd_kcontrol *kcontrol,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(snd_soc_put_volsw);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_put_volsw); */
 
 /**
  * snd_soc_info_volsw_s8 - signed mixer info callback
@@ -2753,7 +2753,7 @@ int snd_soc_info_volsw_s8(struct snd_kcontrol *kcontrol,
 	uinfo->value.integer.max = platform_max - min;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_volsw_s8);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_volsw_s8); */
 
 /**
  * snd_soc_get_volsw_s8 - signed mixer get callback
@@ -2783,7 +2783,7 @@ int snd_soc_get_volsw_s8(struct snd_kcontrol *kcontrol,
 			((signed char)((val >> rshift) & 0xff))-min;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_volsw_s8);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_volsw_s8); */
 
 /**
  * snd_soc_put_volsw_sgn - signed mixer put callback
@@ -2816,7 +2816,7 @@ int snd_soc_put_volsw_s8(struct snd_kcontrol *kcontrol,
 
 	return snd_soc_update_bits_locked(codec, reg, val_mask, val);
 }
-EXPORT_SYMBOL_GPL(snd_soc_put_volsw_s8);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_put_volsw_s8); */
 
 /**
  * snd_soc_limit_volume - Set new limit to an existing volume control.
@@ -2855,7 +2855,7 @@ int snd_soc_limit_volume(struct snd_soc_codec *codec,
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_limit_volume);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_limit_volume); */
 
 /**
  * snd_soc_info_volsw_2r_sx - double with tlv and variable data size
@@ -2880,7 +2880,7 @@ int snd_soc_info_volsw_2r_sx(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_info_volsw_2r_sx);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_info_volsw_2r_sx); */
 
 /**
  * snd_soc_get_volsw_2r_sx - double with tlv and variable data size
@@ -2905,7 +2905,7 @@ int snd_soc_get_volsw_2r_sx(struct snd_kcontrol *kcontrol,
 	ucontrol->value.integer.value[1] = ((valr & 0xff)-min) & mask;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_get_volsw_2r_sx);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_get_volsw_2r_sx); */
 
 /**
  * snd_soc_put_volsw_2r_sx - double with tlv and variable data size
@@ -2948,7 +2948,7 @@ int snd_soc_put_volsw_2r_sx(struct snd_kcontrol *kcontrol,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_put_volsw_2r_sx);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_put_volsw_2r_sx); */
 
 /**
  * snd_soc_dai_set_sysclk - configure DAI system or master clock.
@@ -2970,7 +2970,7 @@ int snd_soc_dai_set_sysclk(struct snd_soc_dai *dai, int clk_id,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_sysclk);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_sysclk); */
 
 /**
  * snd_soc_codec_set_sysclk - configure CODEC system or master clock.
@@ -2991,7 +2991,7 @@ int snd_soc_codec_set_sysclk(struct snd_soc_codec *codec, int clk_id,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_set_sysclk);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_set_sysclk); */
 
 /**
  * snd_soc_dai_set_clkdiv - configure DAI clock dividers.
@@ -3011,7 +3011,7 @@ int snd_soc_dai_set_clkdiv(struct snd_soc_dai *dai,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_clkdiv);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_clkdiv); */
 
 /**
  * snd_soc_dai_set_pll - configure DAI PLL.
@@ -3035,7 +3035,7 @@ int snd_soc_dai_set_pll(struct snd_soc_dai *dai, int pll_id, int source,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_pll);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_pll); */
 
 /*
  * snd_soc_codec_set_pll - configure codec PLL.
@@ -3056,7 +3056,7 @@ int snd_soc_codec_set_pll(struct snd_soc_codec *codec, int pll_id, int source,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_codec_set_pll);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_codec_set_pll); */
 
 /**
  * snd_soc_dai_set_fmt - configure DAI hardware audio format.
@@ -3072,7 +3072,7 @@ int snd_soc_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_fmt);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_fmt); */
 
 /**
  * snd_soc_dai_set_tdm_slot - configure DAI TDM.
@@ -3094,7 +3094,7 @@ int snd_soc_dai_set_tdm_slot(struct snd_soc_dai *dai,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_tdm_slot);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_tdm_slot); */
 
 /**
  * snd_soc_dai_set_channel_map - configure DAI audio channel map
@@ -3118,7 +3118,7 @@ int snd_soc_dai_set_channel_map(struct snd_soc_dai *dai,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_channel_map); */
 
 /**
  * snd_soc_dai_get_channel_map - configure DAI audio channel map
@@ -3142,7 +3142,7 @@ int snd_soc_dai_get_channel_map(struct snd_soc_dai *dai,
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_get_channel_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_get_channel_map); */
 /**
  * snd_soc_dai_set_tristate - configure DAI system or master clock.
  * @dai: DAI
@@ -3157,7 +3157,7 @@ int snd_soc_dai_set_tristate(struct snd_soc_dai *dai, int tristate)
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_set_tristate);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_set_tristate); */
 
 /**
  * snd_soc_dai_digital_mute - configure DAI system or master clock.
@@ -3173,7 +3173,7 @@ int snd_soc_dai_digital_mute(struct snd_soc_dai *dai, int mute)
 	else
 		return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(snd_soc_dai_digital_mute);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dai_digital_mute); */
 
 /**
  * snd_soc_register_card - Register a card with the ASoC core
@@ -3259,7 +3259,7 @@ int snd_soc_register_card(struct snd_soc_card *card)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_register_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_register_card); */
 
 /**
  * snd_soc_unregister_card - Unregister a card with the ASoC core
@@ -3275,7 +3275,7 @@ int snd_soc_unregister_card(struct snd_soc_card *card)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_unregister_card);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_unregister_card); */
 
 /*
  * Simplify DAI link configuration by removing ".-1" from device names
@@ -3372,7 +3372,7 @@ int snd_soc_register_dai(struct device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_register_dai);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_register_dai); */
 
 /**
  * snd_soc_unregister_dai - Unregister a DAI from the ASoC core
@@ -3398,7 +3398,7 @@ found:
 	kfree(dai->name);
 	kfree(dai);
 }
-EXPORT_SYMBOL_GPL(snd_soc_unregister_dai);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_unregister_dai); */
 
 /**
  * snd_soc_register_dais - Register multiple DAIs with the ASoC core
@@ -3455,7 +3455,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_register_dais);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_register_dais); */
 
 /**
  * snd_soc_unregister_dais - Unregister multiple DAIs from the ASoC core
@@ -3470,7 +3470,7 @@ void snd_soc_unregister_dais(struct device *dev, size_t count)
 	for (i = 0; i < count; i++)
 		snd_soc_unregister_dai(dev);
 }
-EXPORT_SYMBOL_GPL(snd_soc_unregister_dais);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_unregister_dais); */
 
 /**
  * snd_soc_register_platform - Register a platform with the ASoC core
@@ -3509,7 +3509,7 @@ int snd_soc_register_platform(struct device *dev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_register_platform);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_register_platform); */
 
 /**
  * snd_soc_unregister_platform - Unregister a platform from the ASoC core
@@ -3535,7 +3535,7 @@ found:
 	kfree(platform->name);
 	kfree(platform);
 }
-EXPORT_SYMBOL_GPL(snd_soc_unregister_platform);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_unregister_platform); */
 
 static u64 codec_format_map[] = {
 	SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S16_BE,
@@ -3579,7 +3579,7 @@ void snd_soc_card_change_online_state(struct snd_soc_card *soc_card, int online)
 {
 	snd_card_change_online_state(soc_card->snd_card, online);
 }
-EXPORT_SYMBOL(snd_soc_card_change_online_state);
+/* DISABLED: EXPORT_SYMBOL(snd_soc_card_change_online_state); */
 
 /**
  * snd_soc_register_codec - Register a codec with the ASoC core
@@ -3683,7 +3683,7 @@ fail:
 	kfree(codec);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(snd_soc_register_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_register_codec); */
 
 /**
  * snd_soc_unregister_codec - Unregister a codec from the ASoC core
@@ -3717,7 +3717,7 @@ found:
 	kfree(codec->name);
 	kfree(codec);
 }
-EXPORT_SYMBOL_GPL(snd_soc_unregister_codec);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_unregister_codec); */
 
 /* Retrieve a card's name from device tree */
 int snd_soc_of_parse_card_name(struct snd_soc_card *card,
@@ -3741,7 +3741,7 @@ int snd_soc_of_parse_card_name(struct snd_soc_card *card,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_of_parse_card_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_of_parse_card_name); */
 
 int snd_soc_of_parse_audio_routing(struct snd_soc_card *card,
 				   const char *propname)
@@ -3798,7 +3798,7 @@ int snd_soc_of_parse_audio_routing(struct snd_soc_card *card,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_soc_of_parse_audio_routing);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_of_parse_audio_routing); */
 
 static int __init snd_soc_init(void)
 {

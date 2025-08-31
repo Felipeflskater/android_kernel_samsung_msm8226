@@ -716,9 +716,9 @@ cpci_hotplug_exit(void)
 	cpci_hp_unregister_controller(controller);
 }
 
-EXPORT_SYMBOL_GPL(cpci_hp_register_controller);
-EXPORT_SYMBOL_GPL(cpci_hp_unregister_controller);
-EXPORT_SYMBOL_GPL(cpci_hp_register_bus);
-EXPORT_SYMBOL_GPL(cpci_hp_unregister_bus);
-EXPORT_SYMBOL_GPL(cpci_hp_start);
-EXPORT_SYMBOL_GPL(cpci_hp_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_register_controller); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_unregister_controller); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_register_bus); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_unregister_bus); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_start); */
+/* DISABLED: EXPORT_SYMBOL_GPL(cpci_hp_stop); */

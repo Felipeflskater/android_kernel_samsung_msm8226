@@ -105,7 +105,7 @@ int fsl_rio_mcheck_exception(struct pt_regs *regs)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(fsl_rio_mcheck_exception);
+/* DISABLED: EXPORT_SYMBOL_GPL(fsl_rio_mcheck_exception); */
 #endif
 
 /**

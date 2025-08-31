@@ -32,7 +32,7 @@
 
 static spinlock_t fsl_lbc_lock = __SPIN_LOCK_UNLOCKED(fsl_lbc_lock);
 struct fsl_lbc_ctrl *fsl_lbc_ctrl_dev;
-EXPORT_SYMBOL(fsl_lbc_ctrl_dev);
+/* DISABLED: EXPORT_SYMBOL(fsl_lbc_ctrl_dev); */
 
 /**
  * fsl_lbc_addr - convert the base address
@@ -53,7 +53,7 @@ u32 fsl_lbc_addr(phys_addr_t addr_base)
 
 	return addr | ((addr_base & 0x300000000ull) >> 19);
 }
-EXPORT_SYMBOL(fsl_lbc_addr);
+/* DISABLED: EXPORT_SYMBOL(fsl_lbc_addr); */
 
 /**
  * fsl_lbc_find - find Localbus bank
@@ -83,7 +83,7 @@ int fsl_lbc_find(phys_addr_t addr_base)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL(fsl_lbc_find);
+/* DISABLED: EXPORT_SYMBOL(fsl_lbc_find); */
 
 /**
  * fsl_upm_find - find pre-programmed UPM via base address
@@ -140,7 +140,7 @@ int fsl_upm_find(phys_addr_t addr_base, struct fsl_upm *upm)
 
 	return 0;
 }
-EXPORT_SYMBOL(fsl_upm_find);
+/* DISABLED: EXPORT_SYMBOL(fsl_upm_find); */
 
 /**
  * fsl_upm_run_pattern - actually run an UPM pattern
@@ -183,7 +183,7 @@ int fsl_upm_run_pattern(struct fsl_upm *upm, void __iomem *io_base, u32 mar)
 
 	return ret;
 }
-EXPORT_SYMBOL(fsl_upm_run_pattern);
+/* DISABLED: EXPORT_SYMBOL(fsl_upm_run_pattern); */
 
 static int __devinit fsl_lbc_ctrl_init(struct fsl_lbc_ctrl *ctrl,
 				       struct device_node *node)

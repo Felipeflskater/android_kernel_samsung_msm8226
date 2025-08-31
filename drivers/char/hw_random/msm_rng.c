@@ -56,17 +56,17 @@
 /* Global FIPS status  */
 #ifdef CONFIG_FIPS_ENABLE
 enum fips_status g_fips140_status = FIPS140_STATUS_FAIL;
-EXPORT_SYMBOL(g_fips140_status);
+/* DISABLED: EXPORT_SYMBOL(g_fips140_status); */
 
 #else
 enum fips_status g_fips140_status = FIPS140_STATUS_NA;
-EXPORT_SYMBOL(g_fips140_status);
+/* DISABLED: EXPORT_SYMBOL(g_fips140_status); */
 
 #endif
 
 /*FIPS140-2 call back for DRBG self test */
 void *drbg_call_back;
-EXPORT_SYMBOL(drbg_call_back);
+/* DISABLED: EXPORT_SYMBOL(drbg_call_back); */
 
 
 
@@ -564,9 +564,9 @@ static void __exit msm_rng_exit(void)
 
 module_exit(msm_rng_exit);
 #ifdef CONFIG_FIPS_ENABLE
-EXPORT_SYMBOL(fips_ctraes128_df_known_answer_test);
+/* DISABLED: EXPORT_SYMBOL(fips_ctraes128_df_known_answer_test); */
 #endif
-EXPORT_SYMBOL(_do_msm_fips_drbg_init);
+/* DISABLED: EXPORT_SYMBOL(_do_msm_fips_drbg_init); */
 
 MODULE_AUTHOR("The Linux Foundation");
 MODULE_DESCRIPTION("Qualcomm MSM Random Number Driver");

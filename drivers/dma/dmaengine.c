@@ -268,7 +268,7 @@ enum dma_status dma_sync_wait(struct dma_chan *chan, dma_cookie_t cookie)
 
 	return status;
 }
-EXPORT_SYMBOL(dma_sync_wait);
+/* DISABLED: EXPORT_SYMBOL(dma_sync_wait); */
 
 /**
  * dma_cap_mask_all - enable iteration over all operation types
@@ -330,7 +330,7 @@ struct dma_chan *dma_find_channel(enum dma_transaction_type tx_type)
 {
 	return this_cpu_read(channel_table[tx_type]->chan);
 }
-EXPORT_SYMBOL(dma_find_channel);
+/* DISABLED: EXPORT_SYMBOL(dma_find_channel); */
 
 /*
  * net_dma_find_channel - find a channel for net_dma
@@ -344,7 +344,7 @@ struct dma_chan *net_dma_find_channel(void)
 
 	return chan;
 }
-EXPORT_SYMBOL(net_dma_find_channel);
+/* DISABLED: EXPORT_SYMBOL(net_dma_find_channel); */
 
 /**
  * dma_issue_pending_all - flush all pending operations across all channels
@@ -364,7 +364,7 @@ void dma_issue_pending_all(void)
 	}
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL(dma_issue_pending_all);
+/* DISABLED: EXPORT_SYMBOL(dma_issue_pending_all); */
 
 /**
  * nth_chan - returns the nth channel of the given capability
@@ -540,7 +540,7 @@ struct dma_chan *__dma_request_channel(dma_cap_mask_t *mask, dma_filter_fn fn, v
 
 	return chan;
 }
-EXPORT_SYMBOL_GPL(__dma_request_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(__dma_request_channel); */
 
 void dma_release_channel(struct dma_chan *chan)
 {
@@ -553,7 +553,7 @@ void dma_release_channel(struct dma_chan *chan)
 		dma_cap_clear(DMA_PRIVATE, chan->device->cap_mask);
 	mutex_unlock(&dma_list_mutex);
 }
-EXPORT_SYMBOL_GPL(dma_release_channel);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_release_channel); */
 
 /**
  * dmaengine_get - register interest in dma_channels
@@ -591,7 +591,7 @@ void dmaengine_get(void)
 		dma_channel_rebalance();
 	mutex_unlock(&dma_list_mutex);
 }
-EXPORT_SYMBOL(dmaengine_get);
+/* DISABLED: EXPORT_SYMBOL(dmaengine_get); */
 
 /**
  * dmaengine_put - let dma drivers be removed when ref_count == 0
@@ -613,7 +613,7 @@ void dmaengine_put(void)
 	}
 	mutex_unlock(&dma_list_mutex);
 }
-EXPORT_SYMBOL(dmaengine_put);
+/* DISABLED: EXPORT_SYMBOL(dmaengine_put); */
 
 static bool device_has_all_tx_types(struct dma_device *device)
 {
@@ -818,7 +818,7 @@ err_out:
 	}
 	return rc;
 }
-EXPORT_SYMBOL(dma_async_device_register);
+/* DISABLED: EXPORT_SYMBOL(dma_async_device_register); */
 
 /**
  * dma_async_device_unregister - unregister a DMA device
@@ -847,7 +847,7 @@ void dma_async_device_unregister(struct dma_device *device)
 		free_percpu(chan->local);
 	}
 }
-EXPORT_SYMBOL(dma_async_device_unregister);
+/* DISABLED: EXPORT_SYMBOL(dma_async_device_unregister); */
 
 /**
  * dma_async_memcpy_buf_to_buf - offloaded copy between virtual addresses
@@ -894,7 +894,7 @@ dma_async_memcpy_buf_to_buf(struct dma_chan *chan, void *dest,
 
 	return cookie;
 }
-EXPORT_SYMBOL(dma_async_memcpy_buf_to_buf);
+/* DISABLED: EXPORT_SYMBOL(dma_async_memcpy_buf_to_buf); */
 
 /**
  * dma_async_memcpy_buf_to_pg - offloaded copy from address to page
@@ -940,7 +940,7 @@ dma_async_memcpy_buf_to_pg(struct dma_chan *chan, struct page *page,
 
 	return cookie;
 }
-EXPORT_SYMBOL(dma_async_memcpy_buf_to_pg);
+/* DISABLED: EXPORT_SYMBOL(dma_async_memcpy_buf_to_pg); */
 
 /**
  * dma_async_memcpy_pg_to_pg - offloaded copy from page to page
@@ -989,7 +989,7 @@ dma_async_memcpy_pg_to_pg(struct dma_chan *chan, struct page *dest_pg,
 
 	return cookie;
 }
-EXPORT_SYMBOL(dma_async_memcpy_pg_to_pg);
+/* DISABLED: EXPORT_SYMBOL(dma_async_memcpy_pg_to_pg); */
 
 void dma_async_tx_descriptor_init(struct dma_async_tx_descriptor *tx,
 	struct dma_chan *chan)
@@ -999,7 +999,7 @@ void dma_async_tx_descriptor_init(struct dma_async_tx_descriptor *tx,
 	spin_lock_init(&tx->lock);
 	#endif
 }
-EXPORT_SYMBOL(dma_async_tx_descriptor_init);
+/* DISABLED: EXPORT_SYMBOL(dma_async_tx_descriptor_init); */
 
 /* dma_wait_for_async_tx - spin wait for a transaction to complete
  * @tx: in-flight transaction to wait on
@@ -1022,7 +1022,7 @@ dma_wait_for_async_tx(struct dma_async_tx_descriptor *tx)
 	}
 	return dma_sync_wait(tx->chan, tx->cookie);
 }
-EXPORT_SYMBOL_GPL(dma_wait_for_async_tx);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_wait_for_async_tx); */
 
 /* dma_run_dependencies - helper routine for dma drivers to process
  *	(start) dependent operations on their target channel
@@ -1060,7 +1060,7 @@ void dma_run_dependencies(struct dma_async_tx_descriptor *tx)
 
 	chan->device->device_issue_pending(chan);
 }
-EXPORT_SYMBOL_GPL(dma_run_dependencies);
+/* DISABLED: EXPORT_SYMBOL_GPL(dma_run_dependencies); */
 
 static int __init dma_bus_init(void)
 {

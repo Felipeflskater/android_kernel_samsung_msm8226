@@ -2970,17 +2970,17 @@ static void *unit_find(struct idr *p, int n)
 module_init(ppp_init);
 module_exit(ppp_cleanup);
 
-EXPORT_SYMBOL(ppp_register_net_channel);
-EXPORT_SYMBOL(ppp_register_channel);
-EXPORT_SYMBOL(ppp_unregister_channel);
-EXPORT_SYMBOL(ppp_channel_index);
-EXPORT_SYMBOL(ppp_unit_number);
-EXPORT_SYMBOL(ppp_dev_name);
-EXPORT_SYMBOL(ppp_input);
-EXPORT_SYMBOL(ppp_input_error);
-EXPORT_SYMBOL(ppp_output_wakeup);
-EXPORT_SYMBOL(ppp_register_compressor);
-EXPORT_SYMBOL(ppp_unregister_compressor);
+/* DISABLED: EXPORT_SYMBOL(ppp_register_net_channel); */
+/* DISABLED: EXPORT_SYMBOL(ppp_register_channel); */
+/* DISABLED: EXPORT_SYMBOL(ppp_unregister_channel); */
+/* DISABLED: EXPORT_SYMBOL(ppp_channel_index); */
+/* DISABLED: EXPORT_SYMBOL(ppp_unit_number); */
+/* DISABLED: EXPORT_SYMBOL(ppp_dev_name); */
+/* DISABLED: EXPORT_SYMBOL(ppp_input); */
+/* DISABLED: EXPORT_SYMBOL(ppp_input_error); */
+/* DISABLED: EXPORT_SYMBOL(ppp_output_wakeup); */
+/* DISABLED: EXPORT_SYMBOL(ppp_register_compressor); */
+/* DISABLED: EXPORT_SYMBOL(ppp_unregister_compressor); */
 MODULE_LICENSE("GPL");
 MODULE_ALIAS_CHARDEV(PPP_MAJOR, 0);
 MODULE_ALIAS("devname:ppp");

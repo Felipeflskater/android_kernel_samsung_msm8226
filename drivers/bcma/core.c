@@ -18,7 +18,7 @@ bool bcma_core_is_enabled(struct bcma_device *core)
 		return false;
 	return true;
 }
-EXPORT_SYMBOL_GPL(bcma_core_is_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_is_enabled); */
 
 void bcma_core_disable(struct bcma_device *core, u32 flags)
 {
@@ -32,7 +32,7 @@ void bcma_core_disable(struct bcma_device *core, u32 flags)
 	bcma_awrite32(core, BCMA_RESET_CTL, BCMA_RESET_CTL_RESET);
 	udelay(1);
 }
-EXPORT_SYMBOL_GPL(bcma_core_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_disable); */
 
 int bcma_core_enable(struct bcma_device *core, u32 flags)
 {
@@ -50,7 +50,7 @@ int bcma_core_enable(struct bcma_device *core, u32 flags)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(bcma_core_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_enable); */
 
 void bcma_core_set_clockmode(struct bcma_device *core,
 			     enum bcma_clkmode clkmode)
@@ -81,7 +81,7 @@ void bcma_core_set_clockmode(struct bcma_device *core,
 		break;
 	}
 }
-EXPORT_SYMBOL_GPL(bcma_core_set_clockmode);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_set_clockmode); */
 
 void bcma_core_pll_ctl(struct bcma_device *core, u32 req, u32 status, bool on)
 {
@@ -106,7 +106,7 @@ void bcma_core_pll_ctl(struct bcma_device *core, u32 req, u32 status, bool on)
 		pr_warn("Disabling PLL not supported yet!\n");
 	}
 }
-EXPORT_SYMBOL_GPL(bcma_core_pll_ctl);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_pll_ctl); */
 
 u32 bcma_core_dma_translation(struct bcma_device *core)
 {
@@ -124,4 +124,4 @@ u32 bcma_core_dma_translation(struct bcma_device *core)
 	}
 	return BCMA_DMA_TRANSLATION_NONE;
 }
-EXPORT_SYMBOL(bcma_core_dma_translation);
+/* DISABLED: EXPORT_SYMBOL(bcma_core_dma_translation); */

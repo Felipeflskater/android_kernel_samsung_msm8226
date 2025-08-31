@@ -431,7 +431,7 @@ int dmar_disabled = 1;
 #endif /*CONFIG_INTEL_IOMMU_DEFAULT_ON*/
 
 int intel_iommu_enabled = 0;
-EXPORT_SYMBOL_GPL(intel_iommu_enabled);
+/* DISABLED: EXPORT_SYMBOL_GPL(intel_iommu_enabled); */
 
 static int dmar_map_gfx = 1;
 static int dmar_forcedac;
@@ -439,7 +439,7 @@ static int intel_iommu_strict;
 static int intel_iommu_superpage = 1;
 
 int intel_iommu_gfx_mapped;
-EXPORT_SYMBOL_GPL(intel_iommu_gfx_mapped);
+/* DISABLED: EXPORT_SYMBOL_GPL(intel_iommu_gfx_mapped); */
 
 #define DUMMY_DEVICE_DOMAIN_INFO ((struct device_domain_info *)(-1))
 static DEFINE_SPINLOCK(device_domain_lock);
@@ -482,7 +482,7 @@ static int __init intel_iommu_setup(char *str)
 	}
 	return 0;
 }
-/* DISABLED: __setup("intel_iommu=", intel_iommu_setup); */
+/* DISABLED: __setup("intel_iommu=", intel_iommu_setup); */ */
 
 static struct kmem_cache *iommu_domain_cache;
 static struct kmem_cache *iommu_devinfo_cache;

@@ -778,7 +778,7 @@ exit:
 exitnowrite:
 	return status;
 }
-EXPORT_SYMBOL(dvb_ca_en50221_camchange_irq);
+/* DISABLED: EXPORT_SYMBOL(dvb_ca_en50221_camchange_irq); */
 
 
 
@@ -808,7 +808,7 @@ static int dvb_ca_en50221_slot_shutdown(struct dvb_ca_private *ca, int slot)
 	/* success */
 	return 0;
 }
-EXPORT_SYMBOL(dvb_ca_en50221_camready_irq);
+/* DISABLED: EXPORT_SYMBOL(dvb_ca_en50221_camready_irq); */
 
 
 /**
@@ -837,7 +837,7 @@ void dvb_ca_en50221_camchange_irq(struct dvb_ca_en50221 *pubca, int slot, int ch
 	atomic_inc(&ca->slot_info[slot].camchange_count);
 	dvb_ca_en50221_thread_wakeup(ca);
 }
-EXPORT_SYMBOL(dvb_ca_en50221_frda_irq);
+/* DISABLED: EXPORT_SYMBOL(dvb_ca_en50221_frda_irq); */
 
 
 /**
@@ -1614,7 +1614,7 @@ static unsigned int dvb_ca_en50221_io_poll(struct file *file, poll_table * wait)
 
 	return mask;
 }
-EXPORT_SYMBOL(dvb_ca_en50221_init);
+/* DISABLED: EXPORT_SYMBOL(dvb_ca_en50221_init); */
 
 
 static const struct file_operations dvb_ca_fops = {
@@ -1722,7 +1722,7 @@ error:
 	pubca->private = NULL;
 	return ret;
 }
-EXPORT_SYMBOL(dvb_ca_en50221_release);
+/* DISABLED: EXPORT_SYMBOL(dvb_ca_en50221_release); */
 
 
 

@@ -1914,8 +1914,8 @@ static struct packet_type ppptalk_packet_type __read_mostly = {
 static unsigned char ddp_snap_id[] = { 0x08, 0x00, 0x07, 0x80, 0x9B };
 
 /* Export symbols for use by drivers when AppleTalk is a module */
-EXPORT_SYMBOL(atrtr_get_dev);
-EXPORT_SYMBOL(atalk_find_dev_addr);
+/* DISABLED: EXPORT_SYMBOL(atrtr_get_dev); */
+/* DISABLED: EXPORT_SYMBOL(atalk_find_dev_addr); */
 
 static const char atalk_err_snap[] __initconst =
 	KERN_CRIT "Unable to register DDP with SNAP.\n";

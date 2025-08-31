@@ -47,7 +47,7 @@
 static int __initdata acpi_force = 0;
 u32 acpi_rsdt_forced;
 int acpi_disabled;
-EXPORT_SYMBOL(acpi_disabled);
+/* DISABLED: EXPORT_SYMBOL(acpi_disabled); */
 
 #ifdef	CONFIG_X86_64
 # include <asm/proto.h>
@@ -62,7 +62,7 @@ EXPORT_SYMBOL(acpi_disabled);
 
 int acpi_noirq;				/* skip ACPI IRQ initialization */
 int acpi_pci_disabled;		/* skip ACPI PCI scan and IRQ initialization */
-EXPORT_SYMBOL(acpi_pci_disabled);
+/* DISABLED: EXPORT_SYMBOL(acpi_pci_disabled); */
 
 int acpi_lapic;
 int acpi_ioapic;
@@ -521,7 +521,7 @@ int acpi_gsi_to_irq(u32 gsi, unsigned int *irq)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(acpi_gsi_to_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_gsi_to_irq); */
 
 int acpi_isa_irq_to_gsi(unsigned isa_irq, u32 *gsi)
 {
@@ -685,7 +685,7 @@ int __ref acpi_map_lsapic(acpi_handle handle, int *pcpu)
 {
 	return _acpi_map_lsapic(handle, pcpu);
 }
-EXPORT_SYMBOL(acpi_map_lsapic);
+/* DISABLED: EXPORT_SYMBOL(acpi_map_lsapic); */
 
 int acpi_unmap_lsapic(int cpu)
 {
@@ -696,7 +696,7 @@ int acpi_unmap_lsapic(int cpu)
 	return (0);
 }
 
-EXPORT_SYMBOL(acpi_unmap_lsapic);
+/* DISABLED: EXPORT_SYMBOL(acpi_unmap_lsapic); */
 #endif				/* CONFIG_ACPI_HOTPLUG_CPU */
 
 int acpi_register_ioapic(acpi_handle handle, u64 phys_addr, u32 gsi_base)
@@ -705,7 +705,7 @@ int acpi_register_ioapic(acpi_handle handle, u64 phys_addr, u32 gsi_base)
 	return -EINVAL;
 }
 
-EXPORT_SYMBOL(acpi_register_ioapic);
+/* DISABLED: EXPORT_SYMBOL(acpi_register_ioapic); */
 
 int acpi_unregister_ioapic(acpi_handle handle, u32 gsi_base)
 {
@@ -713,7 +713,7 @@ int acpi_unregister_ioapic(acpi_handle handle, u32 gsi_base)
 	return -EINVAL;
 }
 
-EXPORT_SYMBOL(acpi_unregister_ioapic);
+/* DISABLED: EXPORT_SYMBOL(acpi_unregister_ioapic); */
 
 static int __init acpi_parse_sbf(struct acpi_table_header *table)
 {

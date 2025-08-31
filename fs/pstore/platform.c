@@ -107,7 +107,7 @@ bool pstore_cannot_block_path(enum kmsg_dump_reason reason)
 		return false;
 	}
 }
-EXPORT_SYMBOL_GPL(pstore_cannot_block_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(pstore_cannot_block_path); */
 
 /*
  * callback from kmsg_dump. (s2,l2) has the most recently
@@ -222,7 +222,7 @@ int pstore_register(struct pstore_info *psi)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(pstore_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(pstore_register); */
 
 /*
  * Read all the records from the persistent store. Create

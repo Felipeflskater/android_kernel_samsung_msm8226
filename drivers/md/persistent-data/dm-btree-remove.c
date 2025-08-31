@@ -588,4 +588,4 @@ int dm_btree_remove(struct dm_btree_info *info, dm_block_t root,
 
 	return r;
 }
-EXPORT_SYMBOL_GPL(dm_btree_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(dm_btree_remove); */

@@ -47,7 +47,7 @@ static inline int ABS(int x) { return x >= 0 ? x : -x; }
 char chip_model[64] __write_once;
 
 struct pglist_data node_data[MAX_NUMNODES] __read_mostly;
-EXPORT_SYMBOL(node_data);
+/* DISABLED: EXPORT_SYMBOL(node_data); */
 
 /* We only create bootmem data on node 0. */
 static bootmem_data_t __initdata node0_bdata;
@@ -76,17 +76,17 @@ int node_controller[MAX_NUMNODES] = { [0 ... MAX_NUMNODES-1] = -1 };
 /* Map information from VAs to PAs */
 unsigned long pbase_map[1 << (32 - HPAGE_SHIFT)]
   __write_once __attribute__((aligned(L2_CACHE_BYTES)));
-EXPORT_SYMBOL(pbase_map);
+/* DISABLED: EXPORT_SYMBOL(pbase_map); */
 
 /* Map information from PAs to VAs */
 void *vbase_map[NR_PA_HIGHBIT_VALUES]
   __write_once __attribute__((aligned(L2_CACHE_BYTES)));
-EXPORT_SYMBOL(vbase_map);
+/* DISABLED: EXPORT_SYMBOL(vbase_map); */
 #endif
 
 /* Node number as a function of the high PA bits */
 int highbits_to_node[NR_PA_HIGHBIT_VALUES] __write_once;
-EXPORT_SYMBOL(highbits_to_node);
+/* DISABLED: EXPORT_SYMBOL(highbits_to_node); */
 
 static unsigned int __initdata maxmem_pfn = -1U;
 static unsigned int __initdata maxnodemem_pfn[MAX_NUMNODES] = {
@@ -693,11 +693,11 @@ static void __init zone_sizes_init(void)
 
 /* which logical CPUs are on which nodes */
 struct cpumask node_2_cpu_mask[MAX_NUMNODES] __write_once;
-EXPORT_SYMBOL(node_2_cpu_mask);
+/* DISABLED: EXPORT_SYMBOL(node_2_cpu_mask); */
 
 /* which node each logical CPU is on */
 char cpu_2_node[NR_CPUS] __write_once __attribute__((aligned(L2_CACHE_BYTES)));
-EXPORT_SYMBOL(cpu_2_node);
+/* DISABLED: EXPORT_SYMBOL(cpu_2_node); */
 
 /* Return cpu_to_node() except for cpus not yet assigned, which return -1 */
 static int __init cpu_to_bound_node(int cpu, struct cpumask* unbound_cpus)
@@ -1090,7 +1090,7 @@ static void __init validate_va(void)
  * It is set by hv_inquire_tiles(HV_INQ_TILES_LOTAR).
  */
 struct cpumask __write_once cpu_lotar_map;
-EXPORT_SYMBOL(cpu_lotar_map);
+/* DISABLED: EXPORT_SYMBOL(cpu_lotar_map); */
 
 #if CHIP_HAS_CBOX_HOME_MAP()
 /*
@@ -1101,7 +1101,7 @@ EXPORT_SYMBOL(cpu_lotar_map);
  * It is set by hv_inquire_tiles(HV_INQ_TILES_HFH_CACHE).
  */
 struct cpumask hash_for_home_map;
-EXPORT_SYMBOL(hash_for_home_map);
+/* DISABLED: EXPORT_SYMBOL(hash_for_home_map); */
 #endif
 
 /*
@@ -1114,7 +1114,7 @@ EXPORT_SYMBOL(hash_for_home_map);
  * cpu_cacheable_map, as they are a special case.
  */
 struct cpumask __write_once cpu_cacheable_map;
-EXPORT_SYMBOL(cpu_cacheable_map);
+/* DISABLED: EXPORT_SYMBOL(cpu_cacheable_map); */
 
 static __initdata struct cpumask disabled_map;
 
@@ -1309,7 +1309,7 @@ void __init setup_arch(char **cmdline_p)
  */
 
 unsigned long __per_cpu_offset[NR_CPUS] __write_once;
-EXPORT_SYMBOL(__per_cpu_offset);
+/* DISABLED: EXPORT_SYMBOL(__per_cpu_offset); */
 
 static size_t __initdata pfn_offset[MAX_NUMNODES] = { 0 };
 static unsigned long __initdata percpu_pfn[NR_CPUS] = { 0 };

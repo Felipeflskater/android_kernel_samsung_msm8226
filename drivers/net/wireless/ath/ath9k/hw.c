@@ -140,7 +140,7 @@ bool ath9k_hw_wait(struct ath_hw *ah, u32 reg, u32 mask, u32 val, u32 timeout)
 
 	return false;
 }
-EXPORT_SYMBOL(ath9k_hw_wait);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_wait); */
 
 void ath9k_hw_write_array(struct ath_hw *ah, struct ar5416IniArray *array,
 			  int column, unsigned int *writecnt)
@@ -219,7 +219,7 @@ u16 ath9k_hw_computetxtime(struct ath_hw *ah,
 
 	return txTime;
 }
-EXPORT_SYMBOL(ath9k_hw_computetxtime);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_computetxtime); */
 
 void ath9k_hw_get_channel_centers(struct ath_hw *ah,
 				  struct ath9k_channel *chan,
@@ -696,7 +696,7 @@ int ath9k_hw_init(struct ath_hw *ah)
 
 	return 0;
 }
-EXPORT_SYMBOL(ath9k_hw_init);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_init); */
 
 static void ath9k_hw_init_qos(struct ath_hw *ah)
 {
@@ -742,7 +742,7 @@ u32 ar9003_get_pll_sqsum_dvc(struct ath_hw *ah)
 
 	return (REG_READ(ah, PLL3) & SQSUM_DVC_MASK) >> 3;
 }
-EXPORT_SYMBOL(ar9003_get_pll_sqsum_dvc);
+/* DISABLED: EXPORT_SYMBOL(ar9003_get_pll_sqsum_dvc); */
 
 static void ath9k_hw_init_pll(struct ath_hw *ah,
 			      struct ath9k_channel *chan)
@@ -1075,7 +1075,7 @@ void ath9k_hw_init_global_settings(struct ath_hw *ah)
 		AR_USEC_TX_LAT | AR_USEC_RX_LAT | AR_USEC_USEC);
 
 }
-EXPORT_SYMBOL(ath9k_hw_init_global_settings);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_init_global_settings); */
 
 void ath9k_hw_deinit(struct ath_hw *ah)
 {
@@ -1089,7 +1089,7 @@ void ath9k_hw_deinit(struct ath_hw *ah)
 free_hw:
 	ath9k_hw_rf_free_ext_banks(ah);
 }
-EXPORT_SYMBOL(ath9k_hw_deinit);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_deinit); */
 
 /*******/
 /* INI */
@@ -1532,7 +1532,7 @@ bool ath9k_hw_check_alive(struct ath_hw *ah)
 
 	return false;
 }
-EXPORT_SYMBOL(ath9k_hw_check_alive);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_check_alive); */
 
 /*
  * Fast channel change:
@@ -1878,7 +1878,7 @@ int ath9k_hw_reset(struct ath_hw *ah, struct ath9k_channel *chan,
 
 	return 0;
 }
-EXPORT_SYMBOL(ath9k_hw_reset);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_reset); */
 
 /******************************/
 /* Power Management (Chipset) */
@@ -2083,7 +2083,7 @@ bool ath9k_hw_setpower(struct ath_hw *ah, enum ath9k_power_mode mode)
 
 	return status;
 }
-EXPORT_SYMBOL(ath9k_hw_setpower);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setpower); */
 
 /*******************/
 /* Beacon Handling */
@@ -2128,7 +2128,7 @@ void ath9k_hw_beaconinit(struct ath_hw *ah, u32 next_beacon, u32 beacon_period)
 
 	REG_SET_BIT(ah, AR_TIMER_MODE, flags);
 }
-EXPORT_SYMBOL(ath9k_hw_beaconinit);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_beaconinit); */
 
 void ath9k_hw_set_sta_beacon_timers(struct ath_hw *ah,
 				    const struct ath9k_beacon_state *bs)
@@ -2200,7 +2200,7 @@ void ath9k_hw_set_sta_beacon_timers(struct ath_hw *ah,
 	/* TSF Out of Range Threshold */
 	REG_WRITE(ah, AR_TSFOOR_THRESHOLD, bs->bs_tsfoor_threshold);
 }
-EXPORT_SYMBOL(ath9k_hw_set_sta_beacon_timers);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_sta_beacon_timers); */
 
 /*******************/
 /* HW Capabilities */
@@ -2512,7 +2512,7 @@ void ath9k_hw_cfg_gpio_input(struct ath_hw *ah, u32 gpio)
 		(AR_GPIO_OE_OUT_DRV_NO << gpio_shift),
 		(AR_GPIO_OE_OUT_DRV << gpio_shift));
 }
-EXPORT_SYMBOL(ath9k_hw_cfg_gpio_input);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_cfg_gpio_input); */
 
 u32 ath9k_hw_gpio_get(struct ath_hw *ah, u32 gpio)
 {
@@ -2540,7 +2540,7 @@ u32 ath9k_hw_gpio_get(struct ath_hw *ah, u32 gpio)
 	else
 		return MS_REG_READ(AR, gpio) != 0;
 }
-EXPORT_SYMBOL(ath9k_hw_gpio_get);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gpio_get); */
 
 void ath9k_hw_cfg_output(struct ath_hw *ah, u32 gpio,
 			 u32 ah_signal_type)
@@ -2562,7 +2562,7 @@ void ath9k_hw_cfg_output(struct ath_hw *ah, u32 gpio,
 		(AR_GPIO_OE_OUT_DRV_ALL << gpio_shift),
 		(AR_GPIO_OE_OUT_DRV << gpio_shift));
 }
-EXPORT_SYMBOL(ath9k_hw_cfg_output);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_cfg_output); */
 
 void ath9k_hw_set_gpio(struct ath_hw *ah, u32 gpio, u32 val)
 {
@@ -2579,13 +2579,13 @@ void ath9k_hw_set_gpio(struct ath_hw *ah, u32 gpio, u32 val)
 	REG_RMW(ah, AR_GPIO_IN_OUT, ((val & 1) << gpio),
 		AR_GPIO_BIT(gpio));
 }
-EXPORT_SYMBOL(ath9k_hw_set_gpio);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_gpio); */
 
 void ath9k_hw_setantenna(struct ath_hw *ah, u32 antenna)
 {
 	REG_WRITE(ah, AR_DEF_ANTENNA, (antenna & 0x7));
 }
-EXPORT_SYMBOL(ath9k_hw_setantenna);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setantenna); */
 
 /*********************/
 /* General Operation */
@@ -2603,7 +2603,7 @@ u32 ath9k_hw_getrxfilter(struct ath_hw *ah)
 
 	return bits;
 }
-EXPORT_SYMBOL(ath9k_hw_getrxfilter);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_getrxfilter); */
 
 void ath9k_hw_setrxfilter(struct ath_hw *ah, u32 bits)
 {
@@ -2630,7 +2630,7 @@ void ath9k_hw_setrxfilter(struct ath_hw *ah, u32 bits)
 
 	REGWRITE_BUFFER_FLUSH(ah);
 }
-EXPORT_SYMBOL(ath9k_hw_setrxfilter);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setrxfilter); */
 
 bool ath9k_hw_phy_disable(struct ath_hw *ah)
 {
@@ -2641,7 +2641,7 @@ bool ath9k_hw_phy_disable(struct ath_hw *ah)
 	ah->htc_reset_init = true;
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_phy_disable);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_phy_disable); */
 
 bool ath9k_hw_disable(struct ath_hw *ah)
 {
@@ -2654,7 +2654,7 @@ bool ath9k_hw_disable(struct ath_hw *ah)
 	ath9k_hw_init_pll(ah, NULL);
 	return true;
 }
-EXPORT_SYMBOL(ath9k_hw_disable);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_disable); */
 
 static int get_antenna_gain(struct ath_hw *ah, struct ath9k_channel *chan)
 {
@@ -2708,20 +2708,20 @@ void ath9k_hw_set_txpowerlimit(struct ath_hw *ah, u32 limit, bool test)
 	if (test)
 		channel->max_power = DIV_ROUND_UP(reg->max_power_level, 2);
 }
-EXPORT_SYMBOL(ath9k_hw_set_txpowerlimit);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_txpowerlimit); */
 
 void ath9k_hw_setopmode(struct ath_hw *ah)
 {
 	ath9k_hw_set_operating_mode(ah, ah->opmode);
 }
-EXPORT_SYMBOL(ath9k_hw_setopmode);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setopmode); */
 
 void ath9k_hw_setmcastfilter(struct ath_hw *ah, u32 filter0, u32 filter1)
 {
 	REG_WRITE(ah, AR_MCAST_FIL0, filter0);
 	REG_WRITE(ah, AR_MCAST_FIL1, filter1);
 }
-EXPORT_SYMBOL(ath9k_hw_setmcastfilter);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_setmcastfilter); */
 
 void ath9k_hw_write_associd(struct ath_hw *ah)
 {
@@ -2731,7 +2731,7 @@ void ath9k_hw_write_associd(struct ath_hw *ah)
 	REG_WRITE(ah, AR_BSS_ID1, get_unaligned_le16(common->curbssid + 4) |
 		  ((common->curaid & 0x3fff) << AR_BSS_ID1_AID_S));
 }
-EXPORT_SYMBOL(ath9k_hw_write_associd);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_write_associd); */
 
 #define ATH9K_MAX_TSF_READ 10
 
@@ -2753,14 +2753,14 @@ u64 ath9k_hw_gettsf64(struct ath_hw *ah)
 
 	return (((u64)tsf_upper1 << 32) | tsf_lower);
 }
-EXPORT_SYMBOL(ath9k_hw_gettsf64);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gettsf64); */
 
 void ath9k_hw_settsf64(struct ath_hw *ah, u64 tsf64)
 {
 	REG_WRITE(ah, AR_TSF_L32, tsf64 & 0xffffffff);
 	REG_WRITE(ah, AR_TSF_U32, (tsf64 >> 32) & 0xffffffff);
 }
-EXPORT_SYMBOL(ath9k_hw_settsf64);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_settsf64); */
 
 void ath9k_hw_reset_tsf(struct ath_hw *ah)
 {
@@ -2771,7 +2771,7 @@ void ath9k_hw_reset_tsf(struct ath_hw *ah)
 
 	REG_WRITE(ah, AR_RESET_TSF, AR_RESET_TSF_ONCE);
 }
-EXPORT_SYMBOL(ath9k_hw_reset_tsf);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_reset_tsf); */
 
 void ath9k_hw_set_tsfadjust(struct ath_hw *ah, u32 setting)
 {
@@ -2780,7 +2780,7 @@ void ath9k_hw_set_tsfadjust(struct ath_hw *ah, u32 setting)
 	else
 		ah->misc_mode &= ~AR_PCU_TX_ADD_TSF;
 }
-EXPORT_SYMBOL(ath9k_hw_set_tsfadjust);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_set_tsfadjust); */
 
 void ath9k_hw_set11nmac2040(struct ath_hw *ah)
 {
@@ -2844,7 +2844,7 @@ u32 ath9k_hw_gettsf32(struct ath_hw *ah)
 {
 	return REG_READ(ah, AR_TSF_L32);
 }
-EXPORT_SYMBOL(ath9k_hw_gettsf32);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gettsf32); */
 
 struct ath_gen_timer *ath_gen_timer_alloc(struct ath_hw *ah,
 					  void (*trigger)(void *),
@@ -2873,7 +2873,7 @@ struct ath_gen_timer *ath_gen_timer_alloc(struct ath_hw *ah,
 
 	return timer;
 }
-EXPORT_SYMBOL(ath_gen_timer_alloc);
+/* DISABLED: EXPORT_SYMBOL(ath_gen_timer_alloc); */
 
 void ath9k_hw_gen_timer_start(struct ath_hw *ah,
 			      struct ath_gen_timer *timer,
@@ -2924,7 +2924,7 @@ void ath9k_hw_gen_timer_start(struct ath_hw *ah,
 		(SM(AR_GENTMR_BIT(timer->index), AR_IMR_S5_GENTIMER_THRESH) |
 		SM(AR_GENTMR_BIT(timer->index), AR_IMR_S5_GENTIMER_TRIG)));
 }
-EXPORT_SYMBOL(ath9k_hw_gen_timer_start);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gen_timer_start); */
 
 void ath9k_hw_gen_timer_stop(struct ath_hw *ah, struct ath_gen_timer *timer)
 {
@@ -2946,7 +2946,7 @@ void ath9k_hw_gen_timer_stop(struct ath_hw *ah, struct ath_gen_timer *timer)
 
 	clear_bit(timer->index, &timer_table->timer_mask.timer_bits);
 }
-EXPORT_SYMBOL(ath9k_hw_gen_timer_stop);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_gen_timer_stop); */
 
 void ath_gen_timer_free(struct ath_hw *ah, struct ath_gen_timer *timer)
 {
@@ -2956,7 +2956,7 @@ void ath_gen_timer_free(struct ath_hw *ah, struct ath_gen_timer *timer)
 	timer_table->timers[timer->index] = NULL;
 	kfree(timer);
 }
-EXPORT_SYMBOL(ath_gen_timer_free);
+/* DISABLED: EXPORT_SYMBOL(ath_gen_timer_free); */
 
 /*
  * Generic Timer Interrupts handling
@@ -2994,7 +2994,7 @@ void ath_gen_timer_isr(struct ath_hw *ah)
 		timer->trigger(timer->arg);
 	}
 }
-EXPORT_SYMBOL(ath_gen_timer_isr);
+/* DISABLED: EXPORT_SYMBOL(ath_gen_timer_isr); */
 
 /********/
 /* HTC  */
@@ -3089,4 +3089,4 @@ void ath9k_hw_name(struct ath_hw *ah, char *hw_name, size_t len)
 
 	hw_name[used] = '\0';
 }
-EXPORT_SYMBOL(ath9k_hw_name);
+/* DISABLED: EXPORT_SYMBOL(ath9k_hw_name); */

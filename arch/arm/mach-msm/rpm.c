@@ -653,7 +653,7 @@ int msm_rpm_get_status(struct msm_rpm_iv_pair *status, int count)
 get_status_exit:
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpm_get_status);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_get_status); */
 
 /*
  * Issue a resource request to RPM to set resource values.
@@ -682,7 +682,7 @@ int msm_rpm_set(int ctx, struct msm_rpm_iv_pair *req, int count)
 {
 	return msm_rpm_set_common(ctx, req, count, false);
 }
-EXPORT_SYMBOL(msm_rpm_set);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_set); */
 
 /*
  * Issue a resource request to RPM to set resource values.
@@ -698,7 +698,7 @@ int msm_rpm_set_noirq(int ctx, struct msm_rpm_iv_pair *req, int count)
 		"msm_rpm_set or msm_rpm_set_nosleep instead.");
 	return msm_rpm_set_common(ctx, req, count, true);
 }
-EXPORT_SYMBOL(msm_rpm_set_noirq);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_set_noirq); */
 
 /*
  * Issue a resource request to RPM to clear resource values.  Once the
@@ -720,7 +720,7 @@ int msm_rpm_clear(int ctx, struct msm_rpm_iv_pair *req, int count)
 {
 	return msm_rpm_clear_common(ctx, req, count, false);
 }
-EXPORT_SYMBOL(msm_rpm_clear);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_clear); */
 
 /*
  * Issue a resource request to RPM to clear resource values.
@@ -736,7 +736,7 @@ int msm_rpm_clear_noirq(int ctx, struct msm_rpm_iv_pair *req, int count)
 		"msm_rpm_clear or msm_rpm_clear_nosleep instead.");
 	return msm_rpm_clear_common(ctx, req, count, true);
 }
-EXPORT_SYMBOL(msm_rpm_clear_noirq);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_clear_noirq); */
 
 /*
  * Register for RPM notification.  When the specified resources
@@ -798,7 +798,7 @@ int msm_rpm_register_notification(struct msm_rpm_notification *n,
 register_notification_exit:
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpm_register_notification);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_register_notification); */
 
 /*
  * Unregister a notification.
@@ -838,7 +838,7 @@ int msm_rpm_unregister_notification(struct msm_rpm_notification *n)
 
 	return rc;
 }
-EXPORT_SYMBOL(msm_rpm_unregister_notification);
+/* DISABLED: EXPORT_SYMBOL(msm_rpm_unregister_notification); */
 
 static uint32_t fw_major, fw_minor, fw_build;
 

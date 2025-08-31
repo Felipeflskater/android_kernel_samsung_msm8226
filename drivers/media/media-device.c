@@ -320,7 +320,7 @@ int __must_check media_device_register(struct media_device *mdev)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(media_device_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(media_device_register); */
 
 /**
  * media_device_unregister - unregister a media device
@@ -338,7 +338,7 @@ void media_device_unregister(struct media_device *mdev)
 	device_remove_file(&mdev->devnode.dev, &dev_attr_model);
 	media_devnode_unregister(&mdev->devnode);
 }
-EXPORT_SYMBOL_GPL(media_device_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(media_device_unregister); */
 
 /**
  * media_device_register_entity - Register an entity with a media device
@@ -362,7 +362,7 @@ int __must_check media_device_register_entity(struct media_device *mdev,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(media_device_register_entity);
+/* DISABLED: EXPORT_SYMBOL_GPL(media_device_register_entity); */
 
 /**
  * media_device_unregister_entity - Unregister an entity
@@ -383,4 +383,4 @@ void media_device_unregister_entity(struct media_entity *entity)
 	spin_unlock(&mdev->lock);
 	entity->parent = NULL;
 }
-EXPORT_SYMBOL_GPL(media_device_unregister_entity);
+/* DISABLED: EXPORT_SYMBOL_GPL(media_device_unregister_entity); */

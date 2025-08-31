@@ -35,7 +35,7 @@ struct key_type key_type_user = {
 	.read		= user_read,
 };
 
-EXPORT_SYMBOL_GPL(key_type_user);
+/* DISABLED: EXPORT_SYMBOL_GPL(key_type_user); */
 
 /*
  * This key type is essentially the same as key_type_user, but it does
@@ -53,7 +53,7 @@ struct key_type key_type_logon = {
 	.describe		= user_describe,
 	.vet_description	= logon_vet_description,
 };
-EXPORT_SYMBOL_GPL(key_type_logon);
+/* DISABLED: EXPORT_SYMBOL_GPL(key_type_logon); */
 
 /*
  * instantiate a user defined key
@@ -86,7 +86,7 @@ error:
 	return ret;
 }
 
-EXPORT_SYMBOL_GPL(user_instantiate);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_instantiate); */
 
 /*
  * update a user defined key
@@ -132,7 +132,7 @@ error:
 	return ret;
 }
 
-EXPORT_SYMBOL_GPL(user_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_update); */
 
 /*
  * match users on their name
@@ -142,7 +142,7 @@ int user_match(const struct key *key, const void *description)
 	return strcmp(key->description, description) == 0;
 }
 
-EXPORT_SYMBOL_GPL(user_match);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_match); */
 
 /*
  * dispose of the links from a revoked keyring
@@ -161,7 +161,7 @@ void user_revoke(struct key *key)
 	}
 }
 
-EXPORT_SYMBOL(user_revoke);
+/* DISABLED: EXPORT_SYMBOL(user_revoke); */
 
 /*
  * dispose of the data dangling from the corpse of a user key
@@ -179,7 +179,7 @@ void user_destroy(struct key *key)
 	kfree(upayload);
 }
 
-EXPORT_SYMBOL_GPL(user_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_destroy); */
 
 /*
  * describe the user key
@@ -191,7 +191,7 @@ void user_describe(const struct key *key, struct seq_file *m)
 		seq_printf(m, ": %u", key->datalen);
 }
 
-EXPORT_SYMBOL_GPL(user_describe);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_describe); */
 
 /*
  * read the key data
@@ -217,7 +217,7 @@ long user_read(const struct key *key, char __user *buffer, size_t buflen)
 	return ret;
 }
 
-EXPORT_SYMBOL_GPL(user_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(user_read); */
 
 /* Vet the description for a "logon" key */
 static int logon_vet_description(const char *desc)

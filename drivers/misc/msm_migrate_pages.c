@@ -23,7 +23,7 @@ unsigned long get_msm_migrate_pages_status(void)
 {
 	return unstable_memory_state;
 }
-EXPORT_SYMBOL(get_msm_migrate_pages_status);
+/* DISABLED: EXPORT_SYMBOL(get_msm_migrate_pages_status); */
 
 #ifdef CONFIG_MEMORY_HOTPLUG
 static int migrate_pages_callback(struct notifier_block *self,

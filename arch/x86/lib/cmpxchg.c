@@ -20,7 +20,7 @@ unsigned long cmpxchg_386_u8(volatile void *ptr, u8 old, u8 new)
 	local_irq_restore(flags);
 	return prev;
 }
-EXPORT_SYMBOL(cmpxchg_386_u8);
+/* DISABLED: EXPORT_SYMBOL(cmpxchg_386_u8); */
 
 unsigned long cmpxchg_386_u16(volatile void *ptr, u16 old, u16 new)
 {
@@ -35,7 +35,7 @@ unsigned long cmpxchg_386_u16(volatile void *ptr, u16 old, u16 new)
 	local_irq_restore(flags);
 	return prev;
 }
-EXPORT_SYMBOL(cmpxchg_386_u16);
+/* DISABLED: EXPORT_SYMBOL(cmpxchg_386_u16); */
 
 unsigned long cmpxchg_386_u32(volatile void *ptr, u32 old, u32 new)
 {
@@ -50,5 +50,5 @@ unsigned long cmpxchg_386_u32(volatile void *ptr, u32 old, u32 new)
 	local_irq_restore(flags);
 	return prev;
 }
-EXPORT_SYMBOL(cmpxchg_386_u32);
+/* DISABLED: EXPORT_SYMBOL(cmpxchg_386_u32); */
 #endif

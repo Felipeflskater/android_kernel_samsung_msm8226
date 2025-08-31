@@ -48,7 +48,7 @@ char *prom_getenv(const char *name)
 
 	return NULL;
 }
-EXPORT_SYMBOL(prom_getenv);
+/* DISABLED: EXPORT_SYMBOL(prom_getenv); */
 
 static void  __init ar7_init_cmdline(int argc, char *argv[])
 {

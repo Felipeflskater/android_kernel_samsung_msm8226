@@ -484,7 +484,7 @@ static __init int board_avt2(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("avt2", board_avt2); */
+/* DISABLED: __setup("avt2", board_avt2); */ */
 
 static int __init qi_lb60_board_setup(void)
 {

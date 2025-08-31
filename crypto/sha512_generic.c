@@ -197,7 +197,7 @@ int crypto_sha512_update(struct shash_desc *desc, const u8 *data,
 
 	return 0;
 }
-EXPORT_SYMBOL(crypto_sha512_update);
+/* DISABLED: EXPORT_SYMBOL(crypto_sha512_update); */
 
 static int
 sha512_final(struct shash_desc *desc, u8 *hash)

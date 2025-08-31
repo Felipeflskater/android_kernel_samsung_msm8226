@@ -59,7 +59,7 @@ int twl6040_reg_read(struct twl6040 *twl6040, unsigned int reg)
 
 	return val;
 }
-EXPORT_SYMBOL(twl6040_reg_read);
+/* DISABLED: EXPORT_SYMBOL(twl6040_reg_read); */
 
 int twl6040_reg_write(struct twl6040 *twl6040, unsigned int reg, u8 val)
 {
@@ -74,7 +74,7 @@ int twl6040_reg_write(struct twl6040 *twl6040, unsigned int reg, u8 val)
 
 	return ret;
 }
-EXPORT_SYMBOL(twl6040_reg_write);
+/* DISABLED: EXPORT_SYMBOL(twl6040_reg_write); */
 
 int twl6040_set_bits(struct twl6040 *twl6040, unsigned int reg, u8 mask)
 {
@@ -85,7 +85,7 @@ int twl6040_set_bits(struct twl6040 *twl6040, unsigned int reg, u8 mask)
 	mutex_unlock(&twl6040->io_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(twl6040_set_bits);
+/* DISABLED: EXPORT_SYMBOL(twl6040_set_bits); */
 
 int twl6040_clear_bits(struct twl6040 *twl6040, unsigned int reg, u8 mask)
 {
@@ -96,7 +96,7 @@ int twl6040_clear_bits(struct twl6040 *twl6040, unsigned int reg, u8 mask)
 	mutex_unlock(&twl6040->io_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(twl6040_clear_bits);
+/* DISABLED: EXPORT_SYMBOL(twl6040_clear_bits); */
 
 /* twl6040 codec manual power-up sequence */
 static int twl6040_power_up(struct twl6040 *twl6040)
@@ -301,7 +301,7 @@ out:
 	mutex_unlock(&twl6040->mutex);
 	return ret;
 }
-EXPORT_SYMBOL(twl6040_power);
+/* DISABLED: EXPORT_SYMBOL(twl6040_power); */
 
 int twl6040_set_pll(struct twl6040 *twl6040, int pll_id,
 		    unsigned int freq_in, unsigned int freq_out)
@@ -441,7 +441,7 @@ pll_out:
 	mutex_unlock(&twl6040->mutex);
 	return ret;
 }
-EXPORT_SYMBOL(twl6040_set_pll);
+/* DISABLED: EXPORT_SYMBOL(twl6040_set_pll); */
 
 int twl6040_get_pll(struct twl6040 *twl6040)
 {
@@ -450,13 +450,13 @@ int twl6040_get_pll(struct twl6040 *twl6040)
 	else
 		return -ENODEV;
 }
-EXPORT_SYMBOL(twl6040_get_pll);
+/* DISABLED: EXPORT_SYMBOL(twl6040_get_pll); */
 
 unsigned int twl6040_get_sysclk(struct twl6040 *twl6040)
 {
 	return twl6040->sysclk;
 }
-EXPORT_SYMBOL(twl6040_get_sysclk);
+/* DISABLED: EXPORT_SYMBOL(twl6040_get_sysclk); */
 
 /* Get the combined status of the vibra control register */
 int twl6040_get_vibralr_status(struct twl6040 *twl6040)
@@ -468,7 +468,7 @@ int twl6040_get_vibralr_status(struct twl6040 *twl6040)
 
 	return status;
 }
-EXPORT_SYMBOL(twl6040_get_vibralr_status);
+/* DISABLED: EXPORT_SYMBOL(twl6040_get_vibralr_status); */
 
 static struct resource twl6040_vibra_rsrc[] = {
 	{

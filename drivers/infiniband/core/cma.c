@@ -439,7 +439,7 @@ struct rdma_cm_id *rdma_create_id(rdma_cm_event_handler event_handler,
 
 	return &id_priv->id;
 }
-EXPORT_SYMBOL(rdma_create_id);
+/* DISABLED: EXPORT_SYMBOL(rdma_create_id); */
 
 static int cma_init_ud_qp(struct rdma_id_private *id_priv, struct ib_qp *qp)
 {
@@ -510,7 +510,7 @@ err:
 	ib_destroy_qp(qp);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_create_qp);
+/* DISABLED: EXPORT_SYMBOL(rdma_create_qp); */
 
 void rdma_destroy_qp(struct rdma_cm_id *id)
 {
@@ -522,7 +522,7 @@ void rdma_destroy_qp(struct rdma_cm_id *id)
 	id_priv->id.qp = NULL;
 	mutex_unlock(&id_priv->qp_mutex);
 }
-EXPORT_SYMBOL(rdma_destroy_qp);
+/* DISABLED: EXPORT_SYMBOL(rdma_destroy_qp); */
 
 static int cma_modify_qp_rtr(struct rdma_id_private *id_priv,
 			     struct rdma_conn_param *conn_param)
@@ -669,7 +669,7 @@ int rdma_init_qp_attr(struct rdma_cm_id *id, struct ib_qp_attr *qp_attr,
 
 	return ret;
 }
-EXPORT_SYMBOL(rdma_init_qp_attr);
+/* DISABLED: EXPORT_SYMBOL(rdma_init_qp_attr); */
 
 static inline int cma_zero_addr(struct sockaddr *addr)
 {
@@ -952,7 +952,7 @@ void rdma_destroy_id(struct rdma_cm_id *id)
 	kfree(id_priv->id.route.path_rec);
 	kfree(id_priv);
 }
-EXPORT_SYMBOL(rdma_destroy_id);
+/* DISABLED: EXPORT_SYMBOL(rdma_destroy_id); */
 
 static int cma_rep_recv(struct rdma_id_private *id_priv)
 {
@@ -1602,7 +1602,7 @@ void rdma_set_service_type(struct rdma_cm_id *id, int tos)
 	id_priv = container_of(id, struct rdma_id_private, id);
 	id_priv->tos = (u8) tos;
 }
-EXPORT_SYMBOL(rdma_set_service_type);
+/* DISABLED: EXPORT_SYMBOL(rdma_set_service_type); */
 
 static void cma_query_handler(int status, struct ib_sa_path_rec *path_rec,
 			      void *context)
@@ -1769,7 +1769,7 @@ err:
 	cma_comp_exch(id_priv, RDMA_CM_ROUTE_RESOLVED, RDMA_CM_ADDR_RESOLVED);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_set_ib_paths);
+/* DISABLED: EXPORT_SYMBOL(rdma_set_ib_paths); */
 
 static int cma_resolve_iw_route(struct rdma_id_private *id_priv, int timeout_ms)
 {
@@ -1902,7 +1902,7 @@ err:
 	cma_deref_id(id_priv);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_resolve_route);
+/* DISABLED: EXPORT_SYMBOL(rdma_resolve_route); */
 
 static int cma_bind_loopback(struct rdma_id_private *id_priv)
 {
@@ -2078,7 +2078,7 @@ err:
 	cma_deref_id(id_priv);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_resolve_addr);
+/* DISABLED: EXPORT_SYMBOL(rdma_resolve_addr); */
 
 int rdma_set_reuseaddr(struct rdma_cm_id *id, int reuse)
 {
@@ -2097,7 +2097,7 @@ int rdma_set_reuseaddr(struct rdma_cm_id *id, int reuse)
 	spin_unlock_irqrestore(&id_priv->lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_set_reuseaddr);
+/* DISABLED: EXPORT_SYMBOL(rdma_set_reuseaddr); */
 
 static void cma_bind_port(struct rdma_bind_list *bind_list,
 			  struct rdma_id_private *id_priv)
@@ -2343,7 +2343,7 @@ err:
 	cma_comp_exch(id_priv, RDMA_CM_LISTEN, RDMA_CM_ADDR_BOUND);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_listen);
+/* DISABLED: EXPORT_SYMBOL(rdma_listen); */
 
 int rdma_bind_addr(struct rdma_cm_id *id, struct sockaddr *addr)
 {
@@ -2384,7 +2384,7 @@ err1:
 	cma_comp_exch(id_priv, RDMA_CM_ADDR_BOUND, RDMA_CM_IDLE);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_bind_addr);
+/* DISABLED: EXPORT_SYMBOL(rdma_bind_addr); */
 
 static int cma_format_hdr(void *hdr, enum rdma_port_space ps,
 			  struct rdma_route *route)
@@ -2705,7 +2705,7 @@ err:
 	cma_comp_exch(id_priv, RDMA_CM_CONNECT, RDMA_CM_ROUTE_RESOLVED);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_connect);
+/* DISABLED: EXPORT_SYMBOL(rdma_connect); */
 
 static int cma_accept_ib(struct rdma_id_private *id_priv,
 			 struct rdma_conn_param *conn_param)
@@ -2833,7 +2833,7 @@ reject:
 	rdma_reject(id, NULL, 0);
 	return ret;
 }
-EXPORT_SYMBOL(rdma_accept);
+/* DISABLED: EXPORT_SYMBOL(rdma_accept); */
 
 int rdma_notify(struct rdma_cm_id *id, enum ib_event_type event)
 {
@@ -2854,7 +2854,7 @@ int rdma_notify(struct rdma_cm_id *id, enum ib_event_type event)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(rdma_notify);
+/* DISABLED: EXPORT_SYMBOL(rdma_notify); */
 
 int rdma_reject(struct rdma_cm_id *id, const void *private_data,
 		u8 private_data_len)
@@ -2886,7 +2886,7 @@ int rdma_reject(struct rdma_cm_id *id, const void *private_data,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(rdma_reject);
+/* DISABLED: EXPORT_SYMBOL(rdma_reject); */
 
 int rdma_disconnect(struct rdma_cm_id *id)
 {
@@ -2916,7 +2916,7 @@ int rdma_disconnect(struct rdma_cm_id *id)
 out:
 	return ret;
 }
-EXPORT_SYMBOL(rdma_disconnect);
+/* DISABLED: EXPORT_SYMBOL(rdma_disconnect); */
 
 static int cma_ib_mc_handler(int status, struct ib_sa_multicast *multicast)
 {
@@ -3177,7 +3177,7 @@ int rdma_join_multicast(struct rdma_cm_id *id, struct sockaddr *addr,
 	}
 	return ret;
 }
-EXPORT_SYMBOL(rdma_join_multicast);
+/* DISABLED: EXPORT_SYMBOL(rdma_join_multicast); */
 
 void rdma_leave_multicast(struct rdma_cm_id *id, struct sockaddr *addr)
 {
@@ -3213,7 +3213,7 @@ void rdma_leave_multicast(struct rdma_cm_id *id, struct sockaddr *addr)
 	}
 	spin_unlock_irq(&id_priv->lock);
 }
-EXPORT_SYMBOL(rdma_leave_multicast);
+/* DISABLED: EXPORT_SYMBOL(rdma_leave_multicast); */
 
 static int cma_netdev_change(struct net_device *ndev, struct rdma_id_private *id_priv)
 {

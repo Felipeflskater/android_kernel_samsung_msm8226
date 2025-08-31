@@ -59,7 +59,7 @@ struct btree_geo btree_geo32 = {
 	.no_pairs = NODESIZE / sizeof(long) / 2,
 	.no_longs = NODESIZE / sizeof(long) / 2,
 };
-EXPORT_SYMBOL_GPL(btree_geo32);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_geo32); */
 
 #define LONG_PER_U64 (64 / BITS_PER_LONG)
 struct btree_geo btree_geo64 = {
@@ -67,14 +67,14 @@ struct btree_geo btree_geo64 = {
 	.no_pairs = NODESIZE / sizeof(long) / (1 + LONG_PER_U64),
 	.no_longs = LONG_PER_U64 * (NODESIZE / sizeof(long) / (1 + LONG_PER_U64)),
 };
-EXPORT_SYMBOL_GPL(btree_geo64);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_geo64); */
 
 struct btree_geo btree_geo128 = {
 	.keylen = 2 * LONG_PER_U64,
 	.no_pairs = NODESIZE / sizeof(long) / (1 + 2 * LONG_PER_U64),
 	.no_longs = 2 * LONG_PER_U64 * (NODESIZE / sizeof(long) / (1 + 2 * LONG_PER_U64)),
 };
-EXPORT_SYMBOL_GPL(btree_geo128);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_geo128); */
 
 static struct kmem_cache *btree_cachep;
 
@@ -82,13 +82,13 @@ void *btree_alloc(gfp_t gfp_mask, void *pool_data)
 {
 	return kmem_cache_alloc(btree_cachep, gfp_mask);
 }
-EXPORT_SYMBOL_GPL(btree_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_alloc); */
 
 void btree_free(void *element, void *pool_data)
 {
 	kmem_cache_free(btree_cachep, element);
 }
-EXPORT_SYMBOL_GPL(btree_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_free); */
 
 static unsigned long *btree_node_alloc(struct btree_head *head, gfp_t gfp)
 {
@@ -184,7 +184,7 @@ void btree_init_mempool(struct btree_head *head, mempool_t *mempool)
 	__btree_init(head);
 	head->mempool = mempool;
 }
-EXPORT_SYMBOL_GPL(btree_init_mempool);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_init_mempool); */
 
 int btree_init(struct btree_head *head)
 {
@@ -194,7 +194,7 @@ int btree_init(struct btree_head *head)
 		return -ENOMEM;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(btree_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_init); */
 
 void btree_destroy(struct btree_head *head)
 {
@@ -202,7 +202,7 @@ void btree_destroy(struct btree_head *head)
 	mempool_destroy(head->mempool);
 	head->mempool = NULL;
 }
-EXPORT_SYMBOL_GPL(btree_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_destroy); */
 
 void *btree_last(struct btree_head *head, struct btree_geo *geo,
 		 unsigned long *key)
@@ -219,7 +219,7 @@ void *btree_last(struct btree_head *head, struct btree_geo *geo,
 	longcpy(key, bkey(geo, node, 0), geo->keylen);
 	return bval(geo, node, 0);
 }
-EXPORT_SYMBOL_GPL(btree_last);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_last); */
 
 static int keycmp(struct btree_geo *geo, unsigned long *node, int pos,
 		  unsigned long *key)
@@ -266,7 +266,7 @@ void *btree_lookup(struct btree_head *head, struct btree_geo *geo,
 			return bval(geo, node, i);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(btree_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_lookup); */
 
 int btree_update(struct btree_head *head, struct btree_geo *geo,
 		 unsigned long *key, void *val)
@@ -298,7 +298,7 @@ int btree_update(struct btree_head *head, struct btree_geo *geo,
 		}
 	return -ENOENT;
 }
-EXPORT_SYMBOL_GPL(btree_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_update); */
 
 /*
  * Usually this function is quite similar to normal lookup.  But the key of
@@ -358,7 +358,7 @@ miss:
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(btree_get_prev);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_get_prev); */
 
 static int getpos(struct btree_geo *geo, unsigned long *node,
 		unsigned long *key)
@@ -512,7 +512,7 @@ int btree_insert(struct btree_head *head, struct btree_geo *geo,
 {
 	return btree_insert_level(head, geo, key, val, 1, gfp);
 }
-EXPORT_SYMBOL_GPL(btree_insert);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_insert); */
 
 static void *btree_remove_level(struct btree_head *head, struct btree_geo *geo,
 		unsigned long *key, int level);
@@ -633,7 +633,7 @@ void *btree_remove(struct btree_head *head, struct btree_geo *geo,
 
 	return btree_remove_level(head, geo, key, 1);
 }
-EXPORT_SYMBOL_GPL(btree_remove);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_remove); */
 
 int btree_merge(struct btree_head *target, struct btree_head *victim,
 		struct btree_geo *geo, gfp_t gfp)
@@ -670,7 +670,7 @@ int btree_merge(struct btree_head *target, struct btree_head *victim,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(btree_merge);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_merge); */
 
 static size_t __btree_for_each(struct btree_head *head, struct btree_geo *geo,
 			       unsigned long *node, unsigned long opaque,
@@ -710,7 +710,7 @@ void visitorl(void *elem, unsigned long opaque, unsigned long *key,
 
 	func(elem, opaque, *key, index);
 }
-EXPORT_SYMBOL_GPL(visitorl);
+/* DISABLED: EXPORT_SYMBOL_GPL(visitorl); */
 
 void visitor32(void *elem, unsigned long opaque, unsigned long *__key,
 	       size_t index, void *__func)
@@ -720,7 +720,7 @@ void visitor32(void *elem, unsigned long opaque, unsigned long *__key,
 
 	func(elem, opaque, *key, index);
 }
-EXPORT_SYMBOL_GPL(visitor32);
+/* DISABLED: EXPORT_SYMBOL_GPL(visitor32); */
 
 void visitor64(void *elem, unsigned long opaque, unsigned long *__key,
 	       size_t index, void *__func)
@@ -730,7 +730,7 @@ void visitor64(void *elem, unsigned long opaque, unsigned long *__key,
 
 	func(elem, opaque, *key, index);
 }
-EXPORT_SYMBOL_GPL(visitor64);
+/* DISABLED: EXPORT_SYMBOL_GPL(visitor64); */
 
 void visitor128(void *elem, unsigned long opaque, unsigned long *__key,
 		size_t index, void *__func)
@@ -740,7 +740,7 @@ void visitor128(void *elem, unsigned long opaque, unsigned long *__key,
 
 	func(elem, opaque, key[0], key[1], index);
 }
-EXPORT_SYMBOL_GPL(visitor128);
+/* DISABLED: EXPORT_SYMBOL_GPL(visitor128); */
 
 size_t btree_visitor(struct btree_head *head, struct btree_geo *geo,
 		     unsigned long opaque,
@@ -758,7 +758,7 @@ size_t btree_visitor(struct btree_head *head, struct btree_geo *geo,
 				func2, 0, head->height, 0);
 	return count;
 }
-EXPORT_SYMBOL_GPL(btree_visitor);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_visitor); */
 
 size_t btree_grim_visitor(struct btree_head *head, struct btree_geo *geo,
 			  unsigned long opaque,
@@ -777,7 +777,7 @@ size_t btree_grim_visitor(struct btree_head *head, struct btree_geo *geo,
 	__btree_init(head);
 	return count;
 }
-EXPORT_SYMBOL_GPL(btree_grim_visitor);
+/* DISABLED: EXPORT_SYMBOL_GPL(btree_grim_visitor); */
 
 static int __init btree_module_init(void)
 {

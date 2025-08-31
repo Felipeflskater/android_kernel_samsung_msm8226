@@ -340,7 +340,7 @@ void __scsi_print_command(unsigned char *cdb)
 		printk(" %02x", cdb[k]);
 	printk("\n");
 }
-EXPORT_SYMBOL(__scsi_print_command);
+/* DISABLED: EXPORT_SYMBOL(__scsi_print_command); */
 
 void scsi_print_command(struct scsi_cmnd *cmd)
 {
@@ -358,7 +358,7 @@ void scsi_print_command(struct scsi_cmnd *cmd)
 		printk(" %02x", cmd->cmnd[k]);
 	printk("\n");
 }
-EXPORT_SYMBOL(scsi_print_command);
+/* DISABLED: EXPORT_SYMBOL(scsi_print_command); */
 
 /**
  *	scsi_print_status - print scsi status description
@@ -393,7 +393,7 @@ scsi_print_status(unsigned char scsi_status) {
 	printk(KERN_INFO "0x%0x", scsi_status);
 #endif
 }
-EXPORT_SYMBOL(scsi_print_status);
+/* DISABLED: EXPORT_SYMBOL(scsi_print_status); */
 
 #ifdef CONFIG_SCSI_CONSTANTS
 
@@ -1201,7 +1201,7 @@ scsi_sense_key_string(unsigned char key) {
 #endif
 	return NULL;
 }
-EXPORT_SYMBOL(scsi_sense_key_string);
+/* DISABLED: EXPORT_SYMBOL(scsi_sense_key_string); */
 
 /*
  * Get additional sense code string or NULL if not available.
@@ -1225,7 +1225,7 @@ scsi_extd_sense_format(unsigned char asc, unsigned char ascq) {
 #endif
 	return NULL;
 }
-EXPORT_SYMBOL(scsi_extd_sense_format);
+/* DISABLED: EXPORT_SYMBOL(scsi_extd_sense_format); */
 
 void
 scsi_show_extd_sense(unsigned char asc, unsigned char ascq)
@@ -1251,7 +1251,7 @@ scsi_show_extd_sense(unsigned char asc, unsigned char ascq)
 
 	printk("\n");
 }
-EXPORT_SYMBOL(scsi_show_extd_sense);
+/* DISABLED: EXPORT_SYMBOL(scsi_show_extd_sense); */
 
 void
 scsi_show_sense_hdr(struct scsi_sense_hdr *sshdr)
@@ -1272,7 +1272,7 @@ scsi_show_sense_hdr(struct scsi_sense_hdr *sshdr)
 
 	printk("\n");
 }
-EXPORT_SYMBOL(scsi_show_sense_hdr);
+/* DISABLED: EXPORT_SYMBOL(scsi_show_sense_hdr); */
 
 /*
  * Print normalized SCSI sense header with a prefix.
@@ -1285,7 +1285,7 @@ scsi_print_sense_hdr(const char *name, struct scsi_sense_hdr *sshdr)
 	printk(KERN_INFO "%s: ", name);
 	scsi_show_extd_sense(sshdr->asc, sshdr->ascq);
 }
-EXPORT_SYMBOL(scsi_print_sense_hdr);
+/* DISABLED: EXPORT_SYMBOL(scsi_print_sense_hdr); */
 
 /*
  * Print normalized SCSI sense header with device information and a prefix.
@@ -1299,7 +1299,7 @@ scsi_cmd_print_sense_hdr(struct scsi_cmnd *scmd, const char *desc,
 	scmd_printk(KERN_INFO, scmd, "%s: ", desc);
 	scsi_show_extd_sense(sshdr->asc, sshdr->ascq);
 }
-EXPORT_SYMBOL(scsi_cmd_print_sense_hdr);
+/* DISABLED: EXPORT_SYMBOL(scsi_cmd_print_sense_hdr); */
 
 static void
 scsi_decode_sense_buffer(const unsigned char *sense_buffer, int sense_len,
@@ -1398,7 +1398,7 @@ void __scsi_print_sense(const char *name, const unsigned char *sense_buffer,
 	printk(KERN_INFO "%s: ", name);
 	scsi_show_extd_sense(sshdr.asc, sshdr.ascq);
 }
-EXPORT_SYMBOL(__scsi_print_sense);
+/* DISABLED: EXPORT_SYMBOL(__scsi_print_sense); */
 
 /* Normalize and print sense buffer in SCSI command */
 void scsi_print_sense(char *name, struct scsi_cmnd *cmd)
@@ -1414,7 +1414,7 @@ void scsi_print_sense(char *name, struct scsi_cmnd *cmd)
 	scmd_printk(KERN_INFO, cmd, " ");
 	scsi_show_extd_sense(sshdr.asc, sshdr.ascq);
 }
-EXPORT_SYMBOL(scsi_print_sense);
+/* DISABLED: EXPORT_SYMBOL(scsi_print_sense); */
 
 #ifdef CONFIG_SCSI_CONSTANTS
 
@@ -1449,7 +1449,7 @@ void scsi_show_result(int result)
 }
 
 #endif
-EXPORT_SYMBOL(scsi_show_result);
+/* DISABLED: EXPORT_SYMBOL(scsi_show_result); */
 
 
 void scsi_print_result(struct scsi_cmnd *cmd)
@@ -1457,6 +1457,6 @@ void scsi_print_result(struct scsi_cmnd *cmd)
 	scmd_printk(KERN_INFO, cmd, " ");
 	scsi_show_result(cmd->result);
 }
-EXPORT_SYMBOL(scsi_print_result);
+/* DISABLED: EXPORT_SYMBOL(scsi_print_result); */
 
 

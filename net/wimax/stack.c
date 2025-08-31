@@ -363,7 +363,7 @@ void wimax_state_change(struct wimax_dev *wimax_dev, enum wimax_st new_state)
 		__wimax_state_change(wimax_dev, new_state);
 	mutex_unlock(&wimax_dev->mutex);
 }
-EXPORT_SYMBOL_GPL(wimax_state_change);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_state_change); */
 
 
 /**
@@ -381,7 +381,7 @@ enum wimax_st wimax_state_get(struct wimax_dev *wimax_dev)
 	mutex_unlock(&wimax_dev->mutex);
 	return state;
 }
-EXPORT_SYMBOL_GPL(wimax_state_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_state_get); */
 
 
 /**
@@ -400,7 +400,7 @@ void wimax_dev_init(struct wimax_dev *wimax_dev)
 	mutex_init(&wimax_dev->mutex);
 	mutex_init(&wimax_dev->mutex_reset);
 }
-EXPORT_SYMBOL_GPL(wimax_dev_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_dev_init); */
 
 /*
  * This extern is declared here because it's easier to keep track --
@@ -497,7 +497,7 @@ error_rfkill_add:
 		wimax_dev, net_dev, result);
 	return result;
 }
-EXPORT_SYMBOL_GPL(wimax_dev_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_dev_add); */
 
 
 /**
@@ -532,7 +532,7 @@ void wimax_dev_rm(struct wimax_dev *wimax_dev)
 	wimax_rfkill_rm(wimax_dev);
 	d_fnend(3, NULL, "(wimax_dev %p) = void\n", wimax_dev);
 }
-EXPORT_SYMBOL_GPL(wimax_dev_rm);
+/* DISABLED: EXPORT_SYMBOL_GPL(wimax_dev_rm); */
 
 
 /* Debug framework control of debug levels */

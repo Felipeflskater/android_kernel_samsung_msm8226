@@ -137,7 +137,7 @@ int dmabrg_request_irq(unsigned int dmairq, void(*handler)(void*),
 	dmabrg_enable_irq(dmairq);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(dmabrg_request_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(dmabrg_request_irq); */
 
 void dmabrg_free_irq(unsigned int dmairq)
 {
@@ -147,7 +147,7 @@ void dmabrg_free_irq(unsigned int dmairq)
 		dmabrg_handlers[dmairq].data = NULL;
 	}
 }
-EXPORT_SYMBOL_GPL(dmabrg_free_irq);
+/* DISABLED: EXPORT_SYMBOL_GPL(dmabrg_free_irq); */
 
 static int __init dmabrg_init(void)
 {

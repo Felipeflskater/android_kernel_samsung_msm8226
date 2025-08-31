@@ -441,7 +441,7 @@ unsigned long notrace unwind_stack_by_address(unsigned long stack_page,
 	*ra = 0;
 	return __kernel_text_address(pc) ? pc : 0;
 }
-EXPORT_SYMBOL(unwind_stack_by_address);
+/* DISABLED: EXPORT_SYMBOL(unwind_stack_by_address); */
 
 /* used by show_backtrace() */
 unsigned long unwind_stack(struct task_struct *task, unsigned long *sp,

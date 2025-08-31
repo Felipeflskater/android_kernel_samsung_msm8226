@@ -1000,4 +1000,4 @@ static int __devinit sn_hwperf_misc_register_init(void)
 }
 
 device_initcall(sn_hwperf_misc_register_init); /* after misc_init() */
-EXPORT_SYMBOL(sn_hwperf_get_nearest_node);
+/* DISABLED: EXPORT_SYMBOL(sn_hwperf_get_nearest_node); */

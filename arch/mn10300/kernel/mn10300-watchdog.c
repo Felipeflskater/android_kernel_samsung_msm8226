@@ -31,7 +31,7 @@ static unsigned int watchdog;
 static unsigned int watchdog_hz = 1;
 unsigned int watchdog_alert_counter[NR_CPUS];
 
-EXPORT_SYMBOL(touch_nmi_watchdog);
+/* DISABLED: EXPORT_SYMBOL(touch_nmi_watchdog); */
 
 /*
  * the best way to detect whether a CPU has a 'hard lockup' problem
@@ -99,7 +99,7 @@ static int __init setup_watchdog(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("watchdog=", setup_watchdog); */
+/* DISABLED: __setup("watchdog=", setup_watchdog); */ */
 
 void __init watchdog_go(void)
 {

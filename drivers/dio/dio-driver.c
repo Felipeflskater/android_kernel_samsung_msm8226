@@ -137,7 +137,7 @@ static int __init dio_driver_init(void)
 
 postcore_initcall(dio_driver_init);
 
-EXPORT_SYMBOL(dio_match_device);
-EXPORT_SYMBOL(dio_register_driver);
-EXPORT_SYMBOL(dio_unregister_driver);
-EXPORT_SYMBOL(dio_bus_type);
+/* DISABLED: EXPORT_SYMBOL(dio_match_device); */
+/* DISABLED: EXPORT_SYMBOL(dio_register_driver); */
+/* DISABLED: EXPORT_SYMBOL(dio_unregister_driver); */
+/* DISABLED: EXPORT_SYMBOL(dio_bus_type); */

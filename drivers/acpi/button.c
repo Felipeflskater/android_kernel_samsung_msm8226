@@ -217,13 +217,13 @@ int acpi_lid_notifier_register(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&acpi_lid_notifier, nb);
 }
-EXPORT_SYMBOL(acpi_lid_notifier_register);
+/* DISABLED: EXPORT_SYMBOL(acpi_lid_notifier_register); */
 
 int acpi_lid_notifier_unregister(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&acpi_lid_notifier, nb);
 }
-EXPORT_SYMBOL(acpi_lid_notifier_unregister);
+/* DISABLED: EXPORT_SYMBOL(acpi_lid_notifier_unregister); */
 
 int acpi_lid_open(void)
 {
@@ -240,7 +240,7 @@ int acpi_lid_open(void)
 
 	return !!state;
 }
-EXPORT_SYMBOL(acpi_lid_open);
+/* DISABLED: EXPORT_SYMBOL(acpi_lid_open); */
 
 static int acpi_lid_send_state(struct acpi_device *device)
 {

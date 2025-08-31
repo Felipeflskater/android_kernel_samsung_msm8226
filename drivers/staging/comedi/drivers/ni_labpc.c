@@ -350,7 +350,7 @@ const int labpc_1200_is_unipolar[NUM_LABPC_1200_AI_RANGES] = {
 	1,
 	1,
 };
-EXPORT_SYMBOL_GPL(labpc_1200_is_unipolar);
+/* DISABLED: EXPORT_SYMBOL_GPL(labpc_1200_is_unipolar); */
 
 /* map range index to gain bits */
 const int labpc_1200_ai_gain_bits[NUM_LABPC_1200_AI_RANGES] = {
@@ -369,7 +369,7 @@ const int labpc_1200_ai_gain_bits[NUM_LABPC_1200_AI_RANGES] = {
 	0x60,
 	0x70,
 };
-EXPORT_SYMBOL_GPL(labpc_1200_ai_gain_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(labpc_1200_ai_gain_bits); */
 
 const struct comedi_lrange range_labpc_1200_ai = {
 	NUM_LABPC_1200_AI_RANGES,
@@ -390,7 +390,7 @@ const struct comedi_lrange range_labpc_1200_ai = {
 	 UNI_RANGE(0.1),
 	 }
 };
-EXPORT_SYMBOL_GPL(range_labpc_1200_ai);
+/* DISABLED: EXPORT_SYMBOL_GPL(range_labpc_1200_ai); */
 
 /* analog output ranges */
 #define AO_RANGE_IS_UNIPOLAR 0x1
@@ -715,7 +715,7 @@ int labpc_common_attach(struct comedi_device *dev, unsigned long iobase,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(labpc_common_attach);
+/* DISABLED: EXPORT_SYMBOL_GPL(labpc_common_attach); */
 
 static int labpc_attach(struct comedi_device *dev, struct comedi_devconfig *it)
 {
@@ -829,7 +829,7 @@ int labpc_common_detach(struct comedi_device *dev)
 
 	return 0;
 };
-EXPORT_SYMBOL_GPL(labpc_common_detach);
+/* DISABLED: EXPORT_SYMBOL_GPL(labpc_common_detach); */
 
 static void labpc_clear_adc_fifo(const struct comedi_device *dev)
 {

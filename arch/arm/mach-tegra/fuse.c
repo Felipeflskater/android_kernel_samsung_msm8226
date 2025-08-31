@@ -128,4 +128,4 @@ unsigned long long tegra_chip_uid(void)
 	hi = tegra_fuse_readl(FUSE_UID_HIGH);
 	return (hi << 32ull) | lo;
 }
-EXPORT_SYMBOL(tegra_chip_uid);
+/* DISABLED: EXPORT_SYMBOL(tegra_chip_uid); */

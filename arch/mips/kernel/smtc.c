@@ -144,10 +144,10 @@ static int __init asidmask_set(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("vpe0tcs=", vpe0tcs); */
-/* DISABLED: __setup("ipibufs=", ipibufs); */
-/* DISABLED: __setup("nostlb", stlb_disable); */
-/* DISABLED: __setup("asidmask=", asidmask_set); */
+/* DISABLED: __setup("vpe0tcs=", vpe0tcs); */ */
+/* DISABLED: __setup("ipibufs=", ipibufs); */ */
+/* DISABLED: __setup("nostlb", stlb_disable); */ */
+/* DISABLED: __setup("asidmask=", asidmask_set); */ */
 
 #ifdef CONFIG_SMTC_IDLE_HOOK_DEBUG
 
@@ -160,7 +160,7 @@ static int __init hangtrig_enable(char *s)
 }
 
 
-/* DISABLED: __setup("hangtrig", hangtrig_enable); */
+/* DISABLED: __setup("hangtrig", hangtrig_enable); */ */
 
 #define DEFAULT_BLOCKED_IPI_LIMIT 32
 
@@ -172,7 +172,7 @@ static int __init tintq(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("tintq=", tintq); */
+/* DISABLED: __setup("tintq=", tintq); */ */
 
 static int imstuckcount[2][8];
 /* vpemask represents IM/IE bits of per-VPE Status registers, low-to-high */
@@ -1197,7 +1197,7 @@ void smtc_ipi_replay(void)
 	}
 }
 
-EXPORT_SYMBOL(smtc_ipi_replay);
+/* DISABLED: EXPORT_SYMBOL(smtc_ipi_replay); */
 
 void smtc_idle_loop_hook(void)
 {

@@ -49,7 +49,7 @@ out:
 	mutex_unlock(&tps65912->io_mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(tps65912_set_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps65912_set_bits); */
 
 int tps65912_clear_bits(struct tps65912 *tps65912, u8 reg, u8 mask)
 {
@@ -72,7 +72,7 @@ out:
 	mutex_unlock(&tps65912->io_mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(tps65912_clear_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps65912_clear_bits); */
 
 static inline int tps65912_read(struct tps65912 *tps65912, u8 reg)
 {
@@ -104,7 +104,7 @@ int tps65912_reg_read(struct tps65912 *tps65912, u8 reg)
 	mutex_unlock(&tps65912->io_mutex);
 	return data;
 }
-EXPORT_SYMBOL_GPL(tps65912_reg_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps65912_reg_read); */
 
 int tps65912_reg_write(struct tps65912 *tps65912, u8 reg, u8 val)
 {
@@ -119,7 +119,7 @@ int tps65912_reg_write(struct tps65912 *tps65912, u8 reg, u8 val)
 	mutex_unlock(&tps65912->io_mutex);
 	return err;
 }
-EXPORT_SYMBOL_GPL(tps65912_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(tps65912_reg_write); */
 
 int tps65912_device_init(struct tps65912 *tps65912)
 {

@@ -353,7 +353,7 @@ out_unlock:
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(hwrng_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(hwrng_register); */
 
 void hwrng_unregister(struct hwrng *rng)
 {
@@ -378,7 +378,7 @@ void hwrng_unregister(struct hwrng *rng)
 
 	mutex_unlock(&rng_mutex);
 }
-EXPORT_SYMBOL_GPL(hwrng_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(hwrng_unregister); */
 
 
 MODULE_DESCRIPTION("H/W Random Number Generator (RNG) driver");

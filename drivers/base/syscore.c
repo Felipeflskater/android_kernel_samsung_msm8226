@@ -24,7 +24,7 @@ void register_syscore_ops(struct syscore_ops *ops)
 	list_add_tail(&ops->node, &syscore_ops_list);
 	mutex_unlock(&syscore_ops_lock);
 }
-EXPORT_SYMBOL_GPL(register_syscore_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_syscore_ops); */
 
 /**
  * unregister_syscore_ops - Unregister a set of system core operations.
@@ -36,7 +36,7 @@ void unregister_syscore_ops(struct syscore_ops *ops)
 	list_del(&ops->node);
 	mutex_unlock(&syscore_ops_lock);
 }
-EXPORT_SYMBOL_GPL(unregister_syscore_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_syscore_ops); */
 
 #ifdef CONFIG_PM_SLEEP
 /**
@@ -81,7 +81,7 @@ int syscore_suspend(void)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(syscore_suspend);
+/* DISABLED: EXPORT_SYMBOL_GPL(syscore_suspend); */
 
 /**
  * syscore_resume - Execute all the registered system core resume callbacks.
@@ -104,7 +104,7 @@ void syscore_resume(void)
 				"Interrupts enabled after %pF\n", ops->resume);
 		}
 }
-EXPORT_SYMBOL_GPL(syscore_resume);
+/* DISABLED: EXPORT_SYMBOL_GPL(syscore_resume); */
 #endif /* CONFIG_PM_SLEEP */
 
 /**

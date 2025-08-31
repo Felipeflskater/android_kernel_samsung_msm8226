@@ -140,13 +140,13 @@ void i8042_lock_chip(void)
 {
 	mutex_lock(&i8042_mutex);
 }
-EXPORT_SYMBOL(i8042_lock_chip);
+/* DISABLED: EXPORT_SYMBOL(i8042_lock_chip); */
 
 void i8042_unlock_chip(void)
 {
 	mutex_unlock(&i8042_mutex);
 }
-EXPORT_SYMBOL(i8042_unlock_chip);
+/* DISABLED: EXPORT_SYMBOL(i8042_unlock_chip); */
 
 int i8042_install_filter(bool (*filter)(unsigned char data, unsigned char str,
 					struct serio *serio))
@@ -167,7 +167,7 @@ out:
 	spin_unlock_irqrestore(&i8042_lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(i8042_install_filter);
+/* DISABLED: EXPORT_SYMBOL(i8042_install_filter); */
 
 int i8042_remove_filter(bool (*filter)(unsigned char data, unsigned char str,
 				       struct serio *port))
@@ -188,7 +188,7 @@ out:
 	spin_unlock_irqrestore(&i8042_lock, flags);
 	return ret;
 }
-EXPORT_SYMBOL(i8042_remove_filter);
+/* DISABLED: EXPORT_SYMBOL(i8042_remove_filter); */
 
 /*
  * The i8042_wait_read() and i8042_wait_write functions wait for the i8042 to
@@ -305,7 +305,7 @@ int i8042_command(unsigned char *param, int command)
 
 	return retval;
 }
-EXPORT_SYMBOL(i8042_command);
+/* DISABLED: EXPORT_SYMBOL(i8042_command); */
 
 /*
  * i8042_kbd_write() sends a byte out through the keyboard interface.
@@ -1323,7 +1323,7 @@ bool i8042_check_port_owner(const struct serio *port)
 
 	return false;
 }
-EXPORT_SYMBOL(i8042_check_port_owner);
+/* DISABLED: EXPORT_SYMBOL(i8042_check_port_owner); */
 
 static void i8042_free_irqs(void)
 {

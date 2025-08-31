@@ -185,7 +185,7 @@ int at91_suspend_entering_slow_clock(void)
 {
 	return (target_state == PM_SUSPEND_MEM);
 }
-EXPORT_SYMBOL(at91_suspend_entering_slow_clock);
+/* DISABLED: EXPORT_SYMBOL(at91_suspend_entering_slow_clock); */
 
 
 static void (*slow_clock)(void __iomem *pmc, void __iomem *ramc0,

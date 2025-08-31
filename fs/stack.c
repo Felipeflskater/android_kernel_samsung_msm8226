@@ -57,7 +57,7 @@ void fsstack_copy_inode_size(struct inode *dst, struct inode *src)
 	if (sizeof(i_size) > sizeof(long) || sizeof(i_blocks) > sizeof(long))
 		spin_unlock(&dst->i_lock);
 }
-EXPORT_SYMBOL_GPL(fsstack_copy_inode_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(fsstack_copy_inode_size); */
 
 /* copy all attributes */
 void fsstack_copy_attr_all(struct inode *dest, const struct inode *src)
@@ -73,4 +73,4 @@ void fsstack_copy_attr_all(struct inode *dest, const struct inode *src)
 	dest->i_flags = src->i_flags;
 	set_nlink(dest, src->i_nlink);
 }
-EXPORT_SYMBOL_GPL(fsstack_copy_attr_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(fsstack_copy_attr_all); */

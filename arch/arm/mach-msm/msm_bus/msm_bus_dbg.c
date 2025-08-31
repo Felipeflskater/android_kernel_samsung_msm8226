@@ -636,7 +636,7 @@ void msm_bus_dbg_client_data(struct msm_bus_scale_pdata *pdata, int index,
 	} else
 		msm_bus_dbg_fill_cl_buffer(pdata, index, clid);
 }
-EXPORT_SYMBOL(msm_bus_dbg_client_data);
+/* DISABLED: EXPORT_SYMBOL(msm_bus_dbg_client_data); */
 
 /**
  * msm_bus_dbg_commit_data() - Add commit data from fabrics
@@ -660,7 +660,7 @@ void msm_bus_dbg_commit_data(const char *fabname, void *cdata,
 		msm_bus_dbg_fill_fab_buffer(fabname, cdata, nmasters,
 			nslaves, ntslaves);
 }
-EXPORT_SYMBOL(msm_bus_dbg_commit_data);
+/* DISABLED: EXPORT_SYMBOL(msm_bus_dbg_commit_data); */
 
 static int __init msm_bus_debugfs_init(void)
 {

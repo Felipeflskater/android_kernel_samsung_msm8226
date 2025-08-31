@@ -61,7 +61,7 @@ int dma_declare_coherent_memory(struct device *dev, dma_addr_t bus_addr,
 		iounmap(mem_base);
 	return 0;
 }
-EXPORT_SYMBOL(dma_declare_coherent_memory);
+/* DISABLED: EXPORT_SYMBOL(dma_declare_coherent_memory); */
 
 void dma_release_declared_memory(struct device *dev)
 {
@@ -74,7 +74,7 @@ void dma_release_declared_memory(struct device *dev)
 	kfree(mem->bitmap);
 	kfree(mem);
 }
-EXPORT_SYMBOL(dma_release_declared_memory);
+/* DISABLED: EXPORT_SYMBOL(dma_release_declared_memory); */
 
 void *dma_mark_declared_memory_occupied(struct device *dev,
 					dma_addr_t device_addr, size_t size)
@@ -93,7 +93,7 @@ void *dma_mark_declared_memory_occupied(struct device *dev,
 		return ERR_PTR(err);
 	return mem->virt_base + (pos << PAGE_SHIFT);
 }
-EXPORT_SYMBOL(dma_mark_declared_memory_occupied);
+/* DISABLED: EXPORT_SYMBOL(dma_mark_declared_memory_occupied); */
 
 /**
  * dma_alloc_from_coherent() - try to allocate memory from the per-device coherent area
@@ -149,7 +149,7 @@ err:
 	 */
 	return mem->flags & DMA_MEMORY_EXCLUSIVE;
 }
-EXPORT_SYMBOL(dma_alloc_from_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_from_coherent); */
 
 /**
  * dma_release_from_coherent() - try to free the memory allocated from per-device coherent memory pool
@@ -177,7 +177,7 @@ int dma_release_from_coherent(struct device *dev, int order, void *vaddr)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(dma_release_from_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_release_from_coherent); */
 
 /**
  * dma_mmap_from_coherent() - try to mmap the memory allocated from
@@ -217,4 +217,4 @@ int dma_mmap_from_coherent(struct device *dev, struct vm_area_struct *vma,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(dma_mmap_from_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_mmap_from_coherent); */

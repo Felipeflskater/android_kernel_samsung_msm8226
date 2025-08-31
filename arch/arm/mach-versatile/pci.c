@@ -71,7 +71,7 @@ static int __init versatile_pci_slot_ignore(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pci_slot_ignore=", versatile_pci_slot_ignore); */
+/* DISABLED: __setup("pci_slot_ignore=", versatile_pci_slot_ignore); */ */
 
 
 static void __iomem *__pci_addr(struct pci_bus *bus,

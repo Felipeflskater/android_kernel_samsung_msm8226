@@ -108,7 +108,7 @@ int uwb_radio_start(struct uwb_pal *pal)
 	mutex_unlock(&rc->uwb_dev.mutex);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(uwb_radio_start);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_radio_start); */
 
 /**
  * uwb_radio_stop - request tha the radio be stopped.
@@ -130,7 +130,7 @@ void uwb_radio_stop(struct uwb_pal *pal)
 
 	mutex_unlock(&rc->uwb_dev.mutex);
 }
-EXPORT_SYMBOL_GPL(uwb_radio_stop);
+/* DISABLED: EXPORT_SYMBOL_GPL(uwb_radio_stop); */
 
 /*
  * uwb_radio_force_channel - force a specific channel to be used

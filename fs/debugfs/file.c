@@ -102,7 +102,7 @@ struct dentry *debugfs_create_u8(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_u8);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_u8);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_u8); */
 
 static int debugfs_u16_set(void *data, u64 val)
 {
@@ -154,7 +154,7 @@ struct dentry *debugfs_create_u16(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_u16);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_u16);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_u16); */
 
 static int debugfs_u32_set(void *data, u64 val)
 {
@@ -206,7 +206,7 @@ struct dentry *debugfs_create_u32(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_u32);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_u32);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_u32); */
 
 static int debugfs_u64_set(void *data, u64 val)
 {
@@ -259,7 +259,7 @@ struct dentry *debugfs_create_u64(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_u64);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_u64);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_u64); */
 
 DEFINE_SIMPLE_ATTRIBUTE(fops_x8, debugfs_u8_get, debugfs_u8_set, "0x%02llx\n");
 DEFINE_SIMPLE_ATTRIBUTE(fops_x8_ro, debugfs_u8_get, NULL, "0x%02llx\n");
@@ -305,7 +305,7 @@ struct dentry *debugfs_create_x8(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_x8);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_x8);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_x8); */
 
 /**
  * debugfs_create_x16 - create a debugfs file that is used to read and write an unsigned 16-bit value
@@ -329,7 +329,7 @@ struct dentry *debugfs_create_x16(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_x16);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_x16);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_x16); */
 
 /**
  * debugfs_create_x32 - create a debugfs file that is used to read and write an unsigned 32-bit value
@@ -353,7 +353,7 @@ struct dentry *debugfs_create_x32(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_x32);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_x32);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_x32); */
 
 /**
  * debugfs_create_x64 - create a debugfs file that is used to read and write an unsigned 64-bit value
@@ -370,7 +370,7 @@ struct dentry *debugfs_create_x64(const char *name, umode_t mode,
 {
 	return debugfs_create_file(name, mode, parent, value, &fops_x64);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_x64);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_x64); */
 
 
 static int debugfs_size_t_set(void *data, u64 val)
@@ -401,7 +401,7 @@ struct dentry *debugfs_create_size_t(const char *name, umode_t mode,
 {
 	return debugfs_create_file(name, mode, parent, value, &fops_size_t);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_size_t);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_size_t); */
 
 static int debugfs_atomic_t_set(void *data, u64 val)
 {
@@ -443,7 +443,7 @@ struct dentry *debugfs_create_atomic_t(const char *name, umode_t mode,
 
 	return debugfs_create_file(name, mode, parent, value, &fops_atomic_t);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_atomic_t);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_atomic_t); */
 
 static ssize_t read_file_bool(struct file *file, char __user *user_buf,
 			      size_t count, loff_t *ppos)
@@ -514,7 +514,7 @@ struct dentry *debugfs_create_bool(const char *name, umode_t mode,
 {
 	return debugfs_create_file(name, mode, parent, value, &fops_bool);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_bool);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_bool); */
 
 static ssize_t read_file_blob(struct file *file, char __user *user_buf,
 			      size_t count, loff_t *ppos)
@@ -560,7 +560,7 @@ struct dentry *debugfs_create_blob(const char *name, umode_t mode,
 {
 	return debugfs_create_file(name, mode, parent, blob, &fops_blob);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_blob);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_blob); */
 
 #ifdef CONFIG_HAS_IOMEM
 
@@ -598,7 +598,7 @@ int debugfs_print_regs32(struct seq_file *s, const struct debugfs_reg32 *regs,
 	}
 	return ret;
 }
-EXPORT_SYMBOL_GPL(debugfs_print_regs32);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_print_regs32); */
 
 static int debugfs_show_regset32(struct seq_file *s, void *data)
 {
@@ -651,6 +651,6 @@ struct dentry *debugfs_create_regset32(const char *name, umode_t mode,
 {
 	return debugfs_create_file(name, mode, parent, regset, &fops_regset32);
 }
-EXPORT_SYMBOL_GPL(debugfs_create_regset32);
+/* DISABLED: EXPORT_SYMBOL_GPL(debugfs_create_regset32); */
 
 #endif /* CONFIG_HAS_IOMEM */

@@ -43,7 +43,7 @@ void modem_queue_smsm_init_notify(void)
 	if (!ret)
 		printk(KERN_ERR "%s\n", __func__);
 }
-EXPORT_SYMBOL(modem_queue_smsm_init_notify);
+/* DISABLED: EXPORT_SYMBOL(modem_queue_smsm_init_notify); */
 
 static void notify_work_start_reset(struct work_struct *work)
 {
@@ -60,7 +60,7 @@ void modem_queue_start_reset_notify(void)
 	if (!ret)
 		printk(KERN_ERR "%s\n", __func__);
 }
-EXPORT_SYMBOL(modem_queue_start_reset_notify);
+/* DISABLED: EXPORT_SYMBOL(modem_queue_start_reset_notify); */
 
 static void notify_work_end_reset(struct work_struct *work)
 {
@@ -77,7 +77,7 @@ void modem_queue_end_reset_notify(void)
 	if (!ret)
 		printk(KERN_ERR "%s\n", __func__);
 }
-EXPORT_SYMBOL(modem_queue_end_reset_notify);
+/* DISABLED: EXPORT_SYMBOL(modem_queue_end_reset_notify); */
 
 int modem_register_notifier(struct notifier_block *nb)
 {
@@ -88,7 +88,7 @@ int modem_register_notifier(struct notifier_block *nb)
 
 	return ret;
 }
-EXPORT_SYMBOL(modem_register_notifier);
+/* DISABLED: EXPORT_SYMBOL(modem_register_notifier); */
 
 int modem_unregister_notifier(struct notifier_block *nb)
 {
@@ -99,13 +99,13 @@ int modem_unregister_notifier(struct notifier_block *nb)
 
 	return ret;
 }
-EXPORT_SYMBOL(modem_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL(modem_unregister_notifier); */
 
 void modem_notify(void *data, unsigned int state)
 {
 	srcu_notifier_call_chain(&modem_notifier_list, state, data);
 }
-EXPORT_SYMBOL(modem_notify);
+/* DISABLED: EXPORT_SYMBOL(modem_notify); */
 
 #if defined(CONFIG_DEBUG_FS)
 static int debug_reset_start(const char __user *buf, int count)

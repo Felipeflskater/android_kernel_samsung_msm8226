@@ -737,7 +737,7 @@ static int __init baycom_ser_hdx_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("baycom_ser_hdx=", baycom_ser_hdx_setup); */
+/* DISABLED: __setup("baycom_ser_hdx=", baycom_ser_hdx_setup); */ */
 
 #endif /* MODULE */
 /* --------------------------------------------------------------------- */

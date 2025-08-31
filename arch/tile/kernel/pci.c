@@ -73,7 +73,7 @@ resource_size_t pcibios_align_resource(void *data, const struct resource *res,
 {
 	return res->start;
 }
-EXPORT_SYMBOL(pcibios_align_resource);
+/* DISABLED: EXPORT_SYMBOL(pcibios_align_resource); */
 
 /*
  * Open a FD to the hypervisor PCI device.
@@ -605,7 +605,7 @@ type _tile_read##size(unsigned long addr)				\
 		       sizeof(type), addr);				\
 	return val;							\
 }									\
-EXPORT_SYMBOL(_tile_read##size)
+/* DISABLED: EXPORT_SYMBOL(_tile_read##size) */
 
 TILE_READ(b, u8);
 TILE_READ(w, u16);
@@ -624,7 +624,7 @@ void _tile_write##size(type val, unsigned long addr)			\
 		pr_err("PCI: write %zd bytes at 0x%lX failed\n",	\
 		       sizeof(type), addr);				\
 }									\
-EXPORT_SYMBOL(_tile_write##size)
+/* DISABLED: EXPORT_SYMBOL(_tile_write##size) */
 
 TILE_WRITE(b, u8);
 TILE_WRITE(w, u16);

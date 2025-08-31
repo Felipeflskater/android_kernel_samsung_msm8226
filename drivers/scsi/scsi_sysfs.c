@@ -417,7 +417,7 @@ struct bus_type scsi_bus_type = {
 	.pm		= &scsi_bus_pm_ops,
 #endif
 };
-EXPORT_SYMBOL_GPL(scsi_bus_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(scsi_bus_type); */
 
 int scsi_sysfs_register(void)
 {
@@ -986,7 +986,7 @@ void scsi_remove_device(struct scsi_device *sdev)
 	__scsi_remove_device(sdev);
 	mutex_unlock(&shost->scan_mutex);
 }
-EXPORT_SYMBOL(scsi_remove_device);
+/* DISABLED: EXPORT_SYMBOL(scsi_remove_device); */
 
 static void __scsi_remove_target(struct scsi_target *starget)
 {
@@ -1039,7 +1039,7 @@ restart:
 	}
 	spin_unlock_irqrestore(shost->host_lock, flags);
 }
-EXPORT_SYMBOL(scsi_remove_target);
+/* DISABLED: EXPORT_SYMBOL(scsi_remove_target); */
 
 int scsi_register_driver(struct device_driver *drv)
 {
@@ -1047,7 +1047,7 @@ int scsi_register_driver(struct device_driver *drv)
 
 	return driver_register(drv);
 }
-EXPORT_SYMBOL(scsi_register_driver);
+/* DISABLED: EXPORT_SYMBOL(scsi_register_driver); */
 
 int scsi_register_interface(struct class_interface *intf)
 {
@@ -1055,7 +1055,7 @@ int scsi_register_interface(struct class_interface *intf)
 
 	return class_interface_register(intf);
 }
-EXPORT_SYMBOL(scsi_register_interface);
+/* DISABLED: EXPORT_SYMBOL(scsi_register_interface); */
 
 /**
  * scsi_sysfs_add_host - add scsi host to subsystem
@@ -1115,7 +1115,7 @@ int scsi_is_sdev_device(const struct device *dev)
 {
 	return dev->type == &scsi_dev_type;
 }
-EXPORT_SYMBOL(scsi_is_sdev_device);
+/* DISABLED: EXPORT_SYMBOL(scsi_is_sdev_device); */
 
 /* A blank transport template that is used in drivers that don't
  * yet implement Transport Attributes */

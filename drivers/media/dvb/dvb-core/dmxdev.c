@@ -4657,7 +4657,7 @@ int dvb_dmxdev_init(struct dmxdev *dmxdev, struct dvb_adapter *dvb_adapter)
 	return 0;
 }
 
-EXPORT_SYMBOL(dvb_dmxdev_init);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmxdev_init); */
 
 void dvb_dmxdev_release(struct dmxdev *dmxdev)
 {
@@ -4679,4 +4679,4 @@ void dvb_dmxdev_release(struct dmxdev *dmxdev)
 	dmxdev->demux->close(dmxdev->demux);
 }
 
-EXPORT_SYMBOL(dvb_dmxdev_release);
+/* DISABLED: EXPORT_SYMBOL(dvb_dmxdev_release); */

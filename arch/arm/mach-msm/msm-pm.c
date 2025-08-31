@@ -143,7 +143,7 @@ void msm_pm_set_l2_flush_flag(enum msm_pm_l2_scm_flag flag)
 {
 	msm_pm_flush_l2_flag = flag;
 }
-EXPORT_SYMBOL(msm_pm_set_l2_flush_flag);
+/* DISABLED: EXPORT_SYMBOL(msm_pm_set_l2_flush_flag); */
 
 static enum msm_pm_l2_scm_flag msm_pm_get_l2_flush_flag(void)
 {
@@ -929,7 +929,7 @@ void msm_pm_enable_retention(bool enable)
 		preempt_enable();
 	}
 }
-EXPORT_SYMBOL(msm_pm_enable_retention);
+/* DISABLED: EXPORT_SYMBOL(msm_pm_enable_retention); */
 
 static int msm_pm_snoc_client_probe(struct platform_device *pdev)
 {

@@ -91,7 +91,7 @@ int marimba_read_bahama_ver(struct marimba *marimba)
 		return BAHAMA_VER_UNSUPPORTED;
 	}
 }
-EXPORT_SYMBOL(marimba_read_bahama_ver);
+/* DISABLED: EXPORT_SYMBOL(marimba_read_bahama_ver); */
 /**
  * marimba_ssbi_write - Writes a n bit TSADC register in Marimba
  * @param marimba: marimba structure pointer passed by client
@@ -121,7 +121,7 @@ int marimba_ssbi_write(struct marimba *marimba, u16 reg , u8 *value, int len)
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_ssbi_write);
+/* DISABLED: EXPORT_SYMBOL(marimba_ssbi_write); */
 
 /**
  * marimba_ssbi_read - Reads a n bit TSADC register in Marimba
@@ -153,7 +153,7 @@ int marimba_ssbi_read(struct marimba *marimba, u16 reg, u8 *value, int len)
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_ssbi_read);
+/* DISABLED: EXPORT_SYMBOL(marimba_ssbi_read); */
 
 /**
  * marimba_write_bit_mask - Sets n bit register using bit mask
@@ -221,7 +221,7 @@ int marimba_write_bit_mask(struct marimba *marimba, u8 reg, u8 *value,
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_write_bit_mask);
+/* DISABLED: EXPORT_SYMBOL(marimba_write_bit_mask); */
 
 /**
  * marimba_write - Sets n bit register in Marimba
@@ -237,7 +237,7 @@ int marimba_write(struct marimba *marimba, u8 reg, u8 *value,
 {
 	return marimba_write_bit_mask(marimba, reg, value, num_bytes, 0xff);
 }
-EXPORT_SYMBOL(marimba_write);
+/* DISABLED: EXPORT_SYMBOL(marimba_write); */
 
 /**
  * marimba_read_bit_mask - Reads a n bit register based on bit mask
@@ -293,7 +293,7 @@ int marimba_read_bit_mask(struct marimba *marimba, u8 reg, u8 *value,
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_read_bit_mask);
+/* DISABLED: EXPORT_SYMBOL(marimba_read_bit_mask); */
 
 /**
  * marimba_read - Reads n bit registers in Marimba
@@ -309,20 +309,20 @@ int marimba_read(struct marimba *marimba, u8 reg, u8 *value, unsigned num_bytes)
 {
 	return marimba_read_bit_mask(marimba, reg, value, num_bytes, 0xff);
 }
-EXPORT_SYMBOL(marimba_read);
+/* DISABLED: EXPORT_SYMBOL(marimba_read); */
 
 int timpani_read(struct marimba *marimba, u8 reg, u8 *value, unsigned num_bytes)
 {
 	return marimba_read_bit_mask(marimba, reg, value, num_bytes, 0xff);
 }
-EXPORT_SYMBOL(timpani_read);
+/* DISABLED: EXPORT_SYMBOL(timpani_read); */
 
 int timpani_write(struct marimba *marimba, u8 reg,
 					u8 *value, unsigned num_bytes)
 {
 	return marimba_write_bit_mask(marimba, reg, value, num_bytes, 0xff);
 }
-EXPORT_SYMBOL(timpani_write);
+/* DISABLED: EXPORT_SYMBOL(timpani_write); */
 
 static int cur_codec_type = -1, cur_adie_type = -1, cur_connv_type = -1;
 static int adie_arry_idx;
@@ -331,13 +331,13 @@ int adie_get_detected_codec_type(void)
 {
 	return cur_codec_type;
 }
-EXPORT_SYMBOL(adie_get_detected_codec_type);
+/* DISABLED: EXPORT_SYMBOL(adie_get_detected_codec_type); */
 
 int adie_get_detected_connectivity_type(void)
 {
 	return cur_connv_type;
 }
-EXPORT_SYMBOL(adie_get_detected_connectivity_type);
+/* DISABLED: EXPORT_SYMBOL(adie_get_detected_connectivity_type); */
 
 static struct device *
 add_numbered_child(unsigned chip, const char *name, int num, u8 driver_data,
@@ -453,7 +453,7 @@ int marimba_gpio_config(int gpio_value)
 	return rc;
 
 }
-EXPORT_SYMBOL(marimba_gpio_config);
+/* DISABLED: EXPORT_SYMBOL(marimba_gpio_config); */
 
 bool marimba_get_fm_status(struct marimba *marimba)
 {
@@ -469,7 +469,7 @@ bool marimba_get_fm_status(struct marimba *marimba)
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_get_fm_status);
+/* DISABLED: EXPORT_SYMBOL(marimba_get_fm_status); */
 
 void marimba_set_fm_status(struct marimba *marimba, bool value)
 {
@@ -481,7 +481,7 @@ void marimba_set_fm_status(struct marimba *marimba, bool value)
 
 	mutex_unlock(&marimba->xfer_lock);
 }
-EXPORT_SYMBOL(marimba_set_fm_status);
+/* DISABLED: EXPORT_SYMBOL(marimba_set_fm_status); */
 
 bool marimba_get_bt_status(struct marimba *marimba)
 {
@@ -497,7 +497,7 @@ bool marimba_get_bt_status(struct marimba *marimba)
 
 	return ret;
 }
-EXPORT_SYMBOL(marimba_get_bt_status);
+/* DISABLED: EXPORT_SYMBOL(marimba_get_bt_status); */
 
 void marimba_set_bt_status(struct marimba *marimba, bool value)
 {
@@ -509,7 +509,7 @@ void marimba_set_bt_status(struct marimba *marimba, bool value)
 
 	mutex_unlock(&marimba->xfer_lock);
 }
-EXPORT_SYMBOL(marimba_set_bt_status);
+/* DISABLED: EXPORT_SYMBOL(marimba_set_bt_status); */
 
 #if defined(CONFIG_DEBUG_FS)
 

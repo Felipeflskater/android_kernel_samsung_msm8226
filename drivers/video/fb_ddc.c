@@ -112,7 +112,7 @@ unsigned char *fb_ddc_read(struct i2c_adapter *adapter)
 	return edid;
 }
 
-EXPORT_SYMBOL_GPL(fb_ddc_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(fb_ddc_read); */
 
 MODULE_AUTHOR("Dennis Munsie <dmunsie@cecropia.com>");
 MODULE_DESCRIPTION("DDC/EDID reading support");

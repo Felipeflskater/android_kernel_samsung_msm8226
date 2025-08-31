@@ -24,7 +24,7 @@ int bfin_request_exception(unsigned int exception, void (*handler)(void))
 
 	return 0;
 }
-EXPORT_SYMBOL(bfin_request_exception);
+/* DISABLED: EXPORT_SYMBOL(bfin_request_exception); */
 
 int bfin_free_exception(unsigned int exception, void (*handler)(void))
 {
@@ -42,4 +42,4 @@ int bfin_free_exception(unsigned int exception, void (*handler)(void))
 
 	return 0;
 }
-EXPORT_SYMBOL(bfin_free_exception);
+/* DISABLED: EXPORT_SYMBOL(bfin_free_exception); */

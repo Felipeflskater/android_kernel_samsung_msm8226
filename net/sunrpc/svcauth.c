@@ -57,13 +57,13 @@ svc_authenticate(struct svc_rqst *rqstp, __be32 *authp)
 	rqstp->rq_authop = aops;
 	return aops->accept(rqstp, authp);
 }
-EXPORT_SYMBOL_GPL(svc_authenticate);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_authenticate); */
 
 int svc_set_client(struct svc_rqst *rqstp)
 {
 	return rqstp->rq_authop->set_client(rqstp);
 }
-EXPORT_SYMBOL_GPL(svc_set_client);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_set_client); */
 
 /* A request, which was authenticated, has now executed.
  * Time to finalise the credentials and verifier
@@ -95,7 +95,7 @@ svc_auth_register(rpc_authflavor_t flavor, struct auth_ops *aops)
 	spin_unlock(&authtab_lock);
 	return rv;
 }
-EXPORT_SYMBOL_GPL(svc_auth_register);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_auth_register); */
 
 void
 svc_auth_unregister(rpc_authflavor_t flavor)
@@ -105,7 +105,7 @@ svc_auth_unregister(rpc_authflavor_t flavor)
 		authtab[flavor] = NULL;
 	spin_unlock(&authtab_lock);
 }
-EXPORT_SYMBOL_GPL(svc_auth_unregister);
+/* DISABLED: EXPORT_SYMBOL_GPL(svc_auth_unregister); */
 
 /**************************************************
  * 'auth_domains' are stored in a hash table indexed by name.
@@ -131,7 +131,7 @@ void auth_domain_put(struct auth_domain *dom)
 		spin_unlock(&auth_domain_lock);
 	}
 }
-EXPORT_SYMBOL_GPL(auth_domain_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(auth_domain_put); */
 
 struct auth_domain *
 auth_domain_lookup(char *name, struct auth_domain *new)
@@ -156,10 +156,10 @@ auth_domain_lookup(char *name, struct auth_domain *new)
 	spin_unlock(&auth_domain_lock);
 	return new;
 }
-EXPORT_SYMBOL_GPL(auth_domain_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(auth_domain_lookup); */
 
 struct auth_domain *auth_domain_find(char *name)
 {
 	return auth_domain_lookup(name, NULL);
 }
-EXPORT_SYMBOL_GPL(auth_domain_find);
+/* DISABLED: EXPORT_SYMBOL_GPL(auth_domain_find); */

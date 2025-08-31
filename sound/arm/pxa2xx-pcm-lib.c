@@ -70,7 +70,7 @@ int __pxa2xx_pcm_hw_params(struct snd_pcm_substream *substream,
 
 	return 0;
 }
-EXPORT_SYMBOL(__pxa2xx_pcm_hw_params);
+/* DISABLED: EXPORT_SYMBOL(__pxa2xx_pcm_hw_params); */
 
 int __pxa2xx_pcm_hw_free(struct snd_pcm_substream *substream)
 {
@@ -82,7 +82,7 @@ int __pxa2xx_pcm_hw_free(struct snd_pcm_substream *substream)
 	snd_pcm_set_runtime_buffer(substream, NULL);
 	return 0;
 }
-EXPORT_SYMBOL(__pxa2xx_pcm_hw_free);
+/* DISABLED: EXPORT_SYMBOL(__pxa2xx_pcm_hw_free); */
 
 int pxa2xx_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
 {
@@ -115,7 +115,7 @@ int pxa2xx_pcm_trigger(struct snd_pcm_substream *substream, int cmd)
 
 	return ret;
 }
-EXPORT_SYMBOL(pxa2xx_pcm_trigger);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_trigger); */
 
 snd_pcm_uframes_t
 pxa2xx_pcm_pointer(struct snd_pcm_substream *substream)
@@ -131,7 +131,7 @@ pxa2xx_pcm_pointer(struct snd_pcm_substream *substream)
 		x = 0;
 	return x;
 }
-EXPORT_SYMBOL(pxa2xx_pcm_pointer);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_pointer); */
 
 int __pxa2xx_pcm_prepare(struct snd_pcm_substream *substream)
 {
@@ -150,7 +150,7 @@ int __pxa2xx_pcm_prepare(struct snd_pcm_substream *substream)
 
 	return 0;
 }
-EXPORT_SYMBOL(__pxa2xx_pcm_prepare);
+/* DISABLED: EXPORT_SYMBOL(__pxa2xx_pcm_prepare); */
 
 void pxa2xx_pcm_dma_irq(int dma_ch, void *dev_id)
 {
@@ -171,7 +171,7 @@ void pxa2xx_pcm_dma_irq(int dma_ch, void *dev_id)
 		snd_pcm_stream_unlock(substream);
 	}
 }
-EXPORT_SYMBOL(pxa2xx_pcm_dma_irq);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_dma_irq); */
 
 int __pxa2xx_pcm_open(struct snd_pcm_substream *substream)
 {
@@ -220,7 +220,7 @@ int __pxa2xx_pcm_open(struct snd_pcm_substream *substream)
  out:
 	return ret;
 }
-EXPORT_SYMBOL(__pxa2xx_pcm_open);
+/* DISABLED: EXPORT_SYMBOL(__pxa2xx_pcm_open); */
 
 int __pxa2xx_pcm_close(struct snd_pcm_substream *substream)
 {
@@ -232,7 +232,7 @@ int __pxa2xx_pcm_close(struct snd_pcm_substream *substream)
 	kfree(rtd);
 	return 0;
 }
-EXPORT_SYMBOL(__pxa2xx_pcm_close);
+/* DISABLED: EXPORT_SYMBOL(__pxa2xx_pcm_close); */
 
 int pxa2xx_pcm_mmap(struct snd_pcm_substream *substream,
 	struct vm_area_struct *vma)
@@ -243,7 +243,7 @@ int pxa2xx_pcm_mmap(struct snd_pcm_substream *substream,
 				     runtime->dma_addr,
 				     runtime->dma_bytes);
 }
-EXPORT_SYMBOL(pxa2xx_pcm_mmap);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_mmap); */
 
 int pxa2xx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm, int stream)
 {
@@ -260,7 +260,7 @@ int pxa2xx_pcm_preallocate_dma_buffer(struct snd_pcm *pcm, int stream)
 	buf->bytes = size;
 	return 0;
 }
-EXPORT_SYMBOL(pxa2xx_pcm_preallocate_dma_buffer);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_preallocate_dma_buffer); */
 
 void pxa2xx_pcm_free_dma_buffers(struct snd_pcm *pcm)
 {
@@ -280,7 +280,7 @@ void pxa2xx_pcm_free_dma_buffers(struct snd_pcm *pcm)
 		buf->area = NULL;
 	}
 }
-EXPORT_SYMBOL(pxa2xx_pcm_free_dma_buffers);
+/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_free_dma_buffers); */
 
 MODULE_AUTHOR("Nicolas Pitre");
 MODULE_DESCRIPTION("Intel PXA2xx sound library");

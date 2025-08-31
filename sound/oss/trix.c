@@ -520,6 +520,6 @@ static int __init setup_trix (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("trix=", setup_trix); */
+/* DISABLED: __setup("trix=", setup_trix); */ */
 #endif
 MODULE_LICENSE("GPL");

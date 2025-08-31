@@ -994,7 +994,7 @@ struct msm_session *msm_get_session(unsigned int session_id)
 
 	return session;
 }
-EXPORT_SYMBOL(msm_get_session);
+/* DISABLED: EXPORT_SYMBOL(msm_get_session); */
 
 
 struct msm_stream *msm_get_stream(struct msm_session *session,
@@ -1061,7 +1061,7 @@ struct msm_session *msm_get_session_from_vb2q(struct vb2_queue *q)
 	spin_unlock_irqrestore(&msm_session_q->lock, flags1);
 	return NULL;
 }
-EXPORT_SYMBOL(msm_get_session_from_vb2q);
+/* DISABLED: EXPORT_SYMBOL(msm_get_session_from_vb2q); */
 
 struct msm_stream *msm_get_stream_from_vb2q(struct vb2_queue *q)
 {

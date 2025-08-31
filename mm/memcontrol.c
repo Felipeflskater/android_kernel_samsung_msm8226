@@ -453,7 +453,7 @@ void sock_update_memcg(struct sock *sk)
 		rcu_read_unlock();
 	}
 }
-EXPORT_SYMBOL(sock_update_memcg);
+/* DISABLED: EXPORT_SYMBOL(sock_update_memcg); */
 
 void sock_release_memcg(struct sock *sk)
 {
@@ -473,7 +473,7 @@ struct cg_proto *tcp_proto_cgroup(struct mem_cgroup *memcg)
 
 	return &memcg->tcp_mem.cg_proto;
 }
-EXPORT_SYMBOL(tcp_proto_cgroup);
+/* DISABLED: EXPORT_SYMBOL(tcp_proto_cgroup); */
 #endif /* CONFIG_INET */
 #endif /* CONFIG_MEMCG_KMEM */
 
@@ -1031,7 +1031,7 @@ void mem_cgroup_count_vm_event(struct mm_struct *mm, enum vm_event_item idx)
 out:
 	rcu_read_unlock();
 }
-EXPORT_SYMBOL(mem_cgroup_count_vm_event);
+/* DISABLED: EXPORT_SYMBOL(mem_cgroup_count_vm_event); */
 
 /**
  * mem_cgroup_zone_lruvec - get the lru list vector for a zone and memcg
@@ -4967,7 +4967,7 @@ struct mem_cgroup *parent_mem_cgroup(struct mem_cgroup *memcg)
 		return NULL;
 	return mem_cgroup_from_res_counter(memcg->res.parent, res);
 }
-EXPORT_SYMBOL(parent_mem_cgroup);
+/* DISABLED: EXPORT_SYMBOL(parent_mem_cgroup); */
 
 #ifdef CONFIG_MEMCG_SWAP
 static void __init enable_swap_cgroup(void)
@@ -5720,6 +5720,6 @@ static int __init enable_swap_account(char *s)
 		really_do_swap_account = 0;
 	return 1;
 }
-/* DISABLED: __setup("swapaccount=", enable_swap_account); */
+/* DISABLED: __setup("swapaccount=", enable_swap_account); */ */
 
 #endif

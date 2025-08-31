@@ -38,7 +38,7 @@ static struct of_device_id mpc52xx_sram_ids[] __devinitdata = {
 
 
 struct bcom_engine *bcom_eng = NULL;
-EXPORT_SYMBOL_GPL(bcom_eng);	/* needed for inline functions */
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_eng);	/* needed for inline functions */ */
 
 /* ======================================================================== */
 /* Public and private API                                                   */
@@ -115,7 +115,7 @@ error:
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(bcom_task_alloc);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_task_alloc); */
 
 void
 bcom_task_free(struct bcom_task *tsk)
@@ -133,7 +133,7 @@ bcom_task_free(struct bcom_task *tsk)
 	kfree(tsk->cookie);
 	kfree(tsk);
 }
-EXPORT_SYMBOL_GPL(bcom_task_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_task_free); */
 
 int
 bcom_load_image(int task, u32 *task_image)
@@ -198,7 +198,7 @@ bcom_load_image(int task, u32 *task_image)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(bcom_load_image);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_load_image); */
 
 void
 bcom_set_initiator(int task, int initiator)
@@ -227,7 +227,7 @@ bcom_set_initiator(int task, int initiator)
 		next_drd_has_initiator = !bcom_drd_is_extended(*desc);
 	}
 }
-EXPORT_SYMBOL_GPL(bcom_set_initiator);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_set_initiator); */
 
 
 /* Public API */
@@ -237,14 +237,14 @@ bcom_enable(struct bcom_task *tsk)
 {
 	bcom_enable_task(tsk->tasknum);
 }
-EXPORT_SYMBOL_GPL(bcom_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_enable); */
 
 void
 bcom_disable(struct bcom_task *tsk)
 {
 	bcom_disable_task(tsk->tasknum);
 }
-EXPORT_SYMBOL_GPL(bcom_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(bcom_disable); */
 
 
 /* ======================================================================== */

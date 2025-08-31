@@ -63,4 +63,4 @@ __u32 half_md4_transform(__u32 buf[4], __u32 const in[8])
 
 	return buf[1]; /* "most hashed" word */
 }
-EXPORT_SYMBOL(half_md4_transform);
+/* DISABLED: EXPORT_SYMBOL(half_md4_transform); */

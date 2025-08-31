@@ -97,7 +97,7 @@ int acpi_pci_register_driver(struct acpi_pci_driver *driver)
 	return n;
 }
 
-EXPORT_SYMBOL(acpi_pci_register_driver);
+/* DISABLED: EXPORT_SYMBOL(acpi_pci_register_driver); */
 
 void acpi_pci_unregister_driver(struct acpi_pci_driver *driver)
 {
@@ -119,7 +119,7 @@ void acpi_pci_unregister_driver(struct acpi_pci_driver *driver)
 		driver->remove(root->device->handle);
 }
 
-EXPORT_SYMBOL(acpi_pci_unregister_driver);
+/* DISABLED: EXPORT_SYMBOL(acpi_pci_unregister_driver); */
 
 acpi_handle acpi_get_pci_rootbridge_handle(unsigned int seg, unsigned int bus)
 {
@@ -132,7 +132,7 @@ acpi_handle acpi_get_pci_rootbridge_handle(unsigned int seg, unsigned int bus)
 	return NULL;		
 }
 
-EXPORT_SYMBOL_GPL(acpi_get_pci_rootbridge_handle);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_get_pci_rootbridge_handle); */
 
 /**
  * acpi_is_root_bridge - determine whether an ACPI CA node is a PCI root bridge
@@ -156,7 +156,7 @@ int acpi_is_root_bridge(acpi_handle handle)
 	else
 		return 1;
 }
-EXPORT_SYMBOL_GPL(acpi_is_root_bridge);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_is_root_bridge); */
 
 static acpi_status
 get_root_bridge_busnr_callback(struct acpi_resource *resource, void *data)
@@ -284,7 +284,7 @@ struct acpi_pci_root *acpi_pci_find_root(acpi_handle handle)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(acpi_pci_find_root);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_pci_find_root); */
 
 struct acpi_handle_node {
 	struct list_head node;
@@ -376,7 +376,7 @@ out:
 
 	return pdev;
 }
-EXPORT_SYMBOL_GPL(acpi_get_pci_dev);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_get_pci_dev); */
 
 /**
  * acpi_pci_osc_control_set - Request control of PCI root _OSC features.
@@ -447,7 +447,7 @@ out:
 	mutex_unlock(&osc_lock);
 	return status;
 }
-EXPORT_SYMBOL(acpi_pci_osc_control_set);
+/* DISABLED: EXPORT_SYMBOL(acpi_pci_osc_control_set); */
 
 static int __devinit acpi_pci_root_add(struct acpi_device *device)
 {

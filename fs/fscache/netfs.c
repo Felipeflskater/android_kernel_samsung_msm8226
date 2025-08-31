@@ -76,7 +76,7 @@ already_registered:
 	_leave(" = %d", ret);
 	return ret;
 }
-EXPORT_SYMBOL(__fscache_register_netfs);
+/* DISABLED: EXPORT_SYMBOL(__fscache_register_netfs); */
 
 /*
  * unregister a network filesystem from the cache
@@ -98,4 +98,4 @@ void __fscache_unregister_netfs(struct fscache_netfs *netfs)
 
 	_leave("");
 }
-EXPORT_SYMBOL(__fscache_unregister_netfs);
+/* DISABLED: EXPORT_SYMBOL(__fscache_unregister_netfs); */

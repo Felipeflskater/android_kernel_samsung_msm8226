@@ -290,7 +290,7 @@ int snd_emu10k1_memblk_map(struct snd_emu10k1 *emu, struct snd_emu10k1_memblk *b
 	return err;
 }
 
-EXPORT_SYMBOL(snd_emu10k1_memblk_map);
+/* DISABLED: EXPORT_SYMBOL(snd_emu10k1_memblk_map); */
 
 /*
  * page allocation for DMA
@@ -391,7 +391,7 @@ snd_emu10k1_synth_alloc(struct snd_emu10k1 *hw, unsigned int size)
 	return (struct snd_util_memblk *)blk;
 }
 
-EXPORT_SYMBOL(snd_emu10k1_synth_alloc);
+/* DISABLED: EXPORT_SYMBOL(snd_emu10k1_synth_alloc); */
 
 /*
  * free a synth sample area
@@ -414,7 +414,7 @@ snd_emu10k1_synth_free(struct snd_emu10k1 *emu, struct snd_util_memblk *memblk)
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emu10k1_synth_free);
+/* DISABLED: EXPORT_SYMBOL(snd_emu10k1_synth_free); */
 
 /* check new allocation range */
 static void get_single_page_range(struct snd_util_memhdr *hdr,
@@ -540,7 +540,7 @@ int snd_emu10k1_synth_bzero(struct snd_emu10k1 *emu, struct snd_util_memblk *blk
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emu10k1_synth_bzero);
+/* DISABLED: EXPORT_SYMBOL(snd_emu10k1_synth_bzero); */
 
 /*
  * copy_from_user(blk + offset, data, size)
@@ -571,4 +571,4 @@ int snd_emu10k1_synth_copy_from_user(struct snd_emu10k1 *emu, struct snd_util_me
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_emu10k1_synth_copy_from_user);
+/* DISABLED: EXPORT_SYMBOL(snd_emu10k1_synth_copy_from_user); */

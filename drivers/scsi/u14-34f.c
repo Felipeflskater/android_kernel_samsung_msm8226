@@ -1967,5 +1967,5 @@ static int u14_34f_release(struct Scsi_Host *shpnt) {
 #include "scsi_module.c"
 
 #ifndef MODULE
-/* DISABLED: __setup("u14-34f=", option_setup); */
+/* DISABLED: __setup("u14-34f=", option_setup); */ */
 #endif /* end MODULE */

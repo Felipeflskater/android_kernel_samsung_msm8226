@@ -2851,7 +2851,7 @@ int drxd_config_i2c(struct dvb_frontend *fe, int onoff)
 
 	return DRX_ConfigureI2CBridge(state, onoff);
 }
-EXPORT_SYMBOL(drxd_config_i2c);
+/* DISABLED: EXPORT_SYMBOL(drxd_config_i2c); */
 
 static int drxd_get_tune_settings(struct dvb_frontend *fe,
 				  struct dvb_frontend_tune_settings *sets)
@@ -2985,7 +2985,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-EXPORT_SYMBOL(drxd_attach);
+/* DISABLED: EXPORT_SYMBOL(drxd_attach); */
 
 MODULE_DESCRIPTION("DRXD driver");
 MODULE_AUTHOR("Micronas");

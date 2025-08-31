@@ -67,7 +67,7 @@ u32 fsnotify_get_cookie(void)
 {
 	return atomic_inc_return(&fsnotify_sync_cookie);
 }
-EXPORT_SYMBOL_GPL(fsnotify_get_cookie);
+/* DISABLED: EXPORT_SYMBOL_GPL(fsnotify_get_cookie); */
 
 /* return true if the notify queue is empty, false otherwise */
 bool fsnotify_notify_queue_is_empty(struct fsnotify_group *group)

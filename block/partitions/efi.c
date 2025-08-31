@@ -111,7 +111,7 @@ force_gpt_fn(char *str)
 	force_gpt = 1;
 	return 1;
 }
-/* DISABLED: __setup("gpt", force_gpt_fn); */
+/* DISABLED: __setup("gpt", force_gpt_fn); */ */
 
 
 /**

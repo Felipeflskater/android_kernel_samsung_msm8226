@@ -213,7 +213,7 @@ struct iriap_cb *iriap_open(__u8 slsap_sel, int mode, void *priv,
 
 	return self;
 }
-EXPORT_SYMBOL(iriap_open);
+/* DISABLED: EXPORT_SYMBOL(iriap_open); */
 
 /*
  * Function __iriap_close (self)
@@ -262,7 +262,7 @@ void iriap_close(struct iriap_cb *self)
 
 	__iriap_close(self);
 }
-EXPORT_SYMBOL(iriap_close);
+/* DISABLED: EXPORT_SYMBOL(iriap_close); */
 
 static int iriap_register_lsap(struct iriap_cb *self, __u8 slsap_sel, int mode)
 {
@@ -426,7 +426,7 @@ int iriap_getvaluebyclass_request(struct iriap_cb *self,
 
 	return 0;
 }
-EXPORT_SYMBOL(iriap_getvaluebyclass_request);
+/* DISABLED: EXPORT_SYMBOL(iriap_getvaluebyclass_request); */
 
 /*
  * Function iriap_getvaluebyclass_confirm (self, skb)

@@ -80,7 +80,7 @@ void vmbus_prep_negotiate_resp(struct icmsg_hdr *icmsghdrp,
 		negop->icmsg_vercnt = 1;
 	}
 }
-EXPORT_SYMBOL_GPL(vmbus_prep_negotiate_resp);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_prep_negotiate_resp); */
 
 /*
  * alloc_channel - Allocate and initialize a vmbus channel object

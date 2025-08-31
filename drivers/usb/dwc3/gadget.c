@@ -3301,7 +3301,7 @@ int sec_set_speedlimit(struct usb_gadget *gadget,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sec_set_speedlimit);
+/* DISABLED: EXPORT_SYMBOL_GPL(sec_set_speedlimit); */
 
 int sec_get_ss_host_available(struct usb_gadget *gadget)
 {
@@ -3318,5 +3318,5 @@ int sec_get_ss_host_available(struct usb_gadget *gadget)
 	dev_dbg(dwc->dev,"Superspeed Host avail(%d) \n",ss_host_avail);
 	return ss_host_avail;
 }
-EXPORT_SYMBOL_GPL(sec_get_ss_host_available);
+/* DISABLED: EXPORT_SYMBOL_GPL(sec_get_ss_host_available); */
 #endif

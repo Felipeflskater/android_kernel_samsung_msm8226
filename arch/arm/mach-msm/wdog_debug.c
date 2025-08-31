@@ -26,7 +26,7 @@ void msm_enable_wdog_debug(void)
 	if (ret)
 		pr_err("failed to enable wdog debug: %d\n", ret);
 }
-EXPORT_SYMBOL(msm_enable_wdog_debug);
+/* DISABLED: EXPORT_SYMBOL(msm_enable_wdog_debug); */
 
 void msm_disable_wdog_debug(void)
 {
@@ -37,4 +37,4 @@ void msm_disable_wdog_debug(void)
 	if (ret)
 		pr_err("failed to disable wdog debug: %d\n", ret);
 }
-EXPORT_SYMBOL(msm_disable_wdog_debug);
+/* DISABLED: EXPORT_SYMBOL(msm_disable_wdog_debug); */

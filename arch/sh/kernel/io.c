@@ -74,7 +74,7 @@ void memcpy_fromio(void *to, const volatile void __iomem *from, unsigned long co
 
 	mb();
 }
-EXPORT_SYMBOL(memcpy_fromio);
+/* DISABLED: EXPORT_SYMBOL(memcpy_fromio); */
 
 /*
  * Copy data from "real" memory space to IO memory space.
@@ -97,7 +97,7 @@ void memcpy_toio(volatile void __iomem *to, const void *from, unsigned long coun
 
 	mb();
 }
-EXPORT_SYMBOL(memcpy_toio);
+/* DISABLED: EXPORT_SYMBOL(memcpy_toio); */
 
 /*
  * "memset" on IO memory space.
@@ -111,4 +111,4 @@ void memset_io(volatile void __iomem *dst, int c, unsigned long count)
                 dst++;
         }
 }
-EXPORT_SYMBOL(memset_io);
+/* DISABLED: EXPORT_SYMBOL(memset_io); */

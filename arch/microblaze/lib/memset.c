@@ -93,5 +93,5 @@ void *memset(void *v_src, int c, __kernel_size_t n)
 	return v_src;
 }
 #endif /* CONFIG_OPT_LIB_FUNCTION */
-EXPORT_SYMBOL(memset);
+/* DISABLED: EXPORT_SYMBOL(memset); */
 #endif /* __HAVE_ARCH_MEMSET */

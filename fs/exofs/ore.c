@@ -114,7 +114,7 @@ int ore_verify_layout(unsigned total_comps, struct ore_layout *layout)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(ore_verify_layout);
+/* DISABLED: EXPORT_SYMBOL(ore_verify_layout); */
 
 static u8 *_ios_cred(struct ore_io_state *ios, unsigned index)
 {
@@ -294,7 +294,7 @@ int  ore_get_rw_state(struct ore_layout *layout, struct ore_components *oc,
 
 	return 0;
 }
-EXPORT_SYMBOL(ore_get_rw_state);
+/* DISABLED: EXPORT_SYMBOL(ore_get_rw_state); */
 
 /* Allocate an io_state for all the devices in the comps array
  *
@@ -308,7 +308,7 @@ int  ore_get_io_state(struct ore_layout *layout, struct ore_components *oc,
 {
 	return _ore_get_io_state(layout, oc, oc->numdevs, 0, 0, pios);
 }
-EXPORT_SYMBOL(ore_get_io_state);
+/* DISABLED: EXPORT_SYMBOL(ore_get_io_state); */
 
 void ore_put_io_state(struct ore_io_state *ios)
 {
@@ -328,7 +328,7 @@ void ore_put_io_state(struct ore_io_state *ios)
 		kfree(ios);
 	}
 }
-EXPORT_SYMBOL(ore_put_io_state);
+/* DISABLED: EXPORT_SYMBOL(ore_put_io_state); */
 
 static void _sync_done(struct ore_io_state *ios, void *p)
 {
@@ -460,7 +460,7 @@ int ore_check_io(struct ore_io_state *ios, ore_on_dev_error on_dev_error)
 
 	return acumulated_lin_err;
 }
-EXPORT_SYMBOL(ore_check_io);
+/* DISABLED: EXPORT_SYMBOL(ore_check_io); */
 
 /*
  * L - logical offset into the file
@@ -576,7 +576,7 @@ void ore_calc_stripe_info(struct ore_layout *layout, u64 file_offset,
 
 	si->M = M;
 }
-EXPORT_SYMBOL(ore_calc_stripe_info);
+/* DISABLED: EXPORT_SYMBOL(ore_calc_stripe_info); */
 
 int _ore_add_stripe_unit(struct ore_io_state *ios,  unsigned *cur_pg,
 			 unsigned pgbase, struct page **pages,
@@ -774,7 +774,7 @@ int ore_create(struct ore_io_state *ios)
 out:
 	return ret;
 }
-EXPORT_SYMBOL(ore_create);
+/* DISABLED: EXPORT_SYMBOL(ore_create); */
 
 int ore_remove(struct ore_io_state *ios)
 {
@@ -799,7 +799,7 @@ int ore_remove(struct ore_io_state *ios)
 out:
 	return ret;
 }
-EXPORT_SYMBOL(ore_remove);
+/* DISABLED: EXPORT_SYMBOL(ore_remove); */
 
 static int _write_mirror(struct ore_io_state *ios, int cur_comp)
 {
@@ -922,7 +922,7 @@ int ore_write(struct ore_io_state *ios)
 	ret = ore_io_execute(ios);
 	return ret;
 }
-EXPORT_SYMBOL(ore_write);
+/* DISABLED: EXPORT_SYMBOL(ore_write); */
 
 int _ore_read_mirror(struct ore_io_state *ios, unsigned cur_comp)
 {
@@ -996,7 +996,7 @@ int ore_read(struct ore_io_state *ios)
 	ret = ore_io_execute(ios);
 	return ret;
 }
-EXPORT_SYMBOL(ore_read);
+/* DISABLED: EXPORT_SYMBOL(ore_read); */
 
 int extract_attr_from_ios(struct ore_io_state *ios, struct osd_attr *attr)
 {
@@ -1018,7 +1018,7 @@ int extract_attr_from_ios(struct ore_io_state *ios, struct osd_attr *attr)
 
 	return -EIO;
 }
-EXPORT_SYMBOL(extract_attr_from_ios);
+/* DISABLED: EXPORT_SYMBOL(extract_attr_from_ios); */
 
 static int _truncate_mirrors(struct ore_io_state *ios, unsigned cur_comp,
 			     struct osd_attr *attr)
@@ -1126,8 +1126,8 @@ out:
 	ore_put_io_state(ios);
 	return ret;
 }
-EXPORT_SYMBOL(ore_truncate);
+/* DISABLED: EXPORT_SYMBOL(ore_truncate); */
 
 const struct osd_attr g_attr_logical_length = ATTR_DEF(
 	OSD_APAGE_OBJECT_INFORMATION, OSD_ATTR_OI_LOGICAL_LENGTH, 8);
-EXPORT_SYMBOL(g_attr_logical_length);
+/* DISABLED: EXPORT_SYMBOL(g_attr_logical_length); */

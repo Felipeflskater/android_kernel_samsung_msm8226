@@ -30,70 +30,70 @@ unsigned int ioread8(void __iomem *addr)
 	return readb(addr);
 }
 
-EXPORT_SYMBOL(ioread8);
+/* DISABLED: EXPORT_SYMBOL(ioread8); */
 
 unsigned int ioread16(void __iomem *addr)
 {
 	return readw(addr);
 }
 
-EXPORT_SYMBOL(ioread16);
+/* DISABLED: EXPORT_SYMBOL(ioread16); */
 
 unsigned int ioread16be(void __iomem *addr)
 {
 	return be16_to_cpu(__raw_readw(addr));
 }
 
-EXPORT_SYMBOL(ioread16be);
+/* DISABLED: EXPORT_SYMBOL(ioread16be); */
 
 unsigned int ioread32(void __iomem *addr)
 {
 	return readl(addr);
 }
 
-EXPORT_SYMBOL(ioread32);
+/* DISABLED: EXPORT_SYMBOL(ioread32); */
 
 unsigned int ioread32be(void __iomem *addr)
 {
 	return be32_to_cpu(__raw_readl(addr));
 }
 
-EXPORT_SYMBOL(ioread32be);
+/* DISABLED: EXPORT_SYMBOL(ioread32be); */
 
 void iowrite8(u8 val, void __iomem *addr)
 {
 	writeb(val, addr);
 }
 
-EXPORT_SYMBOL(iowrite8);
+/* DISABLED: EXPORT_SYMBOL(iowrite8); */
 
 void iowrite16(u16 val, void __iomem *addr)
 {
 	writew(val, addr);
 }
 
-EXPORT_SYMBOL(iowrite16);
+/* DISABLED: EXPORT_SYMBOL(iowrite16); */
 
 void iowrite16be(u16 val, void __iomem *addr)
 {
 	__raw_writew(cpu_to_be16(val), addr);
 }
 
-EXPORT_SYMBOL(iowrite16be);
+/* DISABLED: EXPORT_SYMBOL(iowrite16be); */
 
 void iowrite32(u32 val, void __iomem *addr)
 {
 	writel(val, addr);
 }
 
-EXPORT_SYMBOL(iowrite32);
+/* DISABLED: EXPORT_SYMBOL(iowrite32); */
 
 void iowrite32be(u32 val, void __iomem *addr)
 {
 	__raw_writel(cpu_to_be32(val), addr);
 }
 
-EXPORT_SYMBOL(iowrite32be);
+/* DISABLED: EXPORT_SYMBOL(iowrite32be); */
 
 /*
  * These are the "repeat MMIO read/write" functions.
@@ -157,42 +157,42 @@ void ioread8_rep(void __iomem *addr, void *dst, unsigned long count)
 	mmio_insb(addr, dst, count);
 }
 
-EXPORT_SYMBOL(ioread8_rep);
+/* DISABLED: EXPORT_SYMBOL(ioread8_rep); */
 
 void ioread16_rep(void __iomem *addr, void *dst, unsigned long count)
 {
 	mmio_insw(addr, dst, count);
 }
 
-EXPORT_SYMBOL(ioread16_rep);
+/* DISABLED: EXPORT_SYMBOL(ioread16_rep); */
 
 void ioread32_rep(void __iomem *addr, void *dst, unsigned long count)
 {
 	mmio_insl(addr, dst, count);
 }
 
-EXPORT_SYMBOL(ioread32_rep);
+/* DISABLED: EXPORT_SYMBOL(ioread32_rep); */
 
 void iowrite8_rep(void __iomem *addr, const void *src, unsigned long count)
 {
 	mmio_outsb(addr, src, count);
 }
 
-EXPORT_SYMBOL(iowrite8_rep);
+/* DISABLED: EXPORT_SYMBOL(iowrite8_rep); */
 
 void iowrite16_rep(void __iomem *addr, const void *src, unsigned long count)
 {
 	mmio_outsw(addr, src, count);
 }
 
-EXPORT_SYMBOL(iowrite16_rep);
+/* DISABLED: EXPORT_SYMBOL(iowrite16_rep); */
 
 void iowrite32_rep(void __iomem *addr, const void *src, unsigned long count)
 {
 	mmio_outsl(addr, src, count);
 }
 
-EXPORT_SYMBOL(iowrite32_rep);
+/* DISABLED: EXPORT_SYMBOL(iowrite32_rep); */
 
 /*
  * Create a virtual mapping cookie for an IO port range
@@ -216,11 +216,11 @@ void __iomem *ioport_map(unsigned long port, unsigned int nr)
 	return ioport_map_legacy(port, nr);
 }
 
-EXPORT_SYMBOL(ioport_map);
+/* DISABLED: EXPORT_SYMBOL(ioport_map); */
 
 void ioport_unmap(void __iomem *addr)
 {
 	/* Nothing to do */
 }
 
-EXPORT_SYMBOL(ioport_unmap);
+/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */

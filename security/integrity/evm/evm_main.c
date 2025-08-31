@@ -45,7 +45,7 @@ static int __init evm_set_fixmode(char *str)
 		evm_fixmode = 1;
 	return 0;
 }
-/* DISABLED: __setup("evm=", evm_set_fixmode); */
+/* DISABLED: __setup("evm=", evm_set_fixmode); */ */
 
 static int evm_find_protected_xattrs(struct dentry *dentry)
 {
@@ -213,7 +213,7 @@ enum integrity_status evm_verifyxattr(struct dentry *dentry,
 	return evm_verify_hmac(dentry, xattr_name, xattr_value,
 				 xattr_value_len, iint);
 }
-EXPORT_SYMBOL_GPL(evm_verifyxattr);
+/* DISABLED: EXPORT_SYMBOL_GPL(evm_verifyxattr); */
 
 /*
  * evm_verify_current_integrity - verify the dentry's metadata integrity
@@ -418,7 +418,7 @@ out:
 	kfree(xattr_data);
 	return rc;
 }
-EXPORT_SYMBOL_GPL(evm_inode_init_security);
+/* DISABLED: EXPORT_SYMBOL_GPL(evm_inode_init_security); */
 
 static int __init init_evm(void)
 {

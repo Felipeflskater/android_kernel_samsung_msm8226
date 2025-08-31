@@ -36,7 +36,7 @@ size_t xdr_skb_read_bits(struct xdr_skb_reader *desc, void *to, size_t len)
 	desc->offset += len;
 	return len;
 }
-EXPORT_SYMBOL_GPL(xdr_skb_read_bits);
+/* DISABLED: EXPORT_SYMBOL_GPL(xdr_skb_read_bits); */
 
 /**
  * xdr_skb_read_and_csum_bits - copy and checksum from skb to buffer
@@ -140,7 +140,7 @@ copy_tail:
 out:
 	return copied;
 }
-EXPORT_SYMBOL_GPL(xdr_partial_copy_from_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(xdr_partial_copy_from_skb); */
 
 /**
  * csum_partial_copy_to_xdr - checksum and copy data
@@ -183,4 +183,4 @@ no_checksum:
 		return -1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(csum_partial_copy_to_xdr);
+/* DISABLED: EXPORT_SYMBOL_GPL(csum_partial_copy_to_xdr); */

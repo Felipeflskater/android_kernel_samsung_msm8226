@@ -1621,7 +1621,7 @@ icn_setup(char *line)
 	}
 	return (1);
 }
-/* DISABLED: __setup("icn=", icn_setup); */
+/* DISABLED: __setup("icn=", icn_setup); */ */
 #endif /* MODULE */
 
 static int __init icn_init(void)

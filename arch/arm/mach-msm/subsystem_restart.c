@@ -220,14 +220,14 @@ int subsys_get_restart_level(struct subsys_device *dev)
 {
 	return dev->restart_level;
 }
-EXPORT_SYMBOL(subsys_get_restart_level);
+/* DISABLED: EXPORT_SYMBOL(subsys_get_restart_level); */
 
 #if defined(CONFIG_MACH_BAFFIN2_SGLTE)
 int subsys_set_flag_skip_ramdump(struct subsys_device *dev, bool flag)
 {
 	return dev->flag_skip_ramdump = flag;
 }
-EXPORT_SYMBOL(subsys_set_flag_skip_ramdump);
+/* DISABLED: EXPORT_SYMBOL(subsys_set_flag_skip_ramdump); */
 #endif
 
 static void subsys_set_state(struct subsys_device *subsys,
@@ -257,7 +257,7 @@ void subsys_default_online(struct subsys_device *dev)
 {
 	subsys_set_state(dev, SUBSYS_ONLINE);
 }
-EXPORT_SYMBOL(subsys_default_online);
+/* DISABLED: EXPORT_SYMBOL(subsys_default_online); */
 
 static struct device_attribute subsys_attrs[] = {
 	__ATTR_RO(name),
@@ -621,7 +621,7 @@ err_module:
 	put_device(&subsys->dev);
 	return retval;
 }
-EXPORT_SYMBOL(subsystem_get);
+/* DISABLED: EXPORT_SYMBOL(subsystem_get); */
 
 /**
  * subsystem_put() - Shutdown a subsystem
@@ -674,7 +674,7 @@ void subsystem_put(void *subsystem)
 err_out:
 	mutex_unlock(&track->lock);
 }
-EXPORT_SYMBOL(subsystem_put);
+/* DISABLED: EXPORT_SYMBOL(subsystem_put); */
 
 static void subsystem_restart_wq_func(struct work_struct *work)
 {
@@ -886,7 +886,7 @@ int subsystem_restart_dev(struct subsys_device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(subsystem_restart_dev);
+/* DISABLED: EXPORT_SYMBOL(subsystem_restart_dev); */
 
 int subsystem_restart(const char *name)
 {
@@ -900,7 +900,7 @@ int subsystem_restart(const char *name)
 	put_device(&dev->dev);
 	return ret;
 }
-EXPORT_SYMBOL(subsystem_restart);
+/* DISABLED: EXPORT_SYMBOL(subsystem_restart); */
 
 int subsystem_crashed(const char *name)
 {
@@ -927,7 +927,7 @@ int subsystem_crashed(const char *name)
 	put_device(&dev->dev);
 	return 0;
 }
-EXPORT_SYMBOL(subsystem_crashed);
+/* DISABLED: EXPORT_SYMBOL(subsystem_crashed); */
 
 void subsys_set_crash_status(struct subsys_device *dev, bool crashed)
 {
@@ -1296,7 +1296,7 @@ err_dtree:
 	kfree(subsys);
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL(subsys_register);
+/* DISABLED: EXPORT_SYMBOL(subsys_register); */
 
 void subsys_unregister(struct subsys_device *subsys)
 {
@@ -1313,7 +1313,7 @@ void subsys_unregister(struct subsys_device *subsys)
 		put_device(&subsys->dev);
 	}
 }
-EXPORT_SYMBOL(subsys_unregister);
+/* DISABLED: EXPORT_SYMBOL(subsys_unregister); */
 
 static int subsys_panic(struct device *dev, void *data)
 {

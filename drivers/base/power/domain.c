@@ -1410,7 +1410,7 @@ void pm_genpd_dev_always_on(struct device *dev, bool val)
 
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-EXPORT_SYMBOL_GPL(pm_genpd_dev_always_on);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_genpd_dev_always_on); */
 
 /**
  * pm_genpd_dev_need_restore - Set/unset the device's "need restore" flag.
@@ -1430,7 +1430,7 @@ void pm_genpd_dev_need_restore(struct device *dev, bool val)
 
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-EXPORT_SYMBOL_GPL(pm_genpd_dev_need_restore);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_genpd_dev_need_restore); */
 
 /**
  * pm_genpd_add_subdomain - Add a subdomain to an I/O PM domain.
@@ -1570,7 +1570,7 @@ int pm_genpd_add_callbacks(struct device *dev, struct gpd_dev_ops *ops,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(pm_genpd_add_callbacks);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_genpd_add_callbacks); */
 
 /**
  * __pm_genpd_remove_callbacks - Remove PM domain callbacks from a given device.
@@ -1604,7 +1604,7 @@ int __pm_genpd_remove_callbacks(struct device *dev, bool clear_td)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(__pm_genpd_remove_callbacks);
+/* DISABLED: EXPORT_SYMBOL_GPL(__pm_genpd_remove_callbacks); */
 
 /* Default device callbacks for generic PM domains. */
 

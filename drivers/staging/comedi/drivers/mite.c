@@ -61,7 +61,7 @@
 #define PCI_DAQ_SIZE_660X       8192
 
 struct mite_struct *mite_devices;
-EXPORT_SYMBOL(mite_devices);
+/* DISABLED: EXPORT_SYMBOL(mite_devices); */
 
 #define TOP_OF_PAGE(x) ((x)|(~(PAGE_MASK)))
 
@@ -199,13 +199,13 @@ int mite_setup2(struct mite_struct *mite, unsigned use_iodwbsr_1)
 
 	return 0;
 }
-EXPORT_SYMBOL(mite_setup2);
+/* DISABLED: EXPORT_SYMBOL(mite_setup2); */
 
 int mite_setup(struct mite_struct *mite)
 {
 	return mite_setup2(mite, 0);
 }
-EXPORT_SYMBOL(mite_setup);
+/* DISABLED: EXPORT_SYMBOL(mite_setup); */
 
 void mite_cleanup(void)
 {
@@ -240,7 +240,7 @@ void mite_unsetup(struct mite_struct *mite)
 
 	mite->used = 0;
 }
-EXPORT_SYMBOL(mite_unsetup);
+/* DISABLED: EXPORT_SYMBOL(mite_unsetup); */
 
 void mite_list_devices(void)
 {
@@ -256,7 +256,7 @@ void mite_list_devices(void)
 		}
 	printk(KERN_INFO "\n");
 }
-EXPORT_SYMBOL(mite_list_devices);
+/* DISABLED: EXPORT_SYMBOL(mite_list_devices); */
 
 struct mite_channel *mite_request_channel_in_range(struct mite_struct *mite,
 						   struct
@@ -283,7 +283,7 @@ struct mite_channel *mite_request_channel_in_range(struct mite_struct *mite,
 	spin_unlock_irqrestore(&mite->lock, flags);
 	return channel;
 }
-EXPORT_SYMBOL(mite_request_channel_in_range);
+/* DISABLED: EXPORT_SYMBOL(mite_request_channel_in_range); */
 
 void mite_release_channel(struct mite_channel *mite_chan)
 {
@@ -310,7 +310,7 @@ void mite_release_channel(struct mite_channel *mite_chan)
 	}
 	spin_unlock_irqrestore(&mite->lock, flags);
 }
-EXPORT_SYMBOL(mite_release_channel);
+/* DISABLED: EXPORT_SYMBOL(mite_release_channel); */
 
 void mite_dma_arm(struct mite_channel *mite_chan)
 {
@@ -333,7 +333,7 @@ void mite_dma_arm(struct mite_channel *mite_chan)
 	spin_unlock_irqrestore(&mite->lock, flags);
 /*       mite_dma_tcr(mite, channel); */
 }
-EXPORT_SYMBOL(mite_dma_arm);
+/* DISABLED: EXPORT_SYMBOL(mite_dma_arm); */
 
 /**************************************/
 
@@ -389,7 +389,7 @@ int mite_buf_change(struct mite_dma_descriptor_ring *ring,
 	smp_wmb();
 	return 0;
 }
-EXPORT_SYMBOL(mite_buf_change);
+/* DISABLED: EXPORT_SYMBOL(mite_buf_change); */
 
 void mite_prep_dma(struct mite_channel *mite_chan,
 		   unsigned int num_device_bits, unsigned int num_memory_bits)
@@ -482,7 +482,7 @@ void mite_prep_dma(struct mite_channel *mite_chan,
 
 	MDPRINTK("exit mite_prep_dma\n");
 }
-EXPORT_SYMBOL(mite_prep_dma);
+/* DISABLED: EXPORT_SYMBOL(mite_prep_dma); */
 
 u32 mite_device_bytes_transferred(struct mite_channel *mite_chan)
 {
@@ -496,7 +496,7 @@ u32 mite_bytes_in_transit(struct mite_channel *mite_chan)
 	return readl(mite->mite_io_addr +
 		     MITE_FCR(mite_chan->channel)) & 0x000000FF;
 }
-EXPORT_SYMBOL(mite_bytes_in_transit);
+/* DISABLED: EXPORT_SYMBOL(mite_bytes_in_transit); */
 
 /* returns lower bound for number of bytes transferred from device to memory */
 u32 mite_bytes_written_to_memory_lb(struct mite_channel *mite_chan)
@@ -506,7 +506,7 @@ u32 mite_bytes_written_to_memory_lb(struct mite_channel *mite_chan)
 	device_byte_count = mite_device_bytes_transferred(mite_chan);
 	return device_byte_count - mite_bytes_in_transit(mite_chan);
 }
-EXPORT_SYMBOL(mite_bytes_written_to_memory_lb);
+/* DISABLED: EXPORT_SYMBOL(mite_bytes_written_to_memory_lb); */
 
 /* returns upper bound for number of bytes transferred from device to memory */
 u32 mite_bytes_written_to_memory_ub(struct mite_channel *mite_chan)
@@ -516,7 +516,7 @@ u32 mite_bytes_written_to_memory_ub(struct mite_channel *mite_chan)
 	in_transit_count = mite_bytes_in_transit(mite_chan);
 	return mite_device_bytes_transferred(mite_chan) - in_transit_count;
 }
-EXPORT_SYMBOL(mite_bytes_written_to_memory_ub);
+/* DISABLED: EXPORT_SYMBOL(mite_bytes_written_to_memory_ub); */
 
 /* returns lower bound for number of bytes read from memory to device */
 u32 mite_bytes_read_from_memory_lb(struct mite_channel *mite_chan)
@@ -526,7 +526,7 @@ u32 mite_bytes_read_from_memory_lb(struct mite_channel *mite_chan)
 	device_byte_count = mite_device_bytes_transferred(mite_chan);
 	return device_byte_count + mite_bytes_in_transit(mite_chan);
 }
-EXPORT_SYMBOL(mite_bytes_read_from_memory_lb);
+/* DISABLED: EXPORT_SYMBOL(mite_bytes_read_from_memory_lb); */
 
 /* returns upper bound for number of bytes read from memory to device */
 u32 mite_bytes_read_from_memory_ub(struct mite_channel *mite_chan)
@@ -536,7 +536,7 @@ u32 mite_bytes_read_from_memory_ub(struct mite_channel *mite_chan)
 	in_transit_count = mite_bytes_in_transit(mite_chan);
 	return mite_device_bytes_transferred(mite_chan) + in_transit_count;
 }
-EXPORT_SYMBOL(mite_bytes_read_from_memory_ub);
+/* DISABLED: EXPORT_SYMBOL(mite_bytes_read_from_memory_ub); */
 
 unsigned mite_dma_tcr(struct mite_channel *mite_chan)
 {
@@ -551,7 +551,7 @@ unsigned mite_dma_tcr(struct mite_channel *mite_chan)
 
 	return tcr;
 }
-EXPORT_SYMBOL(mite_dma_tcr);
+/* DISABLED: EXPORT_SYMBOL(mite_dma_tcr); */
 
 void mite_dma_disarm(struct mite_channel *mite_chan)
 {
@@ -562,7 +562,7 @@ void mite_dma_disarm(struct mite_channel *mite_chan)
 	chor = CHOR_ABORT;
 	writel(chor, mite->mite_io_addr + MITE_CHOR(mite_chan->channel));
 }
-EXPORT_SYMBOL(mite_dma_disarm);
+/* DISABLED: EXPORT_SYMBOL(mite_dma_disarm); */
 
 int mite_sync_input_dma(struct mite_channel *mite_chan,
 			struct comedi_async *async)
@@ -599,7 +599,7 @@ int mite_sync_input_dma(struct mite_channel *mite_chan,
 	async->events |= COMEDI_CB_BLOCK;
 	return 0;
 }
-EXPORT_SYMBOL(mite_sync_input_dma);
+/* DISABLED: EXPORT_SYMBOL(mite_sync_input_dma); */
 
 int mite_sync_output_dma(struct mite_channel *mite_chan,
 			 struct comedi_async *async)
@@ -636,7 +636,7 @@ int mite_sync_output_dma(struct mite_channel *mite_chan,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(mite_sync_output_dma);
+/* DISABLED: EXPORT_SYMBOL(mite_sync_output_dma); */
 
 unsigned mite_get_status(struct mite_channel *mite_chan)
 {
@@ -655,7 +655,7 @@ unsigned mite_get_status(struct mite_channel *mite_chan)
 	spin_unlock_irqrestore(&mite->lock, flags);
 	return status;
 }
-EXPORT_SYMBOL(mite_get_status);
+/* DISABLED: EXPORT_SYMBOL(mite_get_status); */
 
 int mite_done(struct mite_channel *mite_chan)
 {
@@ -669,7 +669,7 @@ int mite_done(struct mite_channel *mite_chan)
 	spin_unlock_irqrestore(&mite->lock, flags);
 	return done;
 }
-EXPORT_SYMBOL(mite_done);
+/* DISABLED: EXPORT_SYMBOL(mite_done); */
 
 #ifdef DEBUG_MITE
 
@@ -795,7 +795,7 @@ void mite_dump_regs(struct mite_channel *mite_chan)
 	printk(KERN_DEBUG "mite status[FCR] at 0x%08lx =0x%08x\n\n", addr,
 	       readl(addr));
 }
-EXPORT_SYMBOL(mite_dump_regs);
+/* DISABLED: EXPORT_SYMBOL(mite_dump_regs); */
 
 static void mite_decode(char **bit_str, unsigned int bits)
 {
@@ -807,7 +807,7 @@ static void mite_decode(char **bit_str, unsigned int bits)
 	}
 	printk(KERN_DEBUG "\n");
 }
-EXPORT_SYMBOL(mite_decode);
+/* DISABLED: EXPORT_SYMBOL(mite_decode); */
 #endif
 
 #ifdef MODULE

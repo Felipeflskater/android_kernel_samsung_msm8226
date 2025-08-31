@@ -78,7 +78,7 @@ int whci_wait_for(struct device *dev, u32 __iomem *reg, u32 mask, u32 result,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(whci_wait_for);
+/* DISABLED: EXPORT_SYMBOL_GPL(whci_wait_for); */
 
 
 /*

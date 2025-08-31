@@ -56,7 +56,7 @@ void omap_bus_sync(void)
 		isb();
 	}
 }
-EXPORT_SYMBOL(omap_bus_sync);
+/* DISABLED: EXPORT_SYMBOL(omap_bus_sync); */
 
 /* Steal one page physical memory for barrier implementation */
 int __init omap_barrier_reserve_memblock(void)

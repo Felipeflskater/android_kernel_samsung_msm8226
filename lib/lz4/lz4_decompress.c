@@ -310,7 +310,7 @@ exit_0:
 	return ret;
 }
 #ifndef STATIC
-EXPORT_SYMBOL(lz4_decompress);
+/* DISABLED: EXPORT_SYMBOL(lz4_decompress); */
 #endif
 
 int lz4_decompress_unknownoutputsize(const unsigned char *src, size_t src_len,
@@ -330,7 +330,7 @@ exit_0:
 	return ret;
 }
 #ifndef STATIC
-EXPORT_SYMBOL(lz4_decompress_unknownoutputsize);
+/* DISABLED: EXPORT_SYMBOL(lz4_decompress_unknownoutputsize); */
 
 MODULE_LICENSE("Dual BSD/GPL");
 MODULE_DESCRIPTION("LZ4 Decompressor");

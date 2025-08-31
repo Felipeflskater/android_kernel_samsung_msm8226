@@ -51,7 +51,7 @@ ACPI_MODULE_NAME("bus");
 
 struct acpi_device *acpi_root;
 struct proc_dir_entry *acpi_root_dir;
-EXPORT_SYMBOL(acpi_root_dir);
+/* DISABLED: EXPORT_SYMBOL(acpi_root_dir); */
 
 #define STRUCT_TO_INT(s)	(*((int*)&s))
 
@@ -117,7 +117,7 @@ int acpi_bus_get_device(acpi_handle handle, struct acpi_device **device)
 	return 0;
 }
 
-EXPORT_SYMBOL(acpi_bus_get_device);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_get_device); */
 
 acpi_status acpi_bus_get_status_handle(acpi_handle handle,
 				       unsigned long long *sta)
@@ -159,14 +159,14 @@ int acpi_bus_get_status(struct acpi_device *device)
 			  (u32) STRUCT_TO_INT(device->status)));
 	return 0;
 }
-EXPORT_SYMBOL(acpi_bus_get_status);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_get_status); */
 
 void acpi_bus_private_data_handler(acpi_handle handle,
 				   void *context)
 {
 	return;
 }
-EXPORT_SYMBOL(acpi_bus_private_data_handler);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_private_data_handler); */
 
 int acpi_bus_get_private_data(acpi_handle handle, void **data)
 {
@@ -184,7 +184,7 @@ int acpi_bus_get_private_data(acpi_handle handle, void **data)
 
 	return 0;
 }
-EXPORT_SYMBOL(acpi_bus_get_private_data);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_get_private_data); */
 
 /* --------------------------------------------------------------------------
                                  Power Management
@@ -333,7 +333,7 @@ int acpi_bus_set_power(acpi_handle handle, int state)
 
 	return __acpi_bus_set_power(device, state);
 }
-EXPORT_SYMBOL(acpi_bus_set_power);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_set_power); */
 
 
 int acpi_bus_init_power(struct acpi_device *device)
@@ -380,7 +380,7 @@ int acpi_bus_update_power(acpi_handle handle, int *state_p)
 
 	return result;
 }
-EXPORT_SYMBOL_GPL(acpi_bus_update_power);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_bus_update_power); */
 
 
 bool acpi_bus_power_manageable(acpi_handle handle)
@@ -392,7 +392,7 @@ bool acpi_bus_power_manageable(acpi_handle handle)
 	return result ? false : device->flags.power_manageable;
 }
 
-EXPORT_SYMBOL(acpi_bus_power_manageable);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_power_manageable); */
 
 bool acpi_bus_can_wakeup(acpi_handle handle)
 {
@@ -403,7 +403,7 @@ bool acpi_bus_can_wakeup(acpi_handle handle)
 	return result ? false : device->wakeup.flags.valid;
 }
 
-EXPORT_SYMBOL(acpi_bus_can_wakeup);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_can_wakeup); */
 
 static void acpi_print_osc_error(acpi_handle handle,
 	struct acpi_osc_context *context, char *error)
@@ -530,7 +530,7 @@ out_kfree:
 		context->ret.pointer = NULL;
 	return status;
 }
-EXPORT_SYMBOL(acpi_run_osc);
+/* DISABLED: EXPORT_SYMBOL(acpi_run_osc); */
 
 bool osc_sb_apei_support_acked;
 static u8 sb_uuid_str[] = "0811B06E-4A27-44F9-8D60-3CBBC22E7B48";
@@ -610,7 +610,7 @@ int acpi_bus_generate_proc_event4(const char *device_class, const char *bus_id, 
 
 }
 
-EXPORT_SYMBOL_GPL(acpi_bus_generate_proc_event4);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_bus_generate_proc_event4); */
 
 int acpi_bus_generate_proc_event(struct acpi_device *device, u8 type, int data)
 {
@@ -620,7 +620,7 @@ int acpi_bus_generate_proc_event(struct acpi_device *device, u8 type, int data)
 					     device->pnp.bus_id, type, data);
 }
 
-EXPORT_SYMBOL(acpi_bus_generate_proc_event);
+/* DISABLED: EXPORT_SYMBOL(acpi_bus_generate_proc_event); */
 
 int acpi_bus_receive_event(struct acpi_bus_event *event)
 {
@@ -729,13 +729,13 @@ int register_acpi_bus_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&acpi_bus_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(register_acpi_bus_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(register_acpi_bus_notifier); */
 
 void unregister_acpi_bus_notifier(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&acpi_bus_notify_list, nb);
 }
-EXPORT_SYMBOL_GPL(unregister_acpi_bus_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(unregister_acpi_bus_notifier); */
 
 /**
  * acpi_bus_notify
@@ -1034,7 +1034,7 @@ static int __init acpi_bus_init(void)
 }
 
 struct kobject *acpi_kobj;
-EXPORT_SYMBOL_GPL(acpi_kobj);
+/* DISABLED: EXPORT_SYMBOL_GPL(acpi_kobj); */
 
 static int __init acpi_init(void)
 {

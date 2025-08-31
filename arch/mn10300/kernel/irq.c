@@ -19,7 +19,7 @@
 unsigned long __mn10300_irq_enabled_epsw[NR_CPUS] __cacheline_aligned_in_smp = {
 	[0 ... NR_CPUS - 1] = EPSW_IE | EPSW_IM_7
 };
-EXPORT_SYMBOL(__mn10300_irq_enabled_epsw);
+/* DISABLED: EXPORT_SYMBOL(__mn10300_irq_enabled_epsw); */
 
 #ifdef CONFIG_SMP
 static char irq_affinity_online[NR_IRQS] = {

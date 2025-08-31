@@ -1160,7 +1160,7 @@ int saa7134_g_ctrl_internal(struct saa7134_dev *dev, struct saa7134_fh *fh, stru
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(saa7134_g_ctrl_internal);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7134_g_ctrl_internal); */
 
 static int saa7134_g_ctrl(struct file *file, void *priv, struct v4l2_control *c)
 {
@@ -1284,7 +1284,7 @@ error:
 	mutex_unlock(&dev->lock);
 	return err;
 }
-EXPORT_SYMBOL_GPL(saa7134_s_ctrl_internal);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7134_s_ctrl_internal); */
 
 static int saa7134_s_ctrl(struct file *file, void *f, struct v4l2_control *c)
 {
@@ -1736,7 +1736,7 @@ int saa7134_queryctrl(struct file *file, void *priv, struct v4l2_queryctrl *c)
 	*c = (NULL != ctrl) ? *ctrl : no_ctrl;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(saa7134_queryctrl);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7134_queryctrl); */
 
 static int saa7134_enum_input(struct file *file, void *priv,
 					struct v4l2_input *i)
@@ -1899,7 +1899,7 @@ int saa7134_s_std_internal(struct saa7134_dev *dev, struct saa7134_fh *fh, v4l2_
 	mutex_unlock(&dev->lock);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(saa7134_s_std_internal);
+/* DISABLED: EXPORT_SYMBOL_GPL(saa7134_s_std_internal); */
 
 static int saa7134_s_std(struct file *file, void *priv, v4l2_std_id *id)
 {

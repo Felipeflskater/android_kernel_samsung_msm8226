@@ -31,7 +31,7 @@
 #include "dasd_int.h"
 
 struct kmem_cache *dasd_page_cache;
-EXPORT_SYMBOL_GPL(dasd_page_cache);
+/* DISABLED: EXPORT_SYMBOL_GPL(dasd_page_cache); */
 
 /*
  * dasd_devmap_t is used to store the features and the relation
@@ -68,9 +68,9 @@ struct dasd_devmap {
 int dasd_probeonly =  0;	/* is true, when probeonly mode is active */
 int dasd_autodetect = 0;	/* is true, when autodetection is active */
 int dasd_nopav = 0;		/* is true, when PAV is disabled */
-EXPORT_SYMBOL_GPL(dasd_nopav);
+/* DISABLED: EXPORT_SYMBOL_GPL(dasd_nopav); */
 int dasd_nofcx;			/* disable High Performance Ficon */
-EXPORT_SYMBOL_GPL(dasd_nofcx);
+/* DISABLED: EXPORT_SYMBOL_GPL(dasd_nofcx); */
 
 /*
  * char *dasd[] is intended to hold the ranges supplied by the dasd= statement
@@ -120,7 +120,7 @@ dasd_call_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup ("dasd=", dasd_call_setup); */
+/* DISABLED: __setup ("dasd=", dasd_call_setup); */ */
 #endif	/* #ifndef MODULE */
 
 #define	DASD_IPLDEV	"ipldev"
@@ -641,7 +641,7 @@ dasd_put_device_wake(struct dasd_device *device)
 {
 	wake_up(&dasd_delete_wq);
 }
-EXPORT_SYMBOL_GPL(dasd_put_device_wake);
+/* DISABLED: EXPORT_SYMBOL_GPL(dasd_put_device_wake); */
 
 /*
  * Return dasd_device structure associated with cdev.

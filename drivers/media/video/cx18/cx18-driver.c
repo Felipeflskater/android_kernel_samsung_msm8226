@@ -50,7 +50,7 @@ int cx18_first_minor;
 
 /* Callback for registering extensions */
 int (*cx18_ext_init)(struct cx18 *);
-EXPORT_SYMBOL(cx18_ext_init);
+/* DISABLED: EXPORT_SYMBOL(cx18_ext_init); */
 
 /* add your revision and whatnot here */
 static struct pci_device_id cx18_pci_tbl[] __devinitdata = {

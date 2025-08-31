@@ -20,7 +20,7 @@
 #include <asm/page.h>
 
 dma_addr_t bad_dma_address __read_mostly;
-EXPORT_SYMBOL(bad_dma_address);
+/* DISABLED: EXPORT_SYMBOL(bad_dma_address); */
 
 static int iommu_sac_force __read_mostly;
 
@@ -94,7 +94,7 @@ int iommu_dma_supported(struct device *dev, u64 mask)
 
 	return 1;
 }
-EXPORT_SYMBOL(iommu_dma_supported);
+/* DISABLED: EXPORT_SYMBOL(iommu_dma_supported); */
 
 void __init pci_iommu_alloc(void)
 {

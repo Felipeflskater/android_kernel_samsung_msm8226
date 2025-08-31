@@ -339,7 +339,7 @@ int tpa6130a2_stereo_enable(struct snd_soc_codec *codec, int enable)
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(tpa6130a2_stereo_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpa6130a2_stereo_enable); */
 
 int tpa6130a2_add_controls(struct snd_soc_codec *codec)
 {
@@ -357,7 +357,7 @@ int tpa6130a2_add_controls(struct snd_soc_codec *codec)
 		return snd_soc_add_codec_controls(codec, tpa6130a2_controls,
 						ARRAY_SIZE(tpa6130a2_controls));
 }
-EXPORT_SYMBOL_GPL(tpa6130a2_add_controls);
+/* DISABLED: EXPORT_SYMBOL_GPL(tpa6130a2_add_controls); */
 
 static int __devinit tpa6130a2_probe(struct i2c_client *client,
 				     const struct i2c_device_id *id)

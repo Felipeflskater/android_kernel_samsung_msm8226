@@ -73,6 +73,6 @@ int mod_firmware_load(const char *fn, char **fp)
 	set_fs(fs);
 	return r;
 }
-EXPORT_SYMBOL(mod_firmware_load);
+/* DISABLED: EXPORT_SYMBOL(mod_firmware_load); */
 
 MODULE_LICENSE("GPL");

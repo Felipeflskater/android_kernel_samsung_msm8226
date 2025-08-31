@@ -143,7 +143,7 @@ void clflush_cache_range(void *vaddr, unsigned int size)
 
 	mb();
 }
-EXPORT_SYMBOL_GPL(clflush_cache_range);
+/* DISABLED: EXPORT_SYMBOL_GPL(clflush_cache_range); */
 
 static void __cpa_flush_all(void *arg)
 {
@@ -361,7 +361,7 @@ pte_t *lookup_address(unsigned long address, unsigned int *level)
 
 	return pte_offset_kernel(pmd, address);
 }
-EXPORT_SYMBOL_GPL(lookup_address);
+/* DISABLED: EXPORT_SYMBOL_GPL(lookup_address); */
 
 /*
  * Set the new pmd in all the pgds we know about:
@@ -996,7 +996,7 @@ out_free:
 out_err:
 	return ret;
 }
-EXPORT_SYMBOL(set_memory_uc);
+/* DISABLED: EXPORT_SYMBOL(set_memory_uc); */
 
 static int _set_memory_array(unsigned long *addr, int addrinarray,
 		unsigned long new_type)
@@ -1038,13 +1038,13 @@ int set_memory_array_uc(unsigned long *addr, int addrinarray)
 {
 	return _set_memory_array(addr, addrinarray, _PAGE_CACHE_UC_MINUS);
 }
-EXPORT_SYMBOL(set_memory_array_uc);
+/* DISABLED: EXPORT_SYMBOL(set_memory_array_uc); */
 
 int set_memory_array_wc(unsigned long *addr, int addrinarray)
 {
 	return _set_memory_array(addr, addrinarray, _PAGE_CACHE_WC);
 }
-EXPORT_SYMBOL(set_memory_array_wc);
+/* DISABLED: EXPORT_SYMBOL(set_memory_array_wc); */
 
 int _set_memory_wc(unsigned long addr, int numpages)
 {
@@ -1085,7 +1085,7 @@ out_free:
 out_err:
 	return ret;
 }
-EXPORT_SYMBOL(set_memory_wc);
+/* DISABLED: EXPORT_SYMBOL(set_memory_wc); */
 
 int _set_memory_wb(unsigned long addr, int numpages)
 {
@@ -1104,7 +1104,7 @@ int set_memory_wb(unsigned long addr, int numpages)
 	free_memtype(__pa(addr), __pa(addr) + numpages * PAGE_SIZE);
 	return 0;
 }
-EXPORT_SYMBOL(set_memory_wb);
+/* DISABLED: EXPORT_SYMBOL(set_memory_wb); */
 
 int set_memory_array_wb(unsigned long *addr, int addrinarray)
 {
@@ -1121,7 +1121,7 @@ int set_memory_array_wb(unsigned long *addr, int addrinarray)
 
 	return 0;
 }
-EXPORT_SYMBOL(set_memory_array_wb);
+/* DISABLED: EXPORT_SYMBOL(set_memory_array_wb); */
 
 int set_memory_x(unsigned long addr, int numpages)
 {
@@ -1130,7 +1130,7 @@ int set_memory_x(unsigned long addr, int numpages)
 
 	return change_page_attr_clear(&addr, numpages, __pgprot(_PAGE_NX), 0);
 }
-EXPORT_SYMBOL(set_memory_x);
+/* DISABLED: EXPORT_SYMBOL(set_memory_x); */
 
 int set_memory_nx(unsigned long addr, int numpages)
 {
@@ -1139,19 +1139,19 @@ int set_memory_nx(unsigned long addr, int numpages)
 
 	return change_page_attr_set(&addr, numpages, __pgprot(_PAGE_NX), 0);
 }
-EXPORT_SYMBOL(set_memory_nx);
+/* DISABLED: EXPORT_SYMBOL(set_memory_nx); */
 
 int set_memory_ro(unsigned long addr, int numpages)
 {
 	return change_page_attr_clear(&addr, numpages, __pgprot(_PAGE_RW), 0);
 }
-EXPORT_SYMBOL_GPL(set_memory_ro);
+/* DISABLED: EXPORT_SYMBOL_GPL(set_memory_ro); */
 
 int set_memory_rw(unsigned long addr, int numpages)
 {
 	return change_page_attr_set(&addr, numpages, __pgprot(_PAGE_RW), 0);
 }
-EXPORT_SYMBOL_GPL(set_memory_rw);
+/* DISABLED: EXPORT_SYMBOL_GPL(set_memory_rw); */
 
 int set_memory_np(unsigned long addr, int numpages)
 {
@@ -1170,7 +1170,7 @@ int set_pages_uc(struct page *page, int numpages)
 
 	return set_memory_uc(addr, numpages);
 }
-EXPORT_SYMBOL(set_pages_uc);
+/* DISABLED: EXPORT_SYMBOL(set_pages_uc); */
 
 static int _set_pages_array(struct page **pages, int addrinarray,
 		unsigned long new_type)
@@ -1216,13 +1216,13 @@ int set_pages_array_uc(struct page **pages, int addrinarray)
 {
 	return _set_pages_array(pages, addrinarray, _PAGE_CACHE_UC_MINUS);
 }
-EXPORT_SYMBOL(set_pages_array_uc);
+/* DISABLED: EXPORT_SYMBOL(set_pages_array_uc); */
 
 int set_pages_array_wc(struct page **pages, int addrinarray)
 {
 	return _set_pages_array(pages, addrinarray, _PAGE_CACHE_WC);
 }
-EXPORT_SYMBOL(set_pages_array_wc);
+/* DISABLED: EXPORT_SYMBOL(set_pages_array_wc); */
 
 int set_pages_wb(struct page *page, int numpages)
 {
@@ -1230,7 +1230,7 @@ int set_pages_wb(struct page *page, int numpages)
 
 	return set_memory_wb(addr, numpages);
 }
-EXPORT_SYMBOL(set_pages_wb);
+/* DISABLED: EXPORT_SYMBOL(set_pages_wb); */
 
 int set_pages_array_wb(struct page **pages, int addrinarray)
 {
@@ -1254,7 +1254,7 @@ int set_pages_array_wb(struct page **pages, int addrinarray)
 
 	return 0;
 }
-EXPORT_SYMBOL(set_pages_array_wb);
+/* DISABLED: EXPORT_SYMBOL(set_pages_array_wb); */
 
 int set_pages_x(struct page *page, int numpages)
 {
@@ -1262,7 +1262,7 @@ int set_pages_x(struct page *page, int numpages)
 
 	return set_memory_x(addr, numpages);
 }
-EXPORT_SYMBOL(set_pages_x);
+/* DISABLED: EXPORT_SYMBOL(set_pages_x); */
 
 int set_pages_nx(struct page *page, int numpages)
 {
@@ -1270,7 +1270,7 @@ int set_pages_nx(struct page *page, int numpages)
 
 	return set_memory_nx(addr, numpages);
 }
-EXPORT_SYMBOL(set_pages_nx);
+/* DISABLED: EXPORT_SYMBOL(set_pages_nx); */
 
 int set_pages_ro(struct page *page, int numpages)
 {

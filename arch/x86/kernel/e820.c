@@ -45,7 +45,7 @@ struct e820map e820_saved;
 /* For PCI or other memory-mapped resources */
 unsigned long pci_mem_start = 0xaeedbabe;
 #ifdef CONFIG_PCI
-EXPORT_SYMBOL(pci_mem_start);
+/* DISABLED: EXPORT_SYMBOL(pci_mem_start); */
 #endif
 
 /*
@@ -68,7 +68,7 @@ e820_any_mapped(u64 start, u64 end, unsigned type)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(e820_any_mapped);
+/* DISABLED: EXPORT_SYMBOL_GPL(e820_any_mapped); */
 
 /*
  * This function checks if the entire range <start,end> is mapped with type.

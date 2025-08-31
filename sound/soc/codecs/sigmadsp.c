@@ -223,7 +223,7 @@ int process_sigma_firmware(struct i2c_client *client, const char *name)
 
 	return _process_sigma_firmware(&client->dev, &ssfw, name);
 }
-EXPORT_SYMBOL(process_sigma_firmware);
+/* DISABLED: EXPORT_SYMBOL(process_sigma_firmware); */
 
 #endif
 
@@ -246,7 +246,7 @@ int process_sigma_firmware_regmap(struct device *dev, struct regmap *regmap,
 
 	return _process_sigma_firmware(dev, &ssfw, name);
 }
-EXPORT_SYMBOL(process_sigma_firmware_regmap);
+/* DISABLED: EXPORT_SYMBOL(process_sigma_firmware_regmap); */
 
 #endif
 

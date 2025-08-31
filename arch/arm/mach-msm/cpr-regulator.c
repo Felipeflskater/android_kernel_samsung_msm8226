@@ -2188,7 +2188,7 @@ int __init cpr_regulator_init(void)
 
 	return platform_driver_register(&cpr_regulator_driver);
 }
-EXPORT_SYMBOL(cpr_regulator_init);
+/* DISABLED: EXPORT_SYMBOL(cpr_regulator_init); */
 
 static void __exit cpr_regulator_exit(void)
 {

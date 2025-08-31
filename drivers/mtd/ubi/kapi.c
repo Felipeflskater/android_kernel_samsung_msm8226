@@ -46,7 +46,7 @@ void ubi_do_get_device_info(struct ubi_device *ubi, struct ubi_device_info *di)
 	di->ro_mode = ubi->ro_mode;
 	di->cdev = ubi->cdev.dev;
 }
-EXPORT_SYMBOL_GPL(ubi_do_get_device_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_do_get_device_info); */
 
 /**
  * ubi_get_device_info - get information about UBI device.
@@ -69,7 +69,7 @@ int ubi_get_device_info(int ubi_num, struct ubi_device_info *di)
 	ubi_put_device(ubi);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ubi_get_device_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_get_device_info); */
 
 /**
  * ubi_do_get_volume_info - get information about UBI volume.
@@ -104,7 +104,7 @@ void ubi_get_volume_info(struct ubi_volume_desc *desc,
 {
 	ubi_do_get_volume_info(desc->vol->ubi, desc->vol, vi);
 }
-EXPORT_SYMBOL_GPL(ubi_get_volume_info);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_get_volume_info); */
 
 /**
  * ubi_open_volume - open UBI volume.
@@ -225,7 +225,7 @@ out_put_ubi:
 		ubi_num, vol_id, err);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(ubi_open_volume);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_open_volume); */
 
 /**
  * ubi_open_volume_nm - open UBI volume by name.
@@ -282,7 +282,7 @@ struct ubi_volume_desc *ubi_open_volume_nm(int ubi_num, const char *name,
 	ubi_put_device(ubi);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(ubi_open_volume_nm);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_open_volume_nm); */
 
 /**
  * ubi_open_volume_path - open UBI volume by its character device node path.
@@ -319,7 +319,7 @@ struct ubi_volume_desc *ubi_open_volume_path(const char *pathname, int mode)
 		return ubi_open_volume(ubi_num, vol_id, mode);
 	return ERR_PTR(-ENODEV);
 }
-EXPORT_SYMBOL_GPL(ubi_open_volume_path);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_open_volume_path); */
 
 /**
  * ubi_close_volume - close UBI volume.
@@ -352,7 +352,7 @@ void ubi_close_volume(struct ubi_volume_desc *desc)
 	ubi_put_device(ubi);
 	module_put(THIS_MODULE);
 }
-EXPORT_SYMBOL_GPL(ubi_close_volume);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_close_volume); */
 
 /**
  * ubi_leb_read - read data.
@@ -417,7 +417,7 @@ int ubi_leb_read(struct ubi_volume_desc *desc, int lnum, char *buf, int offset,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(ubi_leb_read);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_read); */
 
 /**
  * ubi_leb_write - write data.
@@ -478,7 +478,7 @@ int ubi_leb_write(struct ubi_volume_desc *desc, int lnum, const void *buf,
 
 	return ubi_eba_write_leb(ubi, vol, lnum, buf, offset, len, dtype);
 }
-EXPORT_SYMBOL_GPL(ubi_leb_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_write); */
 
 /*
  * ubi_leb_change - change logical eraseblock atomically.
@@ -527,7 +527,7 @@ int ubi_leb_change(struct ubi_volume_desc *desc, int lnum, const void *buf,
 
 	return ubi_eba_atomic_leb_change(ubi, vol, lnum, buf, len, dtype);
 }
-EXPORT_SYMBOL_GPL(ubi_leb_change);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_change); */
 
 /**
  * ubi_leb_erase - erase logical eraseblock.
@@ -564,7 +564,7 @@ int ubi_leb_erase(struct ubi_volume_desc *desc, int lnum)
 
 	return ubi_wl_flush(ubi);
 }
-EXPORT_SYMBOL_GPL(ubi_leb_erase);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_erase); */
 
 /**
  * ubi_leb_unmap - un-map logical eraseblock.
@@ -620,7 +620,7 @@ int ubi_leb_unmap(struct ubi_volume_desc *desc, int lnum)
 
 	return ubi_eba_unmap_leb(ubi, vol, lnum);
 }
-EXPORT_SYMBOL_GPL(ubi_leb_unmap);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_unmap); */
 
 /**
  * ubi_leb_map - map logical eraseblock to a physical eraseblock.
@@ -664,7 +664,7 @@ int ubi_leb_map(struct ubi_volume_desc *desc, int lnum, int dtype)
 
 	return ubi_eba_write_leb(ubi, vol, lnum, NULL, 0, 0, dtype);
 }
-EXPORT_SYMBOL_GPL(ubi_leb_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_leb_map); */
 
 /**
  * ubi_is_mapped - check if logical eraseblock is mapped.
@@ -696,7 +696,7 @@ int ubi_is_mapped(struct ubi_volume_desc *desc, int lnum)
 
 	return vol->eba_tbl[lnum] >= 0;
 }
-EXPORT_SYMBOL_GPL(ubi_is_mapped);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_is_mapped); */
 
 /**
  * ubi_sync - synchronize UBI device buffers.
@@ -718,7 +718,7 @@ int ubi_sync(int ubi_num)
 	ubi_put_device(ubi);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ubi_sync);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_sync); */
 
 BLOCKING_NOTIFIER_HEAD(ubi_notifiers);
 
@@ -761,7 +761,7 @@ int ubi_register_volume_notifier(struct notifier_block *nb,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(ubi_register_volume_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_register_volume_notifier); */
 
 /**
  * ubi_unregister_volume_notifier - unregister the volume notifier.
@@ -774,4 +774,4 @@ int ubi_unregister_volume_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&ubi_notifiers, nb);
 }
-EXPORT_SYMBOL_GPL(ubi_unregister_volume_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(ubi_unregister_volume_notifier); */

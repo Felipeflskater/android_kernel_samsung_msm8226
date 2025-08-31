@@ -978,7 +978,7 @@ struct rpm_regulator *rpm_regulator_get(struct device *dev, const char *supply)
 
 	return priv_reg;
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_get); */
 
 static int rpm_regulator_check_input(struct rpm_regulator *regulator)
 {
@@ -1022,7 +1022,7 @@ void rpm_regulator_put(struct rpm_regulator *regulator)
 	kfree(regulator->rdev);
 	kfree(regulator);
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_put); */
 
 /**
  * rpm_regulator_enable() - enable regulator output
@@ -1043,7 +1043,7 @@ int rpm_regulator_enable(struct rpm_regulator *regulator)
 
 	return rpm_vreg_enable(regulator->rdev);
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_enable);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_enable); */
 
 /**
  * rpm_regulator_disable() - disable regulator output
@@ -1068,7 +1068,7 @@ int rpm_regulator_disable(struct rpm_regulator *regulator)
 
 	return rpm_vreg_disable(regulator->rdev);
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_disable);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_disable); */
 
 /**
  * rpm_regulator_set_voltage() - set regulator output voltage
@@ -1128,7 +1128,7 @@ int rpm_regulator_set_voltage(struct rpm_regulator *regulator, int min_uV,
 
 	return regulator->rdesc.ops->set_voltage(regulator->rdev, uV, uV, NULL);
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_set_voltage);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_set_voltage); */
 
 /**
  * rpm_regulator_set_mode() - set regulator operating mode
@@ -1193,7 +1193,7 @@ int rpm_regulator_set_mode(struct rpm_regulator *regulator,
 
 	return rc;
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_set_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_set_mode); */
 
 static struct regulator_ops ldo_ops = {
 	.enable			= rpm_vreg_enable,
@@ -1725,7 +1725,7 @@ int __init rpm_regulator_smd_driver_init(void)
 
 	return platform_driver_register(&rpm_vreg_resource_driver);
 }
-EXPORT_SYMBOL_GPL(rpm_regulator_smd_driver_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_smd_driver_init); */
 
 static void __exit rpm_vreg_exit(void)
 {

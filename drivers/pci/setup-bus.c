@@ -451,7 +451,7 @@ void pci_setup_cardbus(struct pci_bus *bus)
 					region.end);
 	}
 }
-EXPORT_SYMBOL(pci_setup_cardbus);
+/* DISABLED: EXPORT_SYMBOL(pci_setup_cardbus); */
 
 /* Initialize bridges with base/limit values we have collected.
    PCI-to-PCI Bridge Architecture Specification rev. 1.1 (1998)
@@ -1051,7 +1051,7 @@ void __ref pci_bus_size_bridges(struct pci_bus *bus)
 {
 	__pci_bus_size_bridges(bus, NULL);
 }
-EXPORT_SYMBOL(pci_bus_size_bridges);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_size_bridges); */
 
 static void __ref __pci_bus_assign_resources(const struct pci_bus *bus,
 					 struct list_head *realloc_head,
@@ -1091,7 +1091,7 @@ void __ref pci_bus_assign_resources(const struct pci_bus *bus)
 {
 	__pci_bus_assign_resources(bus, NULL, NULL);
 }
-EXPORT_SYMBOL(pci_bus_assign_resources);
+/* DISABLED: EXPORT_SYMBOL(pci_bus_assign_resources); */
 
 static void __ref __pci_bridge_assign_resources(const struct pci_dev *bridge,
 					 struct list_head *add_head,
@@ -1486,7 +1486,7 @@ enable_all:
 	pci_set_master(bridge);
 	pci_enable_bridges(parent);
 }
-EXPORT_SYMBOL_GPL(pci_assign_unassigned_bridge_resources);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_assign_unassigned_bridge_resources); */
 
 #ifdef CONFIG_HOTPLUG
 /**
@@ -1523,5 +1523,5 @@ unsigned int __ref pci_rescan_bus(struct pci_bus *bus)
 
 	return max;
 }
-EXPORT_SYMBOL_GPL(pci_rescan_bus);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_rescan_bus); */
 #endif

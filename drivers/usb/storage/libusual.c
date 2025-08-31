@@ -52,7 +52,7 @@ void usb_usual_set_present(int type)
 	st->fls |= USU_MOD_FL_PRESENT;
 	spin_unlock_irqrestore(&usu_lock, flags);
 }
-EXPORT_SYMBOL_GPL(usb_usual_set_present);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_usual_set_present); */
 
 void usb_usual_clear_present(int type)
 {
@@ -66,7 +66,7 @@ void usb_usual_clear_present(int type)
 	st->fls &= ~USU_MOD_FL_PRESENT;
 	spin_unlock_irqrestore(&usu_lock, flags);
 }
-EXPORT_SYMBOL_GPL(usb_usual_clear_present);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_usual_clear_present); */
 
 /*
  * Match the calling driver type against the table.
@@ -87,7 +87,7 @@ int usb_usual_check_type(const struct usb_device_id *id, int caller_type)
 		return 0;
 	return -ENODEV;
 }
-EXPORT_SYMBOL_GPL(usb_usual_check_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_usual_check_type); */
 
 /*
  */

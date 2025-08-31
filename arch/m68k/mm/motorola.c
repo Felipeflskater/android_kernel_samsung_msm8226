@@ -41,7 +41,7 @@
  * For 68040, this is _PAGE_CACHE040 (cachable, copyback)
  */
 unsigned long mm_cachebits;
-EXPORT_SYMBOL(mm_cachebits);
+/* DISABLED: EXPORT_SYMBOL(mm_cachebits); */
 #endif
 
 /* size of memory already mapped in head.S */

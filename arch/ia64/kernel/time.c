@@ -43,7 +43,7 @@ volatile int time_keeper_id = 0; /* smp_processor_id() of time-keeper */
 #ifdef CONFIG_IA64_DEBUG_IRQ
 
 unsigned long last_cli_ip;
-EXPORT_SYMBOL(last_cli_ip);
+/* DISABLED: EXPORT_SYMBOL(last_cli_ip); */
 
 #endif
 
@@ -138,7 +138,7 @@ void account_system_vtime(struct task_struct *tsk)
 
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL_GPL(account_system_vtime);
+/* DISABLED: EXPORT_SYMBOL_GPL(account_system_vtime); */
 
 /*
  * Called from the timer interrupt handler to charge accumulated user time
@@ -254,7 +254,7 @@ static int __init nojitter_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("nojitter", nojitter_setup); */
+/* DISABLED: __setup("nojitter", nojitter_setup); */ */
 
 
 void __devinit
@@ -447,7 +447,7 @@ udelay (unsigned long usecs)
 {
 	(*ia64_udelay)(usecs);
 }
-EXPORT_SYMBOL(udelay);
+/* DISABLED: EXPORT_SYMBOL(udelay); */
 
 /* IA64 doesn't cache the timezone */
 void update_vsyscall_tz(void)

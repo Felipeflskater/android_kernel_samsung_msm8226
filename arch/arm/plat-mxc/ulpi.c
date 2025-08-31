@@ -110,7 +110,7 @@ struct usb_phy_io_ops mxc_ulpi_access_ops = {
 	.read	= ulpi_read,
 	.write	= ulpi_write,
 };
-EXPORT_SYMBOL_GPL(mxc_ulpi_access_ops);
+/* DISABLED: EXPORT_SYMBOL_GPL(mxc_ulpi_access_ops); */
 
 struct usb_phy *imx_otg_ulpi_create(unsigned int flags)
 {

@@ -1741,9 +1741,9 @@ static int mpu_timer_init(int midi_dev)
 
 }
 
-EXPORT_SYMBOL(probe_mpu401);
-EXPORT_SYMBOL(attach_mpu401);
-EXPORT_SYMBOL(unload_mpu401);
+/* DISABLED: EXPORT_SYMBOL(probe_mpu401); */
+/* DISABLED: EXPORT_SYMBOL(attach_mpu401); */
+/* DISABLED: EXPORT_SYMBOL(unload_mpu401); */
 
 static struct address_info cfg;
 
@@ -1801,6 +1801,6 @@ static int __init setup_mpu401(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("mpu401=", setup_mpu401); */
+/* DISABLED: __setup("mpu401=", setup_mpu401); */ */
 #endif
 MODULE_LICENSE("GPL");

@@ -57,7 +57,7 @@ int bcm63xx_set_cs_base(unsigned int cs, u32 base, unsigned int size)
 	return 0;
 }
 
-EXPORT_SYMBOL(bcm63xx_set_cs_base);
+/* DISABLED: EXPORT_SYMBOL(bcm63xx_set_cs_base); */
 
 /*
  * configure chipselect timing (ns)
@@ -85,7 +85,7 @@ int bcm63xx_set_cs_timing(unsigned int cs, unsigned int wait,
 	return 0;
 }
 
-EXPORT_SYMBOL(bcm63xx_set_cs_timing);
+/* DISABLED: EXPORT_SYMBOL(bcm63xx_set_cs_timing); */
 
 /*
  * configure other chipselect parameter (data bus size, ...)
@@ -117,7 +117,7 @@ int bcm63xx_set_cs_param(unsigned int cs, u32 params)
 	return 0;
 }
 
-EXPORT_SYMBOL(bcm63xx_set_cs_param);
+/* DISABLED: EXPORT_SYMBOL(bcm63xx_set_cs_param); */
 
 /*
  * set cs status (enable/disable)
@@ -141,4 +141,4 @@ int bcm63xx_set_cs_status(unsigned int cs, int enable)
 	return 0;
 }
 
-EXPORT_SYMBOL(bcm63xx_set_cs_status);
+/* DISABLED: EXPORT_SYMBOL(bcm63xx_set_cs_status); */

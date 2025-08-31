@@ -40,8 +40,8 @@ void (*atari_MIDI_interrupt_hook) (void);
 void (*atari_input_keyboard_interrupt_hook) (unsigned char, char);
 /* Hook for mouse inputdev  driver */
 void (*atari_input_mouse_interrupt_hook) (char *);
-EXPORT_SYMBOL(atari_input_keyboard_interrupt_hook);
-EXPORT_SYMBOL(atari_input_mouse_interrupt_hook);
+/* DISABLED: EXPORT_SYMBOL(atari_input_keyboard_interrupt_hook); */
+/* DISABLED: EXPORT_SYMBOL(atari_input_mouse_interrupt_hook); */
 
 /* variables for IKBD self test: */
 
@@ -360,7 +360,7 @@ void ikbd_mouse_rel_pos(void)
 
 	ikbd_write(cmd, 1);
 }
-EXPORT_SYMBOL(ikbd_mouse_rel_pos);
+/* DISABLED: EXPORT_SYMBOL(ikbd_mouse_rel_pos); */
 
 /* Set absolute mouse position reporting */
 void ikbd_mouse_abs_pos(int xmax, int ymax)
@@ -385,7 +385,7 @@ void ikbd_mouse_thresh(int x, int y)
 
 	ikbd_write(cmd, 3);
 }
-EXPORT_SYMBOL(ikbd_mouse_thresh);
+/* DISABLED: EXPORT_SYMBOL(ikbd_mouse_thresh); */
 
 /* Set mouse scale */
 void ikbd_mouse_scale(int x, int y)
@@ -428,7 +428,7 @@ void ikbd_mouse_y0_top(void)
 
 	ikbd_write(cmd, 1);
 }
-EXPORT_SYMBOL(ikbd_mouse_y0_top);
+/* DISABLED: EXPORT_SYMBOL(ikbd_mouse_y0_top); */
 
 /* Resume */
 void ikbd_resume(void)
@@ -445,7 +445,7 @@ void ikbd_mouse_disable(void)
 
 	ikbd_write(cmd, 1);
 }
-EXPORT_SYMBOL(ikbd_mouse_disable);
+/* DISABLED: EXPORT_SYMBOL(ikbd_mouse_disable); */
 
 /* Pause output */
 void ikbd_pause(void)
@@ -635,4 +635,4 @@ int atari_keyb_init(void)
 	atari_keyb_done = 1;
 	return 0;
 }
-EXPORT_SYMBOL_GPL(atari_keyb_init);
+/* DISABLED: EXPORT_SYMBOL_GPL(atari_keyb_init); */

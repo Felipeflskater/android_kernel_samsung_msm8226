@@ -249,4 +249,4 @@ char *caam_jr_strstatus(char *outstr, u32 status)
 
 	return outstr;
 }
-EXPORT_SYMBOL(caam_jr_strstatus);
+/* DISABLED: EXPORT_SYMBOL(caam_jr_strstatus); */

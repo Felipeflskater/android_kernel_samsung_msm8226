@@ -952,7 +952,7 @@ retry:
 
 	return netlink_sendskb(sk, skb);
 }
-EXPORT_SYMBOL(netlink_unicast);
+/* DISABLED: EXPORT_SYMBOL(netlink_unicast); */
 
 int netlink_has_listeners(struct sock *sk, unsigned int group)
 {
@@ -971,7 +971,7 @@ int netlink_has_listeners(struct sock *sk, unsigned int group)
 
 	return res;
 }
-EXPORT_SYMBOL_GPL(netlink_has_listeners);
+/* DISABLED: EXPORT_SYMBOL_GPL(netlink_has_listeners); */
 
 static int netlink_broadcast_deliver(struct sock *sk, struct sk_buff *skb)
 {
@@ -1112,7 +1112,7 @@ int netlink_broadcast_filtered(struct sock *ssk, struct sk_buff *skb, u32 pid,
 	}
 	return -ESRCH;
 }
-EXPORT_SYMBOL(netlink_broadcast_filtered);
+/* DISABLED: EXPORT_SYMBOL(netlink_broadcast_filtered); */
 
 int netlink_broadcast(struct sock *ssk, struct sk_buff *skb, u32 pid,
 		      u32 group, gfp_t allocation)
@@ -1120,7 +1120,7 @@ int netlink_broadcast(struct sock *ssk, struct sk_buff *skb, u32 pid,
 	return netlink_broadcast_filtered(ssk, skb, pid, group, allocation,
 		NULL, NULL);
 }
-EXPORT_SYMBOL(netlink_broadcast);
+/* DISABLED: EXPORT_SYMBOL(netlink_broadcast); */
 
 struct netlink_set_err_data {
 	struct sock *exclude_sk;
@@ -1186,7 +1186,7 @@ int netlink_set_err(struct sock *ssk, u32 pid, u32 group, int code)
 	read_unlock(&nl_table_lock);
 	return ret;
 }
-EXPORT_SYMBOL(netlink_set_err);
+/* DISABLED: EXPORT_SYMBOL(netlink_set_err); */
 
 /* must be called with netlink table grabbed */
 static void netlink_update_socket_mc(struct netlink_sock *nlk,
@@ -1572,7 +1572,7 @@ out_sock_release_nosk:
 	sock_release(sock);
 	return NULL;
 }
-EXPORT_SYMBOL(netlink_kernel_create);
+/* DISABLED: EXPORT_SYMBOL(netlink_kernel_create); */
 
 
 void
@@ -1580,7 +1580,7 @@ netlink_kernel_release(struct sock *sk)
 {
 	sk_release_kernel(sk);
 }
-EXPORT_SYMBOL(netlink_kernel_release);
+/* DISABLED: EXPORT_SYMBOL(netlink_kernel_release); */
 
 int __netlink_change_ngroups(struct sock *sk, unsigned int groups)
 {
@@ -1658,7 +1658,7 @@ void netlink_set_nonroot(int protocol, unsigned int flags)
 	if ((unsigned int)protocol < MAX_LINKS)
 		nl_table[protocol].nl_nonroot = flags;
 }
-EXPORT_SYMBOL(netlink_set_nonroot);
+/* DISABLED: EXPORT_SYMBOL(netlink_set_nonroot); */
 
 static void netlink_destroy_callback(struct netlink_callback *cb)
 {
@@ -1682,7 +1682,7 @@ __nlmsg_put(struct sk_buff *skb, u32 pid, u32 seq, int type, int len, int flags)
 		memset(NLMSG_DATA(nlh) + len, 0, NLMSG_ALIGN(size) - size);
 	return nlh;
 }
-EXPORT_SYMBOL(__nlmsg_put);
+/* DISABLED: EXPORT_SYMBOL(__nlmsg_put); */
 
 /*
  * It looks a bit ugly.
@@ -1814,7 +1814,7 @@ out:
 	 */
 	return -EINTR;
 }
-EXPORT_SYMBOL(__netlink_dump_start);
+/* DISABLED: EXPORT_SYMBOL(__netlink_dump_start); */
 
 void netlink_ack(struct sk_buff *in_skb, struct nlmsghdr *nlh, int err)
 {
@@ -1849,7 +1849,7 @@ void netlink_ack(struct sk_buff *in_skb, struct nlmsghdr *nlh, int err)
 	memcpy(&errmsg->msg, nlh, err ? nlh->nlmsg_len : sizeof(*nlh));
 	netlink_unicast(in_skb->sk, skb, NETLINK_CB(in_skb).pid, MSG_DONTWAIT);
 }
-EXPORT_SYMBOL(netlink_ack);
+/* DISABLED: EXPORT_SYMBOL(netlink_ack); */
 
 int netlink_rcv_skb(struct sk_buff *skb, int (*cb)(struct sk_buff *,
 						     struct nlmsghdr *))
@@ -1891,7 +1891,7 @@ skip:
 
 	return 0;
 }
-EXPORT_SYMBOL(netlink_rcv_skb);
+/* DISABLED: EXPORT_SYMBOL(netlink_rcv_skb); */
 
 /**
  * nlmsg_notify - send a notification netlink message
@@ -1930,7 +1930,7 @@ int nlmsg_notify(struct sock *sk, struct sk_buff *skb, u32 pid,
 
 	return err;
 }
-EXPORT_SYMBOL(nlmsg_notify);
+/* DISABLED: EXPORT_SYMBOL(nlmsg_notify); */
 
 #ifdef CONFIG_PROC_FS
 struct nl_seq_iter {
@@ -2077,13 +2077,13 @@ int netlink_register_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&netlink_chain, nb);
 }
-EXPORT_SYMBOL(netlink_register_notifier);
+/* DISABLED: EXPORT_SYMBOL(netlink_register_notifier); */
 
 int netlink_unregister_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&netlink_chain, nb);
 }
-EXPORT_SYMBOL(netlink_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL(netlink_unregister_notifier); */
 
 static const struct proto_ops netlink_ops = {
 	.family =	PF_NETLINK,

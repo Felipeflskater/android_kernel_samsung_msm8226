@@ -258,7 +258,7 @@ void emerg_pet_watchdog(void)
 		last_emerg_pet = sched_clock();
 	}
 }
-EXPORT_SYMBOL(emerg_pet_watchdog);
+/* DISABLED: EXPORT_SYMBOL(emerg_pet_watchdog); */
 #endif
 
 unsigned min_slack_ticks = UINT_MAX;

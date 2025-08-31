@@ -54,7 +54,7 @@ const char *bdevname(struct block_device *bdev, char *buf)
 	return disk_name(bdev->bd_disk, bdev->bd_part->partno, buf);
 }
 
-EXPORT_SYMBOL(bdevname);
+/* DISABLED: EXPORT_SYMBOL(bdevname); */
 
 /*
  * There's very little reason to use this, you should really
@@ -68,7 +68,7 @@ const char *__bdevname(dev_t dev, char *buffer)
 	return buffer;
 }
 
-EXPORT_SYMBOL(__bdevname);
+/* DISABLED: EXPORT_SYMBOL(__bdevname); */
 
 static ssize_t part_partition_show(struct device *dev,
 				   struct device_attribute *attr, char *buf)
@@ -592,4 +592,4 @@ fail:
 	return NULL;
 }
 
-EXPORT_SYMBOL(read_dev_sector);
+/* DISABLED: EXPORT_SYMBOL(read_dev_sector); */

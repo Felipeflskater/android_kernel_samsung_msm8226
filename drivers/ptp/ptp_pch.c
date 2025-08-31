@@ -200,7 +200,7 @@ u32 pch_ch_control_read(struct pci_dev *pdev)
 
 	return val;
 }
-EXPORT_SYMBOL(pch_ch_control_read);
+/* DISABLED: EXPORT_SYMBOL(pch_ch_control_read); */
 
 void pch_ch_control_write(struct pci_dev *pdev, u32 val)
 {
@@ -208,7 +208,7 @@ void pch_ch_control_write(struct pci_dev *pdev, u32 val)
 
 	iowrite32(val, (&chip->regs->ch_control));
 }
-EXPORT_SYMBOL(pch_ch_control_write);
+/* DISABLED: EXPORT_SYMBOL(pch_ch_control_write); */
 
 u32 pch_ch_event_read(struct pci_dev *pdev)
 {
@@ -219,7 +219,7 @@ u32 pch_ch_event_read(struct pci_dev *pdev)
 
 	return val;
 }
-EXPORT_SYMBOL(pch_ch_event_read);
+/* DISABLED: EXPORT_SYMBOL(pch_ch_event_read); */
 
 void pch_ch_event_write(struct pci_dev *pdev, u32 val)
 {
@@ -227,7 +227,7 @@ void pch_ch_event_write(struct pci_dev *pdev, u32 val)
 
 	iowrite32(val, (&chip->regs->ch_event));
 }
-EXPORT_SYMBOL(pch_ch_event_write);
+/* DISABLED: EXPORT_SYMBOL(pch_ch_event_write); */
 
 u32 pch_src_uuid_lo_read(struct pci_dev *pdev)
 {
@@ -238,7 +238,7 @@ u32 pch_src_uuid_lo_read(struct pci_dev *pdev)
 
 	return val;
 }
-EXPORT_SYMBOL(pch_src_uuid_lo_read);
+/* DISABLED: EXPORT_SYMBOL(pch_src_uuid_lo_read); */
 
 u32 pch_src_uuid_hi_read(struct pci_dev *pdev)
 {
@@ -249,7 +249,7 @@ u32 pch_src_uuid_hi_read(struct pci_dev *pdev)
 
 	return val;
 }
-EXPORT_SYMBOL(pch_src_uuid_hi_read);
+/* DISABLED: EXPORT_SYMBOL(pch_src_uuid_hi_read); */
 
 u64 pch_rx_snap_read(struct pci_dev *pdev)
 {
@@ -265,7 +265,7 @@ u64 pch_rx_snap_read(struct pci_dev *pdev)
 
 	return ns;
 }
-EXPORT_SYMBOL(pch_rx_snap_read);
+/* DISABLED: EXPORT_SYMBOL(pch_rx_snap_read); */
 
 u64 pch_tx_snap_read(struct pci_dev *pdev)
 {
@@ -281,7 +281,7 @@ u64 pch_tx_snap_read(struct pci_dev *pdev)
 
 	return ns;
 }
-EXPORT_SYMBOL(pch_tx_snap_read);
+/* DISABLED: EXPORT_SYMBOL(pch_tx_snap_read); */
 
 /* This function enables all 64 bits in system time registers [high & low].
 This is a work-around for non continuous value in the SystemTime Register*/

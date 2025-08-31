@@ -233,7 +233,7 @@ error_devconnect_create:
 error_mmcie_create:
 	return result;
 }
-EXPORT_SYMBOL_GPL(wusbhc_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_create); */
 
 static inline struct kobject *wusbhc_kobj(struct wusbhc *wusbhc)
 {
@@ -271,14 +271,14 @@ error_pal_register:
 error_create_attr_group:
 	return result;
 }
-EXPORT_SYMBOL_GPL(wusbhc_b_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_b_create); */
 
 void wusbhc_b_destroy(struct wusbhc *wusbhc)
 {
 	wusbhc_pal_unregister(wusbhc);
 	sysfs_remove_group(wusbhc_kobj(wusbhc), &wusbhc_attr_group);
 }
-EXPORT_SYMBOL_GPL(wusbhc_b_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_b_destroy); */
 
 void wusbhc_destroy(struct wusbhc *wusbhc)
 {
@@ -287,10 +287,10 @@ void wusbhc_destroy(struct wusbhc *wusbhc)
 	wusbhc_devconnect_destroy(wusbhc);
 	wusbhc_mmcie_destroy(wusbhc);
 }
-EXPORT_SYMBOL_GPL(wusbhc_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_destroy); */
 
 struct workqueue_struct *wusbd;
-EXPORT_SYMBOL_GPL(wusbd);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbd); */
 
 /*
  * WUSB Cluster ID allocation map
@@ -331,7 +331,7 @@ out:
 	return id;
 
 }
-EXPORT_SYMBOL_GPL(wusb_cluster_id_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusb_cluster_id_get); */
 
 /*
  * Release a WUSB Cluster ID
@@ -347,7 +347,7 @@ void wusb_cluster_id_put(u8 id)
 	clear_bit(id, wusb_cluster_id_table);
 	spin_unlock(&wusb_cluster_ids_lock);
 }
-EXPORT_SYMBOL_GPL(wusb_cluster_id_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusb_cluster_id_put); */
 
 /**
  * wusbhc_giveback_urb - return an URB to the USB core
@@ -382,7 +382,7 @@ void wusbhc_giveback_urb(struct wusbhc *wusbhc, struct urb *urb, int status)
 
 	usb_hcd_giveback_urb(&wusbhc->usb_hcd, urb, status);
 }
-EXPORT_SYMBOL_GPL(wusbhc_giveback_urb);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_giveback_urb); */
 
 /**
  * wusbhc_reset_all - reset the HC hardware
@@ -395,7 +395,7 @@ void wusbhc_reset_all(struct wusbhc *wusbhc)
 {
 	uwb_rc_reset_all(wusbhc->uwb_rc);
 }
-EXPORT_SYMBOL_GPL(wusbhc_reset_all);
+/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_reset_all); */
 
 static struct notifier_block wusb_usb_notifier = {
 	.notifier_call = wusb_usb_ncb,

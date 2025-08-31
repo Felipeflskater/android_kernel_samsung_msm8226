@@ -1256,7 +1256,7 @@ int usbatm_usb_probe(struct usb_interface *intf, const struct usb_device_id *id,
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(usbatm_usb_probe);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbatm_usb_probe); */
 
 void usbatm_usb_disconnect(struct usb_interface *intf)
 {
@@ -1327,7 +1327,7 @@ void usbatm_usb_disconnect(struct usb_interface *intf)
 
 	usbatm_put_instance(instance);	/* taken in usbatm_usb_probe */
 }
-EXPORT_SYMBOL_GPL(usbatm_usb_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(usbatm_usb_disconnect); */
 
 
 /***********

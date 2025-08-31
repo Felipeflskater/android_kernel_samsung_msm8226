@@ -1118,10 +1118,10 @@ const u32 crypto_il_tab[4][256] = {
 	}
 };
 
-EXPORT_SYMBOL_GPL(crypto_ft_tab);
-EXPORT_SYMBOL_GPL(crypto_fl_tab);
-EXPORT_SYMBOL_GPL(crypto_it_tab);
-EXPORT_SYMBOL_GPL(crypto_il_tab);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ft_tab); */
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_fl_tab); */
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_it_tab); */
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_il_tab); */
 
 /* initialise the key schedule from the user supplied key */
 
@@ -1266,7 +1266,7 @@ int crypto_aes_expand_key(struct crypto_aes_ctx *ctx, const u8 *in_key,
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_aes_expand_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aes_expand_key); */
 
 /**
  * crypto_aes_set_key - Set the AES key.
@@ -1293,7 +1293,7 @@ int crypto_aes_set_key(struct crypto_tfm *tfm, const u8 *in_key,
 	*flags |= CRYPTO_TFM_RES_BAD_KEY_LEN;
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(crypto_aes_set_key);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aes_set_key); */
 
 /* encrypt a block of text */
 

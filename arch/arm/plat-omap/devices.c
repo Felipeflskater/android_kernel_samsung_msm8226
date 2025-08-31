@@ -179,7 +179,7 @@ phys_addr_t omap_dsp_get_mempool_base(void)
 {
 	return omap_dsp_phys_mempool_base;
 }
-EXPORT_SYMBOL(omap_dsp_get_mempool_base);
+/* DISABLED: EXPORT_SYMBOL(omap_dsp_get_mempool_base); */
 #endif
 
 /*

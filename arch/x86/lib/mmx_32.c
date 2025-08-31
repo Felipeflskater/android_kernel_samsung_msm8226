@@ -113,7 +113,7 @@ void *_mmx_memcpy(void *to, const void *from, size_t len)
 
 	return p;
 }
-EXPORT_SYMBOL(_mmx_memcpy);
+/* DISABLED: EXPORT_SYMBOL(_mmx_memcpy); */
 
 #ifdef CONFIG_MK7
 
@@ -353,7 +353,7 @@ void mmx_clear_page(void *page)
 	else
 		fast_clear_page(page);
 }
-EXPORT_SYMBOL(mmx_clear_page);
+/* DISABLED: EXPORT_SYMBOL(mmx_clear_page); */
 
 static void slow_copy_page(void *to, void *from)
 {
@@ -374,4 +374,4 @@ void mmx_copy_page(void *to, void *from)
 	else
 		fast_copy_page(to, from);
 }
-EXPORT_SYMBOL(mmx_copy_page);
+/* DISABLED: EXPORT_SYMBOL(mmx_copy_page); */

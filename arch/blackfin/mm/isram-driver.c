@@ -191,7 +191,7 @@ void *isram_memcpy(void *dest, const void *src, size_t n)
 
 	return dest;
 }
-EXPORT_SYMBOL(isram_memcpy);
+/* DISABLED: EXPORT_SYMBOL(isram_memcpy); */
 
 #ifdef CONFIG_BFIN_ISRAM_SELF_TEST
 

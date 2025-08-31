@@ -53,7 +53,7 @@ void all_vm_events(unsigned long *ret)
 	sum_vm_events(ret);
 	put_online_cpus();
 }
-EXPORT_SYMBOL_GPL(all_vm_events);
+/* DISABLED: EXPORT_SYMBOL_GPL(all_vm_events); */
 
 #ifdef CONFIG_HOTPLUG
 /*
@@ -82,7 +82,7 @@ void vm_events_fold_cpu(int cpu)
  * vm_stat contains the global counters
  */
 atomic_long_t vm_stat[NR_VM_ZONE_STAT_ITEMS] __cacheline_aligned_in_smp;
-EXPORT_SYMBOL(vm_stat);
+/* DISABLED: EXPORT_SYMBOL(vm_stat); */
 
 #ifdef CONFIG_SMP
 
@@ -229,7 +229,7 @@ void __mod_zone_page_state(struct zone *zone, enum zone_stat_item item,
 	}
 	__this_cpu_write(*p, x);
 }
-EXPORT_SYMBOL(__mod_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(__mod_zone_page_state); */
 
 /*
  * Optimized increment and decrement functions.
@@ -274,7 +274,7 @@ void __inc_zone_page_state(struct page *page, enum zone_stat_item item)
 {
 	__inc_zone_state(page_zone(page), item);
 }
-EXPORT_SYMBOL(__inc_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(__inc_zone_page_state); */
 
 void __dec_zone_state(struct zone *zone, enum zone_stat_item item)
 {
@@ -296,7 +296,7 @@ void __dec_zone_page_state(struct page *page, enum zone_stat_item item)
 {
 	__dec_zone_state(page_zone(page), item);
 }
-EXPORT_SYMBOL(__dec_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(__dec_zone_page_state); */
 
 #ifdef CONFIG_HAVE_CMPXCHG_LOCAL
 /*
@@ -354,7 +354,7 @@ void mod_zone_page_state(struct zone *zone, enum zone_stat_item item,
 {
 	mod_state(zone, item, delta, 0);
 }
-EXPORT_SYMBOL(mod_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(mod_zone_page_state); */
 
 void inc_zone_state(struct zone *zone, enum zone_stat_item item)
 {
@@ -365,13 +365,13 @@ void inc_zone_page_state(struct page *page, enum zone_stat_item item)
 {
 	mod_state(page_zone(page), item, 1, 1);
 }
-EXPORT_SYMBOL(inc_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(inc_zone_page_state); */
 
 void dec_zone_page_state(struct page *page, enum zone_stat_item item)
 {
 	mod_state(page_zone(page), item, -1, -1);
 }
-EXPORT_SYMBOL(dec_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(dec_zone_page_state); */
 #else
 /*
  * Use interrupt disable to serialize counter updates
@@ -385,7 +385,7 @@ void mod_zone_page_state(struct zone *zone, enum zone_stat_item item,
 	__mod_zone_page_state(zone, item, delta);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(mod_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(mod_zone_page_state); */
 
 void inc_zone_state(struct zone *zone, enum zone_stat_item item)
 {
@@ -406,7 +406,7 @@ void inc_zone_page_state(struct page *page, enum zone_stat_item item)
 	__inc_zone_state(zone, item);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(inc_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(inc_zone_page_state); */
 
 void dec_zone_page_state(struct page *page, enum zone_stat_item item)
 {
@@ -416,7 +416,7 @@ void dec_zone_page_state(struct page *page, enum zone_stat_item item)
 	__dec_zone_page_state(page, item);
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(dec_zone_page_state);
+/* DISABLED: EXPORT_SYMBOL(dec_zone_page_state); */
 #endif
 
 /*

@@ -64,7 +64,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-EXPORT_SYMBOL(clk_enable);
+/* DISABLED: EXPORT_SYMBOL(clk_enable); */
 
 void clk_disable(struct clk *clk)
 {
@@ -78,7 +78,7 @@ void clk_disable(struct clk *clk)
 		spin_unlock_irqrestore(&clocks_lock, flags);
 	}
 }
-EXPORT_SYMBOL(clk_disable);
+/* DISABLED: EXPORT_SYMBOL(clk_disable); */
 
 const struct clkops clk_gpio27_ops = {
 	.enable		= clk_gpio27_enable,

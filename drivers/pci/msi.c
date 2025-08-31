@@ -438,7 +438,7 @@ void pci_restore_msi_state(struct pci_dev *dev)
 	__pci_restore_msi_state(dev);
 	__pci_restore_msix_state(dev);
 }
-EXPORT_SYMBOL_GPL(pci_restore_msi_state);
+/* DISABLED: EXPORT_SYMBOL_GPL(pci_restore_msi_state); */
 
 
 #define to_msi_attr(obj) container_of(obj, struct msi_attribute, attr)
@@ -837,7 +837,7 @@ int pci_enable_msi_block(struct pci_dev *dev, unsigned int nvec)
 	status = msi_capability_init(dev, nvec);
 	return status;
 }
-EXPORT_SYMBOL(pci_enable_msi_block);
+/* DISABLED: EXPORT_SYMBOL(pci_enable_msi_block); */
 
 void pci_msi_shutdown(struct pci_dev *dev)
 {
@@ -877,7 +877,7 @@ void pci_disable_msi(struct pci_dev *dev)
 	kset_unregister(dev->msi_kset);
 	dev->msi_kset = NULL;
 }
-EXPORT_SYMBOL(pci_disable_msi);
+/* DISABLED: EXPORT_SYMBOL(pci_disable_msi); */
 
 /**
  * pci_msix_table_size - return the number of device's MSI-X table entries
@@ -947,7 +947,7 @@ int pci_enable_msix(struct pci_dev *dev, struct msix_entry *entries, int nvec)
 	status = msix_capability_init(dev, entries, nvec);
 	return status;
 }
-EXPORT_SYMBOL(pci_enable_msix);
+/* DISABLED: EXPORT_SYMBOL(pci_enable_msix); */
 
 void pci_msix_shutdown(struct pci_dev *dev)
 {
@@ -977,7 +977,7 @@ void pci_disable_msix(struct pci_dev *dev)
 	kset_unregister(dev->msi_kset);
 	dev->msi_kset = NULL;
 }
-EXPORT_SYMBOL(pci_disable_msix);
+/* DISABLED: EXPORT_SYMBOL(pci_disable_msix); */
 
 /**
  * msi_remove_pci_irq_vectors - reclaim MSI(X) irqs to unused state
@@ -1012,7 +1012,7 @@ int pci_msi_enabled(void)
 {
 	return pci_msi_enable;
 }
-EXPORT_SYMBOL(pci_msi_enabled);
+/* DISABLED: EXPORT_SYMBOL(pci_msi_enabled); */
 
 void pci_msi_init_pci_dev(struct pci_dev *dev)
 {

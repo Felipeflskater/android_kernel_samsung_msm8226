@@ -38,7 +38,7 @@ extern int root_mountflags;
 struct avr32_cpuinfo boot_cpu_data = {
 	.loops_per_jiffy = 5000000
 };
-EXPORT_SYMBOL(boot_cpu_data);
+/* DISABLED: EXPORT_SYMBOL(boot_cpu_data); */
 
 static char __initdata command_line[COMMAND_LINE_SIZE];
 

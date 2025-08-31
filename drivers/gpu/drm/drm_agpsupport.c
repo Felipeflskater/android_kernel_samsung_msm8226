@@ -72,7 +72,7 @@ int drm_agp_info(struct drm_device *dev, struct drm_agp_info *info)
 	return 0;
 }
 
-EXPORT_SYMBOL(drm_agp_info);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_info); */
 
 int drm_agp_info_ioctl(struct drm_device *dev, void *data,
 		       struct drm_file *file_priv)
@@ -108,7 +108,7 @@ int drm_agp_acquire(struct drm_device * dev)
 	return 0;
 }
 
-EXPORT_SYMBOL(drm_agp_acquire);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_acquire); */
 
 /**
  * Acquire the AGP device (ioctl).
@@ -144,7 +144,7 @@ int drm_agp_release(struct drm_device * dev)
 	dev->agp->acquired = 0;
 	return 0;
 }
-EXPORT_SYMBOL(drm_agp_release);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_release); */
 
 int drm_agp_release_ioctl(struct drm_device *dev, void *data,
 			  struct drm_file *file_priv)
@@ -173,7 +173,7 @@ int drm_agp_enable(struct drm_device * dev, struct drm_agp_mode mode)
 	return 0;
 }
 
-EXPORT_SYMBOL(drm_agp_enable);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_enable); */
 
 int drm_agp_enable_ioctl(struct drm_device *dev, void *data,
 			 struct drm_file *file_priv)
@@ -227,7 +227,7 @@ int drm_agp_alloc(struct drm_device *dev, struct drm_agp_buffer *request)
 
 	return 0;
 }
-EXPORT_SYMBOL(drm_agp_alloc);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_alloc); */
 
 
 int drm_agp_alloc_ioctl(struct drm_device *dev, void *data,
@@ -287,7 +287,7 @@ int drm_agp_unbind(struct drm_device *dev, struct drm_agp_binding *request)
 		entry->bound = 0;
 	return ret;
 }
-EXPORT_SYMBOL(drm_agp_unbind);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_unbind); */
 
 
 int drm_agp_unbind_ioctl(struct drm_device *dev, void *data,
@@ -331,7 +331,7 @@ int drm_agp_bind(struct drm_device *dev, struct drm_agp_binding *request)
 		  dev->agp->base, entry->bound);
 	return 0;
 }
-EXPORT_SYMBOL(drm_agp_bind);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_bind); */
 
 
 int drm_agp_bind_ioctl(struct drm_device *dev, void *data,
@@ -373,7 +373,7 @@ int drm_agp_free(struct drm_device *dev, struct drm_agp_buffer *request)
 	kfree(entry);
 	return 0;
 }
-EXPORT_SYMBOL(drm_agp_free);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_free); */
 
 
 
@@ -464,6 +464,6 @@ drm_agp_bind_pages(struct drm_device *dev,
 
 	return mem;
 }
-EXPORT_SYMBOL(drm_agp_bind_pages);
+/* DISABLED: EXPORT_SYMBOL(drm_agp_bind_pages); */
 
 #endif /* __OS_HAS_AGP */

@@ -69,7 +69,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 	}
 	return 0;
 }
-EXPORT_SYMBOL(pwm_config);
+/* DISABLED: EXPORT_SYMBOL(pwm_config); */
 
 int pwm_enable(struct pwm_device *pwm)
 {
@@ -95,7 +95,7 @@ int pwm_enable(struct pwm_device *pwm)
 	twl_i2c_read_u8(TWL6030_MODULE_ID1, &val, LED_PWM_CTRL2);
 	return 0;
 }
-EXPORT_SYMBOL(pwm_enable);
+/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
 
 void pwm_disable(struct pwm_device *pwm)
 {
@@ -120,7 +120,7 @@ void pwm_disable(struct pwm_device *pwm)
 	}
 	return;
 }
-EXPORT_SYMBOL(pwm_disable);
+/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
 
 struct pwm_device *pwm_request(int pwm_id, const char *label)
 {
@@ -153,13 +153,13 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 
 	return pwm;
 }
-EXPORT_SYMBOL(pwm_request);
+/* DISABLED: EXPORT_SYMBOL(pwm_request); */
 
 void pwm_free(struct pwm_device *pwm)
 {
 	pwm_disable(pwm);
 	kfree(pwm);
 }
-EXPORT_SYMBOL(pwm_free);
+/* DISABLED: EXPORT_SYMBOL(pwm_free); */
 
 MODULE_LICENSE("GPL");

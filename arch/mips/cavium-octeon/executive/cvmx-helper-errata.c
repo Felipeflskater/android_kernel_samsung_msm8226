@@ -70,4 +70,4 @@ void __cvmx_helper_errata_qlm_disable_2nd_order_cdr(int qlm)
 	}
 	cvmx_helper_qlm_jtag_update(qlm);
 }
-EXPORT_SYMBOL(__cvmx_helper_errata_qlm_disable_2nd_order_cdr);
+/* DISABLED: EXPORT_SYMBOL(__cvmx_helper_errata_qlm_disable_2nd_order_cdr); */

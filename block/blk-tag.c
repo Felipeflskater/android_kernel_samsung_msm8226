@@ -24,7 +24,7 @@ struct request *blk_queue_find_tag(struct request_queue *q, int tag)
 {
 	return blk_map_queue_find_tag(q->queue_tags, tag);
 }
-EXPORT_SYMBOL(blk_queue_find_tag);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_find_tag); */
 
 /**
  * blk_free_tags - release a given set of tag maintenance info
@@ -48,7 +48,7 @@ void blk_free_tags(struct blk_queue_tag *bqt)
 		kfree(bqt);
 	}
 }
-EXPORT_SYMBOL(blk_free_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_free_tags); */
 
 /**
  * __blk_queue_free_tags - release tag maintenance info
@@ -83,7 +83,7 @@ void blk_queue_free_tags(struct request_queue *q)
 {
 	queue_flag_clear_unlocked(QUEUE_FLAG_QUEUED, q);
 }
-EXPORT_SYMBOL(blk_queue_free_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_free_tags); */
 
 static int
 init_tag_map(struct request_queue *q, struct blk_queue_tag *tags, int depth)
@@ -145,7 +145,7 @@ struct blk_queue_tag *blk_init_tags(int depth)
 {
 	return __blk_queue_init_tags(NULL, depth);
 }
-EXPORT_SYMBOL(blk_init_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_init_tags); */
 
 /**
  * blk_queue_init_tags - initialize the queue tag info
@@ -188,7 +188,7 @@ fail:
 	kfree(tags);
 	return -ENOMEM;
 }
-EXPORT_SYMBOL(blk_queue_init_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_init_tags); */
 
 /**
  * blk_queue_resize_tags - change the queueing depth
@@ -244,7 +244,7 @@ int blk_queue_resize_tags(struct request_queue *q, int new_depth)
 	kfree(tag_map);
 	return 0;
 }
-EXPORT_SYMBOL(blk_queue_resize_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_resize_tags); */
 
 /**
  * blk_queue_end_tag - end tag operations for a request
@@ -288,7 +288,7 @@ void blk_queue_end_tag(struct request_queue *q, struct request *rq)
 	 */
 	clear_bit_unlock(tag, bqt->tag_map);
 }
-EXPORT_SYMBOL(blk_queue_end_tag);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_end_tag); */
 
 /**
  * blk_queue_start_tag - find a free tag and assign it
@@ -356,7 +356,7 @@ int blk_queue_start_tag(struct request_queue *q, struct request *rq)
 	list_add(&rq->queuelist, &q->tag_busy_list);
 	return 0;
 }
-EXPORT_SYMBOL(blk_queue_start_tag);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_start_tag); */
 
 /**
  * blk_queue_invalidate_tags - invalidate all pending tags
@@ -377,4 +377,4 @@ void blk_queue_invalidate_tags(struct request_queue *q)
 	list_for_each_safe(tmp, n, &q->tag_busy_list)
 		blk_requeue_request(q, list_entry_rq(tmp));
 }
-EXPORT_SYMBOL(blk_queue_invalidate_tags);
+/* DISABLED: EXPORT_SYMBOL(blk_queue_invalidate_tags); */

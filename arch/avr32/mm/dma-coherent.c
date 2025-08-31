@@ -35,7 +35,7 @@ void dma_cache_sync(struct device *dev, void *vaddr, size_t size, int direction)
 		BUG();
 	}
 }
-EXPORT_SYMBOL(dma_cache_sync);
+/* DISABLED: EXPORT_SYMBOL(dma_cache_sync); */
 
 static struct page *__dma_alloc(struct device *dev, size_t size,
 				dma_addr_t *handle, gfp_t gfp)
@@ -105,7 +105,7 @@ void *dma_alloc_coherent(struct device *dev, size_t size,
 
 	return ret;
 }
-EXPORT_SYMBOL(dma_alloc_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
 
 void dma_free_coherent(struct device *dev, size_t size,
 		       void *cpu_addr, dma_addr_t handle)
@@ -119,7 +119,7 @@ void dma_free_coherent(struct device *dev, size_t size,
 	page = virt_to_page(addr);
 	__dma_free(dev, size, page, handle);
 }
-EXPORT_SYMBOL(dma_free_coherent);
+/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
 
 void *dma_alloc_writecombine(struct device *dev, size_t size,
 			     dma_addr_t *handle, gfp_t gfp)
@@ -137,7 +137,7 @@ void *dma_alloc_writecombine(struct device *dev, size_t size,
 	/* Now, map the page into P3 with write-combining turned on */
 	return __ioremap(phys, size, _PAGE_BUFFER);
 }
-EXPORT_SYMBOL(dma_alloc_writecombine);
+/* DISABLED: EXPORT_SYMBOL(dma_alloc_writecombine); */
 
 void dma_free_writecombine(struct device *dev, size_t size,
 			   void *cpu_addr, dma_addr_t handle)
@@ -149,4 +149,4 @@ void dma_free_writecombine(struct device *dev, size_t size,
 	page = phys_to_page(handle);
 	__dma_free(dev, size, page, handle);
 }
-EXPORT_SYMBOL(dma_free_writecombine);
+/* DISABLED: EXPORT_SYMBOL(dma_free_writecombine); */

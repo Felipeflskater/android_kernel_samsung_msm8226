@@ -286,7 +286,7 @@ void ftdi_elan_gone_away(struct platform_device *pdev)
 }
 
 
-EXPORT_SYMBOL_GPL(ftdi_elan_gone_away);
+/* DISABLED: EXPORT_SYMBOL_GPL(ftdi_elan_gone_away); */
 static void ftdi_release_platform_dev(struct device *dev)
 {
         dev->parent = NULL;
@@ -1351,7 +1351,7 @@ int usb_ftdi_elan_write_pcimem(struct platform_device *pdev, int mem_offset,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_write_pcimem);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_write_pcimem); */
 static int ftdi_elan_read_reg(struct usb_ftdi *ftdi, u32 *data)
 {
       wait:if (ftdi->disconnected > 0) {
@@ -1492,7 +1492,7 @@ int usb_ftdi_elan_read_pcimem(struct platform_device *pdev, int mem_offset,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_read_pcimem);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_read_pcimem); */
 static int ftdi_elan_edset_setup(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp, struct urb *urb, u8 address, u8 ep_number, u8 toggle_bits,
         void (*callback) (void *endp, struct urb *urb, u8 *buf, int len,
@@ -1549,7 +1549,7 @@ int usb_ftdi_elan_edset_setup(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_setup);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_setup); */
 static int ftdi_elan_edset_input(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp, struct urb *urb, u8 address, u8 ep_number, u8 toggle_bits,
         void (*callback) (void *endp, struct urb *urb, u8 *buf, int len,
@@ -1614,7 +1614,7 @@ int usb_ftdi_elan_edset_input(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_input);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_input); */
 static int ftdi_elan_edset_empty(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp, struct urb *urb, u8 address, u8 ep_number, u8 toggle_bits,
         void (*callback) (void *endp, struct urb *urb, u8 *buf, int len,
@@ -1671,7 +1671,7 @@ int usb_ftdi_elan_edset_empty(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_empty);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_empty); */
 static int ftdi_elan_edset_output(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp, struct urb *urb, u8 address, u8 ep_number, u8 toggle_bits,
         void (*callback) (void *endp, struct urb *urb, u8 *buf, int len,
@@ -1750,7 +1750,7 @@ int usb_ftdi_elan_edset_output(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_output);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_output); */
 static int ftdi_elan_edset_single(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp, struct urb *urb, u8 address, u8 ep_number, u8 toggle_bits,
         void (*callback) (void *endp, struct urb *urb, u8 *buf, int len,
@@ -1815,7 +1815,7 @@ int usb_ftdi_elan_edset_single(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_single);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_single); */
 static int ftdi_elan_edset_flush(struct usb_ftdi *ftdi, u8 ed_number,
         void *endp)
 {
@@ -1870,7 +1870,7 @@ int usb_ftdi_elan_edset_flush(struct platform_device *pdev, u8 ed_number,
 }
 
 
-EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(usb_ftdi_elan_edset_flush); */
 static int ftdi_elan_flush_input_fifo(struct usb_ftdi *ftdi)
 {
         int retry_on_empty = 10;

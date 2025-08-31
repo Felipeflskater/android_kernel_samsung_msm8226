@@ -26,13 +26,13 @@ struct qaob *qdio_allocate_aob(void)
 {
 	return kmem_cache_zalloc(qdio_aob_cache, GFP_ATOMIC);
 }
-EXPORT_SYMBOL_GPL(qdio_allocate_aob);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_allocate_aob); */
 
 void qdio_release_aob(struct qaob *aob)
 {
 	kmem_cache_free(qdio_aob_cache, aob);
 }
-EXPORT_SYMBOL_GPL(qdio_release_aob);
+/* DISABLED: EXPORT_SYMBOL_GPL(qdio_release_aob); */
 
 /*
  * qebsm is only available under 64bit but the adapter sets the feature

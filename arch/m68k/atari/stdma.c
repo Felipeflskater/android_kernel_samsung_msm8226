@@ -92,7 +92,7 @@ void stdma_lock(irq_handler_t handler, void *data)
 	stdma_isr_data = data;
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(stdma_lock);
+/* DISABLED: EXPORT_SYMBOL(stdma_lock); */
 
 
 /*
@@ -119,7 +119,7 @@ void stdma_release(void)
 
 	local_irq_restore(flags);
 }
-EXPORT_SYMBOL(stdma_release);
+/* DISABLED: EXPORT_SYMBOL(stdma_release); */
 
 
 /*
@@ -137,7 +137,7 @@ int stdma_others_waiting(void)
 {
 	return waitqueue_active(&stdma_wait);
 }
-EXPORT_SYMBOL(stdma_others_waiting);
+/* DISABLED: EXPORT_SYMBOL(stdma_others_waiting); */
 
 
 /*
@@ -159,7 +159,7 @@ int stdma_islocked(void)
 {
 	return stdma_locked;
 }
-EXPORT_SYMBOL(stdma_islocked);
+/* DISABLED: EXPORT_SYMBOL(stdma_islocked); */
 
 
 /*

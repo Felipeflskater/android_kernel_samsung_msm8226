@@ -294,7 +294,7 @@ int msm_xo_mode_vote(struct msm_xo_voter *xo_voter, enum msm_xo_modes mode)
 
 	return ret;
 }
-EXPORT_SYMBOL(msm_xo_mode_vote);
+/* DISABLED: EXPORT_SYMBOL(msm_xo_mode_vote); */
 
 /**
  * msm_xo_get() - Get a voting handle for an XO
@@ -343,7 +343,7 @@ err_name:
 err:
 	return ERR_PTR(ret);
 }
-EXPORT_SYMBOL(msm_xo_get);
+/* DISABLED: EXPORT_SYMBOL(msm_xo_get); */
 
 /**
  * msm_xo_put() - Release a voting handle
@@ -367,7 +367,7 @@ void msm_xo_put(struct msm_xo_voter *xo_voter)
 	kfree(xo_voter->name);
 	kfree(xo_voter);
 }
-EXPORT_SYMBOL(msm_xo_put);
+/* DISABLED: EXPORT_SYMBOL(msm_xo_put); */
 
 int __init msm_xo_init(void)
 {

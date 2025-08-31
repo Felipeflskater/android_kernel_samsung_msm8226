@@ -61,7 +61,7 @@ void FN_05_inthandler(struct rmi_function_info *rmifninfo,
 {
 //	struct f05_instance_data *instance_data = rmifninfo->fndata;
 }
-EXPORT_SYMBOL(FN_05_inthandler);
+/* DISABLED: EXPORT_SYMBOL(FN_05_inthandler); */
 
 int FN_05_config(struct rmi_function_info *rmifninfo)
 {
@@ -74,7 +74,7 @@ int FN_05_config(struct rmi_function_info *rmifninfo)
 
 	return retval;
 }
-EXPORT_SYMBOL(FN_05_config);
+/* DISABLED: EXPORT_SYMBOL(FN_05_config); */
 
 /* Initialize any F05 specific params and settings - input
  * settings, device settings, etc.
@@ -89,7 +89,7 @@ int FN_05_init(struct rmi_function_device *function_device)
 
 	return retval;
 }
-EXPORT_SYMBOL(FN_05_init);
+/* DISABLED: EXPORT_SYMBOL(FN_05_init); */
 
 
 int FN_05_detect(struct rmi_function_info *rmifninfo,
@@ -134,4 +134,4 @@ int FN_05_detect(struct rmi_function_info *rmifninfo,
 
 	return retval;
 }
-EXPORT_SYMBOL(FN_05_detect);
+/* DISABLED: EXPORT_SYMBOL(FN_05_detect); */

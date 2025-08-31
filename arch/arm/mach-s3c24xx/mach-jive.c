@@ -262,7 +262,7 @@ static int __init jive_mtdset(char *options)
 }
 
 /* parse the mtdset= option given to the kernel command line */
-/* DISABLED: __setup("mtdset=", jive_mtdset); */
+/* DISABLED: __setup("mtdset=", jive_mtdset); */ */
 
 /* LCD timing and setup */
 

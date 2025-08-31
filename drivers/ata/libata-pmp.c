@@ -1112,6 +1112,6 @@ void sata_pmp_error_handler(struct ata_port *ap)
 	ata_eh_finish(ap);
 }
 
-EXPORT_SYMBOL_GPL(sata_pmp_port_ops);
-EXPORT_SYMBOL_GPL(sata_pmp_qc_defer_cmd_switch);
-EXPORT_SYMBOL_GPL(sata_pmp_error_handler);
+/* DISABLED: EXPORT_SYMBOL_GPL(sata_pmp_port_ops); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sata_pmp_qc_defer_cmd_switch); */
+/* DISABLED: EXPORT_SYMBOL_GPL(sata_pmp_error_handler); */

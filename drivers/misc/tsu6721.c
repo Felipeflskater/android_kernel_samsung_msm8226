@@ -187,9 +187,9 @@ extern unsigned int system_rev;
 #define	ADC_OPEN		0x1f
 
 int uart_connecting;
-EXPORT_SYMBOL(uart_connecting);
+/* DISABLED: EXPORT_SYMBOL(uart_connecting); */
 int detached_status;
-EXPORT_SYMBOL(detached_status);
+/* DISABLED: EXPORT_SYMBOL(detached_status); */
 static int jig_state;
 
 struct tsu6721_usbsw {
@@ -785,14 +785,14 @@ int dock_det(void)
 {
 	return local_usbsw->dock_attached;
 }
-EXPORT_SYMBOL(dock_det);
+/* DISABLED: EXPORT_SYMBOL(dock_det); */
 #endif
 
 int check_jig_state(void)
 {
 	return jig_state;
 }
-EXPORT_SYMBOL(check_jig_state);
+/* DISABLED: EXPORT_SYMBOL(check_jig_state); */
 
 #if defined(CONFIG_TOUCHSCREEN_MMS144)
 extern void tsp_charger_infom(bool en);

@@ -481,7 +481,7 @@ static int __init retain_initrd_param(char *str)
 	do_retain_initrd = 1;
 	return 1;
 }
-/* DISABLED: __setup("retain_initrd", retain_initrd_param); */
+/* DISABLED: __setup("retain_initrd", retain_initrd_param); */ */
 
 extern char __initramfs_start[];
 extern unsigned long __initramfs_size;

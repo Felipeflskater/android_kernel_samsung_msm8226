@@ -84,7 +84,7 @@ int l3_write(struct l3_pins *adap, u8 addr, u8 *data, int len)
 
 	return len;
 }
-EXPORT_SYMBOL_GPL(l3_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(l3_write); */
 
 MODULE_DESCRIPTION("L3 bit-banging driver");
 MODULE_AUTHOR("Christian Pellegrin <chripell@evolware.org>");

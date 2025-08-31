@@ -53,7 +53,7 @@ void __list_add(struct list_head *new,
 	new->prev = prev;
 	prev->next = new;
 }
-EXPORT_SYMBOL(__list_add);
+/* DISABLED: EXPORT_SYMBOL(__list_add); */
 
 void __list_del_entry(struct list_head *entry)
 {
@@ -83,7 +83,7 @@ void __list_del_entry(struct list_head *entry)
 
 	__list_del(prev, next);
 }
-EXPORT_SYMBOL(__list_del_entry);
+/* DISABLED: EXPORT_SYMBOL(__list_del_entry); */
 
 /**
  * list_del - deletes entry from list.
@@ -97,4 +97,4 @@ void list_del(struct list_head *entry)
 	entry->next = LIST_POISON1;
 	entry->prev = LIST_POISON2;
 }
-EXPORT_SYMBOL(list_del);
+/* DISABLED: EXPORT_SYMBOL(list_del); */

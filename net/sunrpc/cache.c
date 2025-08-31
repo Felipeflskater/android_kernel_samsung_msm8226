@@ -119,7 +119,7 @@ struct cache_head *sunrpc_cache_lookup(struct cache_detail *detail,
 		cache_put(freeme, detail);
 	return new;
 }
-EXPORT_SYMBOL_GPL(sunrpc_cache_lookup);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_cache_lookup); */
 
 
 static void cache_dequeue(struct cache_detail *detail, struct cache_head *ch);
@@ -192,7 +192,7 @@ struct cache_head *sunrpc_cache_update(struct cache_detail *detail,
 	cache_put(old, detail);
 	return tmp;
 }
-EXPORT_SYMBOL_GPL(sunrpc_cache_update);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_cache_update); */
 
 static int cache_make_upcall(struct cache_detail *cd, struct cache_head *h)
 {
@@ -302,7 +302,7 @@ int cache_check(struct cache_detail *detail,
 		cache_put(h, detail);
 	return rv;
 }
-EXPORT_SYMBOL_GPL(cache_check);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_check); */
 
 /*
  * caches need to be periodically cleaned.
@@ -360,7 +360,7 @@ void sunrpc_init_cache_detail(struct cache_detail *cd)
 	/* start the cleaning process */
 	schedule_delayed_work(&cache_cleaner, 0);
 }
-EXPORT_SYMBOL_GPL(sunrpc_init_cache_detail);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_init_cache_detail); */
 
 void sunrpc_destroy_cache_detail(struct cache_detail *cd)
 {
@@ -385,7 +385,7 @@ void sunrpc_destroy_cache_detail(struct cache_detail *cd)
 out:
 	printk(KERN_ERR "nfsd: failed to unregister %s cache\n", cd->name);
 }
-EXPORT_SYMBOL_GPL(sunrpc_destroy_cache_detail);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_destroy_cache_detail); */
 
 /* clean cache tries to find something to clean
  * and cleans it.
@@ -497,7 +497,7 @@ void cache_flush(void)
 	while (cache_clean() != -1)
 		cond_resched();
 }
-EXPORT_SYMBOL_GPL(cache_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_flush); */
 
 void cache_purge(struct cache_detail *detail)
 {
@@ -506,7 +506,7 @@ void cache_purge(struct cache_detail *detail)
 	cache_flush();
 	detail->flush_time = 1;
 }
-EXPORT_SYMBOL_GPL(cache_purge);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_purge); */
 
 
 /*
@@ -1077,7 +1077,7 @@ void qword_add(char **bpp, int *lp, char *str)
 	*bpp = bp;
 	*lp = len;
 }
-EXPORT_SYMBOL_GPL(qword_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(qword_add); */
 
 void qword_addhex(char **bpp, int *lp, char *buf, int blen)
 {
@@ -1106,7 +1106,7 @@ void qword_addhex(char **bpp, int *lp, char *buf, int blen)
 	*bpp = bp;
 	*lp = len;
 }
-EXPORT_SYMBOL_GPL(qword_addhex);
+/* DISABLED: EXPORT_SYMBOL_GPL(qword_addhex); */
 
 static void warn_no_listener(struct cache_detail *detail)
 {
@@ -1187,7 +1187,7 @@ int sunrpc_cache_pipe_upcall(struct cache_detail *detail, struct cache_head *h,
 	wake_up(&queue_wait);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(sunrpc_cache_pipe_upcall);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_cache_pipe_upcall); */
 
 /*
  * parse a message from user-space and pass it
@@ -1255,7 +1255,7 @@ int qword_get(char **bpp, char *dest, int bufsize)
 	*dest = '\0';
 	return len;
 }
-EXPORT_SYMBOL_GPL(qword_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(qword_get); */
 
 
 /*
@@ -1645,14 +1645,14 @@ int cache_register_net(struct cache_detail *cd, struct net *net)
 		sunrpc_destroy_cache_detail(cd);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(cache_register_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_register_net); */
 
 void cache_unregister_net(struct cache_detail *cd, struct net *net)
 {
 	remove_cache_proc_entries(cd, net);
 	sunrpc_destroy_cache_detail(cd);
 }
-EXPORT_SYMBOL_GPL(cache_unregister_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_unregister_net); */
 
 struct cache_detail *cache_create_net(struct cache_detail *tmpl, struct net *net)
 {
@@ -1671,14 +1671,14 @@ struct cache_detail *cache_create_net(struct cache_detail *tmpl, struct net *net
 	cd->net = net;
 	return cd;
 }
-EXPORT_SYMBOL_GPL(cache_create_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_create_net); */
 
 void cache_destroy_net(struct cache_detail *cd, struct net *net)
 {
 	kfree(cd->hash_table);
 	kfree(cd);
 }
-EXPORT_SYMBOL_GPL(cache_destroy_net);
+/* DISABLED: EXPORT_SYMBOL_GPL(cache_destroy_net); */
 
 static ssize_t cache_read_pipefs(struct file *filp, char __user *buf,
 				 size_t count, loff_t *ppos)
@@ -1815,12 +1815,12 @@ int sunrpc_cache_register_pipefs(struct dentry *parent,
 		ret = PTR_ERR(dir);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(sunrpc_cache_register_pipefs);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_cache_register_pipefs); */
 
 void sunrpc_cache_unregister_pipefs(struct cache_detail *cd)
 {
 	rpc_remove_cache_dir(cd->u.pipefs.dir);
 	cd->u.pipefs.dir = NULL;
 }
-EXPORT_SYMBOL_GPL(sunrpc_cache_unregister_pipefs);
+/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_cache_unregister_pipefs); */
 

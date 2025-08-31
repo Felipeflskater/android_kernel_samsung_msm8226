@@ -414,7 +414,7 @@ int check_media_bay(struct macio_dev *baydev)
 		return MB_FD;
 	return id;
 }
-EXPORT_SYMBOL_GPL(check_media_bay);
+/* DISABLED: EXPORT_SYMBOL_GPL(check_media_bay); */
 
 void lock_media_bay(struct macio_dev *baydev)
 {
@@ -428,7 +428,7 @@ void lock_media_bay(struct macio_dev *baydev)
 	mutex_lock(&bay->lock);
 	bay->user_lock = 1;
 }
-EXPORT_SYMBOL_GPL(lock_media_bay);
+/* DISABLED: EXPORT_SYMBOL_GPL(lock_media_bay); */
 
 void unlock_media_bay(struct macio_dev *baydev)
 {
@@ -444,7 +444,7 @@ void unlock_media_bay(struct macio_dev *baydev)
 		mutex_unlock(&bay->lock);
 	}
 }
-EXPORT_SYMBOL_GPL(unlock_media_bay);
+/* DISABLED: EXPORT_SYMBOL_GPL(unlock_media_bay); */
 
 static int mb_broadcast_hotplug(struct device *dev, void *data)
 {

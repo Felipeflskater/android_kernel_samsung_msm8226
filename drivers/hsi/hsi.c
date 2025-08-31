@@ -136,7 +136,7 @@ void hsi_unregister_controller(struct hsi_controller *hsi)
 	device_for_each_child(&hsi->device, NULL, hsi_remove_port);
 	device_unregister(&hsi->device);
 }
-EXPORT_SYMBOL_GPL(hsi_unregister_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_unregister_controller); */
 
 /**
  * hsi_register_controller - Register an HSI controller and its ports
@@ -169,7 +169,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(hsi_register_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_register_controller); */
 
 /**
  * hsi_register_client_driver - Register an HSI client to the HSI bus
@@ -183,7 +183,7 @@ int hsi_register_client_driver(struct hsi_client_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-EXPORT_SYMBOL_GPL(hsi_register_client_driver);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_register_client_driver); */
 
 static inline int hsi_dummy_msg(struct hsi_msg *msg __maybe_unused)
 {
@@ -216,7 +216,7 @@ void hsi_put_controller(struct hsi_controller *hsi)
 			put_device(&hsi->port[i]->device);
 	put_device(&hsi->device);
 }
-EXPORT_SYMBOL_GPL(hsi_put_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_put_controller); */
 
 /**
  * hsi_alloc_controller - Allocate an HSI controller and its ports
@@ -271,7 +271,7 @@ out:
 
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(hsi_alloc_controller);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_alloc_controller); */
 
 /**
  * hsi_free_msg - Free an HSI message
@@ -286,7 +286,7 @@ void hsi_free_msg(struct hsi_msg *msg)
 	sg_free_table(&msg->sgt);
 	kfree(msg);
 }
-EXPORT_SYMBOL_GPL(hsi_free_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_free_msg); */
 
 /**
  * hsi_alloc_msg - Allocate an HSI message
@@ -319,7 +319,7 @@ struct hsi_msg *hsi_alloc_msg(unsigned int nents, gfp_t flags)
 
 	return msg;
 }
-EXPORT_SYMBOL_GPL(hsi_alloc_msg);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_alloc_msg); */
 
 /**
  * hsi_async - Submit an HSI transfer to the controller
@@ -352,7 +352,7 @@ int hsi_async(struct hsi_client *cl, struct hsi_msg *msg)
 
 	return port->async(msg);
 }
-EXPORT_SYMBOL_GPL(hsi_async);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_async); */
 
 /**
  * hsi_claim_port - Claim the HSI client's port
@@ -383,7 +383,7 @@ out:
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(hsi_claim_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_claim_port); */
 
 /**
  * hsi_release_port - Release the HSI client's port
@@ -405,7 +405,7 @@ void hsi_release_port(struct hsi_client *cl)
 	module_put(to_hsi_controller(port->device.parent)->owner);
 	mutex_unlock(&port->lock);
 }
-EXPORT_SYMBOL_GPL(hsi_release_port);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_release_port); */
 
 static int hsi_event_notifier_call(struct notifier_block *nb,
 				unsigned long event, void *data __maybe_unused)
@@ -443,7 +443,7 @@ int hsi_register_port_event(struct hsi_client *cl,
 
 	return atomic_notifier_chain_register(&port->n_head, &cl->nb);
 }
-EXPORT_SYMBOL_GPL(hsi_register_port_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_register_port_event); */
 
 /**
  * hsi_unregister_port_event - Stop receiving port events for a client
@@ -467,7 +467,7 @@ int hsi_unregister_port_event(struct hsi_client *cl)
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(hsi_unregister_port_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_unregister_port_event); */
 
 /**
  * hsi_event -Notifies clients about port events
@@ -488,7 +488,7 @@ int hsi_event(struct hsi_port *port, unsigned long event)
 {
 	return atomic_notifier_call_chain(&port->n_head, event, NULL);
 }
-EXPORT_SYMBOL_GPL(hsi_event);
+/* DISABLED: EXPORT_SYMBOL_GPL(hsi_event); */
 
 static int __init hsi_init(void)
 {

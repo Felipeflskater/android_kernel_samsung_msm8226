@@ -391,7 +391,7 @@ static int __init arcrimi_setup(char *s)
 		snprintf(device, sizeof(device), "%s", s);
 	return 1;
 }
-/* DISABLED: __setup("arcrimi=", arcrimi_setup); */
+/* DISABLED: __setup("arcrimi=", arcrimi_setup); */ */
 #endif				/* MODULE */
 
 module_init(arc_rimi_init)

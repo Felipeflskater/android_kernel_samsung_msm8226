@@ -110,7 +110,7 @@ __fail:
 	snd_ak4113_free(chip);
 	return err < 0 ? err : -EIO;
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_create);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_create); */
 
 void snd_ak4113_reg_write(struct ak4113 *chip, unsigned char reg,
 		unsigned char mask, unsigned char val)
@@ -119,7 +119,7 @@ void snd_ak4113_reg_write(struct ak4113 *chip, unsigned char reg,
 		return;
 	reg_write(chip, reg, (chip->regmap[reg] & ~mask) | val);
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_reg_write);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_reg_write); */
 
 static void ak4113_init_regs(struct ak4113 *chip)
 {
@@ -146,7 +146,7 @@ void snd_ak4113_reinit(struct ak4113 *chip)
 	if (atomic_dec_and_test(&chip->wq_processing))
 		schedule_delayed_work(&chip->work, HZ / 10);
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_reinit);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_reinit); */
 
 static unsigned int external_rate(unsigned char rcs1)
 {
@@ -521,7 +521,7 @@ int snd_ak4113_build(struct ak4113 *ak4113,
 	schedule_delayed_work(&ak4113->work, HZ / 10);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_build);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_build); */
 
 int snd_ak4113_external_rate(struct ak4113 *ak4113)
 {
@@ -530,7 +530,7 @@ int snd_ak4113_external_rate(struct ak4113 *ak4113)
 	rcs1 = reg_read(ak4113, AK4113_REG_RCS1);
 	return external_rate(rcs1);
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_external_rate);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_external_rate); */
 
 int snd_ak4113_check_rate_and_errors(struct ak4113 *ak4113, unsigned int flags)
 {
@@ -624,7 +624,7 @@ __rate:
 	}
 	return res;
 }
-EXPORT_SYMBOL_GPL(snd_ak4113_check_rate_and_errors);
+/* DISABLED: EXPORT_SYMBOL_GPL(snd_ak4113_check_rate_and_errors); */
 
 static void ak4113_stats(struct work_struct *work)
 {

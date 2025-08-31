@@ -239,7 +239,7 @@ int mdss_register_irq(struct mdss_hw *hw)
 
 	return 0;
 } /* mdss_regsiter_irq */
-EXPORT_SYMBOL(mdss_register_irq);
+/* DISABLED: EXPORT_SYMBOL(mdss_register_irq); */
 
 void mdss_enable_irq(struct mdss_hw *hw)
 {
@@ -282,7 +282,7 @@ void mdss_enable_irq(struct mdss_hw *hw)
 #endif
 	spin_unlock_irqrestore(&mdss_lock, irq_flags);
 }
-EXPORT_SYMBOL(mdss_enable_irq);
+/* DISABLED: EXPORT_SYMBOL(mdss_enable_irq); */
 
 void mdss_disable_irq(struct mdss_hw *hw)
 {
@@ -317,7 +317,7 @@ void mdss_disable_irq(struct mdss_hw *hw)
 #endif
 	spin_unlock_irqrestore(&mdss_lock, irq_flags);
 }
-EXPORT_SYMBOL(mdss_disable_irq);
+/* DISABLED: EXPORT_SYMBOL(mdss_disable_irq); */
 
 /* called from interrupt context */
 void mdss_disable_irq_nosync(struct mdss_hw *hw)
@@ -353,7 +353,7 @@ void mdss_disable_irq_nosync(struct mdss_hw *hw)
 #endif
 	spin_unlock(&mdss_lock);
 }
-EXPORT_SYMBOL(mdss_disable_irq_nosync);
+/* DISABLED: EXPORT_SYMBOL(mdss_disable_irq_nosync); */
 
 static int mdss_mdp_bus_scale_register(struct mdss_data_type *mdata)
 {
@@ -512,7 +512,7 @@ int mdss_mdp_debug_bus(void)
 
 	return 0;
 }
-EXPORT_SYMBOL(mdss_mdp_debug_bus);
+/* DISABLED: EXPORT_SYMBOL(mdss_mdp_debug_bus); */
 #endif
 
 int mdss_mdp_irq_enable(u32 intr_type, u32 intf_num)
@@ -813,7 +813,7 @@ void mdss_bus_bandwidth_ctrl(int enable)
 
 	mutex_unlock(&bus_bw_lock);
 }
-EXPORT_SYMBOL(mdss_bus_bandwidth_ctrl);
+/* DISABLED: EXPORT_SYMBOL(mdss_bus_bandwidth_ctrl); */
 
 void mdss_mdp_clk_ctrl(int enable, int isr)
 {
@@ -1352,7 +1352,7 @@ struct mdss_util_intf *mdss_get_util_intf()
 {
 	return &mdss_util;
 }
-EXPORT_SYMBOL(mdss_get_util_intf);
+/* DISABLED: EXPORT_SYMBOL(mdss_get_util_intf); */
 
 static int mdss_mdp_probe(struct platform_device *pdev)
 {
@@ -2647,7 +2647,7 @@ bool mdss_is_ready(void)
 {
 	return mdss_mdp_get_mdata() ? true : false;
 }
-EXPORT_SYMBOL(mdss_mdp_get_mdata);
+/* DISABLED: EXPORT_SYMBOL(mdss_mdp_get_mdata); */
 
 /**
  * mdss_panel_intf_type() - checks if a given intf type is primary
@@ -2671,7 +2671,7 @@ struct mdss_panel_cfg *mdss_panel_intf_type(int intf_val)
 	else
 		return NULL;
 }
-EXPORT_SYMBOL(mdss_panel_intf_type);
+/* DISABLED: EXPORT_SYMBOL(mdss_panel_intf_type); */
 
 int mdss_panel_get_boot_cfg(void)
 {

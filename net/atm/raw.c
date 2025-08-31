@@ -82,4 +82,4 @@ int atm_init_aal5(struct atm_vcc *vcc)
 	vcc->send = vcc->dev->ops->send;
 	return 0;
 }
-EXPORT_SYMBOL(atm_init_aal5);
+/* DISABLED: EXPORT_SYMBOL(atm_init_aal5); */

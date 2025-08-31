@@ -226,5 +226,5 @@ static int ssl_chan_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ssl", ssl_chan_setup); */
+/* DISABLED: __setup("ssl", ssl_chan_setup); */ */
 __channel_help(ssl_chan_setup, "ssl");

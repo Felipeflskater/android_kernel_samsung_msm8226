@@ -44,47 +44,47 @@
 #include <asm/uaccess.h>
 #include <asm/page.h>
 
-EXPORT_SYMBOL(journal_start);
-EXPORT_SYMBOL(journal_restart);
-EXPORT_SYMBOL(journal_extend);
-EXPORT_SYMBOL(journal_stop);
-EXPORT_SYMBOL(journal_lock_updates);
-EXPORT_SYMBOL(journal_unlock_updates);
-EXPORT_SYMBOL(journal_get_write_access);
-EXPORT_SYMBOL(journal_get_create_access);
-EXPORT_SYMBOL(journal_get_undo_access);
-EXPORT_SYMBOL(journal_dirty_data);
-EXPORT_SYMBOL(journal_dirty_metadata);
-EXPORT_SYMBOL(journal_release_buffer);
-EXPORT_SYMBOL(journal_forget);
+/* DISABLED: EXPORT_SYMBOL(journal_start); */
+/* DISABLED: EXPORT_SYMBOL(journal_restart); */
+/* DISABLED: EXPORT_SYMBOL(journal_extend); */
+/* DISABLED: EXPORT_SYMBOL(journal_stop); */
+/* DISABLED: EXPORT_SYMBOL(journal_lock_updates); */
+/* DISABLED: EXPORT_SYMBOL(journal_unlock_updates); */
+/* DISABLED: EXPORT_SYMBOL(journal_get_write_access); */
+/* DISABLED: EXPORT_SYMBOL(journal_get_create_access); */
+/* DISABLED: EXPORT_SYMBOL(journal_get_undo_access); */
+/* DISABLED: EXPORT_SYMBOL(journal_dirty_data); */
+/* DISABLED: EXPORT_SYMBOL(journal_dirty_metadata); */
+/* DISABLED: EXPORT_SYMBOL(journal_release_buffer); */
+/* DISABLED: EXPORT_SYMBOL(journal_forget); */
 #if 0
-EXPORT_SYMBOL(journal_sync_buffer);
+/* DISABLED: EXPORT_SYMBOL(journal_sync_buffer); */
 #endif
-EXPORT_SYMBOL(journal_flush);
-EXPORT_SYMBOL(journal_revoke);
+/* DISABLED: EXPORT_SYMBOL(journal_flush); */
+/* DISABLED: EXPORT_SYMBOL(journal_revoke); */
 
-EXPORT_SYMBOL(journal_init_dev);
-EXPORT_SYMBOL(journal_init_inode);
-EXPORT_SYMBOL(journal_update_format);
-EXPORT_SYMBOL(journal_check_used_features);
-EXPORT_SYMBOL(journal_check_available_features);
-EXPORT_SYMBOL(journal_set_features);
-EXPORT_SYMBOL(journal_create);
-EXPORT_SYMBOL(journal_load);
-EXPORT_SYMBOL(journal_destroy);
-EXPORT_SYMBOL(journal_abort);
-EXPORT_SYMBOL(journal_errno);
-EXPORT_SYMBOL(journal_ack_err);
-EXPORT_SYMBOL(journal_clear_err);
-EXPORT_SYMBOL(log_wait_commit);
-EXPORT_SYMBOL(log_start_commit);
-EXPORT_SYMBOL(journal_start_commit);
-EXPORT_SYMBOL(journal_force_commit_nested);
-EXPORT_SYMBOL(journal_wipe);
-EXPORT_SYMBOL(journal_blocks_per_page);
-EXPORT_SYMBOL(journal_invalidatepage);
-EXPORT_SYMBOL(journal_try_to_free_buffers);
-EXPORT_SYMBOL(journal_force_commit);
+/* DISABLED: EXPORT_SYMBOL(journal_init_dev); */
+/* DISABLED: EXPORT_SYMBOL(journal_init_inode); */
+/* DISABLED: EXPORT_SYMBOL(journal_update_format); */
+/* DISABLED: EXPORT_SYMBOL(journal_check_used_features); */
+/* DISABLED: EXPORT_SYMBOL(journal_check_available_features); */
+/* DISABLED: EXPORT_SYMBOL(journal_set_features); */
+/* DISABLED: EXPORT_SYMBOL(journal_create); */
+/* DISABLED: EXPORT_SYMBOL(journal_load); */
+/* DISABLED: EXPORT_SYMBOL(journal_destroy); */
+/* DISABLED: EXPORT_SYMBOL(journal_abort); */
+/* DISABLED: EXPORT_SYMBOL(journal_errno); */
+/* DISABLED: EXPORT_SYMBOL(journal_ack_err); */
+/* DISABLED: EXPORT_SYMBOL(journal_clear_err); */
+/* DISABLED: EXPORT_SYMBOL(log_wait_commit); */
+/* DISABLED: EXPORT_SYMBOL(log_start_commit); */
+/* DISABLED: EXPORT_SYMBOL(journal_start_commit); */
+/* DISABLED: EXPORT_SYMBOL(journal_force_commit_nested); */
+/* DISABLED: EXPORT_SYMBOL(journal_wipe); */
+/* DISABLED: EXPORT_SYMBOL(journal_blocks_per_page); */
+/* DISABLED: EXPORT_SYMBOL(journal_invalidatepage); */
+/* DISABLED: EXPORT_SYMBOL(journal_try_to_free_buffers); */
+/* DISABLED: EXPORT_SYMBOL(journal_force_commit); */
 
 static int journal_convert_superblock_v1(journal_t *, journal_superblock_t *);
 static void __journal_abort_soft (journal_t *journal, int errno);
@@ -611,7 +611,7 @@ out:
 	spin_unlock(&journal->j_state_lock);
 	return ret;
 }
-EXPORT_SYMBOL(journal_trans_will_send_data_barrier);
+/* DISABLED: EXPORT_SYMBOL(journal_trans_will_send_data_barrier); */
 
 /*
  * Log buffer allocation routines:
@@ -1946,7 +1946,7 @@ void journal_put_journal_head(struct journal_head *jh)
 #ifdef CONFIG_JBD_DEBUG
 
 u8 journal_enable_debug __read_mostly;
-EXPORT_SYMBOL(journal_enable_debug);
+/* DISABLED: EXPORT_SYMBOL(journal_enable_debug); */
 
 static struct dentry *jbd_debugfs_dir;
 static struct dentry *jbd_debug;

@@ -838,20 +838,20 @@ struct cryptd_ablkcipher *cryptd_alloc_ablkcipher(const char *alg_name,
 
 	return __cryptd_ablkcipher_cast(__crypto_ablkcipher_cast(tfm));
 }
-EXPORT_SYMBOL_GPL(cryptd_alloc_ablkcipher);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_alloc_ablkcipher); */
 
 struct crypto_blkcipher *cryptd_ablkcipher_child(struct cryptd_ablkcipher *tfm)
 {
 	struct cryptd_blkcipher_ctx *ctx = crypto_ablkcipher_ctx(&tfm->base);
 	return ctx->child;
 }
-EXPORT_SYMBOL_GPL(cryptd_ablkcipher_child);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_ablkcipher_child); */
 
 void cryptd_free_ablkcipher(struct cryptd_ablkcipher *tfm)
 {
 	crypto_free_ablkcipher(&tfm->base);
 }
-EXPORT_SYMBOL_GPL(cryptd_free_ablkcipher);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_free_ablkcipher); */
 
 struct cryptd_ahash *cryptd_alloc_ahash(const char *alg_name,
 					u32 type, u32 mask)
@@ -872,7 +872,7 @@ struct cryptd_ahash *cryptd_alloc_ahash(const char *alg_name,
 
 	return __cryptd_ahash_cast(tfm);
 }
-EXPORT_SYMBOL_GPL(cryptd_alloc_ahash);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_alloc_ahash); */
 
 struct crypto_shash *cryptd_ahash_child(struct cryptd_ahash *tfm)
 {
@@ -880,20 +880,20 @@ struct crypto_shash *cryptd_ahash_child(struct cryptd_ahash *tfm)
 
 	return ctx->child;
 }
-EXPORT_SYMBOL_GPL(cryptd_ahash_child);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_ahash_child); */
 
 struct shash_desc *cryptd_shash_desc(struct ahash_request *req)
 {
 	struct cryptd_hash_request_ctx *rctx = ahash_request_ctx(req);
 	return &rctx->desc;
 }
-EXPORT_SYMBOL_GPL(cryptd_shash_desc);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_shash_desc); */
 
 void cryptd_free_ahash(struct cryptd_ahash *tfm)
 {
 	crypto_free_ahash(&tfm->base);
 }
-EXPORT_SYMBOL_GPL(cryptd_free_ahash);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_free_ahash); */
 
 struct cryptd_aead *cryptd_alloc_aead(const char *alg_name,
 						  u32 type, u32 mask)
@@ -913,7 +913,7 @@ struct cryptd_aead *cryptd_alloc_aead(const char *alg_name,
 	}
 	return __cryptd_aead_cast(tfm);
 }
-EXPORT_SYMBOL_GPL(cryptd_alloc_aead);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_alloc_aead); */
 
 struct crypto_aead *cryptd_aead_child(struct cryptd_aead *tfm)
 {
@@ -921,13 +921,13 @@ struct crypto_aead *cryptd_aead_child(struct cryptd_aead *tfm)
 	ctx = crypto_aead_ctx(&tfm->base);
 	return ctx->child;
 }
-EXPORT_SYMBOL_GPL(cryptd_aead_child);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_aead_child); */
 
 void cryptd_free_aead(struct cryptd_aead *tfm)
 {
 	crypto_free_aead(&tfm->base);
 }
-EXPORT_SYMBOL_GPL(cryptd_free_aead);
+/* DISABLED: EXPORT_SYMBOL_GPL(cryptd_free_aead); */
 
 static int __init cryptd_init(void)
 {

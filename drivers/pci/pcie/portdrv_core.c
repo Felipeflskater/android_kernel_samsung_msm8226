@@ -28,7 +28,7 @@ static int __init pciehp_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("pcie_hp=", pciehp_setup); */
+/* DISABLED: __setup("pcie_hp=", pciehp_setup); */ */
 
 /**
  * release_pcie_device - free PCI Express port service device structure
@@ -559,7 +559,7 @@ int pcie_port_service_register(struct pcie_port_service_driver *new)
 
 	return driver_register(&new->driver);
 }
-EXPORT_SYMBOL(pcie_port_service_register);
+/* DISABLED: EXPORT_SYMBOL(pcie_port_service_register); */
 
 /**
  * pcie_port_service_unregister - unregister PCI Express port service driver
@@ -569,4 +569,4 @@ void pcie_port_service_unregister(struct pcie_port_service_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-EXPORT_SYMBOL(pcie_port_service_unregister);
+/* DISABLED: EXPORT_SYMBOL(pcie_port_service_unregister); */

@@ -39,7 +39,7 @@ void __attribute__((weak)) __iowrite32_copy(void __iomem *to,
 	while (src < end)
 		__raw_writel(*src++, dst++);
 }
-EXPORT_SYMBOL_GPL(__iowrite32_copy);
+/* DISABLED: EXPORT_SYMBOL_GPL(__iowrite32_copy); */
 
 /**
  * __iowrite64_copy - copy data to MMIO space, in 64-bit or 32-bit units
@@ -67,4 +67,4 @@ void __attribute__((weak)) __iowrite64_copy(void __iomem *to,
 #endif
 }
 
-EXPORT_SYMBOL_GPL(__iowrite64_copy);
+/* DISABLED: EXPORT_SYMBOL_GPL(__iowrite64_copy); */

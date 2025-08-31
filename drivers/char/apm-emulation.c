@@ -163,7 +163,7 @@ static void __apm_get_power_status(struct apm_power_info *info)
  * This allows machines to provide their own "apm get power status" function.
  */
 void (*apm_get_power_status)(struct apm_power_info *) = __apm_get_power_status;
-EXPORT_SYMBOL(apm_get_power_status);
+/* DISABLED: EXPORT_SYMBOL(apm_get_power_status); */
 
 
 /*
@@ -710,7 +710,7 @@ static int __init apm_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("apm=", apm_setup); */
+/* DISABLED: __setup("apm=", apm_setup); */ */
 #endif
 
 /**
@@ -735,4 +735,4 @@ void apm_queue_event(apm_event_t event)
 
 	wake_up_interruptible(&kapmd_wait);
 }
-EXPORT_SYMBOL(apm_queue_event);
+/* DISABLED: EXPORT_SYMBOL(apm_queue_event); */

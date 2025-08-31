@@ -244,7 +244,7 @@ void p54_free_skb(struct ieee80211_hw *dev, struct sk_buff *skb)
 	p54_tx_qos_accounting_free(priv, skb);
 	ieee80211_free_txskb(dev, skb);
 }
-EXPORT_SYMBOL_GPL(p54_free_skb);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_free_skb); */
 
 static struct sk_buff *p54_find_and_unlink_skb(struct p54_common *priv,
 					       const __le32 req_id)
@@ -673,7 +673,7 @@ int p54_rx(struct ieee80211_hw *dev, struct sk_buff *skb)
 	else
 		return p54_rx_data(priv, skb);
 }
-EXPORT_SYMBOL_GPL(p54_rx);
+/* DISABLED: EXPORT_SYMBOL_GPL(p54_rx); */
 
 static void p54_tx_80211_header(struct p54_common *priv, struct sk_buff *skb,
 				struct ieee80211_tx_info *info, u8 *queue,

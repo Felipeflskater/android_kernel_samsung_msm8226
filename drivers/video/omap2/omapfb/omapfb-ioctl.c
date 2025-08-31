@@ -317,7 +317,7 @@ int omapfb_update_window(struct fb_info *fbi,
 
 	return r;
 }
-EXPORT_SYMBOL(omapfb_update_window);
+/* DISABLED: EXPORT_SYMBOL(omapfb_update_window); */
 
 int omapfb_set_update_mode(struct fb_info *fbi,
 				   enum omapfb_update_mode mode)

@@ -1075,7 +1075,7 @@ struct socket *macvtap_get_socket(struct file *file)
 		return ERR_PTR(-EBADFD);
 	return &q->sock;
 }
-EXPORT_SYMBOL_GPL(macvtap_get_socket);
+/* DISABLED: EXPORT_SYMBOL_GPL(macvtap_get_socket); */
 
 static int macvtap_device_event(struct notifier_block *unused,
 				unsigned long event, void *ptr)

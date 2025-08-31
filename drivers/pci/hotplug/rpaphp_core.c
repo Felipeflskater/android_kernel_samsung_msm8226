@@ -437,6 +437,6 @@ struct hotplug_slot_ops rpaphp_hotplug_slot_ops = {
 module_init(rpaphp_init);
 module_exit(rpaphp_exit);
 
-EXPORT_SYMBOL_GPL(rpaphp_add_slot);
-EXPORT_SYMBOL_GPL(rpaphp_slot_head);
-EXPORT_SYMBOL_GPL(rpaphp_get_drc_props);
+/* DISABLED: EXPORT_SYMBOL_GPL(rpaphp_add_slot); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rpaphp_slot_head); */
+/* DISABLED: EXPORT_SYMBOL_GPL(rpaphp_get_drc_props); */

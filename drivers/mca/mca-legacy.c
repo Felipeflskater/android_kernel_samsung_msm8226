@@ -100,7 +100,7 @@ int mca_find_adapter(int id, int start)
 		
 	return info.mca_dev->slot;
 }
-EXPORT_SYMBOL(mca_find_adapter);
+/* DISABLED: EXPORT_SYMBOL(mca_find_adapter); */
 
 /*--------------------------------------------------------------------*/
 
@@ -150,7 +150,7 @@ int mca_find_unused_adapter(int id, int start)
 		
 	return info.mca_dev->slot;
 }
-EXPORT_SYMBOL(mca_find_unused_adapter);
+/* DISABLED: EXPORT_SYMBOL(mca_find_unused_adapter); */
 
 /* NOTE: stack allocated structure */
 struct mca_find_device_by_slot_info {
@@ -199,7 +199,7 @@ unsigned char mca_read_stored_pos(int slot, int reg)
 
 	return mca_device_read_stored_pos(mca_dev, reg);
 }
-EXPORT_SYMBOL(mca_read_stored_pos);
+/* DISABLED: EXPORT_SYMBOL(mca_read_stored_pos); */
 
 
 /**
@@ -222,7 +222,7 @@ unsigned char mca_read_pos(int slot, int reg)
 
 	return mca_device_read_pos(mca_dev, reg);
 }
-EXPORT_SYMBOL(mca_read_pos);
+/* DISABLED: EXPORT_SYMBOL(mca_read_pos); */
 
 		
 /**
@@ -258,7 +258,7 @@ void mca_write_pos(int slot, int reg, unsigned char byte)
 
 	mca_device_write_pos(mca_dev, reg, byte);
 }
-EXPORT_SYMBOL(mca_write_pos);
+/* DISABLED: EXPORT_SYMBOL(mca_write_pos); */
 
 /**
  *	mca_set_adapter_name - Set the description of the card
@@ -279,7 +279,7 @@ void mca_set_adapter_name(int slot, char* name)
 
 	mca_device_set_name(mca_dev, name);
 }
-EXPORT_SYMBOL(mca_set_adapter_name);
+/* DISABLED: EXPORT_SYMBOL(mca_set_adapter_name); */
 
 /**
  *	mca_mark_as_used - claim an MCA device
@@ -307,7 +307,7 @@ int mca_mark_as_used(int slot)
 
 	return 0;
 }
-EXPORT_SYMBOL(mca_mark_as_used);
+/* DISABLED: EXPORT_SYMBOL(mca_mark_as_used); */
 
 /**
  *	mca_mark_as_unused - release an MCA device
@@ -325,5 +325,5 @@ void mca_mark_as_unused(int slot)
 
 	mca_device_set_claim(mca_dev, 0);
 }
-EXPORT_SYMBOL(mca_mark_as_unused);
+/* DISABLED: EXPORT_SYMBOL(mca_mark_as_unused); */
 

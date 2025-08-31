@@ -221,13 +221,13 @@ int pm_qos_request(int pm_qos_class)
 {
 	return pm_qos_read_value(pm_qos_array[pm_qos_class]->constraints);
 }
-EXPORT_SYMBOL_GPL(pm_qos_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_request); */
 
 int pm_qos_request_active(struct pm_qos_request *req)
 {
 	return req->pm_qos_class != 0;
 }
-EXPORT_SYMBOL_GPL(pm_qos_request_active);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_request_active); */
 
 /**
  * pm_qos_work_fn - the timeout handler of pm_qos_update_request_timeout
@@ -279,7 +279,7 @@ void pm_qos_add_request(struct pm_qos_request *req,
 	pm_qos_update_target(pm_qos_array[pm_qos_class]->constraints,
 			     &req->node, PM_QOS_ADD_REQ, value);
 }
-EXPORT_SYMBOL_GPL(pm_qos_add_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_add_request); */
 
 /**
  * pm_qos_update_request - modifies an existing qos request
@@ -310,7 +310,7 @@ void pm_qos_update_request(struct pm_qos_request *req,
 			pm_qos_array[req->pm_qos_class]->constraints,
 			&req->node, PM_QOS_UPDATE_REQ, new_value);
 }
-EXPORT_SYMBOL_GPL(pm_qos_update_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_update_request); */
 
 /**
  * pm_qos_update_request_timeout - modifies an existing qos request temporarily.
@@ -367,7 +367,7 @@ void pm_qos_remove_request(struct pm_qos_request *req)
 			     PM_QOS_DEFAULT_VALUE);
 	memset(req, 0, sizeof(*req));
 }
-EXPORT_SYMBOL_GPL(pm_qos_remove_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_remove_request); */
 
 /**
  * pm_qos_add_notifier - sets notification entry for changes to target value
@@ -387,7 +387,7 @@ int pm_qos_add_notifier(int pm_qos_class, struct notifier_block *notifier)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(pm_qos_add_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_add_notifier); */
 
 /**
  * pm_qos_remove_notifier - deletes notification entry from chain.
@@ -407,7 +407,7 @@ int pm_qos_remove_notifier(int pm_qos_class, struct notifier_block *notifier)
 
 	return retval;
 }
-EXPORT_SYMBOL_GPL(pm_qos_remove_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(pm_qos_remove_notifier); */
 
 /* User space interface to PM QoS classes via misc devices */
 static int register_pm_qos_misc(struct pm_qos_object *qos)

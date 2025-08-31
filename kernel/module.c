@@ -180,7 +180,7 @@ typedef struct lkmauth_rsp_s
  * 3) module_addr_min/module_addr_max.
  * (delete uses stop_machine/add uses RCU list operations). */
 DEFINE_MUTEX(module_mutex);
-EXPORT_SYMBOL_GPL(module_mutex);
+/* DISABLED: EXPORT_SYMBOL_GPL(module_mutex); */
 static LIST_HEAD(modules);
 #ifdef CONFIG_KGDB_KDB
 struct list_head *kdb_modules = &modules; /* kdb needs the list of modules */
@@ -204,13 +204,13 @@ int register_module_notifier(struct notifier_block * nb)
 {
 	return blocking_notifier_chain_register(&module_notify_list, nb);
 }
-EXPORT_SYMBOL(register_module_notifier);
+/* DISABLED: EXPORT_SYMBOL(register_module_notifier); */
 
 int unregister_module_notifier(struct notifier_block * nb)
 {
 	return blocking_notifier_chain_unregister(&module_notify_list, nb);
 }
-EXPORT_SYMBOL(unregister_module_notifier);
+/* DISABLED: EXPORT_SYMBOL(unregister_module_notifier); */
 
 struct load_info {
 	Elf_Ehdr *hdr;
@@ -252,7 +252,7 @@ void __module_put_and_exit(struct module *mod, long code)
 	module_put(mod);
 	do_exit(code);
 }
-EXPORT_SYMBOL(__module_put_and_exit);
+/* DISABLED: EXPORT_SYMBOL(__module_put_and_exit); */
 
 /* Find a module section: 0 means not found. */
 static unsigned int find_sec(const struct load_info *info, const char *name)
@@ -389,7 +389,7 @@ bool each_symbol_section(bool (*fn)(const struct symsearch *arr,
 	}
 	return false;
 }
-EXPORT_SYMBOL_GPL(each_symbol_section);
+/* DISABLED: EXPORT_SYMBOL_GPL(each_symbol_section); */
 
 struct find_symbol_arg {
 	/* Input */
@@ -491,7 +491,7 @@ const struct kernel_symbol *find_symbol(const char *name,
 	pr_debug("Failed to find symbol %s\n", name);
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(find_symbol);
+/* DISABLED: EXPORT_SYMBOL_GPL(find_symbol); */
 
 /* Search for module by name: must hold module_mutex. */
 struct module *find_module(const char *name)
@@ -504,7 +504,7 @@ struct module *find_module(const char *name)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(find_module);
+/* DISABLED: EXPORT_SYMBOL_GPL(find_module); */
 
 #ifdef CONFIG_SMP
 
@@ -731,7 +731,7 @@ int ref_module(struct module *a, struct module *b)
 	}
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ref_module);
+/* DISABLED: EXPORT_SYMBOL_GPL(ref_module); */
 
 /* Clear the unload stuff of the module. */
 static void module_unload_free(struct module *mod)
@@ -829,7 +829,7 @@ unsigned long module_refcount(struct module *mod)
 		incs += per_cpu_ptr(mod->refptr, cpu)->incs;
 	return incs - decs;
 }
-EXPORT_SYMBOL(module_refcount);
+/* DISABLED: EXPORT_SYMBOL(module_refcount); */
 
 /* This exists whether we can unload or not */
 static void free_module(struct module *mod);
@@ -960,7 +960,7 @@ void __symbol_put(const char *symbol)
 	module_put(owner);
 	preempt_enable();
 }
-EXPORT_SYMBOL(__symbol_put);
+/* DISABLED: EXPORT_SYMBOL(__symbol_put); */
 
 /* Note this assumes addr is a function, which it currently always is. */
 void symbol_put_addr(void *addr)
@@ -981,7 +981,7 @@ void symbol_put_addr(void *addr)
 	module_put(modaddr);
 	preempt_enable();
 }
-EXPORT_SYMBOL_GPL(symbol_put_addr);
+/* DISABLED: EXPORT_SYMBOL_GPL(symbol_put_addr); */
 
 static ssize_t show_refcnt(struct module_attribute *mattr,
 			   struct module_kobject *mk, char *buffer)
@@ -1001,7 +1001,7 @@ void __module_get(struct module *module)
 		preempt_enable();
 	}
 }
-EXPORT_SYMBOL(__module_get);
+/* DISABLED: EXPORT_SYMBOL(__module_get); */
 
 bool try_module_get(struct module *module)
 {
@@ -1020,7 +1020,7 @@ bool try_module_get(struct module *module)
 	}
 	return ret;
 }
-EXPORT_SYMBOL(try_module_get);
+/* DISABLED: EXPORT_SYMBOL(try_module_get); */
 
 void module_put(struct module *module)
 {
@@ -1036,7 +1036,7 @@ void module_put(struct module *module)
 		preempt_enable();
 	}
 }
-EXPORT_SYMBOL(module_put);
+/* DISABLED: EXPORT_SYMBOL(module_put); */
 
 #else /* !CONFIG_MODULE_UNLOAD */
 static inline void print_unload_info(struct seq_file *m, struct module *mod)
@@ -1053,7 +1053,7 @@ int ref_module(struct module *a, struct module *b)
 {
 	return strong_try_module_get(b);
 }
-EXPORT_SYMBOL_GPL(ref_module);
+/* DISABLED: EXPORT_SYMBOL_GPL(ref_module); */
 
 static inline int module_unload_init(struct module *mod)
 {
@@ -1937,7 +1937,7 @@ void *__symbol_get(const char *symbol)
 
 	return sym ? (void *)sym->value : NULL;
 }
-EXPORT_SYMBOL_GPL(__symbol_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(__symbol_get); */
 
 /*
  * Ensure that an exported symbol [global namespace] does not already exist
@@ -3918,7 +3918,7 @@ struct module *__module_address(unsigned long addr)
 			return mod;
 	return NULL;
 }
-EXPORT_SYMBOL_GPL(__module_address);
+/* DISABLED: EXPORT_SYMBOL_GPL(__module_address); */
 
 /*
  * is_module_text_address - is this address inside module code?
@@ -3957,7 +3957,7 @@ struct module *__module_text_address(unsigned long addr)
 	}
 	return mod;
 }
-EXPORT_SYMBOL_GPL(__module_text_address);
+/* DISABLED: EXPORT_SYMBOL_GPL(__module_text_address); */
 
 /* Don't grab lock, we're oopsing. */
 void print_modules(void)
@@ -3986,5 +3986,5 @@ void module_layout(struct module *mod,
 		   struct tracepoint * const *tp)
 {
 }
-EXPORT_SYMBOL(module_layout);
+/* DISABLED: EXPORT_SYMBOL(module_layout); */
 #endif

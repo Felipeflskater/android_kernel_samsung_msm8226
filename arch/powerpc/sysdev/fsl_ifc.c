@@ -34,7 +34,7 @@
 #include <asm/fsl_ifc.h>
 
 struct fsl_ifc_ctrl *fsl_ifc_ctrl_dev;
-EXPORT_SYMBOL(fsl_ifc_ctrl_dev);
+/* DISABLED: EXPORT_SYMBOL(fsl_ifc_ctrl_dev); */
 
 /*
  * convert_ifc_address - convert the base address
@@ -44,7 +44,7 @@ unsigned int convert_ifc_address(phys_addr_t addr_base)
 {
 	return addr_base & CSPR_BA;
 }
-EXPORT_SYMBOL(convert_ifc_address);
+/* DISABLED: EXPORT_SYMBOL(convert_ifc_address); */
 
 /*
  * fsl_ifc_find - find IFC bank
@@ -71,7 +71,7 @@ int fsl_ifc_find(phys_addr_t addr_base)
 
 	return -ENOENT;
 }
-EXPORT_SYMBOL(fsl_ifc_find);
+/* DISABLED: EXPORT_SYMBOL(fsl_ifc_find); */
 
 static int __devinit fsl_ifc_ctrl_init(struct fsl_ifc_ctrl *ctrl)
 {

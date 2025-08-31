@@ -70,7 +70,7 @@ void nf_ct_gre_keymap_flush(struct net *net)
 	}
 	write_unlock_bh(&net_gre->keymap_lock);
 }
-EXPORT_SYMBOL(nf_ct_gre_keymap_flush);
+/* DISABLED: EXPORT_SYMBOL(nf_ct_gre_keymap_flush); */
 
 static inline int gre_key_cmpfn(const struct nf_ct_gre_keymap *km,
 				const struct nf_conntrack_tuple *t)
@@ -144,7 +144,7 @@ int nf_ct_gre_keymap_add(struct nf_conn *ct, enum ip_conntrack_dir dir,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(nf_ct_gre_keymap_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_gre_keymap_add); */
 
 /* destroy the keymap entries associated with specified master ct */
 void nf_ct_gre_keymap_destroy(struct nf_conn *ct)
@@ -168,7 +168,7 @@ void nf_ct_gre_keymap_destroy(struct nf_conn *ct)
 	}
 	write_unlock_bh(&net_gre->keymap_lock);
 }
-EXPORT_SYMBOL_GPL(nf_ct_gre_keymap_destroy);
+/* DISABLED: EXPORT_SYMBOL_GPL(nf_ct_gre_keymap_destroy); */
 
 /* PUBLIC CONNTRACK PROTO HELPER FUNCTIONS */
 

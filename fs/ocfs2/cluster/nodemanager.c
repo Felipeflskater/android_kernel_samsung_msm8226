@@ -56,7 +56,7 @@ struct o2nm_node *o2nm_get_node_by_num(u8 node_num)
 out:
 	return node;
 }
-EXPORT_SYMBOL_GPL(o2nm_get_node_by_num);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_get_node_by_num); */
 
 int o2nm_configured_node_map(unsigned long *map, unsigned bytes)
 {
@@ -73,7 +73,7 @@ int o2nm_configured_node_map(unsigned long *map, unsigned bytes)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(o2nm_configured_node_map);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_configured_node_map); */
 
 static struct o2nm_node *o2nm_node_ip_tree_lookup(struct o2nm_cluster *cluster,
 						  __be32 ip_needle,
@@ -127,19 +127,19 @@ struct o2nm_node *o2nm_get_node_by_ip(__be32 addr)
 out:
 	return node;
 }
-EXPORT_SYMBOL_GPL(o2nm_get_node_by_ip);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_get_node_by_ip); */
 
 void o2nm_node_put(struct o2nm_node *node)
 {
 	config_item_put(&node->nd_item);
 }
-EXPORT_SYMBOL_GPL(o2nm_node_put);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_node_put); */
 
 void o2nm_node_get(struct o2nm_node *node)
 {
 	config_item_get(&node->nd_item);
 }
-EXPORT_SYMBOL_GPL(o2nm_node_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_node_get); */
 
 u8 o2nm_this_node(void)
 {
@@ -150,7 +150,7 @@ u8 o2nm_this_node(void)
 
 	return node_num;
 }
-EXPORT_SYMBOL_GPL(o2nm_this_node);
+/* DISABLED: EXPORT_SYMBOL_GPL(o2nm_this_node); */
 
 /* node configfs bits */
 

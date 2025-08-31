@@ -2298,7 +2298,7 @@ int snd_usbmidi_create(struct snd_card *card,
 	return 0;
 }
 
-EXPORT_SYMBOL(snd_usbmidi_create);
-EXPORT_SYMBOL(snd_usbmidi_input_stop);
-EXPORT_SYMBOL(snd_usbmidi_input_start);
-EXPORT_SYMBOL(snd_usbmidi_disconnect);
+/* DISABLED: EXPORT_SYMBOL(snd_usbmidi_create); */
+/* DISABLED: EXPORT_SYMBOL(snd_usbmidi_input_stop); */
+/* DISABLED: EXPORT_SYMBOL(snd_usbmidi_input_start); */
+/* DISABLED: EXPORT_SYMBOL(snd_usbmidi_disconnect); */

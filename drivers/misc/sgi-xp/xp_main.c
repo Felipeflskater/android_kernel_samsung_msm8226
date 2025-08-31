@@ -33,40 +33,40 @@ struct device *xp = &xp_dbg_subname;
 
 /* max #of partitions possible */
 short xp_max_npartitions;
-EXPORT_SYMBOL_GPL(xp_max_npartitions);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_max_npartitions); */
 
 short xp_partition_id;
-EXPORT_SYMBOL_GPL(xp_partition_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_partition_id); */
 
 u8 xp_region_size;
-EXPORT_SYMBOL_GPL(xp_region_size);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_region_size); */
 
 unsigned long (*xp_pa) (void *addr);
-EXPORT_SYMBOL_GPL(xp_pa);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_pa); */
 
 unsigned long (*xp_socket_pa) (unsigned long gpa);
-EXPORT_SYMBOL_GPL(xp_socket_pa);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_socket_pa); */
 
 enum xp_retval (*xp_remote_memcpy) (unsigned long dst_gpa,
 				    const unsigned long src_gpa, size_t len);
-EXPORT_SYMBOL_GPL(xp_remote_memcpy);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_remote_memcpy); */
 
 int (*xp_cpu_to_nasid) (int cpuid);
-EXPORT_SYMBOL_GPL(xp_cpu_to_nasid);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_cpu_to_nasid); */
 
 enum xp_retval (*xp_expand_memprotect) (unsigned long phys_addr,
 					unsigned long size);
-EXPORT_SYMBOL_GPL(xp_expand_memprotect);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_expand_memprotect); */
 enum xp_retval (*xp_restrict_memprotect) (unsigned long phys_addr,
 					  unsigned long size);
-EXPORT_SYMBOL_GPL(xp_restrict_memprotect);
+/* DISABLED: EXPORT_SYMBOL_GPL(xp_restrict_memprotect); */
 
 /*
  * xpc_registrations[] keeps track of xpc_connect()'s done by the kernel-level
  * users of XPC.
  */
 struct xpc_registration xpc_registrations[XPC_MAX_NCHANNELS];
-EXPORT_SYMBOL_GPL(xpc_registrations);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_registrations); */
 
 /*
  * Initialize the XPC interface to indicate that XPC isn't loaded.
@@ -86,7 +86,7 @@ struct xpc_interface xpc_interface = {
 	(void (*)(short, int, void *))xpc_notloaded,
 	(enum xp_retval(*)(short, void *))xpc_notloaded
 };
-EXPORT_SYMBOL_GPL(xpc_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_interface); */
 
 /*
  * XPC calls this when it (the XPC module) has been loaded.
@@ -107,7 +107,7 @@ xpc_set_interface(void (*connect) (int),
 	xpc_interface.received = received;
 	xpc_interface.partid_to_nasids = partid_to_nasids;
 }
-EXPORT_SYMBOL_GPL(xpc_set_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_set_interface); */
 
 /*
  * XPC calls this when it (the XPC module) is being unloaded.
@@ -127,7 +127,7 @@ xpc_clear_interface(void)
 	xpc_interface.partid_to_nasids = (enum xp_retval(*)(short, void *))
 	    xpc_notloaded;
 }
-EXPORT_SYMBOL_GPL(xpc_clear_interface);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_clear_interface); */
 
 /*
  * Register for automatic establishment of a channel connection whenever
@@ -192,7 +192,7 @@ xpc_connect(int ch_number, xpc_channel_func func, void *key, u16 payload_size,
 
 	return xpSuccess;
 }
-EXPORT_SYMBOL_GPL(xpc_connect);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_connect); */
 
 /*
  * Remove the registration for automatic connection of the specified channel
@@ -243,7 +243,7 @@ xpc_disconnect(int ch_number)
 
 	return;
 }
-EXPORT_SYMBOL_GPL(xpc_disconnect);
+/* DISABLED: EXPORT_SYMBOL_GPL(xpc_disconnect); */
 
 int __init
 xp_init(void)

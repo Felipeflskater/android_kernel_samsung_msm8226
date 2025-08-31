@@ -301,7 +301,7 @@ ia64_sal_cache_flush (u64 cache_type)
 	SAL_CALL(isrv, SAL_CACHE_FLUSH, cache_type, 0, 0, 0, 0, 0, 0);
 	return isrv.status;
 }
-EXPORT_SYMBOL_GPL(ia64_sal_cache_flush);
+/* DISABLED: EXPORT_SYMBOL_GPL(ia64_sal_cache_flush); */
 
 void __init
 ia64_sal_init (struct ia64_sal_systab *systab)
@@ -363,7 +363,7 @@ ia64_sal_oemcall(struct ia64_sal_retval *isrvp, u64 oemfunc, u64 arg1,
 	SAL_CALL(*isrvp, oemfunc, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 	return 0;
 }
-EXPORT_SYMBOL(ia64_sal_oemcall);
+/* DISABLED: EXPORT_SYMBOL(ia64_sal_oemcall); */
 
 int
 ia64_sal_oemcall_nolock(struct ia64_sal_retval *isrvp, u64 oemfunc, u64 arg1,
@@ -376,7 +376,7 @@ ia64_sal_oemcall_nolock(struct ia64_sal_retval *isrvp, u64 oemfunc, u64 arg1,
 			arg7);
 	return 0;
 }
-EXPORT_SYMBOL(ia64_sal_oemcall_nolock);
+/* DISABLED: EXPORT_SYMBOL(ia64_sal_oemcall_nolock); */
 
 int
 ia64_sal_oemcall_reentrant(struct ia64_sal_retval *isrvp, u64 oemfunc,
@@ -389,7 +389,7 @@ ia64_sal_oemcall_reentrant(struct ia64_sal_retval *isrvp, u64 oemfunc,
 			   arg7);
 	return 0;
 }
-EXPORT_SYMBOL(ia64_sal_oemcall_reentrant);
+/* DISABLED: EXPORT_SYMBOL(ia64_sal_oemcall_reentrant); */
 
 long
 ia64_sal_freq_base (unsigned long which, unsigned long *ticks_per_second,
@@ -402,4 +402,4 @@ ia64_sal_freq_base (unsigned long which, unsigned long *ticks_per_second,
 	*drift_info = isrv.v1;
 	return isrv.status;
 }
-EXPORT_SYMBOL_GPL(ia64_sal_freq_base);
+/* DISABLED: EXPORT_SYMBOL_GPL(ia64_sal_freq_base); */

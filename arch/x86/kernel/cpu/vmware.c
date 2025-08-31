@@ -131,4 +131,4 @@ const __refconst struct hypervisor_x86 x86_hyper_vmware = {
 	.set_cpu_features	= vmware_set_cpu_features,
 	.init_platform		= vmware_platform_setup,
 };
-EXPORT_SYMBOL(x86_hyper_vmware);
+/* DISABLED: EXPORT_SYMBOL(x86_hyper_vmware); */

@@ -23,7 +23,7 @@
 #include "clock.h"
 
 struct davinci_soc_info davinci_soc_info;
-EXPORT_SYMBOL(davinci_soc_info);
+/* DISABLED: EXPORT_SYMBOL(davinci_soc_info); */
 
 void __iomem *davinci_intc_base;
 int davinci_intc_type;

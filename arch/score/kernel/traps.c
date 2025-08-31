@@ -157,7 +157,7 @@ void dump_stack(void)
 	show_stack(current_thread_info()->task,
 		   (long *) get_irq_regs()->regs[0]);
 }
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 void __die(const char *str, struct pt_regs *regs, const char *file,
 	const char *func, unsigned long line)

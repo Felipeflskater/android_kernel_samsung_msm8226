@@ -140,7 +140,7 @@ out:
 	mutex_unlock(&inode->i_mutex);
 	return error;
 }
-EXPORT_SYMBOL_GPL(vfs_setxattr);
+/* DISABLED: EXPORT_SYMBOL_GPL(vfs_setxattr); */
 
 ssize_t
 xattr_getsecurity(struct inode *inode, const char *name, void *value,
@@ -167,7 +167,7 @@ out:
 out_noalloc:
 	return len;
 }
-EXPORT_SYMBOL_GPL(xattr_getsecurity);
+/* DISABLED: EXPORT_SYMBOL_GPL(xattr_getsecurity); */
 
 /*
  * vfs_getxattr_alloc - allocate memory, if necessary, before calling getxattr
@@ -261,7 +261,7 @@ nolsm:
 
 	return error;
 }
-EXPORT_SYMBOL_GPL(vfs_getxattr);
+/* DISABLED: EXPORT_SYMBOL_GPL(vfs_getxattr); */
 
 ssize_t
 vfs_listxattr(struct dentry *d, char *list, size_t size)
@@ -281,7 +281,7 @@ vfs_listxattr(struct dentry *d, char *list, size_t size)
 	}
 	return error;
 }
-EXPORT_SYMBOL_GPL(vfs_listxattr);
+/* DISABLED: EXPORT_SYMBOL_GPL(vfs_listxattr); */
 
 int
 vfs_removexattr(struct dentry *dentry, const char *name)
@@ -312,7 +312,7 @@ vfs_removexattr(struct dentry *dentry, const char *name)
 	}
 	return error;
 }
-EXPORT_SYMBOL_GPL(vfs_removexattr);
+/* DISABLED: EXPORT_SYMBOL_GPL(vfs_removexattr); */
 
 
 /*
@@ -788,10 +788,10 @@ generic_removexattr(struct dentry *dentry, const char *name)
 			    XATTR_REPLACE, handler->flags);
 }
 
-EXPORT_SYMBOL(generic_getxattr);
-EXPORT_SYMBOL(generic_listxattr);
-EXPORT_SYMBOL(generic_setxattr);
-EXPORT_SYMBOL(generic_removexattr);
+/* DISABLED: EXPORT_SYMBOL(generic_getxattr); */
+/* DISABLED: EXPORT_SYMBOL(generic_listxattr); */
+/* DISABLED: EXPORT_SYMBOL(generic_setxattr); */
+/* DISABLED: EXPORT_SYMBOL(generic_removexattr); */
 
 /*
  * Allocate new xattr and copy in the value; but leave the name to callers.

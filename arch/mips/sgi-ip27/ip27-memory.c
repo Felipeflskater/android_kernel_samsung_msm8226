@@ -36,7 +36,7 @@
 
 struct node_data *__node_data[MAX_COMPACT_NODES];
 
-EXPORT_SYMBOL(__node_data);
+/* DISABLED: EXPORT_SYMBOL(__node_data); */
 
 static int fine_mode;
 

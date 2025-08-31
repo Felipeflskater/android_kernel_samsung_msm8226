@@ -194,7 +194,7 @@ static struct lock_class_key af_family_keys[AF_MAX];
 static struct lock_class_key af_family_slock_keys[AF_MAX];
 
 struct static_key memcg_socket_limit_enabled;
-EXPORT_SYMBOL(memcg_socket_limit_enabled);
+/* DISABLED: EXPORT_SYMBOL(memcg_socket_limit_enabled); */
 
 /*
  * Make lock validator output more readable. (we pre-construct these
@@ -274,16 +274,16 @@ __u32 sysctl_rmem_default __read_mostly = SK_RMEM_MAX;
 
 /* Maximal space eaten by iovec or ancillary data plus some space */
 int sysctl_optmem_max __read_mostly = sizeof(unsigned long)*(2*UIO_MAXIOV+512);
-EXPORT_SYMBOL(sysctl_optmem_max);
+/* DISABLED: EXPORT_SYMBOL(sysctl_optmem_max); */
 
 #if defined(CONFIG_CGROUPS)
 #if !defined(CONFIG_NET_CLS_CGROUP)
 int net_cls_subsys_id = -1;
-EXPORT_SYMBOL_GPL(net_cls_subsys_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(net_cls_subsys_id); */
 #endif
 #if !defined(CONFIG_NETPRIO_CGROUP)
 int net_prio_subsys_id = -1;
-EXPORT_SYMBOL_GPL(net_prio_subsys_id);
+/* DISABLED: EXPORT_SYMBOL_GPL(net_prio_subsys_id); */
 #endif
 #endif
 
@@ -388,7 +388,7 @@ int sock_queue_rcv_skb(struct sock *sk, struct sk_buff *skb)
 		sk->sk_data_ready(sk, skb_len);
 	return 0;
 }
-EXPORT_SYMBOL(sock_queue_rcv_skb);
+/* DISABLED: EXPORT_SYMBOL(sock_queue_rcv_skb); */
 
 int sk_receive_skb(struct sock *sk, struct sk_buff *skb, const int nested)
 {
@@ -430,13 +430,13 @@ discard_and_relse:
 	kfree_skb(skb);
 	goto out;
 }
-EXPORT_SYMBOL(sk_receive_skb);
+/* DISABLED: EXPORT_SYMBOL(sk_receive_skb); */
 
 void sk_reset_txq(struct sock *sk)
 {
 	sk_tx_queue_clear(sk);
 }
-EXPORT_SYMBOL(sk_reset_txq);
+/* DISABLED: EXPORT_SYMBOL(sk_reset_txq); */
 
 struct dst_entry *__sk_dst_check(struct sock *sk, u32 cookie)
 {
@@ -451,7 +451,7 @@ struct dst_entry *__sk_dst_check(struct sock *sk, u32 cookie)
 
 	return dst;
 }
-EXPORT_SYMBOL(__sk_dst_check);
+/* DISABLED: EXPORT_SYMBOL(__sk_dst_check); */
 
 struct dst_entry *sk_dst_check(struct sock *sk, u32 cookie)
 {
@@ -465,7 +465,7 @@ struct dst_entry *sk_dst_check(struct sock *sk, u32 cookie)
 
 	return dst;
 }
-EXPORT_SYMBOL(sk_dst_check);
+/* DISABLED: EXPORT_SYMBOL(sk_dst_check); */
 
 static int sock_bindtodevice(struct sock *sk, char __user *optval, int optlen)
 {
@@ -815,7 +815,7 @@ set_rcvbuf:
 	release_sock(sk);
 	return ret;
 }
-EXPORT_SYMBOL(sock_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(sock_setsockopt); */
 
 
 void cred_to_ucred(struct pid *pid, const struct cred *cred,
@@ -835,7 +835,7 @@ void cred_to_ucred(struct pid *pid, const struct cred *cred,
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(cred_to_ucred);
+/* DISABLED: EXPORT_SYMBOL_GPL(cred_to_ucred); */
 
 int sock_getsockopt(struct socket *sock, int level, int optname,
 		    char __user *optval, int __user *optlen)
@@ -1118,7 +1118,7 @@ void sk_prot_clear_portaddr_nulls(struct sock *sk, int size)
 	memset((char *)sk + nulls2 + sizeof(void *), 0,
 	       size - nulls2 - sizeof(void *));
 }
-EXPORT_SYMBOL(sk_prot_clear_portaddr_nulls);
+/* DISABLED: EXPORT_SYMBOL(sk_prot_clear_portaddr_nulls); */
 
 static struct sock *sk_prot_alloc(struct proto *prot, gfp_t priority,
 		int family)
@@ -1190,7 +1190,7 @@ void sock_update_classid(struct sock *sk)
 	if (classid && classid != sk->sk_classid)
 		sk->sk_classid = classid;
 }
-EXPORT_SYMBOL(sock_update_classid);
+/* DISABLED: EXPORT_SYMBOL(sock_update_classid); */
 
 void sock_update_netprioidx(struct sock *sk)
 {
@@ -1199,7 +1199,7 @@ void sock_update_netprioidx(struct sock *sk)
 
 	sk->sk_cgrp_prioidx = task_netprioidx(current);
 }
-EXPORT_SYMBOL_GPL(sock_update_netprioidx);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_update_netprioidx); */
 #endif
 
 /**
@@ -1233,7 +1233,7 @@ struct sock *sk_alloc(struct net *net, int family, gfp_t priority,
 
 	return sk;
 }
-EXPORT_SYMBOL(sk_alloc);
+/* DISABLED: EXPORT_SYMBOL(sk_alloc); */
 
 static void __sk_free(struct sock *sk)
 {
@@ -1272,7 +1272,7 @@ void sk_free(struct sock *sk)
 	if (atomic_dec_and_test(&sk->sk_wmem_alloc))
 		__sk_free(sk);
 }
-EXPORT_SYMBOL(sk_free);
+/* DISABLED: EXPORT_SYMBOL(sk_free); */
 
 /*
  * Last sock_put should drop reference to sk->sk_net. It has already
@@ -1292,7 +1292,7 @@ void sk_release_kernel(struct sock *sk)
 	sock_net_set(sk, get_net(&init_net));
 	sock_put(sk);
 }
-EXPORT_SYMBOL(sk_release_kernel);
+/* DISABLED: EXPORT_SYMBOL(sk_release_kernel); */
 
 static void sk_update_clone(const struct sock *sk, struct sock *newsk)
 {
@@ -1403,7 +1403,7 @@ struct sock *sk_clone_lock(const struct sock *sk, const gfp_t priority)
 out:
 	return newsk;
 }
-EXPORT_SYMBOL_GPL(sk_clone_lock);
+/* DISABLED: EXPORT_SYMBOL_GPL(sk_clone_lock); */
 
 void sk_setup_caps(struct sock *sk, struct dst_entry *dst)
 {
@@ -1422,7 +1422,7 @@ void sk_setup_caps(struct sock *sk, struct dst_entry *dst)
 		}
 	}
 }
-EXPORT_SYMBOL_GPL(sk_setup_caps);
+/* DISABLED: EXPORT_SYMBOL_GPL(sk_setup_caps); */
 
 void __init sk_init(void)
 {
@@ -1466,7 +1466,7 @@ void sock_wfree(struct sk_buff *skb)
 	if (atomic_sub_and_test(len, &sk->sk_wmem_alloc))
 		__sk_free(sk);
 }
-EXPORT_SYMBOL(sock_wfree);
+/* DISABLED: EXPORT_SYMBOL(sock_wfree); */
 
 /*
  * Read buffer destructor automatically called from kfree_skb.
@@ -1479,7 +1479,7 @@ void sock_rfree(struct sk_buff *skb)
 	atomic_sub(len, &sk->sk_rmem_alloc);
 	sk_mem_uncharge(sk, len);
 }
-EXPORT_SYMBOL(sock_rfree);
+/* DISABLED: EXPORT_SYMBOL(sock_rfree); */
 
 
 int sock_i_uid(struct sock *sk)
@@ -1491,7 +1491,7 @@ int sock_i_uid(struct sock *sk)
 	read_unlock_bh(&sk->sk_callback_lock);
 	return uid;
 }
-EXPORT_SYMBOL(sock_i_uid);
+/* DISABLED: EXPORT_SYMBOL(sock_i_uid); */
 
 unsigned long sock_i_ino(struct sock *sk)
 {
@@ -1502,7 +1502,7 @@ unsigned long sock_i_ino(struct sock *sk)
 	read_unlock_bh(&sk->sk_callback_lock);
 	return ino;
 }
-EXPORT_SYMBOL(sock_i_ino);
+/* DISABLED: EXPORT_SYMBOL(sock_i_ino); */
 
 /*
  * Allocate a skb from the socket's send buffer.
@@ -1519,7 +1519,7 @@ struct sk_buff *sock_wmalloc(struct sock *sk, unsigned long size, int force,
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(sock_wmalloc);
+/* DISABLED: EXPORT_SYMBOL(sock_wmalloc); */
 
 /*
  * Allocate a skb from the socket's receive buffer.
@@ -1556,7 +1556,7 @@ void *sock_kmalloc(struct sock *sk, int size, gfp_t priority)
 	}
 	return NULL;
 }
-EXPORT_SYMBOL(sock_kmalloc);
+/* DISABLED: EXPORT_SYMBOL(sock_kmalloc); */
 
 /*
  * Free an option memory block.
@@ -1566,7 +1566,7 @@ void sock_kfree_s(struct sock *sk, void *mem, int size)
 	kfree(mem);
 	atomic_sub(size, &sk->sk_omem_alloc);
 }
-EXPORT_SYMBOL(sock_kfree_s);
+/* DISABLED: EXPORT_SYMBOL(sock_kfree_s); */
 
 /* It is almost wait_for_tcp_memory minus release_sock/lock_sock.
    I think, these locks should be removed for datagram sockets.
@@ -1683,14 +1683,14 @@ failure:
 	*errcode = err;
 	return NULL;
 }
-EXPORT_SYMBOL(sock_alloc_send_pskb);
+/* DISABLED: EXPORT_SYMBOL(sock_alloc_send_pskb); */
 
 struct sk_buff *sock_alloc_send_skb(struct sock *sk, unsigned long size,
 				    int noblock, int *errcode)
 {
 	return sock_alloc_send_pskb(sk, size, 0, noblock, errcode);
 }
-EXPORT_SYMBOL(sock_alloc_send_skb);
+/* DISABLED: EXPORT_SYMBOL(sock_alloc_send_skb); */
 
 static void __lock_sock(struct sock *sk)
 	__releases(&sk->sk_lock.slock)
@@ -1772,7 +1772,7 @@ int sk_wait_data(struct sock *sk, long *timeo, const struct sk_buff *skb)
 	finish_wait(sk_sleep(sk), &wait);
 	return rc;
 }
-EXPORT_SYMBOL(sk_wait_data);
+/* DISABLED: EXPORT_SYMBOL(sk_wait_data); */
 
 /**
  *	__sk_mem_schedule - increase sk_forward_alloc and memory_allocated
@@ -1860,7 +1860,7 @@ suppress_allocation:
 
 	return 0;
 }
-EXPORT_SYMBOL(__sk_mem_schedule);
+/* DISABLED: EXPORT_SYMBOL(__sk_mem_schedule); */
 
 /**
  *	__sk_reclaim - reclaim memory_allocated
@@ -1876,7 +1876,7 @@ void __sk_mem_reclaim(struct sock *sk)
 	    (sk_memory_allocated(sk) < sk_prot_mem_limits(sk, 0)))
 		sk_leave_memory_pressure(sk);
 }
-EXPORT_SYMBOL(__sk_mem_reclaim);
+/* DISABLED: EXPORT_SYMBOL(__sk_mem_reclaim); */
 
 
 /*
@@ -1890,92 +1890,92 @@ int sock_no_bind(struct socket *sock, struct sockaddr *saddr, int len)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_bind);
+/* DISABLED: EXPORT_SYMBOL(sock_no_bind); */
 
 int sock_no_connect(struct socket *sock, struct sockaddr *saddr,
 		    int len, int flags)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_connect);
+/* DISABLED: EXPORT_SYMBOL(sock_no_connect); */
 
 int sock_no_socketpair(struct socket *sock1, struct socket *sock2)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_socketpair);
+/* DISABLED: EXPORT_SYMBOL(sock_no_socketpair); */
 
 int sock_no_accept(struct socket *sock, struct socket *newsock, int flags)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_accept);
+/* DISABLED: EXPORT_SYMBOL(sock_no_accept); */
 
 int sock_no_getname(struct socket *sock, struct sockaddr *saddr,
 		    int *len, int peer)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_getname);
+/* DISABLED: EXPORT_SYMBOL(sock_no_getname); */
 
 unsigned int sock_no_poll(struct file *file, struct socket *sock, poll_table *pt)
 {
 	return 0;
 }
-EXPORT_SYMBOL(sock_no_poll);
+/* DISABLED: EXPORT_SYMBOL(sock_no_poll); */
 
 int sock_no_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_ioctl);
+/* DISABLED: EXPORT_SYMBOL(sock_no_ioctl); */
 
 int sock_no_listen(struct socket *sock, int backlog)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_listen);
+/* DISABLED: EXPORT_SYMBOL(sock_no_listen); */
 
 int sock_no_shutdown(struct socket *sock, int how)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_shutdown);
+/* DISABLED: EXPORT_SYMBOL(sock_no_shutdown); */
 
 int sock_no_setsockopt(struct socket *sock, int level, int optname,
 		    char __user *optval, unsigned int optlen)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(sock_no_setsockopt); */
 
 int sock_no_getsockopt(struct socket *sock, int level, int optname,
 		    char __user *optval, int __user *optlen)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_getsockopt);
+/* DISABLED: EXPORT_SYMBOL(sock_no_getsockopt); */
 
 int sock_no_sendmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *m,
 		    size_t len)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_sendmsg);
+/* DISABLED: EXPORT_SYMBOL(sock_no_sendmsg); */
 
 int sock_no_recvmsg(struct kiocb *iocb, struct socket *sock, struct msghdr *m,
 		    size_t len, int flags)
 {
 	return -EOPNOTSUPP;
 }
-EXPORT_SYMBOL(sock_no_recvmsg);
+/* DISABLED: EXPORT_SYMBOL(sock_no_recvmsg); */
 
 int sock_no_mmap(struct file *file, struct socket *sock, struct vm_area_struct *vma)
 {
 	/* Mirror missing mmap method error code */
 	return -ENODEV;
 }
-EXPORT_SYMBOL(sock_no_mmap);
+/* DISABLED: EXPORT_SYMBOL(sock_no_mmap); */
 
 ssize_t sock_no_sendpage(struct socket *sock, struct page *page, int offset, size_t size, int flags)
 {
@@ -1989,7 +1989,7 @@ ssize_t sock_no_sendpage(struct socket *sock, struct page *page, int offset, siz
 	kunmap(page);
 	return res;
 }
-EXPORT_SYMBOL(sock_no_sendpage);
+/* DISABLED: EXPORT_SYMBOL(sock_no_sendpage); */
 
 /*
  *	Default Socket Callbacks
@@ -2065,7 +2065,7 @@ void sk_send_sigurg(struct sock *sk)
 		if (send_sigurg(&sk->sk_socket->file->f_owner))
 			sk_wake_async(sk, SOCK_WAKE_URG, POLL_PRI);
 }
-EXPORT_SYMBOL(sk_send_sigurg);
+/* DISABLED: EXPORT_SYMBOL(sk_send_sigurg); */
 
 void sk_reset_timer(struct sock *sk, struct timer_list* timer,
 		    unsigned long expires)
@@ -2073,14 +2073,14 @@ void sk_reset_timer(struct sock *sk, struct timer_list* timer,
 	if (!mod_timer(timer, expires))
 		sock_hold(sk);
 }
-EXPORT_SYMBOL(sk_reset_timer);
+/* DISABLED: EXPORT_SYMBOL(sk_reset_timer); */
 
 void sk_stop_timer(struct sock *sk, struct timer_list* timer)
 {
 	if (timer_pending(timer) && del_timer(timer))
 		__sock_put(sk);
 }
-EXPORT_SYMBOL(sk_stop_timer);
+/* DISABLED: EXPORT_SYMBOL(sk_stop_timer); */
 
 void sock_init_data(struct socket *sock, struct sock *sk)
 {
@@ -2148,7 +2148,7 @@ void sock_init_data(struct socket *sock, struct sock *sk)
 	atomic_set(&sk->sk_refcnt, 1);
 	atomic_set(&sk->sk_drops, 0);
 }
-EXPORT_SYMBOL(sock_init_data);
+/* DISABLED: EXPORT_SYMBOL(sock_init_data); */
 
 void lock_sock_nested(struct sock *sk, int subclass)
 {
@@ -2164,7 +2164,7 @@ void lock_sock_nested(struct sock *sk, int subclass)
 	mutex_acquire(&sk->sk_lock.dep_map, subclass, 0, _RET_IP_);
 	local_bh_enable();
 }
-EXPORT_SYMBOL(lock_sock_nested);
+/* DISABLED: EXPORT_SYMBOL(lock_sock_nested); */
 
 void release_sock(struct sock *sk)
 {
@@ -2185,7 +2185,7 @@ void release_sock(struct sock *sk)
 		wake_up(&sk->sk_lock.wq);
 	spin_unlock_bh(&sk->sk_lock.slock);
 }
-EXPORT_SYMBOL(release_sock);
+/* DISABLED: EXPORT_SYMBOL(release_sock); */
 
 /**
  * lock_sock_fast - fast version of lock_sock
@@ -2218,7 +2218,7 @@ bool lock_sock_fast(struct sock *sk)
 	local_bh_enable();
 	return true;
 }
-EXPORT_SYMBOL(lock_sock_fast);
+/* DISABLED: EXPORT_SYMBOL(lock_sock_fast); */
 
 int sock_get_timestamp(struct sock *sk, struct timeval __user *userstamp)
 {
@@ -2234,7 +2234,7 @@ int sock_get_timestamp(struct sock *sk, struct timeval __user *userstamp)
 	}
 	return copy_to_user(userstamp, &tv, sizeof(tv)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL(sock_get_timestamp);
+/* DISABLED: EXPORT_SYMBOL(sock_get_timestamp); */
 
 int sock_get_timestampns(struct sock *sk, struct timespec __user *userstamp)
 {
@@ -2250,7 +2250,7 @@ int sock_get_timestampns(struct sock *sk, struct timespec __user *userstamp)
 	}
 	return copy_to_user(userstamp, &ts, sizeof(ts)) ? -EFAULT : 0;
 }
-EXPORT_SYMBOL(sock_get_timestampns);
+/* DISABLED: EXPORT_SYMBOL(sock_get_timestampns); */
 
 void sock_enable_timestamp(struct sock *sk, int flag)
 {
@@ -2282,7 +2282,7 @@ int sock_common_getsockopt(struct socket *sock, int level, int optname,
 
 	return sk->sk_prot->getsockopt(sk, level, optname, optval, optlen);
 }
-EXPORT_SYMBOL(sock_common_getsockopt);
+/* DISABLED: EXPORT_SYMBOL(sock_common_getsockopt); */
 
 #ifdef CONFIG_COMPAT
 int compat_sock_common_getsockopt(struct socket *sock, int level, int optname,
@@ -2295,7 +2295,7 @@ int compat_sock_common_getsockopt(struct socket *sock, int level, int optname,
 						      optval, optlen);
 	return sk->sk_prot->getsockopt(sk, level, optname, optval, optlen);
 }
-EXPORT_SYMBOL(compat_sock_common_getsockopt);
+/* DISABLED: EXPORT_SYMBOL(compat_sock_common_getsockopt); */
 #endif
 
 int sock_common_recvmsg(struct kiocb *iocb, struct socket *sock,
@@ -2311,7 +2311,7 @@ int sock_common_recvmsg(struct kiocb *iocb, struct socket *sock,
 		msg->msg_namelen = addr_len;
 	return err;
 }
-EXPORT_SYMBOL(sock_common_recvmsg);
+/* DISABLED: EXPORT_SYMBOL(sock_common_recvmsg); */
 
 /*
  *	Set socket options on an inet socket.
@@ -2323,7 +2323,7 @@ int sock_common_setsockopt(struct socket *sock, int level, int optname,
 
 	return sk->sk_prot->setsockopt(sk, level, optname, optval, optlen);
 }
-EXPORT_SYMBOL(sock_common_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(sock_common_setsockopt); */
 
 #ifdef CONFIG_COMPAT
 int compat_sock_common_setsockopt(struct socket *sock, int level, int optname,
@@ -2336,7 +2336,7 @@ int compat_sock_common_setsockopt(struct socket *sock, int level, int optname,
 						      optval, optlen);
 	return sk->sk_prot->setsockopt(sk, level, optname, optval, optlen);
 }
-EXPORT_SYMBOL(compat_sock_common_setsockopt);
+/* DISABLED: EXPORT_SYMBOL(compat_sock_common_setsockopt); */
 #endif
 
 void sk_common_release(struct sock *sk)
@@ -2373,7 +2373,7 @@ void sk_common_release(struct sock *sk)
 	sk_refcnt_debug_release(sk);
 	sock_put(sk);
 }
-EXPORT_SYMBOL(sk_common_release);
+/* DISABLED: EXPORT_SYMBOL(sk_common_release); */
 
 #ifdef CONFIG_PROC_FS
 #define PROTO_INUSE_NR	64	/* should be enough for the first time */
@@ -2388,7 +2388,7 @@ void sock_prot_inuse_add(struct net *net, struct proto *prot, int val)
 {
 	__this_cpu_add(net->core.inuse->val[prot->inuse_idx], val);
 }
-EXPORT_SYMBOL_GPL(sock_prot_inuse_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_prot_inuse_add); */
 
 int sock_prot_inuse_get(struct net *net, struct proto *prot)
 {
@@ -2400,7 +2400,7 @@ int sock_prot_inuse_get(struct net *net, struct proto *prot)
 
 	return res >= 0 ? res : 0;
 }
-EXPORT_SYMBOL_GPL(sock_prot_inuse_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_prot_inuse_get); */
 
 static int __net_init sock_inuse_init_net(struct net *net)
 {
@@ -2434,7 +2434,7 @@ void sock_prot_inuse_add(struct net *net, struct proto *prot, int val)
 {
 	__this_cpu_add(prot_inuse.val[prot->inuse_idx], val);
 }
-EXPORT_SYMBOL_GPL(sock_prot_inuse_add);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_prot_inuse_add); */
 
 int sock_prot_inuse_get(struct net *net, struct proto *prot)
 {
@@ -2446,7 +2446,7 @@ int sock_prot_inuse_get(struct net *net, struct proto *prot)
 
 	return res >= 0 ? res : 0;
 }
-EXPORT_SYMBOL_GPL(sock_prot_inuse_get);
+/* DISABLED: EXPORT_SYMBOL_GPL(sock_prot_inuse_get); */
 #endif
 
 static void assign_proto_idx(struct proto *prot)
@@ -2545,7 +2545,7 @@ out_free_sock_slab:
 out:
 	return -ENOBUFS;
 }
-EXPORT_SYMBOL(proto_register);
+/* DISABLED: EXPORT_SYMBOL(proto_register); */
 
 void proto_unregister(struct proto *prot)
 {
@@ -2571,7 +2571,7 @@ void proto_unregister(struct proto *prot)
 		prot->twsk_prot->twsk_slab = NULL;
 	}
 }
-EXPORT_SYMBOL(proto_unregister);
+/* DISABLED: EXPORT_SYMBOL(proto_unregister); */
 
 #ifdef CONFIG_PROC_FS
 static void *proto_seq_start(struct seq_file *seq, loff_t *pos)

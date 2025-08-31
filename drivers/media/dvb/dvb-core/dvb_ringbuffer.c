@@ -93,7 +93,7 @@ void dvb_ringbuffer_flush(struct dvb_ringbuffer *rbuf)
 	rbuf->pread = rbuf->pwrite;
 	rbuf->error = 0;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_flush);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_flush); */
 
 void dvb_ringbuffer_reset(struct dvb_ringbuffer *rbuf)
 {
@@ -223,7 +223,7 @@ ssize_t dvb_ringbuffer_pkt_start(struct dvb_ringbuffer *rbuf, size_t len)
 
 	return oldpwrite;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_start);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_start); */
 
 int dvb_ringbuffer_pkt_close(struct dvb_ringbuffer *rbuf, ssize_t idx)
 {
@@ -236,7 +236,7 @@ int dvb_ringbuffer_pkt_close(struct dvb_ringbuffer *rbuf, ssize_t idx)
 
 	return 0;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_close);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_close); */
 
 ssize_t dvb_ringbuffer_pkt_read_user(struct dvb_ringbuffer *rbuf, size_t idx,
 				int offset, u8 __user *buf, size_t len)
@@ -268,7 +268,7 @@ ssize_t dvb_ringbuffer_pkt_read_user(struct dvb_ringbuffer *rbuf, size_t idx,
 
 	return len;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_read_user);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_read_user); */
 
 ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf, size_t idx,
 				int offset, u8* buf, size_t len)
@@ -298,7 +298,7 @@ ssize_t dvb_ringbuffer_pkt_read(struct dvb_ringbuffer *rbuf, size_t idx,
 	memcpy(buf, rbuf->data+idx, todo);
 	return len;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_read);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_read); */
 
 void dvb_ringbuffer_pkt_dispose(struct dvb_ringbuffer *rbuf, size_t idx)
 {
@@ -318,7 +318,7 @@ void dvb_ringbuffer_pkt_dispose(struct dvb_ringbuffer *rbuf, size_t idx)
 		}
 	}
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_dispose);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_dispose); */
 
 ssize_t dvb_ringbuffer_pkt_next(struct dvb_ringbuffer *rbuf, size_t idx, size_t* pktlen)
 {
@@ -360,15 +360,15 @@ ssize_t dvb_ringbuffer_pkt_next(struct dvb_ringbuffer *rbuf, size_t idx, size_t*
 	// no packets available
 	return -1;
 }
-EXPORT_SYMBOL(dvb_ringbuffer_pkt_next);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_pkt_next); */
 
-EXPORT_SYMBOL(dvb_ringbuffer_init);
-EXPORT_SYMBOL(dvb_ringbuffer_empty);
-EXPORT_SYMBOL(dvb_ringbuffer_free);
-EXPORT_SYMBOL(dvb_ringbuffer_avail);
-EXPORT_SYMBOL(dvb_ringbuffer_flush_spinlock_wakeup);
-EXPORT_SYMBOL(dvb_ringbuffer_read_user);
-EXPORT_SYMBOL(dvb_ringbuffer_read);
-EXPORT_SYMBOL(dvb_ringbuffer_write);
-EXPORT_SYMBOL(dvb_ringbuffer_write_user);
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_init); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_empty); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_free); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_avail); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_flush_spinlock_wakeup); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_read_user); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_read); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_write); */
+/* DISABLED: EXPORT_SYMBOL(dvb_ringbuffer_write_user); */
 

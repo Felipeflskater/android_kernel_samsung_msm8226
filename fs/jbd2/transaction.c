@@ -382,14 +382,14 @@ handle_t *jbd2__journal_start(journal_t *journal, int nblocks, gfp_t gfp_mask)
 	}
 	return handle;
 }
-EXPORT_SYMBOL(jbd2__journal_start);
+/* DISABLED: EXPORT_SYMBOL(jbd2__journal_start); */
 
 
 handle_t *jbd2_journal_start(journal_t *journal, int nblocks)
 {
 	return jbd2__journal_start(journal, nblocks, GFP_NOFS);
 }
-EXPORT_SYMBOL(jbd2_journal_start);
+/* DISABLED: EXPORT_SYMBOL(jbd2_journal_start); */
 
 
 /**
@@ -516,14 +516,14 @@ int jbd2__journal_restart(handle_t *handle, int nblocks, gfp_t gfp_mask)
 	ret = start_this_handle(journal, handle, gfp_mask);
 	return ret;
 }
-EXPORT_SYMBOL(jbd2__journal_restart);
+/* DISABLED: EXPORT_SYMBOL(jbd2__journal_restart); */
 
 
 int jbd2_journal_restart(handle_t *handle, int nblocks)
 {
 	return jbd2__journal_restart(handle, nblocks, GFP_NOFS);
 }
-EXPORT_SYMBOL(jbd2_journal_restart);
+/* DISABLED: EXPORT_SYMBOL(jbd2_journal_restart); */
 
 /**
  * void jbd2_journal_lock_updates () - establish a transaction barrier.

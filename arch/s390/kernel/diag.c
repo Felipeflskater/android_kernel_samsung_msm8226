@@ -33,7 +33,7 @@ int diag14(unsigned long rx, unsigned long ry1, unsigned long subcode)
 
 	return rc;
 }
-EXPORT_SYMBOL(diag14);
+/* DISABLED: EXPORT_SYMBOL(diag14); */
 
 /*
  * Diagnose 210: Get information about a virtual device
@@ -78,4 +78,4 @@ int diag210(struct diag210 *addr)
 
 	return ccode;
 }
-EXPORT_SYMBOL(diag210);
+/* DISABLED: EXPORT_SYMBOL(diag210); */

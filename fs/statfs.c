@@ -72,7 +72,7 @@ int vfs_statfs(struct path *path, struct kstatfs *buf)
 		buf->f_flags = calculate_f_flags(path->mnt);
 	return error;
 }
-EXPORT_SYMBOL(vfs_statfs);
+/* DISABLED: EXPORT_SYMBOL(vfs_statfs); */
 
 int user_statfs(const char __user *pathname, struct kstatfs *st)
 {

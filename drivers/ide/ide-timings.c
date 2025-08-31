@@ -76,7 +76,7 @@ struct ide_timing *ide_timing_find_mode(u8 speed)
 			return NULL;
 	return t;
 }
-EXPORT_SYMBOL_GPL(ide_timing_find_mode);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_timing_find_mode); */
 
 u16 ide_pio_cycle_time(ide_drive_t *drive, u8 pio)
 {
@@ -101,7 +101,7 @@ u16 ide_pio_cycle_time(ide_drive_t *drive, u8 pio)
 
 	return cycle ? cycle : t->cycle;
 }
-EXPORT_SYMBOL_GPL(ide_pio_cycle_time);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_pio_cycle_time); */
 
 #define ENOUGH(v, unit)		(((v) - 1) / (unit) + 1)
 #define EZ(v, unit)		((v) ? ENOUGH(v, unit) : 0)
@@ -139,7 +139,7 @@ void ide_timing_merge(struct ide_timing *a, struct ide_timing *b,
 	if (what & IDE_TIMING_UDMA)
 		m->udma    = max(a->udma,    b->udma);
 }
-EXPORT_SYMBOL_GPL(ide_timing_merge);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_timing_merge); */
 
 int ide_timing_compute(ide_drive_t *drive, u8 speed,
 		       struct ide_timing *t, int T, int UT)
@@ -208,4 +208,4 @@ int ide_timing_compute(ide_drive_t *drive, u8 speed,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(ide_timing_compute);
+/* DISABLED: EXPORT_SYMBOL_GPL(ide_timing_compute); */

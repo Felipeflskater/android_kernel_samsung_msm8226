@@ -103,12 +103,12 @@ void ks0108_page(unsigned char page)
 	ks0108_writedata(min(page,(unsigned char)7) | bit(3) | bit(4) | bit(5) | bit(7));
 }
 
-EXPORT_SYMBOL_GPL(ks0108_writedata);
-EXPORT_SYMBOL_GPL(ks0108_writecontrol);
-EXPORT_SYMBOL_GPL(ks0108_displaystate);
-EXPORT_SYMBOL_GPL(ks0108_startline);
-EXPORT_SYMBOL_GPL(ks0108_address);
-EXPORT_SYMBOL_GPL(ks0108_page);
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_writedata); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_writecontrol); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_displaystate); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_startline); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_address); */
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_page); */
 
 /*
  * Is the module inited?
@@ -119,7 +119,7 @@ unsigned char ks0108_isinited(void)
 {
 	return ks0108_inited;
 }
-EXPORT_SYMBOL_GPL(ks0108_isinited);
+/* DISABLED: EXPORT_SYMBOL_GPL(ks0108_isinited); */
 
 /*
  * Module Init & Exit

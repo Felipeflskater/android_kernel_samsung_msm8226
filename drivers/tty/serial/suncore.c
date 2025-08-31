@@ -40,7 +40,7 @@ int sunserial_register_minors(struct uart_driver *drv, int count)
 	}
 	return err;
 }
-EXPORT_SYMBOL(sunserial_register_minors);
+/* DISABLED: EXPORT_SYMBOL(sunserial_register_minors); */
 
 void sunserial_unregister_minors(struct uart_driver *drv, int count)
 {
@@ -50,7 +50,7 @@ void sunserial_unregister_minors(struct uart_driver *drv, int count)
 	if (drv->nr == 0)
 		uart_unregister_driver(drv);
 }
-EXPORT_SYMBOL(sunserial_unregister_minors);
+/* DISABLED: EXPORT_SYMBOL(sunserial_unregister_minors); */
 
 int sunserial_console_match(struct console *con, struct device_node *dp,
 			    struct uart_driver *drv, int line, bool ignore_line)
@@ -80,7 +80,7 @@ int sunserial_console_match(struct console *con, struct device_node *dp,
 	}
 	return 1;
 }
-EXPORT_SYMBOL(sunserial_console_match);
+/* DISABLED: EXPORT_SYMBOL(sunserial_console_match); */
 
 void sunserial_console_termios(struct console *con, struct device_node *uart_dp)
 {
@@ -195,7 +195,7 @@ unsigned int suncore_mouse_baud_cflag_next(unsigned int cflag, int *new_baud)
 	return mouse_baud_table[i].cflag;
 }
 
-EXPORT_SYMBOL(suncore_mouse_baud_cflag_next);
+/* DISABLED: EXPORT_SYMBOL(suncore_mouse_baud_cflag_next); */
 
 /* Basically, when the baud rate is wrong the mouse spits out
  * breaks to us.
@@ -228,7 +228,7 @@ int suncore_mouse_baud_detection(unsigned char ch, int is_break)
 	return 0;
 }
 
-EXPORT_SYMBOL(suncore_mouse_baud_detection);
+/* DISABLED: EXPORT_SYMBOL(suncore_mouse_baud_detection); */
 
 static int __init suncore_init(void)
 {

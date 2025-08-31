@@ -42,7 +42,7 @@ void uuid_le_gen(uuid_le *lu)
 	/* version 4 : random generation */
 	lu->b[7] = (lu->b[7] & 0x0F) | 0x40;
 }
-EXPORT_SYMBOL_GPL(uuid_le_gen);
+/* DISABLED: EXPORT_SYMBOL_GPL(uuid_le_gen); */
 
 void uuid_be_gen(uuid_be *bu)
 {
@@ -50,4 +50,4 @@ void uuid_be_gen(uuid_be *bu)
 	/* version 4 : random generation */
 	bu->b[6] = (bu->b[6] & 0x0F) | 0x40;
 }
-EXPORT_SYMBOL_GPL(uuid_be_gen);
+/* DISABLED: EXPORT_SYMBOL_GPL(uuid_be_gen); */

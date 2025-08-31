@@ -116,7 +116,7 @@ int nvec_register_notifier(struct nvec_chip *nvec, struct notifier_block *nb,
 {
 	return atomic_notifier_chain_register(&nvec->notifier_list, nb);
 }
-EXPORT_SYMBOL_GPL(nvec_register_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(nvec_register_notifier); */
 
 /**
  * nvec_status_notifier - The final notifier
@@ -184,7 +184,7 @@ inline void nvec_msg_free(struct nvec_chip *nvec, struct nvec_msg *msg)
 		dev_vdbg(nvec->dev, "INFO: Free %ti\n", msg - nvec->msg_pool);
 	atomic_set(&msg->used, 0);
 }
-EXPORT_SYMBOL_GPL(nvec_msg_free);
+/* DISABLED: EXPORT_SYMBOL_GPL(nvec_msg_free); */
 
 /**
  * nvec_msg_is_event - Return %true if @msg is an event
@@ -266,7 +266,7 @@ int nvec_write_async(struct nvec_chip *nvec, const unsigned char *data,
 
 	return 0;
 }
-EXPORT_SYMBOL(nvec_write_async);
+/* DISABLED: EXPORT_SYMBOL(nvec_write_async); */
 
 /**
  * nvec_write_sync - Write a message to nvec and read the response
@@ -312,7 +312,7 @@ struct nvec_msg *nvec_write_sync(struct nvec_chip *nvec,
 
 	return msg;
 }
-EXPORT_SYMBOL(nvec_write_sync);
+/* DISABLED: EXPORT_SYMBOL(nvec_write_sync); */
 
 /**
  * nvec_request_master - Process outgoing messages

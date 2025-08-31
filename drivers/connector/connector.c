@@ -115,7 +115,7 @@ nlmsg_failure:
 	kfree_skb(skb);
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(cn_netlink_send);
+/* DISABLED: EXPORT_SYMBOL_GPL(cn_netlink_send); */
 
 /*
  * Callback helper - queues work and setup destructor for given data.
@@ -200,7 +200,7 @@ int cn_add_callback(struct cb_id *id, const char *name,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(cn_add_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(cn_add_callback); */
 
 /*
  * Callback remove routing - removes callback
@@ -216,7 +216,7 @@ void cn_del_callback(struct cb_id *id)
 
 	cn_queue_del_callback(dev->cbdev, id);
 }
-EXPORT_SYMBOL_GPL(cn_del_callback);
+/* DISABLED: EXPORT_SYMBOL_GPL(cn_del_callback); */
 
 static int cn_proc_show(struct seq_file *m, void *v)
 {

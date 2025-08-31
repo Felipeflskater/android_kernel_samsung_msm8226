@@ -74,8 +74,8 @@ static void __init visws_pre_intr_init(void);
 
 unsigned long sgivwfb_mem_phys;
 unsigned long sgivwfb_mem_size;
-EXPORT_SYMBOL(sgivwfb_mem_phys);
-EXPORT_SYMBOL(sgivwfb_mem_size);
+/* DISABLED: EXPORT_SYMBOL(sgivwfb_mem_phys); */
+/* DISABLED: EXPORT_SYMBOL(sgivwfb_mem_size); */
 
 long long mem_size __initdata = 0;
 

@@ -1152,7 +1152,7 @@ int QCUSBNetProbe(
    return status;
 }
 
-EXPORT_SYMBOL_GPL( QCUSBNetProbe );
+/* DISABLED: EXPORT_SYMBOL_GPL( QCUSBNetProbe ); */
 
 static struct usb_driver QCUSBNet =
 {

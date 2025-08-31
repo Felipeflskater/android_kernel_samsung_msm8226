@@ -196,7 +196,7 @@ void _rdmsr(u32 msr, u32 *hi, u32 *lo)
 	loongson_pcibios_read(&bus, devfn, PCI_MSR_DATA_HI, 4, hi);
 	raw_spin_unlock_irqrestore(&msr_lock, flags);
 }
-EXPORT_SYMBOL(_rdmsr);
+/* DISABLED: EXPORT_SYMBOL(_rdmsr); */
 
 void _wrmsr(u32 msr, u32 hi, u32 lo)
 {
@@ -212,5 +212,5 @@ void _wrmsr(u32 msr, u32 hi, u32 lo)
 	loongson_pcibios_write(&bus, devfn, PCI_MSR_DATA_HI, 4, hi);
 	raw_spin_unlock_irqrestore(&msr_lock, flags);
 }
-EXPORT_SYMBOL(_wrmsr);
+/* DISABLED: EXPORT_SYMBOL(_wrmsr); */
 #endif

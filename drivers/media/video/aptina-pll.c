@@ -167,7 +167,7 @@ int aptina_pll_calculate(struct device *dev,
 	dev_err(dev, "pll: no valid N and P1 divisors found.\n");
 	return -EINVAL;
 }
-EXPORT_SYMBOL_GPL(aptina_pll_calculate);
+/* DISABLED: EXPORT_SYMBOL_GPL(aptina_pll_calculate); */
 
 MODULE_DESCRIPTION("Aptina PLL Helpers");
 MODULE_AUTHOR("Laurent Pinchart <laurent.pinchart@ideasonboard.com>");

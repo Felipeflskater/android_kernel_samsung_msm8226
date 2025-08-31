@@ -38,7 +38,7 @@ void crypto_larval_error(const char *name, u32 type, u32 mask)
 		crypto_mod_put(alg);
 	}
 }
-EXPORT_SYMBOL_GPL(crypto_larval_error);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_larval_error); */
 
 static inline int crypto_set_driver_name(struct crypto_alg *alg)
 {
@@ -183,7 +183,7 @@ void crypto_remove_spawns(struct crypto_alg *alg, struct list_head *list,
 			crypto_remove_spawn(spawn, list);
 	}
 }
-EXPORT_SYMBOL_GPL(crypto_remove_spawns);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_remove_spawns); */
 
 static struct crypto_larval *__crypto_register_alg(struct crypto_alg *alg)
 {
@@ -361,7 +361,7 @@ unlock:
 
 	crypto_remove_final(&list);
 }
-EXPORT_SYMBOL_GPL(crypto_alg_tested);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alg_tested); */
 
 void crypto_remove_final(struct list_head *list)
 {
@@ -373,7 +373,7 @@ void crypto_remove_final(struct list_head *list)
 		crypto_alg_put(alg);
 	}
 }
-EXPORT_SYMBOL_GPL(crypto_remove_final);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_remove_final); */
 
 static void crypto_wait_for_test(struct crypto_larval *larval)
 {
@@ -421,7 +421,7 @@ int crypto_register_alg(struct crypto_alg *alg)
 	crypto_wait_for_test(larval);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_register_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_alg); */
 
 static int crypto_remove_alg(struct crypto_alg *alg, struct list_head *list)
 {
@@ -456,7 +456,7 @@ int crypto_unregister_alg(struct crypto_alg *alg)
 	crypto_remove_final(&list);
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_alg);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_alg); */
 
 int crypto_register_algs(struct crypto_alg *algs, int count)
 {
@@ -476,7 +476,7 @@ err:
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(crypto_register_algs);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_algs); */
 
 int crypto_unregister_algs(struct crypto_alg *algs, int count)
 {
@@ -491,7 +491,7 @@ int crypto_unregister_algs(struct crypto_alg *algs, int count)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_algs);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_algs); */
 
 int crypto_register_template(struct crypto_template *tmpl)
 {
@@ -517,7 +517,7 @@ out:
 	up_write(&crypto_alg_sem);
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_register_template);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_template); */
 
 void crypto_unregister_template(struct crypto_template *tmpl)
 {
@@ -547,7 +547,7 @@ void crypto_unregister_template(struct crypto_template *tmpl)
 	}
 	crypto_remove_final(&users);
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_template);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_template); */
 
 static struct crypto_template *__crypto_lookup_template(const char *name)
 {
@@ -580,7 +580,7 @@ struct crypto_template *crypto_lookup_template(const char *name)
 	return try_then_request_module(__crypto_lookup_template(name), "%s",
 				       name);
 }
-EXPORT_SYMBOL_GPL(crypto_lookup_template);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_lookup_template); */
 
 int crypto_register_instance(struct crypto_template *tmpl,
 			     struct crypto_instance *inst)
@@ -622,7 +622,7 @@ unlock:
 err:
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_register_instance);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_instance); */
 
 int crypto_unregister_instance(struct crypto_alg *alg)
 {
@@ -651,7 +651,7 @@ int crypto_unregister_instance(struct crypto_alg *alg)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_instance);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_instance); */
 
 int crypto_init_spawn(struct crypto_spawn *spawn, struct crypto_alg *alg,
 		      struct crypto_instance *inst, u32 mask)
@@ -676,7 +676,7 @@ int crypto_init_spawn(struct crypto_spawn *spawn, struct crypto_alg *alg,
 
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_init_spawn);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_init_spawn); */
 
 int crypto_init_spawn2(struct crypto_spawn *spawn, struct crypto_alg *alg,
 		       struct crypto_instance *inst,
@@ -693,7 +693,7 @@ int crypto_init_spawn2(struct crypto_spawn *spawn, struct crypto_alg *alg,
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_init_spawn2);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_init_spawn2); */
 
 void crypto_drop_spawn(struct crypto_spawn *spawn)
 {
@@ -704,7 +704,7 @@ void crypto_drop_spawn(struct crypto_spawn *spawn)
 	list_del(&spawn->list);
 	up_write(&crypto_alg_sem);
 }
-EXPORT_SYMBOL_GPL(crypto_drop_spawn);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_drop_spawn); */
 
 static struct crypto_alg *crypto_spawn_alg(struct crypto_spawn *spawn)
 {
@@ -751,7 +751,7 @@ out_put_alg:
 	crypto_mod_put(alg);
 	return tfm;
 }
-EXPORT_SYMBOL_GPL(crypto_spawn_tfm);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_spawn_tfm); */
 
 void *crypto_spawn_tfm2(struct crypto_spawn *spawn)
 {
@@ -772,19 +772,19 @@ out_put_alg:
 	crypto_mod_put(alg);
 	return tfm;
 }
-EXPORT_SYMBOL_GPL(crypto_spawn_tfm2);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_spawn_tfm2); */
 
 int crypto_register_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&crypto_chain, nb);
 }
-EXPORT_SYMBOL_GPL(crypto_register_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_notifier); */
 
 int crypto_unregister_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&crypto_chain, nb);
 }
-EXPORT_SYMBOL_GPL(crypto_unregister_notifier);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_notifier); */
 
 struct crypto_attr_type *crypto_get_attr_type(struct rtattr **tb)
 {
@@ -802,7 +802,7 @@ struct crypto_attr_type *crypto_get_attr_type(struct rtattr **tb)
 
 	return algt;
 }
-EXPORT_SYMBOL_GPL(crypto_get_attr_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_get_attr_type); */
 
 int crypto_check_attr_type(struct rtattr **tb, u32 type)
 {
@@ -817,7 +817,7 @@ int crypto_check_attr_type(struct rtattr **tb, u32 type)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_check_attr_type);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_check_attr_type); */
 
 const char *crypto_attr_alg_name(struct rtattr *rta)
 {
@@ -835,7 +835,7 @@ const char *crypto_attr_alg_name(struct rtattr *rta)
 
 	return alga->name;
 }
-EXPORT_SYMBOL_GPL(crypto_attr_alg_name);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_attr_alg_name); */
 
 struct crypto_alg *crypto_attr_alg2(struct rtattr *rta,
 				    const struct crypto_type *frontend,
@@ -851,7 +851,7 @@ struct crypto_alg *crypto_attr_alg2(struct rtattr *rta,
 
 	return crypto_find_alg(name, frontend, type, mask);
 }
-EXPORT_SYMBOL_GPL(crypto_attr_alg2);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_attr_alg2); */
 
 int crypto_attr_u32(struct rtattr *rta, u32 *num)
 {
@@ -869,7 +869,7 @@ int crypto_attr_u32(struct rtattr *rta, u32 *num)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_attr_u32);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_attr_u32); */
 
 void *crypto_alloc_instance2(const char *name, struct crypto_alg *alg,
 			     unsigned int head)
@@ -905,7 +905,7 @@ err_free_inst:
 	kfree(p);
 	return ERR_PTR(err);
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_instance2);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_instance2); */
 
 struct crypto_instance *crypto_alloc_instance(const char *name,
 					      struct crypto_alg *alg)
@@ -939,7 +939,7 @@ err_free_inst:
 out:
 	return inst;
 }
-EXPORT_SYMBOL_GPL(crypto_alloc_instance);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_instance); */
 
 void crypto_init_queue(struct crypto_queue *queue, unsigned int max_qlen)
 {
@@ -948,7 +948,7 @@ void crypto_init_queue(struct crypto_queue *queue, unsigned int max_qlen)
 	queue->qlen = 0;
 	queue->max_qlen = max_qlen;
 }
-EXPORT_SYMBOL_GPL(crypto_init_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_init_queue); */
 
 int crypto_enqueue_request(struct crypto_queue *queue,
 			   struct crypto_async_request *request)
@@ -974,7 +974,7 @@ int crypto_enqueue_request(struct crypto_queue *queue,
 out:
 	return err;
 }
-EXPORT_SYMBOL_GPL(crypto_enqueue_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_enqueue_request); */
 
 void *__crypto_dequeue_request(struct crypto_queue *queue, unsigned int offset)
 {
@@ -994,13 +994,13 @@ void *__crypto_dequeue_request(struct crypto_queue *queue, unsigned int offset)
 	return (char *)list_entry(request, struct crypto_async_request, list) -
 	       offset;
 }
-EXPORT_SYMBOL_GPL(__crypto_dequeue_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(__crypto_dequeue_request); */
 
 struct crypto_async_request *crypto_dequeue_request(struct crypto_queue *queue)
 {
 	return __crypto_dequeue_request(queue, 0);
 }
-EXPORT_SYMBOL_GPL(crypto_dequeue_request);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_dequeue_request); */
 
 int crypto_tfm_in_queue(struct crypto_queue *queue, struct crypto_tfm *tfm)
 {
@@ -1013,7 +1013,7 @@ int crypto_tfm_in_queue(struct crypto_queue *queue, struct crypto_tfm *tfm)
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(crypto_tfm_in_queue);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_tfm_in_queue); */
 
 static inline void crypto_inc_byte(u8 *a, unsigned int size)
 {
@@ -1042,7 +1042,7 @@ void crypto_inc(u8 *a, unsigned int size)
 
 	crypto_inc_byte(a, size);
 }
-EXPORT_SYMBOL_GPL(crypto_inc);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_inc); */
 
 static inline void crypto_xor_byte(u8 *a, const u8 *b, unsigned int size)
 {
@@ -1060,7 +1060,7 @@ void crypto_xor(u8 *dst, const u8 *src, unsigned int size)
 
 	crypto_xor_byte((u8 *)a, (u8 *)b, size);
 }
-EXPORT_SYMBOL_GPL(crypto_xor);
+/* DISABLED: EXPORT_SYMBOL_GPL(crypto_xor); */
 
 static int __init crypto_algapi_init(void)
 {

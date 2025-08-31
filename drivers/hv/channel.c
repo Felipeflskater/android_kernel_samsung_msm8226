@@ -243,7 +243,7 @@ error0:
 	kfree(open_info);
 	return err;
 }
-EXPORT_SYMBOL_GPL(vmbus_open);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_open); */
 
 /*
  * create_gpadl_header - Creates a gpadl for the specified buffer
@@ -464,7 +464,7 @@ cleanup:
 	kfree(msginfo);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(vmbus_establish_gpadl);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_establish_gpadl); */
 
 /*
  * vmbus_teardown_gpadl -Teardown the specified GPADL handle
@@ -509,7 +509,7 @@ post_msg_err:
 	kfree(info);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(vmbus_teardown_gpadl);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_teardown_gpadl); */
 
 /*
  * vmbus_close - Close the specified channel
@@ -564,7 +564,7 @@ void vmbus_close(struct vmbus_channel *channel)
 	free_pages((unsigned long)channel->ringbuffer_pages,
 		get_order(channel->ringbuffer_pagecount * PAGE_SIZE));
 }
-EXPORT_SYMBOL_GPL(vmbus_close);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_close); */
 
 /**
  * vmbus_sendpacket() - Send the specified buffer on the given channel
@@ -613,7 +613,7 @@ int vmbus_sendpacket(struct vmbus_channel *channel, const void *buffer,
 
 	return ret;
 }
-EXPORT_SYMBOL(vmbus_sendpacket);
+/* DISABLED: EXPORT_SYMBOL(vmbus_sendpacket); */
 
 /*
  * vmbus_sendpacket_pagebuffer - Send a range of single-page buffer
@@ -674,7 +674,7 @@ int vmbus_sendpacket_pagebuffer(struct vmbus_channel *channel,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(vmbus_sendpacket_pagebuffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_sendpacket_pagebuffer); */
 
 /*
  * vmbus_sendpacket_multipagebuffer - Send a multi-page buffer packet
@@ -736,7 +736,7 @@ int vmbus_sendpacket_multipagebuffer(struct vmbus_channel *channel,
 
 	return ret;
 }
-EXPORT_SYMBOL_GPL(vmbus_sendpacket_multipagebuffer);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_sendpacket_multipagebuffer); */
 
 /**
  * vmbus_recvpacket() - Retrieve the user packet on the specified channel
@@ -789,7 +789,7 @@ int vmbus_recvpacket(struct vmbus_channel *channel, void *buffer,
 
 	return 0;
 }
-EXPORT_SYMBOL(vmbus_recvpacket);
+/* DISABLED: EXPORT_SYMBOL(vmbus_recvpacket); */
 
 /*
  * vmbus_recvpacket_raw - Retrieve the raw packet on the specified channel
@@ -832,4 +832,4 @@ int vmbus_recvpacket_raw(struct vmbus_channel *channel, void *buffer,
 
 	return 0;
 }
-EXPORT_SYMBOL_GPL(vmbus_recvpacket_raw);
+/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_recvpacket_raw); */

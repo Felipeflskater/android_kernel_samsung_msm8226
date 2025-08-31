@@ -164,7 +164,7 @@ void dump_stack(void)
 	show_stack(NULL, NULL);
 }
 
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static void do_show_stack(struct unwind_frame_info *info)
 {

@@ -747,7 +747,7 @@ exit:
 		name, devid);
 	return err;
 }
-EXPORT_SYMBOL(ad_dpot_probe);
+/* DISABLED: EXPORT_SYMBOL(ad_dpot_probe); */
 
 __devexit int ad_dpot_remove(struct device *dev)
 {
@@ -762,7 +762,7 @@ __devexit int ad_dpot_remove(struct device *dev)
 
 	return 0;
 }
-EXPORT_SYMBOL(ad_dpot_remove);
+/* DISABLED: EXPORT_SYMBOL(ad_dpot_remove); */
 
 
 MODULE_AUTHOR("Chris Verges <chrisv@cyberswitching.com>, "

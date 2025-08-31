@@ -40,7 +40,7 @@ DEFINE_MUTEX(fc_prov_mutex);
 static LIST_HEAD(fc_local_ports);
 struct blocking_notifier_head fc_lport_notifier_head =
 		BLOCKING_NOTIFIER_INIT(fc_lport_notifier_head);
-EXPORT_SYMBOL(fc_lport_notifier_head);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_notifier_head); */
 
 /*
  * Providers which primarily send requests and PRLIs.
@@ -210,7 +210,7 @@ void fc_fill_hdr(struct fc_frame *fp, const struct fc_frame *in_fp,
 	fr_sof(fp) = seq_cnt ? FC_SOF_N3 : FC_SOF_I3;
 	fr_encaps(fp) = fr_encaps(in_fp);
 }
-EXPORT_SYMBOL(fc_fill_hdr);
+/* DISABLED: EXPORT_SYMBOL(fc_fill_hdr); */
 
 /**
  * fc_fill_reply_hdr() -  fill FC reply header fields based on request
@@ -229,7 +229,7 @@ void fc_fill_reply_hdr(struct fc_frame *fp, const struct fc_frame *in_fp,
 		fr_seq(fp) = fr_dev(in_fp)->tt.seq_start_next(sp);
 	fc_fill_hdr(fp, in_fp, r_ctl, FC_FCTL_RESP, 0, parm_offset);
 }
-EXPORT_SYMBOL(fc_fill_reply_hdr);
+/* DISABLED: EXPORT_SYMBOL(fc_fill_reply_hdr); */
 
 /**
  * fc_fc4_conf_lport_params() - Modify "service_params" of specified lport
@@ -259,7 +259,7 @@ void fc_lport_iterate(void (*notify)(struct fc_lport *, void *), void *arg)
 		notify(lport, arg);
 	mutex_unlock(&fc_prov_mutex);
 }
-EXPORT_SYMBOL(fc_lport_iterate);
+/* DISABLED: EXPORT_SYMBOL(fc_lport_iterate); */
 
 /**
  * fc_fc4_register_provider() - register FC-4 upper-level provider.
@@ -284,7 +284,7 @@ int fc_fc4_register_provider(enum fc_fh_type type, struct fc4_prov *prov)
 	mutex_unlock(&fc_prov_mutex);
 	return ret;
 }
-EXPORT_SYMBOL(fc_fc4_register_provider);
+/* DISABLED: EXPORT_SYMBOL(fc_fc4_register_provider); */
 
 /**
  * fc_fc4_deregister_provider() - deregister FC-4 upper-level provider.
@@ -302,7 +302,7 @@ void fc_fc4_deregister_provider(enum fc_fh_type type, struct fc4_prov *prov)
 	mutex_unlock(&fc_prov_mutex);
 	synchronize_rcu();
 }
-EXPORT_SYMBOL(fc_fc4_deregister_provider);
+/* DISABLED: EXPORT_SYMBOL(fc_fc4_deregister_provider); */
 
 /**
  * fc_fc4_add_lport() - add new local port to list and run notifiers.

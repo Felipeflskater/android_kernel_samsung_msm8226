@@ -2013,7 +2013,7 @@ static int __init setup_waveartist(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("waveartist=", setup_waveartist); */
+/* DISABLED: __setup("waveartist=", setup_waveartist); */ */
 #endif
 
 MODULE_DESCRIPTION("Rockwell WaveArtist RWA-010 sound driver");

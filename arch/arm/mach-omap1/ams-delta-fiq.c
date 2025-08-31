@@ -38,7 +38,7 @@ static struct fiq_handler fh = {
  * See ams-delta-fiq.h for details of offsets.
  */
 unsigned int fiq_buffer[1024];
-EXPORT_SYMBOL(fiq_buffer);
+/* DISABLED: EXPORT_SYMBOL(fiq_buffer); */
 
 static unsigned int irq_counter[16];
 

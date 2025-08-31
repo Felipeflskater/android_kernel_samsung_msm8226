@@ -73,7 +73,7 @@ struct tcw *itcw_get_tcw(struct itcw *itcw)
 {
 	return itcw->tcw;
 }
-EXPORT_SYMBOL(itcw_get_tcw);
+/* DISABLED: EXPORT_SYMBOL(itcw_get_tcw); */
 
 /**
  * itcw_calc_size - return the size of an itcw with the given parameters
@@ -129,7 +129,7 @@ size_t itcw_calc_size(int intrg, int max_tidaws, int intrg_max_tidaws)
 	}
 	return len;
 }
-EXPORT_SYMBOL(itcw_calc_size);
+/* DISABLED: EXPORT_SYMBOL(itcw_calc_size); */
 
 #define CROSS4K(x, l)	(((x) & ~4095) != ((x + l) & ~4095))
 
@@ -270,7 +270,7 @@ struct itcw *itcw_init(void *buffer, size_t size, int op, int intrg,
 	}
 	return itcw;
 }
-EXPORT_SYMBOL(itcw_init);
+/* DISABLED: EXPORT_SYMBOL(itcw_init); */
 
 /**
  * itcw_add_dcw - add a dcw to the itcw
@@ -295,7 +295,7 @@ struct dcw *itcw_add_dcw(struct itcw *itcw, u8 cmd, u8 flags, void *cd,
 	return tccb_add_dcw(tcw_get_tccb(itcw->tcw), TCCB_MAX_SIZE, cmd,
 			    flags, cd, cd_count, count);
 }
-EXPORT_SYMBOL(itcw_add_dcw);
+/* DISABLED: EXPORT_SYMBOL(itcw_add_dcw); */
 
 /**
  * itcw_add_tidaw - add a tidaw to the itcw
@@ -334,7 +334,7 @@ struct tidaw *itcw_add_tidaw(struct itcw *itcw, u8 flags, void *addr, u32 count)
 	}
 	return tcw_add_tidaw(itcw->tcw, itcw->num_tidaws++, flags, addr, count);
 }
-EXPORT_SYMBOL(itcw_add_tidaw);
+/* DISABLED: EXPORT_SYMBOL(itcw_add_tidaw); */
 
 /**
  * itcw_set_data - set data address and tida flag of the itcw
@@ -351,7 +351,7 @@ void itcw_set_data(struct itcw *itcw, void *addr, int use_tidal)
 {
 	tcw_set_data(itcw->tcw, addr, use_tidal);
 }
-EXPORT_SYMBOL(itcw_set_data);
+/* DISABLED: EXPORT_SYMBOL(itcw_set_data); */
 
 /**
  * itcw_finalize - calculate length and count fields of the itcw
@@ -366,4 +366,4 @@ void itcw_finalize(struct itcw *itcw)
 {
 	tcw_finalize(itcw->tcw, itcw->num_tidaws);
 }
-EXPORT_SYMBOL(itcw_finalize);
+/* DISABLED: EXPORT_SYMBOL(itcw_finalize); */

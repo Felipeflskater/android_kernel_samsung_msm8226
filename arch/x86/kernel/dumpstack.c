@@ -111,7 +111,7 @@ print_context_stack(struct thread_info *tinfo,
 	}
 	return bp;
 }
-EXPORT_SYMBOL_GPL(print_context_stack);
+/* DISABLED: EXPORT_SYMBOL_GPL(print_context_stack); */
 
 unsigned long
 print_context_stack_bp(struct thread_info *tinfo,
@@ -136,7 +136,7 @@ print_context_stack_bp(struct thread_info *tinfo,
 
 	return (unsigned long)frame;
 }
-EXPORT_SYMBOL_GPL(print_context_stack_bp);
+/* DISABLED: EXPORT_SYMBOL_GPL(print_context_stack_bp); */
 
 static int print_trace_stack(void *data, char *name)
 {
@@ -195,7 +195,7 @@ void dump_stack(void)
 		init_utsname()->version);
 	show_trace(NULL, NULL, &stack, bp);
 }
-EXPORT_SYMBOL(dump_stack);
+/* DISABLED: EXPORT_SYMBOL(dump_stack); */
 
 static arch_spinlock_t die_lock = __ARCH_SPIN_LOCK_UNLOCKED;
 static int die_owner = -1;
@@ -223,7 +223,7 @@ unsigned __kprobes long oops_begin(void)
 	bust_spinlocks(1);
 	return flags;
 }
-EXPORT_SYMBOL_GPL(oops_begin);
+/* DISABLED: EXPORT_SYMBOL_GPL(oops_begin); */
 
 void __kprobes oops_end(unsigned long flags, struct pt_regs *regs, int signr)
 {
@@ -326,4 +326,4 @@ static int __init code_bytes_setup(char *s)
 
 	return 1;
 }
-/* DISABLED: __setup("code_bytes=", code_bytes_setup); */
+/* DISABLED: __setup("code_bytes=", code_bytes_setup); */ */
