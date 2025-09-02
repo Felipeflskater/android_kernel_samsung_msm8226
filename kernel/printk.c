@@ -2115,3 +2115,4 @@ module_init(printk_remap_nocache);
 #endif
 
 #endif
+}
