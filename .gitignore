@@ -105,3 +105,4 @@ arch/arm/include/asm/timex.h.backup.20250827_221655
 fix_timex_script.sh
 *.context_backup
 *.log
+*.fixed_backup
