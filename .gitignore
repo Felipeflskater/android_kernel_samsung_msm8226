@@ -106,3 +106,4 @@ fix_timex_script.sh
 *.context_backup
 *.log
 *.fixed_backup
+*.original

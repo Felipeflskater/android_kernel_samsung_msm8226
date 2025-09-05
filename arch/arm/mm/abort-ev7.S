@@ -1,3 +1,6 @@
+.arm
+.syntax unified
+/* PostmarketOS: ARM mode forced */
 #include <linux/linkage.h>
 #include <asm/assembler.h>
 /*

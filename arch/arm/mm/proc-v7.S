@@ -1,3 +1,6 @@
+.arm
+.syntax unified
+/* PostmarketOS: ARM mode forced */
 /*
  *  linux/arch/arm/mm/proc-v7.S
  *
@@ -9,21 +12,21 @@
  *
  *  This is the "shell" of the ARMv7 processor support.
  */
-#include <linux/init.h>
-#include <linux/linkage.h>
-#include <asm/assembler.h>
-#include <asm/asm-offsets.h>
-#include <asm/hwcap.h>
-#include <asm/pgtable-hwdef.h>
-#include <asm/pgtable.h>
 
-#include "proc-macros.S"
 
-#ifdef CONFIG_ARM_LPAE
-#include "proc-v7-3level.S"
-#else
-#include "proc-v7-2level.S"
-#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ENTRY(cpu_v7_proc_init)
 mov pc, lr
@@ -78,14 +81,14 @@ mov pc, lr
 ENDPROC(cpu_v7_do_idle)
 
 ENTRY(cpu_v7_dcache_clean_area)
-#ifndef TLB_CAN_READ_FROM_L1_CACHE
+
 dcache_line_size r2, r3
 1:mcr p15, 0, r0, c7, c10, 1@ clean D entry
 addr0, r0, r2
 subsr1, r1, r2
 bhi 1b
 dsb
-#endif
+
 mov pc, lr
 ENDPROC(cpu_v7_dcache_clean_area)
 
@@ -95,7 +98,7 @@ ENDPROC(cpu_v7_dcache_clean_area)
 /* Suspend/resume support: derived from arch/arm/mach-s5pv210/sleep.S */
 .globl cpu_v7_suspend_size
 .equ cpu_v7_suspend_size, 4 * 8
-#ifdef CONFIG_ARM_CPU_SUSPEND
+
 ENTRY(cpu_v7_do_suspend)
 stmfdsp!, {r4 - r11, lr}
 mrc p15, 0, r4, c13, c0, 0@ FCSE/PID
@@ -112,7 +115,7 @@ ldmfdsp!, {r4 - r11, pc}
 ENDPROC(cpu_v7_do_suspend)
 
 ENTRY(cpu_v7_do_resume)
-movip, #0
+movip,
 mcr p15, 0, ip, c8, c7, 0@ invalidate TLBs
 mcr p15, 0, ip, c7, c5, 0@ invalidate I cache
 mcr p15, 0, ip, c13, c0, 1@ set reserved context ID
@@ -120,30 +123,30 @@ ldmia r0!, {r4 - r5}
 mcr p15, 0, r4, c13, c0, 0@ FCSE/PID
 mcr p15, 0, r5, c13, c0, 3@ User r/o thread ID
 ldmia r0, {r6 - r11}
-#ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
+
 mcr p15, 0, r6, c3, c0, 0@ Domain ID
-#endif
-#ifndef CONFIG_ARM_LPAE
+
+
 ALT_SMP(orr r1, r1, @ TTB_FLAGS_SMP)
 ALT_UP(orr r1, r1, @ TTB_FLAGS_UP)
-#endif
-#ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
-mcr p15, 0, r1, c2, c0, 0@ TTB 0
-#endif
-mcr p15, 0, r7, c2, c0, 1@ TTB 1
-#ifndef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
-mcr p15, 0, r11, c2, c0, 2@ TTB control register
-#endif
 
-#ifdef CONFIG_TIMA_RKP_EMUL_CP15_INSTR
+
+mcr p15, 0, r1, c2, c0, 0@ TTB 0
+
+mcr p15, 0, r7, c2, c0, 1@ TTB 1
+
+mcr p15, 0, r11, c2, c0, 2@ TTB control register
+
+
+
 mov r4, r0
 ldr r0, =0x3f806221
-smc #1
+smc
 movr0, r4
 /* Flush TLB */
 mcr    p15, 0, r0, c8, c3, 0
 dsb
-#endif
+
 
 mrc p15, 0, r4, c1, c0, 1@ Read Auxiliary control register
 teq r4, r9@ Is it already set?
@@ -158,7 +161,7 @@ dsb
 mov r0, r8@ control register
 bcpu_resume_mmu
 ENDPROC(cpu_v7_do_resume)
-#endif
+
 
 __CPUINIT
 
@@ -179,16 +182,16 @@ movr10, @ (1 << 0)@ TLB ops broadcasting
 b 1f
 __v7_ca7mp_setup:
 __v7_ca15mp_setup:
-mov r10, #0
+mov r10,
 1:
-#ifdef CONFIG_SMP
+
 ALT_SMP(mrc p15, 0, r0, c1, c0, 1)
 ALT_UP(movr0, @ (1 << 6))@ fake it for UP
 tstr0, @ (1 << 6)@ SMP/nAMP mode enabled?
 orreqr0, r0, @ (1 << 6)@ Enable SMP/nAMP mode
 orreqr0, r0, r10@ Enable CPU-specific SMP bits
 mcreqp15, 0, r0, c1, c0, 1
-#endif
+
 __v7_setup:
 adr r12, __v7_setup_stack@ the local stack
 stmia r12, {r0-r5, r7, r9, r11, lr}
@@ -197,7 +200,7 @@ ldmia r12, {r0-r5, r7, r9, r11, lr}
 
 mrc p15, 0, r0, c0, c0, 0@ read main ID register
 andr10, r0, #0xff000000@ ARM?
-teq r10, #0x41000000
+teq r10,
 bne 3f
 andr5, r0, #0x00f00000@ variant
 andr6, r0, #0x0000000f@ revision
@@ -208,119 +211,119 @@ ubfxr0, r0, #4, #12@ primary part number
 ldr r10, =0x00000c08@ Cortex-A8 primary part number
 teq r0, r10
 bne 2f
-#ifdef CONFIG_ARM_ERRATA_430973
+
 teqr5, #0x00100000@ only present in r1p*
 mrceqp15, 0, r10, c1, c0, 1@ read aux control register
 orreqr10, r10, @ (1 << 6)@ set IBE to 1
 mcreqp15, 0, r10, c1, c0, 1@ write aux control register
-#endif
-#ifdef CONFIG_ARM_ERRATA_458693
+
+
 teqr6, #0x20@ only present in r2p0
 mrceqp15, 0, r10, c1, c0, 1@ read aux control register
 orreqr10, r10, @ (1 << 5)@ set L1NEON to 1
 orreqr10, r10, @ (1 << 9)@ set PLDNOP to 1
 mcreqp15, 0, r10, c1, c0, 1@ write aux control register
-#endif
-#ifdef CONFIG_ARM_ERRATA_460075
+
+
 teqr6, #0x20@ only present in r2p0
 mrceqp15, 1, r10, c9, c0, 2@ read L2 cache aux ctrl register
-tsteq r10, #1 << 22
+tsteq r10,
 orreqr10, r10, @ (1 << 22)@ set the Write Allocate disable bit
 mcreqp15, 1, r10, c9, c0, 2@ write the L2 cache aux ctrl register
-#endif
+
 b 3f
 
 /* Cortex-A9 Errata */
 2:ldr r10, =0x00000c09@ Cortex-A9 primary part number
 teq r0, r10
 bne 3f
-#ifdef CONFIG_ARM_ERRATA_742230
+
 cmpr6, #0x22@ only present up to r2p2
 mrclep15, 0, r10, c15, c0, 1@ read diagnostic register
-orrler10, r10, #1 << 4@ set bit #4
+orrler10, r10, #1 << 4@ set bit
 mcrlep15, 0, r10, c15, c0, 1@ write diagnostic register
-#endif
-#ifdef CONFIG_ARM_ERRATA_742231
+
+
 teqr6, #0x20@ present in r2p0
 teqner6, #0x21@ present in r2p1
 teqner6, #0x22@ present in r2p2
 mrceqp15, 0, r10, c15, c0, 1@ read diagnostic register
-orreqr10, r10, #1 << 12@ set bit #12
-orreqr10, r10, #1 << 22@ set bit #22
+orreqr10, r10, #1 << 12@ set bit
+orreqr10, r10, #1 << 22@ set bit
 mcreqp15, 0, r10, c15, c0, 1@ write diagnostic register
-#endif
-#ifdef CONFIG_ARM_ERRATA_743622
+
+
 teqr5, #0x00200000@ only present in r2p*
 mrceqp15, 0, r10, c15, c0, 1@ read diagnostic register
-orreqr10, r10, #1 << 6@ set bit #6
+orreqr10, r10, #1 << 6@ set bit
 mcreqp15, 0, r10, c15, c0, 1@ write diagnostic register
-#endif
-#if defined(CONFIG_ARM_ERRATA_751472) && defined(CONFIG_SMP)
+
+
 ALT_SMP(cmp r6, #0x30)@ present prior to r3p0
 ALT_UP_B(1f)
 mrcltp15, 0, r10, c15, c0, 1@ read diagnostic register
-orrltr10, r10, #1 << 11@ set bit #11
+orrltr10, r10, #1 << 11@ set bit
 mcrltp15, 0, r10, c15, c0, 1@ write diagnostic register
 1:
-#endif
 
-3:mov r10, #0
+
+3:mov r10,
 mcr p15, 0, r10, c7, c5, 0@ I+BTB cache invalidate
-#ifdef CONFIG_MMU
+
 mcr p15, 0, r10, c8, c7, 0@ invalidate I + D TLBs
 v7_ttb_setup r10, r4, r8, r5@ TTBCR, TTBRx setup
 ldr r5, =PRRR@ PRRR
 ldr r6, =NMRR@ NMRR
 mcr p15, 0, r5, c10, c2, 0@ write PRRR
 mcr p15, 0, r6, c10, c2, 1@ write NMRR
-#endif
+
 dsb@ Complete invalidations
 
-#if defined(CONFIG_ARCH_MSM_SCORPION) && !defined(CONFIG_MSM_SMP)
-mov     r0, #0x33
-mcr     p15, 3, r0, c15, c0, 3          @ set L2CR1
-#endif
-#if defined (CONFIG_ARCH_MSM_SCORPION)
-mrc     p15, 0, r0, c1, c0, 1           @ read ACTLR
-#ifdef CONFIG_CPU_CACHE_ERR_REPORT
-orr     r0, r0, #0x37                   @ turn on L1/L2 error reporting
-#else
-bic     r0, r0, #0x37
-#endif
-#if defined (CONFIG_ARCH_MSM_SCORPIONMP)
-orr    r0, r0, #0x1 << 24     @ optimal setting for Scorpion MP
-#endif
-#ifndef CONFIG_ARCH_MSM_KRAIT
-mcr     p15, 0, r0, c1, c0, 1           @ write ACTLR
-#endif
-#endif
-#if defined (CONFIG_ARCH_MSM_SCORPIONMP)
-mrc     p15, 3, r0, c15, c0, 2  @ optimal setting for Scorpion MP
-orr         r0, r0, #0x1 << 21
-mcr     p15, 3, r0, c15, c0, 2
-#endif
 
-#ifndef CONFIG_ARM_THUMBEE
+mov     r0,
+mcr     p15, 3, r0, c15, c0, 3          @ set L2CR1
+
+
+mrc     p15, 0, r0, c1, c0, 1           @ read ACTLR
+
+orr     r0, r0, #0x37                   @ turn on L1/L2 error reporting
+
+bic     r0, r0,
+
+
+orr    r0, r0, #0x1 << 24     @ optimal setting for Scorpion MP
+
+
+mcr     p15, 0, r0, c1, c0, 1           @ write ACTLR
+
+
+
+mrc     p15, 3, r0, c15, c0, 2  @ optimal setting for Scorpion MP
+orr         r0, r0,
+mcr     p15, 3, r0, c15, c0, 2
+
+
+
 mrc p15, 0, r0, c0, c1, 0@ read ID_PFR0 for ThumbEE
 andr0, r0, @ (0xf << 12)@ ThumbEE enabled field
 teqr0, @ (1 << 12)@ check if ThumbEE is present
 bne 1f
-mov r5, #0
+mov r5,
 mcrp14, 6, r5, c1, c0, 0@ Initialize TEEHBR to 0
 mrcp14, 6, r0, c0, c0, 0@ load TEECR
 orrr0, r0, #1@ set the 1st bit in order to
 mcrp14, 6, r0, c0, c0, 0@ stop userspace TEEHBR access
 1:
-#endif
+
 adr r5, v7_crval
 ldmia r5, {r5, r6}
-#ifdef CONFIG_CPU_ENDIAN_BE8
+
 orrr6, r6, #1 << 25@ big-endian page tables
-#endif
-#ifdef CONFIG_SWP_EMULATE
+
+
 orr     r5, r5, @ (1 << 10)              @ set SW bit in "clear"
 bic     r6, r6, @ (1 << 10)              @ clear it in "mmuset"
-#endif
+
    mrc p15, 0, r0, c1, c0, 0@ read control register
 bicr0, r0, r5@ clear bits them
 orrr0, r0, r6@ set them
@@ -367,7 +370,7 @@ HWCAP_EDSP | \hwcaps
 .long v7_cache_fns
 .endm
 
-#ifndef CONFIG_ARM_LPAE
+
 /*
  * ARM Ltd. Cortex A5 processor.
  */
@@ -387,7 +390,7 @@ __v7_ca9mp_proc_info:
 .long 0xff0ffff0
 __v7_proc __v7_ca9mp_setup
 .size __v7_ca9mp_proc_info, . - __v7_ca9mp_proc_info
-#endif/* CONFIG_ARM_LPAE */
+
 
 /*
  * ARM Ltd. Cortex A7 processor.
@@ -426,7 +429,7 @@ __v7_proc __v7_setup, hwcaps = HWCAP_IDIV
 	/*
 	 * Qualcomm MSM8226 - Samsung Matisse3G
 	 */
-	.type   __msm8226_proc_info, #object
+	.type   __msm8226_proc_info,
 __msm8226_proc_info:
 	.long	0x410fc070		/* Cortex-A7 r0p0 */
 	.long	0xff0ffff0

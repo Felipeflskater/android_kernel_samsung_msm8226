@@ -246,7 +246,7 @@
 #endif
 	.endm
 
-#ifdef CONFIG_THUMB2_KERNEL
+#if 0 /* PostmarketOS: Thumb-2 disabled */
 	.macro	setmode, mode, reg
 	mov	\reg, #\mode
 	msr	cpsr_c, \reg
@@ -260,7 +260,7 @@
 /*
  * STRT/LDRT access macros with ARM and Thumb-2 variants
  */
-#ifdef CONFIG_THUMB2_KERNEL
+#if 0 /* PostmarketOS: Thumb-2 disabled */
 
 	.macro	usraccoff, instr, reg, ptr, inc, off, cond, abort, t=TUSER()
 9999:
