@@ -29,9 +29,9 @@
 #include "mdp.h"
 
 struct external_common_state_type *external_common_state;
-/* DISABLED: EXPORT_SYMBOL(external_common_state); */
+EXPORT_SYMBOL(external_common_state);
 DEFINE_MUTEX(external_common_state_hpd_mutex);
-/* DISABLED: EXPORT_SYMBOL(external_common_state_hpd_mutex); */
+EXPORT_SYMBOL(external_common_state_hpd_mutex);
 
 
 static int atoi(const char *name)
@@ -170,7 +170,7 @@ const char *video_format_2string(uint32 format)
 
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(video_format_2string); */
+EXPORT_SYMBOL(video_format_2string);
 
 static ssize_t external_common_rda_video_mode_str(struct device *dev,
 	struct device_attribute *attr, char *buf)
@@ -246,7 +246,7 @@ struct hdmi_disp_mode_timing_type
 	VFRMT_NOT_SUPPORTED(HDMI_VFRMT_1440x480i240_16_9),
 	VFRMT_NOT_SUPPORTED(HDMI_VFRMT_1280x1024p60_5_4)
 };
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_supported_video_mode_lut); */
+EXPORT_SYMBOL(hdmi_common_supported_video_mode_lut);
 
 struct hdmi_disp_mode_timing_type
 	hdmi_mhl_supported_video_mode_lut[HDMI_VFRMT_MAX] = {
@@ -311,7 +311,7 @@ struct hdmi_disp_mode_timing_type
 	VFRMT_NOT_SUPPORTED(HDMI_VFRMT_1440x480i240_16_9),
 	HDMI_SETTINGS_1280x1024p60_5_4
 };
-/* DISABLED: EXPORT_SYMBOL(hdmi_mhl_supported_video_mode_lut); */
+EXPORT_SYMBOL(hdmi_mhl_supported_video_mode_lut);
 
 static ssize_t hdmi_common_rda_edid_modes(struct device *dev,
 	struct device_attribute *attr, char *buf)
@@ -1001,7 +1001,7 @@ int external_common_state_create(struct platform_device *pdev)
 	DEV_DBG("%s: kobject_uevent(KOBJ_ADD)\n", __func__);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(external_common_state_create); */
+EXPORT_SYMBOL(external_common_state_create);
 
 void external_common_state_remove(void)
 {
@@ -1010,7 +1010,7 @@ void external_common_state_remove(void)
 			&external_common_fs_attr_group);
 	external_common_state->uevent_kobj = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(external_common_state_remove); */
+EXPORT_SYMBOL(external_common_state_remove);
 
 #ifdef CONFIG_FB_MSM_HDMI_COMMON
 /* The Logic ID for HDMI TX Core. Currently only support 1 HDMI TX Core. */
@@ -2114,7 +2114,7 @@ error:
 		external_common_state->video_resolution;
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_read_edid); */
+EXPORT_SYMBOL(hdmi_common_read_edid);
 
 bool hdmi_common_get_video_format_from_drv_data(struct msm_fb_data_type *mfd)
 {
@@ -2185,7 +2185,7 @@ bool hdmi_common_get_video_format_from_drv_data(struct msm_fb_data_type *mfd)
 	external_common_state->video_resolution = format;
 	return changed;
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_get_video_format_from_drv_data); */
+EXPORT_SYMBOL(hdmi_common_get_video_format_from_drv_data);
 
 const struct hdmi_disp_mode_timing_type *hdmi_common_get_mode(uint32 mode)
 {
@@ -2194,7 +2194,7 @@ const struct hdmi_disp_mode_timing_type *hdmi_common_get_mode(uint32 mode)
 
 	return &hdmi_common_supported_video_mode_lut[mode];
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_get_mode); */
+EXPORT_SYMBOL(hdmi_common_get_mode);
 
 const struct hdmi_disp_mode_timing_type *hdmi_common_get_supported_mode(
 	uint32 mode)
@@ -2206,7 +2206,7 @@ const struct hdmi_disp_mode_timing_type *hdmi_common_get_supported_mode(
 		return NULL;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_get_supported_mode); */
+EXPORT_SYMBOL(hdmi_common_get_supported_mode);
 
 const struct hdmi_disp_mode_timing_type *hdmi_mhl_get_mode(uint32 mode)
 {
@@ -2215,7 +2215,7 @@ const struct hdmi_disp_mode_timing_type *hdmi_mhl_get_mode(uint32 mode)
 
 	return &hdmi_mhl_supported_video_mode_lut[mode];
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_mhl_get_mode); */
+EXPORT_SYMBOL(hdmi_mhl_get_mode);
 
 const struct hdmi_disp_mode_timing_type *hdmi_mhl_get_supported_mode(
 	uint32 mode)
@@ -2227,7 +2227,7 @@ const struct hdmi_disp_mode_timing_type *hdmi_mhl_get_supported_mode(
 		return NULL;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_mhl_get_supported_mode); */
+EXPORT_SYMBOL(hdmi_mhl_get_supported_mode);
 
 void hdmi_common_init_panel_info(struct msm_panel_info *pinfo)
 {
@@ -2265,5 +2265,5 @@ void hdmi_common_init_panel_info(struct msm_panel_info *pinfo)
 	pinfo->lcdc.underflow_clr = 0xff;
 	pinfo->lcdc.hsync_skew = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hdmi_common_init_panel_info); */
+EXPORT_SYMBOL(hdmi_common_init_panel_info);
 #endif

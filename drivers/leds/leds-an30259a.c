@@ -169,7 +169,7 @@ static int __init get_jig_cable_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "uart_dbg=", get_jig_cable_cmdline); */ */
+__setup( "uart_dbg=", get_jig_cable_cmdline);
 #endif
 #endif
 

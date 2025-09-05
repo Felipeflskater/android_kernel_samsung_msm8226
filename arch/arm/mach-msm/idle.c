@@ -17,8 +17,7 @@
  */
 
 #include <linux/init.h>
-#include <asm/barrier.h>
-#include <asm/cmpxchg.h>
+#include <asm/system.h>
 
 static void msm_idle(void)
 {

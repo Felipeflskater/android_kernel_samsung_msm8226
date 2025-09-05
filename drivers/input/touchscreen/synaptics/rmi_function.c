@@ -108,7 +108,7 @@ struct rmi_functions *rmi_find_function(int functionNum)
 	else
 		return fn;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_find_function); */
+EXPORT_SYMBOL(rmi_find_function);
 
 
 static void rmi_function_config(struct rmi_function_device *function)
@@ -185,7 +185,7 @@ int rmi_function_register_driver(struct rmi_function_driver *drv, int fnNumber)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_function_register_driver); */
+EXPORT_SYMBOL(rmi_function_register_driver);
 
 void rmi_function_unregister_driver(struct rmi_function_driver *drv)
 {
@@ -193,7 +193,7 @@ void rmi_function_unregister_driver(struct rmi_function_driver *drv)
 
 	driver_unregister(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_function_unregister_driver); */
+EXPORT_SYMBOL(rmi_function_unregister_driver);
 
 int rmi_function_register_device(struct rmi_function_device *function_device, int fnNumber)
 {
@@ -243,7 +243,7 @@ int rmi_function_register_device(struct rmi_function_device *function_device, in
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_function_register_device); */
+EXPORT_SYMBOL(rmi_function_register_device);
 
 void rmi_function_unregister_device(struct rmi_function_device *dev)
 {
@@ -252,7 +252,7 @@ void rmi_function_unregister_device(struct rmi_function_device *dev)
 	input_unregister_device(dev->input);
 	device_unregister(&dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_function_unregister_device); */
+EXPORT_SYMBOL(rmi_function_unregister_device);
 
 static int __init rmi_function_init(void)
 {

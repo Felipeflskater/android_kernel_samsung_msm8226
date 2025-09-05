@@ -205,7 +205,7 @@ void eeprom_93cx6_read(struct eeprom_93cx6 *eeprom, const u8 word,
 	 */
 	eeprom_93cx6_cleanup(eeprom);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(eeprom_93cx6_read); */
+EXPORT_SYMBOL_GPL(eeprom_93cx6_read);
 
 /**
  * eeprom_93cx6_multiread - Read multiple words from eeprom
@@ -232,7 +232,7 @@ void eeprom_93cx6_multiread(struct eeprom_93cx6 *eeprom, const u8 word,
 		data[i] = cpu_to_le16(tmp);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(eeprom_93cx6_multiread); */
+EXPORT_SYMBOL_GPL(eeprom_93cx6_multiread);
 
 /**
  * eeprom_93cx6_wren - set the write enable state
@@ -259,7 +259,7 @@ void eeprom_93cx6_wren(struct eeprom_93cx6 *eeprom, bool enable)
 
 	eeprom_93cx6_cleanup(eeprom);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(eeprom_93cx6_wren); */
+EXPORT_SYMBOL_GPL(eeprom_93cx6_wren);
 
 /**
  * eeprom_93cx6_write - write data to the EEPROM
@@ -318,4 +318,4 @@ void eeprom_93cx6_write(struct eeprom_93cx6 *eeprom, u8 addr, u16 data)
 
 	eeprom_93cx6_cleanup(eeprom);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(eeprom_93cx6_write); */
+EXPORT_SYMBOL_GPL(eeprom_93cx6_write);

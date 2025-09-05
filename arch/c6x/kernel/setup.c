@@ -39,17 +39,17 @@
 static const char *c6x_soc_name;
 
 int c6x_num_cores;
-/* DISABLED: EXPORT_SYMBOL_GPL(c6x_num_cores); */
+EXPORT_SYMBOL_GPL(c6x_num_cores);
 
 unsigned int c6x_silicon_rev;
-/* DISABLED: EXPORT_SYMBOL_GPL(c6x_silicon_rev); */
+EXPORT_SYMBOL_GPL(c6x_silicon_rev);
 
 /*
  * Device status register. This holds information
  * about device configuration needed by some drivers.
  */
 unsigned int c6x_devstat;
-/* DISABLED: EXPORT_SYMBOL_GPL(c6x_devstat); */
+EXPORT_SYMBOL_GPL(c6x_devstat);
 
 /*
  * Some SoCs have fuse registers holding a unique MAC
@@ -88,7 +88,7 @@ struct cpuinfo_c6x {
 static DEFINE_PER_CPU(struct cpuinfo_c6x, cpu_data);
 
 unsigned int ticks_per_ns_scaled;
-/* DISABLED: EXPORT_SYMBOL(ticks_per_ns_scaled); */
+EXPORT_SYMBOL(ticks_per_ns_scaled);
 
 unsigned int c6x_core_freq;
 

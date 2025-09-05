@@ -108,7 +108,7 @@ int pcf50633_mbc_usb_curlim_set(struct pcf50633 *pcf, int ma)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_mbc_usb_curlim_set); */
+EXPORT_SYMBOL_GPL(pcf50633_mbc_usb_curlim_set);
 
 int pcf50633_mbc_get_status(struct pcf50633 *pcf)
 {
@@ -139,7 +139,7 @@ int pcf50633_mbc_get_status(struct pcf50633 *pcf)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_mbc_get_status); */
+EXPORT_SYMBOL_GPL(pcf50633_mbc_get_status);
 
 int pcf50633_mbc_get_usb_online_status(struct pcf50633 *pcf)
 {
@@ -150,7 +150,7 @@ int pcf50633_mbc_get_usb_online_status(struct pcf50633 *pcf)
 
 	return mbc->usb_online;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_mbc_get_usb_online_status); */
+EXPORT_SYMBOL_GPL(pcf50633_mbc_get_usb_online_status);
 
 static ssize_t
 show_chgmode(struct device *dev, struct device_attribute *attr, char *buf)

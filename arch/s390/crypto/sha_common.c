@@ -56,7 +56,7 @@ store:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s390_sha_update); */
+EXPORT_SYMBOL_GPL(s390_sha_update);
 
 int s390_sha_final(struct shash_desc *desc, u8 *out)
 {
@@ -97,7 +97,7 @@ int s390_sha_final(struct shash_desc *desc, u8 *out)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s390_sha_final); */
+EXPORT_SYMBOL_GPL(s390_sha_final);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("s390 SHA cipher common functions");

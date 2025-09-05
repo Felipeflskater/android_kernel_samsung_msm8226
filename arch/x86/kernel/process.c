@@ -32,7 +32,7 @@ static DEFINE_PER_CPU(unsigned char, is_idle);
 #endif
 
 struct kmem_cache *task_xstate_cachep;
-/* DISABLED: EXPORT_SYMBOL_GPL(task_xstate_cachep); */
+EXPORT_SYMBOL_GPL(task_xstate_cachep);
 
 int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
 {
@@ -306,7 +306,7 @@ int kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 	/* Ok, create the new process.. */
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0, &regs, 0, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 /*
  * sys_execve() executes a new program.
@@ -339,14 +339,14 @@ long sys_execve(const char __user *name,
  * Idle related variables and functions
  */
 unsigned long boot_option_idle_override = IDLE_NO_OVERRIDE;
-/* DISABLED: EXPORT_SYMBOL(boot_option_idle_override); */
+EXPORT_SYMBOL(boot_option_idle_override);
 
 /*
  * Powermanagement idle function, if any..
  */
 void (*pm_idle)(void);
 #ifdef CONFIG_APM_MODULE
-/* DISABLED: EXPORT_SYMBOL(pm_idle); */
+EXPORT_SYMBOL(pm_idle);
 #endif
 
 static inline int hlt_use_halt(void)
@@ -477,7 +477,7 @@ void default_idle(void)
 	}
 }
 #ifdef CONFIG_APM_MODULE
-/* DISABLED: EXPORT_SYMBOL(default_idle); */
+EXPORT_SYMBOL(default_idle);
 #endif
 
 bool set_pm_idle_to_default(void)
@@ -521,7 +521,7 @@ void cpu_idle_wait(void)
 	/* kick all the CPUs so that they exit out of pm_idle */
 	smp_call_function(do_nothing, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_idle_wait); */
+EXPORT_SYMBOL_GPL(cpu_idle_wait);
 
 /* Default MONITOR/MWAIT with no hints, used for default C1 state */
 static void mwait_idle(void)
@@ -600,7 +600,7 @@ int mwait_usable(const struct cpuinfo_x86 *c)
 }
 
 bool amd_e400_c1e_detected;
-/* DISABLED: EXPORT_SYMBOL(amd_e400_c1e_detected); */
+EXPORT_SYMBOL(amd_e400_c1e_detected);
 
 static cpumask_var_t amd_e400_c1e_mask;
 

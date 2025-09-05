@@ -92,7 +92,7 @@ int mc13xxx_regulator_list_voltage(struct regulator_dev *rdev,
 
 	return mc13xxx_regulators[id].voltages[selector];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_regulator_list_voltage); */
+EXPORT_SYMBOL_GPL(mc13xxx_regulator_list_voltage);
 
 int mc13xxx_get_best_voltage_index(struct regulator_dev *rdev,
 						int min_uV, int max_uV)
@@ -127,7 +127,7 @@ int mc13xxx_get_best_voltage_index(struct regulator_dev *rdev,
 	}
 	return bestindex;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_get_best_voltage_index); */
+EXPORT_SYMBOL_GPL(mc13xxx_get_best_voltage_index);
 
 static int mc13xxx_regulator_set_voltage(struct regulator_dev *rdev, int min_uV,
 		int max_uV, unsigned *selector)
@@ -190,7 +190,7 @@ struct regulator_ops mc13xxx_regulator_ops = {
 	.set_voltage = mc13xxx_regulator_set_voltage,
 	.get_voltage = mc13xxx_regulator_get_voltage,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_regulator_ops); */
+EXPORT_SYMBOL_GPL(mc13xxx_regulator_ops);
 
 int mc13xxx_fixed_regulator_set_voltage(struct regulator_dev *rdev, int min_uV,
 	       int max_uV, unsigned *selector)
@@ -208,7 +208,7 @@ int mc13xxx_fixed_regulator_set_voltage(struct regulator_dev *rdev, int min_uV,
 	else
 		return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_set_voltage); */
+EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_set_voltage);
 
 int mc13xxx_fixed_regulator_get_voltage(struct regulator_dev *rdev)
 {
@@ -220,7 +220,7 @@ int mc13xxx_fixed_regulator_get_voltage(struct regulator_dev *rdev)
 
 	return mc13xxx_regulators[id].voltages[0];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_get_voltage); */
+EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_get_voltage);
 
 struct regulator_ops mc13xxx_fixed_regulator_ops = {
 	.enable = mc13xxx_regulator_enable,
@@ -230,13 +230,13 @@ struct regulator_ops mc13xxx_fixed_regulator_ops = {
 	.set_voltage = mc13xxx_fixed_regulator_set_voltage,
 	.get_voltage = mc13xxx_fixed_regulator_get_voltage,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_ops); */
+EXPORT_SYMBOL_GPL(mc13xxx_fixed_regulator_ops);
 
 int mc13xxx_sw_regulator_is_enabled(struct regulator_dev *rdev)
 {
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_sw_regulator_is_enabled); */
+EXPORT_SYMBOL_GPL(mc13xxx_sw_regulator_is_enabled);
 
 #ifdef CONFIG_OF
 int __devinit mc13xxx_get_num_regulators_dt(struct platform_device *pdev)
@@ -254,7 +254,7 @@ int __devinit mc13xxx_get_num_regulators_dt(struct platform_device *pdev)
 
 	return num;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_get_num_regulators_dt); */
+EXPORT_SYMBOL_GPL(mc13xxx_get_num_regulators_dt);
 
 struct mc13xxx_regulator_init_data * __devinit mc13xxx_parse_regulators_dt(
 	struct platform_device *pdev, struct mc13xxx_regulator *regulators,
@@ -292,7 +292,7 @@ struct mc13xxx_regulator_init_data * __devinit mc13xxx_parse_regulators_dt(
 
 	return data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mc13xxx_parse_regulators_dt); */
+EXPORT_SYMBOL_GPL(mc13xxx_parse_regulators_dt);
 #endif
 
 MODULE_LICENSE("GPL v2");

@@ -483,7 +483,7 @@ out:
 	ion_iommu_meta_put(iommu_meta);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ion_map_iommu); */
+EXPORT_SYMBOL(ion_map_iommu);
 
 
 static void ion_iommu_map_release(struct kref *kref)
@@ -544,6 +544,6 @@ void ion_unmap_iommu(struct ion_client *client, struct ion_handle *handle,
 out:
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(ion_unmap_iommu); */
+EXPORT_SYMBOL(ion_unmap_iommu);
 
 

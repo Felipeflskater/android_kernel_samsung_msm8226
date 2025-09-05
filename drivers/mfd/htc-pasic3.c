@@ -44,7 +44,7 @@ void pasic3_write_register(struct device *dev, u32 reg, u8 val)
 	__raw_writeb(~READ_MODE & reg, addr);
 	__raw_writeb(val, data);
 }
-/* DISABLED: EXPORT_SYMBOL(pasic3_write_register); /* for leds-pasic3 */ */
+EXPORT_SYMBOL(pasic3_write_register); /* for leds-pasic3 */
 
 /*
  * read from a secondary register on the PASIC3
@@ -59,7 +59,7 @@ u8 pasic3_read_register(struct device *dev, u32 reg)
 	__raw_writeb(READ_MODE | reg, addr);
 	return __raw_readb(data);
 }
-/* DISABLED: EXPORT_SYMBOL(pasic3_read_register); /* for leds-pasic3 */ */
+EXPORT_SYMBOL(pasic3_read_register); /* for leds-pasic3 */
 
 /*
  * LEDs

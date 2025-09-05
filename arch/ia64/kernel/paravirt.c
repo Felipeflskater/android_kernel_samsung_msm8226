@@ -569,7 +569,7 @@ struct pv_cpu_ops pv_cpu_ops = {
 	.intrin_local_irq_restore
 			= ia64_native_intrin_local_irq_restore_func,
 };
-/* DISABLED: EXPORT_SYMBOL(pv_cpu_ops); */
+EXPORT_SYMBOL(pv_cpu_ops);
 
 /******************************************************************************
  * replacement of hand written assembly codes.

@@ -250,7 +250,7 @@ void tile_irq_activate(unsigned int irq, int tile_irq_type)
 	if (tile_irq_type == TILE_IRQ_HW_CLEAR)
 		irq_set_chip_data(irq, (void *)IS_HW_CLEARED);
 }
-/* DISABLED: EXPORT_SYMBOL(tile_irq_activate); */
+EXPORT_SYMBOL(tile_irq_activate);
 
 
 void ack_bad_irq(unsigned int irq)
@@ -280,7 +280,7 @@ int create_irq(void)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(create_irq); */
+EXPORT_SYMBOL(create_irq);
 
 void destroy_irq(unsigned int irq)
 {
@@ -291,5 +291,5 @@ void destroy_irq(unsigned int irq)
 	dynamic_irq_cleanup(irq);
 	spin_unlock_irqrestore(&available_irqs_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(destroy_irq); */
+EXPORT_SYMBOL(destroy_irq);
 #endif

@@ -134,6 +134,6 @@ noinline unsigned long __crypto_memneq(const void *a, const void *b,
 		return __crypto_memneq_generic(a, b, size);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__crypto_memneq); */
+EXPORT_SYMBOL(__crypto_memneq);
 
 #endif /* __HAVE_ARCH_CRYPTO_MEMNEQ */

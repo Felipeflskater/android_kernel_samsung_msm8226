@@ -79,7 +79,7 @@ int lock_fb_info(struct fb_info *info)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(lock_fb_info); */
+EXPORT_SYMBOL(lock_fb_info);
 
 /*
  * Helpers
@@ -106,7 +106,7 @@ int fb_get_color_depth(struct fb_var_screeninfo *var,
 
 	return depth;
 }
-/* DISABLED: EXPORT_SYMBOL(fb_get_color_depth); */
+EXPORT_SYMBOL(fb_get_color_depth);
 
 /*
  * Data padding functions.
@@ -115,7 +115,7 @@ void fb_pad_aligned_buffer(u8 *dst, u32 d_pitch, u8 *src, u32 s_pitch, u32 heigh
 {
 	__fb_pad_aligned_buffer(dst, d_pitch, src, s_pitch, height);
 }
-/* DISABLED: EXPORT_SYMBOL(fb_pad_aligned_buffer); */
+EXPORT_SYMBOL(fb_pad_aligned_buffer);
 
 void fb_pad_unaligned_buffer(u8 *dst, u32 d_pitch, u8 *src, u32 idx, u32 height,
 				u32 shift_high, u32 shift_low, u32 mod)
@@ -145,7 +145,7 @@ void fb_pad_unaligned_buffer(u8 *dst, u32 d_pitch, u8 *src, u32 idx, u32 height,
 		dst += d_pitch;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fb_pad_unaligned_buffer); */
+EXPORT_SYMBOL(fb_pad_unaligned_buffer);
 
 /*
  * we need to lock this section since fb_cursor
@@ -1480,7 +1480,7 @@ static const struct file_operations fb_fops = {
 };
 
 struct class *fb_class;
-/* DISABLED: EXPORT_SYMBOL(fb_class); */
+EXPORT_SYMBOL(fb_class);
 
 static int fb_check_foreignness(struct fb_info *fi)
 {
@@ -1692,7 +1692,7 @@ int unlink_framebuffer(struct fb_info *fb_info)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(unlink_framebuffer); */
+EXPORT_SYMBOL(unlink_framebuffer);
 
 void remove_conflicting_framebuffers(struct apertures_struct *a,
 				     const char *name, bool primary)
@@ -1701,7 +1701,7 @@ void remove_conflicting_framebuffers(struct apertures_struct *a,
 	do_remove_conflicting_framebuffers(a, name, primary);
 	mutex_unlock(&registration_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(remove_conflicting_framebuffers); */
+EXPORT_SYMBOL(remove_conflicting_framebuffers);
 
 /**
  *	register_framebuffer - registers a frame buffer device
@@ -1934,23 +1934,23 @@ static int __init video_setup(char *options)
 
 	return 1;
 }
-/* DISABLED: __setup("video=", video_setup); */ */
+__setup("video=", video_setup);
 #endif
 
     /*
      *  Visible symbols for modules
      */
 
-/* DISABLED: EXPORT_SYMBOL(register_framebuffer); */
-/* DISABLED: EXPORT_SYMBOL(unregister_framebuffer); */
-/* DISABLED: EXPORT_SYMBOL(num_registered_fb); */
-/* DISABLED: EXPORT_SYMBOL(registered_fb); */
-/* DISABLED: EXPORT_SYMBOL(fb_show_logo); */
-/* DISABLED: EXPORT_SYMBOL(fb_set_var); */
-/* DISABLED: EXPORT_SYMBOL(fb_blank); */
-/* DISABLED: EXPORT_SYMBOL(fb_pan_display); */
-/* DISABLED: EXPORT_SYMBOL(fb_get_buffer_offset); */
-/* DISABLED: EXPORT_SYMBOL(fb_set_suspend); */
-/* DISABLED: EXPORT_SYMBOL(fb_get_options); */
+EXPORT_SYMBOL(register_framebuffer);
+EXPORT_SYMBOL(unregister_framebuffer);
+EXPORT_SYMBOL(num_registered_fb);
+EXPORT_SYMBOL(registered_fb);
+EXPORT_SYMBOL(fb_show_logo);
+EXPORT_SYMBOL(fb_set_var);
+EXPORT_SYMBOL(fb_blank);
+EXPORT_SYMBOL(fb_pan_display);
+EXPORT_SYMBOL(fb_get_buffer_offset);
+EXPORT_SYMBOL(fb_set_suspend);
+EXPORT_SYMBOL(fb_get_options);
 
 MODULE_LICENSE("GPL");

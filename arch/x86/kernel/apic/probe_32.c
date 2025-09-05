@@ -42,7 +42,7 @@ static __init int no_ipi_broadcast(char *str)
 		no_broadcast ? "No IPI Broadcast" : "IPI Broadcast");
 	return 1;
 }
-/* DISABLED: __setup("no_ipi_broadcast=", no_ipi_broadcast); */ */
+__setup("no_ipi_broadcast=", no_ipi_broadcast);
 
 static int __init print_ipi_mode(void)
 {
@@ -153,7 +153,7 @@ static struct apic apic_default = {
 apic_driver(apic_default);
 
 struct apic *apic = &apic_default;
-/* DISABLED: EXPORT_SYMBOL_GPL(apic); */
+EXPORT_SYMBOL_GPL(apic);
 
 static int cmdline_apic __initdata;
 static int __init parse_apic(char *arg)

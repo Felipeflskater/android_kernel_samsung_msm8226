@@ -2800,7 +2800,7 @@ err_deinit:
 err_out:
 	return priv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pciserial_init_ports); */
+EXPORT_SYMBOL_GPL(pciserial_init_ports);
 
 void pciserial_remove_ports(struct serial_private *priv)
 {
@@ -2825,7 +2825,7 @@ void pciserial_remove_ports(struct serial_private *priv)
 
 	kfree(priv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pciserial_remove_ports); */
+EXPORT_SYMBOL_GPL(pciserial_remove_ports);
 
 void pciserial_suspend_ports(struct serial_private *priv)
 {
@@ -2835,7 +2835,7 @@ void pciserial_suspend_ports(struct serial_private *priv)
 		if (priv->line[i] >= 0)
 			serial8250_suspend_port(priv->line[i]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pciserial_suspend_ports); */
+EXPORT_SYMBOL_GPL(pciserial_suspend_ports);
 
 void pciserial_resume_ports(struct serial_private *priv)
 {
@@ -2851,7 +2851,7 @@ void pciserial_resume_ports(struct serial_private *priv)
 		if (priv->line[i] >= 0)
 			serial8250_resume_port(priv->line[i]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pciserial_resume_ports); */
+EXPORT_SYMBOL_GPL(pciserial_resume_ports);
 
 /*
  * Probe one serial board.  Unfortunately, there is no rhyme nor reason

@@ -284,7 +284,7 @@ netdev_tx_t macvlan_start_xmit(struct sk_buff *skb,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(macvlan_start_xmit); */
+EXPORT_SYMBOL_GPL(macvlan_start_xmit);
 
 static int macvlan_hard_header(struct sk_buff *skb, struct net_device *dev,
 			       unsigned short type, const void *daddr,
@@ -598,7 +598,7 @@ void macvlan_common_setup(struct net_device *dev)
 	dev->header_ops		= &macvlan_hard_header_ops,
 	dev->ethtool_ops	= &macvlan_ethtool_ops;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(macvlan_common_setup); */
+EXPORT_SYMBOL_GPL(macvlan_common_setup);
 
 static void macvlan_setup(struct net_device *dev)
 {
@@ -744,7 +744,7 @@ destroy_port:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(macvlan_common_newlink); */
+EXPORT_SYMBOL_GPL(macvlan_common_newlink);
 
 static int macvlan_newlink(struct net *src_net, struct net_device *dev,
 			   struct nlattr *tb[], struct nlattr *data[])
@@ -761,7 +761,7 @@ void macvlan_dellink(struct net_device *dev, struct list_head *head)
 	list_del_rcu(&vlan->list);
 	unregister_netdevice_queue(dev, head);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(macvlan_dellink); */
+EXPORT_SYMBOL_GPL(macvlan_dellink);
 
 static int macvlan_changelink(struct net_device *dev,
 		struct nlattr *tb[], struct nlattr *data[])
@@ -806,7 +806,7 @@ int macvlan_link_register(struct rtnl_link_ops *ops)
 
 	return rtnl_link_register(ops);
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(macvlan_link_register); */
+EXPORT_SYMBOL_GPL(macvlan_link_register);
 
 static struct rtnl_link_ops macvlan_link_ops = {
 	.kind		= "macvlan",

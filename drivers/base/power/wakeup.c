@@ -68,7 +68,7 @@ void wakeup_source_prepare(struct wakeup_source *ws, const char *name)
 		ws->name = name;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_prepare); */
+EXPORT_SYMBOL_GPL(wakeup_source_prepare);
 
 /**
  * wakeup_source_create - Create a struct wakeup_source object.
@@ -85,7 +85,7 @@ struct wakeup_source *wakeup_source_create(const char *name)
 	wakeup_source_prepare(ws, name ? kstrdup(name, GFP_KERNEL) : NULL);
 	return ws;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_create); */
+EXPORT_SYMBOL_GPL(wakeup_source_create);
 
 /**
  * wakeup_source_drop - Prepare a struct wakeup_source object for destruction.
@@ -102,7 +102,7 @@ void wakeup_source_drop(struct wakeup_source *ws)
 	del_timer_sync(&ws->timer);
 	__pm_relax(ws);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_drop); */
+EXPORT_SYMBOL_GPL(wakeup_source_drop);
 
 /**
  * wakeup_source_destroy - Destroy a struct wakeup_source object.
@@ -119,7 +119,7 @@ void wakeup_source_destroy(struct wakeup_source *ws)
 	kfree(ws->name);
 	kfree(ws);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_destroy); */
+EXPORT_SYMBOL_GPL(wakeup_source_destroy);
 
 /**
  * wakeup_source_add - Add given object to the list of wakeup sources.
@@ -141,7 +141,7 @@ void wakeup_source_add(struct wakeup_source *ws)
 	list_add_rcu(&ws->entry, &wakeup_sources);
 	spin_unlock_irqrestore(&events_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_add); */
+EXPORT_SYMBOL_GPL(wakeup_source_add);
 
 /**
  * wakeup_source_remove - Remove given object from the wakeup sources list.
@@ -159,7 +159,7 @@ void wakeup_source_remove(struct wakeup_source *ws)
 	spin_unlock_irqrestore(&events_lock, flags);
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_remove); */
+EXPORT_SYMBOL_GPL(wakeup_source_remove);
 
 /**
  * wakeup_source_register - Create wakeup source and add it to the list.
@@ -175,7 +175,7 @@ struct wakeup_source *wakeup_source_register(const char *name)
 
 	return ws;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_register); */
+EXPORT_SYMBOL_GPL(wakeup_source_register);
 
 /**
  * wakeup_source_unregister - Remove wakeup source from the list and remove it.
@@ -188,7 +188,7 @@ void wakeup_source_unregister(struct wakeup_source *ws)
 		wakeup_source_destroy(ws);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_source_unregister); */
+EXPORT_SYMBOL_GPL(wakeup_source_unregister);
 
 /**
  * device_wakeup_attach - Attach a wakeup source object to a device object.
@@ -233,7 +233,7 @@ int device_wakeup_enable(struct device *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_wakeup_enable); */
+EXPORT_SYMBOL_GPL(device_wakeup_enable);
 
 /**
  * device_wakeup_detach - Detach a device's wakeup source object from it.
@@ -272,7 +272,7 @@ int device_wakeup_disable(struct device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_wakeup_disable); */
+EXPORT_SYMBOL_GPL(device_wakeup_disable);
 
 /**
  * device_set_wakeup_capable - Set/reset device wakeup capability flag.
@@ -301,7 +301,7 @@ void device_set_wakeup_capable(struct device *dev, bool capable)
 	}
 	dev->power.can_wakeup = capable;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_set_wakeup_capable); */
+EXPORT_SYMBOL_GPL(device_set_wakeup_capable);
 
 /**
  * device_init_wakeup - Device wakeup initialization.
@@ -327,7 +327,7 @@ int device_init_wakeup(struct device *dev, bool enable)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_init_wakeup); */
+EXPORT_SYMBOL_GPL(device_init_wakeup);
 
 /**
  * device_set_wakeup_enable - Enable or disable a device to wake up the system.
@@ -340,7 +340,7 @@ int device_set_wakeup_enable(struct device *dev, bool enable)
 
 	return enable ? device_wakeup_enable(dev) : device_wakeup_disable(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_set_wakeup_enable); */
+EXPORT_SYMBOL_GPL(device_set_wakeup_enable);
 
 /*
  * The functions below use the observation that each wakeup event starts a
@@ -430,7 +430,7 @@ void __pm_stay_awake(struct wakeup_source *ws)
 
 	spin_unlock_irqrestore(&ws->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__pm_stay_awake); */
+EXPORT_SYMBOL_GPL(__pm_stay_awake);
 
 /**
  * pm_stay_awake - Notify the PM core that a wakeup event is being processed.
@@ -454,7 +454,7 @@ void pm_stay_awake(struct device *dev)
 	__pm_stay_awake(dev->power.wakeup);
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm_stay_awake); */
+EXPORT_SYMBOL_GPL(pm_stay_awake);
 
 #ifdef CONFIG_PM_AUTOSLEEP
 static void update_prevent_sleep_time(struct wakeup_source *ws, ktime_t now)
@@ -544,7 +544,7 @@ void __pm_relax(struct wakeup_source *ws)
 		wakeup_source_deactivate(ws);
 	spin_unlock_irqrestore(&ws->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__pm_relax); */
+EXPORT_SYMBOL_GPL(__pm_relax);
 
 /**
  * pm_relax - Notify the PM core that processing of a wakeup event has ended.
@@ -563,7 +563,7 @@ void pm_relax(struct device *dev)
 	__pm_relax(dev->power.wakeup);
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm_relax); */
+EXPORT_SYMBOL_GPL(pm_relax);
 
 /**
  * pm_wakeup_timer_fn - Delayed finalization of a wakeup event.
@@ -630,7 +630,7 @@ void __pm_wakeup_event(struct wakeup_source *ws, unsigned int msec)
  unlock:
 	spin_unlock_irqrestore(&ws->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__pm_wakeup_event); */
+EXPORT_SYMBOL_GPL(__pm_wakeup_event);
 
 
 /**
@@ -651,7 +651,7 @@ void pm_wakeup_event(struct device *dev, unsigned int msec)
 	__pm_wakeup_event(dev->power.wakeup, msec);
 	spin_unlock_irqrestore(&dev->power.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm_wakeup_event); */
+EXPORT_SYMBOL_GPL(pm_wakeup_event);
 
 static void print_active_wakeup_sources(void)
 {
@@ -922,7 +922,7 @@ int wakeup_sources_stats_active(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wakeup_sources_stats_active); */
+EXPORT_SYMBOL_GPL(wakeup_sources_stats_active);
 #endif
 
 static int wakeup_sources_stats_open(struct inode *inode, struct file *file)

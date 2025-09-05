@@ -47,7 +47,7 @@ static void memcg_tcp_enter_memory_pressure(struct sock *sk)
 	if (sk->sk_cgrp->memory_pressure)
 		*sk->sk_cgrp->memory_pressure = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(memcg_tcp_enter_memory_pressure); */
+EXPORT_SYMBOL(memcg_tcp_enter_memory_pressure);
 
 int tcp_init_cgroup(struct cgroup *cgrp, struct cgroup_subsys *ss)
 {
@@ -92,7 +92,7 @@ create_files:
 	return cgroup_add_files(cgrp, ss, tcp_files,
 				ARRAY_SIZE(tcp_files));
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_init_cgroup); */
+EXPORT_SYMBOL(tcp_init_cgroup);
 
 void tcp_destroy_cgroup(struct cgroup *cgrp)
 {
@@ -113,7 +113,7 @@ void tcp_destroy_cgroup(struct cgroup *cgrp)
 	if (val != RESOURCE_MAX)
 		static_key_slow_dec(&memcg_socket_limit_enabled);
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_destroy_cgroup); */
+EXPORT_SYMBOL(tcp_destroy_cgroup);
 
 static int tcp_update_limit(struct mem_cgroup *memcg, u64 val)
 {

@@ -903,10 +903,10 @@ const struct snd_pcm_ops *snd_sb16dsp_get_pcm_ops(int direction)
 		&snd_sb16_playback_ops : &snd_sb16_capture_ops;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_sb16dsp_pcm); */
-/* DISABLED: EXPORT_SYMBOL(snd_sb16dsp_get_pcm_ops); */
-/* DISABLED: EXPORT_SYMBOL(snd_sb16dsp_configure); */
-/* DISABLED: EXPORT_SYMBOL(snd_sb16dsp_interrupt); */
+EXPORT_SYMBOL(snd_sb16dsp_pcm);
+EXPORT_SYMBOL(snd_sb16dsp_get_pcm_ops);
+EXPORT_SYMBOL(snd_sb16dsp_configure);
+EXPORT_SYMBOL(snd_sb16dsp_interrupt);
 
 /*
  *  INIT part

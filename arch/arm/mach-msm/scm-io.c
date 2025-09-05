@@ -41,7 +41,7 @@ u32 secure_readl(void __iomem *c)
 		return __secure_readl(XLATE(c, MSM_TCSR_PHYS, MSM_TCSR_BASE));
 	return readl(c);
 }
-/* DISABLED: EXPORT_SYMBOL(secure_readl); */
+EXPORT_SYMBOL(secure_readl);
 
 static void __secure_writel(u32 v, u32 addr)
 {
@@ -59,4 +59,4 @@ void secure_writel(u32 v, void __iomem *c)
 	else
 		writel(v, c);
 }
-/* DISABLED: EXPORT_SYMBOL(secure_writel); */
+EXPORT_SYMBOL(secure_writel);

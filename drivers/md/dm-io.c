@@ -71,7 +71,7 @@ struct dm_io_client *dm_io_client_create(void)
 	kfree(client);
 	return ERR_PTR(-ENOMEM);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_io_client_create); */
+EXPORT_SYMBOL(dm_io_client_create);
 
 void dm_io_client_destroy(struct dm_io_client *client)
 {
@@ -79,7 +79,7 @@ void dm_io_client_destroy(struct dm_io_client *client)
 	bioset_free(client->bios);
 	kfree(client);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_io_client_destroy); */
+EXPORT_SYMBOL(dm_io_client_destroy);
 
 /*-----------------------------------------------------------------
  * We need to keep track of which region a bio is doing io for.
@@ -517,7 +517,7 @@ int dm_io(struct dm_io_request *io_req, unsigned num_regions,
 	return async_io(io_req->client, num_regions, where, io_req->bi_rw,
 			&dp, io_req->notify.fn, io_req->notify.context);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_io); */
+EXPORT_SYMBOL(dm_io);
 
 int __init dm_io_init(void)
 {

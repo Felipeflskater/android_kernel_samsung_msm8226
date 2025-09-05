@@ -3093,7 +3093,7 @@ int wm8962_mic_detect(struct snd_soc_codec *codec, struct snd_soc_jack *jack)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8962_mic_detect); */
+EXPORT_SYMBOL_GPL(wm8962_mic_detect);
 
 #if defined(CONFIG_INPUT) || defined(CONFIG_INPUT_MODULE)
 static int beep_rates[] = {

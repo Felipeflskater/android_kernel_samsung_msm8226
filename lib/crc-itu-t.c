@@ -45,7 +45,7 @@ const u16 crc_itu_t_table[256] = {
 	0x6e17, 0x7e36, 0x4e55, 0x5e74, 0x2e93, 0x3eb2, 0x0ed1, 0x1ef0
 };
 
-/* DISABLED: EXPORT_SYMBOL(crc_itu_t_table); */
+EXPORT_SYMBOL(crc_itu_t_table);
 
 /**
  * crc_itu_t - Compute the CRC-ITU-T for the data buffer
@@ -62,7 +62,7 @@ u16 crc_itu_t(u16 crc, const u8 *buffer, size_t len)
 		crc = crc_itu_t_byte(crc, *buffer++);
 	return crc;
 }
-/* DISABLED: EXPORT_SYMBOL(crc_itu_t); */
+EXPORT_SYMBOL(crc_itu_t);
 
 MODULE_DESCRIPTION("CRC ITU-T V.41 calculations");
 MODULE_LICENSE("GPL");

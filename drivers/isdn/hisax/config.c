@@ -453,7 +453,7 @@ static int __init HiSax_setup(char *line)
 	return 1;
 }
 
-/* DISABLED: __setup("hisax=", HiSax_setup); */ */
+__setup("hisax=", HiSax_setup);
 #endif /* MODULES */
 
 #if CARD_TELES0
@@ -1569,15 +1569,15 @@ error:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(hisax_init_pcmcia); */
+EXPORT_SYMBOL(hisax_init_pcmcia);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(HiSax_closecard); */
+EXPORT_SYMBOL(HiSax_closecard);
 
 #include "hisax_if.h"
 
-/* DISABLED: EXPORT_SYMBOL(hisax_register); */
-/* DISABLED: EXPORT_SYMBOL(hisax_unregister); */
+EXPORT_SYMBOL(hisax_register);
+EXPORT_SYMBOL(hisax_unregister);
 
 static void hisax_d_l1l2(struct hisax_if *ifc, int pr, void *arg);
 static void hisax_b_l1l2(struct hisax_if *ifc, int pr, void *arg);
@@ -1991,10 +1991,10 @@ MODULE_DEVICE_TABLE(pci, hisax_pci_tbl);
 module_init(HiSax_init);
 module_exit(HiSax_exit);
 
-/* DISABLED: EXPORT_SYMBOL(FsmNew); */
-/* DISABLED: EXPORT_SYMBOL(FsmFree); */
-/* DISABLED: EXPORT_SYMBOL(FsmEvent); */
-/* DISABLED: EXPORT_SYMBOL(FsmChangeState); */
-/* DISABLED: EXPORT_SYMBOL(FsmInitTimer); */
-/* DISABLED: EXPORT_SYMBOL(FsmDelTimer); */
-/* DISABLED: EXPORT_SYMBOL(FsmRestartTimer); */
+EXPORT_SYMBOL(FsmNew);
+EXPORT_SYMBOL(FsmFree);
+EXPORT_SYMBOL(FsmEvent);
+EXPORT_SYMBOL(FsmChangeState);
+EXPORT_SYMBOL(FsmInitTimer);
+EXPORT_SYMBOL(FsmDelTimer);
+EXPORT_SYMBOL(FsmRestartTimer);

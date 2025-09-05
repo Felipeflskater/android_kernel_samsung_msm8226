@@ -52,7 +52,7 @@ int __init_srcu_struct(struct srcu_struct *sp, const char *name,
 	lockdep_init_map(&sp->dep_map, name, key, 0);
 	return init_srcu_struct_fields(sp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__init_srcu_struct); */
+EXPORT_SYMBOL_GPL(__init_srcu_struct);
 
 #else /* #ifdef CONFIG_DEBUG_LOCK_ALLOC */
 
@@ -68,7 +68,7 @@ int init_srcu_struct(struct srcu_struct *sp)
 {
 	return init_srcu_struct_fields(sp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(init_srcu_struct); */
+EXPORT_SYMBOL_GPL(init_srcu_struct);
 
 #endif /* #else #ifdef CONFIG_DEBUG_LOCK_ALLOC */
 
@@ -119,7 +119,7 @@ void cleanup_srcu_struct(struct srcu_struct *sp)
 	free_percpu(sp->per_cpu_ref);
 	sp->per_cpu_ref = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cleanup_srcu_struct); */
+EXPORT_SYMBOL_GPL(cleanup_srcu_struct);
 
 /*
  * Counts the new reader in the appropriate per-CPU element of the
@@ -138,7 +138,7 @@ int __srcu_read_lock(struct srcu_struct *sp)
 	preempt_enable();
 	return idx;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__srcu_read_lock); */
+EXPORT_SYMBOL_GPL(__srcu_read_lock);
 
 /*
  * Removes the count for the old reader from the appropriate per-CPU
@@ -153,7 +153,7 @@ void __srcu_read_unlock(struct srcu_struct *sp, int idx)
 	per_cpu_ptr(sp->per_cpu_ref, smp_processor_id())->c[idx]--;
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__srcu_read_unlock); */
+EXPORT_SYMBOL_GPL(__srcu_read_unlock);
 
 /*
  * We use an adaptive strategy for synchronize_srcu() and especially for
@@ -283,7 +283,7 @@ void synchronize_srcu(struct srcu_struct *sp)
 {
 	__synchronize_srcu(sp, synchronize_sched);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_srcu); */
+EXPORT_SYMBOL_GPL(synchronize_srcu);
 
 /**
  * synchronize_srcu_expedited - Brute-force SRCU grace period
@@ -311,7 +311,7 @@ void synchronize_srcu_expedited(struct srcu_struct *sp)
 {
 	__synchronize_srcu(sp, synchronize_sched_expedited);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_srcu_expedited); */
+EXPORT_SYMBOL_GPL(synchronize_srcu_expedited);
 
 /**
  * srcu_batches_completed - return batches completed.
@@ -325,4 +325,4 @@ long srcu_batches_completed(struct srcu_struct *sp)
 {
 	return sp->completed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(srcu_batches_completed); */
+EXPORT_SYMBOL_GPL(srcu_batches_completed);

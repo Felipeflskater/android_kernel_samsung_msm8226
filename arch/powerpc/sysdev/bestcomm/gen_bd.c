@@ -112,7 +112,7 @@ bcom_gen_bd_rx_init(int queue_len, phys_addr_t fifo,
 
 	return tsk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_init); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_init);
 
 int
 bcom_gen_bd_rx_reset(struct bcom_task *tsk)
@@ -159,7 +159,7 @@ bcom_gen_bd_rx_reset(struct bcom_task *tsk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_reset); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_reset);
 
 void
 bcom_gen_bd_rx_release(struct bcom_task *tsk)
@@ -167,7 +167,7 @@ bcom_gen_bd_rx_release(struct bcom_task *tsk)
 	/* Nothing special for the GenBD tasks */
 	bcom_task_free(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_release); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_rx_release);
 
 
 extern struct bcom_task *
@@ -196,7 +196,7 @@ bcom_gen_bd_tx_init(int queue_len, phys_addr_t fifo,
 
 	return tsk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_init); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_init);
 
 int
 bcom_gen_bd_tx_reset(struct bcom_task *tsk)
@@ -243,7 +243,7 @@ bcom_gen_bd_tx_reset(struct bcom_task *tsk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_reset); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_reset);
 
 void
 bcom_gen_bd_tx_release(struct bcom_task *tsk)
@@ -251,7 +251,7 @@ bcom_gen_bd_tx_release(struct bcom_task *tsk)
 	/* Nothing special for the GenBD tasks */
 	bcom_task_free(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_release); */
+EXPORT_SYMBOL_GPL(bcom_gen_bd_tx_release);
 
 /* ---------------------------------------------------------------------
  * PSC support code
@@ -327,7 +327,7 @@ struct bcom_task * bcom_psc_gen_bd_rx_init(unsigned psc_num, int queue_len,
 				   bcom_psc_params[psc_num].rx_ipr,
 				   maxbufsize);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_psc_gen_bd_rx_init); */
+EXPORT_SYMBOL_GPL(bcom_psc_gen_bd_rx_init);
 
 /**
  * bcom_psc_gen_bd_tx_init - Allocate a transmit bcom_task for a PSC port
@@ -345,7 +345,7 @@ bcom_psc_gen_bd_tx_init(unsigned psc_num, int queue_len, phys_addr_t fifo)
 				   bcom_psc_params[psc_num].tx_initiator,
 				   bcom_psc_params[psc_num].tx_ipr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_psc_gen_bd_tx_init); */
+EXPORT_SYMBOL_GPL(bcom_psc_gen_bd_tx_init);
 
 
 MODULE_DESCRIPTION("BestComm General Buffer Descriptor tasks driver");

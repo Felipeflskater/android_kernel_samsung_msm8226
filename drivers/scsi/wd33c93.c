@@ -1804,7 +1804,7 @@ wd33c93_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("wd33c93=", wd33c93_setup); */ */
+__setup("wd33c93=", wd33c93_setup);
 
 /* check_setup_args() returns index if key found, 0 if not
  */
@@ -2224,9 +2224,9 @@ wd33c93_proc_info(struct Scsi_Host *instance, char *buf, char **start, off_t off
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(wd33c93_host_reset); */
-/* DISABLED: EXPORT_SYMBOL(wd33c93_init); */
-/* DISABLED: EXPORT_SYMBOL(wd33c93_abort); */
-/* DISABLED: EXPORT_SYMBOL(wd33c93_queuecommand); */
-/* DISABLED: EXPORT_SYMBOL(wd33c93_intr); */
-/* DISABLED: EXPORT_SYMBOL(wd33c93_proc_info); */
+EXPORT_SYMBOL(wd33c93_host_reset);
+EXPORT_SYMBOL(wd33c93_init);
+EXPORT_SYMBOL(wd33c93_abort);
+EXPORT_SYMBOL(wd33c93_queuecommand);
+EXPORT_SYMBOL(wd33c93_intr);
+EXPORT_SYMBOL(wd33c93_proc_info);

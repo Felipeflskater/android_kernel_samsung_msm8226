@@ -14,7 +14,7 @@
 #include <asm/mach-rc32434/pci.h>
 
 struct pci_reg __iomem *pci_reg;
-/* DISABLED: EXPORT_SYMBOL(pci_reg); */
+EXPORT_SYMBOL(pci_reg);
 
 static struct resource pci0_res[] = {
 	{

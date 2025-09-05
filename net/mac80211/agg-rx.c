@@ -130,7 +130,7 @@ void ieee80211_stop_rx_ba_session(struct ieee80211_vif *vif, u16 ba_rx_bitmap,
 	ieee80211_queue_work(&sta->local->hw, &sta->ampdu_mlme.work);
 	rcu_read_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_rx_ba_session); */
+EXPORT_SYMBOL(ieee80211_stop_rx_ba_session);
 
 /*
  * After accepting the AddBA Request we activated a timer,

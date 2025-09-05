@@ -351,4 +351,4 @@ struct pci_bus * __init it8152_pci_scan_bus(int nr, struct pci_sys_data *sys)
 	return pci_scan_root_bus(NULL, nr, &it8152_ops, sys, &sys->resources);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_set_coherent_mask); */
+EXPORT_SYMBOL(dma_set_coherent_mask);

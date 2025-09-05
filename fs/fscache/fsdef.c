@@ -59,7 +59,7 @@ struct fscache_cookie fscache_fsdef_index = {
 	.backing_objects = HLIST_HEAD_INIT,
 	.def		= &fscache_fsdef_index_def,
 };
-/* DISABLED: EXPORT_SYMBOL(fscache_fsdef_index); */
+EXPORT_SYMBOL(fscache_fsdef_index);
 
 /*
  * Definition of an entry in the root index.  Each entry is an index, keyed to

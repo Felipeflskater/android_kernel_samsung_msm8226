@@ -70,7 +70,7 @@ static inline void wb977_ww(int reg, int val)
  * This is a lock for accessing ports GP1_IO_BASE and GP2_IO_BASE
  */
 DEFINE_RAW_SPINLOCK(nw_gpio_lock);
-/* DISABLED: EXPORT_SYMBOL(nw_gpio_lock); */
+EXPORT_SYMBOL(nw_gpio_lock);
 
 static unsigned int current_gpio_op;
 static unsigned int current_gpio_io;
@@ -89,7 +89,7 @@ void nw_gpio_modify_op(unsigned int mask, unsigned int set)
 	if (changed & 0xff00)
 		outb(new_gpio >> 8, GP2_IO_BASE);
 }
-/* DISABLED: EXPORT_SYMBOL(nw_gpio_modify_op); */
+EXPORT_SYMBOL(nw_gpio_modify_op);
 
 static inline void __gpio_modify_io(int mask, int in)
 {
@@ -132,13 +132,13 @@ void nw_gpio_modify_io(unsigned int mask, unsigned int in)
 	/* Close up the EFER gate */
 	wb977_close();
 }
-/* DISABLED: EXPORT_SYMBOL(nw_gpio_modify_io); */
+EXPORT_SYMBOL(nw_gpio_modify_io);
 
 unsigned int nw_gpio_read(void)
 {
 	return inb(GP1_IO_BASE) | inb(GP2_IO_BASE) << 8;
 }
-/* DISABLED: EXPORT_SYMBOL(nw_gpio_read); */
+EXPORT_SYMBOL(nw_gpio_read);
 
 /*
  * Initialise the Winbond W83977F global registers
@@ -385,7 +385,7 @@ void nw_cpld_modify(unsigned int mask, unsigned int set)
 	nw_gpio_modify_op(GPIO_IOLOAD|GPIO_DSCLK, GPIO_IOLOAD|GPIO_DSCLK);
 	nw_gpio_modify_op(GPIO_IOLOAD, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(nw_cpld_modify); */
+EXPORT_SYMBOL(nw_cpld_modify);
 
 static void __init cpld_init(void)
 {

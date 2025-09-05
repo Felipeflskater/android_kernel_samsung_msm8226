@@ -68,7 +68,7 @@ int writeback_in_progress(struct backing_dev_info *bdi)
 {
 	return test_bit(BDI_writeback_running, &bdi->state);
 }
-/* DISABLED: EXPORT_SYMBOL(writeback_in_progress); */
+EXPORT_SYMBOL(writeback_in_progress);
 
 static inline struct backing_dev_info *inode_to_bdi(struct inode *inode)
 {
@@ -1164,7 +1164,7 @@ out_unlock_inode:
 	spin_unlock(&inode->i_lock);
 
 }
-/* DISABLED: EXPORT_SYMBOL(__mark_inode_dirty); */
+EXPORT_SYMBOL(__mark_inode_dirty);
 
 static void wait_sb_inodes(struct super_block *sb)
 {
@@ -1247,7 +1247,7 @@ void writeback_inodes_sb_nr(struct super_block *sb,
 	bdi_queue_work(sb->s_bdi, &work);
 	wait_for_completion(&done);
 }
-/* DISABLED: EXPORT_SYMBOL(writeback_inodes_sb_nr); */
+EXPORT_SYMBOL(writeback_inodes_sb_nr);
 
 /**
  * writeback_inodes_sb	-	writeback dirty inodes from given super_block
@@ -1262,7 +1262,7 @@ void writeback_inodes_sb(struct super_block *sb, enum wb_reason reason)
 {
 	return writeback_inodes_sb_nr(sb, get_nr_dirty_pages(), reason);
 }
-/* DISABLED: EXPORT_SYMBOL(writeback_inodes_sb); */
+EXPORT_SYMBOL(writeback_inodes_sb);
 
 /**
  * writeback_inodes_sb_if_idle	-	start writeback if none underway
@@ -1282,7 +1282,7 @@ int writeback_inodes_sb_if_idle(struct super_block *sb, enum wb_reason reason)
 	} else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(writeback_inodes_sb_if_idle); */
+EXPORT_SYMBOL(writeback_inodes_sb_if_idle);
 
 /**
  * writeback_inodes_sb_nr_if_idle	-	start writeback if none underway
@@ -1305,7 +1305,7 @@ int writeback_inodes_sb_nr_if_idle(struct super_block *sb,
 	} else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(writeback_inodes_sb_nr_if_idle); */
+EXPORT_SYMBOL(writeback_inodes_sb_nr_if_idle);
 
 /**
  * sync_inodes_sb	-	sync sb inode pages
@@ -1333,7 +1333,7 @@ void sync_inodes_sb(struct super_block *sb)
 
 	wait_sb_inodes(sb);
 }
-/* DISABLED: EXPORT_SYMBOL(sync_inodes_sb); */
+EXPORT_SYMBOL(sync_inodes_sb);
 
 /**
  * write_inode_now	-	write an inode to disk
@@ -1367,7 +1367,7 @@ int write_inode_now(struct inode *inode, int sync)
 	spin_unlock(&wb->list_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(write_inode_now); */
+EXPORT_SYMBOL(write_inode_now);
 
 /**
  * sync_inode - write an inode and its pages to disk.
@@ -1392,7 +1392,7 @@ int sync_inode(struct inode *inode, struct writeback_control *wbc)
 	spin_unlock(&wb->list_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sync_inode); */
+EXPORT_SYMBOL(sync_inode);
 
 /**
  * sync_inode_metadata - write an inode to disk
@@ -1412,4 +1412,4 @@ int sync_inode_metadata(struct inode *inode, int wait)
 
 	return sync_inode(inode, &wbc);
 }
-/* DISABLED: EXPORT_SYMBOL(sync_inode_metadata); */
+EXPORT_SYMBOL(sync_inode_metadata);

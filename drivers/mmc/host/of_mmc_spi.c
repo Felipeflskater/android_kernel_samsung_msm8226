@@ -159,7 +159,7 @@ err_ocr:
 	kfree(oms);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_spi_get_pdata); */
+EXPORT_SYMBOL(mmc_spi_get_pdata);
 
 void mmc_spi_put_pdata(struct spi_device *spi)
 {
@@ -178,4 +178,4 @@ void mmc_spi_put_pdata(struct spi_device *spi)
 	kfree(oms);
 	dev->platform_data = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_spi_put_pdata); */
+EXPORT_SYMBOL(mmc_spi_put_pdata);

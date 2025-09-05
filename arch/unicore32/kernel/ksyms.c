@@ -23,76 +23,76 @@
 
 #include "ksyms.h"
 
-/* DISABLED: EXPORT_SYMBOL(find_next_zero_bit); */
-/* DISABLED: EXPORT_SYMBOL(find_next_bit); */
+EXPORT_SYMBOL(find_next_zero_bit);
+EXPORT_SYMBOL(find_next_bit);
 
-/* DISABLED: EXPORT_SYMBOL(__backtrace); */
+EXPORT_SYMBOL(__backtrace);
 
 	/* platform dependent support */
-/* DISABLED: EXPORT_SYMBOL(__udelay); */
-/* DISABLED: EXPORT_SYMBOL(__const_udelay); */
+EXPORT_SYMBOL(__udelay);
+EXPORT_SYMBOL(__const_udelay);
 
 	/* networking */
-/* DISABLED: EXPORT_SYMBOL(csum_partial); */
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
-/* DISABLED: EXPORT_SYMBOL(__csum_ipv6_magic); */
+EXPORT_SYMBOL(csum_partial);
+EXPORT_SYMBOL(csum_partial_copy_from_user);
+EXPORT_SYMBOL(csum_partial_copy_nocheck);
+EXPORT_SYMBOL(__csum_ipv6_magic);
 
 	/* io */
 #ifndef __raw_readsb
-/* DISABLED: EXPORT_SYMBOL(__raw_readsb); */
+EXPORT_SYMBOL(__raw_readsb);
 #endif
 #ifndef __raw_readsw
-/* DISABLED: EXPORT_SYMBOL(__raw_readsw); */
+EXPORT_SYMBOL(__raw_readsw);
 #endif
 #ifndef __raw_readsl
-/* DISABLED: EXPORT_SYMBOL(__raw_readsl); */
+EXPORT_SYMBOL(__raw_readsl);
 #endif
 #ifndef __raw_writesb
-/* DISABLED: EXPORT_SYMBOL(__raw_writesb); */
+EXPORT_SYMBOL(__raw_writesb);
 #endif
 #ifndef __raw_writesw
-/* DISABLED: EXPORT_SYMBOL(__raw_writesw); */
+EXPORT_SYMBOL(__raw_writesw);
 #endif
 #ifndef __raw_writesl
-/* DISABLED: EXPORT_SYMBOL(__raw_writesl); */
+EXPORT_SYMBOL(__raw_writesl);
 #endif
 
 	/* string / mem functions */
-/* DISABLED: EXPORT_SYMBOL(strchr); */
-/* DISABLED: EXPORT_SYMBOL(strrchr); */
-/* DISABLED: EXPORT_SYMBOL(memset); */
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
-/* DISABLED: EXPORT_SYMBOL(memmove); */
-/* DISABLED: EXPORT_SYMBOL(memchr); */
+EXPORT_SYMBOL(strchr);
+EXPORT_SYMBOL(strrchr);
+EXPORT_SYMBOL(memset);
+EXPORT_SYMBOL(memcpy);
+EXPORT_SYMBOL(memmove);
+EXPORT_SYMBOL(memchr);
 
 	/* user mem (segment) */
-/* DISABLED: EXPORT_SYMBOL(__strnlen_user); */
-/* DISABLED: EXPORT_SYMBOL(__strncpy_from_user); */
+EXPORT_SYMBOL(__strnlen_user);
+EXPORT_SYMBOL(__strncpy_from_user);
 
-/* DISABLED: EXPORT_SYMBOL(copy_page); */
+EXPORT_SYMBOL(copy_page);
 
-/* DISABLED: EXPORT_SYMBOL(__copy_from_user); */
-/* DISABLED: EXPORT_SYMBOL(__copy_to_user); */
-/* DISABLED: EXPORT_SYMBOL(__clear_user); */
+EXPORT_SYMBOL(__copy_from_user);
+EXPORT_SYMBOL(__copy_to_user);
+EXPORT_SYMBOL(__clear_user);
 
-/* DISABLED: EXPORT_SYMBOL(__get_user_1); */
-/* DISABLED: EXPORT_SYMBOL(__get_user_2); */
-/* DISABLED: EXPORT_SYMBOL(__get_user_4); */
+EXPORT_SYMBOL(__get_user_1);
+EXPORT_SYMBOL(__get_user_2);
+EXPORT_SYMBOL(__get_user_4);
 
-/* DISABLED: EXPORT_SYMBOL(__put_user_1); */
-/* DISABLED: EXPORT_SYMBOL(__put_user_2); */
-/* DISABLED: EXPORT_SYMBOL(__put_user_4); */
-/* DISABLED: EXPORT_SYMBOL(__put_user_8); */
+EXPORT_SYMBOL(__put_user_1);
+EXPORT_SYMBOL(__put_user_2);
+EXPORT_SYMBOL(__put_user_4);
+EXPORT_SYMBOL(__put_user_8);
 
-/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
-/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
-/* DISABLED: EXPORT_SYMBOL(__divsi3); */
-/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
-/* DISABLED: EXPORT_SYMBOL(__modsi3); */
-/* DISABLED: EXPORT_SYMBOL(__muldi3); */
-/* DISABLED: EXPORT_SYMBOL(__ucmpdi2); */
-/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
-/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
-/* DISABLED: EXPORT_SYMBOL(__bswapsi2); */
+EXPORT_SYMBOL(__ashldi3);
+EXPORT_SYMBOL(__ashrdi3);
+EXPORT_SYMBOL(__divsi3);
+EXPORT_SYMBOL(__lshrdi3);
+EXPORT_SYMBOL(__modsi3);
+EXPORT_SYMBOL(__muldi3);
+EXPORT_SYMBOL(__ucmpdi2);
+EXPORT_SYMBOL(__udivsi3);
+EXPORT_SYMBOL(__umodsi3);
+EXPORT_SYMBOL(__bswapsi2);
 

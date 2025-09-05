@@ -142,7 +142,7 @@ int sm_register_device(struct mtd_info *mtd, int smartmedia)
 
 	return mtd_device_register(mtd, NULL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sm_register_device); */
+EXPORT_SYMBOL_GPL(sm_register_device);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Maxim Levitsky <maximlevitsky@gmail.com>");

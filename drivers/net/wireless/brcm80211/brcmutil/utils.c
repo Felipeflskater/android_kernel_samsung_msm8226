@@ -38,7 +38,7 @@ struct sk_buff *brcmu_pkt_buf_get_skb(uint len)
 
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pkt_buf_get_skb); */
+EXPORT_SYMBOL(brcmu_pkt_buf_get_skb);
 
 /* Free the driver packet. Free the tag if present */
 void brcmu_pkt_buf_free_skb(struct sk_buff *skb)
@@ -55,7 +55,7 @@ void brcmu_pkt_buf_free_skb(struct sk_buff *skb)
 		 */
 		dev_kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pkt_buf_free_skb); */
+EXPORT_SYMBOL(brcmu_pkt_buf_free_skb);
 
 /*
  * osl multiple-precedence packet queue
@@ -78,7 +78,7 @@ struct sk_buff *brcmu_pktq_penq(struct pktq *pq, int prec,
 
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_penq); */
+EXPORT_SYMBOL(brcmu_pktq_penq);
 
 struct sk_buff *brcmu_pktq_penq_head(struct pktq *pq, int prec,
 					   struct sk_buff *p)
@@ -97,7 +97,7 @@ struct sk_buff *brcmu_pktq_penq_head(struct pktq *pq, int prec,
 
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_penq_head); */
+EXPORT_SYMBOL(brcmu_pktq_penq_head);
 
 struct sk_buff *brcmu_pktq_pdeq(struct pktq *pq, int prec)
 {
@@ -112,7 +112,7 @@ struct sk_buff *brcmu_pktq_pdeq(struct pktq *pq, int prec)
 	pq->len--;
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_pdeq); */
+EXPORT_SYMBOL(brcmu_pktq_pdeq);
 
 struct sk_buff *brcmu_pktq_pdeq_tail(struct pktq *pq, int prec)
 {
@@ -127,7 +127,7 @@ struct sk_buff *brcmu_pktq_pdeq_tail(struct pktq *pq, int prec)
 	pq->len--;
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_pdeq_tail); */
+EXPORT_SYMBOL(brcmu_pktq_pdeq_tail);
 
 void
 brcmu_pktq_pflush(struct pktq *pq, int prec, bool dir,
@@ -145,7 +145,7 @@ brcmu_pktq_pflush(struct pktq *pq, int prec, bool dir,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_pflush); */
+EXPORT_SYMBOL(brcmu_pktq_pflush);
 
 void brcmu_pktq_flush(struct pktq *pq, bool dir,
 		      bool (*fn)(struct sk_buff *, void *), void *arg)
@@ -154,7 +154,7 @@ void brcmu_pktq_flush(struct pktq *pq, bool dir,
 	for (prec = 0; prec < pq->num_prec; prec++)
 		brcmu_pktq_pflush(pq, prec, dir, fn, arg);
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_flush); */
+EXPORT_SYMBOL(brcmu_pktq_flush);
 
 void brcmu_pktq_init(struct pktq *pq, int num_prec, int max_len)
 {
@@ -173,7 +173,7 @@ void brcmu_pktq_init(struct pktq *pq, int num_prec, int max_len)
 		skb_queue_head_init(&pq->q[prec].skblist);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_init); */
+EXPORT_SYMBOL(brcmu_pktq_init);
 
 struct sk_buff *brcmu_pktq_peek_tail(struct pktq *pq, int *prec_out)
 {
@@ -191,7 +191,7 @@ struct sk_buff *brcmu_pktq_peek_tail(struct pktq *pq, int *prec_out)
 
 	return skb_peek_tail(&pq->q[prec].skblist);
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_peek_tail); */
+EXPORT_SYMBOL(brcmu_pktq_peek_tail);
 
 /* Return sum of lengths of a specific set of precedences */
 int brcmu_pktq_mlen(struct pktq *pq, uint prec_bmp)
@@ -206,7 +206,7 @@ int brcmu_pktq_mlen(struct pktq *pq, uint prec_bmp)
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_mlen); */
+EXPORT_SYMBOL(brcmu_pktq_mlen);
 
 /* Priority dequeue from a specific set of precedences */
 struct sk_buff *brcmu_pktq_mdeq(struct pktq *pq, uint prec_bmp,
@@ -240,7 +240,7 @@ struct sk_buff *brcmu_pktq_mdeq(struct pktq *pq, uint prec_bmp,
 
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_pktq_mdeq); */
+EXPORT_SYMBOL(brcmu_pktq_mdeq);
 
 #if defined(DEBUG)
 /* pretty hex print a pkt buffer chain */
@@ -254,7 +254,7 @@ void brcmu_prpkt(const char *msg, struct sk_buff *p0)
 	for (p = p0; p; p = p->next)
 		print_hex_dump_bytes("", DUMP_PREFIX_OFFSET, p->data, p->len);
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_prpkt); */
+EXPORT_SYMBOL(brcmu_prpkt);
 
 void brcmu_dbg_hex_dump(const void *data, size_t size, const char *fmt, ...)
 {
@@ -272,5 +272,5 @@ void brcmu_dbg_hex_dump(const void *data, size_t size, const char *fmt, ...)
 
 	print_hex_dump_bytes("", DUMP_PREFIX_OFFSET, data, size);
 }
-/* DISABLED: EXPORT_SYMBOL(brcmu_dbg_hex_dump); */
+EXPORT_SYMBOL(brcmu_dbg_hex_dump);
 #endif				/* defined(DEBUG) */

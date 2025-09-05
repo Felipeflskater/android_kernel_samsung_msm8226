@@ -499,7 +499,7 @@ void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
 		flush_tlb_kernel_range_common(start, end);
 	else fix_range(vma->vm_mm, start, end, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_range); */
+EXPORT_SYMBOL(flush_tlb_range);
 
 void flush_tlb_mm_range(struct mm_struct *mm, unsigned long start,
 			unsigned long end)

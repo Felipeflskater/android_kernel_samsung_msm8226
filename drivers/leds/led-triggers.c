@@ -66,7 +66,7 @@ ssize_t led_trigger_store(struct device *dev, struct device_attribute *attr,
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_store); */
+EXPORT_SYMBOL_GPL(led_trigger_store);
 
 ssize_t led_trigger_show(struct device *dev, struct device_attribute *attr,
 		char *buf)
@@ -96,7 +96,7 @@ ssize_t led_trigger_show(struct device *dev, struct device_attribute *attr,
 	len += sprintf(len+buf, "\n");
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_show); */
+EXPORT_SYMBOL_GPL(led_trigger_show);
 
 /* Caller must ensure led_cdev->trigger_lock held */
 void led_trigger_set(struct led_classdev *led_cdev, struct led_trigger *trigger)
@@ -136,7 +136,7 @@ void led_trigger_set(struct led_classdev *led_cdev, struct led_trigger *trigger)
 		kfree(event);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_set); */
+EXPORT_SYMBOL_GPL(led_trigger_set);
 
 void led_trigger_remove(struct led_classdev *led_cdev)
 {
@@ -144,7 +144,7 @@ void led_trigger_remove(struct led_classdev *led_cdev)
 	led_trigger_set(led_cdev, NULL);
 	up_write(&led_cdev->trigger_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_remove); */
+EXPORT_SYMBOL_GPL(led_trigger_remove);
 
 void led_trigger_set_default(struct led_classdev *led_cdev)
 {
@@ -162,7 +162,7 @@ void led_trigger_set_default(struct led_classdev *led_cdev)
 	up_write(&led_cdev->trigger_lock);
 	up_read(&triggers_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_set_default); */
+EXPORT_SYMBOL_GPL(led_trigger_set_default);
 
 /* LED Trigger Interface */
 
@@ -199,7 +199,7 @@ int led_trigger_register(struct led_trigger *trigger)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_register); */
+EXPORT_SYMBOL_GPL(led_trigger_register);
 
 void led_trigger_unregister(struct led_trigger *trigger)
 {
@@ -220,7 +220,7 @@ void led_trigger_unregister(struct led_trigger *trigger)
 	}
 	up_read(&leds_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_unregister); */
+EXPORT_SYMBOL_GPL(led_trigger_unregister);
 
 /* Simple LED Tigger Interface */
 
@@ -241,7 +241,7 @@ void led_trigger_event(struct led_trigger *trigger,
 	}
 	read_unlock(&trigger->leddev_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_event); */
+EXPORT_SYMBOL_GPL(led_trigger_event);
 
 void led_trigger_blink(struct led_trigger *trigger,
 		       unsigned long *delay_on,
@@ -261,7 +261,7 @@ void led_trigger_blink(struct led_trigger *trigger,
 	}
 	read_unlock(&trigger->leddev_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_blink); */
+EXPORT_SYMBOL_GPL(led_trigger_blink);
 
 void led_trigger_register_simple(const char *name, struct led_trigger **tp)
 {
@@ -285,7 +285,7 @@ void led_trigger_register_simple(const char *name, struct led_trigger **tp)
 
 	*tp = trigger;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_register_simple); */
+EXPORT_SYMBOL_GPL(led_trigger_register_simple);
 
 void led_trigger_unregister_simple(struct led_trigger *trigger)
 {
@@ -293,7 +293,7 @@ void led_trigger_unregister_simple(struct led_trigger *trigger)
 		led_trigger_unregister(trigger);
 	kfree(trigger);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(led_trigger_unregister_simple); */
+EXPORT_SYMBOL_GPL(led_trigger_unregister_simple);
 
 MODULE_AUTHOR("Richard Purdie");
 MODULE_LICENSE("GPL");

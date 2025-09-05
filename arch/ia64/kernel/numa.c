@@ -25,10 +25,10 @@
 #include <asm/smp.h>
 
 u16 cpu_to_node_map[NR_CPUS] __cacheline_aligned;
-/* DISABLED: EXPORT_SYMBOL(cpu_to_node_map); */
+EXPORT_SYMBOL(cpu_to_node_map);
 
 cpumask_t node_to_cpu_mask[MAX_NUMNODES] __cacheline_aligned;
-/* DISABLED: EXPORT_SYMBOL(node_to_cpu_mask); */
+EXPORT_SYMBOL(node_to_cpu_mask);
 
 void __cpuinit map_cpu_to_node(int cpu, int nid)
 {

@@ -179,7 +179,7 @@ int diag308(unsigned long subcode, void *addr)
 		: "d" (subcode) : "cc", "memory");
 	return _rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(diag308); */
+EXPORT_SYMBOL_GPL(diag308);
 
 /* SYSFS */
 
@@ -268,7 +268,7 @@ static __init enum ipl_type get_ipl_type(void)
 }
 
 struct ipl_info ipl_info;
-/* DISABLED: EXPORT_SYMBOL_GPL(ipl_info); */
+EXPORT_SYMBOL_GPL(ipl_info);
 
 static ssize_t ipl_type_show(struct kobject *kobj, struct kobj_attribute *attr,
 			     char *page)
@@ -1895,7 +1895,7 @@ static int __init vmcmd_on_reboot_setup(char *str)
 	on_reboot_trigger.action = &vmcmd_action;
 	return 1;
 }
-/* DISABLED: __setup("vmreboot=", vmcmd_on_reboot_setup); */ */
+__setup("vmreboot=", vmcmd_on_reboot_setup);
 
 static int __init vmcmd_on_panic_setup(char *str)
 {
@@ -1906,7 +1906,7 @@ static int __init vmcmd_on_panic_setup(char *str)
 	on_panic_trigger.action = &vmcmd_action;
 	return 1;
 }
-/* DISABLED: __setup("vmpanic=", vmcmd_on_panic_setup); */ */
+__setup("vmpanic=", vmcmd_on_panic_setup);
 
 static int __init vmcmd_on_halt_setup(char *str)
 {
@@ -1917,7 +1917,7 @@ static int __init vmcmd_on_halt_setup(char *str)
 	on_halt_trigger.action = &vmcmd_action;
 	return 1;
 }
-/* DISABLED: __setup("vmhalt=", vmcmd_on_halt_setup); */ */
+__setup("vmhalt=", vmcmd_on_halt_setup);
 
 static int __init vmcmd_on_poff_setup(char *str)
 {
@@ -1928,7 +1928,7 @@ static int __init vmcmd_on_poff_setup(char *str)
 	on_poff_trigger.action = &vmcmd_action;
 	return 1;
 }
-/* DISABLED: __setup("vmpoff=", vmcmd_on_poff_setup); */ */
+__setup("vmpoff=", vmcmd_on_poff_setup);
 
 static int on_panic_notify(struct notifier_block *self,
 			   unsigned long event, void *data)
@@ -2006,7 +2006,7 @@ void register_reset_call(struct reset_call *reset)
 	list_add(&reset->list, &rcall);
 	mutex_unlock(&rcall_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_reset_call); */
+EXPORT_SYMBOL_GPL(register_reset_call);
 
 void unregister_reset_call(struct reset_call *reset)
 {
@@ -2014,7 +2014,7 @@ void unregister_reset_call(struct reset_call *reset)
 	list_del(&reset->list);
 	mutex_unlock(&rcall_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_reset_call); */
+EXPORT_SYMBOL_GPL(unregister_reset_call);
 
 static void do_reset_calls(void)
 {

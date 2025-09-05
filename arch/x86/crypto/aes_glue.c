@@ -14,13 +14,13 @@ void crypto_aes_encrypt_x86(struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src)
 {
 	aes_enc_blk(ctx, dst, src);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aes_encrypt_x86); */
+EXPORT_SYMBOL_GPL(crypto_aes_encrypt_x86);
 
 void crypto_aes_decrypt_x86(struct crypto_aes_ctx *ctx, u8 *dst, const u8 *src)
 {
 	aes_dec_blk(ctx, dst, src);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aes_decrypt_x86); */
+EXPORT_SYMBOL_GPL(crypto_aes_decrypt_x86);
 
 static void aes_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 {

@@ -140,7 +140,7 @@ void snd_msndmidi_input_read(void *mpuv)
 	}
 	spin_unlock_irqrestore(&mpu->input_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msndmidi_input_read); */
+EXPORT_SYMBOL(snd_msndmidi_input_read);
 
 static struct snd_rawmidi_ops snd_msndmidi_input = {
 	.open =		snd_msndmidi_input_open,

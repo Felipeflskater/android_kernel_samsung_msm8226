@@ -66,7 +66,7 @@ void *ipt_alloc_initial_table(const struct xt_table *info)
 {
 	return xt_alloc_initial_table(ipt, IPT);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ipt_alloc_initial_table); */
+EXPORT_SYMBOL_GPL(ipt_alloc_initial_table);
 
 /* Returns whether matches rule or not. */
 /* Performance critical - called for every packet */
@@ -2275,8 +2275,8 @@ static void __exit ip_tables_fini(void)
 	unregister_pernet_subsys(&ip_tables_net_ops);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ipt_register_table); */
-/* DISABLED: EXPORT_SYMBOL(ipt_unregister_table); */
-/* DISABLED: EXPORT_SYMBOL(ipt_do_table); */
+EXPORT_SYMBOL(ipt_register_table);
+EXPORT_SYMBOL(ipt_unregister_table);
+EXPORT_SYMBOL(ipt_do_table);
 module_init(ip_tables_init);
 module_exit(ip_tables_fini);

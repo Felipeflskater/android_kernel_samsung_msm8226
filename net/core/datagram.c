@@ -249,7 +249,7 @@ no_packet:
 	*err = error;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__skb_recv_datagram); */
+EXPORT_SYMBOL(__skb_recv_datagram);
 
 struct sk_buff *skb_recv_datagram(struct sock *sk, unsigned flags,
 				  int noblock, int *err)
@@ -259,14 +259,14 @@ struct sk_buff *skb_recv_datagram(struct sock *sk, unsigned flags,
 	return __skb_recv_datagram(sk, flags | (noblock ? MSG_DONTWAIT : 0),
 				   &peeked, &off, err);
 }
-/* DISABLED: EXPORT_SYMBOL(skb_recv_datagram); */
+EXPORT_SYMBOL(skb_recv_datagram);
 
 void skb_free_datagram(struct sock *sk, struct sk_buff *skb)
 {
 	consume_skb(skb);
 	sk_mem_reclaim_partial(sk);
 }
-/* DISABLED: EXPORT_SYMBOL(skb_free_datagram); */
+EXPORT_SYMBOL(skb_free_datagram);
 
 void skb_free_datagram_locked(struct sock *sk, struct sk_buff *skb)
 {
@@ -286,7 +286,7 @@ void skb_free_datagram_locked(struct sock *sk, struct sk_buff *skb)
 	trace_kfree_skb(skb, skb_free_datagram_locked);
 	__kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(skb_free_datagram_locked); */
+EXPORT_SYMBOL(skb_free_datagram_locked);
 
 /**
  *	skb_kill_datagram - Free a datagram skbuff forcibly
@@ -330,7 +330,7 @@ int skb_kill_datagram(struct sock *sk, struct sk_buff *skb, unsigned int flags)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(skb_kill_datagram); */
+EXPORT_SYMBOL(skb_kill_datagram);
 
 /**
  *	skb_copy_datagram_iovec - Copy a datagram to an iovec.
@@ -414,7 +414,7 @@ int skb_copy_datagram_iovec(const struct sk_buff *skb, int offset,
 fault:
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(skb_copy_datagram_iovec); */
+EXPORT_SYMBOL(skb_copy_datagram_iovec);
 
 /**
  *	skb_copy_datagram_const_iovec - Copy a datagram to an iovec.
@@ -503,7 +503,7 @@ int skb_copy_datagram_const_iovec(const struct sk_buff *skb, int offset,
 fault:
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(skb_copy_datagram_const_iovec); */
+EXPORT_SYMBOL(skb_copy_datagram_const_iovec);
 
 /**
  *	skb_copy_datagram_from_iovec - Copy a datagram from an iovec.
@@ -596,7 +596,7 @@ int skb_copy_datagram_from_iovec(struct sk_buff *skb, int offset,
 fault:
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(skb_copy_datagram_from_iovec); */
+EXPORT_SYMBOL(skb_copy_datagram_from_iovec);
 
 static int skb_copy_and_csum_datagram(const struct sk_buff *skb, int offset,
 				      u8 __user *to, int len,
@@ -700,13 +700,13 @@ __sum16 __skb_checksum_complete_head(struct sk_buff *skb, int len)
 	}
 	return sum;
 }
-/* DISABLED: EXPORT_SYMBOL(__skb_checksum_complete_head); */
+EXPORT_SYMBOL(__skb_checksum_complete_head);
 
 __sum16 __skb_checksum_complete(struct sk_buff *skb)
 {
 	return __skb_checksum_complete_head(skb, skb->len);
 }
-/* DISABLED: EXPORT_SYMBOL(__skb_checksum_complete); */
+EXPORT_SYMBOL(__skb_checksum_complete);
 
 /**
  *	skb_copy_and_csum_datagram_iovec - Copy and checkum skb to user iovec.
@@ -763,7 +763,7 @@ csum_error:
 fault:
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(skb_copy_and_csum_datagram_iovec); */
+EXPORT_SYMBOL(skb_copy_and_csum_datagram_iovec);
 
 /**
  * 	datagram_poll - generic datagram poll
@@ -817,4 +817,4 @@ unsigned int datagram_poll(struct file *file, struct socket *sock,
 
 	return mask;
 }
-/* DISABLED: EXPORT_SYMBOL(datagram_poll); */
+EXPORT_SYMBOL(datagram_poll);

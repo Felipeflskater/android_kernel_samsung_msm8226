@@ -64,7 +64,7 @@ void apei_exec_ctx_init(struct apei_exec_context *ctx,
 	ctx->action_table = action_table;
 	ctx->entries = entries;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_ctx_init); */
+EXPORT_SYMBOL_GPL(apei_exec_ctx_init);
 
 int __apei_exec_read_register(struct acpi_whea_header *entry, u64 *val)
 {
@@ -92,7 +92,7 @@ int apei_exec_read_register(struct apei_exec_context *ctx,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_read_register); */
+EXPORT_SYMBOL_GPL(apei_exec_read_register);
 
 int apei_exec_read_register_value(struct apei_exec_context *ctx,
 				  struct acpi_whea_header *entry)
@@ -106,7 +106,7 @@ int apei_exec_read_register_value(struct apei_exec_context *ctx,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_read_register_value); */
+EXPORT_SYMBOL_GPL(apei_exec_read_register_value);
 
 int __apei_exec_write_register(struct acpi_whea_header *entry, u64 val)
 {
@@ -132,7 +132,7 @@ int apei_exec_write_register(struct apei_exec_context *ctx,
 {
 	return __apei_exec_write_register(entry, ctx->value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_write_register); */
+EXPORT_SYMBOL_GPL(apei_exec_write_register);
 
 int apei_exec_write_register_value(struct apei_exec_context *ctx,
 				   struct acpi_whea_header *entry)
@@ -144,14 +144,14 @@ int apei_exec_write_register_value(struct apei_exec_context *ctx,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_write_register_value); */
+EXPORT_SYMBOL_GPL(apei_exec_write_register_value);
 
 int apei_exec_noop(struct apei_exec_context *ctx,
 		   struct acpi_whea_header *entry)
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_noop); */
+EXPORT_SYMBOL_GPL(apei_exec_noop);
 
 /*
  * Interpret the specified action. Go through whole action table,
@@ -201,7 +201,7 @@ rewind:
 
 	return !optional && rc < 0 ? rc : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__apei_exec_run); */
+EXPORT_SYMBOL_GPL(__apei_exec_run);
 
 typedef int (*apei_exec_entry_func_t)(struct apei_exec_context *ctx,
 				      struct acpi_whea_header *entry,
@@ -267,7 +267,7 @@ int apei_exec_pre_map_gars(struct apei_exec_context *ctx)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_pre_map_gars); */
+EXPORT_SYMBOL_GPL(apei_exec_pre_map_gars);
 
 static int post_unmap_gar_callback(struct apei_exec_context *ctx,
 				   struct acpi_whea_header *entry,
@@ -287,7 +287,7 @@ int apei_exec_post_unmap_gars(struct apei_exec_context *ctx)
 	return apei_exec_for_each_entry(ctx, post_unmap_gar_callback,
 					NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_post_unmap_gars); */
+EXPORT_SYMBOL_GPL(apei_exec_post_unmap_gars);
 
 /*
  * Resource management for GARs in APEI
@@ -397,7 +397,7 @@ void apei_resources_fini(struct apei_resources *resources)
 	apei_res_clean(&resources->iomem);
 	apei_res_clean(&resources->ioport);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_resources_fini); */
+EXPORT_SYMBOL_GPL(apei_resources_fini);
 
 static int apei_resources_merge(struct apei_resources *resources1,
 				struct apei_resources *resources2)
@@ -430,7 +430,7 @@ int apei_resources_add(struct apei_resources *resources,
 	else
 		return apei_res_add(&resources->ioport, start, size);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_resources_add); */
+EXPORT_SYMBOL_GPL(apei_resources_add);
 
 /*
  * EINJ has two groups of GARs (EINJ table entry and trigger table
@@ -447,7 +447,7 @@ int apei_resources_sub(struct apei_resources *resources1,
 		return rc;
 	return apei_res_sub(&resources1->ioport, &resources2->ioport);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_resources_sub); */
+EXPORT_SYMBOL_GPL(apei_resources_sub);
 
 static int apei_get_nvs_callback(__u64 start, __u64 size, void *data)
 {
@@ -540,7 +540,7 @@ res_fini:
 	apei_resources_fini(&nvs_resources);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_resources_request); */
+EXPORT_SYMBOL_GPL(apei_resources_request);
 
 void apei_resources_release(struct apei_resources *resources)
 {
@@ -556,7 +556,7 @@ void apei_resources_release(struct apei_resources *resources)
 	if (rc)
 		pr_err(APEI_PFX "Fail to sub resources!\n");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_resources_release); */
+EXPORT_SYMBOL_GPL(apei_resources_release);
 
 static int apei_check_gar(struct acpi_generic_address *reg, u64 *paddr,
 				u32 *access_bit_width)
@@ -622,7 +622,7 @@ int apei_map_generic_address(struct acpi_generic_address *reg)
 		return rc;
 	return acpi_os_map_generic_address(reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_map_generic_address); */
+EXPORT_SYMBOL_GPL(apei_map_generic_address);
 
 /* read GAR in interrupt (including NMI) or process context */
 int apei_read(u64 *val, struct acpi_generic_address *reg)
@@ -656,7 +656,7 @@ int apei_read(u64 *val, struct acpi_generic_address *reg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_read); */
+EXPORT_SYMBOL_GPL(apei_read);
 
 /* write GAR in interrupt (including NMI) or process context */
 int apei_write(u64 val, struct acpi_generic_address *reg)
@@ -688,7 +688,7 @@ int apei_write(u64 val, struct acpi_generic_address *reg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_write); */
+EXPORT_SYMBOL_GPL(apei_write);
 
 static int collect_res_callback(struct apei_exec_context *ctx,
 				struct acpi_whea_header *entry,
@@ -730,7 +730,7 @@ int apei_exec_collect_resources(struct apei_exec_context *ctx,
 	return apei_exec_for_each_entry(ctx, collect_res_callback,
 					resources, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_exec_collect_resources); */
+EXPORT_SYMBOL_GPL(apei_exec_collect_resources);
 
 struct dentry *apei_get_debugfs_dir(void)
 {
@@ -741,7 +741,7 @@ struct dentry *apei_get_debugfs_dir(void)
 
 	return dapei;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_get_debugfs_dir); */
+EXPORT_SYMBOL_GPL(apei_get_debugfs_dir);
 
 int apei_osc_setup(void)
 {
@@ -767,4 +767,4 @@ int apei_osc_setup(void)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_osc_setup); */
+EXPORT_SYMBOL_GPL(apei_osc_setup);

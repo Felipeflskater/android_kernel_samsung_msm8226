@@ -1004,7 +1004,7 @@ void wa_urb_enqueue_run(struct work_struct *ws)
 	}
 	spin_unlock_irq(&wa->xfer_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wa_urb_enqueue_run); */
+EXPORT_SYMBOL_GPL(wa_urb_enqueue_run);
 
 /*
  * Submit a transfer to the Wire Adapter in a delayed way
@@ -1071,7 +1071,7 @@ error_dequeued:
 error_kmalloc:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wa_urb_enqueue); */
+EXPORT_SYMBOL_GPL(wa_urb_enqueue);
 
 /*
  * Dequeue a URB and make sure uwb_hcd_giveback_urb() [completion
@@ -1184,7 +1184,7 @@ dequeue_delayed:
 	usb_put_urb(urb);		/* we got a ref in enqueue() */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wa_urb_dequeue); */
+EXPORT_SYMBOL_GPL(wa_urb_dequeue);
 
 /*
  * Translation from WA status codes (WUSB1.0 Table 8.15) to errno

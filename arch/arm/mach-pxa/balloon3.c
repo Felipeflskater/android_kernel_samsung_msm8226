@@ -83,7 +83,7 @@ int balloon3_has(enum balloon3_features feature)
 {
 	return (balloon3_features_present & (1 << feature)) ? 1 : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(balloon3_has); */
+EXPORT_SYMBOL_GPL(balloon3_has);
 
 int __init parse_balloon3_features(char *arg)
 {

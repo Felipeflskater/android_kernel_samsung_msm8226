@@ -99,7 +99,7 @@ void capilib_new_ncci(struct list_head *head, u16 applid, u32 ncci, u32 winsize)
 	DBG("kcapi: appl %d ncci 0x%x up", applid, ncci);
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_new_ncci); */
+EXPORT_SYMBOL(capilib_new_ncci);
 
 void capilib_free_ncci(struct list_head *head, u16 applid, u32 ncci)
 {
@@ -120,7 +120,7 @@ void capilib_free_ncci(struct list_head *head, u16 applid, u32 ncci)
 	printk(KERN_ERR "capilib_free_ncci: ncci 0x%x not found\n", ncci);
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_free_ncci); */
+EXPORT_SYMBOL(capilib_free_ncci);
 
 void capilib_release_appl(struct list_head *head, u16 applid)
 {
@@ -137,7 +137,7 @@ void capilib_release_appl(struct list_head *head, u16 applid)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_release_appl); */
+EXPORT_SYMBOL(capilib_release_appl);
 
 void capilib_release(struct list_head *head)
 {
@@ -152,7 +152,7 @@ void capilib_release(struct list_head *head)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_release); */
+EXPORT_SYMBOL(capilib_release);
 
 u16 capilib_data_b3_req(struct list_head *head, u16 applid, u32 ncci, u16 msgid)
 {
@@ -175,7 +175,7 @@ u16 capilib_data_b3_req(struct list_head *head, u16 applid, u32 ncci, u16 msgid)
 	return CAPI_NOERROR;
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_data_b3_req); */
+EXPORT_SYMBOL(capilib_data_b3_req);
 
 void capilib_data_b3_conf(struct list_head *head, u16 applid, u32 ncci, u16 msgid)
 {
@@ -198,4 +198,4 @@ void capilib_data_b3_conf(struct list_head *head, u16 applid, u32 ncci, u16 msgi
 	printk(KERN_ERR "capilib_data_b3_conf: ncci 0x%x not found\n", ncci);
 }
 
-/* DISABLED: EXPORT_SYMBOL(capilib_data_b3_conf); */
+EXPORT_SYMBOL(capilib_data_b3_conf);

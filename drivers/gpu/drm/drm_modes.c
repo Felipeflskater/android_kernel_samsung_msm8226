@@ -57,7 +57,7 @@ void drm_mode_debug_printmodeline(struct drm_display_mode *mode)
 		mode->vdisplay, mode->vsync_start,
 		mode->vsync_end, mode->vtotal, mode->type, mode->flags);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_debug_printmodeline); */
+EXPORT_SYMBOL(drm_mode_debug_printmodeline);
 
 /**
  * drm_cvt_mode -create a modeline based on CVT algorithm
@@ -277,7 +277,7 @@ struct drm_display_mode *drm_cvt_mode(struct drm_device *dev, int hdisplay,
 
 	return drm_mode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_cvt_mode); */
+EXPORT_SYMBOL(drm_cvt_mode);
 
 /**
  * drm_gtf_mode_complex - create the modeline based on full GTF algorithm
@@ -463,7 +463,7 @@ drm_gtf_mode_complex(struct drm_device *dev, int hdisplay, int vdisplay,
 
 	return drm_mode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_gtf_mode_complex); */
+EXPORT_SYMBOL(drm_gtf_mode_complex);
 
 /**
  * drm_gtf_mode - create the modeline based on GTF algorithm
@@ -503,7 +503,7 @@ drm_gtf_mode(struct drm_device *dev, int hdisplay, int vdisplay, int vrefresh,
 	return drm_gtf_mode_complex(dev, hdisplay, vdisplay, vrefresh, lace,
 				    margins, 600, 40 * 2, 128, 20 * 2);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_gtf_mode); */
+EXPORT_SYMBOL(drm_gtf_mode);
 
 /**
  * drm_mode_set_name - set the name on a mode
@@ -522,7 +522,7 @@ void drm_mode_set_name(struct drm_display_mode *mode)
 		 mode->hdisplay, mode->vdisplay,
 		 interlaced ? "i" : "");
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_set_name); */
+EXPORT_SYMBOL(drm_mode_set_name);
 
 /**
  * drm_mode_list_concat - move modes from one list to another
@@ -543,7 +543,7 @@ void drm_mode_list_concat(struct list_head *head, struct list_head *new)
 		list_move_tail(entry, new);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_list_concat); */
+EXPORT_SYMBOL(drm_mode_list_concat);
 
 /**
  * drm_mode_width - get the width of a mode
@@ -564,7 +564,7 @@ int drm_mode_width(struct drm_display_mode *mode)
 	return mode->hdisplay;
 
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_width); */
+EXPORT_SYMBOL(drm_mode_width);
 
 /**
  * drm_mode_height - get the height of a mode
@@ -584,7 +584,7 @@ int drm_mode_height(struct drm_display_mode *mode)
 {
 	return mode->vdisplay;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_height); */
+EXPORT_SYMBOL(drm_mode_height);
 
 /** drm_mode_hsync - get the hsync of a mode
  * @mode: mode
@@ -610,7 +610,7 @@ int drm_mode_hsync(const struct drm_display_mode *mode)
 
 	return calc_val;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_hsync); */
+EXPORT_SYMBOL(drm_mode_hsync);
 
 /**
  * drm_mode_vrefresh - get the vrefresh of a mode
@@ -652,7 +652,7 @@ int drm_mode_vrefresh(const struct drm_display_mode *mode)
 	}
 	return refresh;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_vrefresh); */
+EXPORT_SYMBOL(drm_mode_vrefresh);
 
 /**
  * drm_mode_set_crtcinfo - set CRTC modesetting parameters
@@ -710,7 +710,7 @@ void drm_mode_set_crtcinfo(struct drm_display_mode *p, int adjust_flags)
 	p->crtc_hadjusted = false;
 	p->crtc_vadjusted = false;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_set_crtcinfo); */
+EXPORT_SYMBOL(drm_mode_set_crtcinfo);
 
 
 /**
@@ -732,7 +732,7 @@ void drm_mode_copy(struct drm_display_mode *dst, const struct drm_display_mode *
 	dst->base.id = id;
 	INIT_LIST_HEAD(&dst->head);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_copy); */
+EXPORT_SYMBOL(drm_mode_copy);
 
 /**
  * drm_mode_duplicate - allocate and duplicate an existing mode
@@ -757,7 +757,7 @@ struct drm_display_mode *drm_mode_duplicate(struct drm_device *dev,
 
 	return nmode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_duplicate); */
+EXPORT_SYMBOL(drm_mode_duplicate);
 
 /**
  * drm_mode_equal - test modes for equality
@@ -797,7 +797,7 @@ bool drm_mode_equal(struct drm_display_mode *mode1, struct drm_display_mode *mod
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_equal); */
+EXPORT_SYMBOL(drm_mode_equal);
 
 /**
  * drm_mode_validate_size - make sure modes adhere to size constraints
@@ -831,7 +831,7 @@ void drm_mode_validate_size(struct drm_device *dev,
 			mode->status = MODE_VIRTUAL_Y;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_validate_size); */
+EXPORT_SYMBOL(drm_mode_validate_size);
 
 /**
  * drm_mode_validate_clocks - validate modes against clock limits
@@ -868,7 +868,7 @@ void drm_mode_validate_clocks(struct drm_device *dev,
 			mode->status = MODE_CLOCK_RANGE;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_validate_clocks); */
+EXPORT_SYMBOL(drm_mode_validate_clocks);
 
 /**
  * drm_mode_prune_invalid - remove invalid modes from mode list
@@ -900,7 +900,7 @@ void drm_mode_prune_invalid(struct drm_device *dev,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_prune_invalid); */
+EXPORT_SYMBOL(drm_mode_prune_invalid);
 
 /**
  * drm_mode_compare - compare modes for favorability
@@ -948,7 +948,7 @@ void drm_mode_sort(struct list_head *mode_list)
 {
 	list_sort(NULL, mode_list, drm_mode_compare);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_sort); */
+EXPORT_SYMBOL(drm_mode_sort);
 
 /**
  * drm_mode_connector_list_update - update the mode list for the connector
@@ -990,7 +990,7 @@ void drm_mode_connector_list_update(struct drm_connector *connector)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_connector_list_update); */
+EXPORT_SYMBOL(drm_mode_connector_list_update);
 
 /**
  * drm_mode_parse_command_line_for_connector - parse command line for connector
@@ -1153,7 +1153,7 @@ done:
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_parse_command_line_for_connector); */
+EXPORT_SYMBOL(drm_mode_parse_command_line_for_connector);
 
 struct drm_display_mode *
 drm_mode_create_from_cmdline_mode(struct drm_device *dev,
@@ -1179,4 +1179,4 @@ drm_mode_create_from_cmdline_mode(struct drm_device *dev,
 	drm_mode_set_crtcinfo(mode, CRTC_INTERLACE_HALVE_V);
 	return mode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_from_cmdline_mode); */
+EXPORT_SYMBOL(drm_mode_create_from_cmdline_mode);

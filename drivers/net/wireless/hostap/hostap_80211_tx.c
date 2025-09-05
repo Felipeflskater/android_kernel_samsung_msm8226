@@ -550,4 +550,4 @@ netdev_tx_t hostap_master_start_xmit(struct sk_buff *skb,
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(hostap_master_start_xmit); */
+EXPORT_SYMBOL(hostap_master_start_xmit);

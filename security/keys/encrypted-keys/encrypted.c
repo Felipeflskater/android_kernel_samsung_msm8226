@@ -974,7 +974,7 @@ struct key_type key_type_encrypted = {
 	.describe = user_describe,
 	.read = encrypted_read,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(key_type_encrypted); */
+EXPORT_SYMBOL_GPL(key_type_encrypted);
 
 static void encrypted_shash_release(void)
 {

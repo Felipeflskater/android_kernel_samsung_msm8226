@@ -343,4 +343,4 @@ static int __init cpm_powersave_off(char *arg)
 	cpm.powersave_off = 1;
 	return 0;
 }
-/* DISABLED: __setup("powersave=off", cpm_powersave_off); */ */
+__setup("powersave=off", cpm_powersave_off);

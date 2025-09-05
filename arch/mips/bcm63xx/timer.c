@@ -75,7 +75,7 @@ int bcm63xx_timer_enable(int id)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_enable); */
+EXPORT_SYMBOL(bcm63xx_timer_enable);
 
 int bcm63xx_timer_disable(int id)
 {
@@ -99,7 +99,7 @@ int bcm63xx_timer_disable(int id)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_disable); */
+EXPORT_SYMBOL(bcm63xx_timer_disable);
 
 int bcm63xx_timer_register(int id, void (*callback)(void *data), void *data)
 {
@@ -124,7 +124,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_register); */
+EXPORT_SYMBOL(bcm63xx_timer_register);
 
 void bcm63xx_timer_unregister(int id)
 {
@@ -138,14 +138,14 @@ void bcm63xx_timer_unregister(int id)
 	raw_spin_unlock_irqrestore(&timer_data_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_unregister); */
+EXPORT_SYMBOL(bcm63xx_timer_unregister);
 
 unsigned int bcm63xx_timer_countdown(unsigned int countdown_us)
 {
 	return (clk_get_rate(periph_clk) / (1000 * 1000)) * countdown_us;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_countdown); */
+EXPORT_SYMBOL(bcm63xx_timer_countdown);
 
 int bcm63xx_timer_set(int id, int monotonic, unsigned int countdown_us)
 {
@@ -175,7 +175,7 @@ int bcm63xx_timer_set(int id, int monotonic, unsigned int countdown_us)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_timer_set); */
+EXPORT_SYMBOL(bcm63xx_timer_set);
 
 int bcm63xx_timer_init(void)
 {

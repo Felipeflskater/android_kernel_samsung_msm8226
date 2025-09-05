@@ -37,7 +37,7 @@ zorro_match_device(const struct zorro_device_id *ids,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(zorro_match_device); */
+EXPORT_SYMBOL(zorro_match_device);
 
 
 static int zorro_device_probe(struct device *dev)
@@ -92,7 +92,7 @@ int zorro_register_driver(struct zorro_driver *drv)
 	/* register with core */
 	return driver_register(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL(zorro_register_driver); */
+EXPORT_SYMBOL(zorro_register_driver);
 
 
     /**
@@ -109,7 +109,7 @@ void zorro_unregister_driver(struct zorro_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL(zorro_unregister_driver); */
+EXPORT_SYMBOL(zorro_unregister_driver);
 
 
     /**
@@ -171,7 +171,7 @@ struct bus_type zorro_bus_type = {
 	.probe	= zorro_device_probe,
 	.remove	= zorro_device_remove,
 };
-/* DISABLED: EXPORT_SYMBOL(zorro_bus_type); */
+EXPORT_SYMBOL(zorro_bus_type);
 
 
 static int __init zorro_driver_init(void)

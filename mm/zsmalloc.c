@@ -852,7 +852,7 @@ struct zs_pool *zs_create_pool(gfp_t flags)
 
 	return pool;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_create_pool); */
+EXPORT_SYMBOL_GPL(zs_create_pool);
 
 void zs_destroy_pool(struct zs_pool *pool)
 {
@@ -871,7 +871,7 @@ void zs_destroy_pool(struct zs_pool *pool)
 	}
 	kfree(pool);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_destroy_pool); */
+EXPORT_SYMBOL_GPL(zs_destroy_pool);
 
 /**
  * zs_malloc - Allocate block of given size from pool.
@@ -930,7 +930,7 @@ unsigned long zs_malloc(struct zs_pool *pool, size_t size)
 
 	return obj;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_malloc); */
+EXPORT_SYMBOL_GPL(zs_malloc);
 
 void zs_free(struct zs_pool *pool, unsigned long obj)
 {
@@ -972,7 +972,7 @@ void zs_free(struct zs_pool *pool, unsigned long obj)
 	if (fullness == ZS_EMPTY)
 		free_zspage(first_page);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_free); */
+EXPORT_SYMBOL_GPL(zs_free);
 
 /**
  * zs_map_object - get address of allocated object from handle.
@@ -1029,7 +1029,7 @@ void *zs_map_object(struct zs_pool *pool, unsigned long handle,
 
 	return __zs_map_object(area, pages, off, class->size);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_map_object); */
+EXPORT_SYMBOL_GPL(zs_map_object);
 
 void zs_unmap_object(struct zs_pool *pool, unsigned long handle)
 {
@@ -1062,7 +1062,7 @@ void zs_unmap_object(struct zs_pool *pool, unsigned long handle)
 	}
 	put_cpu_var(zs_map_area);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_unmap_object); */
+EXPORT_SYMBOL_GPL(zs_unmap_object);
 
 u64 zs_get_total_size_bytes(struct zs_pool *pool)
 {
@@ -1074,7 +1074,7 @@ u64 zs_get_total_size_bytes(struct zs_pool *pool)
 
 	return npages << PAGE_SHIFT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(zs_get_total_size_bytes); */
+EXPORT_SYMBOL_GPL(zs_get_total_size_bytes);
 
 module_init(zs_init);
 module_exit(zs_exit);

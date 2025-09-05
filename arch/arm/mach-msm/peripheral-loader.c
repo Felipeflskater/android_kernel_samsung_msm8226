@@ -189,7 +189,7 @@ int pil_do_ramdump(struct pil_desc *desc, void *ramdump_dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pil_do_ramdump); */
+EXPORT_SYMBOL(pil_do_ramdump);
 
 static struct ion_client *ion;
 
@@ -203,7 +203,7 @@ phys_addr_t pil_get_entry_addr(struct pil_desc *desc)
 {
 	return desc->priv ? desc->priv->entry_addr : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pil_get_entry_addr); */
+EXPORT_SYMBOL(pil_get_entry_addr);
 
 static void __pil_proxy_unvote(struct pil_priv *priv)
 {
@@ -765,7 +765,7 @@ out:
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pil_boot); */
+EXPORT_SYMBOL(pil_boot);
 
 /**
  * pil_shutdown() - Shutdown a peripheral
@@ -790,7 +790,7 @@ void pil_shutdown(struct pil_desc *desc)
 	else
 		flush_delayed_work(&priv->proxy);
 }
-/* DISABLED: EXPORT_SYMBOL(pil_shutdown); */
+EXPORT_SYMBOL(pil_shutdown);
 
 static DEFINE_IDA(pil_ida);
 
@@ -863,7 +863,7 @@ err:
 	kfree(priv);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pil_desc_init); */
+EXPORT_SYMBOL(pil_desc_init);
 
 /**
  * pil_desc_release() - Release a pil descriptor
@@ -881,7 +881,7 @@ void pil_desc_release(struct pil_desc *desc)
 	desc->priv = NULL;
 	kfree(priv);
 }
-/* DISABLED: EXPORT_SYMBOL(pil_desc_release); */
+EXPORT_SYMBOL(pil_desc_release);
 
 static int pil_pm_notify(struct notifier_block *b, unsigned long event, void *p)
 {

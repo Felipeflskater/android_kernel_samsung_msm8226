@@ -508,7 +508,7 @@ struct dvb_frontend *mxl111sf_tuner_attach(struct dvb_frontend *fe,
 	fe->tuner_priv = state;
 	return fe;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mxl111sf_tuner_attach); */
+EXPORT_SYMBOL_GPL(mxl111sf_tuner_attach);
 
 MODULE_DESCRIPTION("MaxLinear MxL111SF CMOS tuner driver");
 MODULE_AUTHOR("Michael Krufky <mkrufky@kernellabs.com>");

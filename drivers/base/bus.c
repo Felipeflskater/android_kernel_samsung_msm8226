@@ -135,7 +135,7 @@ int bus_create_file(struct bus_type *bus, struct bus_attribute *attr)
 		error = -EINVAL;
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_create_file); */
+EXPORT_SYMBOL_GPL(bus_create_file);
 
 void bus_remove_file(struct bus_type *bus, struct bus_attribute *attr)
 {
@@ -144,7 +144,7 @@ void bus_remove_file(struct bus_type *bus, struct bus_attribute *attr)
 		bus_put(bus);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_remove_file); */
+EXPORT_SYMBOL_GPL(bus_remove_file);
 
 static struct kobj_type bus_ktype = {
 	.sysfs_ops	= &bus_sysfs_ops,
@@ -306,7 +306,7 @@ int bus_for_each_dev(struct bus_type *bus, struct device *start,
 	klist_iter_exit(&i);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_for_each_dev); */
+EXPORT_SYMBOL_GPL(bus_for_each_dev);
 
 /**
  * bus_find_device - device iterator for locating a particular device.
@@ -341,7 +341,7 @@ struct device *bus_find_device(struct bus_type *bus,
 	klist_iter_exit(&i);
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_find_device); */
+EXPORT_SYMBOL_GPL(bus_find_device);
 
 static int match_name(struct device *dev, void *data)
 {
@@ -365,7 +365,7 @@ struct device *bus_find_device_by_name(struct bus_type *bus,
 {
 	return bus_find_device(bus, start, (void *)name, match_name);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_find_device_by_name); */
+EXPORT_SYMBOL_GPL(bus_find_device_by_name);
 
 /**
  * subsys_find_device_by_id - find a device with a specific enumeration number
@@ -406,7 +406,7 @@ struct device *subsys_find_device_by_id(struct bus_type *subsys, unsigned int id
 	klist_iter_exit(&i);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_find_device_by_id); */
+EXPORT_SYMBOL_GPL(subsys_find_device_by_id);
 
 static struct device_driver *next_driver(struct klist_iter *i)
 {
@@ -456,7 +456,7 @@ int bus_for_each_drv(struct bus_type *bus, struct device_driver *start,
 	klist_iter_exit(&i);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_for_each_drv); */
+EXPORT_SYMBOL_GPL(bus_for_each_drv);
 
 static int device_add_attrs(struct bus_type *bus, struct device *dev)
 {
@@ -811,7 +811,7 @@ int bus_rescan_devices(struct bus_type *bus)
 {
 	return bus_for_each_dev(bus, NULL, NULL, bus_rescan_devices_helper);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_rescan_devices); */
+EXPORT_SYMBOL_GPL(bus_rescan_devices);
 
 /**
  * device_reprobe - remove driver for a device and probe for a new driver
@@ -833,7 +833,7 @@ int device_reprobe(struct device *dev)
 	}
 	return bus_rescan_devices_helper(dev, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_reprobe); */
+EXPORT_SYMBOL_GPL(device_reprobe);
 
 /**
  * find_bus - locate bus by name.
@@ -999,7 +999,7 @@ out:
 	bus->p = NULL;
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__bus_register); */
+EXPORT_SYMBOL_GPL(__bus_register);
 
 /**
  * bus_unregister - remove a bus from the system
@@ -1022,31 +1022,31 @@ void bus_unregister(struct bus_type *bus)
 	kfree(bus->p);
 	bus->p = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_unregister); */
+EXPORT_SYMBOL_GPL(bus_unregister);
 
 int bus_register_notifier(struct bus_type *bus, struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&bus->p->bus_notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_register_notifier); */
+EXPORT_SYMBOL_GPL(bus_register_notifier);
 
 int bus_unregister_notifier(struct bus_type *bus, struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&bus->p->bus_notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_unregister_notifier); */
+EXPORT_SYMBOL_GPL(bus_unregister_notifier);
 
 struct kset *bus_get_kset(struct bus_type *bus)
 {
 	return &bus->p->subsys;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_get_kset); */
+EXPORT_SYMBOL_GPL(bus_get_kset);
 
 struct klist *bus_get_device_klist(struct bus_type *bus)
 {
 	return &bus->p->klist_devices;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_get_device_klist); */
+EXPORT_SYMBOL_GPL(bus_get_device_klist);
 
 /*
  * Yes, this forcibly breaks the klist abstraction temporarily.  It
@@ -1100,7 +1100,7 @@ void bus_sort_breadthfirst(struct bus_type *bus,
 	list_splice(&sorted_devices, &device_klist->k_list);
 	spin_unlock(&device_klist->k_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_sort_breadthfirst); */
+EXPORT_SYMBOL_GPL(bus_sort_breadthfirst);
 
 /**
  * subsys_dev_iter_init - initialize subsys device iterator
@@ -1124,7 +1124,7 @@ void subsys_dev_iter_init(struct subsys_dev_iter *iter, struct bus_type *subsys,
 	klist_iter_init_node(&subsys->p->klist_devices, &iter->ki, start_knode);
 	iter->type = type;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_dev_iter_init); */
+EXPORT_SYMBOL_GPL(subsys_dev_iter_init);
 
 /**
  * subsys_dev_iter_next - iterate to the next device
@@ -1152,7 +1152,7 @@ struct device *subsys_dev_iter_next(struct subsys_dev_iter *iter)
 			return dev;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_dev_iter_next); */
+EXPORT_SYMBOL_GPL(subsys_dev_iter_next);
 
 /**
  * subsys_dev_iter_exit - finish iteration
@@ -1165,7 +1165,7 @@ void subsys_dev_iter_exit(struct subsys_dev_iter *iter)
 {
 	klist_iter_exit(&iter->ki);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_dev_iter_exit); */
+EXPORT_SYMBOL_GPL(subsys_dev_iter_exit);
 
 int subsys_interface_register(struct subsys_interface *sif)
 {
@@ -1192,7 +1192,7 @@ int subsys_interface_register(struct subsys_interface *sif)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_interface_register); */
+EXPORT_SYMBOL_GPL(subsys_interface_register);
 
 void subsys_interface_unregister(struct subsys_interface *sif)
 {
@@ -1217,7 +1217,7 @@ void subsys_interface_unregister(struct subsys_interface *sif)
 
 	bus_put(subsys);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_interface_unregister); */
+EXPORT_SYMBOL_GPL(subsys_interface_unregister);
 
 static void system_root_device_release(struct device *dev)
 {
@@ -1281,7 +1281,7 @@ err_dev:
 	bus_unregister(subsys);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(subsys_system_register); */
+EXPORT_SYMBOL_GPL(subsys_system_register);
 
 int __init buses_init(void)
 {

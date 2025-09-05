@@ -56,7 +56,7 @@ u8 tusb_get_revision(struct musb *musb)
 
 	return rev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tusb_get_revision); */
+EXPORT_SYMBOL_GPL(tusb_get_revision);
 
 static int tusb_print_revision(struct musb *musb)
 {

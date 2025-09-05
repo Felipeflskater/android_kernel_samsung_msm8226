@@ -75,7 +75,7 @@ void omap_set_lcd_dma_b1(unsigned long addr, u16 fb_xres, u16 fb_yres,
 	lcd_dma.xres = fb_xres;
 	lcd_dma.yres = fb_yres;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_b1); */
+EXPORT_SYMBOL(omap_set_lcd_dma_b1);
 
 void omap_set_lcd_dma_src_port(int port)
 {
@@ -86,13 +86,13 @@ void omap_set_lcd_dma_ext_controller(int external)
 {
 	lcd_dma.ext_ctrl = external;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_ext_controller); */
+EXPORT_SYMBOL(omap_set_lcd_dma_ext_controller);
 
 void omap_set_lcd_dma_single_transfer(int single)
 {
 	lcd_dma.single_transfer = single;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_single_transfer); */
+EXPORT_SYMBOL(omap_set_lcd_dma_single_transfer);
 
 void omap_set_lcd_dma_b1_rotation(int rotate)
 {
@@ -103,7 +103,7 @@ void omap_set_lcd_dma_b1_rotation(int rotate)
 	}
 	lcd_dma.rotate = rotate;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_b1_rotation); */
+EXPORT_SYMBOL(omap_set_lcd_dma_b1_rotation);
 
 void omap_set_lcd_dma_b1_mirror(int mirror)
 {
@@ -113,7 +113,7 @@ void omap_set_lcd_dma_b1_mirror(int mirror)
 	}
 	lcd_dma.mirror = mirror;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_b1_mirror); */
+EXPORT_SYMBOL(omap_set_lcd_dma_b1_mirror);
 
 void omap_set_lcd_dma_b1_vxres(unsigned long vxres)
 {
@@ -124,7 +124,7 @@ void omap_set_lcd_dma_b1_vxres(unsigned long vxres)
 	}
 	lcd_dma.vxres = vxres;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_b1_vxres); */
+EXPORT_SYMBOL(omap_set_lcd_dma_b1_vxres);
 
 void omap_set_lcd_dma_b1_scale(unsigned int xscale, unsigned int yscale)
 {
@@ -135,7 +135,7 @@ void omap_set_lcd_dma_b1_scale(unsigned int xscale, unsigned int yscale)
 	lcd_dma.xscale = xscale;
 	lcd_dma.yscale = yscale;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_lcd_dma_b1_scale); */
+EXPORT_SYMBOL(omap_set_lcd_dma_b1_scale);
 
 static void set_b1_regs(void)
 {
@@ -333,7 +333,7 @@ int omap_request_lcd_dma(void (*callback)(u16 status, void *data),
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_request_lcd_dma); */
+EXPORT_SYMBOL(omap_request_lcd_dma);
 
 void omap_free_lcd_dma(void)
 {
@@ -350,7 +350,7 @@ void omap_free_lcd_dma(void)
 	lcd_dma.reserved = 0;
 	spin_unlock(&lcd_dma.lock);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_free_lcd_dma); */
+EXPORT_SYMBOL(omap_free_lcd_dma);
 
 void omap_enable_lcd_dma(void)
 {
@@ -374,7 +374,7 @@ void omap_enable_lcd_dma(void)
 	w |= 1 << 7;
 	omap_writew(w, OMAP1610_DMA_LCD_CCR);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_enable_lcd_dma); */
+EXPORT_SYMBOL(omap_enable_lcd_dma);
 
 void omap_setup_lcd_dma(void)
 {
@@ -401,7 +401,7 @@ void omap_setup_lcd_dma(void)
 		omap_writew(w, OMAP1610_DMA_LCD_CCR);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_setup_lcd_dma); */
+EXPORT_SYMBOL(omap_setup_lcd_dma);
 
 void omap_stop_lcd_dma(void)
 {
@@ -419,7 +419,7 @@ void omap_stop_lcd_dma(void)
 	w &= ~(1 << 8);
 	omap_writew(w, OMAP1610_DMA_LCD_CTRL);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_stop_lcd_dma); */
+EXPORT_SYMBOL(omap_stop_lcd_dma);
 
 static int __init omap_init_lcd_dma(void)
 {

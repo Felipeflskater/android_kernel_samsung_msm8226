@@ -115,7 +115,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
 	return (__force __wsum)result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+EXPORT_SYMBOL(csum_partial);
 
 /*
  * this routine is used for miscellaneous IP-like checksums, mainly
@@ -126,7 +126,7 @@ __sum16 ip_compute_csum(const void *buff, int len)
 	return (__force __sum16)~do_csum(buff, len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip_compute_csum); */
+EXPORT_SYMBOL(ip_compute_csum);
 
 /*
  * copy from fs while checksumming, otherwise like csum_partial
@@ -151,7 +151,7 @@ csum_partial_copy_from_user(const void __user *src, void *dst,
 	return csum_partial(dst, len, sum);
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
+EXPORT_SYMBOL(csum_partial_copy_from_user);
 
 /*
  * copy from ds while checksumming, otherwise like csum_partial
@@ -163,4 +163,4 @@ csum_partial_copy_nocheck(const void *src, void *dst, int len, __wsum sum)
 	return csum_partial(dst, len, sum);
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+EXPORT_SYMBOL(csum_partial_copy_nocheck);

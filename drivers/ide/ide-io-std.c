@@ -45,7 +45,7 @@ void ide_exec_command(ide_hwif_t *hwif, u8 cmd)
 	else
 		outb(cmd, hwif->io_ports.command_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_exec_command); */
+EXPORT_SYMBOL_GPL(ide_exec_command);
 
 u8 ide_read_status(ide_hwif_t *hwif)
 {
@@ -54,7 +54,7 @@ u8 ide_read_status(ide_hwif_t *hwif)
 	else
 		return inb(hwif->io_ports.status_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_read_status); */
+EXPORT_SYMBOL_GPL(ide_read_status);
 
 u8 ide_read_altstatus(ide_hwif_t *hwif)
 {
@@ -63,7 +63,7 @@ u8 ide_read_altstatus(ide_hwif_t *hwif)
 	else
 		return inb(hwif->io_ports.ctl_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_read_altstatus); */
+EXPORT_SYMBOL_GPL(ide_read_altstatus);
 
 void ide_write_devctl(ide_hwif_t *hwif, u8 ctl)
 {
@@ -72,7 +72,7 @@ void ide_write_devctl(ide_hwif_t *hwif, u8 ctl)
 	else
 		outb(ctl, hwif->io_ports.ctl_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_write_devctl); */
+EXPORT_SYMBOL_GPL(ide_write_devctl);
 
 void ide_dev_select(ide_drive_t *drive)
 {
@@ -84,7 +84,7 @@ void ide_dev_select(ide_drive_t *drive)
 	else
 		outb(select, hwif->io_ports.device_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dev_select); */
+EXPORT_SYMBOL_GPL(ide_dev_select);
 
 void ide_tf_load(ide_drive_t *drive, struct ide_taskfile *tf, u8 valid)
 {
@@ -111,7 +111,7 @@ void ide_tf_load(ide_drive_t *drive, struct ide_taskfile *tf, u8 valid)
 	if (valid & IDE_VALID_DEVICE)
 		tf_outb(tf->device, io_ports->device_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_tf_load); */
+EXPORT_SYMBOL_GPL(ide_tf_load);
 
 void ide_tf_read(ide_drive_t *drive, struct ide_taskfile *tf, u8 valid)
 {
@@ -138,7 +138,7 @@ void ide_tf_read(ide_drive_t *drive, struct ide_taskfile *tf, u8 valid)
 	if (valid & IDE_VALID_DEVICE)
 		tf->device = tf_inb(io_ports->device_addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_tf_read); */
+EXPORT_SYMBOL_GPL(ide_tf_read);
 
 /*
  * Some localbus EIDE interfaces require a special access sequence
@@ -200,7 +200,7 @@ void ide_input_data(ide_drive_t *drive, struct ide_cmd *cmd, void *buf,
 	else
 		insw(data_addr, buf, words);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_input_data); */
+EXPORT_SYMBOL_GPL(ide_input_data);
 
 /*
  * This is used for most PIO data transfers *to* the IDE interface
@@ -244,7 +244,7 @@ void ide_output_data(ide_drive_t *drive, struct ide_cmd *cmd, void *buf,
 	else
 		outsw(data_addr, buf, words);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_output_data); */
+EXPORT_SYMBOL_GPL(ide_output_data);
 
 const struct ide_tp_ops default_tp_ops = {
 	.exec_command		= ide_exec_command,

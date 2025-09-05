@@ -323,7 +323,7 @@ int pci_get_hp_params(struct pci_dev *dev, struct hotplug_params *hpp)
 	}
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_get_hp_params); */
+EXPORT_SYMBOL_GPL(pci_get_hp_params);
 
 /**
  * acpi_get_hp_hw_control_from_firmware
@@ -406,7 +406,7 @@ got_one:
 	kfree(string.pointer);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_get_hp_hw_control_from_firmware); */
+EXPORT_SYMBOL(acpi_get_hp_hw_control_from_firmware);
 
 static int pcihp_is_ejectable(acpi_handle handle)
 {
@@ -444,7 +444,7 @@ int acpi_pci_check_ejectable(struct pci_bus *pbus, acpi_handle handle)
 		return 0;
 	return pcihp_is_ejectable(handle);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_pci_check_ejectable); */
+EXPORT_SYMBOL_GPL(acpi_pci_check_ejectable);
 
 static acpi_status
 check_hotplug(acpi_handle handle, u32 lvl, void *context, void **rv)
@@ -474,7 +474,7 @@ int acpi_pci_detect_ejectable(acpi_handle handle)
 			    check_hotplug, NULL, (void *)&found, NULL);
 	return found;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_pci_detect_ejectable); */
+EXPORT_SYMBOL_GPL(acpi_pci_detect_ejectable);
 
 module_param(debug_acpi, bool, 0644);
 MODULE_PARM_DESC(debug_acpi, "Debugging mode for ACPI enabled or not");

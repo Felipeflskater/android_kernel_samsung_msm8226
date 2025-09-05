@@ -105,7 +105,7 @@ bcom_fec_rx_init(int queue_len, phys_addr_t fifo, int maxbufsize)
 
 	return tsk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_rx_init); */
+EXPORT_SYMBOL_GPL(bcom_fec_rx_init);
 
 int
 bcom_fec_rx_reset(struct bcom_task *tsk)
@@ -152,7 +152,7 @@ bcom_fec_rx_reset(struct bcom_task *tsk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_rx_reset); */
+EXPORT_SYMBOL_GPL(bcom_fec_rx_reset);
 
 void
 bcom_fec_rx_release(struct bcom_task *tsk)
@@ -160,7 +160,7 @@ bcom_fec_rx_release(struct bcom_task *tsk)
 	/* Nothing special for the FEC tasks */
 	bcom_task_free(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_rx_release); */
+EXPORT_SYMBOL_GPL(bcom_fec_rx_release);
 
 
 
@@ -206,7 +206,7 @@ bcom_fec_tx_init(int queue_len, phys_addr_t fifo)
 
 	return tsk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_tx_init); */
+EXPORT_SYMBOL_GPL(bcom_fec_tx_init);
 
 int
 bcom_fec_tx_reset(struct bcom_task *tsk)
@@ -253,7 +253,7 @@ bcom_fec_tx_reset(struct bcom_task *tsk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_tx_reset); */
+EXPORT_SYMBOL_GPL(bcom_fec_tx_reset);
 
 void
 bcom_fec_tx_release(struct bcom_task *tsk)
@@ -261,7 +261,7 @@ bcom_fec_tx_release(struct bcom_task *tsk)
 	/* Nothing special for the FEC tasks */
 	bcom_task_free(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_fec_tx_release); */
+EXPORT_SYMBOL_GPL(bcom_fec_tx_release);
 
 
 MODULE_DESCRIPTION("BestComm FEC tasks driver");

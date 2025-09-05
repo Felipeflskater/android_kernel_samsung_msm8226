@@ -250,7 +250,7 @@ int sdio_register_driver(struct sdio_driver *drv)
 	drv->drv.bus = &sdio_bus_type;
 	return driver_register(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_register_driver); */
+EXPORT_SYMBOL_GPL(sdio_register_driver);
 
 /**
  *	sdio_unregister_driver - unregister a function driver
@@ -261,7 +261,7 @@ void sdio_unregister_driver(struct sdio_driver *drv)
 	drv->drv.bus = &sdio_bus_type;
 	driver_unregister(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_unregister_driver); */
+EXPORT_SYMBOL_GPL(sdio_unregister_driver);
 
 static void sdio_release_func(struct device *dev)
 {

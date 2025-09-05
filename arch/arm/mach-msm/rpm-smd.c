@@ -608,7 +608,7 @@ void msm_rpm_free_request(struct msm_rpm_request *handle)
 	kfree(handle->buf);
 	kfree(handle);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_free_request); */
+EXPORT_SYMBOL(msm_rpm_free_request);
 
 struct msm_rpm_request *msm_rpm_create_request(
 		enum msm_rpm_set set, uint32_t rsc_type,
@@ -617,7 +617,7 @@ struct msm_rpm_request *msm_rpm_create_request(
 	return msm_rpm_create_request_common(set, rsc_type, rsc_id,
 			num_elements, false);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_create_request); */
+EXPORT_SYMBOL(msm_rpm_create_request);
 
 struct msm_rpm_request *msm_rpm_create_request_noirq(
 		enum msm_rpm_set set, uint32_t rsc_type,
@@ -626,7 +626,7 @@ struct msm_rpm_request *msm_rpm_create_request_noirq(
 	return msm_rpm_create_request_common(set, rsc_type, rsc_id,
 			num_elements, true);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_create_request_noirq); */
+EXPORT_SYMBOL(msm_rpm_create_request_noirq);
 
 int msm_rpm_add_kvp_data(struct msm_rpm_request *handle,
 		uint32_t key, const uint8_t *data, int size)
@@ -634,14 +634,14 @@ int msm_rpm_add_kvp_data(struct msm_rpm_request *handle,
 	return msm_rpm_add_kvp_data_common(handle, key, data, size, false);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_add_kvp_data); */
+EXPORT_SYMBOL(msm_rpm_add_kvp_data);
 
 int msm_rpm_add_kvp_data_noirq(struct msm_rpm_request *handle,
 		uint32_t key, const uint8_t *data, int size)
 {
 	return msm_rpm_add_kvp_data_common(handle, key, data, size, true);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_add_kvp_data_noirq); */
+EXPORT_SYMBOL(msm_rpm_add_kvp_data_noirq);
 
 /* Runs in interrupt context */
 static void msm_rpm_notify(void *data, unsigned event)
@@ -1145,13 +1145,13 @@ int msm_rpm_send_request(struct msm_rpm_request *handle)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_send_request); */
+EXPORT_SYMBOL(msm_rpm_send_request);
 
 int msm_rpm_send_request_noirq(struct msm_rpm_request *handle)
 {
 	return msm_rpm_send_data(handle, MSM_RPM_MSG_REQUEST_TYPE, true);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_send_request_noirq); */
+EXPORT_SYMBOL(msm_rpm_send_request_noirq);
 
 int msm_rpm_wait_for_ack(uint32_t msg_id)
 {
@@ -1181,7 +1181,7 @@ int msm_rpm_wait_for_ack(uint32_t msg_id)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_wait_for_ack); */
+EXPORT_SYMBOL(msm_rpm_wait_for_ack);
 
 int msm_rpm_wait_for_ack_noirq(uint32_t msg_id)
 {
@@ -1240,7 +1240,7 @@ wait_ack_cleanup:
 		complete(&data_ready);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_wait_for_ack_noirq); */
+EXPORT_SYMBOL(msm_rpm_wait_for_ack_noirq);
 
 int msm_rpm_send_message(enum msm_rpm_set set, uint32_t rsc_type,
 		uint32_t rsc_id, struct msm_rpm_kvp *kvp, int nelems)
@@ -1263,7 +1263,7 @@ bail:
 	msm_rpm_free_request(req);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_send_message); */
+EXPORT_SYMBOL(msm_rpm_send_message);
 
 int msm_rpm_send_message_noirq(enum msm_rpm_set set, uint32_t rsc_type,
 		uint32_t rsc_id, struct msm_rpm_kvp *kvp, int nelems)
@@ -1286,7 +1286,7 @@ bail:
 	msm_rpm_free_request(req);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_send_message_noirq); */
+EXPORT_SYMBOL(msm_rpm_send_message_noirq);
 
 /**
  * During power collapse, the rpm driver disables the SMD interrupts to make
@@ -1301,7 +1301,7 @@ int msm_rpm_enter_sleep(bool print, const struct cpumask *cpumask)
 
 	return smd_mask_receive_interrupt(msm_rpm_data.ch_info, true, cpumask);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_enter_sleep); */
+EXPORT_SYMBOL(msm_rpm_enter_sleep);
 
 /**
  * When the system resumes from power collapse, the SMD interrupt disabled by
@@ -1314,7 +1314,7 @@ void msm_rpm_exit_sleep(void)
 
 	smd_mask_receive_interrupt(msm_rpm_data.ch_info, false, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_exit_sleep); */
+EXPORT_SYMBOL(msm_rpm_exit_sleep);
 
 static int __devinit msm_rpm_smd_remote_probe(struct platform_device *pdev)
 {
@@ -1431,5 +1431,5 @@ int __init msm_rpm_driver_init(void)
 
 	return platform_driver_register(&msm_rpm_device_driver);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rpm_driver_init); */
+EXPORT_SYMBOL(msm_rpm_driver_init);
 late_initcall(msm_rpm_driver_init);

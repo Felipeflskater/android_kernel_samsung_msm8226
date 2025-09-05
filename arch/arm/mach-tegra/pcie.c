@@ -233,7 +233,7 @@ static struct tegra_pcie_info tegra_pcie = {
 };
 
 void __iomem *tegra_pcie_io_base;
-/* DISABLED: EXPORT_SYMBOL(tegra_pcie_io_base); */
+EXPORT_SYMBOL(tegra_pcie_io_base);
 
 static inline void afi_writel(u32 value, unsigned long offset)
 {

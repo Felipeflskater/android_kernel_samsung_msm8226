@@ -868,4 +868,4 @@ int kdb_printf(const char *fmt, ...)
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_printf); */
+EXPORT_SYMBOL_GPL(kdb_printf);

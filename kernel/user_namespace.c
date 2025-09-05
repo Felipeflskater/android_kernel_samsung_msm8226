@@ -93,7 +93,7 @@ void free_user_ns(struct kref *kref)
 	INIT_WORK(&ns->destroyer, free_user_ns_work);
 	schedule_work(&ns->destroyer);
 }
-/* DISABLED: EXPORT_SYMBOL(free_user_ns); */
+EXPORT_SYMBOL(free_user_ns);
 
 uid_t user_ns_map_uid(struct user_namespace *to, const struct cred *cred, uid_t uid)
 {

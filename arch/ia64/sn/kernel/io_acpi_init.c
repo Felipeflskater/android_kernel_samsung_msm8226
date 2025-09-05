@@ -454,7 +454,7 @@ sn_acpi_slot_fixup(struct pci_dev *dev)
 	sn_pci_fixup_slot(dev, pcidev_info, sn_irq_info);
 }
 
-/* DISABLED: EXPORT_SYMBOL(sn_acpi_slot_fixup); */
+EXPORT_SYMBOL(sn_acpi_slot_fixup);
 
 
 /*

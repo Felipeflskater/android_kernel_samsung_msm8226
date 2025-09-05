@@ -193,7 +193,7 @@ void dump_trace(struct task_struct *task, struct pt_regs *regs,
 	bp = ops->walk_stack(tinfo, stack, bp, ops, data, NULL, &graph);
 	put_cpu();
 }
-/* DISABLED: EXPORT_SYMBOL(dump_trace); */
+EXPORT_SYMBOL(dump_trace);
 
 void
 show_stack_log_lvl(struct task_struct *task, struct pt_regs *regs,

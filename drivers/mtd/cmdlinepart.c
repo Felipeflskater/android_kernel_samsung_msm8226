@@ -373,7 +373,7 @@ static int mtdpart_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("mtdparts=", mtdpart_setup); */ */
+__setup("mtdparts=", mtdpart_setup);
 
 static struct mtd_part_parser cmdline_parser = {
 	.owner = THIS_MODULE,

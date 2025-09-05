@@ -99,7 +99,7 @@ uint32_t cb710_sg_dwiter_read_next_block(struct sg_mapping_iter *miter)
 
 	return sg_dwiter_read_buffer(miter);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cb710_sg_dwiter_read_next_block); */
+EXPORT_SYMBOL_GPL(cb710_sg_dwiter_read_next_block);
 
 static void sg_dwiter_write_slow(struct sg_mapping_iter *miter, uint32_t data)
 {
@@ -142,5 +142,5 @@ void cb710_sg_dwiter_write_next_block(struct sg_mapping_iter *miter, uint32_t da
 	} else
 		sg_dwiter_write_slow(miter, data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cb710_sg_dwiter_write_next_block); */
+EXPORT_SYMBOL_GPL(cb710_sg_dwiter_write_next_block);
 

@@ -273,7 +273,7 @@ int crash_shutdown_register(crash_shutdown_t handler)
 	spin_unlock(&crash_handlers_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(crash_shutdown_register); */
+EXPORT_SYMBOL(crash_shutdown_register);
 
 int crash_shutdown_unregister(crash_shutdown_t handler)
 {
@@ -298,7 +298,7 @@ int crash_shutdown_unregister(crash_shutdown_t handler)
 	spin_unlock(&crash_handlers_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(crash_shutdown_unregister); */
+EXPORT_SYMBOL(crash_shutdown_unregister);
 
 void default_machine_crash_shutdown(struct pt_regs *regs)
 {

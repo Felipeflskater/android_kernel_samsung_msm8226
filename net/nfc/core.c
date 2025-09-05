@@ -269,7 +269,7 @@ int nfc_dep_link_is_up(struct nfc_dev *dev, u32 target_idx,
 
 	return nfc_genl_dep_link_up_event(dev, target_idx, comm_mode, rf_mode);
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_dep_link_is_up); */
+EXPORT_SYMBOL(nfc_dep_link_is_up);
 
 /**
  * nfc_activate_target - prepare the target for data exchange
@@ -372,7 +372,7 @@ int nfc_set_remote_general_bytes(struct nfc_dev *dev, u8 *gb, u8 gb_len)
 
 	return nfc_llcp_set_remote_gb(dev, gb, gb_len);
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_set_remote_general_bytes); */
+EXPORT_SYMBOL(nfc_set_remote_general_bytes);
 
 /**
  * nfc_alloc_send_skb - allocate a skb for data exchange responses
@@ -416,7 +416,7 @@ struct sk_buff *nfc_alloc_recv_skb(unsigned int size, gfp_t gfp)
 
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_alloc_recv_skb); */
+EXPORT_SYMBOL(nfc_alloc_recv_skb);
 
 /**
  * nfc_targets_found - inform that targets were found
@@ -457,7 +457,7 @@ int nfc_targets_found(struct nfc_dev *dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_targets_found); */
+EXPORT_SYMBOL(nfc_targets_found);
 
 static void nfc_release(struct device *d)
 {
@@ -474,7 +474,7 @@ struct class nfc_class = {
 	.name = "nfc",
 	.dev_release = nfc_release,
 };
-/* DISABLED: EXPORT_SYMBOL(nfc_class); */
+EXPORT_SYMBOL(nfc_class);
 
 static int match_idx(struct device *d, void *data)
 {
@@ -537,7 +537,7 @@ struct nfc_dev *nfc_allocate_device(struct nfc_ops *ops,
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_allocate_device); */
+EXPORT_SYMBOL(nfc_allocate_device);
 
 /**
  * nfc_register_device - register a nfc device in the nfc subsystem
@@ -569,7 +569,7 @@ int nfc_register_device(struct nfc_dev *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_register_device); */
+EXPORT_SYMBOL(nfc_register_device);
 
 /**
  * nfc_unregister_device - unregister a nfc device in the nfc subsystem
@@ -601,7 +601,7 @@ void nfc_unregister_device(struct nfc_dev *dev)
 			 dev_name(&dev->dev));
 
 }
-/* DISABLED: EXPORT_SYMBOL(nfc_unregister_device); */
+EXPORT_SYMBOL(nfc_unregister_device);
 
 static int __init nfc_init(void)
 {

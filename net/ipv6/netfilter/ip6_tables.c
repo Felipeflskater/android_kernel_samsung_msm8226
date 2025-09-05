@@ -67,7 +67,7 @@ void *ip6t_alloc_initial_table(const struct xt_table *info)
 {
 	return xt_alloc_initial_table(ip6t, IP6T);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip6t_alloc_initial_table); */
+EXPORT_SYMBOL_GPL(ip6t_alloc_initial_table);
 
 /*
    We keep a set of rules for each CPU, so we can avoid write-locking
@@ -2392,10 +2392,10 @@ int ipv6_find_hdr(const struct sk_buff *skb, unsigned int *offset,
 	return nexthdr;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip6t_register_table); */
-/* DISABLED: EXPORT_SYMBOL(ip6t_unregister_table); */
-/* DISABLED: EXPORT_SYMBOL(ip6t_do_table); */
-/* DISABLED: EXPORT_SYMBOL(ipv6_find_hdr); */
+EXPORT_SYMBOL(ip6t_register_table);
+EXPORT_SYMBOL(ip6t_unregister_table);
+EXPORT_SYMBOL(ip6t_do_table);
+EXPORT_SYMBOL(ipv6_find_hdr);
 
 module_init(ip6_tables_init);
 module_exit(ip6_tables_fini);

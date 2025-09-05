@@ -104,7 +104,7 @@ pte_t *find_linux_pte_or_hugepte(pgd_t *pgdir, unsigned long ea, unsigned *shift
 		*shift = hugepd_shift(*hpdp);
 	return hugepte_offset(hpdp, ea, pdshift);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(find_linux_pte_or_hugepte); */
+EXPORT_SYMBOL_GPL(find_linux_pte_or_hugepte);
 
 pte_t *huge_pte_offset(struct mm_struct *mm, unsigned long addr)
 {
@@ -815,7 +815,7 @@ static int __init hugepage_setup_sz(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("hugepagesz=", hugepage_setup_sz); */ */
+__setup("hugepagesz=", hugepage_setup_sz);
 
 #ifdef CONFIG_PPC_FSL_BOOK3E
 struct kmem_cache *hugepte_cache;

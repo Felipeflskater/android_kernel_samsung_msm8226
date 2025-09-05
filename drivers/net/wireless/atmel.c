@@ -1312,7 +1312,7 @@ static int atmel_set_mac_address(struct net_device *dev, void *p)
 	return atmel_open(dev);
 }
 
-/* DISABLED: EXPORT_SYMBOL(atmel_open); */
+EXPORT_SYMBOL(atmel_open);
 
 int atmel_open(struct net_device *dev)
 {
@@ -1648,7 +1648,7 @@ err_out_free:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(init_atmel_card); */
+EXPORT_SYMBOL(init_atmel_card);
 
 void stop_atmel_card(struct net_device *dev)
 {
@@ -1668,7 +1668,7 @@ void stop_atmel_card(struct net_device *dev)
 	free_netdev(dev);
 }
 
-/* DISABLED: EXPORT_SYMBOL(stop_atmel_card); */
+EXPORT_SYMBOL(stop_atmel_card);
 
 static int atmel_set_essid(struct net_device *dev,
 			   struct iw_request_info *info,

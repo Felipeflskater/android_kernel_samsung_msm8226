@@ -51,4 +51,4 @@ int s3c2440_set_dsc(unsigned int pin, unsigned int value)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(s3c2440_set_dsc); */
+EXPORT_SYMBOL(s3c2440_set_dsc);

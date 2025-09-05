@@ -43,7 +43,7 @@ static int __init mahimahi_disablesdcard_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("board_mahimahi.disable_sdcard=", mahimahi_disablesdcard_setup); */ */
+__setup("board_mahimahi.disable_sdcard=", mahimahi_disablesdcard_setup);
 
 static void config_gpio_table(uint32_t *table, int len)
 {

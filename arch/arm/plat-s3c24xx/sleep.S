@@ -37,7 +37,7 @@
 /* CONFIG_DEBUG_RESUME is dangerous if your bootloader does not
  * reset the UART configuration, only enable if you really need this!
 */
-// @ define CONFIG_DEBUG_RESUME
+//#define CONFIG_DEBUG_RESUME
 
 	.text
 
@@ -54,18 +54,18 @@
 	*/
 
 ENTRY(s3c_cpu_resume)
-	mov	r0, @ PSR_I_BIT | PSR_F_BIT | SVC_MODE
+	mov	r0, #PSR_I_BIT | PSR_F_BIT | SVC_MODE
 	msr	cpsr_c, r0
 
 	@@ load UART to allow us to print the two characters for
 	@@ resume debug
 
-	mov	r2, @ S3C24XX_PA_UART & 0xff000000
-	orr	r2, r2, @ S3C24XX_PA_UART & 0xff000
+	mov	r2, #S3C24XX_PA_UART & 0xff000000
+	orr	r2, r2, #S3C24XX_PA_UART & 0xff000
 
 #if 0
 	/* SMDK2440 LED set */
-	mov	r14, @ S3C24XX_PA_GPIO
+	mov	r14, #S3C24XX_PA_GPIO
 	ldr	r12, [ r14, #0x54 ]
 	bic	r12, r12, #3<<4
 	orr	r12, r12, #1<<7
@@ -73,11 +73,11 @@ ENTRY(s3c_cpu_resume)
 #endif
 
 #ifdef CONFIG_DEBUG_RESUME
-	mov	r3, @ 'L'
-	strb	r3, [ r2, @ S3C2410_UTXH ]
+	mov	r3, #'L'
+	strb	r3, [ r2, #S3C2410_UTXH ]
 1001:
-	ldrb	r14, [ r3, @ S3C2410_UTRSTAT ]
-	tst	r14, @ S3C2410_UTRSTAT_TXE
+	ldrb	r14, [ r3, #S3C2410_UTRSTAT ]
+	tst	r14, #S3C2410_UTRSTAT_TXE
 	beq	1001b
 #endif /* CONFIG_DEBUG_RESUME */
 

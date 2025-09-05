@@ -533,4 +533,4 @@ int xfrm_init_replay(struct xfrm_state *x)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_init_replay); */
+EXPORT_SYMBOL(xfrm_init_replay);

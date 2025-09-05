@@ -60,13 +60,13 @@ struct clk *clk_get(struct device *dev, const char *id)
 	return clk;
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_get); */
+EXPORT_SYMBOL(clk_get);
 
 void clk_put(struct clk *clk)
 {
 	/* clocks are static for now, we can't free them */
 }
-/* DISABLED: EXPORT_SYMBOL(clk_put); */
+EXPORT_SYMBOL(clk_put);
 
 static void __clk_enable(struct clk *clk)
 {
@@ -86,7 +86,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 static void __clk_disable(struct clk *clk)
 {
@@ -110,7 +110,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clk_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -123,7 +123,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -138,7 +138,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return actual_rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -154,7 +154,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return (ret < 0) ? ret : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -170,13 +170,13 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 struct clk *clk_get_parent(struct clk *clk)
 {
 	return clk->parent;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
+EXPORT_SYMBOL(clk_get_parent);
 
 
 

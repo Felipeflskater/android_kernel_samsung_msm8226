@@ -119,7 +119,7 @@ int ebus_dma_register(struct ebus_dma_info *p)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_register); */
+EXPORT_SYMBOL(ebus_dma_register);
 
 int ebus_dma_irq_enable(struct ebus_dma_info *p, int on)
 {
@@ -151,7 +151,7 @@ int ebus_dma_irq_enable(struct ebus_dma_info *p, int on)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_irq_enable); */
+EXPORT_SYMBOL(ebus_dma_irq_enable);
 
 void ebus_dma_unregister(struct ebus_dma_info *p)
 {
@@ -171,7 +171,7 @@ void ebus_dma_unregister(struct ebus_dma_info *p)
 	if (irq_on)
 		free_irq(p->irq, p);
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_unregister); */
+EXPORT_SYMBOL(ebus_dma_unregister);
 
 int ebus_dma_request(struct ebus_dma_info *p, dma_addr_t bus_addr, size_t len)
 {
@@ -200,7 +200,7 @@ out:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_request); */
+EXPORT_SYMBOL(ebus_dma_request);
 
 void ebus_dma_prepare(struct ebus_dma_info *p, int write)
 {
@@ -224,19 +224,19 @@ void ebus_dma_prepare(struct ebus_dma_info *p, int write)
 
 	spin_unlock_irqrestore(&p->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_prepare); */
+EXPORT_SYMBOL(ebus_dma_prepare);
 
 unsigned int ebus_dma_residue(struct ebus_dma_info *p)
 {
 	return readl(p->regs + EBDMA_COUNT);
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_residue); */
+EXPORT_SYMBOL(ebus_dma_residue);
 
 unsigned int ebus_dma_addr(struct ebus_dma_info *p)
 {
 	return readl(p->regs + EBDMA_ADDR);
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_addr); */
+EXPORT_SYMBOL(ebus_dma_addr);
 
 void ebus_dma_enable(struct ebus_dma_info *p, int on)
 {
@@ -254,4 +254,4 @@ void ebus_dma_enable(struct ebus_dma_info *p, int on)
 		writel(csr, p->regs + EBDMA_CSR);
 	spin_unlock_irqrestore(&p->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ebus_dma_enable); */
+EXPORT_SYMBOL(ebus_dma_enable);

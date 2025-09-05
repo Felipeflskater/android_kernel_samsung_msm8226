@@ -145,7 +145,7 @@ err_reg_enable:
 err_start_dev:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_sdi_display_enable); */
+EXPORT_SYMBOL(omapdss_sdi_display_enable);
 
 void omapdss_sdi_display_disable(struct omap_dss_device *dssdev)
 {
@@ -160,7 +160,7 @@ void omapdss_sdi_display_disable(struct omap_dss_device *dssdev)
 
 	omap_dss_stop_device(dssdev);
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_sdi_display_disable); */
+EXPORT_SYMBOL(omapdss_sdi_display_disable);
 
 int sdi_init_display(struct omap_dss_device *dssdev)
 {

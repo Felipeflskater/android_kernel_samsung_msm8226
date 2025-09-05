@@ -309,7 +309,7 @@ int msm_smd_driver_register(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smd_driver_register); */
+EXPORT_SYMBOL(msm_smd_driver_register);
 
 MODULE_DESCRIPTION("MSM SMD Device Tree Init");
 MODULE_LICENSE("GPL v2");

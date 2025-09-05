@@ -113,7 +113,7 @@ __be32 xfrm6_tunnel_spi_lookup(struct net *net, const xfrm_address_t *saddr)
 	return htonl(spi);
 }
 
-/* DISABLED: EXPORT_SYMBOL(xfrm6_tunnel_spi_lookup); */
+EXPORT_SYMBOL(xfrm6_tunnel_spi_lookup);
 
 static int __xfrm6_tunnel_spi_check(struct net *net, u32 spi)
 {
@@ -191,7 +191,7 @@ __be32 xfrm6_tunnel_alloc_spi(struct net *net, xfrm_address_t *saddr)
 	return htonl(spi);
 }
 
-/* DISABLED: EXPORT_SYMBOL(xfrm6_tunnel_alloc_spi); */
+EXPORT_SYMBOL(xfrm6_tunnel_alloc_spi);
 
 static void x6spi_destroy_rcu(struct rcu_head *head)
 {

@@ -1,17 +1,25 @@
-/*
- * MSM8226 timex.h - Clock definitions for Qualcomm MSM8226
- * 
- * This file provides the CLOCK_TICK_RATE definition required
- * for ARM timex.h compilation on MSM8226 platform.
+/* arch/arm/mach-msm/include/mach/timex.h
+ *
+ * Copyright (C) 2007 Google, Inc.
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
  */
 
 #ifndef __ASM_ARCH_MSM_TIMEX_H
 #define __ASM_ARCH_MSM_TIMEX_H
 
-/* 
- * Timer frequency for MSM8226 
- * Standard tick rate for ARM platforms
- */
-#define CLOCK_TICK_RATE 1000000
+#define CLOCK_TICK_RATE		1000000
 
-#endif /* __ASM_ARCH_MSM_TIMEX_H */
+#ifdef CONFIG_HAVE_ARCH_HAS_CURRENT_TIMER
+#define ARCH_HAS_READ_CURRENT_TIMER
+#endif
+
+#endif

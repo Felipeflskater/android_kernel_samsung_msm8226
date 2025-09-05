@@ -171,12 +171,12 @@ int __clk_get(struct clk *clk)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(__clk_get); */
+EXPORT_SYMBOL(__clk_get);
 
 void __clk_put(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(__clk_put); */
+EXPORT_SYMBOL(__clk_put);
 
 static void syscon_clk_disable(struct clk *clk)
 {
@@ -369,7 +369,7 @@ void syscon_clk_rate_set_cpuclk(unsigned long rate)
 	writew(val, U300_SYSCON_VBASE + U300_SYSCON_CCR);
 	spin_unlock_irqrestore(&syscon_clkreg_lock, iflags);
 }
-/* DISABLED: EXPORT_SYMBOL(syscon_clk_rate_set_cpuclk); */
+EXPORT_SYMBOL(syscon_clk_rate_set_cpuclk);
 
 void clk_disable(struct clk *clk)
 {
@@ -391,7 +391,7 @@ void clk_disable(struct clk *clk)
 #endif
 	spin_unlock_irqrestore(&clk->lock, iflags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 int clk_enable(struct clk *clk)
 {
@@ -423,7 +423,7 @@ int clk_enable(struct clk *clk)
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 /* Returns the clock rate in Hz */
 static unsigned long clk_get_rate_cpuclk(struct clk *clk)
@@ -606,7 +606,7 @@ unsigned long clk_get_rate(struct clk *clk)
 	else
 		return clk->rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 static unsigned long clk_round_rate_mclk(struct clk *clk, unsigned long rate)
 {
@@ -660,7 +660,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 	}
 	return (long) clk->rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 static int clk_set_rate_mclk(struct clk *clk, unsigned long rate)
 {
@@ -686,7 +686,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 		return -EINVAL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 /*
  * Clock definitions. The clock parents are set to respective

@@ -46,7 +46,7 @@ struct sysdata_el {
 int sn_ioif_inited;		/* SN I/O infrastructure initialized? */
 
 int sn_acpi_rev;		/* SN ACPI revision */
-/* DISABLED: EXPORT_SYMBOL_GPL(sn_acpi_rev); */
+EXPORT_SYMBOL_GPL(sn_acpi_rev);
 
 struct sn_pcibus_provider *sn_pci_provider[PCIIO_ASIC_MAX_TYPES];	/* indexed by asic type */
 
@@ -560,8 +560,8 @@ sn_io_late_init(void)
 
 fs_initcall(sn_io_late_init);
 
-/* DISABLED: EXPORT_SYMBOL(sn_pci_unfixup_slot); */
-/* DISABLED: EXPORT_SYMBOL(sn_bus_store_sysdata); */
-/* DISABLED: EXPORT_SYMBOL(sn_bus_free_sysdata); */
-/* DISABLED: EXPORT_SYMBOL(sn_generate_path); */
+EXPORT_SYMBOL(sn_pci_unfixup_slot);
+EXPORT_SYMBOL(sn_bus_store_sysdata);
+EXPORT_SYMBOL(sn_bus_free_sysdata);
+EXPORT_SYMBOL(sn_generate_path);
 

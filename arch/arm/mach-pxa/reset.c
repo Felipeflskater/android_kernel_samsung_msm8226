@@ -16,7 +16,7 @@
 #include <mach/smemc.h>
 
 unsigned int reset_status;
-/* DISABLED: EXPORT_SYMBOL(reset_status); */
+EXPORT_SYMBOL(reset_status);
 
 static void do_hw_reset(void);
 

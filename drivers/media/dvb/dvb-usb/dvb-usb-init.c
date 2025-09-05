@@ -281,7 +281,7 @@ int dvb_usb_device_init(struct usb_interface *intf,
 		info("%s error while loading driver (%d)", desc->name, ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_usb_device_init); */
+EXPORT_SYMBOL(dvb_usb_device_init);
 
 void dvb_usb_device_exit(struct usb_interface *intf)
 {
@@ -299,7 +299,7 @@ void dvb_usb_device_exit(struct usb_interface *intf)
 	info("%s successfully deinitialized and disconnected.", name);
 
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_usb_device_exit); */
+EXPORT_SYMBOL(dvb_usb_device_exit);
 
 MODULE_VERSION("1.0");
 MODULE_AUTHOR("Patrick Boettcher <patrick.boettcher@desy.de>");

@@ -113,7 +113,7 @@ void __par_io_config_pin(struct qe_pio_regs __iomem *par_io, u8 pin, int dir,
 		out_be32(&par_io->cppar1, new_mask2bits | tmp_val);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__par_io_config_pin); */
+EXPORT_SYMBOL(__par_io_config_pin);
 
 int par_io_config_pin(u8 port, u8 pin, int dir, int open_drain,
 		      int assignment, int has_irq)
@@ -125,7 +125,7 @@ int par_io_config_pin(u8 port, u8 pin, int dir, int open_drain,
 			    has_irq);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(par_io_config_pin); */
+EXPORT_SYMBOL(par_io_config_pin);
 
 int par_io_data_set(u8 port, u8 pin, u8 val)
 {
@@ -147,7 +147,7 @@ int par_io_data_set(u8 port, u8 pin, u8 val)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(par_io_data_set); */
+EXPORT_SYMBOL(par_io_data_set);
 
 int par_io_of_config(struct device_node *np)
 {
@@ -190,7 +190,7 @@ int par_io_of_config(struct device_node *np)
 	of_node_put(pio);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(par_io_of_config); */
+EXPORT_SYMBOL(par_io_of_config);
 
 #ifdef DEBUG
 static void dump_par_io(void)
@@ -214,5 +214,5 @@ static void dump_par_io(void)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(dump_par_io); */
+EXPORT_SYMBOL(dump_par_io);
 #endif /* DEBUG */

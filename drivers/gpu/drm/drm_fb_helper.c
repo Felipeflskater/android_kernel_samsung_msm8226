@@ -69,7 +69,7 @@ fail:
 	fb_helper->connector_count = 0;
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_single_add_all_connectors); */
+EXPORT_SYMBOL(drm_fb_helper_single_add_all_connectors);
 
 static int drm_fb_helper_parse_command_line(struct drm_fb_helper *fb_helper)
 {
@@ -172,7 +172,7 @@ int drm_fb_helper_debug_enter(struct fb_info *info)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_debug_enter); */
+EXPORT_SYMBOL(drm_fb_helper_debug_enter);
 
 /* Find the real fb for a given fb helper CRTC */
 static struct drm_framebuffer *drm_mode_config_fb(struct drm_crtc *crtc)
@@ -217,7 +217,7 @@ int drm_fb_helper_debug_leave(struct fb_info *info)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_debug_leave); */
+EXPORT_SYMBOL(drm_fb_helper_debug_leave);
 
 bool drm_fb_helper_restore_fbdev_mode(struct drm_fb_helper *fb_helper)
 {
@@ -231,7 +231,7 @@ bool drm_fb_helper_restore_fbdev_mode(struct drm_fb_helper *fb_helper)
 	}
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_restore_fbdev_mode); */
+EXPORT_SYMBOL(drm_fb_helper_restore_fbdev_mode);
 
 bool drm_fb_helper_force_kernel_mode(void)
 {
@@ -265,7 +265,7 @@ int drm_fb_helper_panic(struct notifier_block *n, unsigned long ununsed,
 	printk(KERN_ERR "panic occurred, switching back to text console\n");
 	return drm_fb_helper_force_kernel_mode();
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_panic); */
+EXPORT_SYMBOL(drm_fb_helper_panic);
 
 static struct notifier_block paniced = {
 	.notifier_call = drm_fb_helper_panic,
@@ -283,7 +283,7 @@ void drm_fb_helper_restore(void)
 	if (ret == true)
 		DRM_ERROR("Failed to restore crtc configuration\n");
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_restore); */
+EXPORT_SYMBOL(drm_fb_helper_restore);
 
 #ifdef CONFIG_MAGIC_SYSRQ
 static void drm_fb_helper_restore_work_fn(struct work_struct *ignored)
@@ -361,7 +361,7 @@ int drm_fb_helper_blank(int blank, struct fb_info *info)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_blank); */
+EXPORT_SYMBOL(drm_fb_helper_blank);
 
 static void drm_fb_helper_crtc_free(struct drm_fb_helper *helper)
 {
@@ -426,7 +426,7 @@ out_free:
 	drm_fb_helper_crtc_free(fb_helper);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_init); */
+EXPORT_SYMBOL(drm_fb_helper_init);
 
 void drm_fb_helper_fini(struct drm_fb_helper *fb_helper)
 {
@@ -443,7 +443,7 @@ void drm_fb_helper_fini(struct drm_fb_helper *fb_helper)
 	drm_fb_helper_crtc_free(fb_helper);
 
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_fini); */
+EXPORT_SYMBOL(drm_fb_helper_fini);
 
 static int setcolreg(struct drm_crtc *crtc, u16 red, u16 green,
 		     u16 blue, u16 regno, struct fb_info *info)
@@ -546,7 +546,7 @@ int drm_fb_helper_setcmap(struct fb_cmap *cmap, struct fb_info *info)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_setcmap); */
+EXPORT_SYMBOL(drm_fb_helper_setcmap);
 
 int drm_fb_helper_check_var(struct fb_var_screeninfo *var,
 			    struct fb_info *info)
@@ -638,7 +638,7 @@ int drm_fb_helper_check_var(struct fb_var_screeninfo *var,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_check_var); */
+EXPORT_SYMBOL(drm_fb_helper_check_var);
 
 /* this will let fbcon do the mode init */
 int drm_fb_helper_set_par(struct fb_info *info)
@@ -672,7 +672,7 @@ int drm_fb_helper_set_par(struct fb_info *info)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_set_par); */
+EXPORT_SYMBOL(drm_fb_helper_set_par);
 
 int drm_fb_helper_pan_display(struct fb_var_screeninfo *var,
 			      struct fb_info *info)
@@ -704,7 +704,7 @@ int drm_fb_helper_pan_display(struct fb_var_screeninfo *var,
 	mutex_unlock(&dev->mode_config.mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_pan_display); */
+EXPORT_SYMBOL(drm_fb_helper_pan_display);
 
 int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 				  int preferred_bpp)
@@ -824,7 +824,7 @@ int drm_fb_helper_single_fb_probe(struct drm_fb_helper *fb_helper,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_single_fb_probe); */
+EXPORT_SYMBOL(drm_fb_helper_single_fb_probe);
 
 void drm_fb_helper_fill_fix(struct fb_info *info, uint32_t pitch,
 			    uint32_t depth)
@@ -844,7 +844,7 @@ void drm_fb_helper_fill_fix(struct fb_info *info, uint32_t pitch,
 	info->fix.line_length = pitch;
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_fill_fix); */
+EXPORT_SYMBOL(drm_fb_helper_fill_fix);
 
 void drm_fb_helper_fill_var(struct fb_info *info, struct drm_fb_helper *fb_helper,
 			    uint32_t fb_width, uint32_t fb_height)
@@ -918,7 +918,7 @@ void drm_fb_helper_fill_var(struct fb_info *info, struct drm_fb_helper *fb_helpe
 	info->var.xres = fb_width;
 	info->var.yres = fb_height;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_fill_var); */
+EXPORT_SYMBOL(drm_fb_helper_fill_var);
 
 static int drm_fb_helper_probe_connector_modes(struct drm_fb_helper *fb_helper,
 					       uint32_t maxX,
@@ -1332,7 +1332,7 @@ bool drm_fb_helper_initial_config(struct drm_fb_helper *fb_helper, int bpp_sel)
 
 	return drm_fb_helper_single_fb_probe(fb_helper, bpp_sel);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_initial_config); */
+EXPORT_SYMBOL(drm_fb_helper_initial_config);
 
 /**
  * drm_fb_helper_hotplug_event - respond to a hotplug notification by
@@ -1385,7 +1385,7 @@ int drm_fb_helper_hotplug_event(struct drm_fb_helper *fb_helper)
 
 	return drm_fb_helper_single_fb_probe(fb_helper, bpp_sel);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_helper_hotplug_event); */
+EXPORT_SYMBOL(drm_fb_helper_hotplug_event);
 
 /* The Kconfig DRM_KMS_HELPER selects FRAMEBUFFER_CONSOLE (if !EXPERT)
  * but the module doesn't depend on any fb console symbols.  At least

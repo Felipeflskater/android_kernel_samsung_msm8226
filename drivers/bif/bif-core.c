@@ -852,7 +852,7 @@ u16 bif_crc_ccitt(const u8 *buffer, unsigned int len)
 	}
 	return bitrev16(crc);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_crc_ccitt); */
+EXPORT_SYMBOL(bif_crc_ccitt);
 
 static u16 bif_object_crc_ccitt(const struct bif_object *object)
 {
@@ -979,7 +979,7 @@ notifier_unregister:
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(bif_request_irq); */
+EXPORT_SYMBOL(bif_request_irq);
 
 /**
  * bif_free_irq() - free a BIF slave IRQ by slave task number
@@ -1040,7 +1040,7 @@ done:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_free_irq); */
+EXPORT_SYMBOL(bif_free_irq);
 
 /**
  * bif_trigger_task() - trigger a task within a BIF slave
@@ -1080,7 +1080,7 @@ done:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_trigger_task); */
+EXPORT_SYMBOL(bif_trigger_task);
 
 /**
  * bif_enable_auto_task() - enable task auto triggering for the specified task
@@ -1106,7 +1106,7 @@ int bif_enable_auto_task(struct bif_slave *slave, unsigned int task)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_enable_auto_task); */
+EXPORT_SYMBOL(bif_enable_auto_task);
 
 /**
  * bif_disable_auto_task() - disable task auto triggering for the specified task
@@ -1135,7 +1135,7 @@ int bif_disable_auto_task(struct bif_slave *slave, unsigned int task)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_disable_auto_task); */
+EXPORT_SYMBOL(bif_disable_auto_task);
 
 /**
  * bif_task_is_busy() - checks the state of a BIF slave task
@@ -1161,7 +1161,7 @@ int bif_task_is_busy(struct bif_slave *slave, unsigned int task)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_task_is_busy); */
+EXPORT_SYMBOL(bif_task_is_busy);
 
 static int bif_slave_notify_irqs(struct bif_slave_dev *sdev, int set, u8 val)
 {
@@ -1306,7 +1306,7 @@ int bif_ctrl_notify_slave_irq(struct bif_ctrl_dev *bdev)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_notify_slave_irq); */
+EXPORT_SYMBOL(bif_ctrl_notify_slave_irq);
 
 /**
  * bif_ctrl_notify_battery_changed() - notify the BIF framework that a battery
@@ -1347,7 +1347,7 @@ int bif_ctrl_notify_battery_changed(struct bif_ctrl_dev *bdev)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_notify_battery_changed); */
+EXPORT_SYMBOL(bif_ctrl_notify_battery_changed);
 
 /**
  * bif_ctrl_signal_battery_changed() - notify the BIF framework that a battery
@@ -1367,7 +1367,7 @@ int bif_ctrl_signal_battery_changed(struct bif_ctrl *ctrl)
 
 	return bif_ctrl_notify_battery_changed(ctrl->bdev);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_signal_battery_changed); */
+EXPORT_SYMBOL(bif_ctrl_signal_battery_changed);
 
 /**
  * bif_ctrl_notifier_register() - register a notifier block to be called when
@@ -1393,7 +1393,7 @@ int bif_ctrl_notifier_register(struct bif_ctrl *ctrl, struct notifier_block *nb)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_notifier_register); */
+EXPORT_SYMBOL(bif_ctrl_notifier_register);
 
 /**
  * bif_ctrl_notifier_unregister() - unregister a battery status change notifier
@@ -1418,7 +1418,7 @@ int bif_ctrl_notifier_unregister(struct bif_ctrl *ctrl,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_notifier_unregister); */
+EXPORT_SYMBOL(bif_ctrl_notifier_unregister);
 
 /**
  * bif_get_bus_handle() - returns the BIF controller consumer handle associated
@@ -1435,7 +1435,7 @@ struct bif_ctrl *bif_get_bus_handle(struct bif_slave *slave)
 
 	return &slave->ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_get_bus_handle); */
+EXPORT_SYMBOL(bif_get_bus_handle);
 
 /**
  * bif_ctrl_count() - returns the number of registered BIF controllers
@@ -1454,7 +1454,7 @@ int bif_ctrl_count(void)
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_count); */
+EXPORT_SYMBOL(bif_ctrl_count);
 
 /**
  * bif_ctrl_get_by_id() - get a handle for the id'th BIF controller registered
@@ -1496,7 +1496,7 @@ struct bif_ctrl *bif_ctrl_get_by_id(unsigned int id)
 
 	return ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_get_by_id); */
+EXPORT_SYMBOL(bif_ctrl_get_by_id);
 
 /**
  * bif_ctrl_get() - get a handle for the BIF controller that is linked to the
@@ -1551,7 +1551,7 @@ struct bif_ctrl *bif_ctrl_get(struct device *consumer_dev)
 
 	return ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_get); */
+EXPORT_SYMBOL(bif_ctrl_get);
 
 /**
  * bif_ctrl_put() - frees a BIF controller handle
@@ -1563,7 +1563,7 @@ void bif_ctrl_put(struct bif_ctrl *ctrl)
 		mutex_unlock(&ctrl->bdev->mutex);
 	kfree(ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_put); */
+EXPORT_SYMBOL(bif_ctrl_put);
 
 static bool bif_slave_object_match(const struct bif_object *object,
 		const struct bif_match_criteria *criteria)
@@ -1667,7 +1667,7 @@ int bif_slave_match_count(struct bif_ctrl *ctrl,
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_match_count); */
+EXPORT_SYMBOL(bif_slave_match_count);
 
 /**
  * bif_slave_match_get() - get a slave handle for the id'th slave associated
@@ -1715,7 +1715,7 @@ struct bif_slave *bif_slave_match_get(struct bif_ctrl *ctrl,
 
 	return slave;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_match_get); */
+EXPORT_SYMBOL(bif_slave_match_get);
 
 /**
  * bif_slave_put() - frees a BIF slave handle
@@ -1727,7 +1727,7 @@ void bif_slave_put(struct bif_slave *slave)
 		mutex_unlock(&slave->sdev->bdev->mutex);
 	kfree(slave);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_put); */
+EXPORT_SYMBOL(bif_slave_put);
 
 /**
  * bif_slave_find_function() - get the function pointer and version of a
@@ -1768,7 +1768,7 @@ int bif_slave_find_function(struct bif_slave *slave, u8 function, u8 *version,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_find_function); */
+EXPORT_SYMBOL(bif_slave_find_function);
 
 static bool bif_object_match(const struct bif_object *object,
 		const struct bif_obj_match_criteria *criteria)
@@ -1811,7 +1811,7 @@ int bif_object_match_count(struct bif_slave *slave,
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_match_count); */
+EXPORT_SYMBOL(bif_object_match_count);
 
 /**
  * bif_object_match_get() - get a BIF object handle for the id'th object found
@@ -1884,7 +1884,7 @@ done:
 	return object_consumer;
 
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_match_get); */
+EXPORT_SYMBOL(bif_object_match_get);
 
 /**
  * bif_object_put() - frees the memory allocated for a BIF object pointer
@@ -1897,7 +1897,7 @@ void bif_object_put(struct bif_object *object)
 		kfree(object->data);
 	kfree(object);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_put); */
+EXPORT_SYMBOL(bif_object_put);
 
 /* Copies the contents of object into buf following MIPI-BIF formatting. */
 static void bif_object_flatten(u8 *buf, const struct bif_object *object)
@@ -2029,7 +2029,7 @@ error_unlock:
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_write); */
+EXPORT_SYMBOL(bif_object_write);
 
 /*
  * Returns a pointer to the internal object referenced by a consumer object
@@ -2169,7 +2169,7 @@ error_unlock:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_overwrite); */
+EXPORT_SYMBOL(bif_object_overwrite);
 
 /**
  * bif_object_delete() - deletes an existing BIF object found in the
@@ -2273,7 +2273,7 @@ error_unlock:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_object_delete); */
+EXPORT_SYMBOL(bif_object_delete);
 
 /**
  * bif_slave_read() - read contiguous memory values from a BIF slave
@@ -2303,7 +2303,7 @@ int bif_slave_read(struct bif_slave *slave, u16 addr, u8 *buf, int len)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_read); */
+EXPORT_SYMBOL(bif_slave_read);
 
 /**
  * bif_slave_write() - write contiguous memory values to a BIF slave
@@ -2333,7 +2333,7 @@ int bif_slave_write(struct bif_slave *slave, u16 addr, u8 *buf, int len)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_write); */
+EXPORT_SYMBOL(bif_slave_write);
 
 /**
  * bif_slave_nvm_raw_read() - read contiguous memory values from a BIF slave's
@@ -2366,7 +2366,7 @@ int bif_slave_nvm_raw_read(struct bif_slave *slave, u16 offset, u8 *buf,
 	return bif_slave_read(slave,
 		slave->sdev->nvm_function->nvm_base_address + offset, buf, len);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_nvm_raw_read); */
+EXPORT_SYMBOL(bif_slave_nvm_raw_read);
 
 /**
  * bif_slave_nvm_raw_write() - write contiguous memory values to a BIF slave's
@@ -2401,7 +2401,7 @@ int bif_slave_nvm_raw_write(struct bif_slave *slave, u16 offset, u8 *buf,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_nvm_raw_write); */
+EXPORT_SYMBOL(bif_slave_nvm_raw_write);
 
 /**
  * bif_slave_is_present() - check if a slave is currently physically present
@@ -2423,7 +2423,7 @@ int bif_slave_is_present(struct bif_slave *slave)
 
 	return slave->sdev->present;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_is_present); */
+EXPORT_SYMBOL(bif_slave_is_present);
 
 /**
  * bif_slave_is_selected() - check if a slave is currently selected on the BIF
@@ -2456,7 +2456,7 @@ int bif_slave_is_selected(struct bif_slave *slave)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_is_selected); */
+EXPORT_SYMBOL(bif_slave_is_selected);
 
 /**
  * bif_slave_select() - select a slave on the BIF bus
@@ -2485,7 +2485,7 @@ int bif_slave_select(struct bif_slave *slave)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_slave_select); */
+EXPORT_SYMBOL(bif_slave_select);
 
 /**
  * bif_ctrl_raw_transaction() - perform a raw BIF transaction on the bus which
@@ -2526,7 +2526,7 @@ int bif_ctrl_raw_transaction(struct bif_ctrl *ctrl, int transaction, u8 data)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_raw_transaction); */
+EXPORT_SYMBOL(bif_ctrl_raw_transaction);
 
 /**
  * bif_ctrl_raw_transaction_read() - perform a raw BIF transaction on the bus
@@ -2571,7 +2571,7 @@ int bif_ctrl_raw_transaction_read(struct bif_ctrl *ctrl, int transaction,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_raw_transaction_read); */
+EXPORT_SYMBOL(bif_ctrl_raw_transaction_read);
 
 /**
  * bif_ctrl_raw_transaction_query() - perform a raw BIF transaction on the bus
@@ -2616,7 +2616,7 @@ int bif_ctrl_raw_transaction_query(struct bif_ctrl *ctrl, int transaction,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_raw_transaction_query); */
+EXPORT_SYMBOL(bif_ctrl_raw_transaction_query);
 
 /**
  * bif_ctrl_bus_lock() - lock the BIF bus of a controller for exclusive access
@@ -2642,7 +2642,7 @@ void bif_ctrl_bus_lock(struct bif_ctrl *ctrl)
 	ctrl->exclusive_lock = true;
 	bif_cancel_irq_mode_work(ctrl->bdev);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_bus_lock); */
+EXPORT_SYMBOL(bif_ctrl_bus_lock);
 
 /**
  * bif_ctrl_bus_unlock() - lock the BIF bus of a controller that was previously
@@ -2667,7 +2667,7 @@ void bif_ctrl_bus_unlock(struct bif_ctrl *ctrl)
 	bif_schedule_irq_mode_work(ctrl->bdev);
 	mutex_unlock(&ctrl->bdev->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_bus_unlock); */
+EXPORT_SYMBOL(bif_ctrl_bus_unlock);
 
 /**
  * bif_ctrl_measure_rid() - measure the battery pack Rid pull-down resistance
@@ -2701,7 +2701,7 @@ int bif_ctrl_measure_rid(struct bif_ctrl *ctrl)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_measure_rid); */
+EXPORT_SYMBOL(bif_ctrl_measure_rid);
 
 /**
  * bif_ctrl_get_bus_period() - get the BIF bus period (tau_bif) in nanoseconds
@@ -2730,7 +2730,7 @@ int bif_ctrl_get_bus_period(struct bif_ctrl *ctrl)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_get_bus_period); */
+EXPORT_SYMBOL(bif_ctrl_get_bus_period);
 
 /**
  * bif_ctrl_set_bus_period() - set the BIF bus period (tau_bif) in nanoseconds
@@ -2764,7 +2764,7 @@ int bif_ctrl_set_bus_period(struct bif_ctrl *ctrl, int period_ns)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_set_bus_period); */
+EXPORT_SYMBOL(bif_ctrl_set_bus_period);
 
 /**
  * bif_ctrl_get_bus_state() - get the current state of the BIF bus
@@ -2788,7 +2788,7 @@ int bif_ctrl_get_bus_state(struct bif_ctrl *ctrl)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_get_bus_state); */
+EXPORT_SYMBOL(bif_ctrl_get_bus_state);
 
 /**
  * bif_ctrl_set_bus_state() - set the state of the BIF bus
@@ -2825,7 +2825,7 @@ int bif_ctrl_set_bus_state(struct bif_ctrl *ctrl, enum bif_bus_state state)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_set_bus_state); */
+EXPORT_SYMBOL(bif_ctrl_set_bus_state);
 
 /*
  * Check if the specified function is a protocol function and if it is, then
@@ -3672,7 +3672,7 @@ void *bdev_get_drvdata(struct bif_ctrl_dev *bdev)
 {
 	return bdev->driver_data;
 }
-/* DISABLED: EXPORT_SYMBOL(bdev_get_drvdata); */
+EXPORT_SYMBOL(bdev_get_drvdata);
 
 static const char * const battery_label[] = {
 	"unknown",
@@ -3824,7 +3824,7 @@ struct bif_ctrl_dev *bif_ctrl_register(struct bif_ctrl_desc *bif_desc,
 
 	return bdev;
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_register); */
+EXPORT_SYMBOL(bif_ctrl_register);
 
 /**
  * bif_ctrl_unregister() - unregisters a BIF controller
@@ -3838,4 +3838,4 @@ void bif_ctrl_unregister(struct bif_ctrl_dev *bdev)
 		mutex_unlock(&bif_ctrl_list_mutex);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(bif_ctrl_unregister); */
+EXPORT_SYMBOL(bif_ctrl_unregister);

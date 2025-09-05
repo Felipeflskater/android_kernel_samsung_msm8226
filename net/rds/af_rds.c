@@ -47,7 +47,7 @@ char *rds_str_array(char **array, size_t elements, size_t index)
 	else
 		return "unknown";
 }
-/* DISABLED: EXPORT_SYMBOL(rds_str_array); */
+EXPORT_SYMBOL(rds_str_array);
 
 /* this is just used for stats gathering :/ */
 static DEFINE_SPINLOCK(rds_sock_lock);

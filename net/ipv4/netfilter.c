@@ -70,7 +70,7 @@ int ip_route_me_harder(struct sk_buff *skb, unsigned addr_type)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_route_me_harder); */
+EXPORT_SYMBOL(ip_route_me_harder);
 
 /*
  * Extra routing may needed on local out, as the QUEUE target never
@@ -145,7 +145,7 @@ __sum16 nf_ip_checksum(struct sk_buff *skb, unsigned int hook,
 	}
 	return csum;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_ip_checksum); */
+EXPORT_SYMBOL(nf_ip_checksum);
 
 static __sum16 nf_ip_checksum_partial(struct sk_buff *skb, unsigned int hook,
 				      unsigned int dataoff, unsigned int len,
@@ -208,5 +208,5 @@ struct ctl_path nf_net_ipv4_netfilter_sysctl_path[] = {
 	{ .procname = "netfilter", },
 	{ }
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_net_ipv4_netfilter_sysctl_path); */
+EXPORT_SYMBOL_GPL(nf_net_ipv4_netfilter_sysctl_path);
 #endif /* CONFIG_SYSCTL */

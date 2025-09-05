@@ -222,13 +222,13 @@ int sch56xx_read_virtual_reg(u16 addr, u16 reg)
 {
 	return sch56xx_send_cmd(addr, SCH56XX_CMD_READ, reg, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_read_virtual_reg); */
+EXPORT_SYMBOL(sch56xx_read_virtual_reg);
 
 int sch56xx_write_virtual_reg(u16 addr, u16 reg, u8 val)
 {
 	return sch56xx_send_cmd(addr, SCH56XX_CMD_WRITE, reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_write_virtual_reg); */
+EXPORT_SYMBOL(sch56xx_write_virtual_reg);
 
 int sch56xx_read_virtual_reg16(u16 addr, u16 reg)
 {
@@ -245,7 +245,7 @@ int sch56xx_read_virtual_reg16(u16 addr, u16 reg)
 
 	return lsb | (msb << 8);
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_read_virtual_reg16); */
+EXPORT_SYMBOL(sch56xx_read_virtual_reg16);
 
 int sch56xx_read_virtual_reg12(u16 addr, u16 msb_reg, u16 lsn_reg,
 			       int high_nibble)
@@ -266,7 +266,7 @@ int sch56xx_read_virtual_reg12(u16 addr, u16 msb_reg, u16 lsn_reg,
 	else
 		return (msb << 4) | (lsn & 0x0f);
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_read_virtual_reg12); */
+EXPORT_SYMBOL(sch56xx_read_virtual_reg12);
 
 /*
  * Watchdog routines
@@ -709,7 +709,7 @@ error:
 	kfree(data);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_watchdog_register); */
+EXPORT_SYMBOL(sch56xx_watchdog_register);
 
 void sch56xx_watchdog_unregister(struct sch56xx_watchdog_data *data)
 {
@@ -733,7 +733,7 @@ void sch56xx_watchdog_unregister(struct sch56xx_watchdog_data *data)
 	kref_put(&data->kref, sch56xx_watchdog_release_resources);
 	mutex_unlock(&watchdog_data_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(sch56xx_watchdog_unregister); */
+EXPORT_SYMBOL(sch56xx_watchdog_unregister);
 
 /*
  * platform dev find, add and remove functions

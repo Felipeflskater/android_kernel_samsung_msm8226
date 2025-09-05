@@ -613,4 +613,4 @@ MODULE_DESCRIPTION("NxtWave NXT6000 DVB-T demodulator driver");
 MODULE_AUTHOR("Florian Schirmer");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(nxt6000_attach); */
+EXPORT_SYMBOL(nxt6000_attach);

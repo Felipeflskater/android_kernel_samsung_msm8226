@@ -34,7 +34,7 @@ int max98506_get_init_status(void)
 {
 	return max98506_init_status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max98506_get_init_status); */
+EXPORT_SYMBOL_GPL(max98506_get_init_status);
 
 static int max98506_regmap_write(struct max98506_priv *max98506,
 	unsigned int reg,

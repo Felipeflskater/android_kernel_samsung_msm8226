@@ -68,12 +68,12 @@ static int __init vdso_setup(char *s)
  * behavior on both 64-bit and 32-bit kernels.
  * On 32-bit kernels, vdso=[012] means the same thing.
  */
-/* DISABLED: __setup("vdso32=", vdso_setup); */ */
+__setup("vdso32=", vdso_setup);
 
 #ifdef CONFIG_X86_32
-/* DISABLED: __setup_param("vdso=", vdso32_setup, vdso_setup, 0); */ */
+__setup_param("vdso=", vdso32_setup, vdso_setup, 0);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vdso_enabled); */
+EXPORT_SYMBOL_GPL(vdso_enabled);
 #endif
 
 static __init void reloc_symtab(Elf32_Ehdr *ehdr,

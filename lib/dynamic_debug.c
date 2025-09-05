@@ -565,7 +565,7 @@ int __dynamic_pr_debug(struct _ddebug *descriptor, const char *fmt, ...)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(__dynamic_pr_debug); */
+EXPORT_SYMBOL(__dynamic_pr_debug);
 
 int __dynamic_dev_dbg(struct _ddebug *descriptor,
 		      const struct device *dev, const char *fmt, ...)
@@ -586,7 +586,7 @@ int __dynamic_dev_dbg(struct _ddebug *descriptor,
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(__dynamic_dev_dbg); */
+EXPORT_SYMBOL(__dynamic_dev_dbg);
 
 #ifdef CONFIG_NET
 
@@ -609,7 +609,7 @@ int __dynamic_netdev_dbg(struct _ddebug *descriptor,
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(__dynamic_netdev_dbg); */
+EXPORT_SYMBOL(__dynamic_netdev_dbg);
 
 #endif
 
@@ -626,7 +626,7 @@ static __init int ddebug_setup_query(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ddebug_query=", ddebug_setup_query); */ */
+__setup("ddebug_query=", ddebug_setup_query);
 
 /*
  * File_ops->write method for <debugfs>/dynamic_debug/conrol.  Gathers the
@@ -870,7 +870,7 @@ int ddebug_add_module(struct _ddebug *tab, unsigned int n,
 		pr_info("%u debug prints in module %s\n", n, dt->mod_name);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ddebug_add_module); */
+EXPORT_SYMBOL_GPL(ddebug_add_module);
 
 static void ddebug_table_free(struct ddebug_table *dt)
 {
@@ -901,7 +901,7 @@ int ddebug_remove_module(const char *mod_name)
 	mutex_unlock(&ddebug_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ddebug_remove_module); */
+EXPORT_SYMBOL_GPL(ddebug_remove_module);
 
 static void ddebug_remove_all_tables(void)
 {

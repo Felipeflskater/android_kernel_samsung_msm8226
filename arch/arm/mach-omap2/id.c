@@ -36,7 +36,7 @@ unsigned int omap_rev(void)
 {
 	return omap_revision;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rev); */
+EXPORT_SYMBOL(omap_rev);
 
 int omap_type(void)
 {
@@ -61,7 +61,7 @@ int omap_type(void)
 out:
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_type); */
+EXPORT_SYMBOL(omap_type);
 
 
 /*----------------------------------------------------------------------------*/

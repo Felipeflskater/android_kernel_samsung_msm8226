@@ -75,19 +75,19 @@ long psw_user_bits	= PSW_MASK_DAT | PSW_MASK_IO | PSW_MASK_EXT |
  * User copy operations.
  */
 struct uaccess_ops uaccess;
-/* DISABLED: EXPORT_SYMBOL(uaccess); */
+EXPORT_SYMBOL(uaccess);
 
 /*
  * Machine setup..
  */
 unsigned int console_mode = 0;
-/* DISABLED: EXPORT_SYMBOL(console_mode); */
+EXPORT_SYMBOL(console_mode);
 
 unsigned int console_devno = -1;
-/* DISABLED: EXPORT_SYMBOL(console_devno); */
+EXPORT_SYMBOL(console_devno);
 
 unsigned int console_irq = -1;
-/* DISABLED: EXPORT_SYMBOL(console_irq); */
+EXPORT_SYMBOL(console_irq);
 
 unsigned long elf_hwcap = 0;
 char elf_platform[ELF_PLATFORM_SIZE];
@@ -98,17 +98,17 @@ int __initdata memory_end_set;
 unsigned long __initdata memory_end;
 
 unsigned long VMALLOC_START;
-/* DISABLED: EXPORT_SYMBOL(VMALLOC_START); */
+EXPORT_SYMBOL(VMALLOC_START);
 
 unsigned long VMALLOC_END;
-/* DISABLED: EXPORT_SYMBOL(VMALLOC_END); */
+EXPORT_SYMBOL(VMALLOC_END);
 
 struct page *vmemmap;
-/* DISABLED: EXPORT_SYMBOL(vmemmap); */
+EXPORT_SYMBOL(vmemmap);
 
 /* An array with a pointer to the lowcore of every CPU. */
 struct _lowcore *lowcore_ptr[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL(lowcore_ptr); */
+EXPORT_SYMBOL(lowcore_ptr);
 
 /*
  * This is set up by the setup-routine at boot-time
@@ -134,7 +134,7 @@ static int __init condev_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("condev=", condev_setup); */ */
+__setup("condev=", condev_setup);
 
 static void __init set_preferred_console(void)
 {
@@ -164,7 +164,7 @@ static int __init conmode_setup(char *str)
         return 1;
 }
 
-/* DISABLED: __setup("conmode=", conmode_setup); */ */
+__setup("conmode=", conmode_setup);
 
 static void __init conmode_default(void)
 {
@@ -299,7 +299,7 @@ static int __init parse_vmalloc(char *arg)
 early_param("vmalloc", parse_vmalloc);
 
 unsigned int user_mode = HOME_SPACE_MODE;
-/* DISABLED: EXPORT_SYMBOL_GPL(user_mode); */
+EXPORT_SYMBOL_GPL(user_mode);
 
 static int set_amode_primary(void)
 {
@@ -513,7 +513,7 @@ static void __init setup_resources(void)
 }
 
 unsigned long real_memory_size;
-/* DISABLED: EXPORT_SYMBOL_GPL(real_memory_size); */
+EXPORT_SYMBOL_GPL(real_memory_size);
 
 static void __init setup_memory_end(void)
 {

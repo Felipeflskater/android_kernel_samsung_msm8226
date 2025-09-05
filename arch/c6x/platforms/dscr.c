@@ -251,7 +251,7 @@ void dscr_set_devstate(int id, enum dscr_devstate_t state)
 		val &= ((1 << stat->nbits) - 1);
 	} while (val != ctl_val);
 }
-/* DISABLED: EXPORT_SYMBOL(dscr_set_devstate); */
+EXPORT_SYMBOL(dscr_set_devstate);
 
 /*
  * Drivers can use this to reset RMII module.
@@ -279,7 +279,7 @@ void dscr_rmii_reset(int id, int assert)
 
 	spin_unlock_irqrestore(&dscr.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(dscr_rmii_reset); */
+EXPORT_SYMBOL(dscr_rmii_reset);
 
 static void __init dscr_parse_devstat(struct device_node *node,
 				      void __iomem *base)

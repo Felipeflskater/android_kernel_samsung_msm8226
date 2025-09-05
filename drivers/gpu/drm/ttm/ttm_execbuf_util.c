@@ -112,7 +112,7 @@ void ttm_eu_backoff_reservation(struct list_head *list)
 	ttm_eu_backoff_reservation_locked(list);
 	spin_unlock(&glob->lru_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_eu_backoff_reservation); */
+EXPORT_SYMBOL(ttm_eu_backoff_reservation);
 
 /*
  * Reserve buffers for validation.
@@ -198,7 +198,7 @@ retry_this_bo:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_eu_reserve_buffers); */
+EXPORT_SYMBOL(ttm_eu_reserve_buffers);
 
 void ttm_eu_fence_buffer_objects(struct list_head *list, void *sync_obj)
 {
@@ -235,4 +235,4 @@ void ttm_eu_fence_buffer_objects(struct list_head *list, void *sync_obj)
 			driver->sync_obj_unref(&entry->old_sync_obj);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_eu_fence_buffer_objects); */
+EXPORT_SYMBOL(ttm_eu_fence_buffer_objects);

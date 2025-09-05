@@ -68,13 +68,13 @@ inline int p9_is_proto_dotl(struct p9_client *clnt)
 {
 	return clnt->proto_version == p9_proto_2000L;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_is_proto_dotl); */
+EXPORT_SYMBOL(p9_is_proto_dotl);
 
 inline int p9_is_proto_dotu(struct p9_client *clnt)
 {
 	return clnt->proto_version == p9_proto_2000u;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_is_proto_dotu); */
+EXPORT_SYMBOL(p9_is_proto_dotu);
 
 /* Interpret mount option for protocol version */
 static int get_protocol_version(char *s)
@@ -300,7 +300,7 @@ struct p9_req_t *p9_tag_lookup(struct p9_client *c, u16 tag)
 
 	return &c->reqs[row][col];
 }
-/* DISABLED: EXPORT_SYMBOL(p9_tag_lookup); */
+EXPORT_SYMBOL(p9_tag_lookup);
 
 /**
  * p9_tag_init - setup tags structure and contents
@@ -399,7 +399,7 @@ void p9_client_cb(struct p9_client *c, struct p9_req_t *req)
 	wake_up(req->wq);
 	p9_debug(P9_DEBUG_MUX, "wakeup: %d\n", req->tc->tag);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_cb); */
+EXPORT_SYMBOL(p9_client_cb);
 
 /**
  * p9_parse_header - parse header arguments out of a packet
@@ -448,7 +448,7 @@ rewind_and_exit:
 		pdu->offset = offset;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_parse_header); */
+EXPORT_SYMBOL(p9_parse_header);
 
 /**
  * p9_check_errors - check 9p packet for error return and process it
@@ -1045,7 +1045,7 @@ free_client:
 	kfree(clnt);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_create); */
+EXPORT_SYMBOL(p9_client_create);
 
 void p9_client_destroy(struct p9_client *clnt)
 {
@@ -1070,21 +1070,21 @@ void p9_client_destroy(struct p9_client *clnt)
 
 	kfree(clnt);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_destroy); */
+EXPORT_SYMBOL(p9_client_destroy);
 
 void p9_client_disconnect(struct p9_client *clnt)
 {
 	p9_debug(P9_DEBUG_9P, "clnt %p\n", clnt);
 	clnt->status = Disconnected;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_disconnect); */
+EXPORT_SYMBOL(p9_client_disconnect);
 
 void p9_client_begin_disconnect(struct p9_client *clnt)
 {
 	p9_debug(P9_DEBUG_9P, "clnt %p\n", clnt);
 	clnt->status = BeginDisconnect;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_begin_disconnect); */
+EXPORT_SYMBOL(p9_client_begin_disconnect);
 
 struct p9_fid *p9_client_attach(struct p9_client *clnt, struct p9_fid *afid,
 	char *uname, u32 n_uname, char *aname)
@@ -1131,7 +1131,7 @@ error:
 		p9_fid_destroy(fid);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_attach); */
+EXPORT_SYMBOL(p9_client_attach);
 
 struct p9_fid *p9_client_walk(struct p9_fid *oldfid, uint16_t nwname,
 		char **wnames, int clone)
@@ -1209,7 +1209,7 @@ error:
 
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_walk); */
+EXPORT_SYMBOL(p9_client_walk);
 
 int p9_client_open(struct p9_fid *fid, int mode)
 {
@@ -1254,7 +1254,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_open); */
+EXPORT_SYMBOL(p9_client_open);
 
 int p9_client_create_dotl(struct p9_fid *ofid, char *name, u32 flags, u32 mode,
 		gid_t gid, struct p9_qid *qid)
@@ -1298,7 +1298,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_create_dotl); */
+EXPORT_SYMBOL(p9_client_create_dotl);
 
 int p9_client_fcreate(struct p9_fid *fid, char *name, u32 perm, int mode,
 		     char *extension)
@@ -1343,7 +1343,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_fcreate); */
+EXPORT_SYMBOL(p9_client_fcreate);
 
 int p9_client_symlink(struct p9_fid *dfid, char *name, char *symtgt, gid_t gid,
 		struct p9_qid *qid)
@@ -1377,7 +1377,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_symlink); */
+EXPORT_SYMBOL(p9_client_symlink);
 
 int p9_client_link(struct p9_fid *dfid, struct p9_fid *oldfid, char *newname)
 {
@@ -1396,7 +1396,7 @@ int p9_client_link(struct p9_fid *dfid, struct p9_fid *oldfid, char *newname)
 	p9_free_req(clnt, req);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_link); */
+EXPORT_SYMBOL(p9_client_link);
 
 int p9_client_fsync(struct p9_fid *fid, int datasync)
 {
@@ -1422,7 +1422,7 @@ int p9_client_fsync(struct p9_fid *fid, int datasync)
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_fsync); */
+EXPORT_SYMBOL(p9_client_fsync);
 
 int p9_client_clunk(struct p9_fid *fid)
 {
@@ -1466,7 +1466,7 @@ error:
 		p9_fid_destroy(fid);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_clunk); */
+EXPORT_SYMBOL(p9_client_clunk);
 
 int p9_client_remove(struct p9_fid *fid)
 {
@@ -1494,7 +1494,7 @@ error:
 		p9_fid_destroy(fid);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_remove); */
+EXPORT_SYMBOL(p9_client_remove);
 
 int p9_client_unlinkat(struct p9_fid *dfid, const char *name, int flags)
 {
@@ -1517,7 +1517,7 @@ int p9_client_unlinkat(struct p9_fid *dfid, const char *name, int flags)
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_unlinkat); */
+EXPORT_SYMBOL(p9_client_unlinkat);
 
 int
 p9_client_read(struct p9_fid *fid, char *data, char __user *udata, u64 offset,
@@ -1594,7 +1594,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_read); */
+EXPORT_SYMBOL(p9_client_read);
 
 int
 p9_client_write(struct p9_fid *fid, char *data, const char __user *udata,
@@ -1657,7 +1657,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_write); */
+EXPORT_SYMBOL(p9_client_write);
 
 struct p9_wstat *p9_client_stat(struct p9_fid *fid)
 {
@@ -1706,7 +1706,7 @@ error:
 	kfree(ret);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_stat); */
+EXPORT_SYMBOL(p9_client_stat);
 
 struct p9_stat_dotl *p9_client_getattr_dotl(struct p9_fid *fid,
 							u64 request_mask)
@@ -1765,7 +1765,7 @@ error:
 	kfree(ret);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_getattr_dotl); */
+EXPORT_SYMBOL(p9_client_getattr_dotl);
 
 static int p9_client_statsize(struct p9_wstat *wst, int proto_version)
 {
@@ -1829,7 +1829,7 @@ int p9_client_wstat(struct p9_fid *fid, struct p9_wstat *wst)
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_wstat); */
+EXPORT_SYMBOL(p9_client_wstat);
 
 int p9_client_setattr(struct p9_fid *fid, struct p9_iattr_dotl *p9attr)
 {
@@ -1859,7 +1859,7 @@ int p9_client_setattr(struct p9_fid *fid, struct p9_iattr_dotl *p9attr)
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_setattr); */
+EXPORT_SYMBOL(p9_client_setattr);
 
 int p9_client_statfs(struct p9_fid *fid, struct p9_rstatfs *sb)
 {
@@ -1898,7 +1898,7 @@ int p9_client_statfs(struct p9_fid *fid, struct p9_rstatfs *sb)
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_statfs); */
+EXPORT_SYMBOL(p9_client_statfs);
 
 int p9_client_rename(struct p9_fid *fid,
 		     struct p9_fid *newdirfid, const char *name)
@@ -1926,7 +1926,7 @@ int p9_client_rename(struct p9_fid *fid,
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_rename); */
+EXPORT_SYMBOL(p9_client_rename);
 
 int p9_client_renameat(struct p9_fid *olddirfid, const char *old_name,
 		       struct p9_fid *newdirfid, const char *new_name)
@@ -1956,7 +1956,7 @@ int p9_client_renameat(struct p9_fid *olddirfid, const char *old_name,
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_renameat); */
+EXPORT_SYMBOL(p9_client_renameat);
 
 /*
  * An xattrwalk without @attr_name gives the fid for the lisxattr namespace
@@ -2006,7 +2006,7 @@ error:
 
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(p9_client_xattrwalk); */
+EXPORT_SYMBOL_GPL(p9_client_xattrwalk);
 
 int p9_client_xattrcreate(struct p9_fid *fid, const char *name,
 			u64 attr_size, int flags)
@@ -2031,7 +2031,7 @@ int p9_client_xattrcreate(struct p9_fid *fid, const char *name,
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(p9_client_xattrcreate); */
+EXPORT_SYMBOL_GPL(p9_client_xattrcreate);
 
 int p9_client_readdir(struct p9_fid *fid, char *data, u32 count, u64 offset)
 {
@@ -2090,7 +2090,7 @@ free_and_error:
 error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_readdir); */
+EXPORT_SYMBOL(p9_client_readdir);
 
 int p9_client_mknod_dotl(struct p9_fid *fid, char *name, int mode,
 			dev_t rdev, gid_t gid, struct p9_qid *qid)
@@ -2121,7 +2121,7 @@ error:
 	return err;
 
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_mknod_dotl); */
+EXPORT_SYMBOL(p9_client_mknod_dotl);
 
 int p9_client_mkdir_dotl(struct p9_fid *fid, char *name, int mode,
 				gid_t gid, struct p9_qid *qid)
@@ -2152,7 +2152,7 @@ error:
 	return err;
 
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_mkdir_dotl); */
+EXPORT_SYMBOL(p9_client_mkdir_dotl);
 
 int p9_client_lock_dotl(struct p9_fid *fid, struct p9_flock *flock, u8 *status)
 {
@@ -2185,7 +2185,7 @@ error:
 	return err;
 
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_lock_dotl); */
+EXPORT_SYMBOL(p9_client_lock_dotl);
 
 int p9_client_getlock_dotl(struct p9_fid *fid, struct p9_getlock *glock)
 {
@@ -2219,7 +2219,7 @@ error:
 	p9_free_req(clnt, req);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_getlock_dotl); */
+EXPORT_SYMBOL(p9_client_getlock_dotl);
 
 int p9_client_readlink(struct p9_fid *fid, char **target)
 {
@@ -2245,4 +2245,4 @@ error:
 	p9_free_req(clnt, req);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_client_readlink); */
+EXPORT_SYMBOL(p9_client_readlink);

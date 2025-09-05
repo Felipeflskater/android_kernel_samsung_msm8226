@@ -75,7 +75,7 @@ early_param("gbpages", parse_direct_gbpages_on);
  */
 
 pteval_t __supported_pte_mask __read_mostly = ~_PAGE_IOMAP;
-/* DISABLED: EXPORT_SYMBOL_GPL(__supported_pte_mask); */
+EXPORT_SYMBOL_GPL(__supported_pte_mask);
 
 int force_personality32;
 
@@ -95,7 +95,7 @@ static int __init nonx32_setup(char *str)
 		force_personality32 |= READ_IMPLIES_EXEC;
 	return 1;
 }
-/* DISABLED: __setup("noexec32=", nonx32_setup); */ */
+__setup("noexec32=", nonx32_setup);
 
 /*
  * When memory was added/removed make sure all the processes MM have
@@ -670,7 +670,7 @@ int arch_add_memory(int nid, u64 start, u64 size)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(arch_add_memory); */
+EXPORT_SYMBOL_GPL(arch_add_memory);
 
 #endif /* CONFIG_MEMORY_HOTPLUG */
 
@@ -719,7 +719,7 @@ void __init mem_init(void)
 
 #ifdef CONFIG_DEBUG_RODATA
 const int rodata_test_data = 0xC3;
-/* DISABLED: EXPORT_SYMBOL_GPL(rodata_test_data); */
+EXPORT_SYMBOL_GPL(rodata_test_data);
 
 int kernel_set_to_readonly;
 

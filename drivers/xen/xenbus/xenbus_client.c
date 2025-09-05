@@ -81,7 +81,7 @@ const char *xenbus_strstate(enum xenbus_state state)
 	};
 	return (state < ARRAY_SIZE(name)) ? name[state] : "INVALID";
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_strstate); */
+EXPORT_SYMBOL_GPL(xenbus_strstate);
 
 /**
  * xenbus_watch_path - register a watch
@@ -117,7 +117,7 @@ int xenbus_watch_path(struct xenbus_device *dev, const char *path,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_watch_path); */
+EXPORT_SYMBOL_GPL(xenbus_watch_path);
 
 
 /**
@@ -159,7 +159,7 @@ int xenbus_watch_pathfmt(struct xenbus_device *dev,
 		kfree(path);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_watch_pathfmt); */
+EXPORT_SYMBOL_GPL(xenbus_watch_pathfmt);
 
 static void xenbus_switch_fatal(struct xenbus_device *, int, int,
 				const char *, ...);
@@ -234,7 +234,7 @@ int xenbus_switch_state(struct xenbus_device *dev, enum xenbus_state state)
 	return __xenbus_switch_state(dev, state, 0);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_switch_state); */
+EXPORT_SYMBOL_GPL(xenbus_switch_state);
 
 int xenbus_frontend_closed(struct xenbus_device *dev)
 {
@@ -242,7 +242,7 @@ int xenbus_frontend_closed(struct xenbus_device *dev)
 	complete(&dev->down);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_frontend_closed); */
+EXPORT_SYMBOL_GPL(xenbus_frontend_closed);
 
 /**
  * Return the path to the error node for the given device, or NULL on failure.
@@ -311,7 +311,7 @@ void xenbus_dev_error(struct xenbus_device *dev, int err, const char *fmt, ...)
 	xenbus_va_dev_error(dev, err, fmt, ap);
 	va_end(ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_error); */
+EXPORT_SYMBOL_GPL(xenbus_dev_error);
 
 /**
  * xenbus_dev_fatal
@@ -334,7 +334,7 @@ void xenbus_dev_fatal(struct xenbus_device *dev, int err, const char *fmt, ...)
 
 	xenbus_switch_state(dev, XenbusStateClosing);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_fatal); */
+EXPORT_SYMBOL_GPL(xenbus_dev_fatal);
 
 /**
  * Equivalent to xenbus_dev_fatal(dev, err, fmt, args), but helps
@@ -369,7 +369,7 @@ int xenbus_grant_ring(struct xenbus_device *dev, unsigned long ring_mfn)
 		xenbus_dev_fatal(dev, err, "granting access to ring page");
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_grant_ring); */
+EXPORT_SYMBOL_GPL(xenbus_grant_ring);
 
 
 /**
@@ -395,7 +395,7 @@ int xenbus_alloc_evtchn(struct xenbus_device *dev, int *port)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_alloc_evtchn); */
+EXPORT_SYMBOL_GPL(xenbus_alloc_evtchn);
 
 
 /**
@@ -422,7 +422,7 @@ int xenbus_bind_evtchn(struct xenbus_device *dev, int remote_port, int *port)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_bind_evtchn); */
+EXPORT_SYMBOL_GPL(xenbus_bind_evtchn);
 
 
 /**
@@ -441,7 +441,7 @@ int xenbus_free_evtchn(struct xenbus_device *dev, int port)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_free_evtchn); */
+EXPORT_SYMBOL_GPL(xenbus_free_evtchn);
 
 
 /**
@@ -462,7 +462,7 @@ int xenbus_map_ring_valloc(struct xenbus_device *dev, int gnt_ref, void **vaddr)
 {
 	return ring_ops->map(dev, gnt_ref, vaddr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_map_ring_valloc); */
+EXPORT_SYMBOL_GPL(xenbus_map_ring_valloc);
 
 static int xenbus_map_ring_valloc_pv(struct xenbus_device *dev,
 				     int gnt_ref, void **vaddr)
@@ -584,7 +584,7 @@ int xenbus_map_ring(struct xenbus_device *dev, int gnt_ref,
 
 	return op.status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_map_ring); */
+EXPORT_SYMBOL_GPL(xenbus_map_ring);
 
 
 /**
@@ -603,7 +603,7 @@ int xenbus_unmap_ring_vfree(struct xenbus_device *dev, void *vaddr)
 {
 	return ring_ops->unmap(dev, vaddr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_unmap_ring_vfree); */
+EXPORT_SYMBOL_GPL(xenbus_unmap_ring_vfree);
 
 static int xenbus_unmap_ring_vfree_pv(struct xenbus_device *dev, void *vaddr)
 {
@@ -710,7 +710,7 @@ int xenbus_unmap_ring(struct xenbus_device *dev,
 
 	return op.status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_unmap_ring); */
+EXPORT_SYMBOL_GPL(xenbus_unmap_ring);
 
 
 /**
@@ -729,7 +729,7 @@ enum xenbus_state xenbus_read_driver_state(const char *path)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_read_driver_state); */
+EXPORT_SYMBOL_GPL(xenbus_read_driver_state);
 
 static const struct xenbus_ring_ops ring_ops_pv = {
 	.map = xenbus_map_ring_valloc_pv,

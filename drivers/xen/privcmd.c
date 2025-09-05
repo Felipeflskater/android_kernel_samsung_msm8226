@@ -403,7 +403,7 @@ const struct file_operations xen_privcmd_fops = {
 	.unlocked_ioctl = privcmd_ioctl,
 	.mmap = privcmd_mmap,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_privcmd_fops); */
+EXPORT_SYMBOL_GPL(xen_privcmd_fops);
 
 static struct miscdevice privcmd_dev = {
 	.minor = MISC_DYNAMIC_MINOR,

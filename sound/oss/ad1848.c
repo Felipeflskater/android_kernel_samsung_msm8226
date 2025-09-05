@@ -2800,13 +2800,13 @@ static int ad1848_tmr_install(int dev)
 }
 #endif /* EXCLUDE_TIMERS */
 
-/* DISABLED: EXPORT_SYMBOL(ad1848_detect); */
-/* DISABLED: EXPORT_SYMBOL(ad1848_init); */
-/* DISABLED: EXPORT_SYMBOL(ad1848_unload); */
-/* DISABLED: EXPORT_SYMBOL(ad1848_control); */
-/* DISABLED: EXPORT_SYMBOL(probe_ms_sound); */
-/* DISABLED: EXPORT_SYMBOL(attach_ms_sound); */
-/* DISABLED: EXPORT_SYMBOL(unload_ms_sound); */
+EXPORT_SYMBOL(ad1848_detect);
+EXPORT_SYMBOL(ad1848_init);
+EXPORT_SYMBOL(ad1848_unload);
+EXPORT_SYMBOL(ad1848_control);
+EXPORT_SYMBOL(probe_ms_sound);
+EXPORT_SYMBOL(attach_ms_sound);
+EXPORT_SYMBOL(unload_ms_sound);
 
 static int __initdata io = -1;
 static int __initdata irq = -1;
@@ -3064,6 +3064,6 @@ static int __init setup_ad1848(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ad1848=", setup_ad1848);	 */ */
+__setup("ad1848=", setup_ad1848);	
 #endif
 MODULE_LICENSE("GPL");

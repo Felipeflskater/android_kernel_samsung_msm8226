@@ -46,7 +46,7 @@ nf_tproxy_assign_sock(struct sk_buff *skb, struct sock *sk)
 	skb->sk = sk;
 	skb->destructor = nf_tproxy_destructor;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_tproxy_assign_sock); */
+EXPORT_SYMBOL_GPL(nf_tproxy_assign_sock);
 
 static int __init nf_tproxy_init(void)
 {

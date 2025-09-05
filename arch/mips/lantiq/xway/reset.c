@@ -41,7 +41,7 @@ int ltq_reset_cause(void)
 	u32 val = ltq_rcu_r32(LTQ_RCU_RST_STAT);
 	return val >> LTQ_RCU_STAT_SHIFT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ltq_reset_cause); */
+EXPORT_SYMBOL_GPL(ltq_reset_cause);
 
 static void ltq_machine_restart(char *command)
 {

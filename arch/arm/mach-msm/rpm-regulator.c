@@ -677,7 +677,7 @@ int rpm_vreg_set_voltage(int vreg_id, enum rpm_vreg_voter voter, int min_uV,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_vreg_set_voltage); */
+EXPORT_SYMBOL_GPL(rpm_vreg_set_voltage);
 
 /**
  * rpm_vreg_set_frequency - sets the frequency of a switching regulator
@@ -727,7 +727,7 @@ int rpm_vreg_set_frequency(int vreg_id, enum rpm_vreg_freq freq)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_vreg_set_frequency); */
+EXPORT_SYMBOL_GPL(rpm_vreg_set_frequency);
 
 #define MAX_NAME_LEN 64
 /**
@@ -799,7 +799,7 @@ struct rpm_regulator *rpm_regulator_get(struct device *dev, const char *supply)
 
 	return regulator;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_get); */
+EXPORT_SYMBOL_GPL(rpm_regulator_get);
 
 static int rpm_regulator_check_input(struct rpm_regulator *regulator)
 {
@@ -830,7 +830,7 @@ void rpm_regulator_put(struct rpm_regulator *regulator)
 {
 	kfree(regulator);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_put); */
+EXPORT_SYMBOL_GPL(rpm_regulator_put);
 
 /**
  * rpm_regulator_enable() - enable regulator output
@@ -887,7 +887,7 @@ int rpm_regulator_enable(struct rpm_regulator *regulator)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_enable); */
+EXPORT_SYMBOL_GPL(rpm_regulator_enable);
 
 /**
  * rpm_regulator_disable() - disable regulator output
@@ -918,7 +918,7 @@ int rpm_regulator_disable(struct rpm_regulator *regulator)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_disable); */
+EXPORT_SYMBOL_GPL(rpm_regulator_disable);
 
 /**
  * rpm_regulator_set_voltage() - set regulator output voltage
@@ -964,7 +964,7 @@ int rpm_regulator_set_voltage(struct rpm_regulator *regulator, int min_uV,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpm_regulator_set_voltage); */
+EXPORT_SYMBOL_GPL(rpm_regulator_set_voltage);
 
 static inline int vreg_hpm_min_uA(struct vreg *vreg)
 {

@@ -52,7 +52,7 @@ unsigned int get_au1x00_speed(void)
 {
 	return au1x00_clock;
 }
-/* DISABLED: EXPORT_SYMBOL(get_au1x00_speed); */
+EXPORT_SYMBOL(get_au1x00_speed);
 
 /*
  * The UART baud base is not known at compile time ... if

@@ -183,7 +183,7 @@ int sysfs_merge_group(struct kobject *kobj,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_merge_group); */
+EXPORT_SYMBOL_GPL(sysfs_merge_group);
 
 /**
  * sysfs_unmerge_group - remove files from a pre-existing attribute group.
@@ -203,9 +203,9 @@ void sysfs_unmerge_group(struct kobject *kobj,
 		sysfs_put(dir_sd);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_unmerge_group); */
+EXPORT_SYMBOL_GPL(sysfs_unmerge_group);
 
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_create_group); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_update_group); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_group); */
+EXPORT_SYMBOL_GPL(sysfs_create_group);
+EXPORT_SYMBOL_GPL(sysfs_update_group);
+EXPORT_SYMBOL_GPL(sysfs_remove_group);

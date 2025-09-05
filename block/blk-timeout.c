@@ -16,7 +16,7 @@ static int __init setup_fail_io_timeout(char *str)
 {
 	return setup_fault_attr(&fail_io_timeout, str);
 }
-/* DISABLED: __setup("fail_io_timeout=", setup_fail_io_timeout); */ */
+__setup("fail_io_timeout=", setup_fail_io_timeout);
 
 int blk_should_fake_timeout(struct request_queue *q)
 {
@@ -154,7 +154,7 @@ void blk_abort_request(struct request *req)
 	blk_delete_timer(req);
 	blk_rq_timed_out(req);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_abort_request); */
+EXPORT_SYMBOL_GPL(blk_abort_request);
 
 /**
  * blk_add_timer - Start timeout timer for a single request
@@ -236,4 +236,4 @@ void blk_abort_queue(struct request_queue *q)
 	spin_unlock_irqrestore(q->queue_lock, flags);
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_abort_queue); */
+EXPORT_SYMBOL_GPL(blk_abort_queue);

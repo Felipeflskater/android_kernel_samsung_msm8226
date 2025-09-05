@@ -120,7 +120,7 @@ struct snd_soc_dai msm_cpu_dai[] = {
 	MSM_DAI_MIC_BUILDER(6),
 	MSM_DAI_MIC_BUILDER(7),
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(msm_cpu_dai); */
+EXPORT_SYMBOL_GPL(msm_cpu_dai);
 
 static int __init msm_cpu_dai_init(void)
 {

@@ -18,19 +18,13 @@
 
 	@ read all the working registers back into the VFP
 	.macro	VFPFLDMIA, base, tmp
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ < 6
-#endif
 	LDC	p11, cr0, [\base],#33*4		    @ FLDMIAX \base!, {d0-d15}
 #else
 	LDC	p11, cr0, [\base],#32*4		    @ FLDMIAD \base!, {d0-d15}
 #endif
 #ifdef CONFIG_VFPv3
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ <= 6
-#endif
 	ldr	\tmp, =elf_hwcap		    @ may not have MVFR regs
 	ldr	\tmp, [\tmp, #0]
 	tst	\tmp, #HWCAP_VFPD32
@@ -48,19 +42,13 @@
 
 	@ write all the working registers out of the VFP
 	.macro	VFPFSTMIA, base, tmp
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ < 6
-#endif
 	STC	p11, cr0, [\base],#33*4		    @ FSTMIAX \base!, {d0-d15}
 #else
 	STC	p11, cr0, [\base],#32*4		    @ FSTMIAD \base!, {d0-d15}
 #endif
 #ifdef CONFIG_VFPv3
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ <= 6
-#endif
 	ldr	\tmp, =elf_hwcap		    @ may not have MVFR regs
 	ldr	\tmp, [\tmp, #0]
 	tst	\tmp, #HWCAP_VFPD32

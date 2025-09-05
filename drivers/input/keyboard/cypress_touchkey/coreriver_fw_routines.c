@@ -753,5 +753,5 @@ err:
 	dev_err(&client->dev, "fail to fw flash. driver is removed\n");
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(coreriver_fw_update); */
+EXPORT_SYMBOL(coreriver_fw_update);
 

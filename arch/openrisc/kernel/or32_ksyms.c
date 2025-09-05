@@ -43,4 +43,4 @@ DECLARE_EXPORT(__ashrdi3);
 DECLARE_EXPORT(__ashldi3);
 DECLARE_EXPORT(__lshrdi3);
 
-/* DISABLED: EXPORT_SYMBOL(__copy_tofrom_user); */
+EXPORT_SYMBOL(__copy_tofrom_user);

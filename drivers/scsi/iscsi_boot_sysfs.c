@@ -376,7 +376,7 @@ iscsi_boot_create_target(struct iscsi_boot_kset *boot_kset, int index,
 				      "target%d", index, data, show, is_visible,
 				      release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_create_target); */
+EXPORT_SYMBOL_GPL(iscsi_boot_create_target);
 
 /**
  * iscsi_boot_create_initiator() - create boot initiator sysfs dir
@@ -402,7 +402,7 @@ iscsi_boot_create_initiator(struct iscsi_boot_kset *boot_kset, int index,
 				      "initiator", index, data, show,
 				      is_visible, release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_create_initiator); */
+EXPORT_SYMBOL_GPL(iscsi_boot_create_initiator);
 
 /**
  * iscsi_boot_create_ethernet() - create boot ethernet sysfs dir
@@ -428,7 +428,7 @@ iscsi_boot_create_ethernet(struct iscsi_boot_kset *boot_kset, int index,
 				      "ethernet%d", index, data, show,
 				      is_visible, release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_create_ethernet); */
+EXPORT_SYMBOL_GPL(iscsi_boot_create_ethernet);
 
 /**
  * iscsi_boot_create_kset() - creates root sysfs tree
@@ -451,7 +451,7 @@ struct iscsi_boot_kset *iscsi_boot_create_kset(const char *set_name)
 	INIT_LIST_HEAD(&boot_kset->kobj_list);
 	return boot_kset;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_create_kset); */
+EXPORT_SYMBOL_GPL(iscsi_boot_create_kset);
 
 /**
  * iscsi_boot_create_host_kset() - creates root sysfs tree for a scsi host
@@ -470,7 +470,7 @@ struct iscsi_boot_kset *iscsi_boot_create_host_kset(unsigned int hostno)
 	kfree(set_name);
 	return boot_kset;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_create_host_kset); */
+EXPORT_SYMBOL_GPL(iscsi_boot_create_host_kset);
 
 /**
  * iscsi_boot_destroy_kset() - destroy kset and kobjects under it
@@ -491,4 +491,4 @@ void iscsi_boot_destroy_kset(struct iscsi_boot_kset *boot_kset)
 
 	kset_unregister(boot_kset->kset);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_boot_destroy_kset); */
+EXPORT_SYMBOL_GPL(iscsi_boot_destroy_kset);

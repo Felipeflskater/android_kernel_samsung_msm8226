@@ -162,7 +162,7 @@ int usbnet_get_endpoints(struct usbnet *dev, struct usb_interface *intf)
 	dev->status = status;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_endpoints); */
+EXPORT_SYMBOL_GPL(usbnet_get_endpoints);
 
 int usbnet_get_ethernet_addr(struct usbnet *dev, int iMACAddress)
 {
@@ -182,7 +182,7 @@ int usbnet_get_ethernet_addr(struct usbnet *dev, int iMACAddress)
 			(hex_to_bin(buf[tmp]) << 4) + hex_to_bin(buf[tmp + 1]);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_ethernet_addr); */
+EXPORT_SYMBOL_GPL(usbnet_get_ethernet_addr);
 
 static void intr_complete (struct urb *urb);
 
@@ -254,7 +254,7 @@ void usbnet_skb_return (struct usbnet *dev, struct sk_buff *skb)
 		netif_dbg(dev, rx_err, dev->net,
 			  "netif_rx status %d\n", status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_skb_return); */
+EXPORT_SYMBOL_GPL(usbnet_skb_return);
 
 
 /*-------------------------------------------------------------------------
@@ -286,7 +286,7 @@ int usbnet_change_mtu (struct net_device *net, int new_mtu)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_change_mtu); */
+EXPORT_SYMBOL_GPL(usbnet_change_mtu);
 
 /* The caller must hold list->lock */
 static void __usbnet_queue_skb(struct sk_buff_head *list,
@@ -339,7 +339,7 @@ void usbnet_defer_kevent (struct usbnet *dev, int work)
 		netdev_dbg(dev->net, "kevent %d scheduled\n", work);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_defer_kevent); */
+EXPORT_SYMBOL_GPL(usbnet_defer_kevent);
 
 /*-------------------------------------------------------------------------*/
 
@@ -526,7 +526,7 @@ block:
 	}
 	netif_dbg(dev, rx_err, dev->net, "no read resubmitted\n");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rx_complete); */
+EXPORT_SYMBOL_GPL(rx_complete);
 
 static void intr_complete (struct urb *urb)
 {
@@ -571,7 +571,7 @@ void usbnet_pause_rx(struct usbnet *dev)
 
 	netif_dbg(dev, rx_status, dev->net, "paused rx queue enabled\n");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_pause_rx); */
+EXPORT_SYMBOL_GPL(usbnet_pause_rx);
 
 void usbnet_resume_rx(struct usbnet *dev)
 {
@@ -590,13 +590,13 @@ void usbnet_resume_rx(struct usbnet *dev)
 	netif_dbg(dev, rx_status, dev->net,
 		  "paused rx queue disabled, %d skbs requeued\n", num);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_resume_rx); */
+EXPORT_SYMBOL_GPL(usbnet_resume_rx);
 
 void usbnet_purge_paused_rxq(struct usbnet *dev)
 {
 	skb_queue_purge(&dev->rxq_pause);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_purge_paused_rxq); */
+EXPORT_SYMBOL_GPL(usbnet_purge_paused_rxq);
 
 /*-------------------------------------------------------------------------*/
 
@@ -657,7 +657,7 @@ void usbnet_unlink_rx_urbs(struct usbnet *dev)
 		queue_work(usbnet_wq, &dev->bh_w);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_unlink_rx_urbs); */
+EXPORT_SYMBOL_GPL(usbnet_unlink_rx_urbs);
 
 /*-------------------------------------------------------------------------*/
 
@@ -687,7 +687,7 @@ void usbnet_terminate_urbs(struct usbnet *dev)
 	dev->wait = NULL;
 	remove_wait_queue(&unlink_wakeup, &wait);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_terminate_urbs); */
+EXPORT_SYMBOL_GPL(usbnet_terminate_urbs);
 
 int usbnet_stop (struct net_device *net)
 {
@@ -736,7 +736,7 @@ int usbnet_stop (struct net_device *net)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_stop); */
+EXPORT_SYMBOL_GPL(usbnet_stop);
 
 /*-------------------------------------------------------------------------*/
 
@@ -815,7 +815,7 @@ done:
 done_nopm:
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_open); */
+EXPORT_SYMBOL_GPL(usbnet_open);
 
 /*-------------------------------------------------------------------------*/
 
@@ -832,7 +832,7 @@ int usbnet_get_settings (struct net_device *net, struct ethtool_cmd *cmd)
 
 	return mii_ethtool_gset(&dev->mii, cmd);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_settings); */
+EXPORT_SYMBOL_GPL(usbnet_get_settings);
 
 int usbnet_set_settings (struct net_device *net, struct ethtool_cmd *cmd)
 {
@@ -851,7 +851,7 @@ int usbnet_set_settings (struct net_device *net, struct ethtool_cmd *cmd)
 	return retval;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_set_settings); */
+EXPORT_SYMBOL_GPL(usbnet_set_settings);
 
 u32 usbnet_get_link (struct net_device *net)
 {
@@ -868,7 +868,7 @@ u32 usbnet_get_link (struct net_device *net)
 	/* Otherwise, dtrt for drivers calling netif_carrier_{on,off} */
 	return ethtool_op_get_link(net);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_link); */
+EXPORT_SYMBOL_GPL(usbnet_get_link);
 
 int usbnet_nway_reset(struct net_device *net)
 {
@@ -879,7 +879,7 @@ int usbnet_nway_reset(struct net_device *net)
 
 	return mii_nway_restart(&dev->mii);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_nway_reset); */
+EXPORT_SYMBOL_GPL(usbnet_nway_reset);
 
 void usbnet_get_drvinfo (struct net_device *net, struct ethtool_drvinfo *info)
 {
@@ -891,7 +891,7 @@ void usbnet_get_drvinfo (struct net_device *net, struct ethtool_drvinfo *info)
 		sizeof info->fw_version);
 	usb_make_path (dev->udev, info->bus_info, sizeof info->bus_info);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_drvinfo); */
+EXPORT_SYMBOL_GPL(usbnet_get_drvinfo);
 
 u32 usbnet_get_msglevel (struct net_device *net)
 {
@@ -899,7 +899,7 @@ u32 usbnet_get_msglevel (struct net_device *net)
 
 	return dev->msg_enable;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_get_msglevel); */
+EXPORT_SYMBOL_GPL(usbnet_get_msglevel);
 
 void usbnet_set_msglevel (struct net_device *net, u32 level)
 {
@@ -907,7 +907,7 @@ void usbnet_set_msglevel (struct net_device *net, u32 level)
 
 	dev->msg_enable = level;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_set_msglevel); */
+EXPORT_SYMBOL_GPL(usbnet_set_msglevel);
 
 /* drivers may override default ethtool_ops in their bind() routine */
 static const struct ethtool_ops usbnet_ethtool_ops = {
@@ -1086,7 +1086,7 @@ void usbnet_tx_timeout (struct net_device *net)
 
 	// FIXME: device recovery -- reset?
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_tx_timeout); */
+EXPORT_SYMBOL_GPL(usbnet_tx_timeout);
 
 /*-------------------------------------------------------------------------*/
 
@@ -1209,7 +1209,7 @@ deferred:
 #endif
 	return NETDEV_TX_OK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_start_xmit); */
+EXPORT_SYMBOL_GPL(usbnet_start_xmit);
 
 /*-------------------------------------------------------------------------*/
 
@@ -1328,7 +1328,7 @@ void usbnet_disconnect (struct usb_interface *intf)
 	free_netdev(net);
 	usb_put_dev (xdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_disconnect); */
+EXPORT_SYMBOL_GPL(usbnet_disconnect);
 
 static const struct net_device_ops usbnet_netdev_ops = {
 	.ndo_open		= usbnet_open,
@@ -1514,7 +1514,7 @@ out:
 	usb_put_dev(xdev);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_probe); */
+EXPORT_SYMBOL_GPL(usbnet_probe);
 
 /*-------------------------------------------------------------------------*/
 
@@ -1554,7 +1554,7 @@ int usbnet_suspend (struct usb_interface *intf, pm_message_t message)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_suspend); */
+EXPORT_SYMBOL_GPL(usbnet_suspend);
 
 int usbnet_resume (struct usb_interface *intf)
 {
@@ -1595,7 +1595,7 @@ int usbnet_resume (struct usb_interface *intf)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbnet_resume); */
+EXPORT_SYMBOL_GPL(usbnet_resume);
 
 
 /*-------------------------------------------------------------------------*/

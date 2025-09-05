@@ -248,13 +248,13 @@ int register_vt_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&vt_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_vt_notifier); */
+EXPORT_SYMBOL_GPL(register_vt_notifier);
 
 int unregister_vt_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&vt_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_vt_notifier); */
+EXPORT_SYMBOL_GPL(unregister_vt_notifier);
 
 static void notify_write(struct vc_data *vc, unsigned int unicode)
 {
@@ -3172,7 +3172,7 @@ int unbind_con_driver(const struct consw *csw, int first, int last, int deflt)
 	console_unlock();
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(unbind_con_driver); */
+EXPORT_SYMBOL(unbind_con_driver);
 
 /* unlocked version of unbind_con_driver() */
 int do_unbind_con_driver(const struct consw *csw, int first, int last, int deflt)
@@ -3253,7 +3253,7 @@ err:
 	return retval;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(do_unbind_con_driver); */
+EXPORT_SYMBOL_GPL(do_unbind_con_driver);
 
 static int vt_bind(struct con_driver *con)
 {
@@ -3449,7 +3449,7 @@ int con_is_bound(const struct consw *csw)
 
 	return bound;
 }
-/* DISABLED: EXPORT_SYMBOL(con_is_bound); */
+EXPORT_SYMBOL(con_is_bound);
 
 /**
  * con_debug_enter - prepare the console for the kernel debugger
@@ -3507,7 +3507,7 @@ int con_debug_enter(struct vc_data *vc)
 #endif /* CONFIG_KGDB_KDB */
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(con_debug_enter); */
+EXPORT_SYMBOL_GPL(con_debug_enter);
 
 /**
  * con_debug_leave - restore console state
@@ -3536,7 +3536,7 @@ int con_debug_leave(void)
 		ret = vc->vc_sw->con_debug_leave(vc);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(con_debug_leave); */
+EXPORT_SYMBOL_GPL(con_debug_leave);
 
 static int do_register_con_driver(const struct consw *csw, int first, int last)
 {
@@ -3625,7 +3625,7 @@ int register_con_driver(const struct consw *csw, int first, int last)
 	console_unlock();
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(register_con_driver); */
+EXPORT_SYMBOL(register_con_driver);
 
 /**
  * unregister_con_driver - unregister console driver from console layer
@@ -3647,7 +3647,7 @@ int unregister_con_driver(const struct consw *csw)
 	console_unlock();
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_con_driver); */
+EXPORT_SYMBOL(unregister_con_driver);
 
 int do_unregister_con_driver(const struct consw *csw)
 {
@@ -3679,7 +3679,7 @@ int do_unregister_con_driver(const struct consw *csw)
 err:
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(do_unregister_con_driver); */
+EXPORT_SYMBOL_GPL(do_unregister_con_driver);
 
 /*
  *	If we support more console drivers, this function is used
@@ -3705,7 +3705,7 @@ int do_take_over_console(const struct consw *csw, int first, int last, int deflt
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(do_take_over_console); */
+EXPORT_SYMBOL_GPL(do_take_over_console);
 
 /*
  *	If we support more console drivers, this function is used
@@ -3850,7 +3850,7 @@ void do_blank_screen(int entering_gfx)
 	}
 	vt_event_post(VT_EVENT_BLANK, vc->vc_num, vc->vc_num);
 }
-/* DISABLED: EXPORT_SYMBOL(do_blank_screen); */
+EXPORT_SYMBOL(do_blank_screen);
 
 /*
  * Called by timer as well as from vt_console_driver
@@ -3897,7 +3897,7 @@ void do_unblank_screen(int leaving_gfx)
 	set_cursor(vc);
 	vt_event_post(VT_EVENT_UNBLANK, vc->vc_num, vc->vc_num);
 }
-/* DISABLED: EXPORT_SYMBOL(do_unblank_screen); */
+EXPORT_SYMBOL(do_unblank_screen);
 
 /*
  * This is called by the outside world to cause a forced unblank, mostly for
@@ -4239,7 +4239,7 @@ u16 screen_glyph(struct vc_data *vc, int offset)
 		c |= 0x100;
 	return c;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(screen_glyph); */
+EXPORT_SYMBOL_GPL(screen_glyph);
 
 /* used by vcs - note the word offset */
 unsigned short *screen_pos(struct vc_data *vc, int w_offset, int viewed)
@@ -4285,19 +4285,19 @@ void vcs_scr_updated(struct vc_data *vc)
  *	Visible symbols for modules
  */
 
-/* DISABLED: EXPORT_SYMBOL(color_table); */
-/* DISABLED: EXPORT_SYMBOL(default_red); */
-/* DISABLED: EXPORT_SYMBOL(default_grn); */
-/* DISABLED: EXPORT_SYMBOL(default_blu); */
-/* DISABLED: EXPORT_SYMBOL(update_region); */
-/* DISABLED: EXPORT_SYMBOL(redraw_screen); */
-/* DISABLED: EXPORT_SYMBOL(vc_resize); */
-/* DISABLED: EXPORT_SYMBOL(fg_console); */
-/* DISABLED: EXPORT_SYMBOL(console_blank_hook); */
-/* DISABLED: EXPORT_SYMBOL(console_blanked); */
-/* DISABLED: EXPORT_SYMBOL(vc_cons); */
-/* DISABLED: EXPORT_SYMBOL(global_cursor_default); */
+EXPORT_SYMBOL(color_table);
+EXPORT_SYMBOL(default_red);
+EXPORT_SYMBOL(default_grn);
+EXPORT_SYMBOL(default_blu);
+EXPORT_SYMBOL(update_region);
+EXPORT_SYMBOL(redraw_screen);
+EXPORT_SYMBOL(vc_resize);
+EXPORT_SYMBOL(fg_console);
+EXPORT_SYMBOL(console_blank_hook);
+EXPORT_SYMBOL(console_blanked);
+EXPORT_SYMBOL(vc_cons);
+EXPORT_SYMBOL(global_cursor_default);
 #ifndef VT_SINGLE_DRIVER
-/* DISABLED: EXPORT_SYMBOL(take_over_console); */
-/* DISABLED: EXPORT_SYMBOL(give_up_console); */
+EXPORT_SYMBOL(take_over_console);
+EXPORT_SYMBOL(give_up_console);
 #endif

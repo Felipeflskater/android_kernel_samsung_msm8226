@@ -16,7 +16,7 @@
  * this program; see the file COPYING.  If not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
-@ line 5
+#line 5
 
 /**
  * @file
@@ -54,7 +54,7 @@ asmDestructorShim:
    ldr     r1, targetAddr             @ Destroy socket
    blx     r1
    pop    {lr}
-   cmp     r0, @ 0
+   cmp     r0, #0
    bxne    lr                         @ We shouldn't module_put, just return.
    ldr     r0, owner
    ldr     r1, modulePutAddr          @ Jump to module_put. module_put

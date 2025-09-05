@@ -46,28 +46,28 @@ void pi_write_regr(PIA * pi, int cont, int regr, int val)
 	pi->proto->write_regr(pi, cont, regr, val);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_write_regr); */
+EXPORT_SYMBOL(pi_write_regr);
 
 int pi_read_regr(PIA * pi, int cont, int regr)
 {
 	return pi->proto->read_regr(pi, cont, regr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_read_regr); */
+EXPORT_SYMBOL(pi_read_regr);
 
 void pi_write_block(PIA * pi, char *buf, int count)
 {
 	pi->proto->write_block(pi, buf, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_write_block); */
+EXPORT_SYMBOL(pi_write_block);
 
 void pi_read_block(PIA * pi, char *buf, int count)
 {
 	pi->proto->read_block(pi, buf, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_read_block); */
+EXPORT_SYMBOL(pi_read_block);
 
 static void pi_wake_up(void *p)
 {
@@ -105,7 +105,7 @@ int pi_schedule_claimed(PIA * pi, void (*cont) (void))
 	spin_unlock_irqrestore(&pi_spinlock, flags);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(pi_schedule_claimed); */
+EXPORT_SYMBOL(pi_schedule_claimed);
 
 void pi_do_claimed(PIA * pi, void (*cont) (void))
 {
@@ -113,7 +113,7 @@ void pi_do_claimed(PIA * pi, void (*cont) (void))
 		cont();
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_do_claimed); */
+EXPORT_SYMBOL(pi_do_claimed);
 
 static void pi_claim(PIA * pi)
 {
@@ -138,7 +138,7 @@ void pi_connect(PIA * pi)
 	pi->proto->connect(pi);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_connect); */
+EXPORT_SYMBOL(pi_connect);
 
 void pi_disconnect(PIA * pi)
 {
@@ -146,7 +146,7 @@ void pi_disconnect(PIA * pi)
 	pi_unclaim(pi);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_disconnect); */
+EXPORT_SYMBOL(pi_disconnect);
 
 static void pi_unregister_parport(PIA * pi)
 {
@@ -164,7 +164,7 @@ void pi_release(PIA * pi)
 	module_put(pi->proto->owner);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_release); */
+EXPORT_SYMBOL(pi_release);
 
 static int default_test_proto(PIA * pi, char *scratch, int verbose)
 {
@@ -229,7 +229,7 @@ int paride_register(PIP * pr)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(paride_register); */
+EXPORT_SYMBOL(paride_register);
 
 void paride_unregister(PIP * pr)
 {
@@ -242,7 +242,7 @@ void paride_unregister(PIP * pr)
 	protocols[pr->index] = NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(paride_unregister); */
+EXPORT_SYMBOL(paride_unregister);
 
 static int pi_register_parport(PIA * pi, int verbose)
 {
@@ -431,4 +431,4 @@ int pi_init(PIA * pi, int autoprobe, int port, int mode,
 	return 1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pi_init); */
+EXPORT_SYMBOL(pi_init);

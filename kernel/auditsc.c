@@ -1182,7 +1182,7 @@ error_path:
 	return;
 }
 
-/* DISABLED: EXPORT_SYMBOL(audit_log_task_context); */
+EXPORT_SYMBOL(audit_log_task_context);
 
 static void audit_log_task_info(struct audit_buffer *ab, struct task_struct *tsk)
 {
@@ -2345,7 +2345,7 @@ add_names:
 			audit_copy_inode(n, NULL, inode);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__audit_inode_child); */
+EXPORT_SYMBOL_GPL(__audit_inode_child);
 
 /**
  * auditsc_get_stamp - get local copies of audit_context values

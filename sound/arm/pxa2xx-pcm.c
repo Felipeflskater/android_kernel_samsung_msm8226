@@ -125,7 +125,7 @@ int pxa2xx_pcm_new(struct snd_card *card, struct pxa2xx_pcm_client *client,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pxa2xx_pcm_new); */
+EXPORT_SYMBOL(pxa2xx_pcm_new);
 
 MODULE_AUTHOR("Nicolas Pitre");
 MODULE_DESCRIPTION("Intel PXA2xx PCM DMA module");

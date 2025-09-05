@@ -60,7 +60,7 @@ struct nfs_write_data *nfs_commitdata_alloc(void)
 	}
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_commitdata_alloc); */
+EXPORT_SYMBOL_GPL(nfs_commitdata_alloc);
 
 void nfs_commit_free(struct nfs_write_data *p)
 {
@@ -68,7 +68,7 @@ void nfs_commit_free(struct nfs_write_data *p)
 		kfree(p->pagevec);
 	mempool_free(p, nfs_commit_mempool);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_commit_free); */
+EXPORT_SYMBOL_GPL(nfs_commit_free);
 
 struct nfs_write_data *nfs_writedata_alloc(unsigned int pagecount)
 {
@@ -444,7 +444,7 @@ nfs_request_add_commit_list(struct nfs_page *req, struct list_head *head)
 	inc_bdi_stat(req->wb_page->mapping->backing_dev_info, BDI_RECLAIMABLE);
 	__mark_inode_dirty(inode, I_DIRTY_DATASYNC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_request_add_commit_list); */
+EXPORT_SYMBOL_GPL(nfs_request_add_commit_list);
 
 /**
  * nfs_request_remove_commit_list - Remove request from a commit list
@@ -466,7 +466,7 @@ nfs_request_remove_commit_list(struct nfs_page *req)
 	nfs_list_remove_request(req);
 	NFS_I(inode)->ncommit--;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_request_remove_commit_list); */
+EXPORT_SYMBOL_GPL(nfs_request_remove_commit_list);
 
 
 /*
@@ -887,7 +887,7 @@ int nfs_initiate_write(struct nfs_write_data *data,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_initiate_write); */
+EXPORT_SYMBOL_GPL(nfs_initiate_write);
 
 /*
  * Set up the argument/result storage required for the RPC call.
@@ -1109,7 +1109,7 @@ void nfs_pageio_reset_write_mds(struct nfs_pageio_descriptor *pgio)
 	pgio->pg_ops = &nfs_pageio_write_ops;
 	pgio->pg_bsize = NFS_SERVER(pgio->pg_inode)->wsize;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_pageio_reset_write_mds); */
+EXPORT_SYMBOL_GPL(nfs_pageio_reset_write_mds);
 
 static void nfs_pageio_init_write(struct nfs_pageio_descriptor *pgio,
 				  struct inode *inode, int ioflags)
@@ -1353,7 +1353,7 @@ void nfs_commit_clear_lock(struct nfs_inode *nfsi)
 	smp_mb__after_clear_bit();
 	wake_up_bit(&nfsi->flags, NFS_INO_COMMIT);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_commit_clear_lock); */
+EXPORT_SYMBOL_GPL(nfs_commit_clear_lock);
 
 void nfs_commitdata_release(void *data)
 {
@@ -1362,7 +1362,7 @@ void nfs_commitdata_release(void *data)
 	put_nfs_open_context(wdata->args.context);
 	nfs_commit_free(wdata);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_commitdata_release); */
+EXPORT_SYMBOL_GPL(nfs_commitdata_release);
 
 int nfs_initiate_commit(struct nfs_write_data *data, struct rpc_clnt *clnt,
 			const struct rpc_call_ops *call_ops,
@@ -1398,7 +1398,7 @@ int nfs_initiate_commit(struct nfs_write_data *data, struct rpc_clnt *clnt,
 	rpc_put_task(task);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_initiate_commit); */
+EXPORT_SYMBOL_GPL(nfs_initiate_commit);
 
 /*
  * Set up the argument/result storage required for the RPC call.
@@ -1430,7 +1430,7 @@ void nfs_init_commit(struct nfs_write_data *data,
 	data->res.verf    = &data->verf;
 	nfs_fattr_init(&data->fattr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_init_commit); */
+EXPORT_SYMBOL_GPL(nfs_init_commit);
 
 void nfs_retry_commit(struct list_head *page_list,
 		      struct pnfs_layout_segment *lseg)
@@ -1447,7 +1447,7 @@ void nfs_retry_commit(struct list_head *page_list,
 		nfs_unlock_request(req);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_retry_commit); */
+EXPORT_SYMBOL_GPL(nfs_retry_commit);
 
 /*
  * Commit dirty pages
@@ -1522,7 +1522,7 @@ void nfs_commit_release_pages(struct nfs_write_data *data)
 		nfs_unlock_request(req);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_commit_release_pages); */
+EXPORT_SYMBOL_GPL(nfs_commit_release_pages);
 
 static void nfs_commit_release(void *calldata)
 {

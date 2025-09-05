@@ -450,7 +450,7 @@ static int __init ramdisk_size(char *str)
 	rd_size = simple_strtol(str, NULL, 0);
 	return 1;
 }
-/* DISABLED: __setup("ramdisk_size=", ramdisk_size); */ */
+__setup("ramdisk_size=", ramdisk_size);
 #endif
 
 /*

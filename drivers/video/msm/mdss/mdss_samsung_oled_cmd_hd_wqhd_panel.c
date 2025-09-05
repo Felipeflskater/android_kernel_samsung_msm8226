@@ -1340,7 +1340,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */ */
+__setup("androidboot.boot_recovery=", current_boot_mode);
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -1547,7 +1547,7 @@ int read_ldi_status(void)
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(read_ldi_status); */
+EXPORT_SYMBOL(read_ldi_status);
 #endif
 
 static void mipi_samsung_manufacture_date_read(struct mdss_panel_data *pdata)
@@ -2451,7 +2451,7 @@ int samsung_switching_lcd(int flip)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(samsung_switching_lcd); */
+EXPORT_SYMBOL(samsung_switching_lcd);
 #endif
 static int mdss_samsung_parse_candella_lux_mapping_table(struct device_node *np,
 		struct candella_lux_map *table, char *keystring)
@@ -6125,13 +6125,13 @@ int get_lcd_id(void)
 {
 	return lcd_id;
 }
-/* DISABLED: EXPORT_SYMBOL(get_lcd_id); */
+EXPORT_SYMBOL(get_lcd_id);
 
 int get_lcd_ldi_info(void)
 {
 	return lcd_lsi_ldi;
 }
-/* DISABLED: EXPORT_SYMBOL(get_lcd_ldi_info); */
+EXPORT_SYMBOL(get_lcd_ldi_info);
 
 int get_samsung_lcd_attached(void)
 {
@@ -6144,7 +6144,7 @@ void set_samsung_lcd_attached(int set)
 	lcd_attached = set;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
+EXPORT_SYMBOL(get_samsung_lcd_attached);
 
 static int __init lcd_panel_info(char *mode)
 {
@@ -6166,7 +6166,7 @@ static int __init lcd_panel_info(char *mode)
 				"k FHD LSI" : "k FHD MAG");
 	return 1;
 }
-/* DISABLED: __setup("Panelres=", lcd_panel_info); */ */
+__setup("Panelres=", lcd_panel_info);
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -6202,7 +6202,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */ */
+__setup( "lcd_id=0x", get_lcd_id_cmdline );
 
 MODULE_DESCRIPTION("Samsung DSI panel driver");
 MODULE_AUTHOR("JYHONG <jyhong@samsung.com>/ KRCHO <kr0124.cho@samsung.com>");

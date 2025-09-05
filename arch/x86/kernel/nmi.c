@@ -80,7 +80,7 @@ static int __init setup_unknown_nmi_panic(char *str)
 	unknown_nmi_panic = 1;
 	return 1;
 }
-/* DISABLED: __setup("unknown_nmi_panic", setup_unknown_nmi_panic); */ */
+__setup("unknown_nmi_panic", setup_unknown_nmi_panic);
 
 #define nmi_to_desc(type) (&nmi_desc[type])
 
@@ -194,7 +194,7 @@ fail_action:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_nmi_handler); */
+EXPORT_SYMBOL_GPL(register_nmi_handler);
 
 void unregister_nmi_handler(unsigned int type, const char *name)
 {
@@ -207,7 +207,7 @@ void unregister_nmi_handler(unsigned int type, const char *name)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_nmi_handler); */
+EXPORT_SYMBOL_GPL(unregister_nmi_handler);
 
 static notrace __kprobes void
 pci_serr_error(unsigned char reason, struct pt_regs *regs)

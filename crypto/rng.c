@@ -26,7 +26,7 @@
 
 static DEFINE_MUTEX(crypto_default_rng_lock);
 struct crypto_rng *crypto_default_rng;
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_default_rng); */
+EXPORT_SYMBOL_GPL(crypto_default_rng);
 static int crypto_default_rng_refcnt;
 
 static int rngapi_reset(struct crypto_rng *tfm, u8 *seed, unsigned int slen)
@@ -106,7 +106,7 @@ const struct crypto_type crypto_rng_type = {
 #endif
 	.report = crypto_rng_report,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_rng_type); */
+EXPORT_SYMBOL_GPL(crypto_rng_type);
 
 int crypto_get_default_rng(void)
 {
@@ -137,7 +137,7 @@ unlock:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_get_default_rng); */
+EXPORT_SYMBOL_GPL(crypto_get_default_rng);
 
 void crypto_put_default_rng(void)
 {
@@ -148,7 +148,7 @@ void crypto_put_default_rng(void)
 	}
 	mutex_unlock(&crypto_default_rng_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_put_default_rng); */
+EXPORT_SYMBOL_GPL(crypto_put_default_rng);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Random Number Generator");

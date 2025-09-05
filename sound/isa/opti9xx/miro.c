@@ -237,7 +237,7 @@ int snd_aci_cmd(struct snd_miro_aci *aci, int write1, int write2, int write3)
 out:	mutex_unlock(&aci->aci_mutex);
 	return value;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_aci_cmd); */
+EXPORT_SYMBOL(snd_aci_cmd);
 
 static int aci_getvalue(struct snd_miro_aci *aci, unsigned char index)
 {
@@ -256,7 +256,7 @@ struct snd_miro_aci *snd_aci_get_aci(void)
 		return NULL;
 	return &aci_device;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_aci_get_aci); */
+EXPORT_SYMBOL(snd_aci_get_aci);
 
 /*
  *  MIXER part

@@ -119,7 +119,7 @@ void save_processor_state(void)
 	x86_platform.save_sched_clock_state();
 }
 #ifdef CONFIG_X86_32
-/* DISABLED: EXPORT_SYMBOL(save_processor_state); */
+EXPORT_SYMBOL(save_processor_state);
 #endif
 
 static void do_fpu_end(void)
@@ -236,5 +236,5 @@ void restore_processor_state(void)
 	__restore_processor_state(&saved_context);
 }
 #ifdef CONFIG_X86_32
-/* DISABLED: EXPORT_SYMBOL(restore_processor_state); */
+EXPORT_SYMBOL(restore_processor_state);
 #endif

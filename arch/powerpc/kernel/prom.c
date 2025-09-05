@@ -868,7 +868,7 @@ struct device_node *of_get_cpu_node(int cpu, unsigned int *thread)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_cpu_node); */
+EXPORT_SYMBOL(of_get_cpu_node);
 
 #if defined(CONFIG_DEBUG_FS) && defined(DEBUG)
 static struct debugfs_blob_wrapper flat_dt_blob;

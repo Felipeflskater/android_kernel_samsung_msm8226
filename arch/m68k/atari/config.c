@@ -44,19 +44,19 @@
 #include <asm/io.h>
 
 u_long atari_mch_cookie;
-/* DISABLED: EXPORT_SYMBOL(atari_mch_cookie); */
+EXPORT_SYMBOL(atari_mch_cookie);
 
 u_long atari_mch_type;
-/* DISABLED: EXPORT_SYMBOL(atari_mch_type); */
+EXPORT_SYMBOL(atari_mch_type);
 
 struct atari_hw_present atari_hw_present;
-/* DISABLED: EXPORT_SYMBOL(atari_hw_present); */
+EXPORT_SYMBOL(atari_hw_present);
 
 u_long atari_switches;
-/* DISABLED: EXPORT_SYMBOL(atari_switches); */
+EXPORT_SYMBOL(atari_switches);
 
 int atari_dont_touch_floppy_select;
-/* DISABLED: EXPORT_SYMBOL(atari_dont_touch_floppy_select); */
+EXPORT_SYMBOL(atari_dont_touch_floppy_select);
 
 int atari_rtc_year_offset;
 

@@ -116,7 +116,7 @@ struct i2c_client *wpce_get_i2c_client(void)
 {
 	return g_i2cec_client;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_get_i2c_client); */
+EXPORT_SYMBOL_GPL(wpce_get_i2c_client);
 
 void wpce_poweroff(void)
 {
@@ -124,7 +124,7 @@ void wpce_poweroff(void)
 		return;
 	i2c_smbus_write_byte(g_i2cec_client, EC_CMD_POWER_OFF);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_poweroff); */
+EXPORT_SYMBOL_GPL(wpce_poweroff);
 
 void wpce_restart(void)
 {
@@ -132,7 +132,7 @@ void wpce_restart(void)
 		return;
 	i2c_smbus_write_byte(g_i2cec_client, EC_CMD_RESTART);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_restart); */
+EXPORT_SYMBOL_GPL(wpce_restart);
 
 int wpce_i2c_transfer(struct i2c_msg *msg)
 {
@@ -141,7 +141,7 @@ int wpce_i2c_transfer(struct i2c_msg *msg)
 	msg->addr = g_i2cec_client->addr;
 	return i2c_transfer(g_i2cec_client->adapter, msg, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_i2c_transfer); */
+EXPORT_SYMBOL_GPL(wpce_i2c_transfer);
 
 int wpce_smbus_write_word_data(u8 command, u16 value)
 {
@@ -149,7 +149,7 @@ int wpce_smbus_write_word_data(u8 command, u16 value)
 		return -1;
 	return i2c_smbus_write_word_data(g_i2cec_client, command, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_smbus_write_word_data); */
+EXPORT_SYMBOL_GPL(wpce_smbus_write_word_data);
 
 int wpce_smbus_write_byte_data(u8 command, u8 value)
 {
@@ -157,7 +157,7 @@ int wpce_smbus_write_byte_data(u8 command, u8 value)
 		return -1;
 	return i2c_smbus_write_byte_data(g_i2cec_client, command, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wpce_smbus_write_byte_data); */
+EXPORT_SYMBOL_GPL(wpce_smbus_write_byte_data);
 
 module_init(wpce_init);
 module_exit(wpce_exit);

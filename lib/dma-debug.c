@@ -392,7 +392,7 @@ void debug_dma_dump_mappings(struct device *dev)
 		spin_unlock_irqrestore(&bucket->lock, flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_dump_mappings); */
+EXPORT_SYMBOL(debug_dma_dump_mappings);
 
 /*
  * Wrapper function for adding an entry to the hash.
@@ -515,7 +515,7 @@ int dma_debug_resize_entries(u32 num_entries)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_debug_resize_entries); */
+EXPORT_SYMBOL(dma_debug_resize_entries);
 
 /*
  * DMA-API debugging init code
@@ -840,8 +840,8 @@ static __init int dma_debug_entries_cmdline(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("dma_debug=", dma_debug_cmdline); */ */
-/* DISABLED: __setup("dma_debug_entries=", dma_debug_entries_cmdline); */ */
+__setup("dma_debug=", dma_debug_cmdline);
+__setup("dma_debug_entries=", dma_debug_entries_cmdline);
 
 static void check_unmap(struct dma_debug_entry *ref)
 {
@@ -1048,7 +1048,7 @@ void debug_dma_map_page(struct device *dev, struct page *page, size_t offset,
 
 	add_dma_entry(entry);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_map_page); */
+EXPORT_SYMBOL(debug_dma_map_page);
 
 void debug_dma_unmap_page(struct device *dev, dma_addr_t addr,
 			  size_t size, int direction, bool map_single)
@@ -1069,7 +1069,7 @@ void debug_dma_unmap_page(struct device *dev, dma_addr_t addr,
 
 	check_unmap(&ref);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_unmap_page); */
+EXPORT_SYMBOL(debug_dma_unmap_page);
 
 void debug_dma_map_sg(struct device *dev, struct scatterlist *sg,
 		      int nents, int mapped_ents, int direction)
@@ -1103,7 +1103,7 @@ void debug_dma_map_sg(struct device *dev, struct scatterlist *sg,
 		add_dma_entry(entry);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_map_sg); */
+EXPORT_SYMBOL(debug_dma_map_sg);
 
 static int get_nr_mapped_entries(struct device *dev,
 				 struct dma_debug_entry *ref)
@@ -1154,7 +1154,7 @@ void debug_dma_unmap_sg(struct device *dev, struct scatterlist *sglist,
 		check_unmap(&ref);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_unmap_sg); */
+EXPORT_SYMBOL(debug_dma_unmap_sg);
 
 void debug_dma_alloc_coherent(struct device *dev, size_t size,
 			      dma_addr_t dma_addr, void *virt)
@@ -1180,7 +1180,7 @@ void debug_dma_alloc_coherent(struct device *dev, size_t size,
 
 	add_dma_entry(entry);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_alloc_coherent); */
+EXPORT_SYMBOL(debug_dma_alloc_coherent);
 
 void debug_dma_free_coherent(struct device *dev, size_t size,
 			 void *virt, dma_addr_t addr)
@@ -1199,7 +1199,7 @@ void debug_dma_free_coherent(struct device *dev, size_t size,
 
 	check_unmap(&ref);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_free_coherent); */
+EXPORT_SYMBOL(debug_dma_free_coherent);
 
 void debug_dma_sync_single_for_cpu(struct device *dev, dma_addr_t dma_handle,
 				   size_t size, int direction)
@@ -1218,7 +1218,7 @@ void debug_dma_sync_single_for_cpu(struct device *dev, dma_addr_t dma_handle,
 
 	check_sync(dev, &ref, true);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_single_for_cpu); */
+EXPORT_SYMBOL(debug_dma_sync_single_for_cpu);
 
 void debug_dma_sync_single_for_device(struct device *dev,
 				      dma_addr_t dma_handle, size_t size,
@@ -1238,7 +1238,7 @@ void debug_dma_sync_single_for_device(struct device *dev,
 
 	check_sync(dev, &ref, false);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_single_for_device); */
+EXPORT_SYMBOL(debug_dma_sync_single_for_device);
 
 void debug_dma_sync_single_range_for_cpu(struct device *dev,
 					 dma_addr_t dma_handle,
@@ -1259,7 +1259,7 @@ void debug_dma_sync_single_range_for_cpu(struct device *dev,
 
 	check_sync(dev, &ref, true);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_single_range_for_cpu); */
+EXPORT_SYMBOL(debug_dma_sync_single_range_for_cpu);
 
 void debug_dma_sync_single_range_for_device(struct device *dev,
 					    dma_addr_t dma_handle,
@@ -1280,7 +1280,7 @@ void debug_dma_sync_single_range_for_device(struct device *dev,
 
 	check_sync(dev, &ref, false);
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_single_range_for_device); */
+EXPORT_SYMBOL(debug_dma_sync_single_range_for_device);
 
 void debug_dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sg,
 			       int nelems, int direction)
@@ -1312,7 +1312,7 @@ void debug_dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sg,
 		check_sync(dev, &ref, true);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_sg_for_cpu); */
+EXPORT_SYMBOL(debug_dma_sync_sg_for_cpu);
 
 void debug_dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg,
 				  int nelems, int direction)
@@ -1343,7 +1343,7 @@ void debug_dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg,
 		check_sync(dev, &ref, false);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(debug_dma_sync_sg_for_device); */
+EXPORT_SYMBOL(debug_dma_sync_sg_for_device);
 
 static int __init dma_debug_driver_setup(char *str)
 {
@@ -1362,4 +1362,4 @@ static int __init dma_debug_driver_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("dma_debug_driver=", dma_debug_driver_setup); */ */
+__setup("dma_debug_driver=", dma_debug_driver_setup);

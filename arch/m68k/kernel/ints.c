@@ -165,7 +165,7 @@ unsigned int irq_canonicalize(unsigned int irq)
 	return irq;
 }
 
-/* DISABLED: EXPORT_SYMBOL(irq_canonicalize); */
+EXPORT_SYMBOL(irq_canonicalize);
 
 
 asmlinkage void handle_badint(struct pt_regs *regs)

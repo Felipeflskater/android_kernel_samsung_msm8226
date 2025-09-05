@@ -21,15 +21,15 @@
 #include <asm/kvm_book3s.h>
 
 #ifdef CONFIG_KVM_BOOK3S_64_HV
-/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_hv_entry_trampoline); */
+EXPORT_SYMBOL_GPL(kvmppc_hv_entry_trampoline);
 #else
-/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_entry_trampoline); */
-/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_load_up_fpu); */
+EXPORT_SYMBOL_GPL(kvmppc_entry_trampoline);
+EXPORT_SYMBOL_GPL(kvmppc_load_up_fpu);
 #ifdef CONFIG_ALTIVEC
-/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_load_up_altivec); */
+EXPORT_SYMBOL_GPL(kvmppc_load_up_altivec);
 #endif
 #ifdef CONFIG_VSX
-/* DISABLED: EXPORT_SYMBOL_GPL(kvmppc_load_up_vsx); */
+EXPORT_SYMBOL_GPL(kvmppc_load_up_vsx);
 #endif
 #endif
 

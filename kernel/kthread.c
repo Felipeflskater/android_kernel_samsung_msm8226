@@ -56,7 +56,7 @@ int kthread_should_stop(void)
 {
 	return to_kthread(current)->should_stop;
 }
-/* DISABLED: EXPORT_SYMBOL(kthread_should_stop); */
+EXPORT_SYMBOL(kthread_should_stop);
 
 /**
  * kthread_freezable_should_stop - should this freezable kthread return now?
@@ -81,7 +81,7 @@ bool kthread_freezable_should_stop(bool *was_frozen)
 
 	return kthread_should_stop();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kthread_freezable_should_stop); */
+EXPORT_SYMBOL_GPL(kthread_freezable_should_stop);
 
 /**
  * kthread_data - return data value specified on kthread creation
@@ -208,7 +208,7 @@ struct task_struct *kthread_create_on_node(int (*threadfn)(void *data),
 	}
 	return create.result;
 }
-/* DISABLED: EXPORT_SYMBOL(kthread_create_on_node); */
+EXPORT_SYMBOL(kthread_create_on_node);
 
 /**
  * kthread_bind - bind a just-created kthread to a cpu.
@@ -231,7 +231,7 @@ void kthread_bind(struct task_struct *p, unsigned int cpu)
 	do_set_cpus_allowed(p, cpumask_of(cpu));
 	p->flags |= PF_THREAD_BOUND;
 }
-/* DISABLED: EXPORT_SYMBOL(kthread_bind); */
+EXPORT_SYMBOL(kthread_bind);
 
 /**
  * kthread_stop - stop a thread created by kthread_create().
@@ -270,7 +270,7 @@ int kthread_stop(struct task_struct *k)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kthread_stop); */
+EXPORT_SYMBOL(kthread_stop);
 
 int kthreadd(void *unused)
 {
@@ -318,7 +318,7 @@ void __init_kthread_worker(struct kthread_worker *worker,
 	INIT_LIST_HEAD(&worker->work_list);
 	worker->task = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__init_kthread_worker); */
+EXPORT_SYMBOL_GPL(__init_kthread_worker);
 
 /**
  * kthread_worker_fn - kthread function to process kthread_worker
@@ -376,7 +376,7 @@ repeat:
 	try_to_freeze();
 	goto repeat;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kthread_worker_fn); */
+EXPORT_SYMBOL_GPL(kthread_worker_fn);
 
 /**
  * queue_kthread_work - queue a kthread_work
@@ -404,7 +404,7 @@ bool queue_kthread_work(struct kthread_worker *worker,
 	spin_unlock_irqrestore(&worker->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(queue_kthread_work); */
+EXPORT_SYMBOL_GPL(queue_kthread_work);
 
 /**
  * flush_kthread_work - flush a kthread_work
@@ -434,7 +434,7 @@ void flush_kthread_work(struct kthread_work *work)
 	 */
 	smp_mb__after_atomic_dec();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(flush_kthread_work); */
+EXPORT_SYMBOL_GPL(flush_kthread_work);
 
 struct kthread_flush_work {
 	struct kthread_work	work;
@@ -465,4 +465,4 @@ void flush_kthread_worker(struct kthread_worker *worker)
 	queue_kthread_work(worker, &fwork.work);
 	wait_for_completion(&fwork.done);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(flush_kthread_worker); */
+EXPORT_SYMBOL_GPL(flush_kthread_worker);

@@ -276,7 +276,7 @@ const struct vb2_mem_ops vb2_dma_sg_memops = {
 	.num_users	= vb2_dma_sg_num_users,
 	.cookie		= vb2_dma_sg_cookie,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_dma_sg_memops); */
+EXPORT_SYMBOL_GPL(vb2_dma_sg_memops);
 
 MODULE_DESCRIPTION("dma scatter/gather memory handling routines for videobuf2");
 MODULE_AUTHOR("Andrzej Pietrasiewicz");

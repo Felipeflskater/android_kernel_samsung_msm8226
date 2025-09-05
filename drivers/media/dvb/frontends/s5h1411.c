@@ -912,7 +912,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(s5h1411_attach); */
+EXPORT_SYMBOL(s5h1411_attach);
 
 static struct dvb_frontend_ops s5h1411_ops = {
 	.delsys = { SYS_ATSC, SYS_DVBC_ANNEX_B },

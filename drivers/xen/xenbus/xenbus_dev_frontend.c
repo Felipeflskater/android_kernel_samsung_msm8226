@@ -599,7 +599,7 @@ const struct file_operations xen_xenbus_fops = {
 	.poll = xenbus_file_poll,
 	.llseek = no_llseek,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_xenbus_fops); */
+EXPORT_SYMBOL_GPL(xen_xenbus_fops);
 
 static struct miscdevice xenbus_dev = {
 	.minor = MISC_DYNAMIC_MINOR,

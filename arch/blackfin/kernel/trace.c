@@ -727,7 +727,7 @@ void dump_bfin_trace_buffer(void)
 	trace_buffer_restore(tflags);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(dump_bfin_trace_buffer); */
+EXPORT_SYMBOL(dump_bfin_trace_buffer);
 
 void dump_bfin_process(struct pt_regs *fp)
 {

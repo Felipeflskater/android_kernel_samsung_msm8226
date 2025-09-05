@@ -503,7 +503,7 @@ int lance_open (struct net_device *dev)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lance_open); */
+EXPORT_SYMBOL_GPL(lance_open);
 
 int lance_close (struct net_device *dev)
 {
@@ -519,7 +519,7 @@ int lance_close (struct net_device *dev)
 
         return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lance_close); */
+EXPORT_SYMBOL_GPL(lance_close);
 
 void lance_tx_timeout(struct net_device *dev)
 {
@@ -528,7 +528,7 @@ void lance_tx_timeout(struct net_device *dev)
 	dev->trans_start = jiffies; /* prevent tx timeout */
 	netif_wake_queue (dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lance_tx_timeout); */
+EXPORT_SYMBOL_GPL(lance_tx_timeout);
 
 int lance_start_xmit (struct sk_buff *skb, struct net_device *dev)
 {
@@ -584,7 +584,7 @@ int lance_start_xmit (struct sk_buff *skb, struct net_device *dev)
 
         return NETDEV_TX_OK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lance_start_xmit); */
+EXPORT_SYMBOL_GPL(lance_start_xmit);
 
 /* taken from the depca driver via a2065.c */
 static void lance_load_multicast (struct net_device *dev)
@@ -643,7 +643,7 @@ void lance_set_multicast (struct net_device *dev)
 	if (!stopped)
 		netif_start_queue (dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lance_set_multicast); */
+EXPORT_SYMBOL_GPL(lance_set_multicast);
 
 #ifdef CONFIG_NET_POLL_CONTROLLER
 void lance_poll(struct net_device *dev)

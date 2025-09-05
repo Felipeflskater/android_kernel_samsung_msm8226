@@ -630,7 +630,7 @@ struct i2c_adapter * dib3000mc_get_tuner_i2c_master(struct dvb_frontend *demod, 
 	return dibx000_get_i2c_adapter(&st->i2c_master, DIBX000_I2C_INTERFACE_TUNER, gating);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_get_tuner_i2c_master); */
+EXPORT_SYMBOL(dib3000mc_get_tuner_i2c_master);
 
 static int dib3000mc_get_frontend(struct dvb_frontend* fe)
 {
@@ -800,7 +800,7 @@ int dib3000mc_pid_control(struct dvb_frontend *fe, int index, int pid,int onoff)
 	dib3000mc_write_word(state, 212 + index,  onoff ? (1 << 13) | pid : 0);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_pid_control); */
+EXPORT_SYMBOL(dib3000mc_pid_control);
 
 int dib3000mc_pid_parse(struct dvb_frontend *fe, int onoff)
 {
@@ -809,14 +809,14 @@ int dib3000mc_pid_parse(struct dvb_frontend *fe, int onoff)
 	tmp |= (onoff << 4);
 	return dib3000mc_write_word(state, 206, tmp);
 }
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_pid_parse); */
+EXPORT_SYMBOL(dib3000mc_pid_parse);
 
 void dib3000mc_set_config(struct dvb_frontend *fe, struct dib3000mc_config *cfg)
 {
 	struct dib3000mc_state *state = fe->demodulator_priv;
 	state->cfg = cfg;
 }
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_set_config); */
+EXPORT_SYMBOL(dib3000mc_set_config);
 
 int dib3000mc_i2c_enumeration(struct i2c_adapter *i2c, int no_of_demods, u8 default_addr, struct dib3000mc_config cfg[])
 {
@@ -867,7 +867,7 @@ int dib3000mc_i2c_enumeration(struct i2c_adapter *i2c, int no_of_demods, u8 defa
 	kfree(dmcst);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_i2c_enumeration); */
+EXPORT_SYMBOL(dib3000mc_i2c_enumeration);
 
 static struct dvb_frontend_ops dib3000mc_ops;
 
@@ -900,7 +900,7 @@ error:
 	kfree(st);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dib3000mc_attach); */
+EXPORT_SYMBOL(dib3000mc_attach);
 
 static struct dvb_frontend_ops dib3000mc_ops = {
 	.delsys = { SYS_DVBT },

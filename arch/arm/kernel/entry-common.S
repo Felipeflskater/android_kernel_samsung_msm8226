@@ -1,6 +1,3 @@
-.arm
-.syntax unified
-/* PostmarketOS: ARM mode forced */
 /*
  *  linux/arch/arm/kernel/entry-common.S
  *
@@ -34,8 +31,8 @@ ret_fast_syscall:
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)
 	disable_irq				@ disable interrupts
-	ldr	r1, [tsk, @ TI_FLAGS]
-	tst	r1, @ _TIF_WORK_MASK
+	ldr	r1, [tsk, #TI_FLAGS]
+	tst	r1, #_TIF_WORK_MASK
 	bne	fast_work_pending
 #if defined(CONFIG_IRQSOFF_TRACER)
 	asm_trace_hardirqs_on
@@ -51,14 +48,14 @@ ret_fast_syscall:
  * Ok, we need to do extra processing, enter the slow path.
  */
 fast_work_pending:
-	str	r0, [sp, @ S_R0+S_OFF]!		@ returned r0
+	str	r0, [sp, #S_R0+S_OFF]!		@ returned r0
 work_pending:
 	mov	r0, sp				@ 'regs'
 	mov	r2, why				@ 'syscall'
 	bl	do_work_pending
 	cmp	r0, #0
 	beq	no_work_pending
-	movlt	scno, @ (__NR_restart_syscall - __NR_SYSCALL_BASE)
+	movlt	scno, #(__NR_restart_syscall - __NR_SYSCALL_BASE)
 	ldmia	sp, {r0 - r6}			@ have to reload r0 - r6
 	b	local_restart			@ ... and off we go
 
@@ -69,8 +66,8 @@ ENTRY(ret_to_user)
 ret_slow_syscall:
 	disable_irq				@ disable interrupts
 ENTRY(ret_to_user_from_irq)
-	ldr	r1, [tsk, @ TI_FLAGS]
-	tst	r1, @ _TIF_WORK_MASK
+	ldr	r1, [tsk, #TI_FLAGS]
+	tst	r1, #_TIF_WORK_MASK
 	bne	work_pending
 no_work_pending:
 #if defined(CONFIG_IRQSOFF_TRACER)
@@ -89,9 +86,9 @@ ENDPROC(ret_to_user)
 ENTRY(ret_from_fork)
 	bl	schedule_tail
 	get_thread_info tsk
-	ldr	r1, [tsk, @ TI_FLAGS]		@ check for syscall tracing
+	ldr	r1, [tsk, #TI_FLAGS]		@ check for syscall tracing
 	mov	why, #1
-	tst	r1, @ _TIF_SYSCALL_WORK		@ are we tracing syscalls?
+	tst	r1, #_TIF_SYSCALL_WORK		@ are we tracing syscalls?
 	beq	ret_slow_syscall
 	mov	r1, sp
 	mov	r0, #1				@ trace exit [IP = 1]
@@ -155,7 +152,7 @@ ENDPROC(ret_from_fork)
 
 .macro mcount_adjust_addr rd, rn
 	bic	\rd, \rn, #1		@ clear the Thumb bit if present
-	sub	\rd, \rd, @ MCOUNT_INSN_SIZE
+	sub	\rd, \rd, #MCOUNT_INSN_SIZE
 .endm
 
 .macro __mcount suffix
@@ -232,18 +229,18 @@ ftrace_graph_call\suffix:
 .endm
 
 .macro mcount_get_lr reg
-	ldr	\reg, [fp, @ -4]
+	ldr	\reg, [fp, #-4]
 .endm
 
 .macro mcount_exit
-	ldr	lr, [fp, @ -4]
+	ldr	lr, [fp, #-4]
 	ldmia	sp!, {r0-r3, pc}
 .endm
 
 ENTRY(mcount)
 #ifdef CONFIG_DYNAMIC_FTRACE
 	stmdb	sp!, {lr}
-	ldr	lr, [fp, @ -4]
+	ldr	lr, [fp, #-4]
 	ldmia	sp!, {pc}
 #else
 	__mcount _old
@@ -341,7 +338,7 @@ ENDPROC(ftrace_stub)
 .Larm710bug:
 	ldmia	sp, {r0 - lr}^			@ Get calling r0 - lr
 	mov	r0, r0
-	add	sp, sp, @ S_FRAME_SIZE
+	add	sp, sp, #S_FRAME_SIZE
 	subs	pc, lr, #4
 #else
 #define A710(code...)
@@ -349,16 +346,16 @@ ENDPROC(ftrace_stub)
 
 	.align	5
 ENTRY(vector_swi)
-	sub	sp, sp, @ S_FRAME_SIZE
+	sub	sp, sp, #S_FRAME_SIZE
 	stmia	sp, {r0 - r12}			@ Calling r0 - r12
- ARM(	add	r8, sp, @ S_PC		)
+ ARM(	add	r8, sp, #S_PC		)
  ARM(	stmdb	r8, {sp, lr}^		)	@ Calling sp, lr
  THUMB(	mov	r8, sp			)
  THUMB(	store_user_sp_lr r8, r10, S_SP	)	@ calling sp, lr
 	mrs	r8, spsr			@ called from non-FIQ mode, so ok.
-	str	lr, [sp, @ S_PC]			@ Save calling PC
-	str	r8, [sp, @ S_PSR]		@ Save CPSR
-	str	r0, [sp, @ S_OLD_R0]		@ Save OLD_R0
+	str	lr, [sp, #S_PC]			@ Save calling PC
+	str	r8, [sp, #S_PSR]		@ Save CPSR
+	str	r0, [sp, #S_OLD_R0]		@ Save OLD_R0
 	zero_fp
 
 	/*
@@ -372,11 +369,11 @@ ENTRY(vector_swi)
 	 * value to determine if it is an EABI or an old ABI call.
 	 */
 #ifdef CONFIG_ARM_THUMB
-	tst	r8, @ PSR_T_BIT
+	tst	r8, #PSR_T_BIT
 	movne	r10, #0				@ no thumb OABI emulation
-	ldreq	r10, [lr, @ -4]			@ get SWI instruction
+	ldreq	r10, [lr, #-4]			@ get SWI instruction
 #else
-	ldr	r10, [lr, @ -4]			@ get SWI instruction
+	ldr	r10, [lr, #-4]			@ get SWI instruction
   A710(	and	ip, r10, #0x0f000000		@ check for SWI		)
   A710(	teq	ip, #0x0f000000						)
   A710(	bne	.Larm710bug						)
@@ -390,7 +387,7 @@ ENTRY(vector_swi)
 	/*
 	 * Pure EABI user space always put syscall number into scno (r7).
 	 */
-  A710(	ldr	ip, [lr, @ -4]			@ get SWI instruction	)
+  A710(	ldr	ip, [lr, #-4]			@ get SWI instruction	)
   A710(	and	ip, ip, #0x0f000000		@ check for SWI		)
   A710(	teq	ip, #0x0f000000						)
   A710(	bne	.Larm710bug						)
@@ -398,14 +395,14 @@ ENTRY(vector_swi)
 #elif defined(CONFIG_ARM_THUMB)
 
 	/* Legacy ABI only, possibly thumb mode. */
-	tst	r8, @ PSR_T_BIT			@ this is SPSR from save_user_regs
-	addne	scno, r7, @ __NR_SYSCALL_BASE	@ put OS number in
-	ldreq	scno, [lr, @ -4]
+	tst	r8, #PSR_T_BIT			@ this is SPSR from save_user_regs
+	addne	scno, r7, #__NR_SYSCALL_BASE	@ put OS number in
+	ldreq	scno, [lr, #-4]
 
 #else
 
 	/* Legacy ABI only. */
-	ldr	scno, [lr, @ -4]			@ get SWI instruction
+	ldr	scno, [lr, #-4]			@ get SWI instruction
   A710(	and	ip, scno, #0x0f000000		@ check for SWI		)
   A710(	teq	ip, #0x0f000000						)
   A710(	bne	.Larm710bug						)
@@ -430,33 +427,33 @@ ENTRY(vector_swi)
 	 * get the old ABI syscall table address.
 	 */
 	bics	r10, r10, #0xff000000
-	eorne	scno, r10, @ __NR_OABI_SYSCALL_BASE
+	eorne	scno, r10, #__NR_OABI_SYSCALL_BASE
 	ldrne	tbl, =sys_oabi_call_table
 #elif !defined(CONFIG_AEABI)
 	bic	scno, scno, #0xff000000		@ mask off SWI op-code
-	eor	scno, scno, @ __NR_SYSCALL_BASE	@ check OS number
+	eor	scno, scno, #__NR_SYSCALL_BASE	@ check OS number
 #endif
 
 local_restart:
-	ldr	r10, [tsk, @ TI_FLAGS]		@ check for syscall tracing
+	ldr	r10, [tsk, #TI_FLAGS]		@ check for syscall tracing
 	stmdb	sp!, {r4, r5}			@ push fifth and sixth args
 
 #ifdef CONFIG_SECCOMP
-	tst	r10, @ _TIF_SECCOMP
+	tst	r10, #_TIF_SECCOMP
 	bne	__sys_trace
 #endif
 
-	tst	r10, @ _TIF_SYSCALL_WORK		@ are we tracing syscalls?
+	tst	r10, #_TIF_SYSCALL_WORK		@ are we tracing syscalls?
 	bne	__sys_trace
 
-	cmp	scno, @ NR_syscalls		@ check upper syscall limit
+	cmp	scno, #NR_syscalls		@ check upper syscall limit
 	adr	lr, BSYM(ret_fast_syscall)	@ return address
 	ldrcc	pc, [tbl, scno, lsl #2]		@ call sys_* routine
 
-	add	r1, sp, @ S_OFF
+	add	r1, sp, #S_OFF
 2:	mov	why, #0				@ no longer a real syscall
-	cmp	scno, @ (__ARM_NR_BASE - __NR_SYSCALL_BASE)
-	eor	r0, scno, @ __NR_SYSCALL_BASE	@ put OS number back
+	cmp	scno, #(__ARM_NR_BASE - __NR_SYSCALL_BASE)
+	eor	r0, scno, #__NR_SYSCALL_BASE	@ put OS number back
 	bcs	arm_syscall	
 	b	sys_ni_syscall			@ not private func
 ENDPROC(vector_swi)
@@ -467,21 +464,21 @@ ENDPROC(vector_swi)
 	 */
 __sys_trace:
 	mov	r2, scno
-	add	r1, sp, @ S_OFF
+	add	r1, sp, #S_OFF
 	mov	r0, #0				@ trace entry [IP = 0]
 	bl	syscall_trace
 
 	adr	lr, BSYM(__sys_trace_return)	@ return address
 	mov	scno, r0			@ syscall number (possibly new)
-	add	r1, sp, @ S_R0 + S_OFF		@ pointer to regs
-	cmp	scno, @ NR_syscalls		@ check upper syscall limit
+	add	r1, sp, #S_R0 + S_OFF		@ pointer to regs
+	cmp	scno, #NR_syscalls		@ check upper syscall limit
 	ldmccia	r1, {r0 - r6}			@ have to reload r0 - r6
 	stmccia	sp, {r4, r5}			@ and update the stack args
 	ldrcc	pc, [tbl, scno, lsl #2]		@ call sys_* routine
 	b	2b
 
 __sys_trace_return:
-	str	r0, [sp, @ S_R0 + S_OFF]!	@ save returned r0
+	str	r0, [sp, #S_R0 + S_OFF]!	@ save returned r0
 	mov	r2, scno
 	mov	r1, sp
 	mov	r0, #1				@ trace exit [IP = 1]
@@ -490,7 +487,7 @@ __sys_trace_return:
 
 	.align	5
 #ifdef CONFIG_ALIGNMENT_TRAP
-	.type	__cr_alignment, @ object
+	.type	__cr_alignment, #object
 __cr_alignment:
 	.word	cr_alignment
 #endif
@@ -507,7 +504,7 @@ __cr_alignment:
 #define OBSOLETE(syscall) syscall
 #endif
 
-	.type	sys_call_table, @ object
+	.type	sys_call_table, #object
 ENTRY(sys_call_table)
 #include "calls.S"
 #undef ABI
@@ -519,9 +516,9 @@ ENTRY(sys_call_table)
 @ r0 = syscall number
 @ r8 = syscall table
 sys_syscall:
-		bic	scno, r0, @ __NR_OABI_SYSCALL_BASE
-		cmp	scno, @ __NR_syscall - __NR_SYSCALL_BASE
-		cmpne	scno, @ NR_syscalls	@ check range
+		bic	scno, r0, #__NR_OABI_SYSCALL_BASE
+		cmp	scno, #__NR_syscall - __NR_SYSCALL_BASE
+		cmpne	scno, #NR_syscalls	@ check range
 		stmloia	sp, {r5, r6}		@ shuffle args
 		movlo	r0, r1
 		movlo	r1, r2
@@ -532,40 +529,40 @@ sys_syscall:
 ENDPROC(sys_syscall)
 
 sys_fork_wrapper:
-		add	r0, sp, @ S_OFF
+		add	r0, sp, #S_OFF
 		b	sys_fork
 ENDPROC(sys_fork_wrapper)
 
 sys_vfork_wrapper:
-		add	r0, sp, @ S_OFF
+		add	r0, sp, #S_OFF
 		b	sys_vfork
 ENDPROC(sys_vfork_wrapper)
 
 sys_execve_wrapper:
-		add	r3, sp, @ S_OFF
+		add	r3, sp, #S_OFF
 		b	sys_execve
 ENDPROC(sys_execve_wrapper)
 
 sys_clone_wrapper:
-		add	ip, sp, @ S_OFF
+		add	ip, sp, #S_OFF
 		str	ip, [sp, #4]
 		b	sys_clone
 ENDPROC(sys_clone_wrapper)
 
 sys_sigreturn_wrapper:
-		add	r0, sp, @ S_OFF
+		add	r0, sp, #S_OFF
 		mov	why, #0		@ prevent syscall restart handling
 		b	sys_sigreturn
 ENDPROC(sys_sigreturn_wrapper)
 
 sys_rt_sigreturn_wrapper:
-		add	r0, sp, @ S_OFF
+		add	r0, sp, #S_OFF
 		mov	why, #0		@ prevent syscall restart handling
 		b	sys_rt_sigreturn
 ENDPROC(sys_rt_sigreturn_wrapper)
 
 sys_sigaltstack_wrapper:
-		ldr	r2, [sp, @ S_OFF + S_SP]
+		ldr	r2, [sp, #S_OFF + S_SP]
 		b	do_sigaltstack
 ENDPROC(sys_sigaltstack_wrapper)
 
@@ -587,11 +584,11 @@ ENDPROC(sys_fstatfs64_wrapper)
  */
 sys_mmap2:
 #if PAGE_SHIFT > 12
-		tst	r5, @ PGOFF_MASK
-		moveq	r5, r5, lsr @ PAGE_SHIFT - 12
+		tst	r5, #PGOFF_MASK
+		moveq	r5, r5, lsr #PAGE_SHIFT - 12
 		streq	r5, [sp, #4]
 		beq	sys_mmap_pgoff
-		mov	r0, @ -EINVAL
+		mov	r0, #-EINVAL
 		mov	pc, lr
 #else
 		str	r5, [sp, #4]
@@ -641,7 +638,7 @@ ENDPROC(sys_oabi_readahead)
 #define ABI(native, compat) compat
 #define OBSOLETE(syscall) syscall
 
-	.type	sys_oabi_call_table, @ object
+	.type	sys_oabi_call_table, #object
 ENTRY(sys_oabi_call_table)
 #include "calls.S"
 #undef ABI

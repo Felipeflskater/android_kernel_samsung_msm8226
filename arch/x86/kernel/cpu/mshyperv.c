@@ -20,7 +20,7 @@
 #include <asm/mshyperv.h>
 
 struct ms_hyperv_info ms_hyperv;
-/* DISABLED: EXPORT_SYMBOL_GPL(ms_hyperv); */
+EXPORT_SYMBOL_GPL(ms_hyperv);
 
 static bool __init ms_hyperv_platform(void)
 {
@@ -77,4 +77,4 @@ const __refconst struct hypervisor_x86 x86_hyper_ms_hyperv = {
 	.detect			= ms_hyperv_platform,
 	.init_platform		= ms_hyperv_init_platform,
 };
-/* DISABLED: EXPORT_SYMBOL(x86_hyper_ms_hyperv); */
+EXPORT_SYMBOL(x86_hyper_ms_hyperv);

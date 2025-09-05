@@ -47,7 +47,7 @@ void sirfsoc_rtc_iobrg_besyncing(void)
 
 	spin_unlock_irqrestore(&rtciobrg_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_besyncing); */
+EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_besyncing);
 
 u32 __sirfsoc_rtc_iobrg_readl(u32 addr)
 {
@@ -74,7 +74,7 @@ u32 sirfsoc_rtc_iobrg_readl(u32 addr)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_readl); */
+EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_readl);
 
 void sirfsoc_rtc_iobrg_pre_writel(u32 val, u32 addr)
 {
@@ -100,7 +100,7 @@ void sirfsoc_rtc_iobrg_writel(u32 val, u32 addr)
 
 	spin_unlock_irqrestore(&rtciobrg_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_writel); */
+EXPORT_SYMBOL_GPL(sirfsoc_rtc_iobrg_writel);
 
 static const struct of_device_id rtciobrg_ids[] = {
 	{ .compatible = "sirf,prima2-rtciobg" },

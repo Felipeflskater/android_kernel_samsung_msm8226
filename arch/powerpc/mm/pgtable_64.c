@@ -320,11 +320,11 @@ void iounmap(volatile void __iomem *token)
 		__iounmap(token);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioremap); */
-/* DISABLED: EXPORT_SYMBOL(ioremap_wc); */
-/* DISABLED: EXPORT_SYMBOL(ioremap_prot); */
-/* DISABLED: EXPORT_SYMBOL(__ioremap); */
-/* DISABLED: EXPORT_SYMBOL(__ioremap_at); */
-/* DISABLED: EXPORT_SYMBOL(iounmap); */
-/* DISABLED: EXPORT_SYMBOL(__iounmap); */
-/* DISABLED: EXPORT_SYMBOL(__iounmap_at); */
+EXPORT_SYMBOL(ioremap);
+EXPORT_SYMBOL(ioremap_wc);
+EXPORT_SYMBOL(ioremap_prot);
+EXPORT_SYMBOL(__ioremap);
+EXPORT_SYMBOL(__ioremap_at);
+EXPORT_SYMBOL(iounmap);
+EXPORT_SYMBOL(__iounmap);
+EXPORT_SYMBOL(__iounmap_at);

@@ -257,7 +257,7 @@ static int __init elanfreq_setup(char *str)
 	printk(KERN_WARNING "You're using the deprecated elanfreq command line option. Use elanfreq.max_freq instead, please!\n");
 	return 1;
 }
-/* DISABLED: __setup("elanfreq=", elanfreq_setup); */ */
+__setup("elanfreq=", elanfreq_setup);
 #endif
 
 

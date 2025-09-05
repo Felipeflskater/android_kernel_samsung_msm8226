@@ -55,7 +55,7 @@ struct sk_buff *ath_rxbuf_alloc(struct ath_common *common,
 
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_rxbuf_alloc); */
+EXPORT_SYMBOL(ath_rxbuf_alloc);
 
 void ath_printk(const char *level, const struct ath_common* common,
 		const char *fmt, ...)
@@ -76,4 +76,4 @@ void ath_printk(const char *level, const struct ath_common* common,
 
 	va_end(args);
 }
-/* DISABLED: EXPORT_SYMBOL(ath_printk); */
+EXPORT_SYMBOL(ath_printk);

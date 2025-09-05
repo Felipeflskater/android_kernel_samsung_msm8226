@@ -403,7 +403,7 @@ int mlx4_is_slave_active(struct mlx4_dev *dev, int slave)
 	s_slave = &priv->mfunc.master.slave_state[slave];
 	return !!s_slave->active;
 }
-/* DISABLED: EXPORT_SYMBOL(mlx4_is_slave_active); */
+EXPORT_SYMBOL(mlx4_is_slave_active);
 
 static int mlx4_slave_cap(struct mlx4_dev *dev)
 {
@@ -1317,14 +1317,14 @@ int mlx4_counter_alloc(struct mlx4_dev *dev, u32 *idx)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_counter_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_counter_alloc);
 
 void mlx4_counter_free(struct mlx4_dev *dev, u32 idx)
 {
 	mlx4_bitmap_free(&mlx4_priv(dev)->counters_bitmap, idx);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_counter_free); */
+EXPORT_SYMBOL_GPL(mlx4_counter_free);
 
 static int mlx4_setup_hca(struct mlx4_dev *dev)
 {

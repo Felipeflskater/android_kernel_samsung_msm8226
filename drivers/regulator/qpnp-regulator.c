@@ -1641,7 +1641,7 @@ int __init qpnp_regulator_init(void)
 
 	return spmi_driver_register(&qpnp_regulator_driver);
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_regulator_init); */
+EXPORT_SYMBOL(qpnp_regulator_init);
 
 static void __exit qpnp_regulator_exit(void)
 {

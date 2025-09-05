@@ -807,7 +807,7 @@ error_tx_new:
 		i2400m, buf, buf_len, pl_type, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_tx); */
+EXPORT_SYMBOL_GPL(i2400m_tx);
 
 
 /**
@@ -914,7 +914,7 @@ out_unlock:
 		  i2400m, bus_size, *bus_size, tx_msg_moved);
 	return tx_msg_moved;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_tx_msg_get); */
+EXPORT_SYMBOL_GPL(i2400m_tx_msg_get);
 
 
 /**
@@ -951,7 +951,7 @@ out_unlock:
 	spin_unlock_irqrestore(&i2400m->tx_lock, flags);
 	d_fnend(3, dev, "(i2400m %p) = void\n", i2400m);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_tx_msg_sent); */
+EXPORT_SYMBOL_GPL(i2400m_tx_msg_sent);
 
 
 /**

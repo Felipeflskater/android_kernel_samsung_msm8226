@@ -459,7 +459,7 @@ const struct file_operations ide_capacity_proc_fops = {
 	.llseek		= seq_lseek,
 	.release	= single_release,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_capacity_proc_fops); */
+EXPORT_SYMBOL_GPL(ide_capacity_proc_fops);
 
 static int ide_geometry_proc_show(struct seq_file *m, void *v)
 {
@@ -484,7 +484,7 @@ const struct file_operations ide_geometry_proc_fops = {
 	.llseek		= seq_lseek,
 	.release	= single_release,
 };
-/* DISABLED: EXPORT_SYMBOL(ide_geometry_proc_fops); */
+EXPORT_SYMBOL(ide_geometry_proc_fops);
 
 static int ide_dmodel_proc_show(struct seq_file *seq, void *v)
 {
@@ -653,7 +653,7 @@ void ide_proc_register_driver(ide_drive_t *drive, struct ide_driver *driver)
 	ide_add_proc_entries(drive->proc, driver->proc_entries(drive), drive);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ide_proc_register_driver); */
+EXPORT_SYMBOL(ide_proc_register_driver);
 
 /**
  *	ide_proc_unregister_driver	-	remove driver specific data
@@ -678,7 +678,7 @@ void ide_proc_unregister_driver(ide_drive_t *drive, struct ide_driver *driver)
 	drive->settings = NULL;
 	mutex_unlock(&ide_setting_mtx);
 }
-/* DISABLED: EXPORT_SYMBOL(ide_proc_unregister_driver); */
+EXPORT_SYMBOL(ide_proc_unregister_driver);
 
 void ide_proc_port_register_devices(ide_hwif_t *hwif)
 {

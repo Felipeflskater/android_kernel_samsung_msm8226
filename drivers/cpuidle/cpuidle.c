@@ -220,7 +220,7 @@ void cpuidle_pause_and_lock(void)
 	cpuidle_uninstall_idle_handler();
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_pause_and_lock); */
+EXPORT_SYMBOL_GPL(cpuidle_pause_and_lock);
 
 /**
  * cpuidle_resume_and_unlock - resumes CPUIDLE operation
@@ -231,7 +231,7 @@ void cpuidle_resume_and_unlock(void)
 	mutex_unlock(&cpuidle_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_resume_and_unlock); */
+EXPORT_SYMBOL_GPL(cpuidle_resume_and_unlock);
 
 /**
  * cpuidle_wrap_enter - performs timekeeping and irqen around enter function
@@ -359,7 +359,7 @@ fail_sysfs:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_enable_device); */
+EXPORT_SYMBOL_GPL(cpuidle_enable_device);
 
 /**
  * cpuidle_disable_device - disables idle PM for a CPU
@@ -384,7 +384,7 @@ void cpuidle_disable_device(struct cpuidle_device *dev)
 	enabled_devices--;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_disable_device); */
+EXPORT_SYMBOL_GPL(cpuidle_disable_device);
 
 /**
  * __cpuidle_register_device - internal register function called before register
@@ -455,7 +455,7 @@ int cpuidle_register_device(struct cpuidle_device *dev)
 
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_register_device); */
+EXPORT_SYMBOL_GPL(cpuidle_register_device);
 
 /**
  * cpuidle_unregister_device - unregisters a CPU's idle PM feature
@@ -485,7 +485,7 @@ void cpuidle_unregister_device(struct cpuidle_device *dev)
 	module_put(cpuidle_driver->owner);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_unregister_device); */
+EXPORT_SYMBOL_GPL(cpuidle_unregister_device);
 
 /*
  * cpuidle_unregister: unregister a driver and the devices. This function
@@ -506,7 +506,7 @@ void cpuidle_unregister(struct cpuidle_driver *drv)
 
 	cpuidle_unregister_driver(drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_unregister); */
+EXPORT_SYMBOL_GPL(cpuidle_unregister);
 
 /**
  * cpuidle_register: registers the driver and the cpu devices with the
@@ -556,7 +556,7 @@ int cpuidle_register(struct cpuidle_driver *drv,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuidle_register); */
+EXPORT_SYMBOL_GPL(cpuidle_register);
 
 #ifdef CONFIG_SMP
 

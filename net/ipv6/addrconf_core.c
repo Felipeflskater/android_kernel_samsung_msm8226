@@ -76,5 +76,5 @@ int __ipv6_addr_type(const struct in6_addr *addr)
 	return (IPV6_ADDR_UNICAST |
 		IPV6_ADDR_SCOPE_TYPE(IPV6_ADDR_SCOPE_GLOBAL));	/* addr-select 3.4 */
 }
-/* DISABLED: EXPORT_SYMBOL(__ipv6_addr_type); */
+EXPORT_SYMBOL(__ipv6_addr_type);
 

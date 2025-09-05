@@ -347,7 +347,7 @@ error_no_pdata:
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_btn_probe); */
+EXPORT_SYMBOL(cyttsp5_btn_probe);
 
 int cyttsp5_btn_release(struct device *dev)
 {
@@ -375,4 +375,4 @@ int cyttsp5_btn_release(struct device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_btn_release); */
+EXPORT_SYMBOL(cyttsp5_btn_release);

@@ -632,5 +632,5 @@ void i2400m_netdev_setup(struct net_device *net_dev)
 	net_dev->ethtool_ops = &i2400m_ethtool_ops;
 	d_fnend(3, NULL, "(net_dev %p) = void\n", net_dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_netdev_setup); */
+EXPORT_SYMBOL_GPL(i2400m_netdev_setup);
 

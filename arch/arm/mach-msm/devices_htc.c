@@ -422,7 +422,7 @@ int __init board_mfg_mode_init(char *s)
 
 	return 1;
 }
-/* DISABLED: __setup("androidboot.mode=", board_mfg_mode_init); */ */
+__setup("androidboot.mode=", board_mfg_mode_init);
 
 
 int board_mfg_mode(void)
@@ -447,4 +447,4 @@ static int __init board_serialno_setup(char *serialno)
 	return 1;
 }
 
-/* DISABLED: __setup("androidboot.serialno=", board_serialno_setup); */ */
+__setup("androidboot.serialno=", board_serialno_setup);

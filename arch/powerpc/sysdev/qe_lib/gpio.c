@@ -187,7 +187,7 @@ err0:
 	pr_debug("%s failed with status %d\n", __func__, err);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(qe_pin_request); */
+EXPORT_SYMBOL(qe_pin_request);
 
 /**
  * qe_pin_free - Free a pin
@@ -209,7 +209,7 @@ void qe_pin_free(struct qe_pin *qe_pin)
 
 	kfree(qe_pin);
 }
-/* DISABLED: EXPORT_SYMBOL(qe_pin_free); */
+EXPORT_SYMBOL(qe_pin_free);
 
 /**
  * qe_pin_set_dedicated - Revert a pin to a dedicated peripheral function mode
@@ -250,7 +250,7 @@ void qe_pin_set_dedicated(struct qe_pin *qe_pin)
 
 	spin_unlock_irqrestore(&qe_gc->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(qe_pin_set_dedicated); */
+EXPORT_SYMBOL(qe_pin_set_dedicated);
 
 /**
  * qe_pin_set_gpio - Set a pin to the GPIO mode
@@ -272,7 +272,7 @@ void qe_pin_set_gpio(struct qe_pin *qe_pin)
 
 	spin_unlock_irqrestore(&qe_gc->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(qe_pin_set_gpio); */
+EXPORT_SYMBOL(qe_pin_set_gpio);
 
 static int __init qe_add_gpiochips(void)
 {

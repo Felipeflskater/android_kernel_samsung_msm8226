@@ -1058,7 +1058,7 @@ int mlx4_test_interrupts(struct mlx4_dev *dev)
 		    priv->eq_table.eq[dev->caps.num_comp_vectors].eqn);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mlx4_test_interrupts); */
+EXPORT_SYMBOL(mlx4_test_interrupts);
 
 int mlx4_assign_eq(struct mlx4_dev *dev, char* name, int * vector)
 {
@@ -1098,7 +1098,7 @@ int mlx4_assign_eq(struct mlx4_dev *dev, char* name, int * vector)
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mlx4_assign_eq); */
+EXPORT_SYMBOL(mlx4_assign_eq);
 
 void mlx4_release_eq(struct mlx4_dev *dev, int vec)
 {
@@ -1119,5 +1119,5 @@ void mlx4_release_eq(struct mlx4_dev *dev, int vec)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(mlx4_release_eq); */
+EXPORT_SYMBOL(mlx4_release_eq);
 

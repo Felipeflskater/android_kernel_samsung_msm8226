@@ -155,7 +155,7 @@ int jz4740_adc_set_config(struct device *dev, uint32_t mask, uint32_t val)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_adc_set_config); */
+EXPORT_SYMBOL_GPL(jz4740_adc_set_config);
 
 static struct resource jz4740_hwmon_resources[] = {
 	{

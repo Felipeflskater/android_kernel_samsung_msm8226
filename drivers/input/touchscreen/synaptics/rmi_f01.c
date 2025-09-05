@@ -170,7 +170,7 @@ void FN_01_inthandler(struct rmi_function_info *rmifninfo,
 		*/
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(FN_01_inthandler); */
+EXPORT_SYMBOL(FN_01_inthandler);
 
 /*
  * This reads in the function $01 source data.
@@ -197,7 +197,7 @@ void FN_01_attention(struct rmi_function_info *rmifninfo)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(FN_01_attention); */
+EXPORT_SYMBOL(FN_01_attention);
 
 int FN_01_config(struct rmi_function_info *rmifninfo)
 {
@@ -228,7 +228,7 @@ int FN_01_config(struct rmi_function_info *rmifninfo)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_01_config); */
+EXPORT_SYMBOL(FN_01_config);
 
 /* Initialize any function $01 specific params and settings - input
  * settings, device settings, etc.
@@ -288,7 +288,7 @@ int FN_01_init(struct rmi_function_device *function_device)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_01_init); */
+EXPORT_SYMBOL(FN_01_init);
 
 int FN_01_detect(struct rmi_function_info *rmifninfo,
 	struct rmi_function_descriptor *fndescr, unsigned int interruptCount)
@@ -414,7 +414,7 @@ error_exit:
 	kfree(dataRegisters);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_01_detect); */
+EXPORT_SYMBOL(FN_01_detect);
 
 static ssize_t rmi_fn_01_productinfo_show(struct device *dev,
 				struct device_attribute *attr, char *buf)

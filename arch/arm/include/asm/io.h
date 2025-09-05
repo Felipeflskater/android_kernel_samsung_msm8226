@@ -22,33 +22,12 @@
 #define __ASM_ARM_IO_H
 
 #ifdef __KERNEL__
+
 #include <linux/types.h>
 #include <asm/byteorder.h>
 #include <asm/memory.h>
 #include <asm-generic/pci_iomap.h>
 #include <mach/msm_rtb.h>
-
-/* Fix for missing ETB_WAYPOINT and LOG_BARRIER definitions */
-#ifndef ETB_WAYPOINT
-#define ETB_WAYPOINT do { } while (0)
-#endif
-
-#ifndef LOG_BARRIER
-#define LOG_BARRIER do { } while (0)
-#endif
-
-/* Adicione estas linhas também: */
-#ifndef LOGK_READL
-#define LOGK_READL 0
-#endif
-
-#ifndef LOGK_WRITEL
-#define LOGK_WRITEL 0
-#endif
-
-#ifndef uncached_logk
-#define uncached_logk(type, addr) (0)
-#endif
 
 /*
  * ISA I/O bus memory addresses are 1:1 with the physical address.
@@ -76,14 +55,14 @@ extern void __raw_readsl(const void __iomem *addr, void *data, int longlen);
  */
 
 #define __raw_write_logged(v, a, _t)	({ \
-int _ret; \
-void *_addr = (void *)(a); \
-_ret = uncached_logk(LOGK_WRITEL, _addr); \
-do { } while (0); \
+	int _ret; \
+	void *_addr = (void *)(a); \
+	_ret = uncached_logk(LOGK_WRITEL, _addr); \
+	ETB_WAYPOINT; \
 	__raw_write##_t##_no_log((v), _addr); \
 	if (_ret) \
-		do { } while (0); \
-})
+		LOG_BARRIER; \
+	})
 
 
 #define __raw_writeb_no_log(v, a)	(__chk_io_ptr(a), *(volatile unsigned char __force  *)(a) = (v))
@@ -92,10 +71,10 @@ do { } while (0); \
 #define __raw_writell_no_log(v, a)	(__chk_io_ptr(a), *(volatile unsigned long long __force *)(a) = (v))
 
 
-#define __raw_writeb(v, a)	__raw_writeb_no_log(v, a)
-#define __raw_writew(v, a)	__raw_writew_no_log(v, a)
-#define __raw_writel(v, a)	__raw_writel_no_log(v, a)
-#define __raw_writell(v, a)	__raw_writell_no_log(v, a)
+#define __raw_writeb(v, a)	__raw_write_logged((v), (a), b)
+#define __raw_writew(v, a)	__raw_write_logged((v), (a), w)
+#define __raw_writel(v, a)	__raw_write_logged((v), (a), l)
+#define __raw_writell(v, a)	__raw_write_logged((v), (a), ll)
 
 #define __raw_readb_no_log(a)		(__chk_io_ptr(a), *(volatile unsigned char __force  *)(a))
 #define __raw_readw_no_log(a)		(__chk_io_ptr(a), *(volatile unsigned short __force *)(a))
@@ -103,22 +82,22 @@ do { } while (0); \
 #define __raw_readll_no_log(a)		(__chk_io_ptr(a), *(volatile unsigned long long __force *)(a))
 
 #define __raw_read_logged(a, _l, _t)		({ \
-unsigned _t __a; \
-void *_addr = (void *)(a); \
-int _ret; \
-_ret = uncached_logk(LOGK_READL, _addr); \
-do { } while (0); \
+	unsigned _t __a; \
+	void *_addr = (void *)(a); \
+	int _ret; \
+	_ret = uncached_logk(LOGK_READL, _addr); \
+	ETB_WAYPOINT; \
 	__a = __raw_read##_l##_no_log(_addr);\
 	if (_ret) \
-		do { } while (0); \
-			__a; \
-})
+		LOG_BARRIER; \
+	__a; \
+	})
 
 
-#define __raw_readb(a)		__raw_readb_no_log(a)
-#define __raw_readw(a)		__raw_readw_no_log(a)
-#define __raw_readl(a)		__raw_readl_no_log(a)
-#define __raw_readll(a)		__raw_readll_no_log(a)
+#define __raw_readb(a)		__raw_read_logged((a), b, char)
+#define __raw_readw(a)		__raw_read_logged((a), w, short)
+#define __raw_readl(a)		__raw_read_logged((a), l, int)
+#define __raw_readll(a)		__raw_read_logged((a), ll, long long)
 
 /*
  * Architecture ioremap implementation.
@@ -139,9 +118,9 @@ do { } while (0); \
  * /proc/vmalloc to use - and should only be used in non-inline functions.
  */
 extern void __iomem *__arm_ioremap_pfn_caller(unsigned long, unsigned long,
-											  size_t, unsigned int, void *);
+	size_t, unsigned int, void *);
 extern void __iomem *__arm_ioremap_caller(phys_addr_t, size_t, unsigned int,
-										  void *);
+	void *);
 
 extern void __iomem *__arm_ioremap_pfn(unsigned long, unsigned long, size_t, unsigned int);
 extern void __iomem *__arm_ioremap(phys_addr_t, size_t, unsigned int);
@@ -150,7 +129,7 @@ extern void __iounmap(volatile void __iomem *addr);
 extern void __arm_iounmap(volatile void __iomem *addr);
 
 extern void __iomem * (*arch_ioremap_caller)(phys_addr_t, size_t,
-											 unsigned int, void *);
+	unsigned int, void *);
 extern void (*arch_iounmap)(volatile void __iomem *);
 
 /*
@@ -235,15 +214,15 @@ static inline void __iomem *__typesafe_io(unsigned long addr)
 #ifdef __io
 #define outb(v,p)	({ __iowmb(); __raw_writeb(v,__io(p)); })
 #define outw(v,p)	({ __iowmb(); __raw_writew((__force __u16) \
-cpu_to_le16(v),__io(p)); })
+					cpu_to_le16(v),__io(p)); })
 #define outl(v,p)	({ __iowmb(); __raw_writel((__force __u32) \
-cpu_to_le32(v),__io(p)); })
+					cpu_to_le32(v),__io(p)); })
 
 #define inb(p)	({ __u8 __v = __raw_readb(__io(p)); __iormb(); __v; })
 #define inw(p)	({ __u16 __v = le16_to_cpu((__force __le16) \
-__raw_readw(__io(p))); __iormb(); __v; })
+			__raw_readw(__io(p))); __iormb(); __v; })
 #define inl(p)	({ __u32 __v = le32_to_cpu((__force __le32) \
-__raw_readl(__io(p))); __iormb(); __v; })
+			__raw_readl(__io(p))); __iormb(); __v; })
 
 #define outsb(p,d,l)		__raw_writesb(__io(p),d,l)
 #define outsw(p,d,l)		__raw_writesw(__io(p),d,l)
@@ -290,28 +269,28 @@ extern void _memset_io(volatile void __iomem *, int, size_t);
 #ifndef readl
 #define readb_relaxed(c) ({ u8  __r = __raw_readb(c); __r; })
 #define readw_relaxed(c) ({ u16 __r = le16_to_cpu((__force __le16) \
-__raw_readw(c)); __r; })
+					__raw_readw(c)); __r; })
 #define readl_relaxed(c) ({ u32 __r = le32_to_cpu((__force __le32) \
-__raw_readl(c)); __r; })
+					__raw_readl(c)); __r; })
 #define readll_relaxed(c) ({ u64 __r = le64_to_cpu((__force __le64) \
-__raw_readll(c)); __r; })
+					__raw_readll(c)); __r; })
 #define readl_relaxed_no_log(c) ({ u32 __r = le32_to_cpu((__force __le32) \
-__raw_readl_no_log(c)); __r; })
+					__raw_readl_no_log(c)); __r; })
 #define readll_relaxed_no_log(c) ({ u64 __r = le64_to_cpu((__force __le64) \
-__raw_readll_no_log(c)); __r; })
+					__raw_readll_no_log(c)); __r; })
 
 
 #define writeb_relaxed(v,c)	((void)__raw_writeb(v,c))
 #define writew_relaxed(v,c)	((void)__raw_writew((__force u16) \
-cpu_to_le16(v),c))
+					cpu_to_le16(v),c))
 #define writel_relaxed(v,c)	((void)__raw_writel((__force u32) \
-cpu_to_le32(v),c))
+					cpu_to_le32(v),c))
 #define writell_relaxed(v, c)	((void)__raw_writell((__force u64) \
-cpu_to_le64(v), c))
+					cpu_to_le64(v), c))
 #define writel_relaxed_no_log(v, c)  ((void)__raw_writel_no_log((__force u32) \
-cpu_to_le32(v), c))
+					cpu_to_le32(v), c))
 #define writell_relaxed_no_log(v, c)  ((void)__raw_writell_no_log((__force u64) \
-cpu_to_le64(v), c))
+					cpu_to_le64(v), c))
 
 #define readb(c)		({ u8  __v = readb_relaxed(c); __iormb(); __v; })
 #define readw(c)		({ u16 __v = readw_relaxed(c); __iormb(); __v; })
@@ -393,7 +372,7 @@ extern void pci_iounmap(struct pci_dev *dev, void __iomem *addr);
  * constraints.
  */
 #define BIOVEC_MERGEABLE(vec1, vec2)	\
-((bvec_to_phys((vec1)) + (vec1)->bv_len) == bvec_to_phys((vec2)))
+	((bvec_to_phys((vec1)) + (vec1)->bv_len) == bvec_to_phys((vec2)))
 
 #ifdef CONFIG_MMU
 #define ARCH_HAS_VALID_PHYS_ADDR_RANGE
@@ -418,7 +397,7 @@ extern int devmem_is_allowed(unsigned long pfn);
  * emulation.
  */
 extern void register_isa_ports(unsigned int mmio, unsigned int io,
-							   unsigned int io_shift);
+			       unsigned int io_shift);
 
 #endif	/* __KERNEL__ */
 #endif	/* __ASM_ARM_IO_H */

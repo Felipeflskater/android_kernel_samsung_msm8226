@@ -26,7 +26,7 @@
  * Pointer to debug area.
  */
 debug_info_t *TAPE_DBF_AREA = NULL;
-/* DISABLED: EXPORT_SYMBOL(TAPE_DBF_AREA); */
+EXPORT_SYMBOL(TAPE_DBF_AREA);
 
 #define TAPE34XX_FMT_3480	0
 #define TAPE34XX_FMT_3480_2_XF	1

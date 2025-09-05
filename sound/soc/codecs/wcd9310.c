@@ -8461,7 +8461,7 @@ int tabla_hs_detect(struct snd_soc_codec *codec,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tabla_hs_detect); */
+EXPORT_SYMBOL_GPL(tabla_hs_detect);
 
 static irqreturn_t tabla_slimbus_irq(int irq, void *data)
 {

@@ -75,7 +75,7 @@ static int __init fpe_setup(char *line)
 	return 1;
 }
 
-/* DISABLED: __setup("fpe=", fpe_setup); */ */
+__setup("fpe=", fpe_setup);
 #endif
 
 extern void paging_init(struct machine_desc *desc);
@@ -84,34 +84,34 @@ extern void reboot_setup(char *str);
 extern void setup_dma_zone(struct machine_desc *desc);
 
 unsigned int processor_id;
-/* DISABLED: EXPORT_SYMBOL(processor_id); */
+EXPORT_SYMBOL(processor_id);
 unsigned int __machine_arch_type __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(__machine_arch_type); */
+EXPORT_SYMBOL(__machine_arch_type);
 unsigned int cacheid __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(cacheid); */
+EXPORT_SYMBOL(cacheid);
 
 unsigned int __atags_pointer __initdata;
 
 unsigned int system_rev;
-/* DISABLED: EXPORT_SYMBOL(system_rev); */
+EXPORT_SYMBOL(system_rev);
 
 unsigned int system_serial_low;
-/* DISABLED: EXPORT_SYMBOL(system_serial_low); */
+EXPORT_SYMBOL(system_serial_low);
 
 unsigned int system_serial_high;
-/* DISABLED: EXPORT_SYMBOL(system_serial_high); */
+EXPORT_SYMBOL(system_serial_high);
 
 unsigned int elf_hwcap __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(elf_hwcap); */
+EXPORT_SYMBOL(elf_hwcap);
 
 unsigned int boot_reason;
-/* DISABLED: EXPORT_SYMBOL(boot_reason); */
+EXPORT_SYMBOL(boot_reason);
 
 unsigned int cold_boot;
-/* DISABLED: EXPORT_SYMBOL(cold_boot); */
+EXPORT_SYMBOL(cold_boot);
 
 char* (*arch_read_hardware_id)(void);
-/* DISABLED: EXPORT_SYMBOL(arch_read_hardware_id); */
+EXPORT_SYMBOL(arch_read_hardware_id);
 
 #ifdef MULTI_CPU
 struct processor processor __read_mostly;
@@ -127,7 +127,7 @@ struct cpu_cache_fns cpu_cache __read_mostly;
 #endif
 #ifdef CONFIG_OUTER_CACHE
 struct outer_cache_fns outer_cache __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(outer_cache); */
+EXPORT_SYMBOL(outer_cache);
 #endif
 
 /*
@@ -146,7 +146,7 @@ struct stack {
 static struct stack stacks[NR_CPUS];
 
 char elf_platform[ELF_PLATFORM_SIZE];
-/* DISABLED: EXPORT_SYMBOL(elf_platform); */
+EXPORT_SYMBOL(elf_platform);
 
 static const char *cpu_name;
 static const char *machine_name;
@@ -155,7 +155,7 @@ struct machine_desc *machine_desc __initdata;
 
 #ifdef CONFIG_SEC_DEBUG_SUBSYS
 const char *unit_name;
-/* DISABLED: EXPORT_SYMBOL(unit_name); */
+EXPORT_SYMBOL(unit_name);
 #endif
 
 static char default_command_line[COMMAND_LINE_SIZE] __initdata = CONFIG_CMDLINE;

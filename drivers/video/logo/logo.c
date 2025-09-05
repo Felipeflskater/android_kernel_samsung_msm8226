@@ -118,4 +118,4 @@ const struct linux_logo * __init_refok fb_find_logo(int depth)
 	}
 	return logo;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fb_find_logo); */
+EXPORT_SYMBOL_GPL(fb_find_logo);

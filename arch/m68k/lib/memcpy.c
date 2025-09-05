@@ -85,4 +85,4 @@ void *memcpy(void *to, const void *from, size_t n)
 	}
 	return xto;
 }
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
+EXPORT_SYMBOL(memcpy);

@@ -230,13 +230,13 @@ void mce_register_decode_chain(struct notifier_block *nb)
 	atomic_notifier_chain_register(&x86_mce_decoder_chain, nb);
 	drain_mcelog_buffer();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mce_register_decode_chain); */
+EXPORT_SYMBOL_GPL(mce_register_decode_chain);
 
 void mce_unregister_decode_chain(struct notifier_block *nb)
 {
 	atomic_notifier_chain_unregister(&x86_mce_decoder_chain, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mce_unregister_decode_chain); */
+EXPORT_SYMBOL_GPL(mce_unregister_decode_chain);
 
 static void print_mce(struct mce *m)
 {
@@ -635,7 +635,7 @@ void machine_check_poll(enum mcp_flags flags, mce_banks_t *b)
 
 	sync_core();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(machine_check_poll); */
+EXPORT_SYMBOL_GPL(machine_check_poll);
 
 /*
  * Do a quick check if any of the events requires a panic.
@@ -1149,7 +1149,7 @@ out:
 	atomic_dec(&mce_entry);
 	sync_core();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(do_machine_check); */
+EXPORT_SYMBOL_GPL(do_machine_check);
 
 #ifndef CONFIG_MEMORY_FAILURE
 int memory_failure(unsigned long pfn, int vector, int flags)
@@ -1316,7 +1316,7 @@ int mce_notify_irq(void)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mce_notify_irq); */
+EXPORT_SYMBOL_GPL(mce_notify_irq);
 
 static int __cpuinit __mcheck_cpu_mce_banks_init(void)
 {
@@ -1781,7 +1781,7 @@ void register_mce_write_callback(ssize_t (*fn)(struct file *filp,
 {
 	mce_write = fn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_mce_write_callback); */
+EXPORT_SYMBOL_GPL(register_mce_write_callback);
 
 ssize_t mce_chrdev_write(struct file *filp, const char __user *ubuf,
 			 size_t usize, loff_t *off)
@@ -1850,7 +1850,7 @@ static int __init mcheck_enable(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("mce", mcheck_enable); */ */
+__setup("mce", mcheck_enable);
 
 int __init mcheck_init(void)
 {
@@ -2303,7 +2303,7 @@ static int __init mcheck_disable(char *str)
 	mce_disabled = 1;
 	return 1;
 }
-/* DISABLED: __setup("nomce", mcheck_disable); */ */
+__setup("nomce", mcheck_disable);
 
 #ifdef CONFIG_DEBUG_FS
 struct dentry *mce_get_debugfs_dir(void)

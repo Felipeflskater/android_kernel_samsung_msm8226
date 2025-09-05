@@ -90,13 +90,13 @@ struct kvmppc_linear_info *kvm_alloc_rma(void)
 {
 	return kvm_alloc_linear(KVM_LINEAR_RMA);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_alloc_rma); */
+EXPORT_SYMBOL_GPL(kvm_alloc_rma);
 
 void kvm_release_rma(struct kvmppc_linear_info *ri)
 {
 	kvm_release_linear(ri);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_rma); */
+EXPORT_SYMBOL_GPL(kvm_release_rma);
 
 /*************** HPT *************/
 
@@ -123,13 +123,13 @@ struct kvmppc_linear_info *kvm_alloc_hpt(void)
 {
 	return kvm_alloc_linear(KVM_LINEAR_HPT);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_alloc_hpt); */
+EXPORT_SYMBOL_GPL(kvm_alloc_hpt);
 
 void kvm_release_hpt(struct kvmppc_linear_info *li)
 {
 	kvm_release_linear(li);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_hpt); */
+EXPORT_SYMBOL_GPL(kvm_release_hpt);
 
 /*************** generic *************/
 

@@ -613,7 +613,7 @@ int __vmbus_driver_register(struct hv_driver *hv_driver, struct module *owner, c
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__vmbus_driver_register); */
+EXPORT_SYMBOL_GPL(__vmbus_driver_register);
 
 /**
  * vmbus_driver_unregister() - Unregister a vmbus's driver
@@ -629,7 +629,7 @@ void vmbus_driver_unregister(struct hv_driver *hv_driver)
 	if (!vmbus_exists())
 		driver_unregister(&hv_driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vmbus_driver_unregister); */
+EXPORT_SYMBOL_GPL(vmbus_driver_unregister);
 
 /*
  * vmbus_device_create - Creates and registers a new child device

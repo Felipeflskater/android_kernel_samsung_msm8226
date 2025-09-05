@@ -182,7 +182,7 @@ out:
 	dlm_put_lockspace(ls);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dlm_posix_lock); */
+EXPORT_SYMBOL_GPL(dlm_posix_lock);
 
 /* Returns failure iff a successful lock operation should be canceled */
 static int dlm_plock_callback(struct plock_op *op)
@@ -301,7 +301,7 @@ out:
 	dlm_put_lockspace(ls);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dlm_posix_unlock); */
+EXPORT_SYMBOL_GPL(dlm_posix_unlock);
 
 int dlm_posix_get(dlm_lockspace_t *lockspace, u64 number, struct file *file,
 		  struct file_lock *fl)
@@ -366,7 +366,7 @@ out:
 	dlm_put_lockspace(ls);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dlm_posix_get); */
+EXPORT_SYMBOL_GPL(dlm_posix_get);
 
 /* a read copies out one plock request from the send list */
 static ssize_t dev_read(struct file *file, char __user *u, size_t count,

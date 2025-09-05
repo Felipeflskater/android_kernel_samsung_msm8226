@@ -15,7 +15,7 @@
 #include <asm/processor.h>
 
 unsigned long shm_align_mask = PAGE_SIZE - 1;	/* Sane caches */
-/* DISABLED: EXPORT_SYMBOL(shm_align_mask); */
+EXPORT_SYMBOL(shm_align_mask);
 
 #ifdef CONFIG_MMU
 /*

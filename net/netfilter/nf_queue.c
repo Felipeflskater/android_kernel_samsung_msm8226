@@ -47,7 +47,7 @@ int nf_register_queue_handler(u_int8_t pf, const struct nf_queue_handler *qh)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_register_queue_handler); */
+EXPORT_SYMBOL(nf_register_queue_handler);
 
 /* The caller must flush their queue before this */
 int nf_unregister_queue_handler(u_int8_t pf, const struct nf_queue_handler *qh)
@@ -72,7 +72,7 @@ int nf_unregister_queue_handler(u_int8_t pf, const struct nf_queue_handler *qh)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_unregister_queue_handler); */
+EXPORT_SYMBOL(nf_unregister_queue_handler);
 
 void nf_unregister_queue_handlers(const struct nf_queue_handler *qh)
 {
@@ -90,7 +90,7 @@ void nf_unregister_queue_handlers(const struct nf_queue_handler *qh)
 
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_unregister_queue_handlers); */
+EXPORT_SYMBOL_GPL(nf_unregister_queue_handlers);
 
 static void nf_queue_entry_release_refs(struct nf_queue_entry *entry)
 {
@@ -343,7 +343,7 @@ void nf_reinject(struct nf_queue_entry *entry, unsigned int verdict)
 	rcu_read_unlock();
 	kfree(entry);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_reinject); */
+EXPORT_SYMBOL(nf_reinject);
 
 #ifdef CONFIG_PROC_FS
 static void *seq_start(struct seq_file *seq, loff_t *pos)

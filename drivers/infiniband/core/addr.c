@@ -75,7 +75,7 @@ void rdma_addr_register_client(struct rdma_addr_client *client)
 	atomic_set(&client->refcount, 1);
 	init_completion(&client->comp);
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_addr_register_client); */
+EXPORT_SYMBOL(rdma_addr_register_client);
 
 static inline void put_client(struct rdma_addr_client *client)
 {
@@ -88,7 +88,7 @@ void rdma_addr_unregister_client(struct rdma_addr_client *client)
 	put_client(client);
 	wait_for_completion(&client->comp);
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_addr_unregister_client); */
+EXPORT_SYMBOL(rdma_addr_unregister_client);
 
 int rdma_copy_addr(struct rdma_dev_addr *dev_addr, struct net_device *dev,
 		     const unsigned char *dst_dev_addr)
@@ -101,7 +101,7 @@ int rdma_copy_addr(struct rdma_dev_addr *dev_addr, struct net_device *dev,
 	dev_addr->bound_dev_if = dev->ifindex;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_copy_addr); */
+EXPORT_SYMBOL(rdma_copy_addr);
 
 int rdma_translate_ip(struct sockaddr *addr, struct rdma_dev_addr *dev_addr)
 {
@@ -146,7 +146,7 @@ int rdma_translate_ip(struct sockaddr *addr, struct rdma_dev_addr *dev_addr)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_translate_ip); */
+EXPORT_SYMBOL(rdma_translate_ip);
 
 static void set_timeout(unsigned long time)
 {
@@ -403,7 +403,7 @@ err:
 	kfree(req);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_resolve_ip); */
+EXPORT_SYMBOL(rdma_resolve_ip);
 
 void rdma_addr_cancel(struct rdma_dev_addr *addr)
 {
@@ -421,7 +421,7 @@ void rdma_addr_cancel(struct rdma_dev_addr *addr)
 	}
 	mutex_unlock(&lock);
 }
-/* DISABLED: EXPORT_SYMBOL(rdma_addr_cancel); */
+EXPORT_SYMBOL(rdma_addr_cancel);
 
 static int netevent_callback(struct notifier_block *self, unsigned long event,
 	void *ctx)

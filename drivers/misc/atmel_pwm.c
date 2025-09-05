@@ -120,7 +120,7 @@ int pwm_channel_alloc(int index, struct pwm_channel *ch)
 	spin_unlock_irqrestore(&pwm->lock, flags);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_channel_alloc); */
+EXPORT_SYMBOL(pwm_channel_alloc);
 
 static int pwmcheck(struct pwm_channel *ch)
 {
@@ -165,7 +165,7 @@ int pwm_channel_free(struct pwm_channel *ch)
 	spin_unlock_irqrestore(&pwm->lock, flags);
 	return t;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_channel_free); */
+EXPORT_SYMBOL(pwm_channel_free);
 
 int __pwm_channel_onoff(struct pwm_channel *ch, int enabled)
 {
@@ -185,7 +185,7 @@ int __pwm_channel_onoff(struct pwm_channel *ch, int enabled)
 
 	return t;
 }
-/* DISABLED: EXPORT_SYMBOL(__pwm_channel_onoff); */
+EXPORT_SYMBOL(__pwm_channel_onoff);
 
 /**
  * pwm_clk_alloc - allocate and configure CLKA or CLKB
@@ -221,7 +221,7 @@ int pwm_clk_alloc(unsigned prescale, unsigned div)
 	spin_unlock_irqrestore(&pwm->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_clk_alloc); */
+EXPORT_SYMBOL(pwm_clk_alloc);
 
 /**
  * pwm_clk_free - deconfigure and release CLKA or CLKB
@@ -241,7 +241,7 @@ void pwm_clk_free(unsigned clk)
 		pwm_writel(pwm, PWM_MR, mr & ~(0xffff << 16));
 	spin_unlock_irqrestore(&pwm->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_clk_free); */
+EXPORT_SYMBOL(pwm_clk_free);
 
 /**
  * pwm_channel_handler - manage channel's IRQ handler
@@ -269,7 +269,7 @@ int pwm_channel_handler(struct pwm_channel *ch,
 
 	return t;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_channel_handler); */
+EXPORT_SYMBOL(pwm_channel_handler);
 
 static irqreturn_t pwm_irq(int id, void *_pwm)
 {

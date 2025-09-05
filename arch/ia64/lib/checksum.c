@@ -42,7 +42,7 @@ csum_tcpudp_magic (__be32 saddr, __be32 daddr, unsigned short len,
 		(__force u64)sum + ((len + proto) << 8));
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_tcpudp_magic); */
+EXPORT_SYMBOL(csum_tcpudp_magic);
 
 __wsum
 csum_tcpudp_nofold (__be32 saddr, __be32 daddr, unsigned short len,
@@ -60,7 +60,7 @@ csum_tcpudp_nofold (__be32 saddr, __be32 daddr, unsigned short len,
 	result = (result & 0xffffffff) + (result >> 32);
 	return (__force __wsum)result;
 }
-/* DISABLED: EXPORT_SYMBOL(csum_tcpudp_nofold); */
+EXPORT_SYMBOL(csum_tcpudp_nofold);
 
 extern unsigned long do_csum (const unsigned char *, long);
 
@@ -87,7 +87,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
 	return (__force __wsum)result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+EXPORT_SYMBOL(csum_partial);
 
 /*
  * this routine is used for miscellaneous IP-like checksums, mainly
@@ -98,4 +98,4 @@ __sum16 ip_compute_csum (const void *buff, int len)
 	return (__force __sum16)~do_csum(buff,len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip_compute_csum); */
+EXPORT_SYMBOL(ip_compute_csum);

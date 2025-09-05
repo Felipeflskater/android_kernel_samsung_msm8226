@@ -19,22 +19,10 @@
 /*
  * With EABI on ARMv5 and above we must have 64-bit aligned slab pointers.
  */
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if defined(CONFIG_AEABI) && (__LINUX_ARM_ARCH__ >= 5)
-#endif
 #define ARCH_SLAB_MINALIGN 8
 #endif
 
 #define __read_mostly __attribute__((__section__(".data..read_mostly")))
-
-/* Cache writeback definitions for asm-offsets.c - postmarketOS compatibility */
-#ifndef __CACHE_WRITEBACK_ORDER
-#define __CACHE_WRITEBACK_ORDER 6
-#endif
-
-#ifndef __CACHE_WRITEBACK_GRANULE  
-#define __CACHE_WRITEBACK_GRANULE (1 << __CACHE_WRITEBACK_ORDER)
-#endif
 
 #endif

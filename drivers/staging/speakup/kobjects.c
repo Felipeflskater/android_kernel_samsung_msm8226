@@ -582,7 +582,7 @@ ssize_t spk_var_show(struct kobject *kobj, struct kobj_attribute *attr,
 	spk_unlock(flags);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spk_var_show); */
+EXPORT_SYMBOL_GPL(spk_var_show);
 
 /*
  * This function is called when a user echos a value to one of the
@@ -674,7 +674,7 @@ ssize_t spk_var_store(struct kobject *kobj, struct kobj_attribute *attr,
 		pr_info("%s reset to default value\n", attr->attr.name);
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spk_var_store); */
+EXPORT_SYMBOL_GPL(spk_var_store);
 
 /*
  * Functions for reading and writing lists of i18n messages.  Incomplete.

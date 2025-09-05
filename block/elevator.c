@@ -117,7 +117,7 @@ bool elv_rq_merge_ok(struct request *rq, struct bio *bio)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rq_merge_ok); */
+EXPORT_SYMBOL(elv_rq_merge_ok);
 
 static struct elevator_type *elevator_find(const char *name)
 {
@@ -179,7 +179,7 @@ static int __init elevator_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("elevator=", elevator_setup); */ */
+__setup("elevator=", elevator_setup);
 
 static struct kobj_type elv_ktype;
 
@@ -272,7 +272,7 @@ int elevator_init(struct request_queue *q, char *name)
 	q->elevator = eq;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(elevator_init); */
+EXPORT_SYMBOL(elevator_init);
 
 void elevator_exit(struct elevator_queue *e)
 {
@@ -283,7 +283,7 @@ void elevator_exit(struct elevator_queue *e)
 
 	kobject_put(&e->kobj);
 }
-/* DISABLED: EXPORT_SYMBOL(elevator_exit); */
+EXPORT_SYMBOL(elevator_exit);
 
 static inline void __elv_rqhash_del(struct request *rq)
 {
@@ -355,7 +355,7 @@ void elv_rb_add(struct rb_root *root, struct request *rq)
 	rb_link_node(&rq->rb_node, parent, p);
 	rb_insert_color(&rq->rb_node, root);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rb_add); */
+EXPORT_SYMBOL(elv_rb_add);
 
 void elv_rb_del(struct rb_root *root, struct request *rq)
 {
@@ -363,7 +363,7 @@ void elv_rb_del(struct rb_root *root, struct request *rq)
 	rb_erase(&rq->rb_node, root);
 	RB_CLEAR_NODE(&rq->rb_node);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rb_del); */
+EXPORT_SYMBOL(elv_rb_del);
 
 struct request *elv_rb_find(struct rb_root *root, sector_t sector)
 {
@@ -383,7 +383,7 @@ struct request *elv_rb_find(struct rb_root *root, sector_t sector)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rb_find); */
+EXPORT_SYMBOL(elv_rb_find);
 
 /*
  * Insert rq into dispatch queue of q.  Queue lock must be held on
@@ -428,7 +428,7 @@ void elv_dispatch_sort(struct request_queue *q, struct request *rq)
 
 	list_add(&rq->queuelist, entry);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_dispatch_sort); */
+EXPORT_SYMBOL(elv_dispatch_sort);
 
 /*
  * Insert rq into dispatch queue of q.  Queue lock must be held on
@@ -448,7 +448,7 @@ void elv_dispatch_add_tail(struct request_queue *q, struct request *rq)
 	q->boundary_rq = rq;
 	list_add_tail(&rq->queuelist, &q->queue_head);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_dispatch_add_tail); */
+EXPORT_SYMBOL(elv_dispatch_add_tail);
 
 int elv_merge(struct request_queue *q, struct request **req, struct bio *bio)
 {
@@ -759,7 +759,7 @@ void __elv_add_request(struct request_queue *q, struct request *rq, int where)
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__elv_add_request); */
+EXPORT_SYMBOL(__elv_add_request);
 
 void elv_add_request(struct request_queue *q, struct request *rq, int where)
 {
@@ -769,7 +769,7 @@ void elv_add_request(struct request_queue *q, struct request *rq, int where)
 	__elv_add_request(q, rq, where);
 	spin_unlock_irqrestore(q->queue_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_add_request); */
+EXPORT_SYMBOL(elv_add_request);
 
 struct request *elv_latter_request(struct request_queue *q, struct request *rq)
 {
@@ -834,7 +834,7 @@ void elv_abort_queue(struct request_queue *q)
 		__blk_end_request_all(rq, -EIO);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(elv_abort_queue); */
+EXPORT_SYMBOL(elv_abort_queue);
 
 void elv_completed_request(struct request_queue *q, struct request *rq)
 {
@@ -927,7 +927,7 @@ int elv_register_queue(struct request_queue *q)
 {
 	return __elv_register_queue(q, q->elevator);
 }
-/* DISABLED: EXPORT_SYMBOL(elv_register_queue); */
+EXPORT_SYMBOL(elv_register_queue);
 
 void elv_unregister_queue(struct request_queue *q)
 {
@@ -939,7 +939,7 @@ void elv_unregister_queue(struct request_queue *q)
 		e->registered = 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(elv_unregister_queue); */
+EXPORT_SYMBOL(elv_unregister_queue);
 
 int elv_register(struct elevator_type *e)
 {
@@ -980,7 +980,7 @@ int elv_register(struct elevator_type *e)
 								def);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(elv_register); */
+EXPORT_SYMBOL_GPL(elv_register);
 
 void elv_unregister(struct elevator_type *e)
 {
@@ -999,7 +999,7 @@ void elv_unregister(struct elevator_type *e)
 		e->icq_cache = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(elv_unregister); */
+EXPORT_SYMBOL_GPL(elv_unregister);
 
 /*
  * switch to new_e io scheduler. be careful not to introduce deadlocks -
@@ -1097,7 +1097,7 @@ int elevator_change(struct request_queue *q, const char *name)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(elevator_change); */
+EXPORT_SYMBOL(elevator_change);
 
 ssize_t elv_iosched_store(struct request_queue *q, const char *name,
 			  size_t count)
@@ -1150,7 +1150,7 @@ struct request *elv_rb_former_request(struct request_queue *q,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rb_former_request); */
+EXPORT_SYMBOL(elv_rb_former_request);
 
 struct request *elv_rb_latter_request(struct request_queue *q,
 				      struct request *rq)
@@ -1162,4 +1162,4 @@ struct request *elv_rb_latter_request(struct request_queue *q,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(elv_rb_latter_request); */
+EXPORT_SYMBOL(elv_rb_latter_request);

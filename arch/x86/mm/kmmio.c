@@ -443,7 +443,7 @@ out:
 	 */
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(register_kmmio_probe); */
+EXPORT_SYMBOL(register_kmmio_probe);
 
 static void rcu_free_kmmio_fault_pages(struct rcu_head *head)
 {
@@ -543,7 +543,7 @@ void unregister_kmmio_probe(struct kmmio_probe *p)
 	 */
 	call_rcu(&drelease->rcu, remove_kmmio_fault_pages);
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_kmmio_probe); */
+EXPORT_SYMBOL(unregister_kmmio_probe);
 
 static int
 kmmio_die_notifier(struct notifier_block *nb, unsigned long val, void *args)

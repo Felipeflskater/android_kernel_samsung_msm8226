@@ -22,37 +22,37 @@
 #include <linux/uaccess.h>
 
 extern char *_ebss;
-/* DISABLED: EXPORT_SYMBOL_GPL(_ebss); */
+EXPORT_SYMBOL_GPL(_ebss);
 
 #ifdef CONFIG_FUNCTION_TRACER
 extern void _mcount(void);
-/* DISABLED: EXPORT_SYMBOL(_mcount); */
+EXPORT_SYMBOL(_mcount);
 #endif
 
 /*
  * Assembly functions that may be used (directly or indirectly) by modules
  */
-/* DISABLED: EXPORT_SYMBOL(__copy_tofrom_user); */
-/* DISABLED: EXPORT_SYMBOL(__strncpy_user); */
+EXPORT_SYMBOL(__copy_tofrom_user);
+EXPORT_SYMBOL(__strncpy_user);
 
 #ifdef CONFIG_OPT_LIB_ASM
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
-/* DISABLED: EXPORT_SYMBOL(memmove); */
+EXPORT_SYMBOL(memcpy);
+EXPORT_SYMBOL(memmove);
 #endif
 
 #ifdef CONFIG_MMU
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(mbc); */
+EXPORT_SYMBOL(mbc);
 
 extern void __divsi3(void);
-/* DISABLED: EXPORT_SYMBOL(__divsi3); */
+EXPORT_SYMBOL(__divsi3);
 extern void __modsi3(void);
-/* DISABLED: EXPORT_SYMBOL(__modsi3); */
+EXPORT_SYMBOL(__modsi3);
 extern void __mulsi3(void);
-/* DISABLED: EXPORT_SYMBOL(__mulsi3); */
+EXPORT_SYMBOL(__mulsi3);
 extern void __udivsi3(void);
-/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
+EXPORT_SYMBOL(__udivsi3);
 extern void __umodsi3(void);
-/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
+EXPORT_SYMBOL(__umodsi3);

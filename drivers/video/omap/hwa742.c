@@ -522,7 +522,7 @@ int hwa742_update_window_async(struct fb_info *fbi,
 out:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(hwa742_update_window_async); */
+EXPORT_SYMBOL(hwa742_update_window_async);
 
 static int hwa742_setup_plane(int plane, int channel_out,
 				  unsigned long offset, int screen_width,

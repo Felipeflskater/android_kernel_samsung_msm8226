@@ -143,7 +143,7 @@ bool krait_pmic_is_ready(void)
 	}
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(krait_pmic_is_ready); */
+EXPORT_SYMBOL(krait_pmic_is_ready);
 
 #define I_PFM_MA		2000
 
@@ -175,7 +175,7 @@ int krait_pmic_post_pfm_entry(void)
 			the_chip->ps_base + REG_PWM_CL, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(krait_pmic_post_pfm_entry); */
+EXPORT_SYMBOL(krait_pmic_post_pfm_entry);
 
 #define I_PWM_MA		3500
 /**
@@ -208,7 +208,7 @@ int krait_pmic_post_pwm_entry(void)
 			the_chip->ps_base + REG_PWM_CL, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(krait_pmic_post_pwm_entry); */
+EXPORT_SYMBOL(krait_pmic_post_pwm_entry);
 
 #define READ_BYTE(chip, addr, val, rc)				\
 do {								\

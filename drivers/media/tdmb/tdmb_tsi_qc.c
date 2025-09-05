@@ -359,7 +359,7 @@ err_create_workqueue:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_start); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_start);
 
 int tdmb_tsi_stop(void)
 {
@@ -379,7 +379,7 @@ int tdmb_tsi_stop(void)
 	tsi_free_packets(tsi_priv);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_stop); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_stop);
 
 int tdmb_tsi_init(void)
 {
@@ -398,10 +398,10 @@ int tdmb_tsi_init(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_init); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_init);
 
 void tdmb_tsi_deinit(void)
 {
 	kfree(tsi_priv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_deinit); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_deinit);

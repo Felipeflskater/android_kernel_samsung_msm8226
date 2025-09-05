@@ -1906,7 +1906,7 @@ static int __init apm_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("apm=", apm_setup); */ */
+__setup("apm=", apm_setup);
 #endif
 
 static const struct file_operations apm_bios_fops = {

@@ -164,7 +164,7 @@ __be16 fddi_type_trans(struct sk_buff *skb, struct net_device *dev)
 	return type;
 }
 
-/* DISABLED: EXPORT_SYMBOL(fddi_type_trans); */
+EXPORT_SYMBOL(fddi_type_trans);
 
 int fddi_change_mtu(struct net_device *dev, int new_mtu)
 {
@@ -173,7 +173,7 @@ int fddi_change_mtu(struct net_device *dev, int new_mtu)
 	dev->mtu = new_mtu;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fddi_change_mtu); */
+EXPORT_SYMBOL(fddi_change_mtu);
 
 static const struct header_ops fddi_header_ops = {
 	.create		= fddi_header,
@@ -209,6 +209,6 @@ struct net_device *alloc_fddidev(int sizeof_priv)
 {
 	return alloc_netdev(sizeof_priv, "fddi%d", fddi_setup);
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_fddidev); */
+EXPORT_SYMBOL(alloc_fddidev);
 
 MODULE_LICENSE("GPL");

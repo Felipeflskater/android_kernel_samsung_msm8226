@@ -2213,15 +2213,15 @@ int DIVERT_REG_NAME(isdn_divert_if *i_div)
 	}
 } /* DIVERT_REG_NAME */
 
-/* DISABLED: EXPORT_SYMBOL(DIVERT_REG_NAME); */
+EXPORT_SYMBOL(DIVERT_REG_NAME);
 
 #endif /* CONFIG_ISDN_DIVERSION */
 
 
-/* DISABLED: EXPORT_SYMBOL(register_isdn); */
+EXPORT_SYMBOL(register_isdn);
 #ifdef CONFIG_ISDN_PPP
-/* DISABLED: EXPORT_SYMBOL(isdn_ppp_register_compressor); */
-/* DISABLED: EXPORT_SYMBOL(isdn_ppp_unregister_compressor); */
+EXPORT_SYMBOL(isdn_ppp_register_compressor);
+EXPORT_SYMBOL(isdn_ppp_unregister_compressor);
 #endif
 
 int

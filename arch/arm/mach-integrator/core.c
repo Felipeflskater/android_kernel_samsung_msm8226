@@ -192,7 +192,7 @@ void cm_control(u32 mask, u32 set)
 	raw_spin_unlock_irqrestore(&cm_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cm_control); */
+EXPORT_SYMBOL(cm_control);
 
 /*
  * We need to stop things allocating the low memory; ideally we need a

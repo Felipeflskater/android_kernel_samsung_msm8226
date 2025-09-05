@@ -52,7 +52,7 @@ void dump_trace(struct task_struct *task, struct pt_regs *regs,
 		touch_nmi_watchdog();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dump_trace); */
+EXPORT_SYMBOL(dump_trace);
 
 void
 show_stack_log_lvl(struct task_struct *task, struct pt_regs *regs,

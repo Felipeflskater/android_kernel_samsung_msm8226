@@ -40,7 +40,7 @@ struct dma_map_ops *hwsw_dma_get_ops(struct device *dev)
 		return &swiotlb_dma_ops;
 	return &sba_dma_ops;
 }
-/* DISABLED: EXPORT_SYMBOL(hwsw_dma_get_ops); */
+EXPORT_SYMBOL(hwsw_dma_get_ops);
 
 void __init
 hwsw_init (void)

@@ -53,7 +53,7 @@ int of_n_addr_cells(struct device_node *np)
 	/* No #address-cells property for the root node */
 	return OF_ROOT_NODE_ADDR_CELLS_DEFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(of_n_addr_cells); */
+EXPORT_SYMBOL(of_n_addr_cells);
 
 int of_n_size_cells(struct device_node *np)
 {
@@ -69,7 +69,7 @@ int of_n_size_cells(struct device_node *np)
 	/* No #size-cells property for the root node */
 	return OF_ROOT_NODE_SIZE_CELLS_DEFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(of_n_size_cells); */
+EXPORT_SYMBOL(of_n_size_cells);
 
 #if defined(CONFIG_OF_DYNAMIC)
 /**
@@ -85,7 +85,7 @@ struct device_node *of_node_get(struct device_node *node)
 		kref_get(&node->kref);
 	return node;
 }
-/* DISABLED: EXPORT_SYMBOL(of_node_get); */
+EXPORT_SYMBOL(of_node_get);
 
 static inline struct device_node *kref_to_device_node(struct kref *kref)
 {
@@ -143,7 +143,7 @@ void of_node_put(struct device_node *node)
 	if (node)
 		kref_put(&node->kref, of_node_release);
 }
-/* DISABLED: EXPORT_SYMBOL(of_node_put); */
+EXPORT_SYMBOL(of_node_put);
 #endif /* CONFIG_OF_DYNAMIC */
 
 struct property *of_find_property(const struct device_node *np,
@@ -167,7 +167,7 @@ struct property *of_find_property(const struct device_node *np,
 
 	return pp;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_property); */
+EXPORT_SYMBOL(of_find_property);
 
 /**
  * of_find_all_nodes - Get next node in global list
@@ -190,7 +190,7 @@ struct device_node *of_find_all_nodes(struct device_node *prev)
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_all_nodes); */
+EXPORT_SYMBOL(of_find_all_nodes);
 
 /*
  * Find a property with a given name for a given node
@@ -203,7 +203,7 @@ const void *of_get_property(const struct device_node *np, const char *name,
 
 	return pp ? pp->value : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_property); */
+EXPORT_SYMBOL(of_get_property);
 
 /** Checks if the given "compat" string matches one of the strings in
  * the device's "compatible" property
@@ -227,7 +227,7 @@ int of_device_is_compatible(const struct device_node *device,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_device_is_compatible); */
+EXPORT_SYMBOL(of_device_is_compatible);
 
 /**
  * of_machine_is_compatible - Test root of device tree for a given compatible value
@@ -248,7 +248,7 @@ int of_machine_is_compatible(const char *compat)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(of_machine_is_compatible); */
+EXPORT_SYMBOL(of_machine_is_compatible);
 
 /**
  *  of_device_is_available - check if a device is available for use
@@ -274,7 +274,7 @@ int of_device_is_available(const struct device_node *device)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_device_is_available); */
+EXPORT_SYMBOL(of_device_is_available);
 
 /**
  *	of_get_parent - Get a node's parent if any
@@ -295,7 +295,7 @@ struct device_node *of_get_parent(const struct device_node *node)
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_parent); */
+EXPORT_SYMBOL(of_get_parent);
 
 /**
  *	of_get_next_parent - Iterate to a node's parent
@@ -344,7 +344,7 @@ struct device_node *of_get_next_child(const struct device_node *node,
 	read_unlock(&devtree_lock);
 	return next;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_next_child); */
+EXPORT_SYMBOL(of_get_next_child);
 
 /**
  *	of_get_next_available_child - Find the next available child node
@@ -371,7 +371,7 @@ struct device_node *of_get_next_available_child(const struct device_node *node,
 	read_unlock(&devtree_lock);
 	return next;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_next_available_child); */
+EXPORT_SYMBOL(of_get_next_available_child);
 
 /**
  *	of_find_node_by_path - Find a node matching a full OF path
@@ -393,7 +393,7 @@ struct device_node *of_find_node_by_path(const char *path)
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_node_by_path); */
+EXPORT_SYMBOL(of_find_node_by_path);
 
 /**
  *	of_find_node_by_name - Find a node by its "name" property
@@ -421,7 +421,7 @@ struct device_node *of_find_node_by_name(struct device_node *from,
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_node_by_name); */
+EXPORT_SYMBOL(of_find_node_by_name);
 
 /**
  *	of_find_node_by_type - Find a node by its "device_type" property
@@ -450,7 +450,7 @@ struct device_node *of_find_node_by_type(struct device_node *from,
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_node_by_type); */
+EXPORT_SYMBOL(of_find_node_by_type);
 
 /**
  *	of_find_compatible_node - Find a node based on type and one of the
@@ -484,7 +484,7 @@ struct device_node *of_find_compatible_node(struct device_node *from,
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_compatible_node); */
+EXPORT_SYMBOL(of_find_compatible_node);
 
 /**
  *	of_find_node_with_property - Find a node which has a property with
@@ -519,7 +519,7 @@ out:
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_node_with_property); */
+EXPORT_SYMBOL(of_find_node_with_property);
 
 /**
  * of_match_node - Tell if an device_node has a matching of_match structure
@@ -551,7 +551,7 @@ const struct of_device_id *of_match_node(const struct of_device_id *matches,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_match_node); */
+EXPORT_SYMBOL(of_match_node);
 
 /**
  *	of_find_matching_node - Find a node based on an of_device_id match
@@ -580,7 +580,7 @@ struct device_node *of_find_matching_node(struct device_node *from,
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_matching_node); */
+EXPORT_SYMBOL(of_find_matching_node);
 
 /**
  * of_modalias_node - Lookup appropriate modalias for a device node
@@ -607,7 +607,7 @@ int of_modalias_node(struct device_node *node, char *modalias, int len)
 	strlcpy(modalias, p ? p + 1 : compatible, len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_modalias_node); */
+EXPORT_SYMBOL_GPL(of_modalias_node);
 
 /**
  * of_find_node_by_phandle - Find a node given a phandle
@@ -628,7 +628,7 @@ struct device_node *of_find_node_by_phandle(phandle handle)
 	read_unlock(&devtree_lock);
 	return np;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_node_by_phandle); */
+EXPORT_SYMBOL(of_find_node_by_phandle);
 
 /**
  * of_property_read_u32_array - Find and read an array of 32 bit integers
@@ -664,7 +664,7 @@ int of_property_read_u32_array(const struct device_node *np,
 		*out_values++ = be32_to_cpup(val++);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_property_read_u32_array); */
+EXPORT_SYMBOL_GPL(of_property_read_u32_array);
 
 /**
  * of_property_read_u64 - Find and read a 64 bit integer from a property
@@ -693,7 +693,7 @@ int of_property_read_u64(const struct device_node *np, const char *propname,
 	*out_value = of_read_number(prop->value, 2);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_property_read_u64); */
+EXPORT_SYMBOL_GPL(of_property_read_u64);
 
 /**
  * of_property_read_string - Find and read a string from a property
@@ -723,7 +723,7 @@ int of_property_read_string(struct device_node *np, const char *propname,
 	*out_string = prop->value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_property_read_string); */
+EXPORT_SYMBOL_GPL(of_property_read_string);
 
 /**
  * of_property_match_string() - Find string in a list and return index
@@ -760,7 +760,7 @@ int of_property_match_string(struct device_node *np, const char *propname,
 	}
 	return -ENODATA;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_property_match_string); */
+EXPORT_SYMBOL_GPL(of_property_match_string);
 
 /**
  * of_property_read_string_util() - Utility helper for parsing string properties
@@ -797,7 +797,7 @@ int of_property_read_string_helper(struct device_node *np, const char *propname,
 	i -= skip;
 	return i <= 0 ? -ENODATA : i;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_property_read_string_helper); */
+EXPORT_SYMBOL_GPL(of_property_read_string_helper);
 
 /**
  * of_parse_phandle - Resolve a phandle property to a device_node pointer
@@ -821,7 +821,7 @@ of_parse_phandle(struct device_node *np, const char *phandle_name, int index)
 
 	return of_find_node_by_phandle(be32_to_cpup(phandle + index));
 }
-/* DISABLED: EXPORT_SYMBOL(of_parse_phandle); */
+EXPORT_SYMBOL(of_parse_phandle);
 
 /**
  * of_parse_phandle_with_args() - Find a node pointed by phandle in a list
@@ -942,7 +942,7 @@ int of_parse_phandle_with_args(struct device_node *np, const char *list_name,
 		of_node_put(node);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_parse_phandle_with_args); */
+EXPORT_SYMBOL(of_parse_phandle_with_args);
 
 /**
  * prom_add_property - Add a property to a node
@@ -1226,7 +1226,7 @@ int of_alias_get_id(struct device_node *np, const char *stem)
 
 	return id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_alias_get_id); */
+EXPORT_SYMBOL_GPL(of_alias_get_id);
 
 #ifdef CONFIG_OF_SUBCMDLINE_PARSE
 int of_parse_args_on_subcmdline(const char *name, char *buf)
@@ -1265,5 +1265,5 @@ int of_parse_args_on_subcmdline(const char *name, char *buf)
         /* All parsed OK. */
         return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_parse_args_on_subcmdline); */
+EXPORT_SYMBOL(of_parse_args_on_subcmdline);
 #endif

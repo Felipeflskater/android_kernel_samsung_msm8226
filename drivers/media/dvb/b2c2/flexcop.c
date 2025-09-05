@@ -170,13 +170,13 @@ void flexcop_pass_dmx_data(struct flexcop_device *fc, u8 *buf, u32 len)
 {
 	dvb_dmx_swfilter(&fc->demux, buf, len);
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_pass_dmx_data); */
+EXPORT_SYMBOL(flexcop_pass_dmx_data);
 
 void flexcop_pass_dmx_packets(struct flexcop_device *fc, u8 *buf, u32 no)
 {
 	dvb_dmx_swfilter_packets(&fc->demux, buf, no);
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_pass_dmx_packets); */
+EXPORT_SYMBOL(flexcop_pass_dmx_packets);
 
 static void flexcop_reset(struct flexcop_device *fc)
 {
@@ -245,14 +245,14 @@ struct flexcop_device *flexcop_device_kmalloc(size_t bus_specific_len)
 
 	return fc;
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_device_kmalloc); */
+EXPORT_SYMBOL(flexcop_device_kmalloc);
 
 void flexcop_device_kfree(struct flexcop_device *fc)
 {
 	kfree(fc->bus_specific);
 	kfree(fc);
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_device_kfree); */
+EXPORT_SYMBOL(flexcop_device_kfree);
 
 int flexcop_device_initialize(struct flexcop_device *fc)
 {
@@ -295,7 +295,7 @@ error:
 	flexcop_device_exit(fc);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_device_initialize); */
+EXPORT_SYMBOL(flexcop_device_initialize);
 
 void flexcop_device_exit(struct flexcop_device *fc)
 {
@@ -303,7 +303,7 @@ void flexcop_device_exit(struct flexcop_device *fc)
 	flexcop_i2c_exit(fc);
 	flexcop_dvb_exit(fc);
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_device_exit); */
+EXPORT_SYMBOL(flexcop_device_exit);
 
 static int flexcop_module_init(void)
 {

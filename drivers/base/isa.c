@@ -109,7 +109,7 @@ void isa_unregister_driver(struct isa_driver *isa_driver)
 	}
 	driver_unregister(&isa_driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(isa_unregister_driver); */
+EXPORT_SYMBOL_GPL(isa_unregister_driver);
 
 int isa_register_driver(struct isa_driver *isa_driver, unsigned int ndev)
 {
@@ -165,7 +165,7 @@ int isa_register_driver(struct isa_driver *isa_driver, unsigned int ndev)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(isa_register_driver); */
+EXPORT_SYMBOL_GPL(isa_register_driver);
 
 static int __init isa_bus_init(void)
 {

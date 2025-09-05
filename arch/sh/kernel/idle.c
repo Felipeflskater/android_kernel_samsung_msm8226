@@ -31,14 +31,14 @@ static int __init nohlt_setup(char *__unused)
 	hlt_counter = 1;
 	return 1;
 }
-/* DISABLED: __setup("nohlt", nohlt_setup); */ */
+__setup("nohlt", nohlt_setup);
 
 static int __init hlt_setup(char *__unused)
 {
 	hlt_counter = 0;
 	return 1;
 }
-/* DISABLED: __setup("hlt", hlt_setup); */ */
+__setup("hlt", hlt_setup);
 
 static inline int hlt_works(void)
 {
@@ -159,4 +159,4 @@ void cpu_idle_wait(void)
 	/* kick all the CPUs so that they exit out of pm_idle */
 	smp_call_function(do_nothing, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_idle_wait); */
+EXPORT_SYMBOL_GPL(cpu_idle_wait);

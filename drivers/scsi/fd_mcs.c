@@ -311,7 +311,7 @@ static int __init fd_mcs_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("fd_mcs=", fd_mcs_setup); */ */
+__setup("fd_mcs=", fd_mcs_setup);
 #endif /* !MODULE */
 
 static void print_banner(struct Scsi_Host *shpnt)

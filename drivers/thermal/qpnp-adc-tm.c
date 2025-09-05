@@ -1722,7 +1722,7 @@ fail_unlock:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_channel_measure); */
+EXPORT_SYMBOL(qpnp_adc_tm_channel_measure);
 
 int32_t qpnp_adc_tm_disable_chan_meas(struct qpnp_adc_tm_chip *chip,
 					struct qpnp_adc_tm_btm_param *param)
@@ -1794,7 +1794,7 @@ fail:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_disable_chan_meas); */
+EXPORT_SYMBOL(qpnp_adc_tm_disable_chan_meas);
 
 int32_t qpnp_adc_tm_usbid_configure(struct qpnp_adc_tm_chip *chip,
 				struct qpnp_adc_tm_btm_param *param)
@@ -1802,7 +1802,7 @@ int32_t qpnp_adc_tm_usbid_configure(struct qpnp_adc_tm_chip *chip,
 	param->channel = LR_MUX10_PU2_AMUX_USB_ID_LV;
 	return qpnp_adc_tm_channel_measure(chip, param);
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_usbid_configure); */
+EXPORT_SYMBOL(qpnp_adc_tm_usbid_configure);
 
 int32_t qpnp_adc_tm_usbid_end(struct qpnp_adc_tm_chip *chip)
 {
@@ -1810,7 +1810,7 @@ int32_t qpnp_adc_tm_usbid_end(struct qpnp_adc_tm_chip *chip)
 
 	return qpnp_adc_tm_disable_chan_meas(chip, &param);
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_adc_tm_usbid_end); */
+EXPORT_SYMBOL(qpnp_adc_tm_usbid_end);
 
 struct qpnp_adc_tm_chip *qpnp_get_adc_tm(struct device *dev, const char *name)
 {
@@ -1830,7 +1830,7 @@ struct qpnp_adc_tm_chip *qpnp_get_adc_tm(struct device *dev, const char *name)
 
 	return ERR_PTR(-EPROBE_DEFER);
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_get_adc_tm); */
+EXPORT_SYMBOL(qpnp_get_adc_tm);
 
 static int __devinit qpnp_adc_tm_probe(struct spmi_device *spmi)
 {

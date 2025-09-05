@@ -544,7 +544,7 @@ int i2c_pca_add_bus(struct i2c_adapter *adap)
 
 	return i2c_add_adapter(adap);
 }
-/* DISABLED: EXPORT_SYMBOL(i2c_pca_add_bus); */
+EXPORT_SYMBOL(i2c_pca_add_bus);
 
 int i2c_pca_add_numbered_bus(struct i2c_adapter *adap)
 {
@@ -556,7 +556,7 @@ int i2c_pca_add_numbered_bus(struct i2c_adapter *adap)
 
 	return i2c_add_numbered_adapter(adap);
 }
-/* DISABLED: EXPORT_SYMBOL(i2c_pca_add_numbered_bus); */
+EXPORT_SYMBOL(i2c_pca_add_numbered_bus);
 
 MODULE_AUTHOR("Ian Campbell <icampbell@arcom.com>, "
 	"Wolfram Sang <w.sang@pengutronix.de>");

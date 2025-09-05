@@ -884,7 +884,7 @@ err:
 	wiphy_err(dev->wiphy, "eeprom parse failed!\n");
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(p54_parse_eeprom); */
+EXPORT_SYMBOL_GPL(p54_parse_eeprom);
 
 int p54_read_eeprom(struct ieee80211_hw *dev)
 {
@@ -919,4 +919,4 @@ free:
 	kfree(eeprom);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(p54_read_eeprom); */
+EXPORT_SYMBOL_GPL(p54_read_eeprom);

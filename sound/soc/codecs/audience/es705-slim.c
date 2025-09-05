@@ -496,7 +496,7 @@ int es705_remote_cfg_slim_rx(int dai_id)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_remote_cfg_slim_rx); */
+EXPORT_SYMBOL_GPL(es705_remote_cfg_slim_rx);
 
 int es705_remote_cfg_slim_tx(int dai_id)
 {
@@ -527,7 +527,7 @@ int es705_remote_cfg_slim_tx(int dai_id)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_remote_cfg_slim_tx); */
+EXPORT_SYMBOL_GPL(es705_remote_cfg_slim_tx);
 
 int es705_remote_close_slim_rx(int dai_id)
 {
@@ -559,7 +559,7 @@ int es705_remote_close_slim_rx(int dai_id)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_remote_close_slim_rx); */
+EXPORT_SYMBOL_GPL(es705_remote_close_slim_rx);
 
 int es705_remote_close_slim_tx(int dai_id)
 {
@@ -592,7 +592,7 @@ int es705_remote_close_slim_tx(int dai_id)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_remote_close_slim_tx); */
+EXPORT_SYMBOL_GPL(es705_remote_close_slim_tx);
 
 void es705_init_slim_slave(struct slim_device *sbdev)
 {
@@ -783,7 +783,7 @@ int es705_slim_set_channel_map(struct snd_soc_dai *dai,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_slim_set_channel_map); */
+EXPORT_SYMBOL_GPL(es705_slim_set_channel_map);
 
 int es705_slim_get_channel_map(struct snd_soc_dai *dai,
 			       unsigned int *tx_num, unsigned int *tx_slot,
@@ -837,7 +837,7 @@ int es705_slim_get_channel_map(struct snd_soc_dai *dai,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_slim_get_channel_map); */
+EXPORT_SYMBOL_GPL(es705_slim_get_channel_map);
 
 void es705_slim_map_channels(struct es705_priv *es705)
 {
@@ -929,7 +929,7 @@ int es705_slim_hw_params(struct snd_pcm_substream *substream,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(es705_slim_hw_params); */
+EXPORT_SYMBOL_GPL(es705_slim_hw_params);
 
 static int es705_slim_vs_streaming(struct es705_priv *es705)
 {

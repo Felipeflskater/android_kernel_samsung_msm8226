@@ -345,7 +345,7 @@ kgsl_mmu_get_ptname_from_ptbase(struct kgsl_mmu *mmu, phys_addr_t pt_base)
 
 	return ptid;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_get_ptname_from_ptbase); */
+EXPORT_SYMBOL(kgsl_mmu_get_ptname_from_ptbase);
 
 unsigned int
 kgsl_mmu_log_fault_addr(struct kgsl_mmu *mmu, phys_addr_t pt_base,
@@ -374,7 +374,7 @@ kgsl_mmu_log_fault_addr(struct kgsl_mmu *mmu, phys_addr_t pt_base,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_log_fault_addr); */
+EXPORT_SYMBOL(kgsl_mmu_log_fault_addr);
 
 int kgsl_mmu_init(struct kgsl_device *device)
 {
@@ -407,7 +407,7 @@ done:
 		kgsl_sharedmem_free(&mmu->setstate_memory);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_init); */
+EXPORT_SYMBOL(kgsl_mmu_init);
 
 int kgsl_mmu_start(struct kgsl_device *device)
 {
@@ -423,7 +423,7 @@ int kgsl_mmu_start(struct kgsl_device *device)
 		return mmu->mmu_ops->mmu_start(mmu);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_start); */
+EXPORT_SYMBOL(kgsl_mmu_start);
 
 static void mh_axi_error(struct kgsl_device *device, const char* type)
 {
@@ -461,7 +461,7 @@ void kgsl_mh_intrcallback(struct kgsl_device *device)
 	status &= KGSL_MMU_INT_MASK;
 	kgsl_regwrite(device, MH_INTERRUPT_CLEAR, status);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mh_intrcallback); */
+EXPORT_SYMBOL(kgsl_mh_intrcallback);
 
 static struct kgsl_pagetable *
 kgsl_mmu_createpagetableobject(struct kgsl_mmu *mmu,
@@ -586,7 +586,7 @@ void kgsl_mmu_putpagetable(struct kgsl_pagetable *pagetable)
 {
 	kgsl_put_pagetable(pagetable);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_putpagetable); */
+EXPORT_SYMBOL(kgsl_mmu_putpagetable);
 
 int kgsl_setstate(struct kgsl_mmu *mmu, unsigned int context_id,
 			uint32_t flags)
@@ -607,7 +607,7 @@ int kgsl_setstate(struct kgsl_mmu *mmu, unsigned int context_id,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_setstate); */
+EXPORT_SYMBOL(kgsl_setstate);
 
 void kgsl_mh_start(struct kgsl_device *device)
 {
@@ -634,7 +634,7 @@ void kgsl_mh_start(struct kgsl_device *device)
 	 * kgsl_pwrctrl_irq() is called
 	 */
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mh_start); */
+EXPORT_SYMBOL(kgsl_mh_start);
 
 /**
  * kgsl_mmu_get_gpuaddr - Assign a memdesc with a gpuadddr from the gen pool
@@ -725,7 +725,7 @@ kgsl_mmu_get_gpuaddr(struct kgsl_pagetable *pagetable,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_get_gpuaddr); */
+EXPORT_SYMBOL(kgsl_mmu_get_gpuaddr);
 
 int
 kgsl_mmu_map(struct kgsl_pagetable *pagetable,
@@ -761,7 +761,7 @@ kgsl_mmu_map(struct kgsl_pagetable *pagetable,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_map); */
+EXPORT_SYMBOL(kgsl_mmu_map);
 
 /**
  * kgsl_mmu_put_gpuaddr - Free a gpuaddress from memory pool
@@ -807,7 +807,7 @@ done:
 		memdesc->gpuaddr = 0;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_put_gpuaddr); */
+EXPORT_SYMBOL(kgsl_mmu_put_gpuaddr);
 
 int
 kgsl_mmu_unmap(struct kgsl_pagetable *pagetable,
@@ -849,7 +849,7 @@ kgsl_mmu_unmap(struct kgsl_pagetable *pagetable,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_unmap); */
+EXPORT_SYMBOL(kgsl_mmu_unmap);
 
 int kgsl_mmu_map_global(struct kgsl_pagetable *pagetable,
 			struct kgsl_memdesc *memdesc)
@@ -888,7 +888,7 @@ error_put_gpuaddr:
 error:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_map_global); */
+EXPORT_SYMBOL(kgsl_mmu_map_global);
 
 int kgsl_mmu_close(struct kgsl_device *device)
 {
@@ -900,7 +900,7 @@ int kgsl_mmu_close(struct kgsl_device *device)
 	else
 		return mmu->mmu_ops->mmu_close(mmu);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_close); */
+EXPORT_SYMBOL(kgsl_mmu_close);
 
 int kgsl_mmu_pt_get_flags(struct kgsl_pagetable *pt,
 			enum kgsl_deviceid id)
@@ -918,7 +918,7 @@ int kgsl_mmu_pt_get_flags(struct kgsl_pagetable *pt,
 	spin_unlock(&pt->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_pt_get_flags); */
+EXPORT_SYMBOL(kgsl_mmu_pt_get_flags);
 
 void kgsl_mmu_ptpool_destroy(void *ptpool)
 {
@@ -926,7 +926,7 @@ void kgsl_mmu_ptpool_destroy(void *ptpool)
 		kgsl_gpummu_ptpool_destroy(ptpool);
 	ptpool = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_ptpool_destroy); */
+EXPORT_SYMBOL(kgsl_mmu_ptpool_destroy);
 
 void *kgsl_mmu_ptpool_init(int entries)
 {
@@ -935,7 +935,7 @@ void *kgsl_mmu_ptpool_init(int entries)
 	else
 		return (void *)(-1);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_ptpool_init); */
+EXPORT_SYMBOL(kgsl_mmu_ptpool_init);
 
 int kgsl_mmu_enabled(void)
 {
@@ -944,13 +944,13 @@ int kgsl_mmu_enabled(void)
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_enabled); */
+EXPORT_SYMBOL(kgsl_mmu_enabled);
 
 enum kgsl_mmutype kgsl_mmu_get_mmutype(void)
 {
 	return kgsl_mmu_type;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_get_mmutype); */
+EXPORT_SYMBOL(kgsl_mmu_get_mmutype);
 
 void kgsl_mmu_set_mmutype(char *mmutype)
 {
@@ -970,7 +970,7 @@ void kgsl_mmu_set_mmutype(char *mmutype)
 	if (mmutype && !strncmp(mmutype, "nommu", 5))
 		kgsl_mmu_type = KGSL_MMU_TYPE_NONE;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_set_mmutype); */
+EXPORT_SYMBOL(kgsl_mmu_set_mmutype);
 
 int kgsl_mmu_gpuaddr_in_range(struct kgsl_pagetable *pt, unsigned int gpuaddr)
 {
@@ -985,5 +985,5 @@ int kgsl_mmu_gpuaddr_in_range(struct kgsl_pagetable *pt, unsigned int gpuaddr)
 		return (gpuaddr > 0 && gpuaddr < TASK_SIZE);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_mmu_gpuaddr_in_range); */
+EXPORT_SYMBOL(kgsl_mmu_gpuaddr_in_range);
 

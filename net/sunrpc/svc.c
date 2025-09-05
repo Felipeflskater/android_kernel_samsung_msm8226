@@ -381,14 +381,14 @@ int svc_rpcb_setup(struct svc_serv *serv, struct net *net)
 	svc_unregister(serv, net);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_rpcb_setup); */
+EXPORT_SYMBOL_GPL(svc_rpcb_setup);
 
 void svc_rpcb_cleanup(struct svc_serv *serv, struct net *net)
 {
 	svc_unregister(serv, net);
 	rpcb_put_local(net);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_rpcb_cleanup); */
+EXPORT_SYMBOL_GPL(svc_rpcb_cleanup);
 
 static int svc_uses_rpcbind(struct svc_serv *serv)
 {
@@ -413,7 +413,7 @@ int svc_bind(struct svc_serv *serv, struct net *net)
 		return 0;
 	return svc_rpcb_setup(serv, net);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_bind); */
+EXPORT_SYMBOL_GPL(svc_bind);
 
 /*
  * Create an RPC service
@@ -491,7 +491,7 @@ svc_create(struct svc_program *prog, unsigned int bufsize,
 {
 	return __svc_create(prog, bufsize, /*npools*/1, shutdown);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_create); */
+EXPORT_SYMBOL_GPL(svc_create);
 
 struct svc_serv *
 svc_create_pooled(struct svc_program *prog, unsigned int bufsize,
@@ -510,7 +510,7 @@ svc_create_pooled(struct svc_program *prog, unsigned int bufsize,
 
 	return serv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_create_pooled); */
+EXPORT_SYMBOL_GPL(svc_create_pooled);
 
 void svc_shutdown_net(struct svc_serv *serv, struct net *net)
 {
@@ -528,7 +528,7 @@ void svc_shutdown_net(struct svc_serv *serv, struct net *net)
 	if (serv->sv_shutdown)
 		serv->sv_shutdown(serv, net);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_shutdown_net); */
+EXPORT_SYMBOL_GPL(svc_shutdown_net);
 
 /*
  * Destroy an RPC service. Should be called with appropriate locking to
@@ -566,7 +566,7 @@ svc_destroy(struct svc_serv *serv)
 	kfree(serv->sv_pools);
 	kfree(serv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_destroy); */
+EXPORT_SYMBOL_GPL(svc_destroy);
 
 /*
  * Allocate an RPC server's buffer space.
@@ -645,7 +645,7 @@ out_thread:
 out_enomem:
 	return ERR_PTR(-ENOMEM);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_prepare_thread); */
+EXPORT_SYMBOL_GPL(svc_prepare_thread);
 
 /*
  * Choose a pool in which to create a new thread, for svc_set_num_threads
@@ -770,7 +770,7 @@ svc_set_num_threads(struct svc_serv *serv, struct svc_pool *pool, int nrservs)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_set_num_threads); */
+EXPORT_SYMBOL_GPL(svc_set_num_threads);
 
 /*
  * Called from a server thread as it's exiting. Caller must hold the BKL or
@@ -798,7 +798,7 @@ svc_exit_thread(struct svc_rqst *rqstp)
 	if (serv)
 		svc_destroy(serv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_exit_thread); */
+EXPORT_SYMBOL_GPL(svc_exit_thread);
 
 /*
  * Register an "inet" protocol family netid with the local
@@ -1229,7 +1229,7 @@ svc_process_common(struct svc_rqst *rqstp, struct kvec *argv, struct kvec *resv)
 	return 0;
 
 err_short_len:
-	svc_printk(rqstp, "short len %zd, dropping request\n",
+	svc_printk(rqstp, "short len %Zd, dropping request\n",
 			argv->iov_len);
 
 	goto dropit;			/* drop request */
@@ -1284,7 +1284,7 @@ err_bad:
 	svc_putnl(resv, ntohl(rpc_stat));
 	goto sendit;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_process); */
+EXPORT_SYMBOL_GPL(svc_process);
 
 /*
  * Process the RPC request.
@@ -1381,7 +1381,7 @@ bc_svc_process(struct svc_serv *serv, struct rpc_rqst *req,
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bc_svc_process); */
+EXPORT_SYMBOL_GPL(bc_svc_process);
 #endif /* CONFIG_SUNRPC_BACKCHANNEL */
 
 /*
@@ -1395,4 +1395,4 @@ u32 svc_max_payload(const struct svc_rqst *rqstp)
 		max = rqstp->rq_server->sv_max_payload;
 	return max;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_max_payload); */
+EXPORT_SYMBOL_GPL(svc_max_payload);

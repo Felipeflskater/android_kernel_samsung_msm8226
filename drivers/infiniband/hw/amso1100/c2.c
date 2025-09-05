@@ -1014,7 +1014,7 @@ static int __devinit c2_probe(struct pci_dev *pcidev,
 	for (i = 0; i < sizeof(c2_magic); i++) {
 		if (c2_magic[i] != readb(mmio_regs + C2_REGS_MAGIC + i)) {
 			printk(KERN_ERR PFX "Downlevel Firmware boot loader "
-				"[%d/%zd: got 0x%x, exp 0x%x]. Use the cc_flash "
+				"[%d/%Zd: got 0x%x, exp 0x%x]. Use the cc_flash "
 			       "utility to update your boot loader\n",
 				i + 1, sizeof(c2_magic),
 				readb(mmio_regs + C2_REGS_MAGIC + i),

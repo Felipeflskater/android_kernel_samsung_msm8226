@@ -233,7 +233,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.reset	= hac_ac97_coldrst,
 	.warm_reset = hac_ac97_warmrst,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
+EXPORT_SYMBOL_GPL(soc_ac97_ops);
 
 static int hac_hw_params(struct snd_pcm_substream *substream,
 			 struct snd_pcm_hw_params *params,

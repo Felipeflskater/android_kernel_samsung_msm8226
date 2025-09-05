@@ -119,7 +119,7 @@ int fiemap_fill_next_extent(struct fiemap_extent_info *fieinfo, u64 logical,
 		return 1;
 	return (flags & FIEMAP_EXTENT_LAST) ? 1 : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fiemap_fill_next_extent); */
+EXPORT_SYMBOL(fiemap_fill_next_extent);
 
 /**
  * fiemap_check_flags - check validity of requested flags for fiemap
@@ -146,7 +146,7 @@ int fiemap_check_flags(struct fiemap_extent_info *fieinfo, u32 fs_flags)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fiemap_check_flags); */
+EXPORT_SYMBOL(fiemap_check_flags);
 
 static int fiemap_check_ranges(struct super_block *sb,
 			       u64 start, u64 len, u64 *new_len)
@@ -387,7 +387,7 @@ int __generic_block_fiemap(struct inode *inode,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__generic_block_fiemap); */
+EXPORT_SYMBOL(__generic_block_fiemap);
 
 /**
  * generic_block_fiemap - FIEMAP for block based inodes
@@ -411,7 +411,7 @@ int generic_block_fiemap(struct inode *inode,
 	mutex_unlock(&inode->i_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_block_fiemap); */
+EXPORT_SYMBOL(generic_block_fiemap);
 
 #endif  /*  CONFIG_BLOCK  */
 

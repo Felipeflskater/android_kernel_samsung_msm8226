@@ -119,7 +119,7 @@ struct smu_sdbp_header *smu_sat_get_sdb_partition(unsigned int sat_id, int id,
 	kfree(buf);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(smu_sat_get_sdb_partition); */
+EXPORT_SYMBOL_GPL(smu_sat_get_sdb_partition);
 
 /* refresh the cache */
 static int wf_sat_read_cache(struct wf_sat *sat)

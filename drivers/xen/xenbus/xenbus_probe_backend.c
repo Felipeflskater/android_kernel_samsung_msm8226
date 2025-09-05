@@ -230,7 +230,7 @@ int xenbus_dev_is_online(struct xenbus_device *dev)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_dev_is_online); */
+EXPORT_SYMBOL_GPL(xenbus_dev_is_online);
 
 int xenbus_register_backend(struct xenbus_driver *drv)
 {
@@ -238,7 +238,7 @@ int xenbus_register_backend(struct xenbus_driver *drv)
 
 	return xenbus_register_driver_common(drv, &xenbus_backend);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_register_backend); */
+EXPORT_SYMBOL_GPL(xenbus_register_backend);
 
 static int backend_probe_and_watch(struct notifier_block *notifier,
 				   unsigned long event,

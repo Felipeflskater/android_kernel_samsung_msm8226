@@ -22,7 +22,7 @@ void cns3xxx_pwr_clk_en(unsigned int block)
 	reg |= (block & PM_CLK_GATE_REG_MASK);
 	__raw_writel(reg, PM_CLK_GATE_REG);
 }
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_clk_en); */
+EXPORT_SYMBOL(cns3xxx_pwr_clk_en);
 
 void cns3xxx_pwr_clk_dis(unsigned int block)
 {
@@ -31,7 +31,7 @@ void cns3xxx_pwr_clk_dis(unsigned int block)
 	reg &= ~(block & PM_CLK_GATE_REG_MASK);
 	__raw_writel(reg, PM_CLK_GATE_REG);
 }
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_clk_dis); */
+EXPORT_SYMBOL(cns3xxx_pwr_clk_dis);
 
 void cns3xxx_pwr_power_up(unsigned int block)
 {
@@ -43,7 +43,7 @@ void cns3xxx_pwr_power_up(unsigned int block)
 	/* Wait for 300us for the PLL output clock locked. */
 	udelay(300);
 };
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_power_up); */
+EXPORT_SYMBOL(cns3xxx_pwr_power_up);
 
 void cns3xxx_pwr_power_down(unsigned int block)
 {
@@ -53,7 +53,7 @@ void cns3xxx_pwr_power_down(unsigned int block)
 	reg |= (block & CNS3XXX_PWR_PLL_ALL);
 	__raw_writel(reg, PM_PLL_HM_PD_CTRL_REG);
 };
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_power_down); */
+EXPORT_SYMBOL(cns3xxx_pwr_power_down);
 
 static void cns3xxx_pwr_soft_rst_force(unsigned int block)
 {
@@ -73,7 +73,7 @@ static void cns3xxx_pwr_soft_rst_force(unsigned int block)
 
 	__raw_writel(reg, PM_SOFT_RST_REG);
 }
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_soft_rst_force); */
+EXPORT_SYMBOL(cns3xxx_pwr_soft_rst_force);
 
 void cns3xxx_pwr_soft_rst(unsigned int block)
 {
@@ -87,7 +87,7 @@ void cns3xxx_pwr_soft_rst(unsigned int block)
 	}
 	cns3xxx_pwr_soft_rst_force(block);
 }
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_pwr_soft_rst); */
+EXPORT_SYMBOL(cns3xxx_pwr_soft_rst);
 
 void cns3xxx_restart(char mode, const char *cmd)
 {
@@ -118,7 +118,7 @@ int cns3xxx_cpu_clock(void)
 
 	return cpu;
 }
-/* DISABLED: EXPORT_SYMBOL(cns3xxx_cpu_clock); */
+EXPORT_SYMBOL(cns3xxx_cpu_clock);
 
 atomic_t usb_pwr_ref = ATOMIC_INIT(0);
-/* DISABLED: EXPORT_SYMBOL(usb_pwr_ref); */
+EXPORT_SYMBOL(usb_pwr_ref);

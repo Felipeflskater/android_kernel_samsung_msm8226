@@ -52,12 +52,12 @@ void iowrite32(u32 b, void __iomem *addr)
 	mb();
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioread8); */
-/* DISABLED: EXPORT_SYMBOL(ioread16); */
-/* DISABLED: EXPORT_SYMBOL(ioread32); */
-/* DISABLED: EXPORT_SYMBOL(iowrite8); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32); */
+EXPORT_SYMBOL(ioread8);
+EXPORT_SYMBOL(ioread16);
+EXPORT_SYMBOL(ioread32);
+EXPORT_SYMBOL(iowrite8);
+EXPORT_SYMBOL(iowrite16);
+EXPORT_SYMBOL(iowrite32);
 
 u8 inb(unsigned long port)
 {
@@ -89,12 +89,12 @@ void outl(u32 b, unsigned long port)
 	iowrite32(b, ioport_map(port, 4));
 }
 
-/* DISABLED: EXPORT_SYMBOL(inb); */
-/* DISABLED: EXPORT_SYMBOL(inw); */
-/* DISABLED: EXPORT_SYMBOL(inl); */
-/* DISABLED: EXPORT_SYMBOL(outb); */
-/* DISABLED: EXPORT_SYMBOL(outw); */
-/* DISABLED: EXPORT_SYMBOL(outl); */
+EXPORT_SYMBOL(inb);
+EXPORT_SYMBOL(inw);
+EXPORT_SYMBOL(inl);
+EXPORT_SYMBOL(outb);
+EXPORT_SYMBOL(outw);
+EXPORT_SYMBOL(outl);
 
 u8 __raw_readb(const volatile void __iomem *addr)
 {
@@ -136,14 +136,14 @@ void __raw_writeq(u64 b, volatile void __iomem *addr)
 	IO_CONCAT(__IO_PREFIX,writeq)(b, addr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__raw_readb);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_readw);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_readl);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_readq);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_writeb);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_writew);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_writel);  */
-/* DISABLED: EXPORT_SYMBOL(__raw_writeq);  */
+EXPORT_SYMBOL(__raw_readb); 
+EXPORT_SYMBOL(__raw_readw); 
+EXPORT_SYMBOL(__raw_readl); 
+EXPORT_SYMBOL(__raw_readq); 
+EXPORT_SYMBOL(__raw_writeb); 
+EXPORT_SYMBOL(__raw_writew); 
+EXPORT_SYMBOL(__raw_writel); 
+EXPORT_SYMBOL(__raw_writeq); 
 
 u8 readb(const volatile void __iomem *addr)
 {
@@ -197,14 +197,14 @@ void writeq(u64 b, volatile void __iomem *addr)
 	mb();
 }
 
-/* DISABLED: EXPORT_SYMBOL(readb); */
-/* DISABLED: EXPORT_SYMBOL(readw); */
-/* DISABLED: EXPORT_SYMBOL(readl); */
-/* DISABLED: EXPORT_SYMBOL(readq); */
-/* DISABLED: EXPORT_SYMBOL(writeb); */
-/* DISABLED: EXPORT_SYMBOL(writew); */
-/* DISABLED: EXPORT_SYMBOL(writel); */
-/* DISABLED: EXPORT_SYMBOL(writeq); */
+EXPORT_SYMBOL(readb);
+EXPORT_SYMBOL(readw);
+EXPORT_SYMBOL(readl);
+EXPORT_SYMBOL(readq);
+EXPORT_SYMBOL(writeb);
+EXPORT_SYMBOL(writew);
+EXPORT_SYMBOL(writel);
+EXPORT_SYMBOL(writeq);
 
 
 /*
@@ -243,8 +243,8 @@ void insb(unsigned long port, void *dst, unsigned long count)
 	ioread8_rep(ioport_map(port, 1), dst, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioread8_rep); */
-/* DISABLED: EXPORT_SYMBOL(insb); */
+EXPORT_SYMBOL(ioread8_rep);
+EXPORT_SYMBOL(insb);
 
 /*
  * Read COUNT 16-bit words from port PORT into memory starting at
@@ -283,8 +283,8 @@ void insw(unsigned long port, void *dst, unsigned long count)
 	ioread16_rep(ioport_map(port, 2), dst, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioread16_rep); */
-/* DISABLED: EXPORT_SYMBOL(insw); */
+EXPORT_SYMBOL(ioread16_rep);
+EXPORT_SYMBOL(insw);
 
 
 /*
@@ -315,8 +315,8 @@ void insl(unsigned long port, void *dst, unsigned long count)
 	ioread32_rep(ioport_map(port, 4), dst, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioread32_rep); */
-/* DISABLED: EXPORT_SYMBOL(insl); */
+EXPORT_SYMBOL(ioread32_rep);
+EXPORT_SYMBOL(insl);
 
 
 /*
@@ -337,8 +337,8 @@ void outsb(unsigned long port, const void *src, unsigned long count)
 	iowrite8_rep(ioport_map(port, 1), src, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(iowrite8_rep); */
-/* DISABLED: EXPORT_SYMBOL(outsb); */
+EXPORT_SYMBOL(iowrite8_rep);
+EXPORT_SYMBOL(outsb);
 
 
 /*
@@ -377,8 +377,8 @@ void outsw(unsigned long port, const void *src, unsigned long count)
 	iowrite16_rep(ioport_map(port, 2), src, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(iowrite16_rep); */
-/* DISABLED: EXPORT_SYMBOL(outsw); */
+EXPORT_SYMBOL(iowrite16_rep);
+EXPORT_SYMBOL(outsw);
 
 
 /*
@@ -409,8 +409,8 @@ void outsl(unsigned long port, const void *src, unsigned long count)
 	iowrite32_rep(ioport_map(port, 4), src, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(iowrite32_rep); */
-/* DISABLED: EXPORT_SYMBOL(outsl); */
+EXPORT_SYMBOL(iowrite32_rep);
+EXPORT_SYMBOL(outsl);
 
 
 /*
@@ -464,7 +464,7 @@ void memcpy_fromio(void *to, const volatile void __iomem *from, long count)
 	mb();
 }
 
-/* DISABLED: EXPORT_SYMBOL(memcpy_fromio); */
+EXPORT_SYMBOL(memcpy_fromio);
 
 
 /*
@@ -519,7 +519,7 @@ void memcpy_toio(volatile void __iomem *to, const void *from, long count)
 	mb();
 }
 
-/* DISABLED: EXPORT_SYMBOL(memcpy_toio); */
+EXPORT_SYMBOL(memcpy_toio);
 
 
 /*
@@ -581,7 +581,7 @@ void _memset_c_io(volatile void __iomem *to, unsigned long c, long count)
 	mb();
 }
 
-/* DISABLED: EXPORT_SYMBOL(_memset_c_io); */
+EXPORT_SYMBOL(_memset_c_io);
 
 /* A version of memcpy used by the vga console routines to move data around
    arbitrarily between screen and main memory.  */
@@ -615,7 +615,7 @@ scr_memcpyw(u16 *d, const u16 *s, unsigned int count)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(scr_memcpyw); */
+EXPORT_SYMBOL(scr_memcpyw);
 
 void __iomem *ioport_map(unsigned long port, unsigned int size)
 {
@@ -626,5 +626,5 @@ void ioport_unmap(void __iomem *addr)
 {
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioport_map); */
-/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
+EXPORT_SYMBOL(ioport_map);
+EXPORT_SYMBOL(ioport_unmap);

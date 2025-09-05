@@ -323,7 +323,7 @@ void make_bad_inode(struct inode *inode)
 	inode->i_op = &bad_inode_ops;	
 	inode->i_fop = &bad_file_ops;	
 }
-/* DISABLED: EXPORT_SYMBOL(make_bad_inode); */
+EXPORT_SYMBOL(make_bad_inode);
 
 /*
  * This tests whether an inode has been flagged as bad. The test uses
@@ -343,7 +343,7 @@ int is_bad_inode(struct inode *inode)
 	return (inode->i_op == &bad_inode_ops);	
 }
 
-/* DISABLED: EXPORT_SYMBOL(is_bad_inode); */
+EXPORT_SYMBOL(is_bad_inode);
 
 /**
  * iget_failed - Mark an under-construction inode as dead and release it
@@ -357,4 +357,4 @@ void iget_failed(struct inode *inode)
 	unlock_new_inode(inode);
 	iput(inode);
 }
-/* DISABLED: EXPORT_SYMBOL(iget_failed); */
+EXPORT_SYMBOL(iget_failed);

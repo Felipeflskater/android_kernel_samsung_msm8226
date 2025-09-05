@@ -2457,7 +2457,7 @@ int cpuset_slab_spread_node(void)
 	return cpuset_spread_node(&current->cpuset_slab_spread_rotor);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpuset_mem_spread_node); */
+EXPORT_SYMBOL_GPL(cpuset_mem_spread_node);
 
 /**
  * cpuset_mems_allowed_intersects - Does @tsk1's mems_allowed intersect @tsk2's?

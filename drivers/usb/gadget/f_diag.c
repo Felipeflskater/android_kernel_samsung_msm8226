@@ -313,7 +313,7 @@ struct usb_diag_ch *usb_diag_open(const char *name, void *priv,
 
 	return ch;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_diag_open); */
+EXPORT_SYMBOL(usb_diag_open);
 
 /**
  * usb_diag_close() - Close a diag channel over USB
@@ -339,7 +339,7 @@ void usb_diag_close(struct usb_diag_ch *ch)
 
 	spin_unlock_irqrestore(&ch_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(usb_diag_close); */
+EXPORT_SYMBOL(usb_diag_close);
 
 static void free_reqs(struct diag_context *ctxt)
 {
@@ -408,7 +408,7 @@ fail:
 	return -ENOMEM;
 
 }
-/* DISABLED: EXPORT_SYMBOL(usb_diag_alloc_req); */
+EXPORT_SYMBOL(usb_diag_alloc_req);
 
 /**
  * usb_diag_read() - Read data from USB diag channel
@@ -467,7 +467,7 @@ int usb_diag_read(struct usb_diag_ch *ch, struct diag_request *d_req)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_diag_read); */
+EXPORT_SYMBOL(usb_diag_read);
 
 /**
  * usb_diag_write() - Write data from USB diag channel
@@ -529,7 +529,7 @@ int usb_diag_write(struct usb_diag_ch *ch, struct diag_request *d_req)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_diag_write); */
+EXPORT_SYMBOL(usb_diag_write);
 
 static void diag_function_disable(struct usb_function *f)
 {

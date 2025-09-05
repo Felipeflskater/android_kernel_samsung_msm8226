@@ -91,7 +91,7 @@ void __register_binfmt(struct linux_binfmt * fmt, int insert)
 	write_unlock(&binfmt_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__register_binfmt); */
+EXPORT_SYMBOL(__register_binfmt);
 
 void unregister_binfmt(struct linux_binfmt * fmt)
 {
@@ -100,7 +100,7 @@ void unregister_binfmt(struct linux_binfmt * fmt)
 	write_unlock(&binfmt_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(unregister_binfmt); */
+EXPORT_SYMBOL(unregister_binfmt);
 
 static inline void put_binfmt(struct linux_binfmt * fmt)
 {
@@ -592,7 +592,7 @@ int copy_strings_kernel(int argc, const char *const *__argv,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(copy_strings_kernel); */
+EXPORT_SYMBOL(copy_strings_kernel);
 
 #ifdef CONFIG_MMU
 
@@ -782,7 +782,7 @@ out_unlock:
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(setup_arg_pages); */
+EXPORT_SYMBOL(setup_arg_pages);
 
 #endif /* CONFIG_MMU */
 
@@ -820,7 +820,7 @@ exit:
 	fput(file);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(open_exec); */
+EXPORT_SYMBOL(open_exec);
 
 int kernel_read(struct file *file, loff_t offset,
 		char *addr, unsigned long count)
@@ -837,7 +837,7 @@ int kernel_read(struct file *file, loff_t offset,
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(kernel_read); */
+EXPORT_SYMBOL(kernel_read);
 
 static int exec_mmap(struct mm_struct *mm)
 {
@@ -1079,7 +1079,7 @@ char *get_task_comm(char *buf, struct task_struct *tsk)
 	task_unlock(tsk);
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_task_comm); */
+EXPORT_SYMBOL_GPL(get_task_comm);
 
 void set_task_comm(struct task_struct *tsk, char *buf)
 {
@@ -1151,14 +1151,14 @@ int flush_old_exec(struct linux_binprm * bprm)
 out:
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(flush_old_exec); */
+EXPORT_SYMBOL(flush_old_exec);
 
 void would_dump(struct linux_binprm *bprm, struct file *file)
 {
 	if (inode_permission2(file->f_path.mnt, file->f_path.dentry->d_inode, MAY_READ) < 0)
 		bprm->interp_flags |= BINPRM_FLAGS_ENFORCE_NONDUMP;
 }
-/* DISABLED: EXPORT_SYMBOL(would_dump); */
+EXPORT_SYMBOL(would_dump);
 
 void setup_new_exec(struct linux_binprm * bprm)
 {
@@ -1198,7 +1198,7 @@ void setup_new_exec(struct linux_binprm * bprm)
 	flush_signal_handlers(current, 0);
 	flush_old_files(current->files);
 }
-/* DISABLED: EXPORT_SYMBOL(setup_new_exec); */
+EXPORT_SYMBOL(setup_new_exec);
 
 /*
  * Prepare credentials and lock ->cred_guard_mutex.
@@ -1242,7 +1242,7 @@ int bprm_change_interp(char *interp, struct linux_binprm *bprm)
 		return -ENOMEM;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bprm_change_interp); */
+EXPORT_SYMBOL(bprm_change_interp);
 
 /*
  * install the new credentials for this executable
@@ -1270,7 +1270,7 @@ void install_exec_creds(struct linux_binprm *bprm)
 	security_bprm_committed_creds(bprm);
 	mutex_unlock(&current->signal->cred_guard_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(install_exec_creds); */
+EXPORT_SYMBOL(install_exec_creds);
 
 /*
  * determine how safe it is to execute the proposed program
@@ -1364,7 +1364,7 @@ int prepare_binprm(struct linux_binprm *bprm)
 	return kernel_read(bprm->file, 0, bprm->buf, BINPRM_BUF_SIZE);
 }
 
-/* DISABLED: EXPORT_SYMBOL(prepare_binprm); */
+EXPORT_SYMBOL(prepare_binprm);
 
 /*
  * Arguments are '\0' separated strings found at the location bprm->p
@@ -1408,7 +1408,7 @@ int remove_arg_zero(struct linux_binprm *bprm)
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(remove_arg_zero); */
+EXPORT_SYMBOL(remove_arg_zero);
 
 /*
  * cycle the list of binary formats handler, until one recognizes the image
@@ -1496,7 +1496,7 @@ int search_binary_handler(struct linux_binprm *bprm,struct pt_regs *regs)
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL(search_binary_handler); */
+EXPORT_SYMBOL(search_binary_handler);
 
 /*
  * sys_execve() executes a new program.
@@ -1677,7 +1677,7 @@ void set_binfmt(struct linux_binfmt *new)
 		__module_get(new->module);
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_binfmt); */
+EXPORT_SYMBOL(set_binfmt);
 
 static int expand_corename(struct core_name *cn)
 {
@@ -2324,7 +2324,7 @@ int dump_write(struct file *file, const void *addr, int nr)
 {
 	return access_ok(VERIFY_READ, addr, nr) && file->f_op->write(file, addr, nr, &file->f_pos) == nr;
 }
-/* DISABLED: EXPORT_SYMBOL(dump_write); */
+EXPORT_SYMBOL(dump_write);
 
 int dump_seek(struct file *file, loff_t off)
 {
@@ -2353,4 +2353,4 @@ int dump_seek(struct file *file, loff_t off)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dump_seek); */
+EXPORT_SYMBOL(dump_seek);

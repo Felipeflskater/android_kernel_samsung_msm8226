@@ -56,7 +56,7 @@ int copy_to_user_fromio(void __user *dst, const volatile void __iomem *src, size
 #endif
 }
 
-/* DISABLED: EXPORT_SYMBOL(copy_to_user_fromio); */
+EXPORT_SYMBOL(copy_to_user_fromio);
 
 /**
  * copy_from_user_toio - copy data from user-space to mmio-space
@@ -89,4 +89,4 @@ int copy_from_user_toio(volatile void __iomem *dst, const void __user *src, size
 #endif
 }
 
-/* DISABLED: EXPORT_SYMBOL(copy_from_user_toio); */
+EXPORT_SYMBOL(copy_from_user_toio);

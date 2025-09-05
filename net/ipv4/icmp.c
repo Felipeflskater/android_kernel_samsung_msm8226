@@ -182,7 +182,7 @@ const struct icmp_err icmp_err_convert[] = {
 		.fatal = 1,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(icmp_err_convert); */
+EXPORT_SYMBOL(icmp_err_convert);
 
 /*
  *	ICMP control array. This specifies what to do with each ICMP.
@@ -638,7 +638,7 @@ out_unlock:
 	icmp_xmit_unlock(sk);
 out:;
 }
-/* DISABLED: EXPORT_SYMBOL(icmp_send); */
+EXPORT_SYMBOL(icmp_send);
 
 
 /*

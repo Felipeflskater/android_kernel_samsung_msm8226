@@ -55,7 +55,7 @@ sh7372_do_idle_sysc:
 	 * strongly ordered and would not hit the cache.
 	 */
 	mrc	p15, 0, r0, c1, c0, 0
-	bic	r0, r0, @ (1 << 2)	@ Disable the C bit
+	bic	r0, r0, #(1 << 2)	@ Disable the C bit
 	mcr	p15, 0, r0, c1, c0, 0
 	isb
 

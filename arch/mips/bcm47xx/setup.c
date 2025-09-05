@@ -38,10 +38,10 @@
 #include <asm/mach-bcm47xx/nvram.h>
 
 union bcm47xx_bus bcm47xx_bus;
-/* DISABLED: EXPORT_SYMBOL(bcm47xx_bus); */
+EXPORT_SYMBOL(bcm47xx_bus);
 
 enum bcm47xx_bus_type bcm47xx_bus_type;
-/* DISABLED: EXPORT_SYMBOL(bcm47xx_bus_type); */
+EXPORT_SYMBOL(bcm47xx_bus_type);
 
 static void bcm47xx_machine_restart(char *command)
 {

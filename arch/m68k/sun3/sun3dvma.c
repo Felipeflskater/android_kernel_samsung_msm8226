@@ -314,7 +314,7 @@ inline unsigned long dvma_map_align(unsigned long kaddr, int len, int align)
 	BUG();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dvma_map_align); */
+EXPORT_SYMBOL(dvma_map_align);
 
 void dvma_unmap(void *baddr)
 {
@@ -330,7 +330,7 @@ void dvma_unmap(void *baddr)
 	return;
 
 }
-/* DISABLED: EXPORT_SYMBOL(dvma_unmap); */
+EXPORT_SYMBOL(dvma_unmap);
 
 void *dvma_malloc_align(unsigned long len, unsigned long align)
 {
@@ -370,7 +370,7 @@ void *dvma_malloc_align(unsigned long len, unsigned long align)
 	return (void *)vaddr;
 
 }
-/* DISABLED: EXPORT_SYMBOL(dvma_malloc_align); */
+EXPORT_SYMBOL(dvma_malloc_align);
 
 void dvma_free(void *vaddr)
 {
@@ -378,4 +378,4 @@ void dvma_free(void *vaddr)
 	return;
 
 }
-/* DISABLED: EXPORT_SYMBOL(dvma_free); */
+EXPORT_SYMBOL(dvma_free);

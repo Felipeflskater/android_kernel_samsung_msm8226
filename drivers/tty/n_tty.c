@@ -2146,4 +2146,4 @@ void n_tty_inherit_ops(struct tty_ldisc_ops *ops)
 	ops->owner = NULL;
 	ops->refcount = ops->flags = 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(n_tty_inherit_ops); */
+EXPORT_SYMBOL_GPL(n_tty_inherit_ops);

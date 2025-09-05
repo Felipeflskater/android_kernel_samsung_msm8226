@@ -1457,4 +1457,4 @@ struct msm_vfe_hardware_info vfe40_hw_info = {
 	.subdev_ops = &msm_vfe40_subdev_ops,
 	.subdev_internal_ops = &msm_vfe40_internal_ops,
 };
-/* DISABLED: EXPORT_SYMBOL(vfe40_hw_info); */
+EXPORT_SYMBOL(vfe40_hw_info);

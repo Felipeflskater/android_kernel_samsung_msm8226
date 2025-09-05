@@ -485,7 +485,7 @@ struct rpc_clnt *rpc_create(struct rpc_create_args *args)
 
 	return clnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_create); */
+EXPORT_SYMBOL_GPL(rpc_create);
 
 /*
  * This function clones the RPC client structure. It allows us to share the
@@ -545,7 +545,7 @@ out_no_clnt:
 	dprintk("RPC:       %s: returned error %d\n", __func__, err);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_clone_client); */
+EXPORT_SYMBOL_GPL(rpc_clone_client);
 
 /*
  * Kill all tasks for the given client.
@@ -576,7 +576,7 @@ void rpc_killall_tasks(struct rpc_clnt *clnt)
 	}
 	spin_unlock(&clnt->cl_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_killall_tasks); */
+EXPORT_SYMBOL_GPL(rpc_killall_tasks);
 
 /*
  * Properly shut down an RPC client, terminating all outstanding
@@ -596,7 +596,7 @@ void rpc_shutdown_client(struct rpc_clnt *clnt)
 
 	rpc_release_client(clnt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_shutdown_client); */
+EXPORT_SYMBOL_GPL(rpc_shutdown_client);
 
 /*
  * Free an RPC client
@@ -693,7 +693,7 @@ struct rpc_clnt *rpc_bind_new_program(struct rpc_clnt *old,
 out:
 	return clnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_bind_new_program); */
+EXPORT_SYMBOL_GPL(rpc_bind_new_program);
 
 void rpc_task_release_client(struct rpc_task *task)
 {
@@ -731,7 +731,7 @@ void rpc_task_reset_client(struct rpc_task *task, struct rpc_clnt *clnt)
 	rpc_task_release_client(task);
 	rpc_task_set_client(task, clnt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_task_reset_client); */
+EXPORT_SYMBOL_GPL(rpc_task_reset_client);
 
 
 static void
@@ -781,7 +781,7 @@ struct rpc_task *rpc_run_task(const struct rpc_task_setup *task_setup_data)
 out:
 	return task;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_run_task); */
+EXPORT_SYMBOL_GPL(rpc_run_task);
 
 /**
  * rpc_call_sync - Perform a synchronous RPC call
@@ -809,7 +809,7 @@ int rpc_call_sync(struct rpc_clnt *clnt, const struct rpc_message *msg, int flag
 	rpc_put_task(task);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_call_sync); */
+EXPORT_SYMBOL_GPL(rpc_call_sync);
 
 /**
  * rpc_call_async - Perform an asynchronous RPC call
@@ -838,7 +838,7 @@ rpc_call_async(struct rpc_clnt *clnt, const struct rpc_message *msg, int flags,
 	rpc_put_task(task);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_call_async); */
+EXPORT_SYMBOL_GPL(rpc_call_async);
 
 #if defined(CONFIG_SUNRPC_BACKCHANNEL)
 /**
@@ -890,7 +890,7 @@ rpc_call_start(struct rpc_task *task)
 {
 	task->tk_action = call_start;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_call_start); */
+EXPORT_SYMBOL_GPL(rpc_call_start);
 
 /**
  * rpc_peeraddr - extract remote peer address from clnt's xprt
@@ -916,7 +916,7 @@ size_t rpc_peeraddr(struct rpc_clnt *clnt, struct sockaddr *buf, size_t bufsize)
 
 	return bytes;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_peeraddr); */
+EXPORT_SYMBOL_GPL(rpc_peeraddr);
 
 /**
  * rpc_peeraddr2str - return remote peer address in printable format
@@ -939,7 +939,7 @@ const char *rpc_peeraddr2str(struct rpc_clnt *clnt,
 	else
 		return "unprintable";
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_peeraddr2str); */
+EXPORT_SYMBOL_GPL(rpc_peeraddr2str);
 
 static const struct sockaddr_in rpc_inaddr_loopback = {
 	.sin_family		= AF_INET,
@@ -1088,7 +1088,7 @@ int rpc_localaddr(struct rpc_clnt *clnt, struct sockaddr *buf, size_t buflen)
 		return rpc_anyaddr(sap->sa_family, buf, buflen);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_localaddr); */
+EXPORT_SYMBOL_GPL(rpc_localaddr);
 
 void
 rpc_setbufsize(struct rpc_clnt *clnt, unsigned int sndsize, unsigned int rcvsize)
@@ -1101,7 +1101,7 @@ rpc_setbufsize(struct rpc_clnt *clnt, unsigned int sndsize, unsigned int rcvsize
 		xprt->ops->set_buffer_size(xprt, sndsize, rcvsize);
 	rcu_read_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_setbufsize); */
+EXPORT_SYMBOL_GPL(rpc_setbufsize);
 
 /**
  * rpc_protocol - Get transport protocol number for an RPC client
@@ -1117,7 +1117,7 @@ int rpc_protocol(struct rpc_clnt *clnt)
 	rcu_read_unlock();
 	return protocol;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_protocol); */
+EXPORT_SYMBOL_GPL(rpc_protocol);
 
 /**
  * rpc_net_ns - Get the network namespace for this RPC client
@@ -1133,7 +1133,7 @@ struct net *rpc_net_ns(struct rpc_clnt *clnt)
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_net_ns); */
+EXPORT_SYMBOL_GPL(rpc_net_ns);
 
 /**
  * rpc_max_payload - Get maximum payload size for a transport, in bytes
@@ -1153,7 +1153,7 @@ size_t rpc_max_payload(struct rpc_clnt *clnt)
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_max_payload); */
+EXPORT_SYMBOL_GPL(rpc_max_payload);
 
 /**
  * rpc_force_rebind - force transport to check that remote port is unchanged
@@ -1168,7 +1168,7 @@ void rpc_force_rebind(struct rpc_clnt *clnt)
 		rcu_read_unlock();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_force_rebind); */
+EXPORT_SYMBOL_GPL(rpc_force_rebind);
 
 /*
  * Restart an (async) RPC call from the call_prepare state.
@@ -1184,7 +1184,7 @@ rpc_restart_call_prepare(struct rpc_task *task)
 		task->tk_action = rpc_prepare_task;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_restart_call_prepare); */
+EXPORT_SYMBOL_GPL(rpc_restart_call_prepare);
 
 /*
  * Restart an (async) RPC call. Usually called from within the
@@ -1198,7 +1198,7 @@ rpc_restart_call(struct rpc_task *task)
 	task->tk_action = call_start;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_restart_call); */
+EXPORT_SYMBOL_GPL(rpc_restart_call);
 
 #ifdef RPC_DEBUG
 static const char *rpc_proc_name(const struct rpc_task *task)
@@ -2182,7 +2182,7 @@ struct rpc_task *rpc_call_null(struct rpc_clnt *clnt, struct rpc_cred *cred, int
 	};
 	return rpc_run_task(&task_setup_data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpc_call_null); */
+EXPORT_SYMBOL_GPL(rpc_call_null);
 
 #ifdef RPC_DEBUG
 static void rpc_show_header(void)

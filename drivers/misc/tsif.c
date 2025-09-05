@@ -1567,7 +1567,7 @@ int tsif_get_active(void)
 	}
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_get_active); */
+EXPORT_SYMBOL(tsif_get_active);
 
 void *tsif_attach(int id, void (*notify)(void *client_data), void *data)
 {
@@ -1582,7 +1582,7 @@ void *tsif_attach(int id, void (*notify)(void *client_data), void *data)
 	get_device(&tsif_device->pdev->dev);
 	return tsif_device;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_attach); */
+EXPORT_SYMBOL(tsif_attach);
 
 void tsif_detach(void *cookie)
 {
@@ -1591,7 +1591,7 @@ void tsif_detach(void *cookie)
 	tsif_device->client_data = NULL;
 	put_device(&tsif_device->pdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_detach); */
+EXPORT_SYMBOL(tsif_detach);
 
 void tsif_get_info(void *cookie, void **pdata, int *psize)
 {
@@ -1601,7 +1601,7 @@ void tsif_get_info(void *cookie, void **pdata, int *psize)
 	if (psize)
 		*psize = TSIF_PKTS_IN_BUF;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_get_info); */
+EXPORT_SYMBOL(tsif_get_info);
 
 int tsif_set_mode(void *cookie, int mode)
 {
@@ -1623,7 +1623,7 @@ int tsif_set_mode(void *cookie, int mode)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_mode); */
+EXPORT_SYMBOL(tsif_set_mode);
 
 int tsif_set_time_limit(void *cookie, u32 value)
 {
@@ -1641,7 +1641,7 @@ int tsif_set_time_limit(void *cookie, u32 value)
 	tsif_device->time_limit = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_time_limit); */
+EXPORT_SYMBOL(tsif_set_time_limit);
 
 int tsif_set_buf_config(void *cookie, u32 pkts_in_chunk, u32 chunks_in_buf)
 {
@@ -1665,7 +1665,7 @@ int tsif_set_buf_config(void *cookie, u32 pkts_in_chunk, u32 chunks_in_buf)
 	tsif_device->chunks_per_buf = chunks_in_buf;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_buf_config); */
+EXPORT_SYMBOL(tsif_set_buf_config);
 
 int tsif_set_clk_inverse(void *cookie, int value)
 {
@@ -1683,7 +1683,7 @@ int tsif_set_clk_inverse(void *cookie, int value)
 	tsif_device->clock_inverse = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_clk_inverse); */
+EXPORT_SYMBOL(tsif_set_clk_inverse);
 
 int tsif_set_data_inverse(void *cookie, int value)
 {
@@ -1701,7 +1701,7 @@ int tsif_set_data_inverse(void *cookie, int value)
 	tsif_device->data_inverse = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_data_inverse); */
+EXPORT_SYMBOL(tsif_set_data_inverse);
 
 int tsif_set_sync_inverse(void *cookie, int value)
 {
@@ -1719,7 +1719,7 @@ int tsif_set_sync_inverse(void *cookie, int value)
 	tsif_device->sync_inverse = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_sync_inverse); */
+EXPORT_SYMBOL(tsif_set_sync_inverse);
 
 int tsif_set_enable_inverse(void *cookie, int value)
 {
@@ -1737,7 +1737,7 @@ int tsif_set_enable_inverse(void *cookie, int value)
 	tsif_device->enable_inverse = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_set_enable_inverse); */
+EXPORT_SYMBOL(tsif_set_enable_inverse);
 
 void tsif_get_state(void *cookie, int *ri, int *wi, enum tsif_state *state)
 {
@@ -1749,21 +1749,21 @@ void tsif_get_state(void *cookie, int *ri, int *wi, enum tsif_state *state)
 	if (state)
 		*state = tsif_device->state;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_get_state); */
+EXPORT_SYMBOL(tsif_get_state);
 
 int tsif_start(void *cookie)
 {
 	struct msm_tsif_device *tsif_device = cookie;
 	return action_open(tsif_device);
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_start); */
+EXPORT_SYMBOL(tsif_start);
 
 void tsif_stop(void *cookie)
 {
 	struct msm_tsif_device *tsif_device = cookie;
 	action_close(tsif_device);
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_stop); */
+EXPORT_SYMBOL(tsif_stop);
 
 int tsif_get_ref_clk_counter(void *cookie, u32 *tcr_counter)
 {
@@ -1779,14 +1779,14 @@ int tsif_get_ref_clk_counter(void *cookie, u32 *tcr_counter)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_get_ref_clk_counter); */
+EXPORT_SYMBOL(tsif_get_ref_clk_counter);
 
 void tsif_reclaim_packets(void *cookie, int read_index)
 {
 	struct msm_tsif_device *tsif_device = cookie;
 	tsif_device->ri = read_index;
 }
-/* DISABLED: EXPORT_SYMBOL(tsif_reclaim_packets); */
+EXPORT_SYMBOL(tsif_reclaim_packets);
 
 module_init(mod_init);
 module_exit(mod_exit);

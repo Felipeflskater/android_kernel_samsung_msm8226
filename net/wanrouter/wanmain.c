@@ -772,8 +772,8 @@ static void unlock_adapter_irq(spinlock_t *lock, unsigned long *smp_flags)
 	spin_unlock_irqrestore(lock, *smp_flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(register_wan_device); */
-/* DISABLED: EXPORT_SYMBOL(unregister_wan_device); */
+EXPORT_SYMBOL(register_wan_device);
+EXPORT_SYMBOL(unregister_wan_device);
 
 MODULE_LICENSE("GPL");
 

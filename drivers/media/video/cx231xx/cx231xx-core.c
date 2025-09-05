@@ -106,7 +106,7 @@ int cx231xx_register_extension(struct cx231xx_ops *ops)
 	mutex_unlock(&cx231xx_devlist_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx231xx_register_extension); */
+EXPORT_SYMBOL(cx231xx_register_extension);
 
 void cx231xx_unregister_extension(struct cx231xx_ops *ops)
 {
@@ -121,7 +121,7 @@ void cx231xx_unregister_extension(struct cx231xx_ops *ops)
 	list_del(&ops->next);
 	mutex_unlock(&cx231xx_devlist_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(cx231xx_unregister_extension); */
+EXPORT_SYMBOL(cx231xx_unregister_extension);
 
 void cx231xx_init_extension(struct cx231xx *dev)
 {
@@ -235,7 +235,7 @@ int cx231xx_send_usb_command(struct cx231xx_i2c *i2c_bus,
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_send_usb_command); */
+EXPORT_SYMBOL_GPL(cx231xx_send_usb_command);
 
 /*
  * Sends/Receives URB control messages, assuring to use a kalloced buffer
@@ -625,7 +625,7 @@ int cx231xx_set_alt_setting(struct cx231xx *dev, u8 index, u8 alt)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_set_alt_setting); */
+EXPORT_SYMBOL_GPL(cx231xx_set_alt_setting);
 
 int cx231xx_gpio_set(struct cx231xx *dev, struct cx231xx_reg_seq *gpio)
 {
@@ -687,12 +687,12 @@ int cx231xx_demod_reset(struct cx231xx *dev)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_demod_reset); */
+EXPORT_SYMBOL_GPL(cx231xx_demod_reset);
 int is_fw_load(struct cx231xx *dev)
 {
 	return cx231xx_check_fw(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_fw_load); */
+EXPORT_SYMBOL_GPL(is_fw_load);
 
 int cx231xx_set_mode(struct cx231xx *dev, enum cx231xx_mode set_mode)
 {
@@ -756,7 +756,7 @@ int cx231xx_set_mode(struct cx231xx *dev, enum cx231xx_mode set_mode)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_set_mode); */
+EXPORT_SYMBOL_GPL(cx231xx_set_mode);
 
 int cx231xx_ep5_bulkout(struct cx231xx *dev, u8 *firmware, u16 size)
 {
@@ -921,7 +921,7 @@ void cx231xx_uninit_isoc(struct cx231xx *dev)
 
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_uninit_isoc); */
+EXPORT_SYMBOL_GPL(cx231xx_uninit_isoc);
 
 /*
  * Stop and Deallocate URBs
@@ -969,7 +969,7 @@ void cx231xx_uninit_bulk(struct cx231xx *dev)
 
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_uninit_bulk); */
+EXPORT_SYMBOL_GPL(cx231xx_uninit_bulk);
 
 /*
  * Allocate URBs and start IRQ
@@ -1106,7 +1106,7 @@ int cx231xx_init_isoc(struct cx231xx *dev, int max_packets,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_init_isoc); */
+EXPORT_SYMBOL_GPL(cx231xx_init_isoc);
 
 /*
  * Allocate URBs and start IRQ
@@ -1228,7 +1228,7 @@ int cx231xx_init_bulk(struct cx231xx *dev, int max_packets,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_init_bulk); */
+EXPORT_SYMBOL_GPL(cx231xx_init_bulk);
 void cx231xx_stop_TS1(struct cx231xx *dev)
 {
 	int status = 0;
@@ -1412,7 +1412,7 @@ int cx231xx_dev_init(struct cx231xx *dev)
 
 	return errCode;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_dev_init); */
+EXPORT_SYMBOL_GPL(cx231xx_dev_init);
 
 void cx231xx_dev_uninit(struct cx231xx *dev)
 {
@@ -1421,7 +1421,7 @@ void cx231xx_dev_uninit(struct cx231xx *dev)
 	cx231xx_i2c_unregister(&dev->i2c_bus[1]);
 	cx231xx_i2c_unregister(&dev->i2c_bus[0]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_dev_uninit); */
+EXPORT_SYMBOL_GPL(cx231xx_dev_uninit);
 
 /*****************************************************************
 *              G P I O related functions                         *
@@ -1478,7 +1478,7 @@ int cx231xx_send_gpio_cmd(struct cx231xx *dev, u32 gpio_bit, u8 *gpio_val,
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx231xx_send_gpio_cmd); */
+EXPORT_SYMBOL_GPL(cx231xx_send_gpio_cmd);
 
 /*****************************************************************
  *    C O N T R O L - Register R E A D / W R I T E functions     *

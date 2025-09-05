@@ -138,7 +138,7 @@ int mlx4_cq_modify(struct mlx4_dev *dev, struct mlx4_cq *cq,
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_cq_modify); */
+EXPORT_SYMBOL_GPL(mlx4_cq_modify);
 
 int mlx4_cq_resize(struct mlx4_dev *dev, struct mlx4_cq *cq,
 		   int entries, struct mlx4_mtt *mtt)
@@ -166,7 +166,7 @@ int mlx4_cq_resize(struct mlx4_dev *dev, struct mlx4_cq *cq,
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_cq_resize); */
+EXPORT_SYMBOL_GPL(mlx4_cq_resize);
 
 int __mlx4_cq_alloc_icm(struct mlx4_dev *dev, int *cqn)
 {
@@ -308,7 +308,7 @@ err_icm:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_cq_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_cq_alloc);
 
 void mlx4_cq_free(struct mlx4_dev *dev, struct mlx4_cq *cq)
 {
@@ -332,7 +332,7 @@ void mlx4_cq_free(struct mlx4_dev *dev, struct mlx4_cq *cq)
 
 	mlx4_cq_free_icm(dev, cq->cqn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_cq_free); */
+EXPORT_SYMBOL_GPL(mlx4_cq_free);
 
 int mlx4_init_cq_table(struct mlx4_dev *dev)
 {

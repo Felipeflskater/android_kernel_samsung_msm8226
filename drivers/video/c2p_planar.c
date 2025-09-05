@@ -151,6 +151,6 @@ void c2p_planar(void *dst, const void *src, u32 dx, u32 dy, u32 width,
 		dst += dst_nextline;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(c2p_planar); */
+EXPORT_SYMBOL_GPL(c2p_planar);
 
 MODULE_LICENSE("GPL");

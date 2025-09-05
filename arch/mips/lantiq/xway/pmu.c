@@ -42,13 +42,13 @@ void ltq_pmu_enable(unsigned int module)
 	if (!err)
 		panic("activating PMU module failed!");
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_pmu_enable); */
+EXPORT_SYMBOL(ltq_pmu_enable);
 
 void ltq_pmu_disable(unsigned int module)
 {
 	ltq_pmu_w32(ltq_pmu_r32(LTQ_PMU_PWDCR) | module, LTQ_PMU_PWDCR);
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_pmu_disable); */
+EXPORT_SYMBOL(ltq_pmu_disable);
 
 int __init ltq_pmu_init(void)
 {

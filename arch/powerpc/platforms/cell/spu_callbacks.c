@@ -71,4 +71,4 @@ long spu_sys_callback(struct spu_syscall_block *s)
 	return syscall(s->parm[0], s->parm[1], s->parm[2],
 		       s->parm[3], s->parm[4], s->parm[5]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_sys_callback); */
+EXPORT_SYMBOL_GPL(spu_sys_callback);

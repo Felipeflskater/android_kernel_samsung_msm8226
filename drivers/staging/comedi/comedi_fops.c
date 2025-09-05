@@ -57,7 +57,7 @@ MODULE_LICENSE("GPL");
 
 #ifdef CONFIG_COMEDI_DEBUG
 int comedi_debug;
-/* DISABLED: EXPORT_SYMBOL(comedi_debug); */
+EXPORT_SYMBOL(comedi_debug);
 module_param(comedi_debug, int, 0644);
 #endif
 
@@ -2115,7 +2115,7 @@ void comedi_error(const struct comedi_device *dev, const char *s)
 	printk(KERN_ERR "comedi%d: %s: %s\n", dev->minor,
 	       dev->driver->driver_name, s);
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_error); */
+EXPORT_SYMBOL(comedi_error);
 
 void comedi_event(struct comedi_device *dev, struct comedi_subdevice *s)
 {
@@ -2158,7 +2158,7 @@ void comedi_event(struct comedi_device *dev, struct comedi_subdevice *s)
 	}
 	s->async->events = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_event); */
+EXPORT_SYMBOL(comedi_event);
 
 unsigned comedi_get_subdevice_runflags(struct comedi_subdevice *s)
 {
@@ -2170,7 +2170,7 @@ unsigned comedi_get_subdevice_runflags(struct comedi_subdevice *s)
 	spin_unlock_irqrestore(&s->spin_lock, flags);
 	return runflags;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_get_subdevice_runflags); */
+EXPORT_SYMBOL(comedi_get_subdevice_runflags);
 
 static int is_device_busy(struct comedi_device *dev)
 {
@@ -2443,7 +2443,7 @@ struct comedi_device_file_info *comedi_get_device_file_info(unsigned minor)
 	spin_unlock_irqrestore(&comedi_file_info_table_lock, flags);
 	return info;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(comedi_get_device_file_info); */
+EXPORT_SYMBOL_GPL(comedi_get_device_file_info);
 
 static int resize_async_buffer(struct comedi_device *dev,
 			       struct comedi_subdevice *s,

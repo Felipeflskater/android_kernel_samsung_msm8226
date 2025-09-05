@@ -3364,7 +3364,7 @@ int ftrace_set_filter(struct ftrace_ops *ops, unsigned char *buf,
 {
 	return ftrace_set_regex(ops, buf, len, reset, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_set_filter); */
+EXPORT_SYMBOL_GPL(ftrace_set_filter);
 
 /**
  * ftrace_set_notrace - set a function to not trace in ftrace
@@ -3382,7 +3382,7 @@ int ftrace_set_notrace(struct ftrace_ops *ops, unsigned char *buf,
 {
 	return ftrace_set_regex(ops, buf, len, reset, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_set_notrace); */
+EXPORT_SYMBOL_GPL(ftrace_set_notrace);
 /**
  * ftrace_set_filter - set a function to filter on in ftrace
  * @ops - the ops to set the filter with
@@ -3397,7 +3397,7 @@ void ftrace_set_global_filter(unsigned char *buf, int len, int reset)
 {
 	ftrace_set_regex(&global_ops, buf, len, reset, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_set_global_filter); */
+EXPORT_SYMBOL_GPL(ftrace_set_global_filter);
 
 /**
  * ftrace_set_notrace - set a function to not trace in ftrace
@@ -3414,7 +3414,7 @@ void ftrace_set_global_notrace(unsigned char *buf, int len, int reset)
 {
 	ftrace_set_regex(&global_ops, buf, len, reset, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_set_global_notrace); */
+EXPORT_SYMBOL_GPL(ftrace_set_global_notrace);
 
 /*
  * command line interface to allow users to set filters on boot up.
@@ -3428,14 +3428,14 @@ static int __init set_ftrace_notrace(char *str)
 	strncpy(ftrace_notrace_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-/* DISABLED: __setup("ftrace_notrace=", set_ftrace_notrace); */ */
+__setup("ftrace_notrace=", set_ftrace_notrace);
 
 static int __init set_ftrace_filter(char *str)
 {
 	strncpy(ftrace_filter_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-/* DISABLED: __setup("ftrace_filter=", set_ftrace_filter); */ */
+__setup("ftrace_filter=", set_ftrace_filter);
 
 #ifdef CONFIG_FUNCTION_GRAPH_TRACER
 static char ftrace_graph_buf[FTRACE_FILTER_SIZE] __initdata;
@@ -3446,7 +3446,7 @@ static int __init set_graph_function(char *str)
 	strlcpy(ftrace_graph_buf, str, FTRACE_FILTER_SIZE);
 	return 1;
 }
-/* DISABLED: __setup("ftrace_graph_filter=", set_graph_function); */ */
+__setup("ftrace_graph_filter=", set_graph_function);
 
 static void __init set_ftrace_early_graph(char *buf)
 {
@@ -4422,7 +4422,7 @@ int register_ftrace_function(struct ftrace_ops *ops)
 	mutex_unlock(&ftrace_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_ftrace_function); */
+EXPORT_SYMBOL_GPL(register_ftrace_function);
 
 /**
  * unregister_ftrace_function - unregister a function for profiling.
@@ -4440,7 +4440,7 @@ int unregister_ftrace_function(struct ftrace_ops *ops)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_ftrace_function); */
+EXPORT_SYMBOL_GPL(unregister_ftrace_function);
 
 int
 ftrace_enable_sysctl(struct ctl_table *table, int write,

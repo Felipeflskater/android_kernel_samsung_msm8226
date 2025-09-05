@@ -43,7 +43,7 @@ extern int spmi_ext_register_readl_extra(u8 sid, u16 ad, u8 *buf, int len);
 
 //////////////////////////////////////////////////////////////////////
 int rt_uart_connecting;
-/* DISABLED: EXPORT_SYMBOL(rt_uart_connecting); */
+EXPORT_SYMBOL(rt_uart_connecting);
 
 static int jig_state;
 
@@ -51,7 +51,7 @@ int rt_check_jig_state(void)
 {
 	return jig_state;
 }
-/* DISABLED: EXPORT_SYMBOL(rt_check_jig_state); */
+EXPORT_SYMBOL(rt_check_jig_state);
 //////////////////////////////////////////////////////////////////////
 
 

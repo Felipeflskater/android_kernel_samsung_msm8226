@@ -130,4 +130,4 @@ int davinci_aemif_setup_timing(struct davinci_aemif_timing *t,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(davinci_aemif_setup_timing); */
+EXPORT_SYMBOL(davinci_aemif_setup_timing);

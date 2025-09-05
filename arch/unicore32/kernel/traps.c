@@ -174,7 +174,7 @@ void dump_stack(void)
 {
 	dump_backtrace(NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 void show_stack(struct task_struct *tsk, unsigned long *sp)
 {
@@ -292,7 +292,7 @@ asmlinkage void __div0(void)
 	printk(KERN_DEFAULT "Division by zero in kernel.\n");
 	dump_stack();
 }
-/* DISABLED: EXPORT_SYMBOL(__div0); */
+EXPORT_SYMBOL(__div0);
 
 void abort(void)
 {
@@ -301,7 +301,7 @@ void abort(void)
 	/* if that doesn't kill us, halt */
 	panic("Oops failed to kill thread");
 }
-/* DISABLED: EXPORT_SYMBOL(abort); */
+EXPORT_SYMBOL(abort);
 
 void __init trap_init(void)
 {

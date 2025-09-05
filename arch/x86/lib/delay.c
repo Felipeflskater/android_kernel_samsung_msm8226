@@ -111,7 +111,7 @@ void __delay(unsigned long loops)
 {
 	delay_fn(loops);
 }
-/* DISABLED: EXPORT_SYMBOL(__delay); */
+EXPORT_SYMBOL(__delay);
 
 inline void __const_udelay(unsigned long xloops)
 {
@@ -125,16 +125,16 @@ inline void __const_udelay(unsigned long xloops)
 
 	__delay(++xloops);
 }
-/* DISABLED: EXPORT_SYMBOL(__const_udelay); */
+EXPORT_SYMBOL(__const_udelay);
 
 void __udelay(unsigned long usecs)
 {
 	__const_udelay(usecs * 0x000010c7); /* 2**32 / 1000000 (rounded up) */
 }
-/* DISABLED: EXPORT_SYMBOL(__udelay); */
+EXPORT_SYMBOL(__udelay);
 
 void __ndelay(unsigned long nsecs)
 {
 	__const_udelay(nsecs * 0x00005); /* 2**32 / 1000000000 (rounded up) */
 }
-/* DISABLED: EXPORT_SYMBOL(__ndelay); */
+EXPORT_SYMBOL(__ndelay);

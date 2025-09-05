@@ -87,4 +87,4 @@ int kernel_execve(const char *filename,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_execve); */
+EXPORT_SYMBOL(kernel_execve);

@@ -461,12 +461,12 @@ MODULE_AUTHOR ("Jeff Garzik <jgarzik@pobox.com>");
 MODULE_DESCRIPTION ("MII hardware support library");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(mii_link_ok); */
-/* DISABLED: EXPORT_SYMBOL(mii_nway_restart); */
-/* DISABLED: EXPORT_SYMBOL(mii_ethtool_gset); */
-/* DISABLED: EXPORT_SYMBOL(mii_ethtool_sset); */
-/* DISABLED: EXPORT_SYMBOL(mii_check_link); */
-/* DISABLED: EXPORT_SYMBOL(mii_check_media); */
-/* DISABLED: EXPORT_SYMBOL(mii_check_gmii_support); */
-/* DISABLED: EXPORT_SYMBOL(generic_mii_ioctl); */
+EXPORT_SYMBOL(mii_link_ok);
+EXPORT_SYMBOL(mii_nway_restart);
+EXPORT_SYMBOL(mii_ethtool_gset);
+EXPORT_SYMBOL(mii_ethtool_sset);
+EXPORT_SYMBOL(mii_check_link);
+EXPORT_SYMBOL(mii_check_media);
+EXPORT_SYMBOL(mii_check_gmii_support);
+EXPORT_SYMBOL(generic_mii_ioctl);
 

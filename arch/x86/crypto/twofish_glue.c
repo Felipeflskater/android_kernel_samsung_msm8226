@@ -46,10 +46,10 @@
 
 asmlinkage void twofish_enc_blk(struct twofish_ctx *ctx, u8 *dst,
 				const u8 *src);
-/* DISABLED: EXPORT_SYMBOL_GPL(twofish_enc_blk); */
+EXPORT_SYMBOL_GPL(twofish_enc_blk);
 asmlinkage void twofish_dec_blk(struct twofish_ctx *ctx, u8 *dst,
 				const u8 *src);
-/* DISABLED: EXPORT_SYMBOL_GPL(twofish_dec_blk); */
+EXPORT_SYMBOL_GPL(twofish_dec_blk);
 
 static void twofish_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 {

@@ -52,48 +52,48 @@
 #include <asm/uaccess.h>
 #include <asm/page.h>
 
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_extend); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_stop); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_lock_updates); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_unlock_updates); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_get_write_access); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_get_create_access); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_get_undo_access); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_set_triggers); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_dirty_metadata); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_release_buffer); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_forget); */
+EXPORT_SYMBOL(jbd2_journal_extend);
+EXPORT_SYMBOL(jbd2_journal_stop);
+EXPORT_SYMBOL(jbd2_journal_lock_updates);
+EXPORT_SYMBOL(jbd2_journal_unlock_updates);
+EXPORT_SYMBOL(jbd2_journal_get_write_access);
+EXPORT_SYMBOL(jbd2_journal_get_create_access);
+EXPORT_SYMBOL(jbd2_journal_get_undo_access);
+EXPORT_SYMBOL(jbd2_journal_set_triggers);
+EXPORT_SYMBOL(jbd2_journal_dirty_metadata);
+EXPORT_SYMBOL(jbd2_journal_release_buffer);
+EXPORT_SYMBOL(jbd2_journal_forget);
 #if 0
-/* DISABLED: EXPORT_SYMBOL(journal_sync_buffer); */
+EXPORT_SYMBOL(journal_sync_buffer);
 #endif
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_flush); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_revoke); */
+EXPORT_SYMBOL(jbd2_journal_flush);
+EXPORT_SYMBOL(jbd2_journal_revoke);
 
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_init_dev); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_init_inode); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_check_used_features); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_check_available_features); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_set_features); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_load); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_destroy); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_abort); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_errno); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_ack_err); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_clear_err); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_log_wait_commit); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_log_start_commit); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_start_commit); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_force_commit_nested); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_wipe); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_blocks_per_page); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_invalidatepage); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_try_to_free_buffers); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_force_commit); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_file_inode); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_init_jbd_inode); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_release_jbd_inode); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_begin_ordered_truncate); */
-/* DISABLED: EXPORT_SYMBOL(jbd2_inode_cache); */
+EXPORT_SYMBOL(jbd2_journal_init_dev);
+EXPORT_SYMBOL(jbd2_journal_init_inode);
+EXPORT_SYMBOL(jbd2_journal_check_used_features);
+EXPORT_SYMBOL(jbd2_journal_check_available_features);
+EXPORT_SYMBOL(jbd2_journal_set_features);
+EXPORT_SYMBOL(jbd2_journal_load);
+EXPORT_SYMBOL(jbd2_journal_destroy);
+EXPORT_SYMBOL(jbd2_journal_abort);
+EXPORT_SYMBOL(jbd2_journal_errno);
+EXPORT_SYMBOL(jbd2_journal_ack_err);
+EXPORT_SYMBOL(jbd2_journal_clear_err);
+EXPORT_SYMBOL(jbd2_log_wait_commit);
+EXPORT_SYMBOL(jbd2_log_start_commit);
+EXPORT_SYMBOL(jbd2_journal_start_commit);
+EXPORT_SYMBOL(jbd2_journal_force_commit_nested);
+EXPORT_SYMBOL(jbd2_journal_wipe);
+EXPORT_SYMBOL(jbd2_journal_blocks_per_page);
+EXPORT_SYMBOL(jbd2_journal_invalidatepage);
+EXPORT_SYMBOL(jbd2_journal_try_to_free_buffers);
+EXPORT_SYMBOL(jbd2_journal_force_commit);
+EXPORT_SYMBOL(jbd2_journal_file_inode);
+EXPORT_SYMBOL(jbd2_journal_init_jbd_inode);
+EXPORT_SYMBOL(jbd2_journal_release_jbd_inode);
+EXPORT_SYMBOL(jbd2_journal_begin_ordered_truncate);
+EXPORT_SYMBOL(jbd2_inode_cache);
 
 static void __journal_abort_soft (journal_t *journal, int errno);
 static int jbd2_journal_create_slab(size_t slab_size);
@@ -620,7 +620,7 @@ out:
 	read_unlock(&journal->j_state_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(jbd2_trans_will_send_data_barrier); */
+EXPORT_SYMBOL(jbd2_trans_will_send_data_barrier);
 
 /*
  * Wait for a specified commit to complete.
@@ -685,7 +685,7 @@ int jbd2_complete_transaction(journal_t *journal, tid_t tid)
 wait_commit:
 	return jbd2_log_wait_commit(journal, tid);
 }
-/* DISABLED: EXPORT_SYMBOL(jbd2_complete_transaction); */
+EXPORT_SYMBOL(jbd2_complete_transaction);
 
 /*
  * Log buffer allocation routines:
@@ -1451,7 +1451,7 @@ void jbd2_journal_update_sb_errno(journal_t *journal)
 
 	jbd2_write_superblock(journal, WRITE_FUA);
 }
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_update_sb_errno); */
+EXPORT_SYMBOL(jbd2_journal_update_sb_errno);
 
 /*
  * Read the superblock for a given journal, performing initial
@@ -1809,7 +1809,7 @@ void jbd2_journal_clear_features(journal_t *journal, unsigned long compat,
 	sb->s_feature_ro_compat &= ~cpu_to_be32(ro);
 	sb->s_feature_incompat  &= ~cpu_to_be32(incompat);
 }
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_clear_features); */
+EXPORT_SYMBOL(jbd2_journal_clear_features);
 
 /**
  * int jbd2_journal_flush () - Flush journal
@@ -2480,7 +2480,7 @@ restart:
  */
 #ifdef CONFIG_JBD2_DEBUG
 u8 jbd2_journal_enable_debug __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(jbd2_journal_enable_debug); */
+EXPORT_SYMBOL(jbd2_journal_enable_debug);
 
 #define JBD2_DEBUG_NAME "jbd2-debug"
 

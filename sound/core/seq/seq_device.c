@@ -565,9 +565,9 @@ static void __exit alsa_seq_device_exit(void)
 module_init(alsa_seq_device_init)
 module_exit(alsa_seq_device_exit)
 
-/* DISABLED: EXPORT_SYMBOL(snd_seq_device_load_drivers); */
-/* DISABLED: EXPORT_SYMBOL(snd_seq_device_new); */
-/* DISABLED: EXPORT_SYMBOL(snd_seq_device_register_driver); */
-/* DISABLED: EXPORT_SYMBOL(snd_seq_device_unregister_driver); */
-/* DISABLED: EXPORT_SYMBOL(snd_seq_autoload_lock); */
-/* DISABLED: EXPORT_SYMBOL(snd_seq_autoload_unlock); */
+EXPORT_SYMBOL(snd_seq_device_load_drivers);
+EXPORT_SYMBOL(snd_seq_device_new);
+EXPORT_SYMBOL(snd_seq_device_register_driver);
+EXPORT_SYMBOL(snd_seq_device_unregister_driver);
+EXPORT_SYMBOL(snd_seq_autoload_lock);
+EXPORT_SYMBOL(snd_seq_autoload_unlock);

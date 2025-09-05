@@ -47,7 +47,7 @@ const int of_get_nand_ecc_mode(struct device_node *np)
 
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_get_nand_ecc_mode); */
+EXPORT_SYMBOL_GPL(of_get_nand_ecc_mode);
 
 /**
  * of_get_nand_bus_width - Get nand bus witdh for given device_node
@@ -70,7 +70,7 @@ int of_get_nand_bus_width(struct device_node *np)
 		return -EIO;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_get_nand_bus_width); */
+EXPORT_SYMBOL_GPL(of_get_nand_bus_width);
 
 /**
  * of_get_nand_on_flash_bbt - Get nand on flash bbt for given device_node
@@ -82,4 +82,4 @@ bool of_get_nand_on_flash_bbt(struct device_node *np)
 {
 	return of_property_read_bool(np, "nand-on-flash-bbt");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_get_nand_on_flash_bbt); */
+EXPORT_SYMBOL_GPL(of_get_nand_on_flash_bbt);

@@ -104,7 +104,7 @@ unsigned long ide_pci_dma_base(ide_hwif_t *hwif, const struct ide_port_info *d)
 
 	return dma_base;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_dma_base); */
+EXPORT_SYMBOL_GPL(ide_pci_dma_base);
 
 int ide_pci_check_simplex(ide_hwif_t *hwif, const struct ide_port_info *d)
 {
@@ -140,7 +140,7 @@ int ide_pci_check_simplex(ide_hwif_t *hwif, const struct ide_port_info *d)
 out:
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_check_simplex); */
+EXPORT_SYMBOL_GPL(ide_pci_check_simplex);
 
 /*
  * Set up BM-DMA capability (PnP BIOS should have done this)
@@ -164,7 +164,7 @@ int ide_pci_set_master(struct pci_dev *dev, const char *name)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_set_master); */
+EXPORT_SYMBOL_GPL(ide_pci_set_master);
 #endif /* CONFIG_BLK_DEV_IDEDMA_PCI */
 
 void ide_setup_pci_noise(struct pci_dev *dev, const struct ide_port_info *d)
@@ -173,7 +173,7 @@ void ide_setup_pci_noise(struct pci_dev *dev, const struct ide_port_info *d)
 		d->name, pci_name(dev),
 		dev->vendor, dev->device, dev->revision);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_setup_pci_noise); */
+EXPORT_SYMBOL_GPL(ide_setup_pci_noise);
 
 
 /**
@@ -484,7 +484,7 @@ void ide_pci_setup_ports(struct pci_dev *dev, const struct ide_port_info *d,
 		*(hws + port) = hw + port;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_setup_ports); */
+EXPORT_SYMBOL_GPL(ide_pci_setup_ports);
 
 /*
  * ide_setup_pci_device() looks at the primary/secondary interfaces
@@ -592,14 +592,14 @@ int ide_pci_init_two(struct pci_dev *dev1, struct pci_dev *dev2,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_init_two); */
+EXPORT_SYMBOL_GPL(ide_pci_init_two);
 
 int ide_pci_init_one(struct pci_dev *dev, const struct ide_port_info *d,
 		     void *priv)
 {
 	return ide_pci_init_two(dev, NULL, d, priv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_init_one); */
+EXPORT_SYMBOL_GPL(ide_pci_init_one);
 
 void ide_pci_remove(struct pci_dev *dev)
 {
@@ -629,7 +629,7 @@ void ide_pci_remove(struct pci_dev *dev)
 		pci_disable_device(dev2);
 	pci_disable_device(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_remove); */
+EXPORT_SYMBOL_GPL(ide_pci_remove);
 
 #ifdef CONFIG_PM
 int ide_pci_suspend(struct pci_dev *dev, pm_message_t state)
@@ -640,7 +640,7 @@ int ide_pci_suspend(struct pci_dev *dev, pm_message_t state)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_suspend); */
+EXPORT_SYMBOL_GPL(ide_pci_suspend);
 
 int ide_pci_resume(struct pci_dev *dev)
 {
@@ -661,5 +661,5 @@ int ide_pci_resume(struct pci_dev *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_resume); */
+EXPORT_SYMBOL_GPL(ide_pci_resume);
 #endif

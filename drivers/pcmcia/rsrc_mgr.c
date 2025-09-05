@@ -64,7 +64,7 @@ struct pccard_resource_ops pccard_static_ops = {
 	.init = static_init,
 	.exit = NULL,
 };
-/* DISABLED: EXPORT_SYMBOL(pccard_static_ops); */
+EXPORT_SYMBOL(pccard_static_ops);
 
 
 MODULE_AUTHOR("David A. Hinds, Dominik Brodowski");

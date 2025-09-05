@@ -260,7 +260,7 @@ int pmi_send_message(pmi_message_t msg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmi_send_message); */
+EXPORT_SYMBOL_GPL(pmi_send_message);
 
 int pmi_register_handler(struct pmi_handler *handler)
 {
@@ -273,7 +273,7 @@ int pmi_register_handler(struct pmi_handler *handler)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmi_register_handler); */
+EXPORT_SYMBOL_GPL(pmi_register_handler);
 
 void pmi_unregister_handler(struct pmi_handler *handler)
 {
@@ -286,7 +286,7 @@ void pmi_unregister_handler(struct pmi_handler *handler)
 	list_del(&handler->node);
 	spin_unlock(&data->handler_spinlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmi_unregister_handler); */
+EXPORT_SYMBOL_GPL(pmi_unregister_handler);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Christian Krafft <krafft@de.ibm.com>");

@@ -306,7 +306,7 @@ void snd_trident_start_voice(struct snd_trident * trident, unsigned int voice)
 	outl(mask, TRID_REG(trident, reg));
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_trident_start_voice); */
+EXPORT_SYMBOL(snd_trident_start_voice);
 
 /*---------------------------------------------------------------------------
    void snd_trident_stop_voice(struct snd_trident * trident, unsigned int voice)
@@ -330,7 +330,7 @@ void snd_trident_stop_voice(struct snd_trident * trident, unsigned int voice)
 	outl(mask, TRID_REG(trident, reg));
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_trident_stop_voice); */
+EXPORT_SYMBOL(snd_trident_stop_voice);
 
 /*---------------------------------------------------------------------------
     int snd_trident_allocate_pcm_channel(struct snd_trident *trident)
@@ -511,7 +511,7 @@ void snd_trident_write_voice_regs(struct snd_trident * trident,
 #endif
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_trident_write_voice_regs); */
+EXPORT_SYMBOL(snd_trident_write_voice_regs);
 
 /*---------------------------------------------------------------------------
    snd_trident_write_cso_reg
@@ -3867,7 +3867,7 @@ struct snd_trident_voice *snd_trident_alloc_voice(struct snd_trident * trident, 
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_trident_alloc_voice); */
+EXPORT_SYMBOL(snd_trident_alloc_voice);
 
 void snd_trident_free_voice(struct snd_trident * trident, struct snd_trident_voice *voice)
 {
@@ -3897,7 +3897,7 @@ void snd_trident_free_voice(struct snd_trident * trident, struct snd_trident_voi
 		private_free(voice);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_trident_free_voice); */
+EXPORT_SYMBOL(snd_trident_free_voice);
 
 static void snd_trident_clear_voices(struct snd_trident * trident, unsigned short v_min, unsigned short v_max)
 {

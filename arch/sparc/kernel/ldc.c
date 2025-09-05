@@ -1203,7 +1203,7 @@ out_free_ldc:
 out_err:
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_alloc); */
+EXPORT_SYMBOL(ldc_alloc);
 
 void ldc_free(struct ldc_channel *lp)
 {
@@ -1231,7 +1231,7 @@ void ldc_free(struct ldc_channel *lp)
 
 	kfree(lp);
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_free); */
+EXPORT_SYMBOL(ldc_free);
 
 /* Bind the channel.  This registers the LDC queues with
  * the hypervisor and puts the channel into a pseudo-listening
@@ -1324,7 +1324,7 @@ out_free_irqs:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_bind); */
+EXPORT_SYMBOL(ldc_bind);
 
 int ldc_connect(struct ldc_channel *lp)
 {
@@ -1347,7 +1347,7 @@ int ldc_connect(struct ldc_channel *lp)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_connect); */
+EXPORT_SYMBOL(ldc_connect);
 
 int ldc_disconnect(struct ldc_channel *lp)
 {
@@ -1401,13 +1401,13 @@ out_err:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_disconnect); */
+EXPORT_SYMBOL(ldc_disconnect);
 
 int ldc_state(struct ldc_channel *lp)
 {
 	return lp->state;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_state); */
+EXPORT_SYMBOL(ldc_state);
 
 static int write_raw(struct ldc_channel *lp, const void *buf, unsigned int size)
 {
@@ -1855,7 +1855,7 @@ int ldc_write(struct ldc_channel *lp, const void *buf, unsigned int size)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_write); */
+EXPORT_SYMBOL(ldc_write);
 
 int ldc_read(struct ldc_channel *lp, void *buf, unsigned int size)
 {
@@ -1879,7 +1879,7 @@ int ldc_read(struct ldc_channel *lp, void *buf, unsigned int size)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_read); */
+EXPORT_SYMBOL(ldc_read);
 
 static long arena_alloc(struct ldc_iommu *iommu, unsigned long npages)
 {
@@ -2125,7 +2125,7 @@ int ldc_map_sg(struct ldc_channel *lp,
 
 	return state.nc;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_map_sg); */
+EXPORT_SYMBOL(ldc_map_sg);
 
 int ldc_map_single(struct ldc_channel *lp,
 		   void *buf, unsigned int len,
@@ -2166,7 +2166,7 @@ int ldc_map_single(struct ldc_channel *lp,
 
 	return state.nc;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_map_single); */
+EXPORT_SYMBOL(ldc_map_single);
 
 static void free_npages(unsigned long id, struct ldc_iommu *iommu,
 			u64 cookie, u64 size)
@@ -2207,7 +2207,7 @@ void ldc_unmap(struct ldc_channel *lp, struct ldc_trans_cookie *cookies,
 	}
 	spin_unlock_irqrestore(&iommu->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_unmap); */
+EXPORT_SYMBOL(ldc_unmap);
 
 int ldc_copy(struct ldc_channel *lp, int copy_dir,
 	     void *buf, unsigned int len, unsigned long offset,
@@ -2297,7 +2297,7 @@ int ldc_copy(struct ldc_channel *lp, int copy_dir,
 
 	return orig_len - len;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_copy); */
+EXPORT_SYMBOL(ldc_copy);
 
 void *ldc_alloc_exp_dring(struct ldc_channel *lp, unsigned int len,
 			  struct ldc_trans_cookie *cookies, int *ncookies,
@@ -2322,7 +2322,7 @@ void *ldc_alloc_exp_dring(struct ldc_channel *lp, unsigned int len,
 
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_alloc_exp_dring); */
+EXPORT_SYMBOL(ldc_alloc_exp_dring);
 
 void ldc_free_exp_dring(struct ldc_channel *lp, void *buf, unsigned int len,
 			struct ldc_trans_cookie *cookies, int ncookies)
@@ -2330,7 +2330,7 @@ void ldc_free_exp_dring(struct ldc_channel *lp, void *buf, unsigned int len,
 	ldc_unmap(lp, cookies, ncookies);
 	kfree(buf);
 }
-/* DISABLED: EXPORT_SYMBOL(ldc_free_exp_dring); */
+EXPORT_SYMBOL(ldc_free_exp_dring);
 
 static int __init ldc_init(void)
 {

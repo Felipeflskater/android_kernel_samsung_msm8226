@@ -107,6 +107,6 @@ void cleanup_module(void)
      *  Visible symbols for modules
      */
 
-/* DISABLED: EXPORT_SYMBOL(atafb_mfb_copyarea); */
-/* DISABLED: EXPORT_SYMBOL(atafb_mfb_fillrect); */
-/* DISABLED: EXPORT_SYMBOL(atafb_mfb_linefill); */
+EXPORT_SYMBOL(atafb_mfb_copyarea);
+EXPORT_SYMBOL(atafb_mfb_fillrect);
+EXPORT_SYMBOL(atafb_mfb_linefill);

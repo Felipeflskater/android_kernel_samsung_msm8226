@@ -48,7 +48,7 @@
 int hid_debug = 0;
 module_param_named(debug, hid_debug, int, 0600);
 MODULE_PARM_DESC(debug, "toggle HID debugging messages");
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_debug); */
+EXPORT_SYMBOL_GPL(hid_debug);
 
 static int hid_ignore_special_drivers = 0;
 module_param_named(ignore_special_drivers, hid_ignore_special_drivers, int, 0600);
@@ -85,7 +85,7 @@ struct hid_report *hid_register_report(struct hid_device *device, unsigned type,
 
 	return report;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_register_report); */
+EXPORT_SYMBOL_GPL(hid_register_report);
 
 /*
  * Register a new field for this report.
@@ -742,7 +742,7 @@ int hid_parse_report(struct hid_device *hid, __u8 *start, unsigned size)
 	hid->dev_rsize = size;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_parse_report); */
+EXPORT_SYMBOL_GPL(hid_parse_report);
 
 /**
  * hid_open_report - open a driver-specific device report
@@ -842,7 +842,7 @@ err:
 	hid_close_report(device);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_open_report); */
+EXPORT_SYMBOL_GPL(hid_open_report);
 
 /*
  * Convert a signed n-bit integer to signed 32-bit integer. Common
@@ -1012,7 +1012,7 @@ struct hid_report *hid_validate_values(struct hid_device *hid,
 	}
 	return report;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_validate_values); */
+EXPORT_SYMBOL_GPL(hid_validate_values);
 
 /**
  * hid_match_report - check if driver's raw_event should be called
@@ -1196,7 +1196,7 @@ void hid_output_report(struct hid_report *report, __u8 *data)
 	for (n = 0; n < report->maxfield; n++)
 		hid_output_field(report->device, report->field[n], data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_output_report); */
+EXPORT_SYMBOL_GPL(hid_output_report);
 
 /*
  * Set a field value. The report this field belongs to has to be
@@ -1229,7 +1229,7 @@ int hid_set_field(struct hid_field *field, unsigned offset, __s32 value)
 	field->value[offset] = value;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_set_field); */
+EXPORT_SYMBOL_GPL(hid_set_field);
 
 static struct hid_report *hid_get_report(struct hid_report_enum *report_enum,
 		const u8 *data)
@@ -1294,7 +1294,7 @@ int hid_report_raw_event(struct hid_device *hid, int type, u8 *data, int size,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_report_raw_event); */
+EXPORT_SYMBOL_GPL(hid_report_raw_event);
 
 /**
  * hid_input_report - report data from lower layer (usb, bt...)
@@ -1375,7 +1375,7 @@ unlock:
 	up(&hid->driver_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_input_report); */
+EXPORT_SYMBOL_GPL(hid_input_report);
 
 static bool hid_match_one_id(struct hid_device *hdev,
 		const struct hid_device_id *id)
@@ -1517,7 +1517,7 @@ int hid_connect(struct hid_device *hdev, unsigned int connect_mask)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_connect); */
+EXPORT_SYMBOL_GPL(hid_connect);
 
 void hid_disconnect(struct hid_device *hdev)
 {
@@ -1529,7 +1529,7 @@ void hid_disconnect(struct hid_device *hdev)
 	if (hdev->claimed & HID_CLAIMED_HIDRAW)
 		hidraw_disconnect(hdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_disconnect); */
+EXPORT_SYMBOL_GPL(hid_disconnect);
 
 /* a list of devices for which there is a specialized driver on HID bus */
 static const struct hid_device_id hid_have_special_driver[] = {
@@ -2304,7 +2304,7 @@ int hid_add_device(struct hid_device *hdev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_add_device); */
+EXPORT_SYMBOL_GPL(hid_add_device);
 
 /**
  * hid_allocate_device - allocate new hid device descriptor
@@ -2336,7 +2336,7 @@ struct hid_device *hid_allocate_device(void)
 
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_allocate_device); */
+EXPORT_SYMBOL_GPL(hid_allocate_device);
 
 static void hid_remove_device(struct hid_device *hdev)
 {
@@ -2363,7 +2363,7 @@ void hid_destroy_device(struct hid_device *hdev)
 	hid_remove_device(hdev);
 	put_device(&hdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_destroy_device); */
+EXPORT_SYMBOL_GPL(hid_destroy_device);
 
 int __hid_register_driver(struct hid_driver *hdrv, struct module *owner,
 		const char *mod_name)
@@ -2388,7 +2388,7 @@ int __hid_register_driver(struct hid_driver *hdrv, struct module *owner,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__hid_register_driver); */
+EXPORT_SYMBOL_GPL(__hid_register_driver);
 
 void hid_unregister_driver(struct hid_driver *hdrv)
 {
@@ -2396,7 +2396,7 @@ void hid_unregister_driver(struct hid_driver *hdrv)
 	driver_unregister(&hdrv->driver);
 	hid_free_dynids(hdrv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_unregister_driver); */
+EXPORT_SYMBOL_GPL(hid_unregister_driver);
 
 int hid_check_keys_pressed(struct hid_device *hid)
 {
@@ -2415,7 +2415,7 @@ int hid_check_keys_pressed(struct hid_device *hid)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(hid_check_keys_pressed); */
+EXPORT_SYMBOL_GPL(hid_check_keys_pressed);
 
 static int __init hid_init(void)
 {

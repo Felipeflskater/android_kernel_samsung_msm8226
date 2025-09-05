@@ -90,4 +90,4 @@ int of_irq_map_pci(struct pci_dev *pdev, struct of_irq *out_irq)
 	laddr[1]  = laddr[2] = cpu_to_be32(0);
 	return of_irq_map_raw(ppnode, &lspec_be, 1, laddr, out_irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_irq_map_pci); */
+EXPORT_SYMBOL_GPL(of_irq_map_pci);

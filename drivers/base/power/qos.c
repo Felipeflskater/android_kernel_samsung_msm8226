@@ -259,7 +259,7 @@ int dev_pm_qos_add_request(struct device *dev, struct dev_pm_qos_request *req,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_add_request); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_add_request);
 
 /**
  * dev_pm_qos_update_request - modifies an existing qos request
@@ -302,7 +302,7 @@ int dev_pm_qos_update_request(struct dev_pm_qos_request *req,
 	mutex_unlock(&dev_pm_qos_mtx);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_update_request); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_update_request);
 
 /**
  * dev_pm_qos_remove_request - modifies an existing qos request
@@ -341,7 +341,7 @@ int dev_pm_qos_remove_request(struct dev_pm_qos_request *req)
 	mutex_unlock(&dev_pm_qos_mtx);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_remove_request); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_remove_request);
 
 /**
  * dev_pm_qos_add_notifier - sets notification entry for changes to target value
@@ -373,7 +373,7 @@ int dev_pm_qos_add_notifier(struct device *dev, struct notifier_block *notifier)
 	mutex_unlock(&dev_pm_qos_mtx);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_add_notifier); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_add_notifier);
 
 /**
  * dev_pm_qos_remove_notifier - deletes notification for changes to target value
@@ -401,7 +401,7 @@ int dev_pm_qos_remove_notifier(struct device *dev,
 	mutex_unlock(&dev_pm_qos_mtx);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_remove_notifier); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_remove_notifier);
 
 /**
  * dev_pm_qos_add_global_notifier - sets notification entry for changes to
@@ -416,7 +416,7 @@ int dev_pm_qos_add_global_notifier(struct notifier_block *notifier)
 {
 	return blocking_notifier_chain_register(&dev_pm_notifiers, notifier);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_add_global_notifier); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_add_global_notifier);
 
 /**
  * dev_pm_qos_remove_global_notifier - deletes notification for changes to
@@ -431,7 +431,7 @@ int dev_pm_qos_remove_global_notifier(struct notifier_block *notifier)
 {
 	return blocking_notifier_chain_unregister(&dev_pm_notifiers, notifier);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_remove_global_notifier); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_remove_global_notifier);
 
 /**
  * dev_pm_qos_add_ancestor_request - Add PM QoS request for device's ancestor.
@@ -456,7 +456,7 @@ int dev_pm_qos_add_ancestor_request(struct device *dev,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_add_ancestor_request); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_add_ancestor_request);
 
 #ifdef CONFIG_PM_RUNTIME
 static void __dev_pm_qos_drop_user_request(struct device *dev)
@@ -496,7 +496,7 @@ int dev_pm_qos_expose_latency_limit(struct device *dev, s32 value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_expose_latency_limit); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_expose_latency_limit);
 
 /**
  * dev_pm_qos_hide_latency_limit - Hide PM QoS latency limit from user space.
@@ -509,5 +509,5 @@ void dev_pm_qos_hide_latency_limit(struct device *dev)
 		__dev_pm_qos_drop_user_request(dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_pm_qos_hide_latency_limit); */
+EXPORT_SYMBOL_GPL(dev_pm_qos_hide_latency_limit);
 #endif /* CONFIG_PM_RUNTIME */

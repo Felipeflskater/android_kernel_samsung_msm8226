@@ -1448,7 +1448,7 @@ void o2hb_fill_node_map(unsigned long *map, unsigned bytes)
 	spin_unlock(&o2hb_live_lock);
 	up_read(&o2hb_callback_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_fill_node_map); */
+EXPORT_SYMBOL_GPL(o2hb_fill_node_map);
 
 /*
  * heartbeat configfs bits.  The heartbeat set is a default set under
@@ -2373,7 +2373,7 @@ void o2hb_setup_callback(struct o2hb_callback_func *hc,
 	hc->hc_type = type;
 	hc->hc_magic = O2HB_CB_MAGIC;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_setup_callback); */
+EXPORT_SYMBOL_GPL(o2hb_setup_callback);
 
 /*
  * In local heartbeat mode, region_uuid passed matches the dlm domain name.
@@ -2553,7 +2553,7 @@ out:
 	     ret, __builtin_return_address(0), hc);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_register_callback); */
+EXPORT_SYMBOL_GPL(o2hb_register_callback);
 
 void o2hb_unregister_callback(const char *region_uuid,
 			      struct o2hb_callback_func *hc)
@@ -2576,7 +2576,7 @@ void o2hb_unregister_callback(const char *region_uuid,
 
 	up_write(&o2hb_callback_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_unregister_callback); */
+EXPORT_SYMBOL_GPL(o2hb_unregister_callback);
 
 int o2hb_check_node_heartbeating(u8 node_num)
 {
@@ -2592,7 +2592,7 @@ int o2hb_check_node_heartbeating(u8 node_num)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_check_node_heartbeating); */
+EXPORT_SYMBOL_GPL(o2hb_check_node_heartbeating);
 
 int o2hb_check_node_heartbeating_from_callback(u8 node_num)
 {
@@ -2608,7 +2608,7 @@ int o2hb_check_node_heartbeating_from_callback(u8 node_num)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_check_node_heartbeating_from_callback); */
+EXPORT_SYMBOL_GPL(o2hb_check_node_heartbeating_from_callback);
 
 /* Makes sure our local node is configured with a node number, and is
  * heartbeating. */
@@ -2625,7 +2625,7 @@ int o2hb_check_local_node_heartbeating(void)
 
 	return o2hb_check_node_heartbeating(node_num);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_check_local_node_heartbeating); */
+EXPORT_SYMBOL_GPL(o2hb_check_local_node_heartbeating);
 
 /*
  * this is just a hack until we get the plumbing which flips file systems
@@ -2644,7 +2644,7 @@ void o2hb_stop_all_regions(void)
 
 	spin_unlock(&o2hb_live_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_stop_all_regions); */
+EXPORT_SYMBOL_GPL(o2hb_stop_all_regions);
 
 int o2hb_get_all_regions(char *region_uuids, u8 max_regions)
 {
@@ -2669,10 +2669,10 @@ int o2hb_get_all_regions(char *region_uuids, u8 max_regions)
 
 	return numregs;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(o2hb_get_all_regions); */
+EXPORT_SYMBOL_GPL(o2hb_get_all_regions);
 
 int o2hb_global_heartbeat_active(void)
 {
 	return (o2hb_heartbeat_mode == O2HB_HEARTBEAT_GLOBAL);
 }
-/* DISABLED: EXPORT_SYMBOL(o2hb_global_heartbeat_active); */
+EXPORT_SYMBOL(o2hb_global_heartbeat_active);

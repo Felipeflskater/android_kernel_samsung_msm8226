@@ -364,7 +364,7 @@ int idt77105_init(struct atm_dev *dev)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(idt77105_init); */
+EXPORT_SYMBOL(idt77105_init);
 
 static void __exit idt77105_exit(void)
 {

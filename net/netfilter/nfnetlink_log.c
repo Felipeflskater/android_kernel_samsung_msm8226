@@ -668,7 +668,7 @@ alloc_failure:
 	/* FIXME: statistics */
 	goto unlock_and_release;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfulnl_log_packet); */
+EXPORT_SYMBOL_GPL(nfulnl_log_packet);
 
 static int
 nfulnl_rcv_nl_event(struct notifier_block *this,

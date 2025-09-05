@@ -50,7 +50,7 @@ out:
 	mutex_unlock(&nf_sockopt_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_register_sockopt); */
+EXPORT_SYMBOL(nf_register_sockopt);
 
 void nf_unregister_sockopt(struct nf_sockopt_ops *reg)
 {
@@ -58,7 +58,7 @@ void nf_unregister_sockopt(struct nf_sockopt_ops *reg)
 	list_del(&reg->list);
 	mutex_unlock(&nf_sockopt_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_unregister_sockopt); */
+EXPORT_SYMBOL(nf_unregister_sockopt);
 
 static struct nf_sockopt_ops *nf_sockopt_find(struct sock *sk, u_int8_t pf,
 		int val, int get)
@@ -117,14 +117,14 @@ int nf_setsockopt(struct sock *sk, u_int8_t pf, int val, char __user *opt,
 {
 	return nf_sockopt(sk, pf, val, opt, &len, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_setsockopt); */
+EXPORT_SYMBOL(nf_setsockopt);
 
 int nf_getsockopt(struct sock *sk, u_int8_t pf, int val, char __user *opt,
 		  int *len)
 {
 	return nf_sockopt(sk, pf, val, opt, len, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_getsockopt); */
+EXPORT_SYMBOL(nf_getsockopt);
 
 #ifdef CONFIG_COMPAT
 static int compat_nf_sockopt(struct sock *sk, u_int8_t pf, int val,
@@ -158,12 +158,12 @@ int compat_nf_setsockopt(struct sock *sk, u_int8_t pf,
 {
 	return compat_nf_sockopt(sk, pf, val, opt, &len, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(compat_nf_setsockopt); */
+EXPORT_SYMBOL(compat_nf_setsockopt);
 
 int compat_nf_getsockopt(struct sock *sk, u_int8_t pf,
 		int val, char __user *opt, int *len)
 {
 	return compat_nf_sockopt(sk, pf, val, opt, len, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(compat_nf_getsockopt); */
+EXPORT_SYMBOL(compat_nf_getsockopt);
 #endif

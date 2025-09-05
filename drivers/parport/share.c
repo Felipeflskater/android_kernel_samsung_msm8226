@@ -1013,20 +1013,20 @@ irqreturn_t parport_irq_handler(int irq, void *dev_id)
 
 /* Exported symbols for modules. */
 
-/* DISABLED: EXPORT_SYMBOL(parport_claim); */
-/* DISABLED: EXPORT_SYMBOL(parport_claim_or_block); */
-/* DISABLED: EXPORT_SYMBOL(parport_release); */
-/* DISABLED: EXPORT_SYMBOL(parport_register_port); */
-/* DISABLED: EXPORT_SYMBOL(parport_announce_port); */
-/* DISABLED: EXPORT_SYMBOL(parport_remove_port); */
-/* DISABLED: EXPORT_SYMBOL(parport_register_driver); */
-/* DISABLED: EXPORT_SYMBOL(parport_unregister_driver); */
-/* DISABLED: EXPORT_SYMBOL(parport_register_device); */
-/* DISABLED: EXPORT_SYMBOL(parport_unregister_device); */
-/* DISABLED: EXPORT_SYMBOL(parport_get_port); */
-/* DISABLED: EXPORT_SYMBOL(parport_put_port); */
-/* DISABLED: EXPORT_SYMBOL(parport_find_number); */
-/* DISABLED: EXPORT_SYMBOL(parport_find_base); */
-/* DISABLED: EXPORT_SYMBOL(parport_irq_handler); */
+EXPORT_SYMBOL(parport_claim);
+EXPORT_SYMBOL(parport_claim_or_block);
+EXPORT_SYMBOL(parport_release);
+EXPORT_SYMBOL(parport_register_port);
+EXPORT_SYMBOL(parport_announce_port);
+EXPORT_SYMBOL(parport_remove_port);
+EXPORT_SYMBOL(parport_register_driver);
+EXPORT_SYMBOL(parport_unregister_driver);
+EXPORT_SYMBOL(parport_register_device);
+EXPORT_SYMBOL(parport_unregister_device);
+EXPORT_SYMBOL(parport_get_port);
+EXPORT_SYMBOL(parport_put_port);
+EXPORT_SYMBOL(parport_find_number);
+EXPORT_SYMBOL(parport_find_base);
+EXPORT_SYMBOL(parport_irq_handler);
 
 MODULE_LICENSE("GPL");

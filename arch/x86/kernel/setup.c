@@ -179,7 +179,7 @@ static struct resource bss_resource = {
 struct cpuinfo_x86 new_cpu_data __cpuinitdata = {0, 0, 0, 0, -1, 1, 0, 0, -1};
 /* common cpu data for all cpus */
 struct cpuinfo_x86 boot_cpu_data __read_mostly = {0, 0, 0, 0, -1, 1, 0, 0, -1};
-/* DISABLED: EXPORT_SYMBOL(boot_cpu_data); */
+EXPORT_SYMBOL(boot_cpu_data);
 static void set_mca_bus(int x)
 {
 #ifdef CONFIG_MCA
@@ -195,12 +195,12 @@ unsigned int machine_submodel_id;
 unsigned int BIOS_revision;
 
 struct apm_info apm_info;
-/* DISABLED: EXPORT_SYMBOL(apm_info); */
+EXPORT_SYMBOL(apm_info);
 
 #if defined(CONFIG_X86_SPEEDSTEP_SMI) || \
 	defined(CONFIG_X86_SPEEDSTEP_SMI_MODULE)
 struct ist_info ist_info;
-/* DISABLED: EXPORT_SYMBOL(ist_info); */
+EXPORT_SYMBOL(ist_info);
 #else
 struct ist_info ist_info;
 #endif
@@ -209,7 +209,7 @@ struct ist_info ist_info;
 struct cpuinfo_x86 boot_cpu_data __read_mostly = {
 	.x86_phys_bits = MAX_PHYSMEM_BITS,
 };
-/* DISABLED: EXPORT_SYMBOL(boot_cpu_data); */
+EXPORT_SYMBOL(boot_cpu_data);
 #endif
 
 
@@ -226,9 +226,9 @@ int bootloader_type, bootloader_version;
  * Setup options
  */
 struct screen_info screen_info;
-/* DISABLED: EXPORT_SYMBOL(screen_info); */
+EXPORT_SYMBOL(screen_info);
 struct edid_info edid_info;
-/* DISABLED: EXPORT_SYMBOL_GPL(edid_info); */
+EXPORT_SYMBOL_GPL(edid_info);
 
 extern int root_mountflags;
 
@@ -246,7 +246,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
 #if defined(CONFIG_EDD) || defined(CONFIG_EDD_MODULE)
 struct edd edd;
 #ifdef CONFIG_EDD_MODULE
-/* DISABLED: EXPORT_SYMBOL(edd); */
+EXPORT_SYMBOL(edd);
 #endif
 /**
  * copy_edd() - Copy the BIOS EDD information

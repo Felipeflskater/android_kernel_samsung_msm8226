@@ -170,4 +170,4 @@ void dump_stack(void)
 	show_stack(NULL,NULL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);

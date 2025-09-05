@@ -28,7 +28,7 @@ volatile unsigned long octeon_processor_gp;
 
 #ifdef CONFIG_HOTPLUG_CPU
 uint64_t octeon_bootloader_entry_addr;
-/* DISABLED: EXPORT_SYMBOL(octeon_bootloader_entry_addr); */
+EXPORT_SYMBOL(octeon_bootloader_entry_addr);
 #endif
 
 static irqreturn_t mailbox_interrupt(int irq, void *dev_id)

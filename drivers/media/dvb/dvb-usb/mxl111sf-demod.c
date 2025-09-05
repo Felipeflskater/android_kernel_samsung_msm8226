@@ -598,7 +598,7 @@ struct dvb_frontend *mxl111sf_demod_attach(struct mxl111sf_state *mxl_state,
 	state->fe.demodulator_priv = state;
 	return &state->fe;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mxl111sf_demod_attach); */
+EXPORT_SYMBOL_GPL(mxl111sf_demod_attach);
 
 MODULE_DESCRIPTION("MaxLinear MxL111SF DVB-T demodulator driver");
 MODULE_AUTHOR("Michael Krufky <mkrufky@kernellabs.com>");

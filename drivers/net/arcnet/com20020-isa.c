@@ -213,7 +213,7 @@ static int __init com20020isa_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("com20020=", com20020isa_setup); */ */
+__setup("com20020=", com20020isa_setup);
 
 #endif				/* MODULE */
 

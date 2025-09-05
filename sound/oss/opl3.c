@@ -1253,6 +1253,6 @@ static int __init setup_opl3(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("opl3=", setup_opl3); */ */
+__setup("opl3=", setup_opl3);
 #endif
 MODULE_LICENSE("GPL");

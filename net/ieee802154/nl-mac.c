@@ -79,7 +79,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_assoc_indic); */
+EXPORT_SYMBOL(ieee802154_nl_assoc_indic);
 
 int ieee802154_nl_assoc_confirm(struct net_device *dev, u16 short_addr,
 		u8 status)
@@ -106,7 +106,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_assoc_confirm); */
+EXPORT_SYMBOL(ieee802154_nl_assoc_confirm);
 
 int ieee802154_nl_disassoc_indic(struct net_device *dev,
 		struct ieee802154_addr *addr, u8 reason)
@@ -139,7 +139,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_disassoc_indic); */
+EXPORT_SYMBOL(ieee802154_nl_disassoc_indic);
 
 int ieee802154_nl_disassoc_confirm(struct net_device *dev, u8 status)
 {
@@ -164,7 +164,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_disassoc_confirm); */
+EXPORT_SYMBOL(ieee802154_nl_disassoc_confirm);
 
 int ieee802154_nl_beacon_indic(struct net_device *dev,
 		u16 panid, u16 coord_addr)
@@ -190,7 +190,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_beacon_indic); */
+EXPORT_SYMBOL(ieee802154_nl_beacon_indic);
 
 int ieee802154_nl_scan_confirm(struct net_device *dev,
 		u8 status, u8 scan_type, u32 unscanned, u8 page,
@@ -223,7 +223,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_scan_confirm); */
+EXPORT_SYMBOL(ieee802154_nl_scan_confirm);
 
 int ieee802154_nl_start_confirm(struct net_device *dev, u8 status)
 {
@@ -248,7 +248,7 @@ nla_put_failure:
 	nlmsg_free(msg);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee802154_nl_start_confirm); */
+EXPORT_SYMBOL(ieee802154_nl_start_confirm);
 
 static int ieee802154_nl_fill_iface(struct sk_buff *msg, u32 pid,
 	u32 seq, int flags, struct net_device *dev)

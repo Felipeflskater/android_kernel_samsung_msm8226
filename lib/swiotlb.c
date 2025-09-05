@@ -107,14 +107,14 @@ setup_io_tlb_npages(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("swiotlb=", setup_io_tlb_npages); */ */
+__setup("swiotlb=", setup_io_tlb_npages);
 /* make io_tlb_overflow tunable too? */
 
 unsigned long swiotlb_nr_tbl(void)
 {
 	return io_tlb_nslabs;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_nr_tbl); */
+EXPORT_SYMBOL_GPL(swiotlb_nr_tbl);
 /* Note that this doesn't work with highmem page */
 static dma_addr_t swiotlb_virt_to_bus(struct device *hwdev,
 				      volatile void *address)
@@ -369,7 +369,7 @@ void swiotlb_bounce(phys_addr_t phys, char *dma_addr, size_t size,
 			memcpy(phys_to_virt(phys), dma_addr, size);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_bounce); */
+EXPORT_SYMBOL_GPL(swiotlb_bounce);
 
 void *swiotlb_tbl_map_single(struct device *hwdev, dma_addr_t tbl_dma_addr,
 			     phys_addr_t phys, size_t size,
@@ -474,7 +474,7 @@ found:
 
 	return dma_addr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_tbl_map_single); */
+EXPORT_SYMBOL_GPL(swiotlb_tbl_map_single);
 
 /*
  * Allocates bounce buffer and returns its kernel virtual address.
@@ -532,7 +532,7 @@ swiotlb_tbl_unmap_single(struct device *hwdev, char *dma_addr, size_t size,
 	}
 	spin_unlock_irqrestore(&io_tlb_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_tbl_unmap_single); */
+EXPORT_SYMBOL_GPL(swiotlb_tbl_unmap_single);
 
 void
 swiotlb_tbl_sync_single(struct device *hwdev, char *dma_addr, size_t size,
@@ -561,7 +561,7 @@ swiotlb_tbl_sync_single(struct device *hwdev, char *dma_addr, size_t size,
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_tbl_sync_single); */
+EXPORT_SYMBOL_GPL(swiotlb_tbl_sync_single);
 
 void *
 swiotlb_alloc_coherent(struct device *hwdev, size_t size,
@@ -610,7 +610,7 @@ swiotlb_alloc_coherent(struct device *hwdev, size_t size,
 	*dma_handle = dev_addr;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_alloc_coherent); */
+EXPORT_SYMBOL(swiotlb_alloc_coherent);
 
 void
 swiotlb_free_coherent(struct device *hwdev, size_t size, void *vaddr,
@@ -625,7 +625,7 @@ swiotlb_free_coherent(struct device *hwdev, size_t size, void *vaddr,
 		/* DMA_TO_DEVICE to avoid memcpy in swiotlb_tbl_unmap_single */
 		swiotlb_tbl_unmap_single(hwdev, vaddr, size, DMA_TO_DEVICE);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_free_coherent); */
+EXPORT_SYMBOL(swiotlb_free_coherent);
 
 static void
 swiotlb_full(struct device *dev, size_t size, enum dma_data_direction dir,
@@ -698,7 +698,7 @@ dma_addr_t swiotlb_map_page(struct device *dev, struct page *page,
 
 	return dev_addr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_map_page); */
+EXPORT_SYMBOL_GPL(swiotlb_map_page);
 
 /*
  * Unmap a single streaming mode DMA translation.  The dma_addr and size must
@@ -738,7 +738,7 @@ void swiotlb_unmap_page(struct device *hwdev, dma_addr_t dev_addr,
 {
 	unmap_single(hwdev, dev_addr, size, dir);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(swiotlb_unmap_page); */
+EXPORT_SYMBOL_GPL(swiotlb_unmap_page);
 
 /*
  * Make physical memory consistent for a single streaming mode DMA translation
@@ -777,7 +777,7 @@ swiotlb_sync_single_for_cpu(struct device *hwdev, dma_addr_t dev_addr,
 {
 	swiotlb_sync_single(hwdev, dev_addr, size, dir, SYNC_FOR_CPU);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_sync_single_for_cpu); */
+EXPORT_SYMBOL(swiotlb_sync_single_for_cpu);
 
 void
 swiotlb_sync_single_for_device(struct device *hwdev, dma_addr_t dev_addr,
@@ -785,7 +785,7 @@ swiotlb_sync_single_for_device(struct device *hwdev, dma_addr_t dev_addr,
 {
 	swiotlb_sync_single(hwdev, dev_addr, size, dir, SYNC_FOR_DEVICE);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_sync_single_for_device); */
+EXPORT_SYMBOL(swiotlb_sync_single_for_device);
 
 /*
  * Map a set of buffers described by scatterlist in streaming mode for DMA.
@@ -836,7 +836,7 @@ swiotlb_map_sg_attrs(struct device *hwdev, struct scatterlist *sgl, int nelems,
 	}
 	return nelems;
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_map_sg_attrs); */
+EXPORT_SYMBOL(swiotlb_map_sg_attrs);
 
 int
 swiotlb_map_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
@@ -844,7 +844,7 @@ swiotlb_map_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
 {
 	return swiotlb_map_sg_attrs(hwdev, sgl, nelems, dir, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_map_sg); */
+EXPORT_SYMBOL(swiotlb_map_sg);
 
 /*
  * Unmap a set of streaming mode DMA translations.  Again, cpu read rules
@@ -863,7 +863,7 @@ swiotlb_unmap_sg_attrs(struct device *hwdev, struct scatterlist *sgl,
 		unmap_single(hwdev, sg->dma_address, sg->dma_length, dir);
 
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_unmap_sg_attrs); */
+EXPORT_SYMBOL(swiotlb_unmap_sg_attrs);
 
 void
 swiotlb_unmap_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
@@ -871,7 +871,7 @@ swiotlb_unmap_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
 {
 	return swiotlb_unmap_sg_attrs(hwdev, sgl, nelems, dir, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_unmap_sg); */
+EXPORT_SYMBOL(swiotlb_unmap_sg);
 
 /*
  * Make physical memory consistent for a set of streaming mode DMA translations
@@ -899,7 +899,7 @@ swiotlb_sync_sg_for_cpu(struct device *hwdev, struct scatterlist *sg,
 {
 	swiotlb_sync_sg(hwdev, sg, nelems, dir, SYNC_FOR_CPU);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_sync_sg_for_cpu); */
+EXPORT_SYMBOL(swiotlb_sync_sg_for_cpu);
 
 void
 swiotlb_sync_sg_for_device(struct device *hwdev, struct scatterlist *sg,
@@ -907,14 +907,14 @@ swiotlb_sync_sg_for_device(struct device *hwdev, struct scatterlist *sg,
 {
 	swiotlb_sync_sg(hwdev, sg, nelems, dir, SYNC_FOR_DEVICE);
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_sync_sg_for_device); */
+EXPORT_SYMBOL(swiotlb_sync_sg_for_device);
 
 int
 swiotlb_dma_mapping_error(struct device *hwdev, dma_addr_t dma_addr)
 {
 	return (dma_addr == swiotlb_virt_to_bus(hwdev, io_tlb_overflow_buffer));
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_dma_mapping_error); */
+EXPORT_SYMBOL(swiotlb_dma_mapping_error);
 
 /*
  * Return whether the given device DMA address mask can be supported
@@ -927,4 +927,4 @@ swiotlb_dma_supported(struct device *hwdev, u64 mask)
 {
 	return swiotlb_virt_to_bus(hwdev, io_tlb_end - 1) <= mask;
 }
-/* DISABLED: EXPORT_SYMBOL(swiotlb_dma_supported); */
+EXPORT_SYMBOL(swiotlb_dma_supported);

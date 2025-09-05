@@ -117,9 +117,9 @@
 #include <linux/freezer.h>
 
 struct hlist_head unix_socket_table[UNIX_HASH_SIZE + 1];
-/* DISABLED: EXPORT_SYMBOL_GPL(unix_socket_table); */
+EXPORT_SYMBOL_GPL(unix_socket_table);
 DEFINE_SPINLOCK(unix_table_lock);
-/* DISABLED: EXPORT_SYMBOL_GPL(unix_table_lock); */
+EXPORT_SYMBOL_GPL(unix_table_lock);
 static atomic_long_t unix_nr_socks;
 
 #define unix_sockets_unbound	(&unix_socket_table[UNIX_HASH_SIZE])
@@ -186,7 +186,7 @@ struct sock *unix_peer_get(struct sock *s)
 	unix_state_unlock(s);
 	return peer;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unix_peer_get); */
+EXPORT_SYMBOL_GPL(unix_peer_get);
 
 static inline void unix_release_addr(struct unix_address *addr)
 {
@@ -2304,13 +2304,13 @@ long unix_inq_len(struct sock *sk)
 
 	return amount;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unix_inq_len); */
+EXPORT_SYMBOL_GPL(unix_inq_len);
 
 long unix_outq_len(struct sock *sk)
 {
 	return sk_wmem_alloc_get(sk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unix_outq_len); */
+EXPORT_SYMBOL_GPL(unix_outq_len);
 
 static int unix_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 {

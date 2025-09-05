@@ -145,7 +145,7 @@ int __hwspin_trylock(struct hwspinlock *hwlock, int mode, unsigned long *flags)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__hwspin_trylock); */
+EXPORT_SYMBOL_GPL(__hwspin_trylock);
 
 /**
  * __hwspin_lock_timeout() - lock an hwspinlock with timeout limit
@@ -205,7 +205,7 @@ int __hwspin_lock_timeout(struct hwspinlock *hwlock, unsigned int to,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__hwspin_lock_timeout); */
+EXPORT_SYMBOL_GPL(__hwspin_lock_timeout);
 
 /**
  * __hwspin_unlock() - unlock a specific hwspinlock
@@ -255,7 +255,7 @@ void __hwspin_unlock(struct hwspinlock *hwlock, int mode, unsigned long *flags)
 	else
 		spin_unlock(&hwlock->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__hwspin_unlock); */
+EXPORT_SYMBOL_GPL(__hwspin_unlock);
 
 static int hwspin_lock_register_single(struct hwspinlock *hwlock, int id)
 {
@@ -357,7 +357,7 @@ reg_failed:
 		hwspin_lock_unregister_single(base_id + i);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_register); */
+EXPORT_SYMBOL_GPL(hwspin_lock_register);
 
 /**
  * hwspin_lock_unregister() - unregister an hw spinlock device
@@ -388,7 +388,7 @@ int hwspin_lock_unregister(struct hwspinlock_device *bank)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_unregister); */
+EXPORT_SYMBOL_GPL(hwspin_lock_unregister);
 
 /**
  * __hwspin_lock_request() - tag an hwspinlock as used and power it up
@@ -446,7 +446,7 @@ int hwspin_lock_get_id(struct hwspinlock *hwlock)
 
 	return hwlock_to_id(hwlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_get_id); */
+EXPORT_SYMBOL_GPL(hwspin_lock_get_id);
 
 /**
  * hwspin_lock_request() - request an hwspinlock
@@ -489,7 +489,7 @@ out:
 	mutex_unlock(&hwspinlock_tree_lock);
 	return hwlock;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_request); */
+EXPORT_SYMBOL_GPL(hwspin_lock_request);
 
 /**
  * hwspin_lock_request_specific() - request for a specific hwspinlock
@@ -538,7 +538,7 @@ out:
 	mutex_unlock(&hwspinlock_tree_lock);
 	return hwlock;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_request_specific); */
+EXPORT_SYMBOL_GPL(hwspin_lock_request_specific);
 
 /**
  * hwspin_lock_free() - free a specific hwspinlock
@@ -593,7 +593,7 @@ out:
 	mutex_unlock(&hwspinlock_tree_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hwspin_lock_free); */
+EXPORT_SYMBOL_GPL(hwspin_lock_free);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Hardware spinlock interface");

@@ -155,6 +155,6 @@ static int __init proc_dma_init(void)
 __initcall(proc_dma_init);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(request_dma); */
-/* DISABLED: EXPORT_SYMBOL(free_dma); */
-/* DISABLED: EXPORT_SYMBOL(dma_spin_lock); */
+EXPORT_SYMBOL(request_dma);
+EXPORT_SYMBOL(free_dma);
+EXPORT_SYMBOL(dma_spin_lock);

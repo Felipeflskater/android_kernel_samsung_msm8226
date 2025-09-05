@@ -46,7 +46,7 @@ const unsigned char scsi_command_size_tbl[8] =
 	6, 10, 10, 12,
 	16, 12, 10, 10
 };
-/* DISABLED: EXPORT_SYMBOL(scsi_command_size_tbl); */
+EXPORT_SYMBOL(scsi_command_size_tbl);
 
 #include <scsi/sg.h>
 
@@ -218,7 +218,7 @@ int blk_verify_command(unsigned char *cmd, fmode_t has_write_perm)
 
 	return -EPERM;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_verify_command); */
+EXPORT_SYMBOL(blk_verify_command);
 
 static int blk_fill_sghdr_rq(struct request_queue *q, struct request *rq,
 			     struct sg_io_hdr *hdr, fmode_t mode)
@@ -533,7 +533,7 @@ error:
 	blk_put_request(rq);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sg_scsi_ioctl); */
+EXPORT_SYMBOL_GPL(sg_scsi_ioctl);
 
 /* Send basic block requests */
 static int __blk_send_generic(struct request_queue *q, struct gendisk *bd_disk,
@@ -688,7 +688,7 @@ int scsi_cmd_ioctl(struct request_queue *q, struct gendisk *bd_disk, fmode_t mod
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_cmd_ioctl); */
+EXPORT_SYMBOL(scsi_cmd_ioctl);
 
 int scsi_verify_blk_ioctl(struct block_device *bd, unsigned int cmd)
 {
@@ -729,7 +729,7 @@ int scsi_verify_blk_ioctl(struct block_device *bd, unsigned int cmd)
 
 	return -ENOIOCTLCMD;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_verify_blk_ioctl); */
+EXPORT_SYMBOL(scsi_verify_blk_ioctl);
 
 int scsi_cmd_blk_ioctl(struct block_device *bd, fmode_t mode,
 		       unsigned int cmd, void __user *arg)
@@ -742,7 +742,7 @@ int scsi_cmd_blk_ioctl(struct block_device *bd, fmode_t mode,
 
 	return scsi_cmd_ioctl(bd->bd_disk->queue, bd->bd_disk, mode, cmd, arg);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_cmd_blk_ioctl); */
+EXPORT_SYMBOL(scsi_cmd_blk_ioctl);
 
 static int __init blk_scsi_ioctl_init(void)
 {

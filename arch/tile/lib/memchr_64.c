@@ -68,4 +68,4 @@ void *memchr(const void *s, int c, size_t n)
 	ret = ((char *)p) + (__insn_ctz(bits) >> 3);
 	return (ret <= last_byte_ptr) ? ret : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(memchr); */
+EXPORT_SYMBOL(memchr);

@@ -1089,7 +1089,7 @@ bool sa11x0_dma_filter_fn(struct dma_chan *chan, void *param)
 	}
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(sa11x0_dma_filter_fn); */
+EXPORT_SYMBOL(sa11x0_dma_filter_fn);
 
 static int __init sa11x0_dma_init(void)
 {

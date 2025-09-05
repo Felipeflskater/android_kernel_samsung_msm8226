@@ -204,4 +204,4 @@ void lbs_send_tx_feedback(struct lbs_private *priv, u32 try_count)
 	if (priv->mesh_dev && netif_running(priv->mesh_dev))
 		netif_wake_queue(priv->mesh_dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_send_tx_feedback); */
+EXPORT_SYMBOL_GPL(lbs_send_tx_feedback);

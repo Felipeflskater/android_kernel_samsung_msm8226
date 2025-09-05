@@ -42,7 +42,7 @@ void native_io_delay(void)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(native_io_delay); */
+EXPORT_SYMBOL(native_io_delay);
 
 static int __init dmi_io_delay_0xed_port(const struct dmi_system_id *id)
 {

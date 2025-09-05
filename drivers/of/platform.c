@@ -49,7 +49,7 @@ struct platform_device *of_find_device_by_node(struct device_node *np)
 	dev = bus_find_device(&platform_bus_type, NULL, np, of_dev_node_match);
 	return dev ? to_platform_device(dev) : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_device_by_node); */
+EXPORT_SYMBOL(of_find_device_by_node);
 
 #if defined(CONFIG_PPC_DCR)
 #include <asm/dcr.h>
@@ -184,7 +184,7 @@ struct platform_device *of_device_alloc(struct device_node *np,
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(of_device_alloc); */
+EXPORT_SYMBOL(of_device_alloc);
 
 /**
  * of_platform_device_create_pdata - Alloc, initialize and register an of_device
@@ -246,7 +246,7 @@ struct platform_device *of_platform_device_create(struct device_node *np,
 {
 	return of_platform_device_create_pdata(np, bus_id, NULL, parent);
 }
-/* DISABLED: EXPORT_SYMBOL(of_platform_device_create); */
+EXPORT_SYMBOL(of_platform_device_create);
 
 #ifdef CONFIG_ARM_AMBA
 static struct amba_device *of_amba_device_create(struct device_node *node,
@@ -430,7 +430,7 @@ int of_platform_bus_probe(struct device_node *root,
 	of_node_put(root);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(of_platform_bus_probe); */
+EXPORT_SYMBOL(of_platform_bus_probe);
 
 /**
  * of_platform_populate() - Populate platform_devices from device tree data

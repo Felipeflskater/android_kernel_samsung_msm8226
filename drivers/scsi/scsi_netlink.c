@@ -31,7 +31,7 @@
 #include "scsi_priv.h"
 
 struct sock *scsi_nl_sock = NULL;
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_sock); */
+EXPORT_SYMBOL_GPL(scsi_nl_sock);
 
 static DEFINE_SPINLOCK(scsi_nl_lock);
 static struct list_head scsi_nl_drivers;
@@ -343,7 +343,7 @@ register_out:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_add_transport); */
+EXPORT_SYMBOL_GPL(scsi_nl_add_transport);
 
 
 /**
@@ -382,7 +382,7 @@ scsi_nl_remove_transport(u8 tport)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_remove_transport); */
+EXPORT_SYMBOL_GPL(scsi_nl_remove_transport);
 
 
 /**
@@ -431,7 +431,7 @@ scsi_nl_add_driver(u64 vendor_id, struct scsi_host_template *hostt,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_add_driver); */
+EXPORT_SYMBOL_GPL(scsi_nl_add_driver);
 
 
 /**
@@ -474,7 +474,7 @@ scsi_nl_remove_driver(u64 vendor_id)
 	       __func__, (unsigned long long)vendor_id);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_remove_driver); */
+EXPORT_SYMBOL_GPL(scsi_nl_remove_driver);
 
 
 /**
@@ -601,7 +601,7 @@ msg_fail:
 		fn, err);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_nl_send_transport_msg); */
+EXPORT_SYMBOL_GPL(scsi_nl_send_transport_msg);
 
 
 /**
@@ -675,6 +675,6 @@ send_vendor_fail:
 		__func__, host_no, err);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_nl_send_vendor_msg); */
+EXPORT_SYMBOL(scsi_nl_send_vendor_msg);
 
 

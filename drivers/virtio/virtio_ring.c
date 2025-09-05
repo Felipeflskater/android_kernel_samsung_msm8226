@@ -642,7 +642,7 @@ irqreturn_t vring_interrupt(int irq, void *_vq)
 
 	return IRQ_HANDLED;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vring_interrupt); */
+EXPORT_SYMBOL_GPL(vring_interrupt);
 
 /**
  * get_vring_size - return the size of the virtqueue's vring
@@ -730,14 +730,14 @@ struct virtqueue *vring_new_virtqueue(unsigned int num,
 
 	return &vq->vq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vring_new_virtqueue); */
+EXPORT_SYMBOL_GPL(vring_new_virtqueue);
 
 void vring_del_virtqueue(struct virtqueue *vq)
 {
 	list_del(&vq->list);
 	kfree(to_vvq(vq));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vring_del_virtqueue); */
+EXPORT_SYMBOL_GPL(vring_del_virtqueue);
 
 /* Manipulates transport-specific feature bits. */
 void vring_transport_features(struct virtio_device *vdev)
@@ -756,6 +756,6 @@ void vring_transport_features(struct virtio_device *vdev)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vring_transport_features); */
+EXPORT_SYMBOL_GPL(vring_transport_features);
 
 MODULE_LICENSE("GPL");

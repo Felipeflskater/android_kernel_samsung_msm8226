@@ -110,19 +110,19 @@
 #include "udp_impl.h"
 
 struct udp_table udp_table __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(udp_table); */
+EXPORT_SYMBOL(udp_table);
 
 long sysctl_udp_mem[3] __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(sysctl_udp_mem); */
+EXPORT_SYMBOL(sysctl_udp_mem);
 
 int sysctl_udp_rmem_min __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(sysctl_udp_rmem_min); */
+EXPORT_SYMBOL(sysctl_udp_rmem_min);
 
 int sysctl_udp_wmem_min __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(sysctl_udp_wmem_min); */
+EXPORT_SYMBOL(sysctl_udp_wmem_min);
 
 atomic_long_t udp_memory_allocated;
-/* DISABLED: EXPORT_SYMBOL(udp_memory_allocated); */
+EXPORT_SYMBOL(udp_memory_allocated);
 
 #define MAX_UDP_PORTS 65536
 #define PORTS_PER_CHAIN (MAX_UDP_PORTS / UDP_HTABLE_SIZE_MIN)
@@ -296,7 +296,7 @@ fail_unlock:
 fail:
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_lib_get_port); */
+EXPORT_SYMBOL(udp_lib_get_port);
 
 static int ipv4_rcv_saddr_equal(const struct sock *sk1, const struct sock *sk2)
 {
@@ -513,7 +513,7 @@ begin:
 	rcu_read_unlock();
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__udp4_lib_lookup); */
+EXPORT_SYMBOL_GPL(__udp4_lib_lookup);
 
 static inline struct sock *__udp4_lib_lookup_skb(struct sk_buff *skb,
 						 __be16 sport, __be16 dport,
@@ -535,7 +535,7 @@ struct sock *udp4_lib_lookup(struct net *net, __be32 saddr, __be16 sport,
 {
 	return __udp4_lib_lookup(net, saddr, sport, daddr, dport, dif, &udp_table);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(udp4_lib_lookup); */
+EXPORT_SYMBOL_GPL(udp4_lib_lookup);
 
 static inline struct sock *udp_v4_mcast_next(struct net *net, struct sock *sk,
 					     __be16 loc_port, __be32 loc_addr,
@@ -663,7 +663,7 @@ void udp_flush_pending_frames(struct sock *sk)
 		ip_flush_pending_frames(sk);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(udp_flush_pending_frames); */
+EXPORT_SYMBOL(udp_flush_pending_frames);
 
 /**
  * 	udp4_hwcsum  -  handle outgoing HW checksumming
@@ -787,7 +787,7 @@ out:
 	up->pending = 0;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_push_pending_frames); */
+EXPORT_SYMBOL(udp_push_pending_frames);
 
 int udp_sendmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 		size_t len)
@@ -1031,7 +1031,7 @@ do_confirm:
 	err = 0;
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_sendmsg); */
+EXPORT_SYMBOL(udp_sendmsg);
 
 int udp_sendpage(struct sock *sk, struct page *page, int offset,
 		 size_t size, int flags)
@@ -1159,7 +1159,7 @@ int udp_ioctl(struct sock *sk, int cmd, unsigned long arg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_ioctl); */
+EXPORT_SYMBOL(udp_ioctl);
 
 /*
  * 	This should be easy, if there is something there we
@@ -1284,7 +1284,7 @@ int udp_disconnect(struct sock *sk, int flags)
 	sk_dst_reset(sk);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_disconnect); */
+EXPORT_SYMBOL(udp_disconnect);
 
 void udp_lib_unhash(struct sock *sk)
 {
@@ -1310,7 +1310,7 @@ void udp_lib_unhash(struct sock *sk)
 		spin_unlock_bh(&hslot->lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(udp_lib_unhash); */
+EXPORT_SYMBOL(udp_lib_unhash);
 
 /*
  * inet_rcv_saddr was changed, we must rehash secondary hash
@@ -1345,7 +1345,7 @@ void udp_lib_rehash(struct sock *sk, u16 newhash)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(udp_lib_rehash); */
+EXPORT_SYMBOL(udp_lib_rehash);
 
 static void udp_v4_rehash(struct sock *sk)
 {
@@ -1805,7 +1805,7 @@ int udp_lib_setsockopt(struct sock *sk, int level, int optname,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_lib_setsockopt); */
+EXPORT_SYMBOL(udp_lib_setsockopt);
 
 int udp_setsockopt(struct sock *sk, int level, int optname,
 		   char __user *optval, unsigned int optlen)
@@ -1870,7 +1870,7 @@ int udp_lib_getsockopt(struct sock *sk, int level, int optname,
 		return -EFAULT;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_lib_getsockopt); */
+EXPORT_SYMBOL(udp_lib_getsockopt);
 
 int udp_getsockopt(struct sock *sk, int level, int optname,
 		   char __user *optval, int __user *optlen)
@@ -1915,7 +1915,7 @@ unsigned int udp_poll(struct file *file, struct socket *sock, poll_table *wait)
 	return mask;
 
 }
-/* DISABLED: EXPORT_SYMBOL(udp_poll); */
+EXPORT_SYMBOL(udp_poll);
 
 struct proto udp_prot = {
 	.name		   = "UDP",
@@ -1948,7 +1948,7 @@ struct proto udp_prot = {
 #endif
 	.clear_sk	   = sk_prot_clear_portaddr_nulls,
 };
-/* DISABLED: EXPORT_SYMBOL(udp_prot); */
+EXPORT_SYMBOL(udp_prot);
 
 /* ------------------------------------------------------------------------ */
 #ifdef CONFIG_PROC_FS
@@ -2053,7 +2053,7 @@ int udp_seq_open(struct inode *inode, struct file *file)
 	s->udp_table		= afinfo->udp_table;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_seq_open); */
+EXPORT_SYMBOL(udp_seq_open);
 
 /* ------------------------------------------------------------------------ */
 int udp_proc_register(struct net *net, struct udp_seq_afinfo *afinfo)
@@ -2071,13 +2071,13 @@ int udp_proc_register(struct net *net, struct udp_seq_afinfo *afinfo)
 		rc = -ENOMEM;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(udp_proc_register); */
+EXPORT_SYMBOL(udp_proc_register);
 
 void udp_proc_unregister(struct net *net, struct udp_seq_afinfo *afinfo)
 {
 	proc_net_remove(net, afinfo->name);
 }
-/* DISABLED: EXPORT_SYMBOL(udp_proc_unregister); */
+EXPORT_SYMBOL(udp_proc_unregister);
 
 /* ------------------------------------------------------------------------ */
 static void udp4_format_sock(struct sock *sp, struct seq_file *f,
@@ -2174,7 +2174,7 @@ static int __init set_uhash_entries(char *str)
 		uhash_entries = UDP_HTABLE_SIZE_MIN;
 	return 1;
 }
-/* DISABLED: __setup("uhash_entries=", set_uhash_entries); */ */
+__setup("uhash_entries=", set_uhash_entries);
 
 void __init udp_table_init(struct udp_table *table, const char *name)
 {

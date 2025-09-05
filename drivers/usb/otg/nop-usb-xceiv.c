@@ -49,14 +49,14 @@ void usb_nop_xceiv_register(void)
 		return;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(usb_nop_xceiv_register); */
+EXPORT_SYMBOL(usb_nop_xceiv_register);
 
 void usb_nop_xceiv_unregister(void)
 {
 	platform_device_unregister(pd);
 	pd = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_nop_xceiv_unregister); */
+EXPORT_SYMBOL(usb_nop_xceiv_unregister);
 
 static int nop_set_suspend(struct usb_phy *x, int suspend)
 {

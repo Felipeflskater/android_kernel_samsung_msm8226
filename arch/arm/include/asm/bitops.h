@@ -214,10 +214,7 @@ extern int _find_next_bit_be(const unsigned long *p, int size, int offset);
 
 #endif
 
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ < 5
-#endif
 
 #include <asm-generic/bitops/ffz.h>
 #include <asm-generic/bitops/__fls.h>

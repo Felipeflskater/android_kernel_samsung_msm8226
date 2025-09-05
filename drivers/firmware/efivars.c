@@ -1293,7 +1293,7 @@ void unregister_efivars(struct efivars *efivars)
 	kfree(efivars->del_var);
 	kset_unregister(efivars->kset);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_efivars); */
+EXPORT_SYMBOL_GPL(unregister_efivars);
 
 /*
  * Print a warning when duplicate EFI variables are encountered and
@@ -1402,7 +1402,7 @@ out:
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_efivars); */
+EXPORT_SYMBOL_GPL(register_efivars);
 
 /*
  * For now we register the efi subsystem with the firmware subsystem

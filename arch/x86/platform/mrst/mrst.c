@@ -70,12 +70,12 @@ __cpuinitdata enum mrst_timer_options mrst_timer_options;
 static u32 sfi_mtimer_usage[SFI_MTMR_MAX_NUM];
 static struct sfi_timer_table_entry sfi_mtimer_array[SFI_MTMR_MAX_NUM];
 enum mrst_cpu_type __mrst_cpu_chip;
-/* DISABLED: EXPORT_SYMBOL_GPL(__mrst_cpu_chip); */
+EXPORT_SYMBOL_GPL(__mrst_cpu_chip);
 
 int sfi_mtimer_num;
 
 struct sfi_rtc_table_entry sfi_mrtc_array[SFI_MRTC_MAX];
-/* DISABLED: EXPORT_SYMBOL_GPL(sfi_mrtc_array); */
+EXPORT_SYMBOL_GPL(sfi_mrtc_array);
 int sfi_mrtc_num;
 
 static void mrst_power_off(void)
@@ -335,7 +335,7 @@ static inline int __init setup_x86_mrst_timer(char *arg)
 	}
 	return 0;
 }
-/* DISABLED: __setup("x86_mrst_timer=", setup_x86_mrst_timer); */ */
+__setup("x86_mrst_timer=", setup_x86_mrst_timer);
 
 /*
  * Parsing GPIO table first, since the DEVS table will need this table
@@ -779,7 +779,7 @@ static void __init intel_scu_i2c_device_register(int bus,
 }
 
 BLOCKING_NOTIFIER_HEAD(intel_scu_notifier);
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_scu_notifier); */
+EXPORT_SYMBOL_GPL(intel_scu_notifier);
 
 /* Called by IPC driver */
 void intel_scu_devices_create(void)
@@ -807,7 +807,7 @@ void intel_scu_devices_create(void)
 	}
 	intel_scu_notifier_post(SCU_AVAILABLE, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_scu_devices_create); */
+EXPORT_SYMBOL_GPL(intel_scu_devices_create);
 
 /* Called by IPC driver */
 void intel_scu_devices_destroy(void)
@@ -819,7 +819,7 @@ void intel_scu_devices_destroy(void)
 	for (i = 0; i < ipc_next_dev; i++)
 		platform_device_del(ipc_devs[i]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_scu_devices_destroy); */
+EXPORT_SYMBOL_GPL(intel_scu_devices_destroy);
 
 static void __init install_irq_resource(struct platform_device *pdev, int irq)
 {

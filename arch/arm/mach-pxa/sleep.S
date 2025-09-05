@@ -49,14 +49,14 @@ ENTRY(pxa27x_finish_suspend)
 	mov	r1, r0				@ sleep mode
 
 	@ prepare pointer to physical address 0 (virtual mapping in generic.c)
-	mov	r2, @ UNCACHED_PHYS_0
+	mov	r2, #UNCACHED_PHYS_0
 
 	@ prepare SDRAM refresh settings
 	ldr	r4, =MDREFR
 	ldr	r5, [r4]
 
 	@ enable SDRAM self-refresh mode
-	orr	r5, r5, @ MDREFR_SLFRSH
+	orr	r5, r5, #MDREFR_SLFRSH
 
 	@ set SDCLKx divide-by-2 bits (this is part of a workaround for Errata 50)
 	ldr	r6, =MDREFR_KDIV
@@ -90,14 +90,14 @@ ENTRY(pxa25x_finish_suspend)
 	mov	r1, r0				@ sleep mode
 
 	@ prepare pointer to physical address 0 (virtual mapping in generic.c)
-	mov	r2, @ UNCACHED_PHYS_0
+	mov	r2, #UNCACHED_PHYS_0
 
 	@ prepare SDRAM refresh settings
 	ldr	r4, =MDREFR
 	ldr	r5, [r4]
 
 	@ enable SDRAM self-refresh mode
-	orr	r5, r5, @ MDREFR_SLFRSH
+	orr	r5, r5, #MDREFR_SLFRSH
 
 	@ Intel PXA255 Specification Update notes problems
 	@ about suspending with PXBus operating above 133MHz
@@ -113,13 +113,13 @@ ENTRY(pxa25x_finish_suspend)
 	ldr	r8, [r6]		@ keep original value for resume
 
 	@ ensure x1 for run and turbo mode with memory clock
-	bic	r7, r8, @ CCCR_M_MASK | CCCR_N_MASK
-	orr	r7, r7, @ (1<<5) | (2<<7)
+	bic	r7, r8, #CCCR_M_MASK | CCCR_N_MASK
+	orr	r7, r7, #(1<<5) | (2<<7)
 
 	@ check that the memory frequency is within limits
-	and	r14, r7, @ CCCR_L_MASK
+	and	r14, r7, #CCCR_L_MASK
 	teq	r14, #1
-	bicne	r7, r7, @ CCCR_L_MASK
+	bicne	r7, r7, #CCCR_L_MASK
 	orrne	r7, r7, #1			@@ 99.53MHz
 
 	@ get ready for the change

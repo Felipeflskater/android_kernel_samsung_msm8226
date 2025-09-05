@@ -58,7 +58,7 @@ struct xt_rateest *xt_rateest_lookup(const char *name)
 	mutex_unlock(&xt_rateest_mutex);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xt_rateest_lookup); */
+EXPORT_SYMBOL_GPL(xt_rateest_lookup);
 
 void xt_rateest_put(struct xt_rateest *est)
 {
@@ -74,7 +74,7 @@ void xt_rateest_put(struct xt_rateest *est)
 	}
 	mutex_unlock(&xt_rateest_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xt_rateest_put); */
+EXPORT_SYMBOL_GPL(xt_rateest_put);
 
 static unsigned int
 xt_rateest_tg(struct sk_buff *skb, const struct xt_action_param *par)

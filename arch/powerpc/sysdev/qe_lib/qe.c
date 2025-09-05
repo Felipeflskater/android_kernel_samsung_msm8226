@@ -42,7 +42,7 @@ static int qe_sdma_init(void);
 
 static DEFINE_SPINLOCK(qe_lock);
 DEFINE_SPINLOCK(cmxgcr_lock);
-/* DISABLED: EXPORT_SYMBOL(cmxgcr_lock); */
+EXPORT_SYMBOL(cmxgcr_lock);
 
 /* QE snum state */
 enum qe_snum_state {
@@ -60,7 +60,7 @@ struct qe_snum {
  * the communication processor devices.
  */
 struct qe_immap __iomem *qe_immr;
-/* DISABLED: EXPORT_SYMBOL(qe_immr); */
+EXPORT_SYMBOL(qe_immr);
 
 static struct qe_snum snums[QE_NUM_OF_SNUM];	/* Dynamically allocated SNUMs */
 static unsigned int qe_num_of_snum;
@@ -91,7 +91,7 @@ phys_addr_t get_qe_base(void)
 	return qebase;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_qe_base); */
+EXPORT_SYMBOL(get_qe_base);
 
 void qe_reset(void)
 {
@@ -150,7 +150,7 @@ int qe_issue_cmd(u32 cmd, u32 device, u8 mcn_protocol, u32 cmd_input)
 
 	return ret == 1;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_issue_cmd); */
+EXPORT_SYMBOL(qe_issue_cmd);
 
 /* Set a baud rate generator. This needs lots of work. There are
  * 16 BRGs, which can be connected to the QE channels or output
@@ -188,7 +188,7 @@ unsigned int qe_get_brg_clk(void)
 
 	return brg_clk;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_get_brg_clk); */
+EXPORT_SYMBOL(qe_get_brg_clk);
 
 /* Program the BRG to the given sampling rate and multiplier
  *
@@ -226,7 +226,7 @@ int qe_setbrg(enum qe_clock brg, unsigned int rate, unsigned int multiplier)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_setbrg); */
+EXPORT_SYMBOL(qe_setbrg);
 
 /* Convert a string to a QE clock source enum
  *
@@ -258,7 +258,7 @@ enum qe_clock qe_clock_source(const char *source)
 
 	return QE_CLK_DUMMY;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_clock_source); */
+EXPORT_SYMBOL(qe_clock_source);
 
 /* Initialize SNUMs (thread serial numbers) according to
  * QE Module Control chapter, SNUM table
@@ -319,7 +319,7 @@ int qe_get_snum(void)
 
 	return snum;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_get_snum); */
+EXPORT_SYMBOL(qe_get_snum);
 
 void qe_put_snum(u8 snum)
 {
@@ -332,7 +332,7 @@ void qe_put_snum(u8 snum)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(qe_put_snum); */
+EXPORT_SYMBOL(qe_put_snum);
 
 static int qe_sdma_init(void)
 {
@@ -524,7 +524,7 @@ int qe_upload_firmware(const struct qe_firmware *firmware)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_upload_firmware); */
+EXPORT_SYMBOL(qe_upload_firmware);
 
 /*
  * Get info on the currently-loaded firmware
@@ -603,7 +603,7 @@ struct qe_firmware_info *qe_get_firmware_info(void)
 
 	return &qe_firmware_info;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_get_firmware_info); */
+EXPORT_SYMBOL(qe_get_firmware_info);
 
 unsigned int qe_get_num_of_risc(void)
 {
@@ -631,7 +631,7 @@ unsigned int qe_get_num_of_risc(void)
 
 	return num_of_risc;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_get_num_of_risc); */
+EXPORT_SYMBOL(qe_get_num_of_risc);
 
 unsigned int qe_get_num_of_snums(void)
 {
@@ -667,7 +667,7 @@ unsigned int qe_get_num_of_snums(void)
 
 	return num_of_snums;
 }
-/* DISABLED: EXPORT_SYMBOL(qe_get_num_of_snums); */
+EXPORT_SYMBOL(qe_get_num_of_snums);
 
 #if defined(CONFIG_SUSPEND) && defined(CONFIG_PPC_85xx)
 static int qe_resume(struct platform_device *ofdev)

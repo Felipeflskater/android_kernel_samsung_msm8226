@@ -83,7 +83,7 @@ attr_err_out:
 err_out:
 	kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(quota_send_warning); */
+EXPORT_SYMBOL(quota_send_warning);
 
 static int __init quota_init(void)
 {

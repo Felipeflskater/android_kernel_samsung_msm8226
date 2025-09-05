@@ -208,7 +208,7 @@ again:
 
 	return group;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_alloc); */
+EXPORT_SYMBOL_GPL(iommu_group_alloc);
 
 /**
  * iommu_group_get_iommudata - retrieve iommu_data registered for a group
@@ -222,7 +222,7 @@ void *iommu_group_get_iommudata(struct iommu_group *group)
 {
 	return group->iommu_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_get_iommudata); */
+EXPORT_SYMBOL_GPL(iommu_group_get_iommudata);
 
 /**
  * iommu_group_set_iommudata - set iommu_data for a group
@@ -240,7 +240,7 @@ void iommu_group_set_iommudata(struct iommu_group *group, void *iommu_data,
 	group->iommu_data = iommu_data;
 	group->iommu_data_release = release;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_set_iommudata); */
+EXPORT_SYMBOL_GPL(iommu_group_set_iommudata);
 
 /**
  * iommu_group_set_name - set name for a group
@@ -275,7 +275,7 @@ int iommu_group_set_name(struct iommu_group *group, const char *name)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_set_name); */
+EXPORT_SYMBOL_GPL(iommu_group_set_name);
 
 /**
  * iommu_group_add_device - add a device to an iommu group
@@ -342,7 +342,7 @@ rename:
 				     IOMMU_GROUP_NOTIFY_ADD_DEVICE, dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_add_device); */
+EXPORT_SYMBOL_GPL(iommu_group_add_device);
 
 /**
  * iommu_group_remove_device - remove a device from it's current group
@@ -381,7 +381,7 @@ void iommu_group_remove_device(struct device *dev)
 	dev->iommu_group = NULL;
 	kobject_put(group->devices_kobj);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_remove_device); */
+EXPORT_SYMBOL_GPL(iommu_group_remove_device);
 
 /**
  * iommu_group_for_each_dev - iterate over each device in the group
@@ -409,7 +409,7 @@ int iommu_group_for_each_dev(struct iommu_group *group, void *data,
 	mutex_unlock(&group->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_for_each_dev); */
+EXPORT_SYMBOL_GPL(iommu_group_for_each_dev);
 
 /**
  * iommu_group_get - Return the group for a device and increment reference
@@ -428,7 +428,7 @@ struct iommu_group *iommu_group_get(struct device *dev)
 
 	return group;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_get); */
+EXPORT_SYMBOL_GPL(iommu_group_get);
 
 /**
  * iommu_group_find - Find and return the group based on the group name.
@@ -459,7 +459,7 @@ struct iommu_group *iommu_group_find(const char *name)
 
 	return group;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_find); */
+EXPORT_SYMBOL_GPL(iommu_group_find);
 
 /**
  * iommu_group_put - Decrement group reference
@@ -473,7 +473,7 @@ void iommu_group_put(struct iommu_group *group)
 	if (group)
 		kobject_put(group->devices_kobj);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_put); */
+EXPORT_SYMBOL_GPL(iommu_group_put);
 
 /**
  * iommu_group_register_notifier - Register a notifier for group changes
@@ -489,7 +489,7 @@ int iommu_group_register_notifier(struct iommu_group *group,
 {
 	return blocking_notifier_chain_register(&group->notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_register_notifier); */
+EXPORT_SYMBOL_GPL(iommu_group_register_notifier);
 
 /**
  * iommu_group_unregister_notifier - Unregister a notifier
@@ -503,7 +503,7 @@ int iommu_group_unregister_notifier(struct iommu_group *group,
 {
 	return blocking_notifier_chain_unregister(&group->notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_unregister_notifier); */
+EXPORT_SYMBOL_GPL(iommu_group_unregister_notifier);
 
 /**
  * iommu_group_id - Return ID for a group
@@ -515,7 +515,7 @@ int iommu_group_id(struct iommu_group *group)
 {
 	return group->id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_group_id); */
+EXPORT_SYMBOL_GPL(iommu_group_id);
 
 static int add_iommu_group(struct device *dev, void *data)
 {
@@ -619,13 +619,13 @@ int bus_set_iommu(struct bus_type *bus, struct iommu_ops *ops)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bus_set_iommu); */
+EXPORT_SYMBOL_GPL(bus_set_iommu);
 
 bool iommu_present(struct bus_type *bus)
 {
 	return bus->iommu_ops != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_present); */
+EXPORT_SYMBOL_GPL(iommu_present);
 
 /**
  * iommu_set_fault_handler() - set a fault handler for an iommu domain
@@ -648,7 +648,7 @@ void iommu_set_fault_handler(struct iommu_domain *domain,
 	domain->handler = handler;
 	domain->handler_token = token;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_set_fault_handler); */
+EXPORT_SYMBOL_GPL(iommu_set_fault_handler);
 
 struct iommu_domain *iommu_domain_alloc(struct bus_type *bus, int flags)
 {
@@ -675,7 +675,7 @@ out_free:
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_domain_alloc); */
+EXPORT_SYMBOL_GPL(iommu_domain_alloc);
 
 void iommu_domain_free(struct iommu_domain *domain)
 {
@@ -684,7 +684,7 @@ void iommu_domain_free(struct iommu_domain *domain)
 
 	kfree(domain);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_domain_free); */
+EXPORT_SYMBOL_GPL(iommu_domain_free);
 
 int iommu_attach_device(struct iommu_domain *domain, struct device *dev)
 {
@@ -693,7 +693,7 @@ int iommu_attach_device(struct iommu_domain *domain, struct device *dev)
 
 	return domain->ops->attach_dev(domain, dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_attach_device); */
+EXPORT_SYMBOL_GPL(iommu_attach_device);
 
 void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
 {
@@ -702,7 +702,7 @@ void iommu_detach_device(struct iommu_domain *domain, struct device *dev)
 
 	domain->ops->detach_dev(domain, dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_detach_device); */
+EXPORT_SYMBOL_GPL(iommu_detach_device);
 
 /*
  * IOMMU groups are really the natrual working unit of the IOMMU, but
@@ -726,7 +726,7 @@ int iommu_attach_group(struct iommu_domain *domain, struct iommu_group *group)
 	return iommu_group_for_each_dev(group, domain,
 					iommu_group_do_attach_device);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_attach_group); */
+EXPORT_SYMBOL_GPL(iommu_attach_group);
 
 static int iommu_group_do_detach_device(struct device *dev, void *data)
 {
@@ -741,7 +741,7 @@ void iommu_detach_group(struct iommu_domain *domain, struct iommu_group *group)
 {
 	iommu_group_for_each_dev(group, domain, iommu_group_do_detach_device);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_detach_group); */
+EXPORT_SYMBOL_GPL(iommu_detach_group);
 
 phys_addr_t iommu_iova_to_phys(struct iommu_domain *domain,
 			       unsigned long iova)
@@ -751,7 +751,7 @@ phys_addr_t iommu_iova_to_phys(struct iommu_domain *domain,
 
 	return domain->ops->iova_to_phys(domain, iova);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_iova_to_phys); */
+EXPORT_SYMBOL_GPL(iommu_iova_to_phys);
 
 int iommu_domain_has_cap(struct iommu_domain *domain,
 			 unsigned long cap)
@@ -761,7 +761,7 @@ int iommu_domain_has_cap(struct iommu_domain *domain,
 
 	return domain->ops->domain_has_cap(domain, cap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_domain_has_cap); */
+EXPORT_SYMBOL_GPL(iommu_domain_has_cap);
 
 int iommu_map(struct iommu_domain *domain, unsigned long iova,
 	      phys_addr_t paddr, size_t size, int prot)
@@ -838,7 +838,7 @@ int iommu_map(struct iommu_domain *domain, unsigned long iova,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_map); */
+EXPORT_SYMBOL_GPL(iommu_map);
 
 size_t iommu_unmap(struct iommu_domain *domain, unsigned long iova, size_t size)
 {
@@ -885,7 +885,7 @@ size_t iommu_unmap(struct iommu_domain *domain, unsigned long iova, size_t size)
 
 	return unmapped;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_unmap); */
+EXPORT_SYMBOL_GPL(iommu_unmap);
 
 int iommu_map_range(struct iommu_domain *domain, unsigned int iova,
 		    struct scatterlist *sg, unsigned int len, int prot)
@@ -897,7 +897,7 @@ int iommu_map_range(struct iommu_domain *domain, unsigned int iova,
 
 	return domain->ops->map_range(domain, iova, sg, len, prot);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_map_range); */
+EXPORT_SYMBOL_GPL(iommu_map_range);
 
 int iommu_unmap_range(struct iommu_domain *domain, unsigned int iova,
 		      unsigned int len)
@@ -909,7 +909,7 @@ int iommu_unmap_range(struct iommu_domain *domain, unsigned int iova,
 
 	return domain->ops->unmap_range(domain, iova, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_unmap_range); */
+EXPORT_SYMBOL_GPL(iommu_unmap_range);
 
 phys_addr_t iommu_get_pt_base_addr(struct iommu_domain *domain)
 {
@@ -918,7 +918,7 @@ phys_addr_t iommu_get_pt_base_addr(struct iommu_domain *domain)
 
 	return domain->ops->get_pt_base_addr(domain);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iommu_get_pt_base_addr); */
+EXPORT_SYMBOL_GPL(iommu_get_pt_base_addr);
 
 static int __init iommu_init(void)
 {

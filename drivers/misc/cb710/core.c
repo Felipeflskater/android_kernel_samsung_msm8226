@@ -27,7 +27,7 @@ void cb710_pci_update_config_reg(struct pci_dev *pdev,
 	rval = (rval & mask) ^ xor;
 	pci_write_config_dword(pdev, reg, rval);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cb710_pci_update_config_reg); */
+EXPORT_SYMBOL_GPL(cb710_pci_update_config_reg);
 
 /* Some magic writes based on Windows driver init code */
 static int __devinit cb710_pci_configure(struct pci_dev *pdev)
@@ -168,7 +168,7 @@ void cb710_set_irq_handler(struct cb710_slot *slot,
 	slot->irq_handler = handler;
 	spin_unlock_irqrestore(&chip->irq_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cb710_set_irq_handler); */
+EXPORT_SYMBOL_GPL(cb710_set_irq_handler);
 
 #ifdef CONFIG_PM
 

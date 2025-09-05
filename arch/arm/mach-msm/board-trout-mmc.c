@@ -64,7 +64,7 @@ static int __init trout_disablesdcard_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("board_trout.disable_sdcard=", trout_disablesdcard_setup); */ */
+__setup("board_trout.disable_sdcard=", trout_disablesdcard_setup);
 
 static struct vreg *vreg_sdslot;	/* SD slot power */
 

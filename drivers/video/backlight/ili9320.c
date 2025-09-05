@@ -57,7 +57,7 @@ int ili9320_write(struct ili9320 *ili, unsigned int reg, unsigned int value)
 	return ili->write(ili, reg, value);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_write); */
+EXPORT_SYMBOL_GPL(ili9320_write);
 
 int ili9320_write_regs(struct ili9320 *ili,
 		       struct ili9320_reg *values,
@@ -75,7 +75,7 @@ int ili9320_write_regs(struct ili9320 *ili,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_write_regs); */
+EXPORT_SYMBOL_GPL(ili9320_write_regs);
 
 static void ili9320_reset(struct ili9320 *lcd)
 {
@@ -265,7 +265,7 @@ int __devinit ili9320_probe_spi(struct spi_device *spi,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_probe_spi); */
+EXPORT_SYMBOL_GPL(ili9320_probe_spi);
 
 int __devexit ili9320_remove(struct ili9320 *ili)
 {
@@ -277,7 +277,7 @@ int __devexit ili9320_remove(struct ili9320 *ili)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_remove); */
+EXPORT_SYMBOL_GPL(ili9320_remove);
 
 #ifdef CONFIG_PM
 int ili9320_suspend(struct ili9320 *lcd, pm_message_t state)
@@ -302,7 +302,7 @@ int ili9320_suspend(struct ili9320 *lcd, pm_message_t state)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_suspend); */
+EXPORT_SYMBOL_GPL(ili9320_suspend);
 
 int ili9320_resume(struct ili9320 *lcd)
 {
@@ -315,7 +315,7 @@ int ili9320_resume(struct ili9320 *lcd)
 	return ili9320_power(lcd, FB_BLANK_UNBLANK);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_resume); */
+EXPORT_SYMBOL_GPL(ili9320_resume);
 #endif
 
 /* Power down all displays on reboot, poweroff or halt */
@@ -324,7 +324,7 @@ void ili9320_shutdown(struct ili9320 *lcd)
 	ili9320_power(lcd, FB_BLANK_POWERDOWN);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ili9320_shutdown); */
+EXPORT_SYMBOL_GPL(ili9320_shutdown);
 
 MODULE_AUTHOR("Ben Dooks <ben-linux@fluff.org>");
 MODULE_DESCRIPTION("ILI9320 LCD Driver");

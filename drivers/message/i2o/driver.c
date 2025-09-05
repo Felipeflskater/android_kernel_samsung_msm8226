@@ -370,9 +370,9 @@ void i2o_driver_exit(void)
 	kfree(i2o_drivers);
 };
 
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_register); */
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_unregister); */
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_notify_controller_add_all); */
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_notify_controller_remove_all); */
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_notify_device_add_all); */
-/* DISABLED: EXPORT_SYMBOL(i2o_driver_notify_device_remove_all); */
+EXPORT_SYMBOL(i2o_driver_register);
+EXPORT_SYMBOL(i2o_driver_unregister);
+EXPORT_SYMBOL(i2o_driver_notify_controller_add_all);
+EXPORT_SYMBOL(i2o_driver_notify_controller_remove_all);
+EXPORT_SYMBOL(i2o_driver_notify_device_add_all);
+EXPORT_SYMBOL(i2o_driver_notify_device_remove_all);

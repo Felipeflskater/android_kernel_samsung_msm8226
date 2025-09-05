@@ -134,7 +134,7 @@ int da903x_register_notifier(struct device *dev, struct notifier_block *nb,
 	chip->ops->unmask_events(chip, events);
 	return blocking_notifier_chain_register(&chip->notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_register_notifier); */
+EXPORT_SYMBOL_GPL(da903x_register_notifier);
 
 int da903x_unregister_notifier(struct device *dev, struct notifier_block *nb,
 				unsigned int events)
@@ -144,31 +144,31 @@ int da903x_unregister_notifier(struct device *dev, struct notifier_block *nb,
 	chip->ops->mask_events(chip, events);
 	return blocking_notifier_chain_unregister(&chip->notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_unregister_notifier); */
+EXPORT_SYMBOL_GPL(da903x_unregister_notifier);
 
 int da903x_write(struct device *dev, int reg, uint8_t val)
 {
 	return __da903x_write(to_i2c_client(dev), reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_write); */
+EXPORT_SYMBOL_GPL(da903x_write);
 
 int da903x_writes(struct device *dev, int reg, int len, uint8_t *val)
 {
 	return __da903x_writes(to_i2c_client(dev), reg, len, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_writes); */
+EXPORT_SYMBOL_GPL(da903x_writes);
 
 int da903x_read(struct device *dev, int reg, uint8_t *val)
 {
 	return __da903x_read(to_i2c_client(dev), reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_read); */
+EXPORT_SYMBOL_GPL(da903x_read);
 
 int da903x_reads(struct device *dev, int reg, int len, uint8_t *val)
 {
 	return __da903x_reads(to_i2c_client(dev), reg, len, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_reads); */
+EXPORT_SYMBOL_GPL(da903x_reads);
 
 int da903x_set_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -190,7 +190,7 @@ out:
 	mutex_unlock(&chip->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_set_bits); */
+EXPORT_SYMBOL_GPL(da903x_set_bits);
 
 int da903x_clr_bits(struct device *dev, int reg, uint8_t bit_mask)
 {
@@ -212,7 +212,7 @@ out:
 	mutex_unlock(&chip->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_clr_bits); */
+EXPORT_SYMBOL_GPL(da903x_clr_bits);
 
 int da903x_update(struct device *dev, int reg, uint8_t val, uint8_t mask)
 {
@@ -234,7 +234,7 @@ out:
 	mutex_unlock(&chip->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(da903x_update); */
+EXPORT_SYMBOL_GPL(da903x_update);
 
 int da903x_query_status(struct device *dev, unsigned int sbits)
 {
@@ -244,7 +244,7 @@ int da903x_query_status(struct device *dev, unsigned int sbits)
 	chip->ops->read_status(chip, &status);
 	return ((status & sbits) == sbits);
 }
-/* DISABLED: EXPORT_SYMBOL(da903x_query_status); */
+EXPORT_SYMBOL(da903x_query_status);
 
 static int __devinit da9030_init_chip(struct da903x_chip *chip)
 {

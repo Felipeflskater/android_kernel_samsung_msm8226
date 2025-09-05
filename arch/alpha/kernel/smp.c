@@ -53,7 +53,7 @@
 
 /* A collection of per-processor data.  */
 struct cpuinfo_alpha cpu_data[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL(cpu_data); */
+EXPORT_SYMBOL(cpu_data);
 
 /* A collection of single bit ipi messages.  */
 static struct {
@@ -72,7 +72,7 @@ static int smp_secondary_alive __devinitdata = 0;
 
 int smp_num_probed;		/* Internal processor count */
 int smp_num_cpus = 1;		/* Number that came online.  */
-/* DISABLED: EXPORT_SYMBOL(smp_num_cpus); */
+EXPORT_SYMBOL(smp_num_cpus);
 
 /*
  * Called by both boot and secondaries to move global data into
@@ -662,7 +662,7 @@ smp_imb(void)
 	if (on_each_cpu(ipi_imb, NULL, 1))
 		printk(KERN_CRIT "smp_imb: timed out\n");
 }
-/* DISABLED: EXPORT_SYMBOL(smp_imb); */
+EXPORT_SYMBOL(smp_imb);
 
 static void
 ipi_flush_tlb_all(void *ignored)
@@ -718,7 +718,7 @@ flush_tlb_mm(struct mm_struct *mm)
 
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_mm); */
+EXPORT_SYMBOL(flush_tlb_mm);
 
 struct flush_tlb_page_struct {
 	struct vm_area_struct *vma;
@@ -771,7 +771,7 @@ flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
 
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_page); */
+EXPORT_SYMBOL(flush_tlb_page);
 
 void
 flush_tlb_range(struct vm_area_struct *vma, unsigned long start, unsigned long end)
@@ -779,7 +779,7 @@ flush_tlb_range(struct vm_area_struct *vma, unsigned long start, unsigned long e
 	/* On the Alpha we always flush the whole user tlb.  */
 	flush_tlb_mm(vma->vm_mm);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_range); */
+EXPORT_SYMBOL(flush_tlb_range);
 
 static void
 ipi_flush_icache_page(void *x)

@@ -2038,7 +2038,7 @@ static int __init dscc4_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("dscc4.setup=", dscc4_setup); */ */
+__setup("dscc4.setup=", dscc4_setup);
 #endif
 
 static DEFINE_PCI_DEVICE_TABLE(dscc4_pci_tbl) = {

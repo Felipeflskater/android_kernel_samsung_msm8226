@@ -1612,7 +1612,7 @@ irqreturn_t musb_interrupt(struct musb *musb)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(musb_interrupt); */
+EXPORT_SYMBOL_GPL(musb_interrupt);
 
 #ifndef CONFIG_MUSB_PIO_ONLY
 static bool __devinitdata use_dma = 1;
@@ -1659,7 +1659,7 @@ void musb_dma_completion(struct musb *musb, u8 epnum, u8 transmit)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(musb_dma_completion); */
+EXPORT_SYMBOL_GPL(musb_dma_completion);
 
 #else
 #define use_dma			0

@@ -45,7 +45,7 @@ struct key_type key_type_rxrpc = {
 	.describe	= rxrpc_describe,
 	.read		= rxrpc_read,
 };
-/* DISABLED: EXPORT_SYMBOL(key_type_rxrpc); */
+EXPORT_SYMBOL(key_type_rxrpc);
 
 /*
  * rxrpc server defined keys take "<serviceId>:<securityIndex>" as the
@@ -979,7 +979,7 @@ error:
 	_leave(" = -ENOMEM [ins %d]", ret);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(rxrpc_get_server_data_key); */
+EXPORT_SYMBOL(rxrpc_get_server_data_key);
 
 /**
  * rxrpc_get_null_key - Generate a null RxRPC key
@@ -1008,7 +1008,7 @@ struct key *rxrpc_get_null_key(const char *keyname)
 
 	return key;
 }
-/* DISABLED: EXPORT_SYMBOL(rxrpc_get_null_key); */
+EXPORT_SYMBOL(rxrpc_get_null_key);
 
 /*
  * read the contents of an rxrpc key

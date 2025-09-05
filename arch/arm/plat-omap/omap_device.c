@@ -1040,7 +1040,7 @@ struct device *omap_device_get_by_hwmod_name(const char *oh_name)
 
 	return &oh->od->pdev->dev;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_device_get_by_hwmod_name); */
+EXPORT_SYMBOL(omap_device_get_by_hwmod_name);
 
 /*
  * Public functions intended for use in omap_device_pm_latency

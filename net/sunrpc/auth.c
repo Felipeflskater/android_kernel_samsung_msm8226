@@ -102,7 +102,7 @@ rpcauth_register(const struct rpc_authops *ops)
 	spin_unlock(&rpc_authflavor_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_register); */
+EXPORT_SYMBOL_GPL(rpcauth_register);
 
 int
 rpcauth_unregister(const struct rpc_authops *ops)
@@ -120,7 +120,7 @@ rpcauth_unregister(const struct rpc_authops *ops)
 	spin_unlock(&rpc_authflavor_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_unregister); */
+EXPORT_SYMBOL_GPL(rpcauth_unregister);
 
 struct rpc_auth *
 rpcauth_create(rpc_authflavor_t pseudoflavor, struct rpc_clnt *clnt)
@@ -153,7 +153,7 @@ rpcauth_create(rpc_authflavor_t pseudoflavor, struct rpc_clnt *clnt)
 out:
 	return auth;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_create); */
+EXPORT_SYMBOL_GPL(rpcauth_create);
 
 void
 rpcauth_release(struct rpc_auth *auth)
@@ -213,7 +213,7 @@ out_nohashtbl:
 out_nocache:
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_init_credcache); */
+EXPORT_SYMBOL_GPL(rpcauth_init_credcache);
 
 /*
  * Destroy a list of credentials
@@ -278,7 +278,7 @@ rpcauth_destroy_credcache(struct rpc_auth *auth)
 		kfree(cache);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_destroy_credcache); */
+EXPORT_SYMBOL_GPL(rpcauth_destroy_credcache);
 
 
 #define RPC_AUTH_EXPIRY_MORATORIUM (60 * HZ)
@@ -412,7 +412,7 @@ found:
 out:
 	return cred;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_lookup_credcache); */
+EXPORT_SYMBOL_GPL(rpcauth_lookup_credcache);
 
 struct rpc_cred *
 rpcauth_lookupcred(struct rpc_auth *auth, int flags)
@@ -449,7 +449,7 @@ rpcauth_init_cred(struct rpc_cred *cred, const struct auth_cred *acred,
 #endif
 	cred->cr_uid = acred->uid;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_init_cred); */
+EXPORT_SYMBOL_GPL(rpcauth_init_cred);
 
 struct rpc_cred *
 rpcauth_generic_bind_cred(struct rpc_task *task, struct rpc_cred *cred, int lookupflags)
@@ -458,7 +458,7 @@ rpcauth_generic_bind_cred(struct rpc_task *task, struct rpc_cred *cred, int look
 			cred->cr_auth->au_ops->au_name, cred);
 	return get_rpccred(cred);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rpcauth_generic_bind_cred); */
+EXPORT_SYMBOL_GPL(rpcauth_generic_bind_cred);
 
 static struct rpc_cred *
 rpcauth_bind_root_cred(struct rpc_task *task, int lookupflags)
@@ -541,7 +541,7 @@ put_rpccred(struct rpc_cred *cred)
 out_nodestroy:
 	spin_unlock(&rpc_credcache_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(put_rpccred); */
+EXPORT_SYMBOL_GPL(put_rpccred);
 
 __be32 *
 rpcauth_marshcred(struct rpc_task *task, __be32 *p)

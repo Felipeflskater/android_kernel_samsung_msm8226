@@ -76,7 +76,7 @@ bool msm_jtag_fuse_apps_access_disabled(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_jtag_fuse_apps_access_disabled); */
+EXPORT_SYMBOL(msm_jtag_fuse_apps_access_disabled);
 
 static int __devinit jtag_fuse_probe(struct platform_device *pdev)
 {

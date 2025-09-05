@@ -267,8 +267,8 @@ static int __init raid_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("raid=", raid_setup); */ */
-/* DISABLED: __setup("md=", md_setup); */ */
+__setup("raid=", raid_setup);
+__setup("md=", md_setup);
 
 static void __init autodetect_raid(void)
 {

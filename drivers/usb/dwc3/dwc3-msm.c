@@ -273,7 +273,7 @@ static struct usb_ext_notification *usb_ext;
 || defined(CONFIG_SEC_K_PROJECT) \
 || defined(CONFIG_SEC_H_PROJECT) || defined(CONFIG_SEC_F_PROJECT)
 int sec_qcom_usb_rdrv;
-/* DISABLED: EXPORT_SYMBOL(sec_qcom_usb_rdrv); */
+EXPORT_SYMBOL(sec_qcom_usb_rdrv);
 #endif
 
 /**
@@ -1011,7 +1011,7 @@ int msm_ep_config(struct usb_ep *ep)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_ep_config); */
+EXPORT_SYMBOL(msm_ep_config);
 
 /**
  * Un-configure MSM endpoint.
@@ -1048,7 +1048,7 @@ int msm_ep_unconfig(struct usb_ep *ep)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_ep_unconfig); */
+EXPORT_SYMBOL(msm_ep_unconfig);
 
 void dwc3_tx_fifo_resize_request(struct usb_ep *ep, bool qdss_enabled)
 {
@@ -1064,7 +1064,7 @@ void dwc3_tx_fifo_resize_request(struct usb_ep *ep, bool qdss_enabled)
 		dwc->tx_fifo_size = mdwc->tx_fifo_size;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dwc3_tx_fifo_resize_request); */
+EXPORT_SYMBOL(dwc3_tx_fifo_resize_request);
 
 static void dwc3_restart_usb_work(struct work_struct *w)
 {
@@ -1110,7 +1110,7 @@ void msm_dwc3_restart_usb_session(struct usb_gadget *gadget)
 	dev_dbg(mdwc->dev, "%s\n", __func__);
 	queue_work(system_nrt_wq, &mdwc->restart_usb_work);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_dwc3_restart_usb_session); */
+EXPORT_SYMBOL(msm_dwc3_restart_usb_session);
 
 /**
  * msm_register_usb_ext_notification: register for event notification
@@ -1137,7 +1137,7 @@ int msm_register_usb_ext_notification(struct usb_ext_notification *info)
 	usb_ext = info;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_register_usb_ext_notification); */
+EXPORT_SYMBOL(msm_register_usb_ext_notification);
 
 /* HSPHY */
 static int dwc3_hsusb_config_vddcx(struct dwc3_msm *dwc, int high)

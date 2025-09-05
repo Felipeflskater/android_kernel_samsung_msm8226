@@ -92,29 +92,29 @@ struct clk *clk_get(struct device *dev, const char *id)
 		return (struct clk *)((unsigned long)txx9_gbus_clock / 2);
 	return ERR_PTR(-ENOENT);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get); */
+EXPORT_SYMBOL(clk_get);
 
 int clk_enable(struct clk *clk)
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
 	return (unsigned long)clk;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 void clk_put(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(clk_put); */
+EXPORT_SYMBOL(clk_put);
 
 /* GPIO support */
 
@@ -123,13 +123,13 @@ int gpio_to_irq(unsigned gpio)
 {
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(gpio_to_irq); */
+EXPORT_SYMBOL(gpio_to_irq);
 
 int irq_to_gpio(unsigned irq)
 {
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(irq_to_gpio); */
+EXPORT_SYMBOL(irq_to_gpio);
 #endif
 
 #define BOARD_VEC(board)	extern struct txx9_board_vec board;
@@ -610,7 +610,7 @@ static unsigned long __swizzle_addr_none(unsigned long port)
 	return port;
 }
 unsigned long (*__swizzle_addr_b)(unsigned long port) = __swizzle_addr_none;
-/* DISABLED: EXPORT_SYMBOL(__swizzle_addr_b); */
+EXPORT_SYMBOL(__swizzle_addr_b);
 #endif
 
 #ifdef NEEDS_TXX9_IOSWABW
@@ -623,9 +623,9 @@ static u16 __mem_ioswabw_default(volatile u16 *a, u16 x)
 	return x;
 }
 u16 (*ioswabw)(volatile u16 *a, u16 x) = ioswabw_default;
-/* DISABLED: EXPORT_SYMBOL(ioswabw); */
+EXPORT_SYMBOL(ioswabw);
 u16 (*__mem_ioswabw)(volatile u16 *a, u16 x) = __mem_ioswabw_default;
-/* DISABLED: EXPORT_SYMBOL(__mem_ioswabw); */
+EXPORT_SYMBOL(__mem_ioswabw);
 #endif
 
 void __init txx9_physmap_flash_init(int no, unsigned long addr,

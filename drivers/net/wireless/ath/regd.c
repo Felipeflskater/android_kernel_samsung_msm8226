@@ -127,7 +127,7 @@ bool ath_is_world_regd(struct ath_regulatory *reg)
 {
 	return is_wwr_sku(ath_regd_get_eepromRD(reg));
 }
-/* DISABLED: EXPORT_SYMBOL(ath_is_world_regd); */
+EXPORT_SYMBOL(ath_is_world_regd);
 
 static const struct ieee80211_regdomain *ath_default_world_regdomain(void)
 {
@@ -167,7 +167,7 @@ bool ath_is_49ghz_allowed(u16 regdomain)
 	/* possibly more */
 	return regdomain == MKK9_MKKC;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_is_49ghz_allowed); */
+EXPORT_SYMBOL(ath_is_49ghz_allowed);
 
 /* Frequency is one where radar detection is required */
 static bool ath_is_radar_freq(u16 center_freq)
@@ -417,7 +417,7 @@ int ath_reg_notifier_apply(struct wiphy *wiphy,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_reg_notifier_apply); */
+EXPORT_SYMBOL(ath_reg_notifier_apply);
 
 static bool ath_regd_is_eeprom_valid(struct ath_regulatory *reg)
 {
@@ -646,7 +646,7 @@ ath_regd_init(struct ath_regulatory *reg,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_regd_init); */
+EXPORT_SYMBOL(ath_regd_init);
 
 u32 ath_regd_get_band_ctl(struct ath_regulatory *reg,
 			  enum ieee80211_band band)
@@ -666,4 +666,4 @@ u32 ath_regd_get_band_ctl(struct ath_regulatory *reg,
 		return NO_CTL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath_regd_get_band_ctl); */
+EXPORT_SYMBOL(ath_regd_get_band_ctl);

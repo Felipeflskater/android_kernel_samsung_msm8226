@@ -144,4 +144,4 @@ int flexcop_eeprom_check_mac_addr(struct flexcop_device *fc, int extended)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_eeprom_check_mac_addr); */
+EXPORT_SYMBOL(flexcop_eeprom_check_mac_addr);

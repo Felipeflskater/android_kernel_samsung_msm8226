@@ -169,7 +169,7 @@ int msp71xx_set_output_drive(unsigned gpio, int value)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msp71xx_set_output_drive); */
+EXPORT_SYMBOL(msp71xx_set_output_drive);
 
 #define MSP71XX_GPIO_BANK(name, dr, cr, base_gpio, num_gpio) \
 { \

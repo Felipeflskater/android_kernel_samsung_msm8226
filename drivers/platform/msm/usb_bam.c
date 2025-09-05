@@ -1551,7 +1551,7 @@ int usb_bam_connect_ipa(struct usb_bam_connect_ipa_params *ipa_params)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_bam_connect_ipa); */
+EXPORT_SYMBOL(usb_bam_connect_ipa);
 
 int usb_bam_client_ready(bool ready)
 {
@@ -2067,7 +2067,7 @@ int usb_bam_disconnect_ipa(struct usb_bam_connect_ipa_params *ipa_params)
 	mutex_unlock(&info.suspend_resume_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_bam_disconnect_ipa); */
+EXPORT_SYMBOL(usb_bam_disconnect_ipa);
 
 void usb_bam_reset_complete(void)
 {
@@ -2628,7 +2628,7 @@ int usb_bam_get_qdss_idx(u8 num)
 	return usb_bam_get_connection_idx(ctx.qdss_core_name, QDSS_P_BAM,
 		PEER_PERIPHERAL_TO_USB, num);
 }
-/* DISABLED: EXPORT_SYMBOL(usb_bam_get_qdss_idx); */
+EXPORT_SYMBOL(usb_bam_get_qdss_idx);
 
 void usb_bam_set_qdss_core(const char *qdss_core)
 {
@@ -2661,7 +2661,7 @@ int get_bam2bam_connection_info(u8 idx, u32 *usb_bam_handle,
 		sizeof(struct sps_mem_buffer));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(get_bam2bam_connection_info); */
+EXPORT_SYMBOL(get_bam2bam_connection_info);
 
 
 int usb_bam_get_connection_idx(const char *core_name, enum peer_bam client,
@@ -2686,7 +2686,7 @@ int usb_bam_get_connection_idx(const char *core_name, enum peer_bam client,
 	pr_err("%s: failed for %s\n", __func__, core_name);
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_bam_get_connection_idx); */
+EXPORT_SYMBOL(usb_bam_get_connection_idx);
 
 bool msm_bam_lpm_ok(void)
 {
@@ -2704,7 +2704,7 @@ bool msm_bam_lpm_ok(void)
 		return 1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bam_lpm_ok); */
+EXPORT_SYMBOL(msm_bam_lpm_ok);
 
 void msm_bam_notify_lpm_resume()
 {
@@ -2714,7 +2714,7 @@ void msm_bam_notify_lpm_resume()
 	*/
 	info.pending_lpm = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bam_notify_lpm_resume); */
+EXPORT_SYMBOL(msm_bam_notify_lpm_resume);
 
 static int usb_bam_remove(struct platform_device *pdev)
 {

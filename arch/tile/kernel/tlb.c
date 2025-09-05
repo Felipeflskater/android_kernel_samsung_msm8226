@@ -62,7 +62,7 @@ void flush_tlb_page(const struct vm_area_struct *vma, unsigned long va)
 {
 	flush_tlb_page_mm(vma, vma->vm_mm, va);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_page); */
+EXPORT_SYMBOL(flush_tlb_page);
 
 void flush_tlb_range(const struct vm_area_struct *vma,
 		     unsigned long start, unsigned long end)

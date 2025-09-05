@@ -63,17 +63,17 @@ MODULE_AUTHOR("Andreas Gruenbacher <a.gruenbacher@computer.org>");
 MODULE_DESCRIPTION("Meta block cache (for extended attributes)");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(mb_cache_create); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_shrink); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_destroy); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_alloc); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_insert); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_release); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_free); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_get); */
+EXPORT_SYMBOL(mb_cache_create);
+EXPORT_SYMBOL(mb_cache_shrink);
+EXPORT_SYMBOL(mb_cache_destroy);
+EXPORT_SYMBOL(mb_cache_entry_alloc);
+EXPORT_SYMBOL(mb_cache_entry_insert);
+EXPORT_SYMBOL(mb_cache_entry_release);
+EXPORT_SYMBOL(mb_cache_entry_free);
+EXPORT_SYMBOL(mb_cache_entry_get);
 #if !defined(MB_CACHE_INDEXES_COUNT) || (MB_CACHE_INDEXES_COUNT > 0)
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_find_first); */
-/* DISABLED: EXPORT_SYMBOL(mb_cache_entry_find_next); */
+EXPORT_SYMBOL(mb_cache_entry_find_first);
+EXPORT_SYMBOL(mb_cache_entry_find_next);
 #endif
 
 /*

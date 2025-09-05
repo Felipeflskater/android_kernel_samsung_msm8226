@@ -54,7 +54,7 @@ struct stack {
 static struct stack stacks[NR_CPUS];
 
 char elf_platform[ELF_PLATFORM_SIZE];
-/* DISABLED: EXPORT_SYMBOL(elf_platform); */
+EXPORT_SYMBOL(elf_platform);
 
 static char __initdata cmd_line[COMMAND_LINE_SIZE];
 

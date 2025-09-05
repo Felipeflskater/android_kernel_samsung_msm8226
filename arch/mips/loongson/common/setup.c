@@ -19,7 +19,7 @@
 #endif
 
 void (*__wbflush)(void);
-/* DISABLED: EXPORT_SYMBOL(__wbflush); */
+EXPORT_SYMBOL(__wbflush);
 
 static void wbflush_loongson(void)
 {

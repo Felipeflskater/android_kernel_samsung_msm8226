@@ -84,7 +84,7 @@ int register_filesystem(struct file_system_type * fs)
 	return res;
 }
 
-/* DISABLED: EXPORT_SYMBOL(register_filesystem); */
+EXPORT_SYMBOL(register_filesystem);
 
 /**
  *	unregister_filesystem - unregister a file system
@@ -119,7 +119,7 @@ int unregister_filesystem(struct file_system_type * fs)
 	return -EINVAL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(unregister_filesystem); */
+EXPORT_SYMBOL(unregister_filesystem);
 
 static int fs_index(const char __user * __name)
 {
@@ -283,4 +283,4 @@ struct file_system_type *get_fs_type(const char *name)
 	return fs;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_fs_type); */
+EXPORT_SYMBOL(get_fs_type);

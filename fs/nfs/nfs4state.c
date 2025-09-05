@@ -1108,7 +1108,7 @@ void nfs4_schedule_lease_recovery(struct nfs_client *clp)
 		set_bit(NFS4CLNT_CHECK_LEASE, &clp->cl_state);
 	nfs4_schedule_state_manager(clp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_schedule_lease_recovery); */
+EXPORT_SYMBOL_GPL(nfs4_schedule_lease_recovery);
 
 /*
  * nfs40_handle_cb_pathdown - return all delegations after NFS4ERR_CB_PATH_DOWN
@@ -1160,7 +1160,7 @@ void nfs4_schedule_stateid_recovery(const struct nfs_server *server, struct nfs4
 	nfs4_state_mark_reclaim_nograce(clp, state);
 	nfs4_schedule_state_manager(clp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_schedule_stateid_recovery); */
+EXPORT_SYMBOL_GPL(nfs4_schedule_stateid_recovery);
 
 void nfs_inode_find_state_and_recover(struct inode *inode,
 		const nfs4_stateid *stateid)
@@ -1585,7 +1585,7 @@ void nfs4_schedule_session_recovery(struct nfs4_session *session)
 	set_bit(NFS4CLNT_SESSION_RESET, &clp->cl_state);
 	nfs4_schedule_lease_recovery(clp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_schedule_session_recovery); */
+EXPORT_SYMBOL_GPL(nfs4_schedule_session_recovery);
 
 void nfs41_handle_recall_slot(struct nfs_client *clp)
 {

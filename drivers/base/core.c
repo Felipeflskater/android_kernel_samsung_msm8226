@@ -82,7 +82,7 @@ const char *dev_driver_string(const struct device *dev)
 			(dev->bus ? dev->bus->name :
 			(dev->class ? dev->class->name : ""));
 }
-/* DISABLED: EXPORT_SYMBOL(dev_driver_string); */
+EXPORT_SYMBOL(dev_driver_string);
 
 #define to_dev(obj) container_of(obj, struct device, kobj)
 #define to_dev_attr(_attr) container_of(_attr, struct device_attribute, attr)
@@ -135,7 +135,7 @@ ssize_t device_store_ulong(struct device *dev,
 	/* Always return full write size even if we didn't consume all */
 	return size;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_store_ulong); */
+EXPORT_SYMBOL_GPL(device_store_ulong);
 
 ssize_t device_show_ulong(struct device *dev,
 			  struct device_attribute *attr,
@@ -144,7 +144,7 @@ ssize_t device_show_ulong(struct device *dev,
 	struct dev_ext_attribute *ea = to_ext_attr(attr);
 	return snprintf(buf, PAGE_SIZE, "%lx\n", *(unsigned long *)(ea->var));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_show_ulong); */
+EXPORT_SYMBOL_GPL(device_show_ulong);
 
 ssize_t device_store_int(struct device *dev,
 			 struct device_attribute *attr,
@@ -159,7 +159,7 @@ ssize_t device_store_int(struct device *dev,
 	/* Always return full write size even if we didn't consume all */
 	return size;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_store_int); */
+EXPORT_SYMBOL_GPL(device_store_int);
 
 ssize_t device_show_int(struct device *dev,
 			struct device_attribute *attr,
@@ -169,7 +169,7 @@ ssize_t device_show_int(struct device *dev,
 
 	return snprintf(buf, PAGE_SIZE, "%d\n", *(int *)(ea->var));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_show_int); */
+EXPORT_SYMBOL_GPL(device_show_int);
 
 /**
  *	device_release - free device structure.
@@ -561,7 +561,7 @@ int device_create_bin_file(struct device *dev,
 		error = sysfs_create_bin_file(&dev->kobj, attr);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_create_bin_file); */
+EXPORT_SYMBOL_GPL(device_create_bin_file);
 
 /**
  * device_remove_bin_file - remove sysfs binary attribute file
@@ -574,7 +574,7 @@ void device_remove_bin_file(struct device *dev,
 	if (dev)
 		sysfs_remove_bin_file(&dev->kobj, attr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_remove_bin_file); */
+EXPORT_SYMBOL_GPL(device_remove_bin_file);
 
 /**
  * device_schedule_callback_owner - helper to schedule a callback for a device
@@ -607,7 +607,7 @@ int device_schedule_callback_owner(struct device *dev,
 	return sysfs_schedule_callback(&dev->kobj,
 			(void (*)(void *)) func, dev, owner);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_schedule_callback_owner); */
+EXPORT_SYMBOL_GPL(device_schedule_callback_owner);
 
 static void klist_children_get(struct klist_node *n)
 {
@@ -870,7 +870,7 @@ int dev_set_name(struct device *dev, const char *fmt, ...)
 	va_end(vargs);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_set_name); */
+EXPORT_SYMBOL_GPL(dev_set_name);
 
 /**
  * device_to_dev_kobj - select a /sys/dev/ directory for the device
@@ -1377,20 +1377,20 @@ int __init devices_init(void)
 	return -ENOMEM;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(device_for_each_child); */
-/* DISABLED: EXPORT_SYMBOL_GPL(device_find_child); */
+EXPORT_SYMBOL_GPL(device_for_each_child);
+EXPORT_SYMBOL_GPL(device_find_child);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(device_initialize); */
-/* DISABLED: EXPORT_SYMBOL_GPL(device_add); */
-/* DISABLED: EXPORT_SYMBOL_GPL(device_register); */
+EXPORT_SYMBOL_GPL(device_initialize);
+EXPORT_SYMBOL_GPL(device_add);
+EXPORT_SYMBOL_GPL(device_register);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(device_del); */
-/* DISABLED: EXPORT_SYMBOL_GPL(device_unregister); */
-/* DISABLED: EXPORT_SYMBOL_GPL(get_device); */
-/* DISABLED: EXPORT_SYMBOL_GPL(put_device); */
+EXPORT_SYMBOL_GPL(device_del);
+EXPORT_SYMBOL_GPL(device_unregister);
+EXPORT_SYMBOL_GPL(get_device);
+EXPORT_SYMBOL_GPL(put_device);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(device_create_file); */
-/* DISABLED: EXPORT_SYMBOL_GPL(device_remove_file); */
+EXPORT_SYMBOL_GPL(device_create_file);
+EXPORT_SYMBOL_GPL(device_remove_file);
 
 struct root_device {
 	struct device dev;
@@ -1467,7 +1467,7 @@ struct device *__root_device_register(const char *name, struct module *owner)
 
 	return &root->dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__root_device_register); */
+EXPORT_SYMBOL_GPL(__root_device_register);
 
 /**
  * root_device_unregister - unregister and free a root device
@@ -1485,7 +1485,7 @@ void root_device_unregister(struct device *dev)
 
 	device_unregister(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(root_device_unregister); */
+EXPORT_SYMBOL_GPL(root_device_unregister);
 
 
 static void device_create_release(struct device *dev)
@@ -1566,7 +1566,7 @@ struct device *device_create_vargs(struct class *class, struct device *parent,
 	return device_create_groups_vargs(class, parent, devt, drvdata, NULL,
 					  fmt, args);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_create_vargs); */
+EXPORT_SYMBOL_GPL(device_create_vargs);
 
 /**
  * device_create - creates a device and registers it with sysfs
@@ -1603,7 +1603,7 @@ struct device *device_create(struct class *class, struct device *parent,
 	va_end(vargs);
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_create); */
+EXPORT_SYMBOL_GPL(device_create);
 
 /**
  * device_create_with_groups - creates a device and registers it with sysfs
@@ -1647,7 +1647,7 @@ struct device *device_create_with_groups(struct class *class,
 	va_end(vargs);
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_create_with_groups); */
+EXPORT_SYMBOL_GPL(device_create_with_groups);
 
 static int __match_devt(struct device *dev, void *data)
 {
@@ -1674,7 +1674,7 @@ void device_destroy(struct class *class, dev_t devt)
 		device_unregister(dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_destroy); */
+EXPORT_SYMBOL_GPL(device_destroy);
 
 /**
  * device_rename - renames a device
@@ -1755,7 +1755,7 @@ out:
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_rename); */
+EXPORT_SYMBOL_GPL(device_rename);
 
 static int device_move_class_links(struct device *dev,
 				   struct device *old_parent,
@@ -1850,7 +1850,7 @@ out:
 	put_device(dev);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_move); */
+EXPORT_SYMBOL_GPL(device_move);
 
 /**
  * device_shutdown - call ->shutdown() on each device to shutdown.
@@ -1910,7 +1910,7 @@ int __dev_printk(const char *level, const struct device *dev,
 	return printk("%s%s %s: %pV",
 		      level, dev_driver_string(dev), dev_name(dev), vaf);
 }
-/* DISABLED: EXPORT_SYMBOL(__dev_printk); */
+EXPORT_SYMBOL(__dev_printk);
 
 int dev_printk(const char *level, const struct device *dev,
 	       const char *fmt, ...)
@@ -1929,7 +1929,7 @@ int dev_printk(const char *level, const struct device *dev,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_printk); */
+EXPORT_SYMBOL(dev_printk);
 
 #define define_dev_printk_level(func, kern_level)		\
 int func(const struct device *dev, const char *fmt, ...)	\
@@ -1948,7 +1948,7 @@ int func(const struct device *dev, const char *fmt, ...)	\
 								\
 	return r;						\
 }								\
-/* DISABLED: EXPORT_SYMBOL(func); */
+EXPORT_SYMBOL(func);
 
 define_dev_printk_level(dev_emerg, KERN_EMERG);
 define_dev_printk_level(dev_alert, KERN_ALERT);

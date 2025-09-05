@@ -31,7 +31,7 @@ ieee80211_get_response_rate(struct ieee80211_supported_band *sband,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_get_response_rate); */
+EXPORT_SYMBOL(ieee80211_get_response_rate);
 
 int ieee80211_channel_to_frequency(int chan, enum ieee80211_band band)
 {
@@ -51,7 +51,7 @@ int ieee80211_channel_to_frequency(int chan, enum ieee80211_band band)
 			return 0; /* not supported */
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_channel_to_frequency); */
+EXPORT_SYMBOL(ieee80211_channel_to_frequency);
 
 int ieee80211_frequency_to_channel(int freq)
 {
@@ -65,7 +65,7 @@ int ieee80211_frequency_to_channel(int freq)
 	else
 		return (freq - 5000) / 5;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_frequency_to_channel); */
+EXPORT_SYMBOL(ieee80211_frequency_to_channel);
 
 struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *wiphy,
 						  int freq)
@@ -88,7 +88,7 @@ struct ieee80211_channel *__ieee80211_get_channel(struct wiphy *wiphy,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__ieee80211_get_channel); */
+EXPORT_SYMBOL(__ieee80211_get_channel);
 
 static void set_mandatory_flags_band(struct ieee80211_supported_band *sband,
 				     enum ieee80211_band band)
@@ -279,7 +279,7 @@ unsigned int __attribute_const__ ieee80211_hdrlen(__le16 fc)
 out:
 	return hdrlen;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_hdrlen); */
+EXPORT_SYMBOL(ieee80211_hdrlen);
 
 unsigned int ieee80211_get_hdrlen_from_skb(const struct sk_buff *skb)
 {
@@ -294,7 +294,7 @@ unsigned int ieee80211_get_hdrlen_from_skb(const struct sk_buff *skb)
 		return 0;
 	return hdrlen;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_get_hdrlen_from_skb); */
+EXPORT_SYMBOL(ieee80211_get_hdrlen_from_skb);
 
 unsigned int ieee80211_get_mesh_hdrlen(struct ieee80211s_hdr *meshhdr)
 {
@@ -310,7 +310,7 @@ unsigned int ieee80211_get_mesh_hdrlen(struct ieee80211s_hdr *meshhdr)
 		return 18;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_get_mesh_hdrlen); */
+EXPORT_SYMBOL(ieee80211_get_mesh_hdrlen);
 
 int ieee80211_data_to_8023(struct sk_buff *skb, const u8 *addr,
 			   enum nl80211_iftype iftype)
@@ -427,7 +427,7 @@ int ieee80211_data_to_8023(struct sk_buff *skb, const u8 *addr,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_data_to_8023); */
+EXPORT_SYMBOL(ieee80211_data_to_8023);
 
 int ieee80211_data_from_8023(struct sk_buff *skb, const u8 *addr,
 			     enum nl80211_iftype iftype, u8 *bssid, bool qos)
@@ -542,7 +542,7 @@ int ieee80211_data_from_8023(struct sk_buff *skb, const u8 *addr,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_data_from_8023); */
+EXPORT_SYMBOL(ieee80211_data_from_8023);
 
 
 void ieee80211_amsdu_to_8023s(struct sk_buff *skb, struct sk_buff_head *list,
@@ -642,7 +642,7 @@ void ieee80211_amsdu_to_8023s(struct sk_buff *skb, struct sk_buff_head *list,
  out:
 	dev_kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_amsdu_to_8023s); */
+EXPORT_SYMBOL(ieee80211_amsdu_to_8023s);
 
 /* Given a data frame determine the 802.1p/1d tag to use. */
 unsigned int cfg80211_classify8021d(struct sk_buff *skb,
@@ -686,7 +686,7 @@ unsigned int cfg80211_classify8021d(struct sk_buff *skb,
 
 	return dscp >> 5;
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_classify8021d); */
+EXPORT_SYMBOL(cfg80211_classify8021d);
 
 const u8 *ieee80211_bss_get_ie(struct cfg80211_bss *bss, u8 ie)
 {
@@ -707,7 +707,7 @@ const u8 *ieee80211_bss_get_ie(struct cfg80211_bss *bss, u8 ie)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_bss_get_ie); */
+EXPORT_SYMBOL(ieee80211_bss_get_ie);
 
 void cfg80211_upload_connect_keys(struct wireless_dev *wdev)
 {
@@ -1003,7 +1003,7 @@ u32 cfg80211_calculate_bitrate(struct rate_info *rate)
 	/* do NOT round down here */
 	return (bitrate + 50000) / 100000;
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_calculate_bitrate); */
+EXPORT_SYMBOL(cfg80211_calculate_bitrate);
 
 int cfg80211_validate_beacon_int(struct cfg80211_registered_device *rdev,
 				 u32 beacon_int)
@@ -1167,12 +1167,12 @@ int ieee80211_get_ratemask(struct ieee80211_supported_band *sband,
 /* Ethernet-II snap header (RFC1042 for most EtherTypes) */
 const unsigned char rfc1042_header[] __aligned(2) =
 	{ 0xaa, 0xaa, 0x03, 0x00, 0x00, 0x00 };
-/* DISABLED: EXPORT_SYMBOL(rfc1042_header); */
+EXPORT_SYMBOL(rfc1042_header);
 
 /* Bridge-Tunnel header (for EtherTypes ETH_P_AARP and ETH_P_IPX) */
 const unsigned char bridge_tunnel_header[] __aligned(2) =
 	{ 0xaa, 0xaa, 0x03, 0x00, 0x00, 0xf8 };
-/* DISABLED: EXPORT_SYMBOL(bridge_tunnel_header); */
+EXPORT_SYMBOL(bridge_tunnel_header);
 
 bool cfg80211_is_gratuitous_arp_unsolicited_na(struct sk_buff *skb)
 {
@@ -1223,4 +1223,4 @@ bool cfg80211_is_gratuitous_arp_unsolicited_na(struct sk_buff *skb)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_is_gratuitous_arp_unsolicited_na); */
+EXPORT_SYMBOL(cfg80211_is_gratuitous_arp_unsolicited_na);

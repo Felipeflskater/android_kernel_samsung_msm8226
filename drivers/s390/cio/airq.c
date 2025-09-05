@@ -84,7 +84,7 @@ out:
 	} else
 		return &indicators[isc].byte[ret];
 }
-/* DISABLED: EXPORT_SYMBOL(s390_register_adapter_interrupt); */
+EXPORT_SYMBOL(s390_register_adapter_interrupt);
 
 /**
  * s390_unregister_adapter_interrupt - unregister adapter interrupt handler
@@ -109,7 +109,7 @@ void s390_unregister_adapter_interrupt(void *ind, u8 isc)
 	synchronize_sched();
 	kfree(airq);
 }
-/* DISABLED: EXPORT_SYMBOL(s390_unregister_adapter_interrupt); */
+EXPORT_SYMBOL(s390_unregister_adapter_interrupt);
 
 #define INDICATOR_MASK	(0xffUL << ((NR_AIRQS_PER_WORD - 1) * 8))
 

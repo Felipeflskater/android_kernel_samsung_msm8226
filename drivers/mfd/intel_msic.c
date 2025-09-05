@@ -199,7 +199,7 @@ int intel_msic_reg_read(unsigned short reg, u8 *val)
 {
 	return intel_scu_ipc_ioread8(reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_reg_read); */
+EXPORT_SYMBOL_GPL(intel_msic_reg_read);
 
 /**
  * intel_msic_reg_write - write a single MSIC register
@@ -215,7 +215,7 @@ int intel_msic_reg_write(unsigned short reg, u8 val)
 {
 	return intel_scu_ipc_iowrite8(reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_reg_write); */
+EXPORT_SYMBOL_GPL(intel_msic_reg_write);
 
 /**
  * intel_msic_reg_update - update a single MSIC register
@@ -234,7 +234,7 @@ int intel_msic_reg_update(unsigned short reg, u8 val, u8 mask)
 {
 	return intel_scu_ipc_update_register(reg, val, mask);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_reg_update); */
+EXPORT_SYMBOL_GPL(intel_msic_reg_update);
 
 /**
  * intel_msic_bulk_read - read an array of registers
@@ -257,7 +257,7 @@ int intel_msic_bulk_read(unsigned short *reg, u8 *buf, size_t count)
 
 	return intel_scu_ipc_readv(reg, buf, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_bulk_read); */
+EXPORT_SYMBOL_GPL(intel_msic_bulk_read);
 
 /**
  * intel_msic_bulk_write - write an array of values to the MSIC registers
@@ -278,7 +278,7 @@ int intel_msic_bulk_write(unsigned short *reg, u8 *buf, size_t count)
 
 	return intel_scu_ipc_writev(reg, buf, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_bulk_write); */
+EXPORT_SYMBOL_GPL(intel_msic_bulk_write);
 
 /**
  * intel_msic_irq_read - read a register from an MSIC interrupt tree
@@ -304,7 +304,7 @@ int intel_msic_irq_read(struct intel_msic *msic, unsigned short reg, u8 *val)
 	*val = readb(msic->irq_base + (reg - INTEL_MSIC_IRQLVL1));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(intel_msic_irq_read); */
+EXPORT_SYMBOL_GPL(intel_msic_irq_read);
 
 static int __devinit intel_msic_init_devices(struct intel_msic *msic)
 {

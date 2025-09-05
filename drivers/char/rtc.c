@@ -834,7 +834,7 @@ int rtc_register(rtc_task_t *task)
 	return 0;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_register); */
+EXPORT_SYMBOL(rtc_register);
 
 int rtc_unregister(rtc_task_t *task)
 {
@@ -871,7 +871,7 @@ int rtc_unregister(rtc_task_t *task)
 	return 0;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_unregister); */
+EXPORT_SYMBOL(rtc_unregister);
 
 int rtc_control(rtc_task_t *task, unsigned int cmd, unsigned long arg)
 {
@@ -890,7 +890,7 @@ int rtc_control(rtc_task_t *task, unsigned int cmd, unsigned long arg)
 	return rtc_do_ioctl(cmd, arg, 1);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_control); */
+EXPORT_SYMBOL(rtc_control);
 
 /*
  *	The various file operations we support.

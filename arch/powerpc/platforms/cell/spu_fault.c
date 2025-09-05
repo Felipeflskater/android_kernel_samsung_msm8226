@@ -91,4 +91,4 @@ out_unlock:
 	up_read(&mm->mmap_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_handle_mm_fault); */
+EXPORT_SYMBOL_GPL(spu_handle_mm_fault);

@@ -6,4 +6,4 @@
 #include "linux/module.h"
 
 extern void __bb_init_func(void *)  __attribute__((weak));
-/* DISABLED: EXPORT_SYMBOL(__bb_init_func); */
+EXPORT_SYMBOL(__bb_init_func);

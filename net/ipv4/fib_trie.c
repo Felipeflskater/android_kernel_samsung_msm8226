@@ -1606,7 +1606,7 @@ found:
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fib_table_lookup); */
+EXPORT_SYMBOL_GPL(fib_table_lookup);
 
 /*
  * Remove the leaf and return parent.
@@ -2191,7 +2191,7 @@ static int fib_triestat_seq_show(struct seq_file *seq, void *v)
 
 	seq_printf(seq,
 		   "Basic info: size of leaf:"
-		   " %zd bytes, size of tnode: %zd bytes.\n",
+		   " %Zd bytes, size of tnode: %Zd bytes.\n",
 		   sizeof(struct leaf), sizeof(struct tnode));
 
 	for (h = 0; h < FIB_TABLE_HASHSZ; h++) {

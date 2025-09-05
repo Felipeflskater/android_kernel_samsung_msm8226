@@ -116,7 +116,7 @@ MODULE_LICENSE("Dual MPL/GPL");
 /* Level of debugging. Used in the macros in orinoco.h */
 #ifdef ORINOCO_DEBUG
 int orinoco_debug = ORINOCO_DEBUG;
-/* DISABLED: EXPORT_SYMBOL(orinoco_debug); */
+EXPORT_SYMBOL(orinoco_debug);
 module_param(orinoco_debug, int, 0644);
 MODULE_PARM_DESC(orinoco_debug, "Debug level");
 #endif
@@ -272,7 +272,7 @@ int orinoco_open(struct net_device *dev)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_open); */
+EXPORT_SYMBOL(orinoco_open);
 
 int orinoco_stop(struct net_device *dev)
 {
@@ -292,7 +292,7 @@ int orinoco_stop(struct net_device *dev)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_stop); */
+EXPORT_SYMBOL(orinoco_stop);
 
 struct net_device_stats *orinoco_get_stats(struct net_device *dev)
 {
@@ -300,7 +300,7 @@ struct net_device_stats *orinoco_get_stats(struct net_device *dev)
 
 	return &priv->stats;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_get_stats); */
+EXPORT_SYMBOL(orinoco_get_stats);
 
 void orinoco_set_multicast_list(struct net_device *dev)
 {
@@ -316,7 +316,7 @@ void orinoco_set_multicast_list(struct net_device *dev)
 	__orinoco_set_multicast_list(dev);
 	orinoco_unlock(priv, &flags);
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_set_multicast_list); */
+EXPORT_SYMBOL(orinoco_set_multicast_list);
 
 int orinoco_change_mtu(struct net_device *dev, int new_mtu)
 {
@@ -334,7 +334,7 @@ int orinoco_change_mtu(struct net_device *dev, int new_mtu)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_change_mtu); */
+EXPORT_SYMBOL(orinoco_change_mtu);
 
 /********************************************************************/
 /* Tx path                                                          */
@@ -431,7 +431,7 @@ int orinoco_process_xmit_skb(struct sk_buff *skb,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_process_xmit_skb); */
+EXPORT_SYMBOL(orinoco_process_xmit_skb);
 
 static netdev_tx_t orinoco_xmit(struct sk_buff *skb, struct net_device *dev)
 {
@@ -677,7 +677,7 @@ void orinoco_tx_timeout(struct net_device *dev)
 
 	schedule_work(&priv->reset_work);
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_tx_timeout); */
+EXPORT_SYMBOL(orinoco_tx_timeout);
 
 /********************************************************************/
 /* Rx path (data frames)                                            */
@@ -959,7 +959,7 @@ update_stats:
 out:
 	kfree(desc);
 }
-/* DISABLED: EXPORT_SYMBOL(__orinoco_ev_rx); */
+EXPORT_SYMBOL(__orinoco_ev_rx);
 
 static void orinoco_rx(struct net_device *dev,
 		       struct hermes_rx_descriptor *desc,
@@ -1624,7 +1624,7 @@ void __orinoco_ev_info(struct net_device *dev, struct hermes *hw)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__orinoco_ev_info); */
+EXPORT_SYMBOL(__orinoco_ev_info);
 
 static void __orinoco_ev_infdrop(struct net_device *dev, struct hermes *hw)
 {
@@ -1969,7 +1969,7 @@ irqreturn_t orinoco_interrupt(int irq, void *dev_id)
 	orinoco_unlock(priv, &flags);
 	return IRQ_HANDLED;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_interrupt); */
+EXPORT_SYMBOL(orinoco_interrupt);
 
 /********************************************************************/
 /* Power management                                                 */
@@ -2135,7 +2135,7 @@ int orinoco_init(struct orinoco_private *priv)
  out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_init); */
+EXPORT_SYMBOL(orinoco_init);
 
 static const struct net_device_ops orinoco_netdev_ops = {
 	.ndo_open		= orinoco_open,
@@ -2240,7 +2240,7 @@ struct orinoco_private
 
 	return priv;
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_orinocodev); */
+EXPORT_SYMBOL(alloc_orinocodev);
 
 /* We can only support a single interface. We provide a separate
  * function to set it up to distinguish between hardware
@@ -2311,7 +2311,7 @@ int orinoco_if_add(struct orinoco_private *priv,
 	free_netdev(dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_if_add); */
+EXPORT_SYMBOL(orinoco_if_add);
 
 void orinoco_if_del(struct orinoco_private *priv)
 {
@@ -2320,7 +2320,7 @@ void orinoco_if_del(struct orinoco_private *priv)
 	unregister_netdev(dev);
 	free_netdev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_if_del); */
+EXPORT_SYMBOL(orinoco_if_del);
 
 void free_orinocodev(struct orinoco_private *priv)
 {
@@ -2362,7 +2362,7 @@ void free_orinocodev(struct orinoco_private *priv)
 	orinoco_mic_free(priv);
 	wiphy_free(wiphy);
 }
-/* DISABLED: EXPORT_SYMBOL(free_orinocodev); */
+EXPORT_SYMBOL(free_orinocodev);
 
 int orinoco_up(struct orinoco_private *priv)
 {
@@ -2394,7 +2394,7 @@ exit:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_up); */
+EXPORT_SYMBOL(orinoco_up);
 
 void orinoco_down(struct orinoco_private *priv)
 {
@@ -2412,7 +2412,7 @@ void orinoco_down(struct orinoco_private *priv)
 	priv->hw_unavailable++;
 	priv->hw.ops->unlock_irqrestore(&priv->lock, &flags);
 }
-/* DISABLED: EXPORT_SYMBOL(orinoco_down); */
+EXPORT_SYMBOL(orinoco_down);
 
 /********************************************************************/
 /* Module initialization                                            */

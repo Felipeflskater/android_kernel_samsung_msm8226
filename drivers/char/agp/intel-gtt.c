@@ -115,7 +115,7 @@ err:
 	sg_free_table(&st);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_map_memory); */
+EXPORT_SYMBOL(intel_gtt_map_memory);
 
 void intel_gtt_unmap_memory(struct scatterlist *sg_list, int num_sg)
 {
@@ -130,7 +130,7 @@ void intel_gtt_unmap_memory(struct scatterlist *sg_list, int num_sg)
 
 	sg_free_table(&st);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_unmap_memory); */
+EXPORT_SYMBOL(intel_gtt_unmap_memory);
 
 static void intel_fake_agp_enable(struct agp_bridge_data *bridge, u32 mode)
 {
@@ -902,7 +902,7 @@ void intel_gtt_insert_sg_entries(struct scatterlist *sg_list,
 	}
 	readl(intel_private.gtt+j-1);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_insert_sg_entries); */
+EXPORT_SYMBOL(intel_gtt_insert_sg_entries);
 
 void intel_gtt_insert_pages(unsigned int first_entry, unsigned int num_entries,
 			    struct page **pages, unsigned int flags)
@@ -916,7 +916,7 @@ void intel_gtt_insert_pages(unsigned int first_entry, unsigned int num_entries,
 	}
 	readl(intel_private.gtt+j-1);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_insert_pages); */
+EXPORT_SYMBOL(intel_gtt_insert_pages);
 
 static int intel_fake_agp_insert_entries(struct agp_memory *mem,
 					 off_t pg_start, int type)
@@ -980,7 +980,7 @@ void intel_gtt_clear_range(unsigned int first_entry, unsigned int num_entries)
 	}
 	readl(intel_private.gtt+i-1);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_clear_range); */
+EXPORT_SYMBOL(intel_gtt_clear_range);
 
 static int intel_fake_agp_remove_entries(struct agp_memory *mem,
 					 off_t pg_start, int type)
@@ -1521,20 +1521,20 @@ int intel_gmch_probe(struct pci_dev *pdev,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gmch_probe); */
+EXPORT_SYMBOL(intel_gmch_probe);
 
 const struct intel_gtt *intel_gtt_get(void)
 {
 	return &intel_private.base;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_get); */
+EXPORT_SYMBOL(intel_gtt_get);
 
 void intel_gtt_chipset_flush(void)
 {
 	if (intel_private.driver->chipset_flush)
 		intel_private.driver->chipset_flush();
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gtt_chipset_flush); */
+EXPORT_SYMBOL(intel_gtt_chipset_flush);
 
 void intel_gmch_remove(struct pci_dev *pdev)
 {
@@ -1543,7 +1543,7 @@ void intel_gmch_remove(struct pci_dev *pdev)
 	if (intel_private.bridge_dev)
 		pci_dev_put(intel_private.bridge_dev);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_gmch_remove); */
+EXPORT_SYMBOL(intel_gmch_remove);
 
 MODULE_AUTHOR("Dave Jones <davej@redhat.com>");
 MODULE_LICENSE("GPL and additional rights");

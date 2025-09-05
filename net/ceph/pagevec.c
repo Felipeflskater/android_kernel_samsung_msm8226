@@ -42,7 +42,7 @@ fail:
 	ceph_put_page_vector(pages, got, false);
 	return ERR_PTR(rc);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_get_direct_page_vector); */
+EXPORT_SYMBOL(ceph_get_direct_page_vector);
 
 void ceph_put_page_vector(struct page **pages, int num_pages, bool dirty)
 {
@@ -55,7 +55,7 @@ void ceph_put_page_vector(struct page **pages, int num_pages, bool dirty)
 	}
 	kfree(pages);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_put_page_vector); */
+EXPORT_SYMBOL(ceph_put_page_vector);
 
 void ceph_release_page_vector(struct page **pages, int num_pages)
 {
@@ -65,7 +65,7 @@ void ceph_release_page_vector(struct page **pages, int num_pages)
 		__free_pages(pages[i], 0);
 	kfree(pages);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_release_page_vector); */
+EXPORT_SYMBOL(ceph_release_page_vector);
 
 /*
  * allocate a vector new pages
@@ -87,7 +87,7 @@ struct page **ceph_alloc_page_vector(int num_pages, gfp_t flags)
 	}
 	return pages;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_alloc_page_vector); */
+EXPORT_SYMBOL(ceph_alloc_page_vector);
 
 /*
  * copy user data into a page vector
@@ -116,7 +116,7 @@ int ceph_copy_user_to_page_vector(struct page **pages,
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_copy_user_to_page_vector); */
+EXPORT_SYMBOL(ceph_copy_user_to_page_vector);
 
 int ceph_copy_to_page_vector(struct page **pages,
 				    const char *data,
@@ -140,7 +140,7 @@ int ceph_copy_to_page_vector(struct page **pages,
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_copy_to_page_vector); */
+EXPORT_SYMBOL(ceph_copy_to_page_vector);
 
 int ceph_copy_from_page_vector(struct page **pages,
 				    char *data,
@@ -164,7 +164,7 @@ int ceph_copy_from_page_vector(struct page **pages,
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_copy_from_page_vector); */
+EXPORT_SYMBOL(ceph_copy_from_page_vector);
 
 /*
  * copy user data from a page vector into a user pointer
@@ -194,7 +194,7 @@ int ceph_copy_page_vector_to_user(struct page **pages,
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_copy_page_vector_to_user); */
+EXPORT_SYMBOL(ceph_copy_page_vector_to_user);
 
 /*
  * Zero an extent within a page vector.  Offset is relative to the
@@ -229,5 +229,5 @@ void ceph_zero_page_vector_range(int off, int len, struct page **pages)
 		zero_user_segment(pages[i], 0, len);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_zero_page_vector_range); */
+EXPORT_SYMBOL(ceph_zero_page_vector_range);
 

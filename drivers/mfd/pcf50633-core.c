@@ -40,7 +40,7 @@ int pcf50633_read_block(struct pcf50633 *pcf, u8 reg,
 
 	return nr_regs;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_read_block); */
+EXPORT_SYMBOL_GPL(pcf50633_read_block);
 
 /* Write a block of up to 32 regs  */
 int pcf50633_write_block(struct pcf50633 *pcf , u8 reg,
@@ -48,7 +48,7 @@ int pcf50633_write_block(struct pcf50633 *pcf , u8 reg,
 {
 	return regmap_raw_write(pcf->regmap, reg, data, nr_regs);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_write_block); */
+EXPORT_SYMBOL_GPL(pcf50633_write_block);
 
 u8 pcf50633_reg_read(struct pcf50633 *pcf, u8 reg)
 {
@@ -61,25 +61,25 @@ u8 pcf50633_reg_read(struct pcf50633 *pcf, u8 reg)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_reg_read); */
+EXPORT_SYMBOL_GPL(pcf50633_reg_read);
 
 int pcf50633_reg_write(struct pcf50633 *pcf, u8 reg, u8 val)
 {
 	return regmap_write(pcf->regmap, reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_reg_write); */
+EXPORT_SYMBOL_GPL(pcf50633_reg_write);
 
 int pcf50633_reg_set_bit_mask(struct pcf50633 *pcf, u8 reg, u8 mask, u8 val)
 {
 	return regmap_update_bits(pcf->regmap, reg, mask, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_reg_set_bit_mask); */
+EXPORT_SYMBOL_GPL(pcf50633_reg_set_bit_mask);
 
 int pcf50633_reg_clear_bits(struct pcf50633 *pcf, u8 reg, u8 val)
 {
 	return regmap_update_bits(pcf->regmap, reg, val, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_reg_clear_bits); */
+EXPORT_SYMBOL_GPL(pcf50633_reg_clear_bits);
 
 /* sysfs attributes */
 static ssize_t show_dump_regs(struct device *dev, struct device_attribute *attr,

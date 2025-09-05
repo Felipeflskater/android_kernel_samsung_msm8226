@@ -59,7 +59,7 @@ int go7007_read_interrupt(struct go7007 *go, u16 *value, u16 *data)
 	*data = go->interrupt_data;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_read_interrupt); */
+EXPORT_SYMBOL(go7007_read_interrupt);
 
 /*
  * Read a register/address on the GO7007SB.
@@ -80,7 +80,7 @@ int go7007_read_addr(struct go7007 *go, u16 addr, u16 *data)
 	}
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_read_addr); */
+EXPORT_SYMBOL(go7007_read_addr);
 
 /*
  * Send the boot firmware to the encoder, which just wakes it up and lets
@@ -153,7 +153,7 @@ int go7007_boot_encoder(struct go7007 *go, int init_i2c)
 	go->i2c_adapter_online = 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_boot_encoder); */
+EXPORT_SYMBOL(go7007_boot_encoder);
 
 /*
  * Configure any hardware-related registers in the GO7007, such as GPIO
@@ -251,7 +251,7 @@ int go7007_register_encoder(struct go7007 *go)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_register_encoder); */
+EXPORT_SYMBOL(go7007_register_encoder);
 
 /*
  * Send the encode firmware to the encoder, which will cause it
@@ -561,7 +561,7 @@ void go7007_parse_video_stream(struct go7007 *go, u8 *buf, int length)
 
 	spin_unlock(&go->spinlock);
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_parse_video_stream); */
+EXPORT_SYMBOL(go7007_parse_video_stream);
 
 /*
  * Allocate a new go7007 struct.  Used by the hardware-specific probe.
@@ -632,7 +632,7 @@ struct go7007 *go7007_alloc(struct go7007_board_info *board, struct device *dev)
 
 	return go;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_alloc); */
+EXPORT_SYMBOL(go7007_alloc);
 
 /*
  * Detach and unregister the encoder.  The go7007 struct won't be freed
@@ -653,6 +653,6 @@ void go7007_remove(struct go7007 *go)
 		go7007_snd_remove(go);
 	go7007_v4l2_remove(go);
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_remove); */
+EXPORT_SYMBOL(go7007_remove);
 
 MODULE_LICENSE("GPL v2");

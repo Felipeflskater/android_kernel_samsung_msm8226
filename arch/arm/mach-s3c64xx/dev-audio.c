@@ -92,7 +92,7 @@ struct platform_device s3c64xx_device_iis0 = {
 		.platform_data = &i2sv3_pdata,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_iis0); */
+EXPORT_SYMBOL(s3c64xx_device_iis0);
 
 static struct resource s3c64xx_iis1_resource[] = {
 	[0] = {
@@ -121,7 +121,7 @@ struct platform_device s3c64xx_device_iis1 = {
 		.platform_data = &i2sv3_pdata,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_iis1); */
+EXPORT_SYMBOL(s3c64xx_device_iis1);
 
 static struct resource s3c64xx_iisv4_resource[] = {
 	[0] = {
@@ -160,7 +160,7 @@ struct platform_device s3c64xx_device_iisv4 = {
 		.platform_data = &i2sv4_pdata,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_iisv4); */
+EXPORT_SYMBOL(s3c64xx_device_iisv4);
 
 
 /* PCM Controller platform_devices */
@@ -217,7 +217,7 @@ struct platform_device s3c64xx_device_pcm0 = {
 		.platform_data = &s3c_pcm0_pdata,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_pcm0); */
+EXPORT_SYMBOL(s3c64xx_device_pcm0);
 
 static struct resource s3c64xx_pcm1_resource[] = {
 	[0] = {
@@ -250,7 +250,7 @@ struct platform_device s3c64xx_device_pcm1 = {
 		.platform_data = &s3c_pcm1_pdata,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_pcm1); */
+EXPORT_SYMBOL(s3c64xx_device_pcm1);
 
 /* AC97 Controller platform devices */
 
@@ -307,7 +307,7 @@ struct platform_device s3c64xx_device_ac97 = {
 		.coherent_dma_mask = DMA_BIT_MASK(32),
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(s3c64xx_device_ac97); */
+EXPORT_SYMBOL(s3c64xx_device_ac97);
 
 void __init s3c64xx_ac97_setup_gpio(int num)
 {

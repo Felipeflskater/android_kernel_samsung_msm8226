@@ -246,11 +246,6 @@ HOSTCC       = gcc
 HOSTCXX      = g++
 HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
 HOSTCXXFLAGS = -O2
-# Força C11 para evitar C23 (GCC 15+)
-HOSTCFLAGS += -std=gnu11
-HOSTCXXFLAGS += -std=gnu++11
-KBUILD_HOSTCFLAGS += -std=gnu11
-KBUILD_HOSTCXXFLAGS += -std=gnu++11
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
@@ -374,119 +369,16 @@ LINUXINCLUDE    := -I$(srctree)/arch/$(hdr-arch)/include \
 KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
-KBUILD_CFLAGS += -Wno-macro-redefined
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks
-# PostmarketOS: Relax warnings for GCC 15.2.0 compatibility
-KBUILD_CFLAGS += -Wno-error=array-bounds -Wno-error=stringop-overflow
-KBUILD_CFLAGS += -Wno-array-bounds -Wno-stringop-overflow
-
-# PostmarketOS: Additional GCC compatibility fixes
-KBUILD_CFLAGS += -Wno-error=attributes -Wno-attributes
-KBUILD_CFLAGS += -Wno-error=incompatible-pointer-types -Wno-incompatible-pointer-types
-KBUILD_CFLAGS += -Wno-error=implicit-function-declaration -Wno-implicit-function-declaration
-KBUILD_CFLAGS += -Wno-error=maybe-uninitialized -Wno-maybe-uninitialized
-KBUILD_CFLAGS += -Wno-error=unused-function -Wno-unused-function
-KBUILD_CFLAGS += -Wno-error=unused-variable -Wno-unused-variable
-
-# PostmarketOS: Fix incompatible linker flags for ARM
-LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out -O1, $(LDFLAGS))
-LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
-
-# PostmarketOS: ARM architecture definitions
-KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
-KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
-KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
-KBUILD_CFLAGS += -Wno-macro-redefined
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 KBUILD_AFLAGS_MODULE  := -DMODULE
 KBUILD_CFLAGS_MODULE  := -DMODULE -fno-pic
-KBUILD_CFLAGS += -Wno-macro-redefined
-
-# PostmarketOS: Aggressive GCC 15.x compatibility
-KBUILD_CFLAGS += -Wno-error
-KBUILD_CFLAGS += -D'true=1' -D'false=0'
-KBUILD_AFLAGS += -Wa,--no-warn
-
-# PostmarketOS: Additional warning suppressions
-KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
-KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
-
-# PostmarketOS: Fix incompatible linker flags for ARM
-LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out -O1, $(LDFLAGS))
-LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
-
-# PostmarketOS: ARM architecture definitions
-KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
-KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
-KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
-
-# PostmarketOS: Disable problematic optimizations for old kernels
-KBUILD_CFLAGS += -fno-delete-null-pointer-checks
-KBUILD_CFLAGS += -fno-strict-overflow
-
-
-# PostmarketOS: Aggressive GCC 15.x compatibility
-KBUILD_CFLAGS += -Wno-error
-KBUILD_CFLAGS += -D'true=1' -D'false=0'
-KBUILD_AFLAGS += -Wa,--no-warn
-
-# PostmarketOS: Additional warning suppressions
-KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
-KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
-
-# PostmarketOS: Fix incompatible linker flags for ARM
-LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out -O1, $(LDFLAGS))
-LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
-
-# PostmarketOS: ARM architecture definitions
-KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
-KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
-KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
-
-# PostmarketOS: Disable problematic optimizations for old kernels
-KBUILD_CFLAGS += -fno-delete-null-pointer-checks
-KBUILD_CFLAGS += -fno-strict-overflow
-
-
-# PostmarketOS: Aggressive GCC 15.x compatibility
-KBUILD_CFLAGS += -Wno-error
-KBUILD_CFLAGS += -D'true=1' -D'false=0'
-KBUILD_AFLAGS += -Wa,--no-warn
-
-# PostmarketOS: Additional warning suppressions
-KBUILD_CFLAGS += -Wno-attributes -Wno-declaration-after-statement
-KBUILD_CFLAGS += -Wno-implicit-function-declaration -Wno-unused-function
-
-# PostmarketOS: Fix incompatible linker flags for ARM
-LDFLAGS := $(filter-out -Wl$(comma)--as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out --as-needed, $(LDFLAGS))
-LDFLAGS := $(filter-out -O1, $(LDFLAGS))
-LDFLAGS := $(filter-out --sort-common, $(LDFLAGS))
-
-# PostmarketOS: ARM architecture definitions
-KBUILD_CFLAGS += -D__LINUX_ARM_ARCH__=7
-KBUILD_CFLAGS += -DCONFIG_CPU_V7=1 -DCONFIG_MMU=1 -DCONFIG_ARM_THUMB=1
-KBUILD_AFLAGS += -D__LINUX_ARM_ARCH__=7
-
-# PostmarketOS: Disable problematic optimizations for old kernels
-KBUILD_CFLAGS += -fno-delete-null-pointer-checks
-KBUILD_CFLAGS += -fno-strict-overflow
-
 KBUILD_LDFLAGS_MODULE := -T $(srctree)/scripts/module-common.lds
-
-# PostmarketOS: Disable ALL warnings as errors (aggressive fix)
-KBUILD_CFLAGS += -Wno-error
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
 KERNELRELEASE = $(shell cat include/config/kernel.release 2> /dev/null)
@@ -1691,36 +1583,3 @@ FORCE:
 # Declare the contents of the .PHONY variable as phony.  We keep that
 # information in a variable so we can use it in if_changed and friends.
 .PHONY: $(PHONY)
-# Flags adicionais para compatibilidade GCC 14+ com kernel 3.4.x
-KBUILD_CFLAGS += -Wno-error=incompatible-pointer-types
-KBUILD_CFLAGS += -Wno-error=int-conversion
-KBUILD_CFLAGS += -Wno-error=discarded-qualifiers
-KBUILD_CFLAGS += -Wno-error=array-bounds
-KBUILD_CFLAGS += -Wno-error=stringop-overflow
-KBUILD_CFLAGS += -Wno-error=stringop-truncation
-KBUILD_CFLAGS += -Wno-error=format-security
-KBUILD_CFLAGS += -Wno-error=implicit-function-declaration
-KBUILD_CFLAGS += -Wno-error=implicit-int
-KBUILD_CFLAGS += -std=gnu89
-KBUILD_CFLAGS += -fno-stack-protector
-KBUILD_CFLAGS += -fno-strict-aliasing
-
-# Host flags
-HOSTCFLAGS += -fno-PIE -no-pie -fno-stack-protector
-HOSTLDFLAGS += -no-pie
-
-# Flags adicionais para correção dos novos erros
-KBUILD_CFLAGS += -Wno-error=format-security
-KBUILD_CFLAGS += -Wno-endif-labels
-KBUILD_CFLAGS += -fno-strict-aliasing
-
-# Assembly flags - menos restritivo para compatibilidade
-KBUILD_AFLAGS += -Wa,--no-warn
-
-# Flags adicionais para correção dos novos erros
-KBUILD_CFLAGS += -Wno-error=format-security
-KBUILD_CFLAGS += -Wno-endif-labels
-KBUILD_CFLAGS += -fno-strict-aliasing
-
-# Assembly flags - menos restritivo para compatibilidade
-KBUILD_AFLAGS += -Wa,--no-warn

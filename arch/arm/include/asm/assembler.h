@@ -55,10 +55,7 @@
 /*
  * Data preload for architectures that support it
  */
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 5
-#endif
 #define PLD(code...)	code
 #else
 #define PLD(code...)
@@ -82,10 +79,7 @@
 /*
  * Enable and disable interrupts
  */
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 6
-#endif
 	.macro	disable_irq_notrace
 	cpsid	i
 	.endm
@@ -203,15 +197,9 @@
  * Instruction barrier
  */
 	.macro	instr_sync
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 7
-#endif
 	isb
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #elif __LINUX_ARM_ARCH__ == 6
-#endif
 	mcr	p15, 0, r0, c7, c5, 4
 #endif
 	.endm
@@ -221,19 +209,13 @@
  */
 	.macro	smp_dmb mode
 #ifdef CONFIG_SMP
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 7
-#endif
 	.ifeqs "\mode","arm"
 	ALT_SMP(dmb)
 	.else
 	ALT_SMP(W(dmb))
 	.endif
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #elif __LINUX_ARM_ARCH__ == 6
-#endif
 	ALT_SMP(mcr	p15, 0, r0, c7, c10, 5)	@ dmb
 #else
 #error Incompatible SMP platform
@@ -246,7 +228,7 @@
 #endif
 	.endm
 
-#if 0 /* PostmarketOS: Thumb-2 disabled */
+#ifdef CONFIG_THUMB2_KERNEL
 	.macro	setmode, mode, reg
 	mov	\reg, #\mode
 	msr	cpsr_c, \reg
@@ -260,7 +242,7 @@
 /*
  * STRT/LDRT access macros with ARM and Thumb-2 variants
  */
-#if 0 /* PostmarketOS: Thumb-2 disabled */
+#ifdef CONFIG_THUMB2_KERNEL
 
 	.macro	usraccoff, instr, reg, ptr, inc, off, cond, abort, t=TUSER()
 9999:

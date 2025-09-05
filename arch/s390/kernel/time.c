@@ -55,7 +55,7 @@
 #define CLK_TICKS_PER_JIFFY ((unsigned long) USECS_PER_JIFFY << 12)
 
 u64 sched_clock_base_cc = -1;	/* Force to data section. */
-/* DISABLED: EXPORT_SYMBOL_GPL(sched_clock_base_cc); */
+EXPORT_SYMBOL_GPL(sched_clock_base_cc);
 
 static DEFINE_PER_CPU(struct clock_event_device, comparators);
 
@@ -74,7 +74,7 @@ unsigned long long monotonic_clock(void)
 {
 	return sched_clock();
 }
-/* DISABLED: EXPORT_SYMBOL(monotonic_clock); */
+EXPORT_SYMBOL(monotonic_clock);
 
 void tod_to_timeval(__u64 todval, struct timespec *xt)
 {
@@ -86,7 +86,7 @@ void tod_to_timeval(__u64 todval, struct timespec *xt)
 	todval -= (sec * 1000000) << 12;
 	xt->tv_nsec = ((todval * 1000) >> 12);
 }
-/* DISABLED: EXPORT_SYMBOL(tod_to_timeval); */
+EXPORT_SYMBOL(tod_to_timeval);
 
 void clock_comparator_work(void)
 {
@@ -354,7 +354,7 @@ int get_sync_clock(unsigned long long *clock)
 		return -EACCES;
 	return -EAGAIN;
 }
-/* DISABLED: EXPORT_SYMBOL(get_sync_clock); */
+EXPORT_SYMBOL(get_sync_clock);
 
 /*
  * Make get_sync_clock return -EAGAIN.

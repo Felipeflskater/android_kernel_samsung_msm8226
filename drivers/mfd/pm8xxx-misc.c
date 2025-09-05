@@ -215,7 +215,7 @@ int pm8xxx_read_register(u16 addr, u8 *value)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_read_register); */
+EXPORT_SYMBOL_GPL(pm8xxx_read_register);
 
 /*
  * Set an SMPS regulator to be disabled in its CTRL register, but enabled
@@ -562,7 +562,7 @@ int pm8xxx_reset_pwr_off(int reset)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_reset_pwr_off); */
+EXPORT_SYMBOL_GPL(pm8xxx_reset_pwr_off);
 
 /**
  * pm8xxx_smpl_control - enables/disables SMPL detection
@@ -619,7 +619,7 @@ int pm8xxx_smpl_control(int enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_smpl_control); */
+EXPORT_SYMBOL(pm8xxx_smpl_control);
 
 
 /**
@@ -679,7 +679,7 @@ int pm8xxx_smpl_set_delay(enum pm8xxx_smpl_delay delay)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_smpl_set_delay); */
+EXPORT_SYMBOL(pm8xxx_smpl_set_delay);
 
 /**
  * pm8xxx_coincell_chg_config - Disables or enables the coincell charger, and
@@ -757,7 +757,7 @@ int pm8xxx_coincell_chg_config(struct pm8xxx_coincell_chg *chg_config)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_coincell_chg_config); */
+EXPORT_SYMBOL(pm8xxx_coincell_chg_config);
 
 /**
  * pm8xxx_watchdog_reset_control - enables/disables watchdog reset detection
@@ -804,7 +804,7 @@ int pm8xxx_watchdog_reset_control(int enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_watchdog_reset_control); */
+EXPORT_SYMBOL(pm8xxx_watchdog_reset_control);
 
 /**
  * pm8xxx_stay_on - enables stay_on feature
@@ -849,7 +849,7 @@ int pm8xxx_stay_on(void)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_stay_on); */
+EXPORT_SYMBOL(pm8xxx_stay_on);
 
 static int
 __pm8xxx_hard_reset_config(struct pm8xxx_misc_chip *chip,
@@ -941,7 +941,7 @@ int pm8xxx_hard_reset_config(enum pm8xxx_pon_config config)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_hard_reset_config); */
+EXPORT_SYMBOL(pm8xxx_hard_reset_config);
 
 /* Handle the OSC_HALT interrupt: 32 kHz XTAL oscillator has stopped. */
 static irqreturn_t pm8xxx_osc_halt_isr(int irq, void *data)
@@ -1000,7 +1000,7 @@ int pm8xxx_uart_gpio_mux_ctrl(enum pm8xxx_uart_path_sel uart_path_sel)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_uart_gpio_mux_ctrl); */
+EXPORT_SYMBOL(pm8xxx_uart_gpio_mux_ctrl);
 
 /**
  * pm8xxx_usb_id_pullup - Control a pullup for USB ID
@@ -1042,7 +1042,7 @@ int pm8xxx_usb_id_pullup(int enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_usb_id_pullup); */
+EXPORT_SYMBOL(pm8xxx_usb_id_pullup);
 
 static int __pm8901_preload_dVdd(struct pm8xxx_misc_chip *chip)
 {
@@ -1103,7 +1103,7 @@ int pm8xxx_preload_dVdd(void)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_preload_dVdd); */
+EXPORT_SYMBOL_GPL(pm8xxx_preload_dVdd);
 
 int pm8xxx_aux_clk_control(enum pm8xxx_aux_clk_id clk_id,
 				enum pm8xxx_aux_clk_div divider, bool enable)
@@ -1146,7 +1146,7 @@ int pm8xxx_aux_clk_control(enum pm8xxx_aux_clk_id clk_id,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_aux_clk_control); */
+EXPORT_SYMBOL_GPL(pm8xxx_aux_clk_control);
 
 int pm8xxx_hsed_bias_control(enum pm8xxx_hsed_bias bias, bool enable)
 {
@@ -1192,7 +1192,7 @@ int pm8xxx_hsed_bias_control(enum pm8xxx_hsed_bias bias, bool enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_hsed_bias_control); */
+EXPORT_SYMBOL(pm8xxx_hsed_bias_control);
 
 static int __devinit pm8xxx_misc_probe(struct platform_device *pdev)
 {

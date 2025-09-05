@@ -41,7 +41,7 @@ static struct rw_semaphore namespace_sem;
 
 /* /sys/fs */
 struct kobject *fs_kobj;
-/* DISABLED: EXPORT_SYMBOL_GPL(fs_kobj); */
+EXPORT_SYMBOL_GPL(fs_kobj);
 
 /*
  * vfsmount lock may be taken for read to prevent changes to the
@@ -240,7 +240,7 @@ int __mnt_is_readonly(struct vfsmount *mnt)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__mnt_is_readonly); */
+EXPORT_SYMBOL_GPL(__mnt_is_readonly);
 
 static inline void mnt_inc_writers(struct mount *mnt)
 {
@@ -331,7 +331,7 @@ int mnt_want_write(struct vfsmount *m)
 	preempt_enable();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mnt_want_write); */
+EXPORT_SYMBOL_GPL(mnt_want_write);
 
 /**
  * mnt_clone_write - get write access to a mount
@@ -355,7 +355,7 @@ int mnt_clone_write(struct vfsmount *mnt)
 	preempt_enable();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mnt_clone_write); */
+EXPORT_SYMBOL_GPL(mnt_clone_write);
 
 /**
  * mnt_want_write_file - get write access to a file's mount
@@ -372,7 +372,7 @@ int mnt_want_write_file(struct file *file)
 	else
 		return mnt_clone_write(file->f_path.mnt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mnt_want_write_file); */
+EXPORT_SYMBOL_GPL(mnt_want_write_file);
 
 /**
  * mnt_drop_write - give up write access to a mount
@@ -388,13 +388,13 @@ void mnt_drop_write(struct vfsmount *mnt)
 	mnt_dec_writers(real_mount(mnt));
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mnt_drop_write); */
+EXPORT_SYMBOL_GPL(mnt_drop_write);
 
 void mnt_drop_write_file(struct file *file)
 {
 	mnt_drop_write(file->f_path.mnt);
 }
-/* DISABLED: EXPORT_SYMBOL(mnt_drop_write_file); */
+EXPORT_SYMBOL(mnt_drop_write_file);
 
 static int mnt_make_readonly(struct mount *mnt)
 {
@@ -726,7 +726,7 @@ vfs_kern_mount(struct file_system_type *type, int flags, const char *name, void 
 	br_write_unlock(&vfsmount_lock);
 	return &mnt->mnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vfs_kern_mount); */
+EXPORT_SYMBOL_GPL(vfs_kern_mount);
 
 static struct mount *clone_mnt(struct mount *old, struct dentry *root,
 					int flag)
@@ -865,7 +865,7 @@ void mntput(struct vfsmount *mnt)
 		mntput_no_expire(m);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mntput); */
+EXPORT_SYMBOL(mntput);
 
 struct vfsmount *mntget(struct vfsmount *mnt)
 {
@@ -873,7 +873,7 @@ struct vfsmount *mntget(struct vfsmount *mnt)
 		mnt_add_count(real_mount(mnt), 1);
 	return mnt;
 }
-/* DISABLED: EXPORT_SYMBOL(mntget); */
+EXPORT_SYMBOL(mntget);
 
 void mnt_pin(struct vfsmount *mnt)
 {
@@ -881,7 +881,7 @@ void mnt_pin(struct vfsmount *mnt)
 	real_mount(mnt)->mnt_pinned++;
 	br_write_unlock(&vfsmount_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(mnt_pin); */
+EXPORT_SYMBOL(mnt_pin);
 
 void mnt_unpin(struct vfsmount *m)
 {
@@ -893,7 +893,7 @@ void mnt_unpin(struct vfsmount *m)
 	}
 	br_write_unlock(&vfsmount_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(mnt_unpin); */
+EXPORT_SYMBOL(mnt_unpin);
 
 static inline void mangle(struct seq_file *m, const char *s)
 {
@@ -921,7 +921,7 @@ int generic_show_options(struct seq_file *m, struct dentry *root)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_show_options); */
+EXPORT_SYMBOL(generic_show_options);
 
 /*
  * If filesystem uses generic_show_options(), this function should be
@@ -941,7 +941,7 @@ void save_mount_options(struct super_block *sb, char *options)
 	BUG_ON(sb->s_options);
 	rcu_assign_pointer(sb->s_options, kstrdup(options, GFP_KERNEL));
 }
-/* DISABLED: EXPORT_SYMBOL(save_mount_options); */
+EXPORT_SYMBOL(save_mount_options);
 
 void replace_mount_options(struct super_block *sb, char *options)
 {
@@ -952,7 +952,7 @@ void replace_mount_options(struct super_block *sb, char *options)
 		kfree(old);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(replace_mount_options); */
+EXPORT_SYMBOL(replace_mount_options);
 
 #ifdef CONFIG_PROC_FS
 /* iterator; we want it to have access to namespace_sem, thus here... */
@@ -1021,7 +1021,7 @@ int may_umount_tree(struct vfsmount *m)
 	return 1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(may_umount_tree); */
+EXPORT_SYMBOL(may_umount_tree);
 
 /**
  * may_umount - check if a mount point is busy
@@ -1048,7 +1048,7 @@ int may_umount(struct vfsmount *mnt)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(may_umount); */
+EXPORT_SYMBOL(may_umount);
 
 void release_mounts(struct list_head *head)
 {
@@ -1995,7 +1995,7 @@ void mnt_set_expiry(struct vfsmount *mnt, struct list_head *expiry_list)
 	br_write_unlock(&vfsmount_lock);
 	up_write(&namespace_sem);
 }
-/* DISABLED: EXPORT_SYMBOL(mnt_set_expiry); */
+EXPORT_SYMBOL(mnt_set_expiry);
 
 /*
  * process a list of expirable mountpoints with the intent of discarding any
@@ -2037,7 +2037,7 @@ void mark_mounts_for_expiry(struct list_head *mounts)
 	release_mounts(&umounts);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(mark_mounts_for_expiry); */
+EXPORT_SYMBOL_GPL(mark_mounts_for_expiry);
 
 /*
  * Ripoff of 'select_parent()'
@@ -2438,7 +2438,7 @@ struct dentry *mount_subtree(struct vfsmount *mnt, const char *name)
 	/* ... and return the root of (sub)tree on it */
 	return path.dentry;
 }
-/* DISABLED: EXPORT_SYMBOL(mount_subtree); */
+EXPORT_SYMBOL(mount_subtree);
 
 SYSCALL_DEFINE5(mount, char __user *, dev_name, char __user *, dir_name,
 		char __user *, type, unsigned long, flags, void __user *, data)
@@ -2504,7 +2504,7 @@ int path_is_under(struct path *path1, struct path *path2)
 	br_read_unlock(&vfsmount_lock);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(path_is_under); */
+EXPORT_SYMBOL(path_is_under);
 
 /*
  * pivot_root Semantics:
@@ -2708,7 +2708,7 @@ struct vfsmount *kern_mount_data(struct file_system_type *type, void *data)
 	}
 	return mnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kern_mount_data); */
+EXPORT_SYMBOL_GPL(kern_mount_data);
 
 void kern_unmount(struct vfsmount *mnt)
 {
@@ -2720,7 +2720,7 @@ void kern_unmount(struct vfsmount *mnt)
 		mntput(mnt);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(kern_unmount); */
+EXPORT_SYMBOL(kern_unmount);
 
 bool our_mnt(struct vfsmount *mnt)
 {

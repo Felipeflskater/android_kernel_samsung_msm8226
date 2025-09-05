@@ -323,15 +323,15 @@ u64 tiocx_swin_base(int nasid)
 	return TIO_SWIN_BASE(nasid, TIOCX_CORELET);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cx_driver_register); */
-/* DISABLED: EXPORT_SYMBOL(cx_driver_unregister); */
-/* DISABLED: EXPORT_SYMBOL(cx_device_register); */
-/* DISABLED: EXPORT_SYMBOL(cx_device_unregister); */
-/* DISABLED: EXPORT_SYMBOL(tiocx_irq_alloc); */
-/* DISABLED: EXPORT_SYMBOL(tiocx_irq_free); */
-/* DISABLED: EXPORT_SYMBOL(tiocx_bus_type); */
-/* DISABLED: EXPORT_SYMBOL(tiocx_dma_addr); */
-/* DISABLED: EXPORT_SYMBOL(tiocx_swin_base); */
+EXPORT_SYMBOL(cx_driver_register);
+EXPORT_SYMBOL(cx_driver_unregister);
+EXPORT_SYMBOL(cx_device_register);
+EXPORT_SYMBOL(cx_device_unregister);
+EXPORT_SYMBOL(tiocx_irq_alloc);
+EXPORT_SYMBOL(tiocx_irq_free);
+EXPORT_SYMBOL(tiocx_bus_type);
+EXPORT_SYMBOL(tiocx_dma_addr);
+EXPORT_SYMBOL(tiocx_swin_base);
 
 static void tio_conveyor_set(nasid_t nasid, int enable_flag)
 {

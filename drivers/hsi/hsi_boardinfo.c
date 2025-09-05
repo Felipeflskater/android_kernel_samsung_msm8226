@@ -29,7 +29,7 @@
  * No one else is allowed to make use of it.
  */
 LIST_HEAD(hsi_board_list);
-/* DISABLED: EXPORT_SYMBOL_GPL(hsi_board_list); */
+EXPORT_SYMBOL_GPL(hsi_board_list);
 
 /**
  * hsi_register_board_info - Register HSI clients information

@@ -251,7 +251,7 @@ int wm831x_auxadc_read(struct wm831x *wm831x, enum wm831x_auxadc input)
 {
 	return wm831x->auxadc_read(wm831x, input);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_auxadc_read); */
+EXPORT_SYMBOL_GPL(wm831x_auxadc_read);
 
 /**
  * wm831x_auxadc_read_uv: Read a voltage from the WM831x AUXADC
@@ -271,7 +271,7 @@ int wm831x_auxadc_read_uv(struct wm831x *wm831x, enum wm831x_auxadc input)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm831x_auxadc_read_uv); */
+EXPORT_SYMBOL_GPL(wm831x_auxadc_read_uv);
 
 void wm831x_auxadc_init(struct wm831x *wm831x)
 {

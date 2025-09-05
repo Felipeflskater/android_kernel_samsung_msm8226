@@ -242,7 +242,7 @@ void __init msm8226_add_drivers(void)
 	msm_thermal_device_init();
 }
 struct class *sec_class;
-/* DISABLED: EXPORT_SYMBOL(sec_class); */
+EXPORT_SYMBOL(sec_class);
 
 static void samsung_sys_class_init(void)
 {

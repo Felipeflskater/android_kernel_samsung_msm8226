@@ -464,7 +464,7 @@ struct i2c_adapter *rtl2830_get_tuner_i2c_adapter(struct dvb_frontend *fe)
 	struct rtl2830_priv *priv = fe->demodulator_priv;
 	return &priv->tuner_i2c_adapter;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl2830_get_tuner_i2c_adapter); */
+EXPORT_SYMBOL(rtl2830_get_tuner_i2c_adapter);
 
 static void rtl2830_release(struct dvb_frontend *fe)
 {
@@ -518,7 +518,7 @@ err:
 	kfree(priv);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl2830_attach); */
+EXPORT_SYMBOL(rtl2830_attach);
 
 static struct dvb_frontend_ops rtl2830_ops = {
 	.delsys = { SYS_DVBT },

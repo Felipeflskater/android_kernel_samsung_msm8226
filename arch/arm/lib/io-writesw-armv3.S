@@ -23,7 +23,7 @@
 
 		add	r1, r1, #2
 
-		ldr	r3, [r1, @ -4]
+		ldr	r3, [r1, #-4]
 		mov	r3, r3, lsr #16
 		orr	r3, r3, r3, lsl #16
 		str	r3, [r0]

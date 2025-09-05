@@ -53,7 +53,7 @@ int tps65023_set_dcdc1_level(int mvolts)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65023_set_dcdc1_level); */
+EXPORT_SYMBOL(tps65023_set_dcdc1_level);
 
 int tps65023_get_dcdc1_level(int *mvolts)
 {
@@ -70,7 +70,7 @@ int tps65023_get_dcdc1_level(int *mvolts)
 		*mvolts = (val * 25) + 800;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65023_get_dcdc1_level); */
+EXPORT_SYMBOL(tps65023_get_dcdc1_level);
 
 static int tps65023_probe(struct i2c_client *client,
 		const struct i2c_device_id *dev_id)

@@ -175,11 +175,11 @@ dasd_log_sense_dbf(struct dasd_ccw_req *cqr, struct irb *irb)
 	if (device->discipline && device->discipline->dump_sense_dbf)
 		device->discipline->dump_sense_dbf(device, irb, "log");
 }
-/* DISABLED: EXPORT_SYMBOL(dasd_log_sense_dbf); */
+EXPORT_SYMBOL(dasd_log_sense_dbf);
 
-/* DISABLED: EXPORT_SYMBOL(dasd_default_erp_action); */
-/* DISABLED: EXPORT_SYMBOL(dasd_default_erp_postaction); */
-/* DISABLED: EXPORT_SYMBOL(dasd_alloc_erp_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_free_erp_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_log_sense); */
+EXPORT_SYMBOL(dasd_default_erp_action);
+EXPORT_SYMBOL(dasd_default_erp_postaction);
+EXPORT_SYMBOL(dasd_alloc_erp_request);
+EXPORT_SYMBOL(dasd_free_erp_request);
+EXPORT_SYMBOL(dasd_log_sense);
 

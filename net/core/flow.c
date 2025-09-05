@@ -62,7 +62,7 @@ struct flow_cache {
 };
 
 atomic_t flow_cache_genid = ATOMIC_INIT(0);
-/* DISABLED: EXPORT_SYMBOL(flow_cache_genid); */
+EXPORT_SYMBOL(flow_cache_genid);
 static struct flow_cache flow_cache_global;
 static struct kmem_cache *flow_cachep __read_mostly;
 
@@ -293,7 +293,7 @@ ret_object:
 	local_bh_enable();
 	return flo;
 }
-/* DISABLED: EXPORT_SYMBOL(flow_cache_lookup); */
+EXPORT_SYMBOL(flow_cache_lookup);
 
 static void flow_cache_flush_tasklet(unsigned long data)
 {

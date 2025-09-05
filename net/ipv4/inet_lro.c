@@ -505,7 +505,7 @@ void lro_receive_skb(struct net_lro_mgr *lro_mgr,
 			netif_rx(skb);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(lro_receive_skb); */
+EXPORT_SYMBOL(lro_receive_skb);
 
 void lro_receive_frags(struct net_lro_mgr *lro_mgr,
 		       struct skb_frag_struct *frags,
@@ -522,7 +522,7 @@ void lro_receive_frags(struct net_lro_mgr *lro_mgr,
 	else
 		netif_rx(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(lro_receive_frags); */
+EXPORT_SYMBOL(lro_receive_frags);
 
 void lro_flush_all(struct net_lro_mgr *lro_mgr)
 {
@@ -534,7 +534,7 @@ void lro_flush_all(struct net_lro_mgr *lro_mgr)
 			lro_flush(lro_mgr, &lro_desc[i]);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(lro_flush_all); */
+EXPORT_SYMBOL(lro_flush_all);
 
 void lro_flush_pkt(struct net_lro_mgr *lro_mgr,
 		  struct iphdr *iph, struct tcphdr *tcph)
@@ -545,4 +545,4 @@ void lro_flush_pkt(struct net_lro_mgr *lro_mgr,
 	if (lro_desc->active)
 		lro_flush(lro_mgr, lro_desc);
 }
-/* DISABLED: EXPORT_SYMBOL(lro_flush_pkt); */
+EXPORT_SYMBOL(lro_flush_pkt);

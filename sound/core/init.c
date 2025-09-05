@@ -47,7 +47,7 @@ static const struct file_operations snd_shutdown_f_ops;
 
 static unsigned int snd_cards_lock;	/* locked for registering/using */
 struct snd_card *snd_cards[SNDRV_CARDS];
-/* DISABLED: EXPORT_SYMBOL(snd_cards); */
+EXPORT_SYMBOL(snd_cards);
 
 static DEFINE_MUTEX(snd_card_mutex);
 
@@ -96,7 +96,7 @@ static int module_slot_match(struct module *module, int idx)
 
 #if defined(CONFIG_SND_MIXER_OSS) || defined(CONFIG_SND_MIXER_OSS_MODULE)
 int (*snd_mixer_oss_notify_callback)(struct snd_card *card, int free_flag);
-/* DISABLED: EXPORT_SYMBOL(snd_mixer_oss_notify_callback); */
+EXPORT_SYMBOL(snd_mixer_oss_notify_callback);
 #endif
 
 #ifdef CONFIG_PROC_FS
@@ -292,7 +292,7 @@ int snd_card_create(int idx, const char *xid,
 	kfree(card);
   	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_card_create); */
+EXPORT_SYMBOL(snd_card_create);
 
 /* return non-zero if a card is already locked */
 int snd_card_locked(int card)
@@ -456,7 +456,7 @@ int snd_card_disconnect(struct snd_card *card)
 	return 0;	
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_disconnect); */
+EXPORT_SYMBOL(snd_card_disconnect);
 
 /**
  *  snd_card_free - frees given soundcard structure
@@ -513,7 +513,7 @@ void snd_card_unref(struct snd_card *card)
 			snd_card_do_free(card);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(snd_card_unref); */
+EXPORT_SYMBOL(snd_card_unref);
 
 int snd_card_free_when_closed(struct snd_card *card)
 {
@@ -532,7 +532,7 @@ int snd_card_free_when_closed(struct snd_card *card)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_free_when_closed); */
+EXPORT_SYMBOL(snd_card_free_when_closed);
 
 int snd_card_free(struct snd_card *card)
 {
@@ -546,7 +546,7 @@ int snd_card_free(struct snd_card *card)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_free); */
+EXPORT_SYMBOL(snd_card_free);
 
 static void snd_card_set_id_no_lock(struct snd_card *card, const char *nid)
 {
@@ -635,7 +635,7 @@ void snd_card_set_id(struct snd_card *card, const char *nid)
 	snd_card_set_id_no_lock(card, nid);
 	mutex_unlock(&snd_card_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(snd_card_set_id); */
+EXPORT_SYMBOL(snd_card_set_id);
 
 static ssize_t
 card_id_show_attr(struct device *dev,
@@ -753,7 +753,7 @@ int snd_card_register(struct snd_card *card)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_register); */
+EXPORT_SYMBOL(snd_card_register);
 
 #ifdef CONFIG_PROC_FS
 static struct snd_info_entry *snd_card_info_entry;
@@ -892,7 +892,7 @@ int snd_component_add(struct snd_card *card, const char *component)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_component_add); */
+EXPORT_SYMBOL(snd_component_add);
 
 /**
  *  snd_card_file_add - add the file to the file list of the card
@@ -927,7 +927,7 @@ int snd_card_file_add(struct snd_card *card, struct file *file)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_file_add); */
+EXPORT_SYMBOL(snd_card_file_add);
 
 /**
  *  snd_card_file_remove - remove the file from the file list
@@ -969,7 +969,7 @@ int snd_card_file_remove(struct snd_card *card, struct file *file)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_card_file_remove); */
+EXPORT_SYMBOL(snd_card_file_remove);
 
 /**
  * snd_card_change_online_state - mark card's online/offline state
@@ -988,7 +988,7 @@ void snd_card_change_online_state(struct snd_card *card, int online)
 	xchg(&card->offline_change, 1);
 	wake_up_interruptible(&card->offline_poll_wait);
 }
-/* DISABLED: EXPORT_SYMBOL(snd_card_change_online_state); */
+EXPORT_SYMBOL(snd_card_change_online_state);
 
 /**
  * snd_card_is_online_state - return true if card is online state
@@ -998,7 +998,7 @@ bool snd_card_is_online_state(struct snd_card *card)
 {
 	return !card->offline;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_card_is_online_state); */
+EXPORT_SYMBOL(snd_card_is_online_state);
 
 #ifdef CONFIG_PM
 /**
@@ -1036,5 +1036,5 @@ int snd_power_wait(struct snd_card *card, unsigned int power_state)
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_power_wait); */
+EXPORT_SYMBOL(snd_power_wait);
 #endif /* CONFIG_PM */

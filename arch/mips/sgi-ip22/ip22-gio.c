@@ -48,7 +48,7 @@ const struct gio_device_id *gio_match_device(const struct gio_device_id *match,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_match_device); */
+EXPORT_SYMBOL_GPL(gio_match_device);
 
 struct gio_device *gio_dev_get(struct gio_device *dev)
 {
@@ -62,14 +62,14 @@ struct gio_device *gio_dev_get(struct gio_device *dev)
 	else
 		return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_dev_get); */
+EXPORT_SYMBOL_GPL(gio_dev_get);
 
 void gio_dev_put(struct gio_device *dev)
 {
 	if (dev)
 		put_device(&dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_dev_put); */
+EXPORT_SYMBOL_GPL(gio_dev_put);
 
 /**
  * gio_release_dev - free an gio device structure when all users of it are finished.
@@ -85,7 +85,7 @@ void gio_release_dev(struct device *dev)
 	giodev = to_gio_device(dev);
 	kfree(giodev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_release_dev); */
+EXPORT_SYMBOL_GPL(gio_release_dev);
 
 int gio_device_register(struct gio_device *giodev)
 {
@@ -93,13 +93,13 @@ int gio_device_register(struct gio_device *giodev)
 	giodev->dev.parent = &gio_bus;
 	return device_register(&giodev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_device_register); */
+EXPORT_SYMBOL_GPL(gio_device_register);
 
 void gio_device_unregister(struct gio_device *giodev)
 {
 	device_unregister(&giodev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_device_unregister); */
+EXPORT_SYMBOL_GPL(gio_device_unregister);
 
 static int gio_bus_match(struct device *dev, struct device_driver *drv)
 {
@@ -228,13 +228,13 @@ int gio_register_driver(struct gio_driver *drv)
 	/* register with core */
 	return driver_register(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_register_driver); */
+EXPORT_SYMBOL_GPL(gio_register_driver);
 
 void gio_unregister_driver(struct gio_driver *drv)
 {
 	driver_unregister(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_unregister_driver); */
+EXPORT_SYMBOL_GPL(gio_unregister_driver);
 
 void gio_set_master(struct gio_device *dev)
 {
@@ -253,7 +253,7 @@ void gio_set_master(struct gio_device *dev)
 	}
 	sgimc->giopar = tmp;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gio_set_master); */
+EXPORT_SYMBOL_GPL(gio_set_master);
 
 void ip22_gio_set_64bit(int slotno)
 {

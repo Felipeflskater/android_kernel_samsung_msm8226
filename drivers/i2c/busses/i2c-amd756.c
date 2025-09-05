@@ -424,7 +424,7 @@ MODULE_AUTHOR("Merlin Hughes <merlin@merlin.org>");
 MODULE_DESCRIPTION("AMD756/766/768/8111 and nVidia nForce SMBus driver");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(amd756_smbus); */
+EXPORT_SYMBOL(amd756_smbus);
 
 module_init(amd756_init)
 module_exit(amd756_exit)

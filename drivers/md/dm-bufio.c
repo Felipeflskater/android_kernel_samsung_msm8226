@@ -1029,7 +1029,7 @@ void *dm_bufio_get(struct dm_bufio_client *c, sector_t block,
 {
 	return new_read(c, block, NF_GET, bp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get); */
+EXPORT_SYMBOL_GPL(dm_bufio_get);
 
 void *dm_bufio_read(struct dm_bufio_client *c, sector_t block,
 		    struct dm_buffer **bp)
@@ -1038,7 +1038,7 @@ void *dm_bufio_read(struct dm_bufio_client *c, sector_t block,
 
 	return new_read(c, block, NF_READ, bp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_read); */
+EXPORT_SYMBOL_GPL(dm_bufio_read);
 
 void *dm_bufio_new(struct dm_bufio_client *c, sector_t block,
 		   struct dm_buffer **bp)
@@ -1047,7 +1047,7 @@ void *dm_bufio_new(struct dm_bufio_client *c, sector_t block,
 
 	return new_read(c, block, NF_FRESH, bp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_new); */
+EXPORT_SYMBOL_GPL(dm_bufio_new);
 
 void dm_bufio_prefetch(struct dm_bufio_client *c,
 		       sector_t block, unsigned n_blocks)
@@ -1082,7 +1082,7 @@ void dm_bufio_prefetch(struct dm_bufio_client *c,
 flush_plug:
 	blk_finish_plug(&plug);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_prefetch); */
+EXPORT_SYMBOL_GPL(dm_bufio_prefetch);
 
 void dm_bufio_release(struct dm_buffer *b)
 {
@@ -1112,7 +1112,7 @@ void dm_bufio_release(struct dm_buffer *b)
 
 	dm_bufio_unlock(c);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_release); */
+EXPORT_SYMBOL_GPL(dm_bufio_release);
 
 void dm_bufio_mark_buffer_dirty(struct dm_buffer *b)
 {
@@ -1127,7 +1127,7 @@ void dm_bufio_mark_buffer_dirty(struct dm_buffer *b)
 
 	dm_bufio_unlock(c);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_mark_buffer_dirty); */
+EXPORT_SYMBOL_GPL(dm_bufio_mark_buffer_dirty);
 
 void dm_bufio_write_dirty_buffers_async(struct dm_bufio_client *c)
 {
@@ -1137,7 +1137,7 @@ void dm_bufio_write_dirty_buffers_async(struct dm_bufio_client *c)
 	__write_dirty_buffers_async(c, 0);
 	dm_bufio_unlock(c);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_write_dirty_buffers_async); */
+EXPORT_SYMBOL_GPL(dm_bufio_write_dirty_buffers_async);
 
 /*
  * For performance, it is essential that the buffers are written asynchronously
@@ -1213,7 +1213,7 @@ again:
 
 	return f;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_write_dirty_buffers); */
+EXPORT_SYMBOL_GPL(dm_bufio_write_dirty_buffers);
 
 /*
  * Use dm-io to send and empty barrier flush the device.
@@ -1236,7 +1236,7 @@ int dm_bufio_issue_flush(struct dm_bufio_client *c)
 
 	return dm_io(&io_req, 1, &io_reg, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_issue_flush); */
+EXPORT_SYMBOL_GPL(dm_bufio_issue_flush);
 
 /*
  * We first delete any other buffer that may be at that new location.
@@ -1310,44 +1310,44 @@ retry:
 	dm_bufio_unlock(c);
 	dm_bufio_release(b);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_release_move); */
+EXPORT_SYMBOL_GPL(dm_bufio_release_move);
 
 unsigned dm_bufio_get_block_size(struct dm_bufio_client *c)
 {
 	return c->block_size;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_block_size); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_block_size);
 
 sector_t dm_bufio_get_device_size(struct dm_bufio_client *c)
 {
 	return i_size_read(c->bdev->bd_inode) >>
 			   (SECTOR_SHIFT + c->sectors_per_block_bits);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_device_size); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_device_size);
 
 sector_t dm_bufio_get_block_number(struct dm_buffer *b)
 {
 	return b->block;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_block_number); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_block_number);
 
 void *dm_bufio_get_block_data(struct dm_buffer *b)
 {
 	return b->data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_block_data); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_block_data);
 
 void *dm_bufio_get_aux_data(struct dm_buffer *b)
 {
 	return b + 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_aux_data); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_aux_data);
 
 struct dm_bufio_client *dm_bufio_get_client(struct dm_buffer *b)
 {
 	return b->c;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_get_client); */
+EXPORT_SYMBOL_GPL(dm_bufio_get_client);
 
 static void drop_buffers(struct dm_bufio_client *c)
 {
@@ -1567,7 +1567,7 @@ bad_hash:
 bad_client:
 	return ERR_PTR(r);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_client_create); */
+EXPORT_SYMBOL_GPL(dm_bufio_client_create);
 
 /*
  * Free the buffering interface.
@@ -1612,7 +1612,7 @@ void dm_bufio_client_destroy(struct dm_bufio_client *c)
 	vfree(c->cache_hash);
 	kfree(c);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bufio_client_destroy); */
+EXPORT_SYMBOL_GPL(dm_bufio_client_destroy);
 
 static void cleanup_old_buffers(void)
 {

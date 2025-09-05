@@ -24,7 +24,7 @@
  * data and COW.
  */
 unsigned long empty_zero_page;
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 
 /*
  * paging_init() continues the virtual memory environment setup which

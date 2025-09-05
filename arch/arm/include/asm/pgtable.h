@@ -233,10 +233,7 @@ static inline pte_t *pmd_page_vaddr(pmd_t pmd)
 	((pte_val(pte) & (L_PTE_PRESENT | L_PTE_USER)) == \
 	 (L_PTE_PRESENT | L_PTE_USER))
 
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ < 6
-#endif
 static inline void __sync_icache_dcache(pte_t pteval)
 {
 }

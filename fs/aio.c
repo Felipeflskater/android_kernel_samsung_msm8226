@@ -368,7 +368,7 @@ ssize_t wait_on_sync_kiocb(struct kiocb *iocb)
 	__set_current_state(TASK_RUNNING);
 	return iocb->ki_user_data;
 }
-/* DISABLED: EXPORT_SYMBOL(wait_on_sync_kiocb); */
+EXPORT_SYMBOL(wait_on_sync_kiocb);
 
 /* exit_aio: called when the last user of mm goes away.  At this point, 
  * there is no way for any new requests to be submited or any of the 
@@ -653,7 +653,7 @@ int aio_put_req(struct kiocb *req)
 	spin_unlock_irq(&ctx->ctx_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(aio_put_req); */
+EXPORT_SYMBOL(aio_put_req);
 
 static struct kioctx *lookup_ioctx(unsigned long ctx_id)
 {
@@ -953,7 +953,7 @@ void kick_iocb(struct kiocb *iocb)
 
 	try_queue_kicked_iocb(iocb);
 }
-/* DISABLED: EXPORT_SYMBOL(kick_iocb); */
+EXPORT_SYMBOL(kick_iocb);
 
 /* aio_complete
  *	Called when the io request on the given iocb is complete.
@@ -1060,7 +1060,7 @@ put_rq:
 	spin_unlock_irqrestore(&ctx->ctx_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(aio_complete); */
+EXPORT_SYMBOL(aio_complete);
 
 /* aio_read_evt
  *	Pull an event off of the ioctx's event ring.  Returns the number of 

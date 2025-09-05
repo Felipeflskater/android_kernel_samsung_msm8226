@@ -589,7 +589,7 @@ void cfg80211_connect_result(struct net_device *dev, const u8 *bssid,
 	spin_unlock_irqrestore(&wdev->event_lock, flags);
 	queue_work(cfg80211_wq, &rdev->event_work);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_connect_result); */
+EXPORT_SYMBOL(cfg80211_connect_result);
 
 void __cfg80211_roamed(struct wireless_dev *wdev,
 		       struct cfg80211_bss *bss,
@@ -672,7 +672,7 @@ void cfg80211_roamed(struct net_device *dev,
 	cfg80211_roamed_bss(dev, bss, req_ie, req_ie_len, resp_ie,
 			    resp_ie_len, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_roamed); */
+EXPORT_SYMBOL(cfg80211_roamed);
 
 void cfg80211_roamed_bss(struct net_device *dev,
 			 struct cfg80211_bss *bss, const u8 *req_ie,
@@ -709,7 +709,7 @@ void cfg80211_roamed_bss(struct net_device *dev,
 	spin_unlock_irqrestore(&wdev->event_lock, flags);
 	queue_work(cfg80211_wq, &rdev->event_work);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_roamed_bss); */
+EXPORT_SYMBOL(cfg80211_roamed_bss);
 
 void __cfg80211_disconnected(struct net_device *dev, const u8 *ie,
 			     size_t ie_len, u16 reason, bool from_ap)
@@ -797,7 +797,7 @@ void cfg80211_disconnected(struct net_device *dev, u16 reason,
 	spin_unlock_irqrestore(&wdev->event_lock, flags);
 	queue_work(cfg80211_wq, &rdev->event_work);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_disconnected); */
+EXPORT_SYMBOL(cfg80211_disconnected);
 
 int __cfg80211_connect(struct cfg80211_registered_device *rdev,
 		       struct net_device *dev,

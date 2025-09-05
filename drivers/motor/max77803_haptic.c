@@ -81,7 +81,7 @@ void max77803_vibtonz_en(bool en)
 		g_hap_data->running = false;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(max77803_vibtonz_en); */
+EXPORT_SYMBOL(max77803_vibtonz_en);
 #endif
 
 static int max77803_haptic_probe(struct platform_device *pdev)

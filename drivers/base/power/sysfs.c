@@ -96,7 +96,7 @@ static const char enabled[] = "enabled";
 static const char disabled[] = "disabled";
 
 const char power_group_name[] = "power";
-/* DISABLED: EXPORT_SYMBOL_GPL(power_group_name); */
+EXPORT_SYMBOL_GPL(power_group_name);
 
 #ifdef CONFIG_PM_RUNTIME
 static const char ctrl_auto[] = "auto";

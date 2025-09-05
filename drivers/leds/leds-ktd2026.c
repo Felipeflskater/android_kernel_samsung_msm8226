@@ -46,8 +46,8 @@ static int __init jig_power_on_value_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "jig_power_on=0x", jig_power_on_value_cmdline ); */ */
-/* DISABLED: __setup( "batt_id_value=0x", get_batt_id_value_cmdline ); */ */
+__setup( "jig_power_on=0x", jig_power_on_value_cmdline );
+__setup( "batt_id_value=0x", get_batt_id_value_cmdline );
 #endif
 #endif
 
@@ -445,7 +445,7 @@ void ktd2026_start_led_pattern(enum ktd2026_pattern mode)
 	if (retval)
 		pr_err("%s:leds_i2c_write_all failed\n", __func__);
 }
-/* DISABLED: EXPORT_SYMBOL(ktd2026_start_led_pattern); */
+EXPORT_SYMBOL(ktd2026_start_led_pattern);
 
 static void ktd2026_set_led_blink(enum ktd2026_led_enum led,
 					unsigned int delay_on_time,
@@ -639,7 +639,7 @@ void ktd2026_led_blink(int rgb, int on, int off)
 	pr_info("%s:led_blink is called, Color:0x%X Brightness:%i\n",
 		__func__, led_brightness, led_dynamic_current);
 }
-/* DISABLED: EXPORT_SYMBOL(ktd2026_led_blink); */
+EXPORT_SYMBOL(ktd2026_led_blink);
 
 static ssize_t store_led_r(struct device *dev,
 	struct device_attribute *devattr, const char *buf, size_t count)

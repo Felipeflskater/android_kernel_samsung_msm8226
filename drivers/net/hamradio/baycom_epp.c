@@ -1281,7 +1281,7 @@ static int __init baycom_epp_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("baycom_epp=", baycom_epp_setup); */ */
+__setup("baycom_epp=", baycom_epp_setup);
 
 #endif /* MODULE */
 /* --------------------------------------------------------------------- */

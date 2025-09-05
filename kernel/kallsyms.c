@@ -183,7 +183,7 @@ unsigned long kallsyms_lookup_name(const char *name)
 	}
 	return module_kallsyms_lookup_name(name);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kallsyms_lookup_name); */
+EXPORT_SYMBOL_GPL(kallsyms_lookup_name);
 
 int kallsyms_on_each_symbol(int (*fn)(void *, const char *, struct module *,
 				      unsigned long),
@@ -202,7 +202,7 @@ int kallsyms_on_each_symbol(int (*fn)(void *, const char *, struct module *,
 	}
 	return module_kallsyms_on_each_symbol(fn, data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kallsyms_on_each_symbol); */
+EXPORT_SYMBOL_GPL(kallsyms_on_each_symbol);
 
 static unsigned long get_symbol_pos(unsigned long addr,
 				    unsigned long *symbolsize,
@@ -384,7 +384,7 @@ int sprint_symbol(char *buffer, unsigned long address)
 {
 	return __sprint_symbol(buffer, address, 0, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sprint_symbol); */
+EXPORT_SYMBOL_GPL(sprint_symbol);
 
 /**
  * sprint_symbol_no_offset - Look up a kernel symbol and return it in a text buffer
@@ -401,7 +401,7 @@ int sprint_symbol_no_offset(char *buffer, unsigned long address)
 {
 	return __sprint_symbol(buffer, address, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sprint_symbol_no_offset); */
+EXPORT_SYMBOL_GPL(sprint_symbol_no_offset);
 
 /**
  * sprint_backtrace - Look up a backtrace symbol and return it in a text buffer
@@ -431,7 +431,7 @@ void __print_symbol(const char *fmt, unsigned long address)
 
 	printk(fmt, buffer);
 }
-/* DISABLED: EXPORT_SYMBOL(__print_symbol); */
+EXPORT_SYMBOL(__print_symbol);
 
 /* To avoid using get_symbol_offset for every symbol, we carry prefix along. */
 struct kallsym_iter {

@@ -79,7 +79,7 @@ static int __init choose_lsm(char *str)
 	strncpy(chosen_lsm, str, SECURITY_NAME_MAX);
 	return 1;
 }
-/* DISABLED: __setup("security=", choose_lsm); */ */
+__setup("security=", choose_lsm);
 
 /**
  * security_module_enable - Load given security module on boot ?
@@ -258,7 +258,7 @@ int security_sb_copy_data(char *orig, char *copy)
 {
 	return security_ops->sb_copy_data(orig, copy);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sb_copy_data); */
+EXPORT_SYMBOL(security_sb_copy_data);
 
 int security_sb_remount(struct super_block *sb, void *data)
 {
@@ -301,20 +301,20 @@ int security_sb_set_mnt_opts(struct super_block *sb,
 {
 	return security_ops->sb_set_mnt_opts(sb, opts);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sb_set_mnt_opts); */
+EXPORT_SYMBOL(security_sb_set_mnt_opts);
 
 void security_sb_clone_mnt_opts(const struct super_block *oldsb,
 				struct super_block *newsb)
 {
 	security_ops->sb_clone_mnt_opts(oldsb, newsb);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sb_clone_mnt_opts); */
+EXPORT_SYMBOL(security_sb_clone_mnt_opts);
 
 int security_sb_parse_opts_str(char *options, struct security_mnt_opts *opts)
 {
 	return security_ops->sb_parse_opts_str(options, opts);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sb_parse_opts_str); */
+EXPORT_SYMBOL(security_sb_parse_opts_str);
 
 int security_inode_alloc(struct inode *inode)
 {
@@ -363,7 +363,7 @@ out:
 	}
 	return (ret == -EOPNOTSUPP) ? 0 : ret;
 }
-/* DISABLED: EXPORT_SYMBOL(security_inode_init_security); */
+EXPORT_SYMBOL(security_inode_init_security);
 
 int security_old_inode_init_security(struct inode *inode, struct inode *dir,
 				     const struct qstr *qstr, char **name,
@@ -374,7 +374,7 @@ int security_old_inode_init_security(struct inode *inode, struct inode *dir,
 	return security_ops->inode_init_security(inode, dir, qstr, name, value,
 						 len);
 }
-/* DISABLED: EXPORT_SYMBOL(security_old_inode_init_security); */
+EXPORT_SYMBOL(security_old_inode_init_security);
 
 #ifdef CONFIG_SECURITY_PATH
 int security_path_mknod(struct path *dir, struct dentry *dentry, umode_t mode,
@@ -384,7 +384,7 @@ int security_path_mknod(struct path *dir, struct dentry *dentry, umode_t mode,
 		return 0;
 	return security_ops->path_mknod(dir, dentry, mode, dev);
 }
-/* DISABLED: EXPORT_SYMBOL(security_path_mknod); */
+EXPORT_SYMBOL(security_path_mknod);
 
 int security_path_mkdir(struct path *dir, struct dentry *dentry, umode_t mode)
 {
@@ -392,7 +392,7 @@ int security_path_mkdir(struct path *dir, struct dentry *dentry, umode_t mode)
 		return 0;
 	return security_ops->path_mkdir(dir, dentry, mode);
 }
-/* DISABLED: EXPORT_SYMBOL(security_path_mkdir); */
+EXPORT_SYMBOL(security_path_mkdir);
 
 int security_path_rmdir(struct path *dir, struct dentry *dentry)
 {
@@ -407,7 +407,7 @@ int security_path_unlink(struct path *dir, struct dentry *dentry)
 		return 0;
 	return security_ops->path_unlink(dir, dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(security_path_unlink); */
+EXPORT_SYMBOL(security_path_unlink);
 
 int security_path_symlink(struct path *dir, struct dentry *dentry,
 			  const char *old_name)
@@ -434,7 +434,7 @@ int security_path_rename(struct path *old_dir, struct dentry *old_dentry,
 	return security_ops->path_rename(old_dir, old_dentry, new_dir,
 					 new_dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(security_path_rename); */
+EXPORT_SYMBOL(security_path_rename);
 
 int security_path_truncate(struct path *path)
 {
@@ -469,7 +469,7 @@ int security_inode_create(struct inode *dir, struct dentry *dentry, umode_t mode
 		return 0;
 	return security_ops->inode_create(dir, dentry, mode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(security_inode_create); */
+EXPORT_SYMBOL_GPL(security_inode_create);
 
 int security_inode_post_create(struct inode *dir, struct dentry *dentry,
 			       umode_t mode)
@@ -510,7 +510,7 @@ int security_inode_mkdir(struct inode *dir, struct dentry *dentry, umode_t mode)
 		return 0;
 	return security_ops->inode_mkdir(dir, dentry, mode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(security_inode_mkdir); */
+EXPORT_SYMBOL_GPL(security_inode_mkdir);
 
 int security_inode_rmdir(struct inode *dir, struct dentry *dentry)
 {
@@ -568,7 +568,7 @@ int security_inode_setattr(struct dentry *dentry, struct iattr *attr)
 		return ret;
 	return evm_inode_setattr(dentry, attr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(security_inode_setattr); */
+EXPORT_SYMBOL_GPL(security_inode_setattr);
 
 int security_inode_getattr(struct vfsmount *mnt, struct dentry *dentry)
 {
@@ -673,7 +673,7 @@ int security_file_permission(struct file *file, int mask)
 }
 
 #if defined(CONFIG_VMWARE_MVP)
-/* DISABLED: EXPORT_SYMBOL_GPL(security_file_permission); */
+EXPORT_SYMBOL_GPL(security_file_permission);
 #endif
 
 int security_file_alloc(struct file *file)
@@ -837,7 +837,7 @@ void security_task_getsecid(struct task_struct *p, u32 *secid)
 {
 	security_ops->task_getsecid(p, secid);
 }
-/* DISABLED: EXPORT_SYMBOL(security_task_getsecid); */
+EXPORT_SYMBOL(security_task_getsecid);
 
 int security_task_setnice(struct task_struct *p, int nice)
 {
@@ -1006,7 +1006,7 @@ void security_d_instantiate(struct dentry *dentry, struct inode *inode)
 		return;
 	security_ops->d_instantiate(dentry, inode);
 }
-/* DISABLED: EXPORT_SYMBOL(security_d_instantiate); */
+EXPORT_SYMBOL(security_d_instantiate);
 
 int security_getprocattr(struct task_struct *p, char *name, char **value)
 {
@@ -1027,37 +1027,37 @@ int security_secid_to_secctx(u32 secid, char **secdata, u32 *seclen)
 {
 	return security_ops->secid_to_secctx(secid, secdata, seclen);
 }
-/* DISABLED: EXPORT_SYMBOL(security_secid_to_secctx); */
+EXPORT_SYMBOL(security_secid_to_secctx);
 
 int security_secctx_to_secid(const char *secdata, u32 seclen, u32 *secid)
 {
 	return security_ops->secctx_to_secid(secdata, seclen, secid);
 }
-/* DISABLED: EXPORT_SYMBOL(security_secctx_to_secid); */
+EXPORT_SYMBOL(security_secctx_to_secid);
 
 void security_release_secctx(char *secdata, u32 seclen)
 {
 	security_ops->release_secctx(secdata, seclen);
 }
-/* DISABLED: EXPORT_SYMBOL(security_release_secctx); */
+EXPORT_SYMBOL(security_release_secctx);
 
 int security_inode_notifysecctx(struct inode *inode, void *ctx, u32 ctxlen)
 {
 	return security_ops->inode_notifysecctx(inode, ctx, ctxlen);
 }
-/* DISABLED: EXPORT_SYMBOL(security_inode_notifysecctx); */
+EXPORT_SYMBOL(security_inode_notifysecctx);
 
 int security_inode_setsecctx(struct dentry *dentry, void *ctx, u32 ctxlen)
 {
 	return security_ops->inode_setsecctx(dentry, ctx, ctxlen);
 }
-/* DISABLED: EXPORT_SYMBOL(security_inode_setsecctx); */
+EXPORT_SYMBOL(security_inode_setsecctx);
 
 int security_inode_getsecctx(struct inode *inode, void **ctx, u32 *ctxlen)
 {
 	return security_ops->inode_getsecctx(inode, ctx, ctxlen);
 }
-/* DISABLED: EXPORT_SYMBOL(security_inode_getsecctx); */
+EXPORT_SYMBOL(security_inode_getsecctx);
 
 #ifdef CONFIG_SECURITY_NETWORK
 
@@ -1065,13 +1065,13 @@ int security_unix_stream_connect(struct sock *sock, struct sock *other, struct s
 {
 	return security_ops->unix_stream_connect(sock, other, newsk);
 }
-/* DISABLED: EXPORT_SYMBOL(security_unix_stream_connect); */
+EXPORT_SYMBOL(security_unix_stream_connect);
 
 int security_unix_may_send(struct socket *sock,  struct socket *other)
 {
 	return security_ops->unix_may_send(sock, other);
 }
-/* DISABLED: EXPORT_SYMBOL(security_unix_may_send); */
+EXPORT_SYMBOL(security_unix_may_send);
 
 int security_socket_create(int family, int type, int protocol, int kern)
 {
@@ -1145,7 +1145,7 @@ int security_sock_rcv_skb(struct sock *sk, struct sk_buff *skb)
 {
 	return security_ops->socket_sock_rcv_skb(sk, skb);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sock_rcv_skb); */
+EXPORT_SYMBOL(security_sock_rcv_skb);
 
 int security_socket_getpeersec_stream(struct socket *sock, char __user *optval,
 				      int __user *optlen, unsigned len)
@@ -1157,7 +1157,7 @@ int security_socket_getpeersec_dgram(struct socket *sock, struct sk_buff *skb, u
 {
 	return security_ops->socket_getpeersec_dgram(sock, skb, secid);
 }
-/* DISABLED: EXPORT_SYMBOL(security_socket_getpeersec_dgram); */
+EXPORT_SYMBOL(security_socket_getpeersec_dgram);
 
 int security_sk_alloc(struct sock *sk, int family, gfp_t priority)
 {
@@ -1173,32 +1173,32 @@ void security_sk_clone(const struct sock *sk, struct sock *newsk)
 {
 	security_ops->sk_clone_security(sk, newsk);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sk_clone); */
+EXPORT_SYMBOL(security_sk_clone);
 
 void security_sk_classify_flow(struct sock *sk, struct flowi *fl)
 {
 	security_ops->sk_getsecid(sk, &fl->flowi_secid);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sk_classify_flow); */
+EXPORT_SYMBOL(security_sk_classify_flow);
 
 void security_req_classify_flow(const struct request_sock *req, struct flowi *fl)
 {
 	security_ops->req_classify_flow(req, fl);
 }
-/* DISABLED: EXPORT_SYMBOL(security_req_classify_flow); */
+EXPORT_SYMBOL(security_req_classify_flow);
 
 void security_sock_graft(struct sock *sk, struct socket *parent)
 {
 	security_ops->sock_graft(sk, parent);
 }
-/* DISABLED: EXPORT_SYMBOL(security_sock_graft); */
+EXPORT_SYMBOL(security_sock_graft);
 
 int security_inet_conn_request(struct sock *sk,
 			struct sk_buff *skb, struct request_sock *req)
 {
 	return security_ops->inet_conn_request(sk, skb, req);
 }
-/* DISABLED: EXPORT_SYMBOL(security_inet_conn_request); */
+EXPORT_SYMBOL(security_inet_conn_request);
 
 void security_inet_csk_clone(struct sock *newsk,
 			const struct request_sock *req)
@@ -1216,37 +1216,37 @@ int security_secmark_relabel_packet(u32 secid)
 {
 	return security_ops->secmark_relabel_packet(secid);
 }
-/* DISABLED: EXPORT_SYMBOL(security_secmark_relabel_packet); */
+EXPORT_SYMBOL(security_secmark_relabel_packet);
 
 void security_secmark_refcount_inc(void)
 {
 	security_ops->secmark_refcount_inc();
 }
-/* DISABLED: EXPORT_SYMBOL(security_secmark_refcount_inc); */
+EXPORT_SYMBOL(security_secmark_refcount_inc);
 
 void security_secmark_refcount_dec(void)
 {
 	security_ops->secmark_refcount_dec();
 }
-/* DISABLED: EXPORT_SYMBOL(security_secmark_refcount_dec); */
+EXPORT_SYMBOL(security_secmark_refcount_dec);
 
 int security_tun_dev_create(void)
 {
 	return security_ops->tun_dev_create();
 }
-/* DISABLED: EXPORT_SYMBOL(security_tun_dev_create); */
+EXPORT_SYMBOL(security_tun_dev_create);
 
 void security_tun_dev_post_create(struct sock *sk)
 {
 	return security_ops->tun_dev_post_create(sk);
 }
-/* DISABLED: EXPORT_SYMBOL(security_tun_dev_post_create); */
+EXPORT_SYMBOL(security_tun_dev_post_create);
 
 int security_tun_dev_attach(struct sock *sk)
 {
 	return security_ops->tun_dev_attach(sk);
 }
-/* DISABLED: EXPORT_SYMBOL(security_tun_dev_attach); */
+EXPORT_SYMBOL(security_tun_dev_attach);
 
 #endif	/* CONFIG_SECURITY_NETWORK */
 
@@ -1256,7 +1256,7 @@ int security_xfrm_policy_alloc(struct xfrm_sec_ctx **ctxp, struct xfrm_user_sec_
 {
 	return security_ops->xfrm_policy_alloc_security(ctxp, sec_ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(security_xfrm_policy_alloc); */
+EXPORT_SYMBOL(security_xfrm_policy_alloc);
 
 int security_xfrm_policy_clone(struct xfrm_sec_ctx *old_ctx,
 			      struct xfrm_sec_ctx **new_ctxp)
@@ -1268,7 +1268,7 @@ void security_xfrm_policy_free(struct xfrm_sec_ctx *ctx)
 {
 	security_ops->xfrm_policy_free_security(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(security_xfrm_policy_free); */
+EXPORT_SYMBOL(security_xfrm_policy_free);
 
 int security_xfrm_policy_delete(struct xfrm_sec_ctx *ctx)
 {
@@ -1279,7 +1279,7 @@ int security_xfrm_state_alloc(struct xfrm_state *x, struct xfrm_user_sec_ctx *se
 {
 	return security_ops->xfrm_state_alloc_security(x, sec_ctx, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(security_xfrm_state_alloc); */
+EXPORT_SYMBOL(security_xfrm_state_alloc);
 
 int security_xfrm_state_alloc_acquire(struct xfrm_state *x,
 				      struct xfrm_sec_ctx *polsec, u32 secid)
@@ -1297,7 +1297,7 @@ int security_xfrm_state_delete(struct xfrm_state *x)
 {
 	return security_ops->xfrm_state_delete_security(x);
 }
-/* DISABLED: EXPORT_SYMBOL(security_xfrm_state_delete); */
+EXPORT_SYMBOL(security_xfrm_state_delete);
 
 void security_xfrm_state_free(struct xfrm_state *x)
 {
@@ -1327,7 +1327,7 @@ void security_skb_classify_flow(struct sk_buff *skb, struct flowi *fl)
 
 	BUG_ON(rc);
 }
-/* DISABLED: EXPORT_SYMBOL(security_skb_classify_flow); */
+EXPORT_SYMBOL(security_skb_classify_flow);
 
 #endif	/* CONFIG_SECURITY_NETWORK_XFRM */
 

@@ -118,7 +118,7 @@ ENDPROC(cpu_arm720_reset)
 
 	__CPUINIT
 
-	.type	__arm710_setup, @ function
+	.type	__arm710_setup, #function
 __arm710_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7, 0		@ invalidate caches
@@ -139,14 +139,14 @@ __arm710_setup:
 	 * .... 0001 ..11 1101
 	 * 
 	 */
-	.type	arm710_cr1_clear, @ object
-	.type	arm710_cr1_set, @ object
+	.type	arm710_cr1_clear, #object
+	.type	arm710_cr1_set, #object
 arm710_cr1_clear:
 	.word	0x0f3f
 arm710_cr1_set:
 	.word	0x013d
 
-	.type	__arm720_setup, @ function
+	.type	__arm720_setup, #function
 __arm720_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7, 0		@ invalidate caches
@@ -167,7 +167,7 @@ __arm720_setup:
 	 * ..1. 1001 ..11 1101
 	 * 
 	 */
-	.type	arm720_crval, @ object
+	.type	arm720_crval, #object
 arm720_crval:
 	crval	clear=0x00002f3f, mmuset=0x0000213d, ucset=0x00000130
 
@@ -188,10 +188,10 @@ arm720_crval:
  * See <asm/procinfo.h> for a definition of this structure.
  */
 	
-		.section ".proc.info.init", @ alloc, @ execinstr
+		.section ".proc.info.init", #alloc, #execinstr
 
 .macro arm720_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cpu_flush:req
-		.type	__\name\()_proc_info, @ object
+		.type	__\name\()_proc_info,#object
 __\name\()_proc_info:
 		.long	\cpu_val
 		.long	\cpu_mask

@@ -128,8 +128,8 @@ ENTRY(cpu_sa1100_do_idle)
 	.align	5
 ENTRY(cpu_sa1100_dcache_clean_area)
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ DCACHELINESIZE
-	subs	r1, r1, @ DCACHELINESIZE
+	add	r0, r0, #DCACHELINESIZE
+	subs	r1, r1, #DCACHELINESIZE
 	bhi	1b
 	mov	pc, lr
 
@@ -145,7 +145,7 @@ ENTRY(cpu_sa1100_dcache_clean_area)
 	.align	5
 ENTRY(cpu_sa1100_switch_mm)
 #ifdef CONFIG_MMU
-	str	lr, [sp, @ -4]!
+	str	lr, [sp, #-4]!
 	bl	v4wb_flush_kern_cache_all	@ clears IP
 	mcr	p15, 0, ip, c9, c0, 0		@ invalidate RB
 	mcr	p15, 0, r0, c2, c0, 0		@ load page table pointer
@@ -200,7 +200,7 @@ ENDPROC(cpu_sa1100_do_resume)
 
 	__CPUINIT
 
-	.type	__sa1100_setup, @ function
+	.type	__sa1100_setup, #function
 __sa1100_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -222,7 +222,7 @@ __sa1100_setup:
 	 * ..11 0001 ..11 1101
 	 * 
 	 */
-	.type	sa1100_crval, @ object
+	.type	sa1100_crval, #object
 sa1100_crval:
 	crval	clear=0x00003f3f, mmuset=0x0000313d, ucset=0x00001130
 
@@ -244,10 +244,10 @@ sa1100_crval:
 
 	.align
 
-	.section ".proc.info.init", @ alloc, @ execinstr
+	.section ".proc.info.init", #alloc, #execinstr
 
 .macro sa1100_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req
-	.type	__\name\()_proc_info, @ object
+	.type	__\name\()_proc_info,#object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

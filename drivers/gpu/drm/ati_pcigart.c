@@ -91,7 +91,7 @@ int drm_ati_pcigart_cleanup(struct drm_device *dev, struct drm_ati_pcigart_info 
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_ati_pcigart_cleanup); */
+EXPORT_SYMBOL(drm_ati_pcigart_cleanup);
 
 int drm_ati_pcigart_init(struct drm_device *dev, struct drm_ati_pcigart_info *gart_info)
 {
@@ -199,4 +199,4 @@ int drm_ati_pcigart_init(struct drm_device *dev, struct drm_ati_pcigart_info *ga
 	gart_info->bus_addr = bus_address;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_ati_pcigart_init); */
+EXPORT_SYMBOL(drm_ati_pcigart_init);

@@ -165,7 +165,7 @@ int transport_lookup_cmd_lun(struct se_cmd *se_cmd, u32 unpacked_lun)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(transport_lookup_cmd_lun); */
+EXPORT_SYMBOL(transport_lookup_cmd_lun);
 
 int transport_lookup_tmr_lun(struct se_cmd *se_cmd, u32 unpacked_lun)
 {
@@ -221,7 +221,7 @@ int transport_lookup_tmr_lun(struct se_cmd *se_cmd, u32 unpacked_lun)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(transport_lookup_tmr_lun); */
+EXPORT_SYMBOL(transport_lookup_tmr_lun);
 
 /*
  * This function is called from core_scsi3_emulate_pro_register_and_move()

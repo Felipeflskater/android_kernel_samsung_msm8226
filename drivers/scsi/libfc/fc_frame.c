@@ -46,7 +46,7 @@ u32 fc_frame_crc_check(struct fc_frame *fp)
 	error = crc ^ fr_crc(fp);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_frame_crc_check); */
+EXPORT_SYMBOL(fc_frame_crc_check);
 
 /*
  * Allocate a frame intended to be sent via fcoe_xmit.
@@ -69,7 +69,7 @@ struct fc_frame *_fc_frame_alloc(size_t len)
 	skb_put(skb, len);
 	return fp;
 }
-/* DISABLED: EXPORT_SYMBOL(_fc_frame_alloc); */
+EXPORT_SYMBOL(_fc_frame_alloc);
 
 struct fc_frame *fc_frame_alloc_fill(struct fc_lport *lp, size_t payload_len)
 {
@@ -88,4 +88,4 @@ struct fc_frame *fc_frame_alloc_fill(struct fc_lport *lp, size_t payload_len)
 	}
 	return fp;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_frame_alloc_fill); */
+EXPORT_SYMBOL(fc_frame_alloc_fill);

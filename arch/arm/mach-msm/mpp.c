@@ -31,7 +31,7 @@ int mpp_config_digital_out(unsigned mpp, unsigned config)
 		       __func__);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mpp_config_digital_out); */
+EXPORT_SYMBOL(mpp_config_digital_out);
 
 int mpp_config_digital_in(unsigned mpp, unsigned config)
 {
@@ -42,7 +42,7 @@ int mpp_config_digital_in(unsigned mpp, unsigned config)
 		       __func__);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mpp_config_digital_in); */
+EXPORT_SYMBOL(mpp_config_digital_in);
 
 #if defined(CONFIG_DEBUG_FS)
 static int test_result;

@@ -1237,7 +1237,7 @@ struct ccwgroup_driver qeth_l2_ccwgroup_driver = {
 	.thaw = qeth_l2_pm_resume,
 	.restore = qeth_l2_pm_resume,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(qeth_l2_ccwgroup_driver); */
+EXPORT_SYMBOL_GPL(qeth_l2_ccwgroup_driver);
 
 static int qeth_osn_send_control_data(struct qeth_card *card, int len,
 			   struct qeth_cmd_buffer *iob)
@@ -1303,7 +1303,7 @@ int qeth_osn_assist(struct net_device *dev, void *data, int data_len)
 	rc = qeth_osn_send_ipa_cmd(card, iob, data_len);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qeth_osn_assist); */
+EXPORT_SYMBOL(qeth_osn_assist);
 
 int qeth_osn_register(unsigned char *read_dev_no, struct net_device **dev,
 		  int (*assist_cb)(struct net_device *, void *),
@@ -1324,7 +1324,7 @@ int qeth_osn_register(unsigned char *read_dev_no, struct net_device **dev,
 	card->osn_info.data_cb = data_cb;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qeth_osn_register); */
+EXPORT_SYMBOL(qeth_osn_register);
 
 void qeth_osn_deregister(struct net_device *dev)
 {
@@ -1340,7 +1340,7 @@ void qeth_osn_deregister(struct net_device *dev)
 	card->osn_info.data_cb = NULL;
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(qeth_osn_deregister); */
+EXPORT_SYMBOL(qeth_osn_deregister);
 
 module_init(qeth_l2_init);
 module_exit(qeth_l2_exit);

@@ -137,7 +137,7 @@ static int __init fas216_log_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("fas216_logging=", fas216_log_setup); */ */
+__setup("fas216_logging=", fas216_log_setup);
 
 static inline unsigned char fas216_readb(FAS216_Info *info, unsigned int reg)
 {
@@ -3025,20 +3025,20 @@ int fas216_print_devices(FAS216_Info *info, char *buffer)
 	return p - buffer;
 }
 
-/* DISABLED: EXPORT_SYMBOL(fas216_init); */
-/* DISABLED: EXPORT_SYMBOL(fas216_add); */
-/* DISABLED: EXPORT_SYMBOL(fas216_queue_command); */
-/* DISABLED: EXPORT_SYMBOL(fas216_noqueue_command); */
-/* DISABLED: EXPORT_SYMBOL(fas216_intr); */
-/* DISABLED: EXPORT_SYMBOL(fas216_remove); */
-/* DISABLED: EXPORT_SYMBOL(fas216_release); */
-/* DISABLED: EXPORT_SYMBOL(fas216_eh_abort); */
-/* DISABLED: EXPORT_SYMBOL(fas216_eh_device_reset); */
-/* DISABLED: EXPORT_SYMBOL(fas216_eh_bus_reset); */
-/* DISABLED: EXPORT_SYMBOL(fas216_eh_host_reset); */
-/* DISABLED: EXPORT_SYMBOL(fas216_print_host); */
-/* DISABLED: EXPORT_SYMBOL(fas216_print_stats); */
-/* DISABLED: EXPORT_SYMBOL(fas216_print_devices); */
+EXPORT_SYMBOL(fas216_init);
+EXPORT_SYMBOL(fas216_add);
+EXPORT_SYMBOL(fas216_queue_command);
+EXPORT_SYMBOL(fas216_noqueue_command);
+EXPORT_SYMBOL(fas216_intr);
+EXPORT_SYMBOL(fas216_remove);
+EXPORT_SYMBOL(fas216_release);
+EXPORT_SYMBOL(fas216_eh_abort);
+EXPORT_SYMBOL(fas216_eh_device_reset);
+EXPORT_SYMBOL(fas216_eh_bus_reset);
+EXPORT_SYMBOL(fas216_eh_host_reset);
+EXPORT_SYMBOL(fas216_print_host);
+EXPORT_SYMBOL(fas216_print_stats);
+EXPORT_SYMBOL(fas216_print_devices);
 
 MODULE_AUTHOR("Russell King");
 MODULE_DESCRIPTION("Generic FAS216/NCR53C9x driver core");

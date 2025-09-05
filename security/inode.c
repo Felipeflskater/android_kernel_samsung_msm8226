@@ -145,7 +145,7 @@ out:
 	simple_release_fs(&mount, &mount_count);
 	return dentry;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(securityfs_create_file); */
+EXPORT_SYMBOL_GPL(securityfs_create_file);
 
 /**
  * securityfs_create_dir - create a directory in the securityfs filesystem
@@ -174,7 +174,7 @@ struct dentry *securityfs_create_dir(const char *name, struct dentry *parent)
 				      S_IFDIR | S_IRWXU | S_IRUGO | S_IXUGO,
 				      parent, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(securityfs_create_dir); */
+EXPORT_SYMBOL_GPL(securityfs_create_dir);
 
 /**
  * securityfs_remove - removes a file or directory from the securityfs filesystem
@@ -213,7 +213,7 @@ void securityfs_remove(struct dentry *dentry)
 	mutex_unlock(&parent->d_inode->i_mutex);
 	simple_release_fs(&mount, &mount_count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(securityfs_remove); */
+EXPORT_SYMBOL_GPL(securityfs_remove);
 
 static struct kobject *security_kobj;
 

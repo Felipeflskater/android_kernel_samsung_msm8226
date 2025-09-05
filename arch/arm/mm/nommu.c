@@ -55,13 +55,13 @@ void flush_dcache_page(struct page *page)
 {
 	__cpuc_flush_dcache_area(page_address(page), PAGE_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
+EXPORT_SYMBOL(flush_dcache_page);
 
 void flush_kernel_dcache_page(struct page *page)
 {
 	__cpuc_flush_dcache_area(page_address(page), PAGE_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_kernel_dcache_page); */
+EXPORT_SYMBOL(flush_kernel_dcache_page);
 
 void copy_to_user_page(struct vm_area_struct *vma, struct page *page,
 		       unsigned long uaddr, void *dst, const void *src,
@@ -79,7 +79,7 @@ void __iomem *__arm_ioremap_pfn(unsigned long pfn, unsigned long offset,
 		return NULL;
 	return (void __iomem *) (offset + (pfn << PAGE_SHIFT));
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_ioremap_pfn); */
+EXPORT_SYMBOL(__arm_ioremap_pfn);
 
 void __iomem *__arm_ioremap_pfn_caller(unsigned long pfn, unsigned long offset,
 			   size_t size, unsigned int mtype, void *caller)
@@ -92,7 +92,7 @@ void __iomem *__arm_ioremap(unsigned long phys_addr, size_t size,
 {
 	return (void __iomem *)phys_addr;
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_ioremap); */
+EXPORT_SYMBOL(__arm_ioremap);
 
 void __iomem * (*arch_ioremap_caller)(unsigned long, size_t, unsigned int, void *);
 
@@ -107,4 +107,4 @@ void (*arch_iounmap)(volatile void __iomem *);
 void __arm_iounmap(volatile void __iomem *addr)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_iounmap); */
+EXPORT_SYMBOL(__arm_iounmap);

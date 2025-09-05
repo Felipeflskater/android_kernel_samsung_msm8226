@@ -1001,7 +1001,7 @@ void dump_stack(void)
 	show_trace(&stack);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 /*
  * The vector number returned in the frame pointer may also contain

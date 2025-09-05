@@ -35,11 +35,11 @@ unsigned long usbip_debug_flag = 0xffffffff;
 #else
 unsigned long usbip_debug_flag;
 #endif
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_debug_flag); */
+EXPORT_SYMBOL_GPL(usbip_debug_flag);
 
 /* FIXME */
 struct device_attribute dev_attr_usbip_debug;
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_usbip_debug); */
+EXPORT_SYMBOL_GPL(dev_attr_usbip_debug);
 
 static ssize_t show_flag(struct device *dev, struct device_attribute *attr,
 			 char *buf)
@@ -289,7 +289,7 @@ void usbip_dump_urb(struct urb *urb)
 	dev_dbg(dev, "   context               :%p\n", urb->context);
 	dev_dbg(dev, "   complete              :%p\n", urb->complete);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_dump_urb); */
+EXPORT_SYMBOL_GPL(usbip_dump_urb);
 
 void usbip_dump_header(struct usbip_header *pdu)
 {
@@ -332,7 +332,7 @@ void usbip_dump_header(struct usbip_header *pdu)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_dump_header); */
+EXPORT_SYMBOL_GPL(usbip_dump_header);
 
 /* Receive data over TCP/IP. */
 int usbip_recv(struct socket *sock, void *buf, int size)
@@ -394,7 +394,7 @@ int usbip_recv(struct socket *sock, void *buf, int size)
 err:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_recv); */
+EXPORT_SYMBOL_GPL(usbip_recv);
 
 struct socket *sockfd_to_socket(unsigned int sockfd)
 {
@@ -417,7 +417,7 @@ struct socket *sockfd_to_socket(unsigned int sockfd)
 
 	return socket;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sockfd_to_socket); */
+EXPORT_SYMBOL_GPL(sockfd_to_socket);
 
 /* there may be more cases to tweak the flags. */
 static unsigned int tweak_transfer_flags(unsigned int flags)
@@ -494,7 +494,7 @@ void usbip_pack_pdu(struct usbip_header *pdu, struct urb *urb, int cmd,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_pack_pdu); */
+EXPORT_SYMBOL_GPL(usbip_pack_pdu);
 
 static void correct_endian_basic(struct usbip_header_basic *base, int send)
 {
@@ -600,7 +600,7 @@ void usbip_header_correct_endian(struct usbip_header *pdu, int send)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_header_correct_endian); */
+EXPORT_SYMBOL_GPL(usbip_header_correct_endian);
 
 static void usbip_iso_packet_correct_endian(
 		struct usbip_iso_packet_descriptor *iso, int send)
@@ -659,7 +659,7 @@ void *usbip_alloc_iso_desc_pdu(struct urb *urb, ssize_t *bufflen)
 
 	return buff;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_alloc_iso_desc_pdu); */
+EXPORT_SYMBOL_GPL(usbip_alloc_iso_desc_pdu);
 
 /* some members of urb must be substituted before. */
 int usbip_recv_iso(struct usbip_device *ud, struct urb *urb)
@@ -726,7 +726,7 @@ int usbip_recv_iso(struct usbip_device *ud, struct urb *urb)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_recv_iso); */
+EXPORT_SYMBOL_GPL(usbip_recv_iso);
 
 /*
  * This functions restores the padding which was removed for optimizing
@@ -766,7 +766,7 @@ void usbip_pad_iso(struct usbip_device *ud, struct urb *urb)
 			urb->iso_frame_desc[i].actual_length);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_pad_iso); */
+EXPORT_SYMBOL_GPL(usbip_pad_iso);
 
 /* some members of urb must be substituted before. */
 int usbip_recv_xbuff(struct usbip_device *ud, struct urb *urb)
@@ -807,7 +807,7 @@ int usbip_recv_xbuff(struct usbip_device *ud, struct urb *urb)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbip_recv_xbuff); */
+EXPORT_SYMBOL_GPL(usbip_recv_xbuff);
 
 static int __init usbip_core_init(void)
 {

@@ -255,7 +255,7 @@ __kprobes void *perf_trace_buf_prepare(int size, unsigned short type,
 
 	return raw_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(perf_trace_buf_prepare); */
+EXPORT_SYMBOL_GPL(perf_trace_buf_prepare);
 
 #ifdef CONFIG_FUNCTION_TRACER
 static void

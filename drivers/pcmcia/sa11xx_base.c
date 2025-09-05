@@ -195,7 +195,7 @@ int sa11xx_drv_pcmcia_add_one(struct soc_pcmcia_socket *skt)
 
 	return soc_pcmcia_add_one(skt);
 }
-/* DISABLED: EXPORT_SYMBOL(sa11xx_drv_pcmcia_add_one); */
+EXPORT_SYMBOL(sa11xx_drv_pcmcia_add_one);
 
 void sa11xx_drv_pcmcia_ops(struct pcmcia_low_level *ops)
 {
@@ -213,7 +213,7 @@ void sa11xx_drv_pcmcia_ops(struct pcmcia_low_level *ops)
 	ops->frequency_change = sa1100_pcmcia_frequency_change;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(sa11xx_drv_pcmcia_ops); */
+EXPORT_SYMBOL(sa11xx_drv_pcmcia_ops);
 
 int sa11xx_drv_pcmcia_probe(struct device *dev, struct pcmcia_low_level *ops,
 			    int first, int nr)
@@ -252,7 +252,7 @@ int sa11xx_drv_pcmcia_probe(struct device *dev, struct pcmcia_low_level *ops,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sa11xx_drv_pcmcia_probe); */
+EXPORT_SYMBOL(sa11xx_drv_pcmcia_probe);
 
 static int __init sa11xx_pcmcia_init(void)
 {

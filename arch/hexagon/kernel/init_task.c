@@ -51,4 +51,4 @@ union thread_union init_thread_union
  * All other task structs will be allocated on slabs in fork.c
  */
 struct task_struct init_task = INIT_TASK(init_task);
-/* DISABLED: EXPORT_SYMBOL(init_task); */
+EXPORT_SYMBOL(init_task);

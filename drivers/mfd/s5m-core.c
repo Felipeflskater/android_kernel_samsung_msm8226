@@ -58,31 +58,31 @@ int s5m_reg_read(struct s5m87xx_dev *s5m87xx, u8 reg, void *dest)
 {
 	return regmap_read(s5m87xx->regmap, reg, dest);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s5m_reg_read); */
+EXPORT_SYMBOL_GPL(s5m_reg_read);
 
 int s5m_bulk_read(struct s5m87xx_dev *s5m87xx, u8 reg, int count, u8 *buf)
 {
 	return regmap_bulk_read(s5m87xx->regmap, reg, buf, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s5m_bulk_read); */
+EXPORT_SYMBOL_GPL(s5m_bulk_read);
 
 int s5m_reg_write(struct s5m87xx_dev *s5m87xx, u8 reg, u8 value)
 {
 	return regmap_write(s5m87xx->regmap, reg, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s5m_reg_write); */
+EXPORT_SYMBOL_GPL(s5m_reg_write);
 
 int s5m_bulk_write(struct s5m87xx_dev *s5m87xx, u8 reg, int count, u8 *buf)
 {
 	return regmap_raw_write(s5m87xx->regmap, reg, buf, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s5m_bulk_write); */
+EXPORT_SYMBOL_GPL(s5m_bulk_write);
 
 int s5m_reg_update(struct s5m87xx_dev *s5m87xx, u8 reg, u8 val, u8 mask)
 {
 	return regmap_update_bits(s5m87xx->regmap, reg, mask, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s5m_reg_update); */
+EXPORT_SYMBOL_GPL(s5m_reg_update);
 
 static struct regmap_config s5m_regmap_config = {
 	.reg_bits = 8,

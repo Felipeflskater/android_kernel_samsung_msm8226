@@ -20,7 +20,7 @@ int atm_charge(struct atm_vcc *vcc, int truesize)
 	atomic_inc(&vcc->stats->rx_drop);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(atm_charge); */
+EXPORT_SYMBOL(atm_charge);
 
 struct sk_buff *atm_alloc_charge(struct atm_vcc *vcc, int pdu_size,
 				 gfp_t gfp_flags)
@@ -42,7 +42,7 @@ struct sk_buff *atm_alloc_charge(struct atm_vcc *vcc, int pdu_size,
 	atomic_inc(&vcc->stats->rx_drop);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(atm_alloc_charge); */
+EXPORT_SYMBOL(atm_alloc_charge);
 
 
 /*
@@ -82,7 +82,7 @@ int atm_pcr_goal(const struct atm_trafprm *tp)
 		return -tp->max_pcr;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(atm_pcr_goal); */
+EXPORT_SYMBOL(atm_pcr_goal);
 
 void sonet_copy_stats(struct k_sonet_stats *from, struct sonet_stats *to)
 {
@@ -90,7 +90,7 @@ void sonet_copy_stats(struct k_sonet_stats *from, struct sonet_stats *to)
 	__SONET_ITEMS
 #undef __HANDLE_ITEM
 }
-/* DISABLED: EXPORT_SYMBOL(sonet_copy_stats); */
+EXPORT_SYMBOL(sonet_copy_stats);
 
 void sonet_subtract_stats(struct k_sonet_stats *from, struct sonet_stats *to)
 {
@@ -98,4 +98,4 @@ void sonet_subtract_stats(struct k_sonet_stats *from, struct sonet_stats *to)
 	__SONET_ITEMS
 #undef __HANDLE_ITEM
 }
-/* DISABLED: EXPORT_SYMBOL(sonet_subtract_stats); */
+EXPORT_SYMBOL(sonet_subtract_stats);

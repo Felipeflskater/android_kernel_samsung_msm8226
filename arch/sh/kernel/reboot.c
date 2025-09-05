@@ -12,7 +12,7 @@
 #include <asm/traps.h>
 
 void (*pm_power_off)(void);
-/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
+EXPORT_SYMBOL(pm_power_off);
 
 #ifdef CONFIG_SUPERH32
 static void watchdog_trigger_immediate(void)

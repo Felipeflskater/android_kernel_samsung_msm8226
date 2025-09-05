@@ -80,4 +80,4 @@ void register_ipr_controller(struct ipr_desc *desc)
 		disable_ipr_irq(irq_get_irq_data(p->irq));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(register_ipr_controller); */
+EXPORT_SYMBOL(register_ipr_controller);

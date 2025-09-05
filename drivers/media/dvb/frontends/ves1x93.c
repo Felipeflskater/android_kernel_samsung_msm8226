@@ -550,4 +550,4 @@ MODULE_DESCRIPTION("VLSI VES1x93 DVB-S Demodulator driver");
 MODULE_AUTHOR("Ralph Metzler");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(ves1x93_attach); */
+EXPORT_SYMBOL(ves1x93_attach);

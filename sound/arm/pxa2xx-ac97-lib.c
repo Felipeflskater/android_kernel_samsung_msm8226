@@ -84,7 +84,7 @@ unsigned short pxa2xx_ac97_read(struct snd_ac97 *ac97, unsigned short reg)
 out:	mutex_unlock(&car_mutex);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_read); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_read);
 
 void pxa2xx_ac97_write(struct snd_ac97 *ac97, unsigned short reg,
 			unsigned short val)
@@ -110,7 +110,7 @@ void pxa2xx_ac97_write(struct snd_ac97 *ac97, unsigned short reg,
 
 	mutex_unlock(&car_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_write); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_write);
 
 #ifdef CONFIG_PXA25x
 static inline void pxa_ac97_warm_pxa25x(void)
@@ -234,7 +234,7 @@ bool pxa2xx_ac97_try_warm_reset(struct snd_ac97 *ac97)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_warm_reset); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_warm_reset);
 
 bool pxa2xx_ac97_try_cold_reset(struct snd_ac97 *ac97)
 {
@@ -267,7 +267,7 @@ bool pxa2xx_ac97_try_cold_reset(struct snd_ac97 *ac97)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_cold_reset); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_try_cold_reset);
 
 
 void pxa2xx_ac97_finish_reset(struct snd_ac97 *ac97)
@@ -275,7 +275,7 @@ void pxa2xx_ac97_finish_reset(struct snd_ac97 *ac97)
 	GCR &= ~(GCR_PRIRDY_IEN|GCR_SECRDY_IEN);
 	GCR |= GCR_SDONE_IE|GCR_CDONE_IE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_finish_reset); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_finish_reset);
 
 static irqreturn_t pxa2xx_ac97_irq(int irq, void *dev_id)
 {
@@ -309,14 +309,14 @@ int pxa2xx_ac97_hw_suspend(void)
 	clk_disable(ac97_clk);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_suspend); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_suspend);
 
 int pxa2xx_ac97_hw_resume(void)
 {
 	clk_enable(ac97_clk);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_resume); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_resume);
 #endif
 
 int __devinit pxa2xx_ac97_hw_probe(struct platform_device *dev)
@@ -398,7 +398,7 @@ err_clk:
 err_conf:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_probe); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_probe);
 
 void pxa2xx_ac97_hw_remove(struct platform_device *dev)
 {
@@ -414,7 +414,7 @@ void pxa2xx_ac97_hw_remove(struct platform_device *dev)
 	clk_put(ac97_clk);
 	ac97_clk = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_remove); */
+EXPORT_SYMBOL_GPL(pxa2xx_ac97_hw_remove);
 
 MODULE_AUTHOR("Nicolas Pitre");
 MODULE_DESCRIPTION("Intel/Marvell PXA sound library");

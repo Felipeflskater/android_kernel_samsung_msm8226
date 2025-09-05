@@ -290,7 +290,7 @@ int go7007_snd_init(struct go7007 *go)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_snd_init); */
+EXPORT_SYMBOL(go7007_snd_init);
 
 int go7007_snd_remove(struct go7007 *go)
 {
@@ -300,6 +300,6 @@ int go7007_snd_remove(struct go7007 *go)
 	snd_card_free_when_closed(gosnd->card);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(go7007_snd_remove); */
+EXPORT_SYMBOL(go7007_snd_remove);
 
 MODULE_LICENSE("GPL v2");

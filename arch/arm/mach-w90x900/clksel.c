@@ -87,5 +87,5 @@ void nuc900_clock_source(struct device *dev, unsigned char *src)
 
 	mutex_unlock(&clksel_sem);
 }
-/* DISABLED: EXPORT_SYMBOL(nuc900_clock_source); */
+EXPORT_SYMBOL(nuc900_clock_source);
 

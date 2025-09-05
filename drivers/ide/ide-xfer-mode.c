@@ -44,7 +44,7 @@ const char *ide_xfer_verbose(u8 mode)
 
 	return s;
 }
-/* DISABLED: EXPORT_SYMBOL(ide_xfer_verbose); */
+EXPORT_SYMBOL(ide_xfer_verbose);
 
 /**
  *	ide_get_best_pio_mode	-	get PIO mode from drive
@@ -117,7 +117,7 @@ int ide_pio_need_iordy(ide_drive_t *drive, const u8 pio)
 		return 0;
 	return ata_id_pio_need_iordy(drive->id, pio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pio_need_iordy); */
+EXPORT_SYMBOL_GPL(ide_pio_need_iordy);
 
 int ide_set_pio_mode(ide_drive_t *drive, const u8 mode)
 {
@@ -176,7 +176,7 @@ int ide_set_dma_mode(ide_drive_t *drive, const u8 mode)
 		return ide_config_drive_speed(drive, mode);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_set_dma_mode); */
+EXPORT_SYMBOL_GPL(ide_set_dma_mode);
 
 /* req_pio == "255" for auto-tune */
 void ide_set_pio(ide_drive_t *drive, u8 req_pio)
@@ -206,7 +206,7 @@ void ide_set_pio(ide_drive_t *drive, u8 req_pio)
 
 	(void)ide_set_pio_mode(drive, XFER_PIO_0 + pio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_set_pio); */
+EXPORT_SYMBOL_GPL(ide_set_pio);
 
 /**
  *	ide_rate_filter		-	filter transfer mode

@@ -13,7 +13,7 @@
 		.text
 
 ENTRY(__csum_ipv6_magic)
-		str	lr, [sp, @ -4]!
+		str	lr, [sp, #-4]!
 		adds	ip, r2, r3
 		ldmia	r1, {r1 - r3, lr}
 		adcs	ip, ip, r1

@@ -498,5 +498,5 @@ MODULE_AUTHOR("Brent Casavant - Silicon Graphics, Inc. <bcasavan@sgi.com>");
 MODULE_DESCRIPTION("PCI driver master module for SGI IOC4 Base-IO Card");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(ioc4_register_submodule); */
-/* DISABLED: EXPORT_SYMBOL(ioc4_unregister_submodule); */
+EXPORT_SYMBOL(ioc4_register_submodule);
+EXPORT_SYMBOL(ioc4_unregister_submodule);

@@ -110,7 +110,7 @@ int config_item_set_name(struct config_item * item, const char * fmt, ...)
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(config_item_set_name); */
+EXPORT_SYMBOL(config_item_set_name);
 
 void config_item_init_type_name(struct config_item *item,
 				const char *name,
@@ -120,7 +120,7 @@ void config_item_init_type_name(struct config_item *item,
 	item->ci_type = type;
 	config_item_init(item);
 }
-/* DISABLED: EXPORT_SYMBOL(config_item_init_type_name); */
+EXPORT_SYMBOL(config_item_init_type_name);
 
 void config_group_init_type_name(struct config_group *group, const char *name,
 			 struct config_item_type *type)
@@ -129,7 +129,7 @@ void config_group_init_type_name(struct config_group *group, const char *name,
 	group->cg_item.ci_type = type;
 	config_group_init(group);
 }
-/* DISABLED: EXPORT_SYMBOL(config_group_init_type_name); */
+EXPORT_SYMBOL(config_group_init_type_name);
 
 struct config_item * config_item_get(struct config_item * item)
 {
@@ -209,8 +209,8 @@ struct config_item *config_group_find_item(struct config_group *group,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(config_item_init); */
-/* DISABLED: EXPORT_SYMBOL(config_group_init); */
-/* DISABLED: EXPORT_SYMBOL(config_item_get); */
-/* DISABLED: EXPORT_SYMBOL(config_item_put); */
-/* DISABLED: EXPORT_SYMBOL(config_group_find_item); */
+EXPORT_SYMBOL(config_item_init);
+EXPORT_SYMBOL(config_group_init);
+EXPORT_SYMBOL(config_item_get);
+EXPORT_SYMBOL(config_item_put);
+EXPORT_SYMBOL(config_group_find_item);

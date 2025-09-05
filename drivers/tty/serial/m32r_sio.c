@@ -1176,8 +1176,8 @@ static void __exit m32r_sio_exit(void)
 module_init(m32r_sio_init);
 module_exit(m32r_sio_exit);
 
-/* DISABLED: EXPORT_SYMBOL(m32r_sio_suspend_port); */
-/* DISABLED: EXPORT_SYMBOL(m32r_sio_resume_port); */
+EXPORT_SYMBOL(m32r_sio_suspend_port);
+EXPORT_SYMBOL(m32r_sio_resume_port);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Generic M32R SIO serial driver");

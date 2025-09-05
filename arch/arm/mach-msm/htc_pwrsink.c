@@ -86,7 +86,7 @@ int htc_pwrsink_set(pwrsink_id_type id, unsigned percent_utilized)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(htc_pwrsink_set); */
+EXPORT_SYMBOL(htc_pwrsink_set);
 
 static void compute_audio_current(void)
 {
@@ -152,7 +152,7 @@ int htc_pwrsink_audio_set(pwrsink_audio_id_type id, unsigned percent_utilized)
 	compute_audio_current();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(htc_pwrsink_audio_set); */
+EXPORT_SYMBOL(htc_pwrsink_audio_set);
 
 int htc_pwrsink_audio_volume_set(pwrsink_audio_id_type id, unsigned volume)
 {
@@ -175,7 +175,7 @@ int htc_pwrsink_audio_volume_set(pwrsink_audio_id_type id, unsigned volume)
 	compute_audio_current();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(htc_pwrsink_audio_volume_set); */
+EXPORT_SYMBOL(htc_pwrsink_audio_volume_set);
 
 int htc_pwrsink_audio_path_set(unsigned path)
 {
@@ -195,7 +195,7 @@ int htc_pwrsink_audio_path_set(unsigned path)
 	compute_audio_current();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(htc_pwrsink_audio_path_set); */
+EXPORT_SYMBOL(htc_pwrsink_audio_path_set);
 
 void htc_pwrsink_suspend_early(struct early_suspend *h)
 {

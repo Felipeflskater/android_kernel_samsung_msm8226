@@ -167,7 +167,7 @@ struct dma_map_ops dma_direct_ops = {
 	.sync_sg_for_device 		= dma_direct_sync_sg,
 #endif
 };
-/* DISABLED: EXPORT_SYMBOL(dma_direct_ops); */
+EXPORT_SYMBOL(dma_direct_ops);
 
 #define PREALLOC_DMA_DEBUG_ENTRIES (1 << 16)
 
@@ -184,7 +184,7 @@ int dma_set_mask(struct device *dev, u64 dma_mask)
 	*dev->dma_mask = dma_mask;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_set_mask); */
+EXPORT_SYMBOL(dma_set_mask);
 
 u64 dma_get_required_mask(struct device *dev)
 {
@@ -201,7 +201,7 @@ u64 dma_get_required_mask(struct device *dev)
 
 	return DMA_BIT_MASK(8 * sizeof(dma_addr_t));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dma_get_required_mask); */
+EXPORT_SYMBOL_GPL(dma_get_required_mask);
 
 static int __init dma_init(void)
 {
@@ -227,4 +227,4 @@ int dma_mmap_coherent(struct device *dev, struct vm_area_struct *vma,
 			       vma->vm_end - vma->vm_start,
 			       vma->vm_page_prot);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dma_mmap_coherent); */
+EXPORT_SYMBOL_GPL(dma_mmap_coherent);

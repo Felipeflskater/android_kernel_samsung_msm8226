@@ -301,4 +301,4 @@ err_moutcore:
 	pr_debug("%s: failed initialization\n", __func__);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(exynos4210_cpufreq_init); */
+EXPORT_SYMBOL(exynos4210_cpufreq_init);

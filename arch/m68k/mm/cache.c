@@ -103,7 +103,7 @@ void flush_icache_range(unsigned long address, unsigned long endaddr)
 			      : "di" (FLUSH_I));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(flush_icache_range); */
+EXPORT_SYMBOL(flush_icache_range);
 
 void flush_icache_user_range(struct vm_area_struct *vma, struct page *page,
 			     unsigned long addr, int len)

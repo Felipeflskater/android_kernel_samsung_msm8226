@@ -2266,7 +2266,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mt2063_attach); */
+EXPORT_SYMBOL_GPL(mt2063_attach);
 
 /*
  * Ancillary routines visible outside mt2063
@@ -2285,7 +2285,7 @@ unsigned int tuner_MT2063_SoftwareShutdown(struct dvb_frontend *fe)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tuner_MT2063_SoftwareShutdown); */
+EXPORT_SYMBOL_GPL(tuner_MT2063_SoftwareShutdown);
 
 unsigned int tuner_MT2063_ClearPowerMaskBits(struct dvb_frontend *fe)
 {
@@ -2300,7 +2300,7 @@ unsigned int tuner_MT2063_ClearPowerMaskBits(struct dvb_frontend *fe)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tuner_MT2063_ClearPowerMaskBits); */
+EXPORT_SYMBOL_GPL(tuner_MT2063_ClearPowerMaskBits);
 
 MODULE_AUTHOR("Mauro Carvalho Chehab <mchehab@redhat.com>");
 MODULE_DESCRIPTION("MT2063 Silicon tuner");

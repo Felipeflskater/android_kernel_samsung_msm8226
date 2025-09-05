@@ -531,7 +531,7 @@ out_dst_release:
 out:
 	icmpv6_xmit_unlock(sk);
 }
-/* DISABLED: EXPORT_SYMBOL(icmpv6_send); */
+EXPORT_SYMBOL(icmpv6_send);
 
 static void icmpv6_echo_reply(struct sk_buff *skb)
 {
@@ -978,7 +978,7 @@ int icmpv6_err_convert(u8 type, u8 code, int *err)
 	return fatal;
 }
 
-/* DISABLED: EXPORT_SYMBOL(icmpv6_err_convert); */
+EXPORT_SYMBOL(icmpv6_err_convert);
 
 #ifdef CONFIG_SYSCTL
 ctl_table ipv6_icmp_table_template[] = {

@@ -92,7 +92,7 @@ void kmemcheck_mark_initialized(void *address, unsigned int n)
 {
 	mark_shadow(address, n, KMEMCHECK_SHADOW_INITIALIZED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemcheck_mark_initialized); */
+EXPORT_SYMBOL_GPL(kmemcheck_mark_initialized);
 
 void kmemcheck_mark_freed(void *address, unsigned int n)
 {

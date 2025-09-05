@@ -387,7 +387,7 @@ void mpc52xx_lpbfifo_poll(void)
 	else 
 		mpc52xx_lpbfifo_bcom_irq(0, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_lpbfifo_poll); */
+EXPORT_SYMBOL(mpc52xx_lpbfifo_poll);
 
 /**
  * mpc52xx_lpbfifo_submit - Submit an LPB FIFO transfer request.
@@ -419,7 +419,7 @@ int mpc52xx_lpbfifo_submit(struct mpc52xx_lpbfifo_request *req)
 	spin_unlock_irqrestore(&lpbfifo.lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_lpbfifo_submit); */
+EXPORT_SYMBOL(mpc52xx_lpbfifo_submit);
 
 void mpc52xx_lpbfifo_abort(struct mpc52xx_lpbfifo_request *req)
 {
@@ -435,7 +435,7 @@ void mpc52xx_lpbfifo_abort(struct mpc52xx_lpbfifo_request *req)
 	}
 	spin_unlock_irqrestore(&lpbfifo.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_lpbfifo_abort); */
+EXPORT_SYMBOL(mpc52xx_lpbfifo_abort);
 
 static int __devinit mpc52xx_lpbfifo_probe(struct platform_device *op)
 {

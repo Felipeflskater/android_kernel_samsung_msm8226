@@ -499,10 +499,10 @@ out:
 	spin_unlock(&files->file_lock);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_fd); */
+EXPORT_SYMBOL(alloc_fd);
 
 int get_unused_fd(void)
 {
 	return alloc_fd(0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(get_unused_fd); */
+EXPORT_SYMBOL(get_unused_fd);

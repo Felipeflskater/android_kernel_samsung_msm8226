@@ -262,7 +262,7 @@ static int ear_jack_fsa8038_en = 0;
 #endif
 #if defined(CONFIG_SEC_H_PROJECT)
 int speaker_status = 0;
-/* DISABLED: EXPORT_SYMBOL(speaker_status); */
+EXPORT_SYMBOL(speaker_status);
 #endif
 #if defined(CONFIG_MACH_KLTE_KOR) || defined(CONFIG_MACH_KLTE_JPN) || defined(CONFIG_MACH_KACTIVELTE_DCM) \
 || defined(CONFIG_MACH_CHAGALL_KDI) || defined(CONFIG_MACH_KLIMT_LTE_DCM) || defined(CONFIG_MACH_KACTIVELTE_KOR)

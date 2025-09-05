@@ -76,7 +76,7 @@ s16 ath9k_hw_getchan_noise(struct ath_hw *ah, struct ath9k_channel *chan)
 	}
 	return noise;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_getchan_noise); */
+EXPORT_SYMBOL(ath9k_hw_getchan_noise);
 
 static void ath9k_hw_update_nfcal_hist_buffer(struct ath_hw *ah,
 					      struct ath9k_hw_cal_data *cal,
@@ -215,7 +215,7 @@ bool ath9k_hw_reset_calvalid(struct ath_hw *ah)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_reset_calvalid); */
+EXPORT_SYMBOL(ath9k_hw_reset_calvalid);
 
 void ath9k_hw_start_nfcal(struct ath_hw *ah, bool update)
 {
@@ -399,7 +399,7 @@ bool ath9k_hw_getnf(struct ath_hw *ah, struct ath9k_channel *chan)
 	ah->noise = ath9k_hw_getchan_noise(ah, chan);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_getnf); */
+EXPORT_SYMBOL(ath9k_hw_getnf);
 
 void ath9k_init_nfcal_hist_buffer(struct ath_hw *ah,
 				  struct ath9k_channel *chan)
@@ -446,5 +446,5 @@ void ath9k_hw_bstuck_nfcal(struct ath_hw *ah)
 
 	caldata->nfcal_interference = true;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_bstuck_nfcal); */
+EXPORT_SYMBOL(ath9k_hw_bstuck_nfcal);
 

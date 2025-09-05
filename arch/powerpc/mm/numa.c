@@ -41,9 +41,9 @@ int numa_cpu_lookup_table[NR_CPUS];
 cpumask_var_t node_to_cpumask_map[MAX_NUMNODES];
 struct pglist_data *node_data[MAX_NUMNODES];
 
-/* DISABLED: EXPORT_SYMBOL(numa_cpu_lookup_table); */
-/* DISABLED: EXPORT_SYMBOL(node_to_cpumask_map); */
-/* DISABLED: EXPORT_SYMBOL(node_data); */
+EXPORT_SYMBOL(numa_cpu_lookup_table);
+EXPORT_SYMBOL(node_to_cpumask_map);
+EXPORT_SYMBOL(node_data);
 
 static int min_common_depth;
 static int n_mem_addr_cells, n_mem_size_cells;
@@ -286,7 +286,7 @@ int of_node_to_nid(struct device_node *device)
 
 	return nid;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_node_to_nid); */
+EXPORT_SYMBOL_GPL(of_node_to_nid);
 
 static int __init find_min_common_depth(void)
 {

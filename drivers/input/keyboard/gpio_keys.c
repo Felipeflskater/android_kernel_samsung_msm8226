@@ -978,7 +978,7 @@ static void gpio_keys_close(struct input_dev *input)
 
 #ifdef CONFIG_USE_VM_KEYBOARD_REJECT
 bool reject_keyboard_specific_key;
-/* DISABLED: EXPORT_SYMBOL(reject_keyboard_specific_key); */
+EXPORT_SYMBOL(reject_keyboard_specific_key);
 
 static ssize_t sysfs_reject_keyboard_spec_key_show(struct device *dev,
 		struct device_attribute *attr, char *buf)

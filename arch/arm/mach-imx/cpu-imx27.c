@@ -71,4 +71,4 @@ int mx27_revision(void)
 
 	return mx27_cpu_rev;
 }
-/* DISABLED: EXPORT_SYMBOL(mx27_revision); */
+EXPORT_SYMBOL(mx27_revision);

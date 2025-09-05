@@ -59,15 +59,15 @@ __cache_params:
 ENTRY(cpu_feroceon_proc_init)
 	mrc	p15, 0, r0, c0, c0, 1		@ read cache type register
 	ldr	r1, __cache_params
-	mov	r2, @ (16 << 5)
-	tst	r0, @ (1 << 16)			@ get way
+	mov	r2, #(16 << 5)
+	tst	r0, #(1 << 16)			@ get way
 	mov	r0, r0, lsr #18			@ get cache size order
-	movne	r3, @ ((4 - 1) << 30)		@ 4-way
+	movne	r3, #((4 - 1) << 30)		@ 4-way
 	and	r0, r0, #0xf
 	moveq	r3, #0				@ 1-way
 	mov	r2, r2, lsl r0			@ actual cache size
-	movne	r2, r2, lsr #2			@ turned into @  of sets
-	sub	r2, r2, @ (1 << 5)
+	movne	r2, r2, lsr #2			@ turned into # of sets
+	sub	r2, r2, #(1 << 5)
 	stmia	r1, {r2, r3}
 	mov	pc, lr
 
@@ -153,19 +153,19 @@ ENTRY(feroceon_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(feroceon_flush_kern_cache_all)
-	mov	r2, @ VM_EXEC
+	mov	r2, #VM_EXEC
 
 __flush_whole_cache:
 	ldr	r1, __cache_params
 	ldmia	r1, {r1, r3}
 1:	orr	ip, r1, r3
 2:	mcr	p15, 0, ip, c7, c14, 2		@ clean + invalidate D set/way
-	subs	ip, ip, @ (1 << 30)		@ next way
+	subs	ip, ip, #(1 << 30)		@ next way
 	bcs	2b
-	subs	r1, r1, @ (1 << 5)		@ next set
+	subs	r1, r1, #(1 << 5)		@ next set
 	bcs	1b
 
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mov	ip, #0
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
@@ -184,18 +184,18 @@ __flush_whole_cache:
 	.align	5
 ENTRY(feroceon_flush_user_cache_range)
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, @ CACHE_DLIMIT
+	cmp	r3, #CACHE_DLIMIT
 	bgt	__flush_whole_cache
-1:	tst	r2, @ VM_EXEC
+1:	tst	r2, #VM_EXEC
 	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D entry
 	mcrne	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	mcr	p15, 0, r0, c7, c14, 1		@ clean and invalidate D entry
 	mcrne	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mov	ip, #0
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
 	mov	pc, lr
@@ -225,10 +225,10 @@ ENTRY(feroceon_coherent_kern_range)
  *	- end	- virtual end address
  */
 ENTRY(feroceon_coherent_user_range)
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -247,7 +247,7 @@ ENTRY(feroceon_coherent_user_range)
 ENTRY(feroceon_flush_kern_dcache_area)
 	add	r1, r0, r1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -258,8 +258,8 @@ ENTRY(feroceon_flush_kern_dcache_area)
 	.align	5
 ENTRY(feroceon_range_flush_kern_dcache_area)
 	mrs	r2, cpsr
-	add	r1, r0, @ PAGE_SZ - CACHE_DLINESIZE	@ top addr is inclusive
-	orr	r3, r2, @ PSR_I_BIT
+	add	r1, r0, #PAGE_SZ - CACHE_DLINESIZE	@ top addr is inclusive
+	orr	r3, r2, #PSR_I_BIT
 	msr	cpsr_c, r3			@ disable interrupts
 	mcr	p15, 5, r0, c15, c15, 0		@ D clean/inv range start
 	mcr	p15, 5, r1, c15, c15, 1		@ D clean/inv range top
@@ -284,13 +284,13 @@ ENTRY(feroceon_range_flush_kern_dcache_area)
  */
 	.align	5
 feroceon_dma_inv_range:
-	tst	r0, @ CACHE_DLINESIZE - 1
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	tst	r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
-	tst	r1, @ CACHE_DLINESIZE - 1
+	tst	r1, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -299,13 +299,13 @@ feroceon_dma_inv_range:
 	.align	5
 feroceon_range_dma_inv_range:
 	mrs	r2, cpsr
-	tst	r0, @ CACHE_DLINESIZE - 1
+	tst	r0, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
-	tst	r1, @ CACHE_DLINESIZE - 1
+	tst	r1, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 	cmp	r1, r0
 	subne	r1, r1, #1			@ top address is inclusive
-	orr	r3, r2, @ PSR_I_BIT
+	orr	r3, r2, #PSR_I_BIT
 	msr	cpsr_c, r3			@ disable interrupts
 	mcr	p15, 5, r0, c15, c14, 0		@ D inv range start
 	mcr	p15, 5, r1, c15, c14, 1		@ D inv range top
@@ -324,9 +324,9 @@ feroceon_range_dma_inv_range:
  */
 	.align	5
 feroceon_dma_clean_range:
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -337,7 +337,7 @@ feroceon_range_dma_clean_range:
 	mrs	r2, cpsr
 	cmp	r1, r0
 	subne	r1, r1, #1			@ top address is inclusive
-	orr	r3, r2, @ PSR_I_BIT
+	orr	r3, r2, #PSR_I_BIT
 	msr	cpsr_c, r3			@ disable interrupts
 	mcr	p15, 5, r0, c15, c13, 0		@ D clean range start
 	mcr	p15, 5, r1, c15, c13, 1		@ D clean range top
@@ -355,9 +355,9 @@ feroceon_range_dma_clean_range:
  */
 	.align	5
 ENTRY(feroceon_dma_flush_range)
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -368,7 +368,7 @@ ENTRY(feroceon_range_dma_flush_range)
 	mrs	r2, cpsr
 	cmp	r1, r0
 	subne	r1, r1, #1			@ top address is inclusive
-	orr	r3, r2, @ PSR_I_BIT
+	orr	r3, r2, #PSR_I_BIT
 	msr	cpsr_c, r3			@ disable interrupts
 	mcr	p15, 5, r0, c15, c15, 0		@ D clean/inv range start
 	mcr	p15, 5, r1, c15, c15, 1		@ D clean/inv range top
@@ -384,7 +384,7 @@ ENTRY(feroceon_range_dma_flush_range)
  */
 ENTRY(feroceon_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, @ DMA_TO_DEVICE
+	cmp	r2, #DMA_TO_DEVICE
 	beq	feroceon_dma_clean_range
 	bcs	feroceon_dma_inv_range
 	b	feroceon_dma_flush_range
@@ -398,7 +398,7 @@ ENDPROC(feroceon_dma_map_area)
  */
 ENTRY(feroceon_range_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, @ DMA_TO_DEVICE
+	cmp	r2, #DMA_TO_DEVICE
 	beq	feroceon_range_dma_clean_range
 	bcs	feroceon_range_dma_inv_range
 	b	feroceon_range_dma_flush_range
@@ -448,14 +448,14 @@ ENTRY(cpu_feroceon_dcache_clean_area)
 	mov	r3, r1
 #endif
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHE_DLINESIZE
-	subs	r1, r1, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
+	subs	r1, r1, #CACHE_DLINESIZE
 	bhi	1b
 #if defined(CONFIG_CACHE_FEROCEON_L2) && \
 	!defined(CONFIG_CACHE_FEROCEON_L2_WRITETHROUGH)
 1:	mcr	p15, 1, r2, c15, c9, 1		@ clean L2 entry
-	add	r2, r2, @ CACHE_DLINESIZE
-	subs	r3, r3, @ CACHE_DLINESIZE
+	add	r2, r2, #CACHE_DLINESIZE
+	subs	r3, r3, #CACHE_DLINESIZE
 	bhi	1b
 #endif
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
@@ -482,7 +482,7 @@ ENTRY(cpu_feroceon_switch_mm)
 	mov	r2, lr				@ abuse r2 to preserve lr
 	bl	__flush_whole_cache
 	@ if r2 contains the VM_EXEC bit then the next 2 ops are done already
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mcreq	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcreq	p15, 0, ip, c7, c10, 4		@ drain WB
 
@@ -514,7 +514,7 @@ ENTRY(cpu_feroceon_set_pte_ext)
 
 	__CPUINIT
 
-	.type	__feroceon_setup, @ function
+	.type	__feroceon_setup, #function
 __feroceon_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -538,7 +538,7 @@ __feroceon_setup:
 	 * .011 .001 ..11 0101
 	 *
 	 */
-	.type	feroceon_crval, @ object
+	.type	feroceon_crval, #object
 feroceon_crval:
 	crval	clear=0x0000773f, mmuset=0x00003135, ucset=0x00001134
 
@@ -558,10 +558,10 @@ feroceon_crval:
 
 	.align
 
-	.section ".proc.info.init", @ alloc, @ execinstr
+	.section ".proc.info.init", #alloc, #execinstr
 
 .macro feroceon_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache:req
-	.type	__\name\()_proc_info, @ object
+	.type	__\name\()_proc_info,#object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

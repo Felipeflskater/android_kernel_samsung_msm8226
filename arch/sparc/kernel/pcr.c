@@ -58,7 +58,7 @@ void arch_irq_work_raise(void)
 }
 
 const struct pcr_ops *pcr_ops;
-/* DISABLED: EXPORT_SYMBOL_GPL(pcr_ops); */
+EXPORT_SYMBOL_GPL(pcr_ops);
 
 static u64 direct_pcr_read(void)
 {

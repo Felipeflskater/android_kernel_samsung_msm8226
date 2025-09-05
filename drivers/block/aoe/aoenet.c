@@ -41,7 +41,7 @@ static int __init aoe_iflist_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("aoe_iflist=", aoe_iflist_setup); */ */
+__setup("aoe_iflist=", aoe_iflist_setup);
 #endif
 
 int

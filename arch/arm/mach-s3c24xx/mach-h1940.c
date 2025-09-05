@@ -416,7 +416,7 @@ int h1940_led_blink_set(unsigned gpio, int state,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(h1940_led_blink_set); */
+EXPORT_SYMBOL(h1940_led_blink_set);
 
 static struct gpio_led h1940_leds_desc[] = {
 	{

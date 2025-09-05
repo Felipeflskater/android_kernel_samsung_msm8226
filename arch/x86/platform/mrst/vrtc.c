@@ -43,7 +43,7 @@ unsigned char vrtc_cmos_read(unsigned char reg)
 	lock_cmos_suffix(reg);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vrtc_cmos_read); */
+EXPORT_SYMBOL_GPL(vrtc_cmos_read);
 
 void vrtc_cmos_write(unsigned char val, unsigned char reg)
 {
@@ -54,7 +54,7 @@ void vrtc_cmos_write(unsigned char val, unsigned char reg)
 	__raw_writeb(val, vrtc_virt_base + (reg << 2));
 	lock_cmos_suffix(reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vrtc_cmos_write); */
+EXPORT_SYMBOL_GPL(vrtc_cmos_write);
 
 unsigned long vrtc_get_time(void)
 {

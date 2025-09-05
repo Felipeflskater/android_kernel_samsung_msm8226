@@ -29,7 +29,7 @@ static int __init bootonly(char *str)
 	smp_alt_once = 1;
 	return 1;
 }
-/* DISABLED: __setup("smp-alt-boot", bootonly); */ */
+__setup("smp-alt-boot", bootonly);
 #else
 #define smp_alt_once 1
 #endif
@@ -41,7 +41,7 @@ static int __init debug_alt(char *str)
 	debug_alternative = 1;
 	return 1;
 }
-/* DISABLED: __setup("debug-alternative", debug_alt); */ */
+__setup("debug-alternative", debug_alt);
 
 static int noreplace_smp;
 
@@ -50,7 +50,7 @@ static int __init setup_noreplace_smp(char *str)
 	noreplace_smp = 1;
 	return 1;
 }
-/* DISABLED: __setup("noreplace-smp", setup_noreplace_smp); */ */
+__setup("noreplace-smp", setup_noreplace_smp);
 
 #ifdef CONFIG_PARAVIRT
 static int __initdata_or_module noreplace_paravirt = 0;
@@ -60,7 +60,7 @@ static int __init setup_noreplace_paravirt(char *str)
 	noreplace_paravirt = 1;
 	return 1;
 }
-/* DISABLED: __setup("noreplace-paravirt", setup_noreplace_paravirt); */ */
+__setup("noreplace-paravirt", setup_noreplace_paravirt);
 #endif
 
 #define DPRINTK(fmt, args...) if (debug_alternative) \

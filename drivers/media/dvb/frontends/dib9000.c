@@ -1647,7 +1647,7 @@ int dib9000_fw_set_component_bus_speed(struct dvb_frontend *fe, u16 speed)
 	state->component_bus_speed = speed;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_fw_set_component_bus_speed); */
+EXPORT_SYMBOL(dib9000_fw_set_component_bus_speed);
 
 static int dib9000_fw_component_bus_xfer(struct i2c_adapter *i2c_adap, struct i2c_msg msg[], int num)
 {
@@ -1725,21 +1725,21 @@ struct i2c_adapter *dib9000_get_tuner_interface(struct dvb_frontend *fe)
 	struct dib9000_state *st = fe->demodulator_priv;
 	return &st->tuner_adap;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_get_tuner_interface); */
+EXPORT_SYMBOL(dib9000_get_tuner_interface);
 
 struct i2c_adapter *dib9000_get_component_bus_interface(struct dvb_frontend *fe)
 {
 	struct dib9000_state *st = fe->demodulator_priv;
 	return &st->component_bus;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_get_component_bus_interface); */
+EXPORT_SYMBOL(dib9000_get_component_bus_interface);
 
 struct i2c_adapter *dib9000_get_i2c_master(struct dvb_frontend *fe, enum dibx000_i2c_interface intf, int gating)
 {
 	struct dib9000_state *st = fe->demodulator_priv;
 	return dibx000_get_i2c_adapter(&st->i2c_master, intf, gating);
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_get_i2c_master); */
+EXPORT_SYMBOL(dib9000_get_i2c_master);
 
 int dib9000_set_i2c_adapter(struct dvb_frontend *fe, struct i2c_adapter *i2c)
 {
@@ -1748,7 +1748,7 @@ int dib9000_set_i2c_adapter(struct dvb_frontend *fe, struct i2c_adapter *i2c)
 	st->i2c.i2c_adap = i2c;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_set_i2c_adapter); */
+EXPORT_SYMBOL(dib9000_set_i2c_adapter);
 
 static int dib9000_cfg_gpio(struct dib9000_state *st, u8 num, u8 dir, u8 val)
 {
@@ -1772,7 +1772,7 @@ int dib9000_set_gpio(struct dvb_frontend *fe, u8 num, u8 dir, u8 val)
 	struct dib9000_state *state = fe->demodulator_priv;
 	return dib9000_cfg_gpio(state, num, dir, val);
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_set_gpio); */
+EXPORT_SYMBOL(dib9000_set_gpio);
 
 int dib9000_fw_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 {
@@ -1803,7 +1803,7 @@ int dib9000_fw_pid_filter_ctrl(struct dvb_frontend *fe, u8 onoff)
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_fw_pid_filter_ctrl); */
+EXPORT_SYMBOL(dib9000_fw_pid_filter_ctrl);
 
 int dib9000_fw_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 {
@@ -1834,14 +1834,14 @@ int dib9000_fw_pid_filter(struct dvb_frontend *fe, u8 id, u16 pid, u8 onoff)
 	DibReleaseLock(&state->demod_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_fw_pid_filter); */
+EXPORT_SYMBOL(dib9000_fw_pid_filter);
 
 int dib9000_firmware_post_pll_init(struct dvb_frontend *fe)
 {
 	struct dib9000_state *state = fe->demodulator_priv;
 	return dib9000_fw_init(state);
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_firmware_post_pll_init); */
+EXPORT_SYMBOL(dib9000_firmware_post_pll_init);
 
 static void dib9000_release(struct dvb_frontend *demod)
 {
@@ -2442,7 +2442,7 @@ error_memory:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_i2c_enumeration); */
+EXPORT_SYMBOL(dib9000_i2c_enumeration);
 
 int dib9000_set_slave_frontend(struct dvb_frontend *fe, struct dvb_frontend *fe_slave)
 {
@@ -2460,7 +2460,7 @@ int dib9000_set_slave_frontend(struct dvb_frontend *fe, struct dvb_frontend *fe_
 	dprintk("too many slave frontend");
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_set_slave_frontend); */
+EXPORT_SYMBOL(dib9000_set_slave_frontend);
 
 int dib9000_remove_slave_frontend(struct dvb_frontend *fe)
 {
@@ -2478,7 +2478,7 @@ int dib9000_remove_slave_frontend(struct dvb_frontend *fe)
 	dprintk("no frontend to be removed");
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_remove_slave_frontend); */
+EXPORT_SYMBOL(dib9000_remove_slave_frontend);
 
 struct dvb_frontend *dib9000_get_slave_frontend(struct dvb_frontend *fe, int slave_index)
 {
@@ -2488,7 +2488,7 @@ struct dvb_frontend *dib9000_get_slave_frontend(struct dvb_frontend *fe, int sla
 		return NULL;
 	return state->fe[slave_index];
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_get_slave_frontend); */
+EXPORT_SYMBOL(dib9000_get_slave_frontend);
 
 static struct dvb_frontend_ops dib9000_ops;
 struct dvb_frontend *dib9000_attach(struct i2c_adapter *i2c_adap, u8 i2c_addr, const struct dib9000_config *cfg)
@@ -2565,7 +2565,7 @@ error:
 	kfree(st);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dib9000_attach); */
+EXPORT_SYMBOL(dib9000_attach);
 
 static struct dvb_frontend_ops dib9000_ops = {
 	.delsys = { SYS_DVBT },

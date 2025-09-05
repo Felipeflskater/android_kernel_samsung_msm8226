@@ -31,7 +31,7 @@ void sdio_claim_host(struct sdio_func *func)
 
 	mmc_claim_host(func->card->host);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_claim_host); */
+EXPORT_SYMBOL_GPL(sdio_claim_host);
 
 /**
  *	sdio_release_host - release a bus for a certain SDIO function
@@ -47,7 +47,7 @@ void sdio_release_host(struct sdio_func *func)
 
 	mmc_release_host(func->card->host);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_release_host); */
+EXPORT_SYMBOL_GPL(sdio_release_host);
 
 /**
  *	sdio_enable_func - enables a SDIO function for usage
@@ -98,7 +98,7 @@ err:
 	pr_debug("SDIO: Failed to enable device %s\n", sdio_func_id(func));
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_enable_func); */
+EXPORT_SYMBOL_GPL(sdio_enable_func);
 
 /**
  *	sdio_disable_func - disable a SDIO function
@@ -135,7 +135,7 @@ err:
 	pr_debug("SDIO: Failed to disable device %s\n", sdio_func_id(func));
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_disable_func); */
+EXPORT_SYMBOL_GPL(sdio_disable_func);
 
 /**
  *	sdio_set_block_size - set the block size of an SDIO function
@@ -181,7 +181,7 @@ int sdio_set_block_size(struct sdio_func *func, unsigned blksz)
 	func->cur_blksize = blksz;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_set_block_size); */
+EXPORT_SYMBOL_GPL(sdio_set_block_size);
 
 /*
  * Calculate the maximum byte mode transfer size
@@ -297,7 +297,7 @@ unsigned int sdio_align_size(struct sdio_func *func, unsigned int sz)
 	 */
 	return orig_sz;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_align_size); */
+EXPORT_SYMBOL_GPL(sdio_align_size);
 
 /* Split an arbitrarily sized data transfer into several
  * IO_RW_EXTENDED commands. */
@@ -385,7 +385,7 @@ u8 sdio_readb(struct sdio_func *func, unsigned int addr, int *err_ret)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_readb); */
+EXPORT_SYMBOL_GPL(sdio_readb);
 
 /**
  *	sdio_readb_ext - read a single byte from a SDIO function
@@ -418,7 +418,7 @@ unsigned char sdio_readb_ext(struct sdio_func *func, unsigned int addr,
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_readb_ext); */
+EXPORT_SYMBOL_GPL(sdio_readb_ext);
 
 /**
  *	sdio_writeb - write a single byte to a SDIO function
@@ -441,7 +441,7 @@ void sdio_writeb(struct sdio_func *func, u8 b, unsigned int addr, int *err_ret)
 	if (err_ret)
 		*err_ret = ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_writeb); */
+EXPORT_SYMBOL_GPL(sdio_writeb);
 
 /**
  *	sdio_writeb_readb - write and read a byte from SDIO function
@@ -471,7 +471,7 @@ u8 sdio_writeb_readb(struct sdio_func *func, u8 write_byte,
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_writeb_readb); */
+EXPORT_SYMBOL_GPL(sdio_writeb_readb);
 
 /**
  *	sdio_memcpy_fromio - read a chunk of memory from a SDIO function
@@ -488,7 +488,7 @@ int sdio_memcpy_fromio(struct sdio_func *func, void *dst,
 {
 	return sdio_io_rw_ext_helper(func, 0, addr, 1, dst, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_memcpy_fromio); */
+EXPORT_SYMBOL_GPL(sdio_memcpy_fromio);
 
 /**
  *	sdio_memcpy_toio - write a chunk of memory to a SDIO function
@@ -505,7 +505,7 @@ int sdio_memcpy_toio(struct sdio_func *func, unsigned int addr,
 {
 	return sdio_io_rw_ext_helper(func, 1, addr, 1, src, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_memcpy_toio); */
+EXPORT_SYMBOL_GPL(sdio_memcpy_toio);
 
 /**
  *	sdio_readsb - read from a FIFO on a SDIO function
@@ -522,7 +522,7 @@ int sdio_readsb(struct sdio_func *func, void *dst, unsigned int addr,
 {
 	return sdio_io_rw_ext_helper(func, 0, addr, 0, dst, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_readsb); */
+EXPORT_SYMBOL_GPL(sdio_readsb);
 
 /**
  *	sdio_writesb - write to a FIFO of a SDIO function
@@ -539,7 +539,7 @@ int sdio_writesb(struct sdio_func *func, unsigned int addr, void *src,
 {
 	return sdio_io_rw_ext_helper(func, 1, addr, 0, src, count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_writesb); */
+EXPORT_SYMBOL_GPL(sdio_writesb);
 
 /**
  *	sdio_readw - read a 16 bit integer from a SDIO function
@@ -567,7 +567,7 @@ u16 sdio_readw(struct sdio_func *func, unsigned int addr, int *err_ret)
 
 	return le16_to_cpup((__le16 *)func->tmpbuf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_readw); */
+EXPORT_SYMBOL_GPL(sdio_readw);
 
 /**
  *	sdio_writew - write a 16 bit integer to a SDIO function
@@ -590,7 +590,7 @@ void sdio_writew(struct sdio_func *func, u16 b, unsigned int addr, int *err_ret)
 	if (err_ret)
 		*err_ret = ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_writew); */
+EXPORT_SYMBOL_GPL(sdio_writew);
 
 /**
  *	sdio_readl - read a 32 bit integer from a SDIO function
@@ -619,7 +619,7 @@ u32 sdio_readl(struct sdio_func *func, unsigned int addr, int *err_ret)
 
 	return le32_to_cpup((__le32 *)func->tmpbuf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_readl); */
+EXPORT_SYMBOL_GPL(sdio_readl);
 
 /**
  *	sdio_writel - write a 32 bit integer to a SDIO function
@@ -642,7 +642,7 @@ void sdio_writel(struct sdio_func *func, u32 b, unsigned int addr, int *err_ret)
 	if (err_ret)
 		*err_ret = ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_writel); */
+EXPORT_SYMBOL_GPL(sdio_writel);
 
 /**
  *	sdio_f0_readb - read a single byte from SDIO function 0
@@ -674,7 +674,7 @@ unsigned char sdio_f0_readb(struct sdio_func *func, unsigned int addr,
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_f0_readb); */
+EXPORT_SYMBOL_GPL(sdio_f0_readb);
 
 /**
  *	sdio_f0_writeb - write a single byte to SDIO function 0
@@ -707,7 +707,7 @@ void sdio_f0_writeb(struct sdio_func *func, unsigned char b, unsigned int addr,
 	if (err_ret)
 		*err_ret = ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_f0_writeb); */
+EXPORT_SYMBOL_GPL(sdio_f0_writeb);
 
 /**
  *	sdio_get_host_pm_caps - get host power management capabilities
@@ -726,7 +726,7 @@ mmc_pm_flag_t sdio_get_host_pm_caps(struct sdio_func *func)
 
 	return func->card->host->pm_caps;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_get_host_pm_caps); */
+EXPORT_SYMBOL_GPL(sdio_get_host_pm_caps);
 
 /**
  *	sdio_set_host_pm_flags - set wanted host power management capabilities
@@ -756,4 +756,4 @@ int sdio_set_host_pm_flags(struct sdio_func *func, mmc_pm_flag_t flags)
 	host->pm_flags |= flags;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdio_set_host_pm_flags); */
+EXPORT_SYMBOL_GPL(sdio_set_host_pm_flags);

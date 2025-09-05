@@ -190,7 +190,7 @@ usb_copy_descriptors(struct usb_descriptor_header **src)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_copy_descriptors); */
+EXPORT_SYMBOL_GPL(usb_copy_descriptors);
 
 int usb_assign_descriptors(struct usb_function *f,
 		struct usb_descriptor_header **fs,
@@ -219,7 +219,7 @@ err:
 	usb_free_all_descriptors(f);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_assign_descriptors); */
+EXPORT_SYMBOL_GPL(usb_assign_descriptors);
 
 void usb_free_all_descriptors(struct usb_function *f)
 {
@@ -227,4 +227,4 @@ void usb_free_all_descriptors(struct usb_function *f)
 	usb_free_descriptors(f->hs_descriptors);
 	usb_free_descriptors(f->ss_descriptors);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_free_all_descriptors); */
+EXPORT_SYMBOL_GPL(usb_free_all_descriptors);

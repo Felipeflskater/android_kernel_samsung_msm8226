@@ -616,9 +616,9 @@ static void ak4114_stats(struct work_struct *work)
 		schedule_delayed_work(&chip->work, HZ / 10);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_create); */
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_reg_write); */
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_reinit); */
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_build); */
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_external_rate); */
-/* DISABLED: EXPORT_SYMBOL(snd_ak4114_check_rate_and_errors); */
+EXPORT_SYMBOL(snd_ak4114_create);
+EXPORT_SYMBOL(snd_ak4114_reg_write);
+EXPORT_SYMBOL(snd_ak4114_reinit);
+EXPORT_SYMBOL(snd_ak4114_build);
+EXPORT_SYMBOL(snd_ak4114_external_rate);
+EXPORT_SYMBOL(snd_ak4114_check_rate_and_errors);

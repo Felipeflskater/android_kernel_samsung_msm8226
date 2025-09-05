@@ -29,40 +29,40 @@ u8 oxygen_read8(struct oxygen *chip, unsigned int reg)
 {
 	return inb(chip->addr + reg);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_read8); */
+EXPORT_SYMBOL(oxygen_read8);
 
 u16 oxygen_read16(struct oxygen *chip, unsigned int reg)
 {
 	return inw(chip->addr + reg);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_read16); */
+EXPORT_SYMBOL(oxygen_read16);
 
 u32 oxygen_read32(struct oxygen *chip, unsigned int reg)
 {
 	return inl(chip->addr + reg);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_read32); */
+EXPORT_SYMBOL(oxygen_read32);
 
 void oxygen_write8(struct oxygen *chip, unsigned int reg, u8 value)
 {
 	outb(value, chip->addr + reg);
 	chip->saved_registers._8[reg] = value;
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write8); */
+EXPORT_SYMBOL(oxygen_write8);
 
 void oxygen_write16(struct oxygen *chip, unsigned int reg, u16 value)
 {
 	outw(value, chip->addr + reg);
 	chip->saved_registers._16[reg / 2] = cpu_to_le16(value);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write16); */
+EXPORT_SYMBOL(oxygen_write16);
 
 void oxygen_write32(struct oxygen *chip, unsigned int reg, u32 value)
 {
 	outl(value, chip->addr + reg);
 	chip->saved_registers._32[reg / 4] = cpu_to_le32(value);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write32); */
+EXPORT_SYMBOL(oxygen_write32);
 
 void oxygen_write8_masked(struct oxygen *chip, unsigned int reg,
 			  u8 value, u8 mask)
@@ -73,7 +73,7 @@ void oxygen_write8_masked(struct oxygen *chip, unsigned int reg,
 	outb(tmp, chip->addr + reg);
 	chip->saved_registers._8[reg] = tmp;
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write8_masked); */
+EXPORT_SYMBOL(oxygen_write8_masked);
 
 void oxygen_write16_masked(struct oxygen *chip, unsigned int reg,
 			   u16 value, u16 mask)
@@ -84,7 +84,7 @@ void oxygen_write16_masked(struct oxygen *chip, unsigned int reg,
 	outw(tmp, chip->addr + reg);
 	chip->saved_registers._16[reg / 2] = cpu_to_le16(tmp);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write16_masked); */
+EXPORT_SYMBOL(oxygen_write16_masked);
 
 void oxygen_write32_masked(struct oxygen *chip, unsigned int reg,
 			   u32 value, u32 mask)
@@ -95,7 +95,7 @@ void oxygen_write32_masked(struct oxygen *chip, unsigned int reg,
 	outl(tmp, chip->addr + reg);
 	chip->saved_registers._32[reg / 4] = cpu_to_le32(tmp);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write32_masked); */
+EXPORT_SYMBOL(oxygen_write32_masked);
 
 static int oxygen_ac97_wait(struct oxygen *chip, unsigned int mask)
 {
@@ -149,7 +149,7 @@ void oxygen_write_ac97(struct oxygen *chip, unsigned int codec,
 	}
 	snd_printk(KERN_ERR "AC'97 write timeout\n");
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write_ac97); */
+EXPORT_SYMBOL(oxygen_write_ac97);
 
 u16 oxygen_read_ac97(struct oxygen *chip, unsigned int codec,
 		     unsigned int index)
@@ -182,7 +182,7 @@ u16 oxygen_read_ac97(struct oxygen *chip, unsigned int codec,
 	snd_printk(KERN_ERR "AC'97 read timeout on codec %u\n", codec);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_read_ac97); */
+EXPORT_SYMBOL(oxygen_read_ac97);
 
 void oxygen_write_ac97_masked(struct oxygen *chip, unsigned int codec,
 			      unsigned int index, u16 data, u16 mask)
@@ -192,7 +192,7 @@ void oxygen_write_ac97_masked(struct oxygen *chip, unsigned int codec,
 	value |= data & mask;
 	oxygen_write_ac97(chip, codec, index, value);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write_ac97_masked); */
+EXPORT_SYMBOL(oxygen_write_ac97_masked);
 
 void oxygen_write_spi(struct oxygen *chip, u8 control, unsigned int data)
 {
@@ -212,7 +212,7 @@ void oxygen_write_spi(struct oxygen *chip, u8 control, unsigned int data)
 		oxygen_write8(chip, OXYGEN_SPI_DATA3, data >> 16);
 	oxygen_write8(chip, OXYGEN_SPI_CONTROL, control);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write_spi); */
+EXPORT_SYMBOL(oxygen_write_spi);
 
 void oxygen_write_i2c(struct oxygen *chip, u8 device, u8 map, u8 data)
 {
@@ -224,7 +224,7 @@ void oxygen_write_i2c(struct oxygen *chip, u8 device, u8 map, u8 data)
 	oxygen_write8(chip, OXYGEN_2WIRE_CONTROL,
 		      device | OXYGEN_2WIRE_DIR_WRITE);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write_i2c); */
+EXPORT_SYMBOL(oxygen_write_i2c);
 
 static void _write_uart(struct oxygen *chip, unsigned int port, u8 data)
 {
@@ -239,13 +239,13 @@ void oxygen_reset_uart(struct oxygen *chip)
 	msleep(1); /* wait for ACK */
 	_write_uart(chip, 1, MPU401_ENTER_UART);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_reset_uart); */
+EXPORT_SYMBOL(oxygen_reset_uart);
 
 void oxygen_write_uart(struct oxygen *chip, u8 data)
 {
 	_write_uart(chip, 0, data);
 }
-/* DISABLED: EXPORT_SYMBOL(oxygen_write_uart); */
+EXPORT_SYMBOL(oxygen_write_uart);
 
 u16 oxygen_read_eeprom(struct oxygen *chip, unsigned int index)
 {

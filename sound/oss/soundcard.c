@@ -110,7 +110,7 @@ int *load_mixer_volumes(char *name, int *levels, int present)
 		mixer_vols[n].levels[i] = levels[i];
 	return mixer_vols[n].levels;
 }
-/* DISABLED: EXPORT_SYMBOL(load_mixer_volumes); */
+EXPORT_SYMBOL(load_mixer_volumes);
 
 static int set_mixer_levels(void __user * arg)
 {
@@ -623,7 +623,7 @@ int sound_alloc_dma(int chn, char *deviceID)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_alloc_dma); */
+EXPORT_SYMBOL(sound_alloc_dma);
 
 int sound_open_dma(int chn, char *deviceID)
 {
@@ -639,7 +639,7 @@ int sound_open_dma(int chn, char *deviceID)
 	dma_alloc_map[chn] = DMA_MAP_BUSY;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_open_dma); */
+EXPORT_SYMBOL(sound_open_dma);
 
 void sound_free_dma(int chn)
 {
@@ -650,7 +650,7 @@ void sound_free_dma(int chn)
 	free_dma(chn);
 	dma_alloc_map[chn] = DMA_MAP_UNAVAIL;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_free_dma); */
+EXPORT_SYMBOL(sound_free_dma);
 
 void sound_close_dma(int chn)
 {
@@ -660,7 +660,7 @@ void sound_close_dma(int chn)
 	}
 	dma_alloc_map[chn] = DMA_MAP_FREE;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_close_dma); */
+EXPORT_SYMBOL(sound_close_dma);
 
 static void do_sequencer_timer(unsigned long dummy)
 {
@@ -714,7 +714,7 @@ void conf_printf(char *name, struct address_info *hw_config)
 	printk("\n");
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(conf_printf); */
+EXPORT_SYMBOL(conf_printf);
 
 void conf_printf2(char *name, int base, int irq, int dma, int dma2)
 {
@@ -735,5 +735,5 @@ void conf_printf2(char *name, int base, int irq, int dma, int dma2)
 	printk("\n");
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(conf_printf2); */
+EXPORT_SYMBOL(conf_printf2);
 

@@ -30,9 +30,9 @@ static atomic_t sensor_count;
 DEFINE_MUTEX(factory_mutex);
 
 unsigned int raw_data_stream;
-/* DISABLED: EXPORT_SYMBOL(raw_data_stream); */
+EXPORT_SYMBOL(raw_data_stream);
 struct mutex raw_stream_lock;
-/* DISABLED: EXPORT_SYMBOL(raw_stream_lock); */
+EXPORT_SYMBOL(raw_stream_lock);
 
 /* Function used to send message to the user space */
 int adsp_unicast(struct msg_data param, int message, int flags, u32 pid)

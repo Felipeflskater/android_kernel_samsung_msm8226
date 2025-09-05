@@ -53,7 +53,7 @@ void apei_mce_report_mem_error(int corrected, struct cper_sec_mem_err *mem_err)
 	mce_log(&m);
 	mce_notify_irq();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apei_mce_report_mem_error); */
+EXPORT_SYMBOL_GPL(apei_mce_report_mem_error);
 
 #define CPER_CREATOR_MCE						\
 	UUID_LE(0x75a574e3, 0x5052, 0x4b29, 0x8a, 0x8e, 0xbe, 0x2c,	\

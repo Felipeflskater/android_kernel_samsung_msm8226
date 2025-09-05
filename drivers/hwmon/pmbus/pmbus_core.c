@@ -170,7 +170,7 @@ int pmbus_set_page(struct i2c_client *client, u8 page)
 	}
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_set_page); */
+EXPORT_SYMBOL_GPL(pmbus_set_page);
 
 int pmbus_write_byte(struct i2c_client *client, int page, u8 value)
 {
@@ -184,7 +184,7 @@ int pmbus_write_byte(struct i2c_client *client, int page, u8 value)
 
 	return i2c_smbus_write_byte(client, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_write_byte); */
+EXPORT_SYMBOL_GPL(pmbus_write_byte);
 
 /*
  * _pmbus_write_byte() is similar to pmbus_write_byte(), but checks if
@@ -214,7 +214,7 @@ int pmbus_write_word_data(struct i2c_client *client, u8 page, u8 reg, u16 word)
 
 	return i2c_smbus_write_word_data(client, reg, word);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_write_word_data); */
+EXPORT_SYMBOL_GPL(pmbus_write_word_data);
 
 /*
  * _pmbus_write_word_data() is similar to pmbus_write_word_data(), but checks if
@@ -247,7 +247,7 @@ int pmbus_read_word_data(struct i2c_client *client, u8 page, u8 reg)
 
 	return i2c_smbus_read_word_data(client, reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_read_word_data); */
+EXPORT_SYMBOL_GPL(pmbus_read_word_data);
 
 /*
  * _pmbus_read_word_data() is similar to pmbus_read_word_data(), but checks if
@@ -281,7 +281,7 @@ int pmbus_read_byte_data(struct i2c_client *client, int page, u8 reg)
 
 	return i2c_smbus_read_byte_data(client, reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_read_byte_data); */
+EXPORT_SYMBOL_GPL(pmbus_read_byte_data);
 
 /*
  * _pmbus_read_byte_data() is similar to pmbus_read_byte_data(), but checks if
@@ -314,7 +314,7 @@ void pmbus_clear_faults(struct i2c_client *client)
 	for (i = 0; i < data->info->pages; i++)
 		pmbus_clear_fault_page(client, i);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_clear_faults); */
+EXPORT_SYMBOL_GPL(pmbus_clear_faults);
 
 static int pmbus_check_status_cml(struct i2c_client *client)
 {
@@ -340,7 +340,7 @@ bool pmbus_check_byte_register(struct i2c_client *client, int page, int reg)
 	pmbus_clear_fault_page(client, -1);
 	return rv >= 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_check_byte_register); */
+EXPORT_SYMBOL_GPL(pmbus_check_byte_register);
 
 bool pmbus_check_word_register(struct i2c_client *client, int page, int reg)
 {
@@ -353,7 +353,7 @@ bool pmbus_check_word_register(struct i2c_client *client, int page, int reg)
 	pmbus_clear_fault_page(client, -1);
 	return rv >= 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_check_word_register); */
+EXPORT_SYMBOL_GPL(pmbus_check_word_register);
 
 const struct pmbus_driver_info *pmbus_get_driver_info(struct i2c_client *client)
 {
@@ -361,7 +361,7 @@ const struct pmbus_driver_info *pmbus_get_driver_info(struct i2c_client *client)
 
 	return data->info;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_get_driver_info); */
+EXPORT_SYMBOL_GPL(pmbus_get_driver_info);
 
 static struct pmbus_data *pmbus_update_device(struct device *dev)
 {
@@ -1795,7 +1795,7 @@ out_hwmon_device_register:
 	sysfs_remove_group(&client->dev.kobj, &data->group);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_do_probe); */
+EXPORT_SYMBOL_GPL(pmbus_do_probe);
 
 int pmbus_do_remove(struct i2c_client *client)
 {
@@ -1804,7 +1804,7 @@ int pmbus_do_remove(struct i2c_client *client)
 	sysfs_remove_group(&client->dev.kobj, &data->group);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmbus_do_remove); */
+EXPORT_SYMBOL_GPL(pmbus_do_remove);
 
 MODULE_AUTHOR("Guenter Roeck");
 MODULE_DESCRIPTION("PMBus core driver");

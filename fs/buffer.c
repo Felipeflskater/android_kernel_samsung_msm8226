@@ -52,7 +52,7 @@ init_buffer(struct buffer_head *bh, bh_end_io_t *handler, void *private)
 	bh->b_end_io = handler;
 	bh->b_private = private;
 }
-/* DISABLED: EXPORT_SYMBOL(init_buffer); */
+EXPORT_SYMBOL(init_buffer);
 
 static int sleep_on_buffer(void *word)
 {
@@ -65,7 +65,7 @@ void __lock_buffer(struct buffer_head *bh)
 	wait_on_bit_lock(&bh->b_state, BH_Lock, sleep_on_buffer,
 							TASK_UNINTERRUPTIBLE);
 }
-/* DISABLED: EXPORT_SYMBOL(__lock_buffer); */
+EXPORT_SYMBOL(__lock_buffer);
 
 void unlock_buffer(struct buffer_head *bh)
 {
@@ -73,7 +73,7 @@ void unlock_buffer(struct buffer_head *bh)
 	smp_mb__after_clear_bit();
 	wake_up_bit(&bh->b_state, BH_Lock);
 }
-/* DISABLED: EXPORT_SYMBOL(unlock_buffer); */
+EXPORT_SYMBOL(unlock_buffer);
 
 /*
  * Block until a buffer comes unlocked.  This doesn't stop it
@@ -84,7 +84,7 @@ void __wait_on_buffer(struct buffer_head * bh)
 {
 	wait_on_bit(&bh->b_state, BH_Lock, sleep_on_buffer, TASK_UNINTERRUPTIBLE);
 }
-/* DISABLED: EXPORT_SYMBOL(__wait_on_buffer); */
+EXPORT_SYMBOL(__wait_on_buffer);
 
 static void
 __clear_page_buffers(struct page *page)
@@ -139,7 +139,7 @@ void end_buffer_read_sync(struct buffer_head *bh, int uptodate)
 	__end_buffer_read_notouch(bh, uptodate);
 	put_bh(bh);
 }
-/* DISABLED: EXPORT_SYMBOL(end_buffer_read_sync); */
+EXPORT_SYMBOL(end_buffer_read_sync);
 
 void end_buffer_write_sync(struct buffer_head *bh, int uptodate)
 {
@@ -160,7 +160,7 @@ void end_buffer_write_sync(struct buffer_head *bh, int uptodate)
 	unlock_buffer(bh);
 	put_bh(bh);
 }
-/* DISABLED: EXPORT_SYMBOL(end_buffer_write_sync); */
+EXPORT_SYMBOL(end_buffer_write_sync);
 
 /*
  * Various filesystems appear to want __find_get_block to be non-blocking.
@@ -367,7 +367,7 @@ still_busy:
 	local_irq_restore(flags);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(end_buffer_async_write); */
+EXPORT_SYMBOL(end_buffer_async_write);
 
 /*
  * If a page's buffers are under async readin (end_buffer_async_read
@@ -407,7 +407,7 @@ void mark_buffer_async_write(struct buffer_head *bh)
 {
 	mark_buffer_async_write_endio(bh, end_buffer_async_write);
 }
-/* DISABLED: EXPORT_SYMBOL(mark_buffer_async_write); */
+EXPORT_SYMBOL(mark_buffer_async_write);
 
 
 /*
@@ -563,7 +563,7 @@ int sync_mapping_buffers(struct address_space *mapping)
 	return fsync_buffers_list(&buffer_mapping->private_lock,
 					&mapping->private_list);
 }
-/* DISABLED: EXPORT_SYMBOL(sync_mapping_buffers); */
+EXPORT_SYMBOL(sync_mapping_buffers);
 
 /*
  * Called when we've recently written block `bblock', and it is known that
@@ -601,14 +601,14 @@ void mark_buffer_dirty_inode(struct buffer_head *bh, struct inode *inode)
 		spin_unlock(&buffer_mapping->private_lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mark_buffer_dirty_inode); */
+EXPORT_SYMBOL(mark_buffer_dirty_inode);
 
 void mark_buffer_dirty_inode_sync(struct buffer_head *bh, struct inode *inode)
 {
 	set_buffer_sync_flush(bh);
 	mark_buffer_dirty_inode(bh, inode);
 }
-/* DISABLED: EXPORT_SYMBOL(mark_buffer_dirty_inode_sync); */
+EXPORT_SYMBOL(mark_buffer_dirty_inode_sync);
 
 /*
  * Mark the page dirty, and set it dirty in the radix tree, and mark the inode
@@ -683,7 +683,7 @@ int __set_page_dirty_buffers(struct page *page)
 		__set_page_dirty(page, mapping, 1);
 	return newly_dirty;
 }
-/* DISABLED: EXPORT_SYMBOL(__set_page_dirty_buffers); */
+EXPORT_SYMBOL(__set_page_dirty_buffers);
 
 /*
  * Write out and wait upon a list of buffers.
@@ -805,7 +805,7 @@ void invalidate_inode_buffers(struct inode *inode)
 		spin_unlock(&buffer_mapping->private_lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(invalidate_inode_buffers); */
+EXPORT_SYMBOL(invalidate_inode_buffers);
 
 /*
  * Remove any clean buffers from the inode's buffer list.  This is called
@@ -904,7 +904,7 @@ no_grow:
 	free_more_memory();
 	goto try_again;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(alloc_page_buffers); */
+EXPORT_SYMBOL_GPL(alloc_page_buffers);
 
 static inline void
 link_dev_buffers(struct page *page, struct buffer_head *head)
@@ -1078,7 +1078,7 @@ __getblk_slow(struct block_device *bdev, sector_t block,
 			free_more_memory();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__getblk_slow); */
+EXPORT_SYMBOL(__getblk_slow);
 
 /*
  * The relationship between dirty buffers and dirty pages:
@@ -1140,7 +1140,7 @@ void mark_buffer_dirty(struct buffer_head *bh)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mark_buffer_dirty); */
+EXPORT_SYMBOL(mark_buffer_dirty);
 
 void mark_buffer_dirty_sync(struct buffer_head *bh)
 {
@@ -1168,7 +1168,7 @@ void mark_buffer_dirty_sync(struct buffer_head *bh)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mark_buffer_dirty_sync); */
+EXPORT_SYMBOL(mark_buffer_dirty_sync);
 
 /*
  * Decrement a buffer_head's reference count.  If all buffers against a page
@@ -1185,7 +1185,7 @@ void __brelse(struct buffer_head * buf)
 	}
 	WARN(1, KERN_ERR "VFS: brelse: Trying to free free buffer\n");
 }
-/* DISABLED: EXPORT_SYMBOL(__brelse); */
+EXPORT_SYMBOL(__brelse);
 
 /*
  * bforget() is like brelse(), except it discards any
@@ -1204,7 +1204,7 @@ void __bforget(struct buffer_head *bh)
 	}
 	__brelse(bh);
 }
-/* DISABLED: EXPORT_SYMBOL(__bforget); */
+EXPORT_SYMBOL(__bforget);
 
 static struct buffer_head *__bread_slow(struct buffer_head *bh)
 {
@@ -1354,7 +1354,7 @@ __find_get_block(struct block_device *bdev, sector_t block, unsigned size)
 		touch_buffer(bh);
 	return bh;
 }
-/* DISABLED: EXPORT_SYMBOL(__find_get_block); */
+EXPORT_SYMBOL(__find_get_block);
 
 /*
  * __getblk_gfp() will locate (and, if necessary, create) the buffer_head
@@ -1375,7 +1375,7 @@ __getblk_gfp(struct block_device *bdev, sector_t block,
 		bh = __getblk_slow(bdev, block, size, gfp);
 	return bh;
 }
-/* DISABLED: EXPORT_SYMBOL(__getblk_gfp); */
+EXPORT_SYMBOL(__getblk_gfp);
 
 /*
  * Do async read-ahead on a buffer..
@@ -1388,7 +1388,7 @@ void __breadahead(struct block_device *bdev, sector_t block, unsigned size)
 		brelse(bh);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__breadahead); */
+EXPORT_SYMBOL(__breadahead);
 
 /**
  *  __bread_gfp() - reads a specified block and returns the bh
@@ -1412,7 +1412,7 @@ __bread_gfp(struct block_device *bdev, sector_t block,
 		bh = __bread_slow(bh);
 	return bh;
 }
-/* DISABLED: EXPORT_SYMBOL(__bread_gfp); */
+EXPORT_SYMBOL(__bread_gfp);
 
 /*
  * invalidate_bh_lrus() is called rarely - but not only at unmount.
@@ -1479,13 +1479,13 @@ void invalidate_bh_lrus(void)
 {
 	on_each_cpu_cond(has_bh_in_lru, invalidate_bh_lru, NULL, 1, GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(invalidate_bh_lrus); */
+EXPORT_SYMBOL_GPL(invalidate_bh_lrus);
 
 void evict_bh_lrus(struct buffer_head *bh)
 {
 	on_each_cpu_cond(bh_exists_in_lru, __evict_bh_lru, bh, 1, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(evict_bh_lrus); */
+EXPORT_SYMBOL_GPL(evict_bh_lrus);
 
 void set_bh_page(struct buffer_head *bh,
 		struct page *page, unsigned long offset)
@@ -1500,7 +1500,7 @@ void set_bh_page(struct buffer_head *bh,
 	else
 		bh->b_data = page_address(page) + offset;
 }
-/* DISABLED: EXPORT_SYMBOL(set_bh_page); */
+EXPORT_SYMBOL(set_bh_page);
 
 /*
  * Called when truncating a buffer on a page completely.
@@ -1567,7 +1567,7 @@ void block_invalidatepage(struct page *page, unsigned long offset)
 out:
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(block_invalidatepage); */
+EXPORT_SYMBOL(block_invalidatepage);
 
 /*
  * We attach and possibly dirty the buffers atomically wrt
@@ -1602,7 +1602,7 @@ void create_empty_buffers(struct page *page,
 	attach_page_buffers(page, head);
 	spin_unlock(&page->mapping->private_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(create_empty_buffers); */
+EXPORT_SYMBOL(create_empty_buffers);
 
 /*
  * We are taking a block for data and we don't want any output from any
@@ -1634,7 +1634,7 @@ void unmap_underlying_metadata(struct block_device *bdev, sector_t block)
 		__brelse(old_bh);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(unmap_underlying_metadata); */
+EXPORT_SYMBOL(unmap_underlying_metadata);
 
 /*
  * NOTE! All mapped/uptodate combinations are valid:
@@ -1871,7 +1871,7 @@ void page_zero_new_buffers(struct page *page, unsigned from, unsigned to)
 		bh = bh->b_this_page;
 	} while (bh != head);
 }
-/* DISABLED: EXPORT_SYMBOL(page_zero_new_buffers); */
+EXPORT_SYMBOL(page_zero_new_buffers);
 
 int __block_write_begin(struct page *page, loff_t pos, unsigned len,
 		get_block_t *get_block)
@@ -1955,7 +1955,7 @@ int __block_write_begin(struct page *page, loff_t pos, unsigned len,
 		page_zero_new_buffers(page, from, to);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__block_write_begin); */
+EXPORT_SYMBOL(__block_write_begin);
 
 static int __block_commit_write(struct inode *inode, struct page *page,
 		unsigned from, unsigned to)
@@ -2019,7 +2019,7 @@ int block_write_begin(struct address_space *mapping, loff_t pos, unsigned len,
 	*pagep = page;
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(block_write_begin); */
+EXPORT_SYMBOL(block_write_begin);
 
 int block_write_end(struct file *file, struct address_space *mapping,
 			loff_t pos, unsigned len, unsigned copied,
@@ -2055,7 +2055,7 @@ int block_write_end(struct file *file, struct address_space *mapping,
 
 	return copied;
 }
-/* DISABLED: EXPORT_SYMBOL(block_write_end); */
+EXPORT_SYMBOL(block_write_end);
 
 int generic_write_end(struct file *file, struct address_space *mapping,
 			loff_t pos, unsigned len, unsigned copied,
@@ -2095,7 +2095,7 @@ int generic_write_end(struct file *file, struct address_space *mapping,
 
 	return copied;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_write_end); */
+EXPORT_SYMBOL(generic_write_end);
 
 /*
  * block_is_partially_uptodate checks whether buffers within a page are
@@ -2141,7 +2141,7 @@ int block_is_partially_uptodate(struct page *page, read_descriptor_t *desc,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(block_is_partially_uptodate); */
+EXPORT_SYMBOL(block_is_partially_uptodate);
 
 /*
  * Generic "read page" function for block devices that have the normal
@@ -2236,7 +2236,7 @@ int block_read_full_page(struct page *page, get_block_t *get_block)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(block_read_full_page); */
+EXPORT_SYMBOL(block_read_full_page);
 
 /* utility function for filesystems that need to do work on expanding
  * truncates.  Uses filesystem pagecache writes to allow the filesystem to
@@ -2265,7 +2265,7 @@ int generic_cont_expand_simple(struct inode *inode, loff_t size)
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_cont_expand_simple); */
+EXPORT_SYMBOL(generic_cont_expand_simple);
 
 static int cont_expand_zero(struct file *file, struct address_space *mapping,
 			    loff_t pos, loff_t *bytes)
@@ -2367,7 +2367,7 @@ int cont_write_begin(struct file *file, struct address_space *mapping,
 
 	return block_write_begin(mapping, pos, len, flags, pagep, get_block);
 }
-/* DISABLED: EXPORT_SYMBOL(cont_write_begin); */
+EXPORT_SYMBOL(cont_write_begin);
 
 int block_commit_write(struct page *page, unsigned from, unsigned to)
 {
@@ -2375,7 +2375,7 @@ int block_commit_write(struct page *page, unsigned from, unsigned to)
 	__block_commit_write(inode,page,from,to);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(block_commit_write); */
+EXPORT_SYMBOL(block_commit_write);
 
 /*
  * block_page_mkwrite() is not allowed to change the file size as it gets
@@ -2443,7 +2443,7 @@ out_unlock:
 	unlock_page(page);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__block_page_mkwrite); */
+EXPORT_SYMBOL(__block_page_mkwrite);
 
 int block_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf,
 		   get_block_t get_block)
@@ -2459,7 +2459,7 @@ int block_page_mkwrite(struct vm_area_struct *vma, struct vm_fault *vmf,
 	ret = __block_page_mkwrite(vma, vmf, get_block);
 	return block_page_mkwrite_return(ret);
 }
-/* DISABLED: EXPORT_SYMBOL(block_page_mkwrite); */
+EXPORT_SYMBOL(block_page_mkwrite);
 
 /*
  * nobh_write_begin()'s prereads are special: the buffer_heads are freed
@@ -2639,7 +2639,7 @@ out_release:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nobh_write_begin); */
+EXPORT_SYMBOL(nobh_write_begin);
 
 int nobh_write_end(struct file *file, struct address_space *mapping,
 			loff_t pos, unsigned len, unsigned copied,
@@ -2674,7 +2674,7 @@ int nobh_write_end(struct file *file, struct address_space *mapping,
 
 	return copied;
 }
-/* DISABLED: EXPORT_SYMBOL(nobh_write_end); */
+EXPORT_SYMBOL(nobh_write_end);
 
 /*
  * nobh_writepage() - based on block_full_write_page() except
@@ -2726,7 +2726,7 @@ out:
 					      end_buffer_async_write);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nobh_writepage); */
+EXPORT_SYMBOL(nobh_writepage);
 
 int nobh_truncate_page(struct address_space *mapping,
 			loff_t from, get_block_t *get_block)
@@ -2804,7 +2804,7 @@ unlock:
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(nobh_truncate_page); */
+EXPORT_SYMBOL(nobh_truncate_page);
 
 int block_truncate_page(struct address_space *mapping,
 			loff_t from, get_block_t *get_block)
@@ -2880,7 +2880,7 @@ unlock:
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(block_truncate_page); */
+EXPORT_SYMBOL(block_truncate_page);
 
 /*
  * The generic ->writepage function for buffer-backed address_spaces
@@ -2922,7 +2922,7 @@ int block_write_full_page_endio(struct page *page, get_block_t *get_block,
 	zero_user_segment(page, offset, PAGE_CACHE_SIZE);
 	return __block_write_full_page(inode, page, get_block, wbc, handler);
 }
-/* DISABLED: EXPORT_SYMBOL(block_write_full_page_endio); */
+EXPORT_SYMBOL(block_write_full_page_endio);
 
 /*
  * The generic ->writepage function for buffer-backed address_spaces
@@ -2933,7 +2933,7 @@ int block_write_full_page(struct page *page, get_block_t *get_block,
 	return block_write_full_page_endio(page, get_block, wbc,
 					   end_buffer_async_write);
 }
-/* DISABLED: EXPORT_SYMBOL(block_write_full_page); */
+EXPORT_SYMBOL(block_write_full_page);
 
 sector_t generic_block_bmap(struct address_space *mapping, sector_t block,
 			    get_block_t *get_block)
@@ -2946,7 +2946,7 @@ sector_t generic_block_bmap(struct address_space *mapping, sector_t block,
 	get_block(inode, block, &tmp, 0);
 	return tmp.b_blocknr;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_block_bmap); */
+EXPORT_SYMBOL(generic_block_bmap);
 
 static void end_bio_bh_io_sync(struct bio *bio, int err)
 {
@@ -3013,7 +3013,7 @@ int submit_bh(int rw, struct buffer_head * bh)
 	bio_put(bio);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(submit_bh); */
+EXPORT_SYMBOL(submit_bh);
 
 /**
  * ll_rw_block: low-level access to block devices (DEPRECATED)
@@ -3067,7 +3067,7 @@ void ll_rw_block(int rw, int nr, struct buffer_head *bhs[])
 		unlock_buffer(bh);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ll_rw_block); */
+EXPORT_SYMBOL(ll_rw_block);
 
 void write_dirty_buffer(struct buffer_head *bh, int rw)
 {
@@ -3080,7 +3080,7 @@ void write_dirty_buffer(struct buffer_head *bh, int rw)
 	get_bh(bh);
 	submit_bh(rw, bh);
 }
-/* DISABLED: EXPORT_SYMBOL(write_dirty_buffer); */
+EXPORT_SYMBOL(write_dirty_buffer);
 
 /*
  * For a data-integrity writeout, we need to wait upon any in-progress I/O
@@ -3105,13 +3105,13 @@ int __sync_dirty_buffer(struct buffer_head *bh, int rw)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__sync_dirty_buffer); */
+EXPORT_SYMBOL(__sync_dirty_buffer);
 
 int sync_dirty_buffer(struct buffer_head *bh)
 {
 	return __sync_dirty_buffer(bh, WRITE_SYNC);
 }
-/* DISABLED: EXPORT_SYMBOL(sync_dirty_buffer); */
+EXPORT_SYMBOL(sync_dirty_buffer);
 
 /*
  * try_to_free_buffers() checks if all the buffers on this particular page
@@ -3222,7 +3222,7 @@ out:
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(try_to_free_buffers); */
+EXPORT_SYMBOL(try_to_free_buffers);
 
 /*
  * There are no bdflush tunables left.  But distributions are
@@ -3296,7 +3296,7 @@ struct buffer_head *alloc_buffer_head(gfp_t gfp_flags)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_buffer_head); */
+EXPORT_SYMBOL(alloc_buffer_head);
 
 void free_buffer_head(struct buffer_head *bh)
 {
@@ -3307,7 +3307,7 @@ void free_buffer_head(struct buffer_head *bh)
 	recalc_bh_state();
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(free_buffer_head); */
+EXPORT_SYMBOL(free_buffer_head);
 
 static void buffer_exit_cpu(int cpu)
 {
@@ -3347,7 +3347,7 @@ int bh_uptodate_or_lock(struct buffer_head *bh)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(bh_uptodate_or_lock); */
+EXPORT_SYMBOL(bh_uptodate_or_lock);
 
 /**
  * bh_submit_read - Submit a locked buffer for reading
@@ -3372,7 +3372,7 @@ int bh_submit_read(struct buffer_head *bh)
 		return 0;
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(bh_submit_read); */
+EXPORT_SYMBOL(bh_submit_read);
 
 void __init buffer_init(void)
 {

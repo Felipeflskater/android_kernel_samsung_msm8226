@@ -322,7 +322,7 @@ unsigned long vma_kernel_pagesize(struct vm_area_struct *vma)
 
 	return 1UL << (hstate->order + PAGE_SHIFT);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vma_kernel_pagesize); */
+EXPORT_SYMBOL_GPL(vma_kernel_pagesize);
 
 /*
  * Return the page size being used by the MMU to back a VMA. In the majority
@@ -677,7 +677,7 @@ int PageHuge(struct page *page)
 
 	return dtor == free_huge_page;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(PageHuge); */
+EXPORT_SYMBOL_GPL(PageHuge);
 
 /*
  * PageHeadHuge() only returns true for hugetlbfs head page, but not for
@@ -694,7 +694,7 @@ int PageHeadHuge(struct page *page_head)
 
 	return dtor == free_huge_page;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(PageHeadHuge); */
+EXPORT_SYMBOL_GPL(PageHeadHuge);
 
 pgoff_t __basepage_index(struct page *page)
 {
@@ -1985,14 +1985,14 @@ static int __init hugetlb_nrpages_setup(char *s)
 
 	return 1;
 }
-/* DISABLED: __setup("hugepages=", hugetlb_nrpages_setup); */ */
+__setup("hugepages=", hugetlb_nrpages_setup);
 
 static int __init hugetlb_default_setup(char *s)
 {
 	default_hstate_size = memparse(s, &s);
 	return 1;
 }
-/* DISABLED: __setup("default_hugepagesz=", hugetlb_default_setup); */ */
+__setup("default_hugepagesz=", hugetlb_default_setup);
 
 static unsigned int cpuset_mems_nr(unsigned int *array)
 {

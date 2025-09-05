@@ -84,7 +84,7 @@ int wf_critical_overtemp(void)
 	return call_usermodehelper(critical_overtemp_path,
 				   argv, envp, UMH_WAIT_EXEC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_critical_overtemp); */
+EXPORT_SYMBOL_GPL(wf_critical_overtemp);
 
 static int wf_thread_func(void *data)
 {
@@ -227,7 +227,7 @@ int wf_register_control(struct wf_control *new_ct)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_register_control); */
+EXPORT_SYMBOL_GPL(wf_register_control);
 
 void wf_unregister_control(struct wf_control *ct)
 {
@@ -239,7 +239,7 @@ void wf_unregister_control(struct wf_control *ct)
 
 	kref_put(&ct->ref, wf_control_release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_unregister_control); */
+EXPORT_SYMBOL_GPL(wf_unregister_control);
 
 struct wf_control * wf_find_control(const char *name)
 {
@@ -257,7 +257,7 @@ struct wf_control * wf_find_control(const char *name)
 	mutex_unlock(&wf_lock);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_find_control); */
+EXPORT_SYMBOL_GPL(wf_find_control);
 
 int wf_get_control(struct wf_control *ct)
 {
@@ -266,7 +266,7 @@ int wf_get_control(struct wf_control *ct)
 	kref_get(&ct->ref);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_get_control); */
+EXPORT_SYMBOL_GPL(wf_get_control);
 
 void wf_put_control(struct wf_control *ct)
 {
@@ -274,7 +274,7 @@ void wf_put_control(struct wf_control *ct)
 	kref_put(&ct->ref, wf_control_release);
 	module_put(mod);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_put_control); */
+EXPORT_SYMBOL_GPL(wf_put_control);
 
 
 /*
@@ -340,7 +340,7 @@ int wf_register_sensor(struct wf_sensor *new_sr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_register_sensor); */
+EXPORT_SYMBOL_GPL(wf_register_sensor);
 
 void wf_unregister_sensor(struct wf_sensor *sr)
 {
@@ -352,7 +352,7 @@ void wf_unregister_sensor(struct wf_sensor *sr)
 
 	wf_put_sensor(sr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_unregister_sensor); */
+EXPORT_SYMBOL_GPL(wf_unregister_sensor);
 
 struct wf_sensor * wf_find_sensor(const char *name)
 {
@@ -370,7 +370,7 @@ struct wf_sensor * wf_find_sensor(const char *name)
 	mutex_unlock(&wf_lock);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_find_sensor); */
+EXPORT_SYMBOL_GPL(wf_find_sensor);
 
 int wf_get_sensor(struct wf_sensor *sr)
 {
@@ -379,7 +379,7 @@ int wf_get_sensor(struct wf_sensor *sr)
 	kref_get(&sr->ref);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_get_sensor); */
+EXPORT_SYMBOL_GPL(wf_get_sensor);
 
 void wf_put_sensor(struct wf_sensor *sr)
 {
@@ -387,7 +387,7 @@ void wf_put_sensor(struct wf_sensor *sr)
 	kref_put(&sr->ref, wf_sensor_release);
 	module_put(mod);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_put_sensor); */
+EXPORT_SYMBOL_GPL(wf_put_sensor);
 
 
 /*
@@ -415,7 +415,7 @@ int wf_register_client(struct notifier_block *nb)
 	mutex_unlock(&wf_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_register_client); */
+EXPORT_SYMBOL_GPL(wf_register_client);
 
 int wf_unregister_client(struct notifier_block *nb)
 {
@@ -428,7 +428,7 @@ int wf_unregister_client(struct notifier_block *nb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_unregister_client); */
+EXPORT_SYMBOL_GPL(wf_unregister_client);
 
 void wf_set_overtemp(void)
 {
@@ -441,7 +441,7 @@ void wf_set_overtemp(void)
 	}
 	mutex_unlock(&wf_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_set_overtemp); */
+EXPORT_SYMBOL_GPL(wf_set_overtemp);
 
 void wf_clear_overtemp(void)
 {
@@ -458,13 +458,13 @@ void wf_clear_overtemp(void)
 	}
 	mutex_unlock(&wf_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_clear_overtemp); */
+EXPORT_SYMBOL_GPL(wf_clear_overtemp);
 
 int wf_is_overtemp(void)
 {
 	return (wf_overtemp != 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wf_is_overtemp); */
+EXPORT_SYMBOL_GPL(wf_is_overtemp);
 
 static int __init windfarm_core_init(void)
 {

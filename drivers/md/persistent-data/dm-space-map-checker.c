@@ -392,7 +392,7 @@ struct dm_space_map *dm_sm_checker_create(struct dm_space_map *sm)
 
 	return &smc->sm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_checker_create); */
+EXPORT_SYMBOL_GPL(dm_sm_checker_create);
 
 struct dm_space_map *dm_sm_checker_create_fresh(struct dm_space_map *sm)
 {
@@ -423,7 +423,7 @@ struct dm_space_map *dm_sm_checker_create_fresh(struct dm_space_map *sm)
 	smc->real_sm = sm;
 	return &smc->sm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_checker_create_fresh); */
+EXPORT_SYMBOL_GPL(dm_sm_checker_create_fresh);
 
 /*----------------------------------------------------------------*/
 
@@ -433,13 +433,13 @@ struct dm_space_map *dm_sm_checker_create(struct dm_space_map *sm)
 {
 	return sm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_checker_create); */
+EXPORT_SYMBOL_GPL(dm_sm_checker_create);
 
 struct dm_space_map *dm_sm_checker_create_fresh(struct dm_space_map *sm)
 {
 	return sm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_checker_create_fresh); */
+EXPORT_SYMBOL_GPL(dm_sm_checker_create_fresh);
 
 /*----------------------------------------------------------------*/
 

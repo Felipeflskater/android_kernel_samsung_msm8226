@@ -358,7 +358,7 @@ void fat_attach(struct inode *inode, loff_t i_pos)
 	hlist_add_head(&MSDOS_I(inode)->i_fat_hash, head);
 	spin_unlock(&sbi->inode_hash_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_attach); */
+EXPORT_SYMBOL_GPL(fat_attach);
 
 void fat_detach(struct inode *inode)
 {
@@ -368,7 +368,7 @@ void fat_detach(struct inode *inode)
 	hlist_del_init(&MSDOS_I(inode)->i_fat_hash);
 	spin_unlock(&sbi->inode_hash_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_detach); */
+EXPORT_SYMBOL_GPL(fat_detach);
 
 struct inode *fat_iget(struct super_block *sb, loff_t i_pos)
 {
@@ -511,7 +511,7 @@ out:
 	return inode;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_build_inode); */
+EXPORT_SYMBOL_GPL(fat_build_inode);
 
 static void fat_evict_inode(struct inode *inode)
 {
@@ -742,7 +742,7 @@ int fat_sync_inode(struct inode *inode)
 	return __fat_write_inode(inode, 1);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_sync_inode); */
+EXPORT_SYMBOL_GPL(fat_sync_inode);
 
 static int fat_show_options(struct seq_file *m, struct dentry *root);
 static const struct super_operations fat_sops = {
@@ -1631,7 +1631,7 @@ out_fail:
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_fill_super); */
+EXPORT_SYMBOL_GPL(fat_fill_super);
 
 /*
  * helper function for fat_flush_inodes.  This writes both the inode
@@ -1681,7 +1681,7 @@ int fat_flush_inodes(struct super_block *sb, struct inode *i1, struct inode *i2)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_flush_inodes); */
+EXPORT_SYMBOL_GPL(fat_flush_inodes);
 
 static int __init init_fat_fs(void)
 {

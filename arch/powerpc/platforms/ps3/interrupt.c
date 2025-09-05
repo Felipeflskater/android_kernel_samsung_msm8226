@@ -285,7 +285,7 @@ fail_connect:
 fail_setup:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_irq_plug_setup); */
+EXPORT_SYMBOL_GPL(ps3_irq_plug_setup);
 
 /**
  * ps3_irq_plug_destroy - Generic outlet and virq related teardown.
@@ -316,7 +316,7 @@ int ps3_irq_plug_destroy(unsigned int virq)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_irq_plug_destroy); */
+EXPORT_SYMBOL_GPL(ps3_irq_plug_destroy);
 
 /**
  * ps3_event_receive_port_setup - Setup an event receive port.
@@ -348,7 +348,7 @@ int ps3_event_receive_port_setup(enum ps3_cpu_binding cpu, unsigned int *virq)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_event_receive_port_setup); */
+EXPORT_SYMBOL_GPL(ps3_event_receive_port_setup);
 
 /**
  * ps3_event_receive_port_destroy - Destroy an event receive port.
@@ -427,7 +427,7 @@ int ps3_sb_event_receive_port_setup(struct ps3_system_bus_device *dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ps3_sb_event_receive_port_setup); */
+EXPORT_SYMBOL(ps3_sb_event_receive_port_setup);
 
 int ps3_sb_event_receive_port_destroy(struct ps3_system_bus_device *dev,
 	unsigned int virq)
@@ -461,7 +461,7 @@ int ps3_sb_event_receive_port_destroy(struct ps3_system_bus_device *dev,
 	DBG(" <- %s:%d\n", __func__, __LINE__);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ps3_sb_event_receive_port_destroy); */
+EXPORT_SYMBOL(ps3_sb_event_receive_port_destroy);
 
 /**
  * ps3_io_irq_setup - Setup a system bus io irq.
@@ -493,7 +493,7 @@ int ps3_io_irq_setup(enum ps3_cpu_binding cpu, unsigned int interrupt_id,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_io_irq_setup); */
+EXPORT_SYMBOL_GPL(ps3_io_irq_setup);
 
 int ps3_io_irq_destroy(unsigned int virq)
 {
@@ -518,7 +518,7 @@ int ps3_io_irq_destroy(unsigned int virq)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_io_irq_destroy); */
+EXPORT_SYMBOL_GPL(ps3_io_irq_destroy);
 
 /**
  * ps3_vuart_irq_setup - Setup the system virtual uart virq.
@@ -555,7 +555,7 @@ int ps3_vuart_irq_setup(enum ps3_cpu_binding cpu, void* virt_addr_bmp,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_irq_setup); */
+EXPORT_SYMBOL_GPL(ps3_vuart_irq_setup);
 
 int ps3_vuart_irq_destroy(unsigned int virq)
 {
@@ -575,7 +575,7 @@ int ps3_vuart_irq_destroy(unsigned int virq)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_irq_destroy); */
+EXPORT_SYMBOL_GPL(ps3_vuart_irq_destroy);
 
 /**
  * ps3_spe_irq_setup - Setup an spe virq.

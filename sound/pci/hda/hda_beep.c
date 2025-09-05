@@ -210,7 +210,7 @@ int snd_hda_enable_beep_device(struct hda_codec *codec, int enable)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_enable_beep_device); */
+EXPORT_SYMBOL_HDA(snd_hda_enable_beep_device);
 
 int snd_hda_attach_beep_device(struct hda_codec *codec, int nid)
 {
@@ -251,7 +251,7 @@ int snd_hda_attach_beep_device(struct hda_codec *codec, int nid)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_attach_beep_device); */
+EXPORT_SYMBOL_HDA(snd_hda_attach_beep_device);
 
 void snd_hda_detach_beep_device(struct hda_codec *codec)
 {
@@ -265,4 +265,4 @@ void snd_hda_detach_beep_device(struct hda_codec *codec)
 		kfree(beep);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_detach_beep_device); */
+EXPORT_SYMBOL_HDA(snd_hda_detach_beep_device);

@@ -6,4 +6,4 @@
 #include "linux/module.h"
 
 extern void mcount(void);
-/* DISABLED: EXPORT_SYMBOL(mcount); */
+EXPORT_SYMBOL(mcount);

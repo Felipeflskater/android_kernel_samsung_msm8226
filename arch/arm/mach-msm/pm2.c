@@ -774,7 +774,7 @@ void msm_pm_set_max_sleep_time(int64_t max_sleep_time_ns)
 		max_sleep_time_ns, msm_pm_max_sleep_time);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_pm_set_max_sleep_time); */
+EXPORT_SYMBOL(msm_pm_set_max_sleep_time);
 
 
 /******************************************************************************

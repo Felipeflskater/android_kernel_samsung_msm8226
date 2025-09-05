@@ -63,7 +63,7 @@ static int __init setup_cede_offline(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("cede_offline=", setup_cede_offline); */ */
+__setup("cede_offline=", setup_cede_offline);
 
 enum cpu_state_vals get_cpu_current_state(int cpu)
 {

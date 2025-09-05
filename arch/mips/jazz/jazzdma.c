@@ -171,7 +171,7 @@ unsigned long vdma_alloc(unsigned long paddr, unsigned long size)
 	return laddr;
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_alloc); */
+EXPORT_SYMBOL(vdma_alloc);
 
 /*
  * Free previously allocated dma translation pages
@@ -203,7 +203,7 @@ int vdma_free(unsigned long laddr)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_free); */
+EXPORT_SYMBOL(vdma_free);
 
 /*
  * Map certain page(s) to another physical address.
@@ -298,7 +298,7 @@ unsigned long vdma_phys2log(unsigned long paddr)
 	return (i << 12) + (paddr & (VDMA_PAGESIZE - 1));
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_phys2log); */
+EXPORT_SYMBOL(vdma_phys2log);
 
 /*
  * Translate a logical DMA address to a physical address
@@ -308,7 +308,7 @@ unsigned long vdma_log2phys(unsigned long laddr)
 	return pgtbl[laddr >> 12].frame + (laddr & (VDMA_PAGESIZE - 1));
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_log2phys); */
+EXPORT_SYMBOL(vdma_log2phys);
 
 /*
  * Print DMA statistics
@@ -387,7 +387,7 @@ void vdma_enable(int channel)
 			  R4030_CHNL_ENABLE);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_enable); */
+EXPORT_SYMBOL(vdma_enable);
 
 /*
  * Disable a DMA channel
@@ -424,7 +424,7 @@ void vdma_disable(int channel)
 	*((volatile unsigned int *) JAZZ_DUMMY_DEVICE);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_disable); */
+EXPORT_SYMBOL(vdma_disable);
 
 /*
  * Set DMA mode. This function accepts the mode values used
@@ -493,7 +493,7 @@ void vdma_set_mode(int channel, int mode)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_set_mode); */
+EXPORT_SYMBOL(vdma_set_mode);
 
 /*
  * Set Transfer Address
@@ -507,7 +507,7 @@ void vdma_set_addr(int channel, long addr)
 	r4030_write_reg32(JAZZ_R4030_CHNL_ADDR + (channel << 5), addr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_set_addr); */
+EXPORT_SYMBOL(vdma_set_addr);
 
 /*
  * Set Transfer Count
@@ -521,7 +521,7 @@ void vdma_set_count(int channel, int count)
 	r4030_write_reg32(JAZZ_R4030_CHNL_COUNT + (channel << 5), count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vdma_set_count); */
+EXPORT_SYMBOL(vdma_set_count);
 
 /*
  * Get Residual

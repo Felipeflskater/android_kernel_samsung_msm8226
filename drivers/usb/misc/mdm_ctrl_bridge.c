@@ -105,7 +105,7 @@ unsigned int ctrl_bridge_get_cbits_tohost(unsigned int id)
 
 	return dev->cbits_tohost;
 }
-/* DISABLED: EXPORT_SYMBOL(ctrl_bridge_get_cbits_tohost); */
+EXPORT_SYMBOL(ctrl_bridge_get_cbits_tohost);
 
 int ctrl_bridge_set_cbits(unsigned int id, unsigned int cbits)
 {
@@ -136,7 +136,7 @@ int ctrl_bridge_set_cbits(unsigned int id, unsigned int cbits)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(ctrl_bridge_set_cbits); */
+EXPORT_SYMBOL(ctrl_bridge_set_cbits);
 
 static int ctrl_bridge_start_read(struct ctrl_bridge *dev, gfp_t gfp_flags)
 {
@@ -331,7 +331,7 @@ int ctrl_bridge_open(struct bridge *brdg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ctrl_bridge_open); */
+EXPORT_SYMBOL(ctrl_bridge_open);
 
 void ctrl_bridge_close(unsigned int id)
 {
@@ -350,7 +350,7 @@ void ctrl_bridge_close(unsigned int id)
 
 	dev->brdg = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ctrl_bridge_close); */
+EXPORT_SYMBOL(ctrl_bridge_close);
 
 static void ctrl_write_callback(struct urb *urb)
 {
@@ -478,7 +478,7 @@ free_data:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ctrl_bridge_write); */
+EXPORT_SYMBOL(ctrl_bridge_write);
 
 int ctrl_bridge_suspend(unsigned int id)
 {

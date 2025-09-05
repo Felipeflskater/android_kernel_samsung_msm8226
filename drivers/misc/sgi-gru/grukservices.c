@@ -573,7 +573,7 @@ int gru_create_message_queue(struct gru_message_queue_desc *mqd,
 	mqd->interrupt_apicid = apicid;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_create_message_queue); */
+EXPORT_SYMBOL_GPL(gru_create_message_queue);
 
 /*
  * Send a NOOP message to a message queue
@@ -830,7 +830,7 @@ int gru_send_message_gpa(struct gru_message_queue_desc *mqd, void *mesg,
 		STAT(mesq_send_failed);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_send_message_gpa); */
+EXPORT_SYMBOL_GPL(gru_send_message_gpa);
 
 /*
  * Advance the receive pointer for the queue to the next message.
@@ -860,7 +860,7 @@ void gru_free_message(struct gru_message_queue_desc *mqd, void *mesg)
 		mq->hstatus[half] = 1;
 	mq->next = next;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_free_message); */
+EXPORT_SYMBOL_GPL(gru_free_message);
 
 /*
  * Get next message from message queue. Return NULL if no message
@@ -896,7 +896,7 @@ void *gru_get_next_message(struct gru_message_queue_desc *mqd)
 	STAT(mesq_receive);
 	return mhdr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_get_next_message); */
+EXPORT_SYMBOL_GPL(gru_get_next_message);
 
 /* ---------------------- GRU DATA COPY FUNCTIONS ---------------------------*/
 
@@ -920,7 +920,7 @@ int gru_read_gpa(unsigned long *value, unsigned long gpa)
 	gru_free_cpu_resources(cb, dsr);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_read_gpa); */
+EXPORT_SYMBOL_GPL(gru_read_gpa);
 
 
 /*
@@ -942,7 +942,7 @@ int gru_copy_gpa(unsigned long dest_gpa, unsigned long src_gpa,
 	gru_free_cpu_resources(cb, dsr);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gru_copy_gpa); */
+EXPORT_SYMBOL_GPL(gru_copy_gpa);
 
 /* ------------------- KERNEL QUICKTESTS RUN AT STARTUP ----------------*/
 /* 	Temp - will delete after we gain confidence in the GRU		*/

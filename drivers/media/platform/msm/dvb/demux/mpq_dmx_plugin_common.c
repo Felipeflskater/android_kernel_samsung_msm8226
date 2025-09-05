@@ -529,7 +529,7 @@ void mpq_dmx_init_debugfs_entries(struct mpq_demux *mpq_demux)
 		mpq_demux,
 		&sdmx_debug_fops);
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_init_debugfs_entries); */
+EXPORT_SYMBOL(mpq_dmx_init_debugfs_entries);
 
 /* Update dvb-demux debugfs with HW notification statistics */
 void mpq_dmx_update_hw_statistics(struct mpq_demux *mpq_demux)
@@ -556,7 +556,7 @@ void mpq_dmx_update_hw_statistics(struct mpq_demux *mpq_demux)
 	mpq_demux->hw_notification_count++;
 	mpq_demux->last_notification_time = curr_time;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_update_hw_statistics); */
+EXPORT_SYMBOL(mpq_dmx_update_hw_statistics);
 
 static void mpq_sdmx_check_app_loaded(void)
 {
@@ -758,7 +758,7 @@ init_failed_free_demux_devices:
 init_failed:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_plugin_init); */
+EXPORT_SYMBOL(mpq_dmx_plugin_init);
 
 void mpq_dmx_plugin_exit(void)
 {
@@ -793,7 +793,7 @@ void mpq_dmx_plugin_exit(void)
 		mpq_dmx_info.devices = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_plugin_exit); */
+EXPORT_SYMBOL(mpq_dmx_plugin_exit);
 
 
 int mpq_dmx_set_source(
@@ -856,7 +856,7 @@ int mpq_dmx_set_source(
 	mpq_demux->source = *src;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_set_source); */
+EXPORT_SYMBOL(mpq_dmx_set_source);
 
 /**
  * Takes an ION allocated buffer's file descriptor and handles the details of
@@ -957,7 +957,7 @@ int mpq_dmx_map_buffer(struct dmx_demux *demux, struct dmx_buffer *dmx_buffer,
 		dmx_buffer->handle,
 		(struct ion_handle **)priv_handle, kernel_mem);
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_map_buffer); */
+EXPORT_SYMBOL(mpq_dmx_map_buffer);
 
 int mpq_dmx_unmap_buffer(struct dmx_demux *demux,
 		void *priv_handle)
@@ -994,7 +994,7 @@ int mpq_dmx_unmap_buffer(struct dmx_demux *demux,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_unmap_buffer); */
+EXPORT_SYMBOL(mpq_dmx_unmap_buffer);
 
 int mpq_dmx_reuse_decoder_buffer(struct dvb_demux_feed *feed, int cookie)
 {
@@ -1047,7 +1047,7 @@ int mpq_dmx_reuse_decoder_buffer(struct dvb_demux_feed *feed, int cookie)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_reuse_decoder_buffer); */
+EXPORT_SYMBOL(mpq_dmx_reuse_decoder_buffer);
 
 /**
  * Handles the details of internal decoder buffer allocation via ION.
@@ -1775,7 +1775,7 @@ int mpq_dmx_terminate_feed(struct dvb_demux_feed *feed)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_terminate_feed); */
+EXPORT_SYMBOL(mpq_dmx_terminate_feed);
 
 int mpq_dmx_decoder_fullness_init(struct dvb_demux_feed *feed)
 {
@@ -1798,7 +1798,7 @@ int mpq_dmx_decoder_fullness_init(struct dvb_demux_feed *feed)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_decoder_fullness_init); */
+EXPORT_SYMBOL(mpq_dmx_decoder_fullness_init);
 
 /**
  * Returns whether the free space of decoder's output
@@ -1932,7 +1932,7 @@ int mpq_dmx_decoder_fullness_wait(
 {
 	return mpq_dmx_decoder_fullness_check(feed, required_space, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_decoder_fullness_wait); */
+EXPORT_SYMBOL(mpq_dmx_decoder_fullness_wait);
 
 int mpq_dmx_decoder_fullness_abort(struct dvb_demux_feed *feed)
 {
@@ -1970,7 +1970,7 @@ int mpq_dmx_decoder_fullness_abort(struct dvb_demux_feed *feed)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_decoder_fullness_abort); */
+EXPORT_SYMBOL(mpq_dmx_decoder_fullness_abort);
 
 
 static inline int mpq_dmx_parse_mandatory_pes_header(
@@ -3209,7 +3209,7 @@ int mpq_dmx_decoder_buffer_status(struct dvb_demux_feed *feed,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_decoder_buffer_status); */
+EXPORT_SYMBOL(mpq_dmx_decoder_buffer_status);
 
 int mpq_dmx_process_video_packet(
 			struct dvb_demux_feed *feed,
@@ -3235,7 +3235,7 @@ int mpq_dmx_process_video_packet(
 		return mpq_dmx_process_video_packet_framing(feed, buf,
 				curr_stc);
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_process_video_packet); */
+EXPORT_SYMBOL(mpq_dmx_process_video_packet);
 
 /*
  * Extract the PCR field and discontinuity indicator from a TS packet buffer
@@ -3317,7 +3317,7 @@ int mpq_dmx_process_pcr_packet(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_process_pcr_packet); */
+EXPORT_SYMBOL(mpq_dmx_process_pcr_packet);
 
 static int mpq_dmx_decoder_eos_cmd(struct mpq_feed *mpq_feed)
 {
@@ -3359,7 +3359,7 @@ void mpq_dmx_convert_tts(struct dvb_demux_feed *feed,
 	*timestampIn27Mhz += timestamp[0];
 	*timestampIn27Mhz *= 256; /* convert from 105.47 KHZ to 27MHz */
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_convert_tts); */
+EXPORT_SYMBOL(mpq_dmx_convert_tts);
 
 int mpq_sdmx_open_session(struct mpq_demux *mpq_demux)
 {
@@ -3443,7 +3443,7 @@ int mpq_sdmx_open_session(struct mpq_demux *mpq_demux)
 	mpq_demux->sdmx_session_ref_count++;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_sdmx_open_session); */
+EXPORT_SYMBOL(mpq_sdmx_open_session);
 
 int mpq_sdmx_close_session(struct mpq_demux *mpq_demux)
 {
@@ -3472,7 +3472,7 @@ int mpq_sdmx_close_session(struct mpq_demux *mpq_demux)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_sdmx_close_session); */
+EXPORT_SYMBOL(mpq_sdmx_close_session);
 
 static int mpq_sdmx_get_buffer_chunks(struct mpq_demux *mpq_demux,
 	struct ion_handle *buff_handle,
@@ -3905,7 +3905,7 @@ init_mpq_feed_end:
 	mutex_unlock(&mpq_demux->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_init_mpq_feed); */
+EXPORT_SYMBOL(mpq_dmx_init_mpq_feed);
 
 /**
  * Note: Called only when filter is in "GO" state - after feed has been started.
@@ -3976,7 +3976,7 @@ int mpq_dmx_set_cipher_ops(struct dvb_demux_feed *feed,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_set_cipher_ops); */
+EXPORT_SYMBOL(mpq_dmx_set_cipher_ops);
 
 static int mpq_sdmx_invalidate_buffer(struct mpq_feed *mpq_feed)
 {
@@ -5013,7 +5013,7 @@ int mpq_sdmx_process(struct mpq_demux *mpq_demux,
 
 	return total_bytes_read;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_sdmx_process); */
+EXPORT_SYMBOL(mpq_sdmx_process);
 
 static int mpq_sdmx_write(struct mpq_demux *mpq_demux,
 	struct ion_handle *input_handle,
@@ -5100,7 +5100,7 @@ int mpq_dmx_write(struct dmx_demux *demux, const char *buf, size_t count)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_write); */
+EXPORT_SYMBOL(mpq_dmx_write);
 
 int mpq_sdmx_is_loaded(void)
 {
@@ -5116,7 +5116,7 @@ int mpq_sdmx_is_loaded(void)
 
 	return mpq_dmx_info.secure_demux_app_loaded;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_sdmx_is_loaded); */
+EXPORT_SYMBOL(mpq_sdmx_is_loaded);
 
 int mpq_dmx_oob_command(struct dvb_demux_feed *feed,
 	struct dmx_oob_command *cmd)
@@ -5187,4 +5187,4 @@ int mpq_dmx_oob_command(struct dvb_demux_feed *feed,
 	mutex_unlock(&mpq_demux->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_dmx_oob_command); */
+EXPORT_SYMBOL(mpq_dmx_oob_command);

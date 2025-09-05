@@ -257,7 +257,7 @@ err:
 
 	return err ? -EINVAL : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(digsig_verify); */
+EXPORT_SYMBOL_GPL(digsig_verify);
 
 static int __init digsig_init(void)
 {

@@ -166,7 +166,7 @@ int pm8058_micbias_enable(enum othc_micbias micbias,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8058_micbias_enable); */
+EXPORT_SYMBOL(pm8058_micbias_enable);
 
 int pm8058_othc_svideo_enable(enum othc_micbias micbias, bool enable)
 {
@@ -202,7 +202,7 @@ int pm8058_othc_svideo_enable(enum othc_micbias micbias, bool enable)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8058_othc_svideo_enable); */
+EXPORT_SYMBOL(pm8058_othc_svideo_enable);
 
 #ifdef CONFIG_PM
 static int pm8058_othc_suspend(struct device *dev)

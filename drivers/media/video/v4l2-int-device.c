@@ -67,7 +67,7 @@ void v4l2_int_device_try_attach_all(void)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_int_device_try_attach_all); */
+EXPORT_SYMBOL_GPL(v4l2_int_device_try_attach_all);
 
 static int ioctl_sort_cmp(const void *a, const void *b)
 {
@@ -95,7 +95,7 @@ int v4l2_int_device_register(struct v4l2_int_device *d)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_int_device_register); */
+EXPORT_SYMBOL_GPL(v4l2_int_device_register);
 
 void v4l2_int_device_unregister(struct v4l2_int_device *d)
 {
@@ -109,7 +109,7 @@ void v4l2_int_device_unregister(struct v4l2_int_device *d)
 	}
 	mutex_unlock(&mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_int_device_unregister); */
+EXPORT_SYMBOL_GPL(v4l2_int_device_unregister);
 
 /* Adapted from search_extable in extable.c. */
 static v4l2_int_ioctl_func *find_ioctl(struct v4l2_int_slave *slave, int cmd,
@@ -146,7 +146,7 @@ int v4l2_int_ioctl_0(struct v4l2_int_device *d, int cmd)
 		find_ioctl(d->u.slave, cmd,
 			   (v4l2_int_ioctl_func *)no_such_ioctl_0))(d);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_int_ioctl_0); */
+EXPORT_SYMBOL_GPL(v4l2_int_ioctl_0);
 
 static int no_such_ioctl_1(struct v4l2_int_device *d, void *arg)
 {
@@ -159,6 +159,6 @@ int v4l2_int_ioctl_1(struct v4l2_int_device *d, int cmd, void *arg)
 		find_ioctl(d->u.slave, cmd,
 			   (v4l2_int_ioctl_func *)no_such_ioctl_1))(d, arg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_int_ioctl_1); */
+EXPORT_SYMBOL_GPL(v4l2_int_ioctl_1);
 
 MODULE_LICENSE("GPL");

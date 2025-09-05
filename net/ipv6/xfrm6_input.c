@@ -27,7 +27,7 @@ int xfrm6_rcv_spi(struct sk_buff *skb, int nexthdr, __be32 spi)
 	XFRM_SPI_SKB_CB(skb)->daddroff = offsetof(struct ipv6hdr, daddr);
 	return xfrm_input(skb, nexthdr, spi, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm6_rcv_spi); */
+EXPORT_SYMBOL(xfrm6_rcv_spi);
 
 int xfrm6_transport_finish(struct sk_buff *skb, int async)
 {
@@ -53,7 +53,7 @@ int xfrm6_rcv(struct sk_buff *skb)
 			     0);
 }
 
-/* DISABLED: EXPORT_SYMBOL(xfrm6_rcv); */
+EXPORT_SYMBOL(xfrm6_rcv);
 
 int xfrm6_input_addr(struct sk_buff *skb, xfrm_address_t *daddr,
 		     xfrm_address_t *saddr, u8 proto)
@@ -143,4 +143,4 @@ drop:
 	return -1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(xfrm6_input_addr); */
+EXPORT_SYMBOL(xfrm6_input_addr);

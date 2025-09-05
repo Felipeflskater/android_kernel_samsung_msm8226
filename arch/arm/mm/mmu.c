@@ -42,7 +42,7 @@
  * zero-initialized data and COW.
  */
 struct page *empty_zero_page;
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 
 /*
  * The pmd table for the upper-most set of pages.
@@ -65,8 +65,8 @@ static unsigned int ecc_mask __initdata = 0;
 pgprot_t pgprot_user;
 pgprot_t pgprot_kernel;
 
-/* DISABLED: EXPORT_SYMBOL(pgprot_user); */
-/* DISABLED: EXPORT_SYMBOL(pgprot_kernel); */
+EXPORT_SYMBOL(pgprot_user);
+EXPORT_SYMBOL(pgprot_kernel);
 
 struct cachepolicy {
 	const char	policy[16];
@@ -180,7 +180,7 @@ static int __init noalign_setup(char *__unused)
 	set_cr(cr_alignment);
 	return 1;
 }
-/* DISABLED: __setup("noalign", noalign_setup); */ */
+__setup("noalign", noalign_setup);
 
 #ifndef CONFIG_SMP
 void adjust_cr(unsigned long mask, unsigned long set)
@@ -327,7 +327,7 @@ const struct mem_type *get_mem_type(unsigned int type)
 {
 	return type < ARRAY_SIZE(mem_types) ? &mem_types[type] : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(get_mem_type); */
+EXPORT_SYMBOL(get_mem_type);
 
 #define PTE_SET_FN(_name, pteop) \
 static int pte_set_##_name(pte_t *ptep, pgtable_t token, unsigned long addr, \
@@ -365,13 +365,13 @@ PTE_SET_FN(x, pte_mkexec)
 PTE_SET_FN(nx, pte_mknexec)
 
 SET_MEMORY_FN(ro, pte_set_ro)
-/* DISABLED: EXPORT_SYMBOL(set_memory_ro); */
+EXPORT_SYMBOL(set_memory_ro);
 SET_MEMORY_FN(rw, pte_set_rw)
-/* DISABLED: EXPORT_SYMBOL(set_memory_rw); */
+EXPORT_SYMBOL(set_memory_rw);
 SET_MEMORY_FN(x, pte_set_x)
-/* DISABLED: EXPORT_SYMBOL(set_memory_x); */
+EXPORT_SYMBOL(set_memory_x);
 SET_MEMORY_FN(nx, pte_set_nx)
-/* DISABLED: EXPORT_SYMBOL(set_memory_nx); */
+EXPORT_SYMBOL(set_memory_nx);
 
 /*
  * Adjust the PMD section entries according to the CPU in use.
@@ -658,7 +658,7 @@ pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
 		return pgprot_writecombine(vma_prot);
 	return vma_prot;
 }
-/* DISABLED: EXPORT_SYMBOL(phys_mem_access_prot); */
+EXPORT_SYMBOL(phys_mem_access_prot);
 #endif
 
 #define vectors_base()	(vectors_high() ? 0xffff0000 : 0)
@@ -1433,7 +1433,7 @@ void mem_text_write_kernel_word(unsigned long *addr, unsigned long word)
 	mem_text_address_restore();
 	mem_text_writeable_spinunlock(&flags);
 }
-/* DISABLED: EXPORT_SYMBOL(mem_text_write_kernel_word); */
+EXPORT_SYMBOL(mem_text_write_kernel_word);
 
 static void __init map_lowmem(void)
 {

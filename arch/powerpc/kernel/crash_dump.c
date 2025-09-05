@@ -76,7 +76,7 @@ static int __init parse_savemaxmem(char *p)
 
 	return 1;
 }
-/* DISABLED: __setup("savemaxmem=", parse_savemaxmem); */ */
+__setup("savemaxmem=", parse_savemaxmem);
 
 
 static size_t copy_oldmem_vaddr(void *vaddr, char *buf, size_t csize,

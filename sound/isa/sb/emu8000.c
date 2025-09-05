@@ -1150,14 +1150,14 @@ snd_emu8000_new(struct snd_card *card, int index, long port, int seq_ports,
  * exported stuff
  */
 
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_poke); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_peek); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_poke_dw); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_peek_dw); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_dma_chan); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_init_fm); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_load_chorus_fx); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_load_reverb_fx); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_update_chorus_mode); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_update_reverb_mode); */
-/* DISABLED: EXPORT_SYMBOL(snd_emu8000_update_equalizer); */
+EXPORT_SYMBOL(snd_emu8000_poke);
+EXPORT_SYMBOL(snd_emu8000_peek);
+EXPORT_SYMBOL(snd_emu8000_poke_dw);
+EXPORT_SYMBOL(snd_emu8000_peek_dw);
+EXPORT_SYMBOL(snd_emu8000_dma_chan);
+EXPORT_SYMBOL(snd_emu8000_init_fm);
+EXPORT_SYMBOL(snd_emu8000_load_chorus_fx);
+EXPORT_SYMBOL(snd_emu8000_load_reverb_fx);
+EXPORT_SYMBOL(snd_emu8000_update_chorus_mode);
+EXPORT_SYMBOL(snd_emu8000_update_reverb_mode);
+EXPORT_SYMBOL(snd_emu8000_update_equalizer);

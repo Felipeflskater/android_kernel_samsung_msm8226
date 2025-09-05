@@ -62,26 +62,26 @@ for_each_frame:	tst	frame, mask		@ Check for address exceptions
 		bne	no_frame
 
 1001:		ldr	sv_pc, [frame, #0]	@ get saved pc
-1002:		ldr	sv_fp, [frame, @ -12]	@ get saved fp
+1002:		ldr	sv_fp, [frame, #-12]	@ get saved fp
 
 		sub	sv_pc, sv_pc, offset	@ Correct PC for prefetching
 		bic	sv_pc, sv_pc, mask	@ mask PC/LR for the mode
 
-1003:		ldr	r2, [sv_pc, @ -4]	@ if stmfd sp!, {args} exists,
+1003:		ldr	r2, [sv_pc, #-4]	@ if stmfd sp!, {args} exists,
 		ldr	r3, .Ldsi+4		@ adjust saved 'pc' back one
 		teq	r3, r2, lsr #10		@ instruction
 		subne	r0, sv_pc, #4		@ allow for mov
 		subeq	r0, sv_pc, #8		@ allow for mov + stmia
 
-		ldr	r1, [frame, @ -4]	@ get saved lr
+		ldr	r1, [frame, #-4]	@ get saved lr
 		mov	r2, frame
 		bic	r1, r1, mask		@ mask PC/LR for the mode
 		bl	dump_backtrace_entry
 
-		ldr	r1, [sv_pc, @ -4]	@ if stmfd sp!, {args} exists,
+		ldr	r1, [sv_pc, #-4]	@ if stmfd sp!, {args} exists,
 		ldr	r3, .Ldsi+4
 		teq	r3, r1, lsr #10
-		ldreq	r0, [frame, @ -8]	@ get sp
+		ldreq	r0, [frame, #-8]	@ get sp
 		subeq	r0, r0, #4		@ point at the last arg
 		bleq	.Ldumpstm		@ dump saved registers
 
@@ -129,9 +129,9 @@ ENDPROC(c_backtrace)
 		add	r7, r7, #1
 		teq	r7, #6
 		moveq	r7, #1
-		moveq	r1, @ '\n'
-		movne	r1, @ ' '
-		ldr	r3, [stack], @ -4
+		moveq	r1, #'\n'
+		movne	r1, #' '
+		ldr	r3, [stack], #-4
 		mov	r2, reg
 		adr	r0, .Lfp
 		bl	printk

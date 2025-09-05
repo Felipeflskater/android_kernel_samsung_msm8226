@@ -75,7 +75,7 @@ static int snd_pcm_open(struct file *file, struct snd_pcm *pcm, int stream);
  */
 
 DEFINE_RWLOCK(snd_pcm_link_rwlock);
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_link_rwlock); */
+EXPORT_SYMBOL(snd_pcm_link_rwlock);
 
 static DECLARE_RWSEM(snd_pcm_link_rwsem);
 
@@ -332,7 +332,7 @@ int snd_pcm_hw_refine(struct snd_pcm_substream *substream,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_hw_refine); */
+EXPORT_SYMBOL(snd_pcm_hw_refine);
 
 static int snd_pcm_hw_refine_user(struct snd_pcm_substream *substream,
 				  struct snd_pcm_hw_params __user * _params)
@@ -957,7 +957,7 @@ int snd_pcm_stop(struct snd_pcm_substream *substream, snd_pcm_state_t state)
 	return snd_pcm_action(&snd_pcm_action_stop, substream, state);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_stop); */
+EXPORT_SYMBOL(snd_pcm_stop);
 
 /**
  * snd_pcm_drain_done - stop the DMA only when the given stream is playback
@@ -1113,7 +1113,7 @@ int snd_pcm_suspend(struct snd_pcm_substream *substream)
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_suspend); */
+EXPORT_SYMBOL(snd_pcm_suspend);
 
 /**
  * snd_pcm_suspend_all - trigger SUSPEND to all substreams in the given pcm
@@ -1143,7 +1143,7 @@ int snd_pcm_suspend_all(struct snd_pcm *pcm)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_suspend_all); */
+EXPORT_SYMBOL(snd_pcm_suspend_all);
 
 /* resume */
 
@@ -2062,7 +2062,7 @@ void snd_pcm_release_substream(struct snd_pcm_substream *substream)
 	snd_pcm_detach_substream(substream);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_release_substream); */
+EXPORT_SYMBOL(snd_pcm_release_substream);
 
 int snd_pcm_open_substream(struct snd_pcm *pcm, int stream,
 			   struct file *file,
@@ -2110,7 +2110,7 @@ int snd_pcm_open_substream(struct snd_pcm *pcm, int stream,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_open_substream); */
+EXPORT_SYMBOL(snd_pcm_open_substream);
 
 static int snd_pcm_open_file(struct file *file,
 			     struct snd_pcm *pcm,
@@ -2868,7 +2868,7 @@ int snd_pcm_kernel_ioctl(struct snd_pcm_substream *substream,
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_kernel_ioctl); */
+EXPORT_SYMBOL(snd_pcm_kernel_ioctl);
 
 static ssize_t snd_pcm_read(struct file *file, char __user *buf, size_t count,
 			    loff_t * offset)
@@ -3261,7 +3261,7 @@ int snd_pcm_lib_default_mmap(struct snd_pcm_substream *substream,
 	area->vm_ops = &snd_pcm_vm_ops_data_fault;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_pcm_lib_default_mmap); */
+EXPORT_SYMBOL_GPL(snd_pcm_lib_default_mmap);
 
 /*
  * mmap the DMA buffer on I/O memory area
@@ -3276,7 +3276,7 @@ int snd_pcm_lib_mmap_iomem(struct snd_pcm_substream *substream,
 	return vm_iomap_memory(area, runtime->dma_addr, runtime->dma_bytes);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_lib_mmap_iomem); */
+EXPORT_SYMBOL(snd_pcm_lib_mmap_iomem);
 #endif /* SNDRV_PCM_INFO_MMAP */
 
 /*
@@ -3325,7 +3325,7 @@ int snd_pcm_mmap_data(struct snd_pcm_substream *substream, struct file *file,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_pcm_mmap_data); */
+EXPORT_SYMBOL(snd_pcm_mmap_data);
 
 static int snd_pcm_mmap(struct file *file, struct vm_area_struct *area)
 {

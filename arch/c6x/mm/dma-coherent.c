@@ -94,7 +94,7 @@ void *dma_alloc_coherent(struct device *dev, size_t size,
 
 	return phys_to_virt(paddr);
 }
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
+EXPORT_SYMBOL(dma_alloc_coherent);
 
 /*
  * Free DMA coherent memory as defined by the above mapping.
@@ -111,7 +111,7 @@ void dma_free_coherent(struct device *dev, size_t size, void *vaddr,
 
 	__free_dma_pages(virt_to_phys(vaddr), order);
 }
-/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
+EXPORT_SYMBOL(dma_free_coherent);
 
 /*
  * Initialise the coherent DMA memory allocator using the given uncached region.

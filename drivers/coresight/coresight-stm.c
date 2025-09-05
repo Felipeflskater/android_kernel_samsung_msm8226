@@ -597,7 +597,7 @@ int stm_trace(uint32_t options, uint8_t entity_id, uint8_t proto_id,
 
 	return __stm_trace(options, entity_id, proto_id, data, size);
 }
-/* DISABLED: EXPORT_SYMBOL(stm_trace); */
+EXPORT_SYMBOL(stm_trace);
 
 static ssize_t stm_write(struct file *file, const char __user *data,
 			 size_t size, loff_t *ppos)

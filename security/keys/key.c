@@ -358,7 +358,7 @@ no_quota:
 	key = ERR_PTR(-EDQUOT);
 	goto error;
 }
-/* DISABLED: EXPORT_SYMBOL(key_alloc); */
+EXPORT_SYMBOL(key_alloc);
 
 /**
  * key_payload_reserve - Adjust data quota reservation for the key's payload
@@ -403,7 +403,7 @@ int key_payload_reserve(struct key *key, size_t datalen)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(key_payload_reserve); */
+EXPORT_SYMBOL(key_payload_reserve);
 
 /*
  * Instantiate a key and link it into the target keyring atomically.  Must be
@@ -501,7 +501,7 @@ int key_instantiate_and_link(struct key *key,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(key_instantiate_and_link); */
+EXPORT_SYMBOL(key_instantiate_and_link);
 
 /**
  * key_reject_and_link - Negatively instantiate a key and link it into the keyring.
@@ -582,7 +582,7 @@ int key_reject_and_link(struct key *key,
 
 	return ret == 0 ? link_ret : ret;
 }
-/* DISABLED: EXPORT_SYMBOL(key_reject_and_link); */
+EXPORT_SYMBOL(key_reject_and_link);
 
 /**
  * key_put - Discard a reference to a key.
@@ -601,7 +601,7 @@ void key_put(struct key *key)
 			queue_work(system_nrt_wq, &key_gc_work);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(key_put); */
+EXPORT_SYMBOL(key_put);
 
 /*
  * Find a key by its serial number.
@@ -689,7 +689,7 @@ void key_set_timeout(struct key *key, unsigned timeout)
 
 	up_write(&key->sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(key_set_timeout); */
+EXPORT_SYMBOL_GPL(key_set_timeout);
 
 /*
  * Unlock a key type locked by key_type_lookup().
@@ -871,7 +871,7 @@ key_ref_t key_create_or_update(key_ref_t keyring_ref,
 	key_ref = __key_update(key_ref, payload, plen);
 	goto error;
 }
-/* DISABLED: EXPORT_SYMBOL(key_create_or_update); */
+EXPORT_SYMBOL(key_create_or_update);
 
 /**
  * key_update - Update a key's contents.
@@ -914,7 +914,7 @@ int key_update(key_ref_t key_ref, const void *payload, size_t plen)
  error:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(key_update); */
+EXPORT_SYMBOL(key_update);
 
 /**
  * key_revoke - Revoke a key.
@@ -952,7 +952,7 @@ void key_revoke(struct key *key)
 
 	up_write(&key->sem);
 }
-/* DISABLED: EXPORT_SYMBOL(key_revoke); */
+EXPORT_SYMBOL(key_revoke);
 
 /**
  * register_key_type - Register a type of key.
@@ -986,7 +986,7 @@ out:
 	up_write(&key_types_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(register_key_type); */
+EXPORT_SYMBOL(register_key_type);
 
 /**
  * unregister_key_type - Unregister a type of key.
@@ -1004,7 +1004,7 @@ void unregister_key_type(struct key_type *ktype)
 	key_gc_keytype(ktype);
 	up_read(&key_types_sem);
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_key_type); */
+EXPORT_SYMBOL(unregister_key_type);
 
 /*
  * Initialise the key management state.

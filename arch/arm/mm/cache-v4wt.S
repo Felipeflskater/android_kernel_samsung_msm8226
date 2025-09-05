@@ -65,10 +65,10 @@ ENTRY(v4wt_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(v4wt_flush_kern_cache_all)
-	mov	r2, @ VM_EXEC
+	mov	r2, #VM_EXEC
 	mov	ip, #0
 __flush_whole_cache:
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 	mcr	p15, 0, ip, c7, c6, 0		@ invalidate D cache
 	mov	pc, lr
@@ -85,13 +85,13 @@ __flush_whole_cache:
  */
 ENTRY(v4wt_flush_user_cache_range)
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, @ CACHE_DLIMIT
+	cmp	r3, #CACHE_DLIMIT
 	bhs	__flush_whole_cache
 
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mcrne	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	pc, lr
@@ -120,9 +120,9 @@ ENTRY(v4wt_coherent_kern_range)
  *	- end	 - virtual end address
  */
 ENTRY(v4wt_coherent_user_range)
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c5, 1		@ invalidate I entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	pc, lr
@@ -154,9 +154,9 @@ ENTRY(v4wt_flush_kern_dcache_area)
  *	- end	 - virtual end address
  */
 v4wt_dma_inv_range:
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	pc, lr
@@ -180,7 +180,7 @@ v4wt_dma_inv_range:
  */
 ENTRY(v4wt_dma_unmap_area)
 	add	r1, r1, r0
-	teq	r2, @ DMA_TO_DEVICE
+	teq	r2, #DMA_TO_DEVICE
 	bne	v4wt_dma_inv_range
 	/* FALLTHROUGH */
 

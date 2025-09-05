@@ -26,7 +26,7 @@ static DEFINE_SPINLOCK(blkio_list_lock);
 static LIST_HEAD(blkio_list);
 
 struct blkio_cgroup blkio_root_cgroup = { .weight = 2*BLKIO_WEIGHT_DEFAULT };
-/* DISABLED: EXPORT_SYMBOL_GPL(blkio_root_cgroup); */
+EXPORT_SYMBOL_GPL(blkio_root_cgroup);
 
 static struct cgroup_subsys_state *blkiocg_create(struct cgroup *);
 static int blkiocg_can_attach(struct cgroup *, struct cgroup_taskset *);
@@ -54,7 +54,7 @@ struct cgroup_subsys blkio_subsys = {
 	.use_id = 1,
 	.module = THIS_MODULE,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(blkio_subsys); */
+EXPORT_SYMBOL_GPL(blkio_subsys);
 
 static inline void blkio_policy_insert_node(struct blkio_cgroup *blkcg,
 					    struct blkio_policy_node *pn)
@@ -109,14 +109,14 @@ struct blkio_cgroup *cgroup_to_blkio_cgroup(struct cgroup *cgroup)
 	return container_of(cgroup_subsys_state(cgroup, blkio_subsys_id),
 			    struct blkio_cgroup, css);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cgroup_to_blkio_cgroup); */
+EXPORT_SYMBOL_GPL(cgroup_to_blkio_cgroup);
 
 struct blkio_cgroup *task_blkio_cgroup(struct task_struct *tsk)
 {
 	return container_of(task_subsys_state(tsk, blkio_subsys_id),
 			    struct blkio_cgroup, css);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(task_blkio_cgroup); */
+EXPORT_SYMBOL_GPL(task_blkio_cgroup);
 
 static inline void
 blkio_update_group_weight(struct blkio_group *blkg, unsigned int weight)
@@ -270,7 +270,7 @@ void blkiocg_update_set_idle_time_stats(struct blkio_group *blkg)
 	blkio_mark_blkg_idling(&blkg->stats);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_set_idle_time_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_set_idle_time_stats);
 
 void blkiocg_update_idle_time_stats(struct blkio_group *blkg)
 {
@@ -288,7 +288,7 @@ void blkiocg_update_idle_time_stats(struct blkio_group *blkg)
 	}
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_idle_time_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_idle_time_stats);
 
 void blkiocg_update_avg_queue_size_stats(struct blkio_group *blkg)
 {
@@ -304,7 +304,7 @@ void blkiocg_update_avg_queue_size_stats(struct blkio_group *blkg)
 	blkio_update_group_wait_time(stats);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_avg_queue_size_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_avg_queue_size_stats);
 
 void blkiocg_set_start_empty_time(struct blkio_group *blkg)
 {
@@ -334,14 +334,14 @@ void blkiocg_set_start_empty_time(struct blkio_group *blkg)
 	blkio_mark_blkg_empty(stats);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_set_start_empty_time); */
+EXPORT_SYMBOL_GPL(blkiocg_set_start_empty_time);
 
 void blkiocg_update_dequeue_stats(struct blkio_group *blkg,
 			unsigned long dequeue)
 {
 	blkg->stats.dequeue += dequeue;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_dequeue_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_dequeue_stats);
 #else
 static inline void blkio_set_start_group_wait_time(struct blkio_group *blkg,
 					struct blkio_group *curr_blkg) {}
@@ -361,7 +361,7 @@ void blkiocg_update_io_add_stats(struct blkio_group *blkg,
 	blkio_set_start_group_wait_time(blkg, curr_blkg);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_io_add_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_io_add_stats);
 
 void blkiocg_update_io_remove_stats(struct blkio_group *blkg,
 						bool direction, bool sync)
@@ -373,7 +373,7 @@ void blkiocg_update_io_remove_stats(struct blkio_group *blkg,
 					direction, sync);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_io_remove_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_io_remove_stats);
 
 void blkiocg_update_timeslice_used(struct blkio_group *blkg, unsigned long time,
 				unsigned long unaccounted_time)
@@ -387,7 +387,7 @@ void blkiocg_update_timeslice_used(struct blkio_group *blkg, unsigned long time,
 #endif
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_timeslice_used); */
+EXPORT_SYMBOL_GPL(blkiocg_update_timeslice_used);
 
 /*
  * should be called under rcu read lock or queue lock to make sure blkg pointer
@@ -417,7 +417,7 @@ void blkiocg_update_dispatch_stats(struct blkio_group *blkg,
 	u64_stats_update_end(&stats_cpu->syncp);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_dispatch_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_dispatch_stats);
 
 void blkiocg_update_completion_stats(struct blkio_group *blkg,
 	uint64_t start_time, uint64_t io_start_time, bool direction, bool sync)
@@ -436,7 +436,7 @@ void blkiocg_update_completion_stats(struct blkio_group *blkg,
 				io_start_time - start_time, direction, sync);
 	spin_unlock_irqrestore(&blkg->stats_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_completion_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_completion_stats);
 
 /*  Merged stats are per cpu.  */
 void blkiocg_update_io_merged_stats(struct blkio_group *blkg, bool direction,
@@ -460,7 +460,7 @@ void blkiocg_update_io_merged_stats(struct blkio_group *blkg, bool direction,
 	u64_stats_update_end(&stats_cpu->syncp);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_update_io_merged_stats); */
+EXPORT_SYMBOL_GPL(blkiocg_update_io_merged_stats);
 
 /*
  * This function allocates the per cpu stats for blkio_group. Should be called
@@ -474,7 +474,7 @@ int blkio_alloc_blkg_stats(struct blkio_group *blkg)
 		return -ENOMEM;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkio_alloc_blkg_stats); */
+EXPORT_SYMBOL_GPL(blkio_alloc_blkg_stats);
 
 void blkiocg_add_blkio_group(struct blkio_cgroup *blkcg,
 		struct blkio_group *blkg, void *key, dev_t dev,
@@ -493,7 +493,7 @@ void blkiocg_add_blkio_group(struct blkio_cgroup *blkcg,
 	cgroup_path(blkcg->css.cgroup, blkg->path, sizeof(blkg->path));
 	blkg->dev = dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_add_blkio_group); */
+EXPORT_SYMBOL_GPL(blkiocg_add_blkio_group);
 
 static void __blkiocg_del_blkio_group(struct blkio_group *blkg)
 {
@@ -527,7 +527,7 @@ int blkiocg_del_blkio_group(struct blkio_group *blkg)
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_del_blkio_group); */
+EXPORT_SYMBOL_GPL(blkiocg_del_blkio_group);
 
 /* called under rcu_read_lock(). */
 struct blkio_group *blkiocg_lookup_group(struct blkio_cgroup *blkcg, void *key)
@@ -544,7 +544,7 @@ struct blkio_group *blkiocg_lookup_group(struct blkio_cgroup *blkcg, void *key)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkiocg_lookup_group); */
+EXPORT_SYMBOL_GPL(blkiocg_lookup_group);
 
 static void blkio_reset_stats_cpu(struct blkio_group *blkg)
 {
@@ -884,7 +884,7 @@ unsigned int blkcg_get_weight(struct blkio_cgroup *blkcg,
 
 	return weight;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkcg_get_weight); */
+EXPORT_SYMBOL_GPL(blkcg_get_weight);
 
 uint64_t blkcg_get_read_bps(struct blkio_cgroup *blkcg, dev_t dev)
 {
@@ -1664,7 +1664,7 @@ void blkio_policy_register(struct blkio_policy_type *blkiop)
 	list_add_tail(&blkiop->list, &blkio_list);
 	spin_unlock(&blkio_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkio_policy_register); */
+EXPORT_SYMBOL_GPL(blkio_policy_register);
 
 void blkio_policy_unregister(struct blkio_policy_type *blkiop)
 {
@@ -1672,7 +1672,7 @@ void blkio_policy_unregister(struct blkio_policy_type *blkiop)
 	list_del_init(&blkiop->list);
 	spin_unlock(&blkio_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkio_policy_unregister); */
+EXPORT_SYMBOL_GPL(blkio_policy_unregister);
 
 static int __init init_cgroup_blkio(void)
 {

@@ -44,6 +44,6 @@ void snd_use_lock_sync_helper(snd_use_lock_t *lockp, const char *file, int line)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_use_lock_sync_helper); */
+EXPORT_SYMBOL(snd_use_lock_sync_helper);
 
 #endif

@@ -1683,4 +1683,4 @@ void ath6kl_stop_txrx(struct ath6kl *ar)
 
 	up(&ar->sem);
 }
-/* DISABLED: EXPORT_SYMBOL(ath6kl_stop_txrx); */
+EXPORT_SYMBOL(ath6kl_stop_txrx);

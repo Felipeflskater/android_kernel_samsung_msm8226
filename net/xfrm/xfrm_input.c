@@ -23,7 +23,7 @@ void __secpath_destroy(struct sec_path *sp)
 		xfrm_state_put(sp->xvec[i]);
 	kmem_cache_free(secpath_cachep, sp);
 }
-/* DISABLED: EXPORT_SYMBOL(__secpath_destroy); */
+EXPORT_SYMBOL(__secpath_destroy);
 
 struct sec_path *secpath_dup(struct sec_path *src)
 {
@@ -44,7 +44,7 @@ struct sec_path *secpath_dup(struct sec_path *src)
 	atomic_set(&sp->refcnt, 1);
 	return sp;
 }
-/* DISABLED: EXPORT_SYMBOL(secpath_dup); */
+EXPORT_SYMBOL(secpath_dup);
 
 /* Fetch spi and seq from ipsec header */
 
@@ -100,7 +100,7 @@ int xfrm_prepare_input(struct xfrm_state *x, struct sk_buff *skb)
 	skb->protocol = inner_mode->afinfo->eth_proto;
 	return inner_mode->input2(x, skb);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_prepare_input); */
+EXPORT_SYMBOL(xfrm_prepare_input);
 
 int xfrm_input(struct sk_buff *skb, int nexthdr, __be32 spi, int encap_type)
 {
@@ -274,13 +274,13 @@ drop:
 	kfree_skb(skb);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_input); */
+EXPORT_SYMBOL(xfrm_input);
 
 int xfrm_input_resume(struct sk_buff *skb, int nexthdr)
 {
 	return xfrm_input(skb, nexthdr, 0, -1);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_input_resume); */
+EXPORT_SYMBOL(xfrm_input_resume);
 
 void __init xfrm_input_init(void)
 {

@@ -110,7 +110,7 @@ MODULE_PARM_DESC(mpt_debug_level,
 		 " debug level - refer to mptdebug.h - (default=0)");
 
 int mpt_fwfault_debug;
-/* DISABLED: EXPORT_SYMBOL(mpt_fwfault_debug); */
+EXPORT_SYMBOL(mpt_fwfault_debug);
 module_param(mpt_fwfault_debug, int, 0600);
 MODULE_PARM_DESC(mpt_fwfault_debug,
 		 "Enable detection of Firmware fault and halt Firmware on fault - (default=0)");
@@ -5854,7 +5854,7 @@ mpt_raid_phys_disk_get_num_paths(MPT_ADAPTER *ioc, u8 phys_disk_num)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_raid_phys_disk_get_num_paths); */
+EXPORT_SYMBOL(mpt_raid_phys_disk_get_num_paths);
 
 /**
  *	mpt_raid_phys_disk_pg1 - returns phys disk page 1
@@ -5943,7 +5943,7 @@ mpt_raid_phys_disk_pg1(MPT_ADAPTER *ioc, u8 phys_disk_num,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_raid_phys_disk_pg1); */
+EXPORT_SYMBOL(mpt_raid_phys_disk_pg1);
 
 
 /**
@@ -6943,7 +6943,7 @@ mpt_set_taskmgmt_in_progress_flag(MPT_ADAPTER *ioc)
 	spin_unlock_irqrestore(&ioc->taskmgmt_lock, flags);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_set_taskmgmt_in_progress_flag); */
+EXPORT_SYMBOL(mpt_set_taskmgmt_in_progress_flag);
 
 /**
  *	mpt_clear_taskmgmt_in_progress_flag - clear flags associated with task management
@@ -6964,7 +6964,7 @@ mpt_clear_taskmgmt_in_progress_flag(MPT_ADAPTER *ioc)
 	}
 	spin_unlock_irqrestore(&ioc->taskmgmt_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_clear_taskmgmt_in_progress_flag); */
+EXPORT_SYMBOL(mpt_clear_taskmgmt_in_progress_flag);
 
 
 /**
@@ -6991,7 +6991,7 @@ mpt_halt_firmware(MPT_ADAPTER *ioc)
 			ioc->name);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_halt_firmware); */
+EXPORT_SYMBOL(mpt_halt_firmware);
 
 /**
  *	mpt_SoftResetHandler - Issues a less expensive reset
@@ -7156,7 +7156,7 @@ mpt_Soft_Hard_ResetHandler(MPT_ADAPTER *ioc, int sleepFlag) {
 	ret = mpt_HardResetHandler(ioc, sleepFlag);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpt_Soft_Hard_ResetHandler); */
+EXPORT_SYMBOL(mpt_Soft_Hard_ResetHandler);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 /*
@@ -8478,36 +8478,36 @@ mpt_iocstatus_info(MPT_ADAPTER *ioc, u32 ioc_status, MPT_FRAME_HDR *mf)
 }
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-/* DISABLED: EXPORT_SYMBOL(mpt_attach); */
-/* DISABLED: EXPORT_SYMBOL(mpt_detach); */
+EXPORT_SYMBOL(mpt_attach);
+EXPORT_SYMBOL(mpt_detach);
 #ifdef CONFIG_PM
-/* DISABLED: EXPORT_SYMBOL(mpt_resume); */
-/* DISABLED: EXPORT_SYMBOL(mpt_suspend); */
+EXPORT_SYMBOL(mpt_resume);
+EXPORT_SYMBOL(mpt_suspend);
 #endif
-/* DISABLED: EXPORT_SYMBOL(ioc_list); */
-/* DISABLED: EXPORT_SYMBOL(mpt_register); */
-/* DISABLED: EXPORT_SYMBOL(mpt_deregister); */
-/* DISABLED: EXPORT_SYMBOL(mpt_event_register); */
-/* DISABLED: EXPORT_SYMBOL(mpt_event_deregister); */
-/* DISABLED: EXPORT_SYMBOL(mpt_reset_register); */
-/* DISABLED: EXPORT_SYMBOL(mpt_reset_deregister); */
-/* DISABLED: EXPORT_SYMBOL(mpt_device_driver_register); */
-/* DISABLED: EXPORT_SYMBOL(mpt_device_driver_deregister); */
-/* DISABLED: EXPORT_SYMBOL(mpt_get_msg_frame); */
-/* DISABLED: EXPORT_SYMBOL(mpt_put_msg_frame); */
-/* DISABLED: EXPORT_SYMBOL(mpt_put_msg_frame_hi_pri); */
-/* DISABLED: EXPORT_SYMBOL(mpt_free_msg_frame); */
-/* DISABLED: EXPORT_SYMBOL(mpt_send_handshake_request); */
-/* DISABLED: EXPORT_SYMBOL(mpt_verify_adapter); */
-/* DISABLED: EXPORT_SYMBOL(mpt_GetIocState); */
-/* DISABLED: EXPORT_SYMBOL(mpt_print_ioc_summary); */
-/* DISABLED: EXPORT_SYMBOL(mpt_HardResetHandler); */
-/* DISABLED: EXPORT_SYMBOL(mpt_config); */
-/* DISABLED: EXPORT_SYMBOL(mpt_findImVolumes); */
-/* DISABLED: EXPORT_SYMBOL(mpt_alloc_fw_memory); */
-/* DISABLED: EXPORT_SYMBOL(mpt_free_fw_memory); */
-/* DISABLED: EXPORT_SYMBOL(mptbase_sas_persist_operation); */
-/* DISABLED: EXPORT_SYMBOL(mpt_raid_phys_disk_pg0); */
+EXPORT_SYMBOL(ioc_list);
+EXPORT_SYMBOL(mpt_register);
+EXPORT_SYMBOL(mpt_deregister);
+EXPORT_SYMBOL(mpt_event_register);
+EXPORT_SYMBOL(mpt_event_deregister);
+EXPORT_SYMBOL(mpt_reset_register);
+EXPORT_SYMBOL(mpt_reset_deregister);
+EXPORT_SYMBOL(mpt_device_driver_register);
+EXPORT_SYMBOL(mpt_device_driver_deregister);
+EXPORT_SYMBOL(mpt_get_msg_frame);
+EXPORT_SYMBOL(mpt_put_msg_frame);
+EXPORT_SYMBOL(mpt_put_msg_frame_hi_pri);
+EXPORT_SYMBOL(mpt_free_msg_frame);
+EXPORT_SYMBOL(mpt_send_handshake_request);
+EXPORT_SYMBOL(mpt_verify_adapter);
+EXPORT_SYMBOL(mpt_GetIocState);
+EXPORT_SYMBOL(mpt_print_ioc_summary);
+EXPORT_SYMBOL(mpt_HardResetHandler);
+EXPORT_SYMBOL(mpt_config);
+EXPORT_SYMBOL(mpt_findImVolumes);
+EXPORT_SYMBOL(mpt_alloc_fw_memory);
+EXPORT_SYMBOL(mpt_free_fw_memory);
+EXPORT_SYMBOL(mptbase_sas_persist_operation);
+EXPORT_SYMBOL(mpt_raid_phys_disk_pg0);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 /**

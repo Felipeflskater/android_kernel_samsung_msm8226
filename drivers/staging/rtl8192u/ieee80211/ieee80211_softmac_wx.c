@@ -591,21 +591,21 @@ exit:
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_essid); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_essid); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_rate); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_rate); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_wap); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_wap); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_mode); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_mode); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_scan); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_freq); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_freq); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_rawtx); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_name); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_power); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_power); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wlan_frequencies); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_set_rts); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wx_get_rts); */
+EXPORT_SYMBOL(ieee80211_wx_get_essid);
+EXPORT_SYMBOL(ieee80211_wx_set_essid);
+EXPORT_SYMBOL(ieee80211_wx_set_rate);
+EXPORT_SYMBOL(ieee80211_wx_get_rate);
+EXPORT_SYMBOL(ieee80211_wx_set_wap);
+EXPORT_SYMBOL(ieee80211_wx_get_wap);
+EXPORT_SYMBOL(ieee80211_wx_set_mode);
+EXPORT_SYMBOL(ieee80211_wx_get_mode);
+EXPORT_SYMBOL(ieee80211_wx_set_scan);
+EXPORT_SYMBOL(ieee80211_wx_get_freq);
+EXPORT_SYMBOL(ieee80211_wx_set_freq);
+EXPORT_SYMBOL(ieee80211_wx_set_rawtx);
+EXPORT_SYMBOL(ieee80211_wx_get_name);
+EXPORT_SYMBOL(ieee80211_wx_set_power);
+EXPORT_SYMBOL(ieee80211_wx_get_power);
+EXPORT_SYMBOL(ieee80211_wlan_frequencies);
+EXPORT_SYMBOL(ieee80211_wx_set_rts);
+EXPORT_SYMBOL(ieee80211_wx_get_rts);

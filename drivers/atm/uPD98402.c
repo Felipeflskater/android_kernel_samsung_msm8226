@@ -255,7 +255,7 @@ DPRINTK("phy_init\n");
 
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(uPD98402_init); */
+EXPORT_SYMBOL(uPD98402_init);
 
 static __init int uPD98402_module_init(void)
 {

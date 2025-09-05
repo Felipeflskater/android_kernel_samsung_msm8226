@@ -94,4 +94,4 @@ void flush_dcache_page(struct page *page)
 		set_bit(PG_dcache_clean, &page->flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
+EXPORT_SYMBOL(flush_dcache_page);

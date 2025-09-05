@@ -376,7 +376,7 @@ struct hci_dev *hci_dev_get(int index)
 	read_unlock(&hci_dev_list_lock);
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_dev_get); */
+EXPORT_SYMBOL(hci_dev_get);
 
 /* ---- Inquiry support ---- */
 static void inquiry_cache_flush(struct hci_dev *hdev)
@@ -981,7 +981,7 @@ struct hci_dev *hci_alloc_dev(void)
 
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_alloc_dev); */
+EXPORT_SYMBOL(hci_alloc_dev);
 
 /* Free HCI device */
 void hci_free_dev(struct hci_dev *hdev)
@@ -991,7 +991,7 @@ void hci_free_dev(struct hci_dev *hdev)
 	/* will free via device release */
 	put_device(&hdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_free_dev); */
+EXPORT_SYMBOL(hci_free_dev);
 
 static void hci_power_on(struct work_struct *work)
 {
@@ -1116,7 +1116,7 @@ struct link_key *hci_find_ltk(struct hci_dev *hdev, __le16 ediv, u8 rand[8])
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_find_ltk); */
+EXPORT_SYMBOL(hci_find_ltk);
 
 struct link_key *hci_find_link_key_type(struct hci_dev *hdev,
 					bdaddr_t *bdaddr, u8 type)
@@ -1134,7 +1134,7 @@ struct link_key *hci_find_link_key_type(struct hci_dev *hdev,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_find_link_key_type); */
+EXPORT_SYMBOL(hci_find_link_key_type);
 
 int hci_add_link_key(struct hci_dev *hdev, int new_key, bdaddr_t *bdaddr,
 						u8 *val, u8 type, u8 pin_len)
@@ -1559,7 +1559,7 @@ nomem:
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_register_dev); */
+EXPORT_SYMBOL(hci_register_dev);
 
 /* Unregister HCI device */
 int hci_unregister_dev(struct hci_dev *hdev)
@@ -1620,7 +1620,7 @@ int hci_unregister_dev(struct hci_dev *hdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_unregister_dev); */
+EXPORT_SYMBOL(hci_unregister_dev);
 
 /* Suspend HCI device */
 int hci_suspend_dev(struct hci_dev *hdev)
@@ -1628,7 +1628,7 @@ int hci_suspend_dev(struct hci_dev *hdev)
 	hci_notify(hdev, HCI_DEV_SUSPEND);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_suspend_dev); */
+EXPORT_SYMBOL(hci_suspend_dev);
 
 /* Resume HCI device */
 int hci_resume_dev(struct hci_dev *hdev)
@@ -1636,7 +1636,7 @@ int hci_resume_dev(struct hci_dev *hdev)
 	hci_notify(hdev, HCI_DEV_RESUME);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_resume_dev); */
+EXPORT_SYMBOL(hci_resume_dev);
 
 /* Receive frame from HCI drivers */
 int hci_recv_frame(struct sk_buff *skb)
@@ -1660,7 +1660,7 @@ int hci_recv_frame(struct sk_buff *skb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_recv_frame); */
+EXPORT_SYMBOL(hci_recv_frame);
 
 static int hci_reassembly(struct hci_dev *hdev, int type, void *data,
 						  int count, __u8 index)
@@ -1789,7 +1789,7 @@ int hci_recv_fragment(struct hci_dev *hdev, int type, void *data, int count)
 
 	return rem;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_recv_fragment); */
+EXPORT_SYMBOL(hci_recv_fragment);
 
 #define STREAM_REASSEMBLY 0
 
@@ -1824,7 +1824,7 @@ int hci_recv_stream_fragment(struct hci_dev *hdev, void *data, int count)
 
 	return rem;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_recv_stream_fragment); */
+EXPORT_SYMBOL(hci_recv_stream_fragment);
 
 /* ---- Interface to upper protocols ---- */
 
@@ -1850,7 +1850,7 @@ int hci_register_proto(struct hci_proto *hp)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_register_proto); */
+EXPORT_SYMBOL(hci_register_proto);
 
 int hci_unregister_proto(struct hci_proto *hp)
 {
@@ -1872,7 +1872,7 @@ int hci_unregister_proto(struct hci_proto *hp)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_unregister_proto); */
+EXPORT_SYMBOL(hci_unregister_proto);
 
 int hci_register_cb(struct hci_cb *cb)
 {
@@ -1884,7 +1884,7 @@ int hci_register_cb(struct hci_cb *cb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_register_cb); */
+EXPORT_SYMBOL(hci_register_cb);
 
 int hci_unregister_cb(struct hci_cb *cb)
 {
@@ -1896,7 +1896,7 @@ int hci_unregister_cb(struct hci_cb *cb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_unregister_cb); */
+EXPORT_SYMBOL(hci_unregister_cb);
 
 int hci_register_amp(struct amp_mgr_cb *cb)
 {
@@ -1908,7 +1908,7 @@ int hci_register_amp(struct amp_mgr_cb *cb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_register_amp); */
+EXPORT_SYMBOL(hci_register_amp);
 
 int hci_unregister_amp(struct amp_mgr_cb *cb)
 {
@@ -1920,7 +1920,7 @@ int hci_unregister_amp(struct amp_mgr_cb *cb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_unregister_amp); */
+EXPORT_SYMBOL(hci_unregister_amp);
 
 void hci_amp_cmd_complete(struct hci_dev *hdev, __u16 opcode,
 			struct sk_buff *skb)
@@ -2026,7 +2026,7 @@ int hci_send_cmd(struct hci_dev *hdev, __u16 opcode, __u32 plen, void *param)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_send_cmd); */
+EXPORT_SYMBOL(hci_send_cmd);
 
 /* Get data from the previously sent command */
 void *hci_sent_cmd_data(struct hci_dev *hdev, __u16 opcode)
@@ -2109,7 +2109,7 @@ void hci_send_acl(struct hci_conn *conn, struct hci_chan *chan,
 
 	tasklet_schedule(&hdev->tx_task);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_send_acl); */
+EXPORT_SYMBOL(hci_send_acl);
 
 /* Send SCO data */
 void hci_send_sco(struct hci_conn *conn, struct sk_buff *skb)
@@ -2132,7 +2132,7 @@ void hci_send_sco(struct hci_conn *conn, struct sk_buff *skb)
 	skb_queue_tail(&conn->data_q, skb);
 	tasklet_schedule(&hdev->tx_task);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_send_sco); */
+EXPORT_SYMBOL(hci_send_sco);
 
 /* ---- HCI TX task (outgoing data) ---- */
 /* HCI ACL Connection scheduler */

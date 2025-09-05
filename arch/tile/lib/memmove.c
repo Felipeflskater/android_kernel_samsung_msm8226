@@ -60,4 +60,4 @@ void *memmove(void *dest, const void *src, size_t n)
 
 	return dest;
 }
-/* DISABLED: EXPORT_SYMBOL(memmove); */
+EXPORT_SYMBOL(memmove);

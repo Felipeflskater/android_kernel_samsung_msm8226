@@ -41,7 +41,7 @@ struct inet_timewait_death_row dccp_death_row = {
 					    (unsigned long)&dccp_death_row),
 };
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_death_row); */
+EXPORT_SYMBOL_GPL(dccp_death_row);
 
 void dccp_time_wait(struct sock *sk, int state, int timeo)
 {
@@ -150,7 +150,7 @@ struct sock *dccp_create_openreq_child(struct sock *sk,
 	return newsk;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_create_openreq_child); */
+EXPORT_SYMBOL_GPL(dccp_create_openreq_child);
 
 /*
  * Process an incoming packet for RESPOND sockets represented
@@ -222,7 +222,7 @@ drop:
 	goto out;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_check_req); */
+EXPORT_SYMBOL_GPL(dccp_check_req);
 
 /*
  *  Queue segment on the new socket if the new socket is active,
@@ -255,7 +255,7 @@ int dccp_child_process(struct sock *parent, struct sock *child,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_child_process); */
+EXPORT_SYMBOL_GPL(dccp_child_process);
 
 void dccp_reqsk_send_ack(struct sock *sk, struct sk_buff *skb,
 			 struct request_sock *rsk)
@@ -263,7 +263,7 @@ void dccp_reqsk_send_ack(struct sock *sk, struct sk_buff *skb,
 	DCCP_BUG("DCCP-ACK packets are never sent in LISTEN/RESPOND state");
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_reqsk_send_ack); */
+EXPORT_SYMBOL_GPL(dccp_reqsk_send_ack);
 
 int dccp_reqsk_init(struct request_sock *req,
 		    struct dccp_sock const *dp, struct sk_buff const *skb)
@@ -279,4 +279,4 @@ int dccp_reqsk_init(struct request_sock *req,
 	return dccp_feat_clone_list(&dp->dccps_featneg, &dreq->dreq_featneg);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_reqsk_init); */
+EXPORT_SYMBOL_GPL(dccp_reqsk_init);

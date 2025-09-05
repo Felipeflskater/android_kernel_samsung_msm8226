@@ -40,7 +40,7 @@ void btmrvl_interrupt(struct btmrvl_private *priv)
 
 	wake_up_interruptible(&priv->main_thread.wait_q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_interrupt); */
+EXPORT_SYMBOL_GPL(btmrvl_interrupt);
 
 void btmrvl_check_evtpkt(struct btmrvl_private *priv, struct sk_buff *skb)
 {
@@ -60,7 +60,7 @@ void btmrvl_check_evtpkt(struct btmrvl_private *priv, struct sk_buff *skb)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_check_evtpkt); */
+EXPORT_SYMBOL_GPL(btmrvl_check_evtpkt);
 
 int btmrvl_process_event(struct btmrvl_private *priv, struct sk_buff *skb)
 {
@@ -152,7 +152,7 @@ exit:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_process_event); */
+EXPORT_SYMBOL_GPL(btmrvl_process_event);
 
 int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv, int subcmd)
 {
@@ -196,7 +196,7 @@ int btmrvl_send_module_cfg_cmd(struct btmrvl_private *priv, int subcmd)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_send_module_cfg_cmd); */
+EXPORT_SYMBOL_GPL(btmrvl_send_module_cfg_cmd);
 
 int btmrvl_enable_ps(struct btmrvl_private *priv)
 {
@@ -228,7 +228,7 @@ int btmrvl_enable_ps(struct btmrvl_private *priv)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_enable_ps); */
+EXPORT_SYMBOL_GPL(btmrvl_enable_ps);
 
 static int btmrvl_enable_hs(struct btmrvl_private *priv)
 {
@@ -585,7 +585,7 @@ err_hdev:
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_register_hdev); */
+EXPORT_SYMBOL_GPL(btmrvl_register_hdev);
 
 struct btmrvl_private *btmrvl_add_card(void *card)
 {
@@ -624,7 +624,7 @@ err_adapter:
 err_priv:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_add_card); */
+EXPORT_SYMBOL_GPL(btmrvl_add_card);
 
 int btmrvl_remove_card(struct btmrvl_private *priv)
 {
@@ -652,7 +652,7 @@ int btmrvl_remove_card(struct btmrvl_private *priv)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(btmrvl_remove_card); */
+EXPORT_SYMBOL_GPL(btmrvl_remove_card);
 
 MODULE_AUTHOR("Marvell International Ltd.");
 MODULE_DESCRIPTION("Marvell Bluetooth driver ver " VERSION);

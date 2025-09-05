@@ -156,7 +156,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_register_pin); */
+EXPORT_SYMBOL(pnx4008_gpio_register_pin);
 
 int pnx4008_gpio_unregister_pin(unsigned short pin)
 {
@@ -194,7 +194,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_unregister_pin); */
+EXPORT_SYMBOL(pnx4008_gpio_unregister_pin);
 
 unsigned long pnx4008_gpio_read_pin(unsigned short pin)
 {
@@ -221,7 +221,7 @@ unsigned long pnx4008_gpio_read_pin(unsigned short pin)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_read_pin); */
+EXPORT_SYMBOL(pnx4008_gpio_read_pin);
 
 /* Write Value to output */
 int pnx4008_gpio_write_pin(unsigned short pin, int output)
@@ -247,7 +247,7 @@ int pnx4008_gpio_write_pin(unsigned short pin, int output)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_write_pin); */
+EXPORT_SYMBOL(pnx4008_gpio_write_pin);
 
 /* Value = 1 : Set GPIO pin as output */
 /* Value = 0 : Set GPIO pin as input */
@@ -264,7 +264,7 @@ int pnx4008_gpio_set_pin_direction(unsigned short pin, int output)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_set_pin_direction); */
+EXPORT_SYMBOL(pnx4008_gpio_set_pin_direction);
 
 /* Read GPIO pin direction: 0= pin used as input, 1= pin used as output*/
 int pnx4008_gpio_read_pin_direction(unsigned short pin)
@@ -280,7 +280,7 @@ int pnx4008_gpio_read_pin_direction(unsigned short pin)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_read_pin_direction); */
+EXPORT_SYMBOL(pnx4008_gpio_read_pin_direction);
 
 /* Value = 1 : Set pin to muxed function  */
 /* Value = 0 : Set pin as GPIO */
@@ -305,7 +305,7 @@ int pnx4008_gpio_set_pin_mux(unsigned short pin, int output)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_set_pin_mux); */
+EXPORT_SYMBOL(pnx4008_gpio_set_pin_mux);
 
 /* Read pin mux function: 0= pin used as GPIO, 1= pin used for muxed function*/
 int pnx4008_gpio_read_pin_mux(unsigned short pin)
@@ -325,4 +325,4 @@ int pnx4008_gpio_read_pin_mux(unsigned short pin)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx4008_gpio_read_pin_mux); */
+EXPORT_SYMBOL(pnx4008_gpio_read_pin_mux);

@@ -50,7 +50,7 @@ int ip6_route_me_harder(struct sk_buff *skb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ip6_route_me_harder); */
+EXPORT_SYMBOL(ip6_route_me_harder);
 
 /*
  * Extra routing may needed on local out, as the QUEUE target never
@@ -145,7 +145,7 @@ __sum16 nf_ip6_checksum(struct sk_buff *skb, unsigned int hook,
 	}
 	return csum;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_ip6_checksum); */
+EXPORT_SYMBOL(nf_ip6_checksum);
 
 static __sum16 nf_ip6_checksum_partial(struct sk_buff *skb, unsigned int hook,
 				       unsigned int dataoff, unsigned int len,

@@ -83,7 +83,7 @@ void *dma_alloc_coherent(struct device *hwdev, size_t size, dma_addr_t *dma_hand
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
+EXPORT_SYMBOL(dma_alloc_coherent);
 
 void dma_free_coherent(struct device *hwdev, size_t size, void *vaddr, dma_addr_t dma_handle)
 {
@@ -104,7 +104,7 @@ void dma_free_coherent(struct device *hwdev, size_t size, void *vaddr, dma_addr_
 	BUG();
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
+EXPORT_SYMBOL(dma_free_coherent);
 
 dma_addr_t dma_map_single(struct device *dev, void *ptr, size_t size,
 			  enum dma_data_direction direction)
@@ -116,7 +116,7 @@ dma_addr_t dma_map_single(struct device *dev, void *ptr, size_t size,
 	return virt_to_bus(ptr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_map_single); */
+EXPORT_SYMBOL(dma_map_single);
 
 int dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
 	       enum dma_data_direction direction)
@@ -132,7 +132,7 @@ int dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
 	return nents;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_map_sg); */
+EXPORT_SYMBOL(dma_map_sg);
 
 dma_addr_t dma_map_page(struct device *dev, struct page *page, unsigned long offset,
 			size_t size, enum dma_data_direction direction)
@@ -142,4 +142,4 @@ dma_addr_t dma_map_page(struct device *dev, struct page *page, unsigned long off
 	return (dma_addr_t) page_to_phys(page) + offset;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_map_page); */
+EXPORT_SYMBOL(dma_map_page);

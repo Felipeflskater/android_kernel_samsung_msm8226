@@ -44,7 +44,7 @@ int ezusb_writememory(struct usb_serial *serial, int address,
 	kfree(transfer_buffer);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ezusb_writememory); */
+EXPORT_SYMBOL_GPL(ezusb_writememory);
 
 int ezusb_set_reset(struct usb_serial *serial, unsigned char reset_bit)
 {
@@ -57,5 +57,5 @@ int ezusb_set_reset(struct usb_serial *serial, unsigned char reset_bit)
 						__func__, reset_bit);
 	return response;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ezusb_set_reset); */
+EXPORT_SYMBOL_GPL(ezusb_set_reset);
 

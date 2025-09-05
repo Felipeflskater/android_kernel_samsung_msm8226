@@ -96,7 +96,7 @@ pgprot_t vm_get_page_prot(unsigned long vm_flags)
 				(VM_READ|VM_WRITE|VM_EXEC|VM_SHARED)]) |
 			pgprot_val(arch_vm_get_page_prot(vm_flags)));
 }
-/* DISABLED: EXPORT_SYMBOL(vm_get_page_prot); */
+EXPORT_SYMBOL(vm_get_page_prot);
 
 int sysctl_overcommit_memory __read_mostly = OVERCOMMIT_GUESS;  /* heuristic overcommit */
 int sysctl_overcommit_ratio __read_mostly = 50;	/* default is 50% */
@@ -1152,7 +1152,7 @@ unsigned long do_mmap(struct file *file, unsigned long addr,
 		return -EINVAL;
 	return do_mmap_pgoff(file, addr, len, prot, flag, offset >> PAGE_SHIFT);
 }
-/* DISABLED: EXPORT_SYMBOL(do_mmap); */
+EXPORT_SYMBOL(do_mmap);
 
 unsigned long vm_mmap(struct file *file, unsigned long addr,
 	unsigned long len, unsigned long prot,
@@ -1166,7 +1166,7 @@ unsigned long vm_mmap(struct file *file, unsigned long addr,
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(vm_mmap); */
+EXPORT_SYMBOL(vm_mmap);
 
 SYSCALL_DEFINE6(mmap_pgoff, unsigned long, addr, unsigned long, len,
 		unsigned long, prot, unsigned long, flags,
@@ -1747,7 +1747,7 @@ get_unmapped_area(struct file *file, unsigned long addr, unsigned long len,
 	return arch_rebalance_pgtables(addr, len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_unmapped_area); */
+EXPORT_SYMBOL(get_unmapped_area);
 
 /* Look up the first VMA which satisfies  addr < vm_end,  NULL if none. */
 struct vm_area_struct *find_vma(struct mm_struct *mm, unsigned long addr)
@@ -1785,7 +1785,7 @@ struct vm_area_struct *find_vma(struct mm_struct *mm, unsigned long addr)
 	return vma;
 }
 
-/* DISABLED: EXPORT_SYMBOL(find_vma); */
+EXPORT_SYMBOL(find_vma);
 
 /*
  * Same as find_vma, but also return a pointer to the previous VMA in *pprev.
@@ -2008,7 +2008,7 @@ static int __init cmdline_parse_stack_guard_gap(char *p)
 
 	return 0;
 }
-/* DISABLED: __setup("stack_guard_gap=", cmdline_parse_stack_guard_gap); */ */
+__setup("stack_guard_gap=", cmdline_parse_stack_guard_gap);
 
 /*
  * Note how expand_stack() refuses to expand the stack all the way to
@@ -2344,7 +2344,7 @@ int do_munmap(struct mm_struct *mm, unsigned long start, size_t len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(do_munmap); */
+EXPORT_SYMBOL(do_munmap);
 
 int vm_munmap(unsigned long start, size_t len)
 {
@@ -2356,7 +2356,7 @@ int vm_munmap(unsigned long start, size_t len)
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(vm_munmap); */
+EXPORT_SYMBOL(vm_munmap);
 
 SYSCALL_DEFINE2(munmap, unsigned long, addr, size_t, len)
 {
@@ -2485,7 +2485,7 @@ unsigned long vm_brk(unsigned long addr, unsigned long len)
 	up_write(&mm->mmap_sem);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(vm_brk); */
+EXPORT_SYMBOL(vm_brk);
 
 /* Release all mmaps. */
 void exit_mmap(struct mm_struct *mm)

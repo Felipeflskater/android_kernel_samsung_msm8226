@@ -187,7 +187,7 @@ int radio_isa_match(struct device *pdev, unsigned int dev)
 
 	return drv->probe || drv->io_params[dev] >= 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(radio_isa_match); */
+EXPORT_SYMBOL_GPL(radio_isa_match);
 
 static bool radio_isa_valid_io(const struct radio_isa_driver *drv, int io)
 {
@@ -321,7 +321,7 @@ err_dev_reg:
 	kfree(isa);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(radio_isa_probe); */
+EXPORT_SYMBOL_GPL(radio_isa_probe);
 
 int radio_isa_remove(struct device *pdev, unsigned int dev)
 {
@@ -337,4 +337,4 @@ int radio_isa_remove(struct device *pdev, unsigned int dev)
 	kfree(isa);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(radio_isa_remove); */
+EXPORT_SYMBOL_GPL(radio_isa_remove);

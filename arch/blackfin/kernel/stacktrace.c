@@ -50,4 +50,4 @@ void save_stack_trace(struct stack_trace *trace)
 		fp = frame->fp;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(save_stack_trace); */
+EXPORT_SYMBOL_GPL(save_stack_trace);

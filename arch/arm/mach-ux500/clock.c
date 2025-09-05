@@ -102,7 +102,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 static void __clk_disable(struct clk *clk)
 {
@@ -128,7 +128,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clocks_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 /*
  * The MTU has a separate, rather complex muxing setup
@@ -207,28 +207,28 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
 	/*TODO*/
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
 	clk->rate = rate;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
 	/*TODO*/
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 static void clk_prcmu_enable(struct clk *clk)
 {

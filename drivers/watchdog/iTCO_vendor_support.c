@@ -311,7 +311,7 @@ void iTCO_vendor_pre_start(unsigned long acpibase,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(iTCO_vendor_pre_start); */
+EXPORT_SYMBOL(iTCO_vendor_pre_start);
 
 void iTCO_vendor_pre_stop(unsigned long acpibase)
 {
@@ -327,21 +327,21 @@ void iTCO_vendor_pre_stop(unsigned long acpibase)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(iTCO_vendor_pre_stop); */
+EXPORT_SYMBOL(iTCO_vendor_pre_stop);
 
 void iTCO_vendor_pre_keepalive(unsigned long acpibase, unsigned int heartbeat)
 {
 	if (vendorsupport == SUPERMICRO_NEW_BOARD)
 		supermicro_new_pre_set_heartbeat(heartbeat);
 }
-/* DISABLED: EXPORT_SYMBOL(iTCO_vendor_pre_keepalive); */
+EXPORT_SYMBOL(iTCO_vendor_pre_keepalive);
 
 void iTCO_vendor_pre_set_heartbeat(unsigned int heartbeat)
 {
 	if (vendorsupport == SUPERMICRO_NEW_BOARD)
 		supermicro_new_pre_set_heartbeat(heartbeat);
 }
-/* DISABLED: EXPORT_SYMBOL(iTCO_vendor_pre_set_heartbeat); */
+EXPORT_SYMBOL(iTCO_vendor_pre_set_heartbeat);
 
 int iTCO_vendor_check_noreboot_on(void)
 {
@@ -352,7 +352,7 @@ int iTCO_vendor_check_noreboot_on(void)
 		return 1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(iTCO_vendor_check_noreboot_on); */
+EXPORT_SYMBOL(iTCO_vendor_check_noreboot_on);
 
 static int __init iTCO_vendor_init_module(void)
 {

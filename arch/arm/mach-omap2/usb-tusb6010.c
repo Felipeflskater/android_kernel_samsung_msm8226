@@ -205,7 +205,7 @@ int tusb6010_platform_retime(unsigned is_refclk)
 done:
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tusb6010_platform_retime); */
+EXPORT_SYMBOL_GPL(tusb6010_platform_retime);
 
 static struct resource tusb_resources[] = {
 	/* Order is significant!  The start/end fields

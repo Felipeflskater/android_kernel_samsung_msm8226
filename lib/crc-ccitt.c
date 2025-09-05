@@ -49,7 +49,7 @@ u16 const crc_ccitt_table[256] = {
 	0xf78f, 0xe606, 0xd49d, 0xc514, 0xb1ab, 0xa022, 0x92b9, 0x8330,
 	0x7bc7, 0x6a4e, 0x58d5, 0x495c, 0x3de3, 0x2c6a, 0x1ef1, 0x0f78
 };
-/* DISABLED: EXPORT_SYMBOL(crc_ccitt_table); */
+EXPORT_SYMBOL(crc_ccitt_table);
 
 /**
  *	crc_ccitt - recompute the CRC for the data buffer
@@ -63,7 +63,7 @@ u16 crc_ccitt(u16 crc, u8 const *buffer, size_t len)
 		crc = crc_ccitt_byte(crc, *buffer++);
 	return crc;
 }
-/* DISABLED: EXPORT_SYMBOL(crc_ccitt); */
+EXPORT_SYMBOL(crc_ccitt);
 
 MODULE_DESCRIPTION("CRC-CCITT calculations");
 MODULE_LICENSE("GPL");

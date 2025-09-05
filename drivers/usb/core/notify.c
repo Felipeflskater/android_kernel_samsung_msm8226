@@ -28,7 +28,7 @@ void usb_register_notify(struct notifier_block *nb)
 {
 	blocking_notifier_chain_register(&usb_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_register_notify); */
+EXPORT_SYMBOL_GPL(usb_register_notify);
 
 /**
  * usb_unregister_notify - unregister a notifier callback
@@ -41,7 +41,7 @@ void usb_unregister_notify(struct notifier_block *nb)
 {
 	blocking_notifier_chain_unregister(&usb_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_unregister_notify); */
+EXPORT_SYMBOL_GPL(usb_unregister_notify);
 
 
 void usb_notify_add_device(struct usb_device *udev)

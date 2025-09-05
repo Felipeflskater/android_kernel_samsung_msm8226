@@ -253,7 +253,7 @@ int scsi_execute(struct scsi_device *sdev, const unsigned char *cmd,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_execute); */
+EXPORT_SYMBOL(scsi_execute);
 
 int scsi_execute_req_flags(struct scsi_device *sdev, const unsigned char *cmd,
 		     int data_direction, void *buffer, unsigned bufflen,
@@ -276,7 +276,7 @@ int scsi_execute_req_flags(struct scsi_device *sdev, const unsigned char *cmd,
 	kfree(sense);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_execute_req_flags); */
+EXPORT_SYMBOL(scsi_execute_req_flags);
 
 /*
  * Function:    scsi_init_cmd_errh()
@@ -677,7 +677,7 @@ void scsi_release_buffers(struct scsi_cmnd *cmd)
 {
 	__scsi_release_buffers(cmd, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_release_buffers); */
+EXPORT_SYMBOL(scsi_release_buffers);
 
 static int __scsi_error_from_host_byte(struct scsi_cmnd *cmd, int result)
 {
@@ -1072,7 +1072,7 @@ err_exit:
 	scsi_put_command(cmd);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_init_io); */
+EXPORT_SYMBOL(scsi_init_io);
 
 static struct scsi_cmnd *scsi_get_cmd_from_req(struct scsi_device *sdev,
 		struct request *req)
@@ -1143,7 +1143,7 @@ int scsi_setup_blk_pc_cmnd(struct scsi_device *sdev, struct request *req)
 	cmd->allowed = req->retries;
 	return BLKPREP_OK;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_setup_blk_pc_cmnd); */
+EXPORT_SYMBOL(scsi_setup_blk_pc_cmnd);
 
 /*
  * Setup a REQ_TYPE_FS command.  These are simple read/write request
@@ -1177,7 +1177,7 @@ int scsi_setup_fs_cmnd(struct scsi_device *sdev, struct request *req)
 	memset(cmd->cmnd, 0, BLK_MAX_CDB);
 	return scsi_init_io(cmd, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_setup_fs_cmnd); */
+EXPORT_SYMBOL(scsi_setup_fs_cmnd);
 
 int scsi_prep_state_check(struct scsi_device *sdev, struct request *req)
 {
@@ -1232,7 +1232,7 @@ int scsi_prep_state_check(struct scsi_device *sdev, struct request *req)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_prep_state_check); */
+EXPORT_SYMBOL(scsi_prep_state_check);
 
 int scsi_prep_return(struct request_queue *q, struct request *req, int ret)
 {
@@ -1264,7 +1264,7 @@ int scsi_prep_return(struct request_queue *q, struct request *req, int ret)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_prep_return); */
+EXPORT_SYMBOL(scsi_prep_return);
 
 int scsi_prep_fn(struct request_queue *q, struct request *req)
 {
@@ -1275,7 +1275,7 @@ int scsi_prep_fn(struct request_queue *q, struct request *req)
 		ret = scsi_setup_blk_pc_cmnd(sdev, req);
 	return scsi_prep_return(q, req, ret);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_prep_fn); */
+EXPORT_SYMBOL(scsi_prep_fn);
 
 /*
  * scsi_dev_queue_ready: if we can send requests to sdev, return 1 else
@@ -1648,7 +1648,7 @@ u64 scsi_calculate_bounce_limit(struct Scsi_Host *shost)
 
 	return bounce_limit;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_calculate_bounce_limit); */
+EXPORT_SYMBOL(scsi_calculate_bounce_limit);
 
 struct request_queue *__scsi_alloc_queue(struct Scsi_Host *shost,
 					 request_fn_proc *request_fn)
@@ -1693,7 +1693,7 @@ struct request_queue *__scsi_alloc_queue(struct Scsi_Host *shost,
 
 	return q;
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_alloc_queue); */
+EXPORT_SYMBOL(__scsi_alloc_queue);
 
 struct request_queue *scsi_alloc_queue(struct scsi_device *sdev)
 {
@@ -1730,7 +1730,7 @@ void scsi_block_requests(struct Scsi_Host *shost)
 {
 	shost->host_self_blocked = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_block_requests); */
+EXPORT_SYMBOL(scsi_block_requests);
 
 /*
  * Function:    scsi_unblock_requests()
@@ -1757,7 +1757,7 @@ void scsi_unblock_requests(struct Scsi_Host *shost)
 	shost->host_self_blocked = 0;
 	scsi_run_host_queues(shost);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_unblock_requests); */
+EXPORT_SYMBOL(scsi_unblock_requests);
 
 int __init scsi_init_queue(void)
 {
@@ -1895,7 +1895,7 @@ scsi_mode_select(struct scsi_device *sdev, int pf, int sp, int modepage,
 	kfree(real_buffer);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_mode_select); */
+EXPORT_SYMBOL_GPL(scsi_mode_select);
 
 /**
  *	scsi_mode_sense - issue a mode sense, falling back from 10 to six bytes if necessary.
@@ -2005,7 +2005,7 @@ scsi_mode_sense(struct scsi_device *sdev, int dbd, int modepage,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_mode_sense); */
+EXPORT_SYMBOL(scsi_mode_sense);
 
 /**
  *	scsi_test_unit_ready - test if unit is ready
@@ -2048,7 +2048,7 @@ scsi_test_unit_ready(struct scsi_device *sdev, int timeout, int retries,
 		kfree(sshdr);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_test_unit_ready); */
+EXPORT_SYMBOL(scsi_test_unit_ready);
 
 /**
  *	scsi_device_set_state - Take the given device through the device state model.
@@ -2167,7 +2167,7 @@ scsi_device_set_state(struct scsi_device *sdev, enum scsi_device_state state)
 				);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_set_state); */
+EXPORT_SYMBOL(scsi_device_set_state);
 
 /**
  * 	sdev_evt_emit - emit a single SCSI device uevent
@@ -2257,7 +2257,7 @@ void sdev_evt_send(struct scsi_device *sdev, struct scsi_event *evt)
 	schedule_work(&sdev->event_work);
 	spin_unlock_irqrestore(&sdev->list_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdev_evt_send); */
+EXPORT_SYMBOL_GPL(sdev_evt_send);
 
 /**
  * 	sdev_evt_alloc - allocate a new scsi event
@@ -2286,7 +2286,7 @@ struct scsi_event *sdev_evt_alloc(enum scsi_device_event evt_type,
 
 	return evt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdev_evt_alloc); */
+EXPORT_SYMBOL_GPL(sdev_evt_alloc);
 
 /**
  * 	sdev_evt_send_simple - send asserted event to uevent thread
@@ -2308,7 +2308,7 @@ void sdev_evt_send_simple(struct scsi_device *sdev,
 
 	sdev_evt_send(sdev, evt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdev_evt_send_simple); */
+EXPORT_SYMBOL_GPL(sdev_evt_send_simple);
 
 /**
  *	scsi_device_quiesce - Block user issued commands.
@@ -2339,7 +2339,7 @@ scsi_device_quiesce(struct scsi_device *sdev)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_quiesce); */
+EXPORT_SYMBOL(scsi_device_quiesce);
 
 /**
  *	scsi_device_resume - Restart user issued commands to a quiesced device.
@@ -2357,7 +2357,7 @@ scsi_device_resume(struct scsi_device *sdev)
 		return;
 	scsi_run_queue(sdev->request_queue);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_resume); */
+EXPORT_SYMBOL(scsi_device_resume);
 
 static void
 device_quiesce_fn(struct scsi_device *sdev, void *data)
@@ -2370,7 +2370,7 @@ scsi_target_quiesce(struct scsi_target *starget)
 {
 	starget_for_each_device(starget, NULL, device_quiesce_fn);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_target_quiesce); */
+EXPORT_SYMBOL(scsi_target_quiesce);
 
 static void
 device_resume_fn(struct scsi_device *sdev, void *data)
@@ -2383,7 +2383,7 @@ scsi_target_resume(struct scsi_target *starget)
 {
 	starget_for_each_device(starget, NULL, device_resume_fn);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_target_resume); */
+EXPORT_SYMBOL(scsi_target_resume);
 
 /**
  * scsi_internal_device_block - internal function to put a device temporarily into the SDEV_BLOCK state
@@ -2428,7 +2428,7 @@ scsi_internal_device_block(struct scsi_device *sdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_internal_device_block); */
+EXPORT_SYMBOL_GPL(scsi_internal_device_block);
  
 /**
  * scsi_internal_device_unblock - resume a device after a block request
@@ -2470,7 +2470,7 @@ scsi_internal_device_unblock(struct scsi_device *sdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_internal_device_unblock); */
+EXPORT_SYMBOL_GPL(scsi_internal_device_unblock);
 
 static void
 device_block(struct scsi_device *sdev, void *data)
@@ -2496,7 +2496,7 @@ scsi_target_block(struct device *dev)
 	else
 		device_for_each_child(dev, NULL, target_block);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_target_block); */
+EXPORT_SYMBOL_GPL(scsi_target_block);
 
 static void
 device_unblock(struct scsi_device *sdev, void *data)
@@ -2522,7 +2522,7 @@ scsi_target_unblock(struct device *dev)
 	else
 		device_for_each_child(dev, NULL, target_unblock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_target_unblock); */
+EXPORT_SYMBOL_GPL(scsi_target_unblock);
 
 /**
  * scsi_kmap_atomic_sg - find and atomically map an sg-elemnt
@@ -2572,7 +2572,7 @@ void *scsi_kmap_atomic_sg(struct scatterlist *sgl, int sg_count,
 
 	return kmap_atomic(page);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_kmap_atomic_sg); */
+EXPORT_SYMBOL(scsi_kmap_atomic_sg);
 
 /**
  * scsi_kunmap_atomic_sg - atomically unmap a virtual address, previously mapped with scsi_kmap_atomic_sg
@@ -2582,4 +2582,4 @@ void scsi_kunmap_atomic_sg(void *virt)
 {
 	kunmap_atomic(virt);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_kunmap_atomic_sg); */
+EXPORT_SYMBOL(scsi_kunmap_atomic_sg);

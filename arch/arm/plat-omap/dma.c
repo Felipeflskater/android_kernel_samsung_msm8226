@@ -207,7 +207,7 @@ void omap_set_dma_priority(int lch, int dst_port, int priority)
 		p->dma_write(ccr, CCR, lch);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_priority); */
+EXPORT_SYMBOL(omap_set_dma_priority);
 
 void omap_set_dma_transfer_params(int lch, int data_type, int elem_count,
 				  int frame_count, int sync_mode,
@@ -270,7 +270,7 @@ void omap_set_dma_transfer_params(int lch, int data_type, int elem_count,
 	p->dma_write(elem_count, CEN, lch);
 	p->dma_write(frame_count, CFN, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_transfer_params); */
+EXPORT_SYMBOL(omap_set_dma_transfer_params);
 
 void omap_set_dma_color_mode(int lch, enum omap_dma_color_mode mode, u32 color)
 {
@@ -330,7 +330,7 @@ void omap_set_dma_color_mode(int lch, enum omap_dma_color_mode mode, u32 color)
 		p->dma_write(color, COLOR, lch);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_color_mode); */
+EXPORT_SYMBOL(omap_set_dma_color_mode);
 
 void omap_set_dma_write_mode(int lch, enum omap_dma_write_mode mode)
 {
@@ -343,7 +343,7 @@ void omap_set_dma_write_mode(int lch, enum omap_dma_write_mode mode)
 		p->dma_write(csdp, CSDP, lch);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_write_mode); */
+EXPORT_SYMBOL(omap_set_dma_write_mode);
 
 void omap_set_dma_channel_mode(int lch, enum omap_dma_channel_mode mode)
 {
@@ -356,7 +356,7 @@ void omap_set_dma_channel_mode(int lch, enum omap_dma_channel_mode mode)
 		p->dma_write(l, LCH_CTRL, lch);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_channel_mode); */
+EXPORT_SYMBOL(omap_set_dma_channel_mode);
 
 /* Note that src_port is only for omap1 */
 void omap_set_dma_src_params(int lch, int src_port, int src_amode,
@@ -384,7 +384,7 @@ void omap_set_dma_src_params(int lch, int src_port, int src_amode,
 	p->dma_write(src_ei, CSEI, lch);
 	p->dma_write(src_fi, CSFI, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_src_params); */
+EXPORT_SYMBOL(omap_set_dma_src_params);
 
 void omap_set_dma_params(int lch, struct omap_dma_channel_params *params)
 {
@@ -403,7 +403,7 @@ void omap_set_dma_params(int lch, struct omap_dma_channel_params *params)
 		omap_dma_set_prio_lch(lch, params->read_prio,
 				      params->write_prio);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_params); */
+EXPORT_SYMBOL(omap_set_dma_params);
 
 void omap_set_dma_src_index(int lch, int eidx, int fidx)
 {
@@ -413,7 +413,7 @@ void omap_set_dma_src_index(int lch, int eidx, int fidx)
 	p->dma_write(eidx, CSEI, lch);
 	p->dma_write(fidx, CSFI, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_src_index); */
+EXPORT_SYMBOL(omap_set_dma_src_index);
 
 void omap_set_dma_src_data_pack(int lch, int enable)
 {
@@ -425,7 +425,7 @@ void omap_set_dma_src_data_pack(int lch, int enable)
 		l |= (1 << 6);
 	p->dma_write(l, CSDP, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_src_data_pack); */
+EXPORT_SYMBOL(omap_set_dma_src_data_pack);
 
 void omap_set_dma_src_burst_mode(int lch, enum omap_dma_burst_mode burst_mode)
 {
@@ -470,7 +470,7 @@ void omap_set_dma_src_burst_mode(int lch, enum omap_dma_burst_mode burst_mode)
 	l |= (burst << 7);
 	p->dma_write(l, CSDP, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_src_burst_mode); */
+EXPORT_SYMBOL(omap_set_dma_src_burst_mode);
 
 /* Note that dest_port is only for OMAP1 */
 void omap_set_dma_dest_params(int lch, int dest_port, int dest_amode,
@@ -496,7 +496,7 @@ void omap_set_dma_dest_params(int lch, int dest_port, int dest_amode,
 	p->dma_write(dst_ei, CDEI, lch);
 	p->dma_write(dst_fi, CDFI, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_dest_params); */
+EXPORT_SYMBOL(omap_set_dma_dest_params);
 
 void omap_set_dma_dest_index(int lch, int eidx, int fidx)
 {
@@ -506,7 +506,7 @@ void omap_set_dma_dest_index(int lch, int eidx, int fidx)
 	p->dma_write(eidx, CDEI, lch);
 	p->dma_write(fidx, CDFI, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_dest_index); */
+EXPORT_SYMBOL(omap_set_dma_dest_index);
 
 void omap_set_dma_dest_data_pack(int lch, int enable)
 {
@@ -518,7 +518,7 @@ void omap_set_dma_dest_data_pack(int lch, int enable)
 		l |= 1 << 13;
 	p->dma_write(l, CSDP, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_dest_data_pack); */
+EXPORT_SYMBOL(omap_set_dma_dest_data_pack);
 
 void omap_set_dma_dest_burst_mode(int lch, enum omap_dma_burst_mode burst_mode)
 {
@@ -560,7 +560,7 @@ void omap_set_dma_dest_burst_mode(int lch, enum omap_dma_burst_mode burst_mode)
 	l |= (burst << 14);
 	p->dma_write(l, CSDP, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_dest_burst_mode); */
+EXPORT_SYMBOL(omap_set_dma_dest_burst_mode);
 
 static inline void omap_enable_channel_irq(int lch)
 {
@@ -586,13 +586,13 @@ void omap_enable_dma_irq(int lch, u16 bits)
 {
 	dma_chan[lch].enabled_irqs |= bits;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_enable_dma_irq); */
+EXPORT_SYMBOL(omap_enable_dma_irq);
 
 void omap_disable_dma_irq(int lch, u16 bits)
 {
 	dma_chan[lch].enabled_irqs &= ~bits;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_disable_dma_irq); */
+EXPORT_SYMBOL(omap_disable_dma_irq);
 
 static inline void enable_lnk(int lch)
 {
@@ -747,7 +747,7 @@ int omap_request_dma(int dev_id, const char *dev_name,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_request_dma); */
+EXPORT_SYMBOL(omap_request_dma);
 
 void omap_free_dma(int lch)
 {
@@ -787,7 +787,7 @@ void omap_free_dma(int lch)
 	dma_chan[lch].callback = NULL;
 	spin_unlock_irqrestore(&dma_chan_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_free_dma); */
+EXPORT_SYMBOL(omap_free_dma);
 
 /**
  * @brief omap_dma_set_global_params : Set global priority settings for dma
@@ -820,7 +820,7 @@ omap_dma_set_global_params(int arb_rate, int max_fifo_depth, int tparams)
 
 	p->dma_write(reg, GCR, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_set_global_params); */
+EXPORT_SYMBOL(omap_dma_set_global_params);
 
 /**
  * @brief omap_dma_set_prio_lch : Set channel wise priority settings
@@ -852,7 +852,7 @@ omap_dma_set_prio_lch(int lch, unsigned char read_prio,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_set_prio_lch); */
+EXPORT_SYMBOL(omap_dma_set_prio_lch);
 
 /*
  * Clears any DMA state so the DMA engine is ready to restart with new buffers
@@ -866,7 +866,7 @@ void omap_clear_dma(int lch)
 	p->clear_dma(lch);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_clear_dma); */
+EXPORT_SYMBOL(omap_clear_dma);
 
 void omap_start_dma(int lch)
 {
@@ -927,7 +927,7 @@ void omap_start_dma(int lch)
 
 	dma_chan[lch].flags |= OMAP_DMA_ACTIVE;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_start_dma); */
+EXPORT_SYMBOL(omap_start_dma);
 
 void omap_stop_dma(int lch)
 {
@@ -1000,7 +1000,7 @@ void omap_stop_dma(int lch)
 
 	dma_chan[lch].flags &= ~OMAP_DMA_ACTIVE;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_stop_dma); */
+EXPORT_SYMBOL(omap_stop_dma);
 
 /*
  * Allows changing the DMA callback function or data. This may be needed if
@@ -1027,7 +1027,7 @@ int omap_set_dma_callback(int lch,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_set_dma_callback); */
+EXPORT_SYMBOL(omap_set_dma_callback);
 
 /*
  * Returns current physical source address for the given DMA channel.
@@ -1066,7 +1066,7 @@ dma_addr_t omap_get_dma_src_pos(int lch)
 
 	return offset;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_src_pos); */
+EXPORT_SYMBOL(omap_get_dma_src_pos);
 
 /*
  * Returns current physical destination address for the given DMA channel.
@@ -1105,13 +1105,13 @@ dma_addr_t omap_get_dma_dst_pos(int lch)
 
 	return offset;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_dst_pos); */
+EXPORT_SYMBOL(omap_get_dma_dst_pos);
 
 int omap_get_dma_active_status(int lch)
 {
 	return (p->dma_read(CCR, lch) & OMAP_DMA_CCR_EN) != 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_active_status); */
+EXPORT_SYMBOL(omap_get_dma_active_status);
 
 int omap_dma_running(void)
 {
@@ -1155,7 +1155,7 @@ void omap_dma_link_lch(int lch_head, int lch_queue)
 
 	dma_chan[lch_head].next_lch = lch_queue;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_link_lch); */
+EXPORT_SYMBOL(omap_dma_link_lch);
 
 /*
  * Once the DMA queue is stopped, we can destroy it.
@@ -1189,7 +1189,7 @@ void omap_dma_unlink_lch(int lch_head, int lch_queue)
 
 	dma_chan[lch_head].next_lch = -1;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_unlink_lch); */
+EXPORT_SYMBOL(omap_dma_unlink_lch);
 
 #ifndef CONFIG_ARCH_OMAP1
 /* Create chain of DMA channesls */
@@ -1318,7 +1318,7 @@ int omap_request_dma_chain(int dev_id, const char *dev_name,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_request_dma_chain); */
+EXPORT_SYMBOL(omap_request_dma_chain);
 
 /**
  * @brief omap_modify_dma_chain_param : Modify the chain's params - Modify the
@@ -1361,7 +1361,7 @@ int omap_modify_dma_chain_params(int chain_id,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_modify_dma_chain_params); */
+EXPORT_SYMBOL(omap_modify_dma_chain_params);
 
 /**
  * @brief omap_free_dma_chain - Free all the logical channels in a chain.
@@ -1405,7 +1405,7 @@ int omap_free_dma_chain(int chain_id)
 
 	return (0);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_free_dma_chain); */
+EXPORT_SYMBOL(omap_free_dma_chain);
 
 /**
  * @brief omap_dma_chain_status - Check if the chain is in
@@ -1436,7 +1436,7 @@ int omap_dma_chain_status(int chain_id)
 
 	return OMAP_DMA_CHAIN_ACTIVE;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_chain_status); */
+EXPORT_SYMBOL(omap_dma_chain_status);
 
 /**
  * @brief omap_dma_chain_a_transfer - Get a free channel from a chain,
@@ -1579,7 +1579,7 @@ int omap_dma_chain_a_transfer(int chain_id, int src_start, int dest_start,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dma_chain_a_transfer); */
+EXPORT_SYMBOL(omap_dma_chain_a_transfer);
 
 /**
  * @brief omap_start_dma_chain_transfers - Start the chain
@@ -1631,7 +1631,7 @@ int omap_start_dma_chain_transfers(int chain_id)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_start_dma_chain_transfers); */
+EXPORT_SYMBOL(omap_start_dma_chain_transfers);
 
 /**
  * @brief omap_stop_dma_chain_transfers - Stop the dma transfer of a chain.
@@ -1690,7 +1690,7 @@ int omap_stop_dma_chain_transfers(int chain_id)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_stop_dma_chain_transfers); */
+EXPORT_SYMBOL(omap_stop_dma_chain_transfers);
 
 /* Get the index of the ongoing DMA in chain */
 /**
@@ -1733,7 +1733,7 @@ int omap_get_dma_chain_index(int chain_id, int *ei, int *fi)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_chain_index); */
+EXPORT_SYMBOL(omap_get_dma_chain_index);
 
 /**
  * @brief omap_get_dma_chain_dst_pos - Get the destination position of the
@@ -1768,7 +1768,7 @@ int omap_get_dma_chain_dst_pos(int chain_id)
 
 	return p->dma_read(CDAC, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_chain_dst_pos); */
+EXPORT_SYMBOL(omap_get_dma_chain_dst_pos);
 
 /**
  * @brief omap_get_dma_chain_src_pos - Get the source position
@@ -1802,7 +1802,7 @@ int omap_get_dma_chain_src_pos(int chain_id)
 
 	return p->dma_read(CSAC, lch);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_get_dma_chain_src_pos); */
+EXPORT_SYMBOL(omap_get_dma_chain_src_pos);
 #endif	/* ifndef CONFIG_ARCH_OMAP1 */
 
 /*----------------------------------------------------------------------------*/
@@ -2173,6 +2173,6 @@ static int __init omap_dma_cmdline_reserve_ch(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("omap_dma_reserve_ch=", omap_dma_cmdline_reserve_ch); */ */
+__setup("omap_dma_reserve_ch=", omap_dma_cmdline_reserve_ch);
 
 

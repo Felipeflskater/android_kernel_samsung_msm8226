@@ -87,15 +87,15 @@ static void update_cr8_intercept(struct kvm_vcpu *vcpu);
 static void process_nmi(struct kvm_vcpu *vcpu);
 
 struct kvm_x86_ops *kvm_x86_ops;
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_x86_ops); */
+EXPORT_SYMBOL_GPL(kvm_x86_ops);
 
 static bool ignore_msrs = 0;
 module_param(ignore_msrs, bool, S_IRUGO | S_IWUSR);
 
 bool kvm_has_tsc_control;
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_has_tsc_control); */
+EXPORT_SYMBOL_GPL(kvm_has_tsc_control);
 u32  kvm_max_guest_tsc_khz;
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_max_guest_tsc_khz); */
+EXPORT_SYMBOL_GPL(kvm_max_guest_tsc_khz);
 
 /* tsc tolerance in parts per million - default to 1/2 of the NTP threshold */
 static u32 tsc_tolerance_ppm = 250;
@@ -210,7 +210,7 @@ void kvm_define_shared_msr(unsigned slot, u32 msr)
 	/* we need ensured the shared_msr_global have been updated */
 	smp_wmb();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_define_shared_msr); */
+EXPORT_SYMBOL_GPL(kvm_define_shared_msr);
 
 static void kvm_shared_msr_cpu_online(void)
 {
@@ -239,7 +239,7 @@ int kvm_set_shared_msr(unsigned slot, u64 value, u64 mask)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_shared_msr); */
+EXPORT_SYMBOL_GPL(kvm_set_shared_msr);
 
 static void drop_user_return_notifiers(void *ignore)
 {
@@ -256,7 +256,7 @@ u64 kvm_get_apic_base(struct kvm_vcpu *vcpu)
 	else
 		return vcpu->arch.apic_base;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_apic_base); */
+EXPORT_SYMBOL_GPL(kvm_get_apic_base);
 
 void kvm_set_apic_base(struct kvm_vcpu *vcpu, u64 data)
 {
@@ -266,7 +266,7 @@ void kvm_set_apic_base(struct kvm_vcpu *vcpu, u64 data)
 	else
 		vcpu->arch.apic_base = data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_apic_base); */
+EXPORT_SYMBOL_GPL(kvm_set_apic_base);
 
 #define EXCPT_BENIGN		0
 #define EXCPT_CONTRIBUTORY	1
@@ -335,13 +335,13 @@ void kvm_queue_exception(struct kvm_vcpu *vcpu, unsigned nr)
 {
 	kvm_multiple_exception(vcpu, nr, false, 0, false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_queue_exception); */
+EXPORT_SYMBOL_GPL(kvm_queue_exception);
 
 void kvm_requeue_exception(struct kvm_vcpu *vcpu, unsigned nr)
 {
 	kvm_multiple_exception(vcpu, nr, false, 0, true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_requeue_exception); */
+EXPORT_SYMBOL_GPL(kvm_requeue_exception);
 
 void kvm_complete_insn_gp(struct kvm_vcpu *vcpu, int err)
 {
@@ -350,7 +350,7 @@ void kvm_complete_insn_gp(struct kvm_vcpu *vcpu, int err)
 	else
 		kvm_x86_ops->skip_emulated_instruction(vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_complete_insn_gp); */
+EXPORT_SYMBOL_GPL(kvm_complete_insn_gp);
 
 void kvm_inject_page_fault(struct kvm_vcpu *vcpu, struct x86_exception *fault)
 {
@@ -358,7 +358,7 @@ void kvm_inject_page_fault(struct kvm_vcpu *vcpu, struct x86_exception *fault)
 	vcpu->arch.cr2 = fault->address;
 	kvm_queue_exception_e(vcpu, PF_VECTOR, fault->error_code);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_inject_page_fault); */
+EXPORT_SYMBOL_GPL(kvm_inject_page_fault);
 
 void kvm_propagate_fault(struct kvm_vcpu *vcpu, struct x86_exception *fault)
 {
@@ -373,19 +373,19 @@ void kvm_inject_nmi(struct kvm_vcpu *vcpu)
 	atomic_inc(&vcpu->arch.nmi_queued);
 	kvm_make_request(KVM_REQ_NMI, vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_inject_nmi); */
+EXPORT_SYMBOL_GPL(kvm_inject_nmi);
 
 void kvm_queue_exception_e(struct kvm_vcpu *vcpu, unsigned nr, u32 error_code)
 {
 	kvm_multiple_exception(vcpu, nr, true, error_code, false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_queue_exception_e); */
+EXPORT_SYMBOL_GPL(kvm_queue_exception_e);
 
 void kvm_requeue_exception_e(struct kvm_vcpu *vcpu, unsigned nr, u32 error_code)
 {
 	kvm_multiple_exception(vcpu, nr, true, error_code, true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_requeue_exception_e); */
+EXPORT_SYMBOL_GPL(kvm_requeue_exception_e);
 
 /*
  * Checks if cpl <= required_cpl; if true, return true.  Otherwise queue
@@ -398,7 +398,7 @@ bool kvm_require_cpl(struct kvm_vcpu *vcpu, int required_cpl)
 	kvm_queue_exception_e(vcpu, GP_VECTOR, 0);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_require_cpl); */
+EXPORT_SYMBOL_GPL(kvm_require_cpl);
 
 /*
  * This function will be used to read from the physical memory of the currently
@@ -421,7 +421,7 @@ int kvm_read_guest_page_mmu(struct kvm_vcpu *vcpu, struct kvm_mmu *mmu,
 
 	return kvm_read_guest_page(vcpu->kvm, real_gfn, data, offset, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_guest_page_mmu); */
+EXPORT_SYMBOL_GPL(kvm_read_guest_page_mmu);
 
 int kvm_read_nested_guest_page(struct kvm_vcpu *vcpu, gfn_t gfn,
 			       void *data, int offset, int len, u32 access)
@@ -466,7 +466,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(load_pdptrs); */
+EXPORT_SYMBOL_GPL(load_pdptrs);
 
 static bool pdptrs_changed(struct kvm_vcpu *vcpu)
 {
@@ -544,13 +544,13 @@ int kvm_set_cr0(struct kvm_vcpu *vcpu, unsigned long cr0)
 		kvm_mmu_reset_context(vcpu);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_cr0); */
+EXPORT_SYMBOL_GPL(kvm_set_cr0);
 
 void kvm_lmsw(struct kvm_vcpu *vcpu, unsigned long msw)
 {
 	(void)kvm_set_cr0(vcpu, kvm_read_cr0_bits(vcpu, ~0x0eul) | (msw & 0x0f));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_lmsw); */
+EXPORT_SYMBOL_GPL(kvm_lmsw);
 
 int __kvm_set_xcr(struct kvm_vcpu *vcpu, u32 index, u64 xcr)
 {
@@ -581,7 +581,7 @@ int kvm_set_xcr(struct kvm_vcpu *vcpu, u32 index, u64 xcr)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_xcr); */
+EXPORT_SYMBOL_GPL(kvm_set_xcr);
 
 int kvm_set_cr4(struct kvm_vcpu *vcpu, unsigned long cr4)
 {
@@ -620,7 +620,7 @@ int kvm_set_cr4(struct kvm_vcpu *vcpu, unsigned long cr4)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_cr4); */
+EXPORT_SYMBOL_GPL(kvm_set_cr4);
 
 int kvm_set_cr3(struct kvm_vcpu *vcpu, unsigned long cr3)
 {
@@ -663,7 +663,7 @@ int kvm_set_cr3(struct kvm_vcpu *vcpu, unsigned long cr3)
 	vcpu->arch.mmu.new_cr3(vcpu);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_cr3); */
+EXPORT_SYMBOL_GPL(kvm_set_cr3);
 
 int kvm_set_cr8(struct kvm_vcpu *vcpu, unsigned long cr8)
 {
@@ -675,7 +675,7 @@ int kvm_set_cr8(struct kvm_vcpu *vcpu, unsigned long cr8)
 		vcpu->arch.cr8 = cr8;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_cr8); */
+EXPORT_SYMBOL_GPL(kvm_set_cr8);
 
 unsigned long kvm_get_cr8(struct kvm_vcpu *vcpu)
 {
@@ -684,7 +684,7 @@ unsigned long kvm_get_cr8(struct kvm_vcpu *vcpu)
 	else
 		return vcpu->arch.cr8;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_cr8); */
+EXPORT_SYMBOL_GPL(kvm_get_cr8);
 
 static int __kvm_set_dr(struct kvm_vcpu *vcpu, int dr, unsigned long val)
 {
@@ -733,7 +733,7 @@ int kvm_set_dr(struct kvm_vcpu *vcpu, int dr, unsigned long val)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_dr); */
+EXPORT_SYMBOL_GPL(kvm_set_dr);
 
 static int _kvm_get_dr(struct kvm_vcpu *vcpu, int dr, unsigned long *val)
 {
@@ -768,7 +768,7 @@ int kvm_get_dr(struct kvm_vcpu *vcpu, int dr, unsigned long *val)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_dr); */
+EXPORT_SYMBOL_GPL(kvm_get_dr);
 
 bool kvm_rdpmc(struct kvm_vcpu *vcpu)
 {
@@ -783,7 +783,7 @@ bool kvm_rdpmc(struct kvm_vcpu *vcpu)
 	kvm_register_write(vcpu, VCPU_REGS_RDX, data >> 32);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_rdpmc); */
+EXPORT_SYMBOL_GPL(kvm_rdpmc);
 
 /*
  * List of msr numbers which we expose to userspace through KVM_GET_MSRS
@@ -862,7 +862,7 @@ void kvm_enable_efer_bits(u64 mask)
 {
        efer_reserved_bits &= ~mask;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_enable_efer_bits); */
+EXPORT_SYMBOL_GPL(kvm_enable_efer_bits);
 
 /*
  * Writes msr value into into the appropriate "register".
@@ -898,7 +898,7 @@ int kvm_set_msr(struct kvm_vcpu *vcpu, u32 msr_index, u64 data)
 	}
 	return kvm_x86_ops->set_msr(vcpu, msr_index, data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_msr); */
+EXPORT_SYMBOL_GPL(kvm_set_msr);
 
 /*
  * Adapt set_msr() to msr_io()'s calling convention
@@ -1138,7 +1138,7 @@ void kvm_write_tsc(struct kvm_vcpu *vcpu, u64 data)
 	raw_spin_unlock_irqrestore(&kvm->arch.tsc_write_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_write_tsc); */
+EXPORT_SYMBOL_GPL(kvm_write_tsc);
 
 static int kvm_guest_time_update(struct kvm_vcpu *v)
 {
@@ -1775,7 +1775,7 @@ int kvm_set_msr_common(struct kvm_vcpu *vcpu, u32 msr, u64 data)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_msr_common); */
+EXPORT_SYMBOL_GPL(kvm_set_msr_common);
 
 
 /*
@@ -2069,7 +2069,7 @@ int kvm_get_msr_common(struct kvm_vcpu *vcpu, u32 msr, u64 *pdata)
 	*pdata = data;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_msr_common); */
+EXPORT_SYMBOL_GPL(kvm_get_msr_common);
 
 /*
  * Read or write a bunch of msrs. All parameters are kernel addresses.
@@ -3648,7 +3648,7 @@ int kvm_read_guest_virt(struct x86_emulate_ctxt *ctxt,
 	return kvm_read_guest_virt_helper(addr, val, bytes, vcpu, access,
 					  exception);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_guest_virt); */
+EXPORT_SYMBOL_GPL(kvm_read_guest_virt);
 
 static int kvm_read_guest_virt_system(struct x86_emulate_ctxt *ctxt,
 				      gva_t addr, void *val, unsigned int bytes,
@@ -3690,7 +3690,7 @@ int kvm_write_guest_virt_system(struct x86_emulate_ctxt *ctxt,
 out:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_write_guest_virt_system); */
+EXPORT_SYMBOL_GPL(kvm_write_guest_virt_system);
 
 static int vcpu_mmio_gva_to_gpa(struct kvm_vcpu *vcpu, unsigned long gva,
 				gpa_t *gpa, struct x86_exception *exception,
@@ -4081,7 +4081,7 @@ int kvm_emulate_wbinvd(struct kvm_vcpu *vcpu)
 		wbinvd();
 	return X86EMUL_CONTINUE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_emulate_wbinvd); */
+EXPORT_SYMBOL_GPL(kvm_emulate_wbinvd);
 
 static void emulator_wbinvd(struct x86_emulate_ctxt *ctxt)
 {
@@ -4468,7 +4468,7 @@ int kvm_inject_realmode_interrupt(struct kvm_vcpu *vcpu, int irq, int inc_eip)
 
 	return EMULATE_DONE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_inject_realmode_interrupt); */
+EXPORT_SYMBOL_GPL(kvm_inject_realmode_interrupt);
 
 static int handle_emulation_failure(struct kvm_vcpu *vcpu)
 {
@@ -4651,7 +4651,7 @@ restart:
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(x86_emulate_instruction); */
+EXPORT_SYMBOL_GPL(x86_emulate_instruction);
 
 int kvm_fast_pio_out(struct kvm_vcpu *vcpu, int size, unsigned short port)
 {
@@ -4662,7 +4662,7 @@ int kvm_fast_pio_out(struct kvm_vcpu *vcpu, int size, unsigned short port)
 	vcpu->arch.pio.count = 0;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_fast_pio_out); */
+EXPORT_SYMBOL_GPL(kvm_fast_pio_out);
 
 static void tsc_bad(void *info)
 {
@@ -4854,13 +4854,13 @@ void kvm_before_handle_nmi(struct kvm_vcpu *vcpu)
 {
 	__this_cpu_write(current_vcpu, vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_before_handle_nmi); */
+EXPORT_SYMBOL_GPL(kvm_before_handle_nmi);
 
 void kvm_after_handle_nmi(struct kvm_vcpu *vcpu)
 {
 	__this_cpu_write(current_vcpu, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_after_handle_nmi); */
+EXPORT_SYMBOL_GPL(kvm_after_handle_nmi);
 
 static void kvm_set_mmio_spte_mask(void)
 {
@@ -4955,7 +4955,7 @@ int kvm_emulate_halt(struct kvm_vcpu *vcpu)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_emulate_halt); */
+EXPORT_SYMBOL_GPL(kvm_emulate_halt);
 
 int kvm_hv_hypercall(struct kvm_vcpu *vcpu)
 {
@@ -5061,7 +5061,7 @@ out:
 	++vcpu->stat.hypercalls;
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_emulate_hypercall); */
+EXPORT_SYMBOL_GPL(kvm_emulate_hypercall);
 
 int emulator_fix_hypercall(struct x86_emulate_ctxt *ctxt)
 {
@@ -5608,7 +5608,7 @@ void kvm_get_cs_db_l_bits(struct kvm_vcpu *vcpu, int *db, int *l)
 	*db = cs.db;
 	*l = cs.l;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_cs_db_l_bits); */
+EXPORT_SYMBOL_GPL(kvm_get_cs_db_l_bits);
 
 int kvm_arch_vcpu_ioctl_get_sregs(struct kvm_vcpu *vcpu,
 				  struct kvm_sregs *sregs)
@@ -5684,7 +5684,7 @@ int kvm_task_switch(struct kvm_vcpu *vcpu, u16 tss_selector, int idt_index,
 	kvm_make_request(KVM_REQ_EVENT, vcpu);
 	return EMULATE_DONE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_task_switch); */
+EXPORT_SYMBOL_GPL(kvm_task_switch);
 
 int kvm_arch_vcpu_ioctl_set_sregs(struct kvm_vcpu *vcpu,
 				  struct kvm_sregs *sregs)
@@ -5891,7 +5891,7 @@ int fx_init(struct kvm_vcpu *vcpu)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fx_init); */
+EXPORT_SYMBOL_GPL(fx_init);
 
 static void fx_free(struct kvm_vcpu *vcpu)
 {
@@ -6425,7 +6425,7 @@ bool kvm_is_linear_rip(struct kvm_vcpu *vcpu, unsigned long linear_rip)
 
 	return current_rip == linear_rip;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_is_linear_rip); */
+EXPORT_SYMBOL_GPL(kvm_is_linear_rip);
 
 unsigned long kvm_get_rflags(struct kvm_vcpu *vcpu)
 {
@@ -6436,7 +6436,7 @@ unsigned long kvm_get_rflags(struct kvm_vcpu *vcpu)
 		rflags &= ~X86_EFLAGS_TF;
 	return rflags;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_rflags); */
+EXPORT_SYMBOL_GPL(kvm_get_rflags);
 
 void kvm_set_rflags(struct kvm_vcpu *vcpu, unsigned long rflags)
 {
@@ -6446,7 +6446,7 @@ void kvm_set_rflags(struct kvm_vcpu *vcpu, unsigned long rflags)
 	kvm_x86_ops->set_rflags(vcpu, rflags);
 	kvm_make_request(KVM_REQ_EVENT, vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_rflags); */
+EXPORT_SYMBOL_GPL(kvm_set_rflags);
 
 void kvm_arch_async_page_ready(struct kvm_vcpu *vcpu, struct kvm_async_pf *work)
 {

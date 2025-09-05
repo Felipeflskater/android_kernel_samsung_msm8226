@@ -404,7 +404,7 @@ int pnp_disable_dev(struct pnp_dev *dev)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnp_start_dev); */
-/* DISABLED: EXPORT_SYMBOL(pnp_stop_dev); */
-/* DISABLED: EXPORT_SYMBOL(pnp_activate_dev); */
-/* DISABLED: EXPORT_SYMBOL(pnp_disable_dev); */
+EXPORT_SYMBOL(pnp_start_dev);
+EXPORT_SYMBOL(pnp_stop_dev);
+EXPORT_SYMBOL(pnp_activate_dev);
+EXPORT_SYMBOL(pnp_disable_dev);

@@ -49,7 +49,7 @@ int ablk_set_key(struct crypto_ablkcipher *tfm, const u8 *key,
 				    & CRYPTO_TFM_RES_MASK);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_set_key); */
+EXPORT_SYMBOL_GPL(ablk_set_key);
 
 int __ablk_encrypt(struct ablkcipher_request *req)
 {
@@ -64,7 +64,7 @@ int __ablk_encrypt(struct ablkcipher_request *req)
 	return crypto_blkcipher_crt(desc.tfm)->encrypt(
 		&desc, req->dst, req->src, req->nbytes);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__ablk_encrypt); */
+EXPORT_SYMBOL_GPL(__ablk_encrypt);
 
 int ablk_encrypt(struct ablkcipher_request *req)
 {
@@ -83,7 +83,7 @@ int ablk_encrypt(struct ablkcipher_request *req)
 		return __ablk_encrypt(req);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_encrypt); */
+EXPORT_SYMBOL_GPL(ablk_encrypt);
 
 int ablk_decrypt(struct ablkcipher_request *req)
 {
@@ -109,7 +109,7 @@ int ablk_decrypt(struct ablkcipher_request *req)
 			&desc, req->dst, req->src, req->nbytes);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_decrypt); */
+EXPORT_SYMBOL_GPL(ablk_decrypt);
 
 void ablk_exit(struct crypto_tfm *tfm)
 {
@@ -117,7 +117,7 @@ void ablk_exit(struct crypto_tfm *tfm)
 
 	cryptd_free_ablkcipher(ctx->cryptd_tfm);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_exit); */
+EXPORT_SYMBOL_GPL(ablk_exit);
 
 int ablk_init_common(struct crypto_tfm *tfm, const char *drv_name)
 {
@@ -134,7 +134,7 @@ int ablk_init_common(struct crypto_tfm *tfm, const char *drv_name)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_init_common); */
+EXPORT_SYMBOL_GPL(ablk_init_common);
 
 int ablk_init(struct crypto_tfm *tfm)
 {
@@ -145,6 +145,6 @@ int ablk_init(struct crypto_tfm *tfm)
 
 	return ablk_init_common(tfm, drv_name);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ablk_init); */
+EXPORT_SYMBOL_GPL(ablk_init);
 
 MODULE_LICENSE("GPL");

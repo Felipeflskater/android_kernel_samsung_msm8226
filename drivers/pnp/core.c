@@ -27,7 +27,7 @@ DEFINE_SPINLOCK(pnp_lock);
  * devices, not built-in things like COM ports.
  */
 int pnp_platform_devices;
-/* DISABLED: EXPORT_SYMBOL(pnp_platform_devices); */
+EXPORT_SYMBOL(pnp_platform_devices);
 
 void *pnp_alloc(long size)
 {

@@ -184,7 +184,7 @@ unsigned long profile_pc(struct pt_regs *regs)
 
 	return pc;
 }
-/* DISABLED: EXPORT_SYMBOL(profile_pc); */
+EXPORT_SYMBOL(profile_pc);
 
 
 /* clock source code */

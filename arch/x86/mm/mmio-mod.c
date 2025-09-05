@@ -350,7 +350,7 @@ int mmiotrace_printk(const char *fmt, ...)
 	va_end(args);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mmiotrace_printk); */
+EXPORT_SYMBOL(mmiotrace_printk);
 
 static void clear_trace_list(void)
 {

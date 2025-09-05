@@ -2347,7 +2347,7 @@ static int option_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ibmmcascsi=", option_setup); */ */
+__setup("ibmmcascsi=", option_setup);
 
 static struct mca_driver ibmmca_driver = {
 	.id_table = ibmmca_id_table,

@@ -56,7 +56,7 @@ int ceph_flags_to_mode(int flags)
 
 	return mode;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_flags_to_mode); */
+EXPORT_SYMBOL(ceph_flags_to_mode);
 
 int ceph_caps_for_mode(int mode)
 {
@@ -75,4 +75,4 @@ int ceph_caps_for_mode(int mode)
 
 	return caps;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_caps_for_mode); */
+EXPORT_SYMBOL(ceph_caps_for_mode);

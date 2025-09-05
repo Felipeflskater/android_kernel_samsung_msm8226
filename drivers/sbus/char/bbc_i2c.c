@@ -260,13 +260,13 @@ int bbc_i2c_read_buf(struct bbc_i2c_client *client,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_getdev); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_attach); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_detach); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_writeb); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_readb); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_write_buf); */
-/* DISABLED: EXPORT_SYMBOL(bbc_i2c_read_buf); */
+EXPORT_SYMBOL(bbc_i2c_getdev);
+EXPORT_SYMBOL(bbc_i2c_attach);
+EXPORT_SYMBOL(bbc_i2c_detach);
+EXPORT_SYMBOL(bbc_i2c_writeb);
+EXPORT_SYMBOL(bbc_i2c_readb);
+EXPORT_SYMBOL(bbc_i2c_write_buf);
+EXPORT_SYMBOL(bbc_i2c_read_buf);
 
 static irqreturn_t bbc_i2c_interrupt(int irq, void *dev_id)
 {

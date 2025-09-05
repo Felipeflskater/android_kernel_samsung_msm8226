@@ -250,7 +250,7 @@ struct edac_device_ctl_info *edac_device_alloc_ctl_info(
 
 	return dev_ctl;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_alloc_ctl_info); */
+EXPORT_SYMBOL_GPL(edac_device_alloc_ctl_info);
 
 /*
  * edac_device_free_ctl_info()
@@ -261,7 +261,7 @@ void edac_device_free_ctl_info(struct edac_device_ctl_info *ctl_info)
 {
 	edac_device_unregister_sysfs_main_kobj(ctl_info);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_free_ctl_info); */
+EXPORT_SYMBOL_GPL(edac_device_free_ctl_info);
 
 /*
  * find_edac_device_by_dev
@@ -486,7 +486,7 @@ int edac_device_alloc_index(void)
 
 	return atomic_inc_return(&device_indexes) - 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_alloc_index); */
+EXPORT_SYMBOL_GPL(edac_device_alloc_index);
 
 /**
  * edac_device_add_device: Insert the 'edac_dev' structure into the
@@ -556,7 +556,7 @@ fail0:
 	mutex_unlock(&device_ctls_mutex);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_add_device); */
+EXPORT_SYMBOL_GPL(edac_device_add_device);
 
 /**
  * edac_device_del_device:
@@ -607,7 +607,7 @@ struct edac_device_ctl_info *edac_device_del_device(struct device *dev)
 
 	return edac_dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_del_device); */
+EXPORT_SYMBOL_GPL(edac_device_del_device);
 
 static inline int edac_device_get_log_ce(struct edac_device_ctl_info *edac_dev)
 {
@@ -669,7 +669,7 @@ void edac_device_handle_ce(struct edac_device_ctl_info *edac_dev,
 				edac_dev->ctl_name, instance->name,
 				block ? block->name : "N/A", msg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_handle_ce); */
+EXPORT_SYMBOL_GPL(edac_device_handle_ce);
 
 /*
  * edac_device_handle_ue
@@ -720,4 +720,4 @@ void edac_device_handle_ue(struct edac_device_ctl_info *edac_dev,
 			edac_dev->ctl_name, instance->name,
 			block ? block->name : "N/A", msg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_device_handle_ue); */
+EXPORT_SYMBOL_GPL(edac_device_handle_ue);

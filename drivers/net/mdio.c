@@ -52,7 +52,7 @@ int mdio45_probe(struct mdio_if_info *mdio, int prtad)
 
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(mdio45_probe); */
+EXPORT_SYMBOL(mdio45_probe);
 
 /**
  * mdio_set_flag - set or clear flag in an MDIO register
@@ -83,7 +83,7 @@ int mdio_set_flag(const struct mdio_if_info *mdio,
 		return 0;
 	return mdio->mdio_write(mdio->dev, prtad, devad, addr, new_val);
 }
-/* DISABLED: EXPORT_SYMBOL(mdio_set_flag); */
+EXPORT_SYMBOL(mdio_set_flag);
 
 /**
  * mdio_link_ok - is link status up/OK
@@ -129,7 +129,7 @@ int mdio45_links_ok(const struct mdio_if_info *mdio, u32 mmd_mask)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(mdio45_links_ok); */
+EXPORT_SYMBOL(mdio45_links_ok);
 
 /**
  * mdio45_nway_restart - restart auto-negotiation for this interface
@@ -146,7 +146,7 @@ int mdio45_nway_restart(const struct mdio_if_info *mdio)
 		      MDIO_AN_CTRL1_RESTART, true);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mdio45_nway_restart); */
+EXPORT_SYMBOL(mdio45_nway_restart);
 
 static u32 mdio45_get_an(const struct mdio_if_info *mdio, u16 addr)
 {
@@ -339,7 +339,7 @@ void mdio45_ethtool_gset_npage(const struct mdio_if_info *mdio,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mdio45_ethtool_gset_npage); */
+EXPORT_SYMBOL(mdio45_ethtool_gset_npage);
 
 /**
  * mdio45_ethtool_spauseparam_an - set auto-negotiated pause parameters
@@ -367,7 +367,7 @@ void mdio45_ethtool_spauseparam_an(const struct mdio_if_info *mdio,
 		mdio45_nway_restart(mdio);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mdio45_ethtool_spauseparam_an); */
+EXPORT_SYMBOL(mdio45_ethtool_spauseparam_an);
 
 /**
  * mdio_mii_ioctl - MII ioctl interface for MDIO (clause 22 or 45) PHYs
@@ -448,4 +448,4 @@ int mdio_mii_ioctl(const struct mdio_if_info *mdio,
 					mii_data->val_in);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mdio_mii_ioctl); */
+EXPORT_SYMBOL(mdio_mii_ioctl);

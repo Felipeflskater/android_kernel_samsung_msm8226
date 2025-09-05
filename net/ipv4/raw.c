@@ -105,7 +105,7 @@ void raw_hash_sk(struct sock *sk)
 	sock_prot_inuse_add(sock_net(sk), sk->sk_prot, 1);
 	write_unlock_bh(&h->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_hash_sk); */
+EXPORT_SYMBOL_GPL(raw_hash_sk);
 
 void raw_unhash_sk(struct sock *sk)
 {
@@ -116,7 +116,7 @@ void raw_unhash_sk(struct sock *sk)
 		sock_prot_inuse_add(sock_net(sk), sk->sk_prot, -1);
 	write_unlock_bh(&h->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_unhash_sk); */
+EXPORT_SYMBOL_GPL(raw_unhash_sk);
 
 static struct sock *__raw_v4_lookup(struct net *net, struct sock *sk,
 		unsigned short num, __be32 raddr, __be32 laddr, int dif)
@@ -979,7 +979,7 @@ void *raw_seq_start(struct seq_file *seq, loff_t *pos)
 	read_lock(&state->h->lock);
 	return *pos ? raw_get_idx(seq, *pos - 1) : SEQ_START_TOKEN;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_seq_start); */
+EXPORT_SYMBOL_GPL(raw_seq_start);
 
 void *raw_seq_next(struct seq_file *seq, void *v, loff_t *pos)
 {
@@ -992,7 +992,7 @@ void *raw_seq_next(struct seq_file *seq, void *v, loff_t *pos)
 	++*pos;
 	return sk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_seq_next); */
+EXPORT_SYMBOL_GPL(raw_seq_next);
 
 void raw_seq_stop(struct seq_file *seq, void *v)
 {
@@ -1000,7 +1000,7 @@ void raw_seq_stop(struct seq_file *seq, void *v)
 
 	read_unlock(&state->h->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_seq_stop); */
+EXPORT_SYMBOL_GPL(raw_seq_stop);
 
 static void raw_sock_seq_show(struct seq_file *seq, struct sock *sp, int i)
 {
@@ -1051,7 +1051,7 @@ int raw_seq_open(struct inode *ino, struct file *file,
 	i->h = h;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(raw_seq_open); */
+EXPORT_SYMBOL_GPL(raw_seq_open);
 
 static int raw_v4_seq_open(struct inode *inode, struct file *file)
 {

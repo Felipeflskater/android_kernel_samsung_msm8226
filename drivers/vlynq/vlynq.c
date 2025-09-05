@@ -371,13 +371,13 @@ int __vlynq_register_driver(struct vlynq_driver *driver, struct module *owner)
 	driver->driver.bus = &vlynq_bus_type;
 	return driver_register(&driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL(__vlynq_register_driver); */
+EXPORT_SYMBOL(__vlynq_register_driver);
 
 void vlynq_unregister_driver(struct vlynq_driver *driver)
 {
 	driver_unregister(&driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_unregister_driver); */
+EXPORT_SYMBOL(vlynq_unregister_driver);
 
 /*
  * A VLYNQ remote device can clock the VLYNQ bus master
@@ -582,7 +582,7 @@ int vlynq_enable_device(struct vlynq_device *dev)
 	dev->enabled = !result;
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_enable_device); */
+EXPORT_SYMBOL(vlynq_enable_device);
 
 
 void vlynq_disable_device(struct vlynq_device *dev)
@@ -593,7 +593,7 @@ void vlynq_disable_device(struct vlynq_device *dev)
 	free_irq(dev->irq, dev);
 	ops->off(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_disable_device); */
+EXPORT_SYMBOL(vlynq_disable_device);
 
 int vlynq_set_local_mapping(struct vlynq_device *dev, u32 tx_offset,
 			    struct vlynq_mapping *mapping)
@@ -610,7 +610,7 @@ int vlynq_set_local_mapping(struct vlynq_device *dev, u32 tx_offset,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_set_local_mapping); */
+EXPORT_SYMBOL(vlynq_set_local_mapping);
 
 int vlynq_set_remote_mapping(struct vlynq_device *dev, u32 tx_offset,
 			     struct vlynq_mapping *mapping)
@@ -627,7 +627,7 @@ int vlynq_set_remote_mapping(struct vlynq_device *dev, u32 tx_offset,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_set_remote_mapping); */
+EXPORT_SYMBOL(vlynq_set_remote_mapping);
 
 int vlynq_set_local_irq(struct vlynq_device *dev, int virq)
 {
@@ -645,7 +645,7 @@ int vlynq_set_local_irq(struct vlynq_device *dev, int virq)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_set_local_irq); */
+EXPORT_SYMBOL(vlynq_set_local_irq);
 
 int vlynq_set_remote_irq(struct vlynq_device *dev, int virq)
 {
@@ -663,7 +663,7 @@ int vlynq_set_remote_irq(struct vlynq_device *dev, int virq)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vlynq_set_remote_irq); */
+EXPORT_SYMBOL(vlynq_set_remote_irq);
 
 static int vlynq_probe(struct platform_device *pdev)
 {
@@ -781,7 +781,7 @@ struct bus_type vlynq_bus_type = {
 	.probe = vlynq_device_probe,
 	.remove = vlynq_device_remove,
 };
-/* DISABLED: EXPORT_SYMBOL(vlynq_bus_type); */
+EXPORT_SYMBOL(vlynq_bus_type);
 
 static int __devinit vlynq_init(void)
 {

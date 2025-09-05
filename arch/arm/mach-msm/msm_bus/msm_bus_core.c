@@ -44,7 +44,7 @@ int msm_bus_device_match(struct device *dev, void* id)
 struct bus_type msm_bus_type = {
 	.name      = "msm-bus-type",
 };
-/* DISABLED: EXPORT_SYMBOL(msm_bus_type); */
+EXPORT_SYMBOL(msm_bus_type);
 
 /**
  * msm_bus_get_fabric_device() - This function is used to search for

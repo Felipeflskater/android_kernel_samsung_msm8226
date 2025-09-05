@@ -49,7 +49,7 @@ int transport_class_register(struct transport_class *tclass)
 {
 	return class_register(&tclass->class);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_class_register); */
+EXPORT_SYMBOL_GPL(transport_class_register);
 
 /**
  * transport_class_unregister - unregister a previously registered class
@@ -63,7 +63,7 @@ void transport_class_unregister(struct transport_class *tclass)
 {
 	class_unregister(&tclass->class);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_class_unregister); */
+EXPORT_SYMBOL_GPL(transport_class_unregister);
 
 static int anon_transport_dummy_function(struct transport_container *tc,
 					 struct device *dev,
@@ -97,7 +97,7 @@ int anon_transport_class_register(struct anon_transport_class *atc)
 	atc->tclass.remove = anon_transport_dummy_function;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(anon_transport_class_register); */
+EXPORT_SYMBOL_GPL(anon_transport_class_register);
 
 /**
  * anon_transport_class_unregister - unregister an anon class
@@ -112,7 +112,7 @@ void anon_transport_class_unregister(struct anon_transport_class *atc)
 	if (unlikely(attribute_container_unregister(&atc->container)))
 		BUG();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(anon_transport_class_unregister); */
+EXPORT_SYMBOL_GPL(anon_transport_class_unregister);
 
 static int transport_setup_classdev(struct attribute_container *cont,
 				    struct device *dev,
@@ -146,7 +146,7 @@ void transport_setup_device(struct device *dev)
 {
 	attribute_container_add_device(dev, transport_setup_classdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_setup_device); */
+EXPORT_SYMBOL_GPL(transport_setup_device);
 
 static int transport_add_class_device(struct attribute_container *cont,
 				      struct device *dev,
@@ -178,7 +178,7 @@ void transport_add_device(struct device *dev)
 {
 	attribute_container_device_trigger(dev, transport_add_class_device);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_add_device); */
+EXPORT_SYMBOL_GPL(transport_add_device);
 
 static int transport_configure(struct attribute_container *cont,
 			       struct device *dev,
@@ -209,7 +209,7 @@ void transport_configure_device(struct device *dev)
 {
 	attribute_container_device_trigger(dev, transport_configure);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_configure_device); */
+EXPORT_SYMBOL_GPL(transport_configure_device);
 
 static int transport_remove_classdev(struct attribute_container *cont,
 				     struct device *dev,
@@ -248,7 +248,7 @@ void transport_remove_device(struct device *dev)
 {
 	attribute_container_device_trigger(dev, transport_remove_classdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_remove_device); */
+EXPORT_SYMBOL_GPL(transport_remove_device);
 
 static void transport_destroy_classdev(struct attribute_container *cont,
 				      struct device *dev,
@@ -277,4 +277,4 @@ void transport_destroy_device(struct device *dev)
 {
 	attribute_container_remove_device(dev, transport_destroy_classdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(transport_destroy_device); */
+EXPORT_SYMBOL_GPL(transport_destroy_device);

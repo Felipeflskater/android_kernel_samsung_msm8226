@@ -159,7 +159,7 @@ int rc5t583_ext_power_req_config(struct device *dev, int ds_id,
 			ds_id, ext_pwr_req);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rc5t583_ext_power_req_config); */
+EXPORT_SYMBOL(rc5t583_ext_power_req_config);
 
 static int rc5t583_clear_ext_power_req(struct rc5t583 *rc5t583,
 	struct rc5t583_platform_data *pdata)

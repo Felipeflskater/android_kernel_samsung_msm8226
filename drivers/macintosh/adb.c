@@ -45,7 +45,7 @@
 #endif
 
 
-/* DISABLED: EXPORT_SYMBOL(adb_client_list); */
+EXPORT_SYMBOL(adb_client_list);
 
 extern struct adb_driver via_macii_driver;
 extern struct adb_driver via_maciisi_driver;

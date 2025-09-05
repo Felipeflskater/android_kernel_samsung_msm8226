@@ -40,4 +40,4 @@ void __iomem *devm_ioremap_prot(struct device *dev, resource_size_t offset,
 
 	return addr;
 }
-/* DISABLED: EXPORT_SYMBOL(devm_ioremap_prot); */
+EXPORT_SYMBOL(devm_ioremap_prot);

@@ -197,7 +197,7 @@ void dump_stack(void)
 	asm("%0 = r30" : "=r" (fp));
 	show_stack(current, fp);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 int die(const char *str, struct pt_regs *regs, long err)
 {

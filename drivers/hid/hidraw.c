@@ -467,7 +467,7 @@ int hidraw_report_event(struct hid_device *hid, u8 *data, int len)
 	wake_up_interruptible(&dev->wait);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hidraw_report_event); */
+EXPORT_SYMBOL_GPL(hidraw_report_event);
 
 int hidraw_connect(struct hid_device *hid)
 {
@@ -523,7 +523,7 @@ out:
 	return result;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hidraw_connect); */
+EXPORT_SYMBOL_GPL(hidraw_connect);
 
 void hidraw_disconnect(struct hid_device *hid)
 {
@@ -535,7 +535,7 @@ void hidraw_disconnect(struct hid_device *hid)
 
 	mutex_unlock(&minors_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hidraw_disconnect); */
+EXPORT_SYMBOL_GPL(hidraw_disconnect);
 
 int __init hidraw_init(void)
 {

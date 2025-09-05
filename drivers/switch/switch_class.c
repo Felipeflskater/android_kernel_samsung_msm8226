@@ -96,7 +96,7 @@ void switch_set_state(struct switch_dev *sdev, int state)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(switch_set_state); */
+EXPORT_SYMBOL_GPL(switch_set_state);
 
 static int create_switch_class(void)
 {
@@ -145,7 +145,7 @@ err_create_file_1:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(switch_dev_register); */
+EXPORT_SYMBOL_GPL(switch_dev_register);
 
 void switch_dev_unregister(struct switch_dev *sdev)
 {
@@ -154,7 +154,7 @@ void switch_dev_unregister(struct switch_dev *sdev)
 	dev_set_drvdata(sdev->dev, NULL);
 	device_destroy(switch_class, MKDEV(0, sdev->index));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(switch_dev_unregister); */
+EXPORT_SYMBOL_GPL(switch_dev_unregister);
 
 static int __init switch_class_init(void)
 {

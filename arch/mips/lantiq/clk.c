@@ -80,7 +80,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 struct clk *clk_get(struct device *dev, const char *id)
 {
@@ -92,26 +92,26 @@ struct clk *clk_get(struct device *dev, const char *id)
 	BUG();
 	return ERR_PTR(-ENOENT);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get); */
+EXPORT_SYMBOL(clk_get);
 
 void clk_put(struct clk *clk)
 {
 	/* not used */
 }
-/* DISABLED: EXPORT_SYMBOL(clk_put); */
+EXPORT_SYMBOL(clk_put);
 
 int clk_enable(struct clk *clk)
 {
 	/* not used */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
 	/* not used */
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 static inline u32 ltq_get_counter_resolution(void)
 {

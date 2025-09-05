@@ -65,7 +65,7 @@ out_err:
 
 	return isum;
 }
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
+EXPORT_SYMBOL(csum_partial_copy_from_user);
 
 /**
  * csum_partial_copy_to_user - Copy and checksum to user space.
@@ -108,7 +108,7 @@ csum_partial_copy_to_user(const void *src, void __user *dst,
 	return csum_partial_copy_generic(src, (void __force *)dst,
 					 len, isum, NULL, errp);
 }
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_to_user); */
+EXPORT_SYMBOL(csum_partial_copy_to_user);
 
 /**
  * csum_partial_copy_nocheck - Copy and checksum.
@@ -124,7 +124,7 @@ csum_partial_copy_nocheck(const void *src, void *dst, int len, __wsum sum)
 {
 	return csum_partial_copy_generic(src, dst, len, sum, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+EXPORT_SYMBOL(csum_partial_copy_nocheck);
 
 __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
 			const struct in6_addr *daddr,
@@ -147,4 +147,4 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
 	return csum_fold(
 	       (__force __wsum)add32_with_carry(sum64 & 0xffffffff, sum64>>32));
 }
-/* DISABLED: EXPORT_SYMBOL(csum_ipv6_magic); */
+EXPORT_SYMBOL(csum_ipv6_magic);

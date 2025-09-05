@@ -95,7 +95,7 @@ void set_pmd_pfn(unsigned long vaddr, unsigned long pfn, pgprot_t flags)
 }
 
 unsigned long __FIXADDR_TOP = 0xfffff000;
-/* DISABLED: EXPORT_SYMBOL(__FIXADDR_TOP); */
+EXPORT_SYMBOL(__FIXADDR_TOP);
 
 /*
  * vmalloc=size forces the vmalloc area to be exactly 'size'

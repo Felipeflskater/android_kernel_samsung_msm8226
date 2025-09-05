@@ -71,7 +71,7 @@ int cxgbi_device_portmap_create(struct cxgbi_device *cdev, unsigned int base,
 	spin_lock_init(&pmap->lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_portmap_create); */
+EXPORT_SYMBOL_GPL(cxgbi_device_portmap_create);
 
 void cxgbi_device_portmap_cleanup(struct cxgbi_device *cdev)
 {
@@ -94,7 +94,7 @@ void cxgbi_device_portmap_cleanup(struct cxgbi_device *cdev)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_portmap_cleanup); */
+EXPORT_SYMBOL_GPL(cxgbi_device_portmap_cleanup);
 
 static inline void cxgbi_device_destroy(struct cxgbi_device *cdev)
 {
@@ -142,7 +142,7 @@ struct cxgbi_device *cxgbi_device_register(unsigned int extra,
 		"cdev 0x%p, p# %u.\n", cdev, nports);
 	return cdev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_register); */
+EXPORT_SYMBOL_GPL(cxgbi_device_register);
 
 void cxgbi_device_unregister(struct cxgbi_device *cdev)
 {
@@ -154,7 +154,7 @@ void cxgbi_device_unregister(struct cxgbi_device *cdev)
 	mutex_unlock(&cdev_mutex);
 	cxgbi_device_destroy(cdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_unregister); */
+EXPORT_SYMBOL_GPL(cxgbi_device_unregister);
 
 void cxgbi_device_unregister_all(unsigned int flag)
 {
@@ -173,7 +173,7 @@ void cxgbi_device_unregister_all(unsigned int flag)
 	}
 	mutex_unlock(&cdev_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_unregister_all); */
+EXPORT_SYMBOL_GPL(cxgbi_device_unregister_all);
 
 struct cxgbi_device *cxgbi_device_find_by_lldev(void *lldev)
 {
@@ -191,7 +191,7 @@ struct cxgbi_device *cxgbi_device_find_by_lldev(void *lldev)
 		"lldev 0x%p, NO match found.\n", lldev);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_device_find_by_lldev); */
+EXPORT_SYMBOL_GPL(cxgbi_device_find_by_lldev);
 
 static struct cxgbi_device *cxgbi_device_find_by_netdev(struct net_device *ndev,
 							int *port)
@@ -243,7 +243,7 @@ void cxgbi_hbas_remove(struct cxgbi_device *cdev)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_hbas_remove); */
+EXPORT_SYMBOL_GPL(cxgbi_hbas_remove);
 
 int cxgbi_hbas_add(struct cxgbi_device *cdev, unsigned int max_lun,
 		unsigned int max_id, struct scsi_host_template *sht,
@@ -298,7 +298,7 @@ err_out:
 	cxgbi_hbas_remove(cdev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_hbas_add); */
+EXPORT_SYMBOL_GPL(cxgbi_hbas_add);
 
 /*
  * iSCSI offload
@@ -419,7 +419,7 @@ void cxgbi_sock_free_cpl_skbs(struct cxgbi_sock *csk)
 		csk->cpl_abort_rpl = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_free_cpl_skbs); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_free_cpl_skbs);
 
 static struct cxgbi_sock *cxgbi_sock_create(struct cxgbi_device *cdev)
 {
@@ -560,7 +560,7 @@ void cxgbi_sock_established(struct cxgbi_sock *csk, unsigned int snd_isn,
 	smp_mb();
 	cxgbi_sock_set_state(csk, CTP_ESTABLISHED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_established); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_established);
 
 static void cxgbi_inform_iscsi_conn_closing(struct cxgbi_sock *csk)
 {
@@ -593,7 +593,7 @@ void cxgbi_sock_closed(struct cxgbi_sock *csk)
 	cxgbi_inform_iscsi_conn_closing(csk);
 	cxgbi_sock_put(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_closed); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_closed);
 
 static void need_active_close(struct cxgbi_sock *csk)
 {
@@ -639,7 +639,7 @@ void cxgbi_sock_fail_act_open(struct cxgbi_sock *csk, int errno)
 	csk->err = errno;
 	cxgbi_sock_closed(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_fail_act_open); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_fail_act_open);
 
 void cxgbi_sock_act_open_req_arp_failure(void *handle, struct sk_buff *skb)
 {
@@ -655,7 +655,7 @@ void cxgbi_sock_act_open_req_arp_failure(void *handle, struct sk_buff *skb)
 	cxgbi_sock_put(csk);
 	__kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_act_open_req_arp_failure); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_act_open_req_arp_failure);
 
 void cxgbi_sock_rcv_abort_rpl(struct cxgbi_sock *csk)
 {
@@ -676,7 +676,7 @@ void cxgbi_sock_rcv_abort_rpl(struct cxgbi_sock *csk)
 	spin_unlock_bh(&csk->lock);
 	cxgbi_sock_put(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_abort_rpl); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_abort_rpl);
 
 void cxgbi_sock_rcv_peer_close(struct cxgbi_sock *csk)
 {
@@ -709,7 +709,7 @@ done:
 	spin_unlock_bh(&csk->lock);
 	cxgbi_sock_put(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_peer_close); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_peer_close);
 
 void cxgbi_sock_rcv_close_conn_rpl(struct cxgbi_sock *csk, u32 snd_nxt)
 {
@@ -740,7 +740,7 @@ done:
 	spin_unlock_bh(&csk->lock);
 	cxgbi_sock_put(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_close_conn_rpl); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_close_conn_rpl);
 
 void cxgbi_sock_rcv_wr_ack(struct cxgbi_sock *csk, unsigned int credits,
 			   unsigned int snd_una, int seq_chk)
@@ -804,7 +804,7 @@ void cxgbi_sock_rcv_wr_ack(struct cxgbi_sock *csk, unsigned int credits,
 done:
 	spin_unlock_bh(&csk->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_wr_ack); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_rcv_wr_ack);
 
 static unsigned int cxgbi_sock_find_best_mtu(struct cxgbi_sock *csk,
 					     unsigned short mtu)
@@ -832,14 +832,14 @@ unsigned int cxgbi_sock_select_mss(struct cxgbi_sock *csk, unsigned int pmtu)
 
 	return idx;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_select_mss); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_select_mss);
 
 void cxgbi_sock_skb_entail(struct cxgbi_sock *csk, struct sk_buff *skb)
 {
 	cxgbi_skcb_tcp_seq(skb) = csk->write_seq;
 	__skb_queue_tail(&csk->write_queue, skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_skb_entail); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_skb_entail);
 
 void cxgbi_sock_purge_wr_queue(struct cxgbi_sock *csk)
 {
@@ -848,7 +848,7 @@ void cxgbi_sock_purge_wr_queue(struct cxgbi_sock *csk)
 	while ((skb = cxgbi_sock_dequeue_wr(csk)) != NULL)
 		kfree_skb(skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_purge_wr_queue); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_purge_wr_queue);
 
 void cxgbi_sock_check_wr_invariants(const struct cxgbi_sock *csk)
 {
@@ -858,7 +858,7 @@ void cxgbi_sock_check_wr_invariants(const struct cxgbi_sock *csk)
 		pr_err("csk 0x%p, tid %u, credit %u + %u != %u.\n",
 			csk, csk->tid, csk->wr_cred, pending, csk->wr_max_cred);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_sock_check_wr_invariants); */
+EXPORT_SYMBOL_GPL(cxgbi_sock_check_wr_invariants);
 
 static int cxgbi_sock_send_pdus(struct cxgbi_sock *csk, struct sk_buff *skb)
 {
@@ -1014,7 +1014,7 @@ void cxgbi_ddp_page_size_factor(int *pgsz_factor)
 	for (i = 0; i < DDP_PGIDX_MAX; i++)
 		pgsz_factor[i] = ddp_page_order[i];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ddp_page_size_factor); */
+EXPORT_SYMBOL_GPL(cxgbi_ddp_page_size_factor);
 
 /*
  * DDP setup & teardown
@@ -1032,13 +1032,13 @@ void cxgbi_ddp_ppod_set(struct cxgbi_pagepod *ppod,
 				cpu_to_be64(gl->phys_addr[gidx]) : 0ULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ddp_ppod_set); */
+EXPORT_SYMBOL_GPL(cxgbi_ddp_ppod_set);
 
 void cxgbi_ddp_ppod_clear(struct cxgbi_pagepod *ppod)
 {
 	memset(ppod, 0, sizeof(*ppod));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ddp_ppod_clear); */
+EXPORT_SYMBOL_GPL(cxgbi_ddp_ppod_clear);
 
 static inline int ddp_find_unused_entries(struct cxgbi_ddp_info *ddp,
 					unsigned int start, unsigned int max,
@@ -1369,7 +1369,7 @@ int cxgbi_ddp_cleanup(struct cxgbi_device *cdev)
 		return kref_put(&ddp->refcnt, ddp_destroy);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ddp_cleanup); */
+EXPORT_SYMBOL_GPL(cxgbi_ddp_cleanup);
 
 int cxgbi_ddp_init(struct cxgbi_device *cdev,
 		   unsigned int llimit, unsigned int ulimit,
@@ -1431,7 +1431,7 @@ int cxgbi_ddp_init(struct cxgbi_device *cdev,
 		cdev->rx_max_size, ddp->max_rxsz);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ddp_init); */
+EXPORT_SYMBOL_GPL(cxgbi_ddp_init);
 
 /*
  * APIs interacting with open-iscsi libraries
@@ -1513,7 +1513,7 @@ void cxgbi_parse_pdu_itt(struct iscsi_conn *conn, itt_t itt, int *idx, int *age)
 		cdev, tag, itt, sw_bits, idx ? *idx : 0xFFFFF,
 		age ? *age : 0xFF);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_parse_pdu_itt); */
+EXPORT_SYMBOL_GPL(cxgbi_parse_pdu_itt);
 
 void cxgbi_conn_tx_open(struct cxgbi_sock *csk)
 {
@@ -1525,7 +1525,7 @@ void cxgbi_conn_tx_open(struct cxgbi_sock *csk)
 		iscsi_conn_queue_work(conn);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_conn_tx_open); */
+EXPORT_SYMBOL_GPL(cxgbi_conn_tx_open);
 
 /*
  * pdu receive, interact with libiscsi_tcp
@@ -1773,7 +1773,7 @@ skb_done:
 		iscsi_conn_failure(conn, ISCSI_ERR_CONN_FAILED);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_conn_pdu_ready); */
+EXPORT_SYMBOL_GPL(cxgbi_conn_pdu_ready);
 
 static int sgl_seek_offset(struct scatterlist *sgl, unsigned int sgcnt,
 				unsigned int offset, unsigned int *off,
@@ -1889,7 +1889,7 @@ int cxgbi_conn_alloc_pdu(struct iscsi_task *task, u8 opcode)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_conn_alloc_pdu); */
+EXPORT_SYMBOL_GPL(cxgbi_conn_alloc_pdu);
 
 static inline void tx_skb_setmode(struct sk_buff *skb, int hcrc, int dcrc)
 {
@@ -2006,7 +2006,7 @@ int cxgbi_conn_init_pdu(struct iscsi_task *task, unsigned int offset,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_conn_init_pdu); */
+EXPORT_SYMBOL_GPL(cxgbi_conn_init_pdu);
 
 int cxgbi_conn_xmit_pdu(struct iscsi_task *task)
 {
@@ -2060,7 +2060,7 @@ int cxgbi_conn_xmit_pdu(struct iscsi_task *task)
 	iscsi_conn_failure(task->conn, ISCSI_ERR_XMIT_FAILED);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_conn_xmit_pdu); */
+EXPORT_SYMBOL_GPL(cxgbi_conn_xmit_pdu);
 
 void cxgbi_cleanup_task(struct iscsi_task *task)
 {
@@ -2078,7 +2078,7 @@ void cxgbi_cleanup_task(struct iscsi_task *task)
 	task_release_itt(task, task->hdr_itt);
 	iscsi_tcp_cleanup_task(task);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_cleanup_task); */
+EXPORT_SYMBOL_GPL(cxgbi_cleanup_task);
 
 void cxgbi_get_conn_stats(struct iscsi_cls_conn *cls_conn,
 				struct iscsi_stats *stats)
@@ -2100,7 +2100,7 @@ void cxgbi_get_conn_stats(struct iscsi_cls_conn *cls_conn,
 	strcpy(stats->custom[0].desc, "eh_abort_cnt");
 	stats->custom[0].value = conn->eh_abort_cnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_get_conn_stats); */
+EXPORT_SYMBOL_GPL(cxgbi_get_conn_stats);
 
 static int cxgbi_conn_max_xmit_dlength(struct iscsi_conn *conn)
 {
@@ -2188,7 +2188,7 @@ int cxgbi_set_conn_param(struct iscsi_cls_conn *cls_conn,
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_set_conn_param); */
+EXPORT_SYMBOL_GPL(cxgbi_set_conn_param);
 
 int cxgbi_get_ep_param(struct iscsi_endpoint *ep, enum iscsi_param param,
 		       char *buf)
@@ -2217,7 +2217,7 @@ int cxgbi_get_ep_param(struct iscsi_endpoint *ep, enum iscsi_param param,
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_get_ep_param); */
+EXPORT_SYMBOL_GPL(cxgbi_get_ep_param);
 
 struct iscsi_cls_conn *
 cxgbi_create_conn(struct iscsi_cls_session *cls_session, u32 cid)
@@ -2242,7 +2242,7 @@ cxgbi_create_conn(struct iscsi_cls_session *cls_session, u32 cid)
 
 	return cls_conn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_create_conn); */
+EXPORT_SYMBOL_GPL(cxgbi_create_conn);
 
 int cxgbi_bind_conn(struct iscsi_cls_session *cls_session,
 				struct iscsi_cls_conn *cls_conn,
@@ -2292,7 +2292,7 @@ int cxgbi_bind_conn(struct iscsi_cls_session *cls_session,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_bind_conn); */
+EXPORT_SYMBOL_GPL(cxgbi_bind_conn);
 
 struct iscsi_cls_session *cxgbi_create_session(struct iscsi_endpoint *ep,
 						u16 cmds_max, u16 qdepth,
@@ -2335,7 +2335,7 @@ remove_session:
 	iscsi_session_teardown(cls_session);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_create_session); */
+EXPORT_SYMBOL_GPL(cxgbi_create_session);
 
 void cxgbi_destroy_session(struct iscsi_cls_session *cls_session)
 {
@@ -2345,7 +2345,7 @@ void cxgbi_destroy_session(struct iscsi_cls_session *cls_session)
 	iscsi_tcp_r2tpool_free(cls_session->dd_data);
 	iscsi_session_teardown(cls_session);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_destroy_session); */
+EXPORT_SYMBOL_GPL(cxgbi_destroy_session);
 
 int cxgbi_set_host_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 			char *buf, int buflen)
@@ -2378,7 +2378,7 @@ int cxgbi_set_host_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 		return iscsi_host_set_param(shost, param, buf, buflen);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_set_host_param); */
+EXPORT_SYMBOL_GPL(cxgbi_set_host_param);
 
 int cxgbi_get_host_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 			char *buf)
@@ -2419,7 +2419,7 @@ int cxgbi_get_host_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_get_host_param); */
+EXPORT_SYMBOL_GPL(cxgbi_get_host_param);
 
 struct iscsi_endpoint *cxgbi_ep_connect(struct Scsi_Host *shost,
 					struct sockaddr *dst_addr,
@@ -2496,7 +2496,7 @@ release_conn:
 err_out:
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ep_connect); */
+EXPORT_SYMBOL_GPL(cxgbi_ep_connect);
 
 int cxgbi_ep_poll(struct iscsi_endpoint *ep, int timeout_ms)
 {
@@ -2507,7 +2507,7 @@ int cxgbi_ep_poll(struct iscsi_endpoint *ep, int timeout_ms)
 		return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ep_poll); */
+EXPORT_SYMBOL_GPL(cxgbi_ep_poll);
 
 void cxgbi_ep_disconnect(struct iscsi_endpoint *ep)
 {
@@ -2535,7 +2535,7 @@ void cxgbi_ep_disconnect(struct iscsi_endpoint *ep)
 
 	cxgbi_sock_put(csk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_ep_disconnect); */
+EXPORT_SYMBOL_GPL(cxgbi_ep_disconnect);
 
 int cxgbi_iscsi_init(struct iscsi_transport *itp,
 			struct scsi_transport_template **stt)
@@ -2551,7 +2551,7 @@ int cxgbi_iscsi_init(struct iscsi_transport *itp,
 		itp->name, stt);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_iscsi_init); */
+EXPORT_SYMBOL_GPL(cxgbi_iscsi_init);
 
 void cxgbi_iscsi_cleanup(struct iscsi_transport *itp,
 			struct scsi_transport_template **stt)
@@ -2564,7 +2564,7 @@ void cxgbi_iscsi_cleanup(struct iscsi_transport *itp,
 		iscsi_unregister_transport(itp);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_iscsi_cleanup); */
+EXPORT_SYMBOL_GPL(cxgbi_iscsi_cleanup);
 
 umode_t cxgbi_attr_is_visible(int param_type, int param)
 {
@@ -2620,7 +2620,7 @@ umode_t cxgbi_attr_is_visible(int param_type, int param)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cxgbi_attr_is_visible); */
+EXPORT_SYMBOL_GPL(cxgbi_attr_is_visible);
 
 static int __init libcxgbi_init_module(void)
 {

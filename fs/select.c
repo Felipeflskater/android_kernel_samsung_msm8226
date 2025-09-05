@@ -123,7 +123,7 @@ void poll_initwait(struct poll_wqueues *pwq)
 	pwq->table = NULL;
 	pwq->inline_index = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(poll_initwait); */
+EXPORT_SYMBOL(poll_initwait);
 
 static void free_poll_entry(struct poll_table_entry *entry)
 {
@@ -151,7 +151,7 @@ void poll_freewait(struct poll_wqueues *pwq)
 		free_page((unsigned long) old);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(poll_freewait); */
+EXPORT_SYMBOL(poll_freewait);
 
 static struct poll_table_entry *poll_get_entry(struct poll_wqueues *p)
 {
@@ -256,7 +256,7 @@ int poll_schedule_timeout(struct poll_wqueues *pwq, int state,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(poll_schedule_timeout); */
+EXPORT_SYMBOL(poll_schedule_timeout);
 
 /**
  * poll_select_set_timeout - helper function to setup the timeout value

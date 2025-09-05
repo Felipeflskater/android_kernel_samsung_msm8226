@@ -140,7 +140,7 @@ irqreturn_t snd_mpu401_uart_interrupt(int irq, void *dev_id)
 	return IRQ_HANDLED;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_mpu401_uart_interrupt); */
+EXPORT_SYMBOL(snd_mpu401_uart_interrupt);
 
 /**
  * snd_mpu401_uart_interrupt_tx - generic MPU401-UART transmit irq handler
@@ -159,7 +159,7 @@ irqreturn_t snd_mpu401_uart_interrupt_tx(int irq, void *dev_id)
 	return IRQ_HANDLED;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_mpu401_uart_interrupt_tx); */
+EXPORT_SYMBOL(snd_mpu401_uart_interrupt_tx);
 
 /*
  * timer callback
@@ -614,7 +614,7 @@ int snd_mpu401_uart_new(struct snd_card *card, int device,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_mpu401_uart_new); */
+EXPORT_SYMBOL(snd_mpu401_uart_new);
 
 /*
  *  INIT part

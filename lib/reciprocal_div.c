@@ -8,4 +8,4 @@ u32 reciprocal_value(u32 k)
 	do_div(val, k);
 	return (u32)val;
 }
-/* DISABLED: EXPORT_SYMBOL(reciprocal_value); */
+EXPORT_SYMBOL(reciprocal_value);

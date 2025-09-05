@@ -120,12 +120,12 @@ void eisa_out32(unsigned int data, unsigned short port)
 
 #ifndef CONFIG_PCI
 /* We call these directly without PCI.  See asm/io.h. */
-/* DISABLED: EXPORT_SYMBOL(eisa_in8); */
-/* DISABLED: EXPORT_SYMBOL(eisa_in16); */
-/* DISABLED: EXPORT_SYMBOL(eisa_in32); */
-/* DISABLED: EXPORT_SYMBOL(eisa_out8); */
-/* DISABLED: EXPORT_SYMBOL(eisa_out16); */
-/* DISABLED: EXPORT_SYMBOL(eisa_out32); */
+EXPORT_SYMBOL(eisa_in8);
+EXPORT_SYMBOL(eisa_in16);
+EXPORT_SYMBOL(eisa_in32);
+EXPORT_SYMBOL(eisa_out8);
+EXPORT_SYMBOL(eisa_out16);
+EXPORT_SYMBOL(eisa_out32);
 #endif
 
 /* Interrupt handling */
@@ -451,5 +451,5 @@ static int __init eisa_irq_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("eisa_irq_edge=", eisa_irq_setup); */ */
+__setup("eisa_irq_edge=", eisa_irq_setup);
 

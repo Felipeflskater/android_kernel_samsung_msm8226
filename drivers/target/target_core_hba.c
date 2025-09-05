@@ -73,7 +73,7 @@ int transport_subsystem_register(struct se_subsystem_api *sub_api)
 			" %p\n", sub_api->name, sub_api->owner);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(transport_subsystem_register); */
+EXPORT_SYMBOL(transport_subsystem_register);
 
 void transport_subsystem_release(struct se_subsystem_api *sub_api)
 {
@@ -81,7 +81,7 @@ void transport_subsystem_release(struct se_subsystem_api *sub_api)
 	list_del(&sub_api->sub_api_list);
 	mutex_unlock(&subsystem_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(transport_subsystem_release); */
+EXPORT_SYMBOL(transport_subsystem_release);
 
 static struct se_subsystem_api *core_get_backend(const char *sub_name)
 {

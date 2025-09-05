@@ -64,7 +64,7 @@ __async_tx_find_channel(struct async_submit_ctl *submit,
 		return depend_tx->chan;
 	return async_dma_find_channel(tx_type);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__async_tx_find_channel); */
+EXPORT_SYMBOL_GPL(__async_tx_find_channel);
 #endif
 
 
@@ -220,7 +220,7 @@ async_tx_submit(struct dma_chan *chan, struct dma_async_tx_descriptor *tx,
 	if (depend_tx)
 		async_tx_ack(depend_tx);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_tx_submit); */
+EXPORT_SYMBOL_GPL(async_tx_submit);
 
 /**
  * async_trigger_callback - schedules the callback function to be run
@@ -267,7 +267,7 @@ async_trigger_callback(struct async_submit_ctl *submit)
 
 	return tx;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_trigger_callback); */
+EXPORT_SYMBOL_GPL(async_trigger_callback);
 
 /**
  * async_tx_quiesce - ensure tx is complete and freeable upon return
@@ -286,7 +286,7 @@ void async_tx_quiesce(struct dma_async_tx_descriptor **tx)
 		*tx = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_tx_quiesce); */
+EXPORT_SYMBOL_GPL(async_tx_quiesce);
 
 MODULE_AUTHOR("Intel Corporation");
 MODULE_DESCRIPTION("Asynchronous Bulk Memory Transactions API");

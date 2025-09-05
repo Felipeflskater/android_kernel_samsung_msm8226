@@ -20,7 +20,7 @@ struct bus_type cpu_subsys = {
 	.name = "cpu",
 	.dev_name = "cpu",
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_subsys); */
+EXPORT_SYMBOL_GPL(cpu_subsys);
 
 static DEFINE_PER_CPU(struct device *, cpu_sys_devices);
 
@@ -270,7 +270,7 @@ struct device *get_cpu_device(unsigned cpu)
 	else
 		return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_cpu_device); */
+EXPORT_SYMBOL_GPL(get_cpu_device);
 
 #ifdef CONFIG_ARCH_HAS_CPU_AUTOPROBE
 static DEVICE_ATTR(modalias, 0444, arch_print_cpu_modalias, NULL);
@@ -306,7 +306,7 @@ bool cpu_is_hotpluggable(unsigned cpu)
 	struct device *dev = get_cpu_device(cpu);
 	return dev && container_of(dev, struct cpu, dev)->hotpluggable;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_is_hotpluggable); */
+EXPORT_SYMBOL_GPL(cpu_is_hotpluggable);
 
 #ifdef CONFIG_GENERIC_CPU_DEVICES
 static DEFINE_PER_CPU(struct cpu, cpu_devices);

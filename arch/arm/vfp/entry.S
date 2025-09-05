@@ -1,6 +1,3 @@
-.arm
-.syntax unified
-/* PostmarketOS: ARM mode forced */
 /*
  *  linux/arch/arm/vfp/entry.S
  *

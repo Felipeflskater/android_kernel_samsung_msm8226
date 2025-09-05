@@ -107,4 +107,4 @@ void mutex_destroy(struct mutex *lock)
 	lock->magic = NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(mutex_destroy); */
+EXPORT_SYMBOL_GPL(mutex_destroy);

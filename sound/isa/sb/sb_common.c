@@ -293,18 +293,18 @@ int snd_sbdsp_create(struct snd_card *card,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_sbdsp_command); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbdsp_get_byte); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbdsp_reset); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbdsp_create); */
+EXPORT_SYMBOL(snd_sbdsp_command);
+EXPORT_SYMBOL(snd_sbdsp_get_byte);
+EXPORT_SYMBOL(snd_sbdsp_reset);
+EXPORT_SYMBOL(snd_sbdsp_create);
 /* sb_mixer.c */
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_write); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_read); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_new); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_add_ctl); */
+EXPORT_SYMBOL(snd_sbmixer_write);
+EXPORT_SYMBOL(snd_sbmixer_read);
+EXPORT_SYMBOL(snd_sbmixer_new);
+EXPORT_SYMBOL(snd_sbmixer_add_ctl);
 #ifdef CONFIG_PM
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_suspend); */
-/* DISABLED: EXPORT_SYMBOL(snd_sbmixer_resume); */
+EXPORT_SYMBOL(snd_sbmixer_suspend);
+EXPORT_SYMBOL(snd_sbmixer_resume);
 #endif
 
 /*

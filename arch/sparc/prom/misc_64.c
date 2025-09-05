@@ -79,7 +79,7 @@ void prom_feval(const char *fstring)
 
 	p1275_cmd_direct(args);
 }
-/* DISABLED: EXPORT_SYMBOL(prom_feval); */
+EXPORT_SYMBOL(prom_feval);
 
 #ifdef CONFIG_SMP
 extern void smp_capture(void);

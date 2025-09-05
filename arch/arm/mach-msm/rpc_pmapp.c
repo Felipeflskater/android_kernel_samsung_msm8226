@@ -126,7 +126,7 @@ int pmic_vote_3p3_pwr_sel_switch(int boost)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pmic_vote_3p3_pwr_sel_switch); */
+EXPORT_SYMBOL(pmic_vote_3p3_pwr_sel_switch);
 
 struct vbus_sn_notification_args {
 	uint32_t cb_id;
@@ -232,7 +232,7 @@ done:
 				&cb_id, NULL, NULL, -1);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_pm_app_rpc_init); */
+EXPORT_SYMBOL(msm_pm_app_rpc_init);
 
 void msm_pm_app_rpc_deinit(void(*callback)(int online))
 {
@@ -241,7 +241,7 @@ void msm_pm_app_rpc_deinit(void(*callback)(int online))
 		msm_rpc_unregister_client(client);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(msm_pm_app_rpc_deinit); */
+EXPORT_SYMBOL(msm_pm_app_rpc_deinit);
 
 /* error bit flags defined by modem side */
 #define PM_ERR_FLAG__PAR1_OUT_OF_RANGE		(0x0001)
@@ -493,7 +493,7 @@ int pmapp_display_clock_config(uint enable)
 	return pmapp_rpc_set_only(enable, 0, 0, 0, 1,
 			PMAPP_DISPLAY_CLOCK_CONFIG_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_display_clock_config); */
+EXPORT_SYMBOL(pmapp_display_clock_config);
 
 int pmapp_clock_vote(const char *voter_id, uint clock_id, uint vote)
 {
@@ -503,7 +503,7 @@ int pmapp_clock_vote(const char *voter_id, uint clock_id, uint vote)
 	return pmapp_rpc_set_only(*((uint *) voter_id), clock_id, vote, 0, 3,
 			PMAPP_CLOCK_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_clock_vote); */
+EXPORT_SYMBOL(pmapp_clock_vote);
 
 int pmapp_smps_clock_vote(const char *voter_id, uint vreg_id, uint vote)
 {
@@ -513,7 +513,7 @@ int pmapp_smps_clock_vote(const char *voter_id, uint vreg_id, uint vote)
 	return pmapp_rpc_set_only(*((uint *) voter_id), vreg_id, vote, 0, 3,
 				  PMAPP_SMPS_CLOCK_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_smps_clock_vote); */
+EXPORT_SYMBOL(pmapp_smps_clock_vote);
 
 int pmapp_vreg_level_vote(const char *voter_id, uint vreg_id, uint level)
 {
@@ -523,7 +523,7 @@ int pmapp_vreg_level_vote(const char *voter_id, uint vreg_id, uint level)
 	return pmapp_rpc_set_only(*((uint *) voter_id), vreg_id, level, 0, 3,
 				  PMAPP_VREG_LEVEL_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_vreg_level_vote); */
+EXPORT_SYMBOL(pmapp_vreg_level_vote);
 
 int pmapp_smps_mode_vote(const char *voter_id, uint vreg_id, uint mode)
 {
@@ -533,7 +533,7 @@ int pmapp_smps_mode_vote(const char *voter_id, uint vreg_id, uint mode)
 	return pmapp_rpc_set_only(*((uint *) voter_id), vreg_id, mode, 0, 3,
 				  PMAPP_SMPS_MODE_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_smps_mode_vote); */
+EXPORT_SYMBOL(pmapp_smps_mode_vote);
 
 int pmapp_vreg_pincntrl_vote(const char *voter_id, uint vreg_id,
 						uint clock_id, uint vote)
@@ -545,7 +545,7 @@ int pmapp_vreg_pincntrl_vote(const char *voter_id, uint vreg_id,
 					vote, 4,
 					PMAPP_VREG_PINCNTRL_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_vreg_pincntrl_vote); */
+EXPORT_SYMBOL(pmapp_vreg_pincntrl_vote);
 
 int pmapp_disp_backlight_set_brightness(int value)
 {
@@ -555,13 +555,13 @@ int pmapp_disp_backlight_set_brightness(int value)
 	return pmapp_rpc_set_only(value, 0, 0, 0, 1,
 				PMAPP_DISP_BACKLIGHT_SET_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_disp_backlight_set_brightness); */
+EXPORT_SYMBOL(pmapp_disp_backlight_set_brightness);
 
 void pmapp_disp_backlight_init(void)
 {
 	pmapp_rpc_set_only(0, 0, 0, 0, 0, PMAPP_DISP_BACKLIGHT_INIT_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_disp_backlight_init); */
+EXPORT_SYMBOL(pmapp_disp_backlight_init);
 
 int pmapp_vreg_lpm_pincntrl_vote(const char *voter_id, uint vreg_id,
 						uint clock_id, uint vote)
@@ -574,4 +574,4 @@ int pmapp_vreg_lpm_pincntrl_vote(const char *voter_id, uint vreg_id,
 					vote, 4,
 					PMAPP_VREG_LPM_PINCNTRL_VOTE_PROC);
 }
-/* DISABLED: EXPORT_SYMBOL(pmapp_vreg_lpm_pincntrl_vote); */
+EXPORT_SYMBOL(pmapp_vreg_lpm_pincntrl_vote);

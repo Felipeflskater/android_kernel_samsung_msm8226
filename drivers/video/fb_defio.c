@@ -87,7 +87,7 @@ int fb_deferred_io_fsync(struct file *file, loff_t start, loff_t end, int datasy
 	mutex_unlock(&inode->i_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fb_deferred_io_fsync); */
+EXPORT_SYMBOL_GPL(fb_deferred_io_fsync);
 
 /* vm_ops->page_mkwrite handler */
 static int fb_deferred_io_mkwrite(struct vm_area_struct *vma,
@@ -206,7 +206,7 @@ void fb_deferred_io_init(struct fb_info *info)
 	if (fbdefio->delay == 0) /* set a default of 1 s */
 		fbdefio->delay = HZ;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fb_deferred_io_init); */
+EXPORT_SYMBOL_GPL(fb_deferred_io_init);
 
 void fb_deferred_io_open(struct fb_info *info,
 			 struct inode *inode,
@@ -214,7 +214,7 @@ void fb_deferred_io_open(struct fb_info *info,
 {
 	file->f_mapping->a_ops = &fb_deferred_io_aops;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fb_deferred_io_open); */
+EXPORT_SYMBOL_GPL(fb_deferred_io_open);
 
 void fb_deferred_io_cleanup(struct fb_info *info)
 {
@@ -234,6 +234,6 @@ void fb_deferred_io_cleanup(struct fb_info *info)
 	info->fbops->fb_mmap = NULL;
 	mutex_destroy(&fbdefio->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fb_deferred_io_cleanup); */
+EXPORT_SYMBOL_GPL(fb_deferred_io_cleanup);
 
 MODULE_LICENSE("GPL");

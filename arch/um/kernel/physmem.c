@@ -18,7 +18,7 @@ static int physmem_fd = -1;
 
 /* Changed during early boot */
 unsigned long high_physmem;
-/* DISABLED: EXPORT_SYMBOL(high_physmem); */
+EXPORT_SYMBOL(high_physmem);
 
 extern unsigned long long physmem_size;
 
@@ -186,7 +186,7 @@ unsigned long find_iomem(char *driver, unsigned long *len_out)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(find_iomem); */
+EXPORT_SYMBOL(find_iomem);
 
 static int setup_iomem(void)
 {

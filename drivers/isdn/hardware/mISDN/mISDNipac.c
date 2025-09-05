@@ -562,7 +562,7 @@ mISDNisac_irq(struct isac_hw *isac, u8 val)
 	}
 	return IRQ_HANDLED;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNisac_irq); */
+EXPORT_SYMBOL(mISDNisac_irq);
 
 static int
 isac_l1hw(struct mISDNchannel *ch, struct sk_buff *skb)
@@ -873,7 +873,7 @@ mISDNisac_init(struct isac_hw *isac, void *hw)
 	isac->dch.dev.nrbchan = 2;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNisac_init); */
+EXPORT_SYMBOL(mISDNisac_init);
 
 static void
 waitforCEC(struct hscx_hw *hx)
@@ -1209,7 +1209,7 @@ mISDNipac_irq(struct ipac_hw *ipac, int maxloop)
 			  maxloop, smp_processor_id());
 	return IRQ_HANDLED;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNipac_irq); */
+EXPORT_SYMBOL(mISDNipac_irq);
 
 static int
 hscx_mode(struct hscx_hw *hscx, u32 bprotocol)
@@ -1638,7 +1638,7 @@ mISDNipac_init(struct ipac_hw *ipac, void *hw)
 		(1 << (ISDN_P_B_HDLC & ISDN_P_B_MASK));
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNipac_init); */
+EXPORT_SYMBOL(mISDNipac_init);
 
 static int __init
 isac_mod_init(void)

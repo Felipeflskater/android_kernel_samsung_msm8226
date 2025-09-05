@@ -119,7 +119,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(use_cop); */
+EXPORT_SYMBOL_GPL(use_cop);
 
 /**
  * Stop using a coprocessor.
@@ -159,7 +159,7 @@ void drop_cop(unsigned long acop, struct mm_struct *mm)
 	spin_unlock(mm->context.cop_lockp);
 	spin_unlock(&mm->page_table_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(drop_cop); */
+EXPORT_SYMBOL_GPL(drop_cop);
 
 static int acop_use_cop(int ct)
 {
@@ -289,4 +289,4 @@ int acop_handle_fault(struct pt_regs *regs, unsigned long address,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acop_handle_fault); */
+EXPORT_SYMBOL_GPL(acop_handle_fault);

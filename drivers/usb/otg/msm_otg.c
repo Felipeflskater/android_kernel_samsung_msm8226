@@ -160,11 +160,11 @@ static int vdd_val[VDD_TYPE_MAX][VDD_VAL_MAX] = {
 #else
 void sec_otg_set_dock_state(int enable)
 {       pr_info("%s\n", __func__);      }
-/* DISABLED: EXPORT_SYMBOL_GPL(sec_otg_set_dock_state); */
+EXPORT_SYMBOL_GPL(sec_otg_set_dock_state);
 
 void sec_otg_set_id_state(bool enable)
 {       pr_info("%s\n", __func__);      }
-/* DISABLED: EXPORT_SYMBOL_GPL(sec_otg_set_id_state); */
+EXPORT_SYMBOL_GPL(sec_otg_set_id_state);
 #endif
 /* rapper function for set_vbus_state() */
 static void msm_otg_set_vbus_state(int online);
@@ -172,7 +172,7 @@ void sec_otg_set_vbus_state(int online)
 {
 	msm_otg_set_vbus_state(online);
 }
-/* DISABLED: EXPORT_SYMBOL(sec_otg_set_vbus_state); */
+EXPORT_SYMBOL(sec_otg_set_vbus_state);
 
 
 static int msm_hsusb_ldo_init(struct msm_otg *motg, int init)

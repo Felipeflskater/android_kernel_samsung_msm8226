@@ -375,7 +375,7 @@ int fat_getattr(struct vfsmount *mnt, struct dentry *dentry, struct kstat *stat)
 	stat->blksize = MSDOS_SB(inode->i_sb)->cluster_size;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_getattr); */
+EXPORT_SYMBOL_GPL(fat_getattr);
 
 static int fat_sanitize_mode(const struct msdos_sb_info *sbi,
 			     struct inode *inode, umode_t *mode_ptr)
@@ -508,7 +508,7 @@ int fat_setattr(struct dentry *dentry, struct iattr *attr)
 out:
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_setattr); */
+EXPORT_SYMBOL_GPL(fat_setattr);
 
 const struct inode_operations fat_file_inode_operations = {
 	.setattr	= fat_setattr,

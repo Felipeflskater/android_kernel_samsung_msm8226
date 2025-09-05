@@ -43,7 +43,7 @@ Mvpkm_CommEvRegisterProcessCB(int (*commProcessFunc)(CommTranspID*,
 {
 	CommTranspEvProcess = commProcessFunc;
 }
-/* DISABLED: EXPORT_SYMBOL(Mvpkm_CommEvRegisterProcessCB); */
+EXPORT_SYMBOL(Mvpkm_CommEvRegisterProcessCB);
 
 /**
  * @brief Unregister the processing callback for the host when a signal
@@ -55,6 +55,6 @@ Mvpkm_CommEvUnregisterProcessCB(void)
 {
 	CommTranspEvProcess = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(Mvpkm_CommEvUnregisterProcessCB); */
+EXPORT_SYMBOL(Mvpkm_CommEvUnregisterProcessCB);
 
 

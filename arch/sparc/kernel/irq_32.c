@@ -51,7 +51,7 @@ unsigned long arch_local_irq_save(void)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_local_irq_save); */
+EXPORT_SYMBOL(arch_local_irq_save);
 
 void arch_local_irq_enable(void)
 {
@@ -67,7 +67,7 @@ void arch_local_irq_enable(void)
 		: "i" (PSR_PIL)
 		: "memory");
 }
-/* DISABLED: EXPORT_SYMBOL(arch_local_irq_enable); */
+EXPORT_SYMBOL(arch_local_irq_enable);
 
 void arch_local_irq_restore(unsigned long old_psr)
 {
@@ -84,7 +84,7 @@ void arch_local_irq_restore(unsigned long old_psr)
 		: "i" (PSR_PIL), "r" (old_psr)
 		: "memory");
 }
-/* DISABLED: EXPORT_SYMBOL(arch_local_irq_restore); */
+EXPORT_SYMBOL(arch_local_irq_restore);
 
 /*
  * Dave Redman (djhr@tadpole.co.uk)
@@ -292,7 +292,7 @@ int sparc_floppy_request_irq(unsigned int irq, irq_handler_t irq_handler)
 	flush_cache_all();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sparc_floppy_request_irq); */
+EXPORT_SYMBOL(sparc_floppy_request_irq);
 
 /*
  * These variables are used to access state from the assembler
@@ -301,22 +301,22 @@ int sparc_floppy_request_irq(unsigned int irq, irq_handler_t irq_handler)
  * modular case.
  */
 volatile unsigned char *fdc_status;
-/* DISABLED: EXPORT_SYMBOL(fdc_status); */
+EXPORT_SYMBOL(fdc_status);
 
 char *pdma_vaddr;
-/* DISABLED: EXPORT_SYMBOL(pdma_vaddr); */
+EXPORT_SYMBOL(pdma_vaddr);
 
 unsigned long pdma_size;
-/* DISABLED: EXPORT_SYMBOL(pdma_size); */
+EXPORT_SYMBOL(pdma_size);
 
 volatile int doing_pdma;
-/* DISABLED: EXPORT_SYMBOL(doing_pdma); */
+EXPORT_SYMBOL(doing_pdma);
 
 char *pdma_base;
-/* DISABLED: EXPORT_SYMBOL(pdma_base); */
+EXPORT_SYMBOL(pdma_base);
 
 unsigned long pdma_areasize;
-/* DISABLED: EXPORT_SYMBOL(pdma_areasize); */
+EXPORT_SYMBOL(pdma_areasize);
 
 /* Use the generic irq support to call floppy_interrupt
  * which was setup using request_irq() in sparc_floppy_request_irq().

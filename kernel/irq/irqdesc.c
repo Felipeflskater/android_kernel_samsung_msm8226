@@ -97,7 +97,7 @@ static void desc_set_defaults(unsigned int irq, struct irq_desc *desc, int node,
 }
 
 int nr_irqs = NR_IRQS;
-/* DISABLED: EXPORT_SYMBOL_GPL(nr_irqs); */
+EXPORT_SYMBOL_GPL(nr_irqs);
 
 static DEFINE_MUTEX(sparse_irq_lock);
 static DECLARE_BITMAP(allocated_irqs, IRQ_BITMAP_BITS);
@@ -115,7 +115,7 @@ struct irq_desc *irq_to_desc(unsigned int irq)
 {
 	return radix_tree_lookup(&irq_desc_tree, irq);
 }
-/* DISABLED: EXPORT_SYMBOL(irq_to_desc); */
+EXPORT_SYMBOL(irq_to_desc);
 
 static void delete_irq_desc(unsigned int irq)
 {
@@ -293,7 +293,7 @@ struct irq_desc *irq_to_desc(unsigned int irq)
 {
 	return (irq < NR_IRQS) ? irq_desc + irq : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(irq_to_desc); */
+EXPORT_SYMBOL(irq_to_desc);
 
 static void free_desc(unsigned int irq)
 {
@@ -343,7 +343,7 @@ int generic_handle_irq(unsigned int irq)
 	generic_handle_irq_desc(irq, desc);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(generic_handle_irq); */
+EXPORT_SYMBOL_GPL(generic_handle_irq);
 
 /* Dynamic interrupt handling */
 
@@ -366,7 +366,7 @@ void irq_free_descs(unsigned int from, unsigned int cnt)
 	bitmap_clear(allocated_irqs, from, cnt);
 	mutex_unlock(&sparse_irq_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(irq_free_descs); */
+EXPORT_SYMBOL_GPL(irq_free_descs);
 
 /**
  * irq_alloc_descs - allocate and initialize a range of irq descriptors
@@ -415,7 +415,7 @@ err:
 	mutex_unlock(&sparse_irq_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__irq_alloc_descs); */
+EXPORT_SYMBOL_GPL(__irq_alloc_descs);
 
 /**
  * irq_reserve_irqs - mark irqs allocated

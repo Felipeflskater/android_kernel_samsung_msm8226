@@ -52,7 +52,7 @@ unsigned int (*nf_nat_ftp_hook)(struct sk_buff *skb,
 				unsigned int matchoff,
 				unsigned int matchlen,
 				struct nf_conntrack_expect *exp);
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_ftp_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_ftp_hook);
 
 static int try_rfc959(const char *, size_t, struct nf_conntrack_man *, char);
 static int try_eprt(const char *, size_t, struct nf_conntrack_man *, char);

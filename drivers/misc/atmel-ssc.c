@@ -53,7 +53,7 @@ struct ssc_device *ssc_request(unsigned int ssc_num)
 
 	return ssc;
 }
-/* DISABLED: EXPORT_SYMBOL(ssc_request); */
+EXPORT_SYMBOL(ssc_request);
 
 void ssc_free(struct ssc_device *ssc)
 {
@@ -66,7 +66,7 @@ void ssc_free(struct ssc_device *ssc)
 	}
 	spin_unlock(&user_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(ssc_free); */
+EXPORT_SYMBOL(ssc_free);
 
 static int __init ssc_probe(struct platform_device *pdev)
 {

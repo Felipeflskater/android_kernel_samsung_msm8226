@@ -1293,4 +1293,4 @@ static int __init disable_multitce(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("multitce=", disable_multitce); */ */
+__setup("multitce=", disable_multitce);

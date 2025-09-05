@@ -326,7 +326,7 @@ void ipc_log_write(void *ctxt, struct encode_context *ectxt)
 	spin_unlock(&ilctxt->context_lock_lhb1);
 	read_unlock_irqrestore(&context_list_lock_lha1, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ipc_log_write); */
+EXPORT_SYMBOL(ipc_log_write);
 
 /*
  * Starts a new message after which you can add serialized data and
@@ -343,7 +343,7 @@ void msg_encode_start(struct encode_context *ectxt, uint32_t type)
 	ectxt->hdr.size = 0;
 	ectxt->offset = sizeof(ectxt->hdr);
 }
-/* DISABLED: EXPORT_SYMBOL(msg_encode_start); */
+EXPORT_SYMBOL(msg_encode_start);
 
 /*
  * Completes the message
@@ -360,7 +360,7 @@ void msg_encode_end(struct encode_context *ectxt)
 	BUG_ON(ectxt->hdr.size > MAX_MSG_SIZE);
 	memcpy(ectxt->buff, &ectxt->hdr, sizeof(ectxt->hdr));
 }
-/* DISABLED: EXPORT_SYMBOL(msg_encode_end); */
+EXPORT_SYMBOL(msg_encode_end);
 
 /*
  * Helper funtion used to write data to a message context.
@@ -418,7 +418,7 @@ int tsv_timestamp_write(struct encode_context *ectxt)
 		return ret;
 	return tsv_write_data(ectxt, &t_now, sizeof(t_now));
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_timestamp_write); */
+EXPORT_SYMBOL(tsv_timestamp_write);
 
 /*
  * Writes a data pointer.
@@ -434,7 +434,7 @@ int tsv_pointer_write(struct encode_context *ectxt, void *pointer)
 		return ret;
 	return tsv_write_data(ectxt, &pointer, sizeof(pointer));
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_pointer_write); */
+EXPORT_SYMBOL(tsv_pointer_write);
 
 /*
  * Writes a 32-bit integer value.
@@ -450,7 +450,7 @@ int tsv_int32_write(struct encode_context *ectxt, int32_t n)
 		return ret;
 	return tsv_write_data(ectxt, &n, sizeof(n));
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_int32_write); */
+EXPORT_SYMBOL(tsv_int32_write);
 
 /*
  * Writes a byte array.
@@ -468,7 +468,7 @@ int tsv_byte_array_write(struct encode_context *ectxt,
 		return ret;
 	return tsv_write_data(ectxt, data, data_size);
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_byte_array_write); */
+EXPORT_SYMBOL(tsv_byte_array_write);
 
 /*
  * Helper function to log a string
@@ -498,7 +498,7 @@ int ipc_log_string(void *ilctxt, const char *fmt, ...)
 	ipc_log_write(ilctxt, &ectxt);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipc_log_string); */
+EXPORT_SYMBOL(ipc_log_string);
 
 /**
  * ipc_log_extract - Reads and deserializes log
@@ -550,7 +550,7 @@ int ipc_log_extract(void *ctxt, char *buff, int size)
 	read_unlock_irqrestore(&context_list_lock_lha1, flags);
 	return size - dctxt.size;
 }
-/* DISABLED: EXPORT_SYMBOL(ipc_log_extract); */
+EXPORT_SYMBOL(ipc_log_extract);
 
 /*
  * Helper funtion used to read data from a message context.
@@ -603,7 +603,7 @@ void tsv_timestamp_read(struct encode_context *ectxt,
 	IPC_SPRINTF_DECODE(dctxt, "[%6u.%09lu]%s",
 			(unsigned)val, nanosec_rem, format);
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_timestamp_read); */
+EXPORT_SYMBOL(tsv_timestamp_read);
 
 /*
  * Reads a data pointer.
@@ -624,7 +624,7 @@ void tsv_pointer_read(struct encode_context *ectxt,
 
 	IPC_SPRINTF_DECODE(dctxt, format, val);
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_pointer_read); */
+EXPORT_SYMBOL(tsv_pointer_read);
 
 /*
  * Reads a 32-bit integer value.
@@ -646,7 +646,7 @@ int32_t tsv_int32_read(struct encode_context *ectxt,
 	IPC_SPRINTF_DECODE(dctxt, format, val);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_int32_read); */
+EXPORT_SYMBOL(tsv_int32_read);
 
 /*
  * Reads a byte array/string.
@@ -666,7 +666,7 @@ void tsv_byte_array_read(struct encode_context *ectxt,
 	dctxt->buff += hdr.size;
 	dctxt->size -= hdr.size;
 }
-/* DISABLED: EXPORT_SYMBOL(tsv_byte_array_read); */
+EXPORT_SYMBOL(tsv_byte_array_read);
 
 int add_deserialization_func(void *ctxt, int type,
 			void (*dfunc)(struct encode_context *,
@@ -692,7 +692,7 @@ int add_deserialization_func(void *ctxt, int type,
 	read_unlock_irqrestore(&context_list_lock_lha1, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(add_deserialization_func); */
+EXPORT_SYMBOL(add_deserialization_func);
 
 static void *get_deserialization_func(struct ipc_log_context *ilctxt,
 				      int type)
@@ -788,7 +788,7 @@ release_ipc_log_context:
 	kfree(ctxt);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipc_log_context_create); */
+EXPORT_SYMBOL(ipc_log_context_create);
 
 /*
  * Destroy debug log context
@@ -817,7 +817,7 @@ int ipc_log_context_destroy(void *ctxt)
 	kfree(ilctxt);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipc_log_context_destroy); */
+EXPORT_SYMBOL(ipc_log_context_destroy);
 
 static int __init ipc_logging_init(void)
 {

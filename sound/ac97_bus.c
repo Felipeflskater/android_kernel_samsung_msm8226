@@ -72,6 +72,6 @@ static void __exit ac97_bus_exit(void)
 
 module_exit(ac97_bus_exit);
 
-/* DISABLED: EXPORT_SYMBOL(ac97_bus_type); */
+EXPORT_SYMBOL(ac97_bus_type);
 
 MODULE_LICENSE("GPL");

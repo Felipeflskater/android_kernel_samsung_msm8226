@@ -56,7 +56,7 @@ bool dcr_map_ok_generic(dcr_host_t host)
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_map_ok_generic); */
+EXPORT_SYMBOL_GPL(dcr_map_ok_generic);
 
 dcr_host_t dcr_map_generic(struct device_node *dev,
 			   unsigned int dcr_n,
@@ -87,7 +87,7 @@ dcr_host_t dcr_map_generic(struct device_node *dev,
 	of_node_put(dp);
 	return host;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_map_generic); */
+EXPORT_SYMBOL_GPL(dcr_map_generic);
 
 void dcr_unmap_generic(dcr_host_t host, unsigned int dcr_c)
 {
@@ -98,7 +98,7 @@ void dcr_unmap_generic(dcr_host_t host, unsigned int dcr_c)
 	else /* host.type == DCR_HOST_INVALID */
 		WARN_ON(true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_unmap_generic); */
+EXPORT_SYMBOL_GPL(dcr_unmap_generic);
 
 u32 dcr_read_generic(dcr_host_t host, unsigned int dcr_n)
 {
@@ -110,7 +110,7 @@ u32 dcr_read_generic(dcr_host_t host, unsigned int dcr_n)
 		WARN_ON(true);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_read_generic); */
+EXPORT_SYMBOL_GPL(dcr_read_generic);
 
 void dcr_write_generic(dcr_host_t host, unsigned int dcr_n, u32 value)
 {
@@ -121,7 +121,7 @@ void dcr_write_generic(dcr_host_t host, unsigned int dcr_n, u32 value)
 	else /* host.type == DCR_HOST_INVALID */
 		WARN_ON(true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_write_generic); */
+EXPORT_SYMBOL_GPL(dcr_write_generic);
 
 #endif /* defined(CONFIG_PPC_DCR_NATIVE) && defined(CONFIG_PPC_DCR_MMIO) */
 
@@ -136,7 +136,7 @@ unsigned int dcr_resource_start(const struct device_node *np,
 
 	return dr[index * 2];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_resource_start); */
+EXPORT_SYMBOL_GPL(dcr_resource_start);
 
 unsigned int dcr_resource_len(const struct device_node *np, unsigned int index)
 {
@@ -148,7 +148,7 @@ unsigned int dcr_resource_len(const struct device_node *np, unsigned int index)
 
 	return dr[index * 2 + 1];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_resource_len); */
+EXPORT_SYMBOL_GPL(dcr_resource_len);
 
 #ifdef CONFIG_PPC_DCR_MMIO
 
@@ -212,7 +212,7 @@ dcr_host_mmio_t dcr_map_mmio(struct device_node *dev,
 	ret.token -= dcr_n * ret.stride;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_map_mmio); */
+EXPORT_SYMBOL_GPL(dcr_map_mmio);
 
 void dcr_unmap_mmio(dcr_host_mmio_t host, unsigned int dcr_c)
 {
@@ -224,7 +224,7 @@ void dcr_unmap_mmio(dcr_host_mmio_t host, unsigned int dcr_c)
 	iounmap(h.token);
 	h.token = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dcr_unmap_mmio); */
+EXPORT_SYMBOL_GPL(dcr_unmap_mmio);
 
 #endif /* defined(CONFIG_PPC_DCR_MMIO) */
 

@@ -774,4 +774,4 @@ MODULE_DESCRIPTION("Philips TDA10086 DVB-S Demodulator");
 MODULE_AUTHOR("Andrew de Quincey");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(tda10086_attach); */
+EXPORT_SYMBOL(tda10086_attach);

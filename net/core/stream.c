@@ -43,7 +43,7 @@ void sk_stream_write_space(struct sock *sk)
 		rcu_read_unlock();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_write_space); */
+EXPORT_SYMBOL(sk_stream_write_space);
 
 /**
  * sk_stream_wait_connect - Wait for a socket to get into the connected state
@@ -80,7 +80,7 @@ int sk_stream_wait_connect(struct sock *sk, long *timeo_p)
 	} while (!done);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_wait_connect); */
+EXPORT_SYMBOL(sk_stream_wait_connect);
 
 /**
  * sk_stream_closing - Return 1 if we still have things to send in our buffers.
@@ -107,7 +107,7 @@ void sk_stream_wait_close(struct sock *sk, long timeout)
 		finish_wait(sk_sleep(sk), &wait);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_wait_close); */
+EXPORT_SYMBOL(sk_stream_wait_close);
 
 /**
  * sk_stream_wait_memory - Wait for more memory for a socket
@@ -171,7 +171,7 @@ do_interrupted:
 	err = sock_intr_errno(*timeo_p);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_wait_memory); */
+EXPORT_SYMBOL(sk_stream_wait_memory);
 
 int sk_stream_error(struct sock *sk, int flags, int err)
 {
@@ -181,7 +181,7 @@ int sk_stream_error(struct sock *sk, int flags, int err)
 		send_sig(SIGPIPE, current, 0);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_error); */
+EXPORT_SYMBOL(sk_stream_error);
 
 void sk_stream_kill_queues(struct sock *sk)
 {
@@ -205,4 +205,4 @@ void sk_stream_kill_queues(struct sock *sk)
 	 * have gone away, only the net layer knows can touch it.
 	 */
 }
-/* DISABLED: EXPORT_SYMBOL(sk_stream_kill_queues); */
+EXPORT_SYMBOL(sk_stream_kill_queues);

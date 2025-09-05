@@ -27,11 +27,11 @@ void (*local_flush_icache_page)(void *args) = cache_noop;
 void (*local_flush_cache_sigtramp)(void *args) = cache_noop;
 
 void (*__flush_wback_region)(void *start, int size);
-/* DISABLED: EXPORT_SYMBOL(__flush_wback_region); */
+EXPORT_SYMBOL(__flush_wback_region);
 void (*__flush_purge_region)(void *start, int size);
-/* DISABLED: EXPORT_SYMBOL(__flush_purge_region); */
+EXPORT_SYMBOL(__flush_purge_region);
 void (*__flush_invalidate_region)(void *start, int size);
-/* DISABLED: EXPORT_SYMBOL(__flush_invalidate_region); */
+EXPORT_SYMBOL(__flush_invalidate_region);
 
 static inline void noop__flush_region(void *start, int size)
 {
@@ -116,7 +116,7 @@ void copy_user_highpage(struct page *to, struct page *from,
 	/* Make sure this page is cleared on other CPU's too before using it */
 	smp_wmb();
 }
-/* DISABLED: EXPORT_SYMBOL(copy_user_highpage); */
+EXPORT_SYMBOL(copy_user_highpage);
 
 void clear_user_highpage(struct page *page, unsigned long vaddr)
 {
@@ -129,7 +129,7 @@ void clear_user_highpage(struct page *page, unsigned long vaddr)
 
 	kunmap_atomic(kaddr);
 }
-/* DISABLED: EXPORT_SYMBOL(clear_user_highpage); */
+EXPORT_SYMBOL(clear_user_highpage);
 
 void __update_cache(struct vm_area_struct *vma,
 		    unsigned long address, pte_t pte)
@@ -170,7 +170,7 @@ void flush_cache_all(void)
 {
 	cacheop_on_each_cpu(local_flush_cache_all, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_cache_all); */
+EXPORT_SYMBOL(flush_cache_all);
 
 void flush_cache_mm(struct mm_struct *mm)
 {
@@ -211,13 +211,13 @@ void flush_cache_range(struct vm_area_struct *vma, unsigned long start,
 
 	cacheop_on_each_cpu(local_flush_cache_range, (void *)&data, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_cache_range); */
+EXPORT_SYMBOL(flush_cache_range);
 
 void flush_dcache_page(struct page *page)
 {
 	cacheop_on_each_cpu(local_flush_dcache_page, page, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
+EXPORT_SYMBOL(flush_dcache_page);
 
 void flush_icache_range(unsigned long start, unsigned long end)
 {

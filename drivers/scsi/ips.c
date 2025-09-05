@@ -544,7 +544,7 @@ ips_setup(char *ips_str)
 	return (1);
 }
 
-/* DISABLED: __setup("ips=", ips_setup); */ */
+__setup("ips=", ips_setup);
 
 /****************************************************************************/
 /*                                                                          */

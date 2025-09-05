@@ -81,7 +81,7 @@
 #include <linux/tcp.h>
 
 int sysctl_ip_default_ttl __read_mostly = IPDEFTTL;
-/* DISABLED: EXPORT_SYMBOL(sysctl_ip_default_ttl); */
+EXPORT_SYMBOL(sysctl_ip_default_ttl);
 
 /* Generate a checksum for an outgoing IP datagram. */
 __inline__ void ip_send_check(struct iphdr *iph)
@@ -89,7 +89,7 @@ __inline__ void ip_send_check(struct iphdr *iph)
 	iph->check = 0;
 	iph->check = ip_fast_csum((unsigned char *)iph, iph->ihl);
 }
-/* DISABLED: EXPORT_SYMBOL(ip_send_check); */
+EXPORT_SYMBOL(ip_send_check);
 
 int __ip_local_out(struct sk_buff *skb)
 {
@@ -111,7 +111,7 @@ int ip_local_out(struct sk_buff *skb)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_local_out); */
+EXPORT_SYMBOL_GPL(ip_local_out);
 
 /* dev_loopback_xmit for use with netfilter. */
 static int ip_dev_loopback_xmit(struct sk_buff *newskb)
@@ -174,7 +174,7 @@ int ip_build_and_send_pkt(struct sk_buff *skb, struct sock *sk,
 	/* Send it out. */
 	return ip_local_out(skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_build_and_send_pkt); */
+EXPORT_SYMBOL_GPL(ip_build_and_send_pkt);
 
 static inline int ip_finish_output2(struct sk_buff *skb)
 {
@@ -419,7 +419,7 @@ no_route:
 	kfree_skb(skb);
 	return -EHOSTUNREACH;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_queue_xmit); */
+EXPORT_SYMBOL(ip_queue_xmit);
 
 
 static void ip_copy_metadata(struct sk_buff *to, struct sk_buff *from)
@@ -719,7 +719,7 @@ fail:
 	IP_INC_STATS(dev_net(dev), IPSTATS_MIB_FRAGFAILS);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_fragment); */
+EXPORT_SYMBOL(ip_fragment);
 
 int
 ip_generic_getfrag(void *from, char *to, int offset, int len, int odd, struct sk_buff *skb)
@@ -737,7 +737,7 @@ ip_generic_getfrag(void *from, char *to, int offset, int len, int odd, struct sk
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_generic_getfrag); */
+EXPORT_SYMBOL(ip_generic_getfrag);
 
 static inline __wsum
 csum_page(struct page *page, int offset, int copy)

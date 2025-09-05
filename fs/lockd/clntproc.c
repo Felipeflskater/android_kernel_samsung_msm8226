@@ -181,7 +181,7 @@ int nlmclnt_proc(struct nlm_host *host, int cmd, struct file_lock *fl)
 	dprintk("lockd: clnt proc returns %d\n", status);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nlmclnt_proc); */
+EXPORT_SYMBOL_GPL(nlmclnt_proc);
 
 /*
  * Allocate an NLM RPC call struct

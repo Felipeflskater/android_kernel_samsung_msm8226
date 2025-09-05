@@ -54,7 +54,7 @@ int sst_register_dsp(struct sst_device *dev)
 	mutex_unlock(&sst_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sst_register_dsp); */
+EXPORT_SYMBOL_GPL(sst_register_dsp);
 
 int sst_unregister_dsp(struct sst_device *dev)
 {
@@ -75,7 +75,7 @@ int sst_unregister_dsp(struct sst_device *dev)
 	mutex_unlock(&sst_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sst_unregister_dsp); */
+EXPORT_SYMBOL_GPL(sst_unregister_dsp);
 
 static struct snd_pcm_hardware sst_platform_pcm_hw = {
 	.info =	(SNDRV_PCM_INFO_INTERLEAVED |

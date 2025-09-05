@@ -307,7 +307,7 @@ size_t parport_ieee1284_read_byte (struct parport *port,
 		if (parport_read_status (port) & PARPORT_STATUS_ERROR) {
 		end_of_data:
 			DPRINTK (KERN_DEBUG
-				 "%s: No more byte data (%zd bytes)\n",
+				 "%s: No more byte data (%Zd bytes)\n",
 				 port->name, count);
 
 			/* Go to reverse idle phase. */
@@ -902,13 +902,13 @@ size_t parport_ieee1284_epp_read_addr (struct parport *port,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_ecp_write_data); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_ecp_read_data); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_ecp_write_addr); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_write_compat); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_read_nibble); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_read_byte); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_epp_write_data); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_epp_read_data); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_epp_write_addr); */
-/* DISABLED: EXPORT_SYMBOL(parport_ieee1284_epp_read_addr); */
+EXPORT_SYMBOL(parport_ieee1284_ecp_write_data);
+EXPORT_SYMBOL(parport_ieee1284_ecp_read_data);
+EXPORT_SYMBOL(parport_ieee1284_ecp_write_addr);
+EXPORT_SYMBOL(parport_ieee1284_write_compat);
+EXPORT_SYMBOL(parport_ieee1284_read_nibble);
+EXPORT_SYMBOL(parport_ieee1284_read_byte);
+EXPORT_SYMBOL(parport_ieee1284_epp_write_data);
+EXPORT_SYMBOL(parport_ieee1284_epp_read_data);
+EXPORT_SYMBOL(parport_ieee1284_epp_write_addr);
+EXPORT_SYMBOL(parport_ieee1284_epp_read_addr);

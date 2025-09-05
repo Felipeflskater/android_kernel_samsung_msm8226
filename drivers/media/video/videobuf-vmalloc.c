@@ -310,7 +310,7 @@ void videobuf_queue_vmalloc_init(struct videobuf_queue *q,
 	videobuf_queue_core_init(q, ops, dev, irqlock, type, field, msize,
 				 priv, &qops, ext_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_vmalloc_init); */
+EXPORT_SYMBOL_GPL(videobuf_queue_vmalloc_init);
 
 void *videobuf_to_vmalloc(struct videobuf_buffer *buf)
 {
@@ -320,7 +320,7 @@ void *videobuf_to_vmalloc(struct videobuf_buffer *buf)
 
 	return mem->vaddr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_to_vmalloc); */
+EXPORT_SYMBOL_GPL(videobuf_to_vmalloc);
 
 void videobuf_vmalloc_free(struct videobuf_buffer *buf)
 {
@@ -345,5 +345,5 @@ void videobuf_vmalloc_free(struct videobuf_buffer *buf)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_vmalloc_free); */
+EXPORT_SYMBOL_GPL(videobuf_vmalloc_free);
 

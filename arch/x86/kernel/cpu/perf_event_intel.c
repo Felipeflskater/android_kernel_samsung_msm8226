@@ -1375,7 +1375,7 @@ struct perf_guest_switch_msr *perf_guest_get_msrs(int *nr)
 	*nr = 0;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(perf_guest_get_msrs); */
+EXPORT_SYMBOL_GPL(perf_guest_get_msrs);
 
 static struct perf_guest_switch_msr *intel_guest_get_msrs(int *nr)
 {

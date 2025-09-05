@@ -10,7 +10,7 @@
 #include <linux/err.h>
 
 struct class *fingerprint_class;
-/* DISABLED: EXPORT_SYMBOL_GPL(fingerprint_class); */
+EXPORT_SYMBOL_GPL(fingerprint_class);
 
 /*
  * Create sysfs interface
@@ -50,7 +50,7 @@ int fingerprint_register(struct device *dev, void *drvdata,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fingerprint_register); */
+EXPORT_SYMBOL_GPL(fingerprint_register);
 
 void fingerprint_unregister(struct device *dev,
 	struct device_attribute *attributes[])
@@ -60,7 +60,7 @@ void fingerprint_unregister(struct device *dev,
 	for (i = 0; attributes[i] != NULL; i++)
 		device_remove_file(dev, attributes[i]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fingerprint_unregister); */
+EXPORT_SYMBOL_GPL(fingerprint_unregister);
 
 void destroy_fingerprint_class(void)
 {
@@ -69,7 +69,7 @@ void destroy_fingerprint_class(void)
 		fingerprint_class = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(destroy_fingerprint_class); */
+EXPORT_SYMBOL_GPL(destroy_fingerprint_class);
 
 static int __init fingerprint_class_init(void)
 {

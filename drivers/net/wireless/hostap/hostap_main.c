@@ -806,7 +806,7 @@ const struct header_ops hostap_80211_ops = {
 	.cache_update	= eth_header_cache_update,
 	.parse		= hostap_80211_header_parse,
 };
-/* DISABLED: EXPORT_SYMBOL(hostap_80211_ops); */
+EXPORT_SYMBOL(hostap_80211_ops);
 
 
 static const struct net_device_ops hostap_netdev_ops = {
@@ -1122,23 +1122,23 @@ static void __exit hostap_exit(void)
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(hostap_set_word); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_string); */
-/* DISABLED: EXPORT_SYMBOL(hostap_get_porttype); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_encryption); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_antsel); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_roaming); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_auth_algs); */
-/* DISABLED: EXPORT_SYMBOL(hostap_dump_rx_header); */
-/* DISABLED: EXPORT_SYMBOL(hostap_dump_tx_header); */
-/* DISABLED: EXPORT_SYMBOL(hostap_80211_get_hdrlen); */
-/* DISABLED: EXPORT_SYMBOL(hostap_setup_dev); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_multicast_list_queue); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_hostapd); */
-/* DISABLED: EXPORT_SYMBOL(hostap_set_hostapd_sta); */
-/* DISABLED: EXPORT_SYMBOL(hostap_add_interface); */
-/* DISABLED: EXPORT_SYMBOL(hostap_remove_interface); */
-/* DISABLED: EXPORT_SYMBOL(prism2_update_comms_qual); */
+EXPORT_SYMBOL(hostap_set_word);
+EXPORT_SYMBOL(hostap_set_string);
+EXPORT_SYMBOL(hostap_get_porttype);
+EXPORT_SYMBOL(hostap_set_encryption);
+EXPORT_SYMBOL(hostap_set_antsel);
+EXPORT_SYMBOL(hostap_set_roaming);
+EXPORT_SYMBOL(hostap_set_auth_algs);
+EXPORT_SYMBOL(hostap_dump_rx_header);
+EXPORT_SYMBOL(hostap_dump_tx_header);
+EXPORT_SYMBOL(hostap_80211_get_hdrlen);
+EXPORT_SYMBOL(hostap_setup_dev);
+EXPORT_SYMBOL(hostap_set_multicast_list_queue);
+EXPORT_SYMBOL(hostap_set_hostapd);
+EXPORT_SYMBOL(hostap_set_hostapd_sta);
+EXPORT_SYMBOL(hostap_add_interface);
+EXPORT_SYMBOL(hostap_remove_interface);
+EXPORT_SYMBOL(prism2_update_comms_qual);
 
 module_init(hostap_init);
 module_exit(hostap_exit);

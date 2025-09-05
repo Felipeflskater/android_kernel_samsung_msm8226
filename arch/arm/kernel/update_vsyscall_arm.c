@@ -79,7 +79,7 @@ update_vsyscall(struct timespec *ts, struct timespec *wtm,
 	*seqnum = kuh_time_lock.sequence + 1;
 	write_sequnlock_irqrestore(&kuh_time_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(update_vsyscall); */
+EXPORT_SYMBOL(update_vsyscall);
 
 void
 update_vsyscall_tz(void)
@@ -97,4 +97,4 @@ update_vsyscall_tz(void)
 	*seqnum = kuh_time_lock.sequence + 1;
 	write_sequnlock_irqrestore(&kuh_time_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(update_vsyscall_tz); */
+EXPORT_SYMBOL(update_vsyscall_tz);

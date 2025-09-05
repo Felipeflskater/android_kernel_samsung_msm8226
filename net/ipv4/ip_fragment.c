@@ -693,7 +693,7 @@ int ip_defrag(struct sk_buff *skb, u32 user)
 	kfree_skb(skb);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_defrag); */
+EXPORT_SYMBOL(ip_defrag);
 
 struct sk_buff *ip_check_defrag(struct sk_buff *skb, u32 user)
 {
@@ -728,7 +728,7 @@ struct sk_buff *ip_check_defrag(struct sk_buff *skb, u32 user)
 	}
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(ip_check_defrag); */
+EXPORT_SYMBOL(ip_check_defrag);
 
 #ifdef CONFIG_SYSCTL
 static int zero;

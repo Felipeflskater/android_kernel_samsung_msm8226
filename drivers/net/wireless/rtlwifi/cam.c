@@ -153,7 +153,7 @@ u8 rtl_cam_add_one_entry(struct ieee80211_hw *hw, u8 *mac_addr,
 	return 1;
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_add_one_entry); */
+EXPORT_SYMBOL(rtl_cam_add_one_entry);
 
 int rtl_cam_delete_one_entry(struct ieee80211_hw *hw,
 			     u8 *mac_addr, u32 ul_key_id)
@@ -177,7 +177,7 @@ int rtl_cam_delete_one_entry(struct ieee80211_hw *hw,
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_delete_one_entry); */
+EXPORT_SYMBOL(rtl_cam_delete_one_entry);
 
 void rtl_cam_reset_all_entry(struct ieee80211_hw *hw)
 {
@@ -187,7 +187,7 @@ void rtl_cam_reset_all_entry(struct ieee80211_hw *hw)
 	ul_command = BIT(31) | BIT(30);
 	rtl_write_dword(rtlpriv, rtlpriv->cfg->maps[RWCAM], ul_command);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_reset_all_entry); */
+EXPORT_SYMBOL(rtl_cam_reset_all_entry);
 
 void rtl_cam_mark_invalid(struct ieee80211_hw *hw, u8 uc_index)
 {
@@ -228,7 +228,7 @@ void rtl_cam_mark_invalid(struct ieee80211_hw *hw, u8 uc_index)
 	RT_TRACE(rtlpriv, COMP_SEC, DBG_DMESG,
 		 "rtl_cam_mark_invalid(): WRITE A0: %x\n", ul_command);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_mark_invalid); */
+EXPORT_SYMBOL(rtl_cam_mark_invalid);
 
 void rtl_cam_empty_entry(struct ieee80211_hw *hw, u8 uc_index)
 {
@@ -282,7 +282,7 @@ void rtl_cam_empty_entry(struct ieee80211_hw *hw, u8 uc_index)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_empty_entry); */
+EXPORT_SYMBOL(rtl_cam_empty_entry);
 
 u8 rtl_cam_get_free_entry(struct ieee80211_hw *hw, u8 *sta_addr)
 {
@@ -316,7 +316,7 @@ u8 rtl_cam_get_free_entry(struct ieee80211_hw *hw, u8 *sta_addr)
 	}
 	return TOTAL_CAM_ENTRY;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_get_free_entry); */
+EXPORT_SYMBOL(rtl_cam_get_free_entry);
 
 void rtl_cam_del_entry(struct ieee80211_hw *hw, u8 *sta_addr)
 {
@@ -348,4 +348,4 @@ void rtl_cam_del_entry(struct ieee80211_hw *hw, u8 *sta_addr)
 	}
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_cam_del_entry); */
+EXPORT_SYMBOL(rtl_cam_del_entry);

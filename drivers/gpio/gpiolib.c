@@ -788,7 +788,7 @@ fail_unlock:
 	pr_debug("%s: gpio%d status %d\n", __func__, gpio, status);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_export); */
+EXPORT_SYMBOL_GPL(gpio_export);
 
 static int match_export(struct device *dev, void *data)
 {
@@ -839,7 +839,7 @@ done:
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_export_link); */
+EXPORT_SYMBOL_GPL(gpio_export_link);
 
 
 /**
@@ -886,7 +886,7 @@ done:
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_sysfs_set_active_low); */
+EXPORT_SYMBOL_GPL(gpio_sysfs_set_active_low);
 
 /**
  * gpio_unexport - reverse effect of gpio_export()
@@ -929,7 +929,7 @@ done:
 	if (status)
 		pr_debug("%s: gpio%d status %d\n", __func__, gpio, status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_unexport); */
+EXPORT_SYMBOL_GPL(gpio_unexport);
 
 static int gpiochip_export(struct gpio_chip *chip)
 {
@@ -1132,7 +1132,7 @@ fail:
 		chip->label ? : "generic");
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpiochip_add); */
+EXPORT_SYMBOL_GPL(gpiochip_add);
 
 /**
  * gpiochip_remove() - unregister a gpio_chip
@@ -1168,7 +1168,7 @@ int gpiochip_remove(struct gpio_chip *chip)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpiochip_remove); */
+EXPORT_SYMBOL_GPL(gpiochip_remove);
 
 /**
  * gpiochip_find() - iterator for locating a specific gpio_chip
@@ -1203,7 +1203,7 @@ struct gpio_chip *gpiochip_find(const void *data,
 
 	return chip;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpiochip_find); */
+EXPORT_SYMBOL_GPL(gpiochip_find);
 
 #ifdef CONFIG_PINCTRL
 int gpiochip_add_pin_range(struct gpio_chip *chip, const char *pinctl_name,
@@ -1304,7 +1304,7 @@ done:
 	spin_unlock_irqrestore(&gpio_lock, flags);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_request); */
+EXPORT_SYMBOL_GPL(gpio_request);
 
 void gpio_free(unsigned gpio)
 {
@@ -1343,7 +1343,7 @@ void gpio_free(unsigned gpio)
 
 	spin_unlock_irqrestore(&gpio_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_free); */
+EXPORT_SYMBOL_GPL(gpio_free);
 
 /**
  * gpio_request_one - request a single GPIO with initial configuration
@@ -1376,7 +1376,7 @@ int gpio_request_one(unsigned gpio, unsigned long flags, const char *label)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_request_one); */
+EXPORT_SYMBOL_GPL(gpio_request_one);
 
 /**
  * gpio_request_array - request multiple GPIOs in a single call
@@ -1399,7 +1399,7 @@ err_free:
 		gpio_free((--array)->gpio);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_request_array); */
+EXPORT_SYMBOL_GPL(gpio_request_array);
 
 /**
  * gpio_free_array - release multiple GPIOs in a single call
@@ -1411,7 +1411,7 @@ void gpio_free_array(const struct gpio *array, size_t num)
 	while (num--)
 		gpio_free((array++)->gpio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_free_array); */
+EXPORT_SYMBOL_GPL(gpio_free_array);
 
 /**
  * gpiochip_is_requested - return string iff signal was requested
@@ -1440,7 +1440,7 @@ const char *gpiochip_is_requested(struct gpio_chip *chip, unsigned offset)
 	return "?";
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpiochip_is_requested); */
+EXPORT_SYMBOL_GPL(gpiochip_is_requested);
 
 
 /* Drivers MUST set GPIO direction before making get/set calls.  In
@@ -1505,7 +1505,7 @@ fail:
 			__func__, gpio, status);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_direction_input); */
+EXPORT_SYMBOL_GPL(gpio_direction_input);
 
 int gpio_direction_output(unsigned gpio, int value)
 {
@@ -1568,7 +1568,7 @@ fail:
 			__func__, gpio, status);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_direction_output); */
+EXPORT_SYMBOL_GPL(gpio_direction_output);
 
 /**
  * gpio_set_debounce - sets @debounce time for a @gpio
@@ -1612,7 +1612,7 @@ fail:
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_set_debounce); */
+EXPORT_SYMBOL_GPL(gpio_set_debounce);
 
 /* I/O calls are only valid after configuration completed; the relevant
  * "is this a valid GPIO" error checks should already have been done.
@@ -1657,7 +1657,7 @@ int __gpio_get_value(unsigned gpio)
 	trace_gpio_value(gpio, 1, value);
 	return value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__gpio_get_value); */
+EXPORT_SYMBOL_GPL(__gpio_get_value);
 
 /*
  *  _gpio_set_open_drain_value() - Set the open drain gpio's value.
@@ -1734,7 +1734,7 @@ void __gpio_set_value(unsigned gpio, int value)
 	else
 		chip->set(chip, gpio - chip->base, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__gpio_set_value); */
+EXPORT_SYMBOL_GPL(__gpio_set_value);
 
 /**
  * __gpio_cansleep() - report whether gpio value access will sleep
@@ -1753,7 +1753,7 @@ int __gpio_cansleep(unsigned gpio)
 
 	return chip->can_sleep;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__gpio_cansleep); */
+EXPORT_SYMBOL_GPL(__gpio_cansleep);
 
 /**
  * __gpio_to_irq() - return the IRQ corresponding to a GPIO
@@ -1771,7 +1771,7 @@ int __gpio_to_irq(unsigned gpio)
 	chip = gpio_to_chip(gpio);
 	return chip->to_irq ? chip->to_irq(chip, gpio - chip->base) : -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__gpio_to_irq); */
+EXPORT_SYMBOL_GPL(__gpio_to_irq);
 
 
 
@@ -1790,7 +1790,7 @@ int gpio_get_value_cansleep(unsigned gpio)
 	trace_gpio_value(gpio, 1, value);
 	return value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_get_value_cansleep); */
+EXPORT_SYMBOL_GPL(gpio_get_value_cansleep);
 
 void gpio_set_value_cansleep(unsigned gpio, int value)
 {
@@ -1806,7 +1806,7 @@ void gpio_set_value_cansleep(unsigned gpio, int value)
 	else
 		chip->set(chip, gpio - chip->base, value);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gpio_set_value_cansleep); */
+EXPORT_SYMBOL_GPL(gpio_set_value_cansleep);
 
 
 #ifdef CONFIG_DEBUG_FS

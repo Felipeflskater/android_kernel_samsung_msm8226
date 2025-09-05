@@ -291,7 +291,7 @@ void gpio_line_config(int line, int direction)
 	}
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(gpio_line_config); */
+EXPORT_SYMBOL(gpio_line_config);
 
 
 /*************************************************************************

@@ -409,7 +409,7 @@ void set_gpio_ ## name(unsigned gpio, unsigned short arg) \
 	AWA_DUMMY_READ(name); \
 	hard_local_irq_restore(flags); \
 } \
-/* DISABLED: EXPORT_SYMBOL(set_gpio_ ## name); */
+EXPORT_SYMBOL(set_gpio_ ## name);
 
 SET_GPIO(dir)   /* set_gpio_dir() */
 SET_GPIO(inen)  /* set_gpio_inen() */
@@ -433,7 +433,7 @@ void set_gpio_ ## name(unsigned gpio, unsigned short arg) \
 		hard_local_irq_restore(flags); \
 	} \
 } \
-/* DISABLED: EXPORT_SYMBOL(set_gpio_ ## name); */
+EXPORT_SYMBOL(set_gpio_ ## name);
 
 SET_GPIO_SC(maska)
 SET_GPIO_SC(maskb)
@@ -450,7 +450,7 @@ void set_gpio_toggle(unsigned gpio)
 		hard_local_irq_restore(flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(set_gpio_toggle); */
+EXPORT_SYMBOL(set_gpio_toggle);
 
 
 /*Set current PORT date (16-bit word)*/
@@ -467,7 +467,7 @@ void set_gpiop_ ## name(unsigned gpio, unsigned short arg) \
 		hard_local_irq_restore(flags); \
 	} \
 } \
-/* DISABLED: EXPORT_SYMBOL(set_gpiop_ ## name); */
+EXPORT_SYMBOL(set_gpiop_ ## name);
 
 SET_GPIO_P(data)
 SET_GPIO_P(dir)
@@ -493,7 +493,7 @@ unsigned short get_gpio_ ## name(unsigned gpio) \
 	} \
 	return ret; \
 } \
-/* DISABLED: EXPORT_SYMBOL(get_gpio_ ## name); */
+EXPORT_SYMBOL(get_gpio_ ## name);
 
 GET_GPIO(data)
 GET_GPIO(dir)
@@ -520,7 +520,7 @@ unsigned short get_gpiop_ ## name(unsigned gpio) \
 	} \
 	return ret; \
 } \
-/* DISABLED: EXPORT_SYMBOL(get_gpiop_ ## name); */
+EXPORT_SYMBOL(get_gpiop_ ## name);
 
 GET_GPIO_P(data)
 GET_GPIO_P(dir)
@@ -724,7 +724,7 @@ unsigned short get_gpio_dir(unsigned gpio)
 {
 	return (0x01 & (gpio_array[gpio_bank(gpio)]->dir_clear >> gpio_sub_n(gpio)));
 }
-/* DISABLED: EXPORT_SYMBOL(get_gpio_dir); */
+EXPORT_SYMBOL(get_gpio_dir);
 
 #endif /* CONFIG_BF54x */
 
@@ -821,7 +821,7 @@ int peripheral_request(unsigned short per, const char *label)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(peripheral_request); */
+EXPORT_SYMBOL(peripheral_request);
 
 int peripheral_request_list(const unsigned short per[], const char *label)
 {
@@ -842,7 +842,7 @@ int peripheral_request_list(const unsigned short per[], const char *label)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(peripheral_request_list); */
+EXPORT_SYMBOL(peripheral_request_list);
 
 void peripheral_free(unsigned short per)
 {
@@ -871,7 +871,7 @@ void peripheral_free(unsigned short per)
 
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(peripheral_free); */
+EXPORT_SYMBOL(peripheral_free);
 
 void peripheral_free_list(const unsigned short per[])
 {
@@ -879,7 +879,7 @@ void peripheral_free_list(const unsigned short per[])
 	for (cnt = 0; per[cnt] != 0; cnt++)
 		peripheral_free(per[cnt]);
 }
-/* DISABLED: EXPORT_SYMBOL(peripheral_free_list); */
+EXPORT_SYMBOL(peripheral_free_list);
 
 /***********************************************************
 *
@@ -952,7 +952,7 @@ int bfin_gpio_request(unsigned gpio, const char *label)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_request); */
+EXPORT_SYMBOL(bfin_gpio_request);
 
 void bfin_gpio_free(unsigned gpio)
 {
@@ -979,7 +979,7 @@ void bfin_gpio_free(unsigned gpio)
 
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_free); */
+EXPORT_SYMBOL(bfin_gpio_free);
 
 #ifdef BFIN_SPECIAL_GPIO_BANKS
 DECLARE_RESERVED_MAP(special_gpio, gpio_bank(MAX_RESOURCES));
@@ -1026,7 +1026,7 @@ int bfin_special_gpio_request(unsigned gpio, const char *label)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_special_gpio_request); */
+EXPORT_SYMBOL(bfin_special_gpio_request);
 
 void bfin_special_gpio_free(unsigned gpio)
 {
@@ -1047,7 +1047,7 @@ void bfin_special_gpio_free(unsigned gpio)
 	set_label(gpio, "free");
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_special_gpio_free); */
+EXPORT_SYMBOL(bfin_special_gpio_free);
 #endif
 
 
@@ -1134,7 +1134,7 @@ int bfin_gpio_direction_input(unsigned gpio)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_direction_input); */
+EXPORT_SYMBOL(bfin_gpio_direction_input);
 
 void bfin_gpio_irq_prepare(unsigned gpio)
 {
@@ -1158,7 +1158,7 @@ void bfin_gpio_set_value(unsigned gpio, int arg)
 	else
 		gpio_array[gpio_bank(gpio)]->data_clear = gpio_bit(gpio);
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_set_value); */
+EXPORT_SYMBOL(bfin_gpio_set_value);
 
 int bfin_gpio_direction_output(unsigned gpio, int value)
 {
@@ -1184,7 +1184,7 @@ int bfin_gpio_direction_output(unsigned gpio, int value)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_direction_output); */
+EXPORT_SYMBOL(bfin_gpio_direction_output);
 
 int bfin_gpio_get_value(unsigned gpio)
 {
@@ -1205,7 +1205,7 @@ int bfin_gpio_get_value(unsigned gpio)
 		return get_gpio_data(gpio);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_gpio_get_value); */
+EXPORT_SYMBOL(bfin_gpio_get_value);
 
 /* If we are booting from SPI and our board lacks a strong enough pull up,
  * the core can reset and execute the bootrom faster than the resistor can

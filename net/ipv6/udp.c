@@ -305,7 +305,7 @@ begin:
 	rcu_read_unlock();
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__udp6_lib_lookup); */
+EXPORT_SYMBOL_GPL(__udp6_lib_lookup);
 
 static struct sock *__udp6_lib_lookup_skb(struct sk_buff *skb,
 					  __be16 sport, __be16 dport,
@@ -326,7 +326,7 @@ struct sock *udp6_lib_lookup(struct net *net, const struct in6_addr *saddr, __be
 {
 	return __udp6_lib_lookup(net, saddr, sport, daddr, dport, dif, &udp_table);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(udp6_lib_lookup); */
+EXPORT_SYMBOL_GPL(udp6_lib_lookup);
 
 
 /*

@@ -325,4 +325,4 @@ enomem:
 		mpi_free_limb_space(tspace);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mpi_powm); */
+EXPORT_SYMBOL_GPL(mpi_powm);

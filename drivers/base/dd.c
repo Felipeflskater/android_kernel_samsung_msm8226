@@ -258,7 +258,7 @@ int device_bind_driver(struct device *dev)
 		driver_bound(dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_bind_driver); */
+EXPORT_SYMBOL_GPL(device_bind_driver);
 
 static atomic_t probe_count = ATOMIC_INIT(0);
 static DECLARE_WAIT_QUEUE_HEAD(probe_waitqueue);
@@ -359,7 +359,7 @@ void wait_for_device_probe(void)
 	wait_event(probe_waitqueue, atomic_read(&probe_count) == 0);
 	async_synchronize_full();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wait_for_device_probe); */
+EXPORT_SYMBOL_GPL(wait_for_device_probe);
 
 /**
  * driver_probe_device - attempt to bind device & driver together
@@ -440,7 +440,7 @@ out_unlock:
 	device_unlock(dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_attach); */
+EXPORT_SYMBOL_GPL(device_attach);
 
 static int __driver_attach(struct device *dev, void *data)
 {
@@ -484,7 +484,7 @@ int driver_attach(struct device_driver *drv)
 {
 	return bus_for_each_dev(drv->bus, NULL, drv, __driver_attach);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(driver_attach); */
+EXPORT_SYMBOL_GPL(driver_attach);
 
 /*
  * __device_release_driver() must be called with @dev lock held.
@@ -540,7 +540,7 @@ void device_release_driver(struct device *dev)
 	__device_release_driver(dev);
 	device_unlock(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_release_driver); */
+EXPORT_SYMBOL_GPL(device_release_driver);
 
 /**
  * driver_detach - detach driver from all devices it controls.
@@ -586,7 +586,7 @@ void *dev_get_drvdata(const struct device *dev)
 		return dev->p->driver_data;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_get_drvdata); */
+EXPORT_SYMBOL(dev_get_drvdata);
 
 int dev_set_drvdata(struct device *dev, void *data)
 {
@@ -600,4 +600,4 @@ int dev_set_drvdata(struct device *dev, void *data)
 	dev->p->driver_data = data;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_set_drvdata); */
+EXPORT_SYMBOL(dev_set_drvdata);

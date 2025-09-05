@@ -62,7 +62,7 @@ static int __init pat_debug_setup(char *str)
 	pat_debug_enable = 1;
 	return 0;
 }
-/* DISABLED: __setup("debugpat", pat_debug_setup); */ */
+__setup("debugpat", pat_debug_setup);
 
 static u64 __read_mostly boot_pat_state;
 
@@ -739,7 +739,7 @@ pgprot_t pgprot_writecombine(pgprot_t prot)
 	else
 		return pgprot_noncached(prot);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pgprot_writecombine); */
+EXPORT_SYMBOL_GPL(pgprot_writecombine);
 
 #if defined(CONFIG_DEBUG_FS) && defined(CONFIG_X86_PAT)
 

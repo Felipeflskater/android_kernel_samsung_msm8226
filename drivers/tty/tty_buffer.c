@@ -246,7 +246,7 @@ int tty_buffer_request_room(struct tty_struct *tty, size_t size)
 	spin_unlock_irqrestore(&tty->buf.lock, flags);
 	return length;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_buffer_request_room); */
+EXPORT_SYMBOL_GPL(tty_buffer_request_room);
 
 /**
  *	tty_insert_flip_string_fixed_flag - Add characters to the tty buffer
@@ -290,7 +290,7 @@ int tty_insert_flip_string_fixed_flag(struct tty_struct *tty,
 	} while (unlikely(size > copied));
 	return copied;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_insert_flip_string_fixed_flag); */
+EXPORT_SYMBOL(tty_insert_flip_string_fixed_flag);
 
 /**
  *	tty_insert_flip_string_flags	-	Add characters to the tty buffer
@@ -336,7 +336,7 @@ int tty_insert_flip_string_flags(struct tty_struct *tty,
 	} while (unlikely(size > copied));
 	return copied;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_insert_flip_string_flags); */
+EXPORT_SYMBOL(tty_insert_flip_string_flags);
 
 /**
  *	tty_schedule_flip	-	push characters to ldisc
@@ -358,7 +358,7 @@ void tty_schedule_flip(struct tty_struct *tty)
 	spin_unlock_irqrestore(&tty->buf.lock, flags);
 	schedule_work(&tty->buf.work);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_schedule_flip); */
+EXPORT_SYMBOL(tty_schedule_flip);
 
 /**
  *	tty_prepare_flip_string		-	make room for characters
@@ -394,7 +394,7 @@ int tty_prepare_flip_string(struct tty_struct *tty, unsigned char **chars,
 	spin_unlock_irqrestore(&tty->buf.lock, flags);
 	return space;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_prepare_flip_string); */
+EXPORT_SYMBOL_GPL(tty_prepare_flip_string);
 
 /**
  *	tty_prepare_flip_string_flags	-	make room for characters
@@ -431,7 +431,7 @@ int tty_prepare_flip_string_flags(struct tty_struct *tty,
 	spin_unlock_irqrestore(&tty->buf.lock, __flags);
 	return space;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_prepare_flip_string_flags); */
+EXPORT_SYMBOL_GPL(tty_prepare_flip_string_flags);
 
 
 
@@ -545,7 +545,7 @@ void tty_flip_buffer_push(struct tty_struct *tty)
 	else
 		schedule_work(&tty->buf.work);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_flip_buffer_push); */
+EXPORT_SYMBOL(tty_flip_buffer_push);
 
 /**
  *	tty_buffer_init		-	prepare a tty buffer structure

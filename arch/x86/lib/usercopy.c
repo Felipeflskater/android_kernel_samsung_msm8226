@@ -42,7 +42,7 @@ copy_from_user_nmi(void *to, const void __user *from, unsigned long n)
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(copy_from_user_nmi); */
+EXPORT_SYMBOL_GPL(copy_from_user_nmi);
 
 static inline unsigned long count_bytes(unsigned long mask)
 {
@@ -143,4 +143,4 @@ strncpy_from_user(char *dst, const char __user *src, long count)
 	}
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL(strncpy_from_user); */
+EXPORT_SYMBOL(strncpy_from_user);

@@ -366,7 +366,7 @@ void ar9003_mci_get_interrupt(struct ath_hw *ah, u32 *raw_intr,
 	mci->raw_intr = 0;
 	mci->rx_msg_intr = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_mci_get_interrupt); */
+EXPORT_SYMBOL(ar9003_mci_get_interrupt);
 
 void ar9003_mci_get_isr(struct ath_hw *ah, enum ath9k_int *masked)
 {
@@ -1112,7 +1112,7 @@ bool ar9003_mci_send_message(struct ath_hw *ah, u8 header, u32 flag,
 
 	return msg_sent;
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_mci_send_message); */
+EXPORT_SYMBOL(ar9003_mci_send_message);
 
 void ar9003_mci_init_cal_req(struct ath_hw *ah, bool *is_reusable)
 {
@@ -1163,7 +1163,7 @@ void ar9003_mci_setup(struct ath_hw *ah, u32 gpm_addr, void *gpm_buf,
 
 	ar9003_mci_reset(ah, true, true, true);
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_mci_setup); */
+EXPORT_SYMBOL(ar9003_mci_setup);
 
 void ar9003_mci_cleanup(struct ath_hw *ah)
 {
@@ -1171,7 +1171,7 @@ void ar9003_mci_cleanup(struct ath_hw *ah)
 	REG_WRITE(ah, AR_BTCOEX_CTRL, 0x00);
 	ar9003_mci_disable_interrupt(ah);
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_mci_cleanup); */
+EXPORT_SYMBOL(ar9003_mci_cleanup);
 
 u32 ar9003_mci_state(struct ath_hw *ah, u32 state_type, u32 *p_data)
 {
@@ -1396,4 +1396,4 @@ u32 ar9003_mci_state(struct ath_hw *ah, u32 state_type, u32 *p_data)
 
 	return value;
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_mci_state); */
+EXPORT_SYMBOL(ar9003_mci_state);

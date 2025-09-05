@@ -45,7 +45,7 @@ prom_feval(char *fstring)
 	restore_current();
 	spin_unlock_irqrestore(&prom_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(prom_feval); */
+EXPORT_SYMBOL(prom_feval);
 
 /* Drop into the prom, with the chance to continue with the 'go'
  * prom command.

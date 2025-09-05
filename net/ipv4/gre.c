@@ -45,7 +45,7 @@ err_out_unlock:
 err_out:
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gre_add_protocol); */
+EXPORT_SYMBOL_GPL(gre_add_protocol);
 
 int gre_del_protocol(const struct gre_protocol *proto, u8 version)
 {
@@ -66,7 +66,7 @@ err_out_unlock:
 err_out:
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gre_del_protocol); */
+EXPORT_SYMBOL_GPL(gre_del_protocol);
 
 static int gre_rcv(struct sk_buff *skb)
 {

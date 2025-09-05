@@ -579,7 +579,7 @@ int dmi_check_system(const struct dmi_system_id *list)
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_check_system); */
+EXPORT_SYMBOL(dmi_check_system);
 
 /**
  *	dmi_first_match - find dmi_system_id structure matching system DMI data
@@ -603,7 +603,7 @@ const struct dmi_system_id *dmi_first_match(const struct dmi_system_id *list)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_first_match); */
+EXPORT_SYMBOL(dmi_first_match);
 
 /**
  *	dmi_get_system_info - return DMI data value
@@ -616,7 +616,7 @@ const char *dmi_get_system_info(int field)
 {
 	return dmi_ident[field];
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_get_system_info); */
+EXPORT_SYMBOL(dmi_get_system_info);
 
 /**
  * dmi_name_in_serial - Check if string is in the DMI product serial information
@@ -645,7 +645,7 @@ int dmi_name_in_vendors(const char *str)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_name_in_vendors); */
+EXPORT_SYMBOL(dmi_name_in_vendors);
 
 /**
  *	dmi_find_device - find onboard device by type/name
@@ -676,7 +676,7 @@ const struct dmi_device * dmi_find_device(int type, const char *name,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_find_device); */
+EXPORT_SYMBOL(dmi_find_device);
 
 /**
  *	dmi_get_date - parse a DMI date
@@ -748,7 +748,7 @@ out:
 		*dayp = day;
 	return exists;
 }
-/* DISABLED: EXPORT_SYMBOL(dmi_get_date); */
+EXPORT_SYMBOL(dmi_get_date);
 
 /**
  *	dmi_walk - Walk the DMI table and get called back for every record
@@ -774,7 +774,7 @@ int dmi_walk(void (*decode)(const struct dmi_header *, void *),
 	iounmap(buf);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dmi_walk); */
+EXPORT_SYMBOL_GPL(dmi_walk);
 
 /**
  * dmi_match - compare a string to the dmi field (if exists)
@@ -792,4 +792,4 @@ bool dmi_match(enum dmi_field f, const char *str)
 
 	return !strcmp(info, str);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dmi_match); */
+EXPORT_SYMBOL_GPL(dmi_match);

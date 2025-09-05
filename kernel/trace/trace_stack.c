@@ -426,7 +426,7 @@ static __init int enable_stacktrace(char *str)
 	last_stack_tracer_enabled = 1;
 	return 1;
 }
-/* DISABLED: __setup("stacktrace", enable_stacktrace); */ */
+__setup("stacktrace", enable_stacktrace);
 
 static __init int stack_trace_init(void)
 {

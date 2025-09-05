@@ -527,7 +527,7 @@ static struct platform_device *common_devices[] __initdata = {
 };
 
 struct class *sec_class;
-/* DISABLED: EXPORT_SYMBOL(sec_class); */
+EXPORT_SYMBOL(sec_class);
 
 static void samsung_sys_class_init(void)
 {

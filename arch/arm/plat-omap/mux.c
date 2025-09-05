@@ -83,7 +83,7 @@ int __init_or_module omap_cfg_reg(const unsigned long index)
 
 	return mux_cfg->cfg_reg(reg);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_cfg_reg); */
+EXPORT_SYMBOL(omap_cfg_reg);
 #else
 #define omap_mux_init() do {} while(0)
 #define omap_cfg_reg(x)	do {} while(0)

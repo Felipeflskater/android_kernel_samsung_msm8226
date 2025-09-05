@@ -29,7 +29,7 @@ int can_do_mlock(void)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(can_do_mlock); */
+EXPORT_SYMBOL(can_do_mlock);
 
 /*
  * Mlocked pages are marked with PageMlocked() flag for efficient testing

@@ -529,9 +529,9 @@ int matroxfb_g450_setclk(struct matrox_fb_info *minfo, unsigned int fout,
 	return -ENOMEM;
 }
 
-/* DISABLED: EXPORT_SYMBOL(matroxfb_g450_setclk); */
-/* DISABLED: EXPORT_SYMBOL(g450_mnp2f); */
-/* DISABLED: EXPORT_SYMBOL(matroxfb_g450_setpll_cond); */
+EXPORT_SYMBOL(matroxfb_g450_setclk);
+EXPORT_SYMBOL(g450_mnp2f);
+EXPORT_SYMBOL(matroxfb_g450_setpll_cond);
 
 MODULE_AUTHOR("(c) 2001-2002 Petr Vandrovec <vandrove@vc.cvut.cz>");
 MODULE_DESCRIPTION("Matrox G450/G550 PLL driver");

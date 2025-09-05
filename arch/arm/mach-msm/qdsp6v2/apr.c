@@ -196,7 +196,7 @@ enum apr_subsys_state apr_get_q6_state(void)
 {
 	return atomic_read(&q6.q6_state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apr_get_q6_state); */
+EXPORT_SYMBOL_GPL(apr_get_q6_state);
 
 int apr_set_q6_state(enum apr_subsys_state state)
 {
@@ -206,7 +206,7 @@ int apr_set_q6_state(enum apr_subsys_state state)
 	atomic_set(&q6.q6_state, state);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(apr_set_q6_state); */
+EXPORT_SYMBOL_GPL(apr_set_q6_state);
 
 enum apr_subsys_state apr_cmpxchg_q6_state(enum apr_subsys_state prev,
 					   enum apr_subsys_state new)

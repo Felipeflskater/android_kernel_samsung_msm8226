@@ -164,4 +164,4 @@ out:
 	kleave(" = %d", ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dns_query); */
+EXPORT_SYMBOL(dns_query);

@@ -208,7 +208,7 @@ void jz4740_rtc_poweroff(struct device *dev)
 	struct jz4740_rtc *rtc = dev_get_drvdata(dev);
 	jz4740_rtc_reg_write(rtc, JZ_REG_RTC_HIBERNATE, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_rtc_poweroff); */
+EXPORT_SYMBOL_GPL(jz4740_rtc_poweroff);
 
 static int __devinit jz4740_rtc_probe(struct platform_device *pdev)
 {

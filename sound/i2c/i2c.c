@@ -108,7 +108,7 @@ int snd_i2c_bus_create(struct snd_card *card, const char *name,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_bus_create); */
+EXPORT_SYMBOL(snd_i2c_bus_create);
 
 int snd_i2c_device_create(struct snd_i2c_bus *bus, const char *name,
 			  unsigned char addr, struct snd_i2c_device **rdevice)
@@ -129,7 +129,7 @@ int snd_i2c_device_create(struct snd_i2c_bus *bus, const char *name,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_device_create); */
+EXPORT_SYMBOL(snd_i2c_device_create);
 
 int snd_i2c_device_free(struct snd_i2c_device *device)
 {
@@ -141,28 +141,28 @@ int snd_i2c_device_free(struct snd_i2c_device *device)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_device_free); */
+EXPORT_SYMBOL(snd_i2c_device_free);
 
 int snd_i2c_sendbytes(struct snd_i2c_device *device, unsigned char *bytes, int count)
 {
 	return device->bus->ops->sendbytes(device, bytes, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_sendbytes); */
+EXPORT_SYMBOL(snd_i2c_sendbytes);
 
 int snd_i2c_readbytes(struct snd_i2c_device *device, unsigned char *bytes, int count)
 {
 	return device->bus->ops->readbytes(device, bytes, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_readbytes); */
+EXPORT_SYMBOL(snd_i2c_readbytes);
 
 int snd_i2c_probeaddr(struct snd_i2c_bus *bus, unsigned short addr)
 {
 	return bus->ops->probeaddr(bus, addr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_i2c_probeaddr); */
+EXPORT_SYMBOL(snd_i2c_probeaddr);
 
 /*
  *  bit-operations

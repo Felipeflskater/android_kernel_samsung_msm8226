@@ -209,7 +209,7 @@ int osd_auto_detect_ver(struct osd_dev *od,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_auto_detect_ver); */
+EXPORT_SYMBOL(osd_auto_detect_ver);
 
 static unsigned _osd_req_cdb_len(struct osd_request *or)
 {
@@ -383,7 +383,7 @@ void osd_dev_init(struct osd_dev *osdd, struct scsi_device *scsi_device)
 #endif
 	/* TODO: Allocate pools for osd_request attributes ... */
 }
-/* DISABLED: EXPORT_SYMBOL(osd_dev_init); */
+EXPORT_SYMBOL(osd_dev_init);
 
 void osd_dev_fini(struct osd_dev *osdd)
 {
@@ -391,7 +391,7 @@ void osd_dev_fini(struct osd_dev *osdd)
 
 	osdd->scsi_device = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_dev_fini); */
+EXPORT_SYMBOL(osd_dev_fini);
 
 static struct osd_request *_osd_request_alloc(gfp_t gfp)
 {
@@ -422,7 +422,7 @@ struct osd_request *osd_start_request(struct osd_dev *dev, gfp_t gfp)
 
 	return or;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_start_request); */
+EXPORT_SYMBOL(osd_start_request);
 
 static void _osd_free_seg(struct osd_request *or __unused,
 	struct _osd_req_data_segment *seg)
@@ -469,7 +469,7 @@ void osd_end_request(struct osd_request *or)
 
 	_osd_request_free(or);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_end_request); */
+EXPORT_SYMBOL(osd_end_request);
 
 static void _set_error_resid(struct osd_request *or, struct request *req,
 			     int error)
@@ -490,7 +490,7 @@ int osd_execute_request(struct osd_request *or)
 	_set_error_resid(or, or->request, error);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_execute_request); */
+EXPORT_SYMBOL(osd_execute_request);
 
 static void osd_request_async_done(struct request *req, int error)
 {
@@ -524,7 +524,7 @@ int osd_execute_request_async(struct osd_request *or,
 			      osd_request_async_done);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_execute_request_async); */
+EXPORT_SYMBOL(osd_execute_request_async);
 
 u8 sg_out_pad_buffer[1 << OSDv1_OFFSET_MIN_SHIFT];
 u8 sg_in_pad_buffer[1 << OSDv1_OFFSET_MIN_SHIFT];
@@ -646,14 +646,14 @@ void osd_req_format(struct osd_request *or, u64 tot_capacity)
 	_osd_req_encode_common(or, OSD_ACT_FORMAT_OSD, &osd_root_object, 0,
 				tot_capacity);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_format); */
+EXPORT_SYMBOL(osd_req_format);
 
 int osd_req_list_dev_partitions(struct osd_request *or,
 	osd_id initial_id, struct osd_obj_id_list *list, unsigned nelem)
 {
 	return osd_req_list_partition_objects(or, 0, initial_id, list, nelem);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_list_dev_partitions); */
+EXPORT_SYMBOL(osd_req_list_dev_partitions);
 
 static void _osd_req_encode_flush(struct osd_request *or,
 	enum osd_options_flush_scope_values op)
@@ -669,7 +669,7 @@ void osd_req_flush_obsd(struct osd_request *or,
 	_osd_req_encode_common(or, OSD_ACT_FLUSH_OSD, &osd_root_object, 0, 0);
 	_osd_req_encode_flush(or, op);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_flush_obsd); */
+EXPORT_SYMBOL(osd_req_flush_obsd);
 
 /*TODO: void osd_req_perform_scsi_command(struct osd_request *,
 	const u8 *cdb, ...); */
@@ -693,13 +693,13 @@ void osd_req_create_partition(struct osd_request *or, osd_id partition)
 {
 	_osd_req_encode_partition(or, OSD_ACT_CREATE_PARTITION, partition);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_create_partition); */
+EXPORT_SYMBOL(osd_req_create_partition);
 
 void osd_req_remove_partition(struct osd_request *or, osd_id partition)
 {
 	_osd_req_encode_partition(or, OSD_ACT_REMOVE_PARTITION, partition);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_remove_partition); */
+EXPORT_SYMBOL(osd_req_remove_partition);
 
 /*TODO: void osd_req_set_partition_key(struct osd_request *,
 	osd_id partition, u8 new_key_id[OSD_CRYPTO_KEYID_SIZE],
@@ -743,7 +743,7 @@ int osd_req_list_partition_collections(struct osd_request *or,
 	return osd_req_list_collection_objects(or, &par, initial_id, list,
 					       nelem);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_list_partition_collections); */
+EXPORT_SYMBOL(osd_req_list_partition_collections);
 
 int osd_req_list_partition_objects(struct osd_request *or,
 	osd_id partition, osd_id initial_id, struct osd_obj_id_list *list,
@@ -757,7 +757,7 @@ int osd_req_list_partition_objects(struct osd_request *or,
 	return _osd_req_list_objects(or, OSD_ACT_LIST, &par, initial_id, list,
 				     nelem);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_list_partition_objects); */
+EXPORT_SYMBOL(osd_req_list_partition_objects);
 
 void osd_req_flush_partition(struct osd_request *or,
 	osd_id partition, enum osd_options_flush_scope_values op)
@@ -765,7 +765,7 @@ void osd_req_flush_partition(struct osd_request *or,
 	_osd_req_encode_partition(or, OSD_ACT_FLUSH_PARTITION, partition);
 	_osd_req_encode_flush(or, op);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_flush_partition); */
+EXPORT_SYMBOL(osd_req_flush_partition);
 
 /*
  * Collection commands
@@ -782,7 +782,7 @@ int osd_req_list_collection_objects(struct osd_request *or,
 	return _osd_req_list_objects(or, OSD_ACT_LIST_COLLECTION, obj,
 				     initial_id, list, nelem);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_list_collection_objects); */
+EXPORT_SYMBOL(osd_req_list_collection_objects);
 
 /*TODO: void query(struct osd_request *, ...); V2 */
 
@@ -792,7 +792,7 @@ void osd_req_flush_collection(struct osd_request *or,
 	_osd_req_encode_common(or, OSD_ACT_FLUSH_PARTITION, obj, 0, 0);
 	_osd_req_encode_flush(or, op);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_flush_collection); */
+EXPORT_SYMBOL(osd_req_flush_collection);
 
 /*TODO: void get_member_attrs(struct osd_request *, ...); V2 */
 /*TODO: void set_member_attrs(struct osd_request *, ...); V2 */
@@ -804,13 +804,13 @@ void osd_req_create_object(struct osd_request *or, struct osd_obj_id *obj)
 {
 	_osd_req_encode_common(or, OSD_ACT_CREATE, obj, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_create_object); */
+EXPORT_SYMBOL(osd_req_create_object);
 
 void osd_req_remove_object(struct osd_request *or, struct osd_obj_id *obj)
 {
 	_osd_req_encode_common(or, OSD_ACT_REMOVE, obj, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_remove_object); */
+EXPORT_SYMBOL(osd_req_remove_object);
 
 
 /*TODO: void osd_req_create_multi(struct osd_request *or,
@@ -827,7 +827,7 @@ void osd_req_write(struct osd_request *or,
 	or->out.bio = bio;
 	or->out.total_bytes = len;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_write); */
+EXPORT_SYMBOL(osd_req_write);
 
 int osd_req_write_kern(struct osd_request *or,
 	const struct osd_obj_id *obj, u64 offset, void* buff, u64 len)
@@ -842,7 +842,7 @@ int osd_req_write_kern(struct osd_request *or,
 	osd_req_write(or, obj, offset, bio, len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_write_kern); */
+EXPORT_SYMBOL(osd_req_write_kern);
 
 /*TODO: void osd_req_append(struct osd_request *,
 	const struct osd_obj_id *, struct bio *data_out); */
@@ -866,7 +866,7 @@ void osd_req_flush_object(struct osd_request *or,
 	_osd_req_encode_common(or, OSD_ACT_FLUSH, obj, offset, len);
 	_osd_req_encode_flush(or, op);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_flush_object); */
+EXPORT_SYMBOL(osd_req_flush_object);
 
 void osd_req_read(struct osd_request *or,
 	const struct osd_obj_id *obj, u64 offset,
@@ -878,7 +878,7 @@ void osd_req_read(struct osd_request *or,
 	or->in.bio = bio;
 	or->in.total_bytes = len;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_read); */
+EXPORT_SYMBOL(osd_req_read);
 
 int osd_req_read_kern(struct osd_request *or,
 	const struct osd_obj_id *obj, u64 offset, void* buff, u64 len)
@@ -892,7 +892,7 @@ int osd_req_read_kern(struct osd_request *or,
 	osd_req_read(or, obj, offset, bio, len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_read_kern); */
+EXPORT_SYMBOL(osd_req_read_kern);
 
 static int _add_sg_continuation_descriptor(struct osd_request *or,
 	const struct osd_sg_entry *sglist, unsigned numentries, u64 *len)
@@ -996,7 +996,7 @@ int osd_req_write_sg(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_write_sg); */
+EXPORT_SYMBOL(osd_req_write_sg);
 
 /* osd_req_read_sg: Read multiple extents of an object into @bio
  * See osd_req_write_sg
@@ -1026,7 +1026,7 @@ int osd_req_read_sg(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_read_sg); */
+EXPORT_SYMBOL(osd_req_read_sg);
 
 /* SG-list write/read Kern API
  *
@@ -1081,7 +1081,7 @@ int osd_req_write_sg_kern(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_write_sg_kern); */
+EXPORT_SYMBOL(osd_req_write_sg_kern);
 
 int osd_req_read_sg_kern(struct osd_request *or,
 	const struct osd_obj_id *obj, void **buff,
@@ -1095,7 +1095,7 @@ int osd_req_read_sg_kern(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_read_sg_kern); */
+EXPORT_SYMBOL(osd_req_read_sg_kern);
 
 
 
@@ -1104,14 +1104,14 @@ void osd_req_get_attributes(struct osd_request *or,
 {
 	_osd_req_encode_common(or, OSD_ACT_GET_ATTRIBUTES, obj, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_get_attributes); */
+EXPORT_SYMBOL(osd_req_get_attributes);
 
 void osd_req_set_attributes(struct osd_request *or,
 	const struct osd_obj_id *obj)
 {
 	_osd_req_encode_common(or, OSD_ACT_SET_ATTRIBUTES, obj, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_set_attributes); */
+EXPORT_SYMBOL(osd_req_set_attributes);
 
 /*
  * Attributes List-mode
@@ -1163,7 +1163,7 @@ int osd_req_add_set_attr_list(struct osd_request *or,
 	or->set_attr.total_bytes = total_bytes;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_add_set_attr_list); */
+EXPORT_SYMBOL(osd_req_add_set_attr_list);
 
 static int _req_append_segment(struct osd_request *or,
 	unsigned padding, struct _osd_req_data_segment *seg,
@@ -1295,7 +1295,7 @@ int osd_req_add_get_attr_list(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_add_get_attr_list); */
+EXPORT_SYMBOL(osd_req_add_get_attr_list);
 
 static int _osd_req_finalize_get_attr_list(struct osd_request *or)
 {
@@ -1410,7 +1410,7 @@ int osd_req_decode_get_attr_list(struct osd_request *or,
 	*nelem = n;
 	return returned_bytes - cur_bytes;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_decode_get_attr_list); */
+EXPORT_SYMBOL(osd_req_decode_get_attr_list);
 
 /*
  * Attributes Page-mode
@@ -1446,7 +1446,7 @@ int osd_req_add_get_attr_page(struct osd_request *or,
 	cdbh->attrs_page.set_attr_length = cpu_to_be32(set_one_attr->len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_add_get_attr_page); */
+EXPORT_SYMBOL(osd_req_add_get_attr_page);
 
 static int _osd_req_finalize_attr_page(struct osd_request *or)
 {
@@ -1696,7 +1696,7 @@ int osd_finalize_request(struct osd_request *or,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_finalize_request); */
+EXPORT_SYMBOL(osd_finalize_request);
 
 static bool _is_osd_security_code(int code)
 {
@@ -1941,7 +1941,7 @@ analyze:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(osd_req_decode_sense_full); */
+EXPORT_SYMBOL(osd_req_decode_sense_full);
 
 /*
  * Implementation of osd_sec.h API
@@ -1998,7 +1998,7 @@ void osd_sec_init_nosec_doall_caps(void *caps,
 	cap->od.obj_desc.allowed_partition_id = cpu_to_be64(obj->partition);
 	cap->od.obj_desc.allowed_object_id = cpu_to_be64(obj->id);
 }
-/* DISABLED: EXPORT_SYMBOL(osd_sec_init_nosec_doall_caps); */
+EXPORT_SYMBOL(osd_sec_init_nosec_doall_caps);
 
 /* FIXME: Extract version from caps pointer.
  *        Also Pete's target only supports caps from OSDv1 for now

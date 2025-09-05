@@ -52,7 +52,7 @@ set_val:
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_setting_ioctl); */
+EXPORT_SYMBOL_GPL(ide_setting_ioctl);
 
 static int ide_get_identity_ioctl(ide_drive_t *drive, unsigned int cmd,
 				  unsigned long arg)
@@ -286,4 +286,4 @@ int generic_ide_ioctl(ide_drive_t *drive, struct block_device *bdev,
 		return -EINVAL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(generic_ide_ioctl); */
+EXPORT_SYMBOL(generic_ide_ioctl);

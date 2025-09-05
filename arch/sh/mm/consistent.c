@@ -23,7 +23,7 @@
 #define PREALLOC_DMA_DEBUG_ENTRIES	4096
 
 struct dma_map_ops *dma_ops;
-/* DISABLED: EXPORT_SYMBOL(dma_ops); */
+EXPORT_SYMBOL(dma_ops);
 
 static int __init dma_init(void)
 {
@@ -100,13 +100,13 @@ void dma_cache_sync(struct device *dev, void *vaddr, size_t size,
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dma_cache_sync); */
+EXPORT_SYMBOL(dma_cache_sync);
 
 static int __init memchunk_setup(char *str)
 {
 	return 1; /* accept anything that begins with "memchunk." */
 }
-/* DISABLED: __setup("memchunk.", memchunk_setup); */ */
+__setup("memchunk.", memchunk_setup);
 
 static void __init memchunk_cmdline_override(char *name, unsigned long *sizep)
 {

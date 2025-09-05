@@ -597,7 +597,7 @@ const char *snd_hda_get_hint(struct hda_codec *codec, const char *key)
 	struct hda_hint *hint = get_hint(codec, key);
 	return hint ? hint->val : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_hint); */
+EXPORT_SYMBOL_HDA(snd_hda_get_hint);
 
 int snd_hda_get_bool_hint(struct hda_codec *codec, const char *key)
 {
@@ -612,7 +612,7 @@ int snd_hda_get_bool_hint(struct hda_codec *codec, const char *key)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_get_bool_hint); */
+EXPORT_SYMBOL_HDA(snd_hda_get_bool_hint);
 
 #endif /* CONFIG_SND_HDA_RECONFIG */
 
@@ -813,5 +813,5 @@ int snd_hda_load_patch(struct hda_bus *bus, const char *patch)
 	release_firmware(fw);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_HDA(snd_hda_load_patch); */
+EXPORT_SYMBOL_HDA(snd_hda_load_patch);
 #endif /* CONFIG_SND_HDA_PATCH_LOADER */

@@ -52,7 +52,7 @@ cpm_cpm2_t __iomem *cpmp; /* Pointer to comm processor space */
  * the communication processor devices.
  */
 cpm2_map_t __iomem *cpm2_immr;
-/* DISABLED: EXPORT_SYMBOL(cpm2_immr); */
+EXPORT_SYMBOL(cpm2_immr);
 
 #define CPM_MAP_SIZE	(0x40000)	/* 256k - the PQ3 reserve this amount
 					   of space for CPM as it is larger
@@ -104,7 +104,7 @@ out:
 	spin_unlock_irqrestore(&cmd_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cpm_command); */
+EXPORT_SYMBOL(cpm_command);
 
 /* Set a baud rate generator.  This needs lots of work.  There are
  * eight BRGs, which can be connected to the CPM channels or output
@@ -138,7 +138,7 @@ void __cpm2_setbrg(uint brg, uint rate, uint clk, int div16, int src)
 	out_be32(bp, val);
 	cpm2_unmap(bp);
 }
-/* DISABLED: EXPORT_SYMBOL(__cpm2_setbrg); */
+EXPORT_SYMBOL(__cpm2_setbrg);
 
 int cpm2_clk_setup(enum cpm_clk_target target, int clock, int mode)
 {

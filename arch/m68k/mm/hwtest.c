@@ -52,7 +52,7 @@ int hwreg_present( volatile void *regp )
 
     return( ret );
 }
-/* DISABLED: EXPORT_SYMBOL(hwreg_present); */
+EXPORT_SYMBOL(hwreg_present);
 
 /* Basically the same, but writes a value into a word register, protected
  * by a bus error handler. Returns 1 if successful, 0 otherwise.
@@ -87,5 +87,5 @@ int hwreg_write( volatile void *regp, unsigned short val )
 
 	return( ret );
 }
-/* DISABLED: EXPORT_SYMBOL(hwreg_write); */
+EXPORT_SYMBOL(hwreg_write);
 

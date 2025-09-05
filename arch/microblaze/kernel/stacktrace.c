@@ -22,10 +22,10 @@ void save_stack_trace(struct stack_trace *trace)
 	trace->skip += 2;
 	microblaze_unwind(NULL, trace);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(save_stack_trace); */
+EXPORT_SYMBOL_GPL(save_stack_trace);
 
 void save_stack_trace_tsk(struct task_struct *tsk, struct stack_trace *trace)
 {
 	microblaze_unwind(tsk, trace);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(save_stack_trace_tsk); */
+EXPORT_SYMBOL_GPL(save_stack_trace_tsk);

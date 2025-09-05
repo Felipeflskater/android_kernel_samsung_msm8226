@@ -124,7 +124,7 @@ error_not_ready:
 	d_fnend(3, dev, "(wimax_dev %p state %u) = void [%d]\n",
 		wimax_dev, state, result);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wimax_report_rfkill_hw); */
+EXPORT_SYMBOL_GPL(wimax_report_rfkill_hw);
 
 
 /**
@@ -177,7 +177,7 @@ error_not_ready:
 	d_fnend(3, dev, "(wimax_dev %p state %u) = void [%d]\n",
 		wimax_dev, state, result);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wimax_report_rfkill_sw); */
+EXPORT_SYMBOL_GPL(wimax_report_rfkill_sw);
 
 
 /*
@@ -337,7 +337,7 @@ error_not_ready:
 		wimax_dev, state, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(wimax_rfkill); */
+EXPORT_SYMBOL(wimax_rfkill);
 
 
 /*

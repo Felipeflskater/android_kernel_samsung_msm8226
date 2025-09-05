@@ -223,7 +223,7 @@ struct l2tp_session *l2tp_session_find(struct net *net, struct l2tp_tunnel *tunn
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_find); */
+EXPORT_SYMBOL_GPL(l2tp_session_find);
 
 /* Like l2tp_session_find() but takes a reference on the returned session.
  * Optionally calls session->ref() too if do_ref is true.
@@ -273,7 +273,7 @@ struct l2tp_session *l2tp_session_get(struct net *net,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_get); */
+EXPORT_SYMBOL_GPL(l2tp_session_get);
 
 struct l2tp_session *l2tp_session_find_nth(struct l2tp_tunnel *tunnel, int nth)
 {
@@ -296,7 +296,7 @@ struct l2tp_session *l2tp_session_find_nth(struct l2tp_tunnel *tunnel, int nth)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_find_nth); */
+EXPORT_SYMBOL_GPL(l2tp_session_find_nth);
 
 /* Lookup a session by interface name.
  * This is very inefficient but is only used by management interfaces.
@@ -322,7 +322,7 @@ struct l2tp_session *l2tp_session_find_by_ifname(struct net *net, char *ifname)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_find_by_ifname); */
+EXPORT_SYMBOL_GPL(l2tp_session_find_by_ifname);
 
 static int l2tp_session_add_to_tunnel(struct l2tp_tunnel *tunnel,
 				      struct l2tp_session *session)
@@ -402,7 +402,7 @@ struct l2tp_tunnel *l2tp_tunnel_find(struct net *net, u32 tunnel_id)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_tunnel_find); */
+EXPORT_SYMBOL_GPL(l2tp_tunnel_find);
 
 struct l2tp_tunnel *l2tp_tunnel_find_nth(struct net *net, int nth)
 {
@@ -422,7 +422,7 @@ struct l2tp_tunnel *l2tp_tunnel_find_nth(struct net *net, int nth)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_tunnel_find_nth); */
+EXPORT_SYMBOL_GPL(l2tp_tunnel_find_nth);
 
 /*****************************************************************************
  * Receive data handling
@@ -825,7 +825,7 @@ discard:
 	if (session->deref)
 		(*session->deref)(session);
 }
-/* DISABLED: EXPORT_SYMBOL(l2tp_recv_common); */
+EXPORT_SYMBOL(l2tp_recv_common);
 
 /* Internal UDP receive frame. Do the real work of receiving an L2TP data frame
  * here. The skb is not on a list when we get here.
@@ -982,7 +982,7 @@ pass_up_put:
 pass_up:
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_udp_encap_recv); */
+EXPORT_SYMBOL_GPL(l2tp_udp_encap_recv);
 
 /************************************************************************
  * Transmit handling
@@ -1072,11 +1072,11 @@ static int l2tp_xmit_core(struct l2tp_session *session, struct sk_buff *skb,
 	/* Debug */
 	if (session->send_seq)
 		PRINTK(session->debug, L2TP_MSG_DATA, KERN_DEBUG,
-		       "%s: send %zd bytes, ns=%u\n", session->name,
+		       "%s: send %Zd bytes, ns=%u\n", session->name,
 		       data_len, session->ns - 1);
 	else
 		PRINTK(session->debug, L2TP_MSG_DATA, KERN_DEBUG,
-		       "%s: send %zd bytes\n", session->name, data_len);
+		       "%s: send %Zd bytes\n", session->name, data_len);
 
 	if (session->debug & L2TP_MSG_DATA) {
 		int i;
@@ -1231,7 +1231,7 @@ out_unlock:
 abort:
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_xmit_skb); */
+EXPORT_SYMBOL_GPL(l2tp_xmit_skb);
 
 /*****************************************************************************
  * Tinnel and session create/destroy.
@@ -1570,7 +1570,7 @@ err:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_tunnel_create); */
+EXPORT_SYMBOL_GPL(l2tp_tunnel_create);
 
 /* This function is used by the netlink TUNNEL_DELETE command.
  */
@@ -1596,7 +1596,7 @@ int l2tp_tunnel_delete(struct l2tp_tunnel *tunnel)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_tunnel_delete); */
+EXPORT_SYMBOL_GPL(l2tp_tunnel_delete);
 
 /* Really kill the session.
  */
@@ -1641,7 +1641,7 @@ void l2tp_session_free(struct l2tp_session *session)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_free); */
+EXPORT_SYMBOL_GPL(l2tp_session_free);
 
 /* This function is used by the netlink SESSION_DELETE command and by
    pseudowire modules.
@@ -1655,7 +1655,7 @@ int l2tp_session_delete(struct l2tp_session *session)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_delete); */
+EXPORT_SYMBOL_GPL(l2tp_session_delete);
 
 
 /* We come here whenever a session's send_seq, cookie_len or
@@ -1743,7 +1743,7 @@ struct l2tp_session *l2tp_session_create(int priv_size, struct l2tp_tunnel *tunn
 
 	return ERR_PTR(-ENOMEM);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(l2tp_session_create); */
+EXPORT_SYMBOL_GPL(l2tp_session_create);
 
 /*****************************************************************************
  * Init and cleanup

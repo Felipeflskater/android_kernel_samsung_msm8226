@@ -198,7 +198,7 @@ nlmsg_failure:
 	nlmsg_trim(skb, b);
 	return -EMSGSIZE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_sk_diag_fill); */
+EXPORT_SYMBOL_GPL(inet_sk_diag_fill);
 
 static int inet_csk_diag_fill(struct sock *sk,
 			      struct sk_buff *skb, struct inet_diag_req_v2 *req,
@@ -322,7 +322,7 @@ struct sock *inet_diag_find_one_icsk(struct net *net,
 
 	return sk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_find_one_icsk); */
+EXPORT_SYMBOL_GPL(inet_diag_find_one_icsk);
 
 int inet_diag_dump_one_icsk(struct inet_hashinfo *hashinfo,
 			    struct sk_buff *in_skb,
@@ -368,7 +368,7 @@ out:
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_dump_one_icsk); */
+EXPORT_SYMBOL_GPL(inet_diag_dump_one_icsk);
 
 static int inet_diag_cmd_exact(int cmd, struct sk_buff *in_skb,
 			       const struct nlmsghdr *nlh,
@@ -530,7 +530,7 @@ int inet_diag_bc_sk(const struct nlattr *bc, struct sock *sk)
 
 	return inet_diag_bc_run(bc, &entry);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_bc_sk); */
+EXPORT_SYMBOL_GPL(inet_diag_bc_sk);
 
 static int valid_cc(const void *bc, int len, int cc)
 {
@@ -1005,7 +1005,7 @@ done:
 out:
 	;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_dump_icsk); */
+EXPORT_SYMBOL_GPL(inet_diag_dump_icsk);
 
 static int __inet_diag_dump(struct sk_buff *skb, struct netlink_callback *cb,
 		struct inet_diag_req_v2 *r, struct nlattr *bc)
@@ -1170,7 +1170,7 @@ int inet_diag_register(const struct inet_diag_handler *h)
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_register); */
+EXPORT_SYMBOL_GPL(inet_diag_register);
 
 void inet_diag_unregister(const struct inet_diag_handler *h)
 {
@@ -1183,7 +1183,7 @@ void inet_diag_unregister(const struct inet_diag_handler *h)
 	inet_diag_table[type] = NULL;
 	mutex_unlock(&inet_diag_table_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_diag_unregister); */
+EXPORT_SYMBOL_GPL(inet_diag_unregister);
 
 static int __init inet_diag_init(void)
 {

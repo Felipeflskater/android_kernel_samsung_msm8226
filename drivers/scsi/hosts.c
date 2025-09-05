@@ -148,7 +148,7 @@ int scsi_host_set_state(struct Scsi_Host *shost, enum scsi_host_state state)
 					     scsi_host_state_name(state)));
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_host_set_state); */
+EXPORT_SYMBOL(scsi_host_set_state);
 
 /**
  * scsi_remove_host - remove a scsi host
@@ -182,7 +182,7 @@ void scsi_remove_host(struct Scsi_Host *shost)
 	device_unregister(&shost->shost_dev);
 	device_del(&shost->shost_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_remove_host); */
+EXPORT_SYMBOL(scsi_remove_host);
 
 /**
  * scsi_add_host_with_dma - add a scsi host with dma device
@@ -283,7 +283,7 @@ int scsi_add_host_with_dma(struct Scsi_Host *shost, struct device *dev,
  fail:
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_add_host_with_dma); */
+EXPORT_SYMBOL(scsi_add_host_with_dma);
 
 static void scsi_host_dev_release(struct device *dev)
 {
@@ -443,7 +443,7 @@ struct Scsi_Host *scsi_host_alloc(struct scsi_host_template *sht, int privsize)
 	kfree(shost);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_host_alloc); */
+EXPORT_SYMBOL(scsi_host_alloc);
 
 struct Scsi_Host *scsi_register(struct scsi_host_template *sht, int privsize)
 {
@@ -459,14 +459,14 @@ struct Scsi_Host *scsi_register(struct scsi_host_template *sht, int privsize)
 		list_add_tail(&shost->sht_legacy_list, &sht->legacy_hosts);
 	return shost;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_register); */
+EXPORT_SYMBOL(scsi_register);
 
 void scsi_unregister(struct Scsi_Host *shost)
 {
 	list_del(&shost->sht_legacy_list);
 	scsi_host_put(shost);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_unregister); */
+EXPORT_SYMBOL(scsi_unregister);
 
 static int __scsi_host_match(struct device *dev, void *data)
 {
@@ -501,7 +501,7 @@ struct Scsi_Host *scsi_host_lookup(unsigned short hostnum)
 	}
 	return shost;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_host_lookup); */
+EXPORT_SYMBOL(scsi_host_lookup);
 
 /**
  * scsi_host_get - inc a Scsi_Host ref count
@@ -514,7 +514,7 @@ struct Scsi_Host *scsi_host_get(struct Scsi_Host *shost)
 		return NULL;
 	return shost;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_host_get); */
+EXPORT_SYMBOL(scsi_host_get);
 
 /**
  * scsi_host_put - dec a Scsi_Host ref count
@@ -524,7 +524,7 @@ void scsi_host_put(struct Scsi_Host *shost)
 {
 	put_device(&shost->shost_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_host_put); */
+EXPORT_SYMBOL(scsi_host_put);
 
 int scsi_init_hosts(void)
 {
@@ -540,7 +540,7 @@ int scsi_is_host_device(const struct device *dev)
 {
 	return dev->type == &scsi_host_type;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_is_host_device); */
+EXPORT_SYMBOL(scsi_is_host_device);
 
 /**
  * scsi_queue_work - Queue work to the Scsi_Host workqueue.
@@ -565,7 +565,7 @@ int scsi_queue_work(struct Scsi_Host *shost, struct work_struct *work)
 
 	return queue_work(shost->work_q, work);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_queue_work); */
+EXPORT_SYMBOL_GPL(scsi_queue_work);
 
 /**
  * scsi_flush_work - Flush a Scsi_Host's workqueue.
@@ -583,4 +583,4 @@ void scsi_flush_work(struct Scsi_Host *shost)
 
 	flush_workqueue(shost->work_q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_flush_work); */
+EXPORT_SYMBOL_GPL(scsi_flush_work);

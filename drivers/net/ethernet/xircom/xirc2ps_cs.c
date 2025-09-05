@@ -1809,5 +1809,5 @@ static int __init setup_xirc2ps_cs(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("xirc2ps_cs=", setup_xirc2ps_cs); */ */
+__setup("xirc2ps_cs=", setup_xirc2ps_cs);
 #endif

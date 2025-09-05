@@ -903,7 +903,7 @@ void account_system_vtime(struct task_struct *curr)
 	irq_time_write_end();
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(account_system_vtime); */
+EXPORT_SYMBOL_GPL(account_system_vtime);
 
 #endif /* CONFIG_IRQ_TIME_ACCOUNTING */
 
@@ -1311,7 +1311,7 @@ void kick_process(struct task_struct *p)
 		smp_send_reschedule(cpu);
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kick_process); */
+EXPORT_SYMBOL_GPL(kick_process);
 #endif /* CONFIG_SMP */
 
 #ifdef CONFIG_SMP
@@ -1759,7 +1759,7 @@ int wake_up_process(struct task_struct *p)
 	WARN_ON(task_is_stopped_or_traced(p));
 	return try_to_wake_up(p, TASK_NORMAL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(wake_up_process); */
+EXPORT_SYMBOL(wake_up_process);
 
 int wake_up_state(struct task_struct *p, unsigned int state)
 {
@@ -1916,7 +1916,7 @@ void preempt_notifier_register(struct preempt_notifier *notifier)
 {
 	hlist_add_head(&notifier->link, &current->preempt_notifiers);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(preempt_notifier_register); */
+EXPORT_SYMBOL_GPL(preempt_notifier_register);
 
 /**
  * preempt_notifier_unregister - no longer interested in preemption notifications
@@ -1928,7 +1928,7 @@ void preempt_notifier_unregister(struct preempt_notifier *notifier)
 {
 	hlist_del(&notifier->link);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(preempt_notifier_unregister); */
+EXPORT_SYMBOL_GPL(preempt_notifier_unregister);
 
 static void fire_sched_in_preempt_notifiers(struct task_struct *curr)
 {
@@ -2289,7 +2289,7 @@ unsigned long this_cpu_loadx(int i)
 static atomic_long_t calc_load_tasks;
 static unsigned long calc_load_update;
 unsigned long avenrun[3];
-/* DISABLED: EXPORT_SYMBOL(avenrun); /* should be removed */ */
+EXPORT_SYMBOL(avenrun); /* should be removed */
 
 /**
  * get_avenrun - get the load average array
@@ -3350,7 +3350,7 @@ void __kprobes add_preempt_count(int val)
 	if (preempt_count() == val)
 		trace_preempt_off(CALLER_ADDR0, get_parent_ip(CALLER_ADDR1));
 }
-/* DISABLED: EXPORT_SYMBOL(add_preempt_count); */
+EXPORT_SYMBOL(add_preempt_count);
 
 void __kprobes sub_preempt_count(int val)
 {
@@ -3372,7 +3372,7 @@ void __kprobes sub_preempt_count(int val)
 		trace_preempt_on(CALLER_ADDR0, get_parent_ip(CALLER_ADDR1));
 	preempt_count() -= val;
 }
-/* DISABLED: EXPORT_SYMBOL(sub_preempt_count); */
+EXPORT_SYMBOL(sub_preempt_count);
 
 #endif
 
@@ -3553,7 +3553,7 @@ asmlinkage void __sched schedule(void)
 	sched_submit_work(tsk);
 	__schedule();
 }
-/* DISABLED: EXPORT_SYMBOL(schedule); */
+EXPORT_SYMBOL(schedule);
 
 /**
  * schedule_preempt_disabled - called with preemption disabled
@@ -3641,7 +3641,7 @@ asmlinkage void __sched notrace preempt_schedule(void)
 		barrier();
 	} while (need_resched());
 }
-/* DISABLED: EXPORT_SYMBOL(preempt_schedule); */
+EXPORT_SYMBOL(preempt_schedule);
 
 /*
  * this is the entry point to schedule() from kernel preemption
@@ -3678,7 +3678,7 @@ int default_wake_function(wait_queue_t *curr, unsigned mode, int wake_flags,
 {
 	return try_to_wake_up(curr->private, mode, wake_flags);
 }
-/* DISABLED: EXPORT_SYMBOL(default_wake_function); */
+EXPORT_SYMBOL(default_wake_function);
 
 /*
  * The core wakeup function. Non-exclusive wakeups (nr_exclusive == 0) just
@@ -3722,7 +3722,7 @@ void __wake_up(wait_queue_head_t *q, unsigned int mode,
 	__wake_up_common(q, mode, nr_exclusive, 0, key);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(__wake_up); */
+EXPORT_SYMBOL(__wake_up);
 
 /*
  * Same as __wake_up but called with the spinlock in wait_queue_head_t held.
@@ -3731,13 +3731,13 @@ void __wake_up_locked(wait_queue_head_t *q, unsigned int mode, int nr)
 {
 	__wake_up_common(q, mode, nr, 0, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__wake_up_locked); */
+EXPORT_SYMBOL_GPL(__wake_up_locked);
 
 void __wake_up_locked_key(wait_queue_head_t *q, unsigned int mode, void *key)
 {
 	__wake_up_common(q, mode, 1, 0, key);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__wake_up_locked_key); */
+EXPORT_SYMBOL_GPL(__wake_up_locked_key);
 
 /**
  * __wake_up_sync_key - wake up threads blocked on a waitqueue.
@@ -3772,7 +3772,7 @@ void __wake_up_sync_key(wait_queue_head_t *q, unsigned int mode,
 	__wake_up_common(q, mode, nr_exclusive, wake_flags, key);
 	spin_unlock_irqrestore(&q->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__wake_up_sync_key); */
+EXPORT_SYMBOL_GPL(__wake_up_sync_key);
 
 /*
  * __wake_up_sync - see __wake_up_sync_key()
@@ -3781,7 +3781,7 @@ void __wake_up_sync(wait_queue_head_t *q, unsigned int mode, int nr_exclusive)
 {
 	__wake_up_sync_key(q, mode, nr_exclusive, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__wake_up_sync);	/* For internal use only */ */
+EXPORT_SYMBOL_GPL(__wake_up_sync);	/* For internal use only */
 
 /**
  * complete: - signals a single thread waiting on this completion
@@ -3804,7 +3804,7 @@ void complete(struct completion *x)
 	__wake_up_common(&x->wait, TASK_NORMAL, 1, 0, NULL);
 	spin_unlock_irqrestore(&x->wait.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(complete); */
+EXPORT_SYMBOL(complete);
 
 /**
  * complete_all: - signals all threads waiting on this completion
@@ -3824,7 +3824,7 @@ void complete_all(struct completion *x)
 	__wake_up_common(&x->wait, TASK_NORMAL, 0, 0, NULL);
 	spin_unlock_irqrestore(&x->wait.lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(complete_all); */
+EXPORT_SYMBOL(complete_all);
 
 static inline long __sched
 do_wait_for_common(struct completion *x, long timeout, int state, int iowait)
@@ -3879,7 +3879,7 @@ void __sched wait_for_completion(struct completion *x)
 {
 	wait_for_common(x, MAX_SCHEDULE_TIMEOUT, TASK_UNINTERRUPTIBLE, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion); */
+EXPORT_SYMBOL(wait_for_completion);
 
 /**
  * wait_for_completion_io: - waits for completion of a task
@@ -3892,7 +3892,7 @@ void __sched wait_for_completion_io(struct completion *x)
 {
 	wait_for_common(x, MAX_SCHEDULE_TIMEOUT, TASK_UNINTERRUPTIBLE, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_io); */
+EXPORT_SYMBOL(wait_for_completion_io);
 
 
 /**
@@ -3912,7 +3912,7 @@ wait_for_completion_timeout(struct completion *x, unsigned long timeout)
 {
 	return wait_for_common(x, timeout, TASK_UNINTERRUPTIBLE, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_timeout); */
+EXPORT_SYMBOL(wait_for_completion_timeout);
 
 /**
  * wait_for_completion_interruptible: - waits for completion of a task (w/intr)
@@ -3931,7 +3931,7 @@ int __sched wait_for_completion_interruptible(struct completion *x)
 		return t;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_interruptible); */
+EXPORT_SYMBOL(wait_for_completion_interruptible);
 
 /**
  * wait_for_completion_interruptible_timeout: - waits for completion (w/(to,intr))
@@ -3950,7 +3950,7 @@ wait_for_completion_interruptible_timeout(struct completion *x,
 {
 	return wait_for_common(x, timeout, TASK_INTERRUPTIBLE, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_interruptible_timeout); */
+EXPORT_SYMBOL(wait_for_completion_interruptible_timeout);
 
 /**
  * wait_for_completion_killable: - waits for completion of a task (killable)
@@ -3968,7 +3968,7 @@ int __sched wait_for_completion_killable(struct completion *x)
 		return t;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_killable); */
+EXPORT_SYMBOL(wait_for_completion_killable);
 
 /**
  * wait_for_completion_killable_timeout: - waits for completion of a task (w/(to,killable))
@@ -3988,7 +3988,7 @@ wait_for_completion_killable_timeout(struct completion *x,
 {
 	return wait_for_common(x, timeout, TASK_KILLABLE, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(wait_for_completion_killable_timeout); */
+EXPORT_SYMBOL(wait_for_completion_killable_timeout);
 
 /**
  *	try_wait_for_completion - try to decrement a completion without blocking
@@ -4015,7 +4015,7 @@ bool try_wait_for_completion(struct completion *x)
 	spin_unlock_irqrestore(&x->wait.lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(try_wait_for_completion); */
+EXPORT_SYMBOL(try_wait_for_completion);
 
 /**
  *	completion_done - Test to see if a completion has any waiters
@@ -4036,7 +4036,7 @@ bool completion_done(struct completion *x)
 	spin_unlock_irqrestore(&x->wait.lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(completion_done); */
+EXPORT_SYMBOL(completion_done);
 
 static long __sched
 sleep_on_common(wait_queue_head_t *q, int state, long timeout)
@@ -4063,26 +4063,26 @@ void __sched interruptible_sleep_on(wait_queue_head_t *q)
 {
 	sleep_on_common(q, TASK_INTERRUPTIBLE, MAX_SCHEDULE_TIMEOUT);
 }
-/* DISABLED: EXPORT_SYMBOL(interruptible_sleep_on); */
+EXPORT_SYMBOL(interruptible_sleep_on);
 
 long __sched
 interruptible_sleep_on_timeout(wait_queue_head_t *q, long timeout)
 {
 	return sleep_on_common(q, TASK_INTERRUPTIBLE, timeout);
 }
-/* DISABLED: EXPORT_SYMBOL(interruptible_sleep_on_timeout); */
+EXPORT_SYMBOL(interruptible_sleep_on_timeout);
 
 void __sched sleep_on(wait_queue_head_t *q)
 {
 	sleep_on_common(q, TASK_UNINTERRUPTIBLE, MAX_SCHEDULE_TIMEOUT);
 }
-/* DISABLED: EXPORT_SYMBOL(sleep_on); */
+EXPORT_SYMBOL(sleep_on);
 
 long __sched sleep_on_timeout(wait_queue_head_t *q, long timeout)
 {
 	return sleep_on_common(q, TASK_UNINTERRUPTIBLE, timeout);
 }
-/* DISABLED: EXPORT_SYMBOL(sleep_on_timeout); */
+EXPORT_SYMBOL(sleep_on_timeout);
 
 #ifdef CONFIG_RT_MUTEXES
 
@@ -4199,7 +4199,7 @@ void set_user_nice(struct task_struct *p, long nice)
 out_unlock:
 	task_rq_unlock(rq, p, &flags);
 }
-/* DISABLED: EXPORT_SYMBOL(set_user_nice); */
+EXPORT_SYMBOL(set_user_nice);
 
 /*
  * can_nice - check if a task can reduce its nice value
@@ -4278,7 +4278,7 @@ int task_nice(const struct task_struct *p)
 {
 	return TASK_NICE(p);
 }
-/* DISABLED: EXPORT_SYMBOL(task_nice); */
+EXPORT_SYMBOL(task_nice);
 
 /**
  * idle_cpu - is a given cpu idle currently?
@@ -4528,7 +4528,7 @@ int sched_setscheduler(struct task_struct *p, int policy,
 {
 	return __sched_setscheduler(p, policy, param, true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sched_setscheduler); */
+EXPORT_SYMBOL_GPL(sched_setscheduler);
 
 /**
  * sched_setscheduler_nocheck - change the scheduling policy and/or RT priority of a thread from kernelspace.
@@ -4865,7 +4865,7 @@ int __sched _cond_resched(void)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(_cond_resched); */
+EXPORT_SYMBOL(_cond_resched);
 
 /*
  * __cond_resched_lock() - if a reschedule is pending, drop the given lock,
@@ -4893,7 +4893,7 @@ int __cond_resched_lock(spinlock_t *lock)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__cond_resched_lock); */
+EXPORT_SYMBOL(__cond_resched_lock);
 
 int __sched __cond_resched_softirq(void)
 {
@@ -4907,7 +4907,7 @@ int __sched __cond_resched_softirq(void)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__cond_resched_softirq); */
+EXPORT_SYMBOL(__cond_resched_softirq);
 
 /**
  * yield - yield the current processor to other threads.
@@ -4936,7 +4936,7 @@ void __sched yield(void)
 	set_current_state(TASK_RUNNING);
 	sys_sched_yield();
 }
-/* DISABLED: EXPORT_SYMBOL(yield); */
+EXPORT_SYMBOL(yield);
 
 /**
  * yield_to - yield the current processor to another thread in
@@ -5004,7 +5004,7 @@ out:
 
 	return yielded;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(yield_to); */
+EXPORT_SYMBOL_GPL(yield_to);
 
 /*
  * This task is about to go to sleep on IO. Increment rq->nr_iowait so
@@ -5023,7 +5023,7 @@ void __sched io_schedule(void)
 	atomic_dec(&rq->nr_iowait);
 	delayacct_blkio_end();
 }
-/* DISABLED: EXPORT_SYMBOL(io_schedule); */
+EXPORT_SYMBOL(io_schedule);
 
 long __sched io_schedule_timeout(long timeout)
 {
@@ -5040,7 +5040,7 @@ long __sched io_schedule_timeout(long timeout)
 	delayacct_blkio_end();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(io_schedule_timeout); */
+EXPORT_SYMBOL(io_schedule_timeout);
 
 /**
  * sys_sched_get_priority_max - return maximum RT priority.
@@ -5335,7 +5335,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(set_cpus_allowed_ptr); */
+EXPORT_SYMBOL_GPL(set_cpus_allowed_ptr);
 
 /*
  * Move (not current) task off this cpu, onto dest cpu. We're doing
@@ -6229,7 +6229,7 @@ static int __init isolated_cpu_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("isolcpus=", isolated_cpu_setup); */ */
+__setup("isolcpus=", isolated_cpu_setup);
 
 #ifdef CONFIG_NUMA
 
@@ -6568,7 +6568,7 @@ static int __init setup_relax_domain_level(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("relax_domain_level=", setup_relax_domain_level); */ */
+__setup("relax_domain_level=", setup_relax_domain_level);
 
 static void set_domain_attribute(struct sched_domain *sd,
 				 struct sched_domain_attr *attr)
@@ -7474,7 +7474,7 @@ void __might_sleep(const char *file, int line, int preempt_offset)
 		print_irqtrace_events(current);
 	dump_stack();
 }
-/* DISABLED: EXPORT_SYMBOL(__might_sleep); */
+EXPORT_SYMBOL(__might_sleep);
 #endif
 
 #ifdef CONFIG_MAGIC_SYSRQ

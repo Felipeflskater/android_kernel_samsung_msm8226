@@ -4197,7 +4197,7 @@ const char *drbd_buildtag(void)
 module_init(drbd_init)
 module_exit(drbd_cleanup)
 
-/* DISABLED: EXPORT_SYMBOL(drbd_conn_str); */
-/* DISABLED: EXPORT_SYMBOL(drbd_role_str); */
-/* DISABLED: EXPORT_SYMBOL(drbd_disk_str); */
-/* DISABLED: EXPORT_SYMBOL(drbd_set_st_err_str); */
+EXPORT_SYMBOL(drbd_conn_str);
+EXPORT_SYMBOL(drbd_role_str);
+EXPORT_SYMBOL(drbd_disk_str);
+EXPORT_SYMBOL(drbd_set_st_err_str);

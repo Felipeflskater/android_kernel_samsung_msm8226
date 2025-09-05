@@ -2094,7 +2094,7 @@ err_dmaunmap:
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dw_mci_probe); */
+EXPORT_SYMBOL(dw_mci_probe);
 
 void dw_mci_remove(struct dw_mci *host)
 {
@@ -2126,7 +2126,7 @@ void dw_mci_remove(struct dw_mci *host)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(dw_mci_remove); */
+EXPORT_SYMBOL(dw_mci_remove);
 
 
 
@@ -2158,7 +2158,7 @@ int dw_mci_suspend(struct dw_mci *host)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dw_mci_suspend); */
+EXPORT_SYMBOL(dw_mci_suspend);
 
 int dw_mci_resume(struct dw_mci *host)
 {
@@ -2194,7 +2194,7 @@ int dw_mci_resume(struct dw_mci *host)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dw_mci_resume); */
+EXPORT_SYMBOL(dw_mci_resume);
 #endif /* CONFIG_PM_SLEEP */
 
 static int __init dw_mci_init(void)

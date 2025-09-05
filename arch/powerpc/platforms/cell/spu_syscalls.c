@@ -167,7 +167,7 @@ int register_spu_syscalls(struct spufs_calls *calls)
 	rcu_assign_pointer(spufs_calls, calls);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_spu_syscalls); */
+EXPORT_SYMBOL_GPL(register_spu_syscalls);
 
 void unregister_spu_syscalls(struct spufs_calls *calls)
 {
@@ -175,4 +175,4 @@ void unregister_spu_syscalls(struct spufs_calls *calls)
 	rcu_assign_pointer(spufs_calls, NULL);
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_spu_syscalls); */
+EXPORT_SYMBOL_GPL(unregister_spu_syscalls);

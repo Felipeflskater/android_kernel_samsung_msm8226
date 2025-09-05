@@ -211,7 +211,7 @@ int qtree_entry_unused(struct qtree_mem_dqinfo *info, char *disk)
 			return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(qtree_entry_unused); */
+EXPORT_SYMBOL(qtree_entry_unused);
 
 /* Find space for dquot */
 static uint find_free_dqentry(struct qtree_mem_dqinfo *info,
@@ -392,7 +392,7 @@ int qtree_write_dquot(struct qtree_mem_dqinfo *info, struct dquot *dquot)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(qtree_write_dquot); */
+EXPORT_SYMBOL(qtree_write_dquot);
 
 /* Free dquot entry in data block */
 static int free_dqentry(struct qtree_mem_dqinfo *info, struct dquot *dquot,
@@ -512,7 +512,7 @@ int qtree_delete_dquot(struct qtree_mem_dqinfo *info, struct dquot *dquot)
 		return 0;
 	return remove_tree(info, dquot, &tmp, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(qtree_delete_dquot); */
+EXPORT_SYMBOL(qtree_delete_dquot);
 
 /* Find entry in block */
 static loff_t find_block_dqentry(struct qtree_mem_dqinfo *info,
@@ -645,7 +645,7 @@ out:
 	dqstats_inc(DQST_READS);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(qtree_read_dquot); */
+EXPORT_SYMBOL(qtree_read_dquot);
 
 /* Check whether dquot should not be deleted. We know we are
  * the only one operating on dquot (thanks to dq_lock) */
@@ -656,4 +656,4 @@ int qtree_release_dquot(struct qtree_mem_dqinfo *info, struct dquot *dquot)
 		return qtree_delete_dquot(info, dquot);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qtree_release_dquot); */
+EXPORT_SYMBOL(qtree_release_dquot);

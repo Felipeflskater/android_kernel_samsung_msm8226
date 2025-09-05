@@ -289,7 +289,7 @@ ktime_t ktime_add_ns(const ktime_t kt, u64 nsec)
 	return ktime_add(kt, tmp);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ktime_add_ns); */
+EXPORT_SYMBOL_GPL(ktime_add_ns);
 
 /**
  * ktime_sub_ns - Subtract a scalar nanoseconds value from a ktime_t variable
@@ -317,7 +317,7 @@ ktime_t ktime_sub_ns(const ktime_t kt, u64 nsec)
 	return ktime_sub(kt, tmp);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ktime_sub_ns); */
+EXPORT_SYMBOL_GPL(ktime_sub_ns);
 # endif /* !CONFIG_KTIME_SCALAR */
 
 /*
@@ -340,7 +340,7 @@ s64 __ktime_divns(const ktime_t kt, s64 div)
 	do_div(tmp, (unsigned long) div);
 	return dclc < 0 ? -tmp : tmp;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__ktime_divns); */
+EXPORT_SYMBOL_GPL(__ktime_divns);
 #endif /* BITS_PER_LONG >= 64 */
 
 /*
@@ -360,7 +360,7 @@ ktime_t ktime_add_safe(const ktime_t lhs, const ktime_t rhs)
 	return res;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ktime_add_safe); */
+EXPORT_SYMBOL_GPL(ktime_add_safe);
 
 #ifdef CONFIG_DEBUG_OBJECTS_TIMERS
 
@@ -465,13 +465,13 @@ void hrtimer_init_on_stack(struct hrtimer *timer, clockid_t clock_id,
 	debug_object_init_on_stack(timer, &hrtimer_debug_descr);
 	__hrtimer_init(timer, clock_id, mode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_init_on_stack); */
+EXPORT_SYMBOL_GPL(hrtimer_init_on_stack);
 
 void destroy_hrtimer_on_stack(struct hrtimer *timer)
 {
 	debug_object_free(timer, &hrtimer_debug_descr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(destroy_hrtimer_on_stack); */
+EXPORT_SYMBOL_GPL(destroy_hrtimer_on_stack);
 
 #else
 static inline void debug_hrtimer_init(struct hrtimer *timer) { }
@@ -521,7 +521,7 @@ static int __init setup_hrtimer_hres(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("highres=", setup_hrtimer_hres); */ */
+__setup("highres=", setup_hrtimer_hres);
 
 /*
  * hrtimer_high_res_enabled - query, if the highres mode is enabled
@@ -856,7 +856,7 @@ u64 hrtimer_forward(struct hrtimer *timer, ktime_t now, ktime_t interval)
 
 	return orun;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_forward); */
+EXPORT_SYMBOL_GPL(hrtimer_forward);
 
 /*
  * enqueue_hrtimer - internal function to (re)start a timer
@@ -1031,7 +1031,7 @@ int hrtimer_start_range_ns(struct hrtimer *timer, ktime_t tim,
 {
 	return __hrtimer_start_range_ns(timer, tim, delta_ns, mode, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_start_range_ns); */
+EXPORT_SYMBOL_GPL(hrtimer_start_range_ns);
 
 /**
  * hrtimer_start - (re)start an hrtimer on the current CPU
@@ -1048,7 +1048,7 @@ hrtimer_start(struct hrtimer *timer, ktime_t tim, const enum hrtimer_mode mode)
 {
 	return __hrtimer_start_range_ns(timer, tim, 0, mode, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_start); */
+EXPORT_SYMBOL_GPL(hrtimer_start);
 
 
 /**
@@ -1077,7 +1077,7 @@ int hrtimer_try_to_cancel(struct hrtimer *timer)
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_try_to_cancel); */
+EXPORT_SYMBOL_GPL(hrtimer_try_to_cancel);
 
 /**
  * hrtimer_cancel - cancel a timer and wait for the handler to finish.
@@ -1097,7 +1097,7 @@ int hrtimer_cancel(struct hrtimer *timer)
 		cpu_relax();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_cancel); */
+EXPORT_SYMBOL_GPL(hrtimer_cancel);
 
 /**
  * hrtimer_get_remaining - get remaining time for the timer
@@ -1114,7 +1114,7 @@ ktime_t hrtimer_get_remaining(const struct hrtimer *timer)
 
 	return rem;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_get_remaining); */
+EXPORT_SYMBOL_GPL(hrtimer_get_remaining);
 
 #ifdef CONFIG_NO_HZ
 /**
@@ -1193,7 +1193,7 @@ void hrtimer_init(struct hrtimer *timer, clockid_t clock_id,
 	debug_init(timer, clock_id, mode);
 	__hrtimer_init(timer, clock_id, mode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_init); */
+EXPORT_SYMBOL_GPL(hrtimer_init);
 
 /**
  * hrtimer_get_res - get the timer resolution for a clock
@@ -1213,7 +1213,7 @@ int hrtimer_get_res(const clockid_t which_clock, struct timespec *tp)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_get_res); */
+EXPORT_SYMBOL_GPL(hrtimer_get_res);
 
 static void __run_hrtimer(struct hrtimer *timer, ktime_t *now)
 {
@@ -1523,7 +1523,7 @@ void hrtimer_init_sleeper(struct hrtimer_sleeper *sl, struct task_struct *task)
 	sl->timer.function = hrtimer_wakeup;
 	sl->task = task;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hrtimer_init_sleeper); */
+EXPORT_SYMBOL_GPL(hrtimer_init_sleeper);
 
 static int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mode)
 {
@@ -1863,7 +1863,7 @@ int __sched schedule_hrtimeout_range(ktime_t *expires, unsigned long delta,
 	return schedule_hrtimeout_range_clock(expires, delta, mode,
 					      CLOCK_MONOTONIC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(schedule_hrtimeout_range); */
+EXPORT_SYMBOL_GPL(schedule_hrtimeout_range);
 
 /**
  * schedule_hrtimeout - sleep until timeout
@@ -1892,4 +1892,4 @@ int __sched schedule_hrtimeout(ktime_t *expires,
 {
 	return schedule_hrtimeout_range(expires, 0, mode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(schedule_hrtimeout); */
+EXPORT_SYMBOL_GPL(schedule_hrtimeout);

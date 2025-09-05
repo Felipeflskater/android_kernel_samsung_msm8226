@@ -80,13 +80,13 @@ int sysctl_tcp_window_scaling __read_mostly = 1;
 int sysctl_tcp_sack __read_mostly = 1;
 int sysctl_tcp_fack __read_mostly = 1;
 int sysctl_tcp_reordering __read_mostly = TCP_FASTRETRANS_THRESH;
-/* DISABLED: EXPORT_SYMBOL(sysctl_tcp_reordering); */
+EXPORT_SYMBOL(sysctl_tcp_reordering);
 int sysctl_tcp_ecn __read_mostly = 2;
-/* DISABLED: EXPORT_SYMBOL(sysctl_tcp_ecn); */
+EXPORT_SYMBOL(sysctl_tcp_ecn);
 int sysctl_tcp_dsack __read_mostly = 1;
 int sysctl_tcp_app_win __read_mostly = 31;
 int sysctl_tcp_adv_win_scale __read_mostly = 1;
-/* DISABLED: EXPORT_SYMBOL(sysctl_tcp_adv_win_scale); */
+EXPORT_SYMBOL(sysctl_tcp_adv_win_scale);
 
 /* rfc5961 challenge ack rate limiting */
 int sysctl_tcp_challenge_ack_limit = 1000;
@@ -444,7 +444,7 @@ void tcp_initialize_rcv_mss(struct sock *sk)
 
 	inet_csk(sk)->icsk_ack.rcv_mss = hint;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_initialize_rcv_mss); */
+EXPORT_SYMBOL(tcp_initialize_rcv_mss);
 
 /* Receiver "autotuning" code.
  *
@@ -3037,7 +3037,7 @@ void tcp_simple_retransmit(struct sock *sk)
 	}
 	tcp_xmit_retransmit_queue(sk);
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_simple_retransmit); */
+EXPORT_SYMBOL(tcp_simple_retransmit);
 
 /* This function implements the PRR algorithm, specifcally the PRR-SSRB
  * (proportional rate reduction with slow start reduction bound) as described in
@@ -3237,7 +3237,7 @@ void tcp_valid_rtt_meas(struct sock *sk, u32 seq_rtt)
 	tcp_set_rto(sk);
 	inet_csk(sk)->icsk_backoff = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_valid_rtt_meas); */
+EXPORT_SYMBOL(tcp_valid_rtt_meas);
 
 /* Read draft-ietf-tcplw-high-performance before mucking
  * with this code. (Supersedes RFC1323)
@@ -4069,7 +4069,7 @@ void tcp_parse_options(const struct sk_buff *skb, struct tcp_options_received *o
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_parse_options); */
+EXPORT_SYMBOL(tcp_parse_options);
 
 static int tcp_parse_aligned_timestamp(struct tcp_sock *tp, const struct tcphdr *th)
 {
@@ -4144,7 +4144,7 @@ const u8 *tcp_parse_md5sig_option(const struct tcphdr *th)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_parse_md5sig_option); */
+EXPORT_SYMBOL(tcp_parse_md5sig_option);
 #endif
 
 /* Sorry, PAWS as specified is broken wrt. pure-ACKs -DaveM
@@ -5674,7 +5674,7 @@ discard:
 	__kfree_skb(skb);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_rcv_established); */
+EXPORT_SYMBOL(tcp_rcv_established);
 
 static int tcp_rcv_synsent_state_process(struct sock *sk, struct sk_buff *skb,
 					 const struct tcphdr *th, unsigned int len)
@@ -6169,4 +6169,4 @@ discard:
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_rcv_state_process); */
+EXPORT_SYMBOL(tcp_rcv_state_process);

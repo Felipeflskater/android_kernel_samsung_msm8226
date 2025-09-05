@@ -153,13 +153,13 @@ int register_keyboard_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_register(&keyboard_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_keyboard_notifier); */
+EXPORT_SYMBOL_GPL(register_keyboard_notifier);
 
 int unregister_keyboard_notifier(struct notifier_block *nb)
 {
 	return atomic_notifier_chain_unregister(&keyboard_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_keyboard_notifier); */
+EXPORT_SYMBOL_GPL(unregister_keyboard_notifier);
 
 /*
  * Translation of scancodes to keycodes. We set them on only the first
@@ -271,7 +271,7 @@ void kd_mksound(unsigned int hz, unsigned int ticks)
 	if (hz && ticks)
 		mod_timer(&kd_mksound_timer, jiffies + ticks);
 }
-/* DISABLED: EXPORT_SYMBOL(kd_mksound); */
+EXPORT_SYMBOL(kd_mksound);
 
 /*
  * Setting the keyboard rate.
@@ -1070,7 +1070,7 @@ int vt_get_leds(int console, int flag)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vt_get_leds); */
+EXPORT_SYMBOL_GPL(vt_get_leds);
 
 /**
  *	vt_set_led_state	-	set LED state of a console

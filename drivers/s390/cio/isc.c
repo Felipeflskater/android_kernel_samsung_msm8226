@@ -36,7 +36,7 @@ void isc_register(unsigned int isc)
 	isc_refs[isc]++;
 	spin_unlock(&isc_ref_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(isc_register); */
+EXPORT_SYMBOL_GPL(isc_register);
 
 /**
  * isc_unregister - unregister an I/O interruption subclass.
@@ -65,4 +65,4 @@ void isc_unregister(unsigned int isc)
 out_unlock:
 	spin_unlock(&isc_ref_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(isc_unregister); */
+EXPORT_SYMBOL_GPL(isc_unregister);

@@ -10,11 +10,11 @@
 
 #include <linux/zlib.h>
 
-/* DISABLED: EXPORT_SYMBOL(zlib_inflate_workspacesize); */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflate); */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflateInit2); */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflateEnd); */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflateReset); */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflateIncomp);  */
-/* DISABLED: EXPORT_SYMBOL(zlib_inflate_blob); */
+EXPORT_SYMBOL(zlib_inflate_workspacesize);
+EXPORT_SYMBOL(zlib_inflate);
+EXPORT_SYMBOL(zlib_inflateInit2);
+EXPORT_SYMBOL(zlib_inflateEnd);
+EXPORT_SYMBOL(zlib_inflateReset);
+EXPORT_SYMBOL(zlib_inflateIncomp); 
+EXPORT_SYMBOL(zlib_inflate_blob);
 MODULE_LICENSE("GPL");

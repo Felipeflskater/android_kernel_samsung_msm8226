@@ -183,7 +183,7 @@ struct neigh_table arp_tbl = {
 	.gc_thresh2	= 512,
 	.gc_thresh3	= 1024,
 };
-/* DISABLED: EXPORT_SYMBOL(arp_tbl); */
+EXPORT_SYMBOL(arp_tbl);
 
 int arp_mc_map(__be32 addr, u8 *haddr, struct net_device *dev, int dir)
 {
@@ -498,7 +498,7 @@ int arp_find(unsigned char *haddr, struct sk_buff *skb)
 		kfree_skb(skb);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(arp_find); */
+EXPORT_SYMBOL(arp_find);
 
 /* END OF OBSOLETE FUNCTIONS */
 
@@ -679,7 +679,7 @@ out:
 	kfree_skb(skb);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(arp_create); */
+EXPORT_SYMBOL(arp_create);
 
 /*
  *	Send an arp packet.
@@ -689,7 +689,7 @@ void arp_xmit(struct sk_buff *skb)
 	/* Send it off, maybe filter it using firewalling first.  */
 	NF_HOOK(NFPROTO_ARP, NF_ARP_OUT, skb, NULL, skb->dev, dev_queue_xmit);
 }
-/* DISABLED: EXPORT_SYMBOL(arp_xmit); */
+EXPORT_SYMBOL(arp_xmit);
 
 /*
  *	Create and send an arp packet.
@@ -715,7 +715,7 @@ void arp_send(int type, int ptype, __be32 dest_ip,
 
 	arp_xmit(skb);
 }
-/* DISABLED: EXPORT_SYMBOL(arp_send); */
+EXPORT_SYMBOL(arp_send);
 
 /*
  *	Process an arp request.
@@ -1128,7 +1128,7 @@ int arp_invalidate(struct net_device *dev, __be32 ip)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(arp_invalidate); */
+EXPORT_SYMBOL(arp_invalidate);
 
 static int arp_req_delete_public(struct net *net, struct arpreq *r,
 		struct net_device *dev)

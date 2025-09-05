@@ -52,7 +52,7 @@
 #ifdef MULTI_PABORT
 	ldr	ip, .LCprocfns
 	mov	lr, pc
-	ldr	pc, [ip, @ PROCESSOR_PABT_FUNC]
+	ldr	pc, [ip, #PROCESSOR_PABT_FUNC]
 #else
 	bl	CPU_PABORT_HANDLER
 #endif
@@ -73,7 +73,7 @@
 #ifdef MULTI_DABORT
 	ldr	ip, .LCprocfns
 	mov	lr, pc
-	ldr	pc, [ip, @ PROCESSOR_DABT_FUNC]
+	ldr	pc, [ip, #PROCESSOR_DABT_FUNC]
 #else
 	bl	CPU_DABORT_HANDLER
 #endif
@@ -89,12 +89,12 @@
  * Invalid mode handlers
  */
 	.macro	inv_entry, reason
-	sub	sp, sp, @ S_FRAME_SIZE
+	sub	sp, sp, #S_FRAME_SIZE
  ARM(	stmib	sp, {r1 - lr}		)
  THUMB(	stmia	sp, {r0 - r12}		)
- THUMB(	str	sp, [sp, @ S_SP]		)
- THUMB(	str	lr, [sp, @ S_LR]		)
-	mov	r1, @ \reason
+ THUMB(	str	sp, [sp, #S_SP]		)
+ THUMB(	str	lr, [sp, #S_LR]		)
+	mov	r1, #\reason
 	.endm
 
 __pabt_invalid:
@@ -126,8 +126,8 @@ common_invalid:
 	zero_fp
 
 	ldmia	r0, {r4 - r6}
-	add	r0, sp, @ S_PC		@ here for interlock avoidance
-	mov	r7, @ -1			@  ""   ""    ""        ""
+	add	r0, sp, #S_PC		@ here for interlock avoidance
+	mov	r7, #-1			@  ""   ""    ""        ""
 	str	r4, [sp]		@ save preserved r0
 	stmia	r0, {r5 - r7}		@ lr_<exception>,
 					@ cpsr_<exception>, "old_r0"
@@ -149,24 +149,24 @@ ENDPROC(__und_invalid)
 	.macro	svc_entry, stack_hole=0
  UNWIND(.fnstart		)
  UNWIND(.save {r0 - pc}		)
-	sub	sp, sp, @ (S_FRAME_SIZE + \stack_hole - 4)
+	sub	sp, sp, #(S_FRAME_SIZE + \stack_hole - 4)
 #ifdef CONFIG_THUMB2_KERNEL
  SPFIX(	str	r0, [sp]	)	@ temporarily saved
  SPFIX(	mov	r0, sp		)
- SPFIX(	tst	r0, @ 4		)	@ test original stack alignment
+ SPFIX(	tst	r0, #4		)	@ test original stack alignment
  SPFIX(	ldr	r0, [sp]	)	@ restored
 #else
- SPFIX(	tst	sp, @ 4		)
+ SPFIX(	tst	sp, #4		)
 #endif
- SPFIX(	subeq	sp, sp, @ 4	)
+ SPFIX(	subeq	sp, sp, #4	)
 	stmia	sp, {r1 - r12}
 
 	ldmia	r0, {r3 - r5}
-	add	r7, sp, @ S_SP - 4	@ here for interlock avoidance
-	mov	r6, @ -1			@  ""  ""      ""       ""
-	add	r2, sp, @ (S_FRAME_SIZE + \stack_hole - 4)
- SPFIX(	addeq	r2, r2, @ 4	)
-	str	r3, [sp, @ -4]!		@ save the "real" r0 copied
+	add	r7, sp, #S_SP - 4	@ here for interlock avoidance
+	mov	r6, #-1			@  ""  ""      ""       ""
+	add	r2, sp, #(S_FRAME_SIZE + \stack_hole - 4)
+ SPFIX(	addeq	r2, r2, #4	)
+	str	r3, [sp, #-4]!		@ save the "real" r0 copied
 					@ from the exception stack
 
 	mov	r3, lr
@@ -199,9 +199,9 @@ __dabt_svc:
 	disable_irq_notrace
 
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -215,11 +215,11 @@ __irq_svc:
 
 #ifdef CONFIG_PREEMPT
 	get_thread_info tsk
-	ldr	r8, [tsk, @ TI_PREEMPT]		@ get preempt count
-	ldr	r0, [tsk, @ TI_FLAGS]		@ get flags
-	teq	r8, @ 0				@ if preempt count != 0
-	movne	r0, @ 0				@ force flags to 0
-	tst	r0, @ _TIF_NEED_RESCHED
+	ldr	r8, [tsk, #TI_PREEMPT]		@ get preempt count
+	ldr	r0, [tsk, #TI_FLAGS]		@ get flags
+	teq	r8, #0				@ if preempt count != 0
+	movne	r0, #0				@ force flags to 0
+	tst	r0, #_TIF_NEED_RESCHED
 	blne	svc_preempt
 #endif
 
@@ -238,8 +238,8 @@ ENDPROC(__irq_svc)
 svc_preempt:
 	mov	r8, lr
 1:	bl	preempt_schedule_irq		@ irq en/disable is done inside
-	ldr	r0, [tsk, @ TI_FLAGS]		@ get new tasks TI_FLAGS
-	tst	r0, @ _TIF_NEED_RESCHED
+	ldr	r0, [tsk, #TI_FLAGS]		@ get new tasks TI_FLAGS
+	tst	r0, #_TIF_NEED_RESCHED
 	moveq	pc, r8				@ go again
 	b	1b
 #endif
@@ -251,9 +251,9 @@ __und_fault:
 	@ subtract 4.  Otherwise, it is Thumb, and the PC will be
 	@ pointing at the second half of the Thumb instruction.  We
 	@ have to subtract 2.
-	ldr	r2, [r0, @ S_PC]
+	ldr	r2, [r0, #S_PC]
 	sub	r2, r2, r1
-	str	r2, [r0, @ S_PC]
+	str	r2, [r0, #S_PC]
 	b	do_undefinstr
 ENDPROC(__und_fault)
 
@@ -275,22 +275,22 @@ __und_svc:
 	@  r0 - instruction
 	@
 #ifndef CONFIG_THUMB2_KERNEL
-	ldr	r0, [r4, @ -4]
+	ldr	r0, [r4, #-4]
 #else
-	mov	r1, @ 2
-	ldrh	r0, [r4, @ -2]			@ Thumb instruction at LR - 2
-	cmp	r0, @ 0xe800			@ 32-bit instruction if xx >= 0
+	mov	r1, #2
+	ldrh	r0, [r4, #-2]			@ Thumb instruction at LR - 2
+	cmp	r0, #0xe800			@ 32-bit instruction if xx >= 0
 	blo	__und_svc_fault
 	ldrh	r9, [r4]			@ bottom 16 bits
-	add	r4, r4, @ 2
-	str	r4, [sp, @ S_PC]
-	orr	r0, r9, r0, lsl @ 16
+	add	r4, r4, #2
+	str	r4, [sp, #S_PC]
+	orr	r0, r9, r0, lsl #16
 #endif
 	adr	r9, BSYM(__und_svc_finish)
 	mov	r2, r4
 	bl	call_fpe
 
-	mov	r1, @ 4				@ PC correction to apply
+	mov	r1, #4				@ PC correction to apply
 __und_svc_fault:
 	mov	r0, sp				@ struct pt_regs *regs
 	bl	__und_fault
@@ -304,11 +304,11 @@ __und_svc_finish:
 	@
 	@ restore SPSR and restart the instruction
 	@
-	ldr	r5, [sp, @ S_PSR]		@ Get SVC cpsr
+	ldr	r5, [sp, #S_PSR]		@ Get SVC cpsr
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -327,9 +327,9 @@ __pabt_svc:
 	disable_irq_notrace
 
 #ifdef CONFIG_TRACE_IRQFLAGS
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	bleq	trace_hardirqs_on
-	tst	r5, @ PSR_I_BIT
+	tst	r5, #PSR_I_BIT
 	blne	trace_hardirqs_off
 #endif
 	svc_exit r5				@ return from exception
@@ -353,19 +353,19 @@ ENDPROC(__pabt_svc)
  */
 
 #if defined(CONFIG_AEABI) && (__LINUX_ARM_ARCH__ >= 5) && (S_FRAME_SIZE & 7)
-@ warning "pt_regs alignment checked at build time"
+#error "sizeof(struct pt_regs) must be a multiple of 8"
 #endif
 
 	.macro	usr_entry
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)	@ don't unwind the user space
-	sub	sp, sp, @ S_FRAME_SIZE
+	sub	sp, sp, #S_FRAME_SIZE
  ARM(	stmib	sp, {r1 - r12}	)
  THUMB(	stmia	sp, {r0 - r12}	)
 
 	ldmia	r0, {r3 - r5}
-	add	r0, sp, @ S_PC		@ here for interlock avoidance
-	mov	r6, @ -1			@  ""  ""     ""        ""
+	add	r0, sp, #S_PC		@ here for interlock avoidance
+	mov	r6, #-1			@  ""  ""     ""        ""
 
 	str	r3, [sp]		@ save the "real" r0 copied
 					@ from the exception stack
@@ -401,13 +401,13 @@ ENDPROC(__pabt_svc)
 	.macro	kuser_cmpxchg_check
 #if !defined(CONFIG_CPU_32v6K) && !defined(CONFIG_NEEDS_SYSCALL_FOR_CMPXCHG)
 #ifndef CONFIG_MMU
-@ warning "NPTL on non MMU needs fixing"
+#warning "NPTL on non MMU needs fixing"
 #else
 	@ Make sure our user space atomic helper is restarted
 	@ if it was interrupted in a critical region.  Here we
 	@ perform a quick test inline since it should be false
 	@ 99.9999% of the time.  The rest is done out of line.
-	cmp	r4, @ TASK_SIZE
+	cmp	r4, #TASK_SIZE
 	blhs	kuser_cmpxchg64_fixup
 #endif
 #endif
@@ -429,7 +429,7 @@ __irq_usr:
 	kuser_cmpxchg_check
 	irq_handler
 	get_thread_info tsk
-	mov	why, @ 0
+	mov	why, #0
 	b	ret_to_user_from_irq
  UNWIND(.fnend		)
 ENDPROC(__irq_usr)
@@ -453,9 +453,9 @@ __und_usr:
 	@
 	adr	r9, BSYM(ret_from_exception)
 
-	tst	r3, @ PSR_T_BIT			@ Thumb mode?
+	tst	r3, #PSR_T_BIT			@ Thumb mode?
 	bne	__und_usr_thumb
-	sub	r4, r2, @ 4			@ ARM instr at LR - 4
+	sub	r4, r2, #4			@ ARM instr at LR - 4
 1:	ldrt	r0, [r4]
 #ifdef CONFIG_CPU_ENDIAN_BE8
 	rev	r0, r0				@ little endian instruction
@@ -469,7 +469,7 @@ __und_usr:
 
 __und_usr_thumb:
 	@ Thumb instruction
-	sub	r4, r2, @ 2			@ First half of thumb instr at LR - 2
+	sub	r4, r2, #2			@ First half of thumb instr at LR - 2
 #if CONFIG_ARM_THUMB && __LINUX_ARM_ARCH__ >= 6 && CONFIG_CPU_V7
 /*
  * Thumb-2 instruction handling.  Note that because pre-v6 and >= v6 platforms
@@ -482,7 +482,7 @@ __und_usr_thumb:
 #define NEED_CPU_ARCHITECTURE
 	ldr	r5, .LCcpu_architecture
 	ldr	r5, [r5]
-	cmp	r5, @ CPU_ARCH_ARMv7
+	cmp	r5, #CPU_ARCH_ARMv7
 	blo	__und_usr_fault_16		@ 16bit undefined instruction
 /*
  * The following code won't get run unless the running CPU really is v7, so
@@ -492,12 +492,12 @@ __und_usr_thumb:
 	.arch	armv6t2
 #endif
 2:	ldrht	r5, [r4]
-	cmp	r5, @ 0xe800			@ 32bit instruction if xx != 0
+	cmp	r5, #0xe800			@ 32bit instruction if xx != 0
 	blo	__und_usr_fault_16		@ 16bit undefined instruction
 3:	ldrht	r0, [r2]
-	add	r2, r2, @ 2			@ r2 is PC + 2, make it PC + 4
-	str	r2, [sp, @ S_PC]			@ it's a 2x16bit instr, update
-	orr	r0, r0, r5, lsl @ 16
+	add	r2, r2, #2			@ r2 is PC + 2, make it PC + 4
+	str	r2, [sp, #S_PC]			@ it's a 2x16bit instr, update
+	orr	r0, r0, r5, lsl #16
 	adr	lr, BSYM(__und_usr_fault_32)
 	@ r0 = the two 16-bit Thumb instructions which caused the exception
 	@ r2 = PC value for the following Thumb instruction (:= regs->ARM_pc)
@@ -568,73 +568,73 @@ call_fpe:
 #ifdef CONFIG_NEON
 	adr	r6, .LCneon_arm_opcodes
 2:
-	ldr	r7, [r6], @ 4			@ mask value
-	cmp	r7, @ 0				@ end mask?
+	ldr	r7, [r6], #4			@ mask value
+	cmp	r7, #0				@ end mask?
 	beq	1f
 	and	r8, r0, r7
-	ldr	r7, [r6], @ 4			@ opcode bits matching in mask
+	ldr	r7, [r6], #4			@ opcode bits matching in mask
 	cmp	r8, r7				@ NEON instruction?
 	bne	2b
 	get_thread_info r10
-	mov	r7, @ 1
-	strb	r7, [r10, @ TI_USED_CP + 10]	@ mark CP@ 10 as used
-	strb	r7, [r10, @ TI_USED_CP + 11]	@ mark CP@ 11 as used
+	mov	r7, #1
+	strb	r7, [r10, #TI_USED_CP + 10]	@ mark CP#10 as used
+	strb	r7, [r10, #TI_USED_CP + 11]	@ mark CP#11 as used
 	b	do_vfp				@ let VFP handler handle this
 1:
 #endif
-	tst	r0, @ 0x08000000			@ only CDP/CPRT/LDC/STC have bit 27
-	tstne	r0, @ 0x04000000			@ bit 26 set on both ARM and Thumb-2
+	tst	r0, #0x08000000			@ only CDP/CPRT/LDC/STC have bit 27
+	tstne	r0, #0x04000000			@ bit 26 set on both ARM and Thumb-2
 #if defined(CONFIG_CPU_ARM610) || defined(CONFIG_CPU_ARM710)
-	and	r8, r0, @ 0x0f000000		@ mask out op-code bits
-	teqne	r8, @ 0x0f000000			@ SWI (ARM6/7 bug)?
+	and	r8, r0, #0x0f000000		@ mask out op-code bits
+	teqne	r8, #0x0f000000			@ SWI (ARM6/7 bug)?
 #endif
 	moveq	pc, lr
 	get_thread_info r10			@ get current thread
-	and	r8, r0, @ 0x00000f00		@ mask out CP number
- THUMB(	lsr	r8, r8, @ 8		)
-	mov	r7, @ 1
-	add	r6, r10, @ TI_USED_CP
- ARM(	strb	r7, [r6, r8, lsr @ 8]	)	@ set appropriate used_cp[]
+	and	r8, r0, #0x00000f00		@ mask out CP number
+ THUMB(	lsr	r8, r8, #8		)
+	mov	r7, #1
+	add	r6, r10, #TI_USED_CP
+ ARM(	strb	r7, [r6, r8, lsr #8]	)	@ set appropriate used_cp[]
  THUMB(	strb	r7, [r6, r8]		)	@ set appropriate used_cp[]
 #ifdef CONFIG_IWMMXT
 	@ Test if we need to give access to iWMMXt coprocessors
-	ldr	r5, [r10, @ TI_FLAGS]
-	rsbs	r7, r8, @ (1 << 8)		@ CP 0 or 1 only
-	movcss	r7, r5, lsr @ (TIF_USING_IWMMXT + 1)
+	ldr	r5, [r10, #TI_FLAGS]
+	rsbs	r7, r8, #(1 << 8)		@ CP 0 or 1 only
+	movcss	r7, r5, lsr #(TIF_USING_IWMMXT + 1)
 	bcs	iwmmxt_task_enable
 #endif
- ARM(	add	pc, pc, r8, lsr @ 6	)
- THUMB(	lsl	r8, r8, @ 2		)
+ ARM(	add	pc, pc, r8, lsr #6	)
+ THUMB(	lsl	r8, r8, #2		)
  THUMB(	add	pc, r8			)
 	nop
 
-	movw_pc	lr				@ CP@ 0
-	W(b)	do_fpe				@ CP@ 1 (FPE)
-	W(b)	do_fpe				@ CP@ 2 (FPE)
-	movw_pc	lr				@ CP@ 3
+	movw_pc	lr				@ CP#0
+	W(b)	do_fpe				@ CP#1 (FPE)
+	W(b)	do_fpe				@ CP#2 (FPE)
+	movw_pc	lr				@ CP#3
 #ifdef CONFIG_CRUNCH
-	b	crunch_task_enable		@ CP@ 4 (MaverickCrunch)
-	b	crunch_task_enable		@ CP@ 5 (MaverickCrunch)
-	b	crunch_task_enable		@ CP@ 6 (MaverickCrunch)
+	b	crunch_task_enable		@ CP#4 (MaverickCrunch)
+	b	crunch_task_enable		@ CP#5 (MaverickCrunch)
+	b	crunch_task_enable		@ CP#6 (MaverickCrunch)
 #else
-	movw_pc	lr				@ CP@ 4
-	movw_pc	lr				@ CP@ 5
-	movw_pc	lr				@ CP@ 6
+	movw_pc	lr				@ CP#4
+	movw_pc	lr				@ CP#5
+	movw_pc	lr				@ CP#6
 #endif
-	movw_pc	lr				@ CP@ 7
-	movw_pc	lr				@ CP@ 8
-	movw_pc	lr				@ CP@ 9
+	movw_pc	lr				@ CP#7
+	movw_pc	lr				@ CP#8
+	movw_pc	lr				@ CP#9
 #ifdef CONFIG_VFP
-	W(b)	do_vfp				@ CP@ 10 (VFP)
-	W(b)	do_vfp				@ CP@ 11 (VFP)
+	W(b)	do_vfp				@ CP#10 (VFP)
+	W(b)	do_vfp				@ CP#11 (VFP)
 #else
-	movw_pc	lr				@ CP@ 10 (VFP)
-	movw_pc	lr				@ CP@ 11 (VFP)
+	movw_pc	lr				@ CP#10 (VFP)
+	movw_pc	lr				@ CP#11 (VFP)
 #endif
-	movw_pc	lr				@ CP@ 12
-	movw_pc	lr				@ CP@ 13
-	movw_pc	lr				@ CP@ 14 (Debug)
-	movw_pc	lr				@ CP@ 15 (Control)
+	movw_pc	lr				@ CP#12
+	movw_pc	lr				@ CP#13
+	movw_pc	lr				@ CP#14 (Debug)
+	movw_pc	lr				@ CP#15 (Control)
 
 #ifdef NEED_CPU_ARCHITECTURE
 	.align	2
@@ -668,7 +668,7 @@ call_fpe:
 
 do_fpe:
 	ldr	r4, .LCfp
-	add	r10, r10, @ TI_FPSTATE		@ r10 = workspace
+	add	r10, r10, #TI_FPSTATE		@ r10 = workspace
 	ldr	pc, [r4]			@ Call FP module USR entry point
 
 /*
@@ -690,10 +690,10 @@ ENTRY(no_fp)
 ENDPROC(no_fp)
 
 __und_usr_fault_32:
-	mov	r1, @ 4
+	mov	r1, #4
 	b	1f
 __und_usr_fault_16:
-	mov	r1, @ 2
+	mov	r1, #2
 1:	enable_irq
 	mov	r0, sp
 	adr	lr, BSYM(ret_from_exception)
@@ -715,7 +715,7 @@ ENTRY(ret_from_exception)
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)
 	get_thread_info tsk
-	mov	why, @ 0
+	mov	why, #0
 	b	ret_to_user
  UNWIND(.fnend		)
 ENDPROC(__pabt_usr)
@@ -729,29 +729,29 @@ ENDPROC(ret_from_exception)
 ENTRY(__switch_to)
  UNWIND(.fnstart	)
  UNWIND(.cantunwind	)
-	add	ip, r1, @ TI_CPU_SAVE
+	add	ip, r1, #TI_CPU_SAVE
  ARM(	stmia	ip!, {r4 - sl, fp, sp, lr} )	@ Store most regs on stack
  THUMB(	stmia	ip!, {r4 - sl, fp}	   )	@ Store most regs on stack
- THUMB(	str	sp, [ip], @ 4		   )
- THUMB(	str	lr, [ip], @ 4		   )
-	ldr	r4, [r2, @ TI_TP_VALUE]
-	ldr	r5, [r2, @ TI_TP_VALUE + 4]
+ THUMB(	str	sp, [ip], #4		   )
+ THUMB(	str	lr, [ip], #4		   )
+	ldr	r4, [r2, #TI_TP_VALUE]
+	ldr	r5, [r2, #TI_TP_VALUE + 4]
 #ifdef CONFIG_CPU_USE_DOMAINS
-	ldr	r6, [r2, @ TI_CPU_DOMAIN]
+	ldr	r6, [r2, #TI_CPU_DOMAIN]
 #endif
 	switch_tls r1, r4, r5, r3, r7
 #if defined(CONFIG_CC_STACKPROTECTOR) && !defined(CONFIG_SMP)
-	ldr	r7, [r2, @ TI_TASK]
+	ldr	r7, [r2, #TI_TASK]
 	ldr	r8, =__stack_chk_guard
-	ldr	r7, [r7, @ TSK_STACK_CANARY]
+	ldr	r7, [r7, #TSK_STACK_CANARY]
 #endif
 #ifdef CONFIG_CPU_USE_DOMAINS
 	mcr	p15, 0, r6, c3, c0, 0		@ Set domain register
 #endif
 	mov	r5, r0
-	add	r4, r2, @ TI_CPU_SAVE
+	add	r4, r2, #TI_CPU_SAVE
 	ldr	r0, =thread_notify_head
-	mov	r1, @ THREAD_NOTIFY_SWITCH
+	mov	r1, #THREAD_NOTIFY_SWITCH
 	bl	atomic_notifier_call_chain
 #if defined(CONFIG_CC_STACKPROTECTOR) && !defined(CONFIG_SMP)
 	str	r7, [r8]
@@ -760,7 +760,7 @@ ENTRY(__switch_to)
 	mov	r0, r5
  ARM(	ldmia	r4, {r4 - sl, fp, sp, pc}  )	@ Load all regs saved previously
  THUMB(	ldmia	ip!, {r4 - sl, fp}	   )	@ Load all regs saved previously
- THUMB(	ldr	sp, [ip], @ 4		   )
+ THUMB(	ldr	sp, [ip], #4		   )
  THUMB(	ldr	pc, [ip]		   )
  UNWIND(.fnend		)
 ENDPROC(__switch_to)
@@ -811,8 +811,8 @@ __kuser_helper_start:
  *
  *  Definition and user space usage example:
  *
- * @ define __kernel_helper_gtod_timezone (*(unsigned int*)0xffff0f20)
- * @ define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f28)
+ *      #define __kernel_helper_gtod_timezone (*(unsigned int*)0xffff0f20)
+ *      #define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f28)
  *
  *      unsigned int prelock, postlock ;
  *      do {
@@ -824,7 +824,7 @@ __kuser_helper_start:
  *
  * 0xffff0f20-3: tz_minuteswest
  * 0xffff0f24-7: tz_dsttime
- * 0xffff0f28-b: sequence @ .
+ * 0xffff0f28-b: sequence #.
  * 0xffff0f30-3: offset into CONFIG_USER_ACCESSIBLE_TIMER_BASE to get the timer.
  * 0xffff0f34-7: Feature flag
  * 0xffff0f38-b: wall-to-mononic: tv_sec
@@ -853,8 +853,8 @@ __kuser_gtod_timezone: @0xffff0f20
  *
  *  Definition and user space usage example:
  *
- * @ define __kernel_helper_gtod_timeval (*(unsigned int*)0xffff0f40)
- * @ define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f48)
+ *      #define __kernel_helper_gtod_timeval (*(unsigned int*)0xffff0f40)
+ *      #define __kernel_helper_gtod_seqnum   (*(unsigned int*)0xffff0f48)
  *
  *      unsigned int prelock, postlock ;
  *      struct gtod {
@@ -924,10 +924,10 @@ __kuser_cmpxchg64:				@ 0xffff0f60
 	eors	r3, r0, r4			@ compare with oldval (1)
 	eoreqs	r3, r1, r5			@ compare with oldval (2)
 	strexdeq r3, r6, r7, [r2]		@ store newval if eq
-	teqeq	r3, @ 1				@ success?
+	teqeq	r3, #1				@ success?
 	beq	1b				@ if no then retry
 	smp_dmb	arm
-	rsbs	r0, r3, @ 0			@ set returned val and C flag
+	rsbs	r0, r3, #0			@ set returned val and C flag
 	ldmfd	sp!, {r4, r5, r6, r7}
 	usr_ret	lr
 
@@ -948,7 +948,7 @@ __kuser_cmpxchg64:				@ 0xffff0f60
 	eors	r3, r0, r4			@ compare with oldval (1)
 	eoreqs	r3, r1, r5			@ compare with oldval (2)
 2:	stmeqia	r2, {r6, lr}			@ store newval if eq
-	rsbs	r0, r3, @ 0			@ set return val and C flag
+	rsbs	r0, r3, #0			@ set return val and C flag
 	ldmfd	sp!, {r4, r5, r6, pc}
 
 	.text
@@ -958,11 +958,11 @@ kuser_cmpxchg64_fixup:
 	@ sp = saved regs. r7 and r8 are clobbered.
 	@ 1b = first critical insn, 2b = last critical insn.
 	@ If r4 >= 1b and r4 <= 2b then saved pc_usr is set to 1b.
-	mov	r7, @ 0xffff0fff
-	sub	r7, r7, @ (0xffff0fff - (0xffff0f60 + (1b - __kuser_cmpxchg64)))
+	mov	r7, #0xffff0fff
+	sub	r7, r7, #(0xffff0fff - (0xffff0f60 + (1b - __kuser_cmpxchg64)))
 	subs	r8, r4, r7
-	rsbcss	r8, r8, @ (2b - 1b)
-	strcs	r7, [sp, @ S_PC]
+	rsbcss	r8, r8, #(2b - 1b)
+	strcs	r7, [sp, #S_PC]
 #if __LINUX_ARM_ARCH__ < 6
 	bcc	kuser_cmpxchg32_fixup
 #endif
@@ -970,14 +970,14 @@ kuser_cmpxchg64_fixup:
 	.previous
 
 #else
-@ warning "NPTL on non MMU needs fixing"
-	mov	r0, @ -1
-	adds	r0, r0, @ 0
+#warning "NPTL on non MMU needs fixing"
+	mov	r0, #-1
+	adds	r0, r0, #0
 	usr_ret	lr
 #endif
 
 #else
-@ warning "kernel configuration verified"
+#error "incoherent kernel configuration"
 #endif
 
 	kuser_pad __kuser_cmpxchg64, 64
@@ -1019,7 +1019,7 @@ __kuser_cmpxchg:				@ 0xffff0fc0
 1:	ldr	r3, [r2]			@ load current val
 	subs	r3, r3, r0			@ compare with oldval
 2:	streq	r1, [r2]			@ store newval if eq
-	rsbs	r0, r3, @ 0			@ set return val and C flag
+	rsbs	r0, r3, #0			@ set return val and C flag
 	usr_ret	lr
 
 	.text
@@ -1029,18 +1029,18 @@ kuser_cmpxchg32_fixup:
 	@ sp = saved regs. r7 and r8 are clobbered.
 	@ 1b = first critical insn, 2b = last critical insn.
 	@ If r4 >= 1b and r4 <= 2b then saved pc_usr is set to 1b.
-	mov	r7, @ 0xffff0fff
-	sub	r7, r7, @ (0xffff0fff - (0xffff0fc0 + (1b - __kuser_cmpxchg)))
+	mov	r7, #0xffff0fff
+	sub	r7, r7, #(0xffff0fff - (0xffff0fc0 + (1b - __kuser_cmpxchg)))
 	subs	r8, r4, r7
-	rsbcss	r8, r8, @ (2b - 1b)
-	strcs	r7, [sp, @ S_PC]
+	rsbcss	r8, r8, #(2b - 1b)
+	strcs	r7, [sp, #S_PC]
 	mov	pc, lr
 	.previous
 
 #else
-@ warning "NPTL on non MMU needs fixing"
-	mov	r0, @ -1
-	adds	r0, r0, @ 0
+#warning "NPTL on non MMU needs fixing"
+	mov	r0, #-1
+	adds	r0, r0, #0
 	usr_ret	lr
 #endif
 
@@ -1050,9 +1050,9 @@ kuser_cmpxchg32_fixup:
 1:	ldrex	r3, [r2]
 	subs	r3, r3, r0
 	strexeq	r3, r1, [r2]
-	teqeq	r3, @ 1
+	teqeq	r3, #1
 	beq	1b
-	rsbs	r0, r3, @ 0
+	rsbs	r0, r3, #0
 	/* beware -- each __kuser slot must be 8 instructions max */
 	ALT_SMP(b	__kuser_memory_barrier)
 	ALT_UP(usr_ret	lr)
@@ -1062,7 +1062,7 @@ kuser_cmpxchg32_fixup:
 	kuser_pad __kuser_cmpxchg, 32
 
 __kuser_get_tls:				@ 0xffff0fe0
-	ldr	r0, [pc, @ (16 - 8)]	@ read TLS, set in kuser_get_tls_init
+	ldr	r0, [pc, #(16 - 8)]	@ read TLS, set in kuser_get_tls_init
 	usr_ret	lr
 	mrc	p15, 0, r0, c13, c0, 3	@ 0xffff0fe8 hardware TLS code
 	kuser_pad __kuser_get_tls, 16
@@ -1098,7 +1098,7 @@ __kuser_helper_end:
 
 vector_\name:
 	.if \correction
-	sub	lr, lr, @ \correction
+	sub	lr, lr, #\correction
 	.endif
 
 	@
@@ -1107,35 +1107,35 @@ vector_\name:
 	@
 	stmia	sp, {r0, lr}		@ save r0, lr
 	mrs	lr, spsr
-	str	lr, [sp, @ 8]		@ save spsr
+	str	lr, [sp, #8]		@ save spsr
 
 	@
 	@ Prepare for SVC32 mode.  IRQs remain disabled.
 	@
 	mrs	r0, cpsr
-	eor	r0, r0, @ (\mode ^ SVC_MODE | PSR_ISETSTATE)
+	eor	r0, r0, #(\mode ^ SVC_MODE | PSR_ISETSTATE)
 	msr	spsr_cxsf, r0
 
 	@
 	@ the branch table must immediately follow this code
 	@
-	and	lr, lr, @ 0x0f
+	and	lr, lr, #0x0f
  THUMB(	adr	r0, 1f			)
- THUMB(	ldr	lr, [r0, lr, lsl @ 2]	)
+ THUMB(	ldr	lr, [r0, lr, lsl #2]	)
 	.if	\fixup
 #ifdef CONFIG_MSM_KRAIT_WFE_FIXUP
 	ldr	r0, .krait_fixup
 	ldr	r0, [r0]
-	cmp	r0, @ 0
+	cmp	r0, #0
 	beq	10f
 	mrc	p15, 7, r0, c15, c0, 5
-	orr	r0, r0, @ 0x10000
+	orr	r0, r0, #0x10000
 	mcr	p15, 7, r0, c15, c0, 5
 10:	isb
 #endif
 	.endif
 	mov	r0, sp
- ARM(	ldr	lr, [pc, lr, lsl @ 2]	)
+ ARM(	ldr	lr, [pc, lr, lsl #2]	)
 	movs	pc, lr			@ branch to handler in SVC mode
 ENDPROC(vector_\name)
 
@@ -1151,7 +1151,7 @@ __stubs_start:
 
 vector_rst:
  ARM(	swi	SYS_ERROR0	)
- THUMB(	svc	@ 0		)
+ THUMB(	svc	#0		)
  THUMB(	nop			)
 	b	vector_und
 
@@ -1269,7 +1269,7 @@ vector_addrexcptn:
  * get out of that mode without clobbering one register.
  */
 vector_fiq:
-	subs	pc, lr, @ 4
+	subs	pc, lr, #4
 
 .krait_fixup:
 	.word	msm_krait_need_wfe_fixup

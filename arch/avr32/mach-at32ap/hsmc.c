@@ -133,7 +133,7 @@ void smc_set_timing(struct smc_config *config,
 	if (config->write_cycle < cycle)
 		config->write_cycle = cycle;
 }
-/* DISABLED: EXPORT_SYMBOL(smc_set_timing); */
+EXPORT_SYMBOL(smc_set_timing);
 
 int smc_set_configuration(int cs, const struct smc_config *config)
 {
@@ -212,7 +212,7 @@ int smc_set_configuration(int cs, const struct smc_config *config)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(smc_set_configuration); */
+EXPORT_SYMBOL(smc_set_configuration);
 
 static int hsmc_probe(struct platform_device *pdev)
 {

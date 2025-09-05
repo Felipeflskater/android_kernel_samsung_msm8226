@@ -354,7 +354,7 @@ int sirdev_set_dongle(struct sir_dev *dev, IRDA_DONGLE type)
 	up(&dev->fsm.sem);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_set_dongle); */
+EXPORT_SYMBOL(sirdev_set_dongle);
 
 /* used by dongle drivers for dongle programming */
 
@@ -389,7 +389,7 @@ int sirdev_raw_write(struct sir_dev *dev, const char *buf, int len)
 	spin_unlock_irqrestore(&dev->tx_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_raw_write); */
+EXPORT_SYMBOL(sirdev_raw_write);
 
 /* seems some dongle drivers may need this */
 
@@ -412,7 +412,7 @@ int sirdev_raw_read(struct sir_dev *dev, char *buf, int len)
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_raw_read); */
+EXPORT_SYMBOL(sirdev_raw_read);
 
 int sirdev_set_dtr_rts(struct sir_dev *dev, int dtr, int rts)
 {
@@ -421,7 +421,7 @@ int sirdev_set_dtr_rts(struct sir_dev *dev, int dtr, int rts)
 		ret =  dev->drv->set_dtr_rts(dev, dtr, rts);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_set_dtr_rts); */
+EXPORT_SYMBOL(sirdev_set_dtr_rts);
 
 /**********************************************************************/
 
@@ -525,7 +525,7 @@ void sirdev_write_complete(struct sir_dev *dev)
 done:
 	spin_unlock_irqrestore(&dev->tx_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_write_complete); */
+EXPORT_SYMBOL(sirdev_write_complete);
 
 /* called from client driver - likely with bh-context - to give us
  * some more received bytes. We put them into the rx-buffer,
@@ -578,7 +578,7 @@ int sirdev_receive(struct sir_dev *dev, const unsigned char *cp, size_t count)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_receive); */
+EXPORT_SYMBOL(sirdev_receive);
 
 /**********************************************************************/
 
@@ -930,7 +930,7 @@ out_freenetdev:
 out:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_get_instance); */
+EXPORT_SYMBOL(sirdev_get_instance);
 
 int sirdev_put_instance(struct sir_dev *dev)
 {
@@ -963,7 +963,7 @@ int sirdev_put_instance(struct sir_dev *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sirdev_put_instance); */
+EXPORT_SYMBOL(sirdev_put_instance);
 
 static int __init sir_wq_init(void)
 {

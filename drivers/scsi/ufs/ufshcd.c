@@ -1627,7 +1627,7 @@ int ufshcd_suspend(struct ufs_hba *hba, pm_message_t state)
 
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ufshcd_suspend); */
+EXPORT_SYMBOL_GPL(ufshcd_suspend);
 
 /**
  * ufshcd_resume - resume power management function
@@ -1648,7 +1648,7 @@ int ufshcd_resume(struct ufs_hba *hba)
 
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ufshcd_resume); */
+EXPORT_SYMBOL_GPL(ufshcd_resume);
 
 /**
  * ufshcd_remove - de-allocate SCSI host and host memory space
@@ -1664,7 +1664,7 @@ void ufshcd_remove(struct ufs_hba *hba)
 	scsi_remove_host(hba->host);
 	scsi_host_put(hba->host);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ufshcd_remove); */
+EXPORT_SYMBOL_GPL(ufshcd_remove);
 
 /**
  * ufshcd_init - Driver initialization routine
@@ -1790,7 +1790,7 @@ out_disable:
 out_error:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ufshcd_init); */
+EXPORT_SYMBOL_GPL(ufshcd_init);
 
 MODULE_AUTHOR("Santosh Yaragnavi <santosh.sy@samsung.com>");
 MODULE_AUTHOR("Vinayak Holikatti <h.vinayak@samsung.com>");

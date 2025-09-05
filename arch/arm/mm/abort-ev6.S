@@ -27,8 +27,8 @@ ENTRY(v6_early_abort)
 	mrc	p15, 0, r3, c0, c0, 0		@ get processor id
 	teq	ip, r3, lsr #4			@ r0 ARM1136?
 	bne	do_DataAbort
-	tst	r5, @ PSR_J_BIT			@ Java?
-	tsteq	r5, @ PSR_T_BIT			@ Thumb?
+	tst	r5, #PSR_J_BIT			@ Java?
+	tsteq	r5, #PSR_T_BIT			@ Thumb?
 	bne	do_DataAbort
 	bic	r1, r1, #1 << 11		@ clear bit 11 of FSR
 	ldr	r3, [r4]			@ read aborted ARM instruction

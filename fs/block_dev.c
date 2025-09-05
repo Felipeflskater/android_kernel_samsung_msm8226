@@ -46,7 +46,7 @@ inline struct block_device *I_BDEV(struct inode *inode)
 {
 	return &BDEV_I(inode)->bdev;
 }
-/* DISABLED: EXPORT_SYMBOL(I_BDEV); */
+EXPORT_SYMBOL(I_BDEV);
 
 /*
  * Move the inode from its current bdi to a new bdi. If the inode is dirty we
@@ -101,7 +101,7 @@ void kill_bdev(struct block_device *bdev)
 	invalidate_bh_lrus();
 	truncate_inode_pages(mapping, 0);
 }	
-/* DISABLED: EXPORT_SYMBOL(kill_bdev); */
+EXPORT_SYMBOL(kill_bdev);
 
 /* Invalidate clean unused buffers and pagecache. */
 void invalidate_bdev(struct block_device *bdev)
@@ -119,7 +119,7 @@ void invalidate_bdev(struct block_device *bdev)
 	 */
 	cleancache_invalidate_inode(mapping);
 }
-/* DISABLED: EXPORT_SYMBOL(invalidate_bdev); */
+EXPORT_SYMBOL(invalidate_bdev);
 
 int set_blocksize(struct block_device *bdev, int size)
 {
@@ -141,7 +141,7 @@ int set_blocksize(struct block_device *bdev, int size)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_blocksize); */
+EXPORT_SYMBOL(set_blocksize);
 
 int sb_set_blocksize(struct super_block *sb, int size)
 {
@@ -154,7 +154,7 @@ int sb_set_blocksize(struct super_block *sb, int size)
 	return sb->s_blocksize;
 }
 
-/* DISABLED: EXPORT_SYMBOL(sb_set_blocksize); */
+EXPORT_SYMBOL(sb_set_blocksize);
 
 int sb_min_blocksize(struct super_block *sb, int size)
 {
@@ -164,7 +164,7 @@ int sb_min_blocksize(struct super_block *sb, int size)
 	return sb_set_blocksize(sb, size);
 }
 
-/* DISABLED: EXPORT_SYMBOL(sb_min_blocksize); */
+EXPORT_SYMBOL(sb_min_blocksize);
 
 static int
 blkdev_get_block(struct inode *inode, sector_t iblock,
@@ -244,7 +244,7 @@ int sync_blockdev(struct block_device *bdev)
 {
 	return __sync_blockdev(bdev, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(sync_blockdev); */
+EXPORT_SYMBOL(sync_blockdev);
 
 /*
  * Write out and wait upon all dirty data associated with this
@@ -261,7 +261,7 @@ int fsync_bdev(struct block_device *bdev)
 	}
 	return sync_blockdev(bdev);
 }
-/* DISABLED: EXPORT_SYMBOL(fsync_bdev); */
+EXPORT_SYMBOL(fsync_bdev);
 
 /**
  * freeze_bdev  --  lock a filesystem and force it into a consistent state
@@ -309,7 +309,7 @@ struct super_block *freeze_bdev(struct block_device *bdev)
 	mutex_unlock(&bdev->bd_fsfreeze_mutex);
 	return sb;	/* thaw_bdev releases s->s_umount */
 }
-/* DISABLED: EXPORT_SYMBOL(freeze_bdev); */
+EXPORT_SYMBOL(freeze_bdev);
 
 /**
  * thaw_bdev  -- unlock filesystem
@@ -343,7 +343,7 @@ out:
 	mutex_unlock(&bdev->bd_fsfreeze_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(thaw_bdev); */
+EXPORT_SYMBOL(thaw_bdev);
 
 static int blkdev_writepage(struct page *page, struct writeback_control *wbc)
 {
@@ -434,7 +434,7 @@ int blkdev_fsync(struct file *filp, loff_t start, loff_t end, int datasync)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_fsync); */
+EXPORT_SYMBOL(blkdev_fsync);
 
 /*
  * pseudo-fs
@@ -600,7 +600,7 @@ struct block_device *bdget(dev_t dev)
 	return bdev;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bdget); */
+EXPORT_SYMBOL(bdget);
 
 /**
  * bdgrab -- Grab a reference to an already referenced block device
@@ -611,7 +611,7 @@ struct block_device *bdgrab(struct block_device *bdev)
 	ihold(bdev->bd_inode);
 	return bdev;
 }
-/* DISABLED: EXPORT_SYMBOL(bdgrab); */
+EXPORT_SYMBOL(bdgrab);
 
 long nr_blockdev_pages(void)
 {
@@ -630,7 +630,7 @@ void bdput(struct block_device *bdev)
 	iput(bdev->bd_inode);
 }
 
-/* DISABLED: EXPORT_SYMBOL(bdput); */
+EXPORT_SYMBOL(bdput);
  
 static struct block_device *bd_acquire(struct inode *inode)
 {
@@ -945,7 +945,7 @@ out_unlock:
 	mutex_unlock(&bdev->bd_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bd_link_disk_holder); */
+EXPORT_SYMBOL_GPL(bd_link_disk_holder);
 
 /**
  * bd_unlink_disk_holder - destroy symlinks created by bd_link_disk_holder()
@@ -976,7 +976,7 @@ void bd_unlink_disk_holder(struct block_device *bdev, struct gendisk *disk)
 
 	mutex_unlock(&bdev->bd_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bd_unlink_disk_holder); */
+EXPORT_SYMBOL_GPL(bd_unlink_disk_holder);
 #endif
 
 /**
@@ -1031,7 +1031,7 @@ void check_disk_size_change(struct gendisk *disk, struct block_device *bdev)
 		flush_disk(bdev, false);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(check_disk_size_change); */
+EXPORT_SYMBOL(check_disk_size_change);
 
 /**
  * revalidate_disk - wrapper for lower-level driver's revalidate_disk call-back
@@ -1060,7 +1060,7 @@ int revalidate_disk(struct gendisk *disk)
 	bdput(bdev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(revalidate_disk); */
+EXPORT_SYMBOL(revalidate_disk);
 
 /*
  * This routine checks whether a removable media has been changed,
@@ -1088,7 +1088,7 @@ int check_disk_change(struct block_device *bdev)
 	return 1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(check_disk_change); */
+EXPORT_SYMBOL(check_disk_change);
 
 void bd_set_size(struct block_device *bdev, loff_t size)
 {
@@ -1105,7 +1105,7 @@ void bd_set_size(struct block_device *bdev, loff_t size)
 	bdev->bd_block_size = bsize;
 	bdev->bd_inode->i_blkbits = blksize_bits(bsize);
 }
-/* DISABLED: EXPORT_SYMBOL(bd_set_size); */
+EXPORT_SYMBOL(bd_set_size);
 
 static int __blkdev_put(struct block_device *bdev, fmode_t mode, int for_part);
 
@@ -1355,7 +1355,7 @@ int blkdev_get(struct block_device *bdev, fmode_t mode, void *holder)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_get); */
+EXPORT_SYMBOL(blkdev_get);
 
 /**
  * blkdev_get_by_path - open a block device by name
@@ -1395,7 +1395,7 @@ struct block_device *blkdev_get_by_path(const char *path, fmode_t mode,
 
 	return bdev;
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_get_by_path); */
+EXPORT_SYMBOL(blkdev_get_by_path);
 
 /**
  * blkdev_get_by_dev - open a block device by device number
@@ -1434,7 +1434,7 @@ struct block_device *blkdev_get_by_dev(dev_t dev, fmode_t mode, void *holder)
 
 	return bdev;
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_get_by_dev); */
+EXPORT_SYMBOL(blkdev_get_by_dev);
 
 static int blkdev_open(struct inode * inode, struct file * filp)
 {
@@ -1554,7 +1554,7 @@ int blkdev_put(struct block_device *bdev, fmode_t mode)
 
 	return __blkdev_put(bdev, mode, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_put); */
+EXPORT_SYMBOL(blkdev_put);
 
 static int blkdev_close(struct inode * inode, struct file * filp)
 {
@@ -1605,7 +1605,7 @@ ssize_t blkdev_aio_write(struct kiocb *iocb, const struct iovec *iov,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkdev_aio_write); */
+EXPORT_SYMBOL_GPL(blkdev_aio_write);
 
 /*
  * Try to release a page associated with block device when the system
@@ -1659,7 +1659,7 @@ int ioctl_by_bdev(struct block_device *bdev, unsigned cmd, unsigned long arg)
 	return res;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioctl_by_bdev); */
+EXPORT_SYMBOL(ioctl_by_bdev);
 
 /**
  * lookup_bdev  - lookup a struct block_device by name
@@ -1701,7 +1701,7 @@ fail:
 	bdev = ERR_PTR(error);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(lookup_bdev); */
+EXPORT_SYMBOL(lookup_bdev);
 
 int __invalidate_device(struct block_device *bdev, bool kill_dirty)
 {
@@ -1722,4 +1722,4 @@ int __invalidate_device(struct block_device *bdev, bool kill_dirty)
 	invalidate_bdev(bdev);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(__invalidate_device); */
+EXPORT_SYMBOL(__invalidate_device);

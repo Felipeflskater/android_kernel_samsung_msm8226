@@ -98,7 +98,7 @@ static struct switch_dev switch_dock = {
 };
 
 struct device *switch_dev;
-/* DISABLED: EXPORT_SYMBOL(switch_dev); */
+EXPORT_SYMBOL(switch_dev);
 #endif
 
 #if defined(CONFIG_SEC_K_PROJECT)
@@ -252,7 +252,7 @@ DEVICE_ATTR(disable_vbus, 0664, midas_switch_show_vbus,
 void max77828_muic_usb_cb(u8 usb_mode);
 struct device *usb_lock;
 int is_usb_locked;
-/* DISABLED: EXPORT_SYMBOL_GPL(is_usb_locked); */
+EXPORT_SYMBOL_GPL(is_usb_locked);
 
 static ssize_t switch_show_usb_lock(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -492,7 +492,7 @@ int max77828_get_jig_state(void)
 	pr_info("%s: %d\n", __func__, is_jig_attached);
 	return is_jig_attached;
 }
-/* DISABLED: EXPORT_SYMBOL(max77828_get_jig_state); */
+EXPORT_SYMBOL(max77828_get_jig_state);
 
 void max77828_set_jig_state(int jig_state)
 {
@@ -803,7 +803,7 @@ void muic_callback(enum cable_type_t cable_type, int state)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(muic_callback); */
+EXPORT_SYMBOL(muic_callback);
 
 #endif
 

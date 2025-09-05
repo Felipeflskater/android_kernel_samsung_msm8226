@@ -46,7 +46,7 @@ const struct x86_cpu_id *x86_match_cpu(const struct x86_cpu_id *match)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(x86_match_cpu); */
+EXPORT_SYMBOL(x86_match_cpu);
 
 ssize_t arch_print_cpu_modalias(struct device *dev,
 				struct device_attribute *attr,

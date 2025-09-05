@@ -129,7 +129,7 @@ int htc_egpio_get_wakeup_irq(struct device *dev)
 	readval &= ei->irqs_enabled;
 	return ei->irq_start + ffs(readval) - 1;
 }
-/* DISABLED: EXPORT_SYMBOL(htc_egpio_get_wakeup_irq); */
+EXPORT_SYMBOL(htc_egpio_get_wakeup_irq);
 
 static inline int egpio_pos(struct egpio_info *ei, int bit)
 {

@@ -77,7 +77,7 @@ int crypto_aead_setauthsize(struct crypto_aead *tfm, unsigned int authsize)
 	crt->authsize = authsize;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aead_setauthsize); */
+EXPORT_SYMBOL_GPL(crypto_aead_setauthsize);
 
 static unsigned int crypto_aead_ctxsize(struct crypto_alg *alg, u32 type,
 					u32 mask)
@@ -162,7 +162,7 @@ const struct crypto_type crypto_aead_type = {
 #endif
 	.report = crypto_aead_report,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_aead_type); */
+EXPORT_SYMBOL_GPL(crypto_aead_type);
 
 static int aead_null_givencrypt(struct aead_givcrypt_request *req)
 {
@@ -248,7 +248,7 @@ const struct crypto_type crypto_nivaead_type = {
 #endif
 	.report = crypto_nivaead_report,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_nivaead_type); */
+EXPORT_SYMBOL_GPL(crypto_nivaead_type);
 
 static int crypto_grab_nivaead(struct crypto_aead_spawn *spawn,
 			       const char *name, u32 type, u32 mask)
@@ -364,14 +364,14 @@ err_free_inst:
 	inst = ERR_PTR(err);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(aead_geniv_alloc); */
+EXPORT_SYMBOL_GPL(aead_geniv_alloc);
 
 void aead_geniv_free(struct crypto_instance *inst)
 {
 	crypto_drop_aead(crypto_instance_ctx(inst));
 	kfree(inst);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(aead_geniv_free); */
+EXPORT_SYMBOL_GPL(aead_geniv_free);
 
 int aead_geniv_init(struct crypto_tfm *tfm)
 {
@@ -387,13 +387,13 @@ int aead_geniv_init(struct crypto_tfm *tfm)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(aead_geniv_init); */
+EXPORT_SYMBOL_GPL(aead_geniv_init);
 
 void aead_geniv_exit(struct crypto_tfm *tfm)
 {
 	crypto_free_aead(tfm->crt_aead.base);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(aead_geniv_exit); */
+EXPORT_SYMBOL_GPL(aead_geniv_exit);
 
 static int crypto_nivaead_default(struct crypto_alg *alg, u32 type, u32 mask)
 {
@@ -501,7 +501,7 @@ struct crypto_alg *crypto_lookup_aead(const char *name, u32 type, u32 mask)
 
 	return ERR_PTR(crypto_nivaead_default(alg, type, mask));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_lookup_aead); */
+EXPORT_SYMBOL_GPL(crypto_lookup_aead);
 
 int crypto_grab_aead(struct crypto_aead_spawn *spawn, const char *name,
 		     u32 type, u32 mask)
@@ -522,7 +522,7 @@ int crypto_grab_aead(struct crypto_aead_spawn *spawn, const char *name,
 	crypto_mod_put(alg);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_grab_aead); */
+EXPORT_SYMBOL_GPL(crypto_grab_aead);
 
 struct crypto_aead *crypto_alloc_aead(const char *alg_name, u32 type, u32 mask)
 {
@@ -561,7 +561,7 @@ err:
 
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_aead); */
+EXPORT_SYMBOL_GPL(crypto_alloc_aead);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Authenticated Encryption with Associated Data (AEAD)");

@@ -71,4 +71,4 @@ struct nf_conntrack_l3proto nf_conntrack_l3proto_generic __read_mostly = {
 	.print_tuple	 = generic_print_tuple,
 	.get_l4proto	 = generic_get_l4proto,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_l3proto_generic); */
+EXPORT_SYMBOL_GPL(nf_conntrack_l3proto_generic);

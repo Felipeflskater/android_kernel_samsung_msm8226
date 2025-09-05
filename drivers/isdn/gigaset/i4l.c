@@ -137,7 +137,7 @@ void gigaset_skb_sent(struct bc_state *bcs, struct sk_buff *skb)
 		iif->statcallb(&response);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_sent); */
+EXPORT_SYMBOL_GPL(gigaset_skb_sent);
 
 /**
  * gigaset_skb_rcvd() - pass received skb to LL
@@ -155,7 +155,7 @@ void gigaset_skb_rcvd(struct bc_state *bcs, struct sk_buff *skb)
 	iif->rcvcallb_skb(bcs->cs->myid, bcs->channel, skb);
 	bcs->trans_down++;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_rcvd); */
+EXPORT_SYMBOL_GPL(gigaset_skb_rcvd);
 
 /**
  * gigaset_isdn_rcv_err() - signal receive error
@@ -186,7 +186,7 @@ void gigaset_isdn_rcv_err(struct bc_state *bcs)
 	response.parm.errcode = ISDN_STAT_L1ERR_RECV;
 	iif->statcallb(&response);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err); */
+EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err);
 
 /* This function will be called by LL to send commands
  * NOTE: LL ignores the returned value, for commands other than ISDN_CMD_IOCTL,

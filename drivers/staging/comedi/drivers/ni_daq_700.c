@@ -143,7 +143,7 @@ void subdev_700_interrupt(struct comedi_device *dev, struct comedi_subdevice *s)
 
 	comedi_event(dev, s);
 }
-/* DISABLED: EXPORT_SYMBOL(subdev_700_interrupt); */
+EXPORT_SYMBOL(subdev_700_interrupt);
 
 static int subdev_700_cb(int dir, int port, int data, unsigned long arg)
 {
@@ -325,7 +325,7 @@ int subdev_700_init(struct comedi_device *dev, struct comedi_subdevice *s,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(subdev_700_init); */
+EXPORT_SYMBOL(subdev_700_init);
 
 int subdev_700_init_irq(struct comedi_device *dev, struct comedi_subdevice *s,
 			int (*cb) (int, int, int, unsigned long),
@@ -345,7 +345,7 @@ int subdev_700_init_irq(struct comedi_device *dev, struct comedi_subdevice *s,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(subdev_700_init_irq); */
+EXPORT_SYMBOL(subdev_700_init_irq);
 
 void subdev_700_cleanup(struct comedi_device *dev, struct comedi_subdevice *s)
 {
@@ -354,7 +354,7 @@ void subdev_700_cleanup(struct comedi_device *dev, struct comedi_subdevice *s)
 
 			kfree(s->private);
 }
-/* DISABLED: EXPORT_SYMBOL(subdev_700_cleanup); */
+EXPORT_SYMBOL(subdev_700_cleanup);
 
 static int dio700_attach(struct comedi_device *dev, struct comedi_devconfig *it)
 {

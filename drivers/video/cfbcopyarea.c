@@ -426,7 +426,7 @@ void cfb_copyarea(struct fb_info *p, const struct fb_copyarea *area)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(cfb_copyarea); */
+EXPORT_SYMBOL(cfb_copyarea);
 
 MODULE_AUTHOR("James Simmons <jsimmons@users.sf.net>");
 MODULE_DESCRIPTION("Generic software accelerated copyarea");

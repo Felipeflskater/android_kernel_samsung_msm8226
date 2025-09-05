@@ -75,7 +75,7 @@ int vga_switcheroo_register_handler(struct vga_switcheroo_handler *handler)
 	mutex_unlock(&vgasr_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_register_handler); */
+EXPORT_SYMBOL(vga_switcheroo_register_handler);
 
 void vga_switcheroo_unregister_handler(void)
 {
@@ -83,7 +83,7 @@ void vga_switcheroo_unregister_handler(void)
 	vgasr_priv.handler = NULL;
 	mutex_unlock(&vgasr_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_unregister_handler); */
+EXPORT_SYMBOL(vga_switcheroo_unregister_handler);
 
 static void vga_switcheroo_enable(void)
 {
@@ -136,7 +136,7 @@ int vga_switcheroo_register_client(struct pci_dev *pdev,
 	mutex_unlock(&vgasr_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_register_client); */
+EXPORT_SYMBOL(vga_switcheroo_register_client);
 
 void vga_switcheroo_unregister_client(struct pci_dev *pdev)
 {
@@ -155,7 +155,7 @@ void vga_switcheroo_unregister_client(struct pci_dev *pdev)
 	vgasr_priv.active = false;
 	mutex_unlock(&vgasr_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_unregister_client); */
+EXPORT_SYMBOL(vga_switcheroo_unregister_client);
 
 void vga_switcheroo_client_fb_set(struct pci_dev *pdev,
 				 struct fb_info *info)
@@ -171,7 +171,7 @@ void vga_switcheroo_client_fb_set(struct pci_dev *pdev,
 	}
 	mutex_unlock(&vgasr_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_client_fb_set); */
+EXPORT_SYMBOL(vga_switcheroo_client_fb_set);
 
 static int vga_switcheroo_show(struct seq_file *m, void *v)
 {
@@ -491,5 +491,5 @@ err:
 	mutex_unlock(&vgasr_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(vga_switcheroo_process_delayed_switch); */
+EXPORT_SYMBOL(vga_switcheroo_process_delayed_switch);
 

@@ -458,7 +458,7 @@ struct sas_phy *sas_get_local_phy(struct domain_device *dev)
 
 	return phy;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_get_local_phy); */
+EXPORT_SYMBOL_GPL(sas_get_local_phy);
 
 /* Attempt to send a LUN reset message to a device */
 int sas_eh_device_reset_handler(struct scsi_cmnd *cmd)
@@ -1055,17 +1055,17 @@ out:
 	release_firmware(fw);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_request_addr); */
+EXPORT_SYMBOL_GPL(sas_request_addr);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_queuecommand); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_target_alloc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_slave_configure); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_change_queue_depth); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_change_queue_type); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_bios_param); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_task_abort); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_phy_reset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_eh_device_reset_handler); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_eh_bus_reset_handler); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_target_destroy); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_ioctl); */
+EXPORT_SYMBOL_GPL(sas_queuecommand);
+EXPORT_SYMBOL_GPL(sas_target_alloc);
+EXPORT_SYMBOL_GPL(sas_slave_configure);
+EXPORT_SYMBOL_GPL(sas_change_queue_depth);
+EXPORT_SYMBOL_GPL(sas_change_queue_type);
+EXPORT_SYMBOL_GPL(sas_bios_param);
+EXPORT_SYMBOL_GPL(sas_task_abort);
+EXPORT_SYMBOL_GPL(sas_phy_reset);
+EXPORT_SYMBOL_GPL(sas_eh_device_reset_handler);
+EXPORT_SYMBOL_GPL(sas_eh_bus_reset_handler);
+EXPORT_SYMBOL_GPL(sas_target_destroy);
+EXPORT_SYMBOL_GPL(sas_ioctl);

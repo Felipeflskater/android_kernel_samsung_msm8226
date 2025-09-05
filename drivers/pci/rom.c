@@ -265,7 +265,7 @@ void pci_cleanup_rom(struct pci_dev *pdev)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(pci_map_rom); */
-/* DISABLED: EXPORT_SYMBOL(pci_unmap_rom); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_enable_rom); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_disable_rom); */
+EXPORT_SYMBOL(pci_map_rom);
+EXPORT_SYMBOL(pci_unmap_rom);
+EXPORT_SYMBOL_GPL(pci_enable_rom);
+EXPORT_SYMBOL_GPL(pci_disable_rom);

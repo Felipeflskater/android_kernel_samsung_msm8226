@@ -10,10 +10,10 @@ void wbinvd_on_cpu(int cpu)
 {
 	smp_call_function_single(cpu, __wbinvd, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(wbinvd_on_cpu); */
+EXPORT_SYMBOL(wbinvd_on_cpu);
 
 int wbinvd_on_all_cpus(void)
 {
 	return on_each_cpu(__wbinvd, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(wbinvd_on_all_cpus); */
+EXPORT_SYMBOL(wbinvd_on_all_cpus);

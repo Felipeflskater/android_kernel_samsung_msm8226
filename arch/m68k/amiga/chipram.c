@@ -21,7 +21,7 @@
 #include <asm/amigahw.h>
 
 unsigned long amiga_chip_size;
-/* DISABLED: EXPORT_SYMBOL(amiga_chip_size); */
+EXPORT_SYMBOL(amiga_chip_size);
 
 static struct resource chipram_res = {
 	.name = "Chip RAM", .start = CHIP_PHYSADDR
@@ -59,7 +59,7 @@ void *amiga_chip_alloc(unsigned long size, const char *name)
 
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(amiga_chip_alloc); */
+EXPORT_SYMBOL(amiga_chip_alloc);
 
 
 	/*
@@ -109,7 +109,7 @@ void amiga_chip_free(void *ptr)
 	release_resource(res);
 	kfree(res);
 }
-/* DISABLED: EXPORT_SYMBOL(amiga_chip_free); */
+EXPORT_SYMBOL(amiga_chip_free);
 
 
 unsigned long amiga_chip_avail(void)
@@ -119,5 +119,5 @@ unsigned long amiga_chip_avail(void)
 	pr_debug("amiga_chip_avail : %lu bytes\n", n);
 	return n;
 }
-/* DISABLED: EXPORT_SYMBOL(amiga_chip_avail); */
+EXPORT_SYMBOL(amiga_chip_avail);
 

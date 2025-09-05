@@ -1,14 +1,11 @@
 #!/bin/bash
-export HOSTCFLAGS="-O2 -fno-PIE"
-export HOSTLDFLAGS="-no-pie"
-export ARCH="arm"
-export CROSS_COMPILE="arm-linux-gnueabi-"
 
-if ! command -v "${CROSS_COMPILE}gcc" >/dev/null 2>&1; then
-    echo "ERRO: Cross-compiler não encontrado: ${CROSS_COMPILE}gcc"
-    echo "Instale com: sudo apt install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi"
-    exit 1
-fi
+export ARCH=arm
+export CROSS_COMPILE=$(pwd)/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
 
-echo "Compilando kernel com ${CROSS_COMPILE}gcc..."
-make -j$(nproc) $@
+mkdir output
+
+make -C $(pwd) O=output msm8226-sec_defconfig VARIANT_DEFCONFIG=msm8228-sec_atlantic3geur_defconfig SELINUX_DEFCONFIG=selinux_defconfig
+make -j64 -C $(pwd) O=output
+
+cp output/arch/arm/boot/Image $(pwd)/arch/arm/boot/zImage

@@ -18,8 +18,8 @@
 
 		.macro  addruart, rp, rv, tmp
 		mov     \rp, #0x00020000	@ UART1
-		add     \rv, \rp, @ io_virt	@ virtual address
-		add     \rp, \rp, @ io_phys	@ physical base address
+		add     \rv, \rp, #io_virt	@ virtual address
+		add     \rp, \rp, #io_phys	@ physical base address
 		.endm
 
 		.macro  senduart,rd,rx

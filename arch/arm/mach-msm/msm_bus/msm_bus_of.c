@@ -179,7 +179,7 @@ struct msm_bus_scale_pdata *msm_bus_cl_get_pdata(struct platform_device *pdev)
 
 	return pdata;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_cl_get_pdata); */
+EXPORT_SYMBOL(msm_bus_cl_get_pdata);
 
 /**
  * msm_bus_cl_pdata_from_node() - Generate bus client data from device tree
@@ -220,7 +220,7 @@ struct msm_bus_scale_pdata *msm_bus_pdata_from_node(
 
 	return pdata;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_pdata_from_node); */
+EXPORT_SYMBOL(msm_bus_pdata_from_node);
 
 /**
  * msm_bus_cl_clear_pdata() - Clear pdata allocated from device-tree
@@ -236,7 +236,7 @@ void msm_bus_cl_clear_pdata(struct msm_bus_scale_pdata *pdata)
 	kfree(pdata->usecase);
 	kfree(pdata);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_cl_clear_pdata); */
+EXPORT_SYMBOL(msm_bus_cl_clear_pdata);
 
 static int *get_arr(struct platform_device *pdev,
 		const struct device_node *node, const char *prop,
@@ -620,4 +620,4 @@ struct msm_bus_fabric_registration
 err:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_of_get_fab_data); */
+EXPORT_SYMBOL(msm_bus_of_get_fab_data);

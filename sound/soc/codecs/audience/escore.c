@@ -182,7 +182,7 @@ int escore_accdet_config(struct escore_priv *escore, int enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(escore_accdet_config); */
+EXPORT_SYMBOL_GPL(escore_accdet_config);
 
 int escore_btndet_config(struct escore_priv *escore, int enable)
 {
@@ -274,7 +274,7 @@ btndet_config_error:
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(escore_btndet_config); */
+EXPORT_SYMBOL_GPL(escore_btndet_config);
 
 int escore_process_accdet(struct escore_priv *escore)
 {
@@ -309,7 +309,7 @@ int escore_process_accdet(struct escore_priv *escore)
 accdet_error:
 	return value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(escore_process_accdet); */
+EXPORT_SYMBOL_GPL(escore_process_accdet);
 
 /*
  * Placeholder for digital chip related interrupts

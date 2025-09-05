@@ -124,7 +124,7 @@ ENTRY(v4_dma_flush_range)
  *	- dir	- DMA direction
  */
 ENTRY(v4_dma_unmap_area)
-	teq	r2, @ DMA_TO_DEVICE
+	teq	r2, #DMA_TO_DEVICE
 	bne	v4_dma_flush_range
 	/* FALLTHROUGH */
 

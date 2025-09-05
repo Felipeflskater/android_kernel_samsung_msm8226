@@ -1741,20 +1741,20 @@ static void __exit alsa_rawmidi_exit(void)
 module_init(alsa_rawmidi_init)
 module_exit(alsa_rawmidi_exit)
 
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_output_params); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_input_params); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_drop_output); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_drain_output); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_drain_input); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_receive); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_transmit_empty); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_transmit_peek); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_transmit_ack); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_transmit); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_new); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_set_ops); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_info_select); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_kernel_open); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_kernel_release); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_kernel_read); */
-/* DISABLED: EXPORT_SYMBOL(snd_rawmidi_kernel_write); */
+EXPORT_SYMBOL(snd_rawmidi_output_params);
+EXPORT_SYMBOL(snd_rawmidi_input_params);
+EXPORT_SYMBOL(snd_rawmidi_drop_output);
+EXPORT_SYMBOL(snd_rawmidi_drain_output);
+EXPORT_SYMBOL(snd_rawmidi_drain_input);
+EXPORT_SYMBOL(snd_rawmidi_receive);
+EXPORT_SYMBOL(snd_rawmidi_transmit_empty);
+EXPORT_SYMBOL(snd_rawmidi_transmit_peek);
+EXPORT_SYMBOL(snd_rawmidi_transmit_ack);
+EXPORT_SYMBOL(snd_rawmidi_transmit);
+EXPORT_SYMBOL(snd_rawmidi_new);
+EXPORT_SYMBOL(snd_rawmidi_set_ops);
+EXPORT_SYMBOL(snd_rawmidi_info_select);
+EXPORT_SYMBOL(snd_rawmidi_kernel_open);
+EXPORT_SYMBOL(snd_rawmidi_kernel_release);
+EXPORT_SYMBOL(snd_rawmidi_kernel_read);
+EXPORT_SYMBOL(snd_rawmidi_kernel_write);

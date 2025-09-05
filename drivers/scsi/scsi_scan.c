@@ -185,7 +185,7 @@ int scsi_complete_async_scans(void)
 }
 
 /* Only exported for the benefit of scsi_wait_scan */
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_complete_async_scans); */
+EXPORT_SYMBOL_GPL(scsi_complete_async_scans);
 
 #ifndef MODULE
 /*
@@ -359,7 +359,7 @@ int scsi_is_target_device(const struct device *dev)
 {
 	return dev->type == &scsi_target_type;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_is_target_device); */
+EXPORT_SYMBOL(scsi_is_target_device);
 
 static struct scsi_target *__scsi_find_target(struct device *parent,
 					      int channel, uint id)
@@ -1267,7 +1267,7 @@ int scsilun_to_int(struct scsi_lun *scsilun)
 			      scsilun->scsi_lun[i + 1]) << (i * 8));
 	return lun;
 }
-/* DISABLED: EXPORT_SYMBOL(scsilun_to_int); */
+EXPORT_SYMBOL(scsilun_to_int);
 
 /**
  * int_to_scsilun - reverts an int into a scsi_lun
@@ -1299,7 +1299,7 @@ void int_to_scsilun(unsigned int lun, struct scsi_lun *scsilun)
 		lun = lun >> 16;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(int_to_scsilun); */
+EXPORT_SYMBOL(int_to_scsilun);
 
 /**
  * scsi_report_lun_scan - Scan using SCSI REPORT LUN results
@@ -1551,7 +1551,7 @@ struct scsi_device *__scsi_add_device(struct Scsi_Host *shost, uint channel,
 
 	return sdev;
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_add_device); */
+EXPORT_SYMBOL(__scsi_add_device);
 
 int scsi_add_device(struct Scsi_Host *host, uint channel,
 		    uint target, uint lun)
@@ -1564,7 +1564,7 @@ int scsi_add_device(struct Scsi_Host *host, uint channel,
 	scsi_device_put(sdev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_add_device); */
+EXPORT_SYMBOL(scsi_add_device);
 
 void scsi_rescan_device(struct device *dev)
 {
@@ -1580,7 +1580,7 @@ void scsi_rescan_device(struct device *dev)
 		module_put(drv->owner);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_rescan_device); */
+EXPORT_SYMBOL(scsi_rescan_device);
 
 static void __scsi_scan_target(struct device *parent, unsigned int channel,
 		unsigned int id, unsigned int lun, int rescan)
@@ -1666,7 +1666,7 @@ void scsi_scan_target(struct device *parent, unsigned int channel,
 	}
 	mutex_unlock(&shost->scan_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_scan_target); */
+EXPORT_SYMBOL(scsi_scan_target);
 
 static void scsi_scan_channel(struct Scsi_Host *shost, unsigned int channel,
 			      unsigned int id, unsigned int lun, int rescan)
@@ -1898,7 +1898,7 @@ void scsi_scan_host(struct Scsi_Host *shost)
 		do_scan_async(data);
 	/* scsi_autopm_put_host(shost) is called in scsi_finish_async_scan() */
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_scan_host); */
+EXPORT_SYMBOL(scsi_scan_host);
 
 void scsi_forget_host(struct Scsi_Host *shost)
 {
@@ -1956,7 +1956,7 @@ struct scsi_device *scsi_get_host_dev(struct Scsi_Host *shost)
 	mutex_unlock(&shost->scan_mutex);
 	return sdev;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_get_host_dev); */
+EXPORT_SYMBOL(scsi_get_host_dev);
 
 /**
  * scsi_free_host_dev - Free a scsi_device that points to the host adapter itself
@@ -1972,5 +1972,5 @@ void scsi_free_host_dev(struct scsi_device *sdev)
 
 	__scsi_remove_device(sdev);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_free_host_dev); */
+EXPORT_SYMBOL(scsi_free_host_dev);
 

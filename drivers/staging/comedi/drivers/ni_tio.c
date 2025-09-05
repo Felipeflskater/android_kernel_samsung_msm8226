@@ -332,7 +332,7 @@ struct ni_gpct_device *ni_gpct_device_construct(struct comedi_device *dev,
 	counter_dev->num_counters = num_counters;
 	return counter_dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_gpct_device_construct); */
+EXPORT_SYMBOL_GPL(ni_gpct_device_construct);
 
 void ni_gpct_device_destroy(struct ni_gpct_device *counter_dev)
 {
@@ -341,7 +341,7 @@ void ni_gpct_device_destroy(struct ni_gpct_device *counter_dev)
 	kfree(counter_dev->counters);
 	kfree(counter_dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_gpct_device_destroy); */
+EXPORT_SYMBOL_GPL(ni_gpct_device_destroy);
 
 static int ni_tio_second_gate_registers_present(const struct ni_gpct_device
 						*counter_dev)
@@ -420,7 +420,7 @@ void ni_tio_init_counter(struct ni_gpct *counter)
 			NITIO_Gi_Interrupt_Enable_Reg(counter->counter_index),
 			~0, 0x0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_init_counter); */
+EXPORT_SYMBOL_GPL(ni_tio_init_counter);
 
 static unsigned int ni_tio_counter_status(struct ni_gpct *counter)
 {
@@ -598,7 +598,7 @@ int ni_tio_arm(struct ni_gpct *counter, int arm, unsigned start_trigger)
 				  0, 0, command_transient_bits);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_arm); */
+EXPORT_SYMBOL_GPL(ni_tio_arm);
 
 static unsigned ni_660x_source_select_bits(unsigned int clock_source)
 {
@@ -1287,7 +1287,7 @@ int ni_tio_set_gate_src(struct ni_gpct *counter, unsigned gate_index,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_set_gate_src); */
+EXPORT_SYMBOL_GPL(ni_tio_set_gate_src);
 
 static int ni_tio_set_other_src(struct ni_gpct *counter, unsigned index,
 				unsigned int source)
@@ -1622,7 +1622,7 @@ int ni_tio_insn_config(struct ni_gpct *counter,
 	}
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_insn_config); */
+EXPORT_SYMBOL_GPL(ni_tio_insn_config);
 
 int ni_tio_rinsn(struct ni_gpct *counter, struct comedi_insn *insn,
 		 unsigned int *data)
@@ -1677,7 +1677,7 @@ int ni_tio_rinsn(struct ni_gpct *counter, struct comedi_insn *insn,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_rinsn); */
+EXPORT_SYMBOL_GPL(ni_tio_rinsn);
 
 static unsigned ni_tio_next_load_register(struct ni_gpct *counter)
 {
@@ -1731,4 +1731,4 @@ int ni_tio_winsn(struct ni_gpct *counter, struct comedi_insn *insn,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_winsn); */
+EXPORT_SYMBOL_GPL(ni_tio_winsn);

@@ -1346,7 +1346,7 @@ int mwifiex_deauthenticate(struct mwifiex_private *priv, u8 *mac)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_deauthenticate); */
+EXPORT_SYMBOL_GPL(mwifiex_deauthenticate);
 
 /*
  * This function converts band to radio type used in channel TLV.

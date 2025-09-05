@@ -600,7 +600,7 @@ void gigaset_handle_modem_response(struct cardstate *cs)
 			"invalid number of processed parameters: %d/%d",
 			curarg, params);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_handle_modem_response); */
+EXPORT_SYMBOL_GPL(gigaset_handle_modem_response);
 
 /* disconnect
  * process closing of connection associated with given AT state structure

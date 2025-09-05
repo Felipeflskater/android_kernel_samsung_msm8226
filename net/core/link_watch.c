@@ -248,4 +248,4 @@ void linkwatch_fire_event(struct net_device *dev)
 
 	linkwatch_schedule_work(urgent);
 }
-/* DISABLED: EXPORT_SYMBOL(linkwatch_fire_event); */
+EXPORT_SYMBOL(linkwatch_fire_event);

@@ -52,7 +52,7 @@ int inet6_csk_bind_conflict(const struct sock *sk,
 	return node != NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(inet6_csk_bind_conflict); */
+EXPORT_SYMBOL_GPL(inet6_csk_bind_conflict);
 
 struct dst_entry *inet6_csk_route_req(struct sock *sk,
 				      const struct request_sock *req)
@@ -136,7 +136,7 @@ struct request_sock *inet6_csk_search_req(const struct sock *sk,
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(inet6_csk_search_req); */
+EXPORT_SYMBOL_GPL(inet6_csk_search_req);
 
 void inet6_csk_reqsk_queue_hash_add(struct sock *sk,
 				    struct request_sock *req,
@@ -152,7 +152,7 @@ void inet6_csk_reqsk_queue_hash_add(struct sock *sk,
 	inet_csk_reqsk_queue_added(sk, timeout);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(inet6_csk_reqsk_queue_hash_add); */
+EXPORT_SYMBOL_GPL(inet6_csk_reqsk_queue_hash_add);
 
 void inet6_csk_addr2sockaddr(struct sock *sk, struct sockaddr * uaddr)
 {
@@ -170,7 +170,7 @@ void inet6_csk_addr2sockaddr(struct sock *sk, struct sockaddr * uaddr)
 		sin6->sin6_scope_id = sk->sk_bound_dev_if;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(inet6_csk_addr2sockaddr); */
+EXPORT_SYMBOL_GPL(inet6_csk_addr2sockaddr);
 
 static inline
 void __inet6_csk_dst_store(struct sock *sk, struct dst_entry *dst,
@@ -259,4 +259,4 @@ int inet6_csk_xmit(struct sk_buff *skb, struct flowi *fl_unused)
 	rcu_read_unlock();
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet6_csk_xmit); */
+EXPORT_SYMBOL_GPL(inet6_csk_xmit);

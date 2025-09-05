@@ -17,10 +17,10 @@
 
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
 
-		mov	\base, @ AIC_BA
+		mov	\base, #AIC_BA
 
-		ldr	\irqnr, [\base, @ AIC_IPER]
-		ldr	\irqnr, [\base, @ AIC_ISNR]
+		ldr	\irqnr, [\base, #AIC_IPER]
+		ldr	\irqnr, [\base, #AIC_ISNR]
 		cmp	\irqnr, #0
 
 	.endm

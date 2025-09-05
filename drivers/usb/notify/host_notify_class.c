@@ -171,7 +171,7 @@ int host_state_notify(struct host_notify_dev *ndev, int state)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(host_state_notify); */
+EXPORT_SYMBOL_GPL(host_state_notify);
 
 static int
 host_notify_uevent(struct device *dev, struct kobj_uevent_env *env)
@@ -255,7 +255,7 @@ int host_notify_dev_register(struct host_notify_dev *ndev)
 	ndev->state = 0;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(host_notify_dev_register); */
+EXPORT_SYMBOL_GPL(host_notify_dev_register);
 
 void host_notify_dev_unregister(struct host_notify_dev *ndev)
 {
@@ -264,7 +264,7 @@ void host_notify_dev_unregister(struct host_notify_dev *ndev)
 	device_destroy(host_notify.host_notify_class, MKDEV(0, ndev->index));
 	dev_set_drvdata(ndev->dev, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(host_notify_dev_unregister); */
+EXPORT_SYMBOL_GPL(host_notify_dev_unregister);
 
 static int __init notify_class_init(void)
 {

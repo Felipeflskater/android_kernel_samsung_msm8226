@@ -1472,7 +1472,7 @@ void ar9003_hw_bb_watchdog_dbg_info(struct ath_hw *ah)
 
 	ath_dbg(common, RESET, "==== BB update: done ====\n\n");
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_hw_bb_watchdog_dbg_info); */
+EXPORT_SYMBOL(ar9003_hw_bb_watchdog_dbg_info);
 
 void ar9003_hw_disable_phy_restart(struct ath_hw *ah)
 {
@@ -1494,4 +1494,4 @@ void ar9003_hw_disable_phy_restart(struct ath_hw *ah)
 
 	REG_WRITE(ah, AR_PHY_RESTART, val);
 }
-/* DISABLED: EXPORT_SYMBOL(ar9003_hw_disable_phy_restart); */
+EXPORT_SYMBOL(ar9003_hw_disable_phy_restart);

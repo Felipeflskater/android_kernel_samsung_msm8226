@@ -46,7 +46,7 @@ static const char sensorname[] = "sensor";
 #include "rmi_sensor.h"
 
 long polltime = 25000000;   /* Shared with rmi_function.c. */
-/* DISABLED: EXPORT_SYMBOL(polltime); */
+EXPORT_SYMBOL(polltime);
 module_param(polltime, long, 0644);
 MODULE_PARM_DESC(polltime, "How long to wait between polls (in nano seconds).");
 
@@ -67,7 +67,7 @@ int rmi_read(struct rmi_sensor_driver *sensor, unsigned short address,
 		return -ENODEV;
 	return rpd->read(rpd, address, dest);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_read); */
+EXPORT_SYMBOL(rmi_read);
 
 int rmi_write(struct rmi_sensor_driver *sensor, unsigned short address,
 		unsigned char data)
@@ -77,7 +77,7 @@ int rmi_write(struct rmi_sensor_driver *sensor, unsigned short address,
 		return -ENODEV;
 	return rpd->write(rpd, address, data);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_write); */
+EXPORT_SYMBOL(rmi_write);
 
 int rmi_read_multiple(struct rmi_sensor_driver *sensor,
 		unsigned short address,	char *dest, int length)
@@ -87,7 +87,7 @@ int rmi_read_multiple(struct rmi_sensor_driver *sensor,
 		return -ENODEV;
 	return rpd->read_multiple(rpd, address, dest, length);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_read_multiple); */
+EXPORT_SYMBOL(rmi_read_multiple);
 
 int rmi_write_multiple(struct rmi_sensor_driver *sensor,
 		unsigned short address,	unsigned char *data, int length)
@@ -97,7 +97,7 @@ int rmi_write_multiple(struct rmi_sensor_driver *sensor,
 		return -ENODEV;
 	return rpd->write_multiple(rpd, address, data, length);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_write_multiple); */
+EXPORT_SYMBOL(rmi_write_multiple);
 
 /* Utility routine to set bits in a register. */
 int rmi_set_bits(struct rmi_sensor_driver *sensor, unsigned short address,
@@ -118,7 +118,7 @@ int rmi_set_bits(struct rmi_sensor_driver *sensor, unsigned short address,
 	else
 		return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_set_bits); */
+EXPORT_SYMBOL(rmi_set_bits);
 
 /* Utility routine to clear bits in a register. */
 int rmi_clear_bits(struct rmi_sensor_driver *sensor,
@@ -139,7 +139,7 @@ int rmi_clear_bits(struct rmi_sensor_driver *sensor,
 	else
 		return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_clear_bits); */
+EXPORT_SYMBOL(rmi_clear_bits);
 
 /* Utility routine to set the value of a bit field in a register. */
 int rmi_set_bit_field(struct rmi_sensor_driver *sensor,
@@ -160,13 +160,13 @@ int rmi_set_bit_field(struct rmi_sensor_driver *sensor,
 	else
 		return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_set_bit_field); */
+EXPORT_SYMBOL(rmi_set_bit_field);
 
 bool rmi_polling_required(struct rmi_sensor_driver *sensor)
 {
 	return sensor->polling_required;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_polling_required); */
+EXPORT_SYMBOL(rmi_polling_required);
 
 /** Functions can call this in order to dispatch IRQs. */
 void dispatchIRQs(struct rmi_sensor_driver *sensor, unsigned int irqStatus)
@@ -548,7 +548,7 @@ int rmi_sensor_register_functions(struct rmi_sensor_driver *sensor)
 exit_fail:
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_sensor_register_functions); */
+EXPORT_SYMBOL(rmi_sensor_register_functions);
 
 int rmi_sensor_register_device(struct rmi_sensor_device *dev, int index)
 {
@@ -562,7 +562,7 @@ int rmi_sensor_register_device(struct rmi_sensor_device *dev, int index)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_sensor_register_device); */
+EXPORT_SYMBOL(rmi_sensor_register_device);
 
 static void rmi_sensor_unregister_device(struct rmi_sensor_device *rmisensordev)
 {
@@ -570,7 +570,7 @@ static void rmi_sensor_unregister_device(struct rmi_sensor_device *rmisensordev)
 
 	device_unregister(&rmisensordev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_sensor_unregister_device); */
+EXPORT_SYMBOL(rmi_sensor_unregister_device);
 
 int rmi_sensor_register_driver(struct rmi_sensor_driver *driver)
 {
@@ -624,7 +624,7 @@ int rmi_sensor_register_driver(struct rmi_sensor_driver *driver)
 exit_fail:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_sensor_register_driver); */
+EXPORT_SYMBOL(rmi_sensor_register_driver);
 
 static void rmi_sensor_unregister_driver(struct rmi_sensor_driver *driver)
 {
@@ -638,7 +638,7 @@ static void rmi_sensor_unregister_driver(struct rmi_sensor_driver *driver)
 
 	driver_unregister(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(rmi_sensor_unregister_driver); */
+EXPORT_SYMBOL(rmi_sensor_unregister_driver);
 
 
 static int __init rmi_sensor_init(void)

@@ -94,7 +94,7 @@ void cxgb3_register_client(struct cxgb3_client *client)
 	mutex_unlock(&cxgb3_db_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_register_client); */
+EXPORT_SYMBOL(cxgb3_register_client);
 
 /**
  *	cxgb3_unregister_client - unregister an offload client
@@ -119,7 +119,7 @@ void cxgb3_unregister_client(struct cxgb3_client *client)
 	mutex_unlock(&cxgb3_db_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_unregister_client); */
+EXPORT_SYMBOL(cxgb3_unregister_client);
 
 /**
  *	cxgb3_add_clients - activate registered clients for an offload device
@@ -509,7 +509,7 @@ void *cxgb3_free_atid(struct t3cdev *tdev, int atid)
 	return ctx;
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_free_atid); */
+EXPORT_SYMBOL(cxgb3_free_atid);
 
 /*
  * Free a server TID and return it to the free pool.
@@ -526,7 +526,7 @@ void cxgb3_free_stid(struct t3cdev *tdev, int stid)
 	spin_unlock_bh(&t->stid_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_free_stid); */
+EXPORT_SYMBOL(cxgb3_free_stid);
 
 void cxgb3_insert_tid(struct t3cdev *tdev, struct cxgb3_client *client,
 		      void *ctx, unsigned int tid)
@@ -538,7 +538,7 @@ void cxgb3_insert_tid(struct t3cdev *tdev, struct cxgb3_client *client,
 	atomic_inc(&t->tids_in_use);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_insert_tid); */
+EXPORT_SYMBOL(cxgb3_insert_tid);
 
 /*
  * Populate a TID_RELEASE WR.  The skb must be already propely sized.
@@ -611,7 +611,7 @@ void cxgb3_queue_tid_release(struct t3cdev *tdev, unsigned int tid)
 	spin_unlock_bh(&td->tid_release_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_queue_tid_release); */
+EXPORT_SYMBOL(cxgb3_queue_tid_release);
 
 /*
  * Remove a tid from the TID table.  A client may defer processing its last
@@ -641,7 +641,7 @@ void cxgb3_remove_tid(struct t3cdev *tdev, void *ctx, unsigned int tid)
 	atomic_dec(&t->tids_in_use);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_remove_tid); */
+EXPORT_SYMBOL(cxgb3_remove_tid);
 
 int cxgb3_alloc_atid(struct t3cdev *tdev, struct cxgb3_client *client,
 		     void *ctx)
@@ -665,7 +665,7 @@ int cxgb3_alloc_atid(struct t3cdev *tdev, struct cxgb3_client *client,
 	return atid;
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_alloc_atid); */
+EXPORT_SYMBOL(cxgb3_alloc_atid);
 
 int cxgb3_alloc_stid(struct t3cdev *tdev, struct cxgb3_client *client,
 		     void *ctx)
@@ -687,7 +687,7 @@ int cxgb3_alloc_stid(struct t3cdev *tdev, struct cxgb3_client *client,
 	return stid;
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_alloc_stid); */
+EXPORT_SYMBOL(cxgb3_alloc_stid);
 
 /* Get the t3cdev associated with a net_device */
 struct t3cdev *dev2t3cdev(struct net_device *dev)
@@ -697,7 +697,7 @@ struct t3cdev *dev2t3cdev(struct net_device *dev)
 	return (struct t3cdev *)pi->adapter;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dev2t3cdev); */
+EXPORT_SYMBOL(dev2t3cdev);
 
 static int do_smt_write_rpl(struct t3cdev *dev, struct sk_buff *skb)
 {
@@ -1010,7 +1010,7 @@ void t3_register_cpl_handler(unsigned int opcode, cpl_handler_func h)
 		       "opcode %x failed\n", opcode);
 }
 
-/* DISABLED: EXPORT_SYMBOL(t3_register_cpl_handler); */
+EXPORT_SYMBOL(t3_register_cpl_handler);
 
 /*
  * T3CDEV's receive method.
@@ -1050,7 +1050,7 @@ int cxgb3_ofld_send(struct t3cdev *dev, struct sk_buff *skb)
 	return r;
 }
 
-/* DISABLED: EXPORT_SYMBOL(cxgb3_ofld_send); */
+EXPORT_SYMBOL(cxgb3_ofld_send);
 
 static int is_offloading(struct net_device *dev)
 {

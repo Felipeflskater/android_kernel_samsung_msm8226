@@ -35,7 +35,7 @@ static int mtrr_state_set;
 u64 mtrr_tom2;
 
 struct mtrr_state_type mtrr_state;
-/* DISABLED: EXPORT_SYMBOL_GPL(mtrr_state); */
+EXPORT_SYMBOL_GPL(mtrr_state);
 
 /*
  * BIOS is expected to clear MtrrFixDramModEn bit, see for example

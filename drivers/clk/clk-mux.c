@@ -55,7 +55,7 @@ static u8 clk_mux_get_parent(struct clk_hw *hw)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_mux_get_parent); */
+EXPORT_SYMBOL_GPL(clk_mux_get_parent);
 
 static int clk_mux_set_parent(struct clk_hw *hw, u8 index)
 {
@@ -82,13 +82,13 @@ static int clk_mux_set_parent(struct clk_hw *hw, u8 index)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_mux_set_parent); */
+EXPORT_SYMBOL_GPL(clk_mux_set_parent);
 
 struct clk_ops clk_mux_ops = {
 	.get_parent = clk_mux_get_parent,
 	.set_parent = clk_mux_set_parent,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_mux_ops); */
+EXPORT_SYMBOL_GPL(clk_mux_ops);
 
 struct clk *clk_register_mux(struct device *dev, const char *name,
 		char **parent_names, u8 num_parents, unsigned long flags,

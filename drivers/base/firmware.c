@@ -16,7 +16,7 @@
 #include "base.h"
 
 struct kobject *firmware_kobj;
-/* DISABLED: EXPORT_SYMBOL_GPL(firmware_kobj); */
+EXPORT_SYMBOL_GPL(firmware_kobj);
 
 int __init firmware_init(void)
 {

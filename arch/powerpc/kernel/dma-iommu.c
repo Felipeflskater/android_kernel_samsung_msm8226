@@ -116,4 +116,4 @@ struct dma_map_ops dma_iommu_ops = {
 	.unmap_page		= dma_iommu_unmap_page,
 	.get_required_mask	= dma_iommu_get_required_mask,
 };
-/* DISABLED: EXPORT_SYMBOL(dma_iommu_ops); */
+EXPORT_SYMBOL(dma_iommu_ops);

@@ -55,7 +55,7 @@ struct firmware_cal *wcdcal_get_fw_cal(struct fw_info *fw_data,
 	mutex_unlock(&fw_data->lock);
 	return fw_data->fw[type];
 }
-/* DISABLED: EXPORT_SYMBOL(wcdcal_get_fw_cal); */
+EXPORT_SYMBOL(wcdcal_get_fw_cal);
 
 static int wcdcal_hwdep_ioctl_shared(struct snd_hwdep *hw,
 			struct wcdcal_ioctl_buffer fw_user)
@@ -219,4 +219,4 @@ end:
 	}
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(wcd_cal_create_hwdep); */
+EXPORT_SYMBOL(wcd_cal_create_hwdep);

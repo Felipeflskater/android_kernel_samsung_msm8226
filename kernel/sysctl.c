@@ -2626,11 +2626,11 @@ int proc_doulongvec_ms_jiffies_minmax(struct ctl_table *table, int write,
  * No sense putting this after each symbol definition, twice,
  * exception granted :-)
  */
-/* DISABLED: EXPORT_SYMBOL(proc_dointvec); */
-/* DISABLED: EXPORT_SYMBOL(proc_dointvec_jiffies); */
-/* DISABLED: EXPORT_SYMBOL(proc_dointvec_minmax); */
-/* DISABLED: EXPORT_SYMBOL(proc_dointvec_userhz_jiffies); */
-/* DISABLED: EXPORT_SYMBOL(proc_dointvec_ms_jiffies); */
-/* DISABLED: EXPORT_SYMBOL(proc_dostring); */
-/* DISABLED: EXPORT_SYMBOL(proc_doulongvec_minmax); */
-/* DISABLED: EXPORT_SYMBOL(proc_doulongvec_ms_jiffies_minmax); */
+EXPORT_SYMBOL(proc_dointvec);
+EXPORT_SYMBOL(proc_dointvec_jiffies);
+EXPORT_SYMBOL(proc_dointvec_minmax);
+EXPORT_SYMBOL(proc_dointvec_userhz_jiffies);
+EXPORT_SYMBOL(proc_dointvec_ms_jiffies);
+EXPORT_SYMBOL(proc_dostring);
+EXPORT_SYMBOL(proc_doulongvec_minmax);
+EXPORT_SYMBOL(proc_doulongvec_ms_jiffies_minmax);

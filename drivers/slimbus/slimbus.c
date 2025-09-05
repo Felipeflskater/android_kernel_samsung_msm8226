@@ -148,7 +148,7 @@ struct bus_type slimbus_type = {
 	.match		= slim_device_match,
 	.pm		= &slimbus_pm,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(slimbus_type); */
+EXPORT_SYMBOL_GPL(slimbus_type);
 
 struct device slimbus_dev = {
 	.init_name = "slimbus",
@@ -233,7 +233,7 @@ int slim_driver_register(struct slim_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_driver_register); */
+EXPORT_SYMBOL_GPL(slim_driver_register);
 
 /*
  * slim_driver_unregister: Undo effects of slim_driver_register
@@ -244,7 +244,7 @@ void slim_driver_unregister(struct slim_driver *drv)
 	if (drv)
 		driver_unregister(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_driver_unregister); */
+EXPORT_SYMBOL_GPL(slim_driver_unregister);
 
 #define slim_ctrl_attr_gr NULL
 
@@ -342,7 +342,7 @@ int slim_add_device(struct slim_controller *ctrl, struct slim_device *sbdev)
 	/* probe slave on this controller */
 	return device_register(&sbdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_add_device); */
+EXPORT_SYMBOL_GPL(slim_add_device);
 
 struct sbi_boardinfo {
 	struct list_head	list;
@@ -395,7 +395,7 @@ int slim_register_board_info(struct slim_boardinfo const *info, unsigned n)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_register_board_info); */
+EXPORT_SYMBOL_GPL(slim_register_board_info);
 
 /*
  * slim_ctrl_add_boarddevs: Add devices registered by board-info
@@ -413,7 +413,7 @@ void slim_ctrl_add_boarddevs(struct slim_controller *ctrl)
 		slim_match_ctrl_to_boardinfo(ctrl, &bi->board_info);
 	mutex_unlock(&board_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_ctrl_add_boarddevs); */
+EXPORT_SYMBOL_GPL(slim_ctrl_add_boarddevs);
 
 /*
  * slim_busnum_to_ctrl: Map bus number to controller
@@ -432,7 +432,7 @@ struct slim_controller *slim_busnum_to_ctrl(u32 bus_num)
 	mutex_unlock(&board_lock);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_busnum_to_ctrl); */
+EXPORT_SYMBOL_GPL(slim_busnum_to_ctrl);
 
 static int slim_register_controller(struct slim_controller *ctrl)
 {
@@ -527,7 +527,7 @@ void slim_remove_device(struct slim_device *sbdev)
 {
 	device_unregister(&sbdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_remove_device); */
+EXPORT_SYMBOL_GPL(slim_remove_device);
 
 static void slim_ctrl_remove_device(struct slim_controller *ctrl,
 				struct slim_boardinfo *bi)
@@ -579,7 +579,7 @@ int slim_del_controller(struct slim_controller *ctrl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_del_controller); */
+EXPORT_SYMBOL_GPL(slim_del_controller);
 
 /*
  * slim_add_numbered_controller: Controller bring-up.
@@ -614,7 +614,7 @@ retry:
 		status = slim_register_controller(ctrl);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_add_numbered_controller); */
+EXPORT_SYMBOL_GPL(slim_add_numbered_controller);
 
 /*
  * slim_report_absent: Controller calls this function when a device
@@ -640,7 +640,7 @@ void slim_report_absent(struct slim_device *sbdev)
 	sbdev->reported = false;
 	queue_work(ctrl->wq, &sbdev->wd);
 }
-/* DISABLED: EXPORT_SYMBOL(slim_report_absent); */
+EXPORT_SYMBOL(slim_report_absent);
 
 /*
  * slim_framer_booted: This function is called by controller after the active
@@ -670,7 +670,7 @@ void slim_framer_booted(struct slim_controller *ctrl)
 	}
 	mutex_unlock(&ctrl->m_ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(slim_framer_booted); */
+EXPORT_SYMBOL(slim_framer_booted);
 
 /*
  * slim_msg_response: Deliver Message response received from a device to the
@@ -708,7 +708,7 @@ void slim_msg_response(struct slim_controller *ctrl, u8 *reply, u8 tid, u8 len)
 	mutex_unlock(&ctrl->m_ctrl);
 	kfree(txn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_msg_response); */
+EXPORT_SYMBOL_GPL(slim_msg_response);
 
 static int slim_processtxn(struct slim_controller *ctrl, u8 dt, u16 mc, u16 ec,
 			u8 mt, u8 *rbuf, const u8 *wbuf, u8 len, u8 mlen,
@@ -867,7 +867,7 @@ ret_assigned_laddr:
 	mutex_unlock(&ctrl->m_ctrl);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_assign_laddr); */
+EXPORT_SYMBOL_GPL(slim_assign_laddr);
 
 /*
  * slim_get_logical_addr: Return the logical address of a slimbus device.
@@ -900,7 +900,7 @@ int slim_get_logical_addr(struct slim_device *sb, const u8 *e_addr,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_get_logical_addr); */
+EXPORT_SYMBOL_GPL(slim_get_logical_addr);
 
 static int slim_ele_access_sanity(struct slim_ele_access *msg, int oper,
 				u8 *rbuf, const u8 *wbuf, u8 len)
@@ -973,7 +973,7 @@ int slim_request_val_element(struct slim_device *sb,
 	return slim_xfer_msg(ctrl, sb, msg, SLIM_MSG_MC_REQUEST_VALUE, buf,
 			NULL, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_request_val_element); */
+EXPORT_SYMBOL_GPL(slim_request_val_element);
 
 int slim_request_inf_element(struct slim_device *sb,
 				struct slim_ele_access *msg, u8 *buf, u8 len)
@@ -984,7 +984,7 @@ int slim_request_inf_element(struct slim_device *sb,
 	return slim_xfer_msg(ctrl, sb, msg, SLIM_MSG_MC_REQUEST_INFORMATION,
 			buf, NULL, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_request_inf_element); */
+EXPORT_SYMBOL_GPL(slim_request_inf_element);
 
 int slim_change_val_element(struct slim_device *sb, struct slim_ele_access *msg,
 				const u8 *buf, u8 len)
@@ -995,7 +995,7 @@ int slim_change_val_element(struct slim_device *sb, struct slim_ele_access *msg,
 	return slim_xfer_msg(ctrl, sb, msg, SLIM_MSG_MC_CHANGE_VALUE, NULL, buf,
 					len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_change_val_element); */
+EXPORT_SYMBOL_GPL(slim_change_val_element);
 
 int slim_clear_inf_element(struct slim_device *sb, struct slim_ele_access *msg,
 				u8 *buf, u8 len)
@@ -1006,7 +1006,7 @@ int slim_clear_inf_element(struct slim_device *sb, struct slim_ele_access *msg,
 	return slim_xfer_msg(ctrl, sb, msg, SLIM_MSG_MC_CLEAR_INFORMATION, NULL,
 					buf, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_clear_inf_element); */
+EXPORT_SYMBOL_GPL(slim_clear_inf_element);
 
 int slim_request_change_val_element(struct slim_device *sb,
 					struct slim_ele_access *msg, u8 *rbuf,
@@ -1018,7 +1018,7 @@ int slim_request_change_val_element(struct slim_device *sb,
 	return slim_xfer_msg(ctrl, sb, msg, SLIM_MSG_MC_REQUEST_CHANGE_VALUE,
 					rbuf, wbuf, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_request_change_val_element); */
+EXPORT_SYMBOL_GPL(slim_request_change_val_element);
 
 int slim_request_clear_inf_element(struct slim_device *sb,
 					struct slim_ele_access *msg, u8 *rbuf,
@@ -1031,7 +1031,7 @@ int slim_request_clear_inf_element(struct slim_device *sb,
 					SLIM_MSG_MC_REQUEST_CLEAR_INFORMATION,
 					rbuf, wbuf, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_request_clear_inf_element); */
+EXPORT_SYMBOL_GPL(slim_request_clear_inf_element);
 
 /*
  * Broadcast message API:
@@ -1106,7 +1106,7 @@ int slim_xfer_msg(struct slim_controller *ctrl, struct slim_device *sbdev,
 xfer_err:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_xfer_msg); */
+EXPORT_SYMBOL_GPL(slim_xfer_msg);
 
 /*
  * User message:
@@ -1128,7 +1128,7 @@ int slim_user_msg(struct slim_device *sb, u8 la, u8 mt, u8 mc,
 		return -EPROTONOSUPPORT;
 	return sb->ctrl->xfer_user_msg(sb->ctrl, la, mt, mc, msg, buf, len);
 }
-/* DISABLED: EXPORT_SYMBOL(slim_user_msg); */
+EXPORT_SYMBOL(slim_user_msg);
 
 /*
  * slim_alloc_mgrports: Allocate port on manager side.
@@ -1212,7 +1212,7 @@ alloc_err:
 	mutex_unlock(&ctrl->m_ctrl);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_alloc_mgrports); */
+EXPORT_SYMBOL_GPL(slim_alloc_mgrports);
 
 /* Deallocate the port(s) allocated using the API above */
 int slim_dealloc_mgrports(struct slim_device *sb, u32 *hdl, int nports)
@@ -1253,7 +1253,7 @@ int slim_dealloc_mgrports(struct slim_device *sb, u32 *hdl, int nports)
 	mutex_unlock(&ctrl->m_ctrl);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_dealloc_mgrports); */
+EXPORT_SYMBOL_GPL(slim_dealloc_mgrports);
 
 /*
  * slim_get_slaveport: Get slave port handle
@@ -1272,7 +1272,7 @@ int slim_get_slaveport(u8 la, int idx, u32 *rh, enum slim_port_flow flw)
 	*rh = SLIM_PORT_HDL(la, flw, idx);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_get_slaveport); */
+EXPORT_SYMBOL_GPL(slim_get_slaveport);
 
 static int connect_port_ch(struct slim_controller *ctrl, u8 ch, u32 ph,
 				enum slim_port_flow flow)
@@ -1376,7 +1376,7 @@ connect_src_err:
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_connect_src); */
+EXPORT_SYMBOL_GPL(slim_connect_src);
 
 /*
  * slim_connect_sink: Connect sink port(s) to channel.
@@ -1450,7 +1450,7 @@ connect_sink_err:
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_connect_sink); */
+EXPORT_SYMBOL_GPL(slim_connect_sink);
 
 /*
  * slim_disconnect_ports: Disconnect port(s) from channel
@@ -1471,7 +1471,7 @@ int slim_disconnect_ports(struct slim_device *sb, u32 *ph, int nph)
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_disconnect_ports); */
+EXPORT_SYMBOL_GPL(slim_disconnect_ports);
 
 /*
  * slim_port_xfer: Schedule buffer to be transferred/received using port-handle.
@@ -1494,7 +1494,7 @@ int slim_port_xfer(struct slim_device *sb, u32 ph, phys_addr_t iobuf, u32 len,
 	dev_dbg(&ctrl->dev, "port xfer: num:%d", pn);
 	return ctrl->port_xfer(ctrl, pn, iobuf, len, comp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_port_xfer); */
+EXPORT_SYMBOL_GPL(slim_port_xfer);
 
 /*
  * slim_port_get_xfer_status: Poll for port transfers, or get transfer status
@@ -1539,7 +1539,7 @@ enum slim_port_err slim_port_get_xfer_status(struct slim_device *sb, u32 ph,
 		err = ctrl->ports[pn].err;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_port_get_xfer_status); */
+EXPORT_SYMBOL_GPL(slim_port_get_xfer_status);
 
 static void slim_add_ch(struct slim_controller *ctrl, struct slim_ich *slc)
 {
@@ -1822,7 +1822,7 @@ int slim_alloc_ch(struct slim_device *sb, u16 *chanh)
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_alloc_ch); */
+EXPORT_SYMBOL_GPL(slim_alloc_ch);
 
 /*
  * slim_query_ch: Get reference-counted handle for a channel number. Every
@@ -1879,7 +1879,7 @@ query_out:
 				ch, i, ctrl->chans[i].ref, ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_query_ch); */
+EXPORT_SYMBOL_GPL(slim_query_ch);
 
 /*
  * slim_dealloc_ch: Deallocate channel allocated using the API above
@@ -1920,7 +1920,7 @@ int slim_dealloc_ch(struct slim_device *sb, u16 chanh)
 				slc->chan, chanh, slc->ref);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_dealloc_ch); */
+EXPORT_SYMBOL_GPL(slim_dealloc_ch);
 
 /*
  * slim_get_ch_state: Channel state.
@@ -1932,7 +1932,7 @@ enum slim_ch_state slim_get_ch_state(struct slim_device *sb, u16 chanh)
 	struct slim_ich *slc = &sb->ctrl->chans[chan];
 	return slc->state;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_get_ch_state); */
+EXPORT_SYMBOL_GPL(slim_get_ch_state);
 
 /*
  * slim_define_ch: Define a channel.This API defines channel parameters for a
@@ -2004,7 +2004,7 @@ err_define_ch:
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_define_ch); */
+EXPORT_SYMBOL_GPL(slim_define_ch);
 
 static u32 getsubfrmcoding(u32 *ctrlw, u32 *subfrml, u32 *msgsl)
 {
@@ -2981,7 +2981,7 @@ revert_reconfig:
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_reconfigure_now); */
+EXPORT_SYMBOL_GPL(slim_reconfigure_now);
 
 static int add_pending_ch(struct list_head *listh, u8 chan)
 {
@@ -3088,7 +3088,7 @@ int slim_control_ch(struct slim_device *sb, u16 chanh,
 	mutex_unlock(&sb->sldev_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_control_ch); */
+EXPORT_SYMBOL_GPL(slim_control_ch);
 
 /*
  * slim_reservemsg_bw: Request to reserve bandwidth for messages.
@@ -3122,7 +3122,7 @@ int slim_reservemsg_bw(struct slim_device *sb, u32 bw_bps, bool commit)
 	mutex_unlock(&sb->sldev_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_reservemsg_bw); */
+EXPORT_SYMBOL_GPL(slim_reservemsg_bw);
 
 /*
  * slim_ctrl_clk_pause: Called by slimbus controller to request clock to be
@@ -3250,7 +3250,7 @@ clk_pause_ret:
 	mutex_unlock(&ctrl->sched.m_reconf);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slim_ctrl_clk_pause); */
+EXPORT_SYMBOL_GPL(slim_ctrl_clk_pause);
 
 MODULE_LICENSE("GPL v2");
 MODULE_VERSION("0.1");

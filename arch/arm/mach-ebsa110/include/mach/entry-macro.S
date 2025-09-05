@@ -13,7 +13,7 @@
 #define IRQ_STAT		0xff000000	/* read */
 
 	.macro  get_irqnr_preamble, base, tmp
-	mov	\base, @ IRQ_STAT
+	mov	\base, #IRQ_STAT
 	.endm
 
 	.macro	get_irqnr_and_base, irqnr, stat, base, tmp

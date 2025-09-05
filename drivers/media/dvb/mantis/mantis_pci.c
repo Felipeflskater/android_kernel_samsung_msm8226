@@ -146,7 +146,7 @@ fail0:
 	pci_set_drvdata(pdev, NULL);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mantis_pci_init); */
+EXPORT_SYMBOL_GPL(mantis_pci_init);
 
 void mantis_pci_exit(struct mantis_pci *mantis)
 {
@@ -163,7 +163,7 @@ void mantis_pci_exit(struct mantis_pci *mantis)
 	pci_disable_device(pdev);
 	pci_set_drvdata(pdev, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mantis_pci_exit); */
+EXPORT_SYMBOL_GPL(mantis_pci_exit);
 
 MODULE_DESCRIPTION("Mantis PCI DTV bridge driver");
 MODULE_AUTHOR("Manu Abraham");

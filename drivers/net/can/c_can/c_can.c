@@ -1117,13 +1117,13 @@ struct net_device *alloc_c_can_dev(void)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(alloc_c_can_dev); */
+EXPORT_SYMBOL_GPL(alloc_c_can_dev);
 
 void free_c_can_dev(struct net_device *dev)
 {
 	free_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(free_c_can_dev); */
+EXPORT_SYMBOL_GPL(free_c_can_dev);
 
 static const struct net_device_ops c_can_netdev_ops = {
 	.ndo_open = c_can_open,
@@ -1138,7 +1138,7 @@ int register_c_can_dev(struct net_device *dev)
 
 	return register_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_c_can_dev); */
+EXPORT_SYMBOL_GPL(register_c_can_dev);
 
 void unregister_c_can_dev(struct net_device *dev)
 {
@@ -1149,7 +1149,7 @@ void unregister_c_can_dev(struct net_device *dev)
 
 	unregister_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_c_can_dev); */
+EXPORT_SYMBOL_GPL(unregister_c_can_dev);
 
 MODULE_AUTHOR("Bhupesh Sharma <bhupesh.sharma@st.com>");
 MODULE_LICENSE("GPL v2");

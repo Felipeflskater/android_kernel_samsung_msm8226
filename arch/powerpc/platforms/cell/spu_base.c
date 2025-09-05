@@ -41,20 +41,20 @@
 #include <asm/kexec.h>
 
 const struct spu_management_ops *spu_management_ops;
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_management_ops); */
+EXPORT_SYMBOL_GPL(spu_management_ops);
 
 const struct spu_priv1_ops *spu_priv1_ops;
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_priv1_ops); */
+EXPORT_SYMBOL_GPL(spu_priv1_ops);
 
 struct cbe_spu_info cbe_spu_info[MAX_NUMNODES];
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_spu_info); */
+EXPORT_SYMBOL_GPL(cbe_spu_info);
 
 /*
  * The spufs fault-handling code needs to call force_sig_info to raise signals
  * on DMA errors. Export it here to avoid general kernel-wide access to this
  * function
  */
-/* DISABLED: EXPORT_SYMBOL_GPL(force_sig_info); */
+EXPORT_SYMBOL_GPL(force_sig_info);
 
 /*
  * Protects cbe_spu_info and spu->number.
@@ -90,7 +90,7 @@ void spu_invalidate_slbs(struct spu *spu)
 		out_be64(&priv2->slb_invalidate_all_W, 0UL);
 	spin_unlock_irqrestore(&spu->register_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_invalidate_slbs); */
+EXPORT_SYMBOL_GPL(spu_invalidate_slbs);
 
 /* This is called by the MM core when a segment size is changed, to
  * request a flush of all the SPEs using a given mm
@@ -129,13 +129,13 @@ void spu_associate_mm(struct spu *spu, struct mm_struct *mm)
 	if (mm)
 		mm_needs_global_tlbie(mm);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_associate_mm); */
+EXPORT_SYMBOL_GPL(spu_associate_mm);
 
 int spu_64k_pages_available(void)
 {
 	return mmu_psize_defs[MMU_PAGE_64K].shift != 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_64k_pages_available); */
+EXPORT_SYMBOL_GPL(spu_64k_pages_available);
 
 static void spu_restart_dma(struct spu *spu)
 {
@@ -321,7 +321,7 @@ void spu_setup_kernel_slbs(struct spu *spu, struct spu_lscsa *lscsa,
 		spu_load_slb(spu, i, &slbs[i]);
 	spin_unlock_irq(&spu->register_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_setup_kernel_slbs); */
+EXPORT_SYMBOL_GPL(spu_setup_kernel_slbs);
 
 static irqreturn_t
 spu_irq_class_0(int irq, void *data)
@@ -517,7 +517,7 @@ void spu_init_channels(struct spu *spu)
 		out_be64(&priv2->spu_chnlcnt_RW, count_list[i].count);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_init_channels); */
+EXPORT_SYMBOL_GPL(spu_init_channels);
 
 static struct bus_type spu_subsys = {
 	.name = "spu",
@@ -535,7 +535,7 @@ int spu_add_dev_attr(struct device_attribute *attr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_add_dev_attr); */
+EXPORT_SYMBOL_GPL(spu_add_dev_attr);
 
 int spu_add_dev_attr_group(struct attribute_group *attrs)
 {
@@ -562,7 +562,7 @@ int spu_add_dev_attr_group(struct attribute_group *attrs)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_add_dev_attr_group); */
+EXPORT_SYMBOL_GPL(spu_add_dev_attr_group);
 
 
 void spu_remove_dev_attr(struct device_attribute *attr)
@@ -574,7 +574,7 @@ void spu_remove_dev_attr(struct device_attribute *attr)
 		device_remove_file(&spu->dev, attr);
 	mutex_unlock(&spu_full_list_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_remove_dev_attr); */
+EXPORT_SYMBOL_GPL(spu_remove_dev_attr);
 
 void spu_remove_dev_attr_group(struct attribute_group *attrs)
 {
@@ -585,7 +585,7 @@ void spu_remove_dev_attr_group(struct attribute_group *attrs)
 		sysfs_remove_group(&spu->dev.kobj, attrs);
 	mutex_unlock(&spu_full_list_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_remove_dev_attr_group); */
+EXPORT_SYMBOL_GPL(spu_remove_dev_attr_group);
 
 static int spu_create_dev(struct spu *spu)
 {

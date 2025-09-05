@@ -37,7 +37,7 @@ struct uts_namespace init_uts_ns = {
 	.user_ns = &init_user_ns,
 	.proc_inum = PROC_UTS_INIT_INO,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(init_uts_ns); */
+EXPORT_SYMBOL_GPL(init_uts_ns);
 
 /* FIXED STRINGS! Don't touch! */
 const char linux_banner[] =

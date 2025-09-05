@@ -239,7 +239,7 @@ int __f_setown(struct file *filp, struct pid *pid, enum pid_type type,
 	f_modown(filp, pid, type, force);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__f_setown); */
+EXPORT_SYMBOL(__f_setown);
 
 int f_setown(struct file *filp, unsigned long arg, int force)
 {
@@ -258,7 +258,7 @@ int f_setown(struct file *filp, unsigned long arg, int force)
 	rcu_read_unlock();
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(f_setown); */
+EXPORT_SYMBOL(f_setown);
 
 void f_delown(struct file *filp)
 {
@@ -814,7 +814,7 @@ int fasync_helper(int fd, struct file * filp, int on, struct fasync_struct **fap
 	return fasync_add_entry(fd, filp, fapp);
 }
 
-/* DISABLED: EXPORT_SYMBOL(fasync_helper); */
+EXPORT_SYMBOL(fasync_helper);
 
 /*
  * rcu_read_lock() is held
@@ -855,7 +855,7 @@ void kill_fasync(struct fasync_struct **fp, int sig, int band)
 		rcu_read_unlock();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(kill_fasync); */
+EXPORT_SYMBOL(kill_fasync);
 
 static int __init fcntl_init(void)
 {

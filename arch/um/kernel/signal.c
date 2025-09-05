@@ -12,8 +12,8 @@
 #include "frame_kern.h"
 #include "kern_util.h"
 
-/* DISABLED: EXPORT_SYMBOL(block_signals); */
-/* DISABLED: EXPORT_SYMBOL(unblock_signals); */
+EXPORT_SYMBOL(block_signals);
+EXPORT_SYMBOL(unblock_signals);
 
 #define _S(nr) (1<<((nr)-1))
 

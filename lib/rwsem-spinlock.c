@@ -28,7 +28,7 @@ int rwsem_is_locked(struct rw_semaphore *sem)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rwsem_is_locked); */
+EXPORT_SYMBOL(rwsem_is_locked);
 
 /*
  * initialise the semaphore
@@ -58,7 +58,7 @@ void __init_rwsem(struct rw_semaphore *sem, const char *name,
 #endif
 
 }
-/* DISABLED: EXPORT_SYMBOL(__init_rwsem); */
+EXPORT_SYMBOL(__init_rwsem);
 
 /*
  * handle the lock release when processes blocked on it that can now run

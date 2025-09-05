@@ -64,4 +64,4 @@ int ___ratelimit(struct ratelimit_state *rs, const char *func)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(___ratelimit); */
+EXPORT_SYMBOL(___ratelimit);

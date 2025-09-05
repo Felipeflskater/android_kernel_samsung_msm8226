@@ -19,10 +19,10 @@
 #include <bcm63xx_irq.h>
 
 const unsigned long *bcm63xx_regs_base;
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_regs_base); */
+EXPORT_SYMBOL(bcm63xx_regs_base);
 
 const int *bcm63xx_irqs;
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_irqs); */
+EXPORT_SYMBOL(bcm63xx_irqs);
 
 static u16 bcm63xx_cpu_id;
 static u16 bcm63xx_cpu_rev;
@@ -77,14 +77,14 @@ u16 __bcm63xx_get_cpu_id(void)
 	return bcm63xx_cpu_id;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__bcm63xx_get_cpu_id); */
+EXPORT_SYMBOL(__bcm63xx_get_cpu_id);
 
 u16 bcm63xx_get_cpu_rev(void)
 {
 	return bcm63xx_cpu_rev;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bcm63xx_get_cpu_rev); */
+EXPORT_SYMBOL(bcm63xx_get_cpu_rev);
 
 unsigned int bcm63xx_get_cpu_freq(void)
 {

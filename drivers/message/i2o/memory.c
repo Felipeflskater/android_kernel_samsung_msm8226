@@ -49,7 +49,7 @@ u16 i2o_sg_tablesize(struct i2o_controller *c, u16 body_size)
 
 	return sg_count;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_sg_tablesize); */
+EXPORT_SYMBOL_GPL(i2o_sg_tablesize);
 
 
 /**
@@ -107,7 +107,7 @@ dma_addr_t i2o_dma_map_single(struct i2o_controller *c, void *ptr,
 	}
 	return dma_addr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_dma_map_single); */
+EXPORT_SYMBOL_GPL(i2o_dma_map_single);
 
 /**
  *	i2o_dma_map_sg - Map a SG List to controller and fill in I2O message.
@@ -167,7 +167,7 @@ int i2o_dma_map_sg(struct i2o_controller *c, struct scatterlist *sg,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_dma_map_sg); */
+EXPORT_SYMBOL_GPL(i2o_dma_map_sg);
 
 /**
  *	i2o_dma_alloc - Allocate DMA memory
@@ -208,7 +208,7 @@ int i2o_dma_alloc(struct device *dev, struct i2o_dma *addr, size_t len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_dma_alloc); */
+EXPORT_SYMBOL_GPL(i2o_dma_alloc);
 
 
 /**
@@ -229,7 +229,7 @@ void i2o_dma_free(struct device *dev, struct i2o_dma *addr)
 		addr->virt = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_dma_free); */
+EXPORT_SYMBOL_GPL(i2o_dma_free);
 
 
 /**
@@ -253,7 +253,7 @@ int i2o_dma_realloc(struct device *dev, struct i2o_dma *addr, size_t len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_dma_realloc); */
+EXPORT_SYMBOL_GPL(i2o_dma_realloc);
 
 /*
  *	i2o_pool_alloc - Allocate an slab cache and mempool
@@ -295,7 +295,7 @@ free_name:
 exit:
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_pool_alloc); */
+EXPORT_SYMBOL_GPL(i2o_pool_alloc);
 
 /*
  *	i2o_pool_free - Free slab cache and mempool again
@@ -310,4 +310,4 @@ void i2o_pool_free(struct i2o_pool *pool)
 	kmem_cache_destroy(pool->slab);
 	kfree(pool->name);
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(i2o_pool_free); */
+EXPORT_SYMBOL_GPL(i2o_pool_free);

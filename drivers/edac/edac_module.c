@@ -20,7 +20,7 @@
 #ifdef CONFIG_EDAC_DEBUG
 /* Values of 0 to 4 will generate output */
 int edac_debug_level = 2;
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_debug_level); */
+EXPORT_SYMBOL_GPL(edac_debug_level);
 #endif
 
 /* scope is to module level only */

@@ -70,14 +70,14 @@ void pipe_lock(struct pipe_inode_info *pipe)
 	 */
 	pipe_lock_nested(pipe, I_MUTEX_PARENT);
 }
-/* DISABLED: EXPORT_SYMBOL(pipe_lock); */
+EXPORT_SYMBOL(pipe_lock);
 
 void pipe_unlock(struct pipe_inode_info *pipe)
 {
 	if (pipe->inode)
 		mutex_unlock(&pipe->inode->i_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(pipe_unlock); */
+EXPORT_SYMBOL(pipe_unlock);
 
 void pipe_double_lock(struct pipe_inode_info *pipe1,
 		      struct pipe_inode_info *pipe2)
@@ -242,7 +242,7 @@ void *generic_pipe_buf_map(struct pipe_inode_info *pipe,
 
 	return kmap(buf->page);
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_map); */
+EXPORT_SYMBOL(generic_pipe_buf_map);
 
 /**
  * generic_pipe_buf_unmap - unmap a previously mapped pipe buffer
@@ -262,7 +262,7 @@ void generic_pipe_buf_unmap(struct pipe_inode_info *pipe,
 	} else
 		kunmap(buf->page);
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_unmap); */
+EXPORT_SYMBOL(generic_pipe_buf_unmap);
 
 /**
  * generic_pipe_buf_steal - attempt to take ownership of a &pipe_buffer
@@ -293,7 +293,7 @@ int generic_pipe_buf_steal(struct pipe_inode_info *pipe,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_steal); */
+EXPORT_SYMBOL(generic_pipe_buf_steal);
 
 /**
  * generic_pipe_buf_get - get a reference to a &struct pipe_buffer
@@ -309,7 +309,7 @@ void generic_pipe_buf_get(struct pipe_inode_info *pipe, struct pipe_buffer *buf)
 {
 	page_cache_get(buf->page);
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_get); */
+EXPORT_SYMBOL(generic_pipe_buf_get);
 
 /**
  * generic_pipe_buf_confirm - verify contents of the pipe buffer
@@ -325,7 +325,7 @@ int generic_pipe_buf_confirm(struct pipe_inode_info *info,
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_confirm); */
+EXPORT_SYMBOL(generic_pipe_buf_confirm);
 
 /**
  * generic_pipe_buf_release - put a reference to a &struct pipe_buffer
@@ -340,7 +340,7 @@ void generic_pipe_buf_release(struct pipe_inode_info *pipe,
 {
 	page_cache_release(buf->page);
 }
-/* DISABLED: EXPORT_SYMBOL(generic_pipe_buf_release); */
+EXPORT_SYMBOL(generic_pipe_buf_release);
 
 static const struct pipe_buf_operations anon_pipe_buf_ops = {
 	.can_merge = 1,

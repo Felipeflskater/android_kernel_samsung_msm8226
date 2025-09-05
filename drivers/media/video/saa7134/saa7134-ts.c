@@ -163,7 +163,7 @@ struct videobuf_queue_ops saa7134_ts_qops = {
 	.buf_queue    = buffer_queue,
 	.buf_release  = buffer_release,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7134_ts_qops); */
+EXPORT_SYMBOL_GPL(saa7134_ts_qops);
 
 /* ----------------------------------------------------------- */
 /* exported stuff                                              */

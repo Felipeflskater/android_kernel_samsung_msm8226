@@ -21,12 +21,12 @@ int __range_ok(unsigned long addr, unsigned long size)
 	return !((addr < limit && size <= limit - addr) ||
 		 is_arch_mappable_range(addr, size));
 }
-/* DISABLED: EXPORT_SYMBOL(__range_ok); */
+EXPORT_SYMBOL(__range_ok);
 
 #ifdef CONFIG_DEBUG_COPY_FROM_USER
 void copy_from_user_overflow(void)
 {
        WARN(1, "Buffer overflow detected!\n");
 }
-/* DISABLED: EXPORT_SYMBOL(copy_from_user_overflow); */
+EXPORT_SYMBOL(copy_from_user_overflow);
 #endif

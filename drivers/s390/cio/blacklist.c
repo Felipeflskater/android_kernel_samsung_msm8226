@@ -210,7 +210,7 @@ blacklist_setup (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup ("cio_ignore=", blacklist_setup); */ */
+__setup ("cio_ignore=", blacklist_setup);
 
 /* Checking if devices are blacklisted */
 

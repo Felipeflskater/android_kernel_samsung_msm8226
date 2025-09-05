@@ -58,9 +58,9 @@ static int dbglevel = CL_ANN;
 module_param_named(dlevel, dbglevel, int, 0);
 MODULE_PARM_DESC(dlevel, "Debug level (default=0)");
 
-/* DISABLED: EXPORT_SYMBOL(mraid_mm_register_adp); */
-/* DISABLED: EXPORT_SYMBOL(mraid_mm_unregister_adp); */
-/* DISABLED: EXPORT_SYMBOL(mraid_mm_adapter_app_handle); */
+EXPORT_SYMBOL(mraid_mm_register_adp);
+EXPORT_SYMBOL(mraid_mm_unregister_adp);
+EXPORT_SYMBOL(mraid_mm_adapter_app_handle);
 
 static uint32_t drvr_ver	= 0x02200207;
 

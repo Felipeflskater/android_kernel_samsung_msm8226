@@ -38,7 +38,7 @@ static dev_t iio_devt;
 struct bus_type iio_bus_type = {
 	.name = "iio",
 };
-/* DISABLED: EXPORT_SYMBOL(iio_bus_type); */
+EXPORT_SYMBOL(iio_bus_type);
 
 static struct dentry *iio_debugfs_dentry;
 
@@ -115,7 +115,7 @@ ssize_t iio_read_const_attr(struct device *dev,
 {
 	return sprintf(buf, "%s\n", to_iio_const_attr(attr)->string);
 }
-/* DISABLED: EXPORT_SYMBOL(iio_read_const_attr); */
+EXPORT_SYMBOL(iio_read_const_attr);
 
 static int __init iio_init(void)
 {
@@ -793,7 +793,7 @@ struct iio_dev *iio_allocate_device(int sizeof_priv)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(iio_allocate_device); */
+EXPORT_SYMBOL(iio_allocate_device);
 
 void iio_free_device(struct iio_dev *dev)
 {
@@ -802,7 +802,7 @@ void iio_free_device(struct iio_dev *dev)
 		kfree(dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(iio_free_device); */
+EXPORT_SYMBOL(iio_free_device);
 
 /**
  * iio_chrdev_open() - chrdev file open for buffer access and ioctls
@@ -914,7 +914,7 @@ error_unreg_debugfs:
 error_ret:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(iio_device_register); */
+EXPORT_SYMBOL(iio_device_register);
 
 void iio_device_unregister(struct iio_dev *indio_dev)
 {
@@ -923,7 +923,7 @@ void iio_device_unregister(struct iio_dev *indio_dev)
 	mutex_unlock(&indio_dev->info_exist_lock);
 	device_unregister(&indio_dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(iio_device_unregister); */
+EXPORT_SYMBOL(iio_device_unregister);
 subsys_initcall(iio_init);
 module_exit(iio_exit);
 

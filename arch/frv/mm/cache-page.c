@@ -39,7 +39,7 @@ void flush_dcache_page(struct page *page)
 
 } /* end flush_dcache_page() */
 
-/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
+EXPORT_SYMBOL(flush_dcache_page);
 
 /*****************************************************************************/
 /*
@@ -68,4 +68,4 @@ void flush_icache_user_range(struct vm_area_struct *vma, struct page *page,
 
 } /* end flush_icache_user_range() */
 
-/* DISABLED: EXPORT_SYMBOL(flush_icache_user_range); */
+EXPORT_SYMBOL(flush_icache_user_range);

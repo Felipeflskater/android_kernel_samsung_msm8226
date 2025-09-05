@@ -144,7 +144,7 @@ const char *wusb_et_name(u8 x)
 	default: 			return "unknown";
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wusb_et_name); */
+EXPORT_SYMBOL_GPL(wusb_et_name);
 
 /*
  * Set the device encryption method

@@ -48,7 +48,7 @@ void beat_power_off(void)
 }
 
 u64 beat_halt_code = 0x1000000000000000UL;
-/* DISABLED: EXPORT_SYMBOL(beat_halt_code); */
+EXPORT_SYMBOL(beat_halt_code);
 
 void beat_halt(void)
 {
@@ -155,7 +155,7 @@ int64_t beat_get_term_char(u64 vterm, u64 *len, u64 *t1, u64 *t2)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(beat_get_term_char); */
+EXPORT_SYMBOL(beat_get_term_char);
 
 int64_t beat_put_term_char(u64 vterm, u64 len, u64 t1, u64 t2)
 {
@@ -165,7 +165,7 @@ int64_t beat_put_term_char(u64 vterm, u64 len, u64 t1, u64 t2)
 	db[1] = t2;
 	return beat_put_characters_to_console(vterm, len, (u8 *)db);
 }
-/* DISABLED: EXPORT_SYMBOL(beat_put_term_char); */
+EXPORT_SYMBOL(beat_put_term_char);
 
 void beat_power_save(void)
 {

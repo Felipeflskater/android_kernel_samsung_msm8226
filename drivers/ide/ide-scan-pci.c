@@ -41,7 +41,7 @@ int __ide_pci_register_driver(struct pci_driver *driver, struct module *module,
 	list_add_tail(&driver->node, &ide_pci_drivers);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__ide_pci_register_driver); */
+EXPORT_SYMBOL_GPL(__ide_pci_register_driver);
 
 /**
  *	ide_scan_pcidev		-	find an IDE driver for a device

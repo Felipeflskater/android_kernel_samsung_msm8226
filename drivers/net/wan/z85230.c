@@ -201,7 +201,7 @@ u8 z8530_dead_port[]=
 	255
 };
 
-/* DISABLED: EXPORT_SYMBOL(z8530_dead_port); */
+EXPORT_SYMBOL(z8530_dead_port);
 
 /*
  *	Register loading parameters for currently supported circuit types
@@ -232,7 +232,7 @@ u8 z8530_hdlc_kilostream[]=
 	255
 };
 
-/* DISABLED: EXPORT_SYMBOL(z8530_hdlc_kilostream); */
+EXPORT_SYMBOL(z8530_hdlc_kilostream);
 
 /*
  *	As above but for enhanced chips.
@@ -259,7 +259,7 @@ u8 z8530_hdlc_kilostream_85230[]=
 	255
 };
 
-/* DISABLED: EXPORT_SYMBOL(z8530_hdlc_kilostream_85230); */
+EXPORT_SYMBOL(z8530_hdlc_kilostream_85230);
 
 /**
  *	z8530_flush_fifo - Flush on chip RX FIFO
@@ -490,7 +490,7 @@ struct z8530_irqhandler z8530_sync =
 	z8530_status
 };
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync); */
+EXPORT_SYMBOL(z8530_sync);
 
 /**
  *	z8530_dma_rx - Handle a DMA RX event
@@ -686,7 +686,7 @@ struct z8530_irqhandler z8530_nop=
 };
 
 
-/* DISABLED: EXPORT_SYMBOL(z8530_nop); */
+EXPORT_SYMBOL(z8530_nop);
 
 /**
  *	z8530_interrupt - Handle an interrupt from a Z8530
@@ -767,7 +767,7 @@ irqreturn_t z8530_interrupt(int irq, void *dev_id)
 	return IRQ_HANDLED;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_interrupt); */
+EXPORT_SYMBOL(z8530_interrupt);
 
 static const u8 reg_init[16]=
 {
@@ -814,7 +814,7 @@ int z8530_sync_open(struct net_device *dev, struct z8530_channel *c)
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_open); */
+EXPORT_SYMBOL(z8530_sync_open);
 
 /**
  *	z8530_sync_close - Close a PIO Z8530 channel
@@ -843,7 +843,7 @@ int z8530_sync_close(struct net_device *dev, struct z8530_channel *c)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_close); */
+EXPORT_SYMBOL(z8530_sync_close);
 
 /**
  *	z8530_sync_dma_open - Open a Z8530 for DMA I/O
@@ -967,7 +967,7 @@ int z8530_sync_dma_open(struct net_device *dev, struct z8530_channel *c)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_dma_open); */
+EXPORT_SYMBOL(z8530_sync_dma_open);
 
 /**
  *	z8530_sync_dma_close - Close down DMA I/O
@@ -1037,7 +1037,7 @@ int z8530_sync_dma_close(struct net_device *dev, struct z8530_channel *c)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_dma_close); */
+EXPORT_SYMBOL(z8530_sync_dma_close);
 
 /**
  *	z8530_sync_txdma_open - Open a Z8530 for TX driven DMA
@@ -1139,7 +1139,7 @@ int z8530_sync_txdma_open(struct net_device *dev, struct z8530_channel *c)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_txdma_open); */
+EXPORT_SYMBOL(z8530_sync_txdma_open);
 
 /**
  *	z8530_sync_txdma_close - Close down a TX driven DMA channel
@@ -1201,7 +1201,7 @@ int z8530_sync_txdma_close(struct net_device *dev, struct z8530_channel *c)
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(z8530_sync_txdma_close); */
+EXPORT_SYMBOL(z8530_sync_txdma_close);
 
 
 /*
@@ -1236,7 +1236,7 @@ void z8530_describe(struct z8530_dev *dev, char *mapping, unsigned long io)
 		dev->irq);
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_describe); */
+EXPORT_SYMBOL(z8530_describe);
 
 /*
  *	Locked operation part of the z8530 init code
@@ -1339,7 +1339,7 @@ int z8530_init(struct z8530_dev *dev)
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(z8530_init); */
+EXPORT_SYMBOL(z8530_init);
 
 /**
  *	z8530_shutdown - Shutdown a Z8530 device
@@ -1367,7 +1367,7 @@ int z8530_shutdown(struct z8530_dev *dev)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_shutdown); */
+EXPORT_SYMBOL(z8530_shutdown);
 
 /**
  *	z8530_channel_load - Load channel data
@@ -1411,7 +1411,7 @@ int z8530_channel_load(struct z8530_channel *c, u8 *rtable)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_channel_load); */
+EXPORT_SYMBOL(z8530_channel_load);
 
 
 /**
@@ -1555,7 +1555,7 @@ void z8530_null_rx(struct z8530_channel *c, struct sk_buff *skb)
 	dev_kfree_skb_any(skb);
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_null_rx); */
+EXPORT_SYMBOL(z8530_null_rx);
 
 /**
  *	z8530_rx_done - Receive completion callback
@@ -1770,7 +1770,7 @@ netdev_tx_t z8530_queue_xmit(struct z8530_channel *c, struct sk_buff *skb)
 	return NETDEV_TX_OK;
 }
 
-/* DISABLED: EXPORT_SYMBOL(z8530_queue_xmit); */
+EXPORT_SYMBOL(z8530_queue_xmit);
 
 /*
  *	Module support

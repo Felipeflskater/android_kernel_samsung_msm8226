@@ -604,7 +604,7 @@ static int stb6100_release(struct dvb_frontend *fe)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(stb6100_attach); */
+EXPORT_SYMBOL(stb6100_attach);
 MODULE_PARM_DESC(verbose, "Set Verbosity level");
 
 MODULE_AUTHOR("Manu Abraham");

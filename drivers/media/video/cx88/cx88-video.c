@@ -337,7 +337,7 @@ const u32 cx88_user_ctrls[] = {
 	V4L2_CID_BAND_STOP_FILTER,
 	0
 };
-/* DISABLED: EXPORT_SYMBOL(cx88_user_ctrls); */
+EXPORT_SYMBOL(cx88_user_ctrls);
 
 static const u32 * const ctrl_classes[] = {
 	cx88_user_ctrls,
@@ -366,7 +366,7 @@ int cx8800_ctrl_query(struct cx88_core *core, struct v4l2_queryctrl *qctrl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx8800_ctrl_query); */
+EXPORT_SYMBOL(cx8800_ctrl_query);
 
 /* ------------------------------------------------------------------- */
 /* resource management                                                 */
@@ -478,7 +478,7 @@ int cx88_video_mux(struct cx88_core *core, unsigned int input)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_video_mux); */
+EXPORT_SYMBOL(cx88_video_mux);
 
 /* ------------------------------------------------------------------ */
 
@@ -1008,7 +1008,7 @@ int cx88_get_control (struct cx88_core  *core, struct v4l2_control *ctl)
 				value,c->mask, c->sreg ? " [shadowed]" : "");
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_get_control); */
+EXPORT_SYMBOL(cx88_get_control);
 
 int cx88_set_control(struct cx88_core *core, struct v4l2_control *ctl)
 {
@@ -1102,7 +1102,7 @@ int cx88_set_control(struct cx88_core *core, struct v4l2_control *ctl)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_set_control); */
+EXPORT_SYMBOL(cx88_set_control);
 
 static void init_controls(struct cx88_core *core)
 {
@@ -1331,7 +1331,7 @@ int cx88_enum_input (struct cx88_core  *core,struct v4l2_input *i)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_enum_input); */
+EXPORT_SYMBOL(cx88_enum_input);
 
 static int vidioc_enum_input (struct file *file, void *priv,
 				struct v4l2_input *i)
@@ -1466,7 +1466,7 @@ int cx88_set_freq (struct cx88_core  *core,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_set_freq); */
+EXPORT_SYMBOL(cx88_set_freq);
 
 static int vidioc_s_frequency (struct file *file, void *priv,
 				struct v4l2_frequency *f)

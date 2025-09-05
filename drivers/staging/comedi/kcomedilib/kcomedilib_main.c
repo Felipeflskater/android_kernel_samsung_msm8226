@@ -68,7 +68,7 @@ struct comedi_device *comedi_open(const char *filename)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_open); */
+EXPORT_SYMBOL(comedi_open);
 
 int comedi_close(struct comedi_device *d)
 {
@@ -78,7 +78,7 @@ int comedi_close(struct comedi_device *d)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_close); */
+EXPORT_SYMBOL(comedi_close);
 
 static int comedi_do_insn(struct comedi_device *dev, struct comedi_insn *insn)
 {
@@ -146,7 +146,7 @@ int comedi_dio_config(struct comedi_device *dev, unsigned int subdev,
 
 	return comedi_do_insn(dev, &insn);
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_dio_config); */
+EXPORT_SYMBOL(comedi_dio_config);
 
 int comedi_dio_bitfield(struct comedi_device *dev, unsigned int subdev,
 			unsigned int mask, unsigned int *bits)
@@ -170,7 +170,7 @@ int comedi_dio_bitfield(struct comedi_device *dev, unsigned int subdev,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_dio_bitfield); */
+EXPORT_SYMBOL(comedi_dio_bitfield);
 
 int comedi_find_subdevice_by_type(struct comedi_device *dev, int type,
 				  unsigned int subd)
@@ -184,7 +184,7 @@ int comedi_find_subdevice_by_type(struct comedi_device *dev, int type,
 	}
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_find_subdevice_by_type); */
+EXPORT_SYMBOL(comedi_find_subdevice_by_type);
 
 int comedi_get_n_channels(struct comedi_device *dev, unsigned int subdevice)
 {
@@ -192,4 +192,4 @@ int comedi_get_n_channels(struct comedi_device *dev, unsigned int subdevice)
 
 	return s->n_chan;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_get_n_channels); */
+EXPORT_SYMBOL(comedi_get_n_channels);

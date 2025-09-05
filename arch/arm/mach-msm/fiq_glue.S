@@ -32,7 +32,7 @@ ENTRY(fiq_glue)
 		stmfd	sp!, {r11-r12, lr}
 
 		/* store r8-r14 from previous mode */
-		sub	sp, sp, @ (7 * 4)
+		sub	sp, sp, #(7 * 4)
 		stmia	sp, {r8-r14}^
 		nop
 
@@ -47,24 +47,24 @@ ENTRY(fiq_glue)
 		mov	r7, sp
 
 		/* Get sp and lr from non-user modes */
-		and	r4, r12, @ MODE_MASK
-		cmp	r4, @ USR_MODE
+		and	r4, r12, #MODE_MASK
+		cmp	r4, #USR_MODE
 		beq	fiq_from_usr_mode
 
 		mov	r7, sp
-		orr	r4, r4, @ (PSR_I_BIT | PSR_F_BIT)
+		orr	r4, r4, #(PSR_I_BIT | PSR_F_BIT)
 		msr	cpsr_c, r4
-		str	sp, [r7, @ (4 * 13)]
-		str	lr, [r7, @ (4 * 14)]
+		str	sp, [r7, #(4 * 13)]
+		str	lr, [r7, #(4 * 14)]
 		mrs	r5, spsr
-		str	r5, [r7, @ (4 * 17)]
+		str	r5, [r7, #(4 * 17)]
 
-		cmp	r4, @ (SVC_MODE | PSR_I_BIT | PSR_F_BIT)
+		cmp	r4, #(SVC_MODE | PSR_I_BIT | PSR_F_BIT)
 		/* use fiq stack if we reenter this mode */
-		subne	sp, r7, @ (4 * 3)
+		subne	sp, r7, #(4 * 3)
 
 fiq_from_usr_mode:
-		msr	cpsr_c, @ (SVC_MODE | PSR_I_BIT | PSR_F_BIT)
+		msr	cpsr_c, #(SVC_MODE | PSR_I_BIT | PSR_F_BIT)
 		mov	r2, sp
 		sub	sp, r7, #12
 		stmfd	sp!, {r2, ip, lr}
@@ -74,19 +74,19 @@ fiq_from_usr_mode:
 		mov	sp, r2
 
 		/* restore/discard saved state */
-		cmp	r4, @ USR_MODE
+		cmp	r4, #USR_MODE
 		beq	fiq_from_usr_mode_exit
 
 		msr	cpsr_c, r4
-		ldr	sp, [r7, @ (4 * 13)]
-		ldr	lr, [r7, @ (4 * 14)]
+		ldr	sp, [r7, #(4 * 13)]
+		ldr	lr, [r7, #(4 * 14)]
 		msr	spsr_cxsf, r5
 
 fiq_from_usr_mode_exit:
-		msr	cpsr_c, @ (FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
+		msr	cpsr_c, #(FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
 
 		ldmfd	sp!, {r0-r7}
-		add	sp, sp, @ (7 * 4)
+		add	sp, sp, #(7 * 4)
 		ldmfd	sp!, {r11-r12, lr}
 exit_fiq:
 		msr	spsr_cxsf, r12
@@ -94,14 +94,14 @@ exit_fiq:
 		movs	pc, r11
 
 nested_fiq:
-		orr	r12, r12, @ (PSR_F_BIT)
+		orr	r12, r12, #(PSR_F_BIT)
 		b	exit_fiq
 
 fiq_glue_end:
 
 ENTRY(fiq_glue_setup) /* func, data, sp */
 		mrs		r3, cpsr
-		msr		cpsr_c, @ (FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
+		msr		cpsr_c, #(FIQ_MODE | PSR_I_BIT | PSR_F_BIT)
 		movs		r8, r0
 		mov		r9, r1
 		mov		sp, r2

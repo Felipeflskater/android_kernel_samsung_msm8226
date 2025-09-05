@@ -75,7 +75,7 @@ phys_addr_t get_immrbase(void)
 	return immrbase;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_immrbase); */
+EXPORT_SYMBOL(get_immrbase);
 
 static u32 sysfreq = -1;
 
@@ -102,7 +102,7 @@ u32 fsl_get_sys_freq(void)
 	of_node_put(soc);
 	return sysfreq;
 }
-/* DISABLED: EXPORT_SYMBOL(fsl_get_sys_freq); */
+EXPORT_SYMBOL(fsl_get_sys_freq);
 
 #if defined(CONFIG_CPM2) || defined(CONFIG_QUICC_ENGINE) || defined(CONFIG_8xx)
 
@@ -150,7 +150,7 @@ u32 get_brgfreq(void)
 	return brgfreq;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_brgfreq); */
+EXPORT_SYMBOL(get_brgfreq);
 
 static u32 fs_baudrate = -1;
 
@@ -175,7 +175,7 @@ u32 get_baudrate(void)
 	return fs_baudrate;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_baudrate); */
+EXPORT_SYMBOL(get_baudrate);
 #endif /* CONFIG_CPM2 */
 
 #ifdef CONFIG_FIXED_PHY
@@ -250,7 +250,7 @@ void fsl_rstcr_restart(char *cmd)
 
 #if defined(CONFIG_FB_FSL_DIU) || defined(CONFIG_FB_FSL_DIU_MODULE)
 struct platform_diu_data_ops diu_ops;
-/* DISABLED: EXPORT_SYMBOL(diu_ops); */
+EXPORT_SYMBOL(diu_ops);
 #endif
 
 /*

@@ -35,11 +35,11 @@ const char lbs_driver_version[] = "COMM-USB8388-" DRIVER_RELEASE_VERSION
 
 /* Module parameters */
 unsigned int lbs_debug;
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_debug); */
+EXPORT_SYMBOL_GPL(lbs_debug);
 module_param_named(libertas_debug, lbs_debug, int, 0644);
 
 unsigned int lbs_disablemesh;
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_disablemesh); */
+EXPORT_SYMBOL_GPL(lbs_disablemesh);
 module_param_named(libertas_disablemesh, lbs_disablemesh, int, 0644);
 
 
@@ -287,7 +287,7 @@ void lbs_host_to_card_done(struct lbs_private *priv)
 	spin_unlock_irqrestore(&priv->driver_lock, flags);
 	lbs_deb_leave(LBS_DEB_THREAD);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_host_to_card_done); */
+EXPORT_SYMBOL_GPL(lbs_host_to_card_done);
 
 int lbs_set_mac_address(struct net_device *dev, void *addr)
 {
@@ -705,7 +705,7 @@ int lbs_suspend(struct lbs_private *priv)
 	lbs_deb_leave_args(LBS_DEB_FW, "ret %d", ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_suspend); */
+EXPORT_SYMBOL_GPL(lbs_suspend);
 
 int lbs_resume(struct lbs_private *priv)
 {
@@ -733,7 +733,7 @@ int lbs_resume(struct lbs_private *priv)
 	lbs_deb_leave_args(LBS_DEB_FW, "ret %d", ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_resume); */
+EXPORT_SYMBOL_GPL(lbs_resume);
 
 /**
  * lbs_cmd_timeout_handler - handles the timeout of command sending.
@@ -1023,7 +1023,7 @@ done:
 	lbs_deb_leave_args(LBS_DEB_MAIN, "priv %p", priv);
 	return priv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_add_card); */
+EXPORT_SYMBOL_GPL(lbs_add_card);
 
 
 void lbs_remove_card(struct lbs_private *priv)
@@ -1066,7 +1066,7 @@ void lbs_remove_card(struct lbs_private *priv)
 
 	lbs_deb_leave(LBS_DEB_MAIN);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_remove_card); */
+EXPORT_SYMBOL_GPL(lbs_remove_card);
 
 
 int lbs_rtap_supported(struct lbs_private *priv)
@@ -1115,7 +1115,7 @@ done:
 	lbs_deb_leave_args(LBS_DEB_MAIN, "ret %d", ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_start_card); */
+EXPORT_SYMBOL_GPL(lbs_start_card);
 
 
 void lbs_stop_card(struct lbs_private *priv)
@@ -1138,7 +1138,7 @@ void lbs_stop_card(struct lbs_private *priv)
 out:
 	lbs_deb_leave(LBS_DEB_MAIN);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_stop_card); */
+EXPORT_SYMBOL_GPL(lbs_stop_card);
 
 
 void lbs_queue_event(struct lbs_private *priv, u32 event)
@@ -1158,7 +1158,7 @@ void lbs_queue_event(struct lbs_private *priv, u32 event)
 	spin_unlock_irqrestore(&priv->driver_lock, flags);
 	lbs_deb_leave(LBS_DEB_THREAD);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_queue_event); */
+EXPORT_SYMBOL_GPL(lbs_queue_event);
 
 void lbs_notify_command_response(struct lbs_private *priv, u8 resp_idx)
 {
@@ -1175,7 +1175,7 @@ void lbs_notify_command_response(struct lbs_private *priv, u8 resp_idx)
 
 	lbs_deb_leave(LBS_DEB_THREAD);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_notify_command_response); */
+EXPORT_SYMBOL_GPL(lbs_notify_command_response);
 
 /**
  *  lbs_get_firmware - Retrieves two-stage firmware
@@ -1280,7 +1280,7 @@ int lbs_get_firmware(struct device *dev, const char *user_helper,
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbs_get_firmware); */
+EXPORT_SYMBOL_GPL(lbs_get_firmware);
 
 static int __init lbs_init_module(void)
 {

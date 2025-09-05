@@ -881,7 +881,7 @@ int ipv6_setsockopt(struct sock *sk, int level, int optname,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ipv6_setsockopt); */
+EXPORT_SYMBOL(ipv6_setsockopt);
 
 #ifdef CONFIG_COMPAT
 int compat_ipv6_setsockopt(struct sock *sk, int level, int optname,
@@ -917,7 +917,7 @@ int compat_ipv6_setsockopt(struct sock *sk, int level, int optname,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(compat_ipv6_setsockopt); */
+EXPORT_SYMBOL(compat_ipv6_setsockopt);
 #endif
 
 static int ipv6_getsockopt_sticky(struct sock *sk, struct ipv6_txoptions *opt,
@@ -1291,7 +1291,7 @@ int ipv6_getsockopt(struct sock *sk, int level, int optname,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ipv6_getsockopt); */
+EXPORT_SYMBOL(ipv6_getsockopt);
 
 #ifdef CONFIG_COMPAT
 int compat_ipv6_getsockopt(struct sock *sk, int level, int optname,
@@ -1334,6 +1334,6 @@ int compat_ipv6_getsockopt(struct sock *sk, int level, int optname,
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(compat_ipv6_getsockopt); */
+EXPORT_SYMBOL(compat_ipv6_getsockopt);
 #endif
 

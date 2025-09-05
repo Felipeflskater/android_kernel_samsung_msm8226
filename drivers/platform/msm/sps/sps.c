@@ -890,7 +890,7 @@ int sps_get_bam_debug_info(u32 dev, u32 option, u32 para,
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_bam_debug_info); */
+EXPORT_SYMBOL(sps_get_bam_debug_info);
 
 /**
  * Initialize SPS device
@@ -1144,7 +1144,7 @@ int sps_phy2h(u32 phys_addr, u32 *handle)
 
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_phy2h); */
+EXPORT_SYMBOL(sps_phy2h);
 
 /**
  * Setup desc/data FIFO for bam-to-bam connection
@@ -1202,7 +1202,7 @@ int sps_setup_bam2bam_fifo(struct sps_mem_buffer *mem_buffer,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_setup_bam2bam_fifo); */
+EXPORT_SYMBOL(sps_setup_bam2bam_fifo);
 
 /**
  * Find the BAM device from the handle
@@ -1365,7 +1365,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_connect); */
+EXPORT_SYMBOL(sps_connect);
 
 /**
  * Disconnect an SPS connection end point
@@ -1437,7 +1437,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_disconnect); */
+EXPORT_SYMBOL(sps_disconnect);
 
 /**
  * Register an event object for an SPS connection end point
@@ -1479,7 +1479,7 @@ int sps_register_event(struct sps_pipe *h, struct sps_register_event *reg)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_register_event); */
+EXPORT_SYMBOL(sps_register_event);
 
 /**
  * Enable an SPS connection end point
@@ -1508,7 +1508,7 @@ int sps_flow_on(struct sps_pipe *h)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_flow_on); */
+EXPORT_SYMBOL(sps_flow_on);
 
 /**
  * Disable an SPS connection end point
@@ -1537,7 +1537,7 @@ int sps_flow_off(struct sps_pipe *h, enum sps_flow_off mode)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_flow_off); */
+EXPORT_SYMBOL(sps_flow_off);
 
 /**
  * Check if the flags on a descriptor/iovec are valid
@@ -1639,7 +1639,7 @@ int sps_transfer(struct sps_pipe *h, struct sps_transfer *transfer)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_transfer); */
+EXPORT_SYMBOL(sps_transfer);
 
 /**
  * Perform a single DMA transfer on an SPS connection end point
@@ -1674,7 +1674,7 @@ int sps_transfer_one(struct sps_pipe *h, phys_addr_t addr, u32 size,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_transfer_one); */
+EXPORT_SYMBOL(sps_transfer_one);
 
 /**
  * Read event queue for an SPS connection end point
@@ -1705,7 +1705,7 @@ int sps_get_event(struct sps_pipe *h, struct sps_event_notify *notify)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_event); */
+EXPORT_SYMBOL(sps_get_event);
 
 /**
  * Determine whether an SPS connection end point FIFO is empty
@@ -1736,7 +1736,7 @@ int sps_is_pipe_empty(struct sps_pipe *h, u32 *empty)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_is_pipe_empty); */
+EXPORT_SYMBOL(sps_is_pipe_empty);
 
 /**
  * Get number of free transfer entries for an SPS connection end point
@@ -1767,7 +1767,7 @@ int sps_get_free_count(struct sps_pipe *h, u32 *count)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_free_count); */
+EXPORT_SYMBOL(sps_get_free_count);
 
 /**
  * Reset an SPS BAM device
@@ -1812,7 +1812,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_device_reset); */
+EXPORT_SYMBOL(sps_device_reset);
 
 /**
  * Get the configuration parameters for an SPS connection end point
@@ -1837,7 +1837,7 @@ int sps_get_config(struct sps_pipe *h, struct sps_connect *config)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_config); */
+EXPORT_SYMBOL(sps_get_config);
 
 /**
  * Set the configuration parameters for an SPS connection end point
@@ -1871,7 +1871,7 @@ int sps_set_config(struct sps_pipe *h, struct sps_connect *config)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_set_config); */
+EXPORT_SYMBOL(sps_set_config);
 
 /**
  * Set ownership of an SPS connection end point
@@ -1926,7 +1926,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_set_owner); */
+EXPORT_SYMBOL(sps_set_owner);
 
 /**
  * Allocate memory from the SPS Pipe-Memory.
@@ -1965,7 +1965,7 @@ int sps_alloc_mem(struct sps_pipe *h, enum sps_mem mem,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_alloc_mem); */
+EXPORT_SYMBOL(sps_alloc_mem);
 
 /**
  * Free memory from the SPS Pipe-Memory.
@@ -1989,7 +1989,7 @@ int sps_free_mem(struct sps_pipe *h, struct sps_mem_buffer *mem_buffer)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_free_mem); */
+EXPORT_SYMBOL(sps_free_mem);
 
 /**
  * Get the number of unused descriptors in the descriptor FIFO
@@ -2023,7 +2023,7 @@ int sps_get_unused_desc_num(struct sps_pipe *h, u32 *desc_num)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_unused_desc_num); */
+EXPORT_SYMBOL(sps_get_unused_desc_num);
 
 /**
  * Vote for or relinquish BAM DMA clock
@@ -2054,7 +2054,7 @@ int sps_ctrl_bam_dma_clk(bool clk_on)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_ctrl_bam_dma_clk); */
+EXPORT_SYMBOL(sps_ctrl_bam_dma_clk);
 
 /**
  * Register a BAM device
@@ -2197,7 +2197,7 @@ exit_err:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_register_bam_device); */
+EXPORT_SYMBOL(sps_register_bam_device);
 
 /**
  * Deregister a BAM device
@@ -2255,7 +2255,7 @@ int sps_deregister_bam_device(u32 dev_handle)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_deregister_bam_device); */
+EXPORT_SYMBOL(sps_deregister_bam_device);
 
 /**
  * Get processed I/O vector (completed transfers)
@@ -2287,7 +2287,7 @@ int sps_get_iovec(struct sps_pipe *h, struct sps_iovec *iovec)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_get_iovec); */
+EXPORT_SYMBOL(sps_get_iovec);
 
 /**
  * Perform timer control
@@ -2324,7 +2324,7 @@ int sps_timer_ctrl(struct sps_pipe *h,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_timer_ctrl); */
+EXPORT_SYMBOL(sps_timer_ctrl);
 
 /**
  * Allocate client state context
@@ -2346,7 +2346,7 @@ struct sps_pipe *sps_alloc_endpoint(void)
 
 	return ctx;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_alloc_endpoint); */
+EXPORT_SYMBOL(sps_alloc_endpoint);
 
 /**
  * Free client state context
@@ -2370,7 +2370,7 @@ int sps_free_endpoint(struct sps_pipe *ctx)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_free_endpoint); */
+EXPORT_SYMBOL(sps_free_endpoint);
 
 /**
  * Platform Driver.

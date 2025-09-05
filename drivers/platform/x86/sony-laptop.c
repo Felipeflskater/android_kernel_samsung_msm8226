@@ -2416,7 +2416,7 @@ int sony_pic_camera_command(int command, u8 value)
 	mutex_unlock(&spic_dev.lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sony_pic_camera_command); */
+EXPORT_SYMBOL(sony_pic_camera_command);
 
 /* gprs/edge modem (SZ460N and SZ210P), thanks to Joshua Wise */
 static void __sony_pic_set_wwanpower(u8 state)

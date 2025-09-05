@@ -32,7 +32,7 @@ void pcmcia_reset(void)
 	while (time_before(jiffies, reset_start_time + 1*HZ/100));
 	b = gayle_reset;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_reset); */
+EXPORT_SYMBOL(pcmcia_reset);
 
 
 /* copy a tuple, including tuple header. return nb bytes copied */
@@ -64,7 +64,7 @@ int pcmcia_copy_tuple(unsigned char tuple_id, void *tuple, int max_len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_copy_tuple); */
+EXPORT_SYMBOL(pcmcia_copy_tuple);
 
 void pcmcia_program_voltage(int voltage)
 {
@@ -88,7 +88,7 @@ void pcmcia_program_voltage(int voltage)
 	gayle.config = cfg_byte;
 
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_program_voltage); */
+EXPORT_SYMBOL(pcmcia_program_voltage);
 
 void pcmcia_access_speed(int speed)
 {
@@ -106,17 +106,17 @@ void pcmcia_access_speed(int speed)
 	cfg_byte = (cfg_byte & 0xf3) | s;
 	gayle.config = cfg_byte;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_access_speed); */
+EXPORT_SYMBOL(pcmcia_access_speed);
 
 void pcmcia_write_enable(void)
 {
 	gayle.cardstatus = GAYLE_CS_WR|GAYLE_CS_DA;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_write_enable); */
+EXPORT_SYMBOL(pcmcia_write_enable);
 
 void pcmcia_write_disable(void)
 {
 	gayle.cardstatus = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_write_disable); */
+EXPORT_SYMBOL(pcmcia_write_disable);
 

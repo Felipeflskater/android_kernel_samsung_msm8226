@@ -26,17 +26,17 @@
 #include "internal.h"
 
 const struct comedi_lrange range_bipolar10 = { 1, {BIP_RANGE(10)} };
-/* DISABLED: EXPORT_SYMBOL(range_bipolar10); */
+EXPORT_SYMBOL(range_bipolar10);
 const struct comedi_lrange range_bipolar5 = { 1, {BIP_RANGE(5)} };
-/* DISABLED: EXPORT_SYMBOL(range_bipolar5); */
+EXPORT_SYMBOL(range_bipolar5);
 const struct comedi_lrange range_bipolar2_5 = { 1, {BIP_RANGE(2.5)} };
-/* DISABLED: EXPORT_SYMBOL(range_bipolar2_5); */
+EXPORT_SYMBOL(range_bipolar2_5);
 const struct comedi_lrange range_unipolar10 = { 1, {UNI_RANGE(10)} };
-/* DISABLED: EXPORT_SYMBOL(range_unipolar10); */
+EXPORT_SYMBOL(range_unipolar10);
 const struct comedi_lrange range_unipolar5 = { 1, {UNI_RANGE(5)} };
-/* DISABLED: EXPORT_SYMBOL(range_unipolar5); */
+EXPORT_SYMBOL(range_unipolar5);
 const struct comedi_lrange range_unknown = { 1, {{0, 1000000, UNIT_none} } };
-/* DISABLED: EXPORT_SYMBOL(range_unknown); */
+EXPORT_SYMBOL(range_unknown);
 
 /*
 	COMEDI_RANGEINFO
@@ -163,4 +163,4 @@ int comedi_check_chanlist(struct comedi_subdevice *s, int n,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(comedi_check_chanlist); */
+EXPORT_SYMBOL(comedi_check_chanlist);

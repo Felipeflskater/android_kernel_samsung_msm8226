@@ -294,5 +294,5 @@ MODULE_DESCRIPTION("TTUSB DEC DVB-T/S Demodulator driver");
 MODULE_AUTHOR("Alex Woods/Andrew de Quincey");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(ttusbdecfe_dvbt_attach); */
-/* DISABLED: EXPORT_SYMBOL(ttusbdecfe_dvbs_attach); */
+EXPORT_SYMBOL(ttusbdecfe_dvbt_attach);
+EXPORT_SYMBOL(ttusbdecfe_dvbs_attach);

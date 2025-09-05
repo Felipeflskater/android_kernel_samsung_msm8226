@@ -144,4 +144,4 @@ void nf_nat_need_gre(void)
 {
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_need_gre); */
+EXPORT_SYMBOL_GPL(nf_nat_need_gre);

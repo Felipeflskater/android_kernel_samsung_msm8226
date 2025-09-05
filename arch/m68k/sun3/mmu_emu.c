@@ -45,7 +45,7 @@
 */
 
 unsigned long m68k_vmalloc_end;
-/* DISABLED: EXPORT_SYMBOL(m68k_vmalloc_end); */
+EXPORT_SYMBOL(m68k_vmalloc_end);
 
 unsigned long pmeg_vaddr[PMEGS_NUM];
 unsigned char pmeg_alloc[PMEGS_NUM];

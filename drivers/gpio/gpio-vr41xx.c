@@ -286,7 +286,7 @@ void vr41xx_set_irq_trigger(unsigned int pin, irq_trigger_t trigger,
 		giu_write(GIUINTSTATH, mask);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_set_irq_trigger); */
+EXPORT_SYMBOL_GPL(vr41xx_set_irq_trigger);
 
 void vr41xx_set_irq_level(unsigned int pin, irq_level_t level)
 {
@@ -308,7 +308,7 @@ void vr41xx_set_irq_level(unsigned int pin, irq_level_t level)
 		giu_write(GIUINTSTATH, mask);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_set_irq_level); */
+EXPORT_SYMBOL_GPL(vr41xx_set_irq_level);
 
 static int giu_set_direction(struct gpio_chip *chip, unsigned pin, int dir)
 {
@@ -394,7 +394,7 @@ int vr41xx_gpio_pullupdown(unsigned int pin, gpio_pull_t pull)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_gpio_pullupdown); */
+EXPORT_SYMBOL_GPL(vr41xx_gpio_pullupdown);
 
 static int vr41xx_gpio_get(struct gpio_chip *chip, unsigned pin)
 {

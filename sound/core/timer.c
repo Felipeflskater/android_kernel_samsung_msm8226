@@ -2023,16 +2023,16 @@ static void __exit alsa_timer_exit(void)
 module_init(alsa_timer_init)
 module_exit(alsa_timer_exit)
 
-/* DISABLED: EXPORT_SYMBOL(snd_timer_open); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_close); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_resolution); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_start); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_stop); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_continue); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_pause); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_new); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_notify); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_global_new); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_global_free); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_global_register); */
-/* DISABLED: EXPORT_SYMBOL(snd_timer_interrupt); */
+EXPORT_SYMBOL(snd_timer_open);
+EXPORT_SYMBOL(snd_timer_close);
+EXPORT_SYMBOL(snd_timer_resolution);
+EXPORT_SYMBOL(snd_timer_start);
+EXPORT_SYMBOL(snd_timer_stop);
+EXPORT_SYMBOL(snd_timer_continue);
+EXPORT_SYMBOL(snd_timer_pause);
+EXPORT_SYMBOL(snd_timer_new);
+EXPORT_SYMBOL(snd_timer_notify);
+EXPORT_SYMBOL(snd_timer_global_new);
+EXPORT_SYMBOL(snd_timer_global_free);
+EXPORT_SYMBOL(snd_timer_global_register);
+EXPORT_SYMBOL(snd_timer_interrupt);

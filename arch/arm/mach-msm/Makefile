@@ -315,7 +315,6 @@ obj-$(CONFIG_SEC_MILLET_PROJECT) += board-millet-gpiomux.o
 obj-$(CONFIG_SEC_RUBENS_PROJECT) += board-rubens-gpiomux.o
 obj-$(CONFIG_SEC_VASTALTE_CHN_CMMCC_DUOS_PROJECT) += board-vastalteduos-gpiomux.o
 obj-$(CONFIG_SEC_DEGAS_PROJECT) += board-degas-gpiomux.o
-obj-$(CONFIG_MACH_MATISSE3G_OPEN) += board-matisse3g.o
 obj-$(CONFIG_SEC_MATISSE_PROJECT) += board-matisse-gpiomux.o
 obj-$(CONFIG_SEC_BERLUTI_PROJECT) += board-berluti-gpiomux.o
 obj-$(CONFIG_SEC_S3VE_PROJECT) += board-s3ve-gpiomux.o
@@ -519,5 +518,3 @@ else
 obj-$(CONFIG_SEC_THERMISTOR) += sec_thermistor.o msm8974-thermistor.o
 endif
 obj-$(CONFIG_GSM_MODEM_SPRD6500) += board-sprd6500-spi.o board-sprd6500-modems.o
-# PostmarketOS compatibility
-include $(src)/Makefile.postmarketos

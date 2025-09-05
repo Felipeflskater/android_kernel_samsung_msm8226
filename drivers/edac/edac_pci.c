@@ -66,7 +66,7 @@ struct edac_pci_ctl_info *edac_pci_alloc_ctl_info(unsigned int sz_pvt,
 
 	return pci;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_alloc_ctl_info); */
+EXPORT_SYMBOL_GPL(edac_pci_alloc_ctl_info);
 
 /*
  * edac_pci_free_ctl_info()
@@ -84,7 +84,7 @@ void edac_pci_free_ctl_info(struct edac_pci_ctl_info *pci)
 
 	edac_pci_remove_sysfs(pci);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_free_ctl_info); */
+EXPORT_SYMBOL_GPL(edac_pci_free_ctl_info);
 
 /*
  * find_edac_pci_by_dev()
@@ -210,7 +210,7 @@ struct edac_pci_ctl_info *edac_pci_find(int idx)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_find); */
+EXPORT_SYMBOL_GPL(edac_pci_find);
 #endif
 
 /*
@@ -304,7 +304,7 @@ void edac_pci_reset_delay_period(struct edac_pci_ctl_info *pci,
 
 	mutex_unlock(&edac_pci_ctls_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_reset_delay_period); */
+EXPORT_SYMBOL_GPL(edac_pci_reset_delay_period);
 
 /*
  * edac_pci_alloc_index: Allocate a unique PCI index number
@@ -317,7 +317,7 @@ int edac_pci_alloc_index(void)
 {
 	return atomic_inc_return(&pci_indexes) - 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_alloc_index); */
+EXPORT_SYMBOL_GPL(edac_pci_alloc_index);
 
 /*
  * edac_pci_add_device: Insert the 'edac_dev' structure into the
@@ -374,7 +374,7 @@ fail0:
 	mutex_unlock(&edac_pci_ctls_mutex);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_add_device); */
+EXPORT_SYMBOL_GPL(edac_pci_add_device);
 
 /*
  * edac_pci_del_device()
@@ -421,7 +421,7 @@ struct edac_pci_ctl_info *edac_pci_del_device(struct device *dev)
 
 	return pci;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_del_device); */
+EXPORT_SYMBOL_GPL(edac_pci_del_device);
 
 /*
  * edac_pci_generic_check
@@ -482,7 +482,7 @@ struct edac_pci_ctl_info *edac_pci_create_generic_ctl(struct device *dev,
 
 	return pci;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_create_generic_ctl); */
+EXPORT_SYMBOL_GPL(edac_pci_create_generic_ctl);
 
 /*
  * edac_pci_release_generic_ctl
@@ -496,4 +496,4 @@ void edac_pci_release_generic_ctl(struct edac_pci_ctl_info *pci)
 	edac_pci_del_device(pci->dev);
 	edac_pci_free_ctl_info(pci);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(edac_pci_release_generic_ctl); */
+EXPORT_SYMBOL_GPL(edac_pci_release_generic_ctl);

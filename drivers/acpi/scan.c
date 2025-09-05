@@ -270,7 +270,7 @@ int acpi_match_device_ids(struct acpi_device *device,
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_match_device_ids); */
+EXPORT_SYMBOL(acpi_match_device_ids);
 
 static void acpi_free_ids(struct acpi_device *device)
 {
@@ -621,7 +621,7 @@ int acpi_bus_register_driver(struct acpi_driver *driver)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_bus_register_driver); */
+EXPORT_SYMBOL(acpi_bus_register_driver);
 
 /**
  * acpi_bus_unregister_driver - unregisters a driver with the APIC bus
@@ -635,7 +635,7 @@ void acpi_bus_unregister_driver(struct acpi_driver *driver)
 	driver_unregister(&driver->drv);
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_bus_unregister_driver); */
+EXPORT_SYMBOL(acpi_bus_unregister_driver);
 
 /* --------------------------------------------------------------------------
                                  Device Enumeration
@@ -688,7 +688,7 @@ acpi_bus_get_ejd(acpi_handle handle, acpi_handle *ejd)
 	}
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_bus_get_ejd); */
+EXPORT_SYMBOL_GPL(acpi_bus_get_ejd);
 
 void acpi_bus_data_handler(acpi_handle handle, void *context)
 {
@@ -1062,7 +1062,7 @@ const char *acpi_device_hid(struct acpi_device *device)
 	hid = list_first_entry(&device->pnp.ids, struct acpi_hardware_id, list);
 	return hid->id;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_device_hid); */
+EXPORT_SYMBOL(acpi_device_hid);
 
 static void acpi_add_id(struct acpi_device *device, const char *dev_id)
 {
@@ -1478,7 +1478,7 @@ acpi_bus_add(struct acpi_device **child,
 
 	return acpi_bus_scan(handle, &ops, child);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_bus_add); */
+EXPORT_SYMBOL(acpi_bus_add);
 
 int acpi_bus_start(struct acpi_device *device)
 {
@@ -1497,7 +1497,7 @@ int acpi_bus_start(struct acpi_device *device)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_bus_start); */
+EXPORT_SYMBOL(acpi_bus_start);
 
 int acpi_bus_trim(struct acpi_device *start, int rmdevice)
 {
@@ -1552,7 +1552,7 @@ int acpi_bus_trim(struct acpi_device *start, int rmdevice)
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_bus_trim); */
+EXPORT_SYMBOL_GPL(acpi_bus_trim);
 
 static int acpi_bus_scan_fixed(void)
 {

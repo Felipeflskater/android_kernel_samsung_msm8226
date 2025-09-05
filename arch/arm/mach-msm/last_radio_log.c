@@ -80,4 +80,4 @@ void msm_init_last_radio_log(struct module *owner)
 	entry->proc_fops = &last_radio_log_fops;
 	entry->size = radio_log_size;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_init_last_radio_log); */
+EXPORT_SYMBOL(msm_init_last_radio_log);

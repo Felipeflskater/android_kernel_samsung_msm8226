@@ -58,7 +58,7 @@ static int radio_nr = -1;		/* /dev/radioN, -1 for autodetect */
 
 /* Debug level */
 int tm6000_debug;
-/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_debug); */
+EXPORT_SYMBOL_GPL(tm6000_debug);
 
 static const struct v4l2_queryctrl no_ctrl = {
 	.name  = "42",

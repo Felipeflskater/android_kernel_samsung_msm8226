@@ -51,7 +51,7 @@ int agp_memory_reserved;
  * Needed by the Nforce GART driver for the time being. Would be
  * nice to do this some other way instead of needing this export.
  */
-/* DISABLED: EXPORT_SYMBOL_GPL(agp_memory_reserved); */
+EXPORT_SYMBOL_GPL(agp_memory_reserved);
 
 /*
  * Generic routines for handling agp_memory structures -
@@ -66,7 +66,7 @@ void agp_free_key(int key)
 	if (key < MAXKEY)
 		clear_bit(key, agp_bridge->key_list);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_free_key); */
+EXPORT_SYMBOL(agp_free_key);
 
 
 static int agp_get_key(void)
@@ -97,7 +97,7 @@ void agp_alloc_page_array(size_t size, struct agp_memory *mem)
 		mem->pages = vmalloc(size);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(agp_alloc_page_array); */
+EXPORT_SYMBOL(agp_alloc_page_array);
 
 void agp_free_page_array(struct agp_memory *mem)
 {
@@ -107,7 +107,7 @@ void agp_free_page_array(struct agp_memory *mem)
 		kfree(mem->pages);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(agp_free_page_array); */
+EXPORT_SYMBOL(agp_free_page_array);
 
 
 static struct agp_memory *agp_create_user_memory(unsigned long num_agp_pages)
@@ -166,7 +166,7 @@ struct agp_memory *agp_create_memory(int scratch_pages)
 	new->type = AGP_NORMAL_MEMORY;
 	return new;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_create_memory); */
+EXPORT_SYMBOL(agp_create_memory);
 
 /**
  *	agp_free_memory - free memory associated with an agp_memory pointer.
@@ -216,7 +216,7 @@ void agp_free_memory(struct agp_memory *curr)
 	agp_free_page_array(curr);
 	kfree(curr);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_free_memory); */
+EXPORT_SYMBOL(agp_free_memory);
 
 #define ENTRIES_PER_PAGE		(PAGE_SIZE / sizeof(unsigned long))
 
@@ -291,7 +291,7 @@ struct agp_memory *agp_allocate_memory(struct agp_bridge_data *bridge,
 
 	return new;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_allocate_memory); */
+EXPORT_SYMBOL(agp_allocate_memory);
 
 
 /* End - Generic routines for handling agp_memory structures */
@@ -365,7 +365,7 @@ int agp_num_entries(void)
 		num_entries = 0;
 	return num_entries;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(agp_num_entries); */
+EXPORT_SYMBOL_GPL(agp_num_entries);
 
 
 /**
@@ -401,7 +401,7 @@ int agp_copy_info(struct agp_bridge_data *bridge, struct agp_kern_info *info)
 	info->page_mask = ~0UL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_copy_info); */
+EXPORT_SYMBOL(agp_copy_info);
 
 /* End - Routine to copy over information structure */
 
@@ -449,7 +449,7 @@ int agp_bind_memory(struct agp_memory *curr, off_t pg_start)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_bind_memory); */
+EXPORT_SYMBOL(agp_bind_memory);
 
 
 /**
@@ -484,7 +484,7 @@ int agp_unbind_memory(struct agp_memory *curr)
 	spin_unlock(&curr->bridge->mapped_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_unbind_memory); */
+EXPORT_SYMBOL(agp_unbind_memory);
 
 
 /* End - Routines for handling swapping of agp_memory into the GATT */
@@ -776,7 +776,7 @@ u32 agp_collect_device_status(struct agp_bridge_data *bridge, u32 requested_mode
 	pci_dev_put(device);
 	return bridge_agpstat;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_collect_device_status); */
+EXPORT_SYMBOL(agp_collect_device_status);
 
 
 void agp_device_command(u32 bridge_agpstat, bool agp_v3)
@@ -798,7 +798,7 @@ void agp_device_command(u32 bridge_agpstat, bool agp_v3)
 		pci_write_config_dword(device, agp + PCI_AGP_COMMAND, bridge_agpstat);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(agp_device_command); */
+EXPORT_SYMBOL(agp_device_command);
 
 
 void get_agp_version(struct agp_bridge_data *bridge)
@@ -813,7 +813,7 @@ void get_agp_version(struct agp_bridge_data *bridge)
 	bridge->major_version = (ncapid >> AGP_MAJOR_VERSION_SHIFT) & 0xf;
 	bridge->minor_version = (ncapid >> AGP_MINOR_VERSION_SHIFT) & 0xf;
 }
-/* DISABLED: EXPORT_SYMBOL(get_agp_version); */
+EXPORT_SYMBOL(get_agp_version);
 
 
 void agp_generic_enable(struct agp_bridge_data *bridge, u32 requested_mode)
@@ -859,7 +859,7 @@ void agp_generic_enable(struct agp_bridge_data *bridge, u32 requested_mode)
 	/* AGP v<3 */
 	agp_device_command(bridge_agpstat, false);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_enable); */
+EXPORT_SYMBOL(agp_generic_enable);
 
 
 int agp_generic_create_gatt_table(struct agp_bridge_data *bridge)
@@ -983,7 +983,7 @@ int agp_generic_create_gatt_table(struct agp_bridge_data *bridge)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_create_gatt_table); */
+EXPORT_SYMBOL(agp_generic_create_gatt_table);
 
 int agp_generic_free_gatt_table(struct agp_bridge_data *bridge)
 {
@@ -1040,7 +1040,7 @@ int agp_generic_free_gatt_table(struct agp_bridge_data *bridge)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_free_gatt_table); */
+EXPORT_SYMBOL(agp_generic_free_gatt_table);
 
 
 int agp_generic_insert_memory(struct agp_memory * mem, off_t pg_start, int type)
@@ -1123,7 +1123,7 @@ int agp_generic_insert_memory(struct agp_memory * mem, off_t pg_start, int type)
 	bridge->driver->tlb_flush(mem);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_insert_memory); */
+EXPORT_SYMBOL(agp_generic_insert_memory);
 
 
 int agp_generic_remove_memory(struct agp_memory *mem, off_t pg_start, int type)
@@ -1162,13 +1162,13 @@ int agp_generic_remove_memory(struct agp_memory *mem, off_t pg_start, int type)
 	bridge->driver->tlb_flush(mem);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_remove_memory); */
+EXPORT_SYMBOL(agp_generic_remove_memory);
 
 struct agp_memory *agp_generic_alloc_by_type(size_t page_count, int type)
 {
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_alloc_by_type); */
+EXPORT_SYMBOL(agp_generic_alloc_by_type);
 
 void agp_generic_free_by_type(struct agp_memory *curr)
 {
@@ -1176,7 +1176,7 @@ void agp_generic_free_by_type(struct agp_memory *curr)
 	agp_free_key(curr->key);
 	kfree(curr);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_free_by_type); */
+EXPORT_SYMBOL(agp_generic_free_by_type);
 
 struct agp_memory *agp_generic_alloc_user(size_t page_count, int type)
 {
@@ -1197,7 +1197,7 @@ struct agp_memory *agp_generic_alloc_user(size_t page_count, int type)
 
 	return new;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_alloc_user); */
+EXPORT_SYMBOL(agp_generic_alloc_user);
 
 /*
  * Basic Page Allocation Routines -
@@ -1234,7 +1234,7 @@ int agp_generic_alloc_pages(struct agp_bridge_data *bridge, struct agp_memory *m
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_alloc_pages); */
+EXPORT_SYMBOL(agp_generic_alloc_pages);
 
 struct page *agp_generic_alloc_page(struct agp_bridge_data *bridge)
 {
@@ -1250,7 +1250,7 @@ struct page *agp_generic_alloc_page(struct agp_bridge_data *bridge)
 	atomic_inc(&agp_bridge->current_memory_agp);
 	return page;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_alloc_page); */
+EXPORT_SYMBOL(agp_generic_alloc_page);
 
 void agp_generic_destroy_pages(struct agp_memory *mem)
 {
@@ -1276,7 +1276,7 @@ void agp_generic_destroy_pages(struct agp_memory *mem)
 		mem->pages[i] = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_destroy_pages); */
+EXPORT_SYMBOL(agp_generic_destroy_pages);
 
 void agp_generic_destroy_page(struct page *page, int flags)
 {
@@ -1292,7 +1292,7 @@ void agp_generic_destroy_page(struct page *page, int flags)
 		atomic_dec(&agp_bridge->current_memory_agp);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_destroy_page); */
+EXPORT_SYMBOL(agp_generic_destroy_page);
 
 /* End Basic Page Allocation Routines */
 
@@ -1308,7 +1308,7 @@ void agp_enable(struct agp_bridge_data *bridge, u32 mode)
 		return;
 	bridge->driver->agp_enable(bridge, mode);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_enable); */
+EXPORT_SYMBOL(agp_enable);
 
 /* When we remove the global variable agp_bridge from all drivers
  * then agp_alloc_bridge and agp_generic_find_bridge need to be updated
@@ -1332,7 +1332,7 @@ void global_cache_flush(void)
 	if (on_each_cpu(ipi_handler, NULL, 1) != 0)
 		panic(PFX "timed out waiting for the other CPUs!\n");
 }
-/* DISABLED: EXPORT_SYMBOL(global_cache_flush); */
+EXPORT_SYMBOL(global_cache_flush);
 
 unsigned long agp_generic_mask_memory(struct agp_bridge_data *bridge,
 				      dma_addr_t addr, int type)
@@ -1343,7 +1343,7 @@ unsigned long agp_generic_mask_memory(struct agp_bridge_data *bridge,
 	else
 		return addr;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_mask_memory); */
+EXPORT_SYMBOL(agp_generic_mask_memory);
 
 int agp_generic_type_to_mask_type(struct agp_bridge_data *bridge,
 				  int type)
@@ -1352,7 +1352,7 @@ int agp_generic_type_to_mask_type(struct agp_bridge_data *bridge,
 		return 0;
 	return type;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_generic_type_to_mask_type); */
+EXPORT_SYMBOL(agp_generic_type_to_mask_type);
 
 /*
  * These functions are implemented according to the AGPv3 spec,
@@ -1380,7 +1380,7 @@ int agp3_generic_fetch_size(void)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp3_generic_fetch_size); */
+EXPORT_SYMBOL(agp3_generic_fetch_size);
 
 void agp3_generic_tlbflush(struct agp_memory *mem)
 {
@@ -1389,7 +1389,7 @@ void agp3_generic_tlbflush(struct agp_memory *mem)
 	pci_write_config_dword(agp_bridge->dev, agp_bridge->capndx+AGPCTRL, ctrl & ~AGPCTRL_GTLBEN);
 	pci_write_config_dword(agp_bridge->dev, agp_bridge->capndx+AGPCTRL, ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(agp3_generic_tlbflush); */
+EXPORT_SYMBOL(agp3_generic_tlbflush);
 
 int agp3_generic_configure(void)
 {
@@ -1410,7 +1410,7 @@ int agp3_generic_configure(void)
 	pci_write_config_dword(agp_bridge->dev, agp_bridge->capndx+AGPCTRL, temp | AGPCTRL_APERENB | AGPCTRL_GTLBEN);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(agp3_generic_configure); */
+EXPORT_SYMBOL(agp3_generic_configure);
 
 void agp3_generic_cleanup(void)
 {
@@ -1418,7 +1418,7 @@ void agp3_generic_cleanup(void)
 	pci_read_config_dword(agp_bridge->dev, agp_bridge->capndx+AGPCTRL, &ctrl);
 	pci_write_config_dword(agp_bridge->dev, agp_bridge->capndx+AGPCTRL, ctrl & ~AGPCTRL_APERENB);
 }
-/* DISABLED: EXPORT_SYMBOL(agp3_generic_cleanup); */
+EXPORT_SYMBOL(agp3_generic_cleanup);
 
 const struct aper_size_info_16 agp3_generic_sizes[AGP_GENERIC_SIZES_ENTRIES] =
 {
@@ -1434,5 +1434,5 @@ const struct aper_size_info_16 agp3_generic_sizes[AGP_GENERIC_SIZES_ENTRIES] =
 	{   8,    2048, 1, 0xf3e},
 	{   4,    1024, 0, 0xf3f}
 };
-/* DISABLED: EXPORT_SYMBOL(agp3_generic_sizes); */
+EXPORT_SYMBOL(agp3_generic_sizes);
 

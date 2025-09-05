@@ -434,13 +434,13 @@ int __serpent_setkey(struct serpent_ctx *ctx, const u8 *key,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__serpent_setkey); */
+EXPORT_SYMBOL_GPL(__serpent_setkey);
 
 int serpent_setkey(struct crypto_tfm *tfm, const u8 *key, unsigned int keylen)
 {
 	return __serpent_setkey(crypto_tfm_ctx(tfm), key, keylen);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(serpent_setkey); */
+EXPORT_SYMBOL_GPL(serpent_setkey);
 
 void __serpent_encrypt(struct serpent_ctx *ctx, u8 *dst, const u8 *src)
 {
@@ -498,7 +498,7 @@ void __serpent_encrypt(struct serpent_ctx *ctx, u8 *dst, const u8 *src)
 	d[2] = cpu_to_le32(r2);
 	d[3] = cpu_to_le32(r3);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__serpent_encrypt); */
+EXPORT_SYMBOL_GPL(__serpent_encrypt);
 
 static void serpent_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 {
@@ -558,7 +558,7 @@ void __serpent_decrypt(struct serpent_ctx *ctx, u8 *dst, const u8 *src)
 	d[2] = cpu_to_le32(r1);
 	d[3] = cpu_to_le32(r4);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__serpent_decrypt); */
+EXPORT_SYMBOL_GPL(__serpent_decrypt);
 
 static void serpent_decrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 {

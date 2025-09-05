@@ -393,7 +393,7 @@ int mwifiex_cancel_hs(struct mwifiex_private *priv, int cmd_type)
 	return mwifiex_set_hs_params(priv, HostCmd_ACT_GEN_SET,
 				    cmd_type, &hscfg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_cancel_hs); */
+EXPORT_SYMBOL_GPL(mwifiex_cancel_hs);
 
 /*
  * Sends IOCTL request to cancel the existing Host Sleep configuration.
@@ -431,7 +431,7 @@ int mwifiex_enable_hs(struct mwifiex_adapter *adapter)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_enable_hs); */
+EXPORT_SYMBOL_GPL(mwifiex_enable_hs);
 
 /*
  * IOCTL request handler to get BSS information.
@@ -492,7 +492,7 @@ int mwifiex_disable_auto_ds(struct mwifiex_private *priv)
 	return mwifiex_send_cmd_sync(priv, HostCmd_CMD_802_11_PS_MODE_ENH,
 				     DIS_AUTO_PS, BITMAP_AUTO_DS, &auto_ds);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_disable_auto_ds); */
+EXPORT_SYMBOL_GPL(mwifiex_disable_auto_ds);
 
 /*
  * IOCTL request handler to set/get active channel.

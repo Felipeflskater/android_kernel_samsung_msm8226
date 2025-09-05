@@ -257,8 +257,8 @@ bool max98504_get_speaker_status(void)
 	return ret>0?true:false;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(max98504_set_speaker_status); */
-/* DISABLED: EXPORT_SYMBOL_GPL(max98504_get_speaker_status); */
+EXPORT_SYMBOL_GPL(max98504_set_speaker_status);
+EXPORT_SYMBOL_GPL(max98504_get_speaker_status);
 
 static const struct regmap_config max98504_regmap = {
 	.reg_bits         = 16,

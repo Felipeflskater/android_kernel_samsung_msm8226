@@ -81,7 +81,7 @@ bool coresight_fuse_access_disabled(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(coresight_fuse_access_disabled); */
+EXPORT_SYMBOL(coresight_fuse_access_disabled);
 
 bool coresight_fuse_apps_access_disabled(void)
 {
@@ -115,7 +115,7 @@ bool coresight_fuse_apps_access_disabled(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(coresight_fuse_apps_access_disabled); */
+EXPORT_SYMBOL(coresight_fuse_apps_access_disabled);
 
 static int __devinit fuse_probe(struct platform_device *pdev)
 {

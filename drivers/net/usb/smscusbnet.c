@@ -2070,22 +2070,22 @@ int smscusbnet_resume (struct usb_interface *intf)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_IsOperationalMode); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_get_endpoints); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_skb_return); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_defer_kevent); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_defer_myevent); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_disconnect); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_probe); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_FreeQueue); */
-/* DISABLED: EXPORT_SYMBOL_GPL(smscusbnet_linkpolling); */
+EXPORT_SYMBOL_GPL(smscusbnet_IsOperationalMode);
+EXPORT_SYMBOL_GPL(smscusbnet_get_endpoints);
+EXPORT_SYMBOL_GPL(smscusbnet_skb_return);
+EXPORT_SYMBOL_GPL(smscusbnet_defer_kevent);
+EXPORT_SYMBOL_GPL(smscusbnet_defer_myevent);
+EXPORT_SYMBOL_GPL(smscusbnet_disconnect);
+EXPORT_SYMBOL_GPL(smscusbnet_probe);
+EXPORT_SYMBOL_GPL(smscusbnet_FreeQueue);
+EXPORT_SYMBOL_GPL(smscusbnet_linkpolling);
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29))
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_stop); */
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_get_stats); */
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_open); */
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_start_xmit); */
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_tx_timeout); */
-/* DISABLED: EXPORT_SYMBOL(smscusbnet_change_mtu); */
+EXPORT_SYMBOL(smscusbnet_stop);
+EXPORT_SYMBOL(smscusbnet_get_stats);
+EXPORT_SYMBOL(smscusbnet_open);
+EXPORT_SYMBOL(smscusbnet_start_xmit);
+EXPORT_SYMBOL(smscusbnet_tx_timeout);
+EXPORT_SYMBOL(smscusbnet_change_mtu);
 #endif
 /*-------------------------------------------------------------------------*/
 

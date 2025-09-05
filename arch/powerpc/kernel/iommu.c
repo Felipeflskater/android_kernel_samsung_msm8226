@@ -56,7 +56,7 @@ static int __init setup_iommu(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("iommu=", setup_iommu); */ */
+__setup("iommu=", setup_iommu);
 
 static unsigned long iommu_range_alloc(struct device *dev,
 				       struct iommu_table *tbl,

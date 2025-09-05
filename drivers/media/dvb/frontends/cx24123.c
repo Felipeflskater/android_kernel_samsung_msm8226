@@ -1061,7 +1061,7 @@ struct i2c_adapter *
 	struct cx24123_state *state = fe->demodulator_priv;
 	return &state->tuner_i2c_adapter;
 }
-/* DISABLED: EXPORT_SYMBOL(cx24123_get_tuner_i2c_adapter); */
+EXPORT_SYMBOL(cx24123_get_tuner_i2c_adapter);
 
 static struct dvb_frontend_ops cx24123_ops;
 
@@ -1122,7 +1122,7 @@ error:
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(cx24123_attach); */
+EXPORT_SYMBOL(cx24123_attach);
 
 static struct dvb_frontend_ops cx24123_ops = {
 	.delsys = { SYS_DVBS },

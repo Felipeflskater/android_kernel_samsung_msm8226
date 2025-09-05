@@ -150,7 +150,7 @@ int __init_or_module at91_set_GPIO_periph(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PER);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_GPIO_periph); */
+EXPORT_SYMBOL(at91_set_GPIO_periph);
 
 
 /*
@@ -177,7 +177,7 @@ int __init_or_module at91_set_A_periph(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PDR);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_A_periph); */
+EXPORT_SYMBOL(at91_set_A_periph);
 
 
 /*
@@ -204,7 +204,7 @@ int __init_or_module at91_set_B_periph(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PDR);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_B_periph); */
+EXPORT_SYMBOL(at91_set_B_periph);
 
 
 /*
@@ -225,7 +225,7 @@ int __init_or_module at91_set_C_periph(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PDR);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_C_periph); */
+EXPORT_SYMBOL(at91_set_C_periph);
 
 
 /*
@@ -246,7 +246,7 @@ int __init_or_module at91_set_D_periph(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PDR);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_D_periph); */
+EXPORT_SYMBOL(at91_set_D_periph);
 
 
 /*
@@ -267,7 +267,7 @@ int __init_or_module at91_set_gpio_input(unsigned pin, int use_pullup)
 	__raw_writel(mask, pio + PIO_PER);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_gpio_input); */
+EXPORT_SYMBOL(at91_set_gpio_input);
 
 
 /*
@@ -289,7 +289,7 @@ int __init_or_module at91_set_gpio_output(unsigned pin, int value)
 	__raw_writel(mask, pio + PIO_PER);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_gpio_output); */
+EXPORT_SYMBOL(at91_set_gpio_output);
 
 
 /*
@@ -308,7 +308,7 @@ int __init_or_module at91_set_deglitch(unsigned pin, int is_on)
 	__raw_writel(mask, pio + (is_on ? PIO_IFER : PIO_IFDR));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_deglitch); */
+EXPORT_SYMBOL(at91_set_deglitch);
 
 /*
  * enable/disable the debounce filter;
@@ -330,7 +330,7 @@ int __init_or_module at91_set_debounce(unsigned pin, int is_on, int div)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_debounce); */
+EXPORT_SYMBOL(at91_set_debounce);
 
 /*
  * enable/disable the multi-driver; This is only valid for output and
@@ -347,7 +347,7 @@ int __init_or_module at91_set_multi_drive(unsigned pin, int is_on)
 	__raw_writel(mask, pio + (is_on ? PIO_MDER : PIO_MDDR));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_multi_drive); */
+EXPORT_SYMBOL(at91_set_multi_drive);
 
 /*
  * enable/disable the pull-down.
@@ -366,7 +366,7 @@ int __init_or_module at91_set_pulldown(unsigned pin, int is_on)
 	__raw_writel(mask, pio + (is_on ? PIO_PPDER : PIO_PPDDR));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_pulldown); */
+EXPORT_SYMBOL(at91_set_pulldown);
 
 /*
  * disable Schmitt trigger
@@ -382,7 +382,7 @@ int __init_or_module at91_disable_schmitt_trig(unsigned pin)
 	__raw_writel(__raw_readl(pio + PIO_SCHMITT) | mask, pio + PIO_SCHMITT);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_disable_schmitt_trig); */
+EXPORT_SYMBOL(at91_disable_schmitt_trig);
 
 /*
  * assuming the pin is muxed as a gpio output, set its value.
@@ -397,7 +397,7 @@ int at91_set_gpio_value(unsigned pin, int value)
 	__raw_writel(mask, pio + (value ? PIO_SODR : PIO_CODR));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_set_gpio_value); */
+EXPORT_SYMBOL(at91_set_gpio_value);
 
 
 /*
@@ -414,7 +414,7 @@ int at91_get_gpio_value(unsigned pin)
 	pdsr = __raw_readl(pio + PIO_PDSR);
 	return (pdsr & mask) != 0;
 }
-/* DISABLED: EXPORT_SYMBOL(at91_get_gpio_value); */
+EXPORT_SYMBOL(at91_get_gpio_value);
 
 /*--------------------------------------------------------------------------*/
 

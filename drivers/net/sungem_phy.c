@@ -1195,5 +1195,5 @@ fail:
 	return -ENODEV;
 }
 
-/* DISABLED: EXPORT_SYMBOL(sungem_phy_probe); */
+EXPORT_SYMBOL(sungem_phy_probe);
 MODULE_LICENSE("GPL");

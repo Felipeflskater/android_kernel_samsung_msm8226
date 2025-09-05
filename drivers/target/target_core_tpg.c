@@ -321,7 +321,7 @@ struct se_node_acl *core_tpg_check_initiator_node_acl(
 
 	return acl;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_check_initiator_node_acl); */
+EXPORT_SYMBOL(core_tpg_check_initiator_node_acl);
 
 void core_tpg_wait_for_nacl_pr_ref(struct se_node_acl *nacl)
 {
@@ -348,7 +348,7 @@ void core_tpg_clear_object_luns(struct se_portal_group *tpg)
 	}
 	spin_unlock(&tpg->tpg_lun_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_clear_object_luns); */
+EXPORT_SYMBOL(core_tpg_clear_object_luns);
 
 /*	core_tpg_add_initiator_node_acl():
  *
@@ -441,7 +441,7 @@ done:
 
 	return acl;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_add_initiator_node_acl); */
+EXPORT_SYMBOL(core_tpg_add_initiator_node_acl);
 
 /*	core_tpg_del_initiator_node_acl():
  *
@@ -505,7 +505,7 @@ int core_tpg_del_initiator_node_acl(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_del_initiator_node_acl); */
+EXPORT_SYMBOL(core_tpg_del_initiator_node_acl);
 
 /*	core_tpg_set_initiator_node_queue_depth():
  *
@@ -616,7 +616,7 @@ int core_tpg_set_initiator_node_queue_depth(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_set_initiator_node_queue_depth); */
+EXPORT_SYMBOL(core_tpg_set_initiator_node_queue_depth);
 
 static int core_tpg_setup_virtual_lun0(struct se_portal_group *se_tpg)
 {
@@ -713,7 +713,7 @@ int core_tpg_register(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_register); */
+EXPORT_SYMBOL(core_tpg_register);
 
 int core_tpg_deregister(struct se_portal_group *se_tpg)
 {
@@ -759,7 +759,7 @@ int core_tpg_deregister(struct se_portal_group *se_tpg)
 	array_free(se_tpg->tpg_lun_list, TRANSPORT_MAX_LUNS_PER_TPG);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(core_tpg_deregister); */
+EXPORT_SYMBOL(core_tpg_deregister);
 
 struct se_lun *core_tpg_pre_addlun(
 	struct se_portal_group *tpg,

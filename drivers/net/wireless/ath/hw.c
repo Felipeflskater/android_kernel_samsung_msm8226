@@ -122,7 +122,7 @@ void ath_hw_setbssidmask(struct ath_common *common)
 	REG_WRITE(ah, get_unaligned_le32(common->bssidmask), AR_BSSMSKL);
 	REG_WRITE(ah, get_unaligned_le16(common->bssidmask + 4), AR_BSSMSKU);
 }
-/* DISABLED: EXPORT_SYMBOL(ath_hw_setbssidmask); */
+EXPORT_SYMBOL(ath_hw_setbssidmask);
 
 
 /**
@@ -167,7 +167,7 @@ void ath_hw_cycle_counters_update(struct ath_common *common)
 	common->cc_survey.rx_frame += rx;
 	common->cc_survey.tx_frame += tx;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_hw_cycle_counters_update); */
+EXPORT_SYMBOL(ath_hw_cycle_counters_update);
 
 int32_t ath_hw_get_listen_time(struct ath_common *common)
 {
@@ -181,4 +181,4 @@ int32_t ath_hw_get_listen_time(struct ath_common *common)
 
 	return listen_time;
 }
-/* DISABLED: EXPORT_SYMBOL(ath_hw_get_listen_time); */
+EXPORT_SYMBOL(ath_hw_get_listen_time);

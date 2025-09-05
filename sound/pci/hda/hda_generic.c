@@ -1082,4 +1082,4 @@ int snd_hda_parse_generic_codec(struct hda_codec *codec)
 	snd_hda_generic_free(codec);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_hda_parse_generic_codec); */
+EXPORT_SYMBOL(snd_hda_parse_generic_codec);

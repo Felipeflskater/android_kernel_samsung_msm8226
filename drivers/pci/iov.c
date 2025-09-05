@@ -685,7 +685,7 @@ int pci_enable_sriov(struct pci_dev *dev, int nr_virtfn)
 
 	return sriov_enable(dev, nr_virtfn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_enable_sriov); */
+EXPORT_SYMBOL_GPL(pci_enable_sriov);
 
 /**
  * pci_disable_sriov - disable the SR-IOV capability
@@ -700,7 +700,7 @@ void pci_disable_sriov(struct pci_dev *dev)
 
 	sriov_disable(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_disable_sriov); */
+EXPORT_SYMBOL_GPL(pci_disable_sriov);
 
 /**
  * pci_sriov_migration - notify SR-IOV core of Virtual Function Migration
@@ -719,7 +719,7 @@ irqreturn_t pci_sriov_migration(struct pci_dev *dev)
 
 	return sriov_migration(dev) ? IRQ_HANDLED : IRQ_NONE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_sriov_migration); */
+EXPORT_SYMBOL_GPL(pci_sriov_migration);
 
 /**
  * pci_num_vf - return number of VFs associated with a PF device_release_driver
@@ -734,4 +734,4 @@ int pci_num_vf(struct pci_dev *dev)
 	else
 		return dev->sriov->nr_virtfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_num_vf); */
+EXPORT_SYMBOL_GPL(pci_num_vf);

@@ -599,7 +599,7 @@ void shmem_truncate_range(struct inode *inode, loff_t lstart, loff_t lend)
 	shmem_undo_range(inode, lstart, lend, false);
 	inode->i_ctime = inode->i_mtime = CURRENT_TIME;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_truncate_range); */
+EXPORT_SYMBOL_GPL(shmem_truncate_range);
 
 static int shmem_setattr(struct dentry *dentry, struct iattr *attr)
 {
@@ -2096,7 +2096,7 @@ unlock:
 	mutex_unlock(&inode->i_mutex);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_add_seals); */
+EXPORT_SYMBOL_GPL(shmem_add_seals);
 
 int shmem_get_seals(struct file *file)
 {
@@ -2105,7 +2105,7 @@ int shmem_get_seals(struct file *file)
 
 	return SHMEM_I(file->f_path.dentry->d_inode)->seals;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_get_seals); */
+EXPORT_SYMBOL_GPL(shmem_get_seals);
 
 long shmem_fcntl(struct file *file, unsigned int cmd, unsigned long arg)
 {
@@ -3286,7 +3286,7 @@ void shmem_truncate_range(struct inode *inode, loff_t lstart, loff_t lend)
 {
 	truncate_inode_pages_range(inode->i_mapping, lstart, lend);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_truncate_range); */
+EXPORT_SYMBOL_GPL(shmem_truncate_range);
 
 #define shmem_vm_ops				generic_file_vm_ops
 #define shmem_file_operations			ramfs_file_operations
@@ -3382,7 +3382,7 @@ struct file *shmem_file_setup(const char *name, loff_t size, unsigned long flags
 {
 	return __shmem_file_setup(name, size, flags, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_file_setup); */
+EXPORT_SYMBOL_GPL(shmem_file_setup);
 
 void shmem_set_file(struct vm_area_struct *vma, struct file *file)
 {
@@ -3446,4 +3446,4 @@ struct page *shmem_read_mapping_page_gfp(struct address_space *mapping,
 	return read_cache_page_gfp(mapping, index, gfp);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shmem_read_mapping_page_gfp); */
+EXPORT_SYMBOL_GPL(shmem_read_mapping_page_gfp);

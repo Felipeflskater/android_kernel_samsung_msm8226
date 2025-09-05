@@ -43,7 +43,7 @@ int pcf50633_gpio_set(struct pcf50633 *pcf, int gpio, u8 val)
 
 	return pcf50633_reg_set_bit_mask(pcf, reg, 0x07, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_gpio_set); */
+EXPORT_SYMBOL_GPL(pcf50633_gpio_set);
 
 u8 pcf50633_gpio_get(struct pcf50633 *pcf, int gpio)
 {
@@ -54,7 +54,7 @@ u8 pcf50633_gpio_get(struct pcf50633 *pcf, int gpio)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_gpio_get); */
+EXPORT_SYMBOL_GPL(pcf50633_gpio_get);
 
 int pcf50633_gpio_invert_set(struct pcf50633 *pcf, int gpio, int invert)
 {
@@ -65,7 +65,7 @@ int pcf50633_gpio_invert_set(struct pcf50633 *pcf, int gpio, int invert)
 
 	return pcf50633_reg_set_bit_mask(pcf, reg, 1 << 3, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_gpio_invert_set); */
+EXPORT_SYMBOL_GPL(pcf50633_gpio_invert_set);
 
 int pcf50633_gpio_invert_get(struct pcf50633 *pcf, int gpio)
 {
@@ -76,7 +76,7 @@ int pcf50633_gpio_invert_get(struct pcf50633 *pcf, int gpio)
 
 	return val & (1 << 3);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_gpio_invert_get); */
+EXPORT_SYMBOL_GPL(pcf50633_gpio_invert_get);
 
 int pcf50633_gpio_power_supply_set(struct pcf50633 *pcf,
 					int gpio, int regulator, int on)
@@ -91,6 +91,6 @@ int pcf50633_gpio_power_supply_set(struct pcf50633 *pcf,
 
 	return pcf50633_reg_set_bit_mask(pcf, reg, mask, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcf50633_gpio_power_supply_set); */
+EXPORT_SYMBOL_GPL(pcf50633_gpio_power_supply_set);
 
 MODULE_LICENSE("GPL");

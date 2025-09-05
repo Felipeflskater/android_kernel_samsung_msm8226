@@ -1056,7 +1056,7 @@ mptscsih_flush_running_cmds(MPT_SCSI_HOST *hd)
 		sc->scsi_done(sc);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_flush_running_cmds); */
+EXPORT_SYMBOL(mptscsih_flush_running_cmds);
 
 /*
  *	mptscsih_search_running_cmds - Delete any commands associated
@@ -1746,7 +1746,7 @@ mptscsih_IssueTaskMgmt(MPT_SCSI_HOST *hd, u8 type, u8 channel, u8 id, int lun,
 	mutex_unlock(&ioc->taskmgmt_cmds.mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_IssueTaskMgmt); */
+EXPORT_SYMBOL(mptscsih_IssueTaskMgmt);
 
 static int
 mptscsih_get_tm_timeout(MPT_ADAPTER *ioc)
@@ -2127,7 +2127,7 @@ mptscsih_taskmgmt_response_code(MPT_ADAPTER *ioc, u8 response_code)
 	printk(MYIOC_s_INFO_FMT "Response Code(0x%08x): F/W: %s\n",
 		ioc->name, response_code, desc);
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_taskmgmt_response_code); */
+EXPORT_SYMBOL(mptscsih_taskmgmt_response_code);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 /**
@@ -2289,7 +2289,7 @@ mptscsih_is_phys_disk(MPT_ADAPTER *ioc, u8 channel, u8 id)
  out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_is_phys_disk); */
+EXPORT_SYMBOL(mptscsih_is_phys_disk);
 
 u8
 mptscsih_raid_id_to_num(MPT_ADAPTER *ioc, u8 channel, u8 id)
@@ -2366,7 +2366,7 @@ mptscsih_raid_id_to_num(MPT_ADAPTER *ioc, u8 channel, u8 id)
  out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_raid_id_to_num); */
+EXPORT_SYMBOL(mptscsih_raid_id_to_num);
 
 /*
  *	OS entry point to allow for host driver to free allocated memory
@@ -2580,7 +2580,7 @@ mptscsih_get_scsi_lookup(MPT_ADAPTER *ioc, int i)
 
 	return scmd;
 }
-/* DISABLED: EXPORT_SYMBOL(mptscsih_get_scsi_lookup); */
+EXPORT_SYMBOL(mptscsih_get_scsi_lookup);
 
 /**
  * mptscsih_getclear_scsi_lookup -  retrieves and clears scmd entry from ScsiLookup[] array list
@@ -3339,29 +3339,29 @@ struct device_attribute *mptscsih_host_attrs[] = {
 	NULL,
 };
 
-/* DISABLED: EXPORT_SYMBOL(mptscsih_host_attrs); */
+EXPORT_SYMBOL(mptscsih_host_attrs);
 
-/* DISABLED: EXPORT_SYMBOL(mptscsih_remove); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_shutdown); */
+EXPORT_SYMBOL(mptscsih_remove);
+EXPORT_SYMBOL(mptscsih_shutdown);
 #ifdef CONFIG_PM
-/* DISABLED: EXPORT_SYMBOL(mptscsih_suspend); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_resume); */
+EXPORT_SYMBOL(mptscsih_suspend);
+EXPORT_SYMBOL(mptscsih_resume);
 #endif
-/* DISABLED: EXPORT_SYMBOL(mptscsih_proc_info); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_info); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_qcmd); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_slave_destroy); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_slave_configure); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_abort); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_dev_reset); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_bus_reset); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_host_reset); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_bios_param); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_io_done); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_taskmgmt_complete); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_scandv_complete); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_event_process); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_ioc_reset); */
-/* DISABLED: EXPORT_SYMBOL(mptscsih_change_queue_depth); */
+EXPORT_SYMBOL(mptscsih_proc_info);
+EXPORT_SYMBOL(mptscsih_info);
+EXPORT_SYMBOL(mptscsih_qcmd);
+EXPORT_SYMBOL(mptscsih_slave_destroy);
+EXPORT_SYMBOL(mptscsih_slave_configure);
+EXPORT_SYMBOL(mptscsih_abort);
+EXPORT_SYMBOL(mptscsih_dev_reset);
+EXPORT_SYMBOL(mptscsih_bus_reset);
+EXPORT_SYMBOL(mptscsih_host_reset);
+EXPORT_SYMBOL(mptscsih_bios_param);
+EXPORT_SYMBOL(mptscsih_io_done);
+EXPORT_SYMBOL(mptscsih_taskmgmt_complete);
+EXPORT_SYMBOL(mptscsih_scandv_complete);
+EXPORT_SYMBOL(mptscsih_event_process);
+EXPORT_SYMBOL(mptscsih_ioc_reset);
+EXPORT_SYMBOL(mptscsih_change_queue_depth);
 
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/

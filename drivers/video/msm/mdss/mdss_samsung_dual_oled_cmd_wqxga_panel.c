@@ -724,7 +724,7 @@ static int __init current_boot_mode(char *mode)
 						"recovery" : "normal");
 	return 1;
 }
-/* DISABLED: __setup("androidboot.boot_recovery=", current_boot_mode); */ */
+__setup("androidboot.boot_recovery=", current_boot_mode);
 #endif
 
 void mdss_dsi_cmds_send(struct mdss_dsi_ctrl_pdata *ctrl, struct dsi_cmd_desc *cmds, int cnt,int flag)
@@ -917,7 +917,7 @@ int read_ldi_status(void)
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(read_ldi_status); */
+EXPORT_SYMBOL(read_ldi_status);
 #endif
 
 static void mipi_samsung_manufacture_date_read(struct mdss_panel_data *pdata)
@@ -3122,20 +3122,20 @@ int get_lcd_id(void)
 {
 	return lcd_id;
 }
-/* DISABLED: EXPORT_SYMBOL(get_lcd_id); */
+EXPORT_SYMBOL(get_lcd_id);
 
 int get_lcd_panel_res(void)
 {
 	return lcd_k_panel_res;
 }
-/* DISABLED: EXPORT_SYMBOL(get_lcd_panel_res); */
+EXPORT_SYMBOL(get_lcd_panel_res);
 
 int get_samsung_lcd_attached(void)
 {
 	return lcd_attached;
 
 }
-/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
+EXPORT_SYMBOL(get_samsung_lcd_attached);
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -3166,7 +3166,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */ */
+__setup( "lcd_id=0x", get_lcd_id_cmdline );
 
 MODULE_DESCRIPTION("Samsung DSI panel driver");
 MODULE_AUTHOR("Krishna Kishor Jha <krishna.jha@samsung.com>");

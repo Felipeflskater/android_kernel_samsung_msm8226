@@ -316,7 +316,7 @@ fail_debugfs:
 fail_alloc_etherdev:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ecm_ipa_init); */
+EXPORT_SYMBOL(ecm_ipa_init);
 
 /**
  * ecm_ipa_connect() - notify ecm_ipa for IPA<->USB pipes connection
@@ -385,7 +385,7 @@ int ecm_ipa_connect(u32 usb_to_ipa_hdl, u32 ipa_to_usb_hdl,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ecm_ipa_connect); */
+EXPORT_SYMBOL(ecm_ipa_connect);
 
 /**
  * ecm_ipa_open() - notify Linux network stack to start sending packets
@@ -616,7 +616,7 @@ int ecm_ipa_disconnect(void *priv)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ecm_ipa_disconnect); */
+EXPORT_SYMBOL(ecm_ipa_disconnect);
 
 
 /**
@@ -668,7 +668,7 @@ void ecm_ipa_cleanup(void *priv)
 
 	return ;
 }
-/* DISABLED: EXPORT_SYMBOL(ecm_ipa_cleanup); */
+EXPORT_SYMBOL(ecm_ipa_cleanup);
 
 /**
  * ecm_ipa_rules_cfg() - set header insertion and register Tx/Rx properties

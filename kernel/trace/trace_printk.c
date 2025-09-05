@@ -198,7 +198,7 @@ int __trace_bprintk(unsigned long ip, const char *fmt, ...)
 	va_end(ap);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__trace_bprintk); */
+EXPORT_SYMBOL_GPL(__trace_bprintk);
 
 int __ftrace_vbprintk(unsigned long ip, const char *fmt, va_list ap)
  {
@@ -210,7 +210,7 @@ int __ftrace_vbprintk(unsigned long ip, const char *fmt, va_list ap)
 
 	return trace_vbprintk(ip, fmt, ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__ftrace_vbprintk); */
+EXPORT_SYMBOL_GPL(__ftrace_vbprintk);
 
 int __trace_printk(unsigned long ip, const char *fmt, ...)
 {
@@ -225,7 +225,7 @@ int __trace_printk(unsigned long ip, const char *fmt, ...)
 	va_end(ap);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__trace_printk); */
+EXPORT_SYMBOL_GPL(__trace_printk);
 
 int __ftrace_vprintk(unsigned long ip, const char *fmt, va_list ap)
 {
@@ -234,7 +234,7 @@ int __ftrace_vprintk(unsigned long ip, const char *fmt, va_list ap)
 
 	return trace_vprintk(ip, fmt, ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__ftrace_vprintk); */
+EXPORT_SYMBOL_GPL(__ftrace_vprintk);
 
 static const char **find_next(void *v, loff_t *pos)
 {

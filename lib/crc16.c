@@ -44,7 +44,7 @@ u16 const crc16_table[256] = {
 	0x4400, 0x84C1, 0x8581, 0x4540, 0x8701, 0x47C0, 0x4680, 0x8641,
 	0x8201, 0x42C0, 0x4380, 0x8341, 0x4100, 0x81C1, 0x8081, 0x4040
 };
-/* DISABLED: EXPORT_SYMBOL(crc16_table); */
+EXPORT_SYMBOL(crc16_table);
 
 /**
  * crc16 - compute the CRC-16 for the data buffer
@@ -60,7 +60,7 @@ u16 crc16(u16 crc, u8 const *buffer, size_t len)
 		crc = crc16_byte(crc, *buffer++);
 	return crc;
 }
-/* DISABLED: EXPORT_SYMBOL(crc16); */
+EXPORT_SYMBOL(crc16);
 
 MODULE_DESCRIPTION("CRC16 calculations");
 MODULE_LICENSE("GPL");

@@ -58,7 +58,7 @@ void *dma_alloc_coherent(struct device *dev, size_t size,
 
 	return addr;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
+EXPORT_SYMBOL(dma_alloc_coherent);
 
 void dma_free_coherent(struct device *dev, size_t size,
 		       void *addr, dma_addr_t handle)
@@ -66,7 +66,7 @@ void dma_free_coherent(struct device *dev, size_t size,
 	pr_debug("dma_free_coherent: %p, %x\n", addr, handle);
 	vfree(addr);
 }
-/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
+EXPORT_SYMBOL(dma_free_coherent);
 
 void dma_sync_single_for_device(struct device *dev, dma_addr_t handle,
 				size_t size, enum dma_data_direction dir)
@@ -84,7 +84,7 @@ void dma_sync_single_for_device(struct device *dev, dma_addr_t handle,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dma_sync_single_for_device); */
+EXPORT_SYMBOL(dma_sync_single_for_device);
 
 void dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg, int nents,
 			    enum dma_data_direction dir)
@@ -94,7 +94,7 @@ void dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg, int nent
 	for (i = 0; i < nents; sg++, i++)
 		dma_sync_single_for_device(dev, sg->dma_address, sg->length, dir);
 }
-/* DISABLED: EXPORT_SYMBOL(dma_sync_sg_for_device); */
+EXPORT_SYMBOL(dma_sync_sg_for_device);
 
 dma_addr_t dma_map_single(struct device *dev, void *addr, size_t size,
 			  enum dma_data_direction dir)
@@ -104,7 +104,7 @@ dma_addr_t dma_map_single(struct device *dev, void *addr, size_t size,
 	dma_sync_single_for_device(dev, handle, size, dir);
 	return handle;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_map_single); */
+EXPORT_SYMBOL(dma_map_single);
 
 dma_addr_t dma_map_page(struct device *dev, struct page *page,
 			unsigned long offset, size_t size,
@@ -115,7 +115,7 @@ dma_addr_t dma_map_page(struct device *dev, struct page *page,
 	dma_sync_single_for_device(dev, handle, size, dir);
 	return handle;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_map_page); */
+EXPORT_SYMBOL(dma_map_page);
 
 int dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
 	       enum dma_data_direction dir)
@@ -128,4 +128,4 @@ int dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
 	}
 	return nents;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_map_sg); */
+EXPORT_SYMBOL(dma_map_sg);

@@ -222,7 +222,7 @@ struct qmi_handle *qmi_handle_create(
 	init_msm_qmi();
 	return temp_handle;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_handle_create); */
+EXPORT_SYMBOL(qmi_handle_create);
 
 static void clean_txn_info(struct qmi_handle *handle)
 {
@@ -276,7 +276,7 @@ int qmi_handle_destroy(struct qmi_handle *handle)
 	kfree(handle);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_handle_destroy); */
+EXPORT_SYMBOL(qmi_handle_destroy);
 
 int qmi_register_ind_cb(struct qmi_handle *handle,
 	void (*ind_cb)(struct qmi_handle *handle,
@@ -298,7 +298,7 @@ int qmi_register_ind_cb(struct qmi_handle *handle,
 	mutex_unlock(&handle->handle_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_register_ind_cb); */
+EXPORT_SYMBOL(qmi_register_ind_cb);
 
 static int qmi_encode_and_send_req(struct qmi_txn **ret_txn_handle,
 	struct qmi_handle *handle, enum txn_type type,
@@ -476,7 +476,7 @@ send_req_wait_err:
 	wake_up(&handle->reset_waitq);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_send_req_wait); */
+EXPORT_SYMBOL(qmi_send_req_wait);
 
 int qmi_send_req_nowait(struct qmi_handle *handle,
 			struct msg_desc *req_desc,
@@ -493,7 +493,7 @@ int qmi_send_req_nowait(struct qmi_handle *handle,
 				       resp_desc, resp, resp_len,
 				       resp_cb, resp_cb_data);
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_send_req_nowait); */
+EXPORT_SYMBOL(qmi_send_req_nowait);
 
 static struct qmi_txn *find_txn_handle(struct qmi_handle *handle,
 				       uint16_t txn_id)
@@ -625,7 +625,7 @@ int qmi_recv_msg(struct qmi_handle *handle)
 	mutex_unlock(&handle->handle_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_recv_msg); */
+EXPORT_SYMBOL(qmi_recv_msg);
 
 int qmi_connect_to_service(struct qmi_handle *handle,
 			   uint32_t service_id,
@@ -672,7 +672,7 @@ int qmi_connect_to_service(struct qmi_handle *handle,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_connect_to_service); */
+EXPORT_SYMBOL(qmi_connect_to_service);
 
 static struct svc_event_nb *find_svc_event_nb_by_name(const char *name)
 {
@@ -819,7 +819,7 @@ int qmi_svc_event_notifier_register(uint32_t service_id,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_svc_event_notifier_register); */
+EXPORT_SYMBOL(qmi_svc_event_notifier_register);
 
 int qmi_svc_event_notifier_unregister(uint32_t service_id,
 				      uint32_t service_vers,
@@ -846,7 +846,7 @@ int qmi_svc_event_notifier_unregister(uint32_t service_id,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(qmi_svc_event_notifier_unregister); */
+EXPORT_SYMBOL(qmi_svc_event_notifier_unregister);
 
 MODULE_DESCRIPTION("MSM QMI Interface");
 MODULE_LICENSE("GPL v2");

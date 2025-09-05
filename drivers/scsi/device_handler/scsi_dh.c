@@ -339,7 +339,7 @@ int scsi_register_device_handler(struct scsi_device_handler *scsi_dh)
 
 	return SCSI_DH_OK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_register_device_handler); */
+EXPORT_SYMBOL_GPL(scsi_register_device_handler);
 
 /*
  * scsi_unregister_device_handler - register a device handler personality
@@ -364,7 +364,7 @@ int scsi_unregister_device_handler(struct scsi_device_handler *scsi_dh)
 
 	return SCSI_DH_OK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_unregister_device_handler); */
+EXPORT_SYMBOL_GPL(scsi_unregister_device_handler);
 
 /*
  * scsi_dh_activate - activate the path associated with the scsi_device
@@ -420,7 +420,7 @@ out:
 	put_device(dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_dh_activate); */
+EXPORT_SYMBOL_GPL(scsi_dh_activate);
 
 /*
  * scsi_dh_set_params - set the parameters for the device as per the
@@ -453,7 +453,7 @@ int scsi_dh_set_params(struct request_queue *q, const char *params)
 	put_device(&sdev->sdev_gendev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_dh_set_params); */
+EXPORT_SYMBOL_GPL(scsi_dh_set_params);
 
 /*
  * scsi_dh_handler_exist - Return TRUE(1) if a device handler exists for
@@ -464,7 +464,7 @@ int scsi_dh_handler_exist(const char *name)
 {
 	return (get_device_handler(name) != NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_dh_handler_exist); */
+EXPORT_SYMBOL_GPL(scsi_dh_handler_exist);
 
 /*
  * scsi_dh_attach - Attach device handler
@@ -494,7 +494,7 @@ int scsi_dh_attach(struct request_queue *q, const char *name)
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_dh_attach); */
+EXPORT_SYMBOL_GPL(scsi_dh_attach);
 
 /*
  * scsi_dh_detach - Detach device handler
@@ -525,7 +525,7 @@ void scsi_dh_detach(struct request_queue *q)
 	}
 	put_device(&sdev->sdev_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_dh_detach); */
+EXPORT_SYMBOL_GPL(scsi_dh_detach);
 
 static struct notifier_block scsi_dh_nb = {
 	.notifier_call = scsi_dh_notifier

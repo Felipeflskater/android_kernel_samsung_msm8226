@@ -577,8 +577,8 @@ int i2o_parm_table_get(struct i2o_device *dev, int oper, int group,
 	return size;
 }
 
-/* DISABLED: EXPORT_SYMBOL(i2o_device_claim); */
-/* DISABLED: EXPORT_SYMBOL(i2o_device_claim_release); */
-/* DISABLED: EXPORT_SYMBOL(i2o_parm_field_get); */
-/* DISABLED: EXPORT_SYMBOL(i2o_parm_table_get); */
-/* DISABLED: EXPORT_SYMBOL(i2o_parm_issue); */
+EXPORT_SYMBOL(i2o_device_claim);
+EXPORT_SYMBOL(i2o_device_claim_release);
+EXPORT_SYMBOL(i2o_parm_field_get);
+EXPORT_SYMBOL(i2o_parm_table_get);
+EXPORT_SYMBOL(i2o_parm_issue);

@@ -105,7 +105,7 @@ struct Qdisc_ops pfifo_qdisc_ops __read_mostly = {
 	.dump		=	fifo_dump,
 	.owner		=	THIS_MODULE,
 };
-/* DISABLED: EXPORT_SYMBOL(pfifo_qdisc_ops); */
+EXPORT_SYMBOL(pfifo_qdisc_ops);
 
 struct Qdisc_ops bfifo_qdisc_ops __read_mostly = {
 	.id		=	"bfifo",
@@ -120,7 +120,7 @@ struct Qdisc_ops bfifo_qdisc_ops __read_mostly = {
 	.dump		=	fifo_dump,
 	.owner		=	THIS_MODULE,
 };
-/* DISABLED: EXPORT_SYMBOL(bfifo_qdisc_ops); */
+EXPORT_SYMBOL(bfifo_qdisc_ops);
 
 struct Qdisc_ops pfifo_head_drop_qdisc_ops __read_mostly = {
 	.id		=	"pfifo_head_drop",
@@ -157,7 +157,7 @@ int fifo_set_limit(struct Qdisc *q, unsigned int limit)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(fifo_set_limit); */
+EXPORT_SYMBOL(fifo_set_limit);
 
 struct Qdisc *fifo_create_dflt(struct Qdisc *sch, struct Qdisc_ops *ops,
 			       unsigned int limit)
@@ -176,4 +176,4 @@ struct Qdisc *fifo_create_dflt(struct Qdisc *sch, struct Qdisc_ops *ops,
 
 	return q ? : ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(fifo_create_dflt); */
+EXPORT_SYMBOL(fifo_create_dflt);

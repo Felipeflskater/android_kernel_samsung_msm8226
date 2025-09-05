@@ -12258,7 +12258,7 @@ struct cnic_eth_dev *bnx2x_cnic_probe(struct net_device *dev)
 	   cp->starting_cid);
 	return cp;
 }
-/* DISABLED: EXPORT_SYMBOL(bnx2x_cnic_probe); */
+EXPORT_SYMBOL(bnx2x_cnic_probe);
 
 #endif /* BCM_CNIC */
 

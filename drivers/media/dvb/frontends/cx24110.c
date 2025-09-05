@@ -664,4 +664,4 @@ MODULE_DESCRIPTION("Conexant CX24110 DVB-S Demodulator driver");
 MODULE_AUTHOR("Peter Hettkamp");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(cx24110_attach); */
+EXPORT_SYMBOL(cx24110_attach);

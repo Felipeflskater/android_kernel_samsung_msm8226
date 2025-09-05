@@ -150,7 +150,7 @@ static int acpi_register_gsi_xen(struct device *dev, u32 gsi,
 #include <asm/msidef.h>
 
 struct xen_pci_frontend_ops *xen_pci_frontend;
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_pci_frontend); */
+EXPORT_SYMBOL_GPL(xen_pci_frontend);
 
 static int xen_setup_msi_irqs(struct pci_dev *dev, int nvec, int type)
 {
@@ -526,7 +526,7 @@ int xen_find_device_domain_owner(struct pci_dev *dev)
 	spin_unlock(&dev_domain_list_spinlock);
 	return domain;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_find_device_domain_owner); */
+EXPORT_SYMBOL_GPL(xen_find_device_domain_owner);
 
 int xen_register_device_domain_owner(struct pci_dev *dev, uint16_t domain)
 {
@@ -548,7 +548,7 @@ int xen_register_device_domain_owner(struct pci_dev *dev, uint16_t domain)
 	spin_unlock(&dev_domain_list_spinlock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_register_device_domain_owner); */
+EXPORT_SYMBOL_GPL(xen_register_device_domain_owner);
 
 int xen_unregister_device_domain_owner(struct pci_dev *dev)
 {
@@ -565,5 +565,5 @@ int xen_unregister_device_domain_owner(struct pci_dev *dev)
 	kfree(owner);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_unregister_device_domain_owner); */
+EXPORT_SYMBOL_GPL(xen_unregister_device_domain_owner);
 #endif

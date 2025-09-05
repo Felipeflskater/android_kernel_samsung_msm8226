@@ -25,7 +25,7 @@ void __udelay(unsigned long usecs)
 	}
 	__ndelay(usecs * 1000);
 }
-/* DISABLED: EXPORT_SYMBOL(__udelay); */
+EXPORT_SYMBOL(__udelay);
 
 void __ndelay(unsigned long nsecs)
 {
@@ -34,7 +34,7 @@ void __ndelay(unsigned long nsecs)
 	while (get_cycles() < target)
 		cpu_relax();
 }
-/* DISABLED: EXPORT_SYMBOL(__ndelay); */
+EXPORT_SYMBOL(__ndelay);
 
 void __delay(unsigned long cycles)
 {
@@ -42,4 +42,4 @@ void __delay(unsigned long cycles)
 	while (get_cycles() < target)
 		cpu_relax();
 }
-/* DISABLED: EXPORT_SYMBOL(__delay); */
+EXPORT_SYMBOL(__delay);

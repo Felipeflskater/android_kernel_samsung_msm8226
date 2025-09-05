@@ -396,7 +396,7 @@ void sn_send_IPI_phys(int nasid, long physid, int vector, int delivery_mode)
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(sn_send_IPI_phys); */
+EXPORT_SYMBOL(sn_send_IPI_phys);
 
 /**
  * sn2_send_IPI - send an IPI to a processor

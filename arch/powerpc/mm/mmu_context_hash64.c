@@ -63,7 +63,7 @@ again:
 
 	return index;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__init_new_context); */
+EXPORT_SYMBOL_GPL(__init_new_context);
 
 int init_new_context(struct task_struct *tsk, struct mm_struct *mm)
 {
@@ -101,7 +101,7 @@ void __destroy_context(int context_id)
 	ida_remove(&mmu_context_ida, context_id);
 	spin_unlock(&mmu_context_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__destroy_context); */
+EXPORT_SYMBOL_GPL(__destroy_context);
 
 void destroy_context(struct mm_struct *mm)
 {

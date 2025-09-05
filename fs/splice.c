@@ -544,7 +544,7 @@ ssize_t generic_file_splice_read(struct file *in, loff_t *ppos,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_file_splice_read); */
+EXPORT_SYMBOL(generic_file_splice_read);
 
 static const struct pipe_buf_operations default_pipe_buf_ops = {
 	.can_merge = 0,
@@ -682,7 +682,7 @@ err:
 	res = error;
 	goto shrink_ret;
 }
-/* DISABLED: EXPORT_SYMBOL(default_file_splice_read); */
+EXPORT_SYMBOL(default_file_splice_read);
 
 /*
  * Send 'sd->len' bytes to socket from 'sd->file' at position 'sd->pos'
@@ -762,7 +762,7 @@ int pipe_to_file(struct pipe_inode_info *pipe, struct pipe_buffer *buf,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pipe_to_file); */
+EXPORT_SYMBOL(pipe_to_file);
 
 static void wakeup_pipe_writers(struct pipe_inode_info *pipe)
 {
@@ -839,7 +839,7 @@ int splice_from_pipe_feed(struct pipe_inode_info *pipe, struct splice_desc *sd,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(splice_from_pipe_feed); */
+EXPORT_SYMBOL(splice_from_pipe_feed);
 
 /**
  * splice_from_pipe_next - wait for some data to splice from
@@ -883,7 +883,7 @@ int splice_from_pipe_next(struct pipe_inode_info *pipe, struct splice_desc *sd)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(splice_from_pipe_next); */
+EXPORT_SYMBOL(splice_from_pipe_next);
 
 /**
  * splice_from_pipe_begin - start splicing from pipe
@@ -899,7 +899,7 @@ void splice_from_pipe_begin(struct splice_desc *sd)
 	sd->num_spliced = 0;
 	sd->need_wakeup = false;
 }
-/* DISABLED: EXPORT_SYMBOL(splice_from_pipe_begin); */
+EXPORT_SYMBOL(splice_from_pipe_begin);
 
 /**
  * splice_from_pipe_end - finish splicing from pipe
@@ -916,7 +916,7 @@ void splice_from_pipe_end(struct pipe_inode_info *pipe, struct splice_desc *sd)
 	if (sd->need_wakeup)
 		wakeup_pipe_writers(pipe);
 }
-/* DISABLED: EXPORT_SYMBOL(splice_from_pipe_end); */
+EXPORT_SYMBOL(splice_from_pipe_end);
 
 /**
  * __splice_from_pipe - splice data from a pipe to given actor
@@ -947,7 +947,7 @@ ssize_t __splice_from_pipe(struct pipe_inode_info *pipe, struct splice_desc *sd,
 
 	return sd->num_spliced ? sd->num_spliced : ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__splice_from_pipe); */
+EXPORT_SYMBOL(__splice_from_pipe);
 
 /**
  * splice_from_pipe - splice data from a pipe to a file
@@ -1055,7 +1055,7 @@ generic_file_splice_write(struct pipe_inode_info *pipe, struct file *out,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(generic_file_splice_write); */
+EXPORT_SYMBOL(generic_file_splice_write);
 
 static int write_pipe_buf(struct pipe_inode_info *pipe, struct pipe_buffer *buf,
 			  struct splice_desc *sd)
@@ -1105,7 +1105,7 @@ ssize_t generic_splice_sendpage(struct pipe_inode_info *pipe, struct file *out,
 	return splice_from_pipe(pipe, out, ppos, len, flags, pipe_to_sendpage);
 }
 
-/* DISABLED: EXPORT_SYMBOL(generic_splice_sendpage); */
+EXPORT_SYMBOL(generic_splice_sendpage);
 
 /*
  * Attempt to initiate a splice from pipe to file.
@@ -1291,7 +1291,7 @@ out_release:
 
 	goto done;
 }
-/* DISABLED: EXPORT_SYMBOL(splice_direct_to_actor); */
+EXPORT_SYMBOL(splice_direct_to_actor);
 
 static int direct_splice_actor(struct pipe_inode_info *pipe,
 			       struct splice_desc *sd)

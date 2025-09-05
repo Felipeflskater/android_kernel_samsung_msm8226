@@ -251,7 +251,7 @@ int tosh_smm(SMMRegisters *regs)
 
 	return eax;
 }
-/* DISABLED: EXPORT_SYMBOL(tosh_smm); */
+EXPORT_SYMBOL(tosh_smm);
 
 
 static long tosh_ioctl(struct file *fp, unsigned int cmd, unsigned long arg)

@@ -217,7 +217,7 @@ int __class_register(struct class *cls, struct lock_class_key *key)
 	class_put(cls);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__class_register); */
+EXPORT_SYMBOL_GPL(__class_register);
 
 void class_unregister(struct class *cls)
 {
@@ -272,7 +272,7 @@ error:
 	kfree(cls);
 	return ERR_PTR(retval);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__class_create); */
+EXPORT_SYMBOL_GPL(__class_create);
 
 /**
  * class_destroy - destroys a struct class structure
@@ -311,7 +311,7 @@ void class_dev_iter_init(struct class_dev_iter *iter, struct class *class,
 	klist_iter_init_node(&class->p->klist_devices, &iter->ki, start_knode);
 	iter->type = type;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_dev_iter_init); */
+EXPORT_SYMBOL_GPL(class_dev_iter_init);
 
 /**
  * class_dev_iter_next - iterate to the next device
@@ -339,7 +339,7 @@ struct device *class_dev_iter_next(struct class_dev_iter *iter)
 			return dev;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_dev_iter_next); */
+EXPORT_SYMBOL_GPL(class_dev_iter_next);
 
 /**
  * class_dev_iter_exit - finish iteration
@@ -352,7 +352,7 @@ void class_dev_iter_exit(struct class_dev_iter *iter)
 {
 	klist_iter_exit(&iter->ki);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_dev_iter_exit); */
+EXPORT_SYMBOL_GPL(class_dev_iter_exit);
 
 /**
  * class_for_each_device - device iterator
@@ -397,7 +397,7 @@ int class_for_each_device(struct class *class, struct device *start,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_for_each_device); */
+EXPORT_SYMBOL_GPL(class_for_each_device);
 
 /**
  * class_find_device - device iterator for locating a particular device
@@ -445,7 +445,7 @@ struct device *class_find_device(struct class *class, struct device *start,
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_find_device); */
+EXPORT_SYMBOL_GPL(class_find_device);
 
 int class_interface_register(struct class_interface *class_intf)
 {
@@ -503,7 +503,7 @@ ssize_t show_class_attr_string(struct class *class,
 	return snprintf(buf, PAGE_SIZE, "%s\n", cs->str);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(show_class_attr_string); */
+EXPORT_SYMBOL_GPL(show_class_attr_string);
 
 struct class_compat {
 	struct kobject *kobj;
@@ -530,7 +530,7 @@ struct class_compat *class_compat_register(const char *name)
 	}
 	return cls;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_compat_register); */
+EXPORT_SYMBOL_GPL(class_compat_register);
 
 /**
  * class_compat_unregister - unregister a compatibility class
@@ -541,7 +541,7 @@ void class_compat_unregister(struct class_compat *cls)
 	kobject_put(cls->kobj);
 	kfree(cls);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_compat_unregister); */
+EXPORT_SYMBOL_GPL(class_compat_unregister);
 
 /**
  * class_compat_create_link - create a compatibility class device link to
@@ -573,7 +573,7 @@ int class_compat_create_link(struct class_compat *cls, struct device *dev,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_compat_create_link); */
+EXPORT_SYMBOL_GPL(class_compat_create_link);
 
 /**
  * class_compat_remove_link - remove a compatibility class device link to
@@ -590,7 +590,7 @@ void class_compat_remove_link(struct class_compat *cls, struct device *dev,
 		sysfs_remove_link(&dev->kobj, "device");
 	sysfs_remove_link(cls->kobj, dev_name(dev));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(class_compat_remove_link); */
+EXPORT_SYMBOL_GPL(class_compat_remove_link);
 
 int __init classes_init(void)
 {
@@ -600,10 +600,10 @@ int __init classes_init(void)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(class_create_file); */
-/* DISABLED: EXPORT_SYMBOL_GPL(class_remove_file); */
-/* DISABLED: EXPORT_SYMBOL_GPL(class_unregister); */
-/* DISABLED: EXPORT_SYMBOL_GPL(class_destroy); */
+EXPORT_SYMBOL_GPL(class_create_file);
+EXPORT_SYMBOL_GPL(class_remove_file);
+EXPORT_SYMBOL_GPL(class_unregister);
+EXPORT_SYMBOL_GPL(class_destroy);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(class_interface_register); */
-/* DISABLED: EXPORT_SYMBOL_GPL(class_interface_unregister); */
+EXPORT_SYMBOL_GPL(class_interface_register);
+EXPORT_SYMBOL_GPL(class_interface_unregister);

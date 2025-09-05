@@ -49,13 +49,13 @@ long simpad_get_cs3_ro(void)
 {
 	return readl(CS3_BASE);
 }
-/* DISABLED: EXPORT_SYMBOL(simpad_get_cs3_ro); */
+EXPORT_SYMBOL(simpad_get_cs3_ro);
 
 long simpad_get_cs3_shadow(void)
 {
 	return cs3_shadow;
 }
-/* DISABLED: EXPORT_SYMBOL(simpad_get_cs3_shadow); */
+EXPORT_SYMBOL(simpad_get_cs3_shadow);
 
 static void __simpad_write_cs3(void)
 {
@@ -71,7 +71,7 @@ void simpad_set_cs3_bit(int value)
 	__simpad_write_cs3();
 	spin_unlock_irqrestore(&cs3_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(simpad_set_cs3_bit); */
+EXPORT_SYMBOL(simpad_set_cs3_bit);
 
 void simpad_clear_cs3_bit(int value)
 {
@@ -82,7 +82,7 @@ void simpad_clear_cs3_bit(int value)
 	__simpad_write_cs3();
 	spin_unlock_irqrestore(&cs3_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(simpad_clear_cs3_bit); */
+EXPORT_SYMBOL(simpad_clear_cs3_bit);
 
 static void cs3_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
 {

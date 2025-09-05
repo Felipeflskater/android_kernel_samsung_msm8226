@@ -179,7 +179,7 @@ int s3c_adc_start(struct s3c_adc_client *client,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c_adc_start); */
+EXPORT_SYMBOL_GPL(s3c_adc_start);
 
 static void s3c_convert_done(struct s3c_adc_client *client,
 			     unsigned v, unsigned u, unsigned *left)
@@ -213,7 +213,7 @@ int s3c_adc_read(struct s3c_adc_client *client, unsigned int ch)
 err:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c_adc_read); */
+EXPORT_SYMBOL_GPL(s3c_adc_read);
 
 static void s3c_adc_default_select(struct s3c_adc_client *client,
 				   unsigned select)
@@ -251,7 +251,7 @@ struct s3c_adc_client *s3c_adc_register(struct platform_device *pdev,
 
 	return client;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c_adc_register); */
+EXPORT_SYMBOL_GPL(s3c_adc_register);
 
 void s3c_adc_release(struct s3c_adc_client *client)
 {
@@ -281,7 +281,7 @@ void s3c_adc_release(struct s3c_adc_client *client)
 	spin_unlock_irqrestore(&adc_dev->lock, flags);
 	kfree(client);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c_adc_release); */
+EXPORT_SYMBOL_GPL(s3c_adc_release);
 
 static irqreturn_t s3c_adc_irq(int irq, void *pw)
 {

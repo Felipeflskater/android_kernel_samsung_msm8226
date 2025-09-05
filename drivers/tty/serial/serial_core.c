@@ -313,7 +313,7 @@ uart_update_timeout(struct uart_port *port, unsigned int cflag,
 	port->timeout = (HZ * bits) / baud + HZ/50;
 }
 
-/* DISABLED: EXPORT_SYMBOL(uart_update_timeout); */
+EXPORT_SYMBOL(uart_update_timeout);
 
 /**
  *	uart_get_baud_rate - return baud rate for a particular port
@@ -404,7 +404,7 @@ uart_get_baud_rate(struct uart_port *port, struct ktermios *termios,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(uart_get_baud_rate); */
+EXPORT_SYMBOL(uart_get_baud_rate);
 
 /**
  *	uart_get_divisor - return uart clock divisor
@@ -429,7 +429,7 @@ uart_get_divisor(struct uart_port *port, unsigned int baud)
 	return quot;
 }
 
-/* DISABLED: EXPORT_SYMBOL(uart_get_divisor); */
+EXPORT_SYMBOL(uart_get_divisor);
 
 /* FIXME: Consistent locking policy */
 static void uart_change_speed(struct tty_struct *tty, struct uart_state *state,
@@ -1686,7 +1686,7 @@ void uart_console_write(struct uart_port *port, const char *s,
 		putchar(port, *s);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_console_write); */
+EXPORT_SYMBOL_GPL(uart_console_write);
 
 /*
  *	Check whether an invalid uart number has been specified, and
@@ -1737,7 +1737,7 @@ uart_parse_options(char *options, int *baud, int *parity, int *bits, int *flow)
 	if (*s)
 		*flow = *s;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_parse_options); */
+EXPORT_SYMBOL_GPL(uart_parse_options);
 
 struct baud_rates {
 	unsigned int rate;
@@ -1829,7 +1829,7 @@ uart_set_options(struct uart_port *port, struct console *co,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_set_options); */
+EXPORT_SYMBOL_GPL(uart_set_options);
 #endif /* CONFIG_SERIAL_CORE_CONSOLE */
 
 /**
@@ -2457,7 +2457,7 @@ int uart_match_port(struct uart_port *port1, struct uart_port *port2)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(uart_match_port); */
+EXPORT_SYMBOL(uart_match_port);
 
 /**
  *	uart_handle_dcd_change - handle a change of carrier detect state
@@ -2492,7 +2492,7 @@ void uart_handle_dcd_change(struct uart_port *uport, unsigned int status)
 	if (ld)
 		tty_ldisc_deref(ld);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_handle_dcd_change); */
+EXPORT_SYMBOL_GPL(uart_handle_dcd_change);
 
 /**
  *	uart_handle_cts_change - handle a change of clear-to-send state
@@ -2521,7 +2521,7 @@ void uart_handle_cts_change(struct uart_port *uport, unsigned int status)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_handle_cts_change); */
+EXPORT_SYMBOL_GPL(uart_handle_cts_change);
 
 /**
  * uart_insert_char - push a char to the uart layer
@@ -2550,15 +2550,15 @@ void uart_insert_char(struct uart_port *port, unsigned int status,
 	if (status & ~port->ignore_status_mask & overrun)
 		tty_insert_flip_char(tty, 0, TTY_OVERRUN);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uart_insert_char); */
+EXPORT_SYMBOL_GPL(uart_insert_char);
 
-/* DISABLED: EXPORT_SYMBOL(uart_write_wakeup); */
-/* DISABLED: EXPORT_SYMBOL(uart_register_driver); */
-/* DISABLED: EXPORT_SYMBOL(uart_unregister_driver); */
-/* DISABLED: EXPORT_SYMBOL(uart_suspend_port); */
-/* DISABLED: EXPORT_SYMBOL(uart_resume_port); */
-/* DISABLED: EXPORT_SYMBOL(uart_add_one_port); */
-/* DISABLED: EXPORT_SYMBOL(uart_remove_one_port); */
+EXPORT_SYMBOL(uart_write_wakeup);
+EXPORT_SYMBOL(uart_register_driver);
+EXPORT_SYMBOL(uart_unregister_driver);
+EXPORT_SYMBOL(uart_suspend_port);
+EXPORT_SYMBOL(uart_resume_port);
+EXPORT_SYMBOL(uart_add_one_port);
+EXPORT_SYMBOL(uart_remove_one_port);
 
 MODULE_DESCRIPTION("Serial driver core");
 MODULE_LICENSE("GPL");

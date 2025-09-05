@@ -191,7 +191,7 @@ int __blkdev_driver_ioctl(struct block_device *bdev, fmode_t mode,
  * on the previous export.  Sheer idiocy, since it wasn't copyrightable
  * at all and could be open-coded without any exports by anybody who cares.
  */
-/* DISABLED: EXPORT_SYMBOL_GPL(__blkdev_driver_ioctl); */
+EXPORT_SYMBOL_GPL(__blkdev_driver_ioctl);
 
 /*
  * Is it an unrecognized ioctl? The correct returns are either
@@ -366,4 +366,4 @@ int blkdev_ioctl(struct block_device *bdev, fmode_t mode, unsigned cmd,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blkdev_ioctl); */
+EXPORT_SYMBOL_GPL(blkdev_ioctl);

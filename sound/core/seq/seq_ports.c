@@ -664,7 +664,7 @@ int snd_seq_event_port_attach(int client,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_seq_event_port_attach); */
+EXPORT_SYMBOL(snd_seq_event_port_attach);
 
 /*
  * Detach the driver from a port.
@@ -685,4 +685,4 @@ int snd_seq_event_port_detach(int client, int port)
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_seq_event_port_detach); */
+EXPORT_SYMBOL(snd_seq_event_port_detach);

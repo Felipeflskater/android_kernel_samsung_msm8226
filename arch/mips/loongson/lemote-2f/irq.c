@@ -60,7 +60,7 @@ int mach_i8259_irq(void)
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL(mach_i8259_irq); */
+EXPORT_SYMBOL(mach_i8259_irq);
 
 static void i8259_irqdispatch(void)
 {

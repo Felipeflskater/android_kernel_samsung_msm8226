@@ -134,7 +134,7 @@ static struct pci_driver nforce2_driver;
    SMBus channel */
 #if defined CONFIG_I2C_NFORCE2_S4985 || defined CONFIG_I2C_NFORCE2_S4985_MODULE
 struct i2c_adapter *nforce2_smbus;
-/* DISABLED: EXPORT_SYMBOL_GPL(nforce2_smbus); */
+EXPORT_SYMBOL_GPL(nforce2_smbus);
 
 static void nforce2_set_reference(struct i2c_adapter *adap)
 {

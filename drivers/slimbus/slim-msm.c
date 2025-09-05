@@ -80,7 +80,7 @@ void msm_slim_es705_func(struct slim_device *gen0_client)
 	msm_slim_get_ctrl(dev);
 	msm_slim_put_ctrl(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_slim_es705_func); */
+EXPORT_SYMBOL(msm_slim_es705_func);
 #endif
 #if defined(CONFIG_SND_SOC_ES325_ATLANTIC)
 void msm_slim_vote_func(struct slim_device *gen0_client)
@@ -90,7 +90,7 @@ void msm_slim_vote_func(struct slim_device *gen0_client)
 	msm_slim_get_ctrl(dev);
 	msm_slim_put_ctrl(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_slim_vote_func); */
+EXPORT_SYMBOL(msm_slim_vote_func);
 #endif
 irqreturn_t msm_slim_port_irq_handler(struct msm_slim_ctrl *dev, u32 pstat)
 {

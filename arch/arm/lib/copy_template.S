@@ -77,7 +77,7 @@
 		ands	ip, r1, #3
 		bne	10f
 
-1:		subs	r2, r2, @ (28)
+1:		subs	r2, r2, #(28)
 		stmfd	sp!, {r5 - r8}
 		blt	5f
 
@@ -107,7 +107,7 @@
 5:		ands	ip, r2, #28
 		rsb	ip, ip, #32
 #if LDR1W_SHIFT > 0
-		lsl	ip, ip, @ LDR1W_SHIFT
+		lsl	ip, ip, #LDR1W_SHIFT
 #endif
 		addne	pc, pc, ip		@ C is always clear here
 		b	7f
@@ -124,9 +124,9 @@
 		ldr1w	r1, lr, abort=20f
 
 #if LDR1W_SHIFT < STR1W_SHIFT
-		lsl	ip, ip, @ STR1W_SHIFT - LDR1W_SHIFT
+		lsl	ip, ip, #STR1W_SHIFT - LDR1W_SHIFT
 #elif LDR1W_SHIFT > STR1W_SHIFT
-		lsr	ip, ip, @ LDR1W_SHIFT - STR1W_SHIFT
+		lsr	ip, ip, #LDR1W_SHIFT - STR1W_SHIFT
 #endif
 		add	pc, pc, ip
 		nop
@@ -197,24 +197,24 @@
 
 12:	PLD(	pld	[r1, #124]		)
 13:		ldr4w	r1, r4, r5, r6, r7, abort=19f
-		mov	r3, lr, pull @ \pull
+		mov	r3, lr, pull #\pull
 		subs	r2, r2, #32
 		ldr4w	r1, r8, r9, ip, lr, abort=19f
-		orr	r3, r3, r4, push @ \push
-		mov	r4, r4, pull @ \pull
-		orr	r4, r4, r5, push @ \push
-		mov	r5, r5, pull @ \pull
-		orr	r5, r5, r6, push @ \push
-		mov	r6, r6, pull @ \pull
-		orr	r6, r6, r7, push @ \push
-		mov	r7, r7, pull @ \pull
-		orr	r7, r7, r8, push @ \push
-		mov	r8, r8, pull @ \pull
-		orr	r8, r8, r9, push @ \push
-		mov	r9, r9, pull @ \pull
-		orr	r9, r9, ip, push @ \push
-		mov	ip, ip, pull @ \pull
-		orr	ip, ip, lr, push @ \push
+		orr	r3, r3, r4, push #\push
+		mov	r4, r4, pull #\pull
+		orr	r4, r4, r5, push #\push
+		mov	r5, r5, pull #\pull
+		orr	r5, r5, r6, push #\push
+		mov	r6, r6, pull #\pull
+		orr	r6, r6, r7, push #\push
+		mov	r7, r7, pull #\pull
+		orr	r7, r7, r8, push #\push
+		mov	r8, r8, pull #\pull
+		orr	r8, r8, r9, push #\push
+		mov	r9, r9, pull #\pull
+		orr	r9, r9, ip, push #\push
+		mov	ip, ip, pull #\pull
+		orr	ip, ip, lr, push #\push
 		str8w	r0, r3, r4, r5, r6, r7, r8, r9, ip, , abort=19f
 		bge	12b
 	PLD(	cmn	r2, #96			)
@@ -225,16 +225,16 @@
 14:		ands	ip, r2, #28
 		beq	16f
 
-15:		mov	r3, lr, pull @ \pull
+15:		mov	r3, lr, pull #\pull
 		ldr1w	r1, lr, abort=21f
 		subs	ip, ip, #4
-		orr	r3, r3, lr, push @ \push
+		orr	r3, r3, lr, push #\push
 		str1w	r0, r3, abort=21f
 		bgt	15b
 	CALGN(	cmp	r2, #0			)
 	CALGN(	bge	11b			)
 
-16:		sub	r1, r1, @ (\push / 8)
+16:		sub	r1, r1, #(\push / 8)
 		b	8b
 
 		.endm

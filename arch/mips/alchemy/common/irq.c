@@ -538,7 +538,7 @@ void au1300_pinfunc_to_gpio(enum au1300_multifunc_pins gpio)
 {
 	au1300_gpio_direction_input(gpio + AU1300_GPIO_BASE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1300_pinfunc_to_gpio); */
+EXPORT_SYMBOL_GPL(au1300_pinfunc_to_gpio);
 
 /*
  * au1300_pinfunc_to_dev - assign a pin to the device function.
@@ -557,7 +557,7 @@ void au1300_pinfunc_to_dev(enum au1300_multifunc_pins gpio)
 	__raw_writel(bit, r + AU1300_GPIC_DEVSEL);
 	wmb();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1300_pinfunc_to_dev); */
+EXPORT_SYMBOL_GPL(au1300_pinfunc_to_dev);
 
 /*
  * au1300_set_irq_priority -  set internal priority of IRQ.
@@ -569,7 +569,7 @@ void au1300_set_irq_priority(unsigned int irq, int p)
 	irq -= ALCHEMY_GPIC_INT_BASE;
 	au1300_gpic_chgcfg(irq, GPIC_CFG_IL_MASK, GPIC_CFG_IL_SET(p));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1300_set_irq_priority); */
+EXPORT_SYMBOL_GPL(au1300_set_irq_priority);
 
 /*
  * au1300_set_dbdma_gpio - assign a gpio to one of the DBDMA triggers.

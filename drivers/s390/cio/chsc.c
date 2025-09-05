@@ -57,7 +57,7 @@ int chsc_error_from_response(int response)
 		return -EIO;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(chsc_error_from_response); */
+EXPORT_SYMBOL_GPL(chsc_error_from_response);
 
 struct chsc_ssd_area {
 	struct chsc_header request;
@@ -703,7 +703,7 @@ int chsc_determine_channel_path_desc(struct chp_id chpid, int fmt, int rfmt,
 			      scpd_area->response.code);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(chsc_determine_channel_path_desc); */
+EXPORT_SYMBOL_GPL(chsc_determine_channel_path_desc);
 
 int chsc_determine_base_channel_path_desc(struct chp_id chpid,
 					  struct channel_path_desc *desc)
@@ -952,8 +952,8 @@ exit:
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(css_general_characteristics); */
-/* DISABLED: EXPORT_SYMBOL_GPL(css_chsc_characteristics); */
+EXPORT_SYMBOL_GPL(css_general_characteristics);
+EXPORT_SYMBOL_GPL(css_chsc_characteristics);
 
 int chsc_sstpc(void *page, unsigned int op, u16 ctrl)
 {
@@ -1047,4 +1047,4 @@ out:
 	spin_unlock_irqrestore(&chsc_page_lock, flags);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(chsc_siosl); */
+EXPORT_SYMBOL_GPL(chsc_siosl);

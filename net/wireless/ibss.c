@@ -74,7 +74,7 @@ void cfg80211_ibss_joined(struct net_device *dev, const u8 *bssid, gfp_t gfp)
 	spin_unlock_irqrestore(&wdev->event_lock, flags);
 	queue_work(cfg80211_wq, &rdev->event_work);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_ibss_joined); */
+EXPORT_SYMBOL(cfg80211_ibss_joined);
 
 int __cfg80211_join_ibss(struct cfg80211_registered_device *rdev,
 			 struct net_device *dev,

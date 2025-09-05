@@ -35,7 +35,7 @@ void arch_spin_lock(arch_spinlock_t *lock)
 	while ((delta = my_ticket - lock->current_ticket) != 0)
 		relax((128 / CYCLES_PER_RELAX_LOOP) * delta);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_lock); */
+EXPORT_SYMBOL(arch_spin_lock);
 
 int arch_spin_trylock(arch_spinlock_t *lock)
 {
@@ -60,7 +60,7 @@ int arch_spin_trylock(arch_spinlock_t *lock)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_trylock); */
+EXPORT_SYMBOL(arch_spin_trylock);
 
 void arch_spin_unlock_wait(arch_spinlock_t *lock)
 {
@@ -68,7 +68,7 @@ void arch_spin_unlock_wait(arch_spinlock_t *lock)
 	while (arch_spin_is_locked(lock))
 		delay_backoff(iterations++);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_unlock_wait); */
+EXPORT_SYMBOL(arch_spin_unlock_wait);
 
 /*
  * The low byte is always reserved to be the marker for a "tns" operation
@@ -118,7 +118,7 @@ inline int arch_read_trylock(arch_rwlock_t *rwlock)
 	__insn_mtspr(SPR_INTERRUPT_CRITICAL_SECTION, 0);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_read_trylock); */
+EXPORT_SYMBOL(arch_read_trylock);
 
 /*
  * Spin doing arch_read_trylock() until we acquire the lock.
@@ -134,7 +134,7 @@ void arch_read_lock(arch_rwlock_t *rwlock)
 	while (unlikely(!arch_read_trylock(rwlock)))
 		delay_backoff(iterations++);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_read_lock); */
+EXPORT_SYMBOL(arch_read_lock);
 
 void arch_read_unlock(arch_rwlock_t *rwlock)
 {
@@ -153,7 +153,7 @@ void arch_read_unlock(arch_rwlock_t *rwlock)
 		delay_backoff(iterations++);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(arch_read_unlock); */
+EXPORT_SYMBOL(arch_read_unlock);
 
 /*
  * We don't need an interrupt critical section here (unlike for
@@ -213,7 +213,7 @@ void arch_write_lock(arch_rwlock_t *rwlock)
 			relax(4);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(arch_write_lock); */
+EXPORT_SYMBOL(arch_write_lock);
 
 int arch_write_trylock(arch_rwlock_t *rwlock)
 {
@@ -233,7 +233,7 @@ int arch_write_trylock(arch_rwlock_t *rwlock)
 	rwlock->lock = 1 << _WR_NEXT_SHIFT;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_write_trylock); */
+EXPORT_SYMBOL(arch_write_trylock);
 
 void arch_write_unlock(arch_rwlock_t *rwlock)
 {
@@ -256,4 +256,4 @@ void arch_write_unlock(arch_rwlock_t *rwlock)
 	val = __insn_mz(eq & mask, val);
 	rwlock->lock = val;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_write_unlock); */
+EXPORT_SYMBOL(arch_write_unlock);

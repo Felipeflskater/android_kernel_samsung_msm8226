@@ -59,7 +59,7 @@ u8 ide_dma_sff_read_status(ide_hwif_t *hwif)
 	else
 		return inb(addr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_sff_read_status); */
+EXPORT_SYMBOL_GPL(ide_dma_sff_read_status);
 
 static void ide_dma_sff_write_status(ide_hwif_t *hwif, u8 val)
 {
@@ -92,7 +92,7 @@ void ide_dma_host_set(ide_drive_t *drive, int on)
 
 	ide_dma_sff_write_status(hwif, dma_stat);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_host_set); */
+EXPORT_SYMBOL_GPL(ide_dma_host_set);
 
 /**
  *	ide_build_dmatable	-	build IDE DMA table
@@ -168,7 +168,7 @@ use_pio_instead:
 
 	return 0; /* revert to PIO for this request */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_build_dmatable); */
+EXPORT_SYMBOL_GPL(ide_build_dmatable);
 
 /**
  *	ide_dma_setup	-	begin a DMA phase
@@ -218,7 +218,7 @@ int ide_dma_setup(ide_drive_t *drive, struct ide_cmd *cmd)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_setup); */
+EXPORT_SYMBOL_GPL(ide_dma_setup);
 
 /**
  *	ide_dma_sff_timer_expiry	-	handle a DMA timeout
@@ -258,7 +258,7 @@ int ide_dma_sff_timer_expiry(ide_drive_t *drive)
 
 	return 0;	/* Status is unknown -- reset the bus */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_sff_timer_expiry); */
+EXPORT_SYMBOL_GPL(ide_dma_sff_timer_expiry);
 
 void ide_dma_start(ide_drive_t *drive)
 {
@@ -279,7 +279,7 @@ void ide_dma_start(ide_drive_t *drive)
 		outb(dma_cmd | ATA_DMA_START, hwif->dma_base + ATA_DMA_CMD);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_start); */
+EXPORT_SYMBOL_GPL(ide_dma_start);
 
 /* returns 1 on error, 0 otherwise */
 int ide_dma_end(ide_drive_t *drive)
@@ -310,7 +310,7 @@ int ide_dma_end(ide_drive_t *drive)
 		return 0x10 | dma_stat;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_end); */
+EXPORT_SYMBOL_GPL(ide_dma_end);
 
 /* returns 1 if dma irq issued, 0 otherwise */
 int ide_dma_test_irq(ide_drive_t *drive)
@@ -320,7 +320,7 @@ int ide_dma_test_irq(ide_drive_t *drive)
 
 	return (dma_stat & ATA_DMA_INTR) ? 1 : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_test_irq); */
+EXPORT_SYMBOL_GPL(ide_dma_test_irq);
 
 const struct ide_dma_ops sff_dma_ops = {
 	.dma_host_set		= ide_dma_host_set,
@@ -332,4 +332,4 @@ const struct ide_dma_ops sff_dma_ops = {
 	.dma_timer_expiry	= ide_dma_sff_timer_expiry,
 	.dma_sff_read_status	= ide_dma_sff_read_status,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(sff_dma_ops); */
+EXPORT_SYMBOL_GPL(sff_dma_ops);

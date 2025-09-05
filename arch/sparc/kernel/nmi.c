@@ -42,7 +42,7 @@ static int panic_on_timeout;
  *  0: the NMI watchdog is disabled, but can be enabled
  */
 atomic_t nmi_active = ATOMIC_INIT(0);		/* oprofile uses this */
-/* DISABLED: EXPORT_SYMBOL(nmi_active); */
+EXPORT_SYMBOL(nmi_active);
 
 static unsigned int nmi_hz = HZ;
 static DEFINE_PER_CPU(short, wd_enabled);
@@ -65,7 +65,7 @@ void touch_nmi_watchdog(void)
 
 	touch_softlockup_watchdog();
 }
-/* DISABLED: EXPORT_SYMBOL(touch_nmi_watchdog); */
+EXPORT_SYMBOL(touch_nmi_watchdog);
 
 static void die_nmi(const char *str, struct pt_regs *regs, int do_panic)
 {
@@ -245,7 +245,7 @@ void nmi_adjust_hz(unsigned int new_hz)
 	nmi_hz = new_hz;
 	on_each_cpu(nmi_adjust_hz_one, NULL, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nmi_adjust_hz); */
+EXPORT_SYMBOL_GPL(nmi_adjust_hz);
 
 static int nmi_shutdown(struct notifier_block *nb, unsigned long cmd, void *p)
 {
@@ -282,4 +282,4 @@ static int __init setup_nmi_watchdog(char *str)
 
 	return 0;
 }
-/* DISABLED: __setup("nmi_watchdog=", setup_nmi_watchdog); */ */
+__setup("nmi_watchdog=", setup_nmi_watchdog);

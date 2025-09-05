@@ -29,9 +29,9 @@ static unsigned short  libra_sdio_card_id;
 
 /* completion variables */
 struct completion gCard_rem_event_var;
-/* DISABLED: EXPORT_SYMBOL(gCard_rem_event_var); */
+EXPORT_SYMBOL(gCard_rem_event_var);
 struct completion gShutdown_event_var;
-/* DISABLED: EXPORT_SYMBOL(gShutdown_event_var); */
+EXPORT_SYMBOL(gShutdown_event_var);
 
 static suspend_handler_t *libra_suspend_hldr;
 static resume_handler_t *libra_resume_hldr;
@@ -67,7 +67,7 @@ int libra_enable_sdio_irq_in_chip(struct sdio_func *func, u8 enable)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_enable_sdio_irq_in_chip); */
+EXPORT_SYMBOL(libra_enable_sdio_irq_in_chip);
 
 /**
  * libra_sdio_configure() - Function to configure the SDIO device param
@@ -139,7 +139,7 @@ cfg_error:
 	return -1;
 
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_configure); */
+EXPORT_SYMBOL(libra_sdio_configure);
 
 int libra_sdio_configure_suspend_resume(
 		suspend_handler_t *libra_sdio_suspend_hdlr,
@@ -149,7 +149,7 @@ int libra_sdio_configure_suspend_resume(
 	libra_resume_hldr = libra_sdio_resume_hdlr;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_configure_suspend_resume); */
+EXPORT_SYMBOL(libra_sdio_configure_suspend_resume);
 
 /*
  * libra_sdio_deconfigure() - Function to reset the SDIO device param
@@ -164,7 +164,7 @@ void libra_sdio_deconfigure(struct sdio_func *func)
 	sdio_disable_func(func);
 	sdio_release_host(func);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_deconfigure); */
+EXPORT_SYMBOL(libra_sdio_deconfigure);
 
 int libra_enable_sdio_irq(struct sdio_func *func, u8 enable)
 {
@@ -177,7 +177,7 @@ int libra_enable_sdio_irq(struct sdio_func *func, u8 enable)
 	printk(KERN_ERR "%s: Could not enable disable irq\n", __func__);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_enable_sdio_irq); */
+EXPORT_SYMBOL(libra_enable_sdio_irq);
 
 int libra_disable_sdio_irq_capability(struct sdio_func *func, u8 disable)
 {
@@ -192,7 +192,7 @@ int libra_disable_sdio_irq_capability(struct sdio_func *func, u8 disable)
 			__func__);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_disable_sdio_irq_capability); */
+EXPORT_SYMBOL(libra_disable_sdio_irq_capability);
 
 /*
  * libra_sdio_release_irq() - Function to release IRQ
@@ -204,7 +204,7 @@ void libra_sdio_release_irq(struct sdio_func *func)
 
 	sdio_release_irq(func);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_release_irq); */
+EXPORT_SYMBOL(libra_sdio_release_irq);
 
 /*
  * libra_sdio_disable_func() - Function to disable sdio func
@@ -216,7 +216,7 @@ void libra_sdio_disable_func(struct sdio_func *func)
 
 	sdio_disable_func(func);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_disable_func); */
+EXPORT_SYMBOL(libra_sdio_disable_func);
 
 /*
  * Return the SDIO Function device
@@ -225,7 +225,7 @@ struct sdio_func *libra_getsdio_funcdev(void)
 {
 	return libra_sdio_func;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_getsdio_funcdev); */
+EXPORT_SYMBOL(libra_getsdio_funcdev);
 
 /*
  * Set function driver as the private data for the function device
@@ -238,7 +238,7 @@ void libra_sdio_setprivdata(struct sdio_func *sdio_func_dev,
 
 	sdio_set_drvdata(sdio_func_dev, padapter);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_setprivdata); */
+EXPORT_SYMBOL(libra_sdio_setprivdata);
 
 /*
  * Return private data of the function device.
@@ -247,7 +247,7 @@ void *libra_sdio_getprivdata(struct sdio_func *sdio_func_dev)
 {
 	return sdio_get_drvdata(sdio_func_dev);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_getprivdata); */
+EXPORT_SYMBOL(libra_sdio_getprivdata);
 
 /*
  * Function driver claims the SDIO device
@@ -270,7 +270,7 @@ void libra_claim_host(struct sdio_func *sdio_func_dev,
 	atomic_inc(claim_count);
 
 }
-/* DISABLED: EXPORT_SYMBOL(libra_claim_host); */
+EXPORT_SYMBOL(libra_claim_host);
 
 /*
  * Function driver releases the SDIO device
@@ -293,7 +293,7 @@ void libra_release_host(struct sdio_func *sdio_func_dev,
 		sdio_release_host(sdio_func_dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(libra_release_host); */
+EXPORT_SYMBOL(libra_release_host);
 
 void libra_sdiocmd52(struct sdio_func *sdio_func_dev, unsigned int addr,
 	u8 *byte_var, int write, int *err_ret)
@@ -303,35 +303,35 @@ void libra_sdiocmd52(struct sdio_func *sdio_func_dev, unsigned int addr,
 	else
 		byte_var[0] = sdio_readb(sdio_func_dev, addr, err_ret);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdiocmd52); */
+EXPORT_SYMBOL(libra_sdiocmd52);
 
 u8 libra_sdio_readsb(struct sdio_func *func, void *dst,
 	unsigned int addr, int count)
 {
 	return sdio_readsb(func, dst, addr, count);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_readsb); */
+EXPORT_SYMBOL(libra_sdio_readsb);
 
 int libra_sdio_memcpy_fromio(struct sdio_func *func,
 		void *dst, unsigned int addr, int count)
 {
 	return sdio_memcpy_fromio(func, dst, addr, count);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_memcpy_fromio); */
+EXPORT_SYMBOL(libra_sdio_memcpy_fromio);
 
 int libra_sdio_writesb(struct sdio_func *func,
 		unsigned int addr, void *src, int count)
 {
 	return sdio_writesb(func, addr, src, count);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_writesb); */
+EXPORT_SYMBOL(libra_sdio_writesb);
 
 int libra_sdio_memcpy_toio(struct sdio_func *func,
 	unsigned int addr, void *src, int count)
 {
 	return sdio_memcpy_toio(func, addr, src, count);
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_memcpy_toio); */
+EXPORT_SYMBOL(libra_sdio_memcpy_toio);
 
 int libra_detect_card_change(void)
 {
@@ -346,7 +346,7 @@ int libra_detect_card_change(void)
 	printk(KERN_ERR "%s: Could not trigger card change\n", __func__);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_detect_card_change); */
+EXPORT_SYMBOL(libra_detect_card_change);
 
 int libra_sdio_enable_polling(void)
 {
@@ -362,7 +362,7 @@ int libra_sdio_enable_polling(void)
 	printk(KERN_ERR "%s: Could not trigger SDIO scan\n", __func__);
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_enable_polling); */
+EXPORT_SYMBOL(libra_sdio_enable_polling);
 
 void libra_sdio_set_clock(struct sdio_func *func, unsigned int clk_freq)
 {
@@ -371,7 +371,7 @@ void libra_sdio_set_clock(struct sdio_func *func, unsigned int clk_freq)
     host->ops->set_ios(host, &host->ios);
 
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_set_clock); */
+EXPORT_SYMBOL(libra_sdio_set_clock);
 
 /*
  * API to get SDIO Device Card ID
@@ -381,7 +381,7 @@ void libra_sdio_get_card_id(struct sdio_func *func, unsigned short *card_id)
 	if (card_id)
 		*card_id = libra_sdio_card_id;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_get_card_id); */
+EXPORT_SYMBOL(libra_sdio_get_card_id);
 
 /*
  * SDIO Probe
@@ -475,7 +475,7 @@ int libra_sdio_register_shutdown_hdlr(
 	libra_sdio_shutdown_hdlr = libra_shutdown_hdlr;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_register_shutdown_hdlr); */
+EXPORT_SYMBOL(libra_sdio_register_shutdown_hdlr);
 
 int libra_sdio_notify_card_removal(
 		notify_card_removal_t *libra_sdio_notify_card_removal_hdlr)
@@ -483,7 +483,7 @@ int libra_sdio_notify_card_removal(
 	libra_notify_card_removal_hdlr = libra_sdio_notify_card_removal_hdlr;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(libra_sdio_notify_card_removal); */
+EXPORT_SYMBOL(libra_sdio_notify_card_removal);
 
 static struct sdio_device_id libra_sdioid[] = {
     {.class = 0, .vendor = LIBRA_MAN_ID,  .device = LIBRA_REV_1_0_CARD_ID},

@@ -232,7 +232,7 @@ static struct snd_soc_dai_driver pxa_ac97_dai_driver[] = {
 },
 };
 
-/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
+EXPORT_SYMBOL_GPL(soc_ac97_ops);
 
 static __devinit int pxa2xx_ac97_dev_probe(struct platform_device *pdev)
 {

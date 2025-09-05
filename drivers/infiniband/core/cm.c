@@ -723,7 +723,7 @@ error:
 	kfree(cm_id_priv);
 	return ERR_PTR(-ENOMEM);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_create_cm_id); */
+EXPORT_SYMBOL(ib_create_cm_id);
 
 static struct cm_work * cm_dequeue_work(struct cm_id_private *cm_id_priv)
 {
@@ -927,7 +927,7 @@ void ib_destroy_cm_id(struct ib_cm_id *cm_id)
 {
 	cm_destroy_id(cm_id, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_destroy_cm_id); */
+EXPORT_SYMBOL(ib_destroy_cm_id);
 
 int ib_cm_listen(struct ib_cm_id *cm_id, __be64 service_id, __be64 service_mask,
 		 struct ib_cm_compare_data *compare_data)
@@ -978,7 +978,7 @@ int ib_cm_listen(struct ib_cm_id *cm_id, __be64 service_id, __be64 service_mask,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_cm_listen); */
+EXPORT_SYMBOL(ib_cm_listen);
 
 static __be64 cm_form_tid(struct cm_id_private *cm_id_priv,
 			  enum cm_msg_sequence msg_seq)
@@ -1187,7 +1187,7 @@ error2:	cm_free_msg(cm_id_priv->msg);
 error1:	kfree(cm_id_priv->timewait_info);
 out:	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_req); */
+EXPORT_SYMBOL(ib_send_cm_req);
 
 static int cm_issue_rej(struct cm_port *port,
 			struct ib_mad_recv_wc *mad_recv_wc,
@@ -1683,7 +1683,7 @@ int ib_send_cm_rep(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_rep); */
+EXPORT_SYMBOL(ib_send_cm_rep);
 
 static void cm_format_rtu(struct cm_rtu_msg *rtu_msg,
 			  struct cm_id_private *cm_id_priv,
@@ -1747,7 +1747,7 @@ error:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	kfree(data);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_rtu); */
+EXPORT_SYMBOL(ib_send_cm_rtu);
 
 static void cm_format_rep_event(struct cm_work *work, enum ib_qp_type qp_type)
 {
@@ -2034,7 +2034,7 @@ int ib_send_cm_dreq(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_dreq); */
+EXPORT_SYMBOL(ib_send_cm_dreq);
 
 static void cm_format_drep(struct cm_drep_msg *drep_msg,
 			  struct cm_id_private *cm_id_priv,
@@ -2094,7 +2094,7 @@ int ib_send_cm_drep(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_drep); */
+EXPORT_SYMBOL(ib_send_cm_drep);
 
 static int cm_issue_drep(struct cm_port *port,
 			 struct ib_mad_recv_wc *mad_recv_wc)
@@ -2293,7 +2293,7 @@ int ib_send_cm_rej(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_rej); */
+EXPORT_SYMBOL(ib_send_cm_rej);
 
 static void cm_format_rej_event(struct cm_work *work)
 {
@@ -2484,7 +2484,7 @@ error2:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	cm_free_msg(msg);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_mra); */
+EXPORT_SYMBOL(ib_send_cm_mra);
 
 static struct cm_id_private * cm_acquire_mraed_id(struct cm_mra_msg *mra_msg)
 {
@@ -2655,7 +2655,7 @@ int ib_send_cm_lap(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_lap); */
+EXPORT_SYMBOL(ib_send_cm_lap);
 
 static void cm_format_path_from_lap(struct cm_id_private *cm_id_priv,
 				    struct ib_sa_path_rec *path,
@@ -2819,7 +2819,7 @@ int ib_send_cm_apr(struct ib_cm_id *cm_id,
 out:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_apr); */
+EXPORT_SYMBOL(ib_send_cm_apr);
 
 static int cm_apr_handler(struct cm_work *work)
 {
@@ -2964,7 +2964,7 @@ int ib_send_cm_sidr_req(struct ib_cm_id *cm_id,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_sidr_req); */
+EXPORT_SYMBOL(ib_send_cm_sidr_req);
 
 static void cm_format_sidr_req_event(struct cm_work *work,
 				     struct ib_cm_id *listen_id)
@@ -3107,7 +3107,7 @@ int ib_send_cm_sidr_rep(struct ib_cm_id *cm_id,
 error:	spin_unlock_irqrestore(&cm_id_priv->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_send_cm_sidr_rep); */
+EXPORT_SYMBOL(ib_send_cm_sidr_rep);
 
 static void cm_format_sidr_rep_event(struct cm_work *work)
 {
@@ -3384,7 +3384,7 @@ int ib_cm_notify(struct ib_cm_id *cm_id, enum ib_event_type event)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_cm_notify); */
+EXPORT_SYMBOL(ib_cm_notify);
 
 static void cm_recv_handler(struct ib_mad_agent *mad_agent,
 			    struct ib_mad_recv_wc *mad_recv_wc)
@@ -3621,7 +3621,7 @@ int ib_cm_init_qp_attr(struct ib_cm_id *cm_id,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_cm_init_qp_attr); */
+EXPORT_SYMBOL(ib_cm_init_qp_attr);
 
 static void cm_get_ack_delay(struct cm_device *cm_dev)
 {
@@ -3679,7 +3679,7 @@ struct class cm_class = {
 	.name    = "infiniband_cm",
 	.devnode = cm_devnode,
 };
-/* DISABLED: EXPORT_SYMBOL(cm_class); */
+EXPORT_SYMBOL(cm_class);
 
 static int cm_create_port_fs(struct cm_port *port)
 {

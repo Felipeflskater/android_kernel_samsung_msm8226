@@ -109,7 +109,7 @@ struct gtm_timer *gtm_get_timer16(void)
 		return ERR_PTR(-EBUSY);
 	return ERR_PTR(-ENODEV);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_get_timer16); */
+EXPORT_SYMBOL(gtm_get_timer16);
 
 /**
  * gtm_get_specific_timer - request specific GTM timer
@@ -141,7 +141,7 @@ out:
 	spin_unlock_irq(&gtm->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_get_specific_timer16); */
+EXPORT_SYMBOL(gtm_get_specific_timer16);
 
 /**
  * gtm_put_timer16 - release 16 bits GTM timer
@@ -158,7 +158,7 @@ void gtm_put_timer16(struct gtm_timer *tmr)
 	tmr->requested = false;
 	spin_unlock_irq(&tmr->gtm->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_put_timer16); */
+EXPORT_SYMBOL(gtm_put_timer16);
 
 /*
  * This is back-end for the exported functions, it's used to reset single
@@ -259,7 +259,7 @@ int gtm_set_timer16(struct gtm_timer *tmr, unsigned long usec, bool reload)
 
 	return gtm_set_ref_timer16(tmr, freq, usec, reload);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_set_timer16); */
+EXPORT_SYMBOL(gtm_set_timer16);
 
 /**
  * gtm_set_exact_utimer16 - (re)set 16 bits timer
@@ -292,7 +292,7 @@ int gtm_set_exact_timer16(struct gtm_timer *tmr, u16 usec, bool reload)
 
 	return gtm_set_ref_timer16(tmr, freq, usec, reload);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_set_exact_timer16); */
+EXPORT_SYMBOL(gtm_set_exact_timer16);
 
 /**
  * gtm_stop_timer16 - stop single timer
@@ -314,7 +314,7 @@ void gtm_stop_timer16(struct gtm_timer *tmr)
 
 	spin_unlock_irqrestore(&gtm->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_stop_timer16); */
+EXPORT_SYMBOL(gtm_stop_timer16);
 
 /**
  * gtm_ack_timer16 - acknowledge timer event (free-run timers only)
@@ -329,7 +329,7 @@ void gtm_ack_timer16(struct gtm_timer *tmr, u16 events)
 {
 	out_be16(tmr->gtevr, events);
 }
-/* DISABLED: EXPORT_SYMBOL(gtm_ack_timer16); */
+EXPORT_SYMBOL(gtm_ack_timer16);
 
 static void __init gtm_set_shortcuts(struct device_node *np,
 				     struct gtm_timer *timers,

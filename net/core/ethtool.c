@@ -34,7 +34,7 @@ u32 ethtool_op_get_link(struct net_device *dev)
 {
 	return netif_carrier_ok(dev) ? 1 : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ethtool_op_get_link); */
+EXPORT_SYMBOL(ethtool_op_get_link);
 
 /* Handlers for each ethtool command */
 
@@ -305,7 +305,7 @@ int __ethtool_get_settings(struct net_device *dev, struct ethtool_cmd *cmd)
 	cmd->cmd = ETHTOOL_GSET;
 	return dev->ethtool_ops->get_settings(dev, cmd);
 }
-/* DISABLED: EXPORT_SYMBOL(__ethtool_get_settings); */
+EXPORT_SYMBOL(__ethtool_get_settings);
 
 static int ethtool_get_settings(struct net_device *dev, void __user *useraddr)
 {

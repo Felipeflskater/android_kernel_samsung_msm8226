@@ -75,7 +75,7 @@ bool irq_fpu_usable(void)
 		interrupted_user_mode() ||
 		interrupted_kernel_fpu_idle();
 }
-/* DISABLED: EXPORT_SYMBOL(irq_fpu_usable); */
+EXPORT_SYMBOL(irq_fpu_usable);
 
 void __kernel_fpu_begin(void)
 {
@@ -90,13 +90,13 @@ void __kernel_fpu_begin(void)
 		clts();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__kernel_fpu_begin); */
+EXPORT_SYMBOL(__kernel_fpu_begin);
 
 void __kernel_fpu_end(void)
 {
 	stts();
 }
-/* DISABLED: EXPORT_SYMBOL(__kernel_fpu_end); */
+EXPORT_SYMBOL(__kernel_fpu_end);
 
 void unlazy_fpu(struct task_struct *tsk)
 {
@@ -108,7 +108,7 @@ void unlazy_fpu(struct task_struct *tsk)
 		tsk->fpu_counter = 0;
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(unlazy_fpu); */
+EXPORT_SYMBOL(unlazy_fpu);
 
 #ifdef CONFIG_MATH_EMULATION
 # define HAVE_HWFP		(boot_cpu_data.hard_math)
@@ -118,7 +118,7 @@ void unlazy_fpu(struct task_struct *tsk)
 
 static unsigned int		mxcsr_feature_mask __read_mostly = 0xffffffffu;
 unsigned int xstate_size;
-/* DISABLED: EXPORT_SYMBOL_GPL(xstate_size); */
+EXPORT_SYMBOL_GPL(xstate_size);
 unsigned int sig_xstate_ia32_size = sizeof(struct _fpstate_ia32);
 static struct i387_fxsave_struct fx_scratch __cpuinitdata;
 
@@ -217,7 +217,7 @@ void fpu_finit(struct fpu *fpu)
 		fp->fos = 0xffff0000u;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fpu_finit); */
+EXPORT_SYMBOL_GPL(fpu_finit);
 
 /*
  * The _current_ task is using the FPU for the first time
@@ -248,7 +248,7 @@ int init_fpu(struct task_struct *tsk)
 	set_stopped_child_used_math(tsk);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(init_fpu); */
+EXPORT_SYMBOL_GPL(init_fpu);
 
 /*
  * The xstateregs_active() routine is the same as the fpregs_active() routine,
@@ -822,6 +822,6 @@ int dump_fpu(struct pt_regs *regs, struct user_i387_struct *fpu)
 
 	return fpvalid;
 }
-/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
+EXPORT_SYMBOL(dump_fpu);
 
 #endif	/* CONFIG_X86_32 || CONFIG_IA32_EMULATION */

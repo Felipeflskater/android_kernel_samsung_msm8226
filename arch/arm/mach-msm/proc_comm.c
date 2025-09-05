@@ -98,7 +98,7 @@ again:
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_proc_comm_reset_modem_now); */
+EXPORT_SYMBOL(msm_proc_comm_reset_modem_now);
 
 int msm_proc_comm(unsigned cmd, unsigned *data1, unsigned *data2)
 {
@@ -155,4 +155,4 @@ end:
 	spin_unlock_irqrestore(&proc_comm_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_proc_comm); */
+EXPORT_SYMBOL(msm_proc_comm);

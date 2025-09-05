@@ -19,7 +19,7 @@
 extern char _end[];
 
 struct pglist_data *node_data[MAX_NUMNODES];
-/* DISABLED: EXPORT_SYMBOL(node_data); */
+EXPORT_SYMBOL(node_data);
 
 pg_data_t m32r_node_data[MAX_NUMNODES];
 

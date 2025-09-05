@@ -160,7 +160,7 @@ struct genlock *genlock_create_lock(struct genlock_handle *handle)
 
 	return lock;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_create_lock); */
+EXPORT_SYMBOL(genlock_create_lock);
 
 /*
  * Get a file descriptor reference to a lock suitable for sharing with
@@ -242,7 +242,7 @@ fail_invalid:
 	spin_unlock(&genlock_ref_lock);
 	return ERR_PTR(-EINVAL);
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_attach_lock); */
+EXPORT_SYMBOL(genlock_attach_lock);
 
 /* Helper function that returns 1 if the specified handle holds the lock */
 
@@ -492,7 +492,7 @@ int genlock_lock(struct genlock_handle *handle, int op, int flags,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_lock); */
+EXPORT_SYMBOL(genlock_lock);
 
 /**
  * genlock_dreadlock - Acquire or release a lock
@@ -539,7 +539,7 @@ int genlock_dreadlock(struct genlock_handle *handle, int op, int flags,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_dreadlock); */
+EXPORT_SYMBOL(genlock_dreadlock);
 
 /**
  * genlock_wait - Wait for the lock to be released
@@ -682,7 +682,7 @@ struct genlock_handle *genlock_get_handle(void)
 
 	return handle;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_get_handle); */
+EXPORT_SYMBOL(genlock_get_handle);
 
 /**
  * genlock_put_handle - release a reference to a genlock handle
@@ -694,7 +694,7 @@ void genlock_put_handle(struct genlock_handle *handle)
 	if (handle)
 		fput(handle->file);
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_put_handle); */
+EXPORT_SYMBOL(genlock_put_handle);
 
 /**
  * genlock_get_handle_fd - Get a handle reference from a file descriptor
@@ -710,7 +710,7 @@ struct genlock_handle *genlock_get_handle_fd(int fd)
 
 	return file->private_data;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_get_handle_fd); */
+EXPORT_SYMBOL(genlock_get_handle_fd);
 
 /*
  * Get a file descriptor reference to a lock suitable for sharing with
@@ -754,7 +754,7 @@ int genlock_get_fd_handle(struct genlock_handle *handle)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(genlock_get_fd_handle); */
+EXPORT_SYMBOL(genlock_get_fd_handle);
 
 #ifdef CONFIG_GENLOCK_MISCDEVICE
 

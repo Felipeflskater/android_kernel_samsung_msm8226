@@ -5128,7 +5128,7 @@ int sitar_hs_detect(struct snd_soc_codec *codec,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sitar_hs_detect); */
+EXPORT_SYMBOL_GPL(sitar_hs_detect);
 
 static int sitar_determine_button(const struct sitar_priv *priv,
 				  const s32 bias_mv)

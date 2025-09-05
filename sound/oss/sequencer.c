@@ -156,7 +156,7 @@ void seq_copy_to_input(unsigned char *event_rec, int len)
 	wake_up(&midi_sleeper);
 	spin_unlock_irqrestore(&lock,flags);
 }
-/* DISABLED: EXPORT_SYMBOL(seq_copy_to_input); */
+EXPORT_SYMBOL(seq_copy_to_input);
 
 static void sequencer_midi_input(int dev, unsigned char data)
 {
@@ -206,7 +206,7 @@ void seq_input_event(unsigned char *event_rec, int len)
 	}
 	seq_copy_to_input(event_rec, len);
 }
-/* DISABLED: EXPORT_SYMBOL(seq_input_event); */
+EXPORT_SYMBOL(seq_input_event);
 
 int sequencer_write(int dev, struct file *file, const char __user *buf, int count)
 {
@@ -1554,7 +1554,7 @@ void sequencer_timer(unsigned long dummy)
 {
 	seq_startplay();
 }
-/* DISABLED: EXPORT_SYMBOL(sequencer_timer); */
+EXPORT_SYMBOL(sequencer_timer);
 
 int note_to_freq(int note_num)
 {
@@ -1588,7 +1588,7 @@ int note_to_freq(int note_num)
 
 	return note_freq;
 }
-/* DISABLED: EXPORT_SYMBOL(note_to_freq); */
+EXPORT_SYMBOL(note_to_freq);
 
 unsigned long compute_finetune(unsigned long base_freq, int bend, int range,
 		 int vibrato_cents)
@@ -1640,7 +1640,7 @@ unsigned long compute_finetune(unsigned long base_freq, int bend, int range,
 	else
 		return (base_freq * amount) / 10000;	/* Bend up */
 }
-/* DISABLED: EXPORT_SYMBOL(compute_finetune); */
+EXPORT_SYMBOL(compute_finetune);
 
 void sequencer_init(void)
 {
@@ -1661,7 +1661,7 @@ void sequencer_init(void)
 	}
 	sequencer_ok = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(sequencer_init); */
+EXPORT_SYMBOL(sequencer_init);
 
 void sequencer_unload(void)
 {

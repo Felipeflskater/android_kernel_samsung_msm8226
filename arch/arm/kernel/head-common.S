@@ -53,8 +53,8 @@ __vet_atags:
 	cmp	r5, r6
 	beq	2f
 #endif
-	cmp	r5, @ ATAG_CORE_SIZE		@ is first tag ATAG_CORE?
-	cmpne	r5, @ ATAG_CORE_SIZE_EMPTY
+	cmp	r5, #ATAG_CORE_SIZE		@ is first tag ATAG_CORE?
+	cmpne	r5, #ATAG_CORE_SIZE_EMPTY
 	bne	1f
 	ldr	r5, [r2, #4]
 	ldr	r6, =ATAG_CORE
@@ -98,7 +98,7 @@ __mmap_switched:
 	str	r9, [r4]			@ Save processor ID
 	str	r1, [r5]			@ Save machine type
 	str	r2, [r6]			@ Save atags pointer
-	bic	r4, r0, @ CR_A			@ Clear 'A' bit
+	bic	r4, r0, #CR_A			@ Clear 'A' bit
 	stmia	r7, {r0, r4}			@ Save control register values
 	b	start_kernel
 ENDPROC(__mmap_switched)
@@ -152,7 +152,7 @@ __lookup_processor_type:
 	and	r4, r4, r9			@ mask wanted bits
 	teq	r3, r4
 	beq	2f
-	add	r5, r5, @ PROC_INFO_SZ		@ sizeof(proc_info_list)
+	add	r5, r5, #PROC_INFO_SZ		@ sizeof(proc_info_list)
 	cmp	r5, r6
 	blo	1b
 	mov	r5, #0				@ unknown processor

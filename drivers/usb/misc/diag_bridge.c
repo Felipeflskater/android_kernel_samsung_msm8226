@@ -88,7 +88,7 @@ int diag_bridge_open(int id, struct diag_bridge_ops *ops)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(diag_bridge_open); */
+EXPORT_SYMBOL(diag_bridge_open);
 
 static void diag_bridge_delete(struct kref *kref)
 {
@@ -130,7 +130,7 @@ void diag_bridge_close(int id)
 
 	kref_put(&dev->kref, diag_bridge_delete);
 }
-/* DISABLED: EXPORT_SYMBOL(diag_bridge_close); */
+EXPORT_SYMBOL(diag_bridge_close);
 
 static void diag_bridge_read_cb(struct urb *urb)
 {
@@ -237,7 +237,7 @@ error:
 	mutex_unlock(&dev->ifc_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(diag_bridge_read); */
+EXPORT_SYMBOL(diag_bridge_read);
 
 static void diag_bridge_write_cb(struct urb *urb)
 {
@@ -347,7 +347,7 @@ error:
 	mutex_unlock(&dev->ifc_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(diag_bridge_write); */
+EXPORT_SYMBOL(diag_bridge_write);
 
 #if defined(CONFIG_DEBUG_FS)
 #define DEBUG_BUF_SIZE	512

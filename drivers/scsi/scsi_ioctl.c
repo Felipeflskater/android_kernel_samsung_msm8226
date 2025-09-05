@@ -152,7 +152,7 @@ int scsi_set_medium_removal(struct scsi_device *sdev, char state)
 		sdev->locked = (state == SCSI_REMOVAL_PREVENT);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_set_medium_removal); */
+EXPORT_SYMBOL(scsi_set_medium_removal);
 
 /*
  * The scsi_ioctl_get_pci() function places into arg the value
@@ -274,7 +274,7 @@ int scsi_ioctl(struct scsi_device *sdev, int cmd, void __user *arg)
 	}
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_ioctl); */
+EXPORT_SYMBOL(scsi_ioctl);
 
 /**
  * scsi_nonblockable_ioctl() - Handle SG_SCSI_RESET
@@ -327,4 +327,4 @@ int scsi_nonblockable_ioctl(struct scsi_device *sdev, int cmd,
 	}
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_nonblockable_ioctl); */
+EXPORT_SYMBOL(scsi_nonblockable_ioctl);

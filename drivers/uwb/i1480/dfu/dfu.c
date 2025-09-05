@@ -78,7 +78,7 @@ int i1480_rceb_check(const struct i1480 *i1480, const struct uwb_rceb *rceb,
 	}
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i1480_rceb_check); */
+EXPORT_SYMBOL_GPL(i1480_rceb_check);
 
 
 /*
@@ -149,7 +149,7 @@ ssize_t i1480_cmd(struct i1480 *i1480, const char *cmd_name, size_t cmd_size,
 error:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i1480_cmd); */
+EXPORT_SYMBOL_GPL(i1480_cmd);
 
 
 static
@@ -209,4 +209,4 @@ error_rc_release:
 error:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i1480_fw_upload); */
+EXPORT_SYMBOL_GPL(i1480_fw_upload);

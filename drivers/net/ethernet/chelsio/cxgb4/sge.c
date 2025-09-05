@@ -1408,7 +1408,7 @@ int cxgb4_ofld_send(struct net_device *dev, struct sk_buff *skb)
 {
 	return t4_ofld_send(netdev2adap(dev), skb);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_ofld_send); */
+EXPORT_SYMBOL(cxgb4_ofld_send);
 
 static inline void copy_frags(struct sk_buff *skb,
 			      const struct pkt_gl *gl, unsigned int offset)
@@ -1468,7 +1468,7 @@ struct sk_buff *cxgb4_pktgl_to_skb(const struct pkt_gl *gl,
 	}
 out:	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_pktgl_to_skb); */
+EXPORT_SYMBOL(cxgb4_pktgl_to_skb);
 
 /**
  *	t4_pktgl_free - free a packet gather list

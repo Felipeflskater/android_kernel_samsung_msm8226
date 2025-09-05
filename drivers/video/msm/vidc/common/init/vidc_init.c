@@ -338,7 +338,7 @@ void __iomem *vidc_get_ioaddr(void)
 {
 	return (u8 *)vidc_device_p->virt_base;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_get_ioaddr); */
+EXPORT_SYMBOL(vidc_get_ioaddr);
 
 int vidc_load_firmware(void)
 {
@@ -358,7 +358,7 @@ error:
 	}
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_load_firmware); */
+EXPORT_SYMBOL(vidc_load_firmware);
 
 void vidc_release_firmware(void)
 {
@@ -371,7 +371,7 @@ void vidc_release_firmware(void)
 		mutex_unlock(&vidc_device_p->lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_release_firmware); */
+EXPORT_SYMBOL(vidc_release_firmware);
 
 u32 vidc_get_fd_info(struct video_client_ctx *client_ctx,
 		enum buffer_dir buffer, int pmem_fd,
@@ -396,7 +396,7 @@ u32 vidc_get_fd_info(struct video_client_ctx *client_ctx,
 		*buff_handle = NULL;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_get_fd_info); */
+EXPORT_SYMBOL(vidc_get_fd_info);
 
 void vidc_cleanup_addr_table(struct video_client_ctx *client_ctx,
 				enum buffer_dir buffer)
@@ -461,7 +461,7 @@ void vidc_cleanup_addr_table(struct video_client_ctx *client_ctx,
 bail_out_cleanup:
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_cleanup_addr_table); */
+EXPORT_SYMBOL(vidc_cleanup_addr_table);
 
 u32 vidc_lookup_addr_table(struct video_client_ctx *client_ctx,
 	enum buffer_dir buffer,
@@ -542,7 +542,7 @@ u32 vidc_lookup_addr_table(struct video_client_ctx *client_ctx,
 		return false;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_lookup_addr_table); */
+EXPORT_SYMBOL(vidc_lookup_addr_table);
 
 u32 vidc_insert_addr_table(struct video_client_ctx *client_ctx,
 	enum buffer_dir buffer, unsigned long user_vaddr,
@@ -690,7 +690,7 @@ bail_out_add:
 	mutex_unlock(&client_ctx->enrty_queue_lock);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_insert_addr_table); */
+EXPORT_SYMBOL(vidc_insert_addr_table);
 
 /*
  * Similar to vidc_insert_addr_table except intended for in-kernel
@@ -761,7 +761,7 @@ bail_out_add:
 	mutex_unlock(&client_ctx->enrty_queue_lock);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_insert_addr_table_kernel); */
+EXPORT_SYMBOL(vidc_insert_addr_table_kernel);
 
 u32 vidc_delete_addr_table(struct video_client_ctx *client_ctx,
 	enum buffer_dir buffer,
@@ -840,7 +840,7 @@ bail_out_del:
 	mutex_unlock(&client_ctx->enrty_queue_lock);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_delete_addr_table); */
+EXPORT_SYMBOL(vidc_delete_addr_table);
 
 u32 vidc_timer_create(void (*timer_handler)(void *),
 	void *user_data, void **timer_handle)
@@ -863,13 +863,13 @@ u32 vidc_timer_create(void (*timer_handler)(void *),
 	*timer_handle = hw_timer;
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_timer_create); */
+EXPORT_SYMBOL(vidc_timer_create);
 
 void  vidc_timer_release(void *timer_handle)
 {
 	kfree(timer_handle);
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_timer_release); */
+EXPORT_SYMBOL(vidc_timer_release);
 
 void  vidc_timer_start(void *timer_handle, u32 time_out)
 {
@@ -880,7 +880,7 @@ void  vidc_timer_start(void *timer_handle, u32 time_out)
 		add_timer(&hw_timer->hw_timeout);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_timer_start); */
+EXPORT_SYMBOL(vidc_timer_start);
 
 void  vidc_timer_stop(void *timer_handle)
 {
@@ -889,7 +889,7 @@ void  vidc_timer_stop(void *timer_handle)
 	if (hw_timer)
 		del_timer(&hw_timer->hw_timeout);
 }
-/* DISABLED: EXPORT_SYMBOL(vidc_timer_stop); */
+EXPORT_SYMBOL(vidc_timer_stop);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Video decoder/encoder driver Init Module");

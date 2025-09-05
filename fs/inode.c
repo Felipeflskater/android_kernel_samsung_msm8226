@@ -63,7 +63,7 @@ __cacheline_aligned_in_smp DEFINE_SPINLOCK(inode_sb_list_lock);
  */
 const struct address_space_operations empty_aops = {
 };
-/* DISABLED: EXPORT_SYMBOL(empty_aops); */
+EXPORT_SYMBOL(empty_aops);
 
 /*
  * Statistics gathering..
@@ -198,7 +198,7 @@ int inode_init_always(struct super_block *sb, struct inode *inode)
 out:
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_init_always); */
+EXPORT_SYMBOL(inode_init_always);
 
 static struct inode *alloc_inode(struct super_block *sb)
 {
@@ -227,7 +227,7 @@ void free_inode_nonrcu(struct inode *inode)
 {
 	kmem_cache_free(inode_cachep, inode);
 }
-/* DISABLED: EXPORT_SYMBOL(free_inode_nonrcu); */
+EXPORT_SYMBOL(free_inode_nonrcu);
 
 void __destroy_inode(struct inode *inode)
 {
@@ -247,7 +247,7 @@ void __destroy_inode(struct inode *inode)
 #endif
 	this_cpu_dec(nr_inodes);
 }
-/* DISABLED: EXPORT_SYMBOL(__destroy_inode); */
+EXPORT_SYMBOL(__destroy_inode);
 
 static void i_callback(struct rcu_head *head)
 {
@@ -283,7 +283,7 @@ void drop_nlink(struct inode *inode)
 	if (!inode->i_nlink)
 		atomic_long_inc(&inode->i_sb->s_remove_count);
 }
-/* DISABLED: EXPORT_SYMBOL(drop_nlink); */
+EXPORT_SYMBOL(drop_nlink);
 
 /**
  * clear_nlink - directly zero an inode's link count
@@ -300,7 +300,7 @@ void clear_nlink(struct inode *inode)
 		atomic_long_inc(&inode->i_sb->s_remove_count);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(clear_nlink); */
+EXPORT_SYMBOL(clear_nlink);
 
 /**
  * set_nlink - directly set an inode's link count
@@ -322,7 +322,7 @@ void set_nlink(struct inode *inode, unsigned int nlink)
 		inode->__i_nlink = nlink;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(set_nlink); */
+EXPORT_SYMBOL(set_nlink);
 
 /**
  * inc_nlink - directly increment an inode's link count
@@ -339,7 +339,7 @@ void inc_nlink(struct inode *inode)
 
 	inode->__i_nlink++;
 }
-/* DISABLED: EXPORT_SYMBOL(inc_nlink); */
+EXPORT_SYMBOL(inc_nlink);
 
 void address_space_init_once(struct address_space *mapping)
 {
@@ -352,7 +352,7 @@ void address_space_init_once(struct address_space *mapping)
 	INIT_RAW_PRIO_TREE_ROOT(&mapping->i_mmap);
 	INIT_LIST_HEAD(&mapping->i_mmap_nonlinear);
 }
-/* DISABLED: EXPORT_SYMBOL(address_space_init_once); */
+EXPORT_SYMBOL(address_space_init_once);
 
 /*
  * These are initializations that only need to be done
@@ -372,7 +372,7 @@ void inode_init_once(struct inode *inode)
 	INIT_HLIST_HEAD(&inode->i_fsnotify_marks);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(inode_init_once); */
+EXPORT_SYMBOL(inode_init_once);
 
 static void init_once(void *foo)
 {
@@ -396,7 +396,7 @@ void ihold(struct inode *inode)
 {
 	WARN_ON(atomic_inc_return(&inode->i_count) < 2);
 }
-/* DISABLED: EXPORT_SYMBOL(ihold); */
+EXPORT_SYMBOL(ihold);
 
 static void inode_lru_list_add(struct inode *inode)
 {
@@ -430,7 +430,7 @@ void inode_sb_list_add(struct inode *inode)
 	list_add(&inode->i_sb_list, &inode->i_sb->s_inodes);
 	spin_unlock(&inode_sb_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inode_sb_list_add); */
+EXPORT_SYMBOL_GPL(inode_sb_list_add);
 
 static inline void inode_sb_list_del(struct inode *inode)
 {
@@ -469,7 +469,7 @@ void __insert_inode_hash(struct inode *inode, unsigned long hashval)
 	spin_unlock(&inode->i_lock);
 	spin_unlock(&inode_hash_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(__insert_inode_hash); */
+EXPORT_SYMBOL(__insert_inode_hash);
 
 /**
  *	__remove_inode_hash - remove an inode from the hash
@@ -485,7 +485,7 @@ void __remove_inode_hash(struct inode *inode)
 	spin_unlock(&inode->i_lock);
 	spin_unlock(&inode_hash_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(__remove_inode_hash); */
+EXPORT_SYMBOL(__remove_inode_hash);
 
 void end_writeback(struct inode *inode)
 {
@@ -505,7 +505,7 @@ void end_writeback(struct inode *inode)
 	/* don't need i_lock here, no concurrent mods to i_state */
 	inode->i_state = I_FREEING | I_CLEAR;
 }
-/* DISABLED: EXPORT_SYMBOL(end_writeback); */
+EXPORT_SYMBOL(end_writeback);
 
 /*
  * Free the inode passed in, removing it from the lists it is still connected
@@ -872,7 +872,7 @@ unsigned int get_next_ino(void)
 	put_cpu_var(last_ino);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(get_next_ino); */
+EXPORT_SYMBOL(get_next_ino);
 
 /**
  *	new_inode_pseudo 	- obtain an inode
@@ -920,7 +920,7 @@ struct inode *new_inode(struct super_block *sb)
 		inode_sb_list_add(inode);
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(new_inode); */
+EXPORT_SYMBOL(new_inode);
 
 #ifdef CONFIG_DEBUG_LOCK_ALLOC
 void lockdep_annotate_inode_mutex_key(struct inode *inode)
@@ -940,7 +940,7 @@ void lockdep_annotate_inode_mutex_key(struct inode *inode)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(lockdep_annotate_inode_mutex_key); */
+EXPORT_SYMBOL(lockdep_annotate_inode_mutex_key);
 #endif
 
 /**
@@ -960,7 +960,7 @@ void unlock_new_inode(struct inode *inode)
 	wake_up_bit(&inode->i_state, __I_NEW);
 	spin_unlock(&inode->i_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(unlock_new_inode); */
+EXPORT_SYMBOL(unlock_new_inode);
 
 /**
  * iget5_locked - obtain an inode from a mounted file system
@@ -1039,7 +1039,7 @@ set_failed:
 	destroy_inode(inode);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(iget5_locked); */
+EXPORT_SYMBOL(iget5_locked);
 
 /**
  * iget_locked - obtain an inode from a mounted file system
@@ -1101,7 +1101,7 @@ struct inode *iget_locked(struct super_block *sb, unsigned long ino)
 	}
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(iget_locked); */
+EXPORT_SYMBOL(iget_locked);
 
 /*
  * search the inode cache for a matching inode number.
@@ -1163,7 +1163,7 @@ ino_t iunique(struct super_block *sb, ino_t max_reserved)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(iunique); */
+EXPORT_SYMBOL(iunique);
 
 struct inode *igrab(struct inode *inode)
 {
@@ -1182,7 +1182,7 @@ struct inode *igrab(struct inode *inode)
 	}
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(igrab); */
+EXPORT_SYMBOL(igrab);
 
 /**
  * ilookup5_nowait - search for an inode in the inode cache
@@ -1212,7 +1212,7 @@ struct inode *ilookup5_nowait(struct super_block *sb, unsigned long hashval,
 
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(ilookup5_nowait); */
+EXPORT_SYMBOL(ilookup5_nowait);
 
 /**
  * ilookup5 - search for an inode in the inode cache
@@ -1240,7 +1240,7 @@ struct inode *ilookup5(struct super_block *sb, unsigned long hashval,
 		wait_on_inode(inode);
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(ilookup5); */
+EXPORT_SYMBOL(ilookup5);
 
 /**
  * ilookup - search for an inode in the inode cache
@@ -1263,7 +1263,7 @@ struct inode *ilookup(struct super_block *sb, unsigned long ino)
 		wait_on_inode(inode);
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(ilookup); */
+EXPORT_SYMBOL(ilookup);
 
 int insert_inode_locked(struct inode *inode)
 {
@@ -1306,7 +1306,7 @@ int insert_inode_locked(struct inode *inode)
 		iput(old);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(insert_inode_locked); */
+EXPORT_SYMBOL(insert_inode_locked);
 
 int insert_inode_locked4(struct inode *inode, unsigned long hashval,
 		int (*test)(struct inode *, void *), void *data)
@@ -1350,14 +1350,14 @@ int insert_inode_locked4(struct inode *inode, unsigned long hashval,
 		iput(old);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(insert_inode_locked4); */
+EXPORT_SYMBOL(insert_inode_locked4);
 
 
 int generic_delete_inode(struct inode *inode)
 {
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_delete_inode); */
+EXPORT_SYMBOL(generic_delete_inode);
 
 /*
  * Called when we're dropping the last reference
@@ -1425,7 +1425,7 @@ void iput(struct inode *inode)
 			iput_final(inode);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(iput); */
+EXPORT_SYMBOL(iput);
 
 /**
  *	bmap	- find a block number in a file
@@ -1445,7 +1445,7 @@ sector_t bmap(struct inode *inode, sector_t block)
 		res = inode->i_mapping->a_ops->bmap(inode->i_mapping, block);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(bmap); */
+EXPORT_SYMBOL(bmap);
 
 /*
  * With relative atime, only update atime if the previous atime is
@@ -1550,7 +1550,7 @@ void touch_atime(struct path *path)
 	update_time(inode, &now, S_ATIME);
 	mnt_drop_write(mnt);
 }
-/* DISABLED: EXPORT_SYMBOL(touch_atime); */
+EXPORT_SYMBOL(touch_atime);
 
 /**
  *	file_update_time	-	update mtime and ctime time
@@ -1598,7 +1598,7 @@ int file_update_time(struct file *file)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(file_update_time); */
+EXPORT_SYMBOL(file_update_time);
 
 int inode_needs_sync(struct inode *inode)
 {
@@ -1608,14 +1608,14 @@ int inode_needs_sync(struct inode *inode)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_needs_sync); */
+EXPORT_SYMBOL(inode_needs_sync);
 
 int inode_wait(void *word)
 {
 	schedule();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_wait); */
+EXPORT_SYMBOL(inode_wait);
 
 /*
  * If we try to find an inode in the inode hash while it is being
@@ -1649,7 +1649,7 @@ static int __init set_ihash_entries(char *str)
 	ihash_entries = simple_strtoul(str, &str, 0);
 	return 1;
 }
-/* DISABLED: __setup("ihash_entries=", set_ihash_entries); */ */
+__setup("ihash_entries=", set_ihash_entries);
 
 /*
  * Initialize the waitqueues and inode hash table.
@@ -1726,7 +1726,7 @@ void init_special_inode(struct inode *inode, umode_t mode, dev_t rdev)
 				  " inode %s:%lu\n", mode, inode->i_sb->s_id,
 				  inode->i_ino);
 }
-/* DISABLED: EXPORT_SYMBOL(init_special_inode); */
+EXPORT_SYMBOL(init_special_inode);
 
 /**
  * inode_init_owner - Init uid,gid,mode for new inode according to posix standards
@@ -1752,7 +1752,7 @@ void inode_init_owner(struct inode *inode, const struct inode *dir,
 		inode->i_gid = current_fsgid();
 	inode->i_mode = mode;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_init_owner); */
+EXPORT_SYMBOL(inode_init_owner);
 
 /**
  * inode_owner_or_capable - check current task permissions to inode
@@ -1771,4 +1771,4 @@ bool inode_owner_or_capable(const struct inode *inode)
 		return true;
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_owner_or_capable); */
+EXPORT_SYMBOL(inode_owner_or_capable);

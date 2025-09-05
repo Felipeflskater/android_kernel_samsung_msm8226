@@ -126,7 +126,7 @@ done:
 	spin_unlock_irqrestore(&the_fl.spin_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(flashlight_control); */
+EXPORT_SYMBOL(flashlight_control);
 
 static void fl_lcdev_brightness_set(struct led_classdev *led_cdev,
 		enum led_brightness brightness)

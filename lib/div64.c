@@ -56,7 +56,7 @@ uint32_t __attribute__((weak)) __div64_32(uint64_t *n, uint32_t base)
 	return rem;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__div64_32); */
+EXPORT_SYMBOL(__div64_32);
 
 #ifndef div_s64_rem
 s64 div_s64_rem(s64 dividend, s32 divisor, s32 *remainder)
@@ -75,7 +75,7 @@ s64 div_s64_rem(s64 dividend, s32 divisor, s32 *remainder)
 	}
 	return quotient;
 }
-/* DISABLED: EXPORT_SYMBOL(div_s64_rem); */
+EXPORT_SYMBOL(div_s64_rem);
 #endif
 
 /**
@@ -109,7 +109,7 @@ u64 div64_u64(u64 dividend, u64 divisor)
 
 	return quot;
 }
-/* DISABLED: EXPORT_SYMBOL(div64_u64); */
+EXPORT_SYMBOL(div64_u64);
 #endif
 
 /**
@@ -127,7 +127,7 @@ s64 div64_s64(s64 dividend, s64 divisor)
 
 	return (quot ^ t) - t;
 }
-/* DISABLED: EXPORT_SYMBOL(div64_s64); */
+EXPORT_SYMBOL(div64_s64);
 #endif
 
 #endif /* BITS_PER_LONG == 32 */
@@ -140,4 +140,4 @@ u32 iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
 {
 	return __iter_div_u64_rem(dividend, divisor, remainder);
 }
-/* DISABLED: EXPORT_SYMBOL(iter_div_u64_rem); */
+EXPORT_SYMBOL(iter_div_u64_rem);

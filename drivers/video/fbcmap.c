@@ -373,9 +373,9 @@ void fb_invert_cmaps(void)
      *  Visible symbols for modules
      */
 
-/* DISABLED: EXPORT_SYMBOL(fb_alloc_cmap); */
-/* DISABLED: EXPORT_SYMBOL(fb_dealloc_cmap); */
-/* DISABLED: EXPORT_SYMBOL(fb_copy_cmap); */
-/* DISABLED: EXPORT_SYMBOL(fb_set_cmap); */
-/* DISABLED: EXPORT_SYMBOL(fb_default_cmap); */
-/* DISABLED: EXPORT_SYMBOL(fb_invert_cmaps); */
+EXPORT_SYMBOL(fb_alloc_cmap);
+EXPORT_SYMBOL(fb_dealloc_cmap);
+EXPORT_SYMBOL(fb_copy_cmap);
+EXPORT_SYMBOL(fb_set_cmap);
+EXPORT_SYMBOL(fb_default_cmap);
+EXPORT_SYMBOL(fb_invert_cmaps);

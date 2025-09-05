@@ -29,7 +29,7 @@
 
 /* Module parameters */
 int gigaset_debuglevel;
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_debuglevel); */
+EXPORT_SYMBOL_GPL(gigaset_debuglevel);
 module_param_named(debug, gigaset_debuglevel, int, S_IRUGO | S_IWUSR);
 MODULE_PARM_DESC(debug, "debug level");
 
@@ -84,7 +84,7 @@ void gigaset_dbg_buffer(enum debuglevel level, const unsigned char *msg,
 
 	gig_dbg(level, "%s (%u bytes): %s", msg, (unsigned) len, outbuf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_dbg_buffer); */
+EXPORT_SYMBOL_GPL(gigaset_dbg_buffer);
 
 static int setflags(struct cardstate *cs, unsigned flags, unsigned delay)
 {
@@ -360,7 +360,7 @@ struct event_t *gigaset_add_event(struct cardstate *cs,
 
 	return event;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_add_event); */
+EXPORT_SYMBOL_GPL(gigaset_add_event);
 
 static void free_strings(struct at_state_t *at_state)
 {
@@ -526,7 +526,7 @@ f_cs:	gig_dbg(DEBUG_INIT, "freeing cs");
 	mutex_unlock(&cs->mutex);
 	free_cs(cs);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_freecs); */
+EXPORT_SYMBOL_GPL(gigaset_freecs);
 
 void gigaset_at_init(struct at_state_t *at_state, struct bc_state *bcs,
 		     struct cardstate *cs, int cid)
@@ -611,7 +611,7 @@ int gigaset_fill_inbuf(struct inbuf_t *inbuf, const unsigned char *src,
 	inbuf->tail = tail;
 	return numbytes != bytesleft;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_fill_inbuf); */
+EXPORT_SYMBOL_GPL(gigaset_fill_inbuf);
 
 /* Initialize the b-channel structure */
 static struct bc_state *gigaset_initbcs(struct bc_state *bcs,
@@ -800,7 +800,7 @@ error:
 	gigaset_freecs(cs);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_initcs); */
+EXPORT_SYMBOL_GPL(gigaset_initcs);
 
 /* ReInitialize the b-channel structure on hangup */
 void gigaset_bcs_reinit(struct bc_state *bcs)
@@ -933,7 +933,7 @@ error:
 	mutex_unlock(&cs->mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_start); */
+EXPORT_SYMBOL_GPL(gigaset_start);
 
 /**
  * gigaset_shutdown() - shut down device operations
@@ -968,7 +968,7 @@ exit:
 	mutex_unlock(&cs->mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_shutdown); */
+EXPORT_SYMBOL_GPL(gigaset_shutdown);
 
 /**
  * gigaset_stop() - stop device operations
@@ -994,7 +994,7 @@ void gigaset_stop(struct cardstate *cs)
 exit:
 	mutex_unlock(&cs->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_stop); */
+EXPORT_SYMBOL_GPL(gigaset_stop);
 
 static LIST_HEAD(drivers);
 static DEFINE_SPINLOCK(driver_lock);
@@ -1074,7 +1074,7 @@ void gigaset_freedriver(struct gigaset_driver *drv)
 	kfree(drv->cs);
 	kfree(drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_freedriver); */
+EXPORT_SYMBOL_GPL(gigaset_freedriver);
 
 /**
  * gigaset_initdriver() - initialize driver structure
@@ -1136,7 +1136,7 @@ error:
 	kfree(drv);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_initdriver); */
+EXPORT_SYMBOL_GPL(gigaset_initdriver);
 
 /**
  * gigaset_blockdriver() - block driver
@@ -1149,7 +1149,7 @@ void gigaset_blockdriver(struct gigaset_driver *drv)
 {
 	drv->blocked = 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_blockdriver); */
+EXPORT_SYMBOL_GPL(gigaset_blockdriver);
 
 static int __init gigaset_init_module(void)
 {

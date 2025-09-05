@@ -37,7 +37,7 @@ struct ssp_device *pxa_ssp_request(int port, const char *label)
 
 	return ssp;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa_ssp_request); */
+EXPORT_SYMBOL_GPL(pxa_ssp_request);
 
 void pxa_ssp_free(struct ssp_device *ssp)
 {
@@ -49,7 +49,7 @@ void pxa_ssp_free(struct ssp_device *ssp)
 		dev_err(&ssp->pdev->dev, "device already free\n");
 	mutex_unlock(&ssp_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pxa_ssp_free); */
+EXPORT_SYMBOL_GPL(pxa_ssp_free);
 
 static int __devinit ce4100_spi_probe(struct pci_dev *dev,
 		const struct pci_device_id *ent)

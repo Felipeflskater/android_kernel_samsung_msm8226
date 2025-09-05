@@ -75,7 +75,7 @@ int dm355evm_msp_write(u8 value, u8 reg)
 {
 	return i2c_smbus_write_byte_data(msp430, reg, value);
 }
-/* DISABLED: EXPORT_SYMBOL(dm355evm_msp_write); */
+EXPORT_SYMBOL(dm355evm_msp_write);
 
 /**
  * dm355evm_msp_read - Reads a register from dm355evm_msp
@@ -87,7 +87,7 @@ int dm355evm_msp_read(u8 reg)
 {
 	return i2c_smbus_read_byte_data(msp430, reg);
 }
-/* DISABLED: EXPORT_SYMBOL(dm355evm_msp_read); */
+EXPORT_SYMBOL(dm355evm_msp_read);
 
 /*----------------------------------------------------------------------*/
 

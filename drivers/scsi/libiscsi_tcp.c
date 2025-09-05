@@ -156,7 +156,7 @@ void iscsi_tcp_segment_unmap(struct iscsi_segment *segment)
 		segment->data = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_segment_unmap); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_segment_unmap);
 
 /*
  * Splice the digest buffer into the buffer
@@ -268,7 +268,7 @@ int iscsi_tcp_segment_done(struct iscsi_tcp_conn *tcp_conn,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_segment_done); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_segment_done);
 
 /**
  * iscsi_tcp_segment_recv - copy data to segment
@@ -318,7 +318,7 @@ iscsi_tcp_dgst_header(struct hash_desc *hash, const void *hdr, size_t hdrlen,
 	sg_init_one(&sg, hdr, hdrlen);
 	crypto_hash_digest(hash, &sg, hdrlen, digest);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_dgst_header); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_dgst_header);
 
 static inline int
 iscsi_tcp_dgst_verify(struct iscsi_tcp_conn *tcp_conn,
@@ -362,7 +362,7 @@ iscsi_segment_init_linear(struct iscsi_segment *segment, void *data,
 	segment->data = data;
 	segment->size = size;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_segment_init_linear); */
+EXPORT_SYMBOL_GPL(iscsi_segment_init_linear);
 
 inline int
 iscsi_segment_seek_sg(struct iscsi_segment *segment,
@@ -384,7 +384,7 @@ iscsi_segment_seek_sg(struct iscsi_segment *segment,
 
 	return ISCSI_ERR_DATA_OFFSET;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_segment_seek_sg); */
+EXPORT_SYMBOL_GPL(iscsi_segment_seek_sg);
 
 /**
  * iscsi_tcp_hdr_recv_prep - prep segment for hdr reception
@@ -403,7 +403,7 @@ void iscsi_tcp_hdr_recv_prep(struct iscsi_tcp_conn *tcp_conn)
 				tcp_conn->in.hdr_buf, sizeof(struct iscsi_hdr),
 				iscsi_tcp_hdr_recv_done, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_hdr_recv_prep); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_hdr_recv_prep);
 
 /*
  * Handle incoming reply to any other type of command
@@ -471,7 +471,7 @@ void iscsi_tcp_cleanup_task(struct iscsi_task *task)
 		tcp_task->r2t = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_cleanup_task); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_cleanup_task);
 
 /**
  * iscsi_tcp_data_in - SCSI Data-In Response processing
@@ -856,7 +856,7 @@ inline int iscsi_tcp_recv_segment_is_hdr(struct iscsi_tcp_conn *tcp_conn)
 {
 	return tcp_conn->in.segment.done == iscsi_tcp_hdr_recv_done;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_recv_segment_is_hdr); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_recv_segment_is_hdr);
 
 /**
  * iscsi_tcp_recv_skb - Process skb
@@ -939,7 +939,7 @@ skb_done:
 	conn->rxdata_octets += consumed;
 	return consumed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_recv_skb); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_recv_skb);
 
 /**
  * iscsi_tcp_task_init - Initialize iSCSI SCSI_READ or SCSI_WRITE commands
@@ -977,7 +977,7 @@ int iscsi_tcp_task_init(struct iscsi_task *task)
 	task->imm_count = 0;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_task_init); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_task_init);
 
 static struct iscsi_r2t_info *iscsi_tcp_get_curr_r2t(struct iscsi_task *task)
 {
@@ -1074,7 +1074,7 @@ flush:
 	r2t->sent += r2t->data_count;
 	goto flush;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_task_xmit); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_task_xmit);
 
 struct iscsi_cls_conn *
 iscsi_tcp_conn_setup(struct iscsi_cls_session *cls_session, int dd_data_size,
@@ -1101,13 +1101,13 @@ iscsi_tcp_conn_setup(struct iscsi_cls_session *cls_session, int dd_data_size,
 	tcp_conn->dd_data = conn->dd_data + sizeof(*tcp_conn);
 	return cls_conn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_conn_setup); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_conn_setup);
 
 void iscsi_tcp_conn_teardown(struct iscsi_cls_conn *cls_conn)
 {
 	iscsi_conn_teardown(cls_conn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_conn_teardown); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_conn_teardown);
 
 int iscsi_tcp_r2tpool_alloc(struct iscsi_session *session)
 {
@@ -1154,7 +1154,7 @@ r2t_alloc_fail:
 	}
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_r2tpool_alloc); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_r2tpool_alloc);
 
 void iscsi_tcp_r2tpool_free(struct iscsi_session *session)
 {
@@ -1168,7 +1168,7 @@ void iscsi_tcp_r2tpool_free(struct iscsi_session *session)
 		iscsi_pool_free(&tcp_task->r2tpool);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_r2tpool_free); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_r2tpool_free);
 
 int iscsi_tcp_set_max_r2t(struct iscsi_conn *conn, char *buf)
 {
@@ -1186,7 +1186,7 @@ int iscsi_tcp_set_max_r2t(struct iscsi_conn *conn, char *buf)
 	iscsi_tcp_r2tpool_free(session);
 	return iscsi_tcp_r2tpool_alloc(session);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_set_max_r2t); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_set_max_r2t);
 
 void iscsi_tcp_conn_get_stats(struct iscsi_cls_conn *cls_conn,
 			      struct iscsi_stats *stats)
@@ -1203,4 +1203,4 @@ void iscsi_tcp_conn_get_stats(struct iscsi_cls_conn *cls_conn,
 	stats->tmfcmd_pdus = conn->tmfcmd_pdus_cnt;
 	stats->tmfrsp_pdus = conn->tmfrsp_pdus_cnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_tcp_conn_get_stats); */
+EXPORT_SYMBOL_GPL(iscsi_tcp_conn_get_stats);

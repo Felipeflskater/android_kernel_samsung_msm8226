@@ -31,5 +31,5 @@ int scm_set_boot_addr(phys_addr_t addr, unsigned int flags)
 	return scm_call(SCM_SVC_BOOT, SCM_BOOT_ADDR,
 			&cmd, sizeof(cmd), NULL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(scm_set_boot_addr); */
+EXPORT_SYMBOL(scm_set_boot_addr);
 

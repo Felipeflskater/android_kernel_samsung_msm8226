@@ -59,7 +59,7 @@ u32 prandom_u32_state(struct rnd_state *state)
 
 	return (state->s1 ^ state->s2 ^ state->s3);
 }
-/* DISABLED: EXPORT_SYMBOL(prandom_u32_state); */
+EXPORT_SYMBOL(prandom_u32_state);
 
 /**
  *	prandom_u32 - pseudo random number generator
@@ -76,7 +76,7 @@ u32 prandom_u32(void)
 	put_cpu_var(state);
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(prandom_u32); */
+EXPORT_SYMBOL(prandom_u32);
 
 /*
  *	prandom_bytes_state - get the requested number of pseudo-random bytes
@@ -111,7 +111,7 @@ void prandom_bytes_state(struct rnd_state *state, void *buf, int bytes)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(prandom_bytes_state); */
+EXPORT_SYMBOL(prandom_bytes_state);
 
 /**
  *	prandom_bytes - get the requested number of pseudo-random bytes
@@ -125,7 +125,7 @@ void prandom_bytes(void *buf, int bytes)
 	prandom_bytes_state(state, buf, bytes);
 	put_cpu_var(state);
 }
-/* DISABLED: EXPORT_SYMBOL(prandom_bytes); */
+EXPORT_SYMBOL(prandom_bytes);
 
 /**
  *	prandom_seed - add entropy to pseudo random number generator
@@ -146,7 +146,7 @@ void prandom_seed(u32 entropy)
 		prandom_u32_state(state);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(prandom_seed); */
+EXPORT_SYMBOL(prandom_seed);
 
 /*
  *	Generate some initially weak seeding values to allow

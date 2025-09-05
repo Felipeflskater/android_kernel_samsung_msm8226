@@ -49,7 +49,7 @@
  */
 struct timezone sys_tz;
 
-/* DISABLED: EXPORT_SYMBOL(sys_tz); */
+EXPORT_SYMBOL(sys_tz);
 
 #ifdef __ARCH_WANT_SYS_TIME
 
@@ -228,7 +228,7 @@ struct timespec current_fs_time(struct super_block *sb)
 	struct timespec now = current_kernel_time();
 	return timespec_trunc(now, sb->s_time_gran);
 }
-/* DISABLED: EXPORT_SYMBOL(current_fs_time); */
+EXPORT_SYMBOL(current_fs_time);
 
 /*
  * Convert jiffies to milliseconds and back.
@@ -250,7 +250,7 @@ inline unsigned int jiffies_to_msecs(const unsigned long j)
 # endif
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_to_msecs); */
+EXPORT_SYMBOL(jiffies_to_msecs);
 
 inline unsigned int jiffies_to_usecs(const unsigned long j)
 {
@@ -266,7 +266,7 @@ inline unsigned int jiffies_to_usecs(const unsigned long j)
 # endif
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_to_usecs); */
+EXPORT_SYMBOL(jiffies_to_usecs);
 
 /**
  * timespec_trunc - Truncate timespec to a granularity
@@ -296,7 +296,7 @@ struct timespec timespec_trunc(struct timespec t, unsigned gran)
 	}
 	return t;
 }
-/* DISABLED: EXPORT_SYMBOL(timespec_trunc); */
+EXPORT_SYMBOL(timespec_trunc);
 
 /* Converts Gregorian date to seconds since 1970-01-01 00:00:00.
  * Assumes input in normal date format, i.e. 1980-12-31 23:59:59
@@ -334,7 +334,7 @@ mktime(const unsigned int year0, const unsigned int mon0,
 	)*60 + sec; /* finally seconds */
 }
 
-/* DISABLED: EXPORT_SYMBOL(mktime); */
+EXPORT_SYMBOL(mktime);
 
 /**
  * set_normalized_timespec - set timespec sec and nsec parts and normalize
@@ -370,7 +370,7 @@ void set_normalized_timespec(struct timespec *ts, time_t sec, s64 nsec)
 	ts->tv_sec = sec;
 	ts->tv_nsec = nsec;
 }
-/* DISABLED: EXPORT_SYMBOL(set_normalized_timespec); */
+EXPORT_SYMBOL(set_normalized_timespec);
 
 /**
  * ns_to_timespec - Convert nanoseconds to timespec
@@ -395,7 +395,7 @@ struct timespec ns_to_timespec(const s64 nsec)
 
 	return ts;
 }
-/* DISABLED: EXPORT_SYMBOL(ns_to_timespec); */
+EXPORT_SYMBOL(ns_to_timespec);
 
 /**
  * ns_to_timeval - Convert nanoseconds to timeval
@@ -413,7 +413,7 @@ struct timeval ns_to_timeval(const s64 nsec)
 
 	return tv;
 }
-/* DISABLED: EXPORT_SYMBOL(ns_to_timeval); */
+EXPORT_SYMBOL(ns_to_timeval);
 
 /*
  * When we convert to jiffies then we interpret incoming values
@@ -469,7 +469,7 @@ unsigned long msecs_to_jiffies(const unsigned int m)
 		>> MSEC_TO_HZ_SHR32;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(msecs_to_jiffies); */
+EXPORT_SYMBOL(msecs_to_jiffies);
 
 unsigned long usecs_to_jiffies(const unsigned int u)
 {
@@ -484,7 +484,7 @@ unsigned long usecs_to_jiffies(const unsigned int u)
 		>> USEC_TO_HZ_SHR32;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(usecs_to_jiffies); */
+EXPORT_SYMBOL(usecs_to_jiffies);
 
 /*
  * The TICK_NSEC - 1 rounds up the value to the next resolution.  Note
@@ -522,7 +522,7 @@ timespec_to_jiffies(const struct timespec *value)
 	return __timespec_to_jiffies(value->tv_sec, value->tv_nsec);
 }
 
-/* DISABLED: EXPORT_SYMBOL(timespec_to_jiffies); */
+EXPORT_SYMBOL(timespec_to_jiffies);
 
 void
 jiffies_to_timespec(const unsigned long jiffies, struct timespec *value)
@@ -536,7 +536,7 @@ jiffies_to_timespec(const unsigned long jiffies, struct timespec *value)
 				    NSEC_PER_SEC, &rem);
 	value->tv_nsec = rem;
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_to_timespec); */
+EXPORT_SYMBOL(jiffies_to_timespec);
 
 /*
  * We could use a similar algorithm to timespec_to_jiffies (with a
@@ -560,7 +560,7 @@ timeval_to_jiffies(const struct timeval *value)
 	return __timespec_to_jiffies(value->tv_sec,
 				     value->tv_usec * NSEC_PER_USEC);
 }
-/* DISABLED: EXPORT_SYMBOL(timeval_to_jiffies); */
+EXPORT_SYMBOL(timeval_to_jiffies);
 
 void jiffies_to_timeval(const unsigned long jiffies, struct timeval *value)
 {
@@ -574,7 +574,7 @@ void jiffies_to_timeval(const unsigned long jiffies, struct timeval *value)
 				    NSEC_PER_SEC, &rem);
 	value->tv_usec = rem / NSEC_PER_USEC;
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_to_timeval); */
+EXPORT_SYMBOL(jiffies_to_timeval);
 
 /*
  * Convert jiffies/jiffies_64 to clock_t and back.
@@ -591,7 +591,7 @@ clock_t jiffies_to_clock_t(unsigned long x)
 	return div_u64((u64)x * TICK_NSEC, NSEC_PER_SEC / USER_HZ);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_to_clock_t); */
+EXPORT_SYMBOL(jiffies_to_clock_t);
 
 unsigned long clock_t_to_jiffies(unsigned long x)
 {
@@ -608,7 +608,7 @@ unsigned long clock_t_to_jiffies(unsigned long x)
 	return div_u64((u64)x * HZ, USER_HZ);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(clock_t_to_jiffies); */
+EXPORT_SYMBOL(clock_t_to_jiffies);
 
 u64 jiffies_64_to_clock_t(u64 x)
 {
@@ -630,7 +630,7 @@ u64 jiffies_64_to_clock_t(u64 x)
 #endif
 	return x;
 }
-/* DISABLED: EXPORT_SYMBOL(jiffies_64_to_clock_t); */
+EXPORT_SYMBOL(jiffies_64_to_clock_t);
 
 u64 nsec_to_clock_t(u64 x)
 {

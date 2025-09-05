@@ -17,7 +17,7 @@
 #include "udp_impl.h"
 
 struct udp_table 	udplite_table __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(udplite_table); */
+EXPORT_SYMBOL(udplite_table);
 
 static int udplite_rcv(struct sk_buff *skb)
 {
@@ -63,7 +63,7 @@ struct proto 	udplite_prot = {
 #endif
 	.clear_sk	   = sk_prot_clear_portaddr_nulls,
 };
-/* DISABLED: EXPORT_SYMBOL(udplite_prot); */
+EXPORT_SYMBOL(udplite_prot);
 
 static struct inet_protosw udplite4_protosw = {
 	.type		=  SOCK_DGRAM,

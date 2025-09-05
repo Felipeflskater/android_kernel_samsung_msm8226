@@ -70,7 +70,7 @@ void ucc_fast_dump_regs(struct ucc_fast_private * uccf)
 	printk(KERN_INFO "guemr : addr=0x%p, val=0x%02x\n",
 		  &uccf->uf_regs->guemr, in_8(&uccf->uf_regs->guemr));
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_dump_regs); */
+EXPORT_SYMBOL(ucc_fast_dump_regs);
 
 u32 ucc_fast_get_qe_cr_subblock(int uccf_num)
 {
@@ -86,13 +86,13 @@ u32 ucc_fast_get_qe_cr_subblock(int uccf_num)
 	default: return QE_CR_SUBBLOCK_INVALID;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_get_qe_cr_subblock); */
+EXPORT_SYMBOL(ucc_fast_get_qe_cr_subblock);
 
 void ucc_fast_transmit_on_demand(struct ucc_fast_private * uccf)
 {
 	out_be16(&uccf->uf_regs->utodr, UCC_FAST_TOD);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_transmit_on_demand); */
+EXPORT_SYMBOL(ucc_fast_transmit_on_demand);
 
 void ucc_fast_enable(struct ucc_fast_private * uccf, enum comm_dir mode)
 {
@@ -113,7 +113,7 @@ void ucc_fast_enable(struct ucc_fast_private * uccf, enum comm_dir mode)
 	}
 	out_be32(&uf_regs->gumr, gumr);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_enable); */
+EXPORT_SYMBOL(ucc_fast_enable);
 
 void ucc_fast_disable(struct ucc_fast_private * uccf, enum comm_dir mode)
 {
@@ -134,7 +134,7 @@ void ucc_fast_disable(struct ucc_fast_private * uccf, enum comm_dir mode)
 	}
 	out_be32(&uf_regs->gumr, gumr);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_disable); */
+EXPORT_SYMBOL(ucc_fast_disable);
 
 int ucc_fast_init(struct ucc_fast_info * uf_info, struct ucc_fast_private ** uccf_ret)
 {
@@ -343,7 +343,7 @@ int ucc_fast_init(struct ucc_fast_info * uf_info, struct ucc_fast_private ** ucc
 	*uccf_ret = uccf;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_init); */
+EXPORT_SYMBOL(ucc_fast_init);
 
 void ucc_fast_free(struct ucc_fast_private * uccf)
 {
@@ -361,4 +361,4 @@ void ucc_fast_free(struct ucc_fast_private * uccf)
 
 	kfree(uccf);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_fast_free); */
+EXPORT_SYMBOL(ucc_fast_free);

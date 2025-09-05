@@ -230,7 +230,7 @@ int frv_dma_open(const char *devname,
 	return ret;
 } /* end frv_dma_open() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_open); */
+EXPORT_SYMBOL(frv_dma_open);
 
 /*****************************************************************************/
 /*
@@ -251,7 +251,7 @@ void frv_dma_close(int dma)
 	write_unlock_irqrestore(&frv_dma_channels_lock, flags);
 } /* end frv_dma_close() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_close); */
+EXPORT_SYMBOL(frv_dma_close);
 
 /*****************************************************************************/
 /*
@@ -268,7 +268,7 @@ void frv_dma_config(int dma, unsigned long ccfr, unsigned long cctr, unsigned lo
 
 } /* end frv_dma_config() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_config); */
+EXPORT_SYMBOL(frv_dma_config);
 
 /*****************************************************************************/
 /*
@@ -293,7 +293,7 @@ void frv_dma_start(int dma,
 
 } /* end frv_dma_start() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_start); */
+EXPORT_SYMBOL(frv_dma_start);
 
 /*****************************************************************************/
 /*
@@ -312,7 +312,7 @@ void frv_dma_restart_circular(int dma, unsigned long six)
 
 } /* end frv_dma_restart_circular() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_restart_circular); */
+EXPORT_SYMBOL(frv_dma_restart_circular);
 
 /*****************************************************************************/
 /*
@@ -332,7 +332,7 @@ void frv_dma_stop(int dma)
 	frv_clear_dma_inprogress(dma);
 } /* end frv_dma_stop() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_stop); */
+EXPORT_SYMBOL(frv_dma_stop);
 
 /*****************************************************************************/
 /*
@@ -346,7 +346,7 @@ int is_frv_dma_interrupting(int dma)
 
 } /* end is_frv_dma_interrupting() */
 
-/* DISABLED: EXPORT_SYMBOL(is_frv_dma_interrupting); */
+EXPORT_SYMBOL(is_frv_dma_interrupting);
 
 /*****************************************************************************/
 /*
@@ -366,7 +366,7 @@ void frv_dma_dump(int dma)
 
 } /* end frv_dma_dump() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_dump); */
+EXPORT_SYMBOL(frv_dma_dump);
 
 /*****************************************************************************/
 /*
@@ -407,7 +407,7 @@ void frv_dma_pause_all(void)
 
 } /* end frv_dma_pause_all() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_pause_all); */
+EXPORT_SYMBOL(frv_dma_pause_all);
 
 /*****************************************************************************/
 /*
@@ -445,7 +445,7 @@ void frv_dma_resume_all(void)
 
 } /* end frv_dma_resume_all() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_resume_all); */
+EXPORT_SYMBOL(frv_dma_resume_all);
 
 /*****************************************************************************/
 /*
@@ -460,4 +460,4 @@ void frv_dma_status_clear(int dma)
 	cctr = __get_DMAC(ioaddr, CCTR);
 } /* end frv_dma_status_clear() */
 
-/* DISABLED: EXPORT_SYMBOL(frv_dma_status_clear); */
+EXPORT_SYMBOL(frv_dma_status_clear);

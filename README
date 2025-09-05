@@ -1,22 +1,3 @@
-# Samsung Galaxy Tab 4 10.1 Kernel for postmarketOS
-
-This is a fork of the LineageOS 18.1 kernel for Samsung Galaxy Tab 4 10.1 (SM-T531/matisse3g) with modifications for postmarketOS compatibility.
-
-## Changes from upstream:
-- Added compiler-gcc15.h for modern GCC compatibility
-- Optimizations for Alpine Linux toolchain
-- postmarketOS-specific device tree modifications
-
-## Device: Samsung Galaxy Tab 4 10.1 (matisse3g)
-- Codename: matisse3g
-- SoC: Qualcomm Snapdragon 400 (MSM8226)
-- Architecture: ARMv7
-
-## Build Instructions:
-This kernel is designed to be built with pmbootstrap for postmarketOS.
-
-## Kernel Notes:
-
 	Linux kernel release 3.x <http://kernel.org/>
 
 These are the release notes for Linux version 3.  Read them carefully,

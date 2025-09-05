@@ -335,7 +335,7 @@ int sec_handle_event(int enable)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_handle_event); */
+EXPORT_SYMBOL(sec_handle_event);
 
 static int sec_otg_notifications(struct notifier_block *nb,
 				   unsigned long event, void *unused)

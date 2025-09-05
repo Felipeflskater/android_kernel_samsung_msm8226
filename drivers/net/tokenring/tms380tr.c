@@ -2246,7 +2246,7 @@ const struct net_device_ops tms380tr_netdev_ops = {
 	.ndo_set_rx_mode	= tms380tr_set_multicast_list,
 	.ndo_set_mac_address	= tms380tr_set_mac_address,
 };
-/* DISABLED: EXPORT_SYMBOL(tms380tr_netdev_ops); */
+EXPORT_SYMBOL(tms380tr_netdev_ops);
 
 int tmsdev_init(struct net_device *dev, struct device *pdev)
 {
@@ -2277,12 +2277,12 @@ int tmsdev_init(struct net_device *dev, struct device *pdev)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(tms380tr_open); */
-/* DISABLED: EXPORT_SYMBOL(tms380tr_close); */
-/* DISABLED: EXPORT_SYMBOL(tms380tr_interrupt); */
-/* DISABLED: EXPORT_SYMBOL(tmsdev_init); */
-/* DISABLED: EXPORT_SYMBOL(tmsdev_term); */
-/* DISABLED: EXPORT_SYMBOL(tms380tr_wait); */
+EXPORT_SYMBOL(tms380tr_open);
+EXPORT_SYMBOL(tms380tr_close);
+EXPORT_SYMBOL(tms380tr_interrupt);
+EXPORT_SYMBOL(tmsdev_init);
+EXPORT_SYMBOL(tmsdev_term);
+EXPORT_SYMBOL(tms380tr_wait);
 
 #ifdef MODULE
 

@@ -593,7 +593,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl4030_madc_conversion); */
+EXPORT_SYMBOL_GPL(twl4030_madc_conversion);
 
 /*
  * Return channel value
@@ -617,7 +617,7 @@ int twl4030_get_madc_conversion(int channel_no)
 
 	return temp;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl4030_get_madc_conversion); */
+EXPORT_SYMBOL_GPL(twl4030_get_madc_conversion);
 
 /*
  * Function to enable or disable bias current for

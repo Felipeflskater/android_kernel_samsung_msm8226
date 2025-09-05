@@ -739,7 +739,7 @@ void ath9k_hw_ani_monitor(struct ath_hw *ah, struct ath9k_channel *chan)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_ani_monitor); */
+EXPORT_SYMBOL(ath9k_hw_ani_monitor);
 
 void ath9k_enable_mib_counters(struct ath_hw *ah)
 {
@@ -775,7 +775,7 @@ void ath9k_hw_disable_mib_counters(struct ath_hw *ah)
 	REG_WRITE(ah, AR_FILT_OFDM, 0);
 	REG_WRITE(ah, AR_FILT_CCK, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_disable_mib_counters); */
+EXPORT_SYMBOL(ath9k_hw_disable_mib_counters);
 
 /*
  * Process a MIB interrupt.  We may potentially be invoked because
@@ -818,7 +818,7 @@ void ath9k_hw_proc_mib_event(struct ath_hw *ah)
 		ath9k_ani_restart(ah);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_proc_mib_event); */
+EXPORT_SYMBOL(ath9k_hw_proc_mib_event);
 
 void ath9k_hw_ani_setup(struct ath_hw *ah)
 {

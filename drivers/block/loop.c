@@ -1601,8 +1601,8 @@ int loop_unregister_transfer(int number)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(loop_register_transfer); */
-/* DISABLED: EXPORT_SYMBOL(loop_unregister_transfer); */
+EXPORT_SYMBOL(loop_register_transfer);
+EXPORT_SYMBOL(loop_unregister_transfer);
 
 static int loop_add(struct loop_device **l, int i)
 {
@@ -1934,5 +1934,5 @@ static int __init max_loop_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("max_loop=", max_loop_setup); */ */
+__setup("max_loop=", max_loop_setup);
 #endif

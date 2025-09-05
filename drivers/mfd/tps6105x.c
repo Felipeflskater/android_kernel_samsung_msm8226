@@ -39,7 +39,7 @@ int tps6105x_set(struct tps6105x *tps6105x, u8 reg, u8 value)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tps6105x_set); */
+EXPORT_SYMBOL(tps6105x_set);
 
 int tps6105x_get(struct tps6105x *tps6105x, u8 reg, u8 *buf)
 {
@@ -56,7 +56,7 @@ int tps6105x_get(struct tps6105x *tps6105x, u8 reg, u8 *buf)
 	*buf = ret;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tps6105x_get); */
+EXPORT_SYMBOL(tps6105x_get);
 
 /*
  * Masks off the bits in the mask and sets the bits in the bitvalues
@@ -84,7 +84,7 @@ fail:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tps6105x_mask_and_set); */
+EXPORT_SYMBOL(tps6105x_mask_and_set);
 
 static int __devinit tps6105x_startup(struct tps6105x *tps6105x)
 {

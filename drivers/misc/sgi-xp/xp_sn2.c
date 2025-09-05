@@ -23,10 +23,10 @@
  * in drivers/misc/sgi-xp/xp_nofault.S. The target of the nofault read is
  * defined here.
  */
-/* DISABLED: EXPORT_SYMBOL_GPL(xp_nofault_PIOR); */
+EXPORT_SYMBOL_GPL(xp_nofault_PIOR);
 
 u64 xp_nofault_PIOR_target;
-/* DISABLED: EXPORT_SYMBOL_GPL(xp_nofault_PIOR_target); */
+EXPORT_SYMBOL_GPL(xp_nofault_PIOR_target);
 
 /*
  * Register a nofault code region which performs a cross-partition PIO read.

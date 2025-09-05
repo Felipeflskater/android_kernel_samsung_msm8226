@@ -12,4 +12,4 @@ void dump_stack(void)
 		"This architecture does not implement dump_stack()\n");
 }
 
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);

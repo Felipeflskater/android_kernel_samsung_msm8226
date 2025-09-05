@@ -40,7 +40,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
@@ -53,13 +53,13 @@ void clk_disable(struct clk *clk)
 		(clk->enable)(clk, 0);
 	spin_unlock_irqrestore(&clocks_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
 	return 15000000;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 void nuc900_clk_enable(struct clk *clk, int enable)
 {

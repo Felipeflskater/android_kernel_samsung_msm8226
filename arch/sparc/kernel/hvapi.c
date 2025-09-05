@@ -136,7 +136,7 @@ int sun4v_hvapi_register(unsigned long group, unsigned long major,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sun4v_hvapi_register); */
+EXPORT_SYMBOL(sun4v_hvapi_register);
 
 void sun4v_hvapi_unregister(unsigned long group)
 {
@@ -149,7 +149,7 @@ void sun4v_hvapi_unregister(unsigned long group)
 		__put_ref(p);
 	spin_unlock_irqrestore(&hvapi_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sun4v_hvapi_unregister); */
+EXPORT_SYMBOL(sun4v_hvapi_unregister);
 
 int sun4v_hvapi_get(unsigned long group,
 		    unsigned long *major,
@@ -171,7 +171,7 @@ int sun4v_hvapi_get(unsigned long group,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sun4v_hvapi_get); */
+EXPORT_SYMBOL(sun4v_hvapi_get);
 
 void __init sun4v_hvapi_init(void)
 {

@@ -277,7 +277,7 @@ u16 inverse_translate(struct vc_data *conp, int glyph, int use_unicode)
 			return p->inverse_translations[m][glyph];
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inverse_translate); */
+EXPORT_SYMBOL_GPL(inverse_translate);
 
 static void update_user_maps(void)
 {
@@ -656,7 +656,7 @@ int con_set_default_unimap(struct vc_data *vc)
 	dflt = p;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(con_set_default_unimap); */
+EXPORT_SYMBOL(con_set_default_unimap);
 
 int con_copy_unimap(struct vc_data *dst_vc, struct vc_data *src_vc)
 {
@@ -781,4 +781,4 @@ console_map_init(void)
 			con_set_default_unimap(vc_cons[i].d);
 }
 
-/* DISABLED: EXPORT_SYMBOL(con_copy_unimap); */
+EXPORT_SYMBOL(con_copy_unimap);

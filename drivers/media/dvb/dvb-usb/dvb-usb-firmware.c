@@ -73,7 +73,7 @@ int usb_cypress_load_firmware(struct usb_device *udev, const struct firmware *fw
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_cypress_load_firmware); */
+EXPORT_SYMBOL(usb_cypress_load_firmware);
 
 int dvb_usb_download_firmware(struct usb_device *udev, struct dvb_usb_device_properties *props)
 {
@@ -143,4 +143,4 @@ int dvb_usb_get_hexline(const struct firmware *fw, struct hexline *hx,
 
 	return *pos;
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_usb_get_hexline); */
+EXPORT_SYMBOL(dvb_usb_get_hexline);

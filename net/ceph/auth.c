@@ -277,7 +277,7 @@ int ceph_auth_is_authenticated(struct ceph_auth_client *ac)
 	mutex_unlock(&ac->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_is_authenticated); */
+EXPORT_SYMBOL(ceph_auth_is_authenticated);
 
 int ceph_auth_create_authorizer(struct ceph_auth_client *ac,
 				int peer_type,
@@ -291,7 +291,7 @@ int ceph_auth_create_authorizer(struct ceph_auth_client *ac,
 	mutex_unlock(&ac->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_create_authorizer); */
+EXPORT_SYMBOL(ceph_auth_create_authorizer);
 
 void ceph_auth_destroy_authorizer(struct ceph_auth_client *ac,
 				  struct ceph_authorizer *a)
@@ -301,7 +301,7 @@ void ceph_auth_destroy_authorizer(struct ceph_auth_client *ac,
 		ac->ops->destroy_authorizer(ac, a);
 	mutex_unlock(&ac->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_destroy_authorizer); */
+EXPORT_SYMBOL(ceph_auth_destroy_authorizer);
 
 int ceph_auth_update_authorizer(struct ceph_auth_client *ac,
 				int peer_type,
@@ -315,7 +315,7 @@ int ceph_auth_update_authorizer(struct ceph_auth_client *ac,
 	mutex_unlock(&ac->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_update_authorizer); */
+EXPORT_SYMBOL(ceph_auth_update_authorizer);
 
 int ceph_auth_verify_authorizer_reply(struct ceph_auth_client *ac,
 				      struct ceph_authorizer *a, size_t len)
@@ -328,7 +328,7 @@ int ceph_auth_verify_authorizer_reply(struct ceph_auth_client *ac,
 	mutex_unlock(&ac->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_verify_authorizer_reply); */
+EXPORT_SYMBOL(ceph_auth_verify_authorizer_reply);
 
 void ceph_auth_invalidate_authorizer(struct ceph_auth_client *ac, int peer_type)
 {
@@ -337,4 +337,4 @@ void ceph_auth_invalidate_authorizer(struct ceph_auth_client *ac, int peer_type)
 		ac->ops->invalidate_authorizer(ac, peer_type);
 	mutex_unlock(&ac->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_auth_invalidate_authorizer); */
+EXPORT_SYMBOL(ceph_auth_invalidate_authorizer);

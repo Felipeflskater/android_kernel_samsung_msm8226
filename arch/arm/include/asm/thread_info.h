@@ -178,11 +178,3 @@ extern int vfp_restore_user_hwstate(struct user_vfp __user *,
 
 #endif /* __KERNEL__ */
 #endif /* __ASM_ARM_THREAD_INFO_H */
-
-/* Definições para assembly */
-#ifndef TI_PREEMPT
-#define TI_PREEMPT		8
-#endif
-#ifndef TI_ADDR_LIMIT
-#define TI_ADDR_LIMIT		12
-#endif

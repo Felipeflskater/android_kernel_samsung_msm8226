@@ -21,7 +21,7 @@ static struct sighand_struct init_sighand = INIT_SIGHAND(init_sighand);
  */
 struct task_struct init_task = INIT_TASK(init_task);
 
-/* DISABLED: EXPORT_SYMBOL(init_task); */
+EXPORT_SYMBOL(init_task);
 
 /*
  * Initial thread structure.

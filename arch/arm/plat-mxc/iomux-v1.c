@@ -152,7 +152,7 @@ int mxc_gpio_mode(int gpio_mode)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mxc_gpio_mode); */
+EXPORT_SYMBOL(mxc_gpio_mode);
 
 static int imx_iomuxv1_setup_multiple(const int *list, unsigned count)
 {
@@ -177,7 +177,7 @@ int mxc_gpio_setup_multiple_pins(const int *pin_list, unsigned count,
 	ret = imx_iomuxv1_setup_multiple(pin_list, count);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mxc_gpio_setup_multiple_pins); */
+EXPORT_SYMBOL(mxc_gpio_setup_multiple_pins);
 
 int __init imx_iomuxv1_init(void __iomem *base, int numports)
 {

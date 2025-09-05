@@ -518,7 +518,7 @@ static pmu_config_t		*pmu_conf;
 
 /* sysctl() controls */
 pfm_sysctl_t pfm_sysctl;
-/* DISABLED: EXPORT_SYMBOL(pfm_sysctl); */
+EXPORT_SYMBOL(pfm_sysctl);
 
 static ctl_table pfm_ctl_table[]={
 	{
@@ -1302,7 +1302,7 @@ out:
 	spin_unlock(&pfm_buffer_fmt_lock);
  	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_register_buffer_fmt); */
+EXPORT_SYMBOL(pfm_register_buffer_fmt);
 
 int
 pfm_unregister_buffer_fmt(pfm_uuid_t uuid)
@@ -1326,7 +1326,7 @@ out:
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_unregister_buffer_fmt); */
+EXPORT_SYMBOL(pfm_unregister_buffer_fmt);
 
 extern void update_pal_halt_status(int);
 
@@ -3432,7 +3432,7 @@ pfm_mod_write_pmcs(struct task_struct *task, void *req, unsigned int nreq, struc
 
 	return pfm_write_pmcs(ctx, req, nreq, regs);
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_mod_write_pmcs); */
+EXPORT_SYMBOL(pfm_mod_write_pmcs);
 
 int
 pfm_mod_read_pmds(struct task_struct *task, void *req, unsigned int nreq, struct pt_regs *regs)
@@ -3453,7 +3453,7 @@ pfm_mod_read_pmds(struct task_struct *task, void *req, unsigned int nreq, struct
 
 	return pfm_read_pmds(ctx, req, nreq, regs);
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_mod_read_pmds); */
+EXPORT_SYMBOL(pfm_mod_read_pmds);
 
 /*
  * Only call this function when a process it trying to
@@ -3933,7 +3933,7 @@ pfm_mod_write_ibrs(struct task_struct *task, void *req, unsigned int nreq, struc
 
 	return pfm_write_ibrs(ctx, req, nreq, regs);
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_mod_write_ibrs); */
+EXPORT_SYMBOL(pfm_mod_write_ibrs);
 
 int
 pfm_mod_write_dbrs(struct task_struct *task, void *req, unsigned int nreq, struct pt_regs *regs)
@@ -3954,7 +3954,7 @@ pfm_mod_write_dbrs(struct task_struct *task, void *req, unsigned int nreq, struc
 
 	return pfm_write_dbrs(ctx, req, nreq, regs);
 }
-/* DISABLED: EXPORT_SYMBOL(pfm_mod_write_dbrs); */
+EXPORT_SYMBOL(pfm_mod_write_dbrs);
 
 
 static int
@@ -6526,7 +6526,7 @@ cleanup_reserve:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pfm_install_alt_pmu_interrupt); */
+EXPORT_SYMBOL_GPL(pfm_install_alt_pmu_interrupt);
 
 int
 pfm_remove_alt_pmu_interrupt(pfm_intr_handler_desc_t *hdl)
@@ -6559,7 +6559,7 @@ pfm_remove_alt_pmu_interrupt(pfm_intr_handler_desc_t *hdl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pfm_remove_alt_pmu_interrupt); */
+EXPORT_SYMBOL_GPL(pfm_remove_alt_pmu_interrupt);
 
 /*
  * perfmon initialization routine, called from the initcall() table

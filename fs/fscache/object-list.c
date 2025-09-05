@@ -85,7 +85,7 @@ void fscache_object_destroy(struct fscache_object *obj)
 
 	write_unlock(&fscache_object_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_object_destroy); */
+EXPORT_SYMBOL(fscache_object_destroy);
 
 /*
  * find the object in the tree on or after the specified index

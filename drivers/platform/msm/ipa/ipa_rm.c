@@ -62,7 +62,7 @@ bail:
 	write_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_create_resource); */
+EXPORT_SYMBOL(ipa_rm_create_resource);
 
 /**
  * ipa_rm_delete_resource() - delete resource
@@ -101,7 +101,7 @@ bail:
 	write_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_delete_resource); */
+EXPORT_SYMBOL(ipa_rm_delete_resource);
 
 /**
  * ipa_rm_add_dependency() - create dependency
@@ -127,7 +127,7 @@ int ipa_rm_add_dependency(enum ipa_rm_resource_name resource_name,
 	write_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_add_dependency); */
+EXPORT_SYMBOL(ipa_rm_add_dependency);
 
 
 /**
@@ -153,7 +153,7 @@ int ipa_rm_delete_dependency(enum ipa_rm_resource_name resource_name,
 	write_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_delete_dependency); */
+EXPORT_SYMBOL(ipa_rm_delete_dependency);
 
 /**
  * ipa_rm_request_resource() - request resource
@@ -188,7 +188,7 @@ bail:
 	read_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_request_resource); */
+EXPORT_SYMBOL(ipa_rm_request_resource);
 
 /**
  * ipa_rm_release_resource() - release resource
@@ -222,7 +222,7 @@ bail:
 	read_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_release_resource); */
+EXPORT_SYMBOL(ipa_rm_release_resource);
 
 /**
  * ipa_rm_register() - register for event
@@ -257,7 +257,7 @@ bail:
 	read_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_register); */
+EXPORT_SYMBOL(ipa_rm_register);
 
 /**
  * ipa_rm_deregister() - cancel the registration
@@ -291,7 +291,7 @@ bail:
 	read_unlock(&ipa_rm_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_deregister); */
+EXPORT_SYMBOL(ipa_rm_deregister);
 
 /**
  * ipa_rm_notify_completion() -
@@ -319,7 +319,7 @@ int ipa_rm_notify_completion(enum ipa_rm_event event,
 bail:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_rm_notify_completion); */
+EXPORT_SYMBOL(ipa_rm_notify_completion);
 
 static void ipa_rm_wq_handler(struct work_struct *work)
 {

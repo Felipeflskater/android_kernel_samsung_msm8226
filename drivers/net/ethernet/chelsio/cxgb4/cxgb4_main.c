@@ -2103,7 +2103,7 @@ int cxgb4_alloc_atid(struct tid_info *t, void *data)
 	spin_unlock_bh(&t->atid_lock);
 	return atid;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_alloc_atid); */
+EXPORT_SYMBOL(cxgb4_alloc_atid);
 
 /*
  * Release an active-open TID.
@@ -2118,7 +2118,7 @@ void cxgb4_free_atid(struct tid_info *t, unsigned int atid)
 	t->atids_in_use--;
 	spin_unlock_bh(&t->atid_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_free_atid); */
+EXPORT_SYMBOL(cxgb4_free_atid);
 
 /*
  * Allocate a server TID and set it to the supplied value.
@@ -2147,7 +2147,7 @@ int cxgb4_alloc_stid(struct tid_info *t, int family, void *data)
 	spin_unlock_bh(&t->stid_lock);
 	return stid;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_alloc_stid); */
+EXPORT_SYMBOL(cxgb4_alloc_stid);
 
 /*
  * Release a server TID.
@@ -2164,7 +2164,7 @@ void cxgb4_free_stid(struct tid_info *t, unsigned int stid, int family)
 	t->stids_in_use--;
 	spin_unlock_bh(&t->stid_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_free_stid); */
+EXPORT_SYMBOL(cxgb4_free_stid);
 
 /*
  * Populate a TID_RELEASE WR.  Caller must properly size the skb.
@@ -2254,7 +2254,7 @@ void cxgb4_remove_tid(struct tid_info *t, unsigned int chan, unsigned int tid)
 	if (old)
 		atomic_dec(&t->tids_in_use);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_remove_tid); */
+EXPORT_SYMBOL(cxgb4_remove_tid);
 
 /*
  * Allocate and initialize the TID tables.  Returns 0 on success.
@@ -2329,7 +2329,7 @@ int cxgb4_create_server(const struct net_device *dev, unsigned int stid,
 				SYN_RSS_ENABLE | SYN_RSS_QUEUE(queue));
 	return t4_mgmt_tx(adap, skb);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_create_server); */
+EXPORT_SYMBOL(cxgb4_create_server);
 
 /**
  *	cxgb4_best_mtu - find the entry in the MTU table closest to an MTU
@@ -2352,7 +2352,7 @@ unsigned int cxgb4_best_mtu(const unsigned short *mtus, unsigned short mtu,
 		*idx = i;
 	return mtus[i];
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_best_mtu); */
+EXPORT_SYMBOL(cxgb4_best_mtu);
 
 /**
  *	cxgb4_port_chan - get the HW channel of a port
@@ -2364,7 +2364,7 @@ unsigned int cxgb4_port_chan(const struct net_device *dev)
 {
 	return netdev2pinfo(dev)->tx_chan;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_port_chan); */
+EXPORT_SYMBOL(cxgb4_port_chan);
 
 /**
  *	cxgb4_port_viid - get the VI id of a port
@@ -2376,7 +2376,7 @@ unsigned int cxgb4_port_viid(const struct net_device *dev)
 {
 	return netdev2pinfo(dev)->viid;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_port_viid); */
+EXPORT_SYMBOL(cxgb4_port_viid);
 
 /**
  *	cxgb4_port_idx - get the index of a port
@@ -2388,7 +2388,7 @@ unsigned int cxgb4_port_idx(const struct net_device *dev)
 {
 	return netdev2pinfo(dev)->port_id;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_port_idx); */
+EXPORT_SYMBOL(cxgb4_port_idx);
 
 void cxgb4_get_tcp_stats(struct pci_dev *pdev, struct tp_tcp_stats *v4,
 			 struct tp_tcp_stats *v6)
@@ -2399,7 +2399,7 @@ void cxgb4_get_tcp_stats(struct pci_dev *pdev, struct tp_tcp_stats *v4,
 	t4_tp_get_tcp_stats(adap, v4, v6);
 	spin_unlock(&adap->stats_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_get_tcp_stats); */
+EXPORT_SYMBOL(cxgb4_get_tcp_stats);
 
 void cxgb4_iscsi_init(struct net_device *dev, unsigned int tag_mask,
 		      const unsigned int *pgsz_order)
@@ -2411,7 +2411,7 @@ void cxgb4_iscsi_init(struct net_device *dev, unsigned int tag_mask,
 		     HPZ1(pgsz_order[1]) | HPZ2(pgsz_order[2]) |
 		     HPZ3(pgsz_order[3]));
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_iscsi_init); */
+EXPORT_SYMBOL(cxgb4_iscsi_init);
 
 static struct pci_driver cxgb4_driver;
 
@@ -2568,7 +2568,7 @@ int cxgb4_register_uld(enum cxgb4_uld type, const struct cxgb4_uld_info *p)
 out:	mutex_unlock(&uld_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_register_uld); */
+EXPORT_SYMBOL(cxgb4_register_uld);
 
 /**
  *	cxgb4_unregister_uld - unregister an upper-layer driver
@@ -2589,7 +2589,7 @@ int cxgb4_unregister_uld(enum cxgb4_uld type)
 	mutex_unlock(&uld_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cxgb4_unregister_uld); */
+EXPORT_SYMBOL(cxgb4_unregister_uld);
 
 /**
  *	cxgb_up - enable the adapter

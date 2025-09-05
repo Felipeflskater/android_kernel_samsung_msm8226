@@ -38,9 +38,9 @@
 
 #include <net/ip_vs.h>
 
-/* DISABLED: EXPORT_SYMBOL(register_ip_vs_app); */
-/* DISABLED: EXPORT_SYMBOL(unregister_ip_vs_app); */
-/* DISABLED: EXPORT_SYMBOL(register_ip_vs_app_inc); */
+EXPORT_SYMBOL(register_ip_vs_app);
+EXPORT_SYMBOL(unregister_ip_vs_app);
+EXPORT_SYMBOL(register_ip_vs_app_inc);
 
 static DEFINE_MUTEX(__ip_vs_app_mutex);
 

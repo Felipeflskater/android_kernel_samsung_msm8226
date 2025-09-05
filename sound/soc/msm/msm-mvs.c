@@ -884,7 +884,7 @@ struct snd_soc_platform_driver msm_mvs_soc_platform = {
 	.ops		= &msm_mvs_pcm_ops,
 	.pcm_new	= msm_pcm_new,
 };
-/* DISABLED: EXPORT_SYMBOL(msm_mvs_soc_platform); */
+EXPORT_SYMBOL(msm_mvs_soc_platform);
 
 static __devinit int msm_pcm_probe(struct platform_device *pdev)
 {

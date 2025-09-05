@@ -1660,7 +1660,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(stb0899_attach); */
+EXPORT_SYMBOL(stb0899_attach);
 MODULE_PARM_DESC(verbose, "Set Verbosity level");
 MODULE_AUTHOR("Manu Abraham");
 MODULE_DESCRIPTION("STB0899 Multi-Std frontend");

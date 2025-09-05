@@ -10,9 +10,9 @@
 
 #include <linux/zlib.h>
 
-/* DISABLED: EXPORT_SYMBOL(zlib_deflate_workspacesize); */
-/* DISABLED: EXPORT_SYMBOL(zlib_deflate); */
-/* DISABLED: EXPORT_SYMBOL(zlib_deflateInit2); */
-/* DISABLED: EXPORT_SYMBOL(zlib_deflateEnd); */
-/* DISABLED: EXPORT_SYMBOL(zlib_deflateReset); */
+EXPORT_SYMBOL(zlib_deflate_workspacesize);
+EXPORT_SYMBOL(zlib_deflate);
+EXPORT_SYMBOL(zlib_deflateInit2);
+EXPORT_SYMBOL(zlib_deflateEnd);
+EXPORT_SYMBOL(zlib_deflateReset);
 MODULE_LICENSE("GPL");

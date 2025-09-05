@@ -35,7 +35,7 @@ void set_l2_indirect_reg(u32 reg_addr, u32 val)
 	);
 	raw_spin_unlock_irqrestore(&l2_access_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(set_l2_indirect_reg); */
+EXPORT_SYMBOL(set_l2_indirect_reg);
 
 u32 get_l2_indirect_reg(u32 reg_addr)
 {
@@ -54,4 +54,4 @@ u32 get_l2_indirect_reg(u32 reg_addr)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(get_l2_indirect_reg); */
+EXPORT_SYMBOL(get_l2_indirect_reg);

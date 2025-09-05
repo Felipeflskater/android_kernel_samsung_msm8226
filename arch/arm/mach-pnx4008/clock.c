@@ -893,7 +893,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -903,7 +903,7 @@ unsigned long clk_get_rate(struct clk *clk)
 	clock_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 int clk_enable(struct clk *clk)
 {
@@ -915,7 +915,7 @@ int clk_enable(struct clk *clk)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
@@ -924,7 +924,7 @@ void clk_disable(struct clk *clk)
 	clock_unlock();
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -938,7 +938,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -956,7 +956,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 static int __init clk_init(void)
 {

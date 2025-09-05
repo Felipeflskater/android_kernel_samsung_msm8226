@@ -122,7 +122,7 @@ void account_system_vtime(struct task_struct *tsk)
 	ti->system_timer = S390_lowcore.system_timer;
 	account_system_time(tsk, 0, system, system);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(account_system_vtime); */
+EXPORT_SYMBOL_GPL(account_system_vtime);
 
 void __kprobes vtime_stop_cpu(void)
 {
@@ -274,7 +274,7 @@ void init_virt_timer(struct vtimer_list *timer)
 	timer->function = NULL;
 	INIT_LIST_HEAD(&timer->entry);
 }
-/* DISABLED: EXPORT_SYMBOL(init_virt_timer); */
+EXPORT_SYMBOL(init_virt_timer);
 
 static inline int vtimer_pending(struct vtimer_list *timer)
 {
@@ -344,7 +344,7 @@ void add_virt_timer(void *new)
 	timer->interval = 0;
 	internal_add_vtimer(timer);
 }
-/* DISABLED: EXPORT_SYMBOL(add_virt_timer); */
+EXPORT_SYMBOL(add_virt_timer);
 
 /*
  * add_virt_timer_int - add an interval virtual CPU timer
@@ -358,7 +358,7 @@ void add_virt_timer_periodic(void *new)
 	timer->interval = timer->expires;
 	internal_add_vtimer(timer);
 }
-/* DISABLED: EXPORT_SYMBOL(add_virt_timer_periodic); */
+EXPORT_SYMBOL(add_virt_timer_periodic);
 
 static int __mod_vtimer(struct vtimer_list *timer, __u64 expires, int periodic)
 {
@@ -416,7 +416,7 @@ int mod_virt_timer(struct vtimer_list *timer, __u64 expires)
 {
 	return __mod_vtimer(timer, expires, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(mod_virt_timer); */
+EXPORT_SYMBOL(mod_virt_timer);
 
 /*
  * If we change a pending timer the function must be called on the CPU
@@ -428,7 +428,7 @@ int mod_virt_timer_periodic(struct vtimer_list *timer, __u64 expires)
 {
 	return __mod_vtimer(timer, expires, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(mod_virt_timer_periodic); */
+EXPORT_SYMBOL(mod_virt_timer_periodic);
 
 /*
  * delete a virtual timer
@@ -453,7 +453,7 @@ int del_virt_timer(struct vtimer_list *timer)
 	spin_unlock_irqrestore(&vq->lock, flags);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(del_virt_timer); */
+EXPORT_SYMBOL(del_virt_timer);
 
 /*
  * Start the virtual CPU timer on the current CPU.

@@ -42,7 +42,7 @@ void show_regs(struct pt_regs *regs)
 
 void (*pm_idle)(void);
 void (*pm_power_off)(void) = NULL;
-/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
+EXPORT_SYMBOL(pm_power_off);
 
 static int hlt_counter = 1;
 
@@ -50,27 +50,27 @@ void disable_hlt(void)
 {
 	hlt_counter++;
 }
-/* DISABLED: EXPORT_SYMBOL(disable_hlt); */
+EXPORT_SYMBOL(disable_hlt);
 
 void enable_hlt(void)
 {
 	hlt_counter--;
 }
-/* DISABLED: EXPORT_SYMBOL(enable_hlt); */
+EXPORT_SYMBOL(enable_hlt);
 
 static int __init nohlt_setup(char *__unused)
 {
 	hlt_counter = 1;
 	return 1;
 }
-/* DISABLED: __setup("nohlt", nohlt_setup); */ */
+__setup("nohlt", nohlt_setup);
 
 static int __init hlt_setup(char *__unused)
 {
 	hlt_counter = 0;
 	return 1;
 }
-/* DISABLED: __setup("hlt", hlt_setup); */ */
+__setup("hlt", hlt_setup);
 
 void default_idle(void)
 {
@@ -226,7 +226,7 @@ int kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, 0,
 			&regs, 0, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kernel_thread); */
+EXPORT_SYMBOL_GPL(kernel_thread);
 
 unsigned long get_wchan(struct task_struct *p)
 {

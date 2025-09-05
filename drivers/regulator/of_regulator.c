@@ -157,4 +157,4 @@ struct regulator_init_data *of_get_regulator_init_data(struct device *dev,
 
 	return init_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_get_regulator_init_data); */
+EXPORT_SYMBOL_GPL(of_get_regulator_init_data);

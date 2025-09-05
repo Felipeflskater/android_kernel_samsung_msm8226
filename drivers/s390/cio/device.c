@@ -1644,7 +1644,7 @@ int ccw_device_force_console(void)
 		return -ENODEV;
 	return ccw_device_pm_restore(&console_cdev.dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ccw_device_force_console); */
+EXPORT_SYMBOL_GPL(ccw_device_force_console);
 #endif
 
 /*
@@ -2121,12 +2121,12 @@ int ccw_device_siosl(struct ccw_device *cdev)
 
 	return chsc_siosl(sch->schid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ccw_device_siosl); */
+EXPORT_SYMBOL_GPL(ccw_device_siosl);
 
 MODULE_LICENSE("GPL");
-/* DISABLED: EXPORT_SYMBOL(ccw_device_set_online); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_set_offline); */
-/* DISABLED: EXPORT_SYMBOL(ccw_driver_register); */
-/* DISABLED: EXPORT_SYMBOL(ccw_driver_unregister); */
-/* DISABLED: EXPORT_SYMBOL(get_ccwdev_by_busid); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ccw_device_get_subchannel_id); */
+EXPORT_SYMBOL(ccw_device_set_online);
+EXPORT_SYMBOL(ccw_device_set_offline);
+EXPORT_SYMBOL(ccw_driver_register);
+EXPORT_SYMBOL(ccw_driver_unregister);
+EXPORT_SYMBOL(get_ccwdev_by_busid);
+EXPORT_SYMBOL_GPL(ccw_device_get_subchannel_id);

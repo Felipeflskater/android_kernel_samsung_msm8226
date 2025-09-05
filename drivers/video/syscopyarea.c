@@ -369,7 +369,7 @@ void sys_copyarea(struct fb_info *p, const struct fb_copyarea *area)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(sys_copyarea); */
+EXPORT_SYMBOL(sys_copyarea);
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Generic copyarea (sys-to-sys)");

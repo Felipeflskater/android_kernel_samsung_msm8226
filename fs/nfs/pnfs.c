@@ -167,7 +167,7 @@ pnfs_register_layoutdriver(struct pnfs_layoutdriver_type *ld_type)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_register_layoutdriver); */
+EXPORT_SYMBOL_GPL(pnfs_register_layoutdriver);
 
 void
 pnfs_unregister_layoutdriver(struct pnfs_layoutdriver_type *ld_type)
@@ -177,7 +177,7 @@ pnfs_unregister_layoutdriver(struct pnfs_layoutdriver_type *ld_type)
 	list_del(&ld_type->pnfs_tblid);
 	spin_unlock(&pnfs_spinlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_unregister_layoutdriver); */
+EXPORT_SYMBOL_GPL(pnfs_unregister_layoutdriver);
 
 /*
  * pNFS client layout cache
@@ -289,7 +289,7 @@ put_lseg(struct pnfs_layout_segment *lseg)
 		pnfs_free_lseg_list(&free_me);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(put_lseg); */
+EXPORT_SYMBOL_GPL(put_lseg);
 
 static inline u64
 end_offset(u64 start, u64 len)
@@ -984,7 +984,7 @@ out_unlock:
 	spin_unlock(&ino->i_lock);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_update_layout); */
+EXPORT_SYMBOL_GPL(pnfs_update_layout);
 
 int
 pnfs_layout_process(struct nfs4_layoutget *lgp)
@@ -1056,7 +1056,7 @@ pnfs_generic_pg_init_read(struct nfs_pageio_descriptor *pgio, struct nfs_page *r
 		nfs_pageio_reset_read_mds(pgio);
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_generic_pg_init_read); */
+EXPORT_SYMBOL_GPL(pnfs_generic_pg_init_read);
 
 void
 pnfs_generic_pg_init_write(struct nfs_pageio_descriptor *pgio, struct nfs_page *req)
@@ -1073,7 +1073,7 @@ pnfs_generic_pg_init_write(struct nfs_pageio_descriptor *pgio, struct nfs_page *
 	if (pgio->pg_lseg == NULL)
 		nfs_pageio_reset_write_mds(pgio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_generic_pg_init_write); */
+EXPORT_SYMBOL_GPL(pnfs_generic_pg_init_write);
 
 bool
 pnfs_pageio_init_read(struct nfs_pageio_descriptor *pgio, struct inode *inode)
@@ -1123,7 +1123,7 @@ pnfs_generic_pg_test(struct nfs_pageio_descriptor *pgio, struct nfs_page *prev,
 	return req_offset(req) < end_offset(pgio->pg_lseg->pls_range.offset,
 					 pgio->pg_lseg->pls_range.length);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_generic_pg_test); */
+EXPORT_SYMBOL_GPL(pnfs_generic_pg_test);
 
 static int pnfs_write_done_resend_to_mds(struct inode *inode, struct list_head *head)
 {
@@ -1176,7 +1176,7 @@ void pnfs_ld_write_done(struct nfs_write_data *data)
 	put_lseg(data->lseg);
 	data->mds_ops->rpc_release(data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_ld_write_done); */
+EXPORT_SYMBOL_GPL(pnfs_ld_write_done);
 
 static void
 pnfs_write_through_mds(struct nfs_pageio_descriptor *desc,
@@ -1254,7 +1254,7 @@ pnfs_generic_pg_writepages(struct nfs_pageio_descriptor *desc)
 	pnfs_do_multiple_writes(desc, &head, desc->pg_ioflags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_generic_pg_writepages); */
+EXPORT_SYMBOL_GPL(pnfs_generic_pg_writepages);
 
 static void pnfs_ld_handle_read_error(struct nfs_read_data *data)
 {
@@ -1291,7 +1291,7 @@ void pnfs_ld_read_done(struct nfs_read_data *data)
 	put_lseg(data->lseg);
 	data->mds_ops->rpc_release(data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_ld_read_done); */
+EXPORT_SYMBOL_GPL(pnfs_ld_read_done);
 
 static void
 pnfs_read_through_mds(struct nfs_pageio_descriptor *desc,
@@ -1370,7 +1370,7 @@ pnfs_generic_pg_readpages(struct nfs_pageio_descriptor *desc)
 	pnfs_do_multiple_reads(desc, &head);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_generic_pg_readpages); */
+EXPORT_SYMBOL_GPL(pnfs_generic_pg_readpages);
 
 /*
  * There can be multiple RW segments.
@@ -1412,7 +1412,7 @@ void pnfs_set_lo_fail(struct pnfs_layout_segment *lseg)
 		set_bit(lo_fail_bit(IOMODE_READ), &lseg->pls_layout->plh_flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_set_lo_fail); */
+EXPORT_SYMBOL_GPL(pnfs_set_lo_fail);
 
 void
 pnfs_set_layoutcommit(struct nfs_write_data *wdata)
@@ -1442,7 +1442,7 @@ pnfs_set_layoutcommit(struct nfs_write_data *wdata)
 	if (mark_as_dirty)
 		mark_inode_dirty_sync(wdata->inode);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pnfs_set_layoutcommit); */
+EXPORT_SYMBOL_GPL(pnfs_set_layoutcommit);
 
 void pnfs_cleanup_layoutcommit(struct nfs4_layoutcommit_data *data)
 {

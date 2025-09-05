@@ -9,10 +9,10 @@ asmlinkage long long __muldi3 (long long, long long);
    explicitly (the C compiler generates them).  Fortunately,
    their interface isn't gonna change any time soon now, so
    it's OK to leave it out of version control.  */
-/* DISABLED: EXPORT_SYMBOL(__ashldi3); */
-/* DISABLED: EXPORT_SYMBOL(__ashrdi3); */
-/* DISABLED: EXPORT_SYMBOL(__lshrdi3); */
-/* DISABLED: EXPORT_SYMBOL(__muldi3); */
+EXPORT_SYMBOL(__ashldi3);
+EXPORT_SYMBOL(__ashrdi3);
+EXPORT_SYMBOL(__lshrdi3);
+EXPORT_SYMBOL(__muldi3);
 
 #if defined(CONFIG_CPU_HAS_NO_MULDIV64)
 /*
@@ -24,9 +24,9 @@ extern long long __mulsi3(long long, long long);
 extern long long __udivsi3(long long, long long);
 extern long long __umodsi3(long long, long long);
 
-/* DISABLED: EXPORT_SYMBOL(__divsi3); */
-/* DISABLED: EXPORT_SYMBOL(__modsi3); */
-/* DISABLED: EXPORT_SYMBOL(__mulsi3); */
-/* DISABLED: EXPORT_SYMBOL(__udivsi3); */
-/* DISABLED: EXPORT_SYMBOL(__umodsi3); */
+EXPORT_SYMBOL(__divsi3);
+EXPORT_SYMBOL(__modsi3);
+EXPORT_SYMBOL(__mulsi3);
+EXPORT_SYMBOL(__udivsi3);
+EXPORT_SYMBOL(__umodsi3);
 #endif

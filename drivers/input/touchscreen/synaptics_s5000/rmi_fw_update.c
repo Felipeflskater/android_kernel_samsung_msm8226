@@ -1073,7 +1073,7 @@ int synaptics_fw_updater(unsigned char *fw_data)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_fw_updater); */
+EXPORT_SYMBOL(synaptics_fw_updater);
 
 static ssize_t fwu_sysfs_show_image(struct file *data_file,
 		struct kobject *kobj, struct bin_attribute *attributes,

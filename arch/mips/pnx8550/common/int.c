@@ -233,4 +233,4 @@ void __init arch_init_irq(void)
 	setup_irq(MIPS_CPU_TIMER_IRQ, &timer_action);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pnx8550_set_gic_priority); */
+EXPORT_SYMBOL(pnx8550_set_gic_priority);

@@ -128,7 +128,7 @@ int irq_to_gpio(unsigned int irq)
 
 	return gpio;
 }
-/* DISABLED: EXPORT_SYMBOL(irq_to_gpio); */
+EXPORT_SYMBOL(irq_to_gpio);
 
 static int ixp4xx_set_irq_type(struct irq_data *d, unsigned int type)
 {
@@ -381,7 +381,7 @@ static struct platform_device *ixp46x_devices[] __initdata = {
 };
 
 unsigned long ixp4xx_exp_bus_size;
-/* DISABLED: EXPORT_SYMBOL(ixp4xx_exp_bus_size); */
+EXPORT_SYMBOL(ixp4xx_exp_bus_size);
 
 static int ixp4xx_gpio_direction_input(struct gpio_chip *chip, unsigned gpio)
 {
@@ -469,7 +469,7 @@ static cycle_t ixp4xx_clocksource_read(struct clocksource *c)
 }
 
 unsigned long ixp4xx_timer_freq = IXP4XX_TIMER_FREQ;
-/* DISABLED: EXPORT_SYMBOL(ixp4xx_timer_freq); */
+EXPORT_SYMBOL(ixp4xx_timer_freq);
 static void __init ixp4xx_clocksource_init(void)
 {
 	setup_sched_clock(ixp4xx_read_sched_clock, 32, ixp4xx_timer_freq);

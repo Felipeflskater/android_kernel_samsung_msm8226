@@ -193,7 +193,7 @@ unsigned int dccp_sync_mss(struct sock *sk, u32 pmtu)
 	return cur_mps;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_sync_mss); */
+EXPORT_SYMBOL_GPL(dccp_sync_mss);
 
 void dccp_write_space(struct sock *sk)
 {
@@ -444,7 +444,7 @@ response_failed:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_make_response); */
+EXPORT_SYMBOL_GPL(dccp_make_response);
 
 /* answer offending packet in @rcv_skb with Reset from control socket @ctl */
 struct sk_buff *dccp_ctl_make_reset(struct sock *sk, struct sk_buff *rcv_skb)
@@ -496,7 +496,7 @@ struct sk_buff *dccp_ctl_make_reset(struct sock *sk, struct sk_buff *rcv_skb)
 	return skb;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_ctl_make_reset); */
+EXPORT_SYMBOL_GPL(dccp_ctl_make_reset);
 
 /* send Reset on established socket, to close or abort the connection */
 int dccp_send_reset(struct sock *sk, enum dccp_reset_codes code)
@@ -564,7 +564,7 @@ int dccp_connect(struct sock *sk)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_connect); */
+EXPORT_SYMBOL_GPL(dccp_connect);
 
 void dccp_send_ack(struct sock *sk)
 {
@@ -589,7 +589,7 @@ void dccp_send_ack(struct sock *sk)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_send_ack); */
+EXPORT_SYMBOL_GPL(dccp_send_ack);
 
 #if 0
 /* FIXME: Is this still necessary (11.3) - currently nowhere used by DCCP. */
@@ -654,7 +654,7 @@ void dccp_send_sync(struct sock *sk, const u64 ackno,
 	dccp_transmit_skb(sk, skb);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_send_sync); */
+EXPORT_SYMBOL_GPL(dccp_send_sync);
 
 /*
  * Send a DCCP_PKT_CLOSE/CLOSEREQ. The caller locks the socket for us. This

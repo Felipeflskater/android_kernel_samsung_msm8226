@@ -725,11 +725,11 @@ module_exit(npe_cleanup_module);
 MODULE_AUTHOR("Krzysztof Halasa");
 MODULE_LICENSE("GPL v2");
 
-/* DISABLED: EXPORT_SYMBOL(npe_names); */
-/* DISABLED: EXPORT_SYMBOL(npe_running); */
-/* DISABLED: EXPORT_SYMBOL(npe_request); */
-/* DISABLED: EXPORT_SYMBOL(npe_release); */
-/* DISABLED: EXPORT_SYMBOL(npe_load_firmware); */
-/* DISABLED: EXPORT_SYMBOL(npe_send_message); */
-/* DISABLED: EXPORT_SYMBOL(npe_recv_message); */
-/* DISABLED: EXPORT_SYMBOL(npe_send_recv_message); */
+EXPORT_SYMBOL(npe_names);
+EXPORT_SYMBOL(npe_running);
+EXPORT_SYMBOL(npe_request);
+EXPORT_SYMBOL(npe_release);
+EXPORT_SYMBOL(npe_load_firmware);
+EXPORT_SYMBOL(npe_send_message);
+EXPORT_SYMBOL(npe_recv_message);
+EXPORT_SYMBOL(npe_send_recv_message);

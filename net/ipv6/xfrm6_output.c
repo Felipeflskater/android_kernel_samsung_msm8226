@@ -26,7 +26,7 @@ int xfrm6_find_1stfragopt(struct xfrm_state *x, struct sk_buff *skb,
 	return ip6_find_1stfragopt(skb, prevhdr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(xfrm6_find_1stfragopt); */
+EXPORT_SYMBOL(xfrm6_find_1stfragopt);
 
 static int xfrm6_local_dontfrag(struct sk_buff *skb)
 {
@@ -120,7 +120,7 @@ int xfrm6_prepare_output(struct xfrm_state *x, struct sk_buff *skb)
 
 	return x->outer_mode->output2(x, skb);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm6_prepare_output); */
+EXPORT_SYMBOL(xfrm6_prepare_output);
 
 int xfrm6_output_finish(struct sk_buff *skb)
 {

@@ -297,7 +297,7 @@ fail_gpio_dir_out:
 fail:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(vos_chip_power_qrf8615); */
+EXPORT_SYMBOL(vos_chip_power_qrf8615);
 
 /**
  * qcomwlan_pmic_xo_core_force_enable() - Force XO Core of PMIC to be ALWAYS ON
@@ -342,7 +342,7 @@ fail_xo_mode_vote:
 fail:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qcomwlan_pmic_xo_core_force_enable); */
+EXPORT_SYMBOL(qcomwlan_pmic_xo_core_force_enable);
 
 
 /**
@@ -356,4 +356,4 @@ int qcomwlan_freq_change_1p3v_supply(enum rpm_vreg_freq freq)
 {
 	return rpm_vreg_set_frequency(RPM_VREG_ID_PM8058_S2, freq);
 }
-/* DISABLED: EXPORT_SYMBOL(qcomwlan_freq_change_1p3v_supply); */
+EXPORT_SYMBOL(qcomwlan_freq_change_1p3v_supply);

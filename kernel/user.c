@@ -29,7 +29,7 @@ struct user_namespace init_user_ns = {
 	.creator = &root_user,
 	.proc_inum = PROC_USER_INIT_INO,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(init_user_ns); */
+EXPORT_SYMBOL_GPL(init_user_ns);
 
 /*
  * UID task count cache, to get fast user lookup in "alloc_uid"

@@ -110,7 +110,7 @@ struct wpan_phy *wpan_phy_find(const char *str)
 
 	return container_of(dev, struct wpan_phy, dev);
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_find); */
+EXPORT_SYMBOL(wpan_phy_find);
 
 struct wpan_phy_iter_data {
 	int (*fn)(struct wpan_phy *phy, void *data);
@@ -135,7 +135,7 @@ int wpan_phy_for_each(int (*fn)(struct wpan_phy *phy, void *data),
 	return class_for_each_device(&wpan_phy_class, NULL,
 			&wpid, wpan_phy_iter);
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_for_each); */
+EXPORT_SYMBOL(wpan_phy_for_each);
 
 static int wpan_phy_idx_valid(int idx)
 {
@@ -174,25 +174,25 @@ struct wpan_phy *wpan_phy_alloc(size_t priv_size)
 out:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_alloc); */
+EXPORT_SYMBOL(wpan_phy_alloc);
 
 int wpan_phy_register(struct wpan_phy *phy)
 {
 	return device_add(&phy->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_register); */
+EXPORT_SYMBOL(wpan_phy_register);
 
 void wpan_phy_unregister(struct wpan_phy *phy)
 {
 	device_del(&phy->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_unregister); */
+EXPORT_SYMBOL(wpan_phy_unregister);
 
 void wpan_phy_free(struct wpan_phy *phy)
 {
 	put_device(&phy->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(wpan_phy_free); */
+EXPORT_SYMBOL(wpan_phy_free);
 
 static int __init wpan_phy_class_init(void)
 {

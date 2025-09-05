@@ -1045,11 +1045,11 @@ hw_autodetect:
 
 /* ----------------------------------------------------------- */
 
-/* DISABLED: EXPORT_SYMBOL(cx88_set_tvaudio); */
-/* DISABLED: EXPORT_SYMBOL(cx88_newstation); */
-/* DISABLED: EXPORT_SYMBOL(cx88_set_stereo); */
-/* DISABLED: EXPORT_SYMBOL(cx88_get_stereo); */
-/* DISABLED: EXPORT_SYMBOL(cx88_audio_thread); */
+EXPORT_SYMBOL(cx88_set_tvaudio);
+EXPORT_SYMBOL(cx88_newstation);
+EXPORT_SYMBOL(cx88_set_stereo);
+EXPORT_SYMBOL(cx88_get_stereo);
+EXPORT_SYMBOL(cx88_audio_thread);
 
 /*
  * Local variables:

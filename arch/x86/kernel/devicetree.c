@@ -34,7 +34,7 @@ unsigned long pci_address_to_pio(phys_addr_t address)
 	BUG_ON(address >= (1 << 16));
 	return (unsigned long)address;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_address_to_pio); */
+EXPORT_SYMBOL_GPL(pci_address_to_pio);
 
 void __init early_init_dt_scan_chosen_arch(unsigned long node)
 {

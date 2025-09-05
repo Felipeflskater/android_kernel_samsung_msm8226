@@ -622,7 +622,7 @@ error:
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_free_clusters); */
+EXPORT_SYMBOL_GPL(fat_free_clusters);
 
 /* 128kb is the whole sectors for FAT12 and FAT16 */
 #define FAT_READA_SIZE		(128 * 1024)

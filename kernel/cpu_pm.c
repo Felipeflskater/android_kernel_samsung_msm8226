@@ -56,7 +56,7 @@ int cpu_pm_register_notifier(struct notifier_block *nb)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_pm_register_notifier); */
+EXPORT_SYMBOL_GPL(cpu_pm_register_notifier);
 
 /**
  * cpu_pm_unregister_notifier - unregister a driver with cpu_pm
@@ -78,7 +78,7 @@ int cpu_pm_unregister_notifier(struct notifier_block *nb)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_pm_unregister_notifier); */
+EXPORT_SYMBOL_GPL(cpu_pm_unregister_notifier);
 
 /**
  * cpm_pm_enter - CPU low power entry notifier
@@ -112,7 +112,7 @@ int cpu_pm_enter(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_pm_enter); */
+EXPORT_SYMBOL_GPL(cpu_pm_enter);
 
 /**
  * cpm_pm_exit - CPU low power exit notifier
@@ -136,7 +136,7 @@ int cpu_pm_exit(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_pm_exit); */
+EXPORT_SYMBOL_GPL(cpu_pm_exit);
 
 /**
  * cpm_cluster_pm_enter - CPU cluster low power entry notifier
@@ -171,7 +171,7 @@ int cpu_cluster_pm_enter(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_cluster_pm_enter); */
+EXPORT_SYMBOL_GPL(cpu_cluster_pm_enter);
 
 /**
  * cpm_cluster_pm_exit - CPU cluster low power exit notifier
@@ -198,7 +198,7 @@ int cpu_cluster_pm_exit(void)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_cluster_pm_exit); */
+EXPORT_SYMBOL_GPL(cpu_cluster_pm_exit);
 
 #ifdef CONFIG_PM
 static int cpu_pm_suspend(void)

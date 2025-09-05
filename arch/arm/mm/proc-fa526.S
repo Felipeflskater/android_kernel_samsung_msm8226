@@ -87,8 +87,8 @@ ENTRY(cpu_fa526_do_idle)
 
 ENTRY(cpu_fa526_dcache_clean_area)
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHE_DLINESIZE
-	subs	r1, r1, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
+	subs	r1, r1, #CACHE_DLINESIZE
 	bhi	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ drain WB
 	mov	pc, lr
@@ -138,7 +138,7 @@ ENTRY(cpu_fa526_set_pte_ext)
 
 	__CPUINIT
 
-	.type	__fa526_setup, @ function
+	.type	__fa526_setup, #function
 __fa526_setup:
 	/* On return of this routine, r0 must carry correct flags for CFG register */
 	mov	r0, #0
@@ -173,8 +173,8 @@ __fa526_setup:
 	 * ..11 1001 .111 1101
 	 *
 	 */
-	.type	fa526_cr1_clear, @ object
-	.type	fa526_cr1_set, @ object
+	.type	fa526_cr1_clear, #object
+	.type	fa526_cr1_set, #object
 fa526_cr1_clear:
 	.word	0x3f3f
 fa526_cr1_set:
@@ -193,9 +193,9 @@ fa526_cr1_set:
 
 	.align
 
-	.section ".proc.info.init", @ alloc, @ execinstr
+	.section ".proc.info.init", #alloc, #execinstr
 
-	.type	__fa526_proc_info, @ object
+	.type	__fa526_proc_info,#object
 __fa526_proc_info:
 	.long	0x66015261
 	.long	0xff01fff1

@@ -486,4 +486,4 @@ void fips_reg_drbg_callback(void *src)
 {
 	drbg_call_back = src;
 }
-/* DISABLED: EXPORT_SYMBOL(fips_reg_drbg_callback); */
+EXPORT_SYMBOL(fips_reg_drbg_callback);

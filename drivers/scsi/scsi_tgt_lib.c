@@ -128,7 +128,7 @@ put_dev:
 	return NULL;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_host_get_command); */
+EXPORT_SYMBOL_GPL(scsi_host_get_command);
 
 /*
  * Function:	scsi_host_put_command()
@@ -157,7 +157,7 @@ void scsi_host_put_command(struct Scsi_Host *shost, struct scsi_cmnd *cmd)
 
 	__scsi_put_command(shost, cmd, &shost->shost_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_host_put_command); */
+EXPORT_SYMBOL_GPL(scsi_host_put_command);
 
 static void cmd_hashlist_del(struct scsi_cmnd *cmd)
 {
@@ -259,7 +259,7 @@ cleanup_queue:
 	blk_cleanup_queue(q);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_alloc_queue); */
+EXPORT_SYMBOL_GPL(scsi_tgt_alloc_queue);
 
 void scsi_tgt_free_queue(struct Scsi_Host *shost)
 {
@@ -290,14 +290,14 @@ void scsi_tgt_free_queue(struct Scsi_Host *shost)
 		scsi_tgt_cmd_destroy(&tcmd->work);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_free_queue); */
+EXPORT_SYMBOL_GPL(scsi_tgt_free_queue);
 
 struct Scsi_Host *scsi_tgt_cmd_to_host(struct scsi_cmnd *cmd)
 {
 	struct scsi_tgt_queuedata *queue = cmd->request->q->queuedata;
 	return queue->shost;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_cmd_to_host); */
+EXPORT_SYMBOL_GPL(scsi_tgt_cmd_to_host);
 
 /*
  * scsi_tgt_queue_command - queue command for userspace processing
@@ -318,7 +318,7 @@ int scsi_tgt_queue_command(struct scsi_cmnd *cmd, u64 itn_id,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_queue_command); */
+EXPORT_SYMBOL_GPL(scsi_tgt_queue_command);
 
 /*
  * This is run from a interrupt handler normally and the unmap
@@ -540,7 +540,7 @@ int scsi_tgt_tsk_mgmt_request(struct Scsi_Host *shost, u64 itn_id,
 		eprintk("The task management request lost!\n");
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_tsk_mgmt_request); */
+EXPORT_SYMBOL_GPL(scsi_tgt_tsk_mgmt_request);
 
 int scsi_tgt_kspace_tsk_mgmt(int host_no, u64 itn_id, u64 mid, int result)
 {
@@ -579,7 +579,7 @@ int scsi_tgt_it_nexus_create(struct Scsi_Host *shost, u64 itn_id,
 			shost->host_no, (unsigned long long)itn_id);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_it_nexus_create); */
+EXPORT_SYMBOL_GPL(scsi_tgt_it_nexus_create);
 
 int scsi_tgt_it_nexus_destroy(struct Scsi_Host *shost, u64 itn_id)
 {
@@ -593,7 +593,7 @@ int scsi_tgt_it_nexus_destroy(struct Scsi_Host *shost, u64 itn_id)
 			shost->host_no, (unsigned long long)itn_id);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_tgt_it_nexus_destroy); */
+EXPORT_SYMBOL_GPL(scsi_tgt_it_nexus_destroy);
 
 int scsi_tgt_kspace_it_nexus_rsp(int host_no, u64 itn_id, int result)
 {

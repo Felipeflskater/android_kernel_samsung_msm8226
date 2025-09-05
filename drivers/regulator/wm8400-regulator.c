@@ -382,7 +382,7 @@ int wm8400_register_regulator(struct device *dev, int reg,
 
 	return platform_device_register(&wm8400->regulators[reg]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8400_register_regulator); */
+EXPORT_SYMBOL_GPL(wm8400_register_regulator);
 
 static int __init wm8400_regulator_init(void)
 {

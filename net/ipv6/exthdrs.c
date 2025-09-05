@@ -91,7 +91,7 @@ int ipv6_find_tlv(struct sk_buff *skb, int offset, int type)
  bad:
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ipv6_find_tlv); */
+EXPORT_SYMBOL_GPL(ipv6_find_tlv);
 
 /*
  *	Parsing tlv encoded headers.
@@ -723,7 +723,7 @@ void ipv6_push_nfrag_opts(struct sk_buff *skb, struct ipv6_txoptions *opt,
 		ipv6_push_exthdr(skb, proto, NEXTHDR_HOP, opt->hopopt);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ipv6_push_nfrag_opts); */
+EXPORT_SYMBOL(ipv6_push_nfrag_opts);
 
 void ipv6_push_frag_opts(struct sk_buff *skb, struct ipv6_txoptions *opt, u8 *proto)
 {
@@ -753,7 +753,7 @@ ipv6_dup_options(struct sock *sk, struct ipv6_txoptions *opt)
 	return opt2;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ipv6_dup_options); */
+EXPORT_SYMBOL_GPL(ipv6_dup_options);
 
 static int ipv6_renew_option(void *ohdr,
 			     struct ipv6_opt_hdr __user *newopt, int newoptlen,
@@ -894,4 +894,4 @@ struct in6_addr *fl6_update_dst(struct flowi6 *fl6,
 	return orig;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fl6_update_dst); */
+EXPORT_SYMBOL_GPL(fl6_update_dst);

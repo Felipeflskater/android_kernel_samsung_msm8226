@@ -264,7 +264,7 @@ lookbehind_overrun:
 	return LZO_E_LOOKBEHIND_OVERRUN;
 }
 #ifndef STATIC
-/* DISABLED: EXPORT_SYMBOL_GPL(lzo1x_decompress_safe); */
+EXPORT_SYMBOL_GPL(lzo1x_decompress_safe);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("LZO1X Decompressor");

@@ -165,7 +165,7 @@ int __request_module(bool wait, const char *fmt, ...)
 	atomic_dec(&kmod_concurrent);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__request_module); */
+EXPORT_SYMBOL(__request_module);
 #endif /* CONFIG_MODULES */
 
 /*
@@ -227,7 +227,7 @@ void call_usermodehelper_freeinfo(struct subprocess_info *info)
 		(*info->cleanup)(info);
 	kfree(info);
 }
-/* DISABLED: EXPORT_SYMBOL(call_usermodehelper_freeinfo); */
+EXPORT_SYMBOL(call_usermodehelper_freeinfo);
 
 static void umh_complete(struct subprocess_info *sub_info)
 {
@@ -373,7 +373,7 @@ int usermodehelper_read_trylock(void)
 	finish_wait(&usermodehelper_disabled_waitq, &wait);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usermodehelper_read_trylock); */
+EXPORT_SYMBOL_GPL(usermodehelper_read_trylock);
 
 long usermodehelper_read_lock_wait(long timeout)
 {
@@ -400,13 +400,13 @@ long usermodehelper_read_lock_wait(long timeout)
 	finish_wait(&usermodehelper_disabled_waitq, &wait);
 	return timeout;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usermodehelper_read_lock_wait); */
+EXPORT_SYMBOL_GPL(usermodehelper_read_lock_wait);
 
 void usermodehelper_read_unlock(void)
 {
 	up_read(&umhelper_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usermodehelper_read_unlock); */
+EXPORT_SYMBOL_GPL(usermodehelper_read_unlock);
 
 /**
  * __usermodehelper_set_disable_depth - Modify usermodehelper_disabled.
@@ -494,7 +494,7 @@ struct subprocess_info *call_usermodehelper_setup(char *path, char **argv,
   out:
 	return sub_info;
 }
-/* DISABLED: EXPORT_SYMBOL(call_usermodehelper_setup); */
+EXPORT_SYMBOL(call_usermodehelper_setup);
 
 /**
  * call_usermodehelper_setfns - set a cleanup/init function
@@ -521,7 +521,7 @@ void call_usermodehelper_setfns(struct subprocess_info *info,
 	info->init = init;
 	info->data = data;
 }
-/* DISABLED: EXPORT_SYMBOL(call_usermodehelper_setfns); */
+EXPORT_SYMBOL(call_usermodehelper_setfns);
 
 /**
  * call_usermodehelper_exec - start a usermode application
@@ -581,7 +581,7 @@ unlock:
 	helper_unlock();
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(call_usermodehelper_exec); */
+EXPORT_SYMBOL(call_usermodehelper_exec);
 
 static int proc_cap_handler(struct ctl_table *table, int write,
 			 void __user *buffer, size_t *lenp, loff_t *ppos)

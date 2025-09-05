@@ -251,7 +251,7 @@ exit:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(tda665x_attach); */
+EXPORT_SYMBOL(tda665x_attach);
 
 MODULE_DESCRIPTION("TDA665x driver");
 MODULE_AUTHOR("Manu Abraham");

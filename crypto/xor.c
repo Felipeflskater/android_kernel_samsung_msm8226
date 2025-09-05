@@ -52,7 +52,7 @@ xor_blocks(unsigned int src_count, unsigned int bytes, void *dest, void **srcs)
 	p4 = (unsigned long *) srcs[3];
 	active_template->do_5(bytes, dest, p1, p2, p3, p4);
 }
-/* DISABLED: EXPORT_SYMBOL(xor_blocks); */
+EXPORT_SYMBOL(xor_blocks);
 
 /* Set of all registered templates.  */
 static struct xor_block_template *template_list;

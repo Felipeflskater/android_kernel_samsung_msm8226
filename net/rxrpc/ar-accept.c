@@ -488,7 +488,7 @@ struct rxrpc_call *rxrpc_kernel_accept_call(struct socket *sock,
 	return call;
 }
 
-/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_accept_call); */
+EXPORT_SYMBOL(rxrpc_kernel_accept_call);
 
 /**
  * rxrpc_kernel_reject_call - Allow a kernel service to reject an incoming call
@@ -507,4 +507,4 @@ int rxrpc_kernel_reject_call(struct socket *sock)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(rxrpc_kernel_reject_call); */
+EXPORT_SYMBOL(rxrpc_kernel_reject_call);

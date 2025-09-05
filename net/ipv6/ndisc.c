@@ -345,7 +345,7 @@ int ndisc_mc_map(const struct in6_addr *addr, char *buf, struct net_device *dev,
 	return -EINVAL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ndisc_mc_map); */
+EXPORT_SYMBOL(ndisc_mc_map);
 
 static u32 ndisc_hash(const void *pkey,
 		      const struct net_device *dev,
@@ -491,7 +491,7 @@ struct sk_buff *ndisc_build_skb(struct net_device *dev,
 	return skb;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ndisc_build_skb); */
+EXPORT_SYMBOL(ndisc_build_skb);
 
 void ndisc_send_skb(struct sk_buff *skb,
 		    struct net_device *dev,
@@ -533,7 +533,7 @@ void ndisc_send_skb(struct sk_buff *skb,
 	rcu_read_unlock();
 }
 
-/* DISABLED: EXPORT_SYMBOL(ndisc_send_skb); */
+EXPORT_SYMBOL(ndisc_send_skb);
 
 /*
  *	Send a Neighbour Discover packet

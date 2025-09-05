@@ -269,7 +269,7 @@ const int fts_fw_updater(struct fts_ts_info *info, unsigned char *fw_data)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(fts_fw_updater); */
+EXPORT_SYMBOL(fts_fw_updater);
 
 int fts_fw_update_on_probe(struct fts_ts_info *info)
 {
@@ -328,7 +328,7 @@ done:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(fts_fw_update_on_probe); */
+EXPORT_SYMBOL(fts_fw_update_on_probe);
 
 static int fts_load_fw_from_kernel(struct fts_ts_info *info,
 				 const char *fw_path)
@@ -492,5 +492,5 @@ int fts_fw_update_on_hidden_menu(struct fts_ts_info *info, int update_type)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(fts_fw_update_on_hidden_menu); */
+EXPORT_SYMBOL(fts_fw_update_on_hidden_menu);
 

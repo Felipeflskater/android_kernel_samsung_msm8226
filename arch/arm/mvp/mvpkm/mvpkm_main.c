@@ -114,9 +114,9 @@ static void  ReleaseVM(struct MvpkmVM *vm);
  * it is set via an ioctl from mvpd.
  */
 uid_t Mvpkm_vmwareUid;
-/* DISABLED: EXPORT_SYMBOL(Mvpkm_vmwareUid); */
+EXPORT_SYMBOL(Mvpkm_vmwareUid);
 gid_t Mvpkm_vmwareGid;
-/* DISABLED: EXPORT_SYMBOL(Mvpkm_vmwareGid); */
+EXPORT_SYMBOL(Mvpkm_vmwareGid);
 
 /*
  * Mvpd should copy the content of /sys/module/lowmemorykiller/parameters/adj
@@ -426,7 +426,7 @@ static struct kobj_type mvpkmKType = {
  */
 #ifndef CONFIG_SYS_HYPERVISOR
 struct kobject *hypervisor_kobj;
-/* DISABLED: EXPORT_SYMBOL_GPL(hypervisor_kobj); */
+EXPORT_SYMBOL_GPL(hypervisor_kobj);
 #endif
 
 
@@ -508,7 +508,7 @@ Mvpkm_FindVMNamedKSet(int vmID,
 	kobject_put(kobj);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(Mvpkm_FindVMNamedKSet); */
+EXPORT_SYMBOL(Mvpkm_FindVMNamedKSet);
 
 
 

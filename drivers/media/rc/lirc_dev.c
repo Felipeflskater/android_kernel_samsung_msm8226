@@ -373,7 +373,7 @@ out_lock:
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_register_driver); */
+EXPORT_SYMBOL(lirc_register_driver);
 
 int lirc_unregister_driver(int minor)
 {
@@ -432,7 +432,7 @@ int lirc_unregister_driver(int minor)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_unregister_driver); */
+EXPORT_SYMBOL(lirc_unregister_driver);
 
 int lirc_dev_fop_open(struct inode *inode, struct file *file)
 {
@@ -493,7 +493,7 @@ error:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_open); */
+EXPORT_SYMBOL(lirc_dev_fop_open);
 
 int lirc_dev_fop_close(struct inode *inode, struct file *file)
 {
@@ -527,7 +527,7 @@ int lirc_dev_fop_close(struct inode *inode, struct file *file)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_close); */
+EXPORT_SYMBOL(lirc_dev_fop_close);
 
 unsigned int lirc_dev_fop_poll(struct file *file, poll_table *wait)
 {
@@ -559,7 +559,7 @@ unsigned int lirc_dev_fop_poll(struct file *file, poll_table *wait)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_poll); */
+EXPORT_SYMBOL(lirc_dev_fop_poll);
 
 long lirc_dev_fop_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
@@ -643,7 +643,7 @@ long lirc_dev_fop_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_ioctl); */
+EXPORT_SYMBOL(lirc_dev_fop_ioctl);
 
 ssize_t lirc_dev_fop_read(struct file *file,
 			  char __user *buffer,
@@ -748,7 +748,7 @@ out_unlocked:
 
 	return ret ? ret : written;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_read); */
+EXPORT_SYMBOL(lirc_dev_fop_read);
 
 void *lirc_get_pdata(struct file *file)
 {
@@ -763,7 +763,7 @@ void *lirc_get_pdata(struct file *file)
 
 	return data;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_get_pdata); */
+EXPORT_SYMBOL(lirc_get_pdata);
 
 
 ssize_t lirc_dev_fop_write(struct file *file, const char __user *buffer,
@@ -783,7 +783,7 @@ ssize_t lirc_dev_fop_write(struct file *file, const char __user *buffer,
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(lirc_dev_fop_write); */
+EXPORT_SYMBOL(lirc_dev_fop_write);
 
 
 static int __init lirc_dev_init(void)

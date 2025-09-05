@@ -24,7 +24,7 @@
 
 /* Module parameters */
 unsigned int lbtf_debug;
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_debug); */
+EXPORT_SYMBOL_GPL(lbtf_debug);
 module_param_named(libertas_tf_debug, lbtf_debug, int, 0644);
 
 static const char lbtf_driver_version[] = "THINFIRM-USB8388-" DRIVER_RELEASE_VERSION
@@ -606,7 +606,7 @@ int lbtf_rx(struct lbtf_private *priv, struct sk_buff *skb)
 	lbtf_deb_leave(LBTF_DEB_RX);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_rx); */
+EXPORT_SYMBOL_GPL(lbtf_rx);
 
 /**
  * lbtf_add_card: Add and initialize the card, no fw upload yet.
@@ -667,7 +667,7 @@ done:
 	lbtf_deb_leave_args(LBTF_DEB_MAIN, "priv %p", priv);
 	return priv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_add_card); */
+EXPORT_SYMBOL_GPL(lbtf_add_card);
 
 
 int lbtf_remove_card(struct lbtf_private *priv)
@@ -686,7 +686,7 @@ int lbtf_remove_card(struct lbtf_private *priv)
     lbtf_deb_leave(LBTF_DEB_MAIN);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_remove_card); */
+EXPORT_SYMBOL_GPL(lbtf_remove_card);
 
 void lbtf_send_tx_feedback(struct lbtf_private *priv, u8 retrycnt, u8 fail)
 {
@@ -709,7 +709,7 @@ void lbtf_send_tx_feedback(struct lbtf_private *priv, u8 retrycnt, u8 fail)
 	else
 		queue_work(lbtf_wq, &priv->tx_work);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_send_tx_feedback); */
+EXPORT_SYMBOL_GPL(lbtf_send_tx_feedback);
 
 void lbtf_bcn_sent(struct lbtf_private *priv)
 {
@@ -738,7 +738,7 @@ void lbtf_bcn_sent(struct lbtf_private *priv)
 		kfree_skb(skb);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lbtf_bcn_sent); */
+EXPORT_SYMBOL_GPL(lbtf_bcn_sent);
 
 static int __init lbtf_init_module(void)
 {

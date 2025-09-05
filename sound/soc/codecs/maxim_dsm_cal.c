@@ -97,7 +97,7 @@ struct regmap *maxdsm_cal_set_regmap(
 #endif /* CONFIG_SND_SOC_MAXIM_DSM && USE_DSM_LOG */
 	return g_mdc->regmap;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_set_regmap); */
+EXPORT_SYMBOL_GPL(maxdsm_cal_set_regmap);
 
 int maxdsm_cal_set_temp(uint32_t value)
 {
@@ -112,7 +112,7 @@ int maxdsm_cal_set_temp(uint32_t value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_set_temp); */
+EXPORT_SYMBOL_GPL(maxdsm_cal_set_temp);
 
 int maxdsm_cal_get_temp(uint32_t *value)
 {
@@ -129,7 +129,7 @@ int maxdsm_cal_get_temp(uint32_t *value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_get_temp); */
+EXPORT_SYMBOL_GPL(maxdsm_cal_get_temp);
 
 int maxdsm_cal_set_rdc(uint32_t value)
 {
@@ -144,7 +144,7 @@ int maxdsm_cal_set_rdc(uint32_t value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_set_rdc); */
+EXPORT_SYMBOL_GPL(maxdsm_cal_set_rdc);
 
 int maxdsm_cal_get_rdc(uint32_t *value)
 {
@@ -161,7 +161,7 @@ int maxdsm_cal_get_rdc(uint32_t *value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maxdsm_cal_get_rdc); */
+EXPORT_SYMBOL_GPL(maxdsm_cal_get_rdc);
 
 static int maxdsm_cal_regmap_write(struct regmap *regmap,
 		unsigned int reg,

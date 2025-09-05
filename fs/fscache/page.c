@@ -30,7 +30,7 @@ bool __fscache_check_page_write(struct fscache_cookie *cookie, struct page *page
 
 	return val != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_check_page_write); */
+EXPORT_SYMBOL(__fscache_check_page_write);
 
 /*
  * wait for a page to finish being written to the cache
@@ -41,7 +41,7 @@ void __fscache_wait_on_page_write(struct fscache_cookie *cookie, struct page *pa
 
 	wait_event(*wq, !__fscache_check_page_write(cookie, page));
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_wait_on_page_write); */
+EXPORT_SYMBOL(__fscache_wait_on_page_write);
 
 /*
  * decide whether a page can be released, possibly by cancelling a store to it
@@ -110,7 +110,7 @@ page_busy:
 	fscache_stat(&fscache_n_store_vmscan_busy);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_maybe_release_page); */
+EXPORT_SYMBOL(__fscache_maybe_release_page);
 
 /*
  * note that a page has finished being written to the cache
@@ -211,7 +211,7 @@ nobufs:
 	_leave(" = %d", -ENOBUFS);
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_attr_changed); */
+EXPORT_SYMBOL(__fscache_attr_changed);
 
 /*
  * release a retrieval op reference
@@ -433,7 +433,7 @@ nobufs:
 	_leave(" = -ENOBUFS");
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_read_or_alloc_page); */
+EXPORT_SYMBOL(__fscache_read_or_alloc_page);
 
 /*
  * read a list of page from the cache or allocate a block in which to store
@@ -549,7 +549,7 @@ nobufs:
 	_leave(" = -ENOBUFS");
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_read_or_alloc_pages); */
+EXPORT_SYMBOL(__fscache_read_or_alloc_pages);
 
 /*
  * allocate a block in the cache on which to store a page
@@ -629,7 +629,7 @@ nobufs:
 	_leave(" = -ENOBUFS");
 	return -ENOBUFS;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_alloc_page); */
+EXPORT_SYMBOL(__fscache_alloc_page);
 
 /*
  * release a write op reference
@@ -862,7 +862,7 @@ nomem:
 	_leave(" = -ENOMEM");
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_write_page); */
+EXPORT_SYMBOL(__fscache_write_page);
 
 /*
  * remove a page from the cache
@@ -912,7 +912,7 @@ done_unlock:
 done:
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_uncache_page); */
+EXPORT_SYMBOL(__fscache_uncache_page);
 
 /**
  * fscache_mark_pages_cached - Mark pages as being cached
@@ -953,7 +953,7 @@ void fscache_mark_pages_cached(struct fscache_retrieval *op,
 					       op->mapping, pagevec);
 	pagevec_reinit(pagevec);
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_mark_pages_cached); */
+EXPORT_SYMBOL(fscache_mark_pages_cached);
 
 /*
  * Uncache all the pages in an inode that are marked PG_fscache, assuming them
@@ -993,4 +993,4 @@ void __fscache_uncache_all_inode_pages(struct fscache_cookie *cookie,
 
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_uncache_all_inode_pages); */
+EXPORT_SYMBOL(__fscache_uncache_all_inode_pages);

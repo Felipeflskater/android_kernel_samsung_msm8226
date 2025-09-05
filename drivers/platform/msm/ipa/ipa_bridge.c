@@ -524,7 +524,7 @@ bail_ipa:
 	ipa_dec_client_disable_clks();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_bridge_setup); */
+EXPORT_SYMBOL(ipa_bridge_setup);
 
 /**
  * ipa_bridge_teardown() - teardown SW bridge leg
@@ -574,7 +574,7 @@ int ipa_bridge_teardown(enum ipa_bridge_dir dir, enum ipa_bridge_type type,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_bridge_teardown); */
+EXPORT_SYMBOL(ipa_bridge_teardown);
 
 bool ipa_emb_ul_pipes_empty(void)
 {
@@ -605,4 +605,4 @@ bool ipa_emb_ul_pipes_empty(void)
 
 	return emb_ipa_ul_empty && emb_ipa_to_dma_empty && emb_dma_to_a2_empty;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_emb_ul_pipes_empty); */
+EXPORT_SYMBOL(ipa_emb_ul_pipes_empty);

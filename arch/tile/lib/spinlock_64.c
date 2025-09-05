@@ -47,7 +47,7 @@ void arch_spin_lock_slow(arch_spinlock_t *lock, u32 my_ticket)
 		relax((128 / CYCLES_PER_RELAX_LOOP) * delta);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_lock_slow); */
+EXPORT_SYMBOL(arch_spin_lock_slow);
 
 /*
  * Check the lock to see if it is plausible, and try to get it with cmpxchg().
@@ -60,7 +60,7 @@ int arch_spin_trylock(arch_spinlock_t *lock)
 	return cmpxchg(&lock->lock, val, (val + 1) & ~__ARCH_SPIN_NEXT_OVERFLOW)
 		== val;
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_trylock); */
+EXPORT_SYMBOL(arch_spin_trylock);
 
 void arch_spin_unlock_wait(arch_spinlock_t *lock)
 {
@@ -68,7 +68,7 @@ void arch_spin_unlock_wait(arch_spinlock_t *lock)
 	while (arch_spin_is_locked(lock))
 		delay_backoff(iterations++);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_spin_unlock_wait); */
+EXPORT_SYMBOL(arch_spin_unlock_wait);
 
 /*
  * If the read lock fails due to a writer, we retry periodically
@@ -83,7 +83,7 @@ void __read_lock_failed(arch_rwlock_t *rw)
 		val = __insn_fetchaddgez4(&rw->lock, 1);
 	} while (unlikely(arch_write_val_locked(val)));
 }
-/* DISABLED: EXPORT_SYMBOL(__read_lock_failed); */
+EXPORT_SYMBOL(__read_lock_failed);
 
 /*
  * If we failed because there were readers, clear the "writer" bit
@@ -101,4 +101,4 @@ void __write_lock_failed(arch_rwlock_t *rw, u32 val)
 		val = __insn_fetchor4(&rw->lock, __WRITE_LOCK_BIT);
 	} while (val != 0);
 }
-/* DISABLED: EXPORT_SYMBOL(__write_lock_failed); */
+EXPORT_SYMBOL(__write_lock_failed);

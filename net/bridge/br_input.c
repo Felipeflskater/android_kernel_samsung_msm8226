@@ -24,7 +24,7 @@ const u8 br_group_address[ETH_ALEN] = { 0x01, 0x80, 0xc2, 0x00, 0x00, 0x00 };
 
 /* Hook for brouter */
 br_should_route_hook_t __rcu *br_should_route_hook __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(br_should_route_hook); */
+EXPORT_SYMBOL(br_should_route_hook);
 
 static int br_pass_frame_up(struct sk_buff *skb)
 {

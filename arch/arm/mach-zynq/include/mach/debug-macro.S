@@ -23,14 +23,14 @@
 		.endm
 
 		.macro	senduart,rd,rx
-		str	\rd, [\rx, @ UART_FIFO_OFFSET]	@ TXDATA
+		str	\rd, [\rx, #UART_FIFO_OFFSET]	@ TXDATA
 		.endm
 
 		.macro	waituart,rd,rx
 		.endm
 
 		.macro	busyuart,rd,rx
-1002:		ldr	\rd, [\rx, @ UART_SR_OFFSET]	@ get status register
-		tst	\rd, @ UART_SR_TXFULL		@
+1002:		ldr	\rd, [\rx, #UART_SR_OFFSET]	@ get status register
+		tst	\rd, #UART_SR_TXFULL		@
 		bne	1002b			@ wait if FIFO is full
 		.endm

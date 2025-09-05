@@ -1,4 +1,3 @@
-#include <linux/kernel_bool_fix.h>
 #include <linux/export.h>
 #include <linux/sched.h>
 #include <linux/personality.h>
@@ -37,7 +36,7 @@ int elf_check_arch(const struct elf32_hdr *x)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(elf_check_arch); */
+EXPORT_SYMBOL(elf_check_arch);
 
 void elf_set_personality(const struct elf32_hdr *x)
 {
@@ -74,7 +73,7 @@ void elf_set_personality(const struct elf32_hdr *x)
 		clear_thread_flag(TIF_USING_IWMMXT);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(elf_set_personality); */
+EXPORT_SYMBOL(elf_set_personality);
 
 /*
  * Set READ_IMPLIES_EXEC if:
@@ -89,4 +88,4 @@ int arm_elf_read_implies_exec(const struct elf32_hdr *x, int executable_stack)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(arm_elf_read_implies_exec); */
+EXPORT_SYMBOL(arm_elf_read_implies_exec);

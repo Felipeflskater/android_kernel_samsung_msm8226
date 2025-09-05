@@ -285,7 +285,7 @@ int mac_vmode_to_var(int vmode, int cmode, struct fb_var_screeninfo *var)
     var->vmode = mode->vmode;
     return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mac_vmode_to_var); */
+EXPORT_SYMBOL(mac_vmode_to_var);
 
 /**
  *	mac_var_to_vmode - convert var structure to MacOS vmode/cmode pair
@@ -373,7 +373,7 @@ int mac_map_monitor_sense(int sense)
 	    break;
     return map->vmode;
 }
-/* DISABLED: EXPORT_SYMBOL(mac_map_monitor_sense); */
+EXPORT_SYMBOL(mac_map_monitor_sense);
 
 /**
  *	mac_find_mode - find a video mode
@@ -409,6 +409,6 @@ int mac_find_mode(struct fb_var_screeninfo *var, struct fb_info *info,
     return fb_find_mode(var, info, mode_option, db, dbsize,
 			&mac_modedb[DEFAULT_MODEDB_INDEX], default_bpp);
 }
-/* DISABLED: EXPORT_SYMBOL(mac_find_mode); */
+EXPORT_SYMBOL(mac_find_mode);
 
 MODULE_LICENSE("GPL");

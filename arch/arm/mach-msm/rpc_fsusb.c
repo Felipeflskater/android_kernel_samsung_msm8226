@@ -83,7 +83,7 @@ int msm_fsusb_init_phy(void)
 			msm_fsusb_rpc_arg, &data,
 			NULL, NULL, -1);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_init_phy); */
+EXPORT_SYMBOL(msm_fsusb_init_phy);
 
 int msm_fsusb_reset_phy(void)
 {
@@ -93,7 +93,7 @@ int msm_fsusb_reset_phy(void)
 			NULL, NULL, -1);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_reset_phy); */
+EXPORT_SYMBOL(msm_fsusb_reset_phy);
 
 int msm_fsusb_suspend_phy(void)
 {
@@ -103,7 +103,7 @@ int msm_fsusb_suspend_phy(void)
 			NULL, NULL, -1);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_suspend_phy); */
+EXPORT_SYMBOL(msm_fsusb_suspend_phy);
 
 int msm_fsusb_resume_phy(void)
 {
@@ -113,7 +113,7 @@ int msm_fsusb_resume_phy(void)
 			NULL, NULL, -1);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_resume_phy); */
+EXPORT_SYMBOL(msm_fsusb_resume_phy);
 
 int msm_fsusb_remote_dev_disconnected(void)
 {
@@ -123,7 +123,7 @@ int msm_fsusb_remote_dev_disconnected(void)
 			NULL, NULL, -1);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_remote_dev_disconnected); */
+EXPORT_SYMBOL(msm_fsusb_remote_dev_disconnected);
 
 int  msm_fsusb_set_remote_wakeup(void)
 {
@@ -135,7 +135,7 @@ int  msm_fsusb_set_remote_wakeup(void)
 			NULL, NULL, -1);
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_set_remote_wakeup); */
+EXPORT_SYMBOL(msm_fsusb_set_remote_wakeup);
 
 static int msm_fsusb_acquire_bus(void)
 {
@@ -235,10 +235,10 @@ int msm_fsusb_rpc_init(struct msm_otg_ops *ops)
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_rpc_init); */
+EXPORT_SYMBOL(msm_fsusb_rpc_init);
 
 void msm_fsusb_rpc_deinit(void)
 {
 	msm_rpc_unregister_client(client);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fsusb_rpc_deinit); */
+EXPORT_SYMBOL(msm_fsusb_rpc_deinit);

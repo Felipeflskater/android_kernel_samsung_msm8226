@@ -288,7 +288,7 @@ void *msm_smp2p_init_rmt_lpb_proc(int remote_pid)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smp2p_init_rmt_lpb_proc); */
+EXPORT_SYMBOL(msm_smp2p_init_rmt_lpb_proc);
 
 /**
  * msm_smp2p_deinit_rmt_lpb_proc - Unregister support for remote processor.
@@ -333,7 +333,7 @@ int msm_smp2p_deinit_rmt_lpb_proc(int remote_pid)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smp2p_deinit_rmt_lpb_proc); */
+EXPORT_SYMBOL(msm_smp2p_deinit_rmt_lpb_proc);
 
 /**
  * msm_smp2p_set_remote_mock_exists - Sets the remote mock configuration.
@@ -347,7 +347,7 @@ void msm_smp2p_set_remote_mock_exists(bool item_exists)
 {
 	remote_mock.item_exists = item_exists;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smp2p_set_remote_mock_exists); */
+EXPORT_SYMBOL(msm_smp2p_set_remote_mock_exists);
 
 /**
  * msm_smp2p_get_remote_mock - Get remote mock object.
@@ -358,7 +358,7 @@ void *msm_smp2p_get_remote_mock(void)
 {
 	return &remote_mock;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smp2p_get_remote_mock); */
+EXPORT_SYMBOL(msm_smp2p_get_remote_mock);
 
 /**
  * msm_smp2p_get_remote_mock_smem_item - Returns a pointer to remote item.
@@ -376,7 +376,7 @@ void *msm_smp2p_get_remote_mock_smem_item(uint32_t *size)
 
 	return ptr;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_smp2p_get_remote_mock_smem_item); */
+EXPORT_SYMBOL(msm_smp2p_get_remote_mock_smem_item);
 
 /**
  * smp2p_remote_mock_rx_interrupt - Triggers receive interrupt for mock proc.
@@ -393,7 +393,7 @@ int smp2p_remote_mock_rx_interrupt(void)
 		complete(&remote_mock.cb_completion);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(smp2p_remote_mock_rx_interrupt); */
+EXPORT_SYMBOL(smp2p_remote_mock_rx_interrupt);
 
 /**
  * smp2p_remote_mock_tx_interrupt - Calls the SMP2P interrupt handler.

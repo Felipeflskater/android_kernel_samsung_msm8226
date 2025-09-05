@@ -1497,7 +1497,7 @@ void dvb_net_release (struct dvb_net *dvbnet)
 		dvb_net_remove_if(dvbnet, i);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_net_release); */
+EXPORT_SYMBOL(dvb_net_release);
 
 
 int dvb_net_init (struct dvb_adapter *adap, struct dvb_net *dvbnet,
@@ -1513,4 +1513,4 @@ int dvb_net_init (struct dvb_adapter *adap, struct dvb_net *dvbnet,
 	return dvb_register_device(adap, &dvbnet->dvbdev, &dvbdev_net,
 			     dvbnet, DVB_DEVICE_NET);
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_net_init); */
+EXPORT_SYMBOL(dvb_net_init);

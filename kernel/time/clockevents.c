@@ -89,7 +89,7 @@ u64 clockevent_delta2ns(unsigned long latch, struct clock_event_device *evt)
 {
 	return cev_delta2ns(latch, evt, false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clockevent_delta2ns); */
+EXPORT_SYMBOL_GPL(clockevent_delta2ns);
 
 /**
  * clockevents_set_mode - set the operating mode of a clock event device
@@ -332,7 +332,7 @@ void clockevents_register_device(struct clock_event_device *dev)
 
 	raw_spin_unlock_irqrestore(&clockevents_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clockevents_register_device); */
+EXPORT_SYMBOL_GPL(clockevents_register_device);
 
 static void clockevents_config(struct clock_event_device *dev,
 			       u32 freq)
@@ -474,5 +474,5 @@ void clockevents_notify(unsigned long reason, void *arg)
 	}
 	raw_spin_unlock_irqrestore(&clockevents_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clockevents_notify); */
+EXPORT_SYMBOL_GPL(clockevents_notify);
 #endif

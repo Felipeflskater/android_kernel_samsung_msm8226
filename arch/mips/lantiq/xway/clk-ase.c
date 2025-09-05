@@ -24,13 +24,13 @@ unsigned int ltq_get_io_region_clock(void)
 {
 	return CLOCK_133M;
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_get_io_region_clock); */
+EXPORT_SYMBOL(ltq_get_io_region_clock);
 
 unsigned int ltq_get_fpi_bus_clock(int fpi)
 {
 	return CLOCK_133M;
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_get_fpi_bus_clock); */
+EXPORT_SYMBOL(ltq_get_fpi_bus_clock);
 
 unsigned int ltq_get_cpu_hz(void)
 {
@@ -39,10 +39,10 @@ unsigned int ltq_get_cpu_hz(void)
 	else
 		return CLOCK_133M;
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_get_cpu_hz); */
+EXPORT_SYMBOL(ltq_get_cpu_hz);
 
 unsigned int ltq_get_fpi_hz(void)
 {
 	return CLOCK_133M;
 }
-/* DISABLED: EXPORT_SYMBOL(ltq_get_fpi_hz); */
+EXPORT_SYMBOL(ltq_get_fpi_hz);

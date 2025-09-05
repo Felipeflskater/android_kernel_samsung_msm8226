@@ -286,7 +286,7 @@ int smu_queue_cmd(struct smu_cmd *cmd)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(smu_queue_cmd); */
+EXPORT_SYMBOL(smu_queue_cmd);
 
 
 int smu_queue_simple(struct smu_simple_cmd *scmd, u8 command,
@@ -317,7 +317,7 @@ int smu_queue_simple(struct smu_simple_cmd *scmd, u8 command,
 
 	return smu_queue_cmd(cmd);
 }
-/* DISABLED: EXPORT_SYMBOL(smu_queue_simple); */
+EXPORT_SYMBOL(smu_queue_simple);
 
 
 void smu_poll(void)
@@ -331,7 +331,7 @@ void smu_poll(void)
 	if ((gpio & 7) == 7)
 		smu_db_intr(smu->db_irq, smu);
 }
-/* DISABLED: EXPORT_SYMBOL(smu_poll); */
+EXPORT_SYMBOL(smu_poll);
 
 
 void smu_done_complete(struct smu_cmd *cmd, void *misc)
@@ -340,7 +340,7 @@ void smu_done_complete(struct smu_cmd *cmd, void *misc)
 
 	complete(comp);
 }
-/* DISABLED: EXPORT_SYMBOL(smu_done_complete); */
+EXPORT_SYMBOL(smu_done_complete);
 
 
 void smu_spinwait_cmd(struct smu_cmd *cmd)
@@ -348,7 +348,7 @@ void smu_spinwait_cmd(struct smu_cmd *cmd)
 	while(cmd->status == 1)
 		smu_poll();
 }
-/* DISABLED: EXPORT_SYMBOL(smu_spinwait_cmd); */
+EXPORT_SYMBOL(smu_spinwait_cmd);
 
 
 /* RTC low level commands */
@@ -468,7 +468,7 @@ int smu_present(void)
 {
 	return smu != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(smu_present); */
+EXPORT_SYMBOL(smu_present);
 
 
 int __init smu_init (void)
@@ -697,7 +697,7 @@ struct platform_device *smu_get_ofdev(void)
 	return smu->of_dev;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(smu_get_ofdev); */
+EXPORT_SYMBOL_GPL(smu_get_ofdev);
 
 /*
  * i2c interface
@@ -1049,7 +1049,7 @@ const struct smu_sdbp_header *smu_get_sdb_partition(int id, unsigned int *size)
 {
 	return __smu_get_sdb_partition(id, size, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(smu_get_sdb_partition); */
+EXPORT_SYMBOL(smu_get_sdb_partition);
 
 
 /*

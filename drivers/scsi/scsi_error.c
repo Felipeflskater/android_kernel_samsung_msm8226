@@ -86,7 +86,7 @@ void scsi_schedule_eh(struct Scsi_Host *shost)
 
 	spin_unlock_irqrestore(shost->host_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_schedule_eh); */
+EXPORT_SYMBOL_GPL(scsi_schedule_eh);
 
 /**
  * scsi_eh_scmd_add - add scsi cmd to error handling.
@@ -177,7 +177,7 @@ int scsi_block_when_processing_errors(struct scsi_device *sdev)
 
 	return online;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_block_when_processing_errors); */
+EXPORT_SYMBOL(scsi_block_when_processing_errors);
 
 #ifdef CONFIG_SCSI_LOGGING
 /**
@@ -746,7 +746,7 @@ void scsi_eh_prep_cmnd(struct scsi_cmnd *scmd, struct scsi_eh_save *ses,
 	 */
 	memset(scmd->sense_buffer, 0, SCSI_SENSE_BUFFERSIZE);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_eh_prep_cmnd); */
+EXPORT_SYMBOL(scsi_eh_prep_cmnd);
 
 /**
  * scsi_eh_restore_cmnd  - Restore a scsi command info as part of error recory
@@ -769,7 +769,7 @@ void scsi_eh_restore_cmnd(struct scsi_cmnd* scmd, struct scsi_eh_save *ses)
 	scmd->underflow = ses->underflow;
 	scmd->prot_op = ses->prot_op;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_eh_restore_cmnd); */
+EXPORT_SYMBOL(scsi_eh_restore_cmnd);
 
 /**
  * scsi_send_eh_cmnd  - submit a scsi command as part of error recory
@@ -883,7 +883,7 @@ void scsi_eh_finish_cmd(struct scsi_cmnd *scmd, struct list_head *done_q)
 	scmd->eh_eflags = 0;
 	list_move_tail(&scmd->eh_entry, done_q);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_eh_finish_cmd); */
+EXPORT_SYMBOL(scsi_eh_finish_cmd);
 
 /**
  * scsi_eh_get_sense - Get device sense data.
@@ -957,7 +957,7 @@ int scsi_eh_get_sense(struct list_head *work_q,
 
 	return list_empty(work_q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_eh_get_sense); */
+EXPORT_SYMBOL_GPL(scsi_eh_get_sense);
 
 /**
  * scsi_eh_tur - Send TUR to device.
@@ -1743,7 +1743,7 @@ void scsi_eh_ready_devs(struct Scsi_Host *shost,
 						scsi_eh_offline_sdevs(work_q,
 								      done_q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_eh_ready_devs); */
+EXPORT_SYMBOL_GPL(scsi_eh_ready_devs);
 
 /**
  * scsi_eh_flush_done_q - finish processed commands or retry them.
@@ -1778,7 +1778,7 @@ void scsi_eh_flush_done_q(struct list_head *done_q)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_eh_flush_done_q); */
+EXPORT_SYMBOL(scsi_eh_flush_done_q);
 
 /**
  * scsi_unjam_host - Attempt to fix a host which has a cmd that failed.
@@ -1925,7 +1925,7 @@ void scsi_report_bus_reset(struct Scsi_Host *shost, int channel)
 			__scsi_report_device_reset(sdev, NULL);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_report_bus_reset); */
+EXPORT_SYMBOL(scsi_report_bus_reset);
 
 /*
  * Function:    scsi_report_device_reset()
@@ -1959,7 +1959,7 @@ void scsi_report_device_reset(struct Scsi_Host *shost, int channel, int target)
 			__scsi_report_device_reset(sdev, NULL);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_report_device_reset); */
+EXPORT_SYMBOL(scsi_report_device_reset);
 
 static void
 scsi_reset_provider_done_command(struct scsi_cmnd *scmd)
@@ -2051,7 +2051,7 @@ scsi_reset_provider(struct scsi_device *dev, int flag)
 	scsi_autopm_put_host(shost);
 	return rtn;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_reset_provider); */
+EXPORT_SYMBOL(scsi_reset_provider);
 
 /**
  * scsi_normalize_sense - normalize main elements from either fixed or
@@ -2115,7 +2115,7 @@ int scsi_normalize_sense(const u8 *sense_buffer, int sb_len,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_normalize_sense); */
+EXPORT_SYMBOL(scsi_normalize_sense);
 
 int scsi_command_normalize_sense(struct scsi_cmnd *cmd,
 				 struct scsi_sense_hdr *sshdr)
@@ -2123,7 +2123,7 @@ int scsi_command_normalize_sense(struct scsi_cmnd *cmd,
 	return scsi_normalize_sense(cmd->sense_buffer,
 			SCSI_SENSE_BUFFERSIZE, sshdr);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_command_normalize_sense); */
+EXPORT_SYMBOL(scsi_command_normalize_sense);
 
 /**
  * scsi_sense_desc_find - search for a given descriptor type in	descriptor sense data format.
@@ -2162,7 +2162,7 @@ const u8 * scsi_sense_desc_find(const u8 * sense_buffer, int sb_len,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_sense_desc_find); */
+EXPORT_SYMBOL(scsi_sense_desc_find);
 
 /**
  * scsi_get_sense_info_fld - get information field from sense data (either fixed or descriptor format)
@@ -2212,7 +2212,7 @@ int scsi_get_sense_info_fld(const u8 * sense_buffer, int sb_len,
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_get_sense_info_fld); */
+EXPORT_SYMBOL(scsi_get_sense_info_fld);
 
 /**
  * scsi_build_sense_buffer - build sense data in a buffer
@@ -2240,4 +2240,4 @@ void scsi_build_sense_buffer(int desc, u8 *buf, u8 key, u8 asc, u8 ascq)
 		buf[13] = ascq;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_build_sense_buffer); */
+EXPORT_SYMBOL(scsi_build_sense_buffer);

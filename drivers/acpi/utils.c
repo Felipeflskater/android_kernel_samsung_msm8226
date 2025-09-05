@@ -254,7 +254,7 @@ acpi_extract_package(union acpi_object *package,
 	return AE_OK;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_extract_package); */
+EXPORT_SYMBOL(acpi_extract_package);
 
 acpi_status
 acpi_evaluate_integer(acpi_handle handle,
@@ -288,7 +288,7 @@ acpi_evaluate_integer(acpi_handle handle,
 	return AE_OK;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_evaluate_integer); */
+EXPORT_SYMBOL(acpi_evaluate_integer);
 
 acpi_status
 acpi_evaluate_reference(acpi_handle handle,
@@ -381,4 +381,4 @@ acpi_evaluate_reference(acpi_handle handle,
 	return status;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_evaluate_reference); */
+EXPORT_SYMBOL(acpi_evaluate_reference);

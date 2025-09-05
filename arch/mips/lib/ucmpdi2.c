@@ -18,4 +18,4 @@ word_type __ucmpdi2(unsigned long long a, unsigned long long b)
 	return 1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__ucmpdi2); */
+EXPORT_SYMBOL(__ucmpdi2);

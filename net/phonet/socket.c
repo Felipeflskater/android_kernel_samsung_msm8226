@@ -150,7 +150,7 @@ void pn_sock_hash(struct sock *sk)
 	sk_add_node_rcu(sk, hlist);
 	mutex_unlock(&pnsocks.lock);
 }
-/* DISABLED: EXPORT_SYMBOL(pn_sock_hash); */
+EXPORT_SYMBOL(pn_sock_hash);
 
 void pn_sock_unhash(struct sock *sk)
 {
@@ -160,7 +160,7 @@ void pn_sock_unhash(struct sock *sk)
 	pn_sock_unbind_all_res(sk);
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL(pn_sock_unhash); */
+EXPORT_SYMBOL(pn_sock_unhash);
 
 static DEFINE_MUTEX(port_mutex);
 
@@ -487,7 +487,7 @@ const struct proto_ops phonet_stream_ops = {
 	.mmap		= sock_no_mmap,
 	.sendpage	= sock_no_sendpage,
 };
-/* DISABLED: EXPORT_SYMBOL(phonet_stream_ops); */
+EXPORT_SYMBOL(phonet_stream_ops);
 
 /* allocate port for a socket */
 int pn_sock_get_port(struct sock *sk, unsigned short sport)
@@ -536,7 +536,7 @@ found:
 	pn->sobject = pn_object(pn_addr(pn->sobject), sport);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pn_sock_get_port); */
+EXPORT_SYMBOL(pn_sock_get_port);
 
 #ifdef CONFIG_PROC_FS
 static struct sock *pn_sock_get_idx(struct seq_file *seq, loff_t pos)

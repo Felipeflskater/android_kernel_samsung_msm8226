@@ -339,7 +339,7 @@ ip_vs_conn_in_get_proto(int af, const struct sk_buff *skb,
 
 	return ip_vs_conn_in_get(&p);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_vs_conn_in_get_proto); */
+EXPORT_SYMBOL_GPL(ip_vs_conn_in_get_proto);
 
 /* Get reference to connection template */
 struct ip_vs_conn *ip_vs_ct_in_get(const struct ip_vs_conn_param *p)
@@ -442,7 +442,7 @@ ip_vs_conn_out_get_proto(int af, const struct sk_buff *skb,
 
 	return ip_vs_conn_out_get(&p);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_vs_conn_out_get_proto); */
+EXPORT_SYMBOL_GPL(ip_vs_conn_out_get_proto);
 
 /*
  *      Put back the conn and restart its timer with its timeout
@@ -1302,7 +1302,7 @@ int __init ip_vs_conn_init(void)
 		"(size=%d, memory=%ldKbytes)\n",
 		ip_vs_conn_tab_size,
 		(long)(ip_vs_conn_tab_size*sizeof(struct list_head))/1024);
-	IP_VS_DBG(0, "Each connection entry needs %zd bytes at least\n",
+	IP_VS_DBG(0, "Each connection entry needs %Zd bytes at least\n",
 		  sizeof(struct ip_vs_conn));
 
 	for (idx = 0; idx < ip_vs_conn_tab_size; idx++)

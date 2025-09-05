@@ -90,7 +90,7 @@ error_out:
 	kfree(*buf);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_buffer_alloc); */
+EXPORT_SYMBOL(drm_buffer_alloc);
 
 /**
  * Copy the user data to the begin of the buffer and reset the processing
@@ -127,7 +127,7 @@ int drm_buffer_copy_from_user(struct drm_buffer *buf,
 	buf->iterator = 0;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_buffer_copy_from_user); */
+EXPORT_SYMBOL(drm_buffer_copy_from_user);
 
 /**
  * Free the drm buffer object
@@ -145,7 +145,7 @@ void drm_buffer_free(struct drm_buffer *buf)
 		kfree(buf);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_buffer_free); */
+EXPORT_SYMBOL(drm_buffer_free);
 
 /**
  * Read an object from buffer that may be split to multiple parts. If object
@@ -182,4 +182,4 @@ void *drm_buffer_read_object(struct drm_buffer *buf,
 	drm_buffer_advance(buf, objsize);
 	return obj;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_buffer_read_object); */
+EXPORT_SYMBOL(drm_buffer_read_object);

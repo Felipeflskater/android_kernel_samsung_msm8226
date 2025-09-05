@@ -567,6 +567,6 @@ MODULE_LICENSE("GPL");
 module_param(debug, bool, 0644);
 MODULE_PARM_DESC(debug, "Debugging mode enabled or not");
 
-/* DISABLED: EXPORT_SYMBOL_GPL(__pci_hp_register); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_hp_deregister); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_hp_change_slot_info); */
+EXPORT_SYMBOL_GPL(__pci_hp_register);
+EXPORT_SYMBOL_GPL(pci_hp_deregister);
+EXPORT_SYMBOL_GPL(pci_hp_change_slot_info);

@@ -76,7 +76,7 @@ int soft_cursor(struct fb_info *info, struct fb_cursor *cursor)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(soft_cursor); */
+EXPORT_SYMBOL(soft_cursor);
 
 MODULE_AUTHOR("James Simmons <jsimmons@users.sf.net>");
 MODULE_DESCRIPTION("Generic software cursor");

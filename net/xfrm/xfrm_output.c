@@ -136,7 +136,7 @@ int xfrm_output_resume(struct sk_buff *skb, int err)
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_output_resume); */
+EXPORT_SYMBOL_GPL(xfrm_output_resume);
 
 static int xfrm_output2(struct sk_buff *skb)
 {
@@ -210,5 +210,5 @@ int xfrm_inner_extract_output(struct xfrm_state *x, struct sk_buff *skb)
 	return inner_mode->afinfo->extract_output(x, skb);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_output); */
-/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_inner_extract_output); */
+EXPORT_SYMBOL_GPL(xfrm_output);
+EXPORT_SYMBOL_GPL(xfrm_inner_extract_output);

@@ -165,13 +165,13 @@ void lock_flocks(void)
 {
 	spin_lock(&file_lock_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_flocks); */
+EXPORT_SYMBOL_GPL(lock_flocks);
 
 void unlock_flocks(void)
 {
 	spin_unlock(&file_lock_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unlock_flocks); */
+EXPORT_SYMBOL_GPL(unlock_flocks);
 
 static struct kmem_cache *filelock_cache __read_mostly;
 
@@ -192,7 +192,7 @@ struct file_lock *locks_alloc_lock(void)
 
 	return fl;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(locks_alloc_lock); */
+EXPORT_SYMBOL_GPL(locks_alloc_lock);
 
 void locks_release_private(struct file_lock *fl)
 {
@@ -208,7 +208,7 @@ void locks_release_private(struct file_lock *fl)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(locks_release_private); */
+EXPORT_SYMBOL_GPL(locks_release_private);
 
 /* Free a lock which is not in use. */
 void locks_free_lock(struct file_lock *fl)
@@ -220,7 +220,7 @@ void locks_free_lock(struct file_lock *fl)
 	locks_release_private(fl);
 	kmem_cache_free(filelock_cache, fl);
 }
-/* DISABLED: EXPORT_SYMBOL(locks_free_lock); */
+EXPORT_SYMBOL(locks_free_lock);
 
 void locks_init_lock(struct file_lock *fl)
 {
@@ -228,7 +228,7 @@ void locks_init_lock(struct file_lock *fl)
 	locks_init_lock_heads(fl);
 }
 
-/* DISABLED: EXPORT_SYMBOL(locks_init_lock); */
+EXPORT_SYMBOL(locks_init_lock);
 
 static void locks_copy_private(struct file_lock *new, struct file_lock *fl)
 {
@@ -256,7 +256,7 @@ void __locks_copy_lock(struct file_lock *new, const struct file_lock *fl)
 	new->fl_ops = NULL;
 	new->fl_lmops = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__locks_copy_lock); */
+EXPORT_SYMBOL(__locks_copy_lock);
 
 void locks_copy_lock(struct file_lock *new, struct file_lock *fl)
 {
@@ -270,7 +270,7 @@ void locks_copy_lock(struct file_lock *new, struct file_lock *fl)
 	locks_copy_private(new, fl);
 }
 
-/* DISABLED: EXPORT_SYMBOL(locks_copy_lock); */
+EXPORT_SYMBOL(locks_copy_lock);
 
 static inline int flock_translate_cmd(int cmd) {
 	if (cmd & LOCK_MAND)
@@ -517,7 +517,7 @@ void locks_delete_block(struct file_lock *waiter)
 	__locks_delete_block(waiter);
 	unlock_flocks();
 }
-/* DISABLED: EXPORT_SYMBOL(locks_delete_block); */
+EXPORT_SYMBOL(locks_delete_block);
 
 /* Insert waiter into blocker's block list.
  * We use a circular list so that processes can be easily woken up in
@@ -663,7 +663,7 @@ posix_test_lock(struct file *filp, struct file_lock *fl)
 	unlock_flocks();
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(posix_test_lock); */
+EXPORT_SYMBOL(posix_test_lock);
 
 /*
  * Deadlock detection:
@@ -1025,7 +1025,7 @@ int posix_lock_file(struct file *filp, struct file_lock *fl,
 {
 	return __posix_lock_file(filp->f_path.dentry->d_inode, fl, conflock);
 }
-/* DISABLED: EXPORT_SYMBOL(posix_lock_file); */
+EXPORT_SYMBOL(posix_lock_file);
 
 /**
  * posix_lock_file_wait - Apply a POSIX-style lock to a file
@@ -1053,7 +1053,7 @@ int posix_lock_file_wait(struct file *filp, struct file_lock *fl)
 	}
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(posix_lock_file_wait); */
+EXPORT_SYMBOL(posix_lock_file_wait);
 
 /**
  * locks_mandatory_locked - Check for an active lock
@@ -1133,7 +1133,7 @@ int locks_mandatory_area(int read_write, struct inode *inode,
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(locks_mandatory_area); */
+EXPORT_SYMBOL(locks_mandatory_area);
 
 static void lease_clear_pending(struct file_lock *fl, int arg)
 {
@@ -1161,7 +1161,7 @@ int lease_modify(struct file_lock **before, int arg)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(lease_modify); */
+EXPORT_SYMBOL(lease_modify);
 
 static bool past_time(unsigned long then)
 {
@@ -1285,7 +1285,7 @@ out:
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__break_lease); */
+EXPORT_SYMBOL(__break_lease);
 
 /**
  *	lease_get_mtime - get the last modified time of an inode
@@ -1305,7 +1305,7 @@ void lease_get_mtime(struct inode *inode, struct timespec *time)
 		*time = inode->i_mtime;
 }
 
-/* DISABLED: EXPORT_SYMBOL(lease_get_mtime); */
+EXPORT_SYMBOL(lease_get_mtime);
 
 /**
  *	fcntl_getlease - Enquire what lease is currently active
@@ -1468,7 +1468,7 @@ int generic_setlease(struct file *filp, long arg, struct file_lock **flp)
 		return -EINVAL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(generic_setlease); */
+EXPORT_SYMBOL(generic_setlease);
 
 static int __vfs_setlease(struct file *filp, long arg, struct file_lock **lease)
 {
@@ -1515,7 +1515,7 @@ int vfs_setlease(struct file *filp, long arg, struct file_lock **lease)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vfs_setlease); */
+EXPORT_SYMBOL_GPL(vfs_setlease);
 
 static int do_fcntl_delete_lease(struct file *filp)
 {
@@ -1612,7 +1612,7 @@ int flock_lock_file_wait(struct file *filp, struct file_lock *fl)
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(flock_lock_file_wait); */
+EXPORT_SYMBOL(flock_lock_file_wait);
 
 /**
  *	sys_flock: - flock() system call.
@@ -1694,7 +1694,7 @@ int vfs_test_lock(struct file *filp, struct file_lock *fl)
 	posix_test_lock(filp, fl);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vfs_test_lock); */
+EXPORT_SYMBOL_GPL(vfs_test_lock);
 
 static int posix_lock_to_flock(struct flock *flock, struct file_lock *fl)
 {
@@ -1812,7 +1812,7 @@ int vfs_lock_file(struct file *filp, unsigned int cmd, struct file_lock *fl, str
 	else
 		return posix_lock_file(filp, fl, conf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vfs_lock_file); */
+EXPORT_SYMBOL_GPL(vfs_lock_file);
 
 static int do_lock_file_wait(struct file *filp, unsigned int cmd,
 			     struct file_lock *fl)
@@ -2104,7 +2104,7 @@ void locks_remove_posix(struct file *filp, fl_owner_t owner)
 		lock.fl_ops->fl_release_private(&lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(locks_remove_posix); */
+EXPORT_SYMBOL(locks_remove_posix);
 
 /*
  * This function is called on the last close of an open file.
@@ -2175,7 +2175,7 @@ posix_unblock_lock(struct file *filp, struct file_lock *waiter)
 	return status;
 }
 
-/* DISABLED: EXPORT_SYMBOL(posix_unblock_lock); */
+EXPORT_SYMBOL(posix_unblock_lock);
 
 /**
  * vfs_cancel_lock - file byte range unblock lock
@@ -2191,7 +2191,7 @@ int vfs_cancel_lock(struct file *filp, struct file_lock *fl)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vfs_cancel_lock); */
+EXPORT_SYMBOL_GPL(vfs_cancel_lock);
 
 #ifdef CONFIG_PROC_FS
 #include <linux/proc_fs.h>
@@ -2374,7 +2374,7 @@ int lock_may_read(struct inode *inode, loff_t start, unsigned long len)
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(lock_may_read); */
+EXPORT_SYMBOL(lock_may_read);
 
 /**
  *	lock_may_write - checks that the region is free of locks
@@ -2412,7 +2412,7 @@ int lock_may_write(struct inode *inode, loff_t start, unsigned long len)
 	return result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(lock_may_write); */
+EXPORT_SYMBOL(lock_may_write);
 
 static int __init filelock_init(void)
 {

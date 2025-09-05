@@ -298,7 +298,7 @@ void FN_11_inthandler(struct rmi_function_info *rmifninfo,
 	input_sync(function_device->input); /* sync after groups of events */
 
 }
-/* DISABLED: EXPORT_SYMBOL(FN_11_inthandler); */
+EXPORT_SYMBOL(FN_11_inthandler);
 
 /* This function reads in relative data for first finger and send to input system */
 static void FN_11_relreport(struct rmi_function_info *rmifninfo)
@@ -420,7 +420,7 @@ int FN_11_config(struct rmi_function_info *rmifninfo)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_11_config); */
+EXPORT_SYMBOL(FN_11_config);
 
 /* This operation is done in a number of places, so we have a handy routine
  * for it.
@@ -560,7 +560,7 @@ int FN_11_init(struct rmi_function_device *function_device)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_11_init); */
+EXPORT_SYMBOL(FN_11_init);
 
 int FN_11_detect(struct rmi_function_info *rmifninfo,
 	struct rmi_function_descriptor *fndescr, unsigned int interruptCount)
@@ -746,7 +746,7 @@ int FN_11_detect(struct rmi_function_info *rmifninfo,
 	printk(KERN_DEBUG "%s: Max X %d Max Y %d", __func__, instanceData->controlRegisters->sensorMaxXPos, instanceData->controlRegisters->sensorMaxYPos);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_11_detect); */
+EXPORT_SYMBOL(FN_11_detect);
 
 static ssize_t rmi_fn_11_maxPos_show(struct device *dev,
 				struct device_attribute *attr, char *buf)

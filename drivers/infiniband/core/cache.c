@@ -94,7 +94,7 @@ int ib_get_cached_gid(struct ib_device *device,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_get_cached_gid); */
+EXPORT_SYMBOL(ib_get_cached_gid);
 
 int ib_find_cached_gid(struct ib_device *device,
 		       union ib_gid	*gid,
@@ -129,7 +129,7 @@ found:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_find_cached_gid); */
+EXPORT_SYMBOL(ib_find_cached_gid);
 
 int ib_get_cached_pkey(struct ib_device *device,
 		       u8                port_num,
@@ -156,7 +156,7 @@ int ib_get_cached_pkey(struct ib_device *device,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_get_cached_pkey); */
+EXPORT_SYMBOL(ib_get_cached_pkey);
 
 int ib_find_cached_pkey(struct ib_device *device,
 			u8                port_num,
@@ -188,7 +188,7 @@ int ib_find_cached_pkey(struct ib_device *device,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_find_cached_pkey); */
+EXPORT_SYMBOL(ib_find_cached_pkey);
 
 int ib_get_cached_lmc(struct ib_device *device,
 		      u8                port_num,
@@ -206,7 +206,7 @@ int ib_get_cached_lmc(struct ib_device *device,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_get_cached_lmc); */
+EXPORT_SYMBOL(ib_get_cached_lmc);
 
 static void ib_cache_update(struct ib_device *device,
 			    u8                port)

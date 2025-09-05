@@ -304,7 +304,7 @@ err_map:
 err:
 	return ERR_PTR(ret);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_init); */
+EXPORT_SYMBOL_GPL(regmap_init);
 
 static void devm_regmap_release(struct device *dev, void *res)
 {
@@ -343,7 +343,7 @@ struct regmap *devm_regmap_init(struct device *dev,
 
 	return regmap;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(devm_regmap_init); */
+EXPORT_SYMBOL_GPL(devm_regmap_init);
 
 /**
  * regmap_reinit_cache(): Reinitialise the current register cache
@@ -394,7 +394,7 @@ void regmap_exit(struct regmap *map)
 	kfree(map->work_buf);
 	kfree(map);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_exit); */
+EXPORT_SYMBOL_GPL(regmap_exit);
 
 static int _regmap_raw_write(struct regmap *map, unsigned int reg,
 			     const void *val, size_t val_len)
@@ -537,7 +537,7 @@ int regmap_write(struct regmap *map, unsigned int reg, unsigned int val)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_write); */
+EXPORT_SYMBOL_GPL(regmap_write);
 
 /**
  * regmap_raw_write(): Write raw values to one or more registers
@@ -568,7 +568,7 @@ int regmap_raw_write(struct regmap *map, unsigned int reg,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_raw_write); */
+EXPORT_SYMBOL_GPL(regmap_raw_write);
 
 /*
  * regmap_bulk_write(): Write multiple registers to the device
@@ -623,7 +623,7 @@ out:
 	mutex_unlock(&map->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_bulk_write); */
+EXPORT_SYMBOL_GPL(regmap_bulk_write);
 
 static int _regmap_raw_read(struct regmap *map, unsigned int reg, void *val,
 			    unsigned int val_len)
@@ -702,7 +702,7 @@ int regmap_read(struct regmap *map, unsigned int reg, unsigned int *val)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_read); */
+EXPORT_SYMBOL_GPL(regmap_read);
 
 /**
  * regmap_raw_read(): Read raw data from the device
@@ -748,7 +748,7 @@ int regmap_raw_read(struct regmap *map, unsigned int reg, void *val,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_raw_read); */
+EXPORT_SYMBOL_GPL(regmap_raw_read);
 
 /**
  * regmap_bulk_read(): Read multiple registers from the device
@@ -790,7 +790,7 @@ int regmap_bulk_read(struct regmap *map, unsigned int reg, void *val,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_bulk_read); */
+EXPORT_SYMBOL_GPL(regmap_bulk_read);
 
 static int _regmap_update_bits(struct regmap *map, unsigned int reg,
 			       unsigned int mask, unsigned int val,
@@ -837,7 +837,7 @@ int regmap_update_bits(struct regmap *map, unsigned int reg,
 	bool change;
 	return _regmap_update_bits(map, reg, mask, val, &change);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_update_bits); */
+EXPORT_SYMBOL_GPL(regmap_update_bits);
 
 /**
  * regmap_update_bits_check: Perform a read/modify/write cycle on the
@@ -857,7 +857,7 @@ int regmap_update_bits_check(struct regmap *map, unsigned int reg,
 {
 	return _regmap_update_bits(map, reg, mask, val, change);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_update_bits_check); */
+EXPORT_SYMBOL_GPL(regmap_update_bits_check);
 
 /**
  * regmap_register_patch: Register and apply register updates to be applied
@@ -915,7 +915,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_register_patch); */
+EXPORT_SYMBOL_GPL(regmap_register_patch);
 
 /*
  * regmap_get_val_bytes(): Report the size of a register value
@@ -930,7 +930,7 @@ int regmap_get_val_bytes(struct regmap *map)
 
 	return map->format.val_bytes;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regmap_get_val_bytes); */
+EXPORT_SYMBOL_GPL(regmap_get_val_bytes);
 
 static int __init regmap_initcall(void)
 {

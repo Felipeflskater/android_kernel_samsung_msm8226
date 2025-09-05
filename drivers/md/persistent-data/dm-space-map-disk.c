@@ -301,7 +301,7 @@ struct dm_space_map *dm_sm_disk_create(struct dm_transaction_manager *tm,
 
 	return smc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_disk_create); */
+EXPORT_SYMBOL_GPL(dm_sm_disk_create);
 
 static struct dm_space_map *dm_sm_disk_open_real(
 	struct dm_transaction_manager *tm,
@@ -339,6 +339,6 @@ struct dm_space_map *dm_sm_disk_open(struct dm_transaction_manager *tm,
 	return dm_sm_checker_create(
 		dm_sm_disk_open_real(tm, root_le, len));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_sm_disk_open); */
+EXPORT_SYMBOL_GPL(dm_sm_disk_open);
 
 /*----------------------------------------------------------------*/

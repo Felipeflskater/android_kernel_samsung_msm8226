@@ -435,7 +435,7 @@ err_out_files:
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_sysfs_connector_add); */
+EXPORT_SYMBOL(drm_sysfs_connector_add);
 
 /**
  * drm_sysfs_connector_remove - remove an connector device from sysfs
@@ -465,7 +465,7 @@ void drm_sysfs_connector_remove(struct drm_connector *connector)
 	device_unregister(&connector->kdev);
 	connector->kdev.parent = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_sysfs_connector_remove); */
+EXPORT_SYMBOL(drm_sysfs_connector_remove);
 
 /**
  * drm_sysfs_hotplug_event - generate a DRM uevent
@@ -484,7 +484,7 @@ void drm_sysfs_hotplug_event(struct drm_device *dev)
 
 	kobject_uevent_env(&dev->primary->kdev.kobj, KOBJ_CHANGE, envp);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_sysfs_hotplug_event); */
+EXPORT_SYMBOL(drm_sysfs_hotplug_event);
 
 /**
  * drm_sysfs_device_add - adds a class device to sysfs for a character driver
@@ -557,10 +557,10 @@ int drm_class_device_register(struct device *dev)
 	dev->class = drm_class;
 	return device_register(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(drm_class_device_register); */
+EXPORT_SYMBOL_GPL(drm_class_device_register);
 
 void drm_class_device_unregister(struct device *dev)
 {
 	return device_unregister(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(drm_class_device_unregister); */
+EXPORT_SYMBOL_GPL(drm_class_device_unregister);

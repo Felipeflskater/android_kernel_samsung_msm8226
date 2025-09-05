@@ -99,7 +99,7 @@ int generic_file_remap_pages(struct vm_area_struct *vma, unsigned long addr,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(generic_file_remap_pages); */
+EXPORT_SYMBOL(generic_file_remap_pages);
 
 /**
  * sys_remap_file_pages - remap arbitrary pages of an existing VM_SHARED vma

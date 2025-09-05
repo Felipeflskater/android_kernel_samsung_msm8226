@@ -558,7 +558,7 @@ int tdmb_tsi_start(void (*callback)(u8 *data, u32 length), int packet_cnt)
 		return -1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_start); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_start);
 
 static int exynos5_tsi_stop(struct tsi_dev *tsi)
 {
@@ -588,7 +588,7 @@ int tdmb_tsi_stop(void)
 		return -1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_tsi_stop); */
+EXPORT_SYMBOL_GPL(tdmb_tsi_stop);
 
 static void tdmb_tsi_pull_data(struct work_struct *work)
 {

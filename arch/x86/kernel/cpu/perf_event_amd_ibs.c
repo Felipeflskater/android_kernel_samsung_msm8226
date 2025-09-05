@@ -86,7 +86,7 @@ u32 get_ibs_caps(void)
 	return ibs_caps;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_ibs_caps); */
+EXPORT_SYMBOL(get_ibs_caps);
 
 static inline int get_eilvt(int offset)
 {

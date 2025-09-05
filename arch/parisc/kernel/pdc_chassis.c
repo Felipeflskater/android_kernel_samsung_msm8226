@@ -59,7 +59,7 @@ static int __init pdc_chassis_setup(char *str)
 	get_option(&str, &pdc_chassis_enabled);
 	return 1;
 }
-/* DISABLED: __setup("pdcchassis=", pdc_chassis_setup); */ */
+__setup("pdcchassis=", pdc_chassis_setup);
 
 
 /** 

@@ -42,7 +42,7 @@ print_tuple(struct seq_file *s, const struct nf_conntrack_tuple *tuple,
 {
 	return l3proto->print_tuple(s, tuple) || l4proto->print_tuple(s, tuple);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(print_tuple); */
+EXPORT_SYMBOL_GPL(print_tuple);
 
 struct ct_iter_state {
 	struct seq_net_private p;
@@ -587,4 +587,4 @@ module_exit(nf_conntrack_standalone_fini);
 void need_conntrack(void)
 {
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(need_conntrack); */
+EXPORT_SYMBOL_GPL(need_conntrack);

@@ -99,7 +99,7 @@ void *dma_alloc_noncoherent(struct device *dev, size_t size,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_noncoherent); */
+EXPORT_SYMBOL(dma_alloc_noncoherent);
 
 static void *mips_dma_alloc_coherent(struct device *dev, size_t size,
 	dma_addr_t * dma_handle, gfp_t gfp, struct dma_attrs *attrs)
@@ -133,7 +133,7 @@ void dma_free_noncoherent(struct device *dev, size_t size, void *vaddr,
 	plat_unmap_dma_mem(dev, dma_handle, size, DMA_BIDIRECTIONAL);
 	free_pages((unsigned long) vaddr, get_order(size));
 }
-/* DISABLED: EXPORT_SYMBOL(dma_free_noncoherent); */
+EXPORT_SYMBOL(dma_free_noncoherent);
 
 static void mips_dma_free_coherent(struct device *dev, size_t size, void *vaddr,
 	dma_addr_t dma_handle, struct dma_attrs *attrs)
@@ -324,7 +324,7 @@ void dma_cache_sync(struct device *dev, void *vaddr, size_t size,
 		__dma_sync_virtual(vaddr, size, direction);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dma_cache_sync); */
+EXPORT_SYMBOL(dma_cache_sync);
 
 static struct dma_map_ops mips_default_dma_map_ops = {
 	.alloc = mips_dma_alloc_coherent,
@@ -342,7 +342,7 @@ static struct dma_map_ops mips_default_dma_map_ops = {
 };
 
 struct dma_map_ops *mips_dma_map_ops = &mips_default_dma_map_ops;
-/* DISABLED: EXPORT_SYMBOL(mips_dma_map_ops); */
+EXPORT_SYMBOL(mips_dma_map_ops);
 
 #define PREALLOC_DMA_DEBUG_ENTRIES (1 << 16)
 

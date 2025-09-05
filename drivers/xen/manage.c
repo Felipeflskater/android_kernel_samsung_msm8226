@@ -327,6 +327,6 @@ int xen_setup_shutdown_event(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_setup_shutdown_event); */
+EXPORT_SYMBOL_GPL(xen_setup_shutdown_event);
 
 subsys_initcall(xen_setup_shutdown_event);

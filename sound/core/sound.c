@@ -35,7 +35,7 @@
 
 static int major = CONFIG_SND_MAJOR;
 int snd_major;
-/* DISABLED: EXPORT_SYMBOL(snd_major); */
+EXPORT_SYMBOL(snd_major);
 
 static int cards_limit = 1;
 
@@ -53,7 +53,7 @@ MODULE_ALIAS_CHARDEV_MAJOR(CONFIG_SND_MAJOR);
  * modules are loaded manually, this limit number increases, too.
  */
 int snd_ecards_limit;
-/* DISABLED: EXPORT_SYMBOL(snd_ecards_limit); */
+EXPORT_SYMBOL(snd_ecards_limit);
 
 static struct snd_minor *snd_minors[SNDRV_OS_MINORS];
 static DEFINE_MUTEX(sound_mutex);
@@ -76,7 +76,7 @@ void snd_request_card(int card)
 	request_module("snd-card-%i", card);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_request_card); */
+EXPORT_SYMBOL(snd_request_card);
 
 static void snd_request_other(int minor)
 {
@@ -123,7 +123,7 @@ void *snd_lookup_minor_data(unsigned int minor, int type)
 	return private_data;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_lookup_minor_data); */
+EXPORT_SYMBOL(snd_lookup_minor_data);
 
 #ifdef CONFIG_MODULES
 static struct snd_minor *autoload_device(unsigned int minor)
@@ -311,7 +311,7 @@ int snd_register_device_for_dev(int type, struct snd_card *card, int dev,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_register_device_for_dev); */
+EXPORT_SYMBOL(snd_register_device_for_dev);
 
 /* find the matching minor record
  * return the index of snd_minor, or -1 if not found
@@ -361,7 +361,7 @@ int snd_unregister_device(int type, struct snd_card *card, int dev)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_unregister_device); */
+EXPORT_SYMBOL(snd_unregister_device);
 
 int snd_add_device_sysfs_file(int type, struct snd_card *card, int dev,
 			      struct device_attribute *attr)
@@ -378,7 +378,7 @@ int snd_add_device_sysfs_file(int type, struct snd_card *card, int dev,
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_add_device_sysfs_file); */
+EXPORT_SYMBOL(snd_add_device_sysfs_file);
 
 #ifdef CONFIG_PROC_FS
 /*

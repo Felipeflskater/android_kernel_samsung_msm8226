@@ -62,7 +62,7 @@ struct pm8xxx_nfc_device *pm8xxx_nfc_request(void)
 {
 	return nfc_dev;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_nfc_request); */
+EXPORT_SYMBOL(pm8xxx_nfc_request);
 
 /*
  * pm8xxx_nfc_config - configure NFC signals
@@ -130,7 +130,7 @@ config_done:
 	mutex_unlock(&nfcdev->nfc_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_nfc_config); */
+EXPORT_SYMBOL(pm8xxx_nfc_config);
 
 /*
  * pm8xxx_nfc_get_status - get NFC status
@@ -179,7 +179,7 @@ get_status_done:
 	mutex_unlock(&nfcdev->nfc_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_nfc_get_status); */
+EXPORT_SYMBOL(pm8xxx_nfc_get_status);
 
 /*
  * pm8xxx_nfc_free - free the NFC device
@@ -189,7 +189,7 @@ void pm8xxx_nfc_free(struct pm8xxx_nfc_device *nfcdev)
 	/* Disable all signals */
 	pm8xxx_nfc_config(nfcdev, PM_NFC_CTRL_REQ, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_nfc_free); */
+EXPORT_SYMBOL(pm8xxx_nfc_free);
 
 #if defined(CONFIG_DEBUG_FS)
 static int pm8xxx_nfc_debug_set(void *data, u64 val)

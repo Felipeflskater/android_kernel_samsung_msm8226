@@ -467,8 +467,8 @@ struct dvb_frontend *tea5767_attach(struct dvb_frontend *fe,
 	return fe;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(tea5767_attach); */
-/* DISABLED: EXPORT_SYMBOL_GPL(tea5767_autodetection); */
+EXPORT_SYMBOL_GPL(tea5767_attach);
+EXPORT_SYMBOL_GPL(tea5767_autodetection);
 
 MODULE_DESCRIPTION("Philips TEA5767 FM tuner driver");
 MODULE_AUTHOR("Mauro Carvalho Chehab <mchehab@infradead.org>");

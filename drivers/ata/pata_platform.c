@@ -176,7 +176,7 @@ int __devinit __pata_platform_probe(struct device *dev,
 	return ata_host_activate(host, irq, irq ? ata_sff_interrupt : NULL,
 				 irq_flags, &pata_platform_sht);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__pata_platform_probe); */
+EXPORT_SYMBOL_GPL(__pata_platform_probe);
 
 /**
  *	__pata_platform_remove		-	unplug a platform interface
@@ -193,7 +193,7 @@ int __pata_platform_remove(struct device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__pata_platform_remove); */
+EXPORT_SYMBOL_GPL(__pata_platform_remove);
 
 static int __devinit pata_platform_probe(struct platform_device *pdev)
 {

@@ -48,7 +48,7 @@
 
 static int ahci_skip_host_reset;
 int ahci_ignore_sss;
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_ignore_sss); */
+EXPORT_SYMBOL_GPL(ahci_ignore_sss);
 
 module_param_named(skip_host_reset, ahci_skip_host_reset, int, 0444);
 MODULE_PARM_DESC(skip_host_reset, "skip global host reset (0=don't skip, 1=skip)");
@@ -134,14 +134,14 @@ struct device_attribute *ahci_shost_attrs[] = {
 	&dev_attr_em_message_supported,
 	NULL
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_shost_attrs); */
+EXPORT_SYMBOL_GPL(ahci_shost_attrs);
 
 struct device_attribute *ahci_sdev_attrs[] = {
 	&dev_attr_sw_activity,
 	&dev_attr_unload_heads,
 	NULL
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_sdev_attrs); */
+EXPORT_SYMBOL_GPL(ahci_sdev_attrs);
 
 struct ata_port_operations ahci_ops = {
 	.inherits		= &sata_pmp_port_ops,
@@ -178,16 +178,16 @@ struct ata_port_operations ahci_ops = {
 	.port_start		= ahci_port_start,
 	.port_stop		= ahci_port_stop,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_ops); */
+EXPORT_SYMBOL_GPL(ahci_ops);
 
 struct ata_port_operations ahci_pmp_retry_srst_ops = {
 	.inherits		= &ahci_ops,
 	.softreset		= ahci_pmp_retry_softreset,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_pmp_retry_srst_ops); */
+EXPORT_SYMBOL_GPL(ahci_pmp_retry_srst_ops);
 
 int ahci_em_messages = 1;
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_em_messages); */
+EXPORT_SYMBOL_GPL(ahci_em_messages);
 module_param(ahci_em_messages, int, 0444);
 /* add other LED protocol types when they become supported */
 MODULE_PARM_DESC(ahci_em_messages,
@@ -494,7 +494,7 @@ void ahci_save_initial_config(struct device *dev,
 	hpriv->cap2 = cap2;
 	hpriv->port_map = port_map;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_save_initial_config); */
+EXPORT_SYMBOL_GPL(ahci_save_initial_config);
 
 /**
  *	ahci_restore_initial_config - Restore initial config
@@ -569,7 +569,7 @@ void ahci_start_engine(struct ata_port *ap)
 	writel(tmp, port_mmio + PORT_CMD);
 	readl(port_mmio + PORT_CMD); /* flush */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_start_engine); */
+EXPORT_SYMBOL_GPL(ahci_start_engine);
 
 int ahci_stop_engine(struct ata_port *ap)
 {
@@ -594,7 +594,7 @@ int ahci_stop_engine(struct ata_port *ap)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_stop_engine); */
+EXPORT_SYMBOL_GPL(ahci_stop_engine);
 
 static void ahci_start_fis_rx(struct ata_port *ap)
 {
@@ -842,7 +842,7 @@ int ahci_reset_controller(struct ata_host *host)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_reset_controller); */
+EXPORT_SYMBOL_GPL(ahci_reset_controller);
 
 static void ahci_sw_activity(struct ata_link *link)
 {
@@ -930,7 +930,7 @@ int ahci_reset_em(struct ata_host *host)
 	writel(em_ctl | EM_CTL_RST, mmio + HOST_EM_CTL);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_reset_em); */
+EXPORT_SYMBOL_GPL(ahci_reset_em);
 
 static ssize_t ahci_transmit_led_message(struct ata_port *ap, u32 state,
 					ssize_t size)
@@ -1126,7 +1126,7 @@ void ahci_init_controller(struct ata_host *host)
 	tmp = readl(mmio + HOST_CTL);
 	VPRINTK("HOST_CTL 0x%x\n", tmp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_init_controller); */
+EXPORT_SYMBOL_GPL(ahci_init_controller);
 
 static void ahci_dev_config(struct ata_device *dev)
 {
@@ -1153,7 +1153,7 @@ unsigned int ahci_dev_classify(struct ata_port *ap)
 
 	return ata_dev_classify(&tf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_dev_classify); */
+EXPORT_SYMBOL_GPL(ahci_dev_classify);
 
 void ahci_fill_cmd_slot(struct ahci_port_priv *pp, unsigned int tag,
 			u32 opts)
@@ -1167,7 +1167,7 @@ void ahci_fill_cmd_slot(struct ahci_port_priv *pp, unsigned int tag,
 	pp->cmd_slot[tag].tbl_addr = cpu_to_le32(cmd_tbl_dma & 0xffffffff);
 	pp->cmd_slot[tag].tbl_addr_hi = cpu_to_le32((cmd_tbl_dma >> 16) >> 16);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_fill_cmd_slot); */
+EXPORT_SYMBOL_GPL(ahci_fill_cmd_slot);
 
 int ahci_kick_engine(struct ata_port *ap)
 {
@@ -1212,7 +1212,7 @@ int ahci_kick_engine(struct ata_port *ap)
 	ahci_start_engine(ap);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_kick_engine); */
+EXPORT_SYMBOL_GPL(ahci_kick_engine);
 
 static int ahci_exec_polled_cmd(struct ata_port *ap, int pmp,
 				struct ata_taskfile *tf, int is_cmd, u16 flags,
@@ -1342,7 +1342,7 @@ int ahci_check_ready(struct ata_link *link)
 
 	return ata_check_ready(status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_check_ready); */
+EXPORT_SYMBOL_GPL(ahci_check_ready);
 
 static int ahci_softreset(struct ata_link *link, unsigned int *class,
 			  unsigned long deadline)
@@ -1353,7 +1353,7 @@ static int ahci_softreset(struct ata_link *link, unsigned int *class,
 
 	return ahci_do_softreset(link, class, pmp, deadline, ahci_check_ready);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_do_softreset); */
+EXPORT_SYMBOL_GPL(ahci_do_softreset);
 
 static int ahci_bad_pmp_check_ready(struct ata_link *link)
 {
@@ -1809,7 +1809,7 @@ irqreturn_t ahci_interrupt(int irq, void *dev_instance)
 
 	return IRQ_RETVAL(handled);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_interrupt); */
+EXPORT_SYMBOL_GPL(ahci_interrupt);
 
 static unsigned int ahci_qc_issue(struct ata_queued_cmd *qc)
 {
@@ -2035,7 +2035,7 @@ int ahci_port_resume(struct ata_port *ap)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_port_resume); */
+EXPORT_SYMBOL_GPL(ahci_port_resume);
 
 #ifdef CONFIG_PM
 static int ahci_port_suspend(struct ata_port *ap, pm_message_t mesg)
@@ -2212,7 +2212,7 @@ void ahci_print_info(struct ata_host *host, const char *scc_s)
 		cap2 & HOST_CAP2_BOH ? "boh " : ""
 		);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_print_info); */
+EXPORT_SYMBOL_GPL(ahci_print_info);
 
 void ahci_set_em_messages(struct ahci_host_priv *hpriv,
 			  struct ata_port_info *pi)
@@ -2237,7 +2237,7 @@ void ahci_set_em_messages(struct ahci_host_priv *hpriv,
 			pi->flags |= ATA_FLAG_SW_ACTIVITY;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahci_set_em_messages); */
+EXPORT_SYMBOL_GPL(ahci_set_em_messages);
 
 MODULE_AUTHOR("Jeff Garzik");
 MODULE_DESCRIPTION("Common AHCI SATA low-level routines");

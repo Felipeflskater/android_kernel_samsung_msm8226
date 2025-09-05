@@ -14,7 +14,7 @@
 #include <asm/idprom.h>
 
 struct idprom *idprom;
-/* DISABLED: EXPORT_SYMBOL(idprom); */
+EXPORT_SYMBOL(idprom);
 
 static struct idprom idprom_buffer;
 

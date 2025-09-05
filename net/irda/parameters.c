@@ -402,7 +402,7 @@ int irda_param_pack(__u8 *buf, char *fmt, ...)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(irda_param_pack); */
+EXPORT_SYMBOL(irda_param_pack);
 
 /*
  * Function irda_param_unpack (skb, fmt, ...)
@@ -499,7 +499,7 @@ int irda_param_insert(void *self, __u8 pi, __u8 *buf, int len,
 						 pi_minor_info->func);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(irda_param_insert); */
+EXPORT_SYMBOL(irda_param_insert);
 
 /*
  * Function irda_param_extract (self, buf, len, info)
@@ -588,4 +588,4 @@ int irda_param_extract_all(void *self, __u8 *buf, int len,
 	}
 	return n;
 }
-/* DISABLED: EXPORT_SYMBOL(irda_param_extract_all); */
+EXPORT_SYMBOL(irda_param_extract_all);

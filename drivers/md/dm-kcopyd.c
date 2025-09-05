@@ -628,7 +628,7 @@ int dm_kcopyd_copy(struct dm_kcopyd_client *kc, struct dm_io_region *from,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_copy); */
+EXPORT_SYMBOL(dm_kcopyd_copy);
 
 int dm_kcopyd_zero(struct dm_kcopyd_client *kc,
 		   unsigned num_dests, struct dm_io_region *dests,
@@ -636,7 +636,7 @@ int dm_kcopyd_zero(struct dm_kcopyd_client *kc,
 {
 	return dm_kcopyd_copy(kc, NULL, num_dests, dests, flags, fn, context);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_zero); */
+EXPORT_SYMBOL(dm_kcopyd_zero);
 
 void *dm_kcopyd_prepare_callback(struct dm_kcopyd_client *kc,
 				 dm_kcopyd_notify_fn fn, void *context)
@@ -655,7 +655,7 @@ void *dm_kcopyd_prepare_callback(struct dm_kcopyd_client *kc,
 
 	return job;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_prepare_callback); */
+EXPORT_SYMBOL(dm_kcopyd_prepare_callback);
 
 void dm_kcopyd_do_callback(void *j, int read_err, unsigned long write_err)
 {
@@ -668,7 +668,7 @@ void dm_kcopyd_do_callback(void *j, int read_err, unsigned long write_err)
 	push(&kc->complete_jobs, job);
 	wake(kc);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_do_callback); */
+EXPORT_SYMBOL(dm_kcopyd_do_callback);
 
 /*
  * Cancels a kcopyd job, eg. someone might be deactivating a
@@ -737,7 +737,7 @@ bad_slab:
 
 	return ERR_PTR(r);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_client_create); */
+EXPORT_SYMBOL(dm_kcopyd_client_create);
 
 void dm_kcopyd_client_destroy(struct dm_kcopyd_client *kc)
 {
@@ -753,4 +753,4 @@ void dm_kcopyd_client_destroy(struct dm_kcopyd_client *kc)
 	mempool_destroy(kc->job_pool);
 	kfree(kc);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_kcopyd_client_destroy); */
+EXPORT_SYMBOL(dm_kcopyd_client_destroy);

@@ -156,7 +156,7 @@ int async_wrap_skb(struct sk_buff *skb, __u8 *tx_buff, int buffsize)
 
 	return n;
 }
-/* DISABLED: EXPORT_SYMBOL(async_wrap_skb); */
+EXPORT_SYMBOL(async_wrap_skb);
 
 /************************* FRAME UNWRAPPING *************************/
 /*
@@ -488,5 +488,5 @@ void async_unwrap_char(struct net_device *dev,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(async_unwrap_char); */
+EXPORT_SYMBOL(async_unwrap_char);
 

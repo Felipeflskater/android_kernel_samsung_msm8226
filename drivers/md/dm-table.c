@@ -159,7 +159,7 @@ void *dm_vcalloc(unsigned long nmemb, unsigned long elem_size)
 
 	return addr;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_vcalloc); */
+EXPORT_SYMBOL(dm_vcalloc);
 
 /*
  * highs, and targets are managed as dynamic arrays during a
@@ -284,7 +284,7 @@ void dm_table_get(struct dm_table *t)
 {
 	atomic_inc(&t->holders);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_get); */
+EXPORT_SYMBOL(dm_table_get);
 
 void dm_table_put(struct dm_table *t)
 {
@@ -294,7 +294,7 @@ void dm_table_put(struct dm_table *t)
 	smp_mb__before_atomic_dec();
 	atomic_dec(&t->holders);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_put); */
+EXPORT_SYMBOL(dm_table_put);
 
 /*
  * Checks to see if we need to extend highs or targets.
@@ -516,7 +516,7 @@ int dm_get_device(struct dm_target *ti, const char *path, fmode_t mode,
 	*result = &dd->dm_dev;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_get_device); */
+EXPORT_SYMBOL(dm_get_device);
 
 int dm_set_device_limits(struct dm_target *ti, struct dm_dev *dev,
 			 sector_t start, sector_t len, void *data)
@@ -552,7 +552,7 @@ int dm_set_device_limits(struct dm_target *ti, struct dm_dev *dev,
 					  (unsigned int) (PAGE_SIZE >> 9));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_set_device_limits); */
+EXPORT_SYMBOL_GPL(dm_set_device_limits);
 
 /*
  * Decrement a device's use count and remove it if necessary.
@@ -568,7 +568,7 @@ void dm_put_device(struct dm_target *ti, struct dm_dev *d)
 		kfree(dd);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dm_put_device); */
+EXPORT_SYMBOL(dm_put_device);
 
 /*
  * Checks to see if the target joins onto the end of the table.
@@ -880,14 +880,14 @@ int dm_read_arg(struct dm_arg *arg, struct dm_arg_set *arg_set,
 {
 	return validate_next_arg(arg, arg_set, value, error, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_read_arg); */
+EXPORT_SYMBOL(dm_read_arg);
 
 int dm_read_arg_group(struct dm_arg *arg, struct dm_arg_set *arg_set,
 		      unsigned *value, char **error)
 {
 	return validate_next_arg(arg, arg_set, value, error, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_read_arg_group); */
+EXPORT_SYMBOL(dm_read_arg_group);
 
 const char *dm_shift_arg(struct dm_arg_set *as)
 {
@@ -902,7 +902,7 @@ const char *dm_shift_arg(struct dm_arg_set *as)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_shift_arg); */
+EXPORT_SYMBOL(dm_shift_arg);
 
 void dm_consume_args(struct dm_arg_set *as, unsigned num_args)
 {
@@ -910,7 +910,7 @@ void dm_consume_args(struct dm_arg_set *as, unsigned num_args)
 	as->argc -= num_args;
 	as->argv += num_args;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_consume_args); */
+EXPORT_SYMBOL(dm_consume_args);
 
 static int dm_table_set_type(struct dm_table *t)
 {
@@ -1192,13 +1192,13 @@ void dm_table_event(struct dm_table *t)
 		t->event_fn(t->event_context);
 	mutex_unlock(&_event_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_event); */
+EXPORT_SYMBOL(dm_table_event);
 
 sector_t dm_table_get_size(struct dm_table *t)
 {
 	return t->num_targets ? (t->highs[t->num_targets - 1] + 1) : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_get_size); */
+EXPORT_SYMBOL(dm_table_get_size);
 
 struct dm_target *dm_table_get_target(struct dm_table *t, unsigned int index)
 {
@@ -1465,7 +1465,7 @@ fmode_t dm_table_get_mode(struct dm_table *t)
 {
 	return t->mode;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_get_mode); */
+EXPORT_SYMBOL(dm_table_get_mode);
 
 static void suspend_targets(struct dm_table *t, unsigned postsuspend)
 {
@@ -1528,7 +1528,7 @@ void dm_table_add_target_callbacks(struct dm_table *t, struct dm_target_callback
 {
 	list_add(&cb->list, &t->target_callbacks);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_table_add_target_callbacks); */
+EXPORT_SYMBOL_GPL(dm_table_add_target_callbacks);
 
 int dm_table_any_congested(struct dm_table *t, int bdi_bits)
 {
@@ -1574,7 +1574,7 @@ struct mapped_device *dm_table_get_md(struct dm_table *t)
 {
 	return t->md;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_table_get_md); */
+EXPORT_SYMBOL(dm_table_get_md);
 
 static int device_discard_capable(struct dm_target *ti, struct dm_dev *dev,
 				  sector_t start, sector_t len, void *data)

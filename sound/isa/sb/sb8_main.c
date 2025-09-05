@@ -623,11 +623,11 @@ int snd_sb8dsp_pcm(struct snd_sb *chip, int device, struct snd_pcm ** rpcm)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_sb8dsp_pcm); */
-/* DISABLED: EXPORT_SYMBOL(snd_sb8dsp_interrupt); */
+EXPORT_SYMBOL(snd_sb8dsp_pcm);
+EXPORT_SYMBOL(snd_sb8dsp_interrupt);
   /* sb8_midi.c */
-/* DISABLED: EXPORT_SYMBOL(snd_sb8dsp_midi_interrupt); */
-/* DISABLED: EXPORT_SYMBOL(snd_sb8dsp_midi); */
+EXPORT_SYMBOL(snd_sb8dsp_midi_interrupt);
+EXPORT_SYMBOL(snd_sb8dsp_midi);
 
 /*
  *  INIT part

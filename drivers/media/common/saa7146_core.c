@@ -576,24 +576,24 @@ int saa7146_unregister_extension(struct saa7146_extension* ext)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_register_extension); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_unregister_extension); */
+EXPORT_SYMBOL_GPL(saa7146_register_extension);
+EXPORT_SYMBOL_GPL(saa7146_unregister_extension);
 
 /* misc functions used by extension modules */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_pgtable_alloc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_pgtable_free); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_pgtable_build_single); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_vmalloc_build_pgtable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_vfree_destroy_pgtable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_wait_for_debi_done); */
+EXPORT_SYMBOL_GPL(saa7146_pgtable_alloc);
+EXPORT_SYMBOL_GPL(saa7146_pgtable_free);
+EXPORT_SYMBOL_GPL(saa7146_pgtable_build_single);
+EXPORT_SYMBOL_GPL(saa7146_vmalloc_build_pgtable);
+EXPORT_SYMBOL_GPL(saa7146_vfree_destroy_pgtable);
+EXPORT_SYMBOL_GPL(saa7146_wait_for_debi_done);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_setgpio); */
+EXPORT_SYMBOL_GPL(saa7146_setgpio);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_i2c_adapter_prepare); */
+EXPORT_SYMBOL_GPL(saa7146_i2c_adapter_prepare);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_debug); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_devices); */
-/* DISABLED: EXPORT_SYMBOL_GPL(saa7146_devices_lock); */
+EXPORT_SYMBOL_GPL(saa7146_debug);
+EXPORT_SYMBOL_GPL(saa7146_devices);
+EXPORT_SYMBOL_GPL(saa7146_devices_lock);
 
 MODULE_AUTHOR("Michael Hunold <michael@mihu.de>");
 MODULE_DESCRIPTION("driver for generic saa7146-based hardware");

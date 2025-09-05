@@ -116,7 +116,7 @@ int snd_es1688_reset(struct snd_es1688 *chip)
 	snd_es1688_dsp_command(chip, 0xc6);	/* enable extended mode */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_es1688_reset); */
+EXPORT_SYMBOL(snd_es1688_reset);
 
 static int snd_es1688_probe(struct snd_es1688 *chip)
 {
@@ -1024,10 +1024,10 @@ int snd_es1688_mixer(struct snd_card *card, struct snd_es1688 *chip)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_es1688_mixer_write); */
-/* DISABLED: EXPORT_SYMBOL(snd_es1688_create); */
-/* DISABLED: EXPORT_SYMBOL(snd_es1688_pcm); */
-/* DISABLED: EXPORT_SYMBOL(snd_es1688_mixer); */
+EXPORT_SYMBOL(snd_es1688_mixer_write);
+EXPORT_SYMBOL(snd_es1688_create);
+EXPORT_SYMBOL(snd_es1688_pcm);
+EXPORT_SYMBOL(snd_es1688_mixer);
 
 /*
  *  INIT part

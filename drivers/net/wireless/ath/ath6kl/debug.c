@@ -54,7 +54,7 @@ int ath6kl_printk(const char *level, const char *fmt, ...)
 
 	return rtn;
 }
-/* DISABLED: EXPORT_SYMBOL(ath6kl_printk); */
+EXPORT_SYMBOL(ath6kl_printk);
 
 #ifdef CONFIG_ATH6KL_DEBUG
 
@@ -75,7 +75,7 @@ void ath6kl_dbg(enum ATH6K_DEBUG_MASK mask, const char *fmt, ...)
 
 	va_end(args);
 }
-/* DISABLED: EXPORT_SYMBOL(ath6kl_dbg); */
+EXPORT_SYMBOL(ath6kl_dbg);
 
 void ath6kl_dbg_dump(enum ATH6K_DEBUG_MASK mask,
 		     const char *msg, const char *prefix,
@@ -88,7 +88,7 @@ void ath6kl_dbg_dump(enum ATH6K_DEBUG_MASK mask,
 		print_hex_dump_bytes(prefix, DUMP_PREFIX_OFFSET, buf, len);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath6kl_dbg_dump); */
+EXPORT_SYMBOL(ath6kl_dbg_dump);
 
 #define REG_OUTPUT_LEN_PER_LINE	25
 #define REGTYPE_STR_LEN		100

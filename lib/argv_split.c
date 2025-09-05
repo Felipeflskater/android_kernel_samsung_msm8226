@@ -45,7 +45,7 @@ void argv_free(char **argv)
 
 	kfree(argv);
 }
-/* DISABLED: EXPORT_SYMBOL(argv_free); */
+EXPORT_SYMBOL(argv_free);
 
 /**
  * argv_split - split a string at whitespace, returning an argv
@@ -98,4 +98,4 @@ char **argv_split(gfp_t gfp, const char *str, int *argcp)
 	argv_free(argv);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(argv_split); */
+EXPORT_SYMBOL(argv_split);

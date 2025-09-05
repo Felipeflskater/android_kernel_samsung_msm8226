@@ -302,7 +302,7 @@ int tsens_get_sw_id_mapping(int sensor_hw_num, int *sensor_sw_idx)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsens_get_sw_id_mapping); */
+EXPORT_SYMBOL(tsens_get_sw_id_mapping);
 
 int tsens_get_hw_id_mapping(int sensor_sw_id, int *sensor_hw_num)
 {
@@ -322,7 +322,7 @@ int tsens_get_hw_id_mapping(int sensor_sw_id, int *sensor_hw_num)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsens_get_hw_id_mapping); */
+EXPORT_SYMBOL(tsens_get_hw_id_mapping);
 
 static int tsens_tz_code_to_degc(int adc_code, int sensor_sw_id)
 {
@@ -410,7 +410,7 @@ int tsens_get_temp(struct tsens_device *device, unsigned long *temp)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsens_get_temp); */
+EXPORT_SYMBOL(tsens_get_temp);
 
 int tsens_get_max_sensor_num(uint32_t *tsens_num_sensors)
 {
@@ -421,7 +421,7 @@ int tsens_get_max_sensor_num(uint32_t *tsens_num_sensors)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tsens_get_max_sensor_num); */
+EXPORT_SYMBOL(tsens_get_max_sensor_num);
 
 static int tsens_tz_get_mode(struct thermal_zone_device *thermal,
 			      enum thermal_device_mode *mode)

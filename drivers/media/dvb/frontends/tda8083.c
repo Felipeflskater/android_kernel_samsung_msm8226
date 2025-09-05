@@ -484,4 +484,4 @@ MODULE_DESCRIPTION("Philips TDA8083 DVB-S Demodulator");
 MODULE_AUTHOR("Ralph Metzler, Holger Waechtler");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(tda8083_attach); */
+EXPORT_SYMBOL(tda8083_attach);

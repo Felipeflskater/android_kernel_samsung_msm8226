@@ -919,7 +919,7 @@ struct usb_driver *usb_cdc_wdm_register(struct usb_interface *intf,
 err:
 	return ERR_PTR(rv);
 }
-/* DISABLED: EXPORT_SYMBOL(usb_cdc_wdm_register); */
+EXPORT_SYMBOL(usb_cdc_wdm_register);
 
 static void wdm_disconnect(struct usb_interface *intf)
 {

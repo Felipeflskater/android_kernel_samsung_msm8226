@@ -354,7 +354,7 @@ void fuse_conn_kill(struct fuse_conn *fc)
 	mutex_unlock(&fuse_mutex);
 	fuse_bdi_destroy(fc);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fuse_conn_kill); */
+EXPORT_SYMBOL_GPL(fuse_conn_kill);
 
 static void fuse_put_super(struct super_block *sb)
 {
@@ -559,7 +559,7 @@ void fuse_conn_init(struct fuse_conn *fc)
 	fc->attr_version = 1;
 	get_random_bytes(&fc->scramble_key, sizeof(fc->scramble_key));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fuse_conn_init); */
+EXPORT_SYMBOL_GPL(fuse_conn_init);
 
 void fuse_conn_put(struct fuse_conn *fc)
 {
@@ -570,14 +570,14 @@ void fuse_conn_put(struct fuse_conn *fc)
 		fc->release(fc);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fuse_conn_put); */
+EXPORT_SYMBOL_GPL(fuse_conn_put);
 
 struct fuse_conn *fuse_conn_get(struct fuse_conn *fc)
 {
 	atomic_inc(&fc->count);
 	return fc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fuse_conn_get); */
+EXPORT_SYMBOL_GPL(fuse_conn_get);
 
 static struct inode *fuse_get_root_inode(struct super_block *sb, unsigned mode)
 {

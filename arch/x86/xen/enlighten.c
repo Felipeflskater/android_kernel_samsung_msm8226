@@ -77,21 +77,21 @@
 #include "mmu.h"
 #include "multicalls.h"
 
-/* DISABLED: EXPORT_SYMBOL_GPL(hypercall_page); */
+EXPORT_SYMBOL_GPL(hypercall_page);
 
 DEFINE_PER_CPU(struct vcpu_info *, xen_vcpu);
 DEFINE_PER_CPU(struct vcpu_info, xen_vcpu_info);
 
 enum xen_domain_type xen_domain_type = XEN_NATIVE;
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_domain_type); */
+EXPORT_SYMBOL_GPL(xen_domain_type);
 
 unsigned long *machine_to_phys_mapping = (void *)MACH2PHYS_VIRT_START;
-/* DISABLED: EXPORT_SYMBOL(machine_to_phys_mapping); */
+EXPORT_SYMBOL(machine_to_phys_mapping);
 unsigned long  machine_to_phys_nr;
-/* DISABLED: EXPORT_SYMBOL(machine_to_phys_nr); */
+EXPORT_SYMBOL(machine_to_phys_nr);
 
 struct start_info *xen_start_info;
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_start_info); */
+EXPORT_SYMBOL_GPL(xen_start_info);
 
 struct shared_info xen_dummy_shared_info;
 
@@ -99,7 +99,7 @@ void *xen_initial_gdt;
 
 RESERVE_BRK(shared_info_page_brk, PAGE_SIZE);
 __read_mostly int xen_have_vector_callback;
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_have_vector_callback); */
+EXPORT_SYMBOL_GPL(xen_have_vector_callback);
 
 /*
  * Point at some empty memory to start with. We map the real shared_info
@@ -1579,12 +1579,12 @@ bool xen_hvm_need_lapic(void)
 		return false;
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_hvm_need_lapic); */
+EXPORT_SYMBOL_GPL(xen_hvm_need_lapic);
 
 const struct hypervisor_x86 x86_hyper_xen_hvm __refconst = {
 	.name			= "Xen HVM",
 	.detect			= xen_hvm_platform,
 	.init_platform		= xen_hvm_guest_init,
 };
-/* DISABLED: EXPORT_SYMBOL(x86_hyper_xen_hvm); */
+EXPORT_SYMBOL(x86_hyper_xen_hvm);
 #endif

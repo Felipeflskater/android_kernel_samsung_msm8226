@@ -373,7 +373,7 @@ u32 s3c24xx_i2s_get_clockrate(void)
 {
 	return clk_get_rate(s3c24xx_i2s.iis_clk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c24xx_i2s_get_clockrate); */
+EXPORT_SYMBOL_GPL(s3c24xx_i2s_get_clockrate);
 
 static int s3c24xx_i2s_probe(struct snd_soc_dai *dai)
 {

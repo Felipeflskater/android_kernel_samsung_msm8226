@@ -119,7 +119,7 @@ void lubbock_set_misc_wr(unsigned int mask, unsigned int set)
 	LUB_MISC_WR = (LUB_MISC_WR & ~mask) | (set & mask);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(lubbock_set_misc_wr); */
+EXPORT_SYMBOL(lubbock_set_misc_wr);
 
 static int lubbock_udc_is_connected(void)
 {

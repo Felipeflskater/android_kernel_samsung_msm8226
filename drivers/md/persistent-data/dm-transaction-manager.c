@@ -134,7 +134,7 @@ struct dm_transaction_manager *dm_tm_create_non_blocking_clone(struct dm_transac
 
 	return tm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_create_non_blocking_clone); */
+EXPORT_SYMBOL_GPL(dm_tm_create_non_blocking_clone);
 
 void dm_tm_destroy(struct dm_transaction_manager *tm)
 {
@@ -143,7 +143,7 @@ void dm_tm_destroy(struct dm_transaction_manager *tm)
 
 	kfree(tm);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_destroy); */
+EXPORT_SYMBOL_GPL(dm_tm_destroy);
 
 int dm_tm_pre_commit(struct dm_transaction_manager *tm)
 {
@@ -158,7 +158,7 @@ int dm_tm_pre_commit(struct dm_transaction_manager *tm)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_pre_commit); */
+EXPORT_SYMBOL_GPL(dm_tm_pre_commit);
 
 int dm_tm_commit(struct dm_transaction_manager *tm, struct dm_block *root)
 {
@@ -169,7 +169,7 @@ int dm_tm_commit(struct dm_transaction_manager *tm, struct dm_block *root)
 
 	return dm_bm_flush_and_unlock(tm->bm, root);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_commit); */
+EXPORT_SYMBOL_GPL(dm_tm_commit);
 
 int dm_tm_new_block(struct dm_transaction_manager *tm,
 		    struct dm_block_validator *v,
@@ -267,7 +267,7 @@ int dm_tm_unlock(struct dm_transaction_manager *tm, struct dm_block *b)
 {
 	return dm_bm_unlock(b);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_unlock); */
+EXPORT_SYMBOL_GPL(dm_tm_unlock);
 
 void dm_tm_inc(struct dm_transaction_manager *tm, dm_block_t b)
 {
@@ -278,7 +278,7 @@ void dm_tm_inc(struct dm_transaction_manager *tm, dm_block_t b)
 
 	dm_sm_inc_block(tm->sm, b);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_inc); */
+EXPORT_SYMBOL_GPL(dm_tm_inc);
 
 void dm_tm_dec(struct dm_transaction_manager *tm, dm_block_t b)
 {
@@ -289,7 +289,7 @@ void dm_tm_dec(struct dm_transaction_manager *tm, dm_block_t b)
 
 	dm_sm_dec_block(tm->sm, b);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_dec); */
+EXPORT_SYMBOL_GPL(dm_tm_dec);
 
 int dm_tm_ref(struct dm_transaction_manager *tm, dm_block_t b,
 	      uint32_t *result)
@@ -391,7 +391,7 @@ int dm_tm_create_with_sm(struct dm_block_manager *bm, dm_block_t sb_location,
 	return dm_tm_create_internal(bm, sb_location, sb_validator,
 				     0, 0, tm, sm, sblock, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_create_with_sm); */
+EXPORT_SYMBOL_GPL(dm_tm_create_with_sm);
 
 int dm_tm_open_with_sm(struct dm_block_manager *bm, dm_block_t sb_location,
 		       struct dm_block_validator *sb_validator,
@@ -402,6 +402,6 @@ int dm_tm_open_with_sm(struct dm_block_manager *bm, dm_block_t sb_location,
 	return dm_tm_create_internal(bm, sb_location, sb_validator, root_offset,
 				     root_max_len, tm, sm, sblock, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_tm_open_with_sm); */
+EXPORT_SYMBOL_GPL(dm_tm_open_with_sm);
 
 /*----------------------------------------------------------------*/

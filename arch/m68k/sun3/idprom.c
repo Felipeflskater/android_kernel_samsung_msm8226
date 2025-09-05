@@ -17,7 +17,7 @@
 #include <asm/machines.h>  /* Fun with Sun released architectures. */
 
 struct idprom *idprom;
-/* DISABLED: EXPORT_SYMBOL(idprom); */
+EXPORT_SYMBOL(idprom);
 
 static struct idprom idprom_buffer;
 

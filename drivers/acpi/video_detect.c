@@ -106,7 +106,7 @@ long acpi_is_video_device(struct acpi_device *device)
 
 	return video_caps;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_is_video_device); */
+EXPORT_SYMBOL(acpi_is_video_device);
 
 static acpi_status
 find_video(acpi_handle handle, u32 lvl, void *context, void **rv)
@@ -225,7 +225,7 @@ long acpi_video_get_capabilities(acpi_handle graphics_handle)
 			  graphics_handle ? acpi_device_bid(tmp_dev) : ""));
 	return caps;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_video_get_capabilities); */
+EXPORT_SYMBOL(acpi_video_get_capabilities);
 
 /* Returns true if video.ko can do backlight switching */
 int acpi_video_backlight_support(void)
@@ -252,7 +252,7 @@ int acpi_video_backlight_support(void)
 	/* Then go the default way */
 	return acpi_video_support & ACPI_VIDEO_BACKLIGHT;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_video_backlight_support); */
+EXPORT_SYMBOL(acpi_video_backlight_support);
 
 /*
  * Use acpi_backlight=vendor/video to force that backlight switching
@@ -272,4 +272,4 @@ static int __init acpi_backlight(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("acpi_backlight=", acpi_backlight); */ */
+__setup("acpi_backlight=", acpi_backlight);

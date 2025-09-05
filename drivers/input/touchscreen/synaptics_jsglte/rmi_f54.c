@@ -2227,7 +2227,7 @@ done:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_fw_update_on_probe); */
+EXPORT_SYMBOL(synaptics_rmi4_fw_update_on_probe);
 
 static int synaptics_load_fw_from_kernel(struct synaptics_rmi4_data *rmi4_data, const char *fw_path)
 {

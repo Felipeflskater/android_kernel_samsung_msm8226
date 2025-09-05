@@ -451,7 +451,7 @@ map_block(struct buffer_head *bh, sector_t isect, struct pnfs_block_extent *be)
 	bh->b_blocknr = (isect - be->be_f_offset + be->be_v_offset) >>
 	    (be->be_mdev->bd_inode->i_blkbits - SECTOR_SHIFT);
 
-	dprintk("%s isect %llu, bh->b_blocknr %ld, using bsize %zd\n",
+	dprintk("%s isect %llu, bh->b_blocknr %ld, using bsize %Zd\n",
 		__func__, (unsigned long long)isect, (long)bh->b_blocknr,
 		bh->b_size);
 	return;

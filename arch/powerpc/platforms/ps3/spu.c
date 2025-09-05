@@ -147,7 +147,7 @@ inline u64 ps3_get_spe_id(void *arg)
 {
 	return spu_pdata(arg)->spe_id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_get_spe_id); */
+EXPORT_SYMBOL_GPL(ps3_get_spe_id);
 
 static unsigned long get_vas_id(void)
 {

@@ -40,7 +40,7 @@
 #endif
 
 unsigned long cpuidle_disable = IDLE_NO_OVERRIDE;
-/* DISABLED: EXPORT_SYMBOL(cpuidle_disable); */
+EXPORT_SYMBOL(cpuidle_disable);
 
 static int __init powersave_off(char *arg)
 {
@@ -48,7 +48,7 @@ static int __init powersave_off(char *arg)
 	cpuidle_disable = IDLE_POWERSAVE_OFF;
 	return 0;
 }
-/* DISABLED: __setup("powersave=off", powersave_off); */ */
+__setup("powersave=off", powersave_off);
 
 /*
  * The body of the idle task.
@@ -134,7 +134,7 @@ void cpu_idle_wait(void)
 	}
 	put_online_cpus();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_idle_wait); */
+EXPORT_SYMBOL_GPL(cpu_idle_wait);
 
 int powersave_nap;
 

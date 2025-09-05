@@ -179,7 +179,7 @@ err_module:
 	module_put(fops->owner);
 	return ERR_PTR(error);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(anon_inode_getfile); */
+EXPORT_SYMBOL_GPL(anon_inode_getfile);
 
 /**
  * anon_inode_getfd - creates a new file instance by hooking it up to an
@@ -221,7 +221,7 @@ err_put_unused_fd:
 	put_unused_fd(fd);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(anon_inode_getfd); */
+EXPORT_SYMBOL_GPL(anon_inode_getfd);
 
 static int __init anon_inode_init(void)
 {

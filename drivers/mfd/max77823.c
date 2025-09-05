@@ -56,7 +56,7 @@ int max77823_read_reg(struct i2c_client *i2c, u8 reg, u8 *dest)
 	*dest = ret;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_read_reg); */
+EXPORT_SYMBOL_GPL(max77823_read_reg);
 
 int max77823_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -71,7 +71,7 @@ int max77823_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_bulk_read); */
+EXPORT_SYMBOL_GPL(max77823_bulk_read);
 
 int max77823_read_word(struct i2c_client *i2c, u8 reg)
 {
@@ -86,7 +86,7 @@ int max77823_read_word(struct i2c_client *i2c, u8 reg)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_read_word); */
+EXPORT_SYMBOL_GPL(max77823_read_word);
 
 int max77823_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 {
@@ -102,7 +102,7 @@ int max77823_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_write_reg); */
+EXPORT_SYMBOL_GPL(max77823_write_reg);
 
 int max77823_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -117,7 +117,7 @@ int max77823_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_bulk_write); */
+EXPORT_SYMBOL_GPL(max77823_bulk_write);
 
 int max77823_write_word(struct i2c_client *i2c, u8 reg, u16 value)
 {
@@ -131,7 +131,7 @@ int max77823_write_word(struct i2c_client *i2c, u8 reg, u16 value)
 		return ret;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_write_word); */
+EXPORT_SYMBOL_GPL(max77823_write_word);
 
 
 int max77823_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
@@ -149,7 +149,7 @@ int max77823_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 	mutex_unlock(&max77823->i2c_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77823_update_reg); */
+EXPORT_SYMBOL_GPL(max77823_update_reg);
 
 static struct i2c_client *get_i2c(struct max77823_dev *max77823,
 				enum max77823_irq_source src)

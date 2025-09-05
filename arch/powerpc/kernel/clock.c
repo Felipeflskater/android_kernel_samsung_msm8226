@@ -17,14 +17,14 @@ struct clk *clk_get(struct device *dev, const char *id)
 		return clk_functions.clk_get(dev, id);
 	return ERR_PTR(-ENOSYS);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get); */
+EXPORT_SYMBOL(clk_get);
 
 void clk_put(struct clk *clk)
 {
 	if (clk_functions.clk_put)
 		clk_functions.clk_put(clk);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_put); */
+EXPORT_SYMBOL(clk_put);
 
 int clk_enable(struct clk *clk)
 {
@@ -32,14 +32,14 @@ int clk_enable(struct clk *clk)
 		return clk_functions.clk_enable(clk);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
 	if (clk_functions.clk_disable)
 		clk_functions.clk_disable(clk);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -47,7 +47,7 @@ unsigned long clk_get_rate(struct clk *clk)
 		return clk_functions.clk_get_rate(clk);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -55,7 +55,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 		return clk_functions.clk_round_rate(clk, rate);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -63,7 +63,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 		return clk_functions.clk_set_rate(clk, rate);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 struct clk *clk_get_parent(struct clk *clk)
 {
@@ -71,7 +71,7 @@ struct clk *clk_get_parent(struct clk *clk)
 		return clk_functions.clk_get_parent(clk);
 	return ERR_PTR(-ENOSYS);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
+EXPORT_SYMBOL(clk_get_parent);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -79,4 +79,4 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 		return clk_functions.clk_set_parent(clk, parent);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);

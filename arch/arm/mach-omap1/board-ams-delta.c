@@ -305,7 +305,7 @@ void ams_delta_latch_write(int base, int ngpio, u16 mask, u16 value)
 			gpio_set_value(base + bit, (value & bitpos) != 0);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ams_delta_latch_write); */
+EXPORT_SYMBOL(ams_delta_latch_write);
 
 static struct resource ams_delta_nand_resources[] = {
 	[0] = {

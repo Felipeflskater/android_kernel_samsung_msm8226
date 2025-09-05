@@ -157,7 +157,7 @@ set_nptcg(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("nptcg=", set_nptcg); */ */
+__setup("nptcg=", set_nptcg);
 
 /*
  * Maximum number of simultaneous ptc.g purges in the system can
@@ -335,7 +335,7 @@ flush_tlb_range (struct vm_area_struct *vma, unsigned long start,
 	preempt_enable();
 	ia64_srlz_i();			/* srlz.i implies srlz.d */
 }
-/* DISABLED: EXPORT_SYMBOL(flush_tlb_range); */
+EXPORT_SYMBOL(flush_tlb_range);
 
 void __devinit
 ia64_tlb_init (void)
@@ -515,7 +515,7 @@ found:
 out:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ia64_itr_entry); */
+EXPORT_SYMBOL_GPL(ia64_itr_entry);
 
 /*
  * ia64_purge_tr
@@ -559,4 +559,4 @@ void ia64_ptr_entry(u64 target_mask, int slot)
 	}
 	per_cpu(ia64_tr_used, cpu) = i;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ia64_ptr_entry); */
+EXPORT_SYMBOL_GPL(ia64_ptr_entry);

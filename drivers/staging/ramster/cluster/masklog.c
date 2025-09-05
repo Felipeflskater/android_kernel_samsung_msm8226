@@ -29,9 +29,9 @@
 #include "masklog.h"
 
 struct mlog_bits r2_mlog_and_bits = MLOG_BITS_RHS(MLOG_INITIAL_AND_MASK);
-/* DISABLED: EXPORT_SYMBOL_GPL(r2_mlog_and_bits); */
+EXPORT_SYMBOL_GPL(r2_mlog_and_bits);
 struct mlog_bits r2_mlog_not_bits = MLOG_BITS_RHS(0);
-/* DISABLED: EXPORT_SYMBOL_GPL(r2_mlog_not_bits); */
+EXPORT_SYMBOL_GPL(r2_mlog_not_bits);
 
 static ssize_t mlog_mask_show(u64 mask, char *buf)
 {

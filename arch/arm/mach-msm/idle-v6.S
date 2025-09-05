@@ -35,8 +35,8 @@ ENTRY(msm_arch_idle)
 	mcr     p15, 0, r0, c7, c0, 4    /* wait for interrupt */
 #else
 	mrc     p15, 0, r1, c1, c0, 0    /* read current CR    */
-	bic     r0, r1, @ (1 << 2)        /* clear dcache bit   */
-	bic     r0, r0, @ (1 << 12)       /* clear icache bit   */
+	bic     r0, r1, #(1 << 2)        /* clear dcache bit   */
+	bic     r0, r0, #(1 << 12)       /* clear icache bit   */
 	mcr     p15, 0, r0, c1, c0, 0    /* disable d/i cache  */
 
 	mov     r0, #0
@@ -76,8 +76,8 @@ ENTRY(msm_pm_collapse)
 	stmia   r0!, {r1}
 
 	mrc     p15, 0, r1, c1, c0, 0    /* read current CR    */
-	bic     r0, r1, @ (1 << 2)        /* clear dcache bit   */
-	bic     r0, r0, @ (1 << 12)       /* clear icache bit   */
+	bic     r0, r1, #(1 << 2)        /* clear dcache bit   */
+	bic     r0, r0, #(1 << 12)       /* clear icache bit   */
 	mcr     p15, 0, r0, c1, c0, 0    /* disable d/i cache  */
 
 	mov     r0, #0
@@ -105,7 +105,7 @@ ENTRY(msm_pm_collapse_exit)
 	mov     r0, #0xA9000000
 	add     r0, r0, #0x00A00000 /* UART1 */
 	/*add     r0, r0, #0x00C00000*/ /* UART3 */
-	mov     r1, @ 'A'
+	mov     r1, #'A'
 	str     r1, [r0, #0x00C]
 #endif
 	ldr     r1, =saved_state_end
@@ -132,7 +132,7 @@ ENTRY(msm_pm_collapse_exit)
 	ldmdb   r1!, {r4-r14}
 
 	/* Add 1:1 map in the PMD to allow smooth switch when turning on MMU */
-	and     r3, r3, @ ~0x7F  /* mask off lower 7 bits of TTB */
+	and     r3, r3, #~0x7F  /* mask off lower 7 bits of TTB */
 	adr     r0, msm_pm_mapped_pa /* get address of the mapped instr */
 	lsr     r1, r0, #20     /* get the addr range of addr in MB */
 	lsl     r1, r1, #2      /* multiply by 4 to get to the pg index */

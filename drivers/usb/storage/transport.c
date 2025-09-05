@@ -219,7 +219,7 @@ int usb_stor_control_msg(struct us_data *us, unsigned int pipe,
 		status = us->current_urb->actual_length;
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_control_msg); */
+EXPORT_SYMBOL_GPL(usb_stor_control_msg);
 
 /* This is a version of usb_clear_halt() that allows early termination and
  * doesn't read the status from the device -- this is because some devices
@@ -252,7 +252,7 @@ int usb_stor_clear_halt(struct us_data *us, unsigned int pipe)
 	US_DEBUGP("%s: result = %d\n", __func__, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_clear_halt); */
+EXPORT_SYMBOL_GPL(usb_stor_clear_halt);
 
 
 /*
@@ -369,7 +369,7 @@ int usb_stor_ctrl_transfer(struct us_data *us, unsigned int pipe,
 	return interpret_urb_result(us, pipe, size, result,
 			us->current_urb->actual_length);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_ctrl_transfer); */
+EXPORT_SYMBOL_GPL(usb_stor_ctrl_transfer);
 
 /*
  * Receive one interrupt buffer, without timeouts, but allowing early
@@ -425,7 +425,7 @@ int usb_stor_bulk_transfer_buf(struct us_data *us, unsigned int pipe,
 	return interpret_urb_result(us, pipe, length, result, 
 			us->current_urb->actual_length);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_bulk_transfer_buf); */
+EXPORT_SYMBOL_GPL(usb_stor_bulk_transfer_buf);
 
 /*
  * Transfer a scatter-gather list via bulk transfer
@@ -493,7 +493,7 @@ int usb_stor_bulk_srb(struct us_data* us, unsigned int pipe,
 	scsi_set_resid(srb, scsi_bufflen(srb) - partial);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_bulk_srb); */
+EXPORT_SYMBOL_GPL(usb_stor_bulk_srb);
 
 /*
  * Transfer an entire SCSI command's worth of data payload over the bulk
@@ -529,7 +529,7 @@ int usb_stor_bulk_transfer_sg(struct us_data* us, unsigned int pipe,
 		*residual = length_left;
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_bulk_transfer_sg); */
+EXPORT_SYMBOL_GPL(usb_stor_bulk_transfer_sg);
 
 /***********************************************************************
  * Transport routines
@@ -1045,7 +1045,7 @@ int usb_stor_CB_transport(struct scsi_cmnd *srb, struct us_data *us)
 		usb_stor_clear_halt(us, pipe);
 	return USB_STOR_TRANSPORT_FAILED;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_CB_transport); */
+EXPORT_SYMBOL_GPL(usb_stor_CB_transport);
 
 /*
  * Bulk only transport
@@ -1289,7 +1289,7 @@ int usb_stor_Bulk_transport(struct scsi_cmnd *srb, struct us_data *us)
 	/* we should never get here, but if we do, we're in trouble */
 	return USB_STOR_TRANSPORT_ERROR;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_Bulk_transport); */
+EXPORT_SYMBOL_GPL(usb_stor_Bulk_transport);
 
 /***********************************************************************
  * Reset routines
@@ -1364,7 +1364,7 @@ int usb_stor_CB_reset(struct us_data *us)
 				 USB_TYPE_CLASS | USB_RECIP_INTERFACE,
 				 0, us->ifnum, us->iobuf, CB_RESET_CMD_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_CB_reset); */
+EXPORT_SYMBOL_GPL(usb_stor_CB_reset);
 
 /* This issues a Bulk-only Reset to the device in question, including
  * clearing the subsequent endpoint halts that may occur.
@@ -1377,7 +1377,7 @@ int usb_stor_Bulk_reset(struct us_data *us)
 				 USB_TYPE_CLASS | USB_RECIP_INTERFACE,
 				 0, us->ifnum, NULL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_stor_Bulk_reset); */
+EXPORT_SYMBOL_GPL(usb_stor_Bulk_reset);
 
 /* Issue a USB port reset to the device.  The caller must not hold
  * us->dev_mutex.

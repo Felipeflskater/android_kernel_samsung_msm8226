@@ -49,14 +49,14 @@ int register_oldmem_pfn_is_ram(int (*fn)(unsigned long pfn))
 	oldmem_pfn_is_ram = fn;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_oldmem_pfn_is_ram); */
+EXPORT_SYMBOL_GPL(register_oldmem_pfn_is_ram);
 
 void unregister_oldmem_pfn_is_ram(void)
 {
 	oldmem_pfn_is_ram = NULL;
 	wmb();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_oldmem_pfn_is_ram); */
+EXPORT_SYMBOL_GPL(unregister_oldmem_pfn_is_ram);
 
 static int pfn_is_ram(unsigned long pfn)
 {
@@ -722,4 +722,4 @@ void vmcore_cleanup(void)
 	kfree(elfcorebuf);
 	elfcorebuf = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vmcore_cleanup); */
+EXPORT_SYMBOL_GPL(vmcore_cleanup);

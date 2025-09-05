@@ -234,7 +234,7 @@ err_free:
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_buf_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_buf_alloc);
 
 void mlx4_buf_free(struct mlx4_dev *dev, int size, struct mlx4_buf *buf)
 {
@@ -255,7 +255,7 @@ void mlx4_buf_free(struct mlx4_dev *dev, int size, struct mlx4_buf *buf)
 		kfree(buf->page_list);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_buf_free); */
+EXPORT_SYMBOL_GPL(mlx4_buf_free);
 
 static struct mlx4_db_pgdir *mlx4_alloc_db_pgdir(struct device *dma_device)
 {
@@ -337,7 +337,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_db_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_db_alloc);
 
 void mlx4_db_free(struct mlx4_dev *dev, struct mlx4_db *db)
 {
@@ -366,7 +366,7 @@ void mlx4_db_free(struct mlx4_dev *dev, struct mlx4_db *db)
 
 	mutex_unlock(&priv->pgdir_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_db_free); */
+EXPORT_SYMBOL_GPL(mlx4_db_free);
 
 int mlx4_alloc_hwq_res(struct mlx4_dev *dev, struct mlx4_hwq_resources *wqres,
 		       int size, int max_direct)
@@ -403,7 +403,7 @@ err_db:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_alloc_hwq_res); */
+EXPORT_SYMBOL_GPL(mlx4_alloc_hwq_res);
 
 void mlx4_free_hwq_res(struct mlx4_dev *dev, struct mlx4_hwq_resources *wqres,
 		       int size)
@@ -412,4 +412,4 @@ void mlx4_free_hwq_res(struct mlx4_dev *dev, struct mlx4_hwq_resources *wqres,
 	mlx4_buf_free(dev, size, &wqres->buf);
 	mlx4_db_free(dev, &wqres->db);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_free_hwq_res); */
+EXPORT_SYMBOL_GPL(mlx4_free_hwq_res);

@@ -142,7 +142,7 @@ void cyttsp4_pr_buf(struct device *dev, u8 *pr_buf, u8 *dptr, int size,
 	dev_vdbg(dev, "%s:  %s[0..%d]=%s%s\n", __func__, data_name, size - 1,
 			pr_buf, size <= max ? "" : CY_PR_TRUNCATED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_pr_buf); */
+EXPORT_SYMBOL_GPL(cyttsp4_pr_buf);
 #endif
 
 static inline int cyttsp4_adap_read(struct cyttsp4_core_data *cd, u16 addr,
@@ -4226,7 +4226,7 @@ const struct dev_pm_ops cyttsp4_pm_ops = {
 	SET_RUNTIME_PM_OPS(cyttsp4_core_rt_suspend, cyttsp4_core_rt_resume,
 			NULL)
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_pm_ops); */
+EXPORT_SYMBOL_GPL(cyttsp4_pm_ops);
 
 /*
  * Show Firmware version via sysfs
@@ -4607,7 +4607,7 @@ struct cyttsp4_core_commands *cyttsp4_get_commands(void)
 {
 	return &_cyttsp4_core_commands;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_get_commands); */
+EXPORT_SYMBOL_GPL(cyttsp4_get_commands);
 
 static LIST_HEAD(core_list);
 static int core_number;
@@ -4620,7 +4620,7 @@ struct cyttsp4_core_data *cyttsp4_get_core_data(char *id)
 			return d;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_get_core_data); */
+EXPORT_SYMBOL_GPL(cyttsp4_get_core_data);
 
 static void cyttsp4_add_core(struct device *dev)
 {
@@ -4939,7 +4939,7 @@ error_no_pdata:
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_probe); */
+EXPORT_SYMBOL_GPL(cyttsp4_probe);
 
 int cyttsp4_release(struct cyttsp4_core_data *cd)
 {
@@ -4981,7 +4981,7 @@ int cyttsp4_release(struct cyttsp4_core_data *cd)
 	kfree(cd);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_release); */
+EXPORT_SYMBOL_GPL(cyttsp4_release);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Cypress TrueTouch(R) Standard Product Core Driver");

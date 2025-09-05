@@ -80,7 +80,7 @@ void blk_execute_rq_nowait(struct request_queue *q, struct gendisk *bd_disk,
 		q->request_fn(q);
 	spin_unlock_irq(q->queue_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_execute_rq_nowait); */
+EXPORT_SYMBOL_GPL(blk_execute_rq_nowait);
 
 /**
  * blk_execute_rq - insert a request into queue for execution
@@ -128,4 +128,4 @@ int blk_execute_rq(struct request_queue *q, struct gendisk *bd_disk,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_execute_rq); */
+EXPORT_SYMBOL(blk_execute_rq);

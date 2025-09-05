@@ -119,7 +119,7 @@ void nfs_pageio_reset_read_mds(struct nfs_pageio_descriptor *pgio)
 	pgio->pg_ops = &nfs_pageio_read_ops;
 	pgio->pg_bsize = NFS_SERVER(pgio->pg_inode)->rsize;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_pageio_reset_read_mds); */
+EXPORT_SYMBOL_GPL(nfs_pageio_reset_read_mds);
 
 static void nfs_pageio_init_read(struct nfs_pageio_descriptor *pgio,
 		struct inode *inode)
@@ -207,7 +207,7 @@ int nfs_initiate_read(struct nfs_read_data *data, struct rpc_clnt *clnt,
 	rpc_put_task(task);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_initiate_read); */
+EXPORT_SYMBOL_GPL(nfs_initiate_read);
 
 /*
  * Set up the NFS read request struct

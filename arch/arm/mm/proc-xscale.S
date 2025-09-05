@@ -88,17 +88,17 @@
 	.macro  clean_d_cache, rd, rs
 	ldr	\rs, =clean_addr
 	ldr	\rd, [\rs]
-	eor	\rd, \rd, @ CACHESIZE
+	eor	\rd, \rd, #CACHESIZE
 	str	\rd, [\rs]
-	add	\rs, \rd, @ CACHESIZE
+	add	\rs, \rd, #CACHESIZE
 1:	mcr	p15, 0, \rd, c7, c2, 5		@ allocate D cache line
-	add	\rd, \rd, @ CACHELINESIZE
+	add	\rd, \rd, #CACHELINESIZE
 	mcr	p15, 0, \rd, c7, c2, 5		@ allocate D cache line
-	add	\rd, \rd, @ CACHELINESIZE
+	add	\rd, \rd, #CACHELINESIZE
 	mcr	p15, 0, \rd, c7, c2, 5		@ allocate D cache line
-	add	\rd, \rd, @ CACHELINESIZE
+	add	\rd, \rd, #CACHELINESIZE
 	mcr	p15, 0, \rd, c7, c2, 5		@ allocate D cache line
-	add	\rd, \rd, @ CACHELINESIZE
+	add	\rd, \rd, #CACHELINESIZE
 	teq	\rd, \rs
 	bne	1b
 	.endm
@@ -144,7 +144,7 @@ ENTRY(cpu_xscale_proc_fin)
 	.align	5
 	.pushsection	.idmap.text, "ax"
 ENTRY(cpu_xscale_reset)
-	mov	r1, @ PSR_F_BIT|PSR_I_BIT|SVC_MODE
+	mov	r1, #PSR_F_BIT|PSR_I_BIT|SVC_MODE
 	msr	cpsr_c, r1			@ reset CPSR
 	mcr	p15, 0, r1, c10, c4, 1		@ unlock I-TLB
 	mcr	p15, 0, r1, c8, c5, 0		@ invalidate I-TLB
@@ -209,11 +209,11 @@ ENTRY(xscale_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(xscale_flush_kern_cache_all)
-	mov	r2, @ VM_EXEC
+	mov	r2, #VM_EXEC
 	mov	ip, #0
 __flush_whole_cache:
 	clean_d_cache r0, r1
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 0		@ Invalidate I cache & BTB
 	mcrne	p15, 0, ip, c7, c10, 4		@ Drain Write (& Fill) Buffer
 	mov	pc, lr
@@ -232,17 +232,17 @@ __flush_whole_cache:
 ENTRY(xscale_flush_user_cache_range)
 	mov	ip, #0
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, @ MAX_AREA_SIZE
+	cmp	r3, #MAX_AREA_SIZE
 	bhs	__flush_whole_cache
 
-1:	tst	r2, @ VM_EXEC
+1:	tst	r2, #VM_EXEC
 	mcrne	p15, 0, r0, c7, c5, 1		@ Invalidate I cache line
 	mcr	p15, 0, r0, c7, c10, 1		@ Clean D cache line
 	mcr	p15, 0, r0, c7, c6, 1		@ Invalidate D cache line
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 	mcrne	p15, 0, ip, c7, c5, 6		@ Invalidate BTB
 	mcrne	p15, 0, ip, c7, c10, 4		@ Drain Write (& Fill) Buffer
 	mov	pc, lr
@@ -261,9 +261,9 @@ ENTRY(xscale_flush_user_cache_range)
  *	it also trashes the mini I-cache used by JTAG debuggers.
  */
 ENTRY(xscale_coherent_kern_range)
-	bic	r0, r0, @ CACHELINESIZE - 1
+	bic	r0, r0, #CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -282,10 +282,10 @@ ENTRY(xscale_coherent_kern_range)
  *	- end	 - virtual end address
  */
 ENTRY(xscale_coherent_user_range)
-	bic	r0, r0, @ CACHELINESIZE - 1
+	bic	r0, r0, #CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c5, 1		@ Invalidate I cache entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -306,7 +306,7 @@ ENTRY(xscale_flush_kern_dcache_area)
 	add	r1, r0, r1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -326,13 +326,13 @@ ENTRY(xscale_flush_kern_dcache_area)
  *	- end	 - virtual end address
  */
 xscale_dma_inv_range:
-	tst	r0, @ CACHELINESIZE - 1
-	bic	r0, r0, @ CACHELINESIZE - 1
+	tst	r0, #CACHELINESIZE - 1
+	bic	r0, r0, #CACHELINESIZE - 1
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
-	tst	r1, @ CACHELINESIZE - 1
+	tst	r1, #CACHELINESIZE - 1
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ Drain Write (& Fill) Buffer
@@ -347,9 +347,9 @@ xscale_dma_inv_range:
  *	- end	 - virtual end address
  */
 xscale_dma_clean_range:
-	bic	r0, r0, @ CACHELINESIZE - 1
+	bic	r0, r0, #CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ Drain Write (& Fill) Buffer
@@ -364,10 +364,10 @@ xscale_dma_clean_range:
  *	- end	 - virtual end address
  */
 ENTRY(xscale_dma_flush_range)
-	bic	r0, r0, @ CACHELINESIZE - 1
+	bic	r0, r0, #CACHELINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, r0, c7, c10, 4		@ Drain Write (& Fill) Buffer
@@ -381,7 +381,7 @@ ENTRY(xscale_dma_flush_range)
  */
 ENTRY(xscale_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, @ DMA_TO_DEVICE
+	cmp	r2, #DMA_TO_DEVICE
 	beq	xscale_dma_clean_range
 	bcs	xscale_dma_inv_range
 	b	xscale_dma_flush_range
@@ -395,7 +395,7 @@ ENDPROC(xscale_dma_map_area)
  */
 ENTRY(xscale_80200_A0_A1_dma_map_area)
 	add	r1, r1, r0
-	teq	r2, @ DMA_TO_DEVICE
+	teq	r2, #DMA_TO_DEVICE
 	beq	xscale_dma_clean_range
 	b	xscale_dma_flush_range
 ENDPROC(xscale_80200_A0_A1_dma_map_area)
@@ -454,8 +454,8 @@ ENDPROC(xscale_dma_unmap_area)
 
 ENTRY(cpu_xscale_dcache_clean_area)
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
-	add	r0, r0, @ CACHELINESIZE
-	subs	r1, r1, @ CACHELINESIZE
+	add	r0, r0, #CACHELINESIZE
+	subs	r1, r1, #CACHELINESIZE
 	bhi	1b
 	mov	pc, lr
 
@@ -509,11 +509,11 @@ ENTRY(cpu_xscale_set_pte_ext)
 	@
 	@ Erratum 40: must set memory to write-through for user read-only pages
 	@
-	and	ip, r1, @ (L_PTE_MT_MASK | L_PTE_USER | L_PTE_RDONLY) & ~(4 << 2)
-	teq	ip, @ L_PTE_MT_WRITEBACK | L_PTE_USER | L_PTE_RDONLY
+	and	ip, r1, #(L_PTE_MT_MASK | L_PTE_USER | L_PTE_RDONLY) & ~(4 << 2)
+	teq	ip, #L_PTE_MT_WRITEBACK | L_PTE_USER | L_PTE_RDONLY
 
-	moveq	r1, @ L_PTE_MT_WRITETHROUGH
-	and	r1, r1, @ L_PTE_MT_MASK
+	moveq	r1, #L_PTE_MT_WRITETHROUGH
+	and	r1, r1, #L_PTE_MT_MASK
 	adr	ip, cpu_xscale_mt_table
 	ldr	ip, [ip, r1]
 	bic	r2, r2, #0x0c
@@ -559,7 +559,7 @@ ENDPROC(cpu_xscale_do_resume)
 
 	__CPUINIT
 
-	.type	__xscale_setup, @ function
+	.type	__xscale_setup, #function
 __xscale_setup:
 	mcr	p15, 0, ip, c7, c7, 0		@ invalidate I, D caches & BTB
 	mcr	p15, 0, ip, c7, c10, 4		@ Drain Write (& Fill) Buffer
@@ -582,7 +582,7 @@ __xscale_setup:
 	 * ..11 1.01 .... .101
 	 * 
 	 */
-	.type	xscale_crval, @ object
+	.type	xscale_crval, #object
 xscale_crval:
 	crval	clear=0x00003b07, mmuset=0x00003905, ucset=0x00001900
 
@@ -613,10 +613,10 @@ xscale_crval:
 
 	.align
 
-	.section ".proc.info.init", @ alloc, @ execinstr
+	.section ".proc.info.init", #alloc, #execinstr
 
 .macro xscale_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, cache
-	.type	__\name\()_proc_info, @ object
+	.type	__\name\()_proc_info,#object
 __\name\()_proc_info:
 	.long	\cpu_val
 	.long	\cpu_mask

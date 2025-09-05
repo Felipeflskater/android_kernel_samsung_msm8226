@@ -52,7 +52,7 @@ nfs4_print_deviceid(const struct nfs4_deviceid *id)
 	dprintk("%s: device id= [%x%x%x%x]\n", __func__,
 		p[0], p[1], p[2], p[3]);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_print_deviceid); */
+EXPORT_SYMBOL_GPL(nfs4_print_deviceid);
 #endif
 
 static inline u32
@@ -115,7 +115,7 @@ nfs4_find_get_deviceid(const struct pnfs_layoutdriver_type *ld,
 {
 	return _find_get_deviceid(ld, clp, id, nfs4_deviceid_hash(id));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_find_get_deviceid); */
+EXPORT_SYMBOL_GPL(nfs4_find_get_deviceid);
 
 /*
  * Remove a deviceid from cache
@@ -147,7 +147,7 @@ nfs4_delete_deviceid(const struct pnfs_layoutdriver_type *ld,
 	if (atomic_dec_and_test(&d->ref))
 		d->ld->free_deviceid_node(d);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_delete_deviceid); */
+EXPORT_SYMBOL_GPL(nfs4_delete_deviceid);
 
 void
 nfs4_init_deviceid_node(struct nfs4_deviceid_node *d,
@@ -163,7 +163,7 @@ nfs4_init_deviceid_node(struct nfs4_deviceid_node *d,
 	d->deviceid = *id;
 	atomic_set(&d->ref, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_init_deviceid_node); */
+EXPORT_SYMBOL_GPL(nfs4_init_deviceid_node);
 
 /*
  * Uniquely initialize and insert a deviceid node into cache
@@ -196,7 +196,7 @@ nfs4_insert_deviceid_node(struct nfs4_deviceid_node *new)
 
 	return new;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_insert_deviceid_node); */
+EXPORT_SYMBOL_GPL(nfs4_insert_deviceid_node);
 
 /*
  * Dereference a deviceid node and delete it when its reference count drops
@@ -216,7 +216,7 @@ nfs4_put_deviceid_node(struct nfs4_deviceid_node *d)
 	d->ld->free_deviceid_node(d);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs4_put_deviceid_node); */
+EXPORT_SYMBOL_GPL(nfs4_put_deviceid_node);
 
 static void
 _deviceid_purge_client(const struct nfs_client *clp, long hash)

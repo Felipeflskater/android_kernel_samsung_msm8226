@@ -1557,14 +1557,14 @@ int dcbnl_ieee_notify(struct net_device *dev, int event, int cmd,
 {
 	return dcbnl_notify(dev, event, cmd, seq, pid, DCB_CAP_DCBX_VER_IEEE);
 }
-/* DISABLED: EXPORT_SYMBOL(dcbnl_ieee_notify); */
+EXPORT_SYMBOL(dcbnl_ieee_notify);
 
 int dcbnl_cee_notify(struct net_device *dev, int event, int cmd,
 		     u32 seq, u32 pid)
 {
 	return dcbnl_notify(dev, event, cmd, seq, pid, DCB_CAP_DCBX_VER_CEE);
 }
-/* DISABLED: EXPORT_SYMBOL(dcbnl_cee_notify); */
+EXPORT_SYMBOL(dcbnl_cee_notify);
 
 /* Handle IEEE 802.1Qaz SET commands. If any requested operation can not
  * be completed the entire msg is aborted and error value is returned.
@@ -2067,7 +2067,7 @@ u8 dcb_getapp(struct net_device *dev, struct dcb_app *app)
 
 	return prio;
 }
-/* DISABLED: EXPORT_SYMBOL(dcb_getapp); */
+EXPORT_SYMBOL(dcb_getapp);
 
 /**
  * dcb_setapp - add CEE dcb application data to app list
@@ -2119,7 +2119,7 @@ out:
 	call_dcbevent_notifiers(DCB_APP_EVENT, &event);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dcb_setapp); */
+EXPORT_SYMBOL(dcb_setapp);
 
 /**
  * dcb_ieee_getapp_mask - retrieve the IEEE DCB application priority
@@ -2145,7 +2145,7 @@ u8 dcb_ieee_getapp_mask(struct net_device *dev, struct dcb_app *app)
 
 	return prio;
 }
-/* DISABLED: EXPORT_SYMBOL(dcb_ieee_getapp_mask); */
+EXPORT_SYMBOL(dcb_ieee_getapp_mask);
 
 /**
  * dcb_ieee_setapp - add IEEE dcb application data to app list
@@ -2193,7 +2193,7 @@ out:
 		call_dcbevent_notifiers(DCB_APP_EVENT, &event);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dcb_ieee_setapp); */
+EXPORT_SYMBOL(dcb_ieee_setapp);
 
 /**
  * dcb_ieee_delapp - delete IEEE dcb application data from list
@@ -2231,7 +2231,7 @@ out:
 		call_dcbevent_notifiers(DCB_APP_EVENT, &event);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dcb_ieee_delapp); */
+EXPORT_SYMBOL(dcb_ieee_delapp);
 
 static void dcb_flushapp(void)
 {

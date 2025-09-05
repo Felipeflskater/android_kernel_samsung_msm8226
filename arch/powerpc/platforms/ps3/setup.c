@@ -45,7 +45,7 @@
 
 /* mutex synchronizing GPU accesses and video mode changes */
 DEFINE_MUTEX(ps3_gpu_mutex);
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_gpu_mutex); */
+EXPORT_SYMBOL_GPL(ps3_gpu_mutex);
 
 static union ps3_firmware_version ps3_firmware_version;
 
@@ -53,7 +53,7 @@ void ps3_get_firmware_version(union ps3_firmware_version *v)
 {
 	*v = ps3_firmware_version;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_get_firmware_version); */
+EXPORT_SYMBOL_GPL(ps3_get_firmware_version);
 
 int ps3_compare_firmware_version(u16 major, u16 minor, u16 rev)
 {
@@ -67,7 +67,7 @@ int ps3_compare_firmware_version(u16 major, u16 minor, u16 rev)
 	return (ps3_firmware_version.raw > x.raw) -
 	       (ps3_firmware_version.raw < x.raw);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_compare_firmware_version); */
+EXPORT_SYMBOL_GPL(ps3_compare_firmware_version);
 
 static void ps3_power_save(void)
 {
@@ -143,7 +143,7 @@ struct ps3_prealloc ps3fb_videomemory = {
 	.size = CONFIG_FB_PS3_DEFAULT_SIZE_M*1024*1024,
 	.align = 1024*1024		/* the GPU requires 1 MiB alignment */
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3fb_videomemory); */
+EXPORT_SYMBOL_GPL(ps3fb_videomemory);
 #define prealloc_ps3fb_videomemory()	prealloc(&ps3fb_videomemory)
 
 static int __init early_parse_ps3fb(char *p)
@@ -166,7 +166,7 @@ struct ps3_prealloc ps3flash_bounce_buffer = {
 	.size = 256*1024,
 	.align = 256*1024
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3flash_bounce_buffer); */
+EXPORT_SYMBOL_GPL(ps3flash_bounce_buffer);
 #define prealloc_ps3flash_bounce_buffer()	prealloc(&ps3flash_bounce_buffer)
 
 static int __init early_parse_ps3flash(char *p)

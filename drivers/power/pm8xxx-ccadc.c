@@ -112,7 +112,7 @@ s64 pm8xxx_cc_adjust_for_gain(s64 uv)
 
 	return div_s64(uv * GAIN_REFERENCE_UV, the_chip->ccadc_gain_uv);
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_cc_adjust_for_gain); */
+EXPORT_SYMBOL(pm8xxx_cc_adjust_for_gain);
 
 static int pm_ccadc_masked_write(struct pm8xxx_ccadc_chip *chip, u16 addr,
 							u8 mask, u8 val)
@@ -532,7 +532,7 @@ void pm8xxx_calib_ccadc(void)
 {
 	__pm8xxx_calib_ccadc(SAMPLE_COUNT);
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_calib_ccadc); */
+EXPORT_SYMBOL(pm8xxx_calib_ccadc);
 
 static void calibrate_ccadc_work(struct work_struct *work)
 {
@@ -643,7 +643,7 @@ int pm8xxx_ccadc_get_battery_current(int *bat_current_ua)
 	pr_debug("bat current = %d ma\n", *bat_current_ua);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pm8xxx_ccadc_get_battery_current); */
+EXPORT_SYMBOL(pm8xxx_ccadc_get_battery_current);
 
 static int get_reg(void *data, u64 * val)
 {

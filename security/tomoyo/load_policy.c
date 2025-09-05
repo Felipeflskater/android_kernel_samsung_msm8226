@@ -26,7 +26,7 @@ static int __init tomoyo_loader_setup(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("TOMOYO_loader=", tomoyo_loader_setup); */ */
+__setup("TOMOYO_loader=", tomoyo_loader_setup);
 
 /**
  * tomoyo_policy_loader_exists - Check whether /sbin/tomoyo-init exists.
@@ -65,7 +65,7 @@ static int __init tomoyo_trigger_setup(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("TOMOYO_trigger=", tomoyo_trigger_setup); */ */
+__setup("TOMOYO_trigger=", tomoyo_trigger_setup);
 
 /**
  * tomoyo_load_policy - Run external policy loader to load policy.

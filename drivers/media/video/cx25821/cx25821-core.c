@@ -44,9 +44,9 @@ MODULE_PARM_DESC(card, "card type");
 static unsigned int cx25821_devcount;
 
 DEFINE_MUTEX(cx25821_devlist_mutex);
-/* DISABLED: EXPORT_SYMBOL(cx25821_devlist_mutex); */
+EXPORT_SYMBOL(cx25821_devlist_mutex);
 LIST_HEAD(cx25821_devlist);
-/* DISABLED: EXPORT_SYMBOL(cx25821_devlist); */
+EXPORT_SYMBOL(cx25821_devlist);
 
 struct sram_channel cx25821_sram_channels[] = {
 	[SRAM_CH00] = {
@@ -315,7 +315,7 @@ struct sram_channel cx25821_sram_channels[] = {
 		.irq_bit = 11,
 	},
 };
-/* DISABLED: EXPORT_SYMBOL(cx25821_sram_channels); */
+EXPORT_SYMBOL(cx25821_sram_channels);
 
 struct sram_channel *channel0 = &cx25821_sram_channels[SRAM_CH00];
 struct sram_channel *channel1 = &cx25821_sram_channels[SRAM_CH01];
@@ -531,7 +531,7 @@ int cx25821_sram_channel_setup(struct cx25821_dev *dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_sram_channel_setup); */
+EXPORT_SYMBOL(cx25821_sram_channel_setup);
 
 int cx25821_sram_channel_setup_audio(struct cx25821_dev *dev,
 				     struct sram_channel *ch,
@@ -598,7 +598,7 @@ int cx25821_sram_channel_setup_audio(struct cx25821_dev *dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_sram_channel_setup_audio); */
+EXPORT_SYMBOL(cx25821_sram_channel_setup_audio);
 
 void cx25821_sram_channel_dump(struct cx25821_dev *dev, struct sram_channel *ch)
 {
@@ -660,7 +660,7 @@ void cx25821_sram_channel_dump(struct cx25821_dev *dev, struct sram_channel *ch)
 	pr_warn("        :   cnt2_reg: 0x%08x\n",
 		cx_read(ch->cnt2_reg));
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_sram_channel_dump); */
+EXPORT_SYMBOL(cx25821_sram_channel_dump);
 
 void cx25821_sram_channel_dump_audio(struct cx25821_dev *dev,
 				     struct sram_channel *ch)
@@ -768,7 +768,7 @@ void cx25821_sram_channel_dump_audio(struct cx25821_dev *dev,
 	value = cx25821_i2c_read(&dev->i2c_bus[0], AFE_AB_DIAG_CTRL, &tmp);
 	CX25821_INFO(" AFE_AB_DIAG_CTRL (0x10900090) = 0x%x\n\n", value);
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_sram_channel_dump_audio); */
+EXPORT_SYMBOL(cx25821_sram_channel_dump_audio);
 
 static void cx25821_shutdown(struct cx25821_dev *dev)
 {
@@ -1073,7 +1073,7 @@ void cx25821_dev_unregister(struct cx25821_dev *dev)
 	cx25821_i2c_unregister(&dev->i2c_bus[0]);
 	cx25821_iounmap(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_dev_unregister); */
+EXPORT_SYMBOL(cx25821_dev_unregister);
 
 static __le32 *cx25821_risc_field(__le32 * rp, struct scatterlist *sglist,
 				  unsigned int offset, u32 sync_line,
@@ -1273,7 +1273,7 @@ int cx25821_risc_databuffer_audio(struct pci_dev *pci,
 	BUG_ON((risc->jmp - risc->cpu + 2) * sizeof(*risc->cpu) > risc->size);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_risc_databuffer_audio); */
+EXPORT_SYMBOL(cx25821_risc_databuffer_audio);
 
 int cx25821_risc_stopper(struct pci_dev *pci, struct btcx_riscmem *risc,
 			 u32 reg, u32 mask, u32 value)
@@ -1362,14 +1362,14 @@ void cx25821_print_irqbits(char *name, char *tag, char **strings,
 	}
 	pr_cont("\n");
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_print_irqbits); */
+EXPORT_SYMBOL(cx25821_print_irqbits);
 
 struct cx25821_dev *cx25821_dev_get(struct pci_dev *pci)
 {
 	struct cx25821_dev *dev = pci_get_drvdata(pci);
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(cx25821_dev_get); */
+EXPORT_SYMBOL(cx25821_dev_get);
 
 static int __devinit cx25821_initdev(struct pci_dev *pci_dev,
 				     const struct pci_device_id *pci_id)

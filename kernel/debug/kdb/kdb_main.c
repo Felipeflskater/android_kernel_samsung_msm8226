@@ -43,7 +43,7 @@
 #define GREP_LEN 256
 char kdb_grep_string[GREP_LEN];
 int kdb_grepping_flag;
-/* DISABLED: EXPORT_SYMBOL(kdb_grepping_flag); */
+EXPORT_SYMBOL(kdb_grepping_flag);
 int kdb_grep_leading;
 int kdb_grep_trailing;
 
@@ -62,7 +62,7 @@ int kdb_nextline = 1;
 int kdb_state;			/* General KDB state */
 
 struct task_struct *kdb_current_task;
-/* DISABLED: EXPORT_SYMBOL(kdb_current_task); */
+EXPORT_SYMBOL(kdb_current_task);
 struct pt_regs *kdb_current_regs;
 
 const char *kdb_diemsg;
@@ -2763,7 +2763,7 @@ int kdb_register_repeat(char *cmd,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_register_repeat); */
+EXPORT_SYMBOL_GPL(kdb_register_repeat);
 
 
 /*
@@ -2787,7 +2787,7 @@ int kdb_register(char *cmd,
 	return kdb_register_repeat(cmd, func, usage, help, minlen,
 				   KDB_REPEAT_NONE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_register); */
+EXPORT_SYMBOL_GPL(kdb_register);
 
 /*
  * kdb_unregister - This function is used to unregister a kernel
@@ -2816,7 +2816,7 @@ int kdb_unregister(char *cmd)
 	/* Couldn't find it.  */
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_unregister); */
+EXPORT_SYMBOL_GPL(kdb_unregister);
 
 /* Initialize the kdb command table. */
 static void __init kdb_inittab(void)

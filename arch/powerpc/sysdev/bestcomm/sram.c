@@ -28,7 +28,7 @@
 
 /* Struct keeping our 'state' */
 struct bcom_sram *bcom_sram = NULL;
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_sram);	/* needed for inline functions */ */
+EXPORT_SYMBOL_GPL(bcom_sram);	/* needed for inline functions */
 
 
 /* ======================================================================== */
@@ -130,7 +130,7 @@ error_free:
 
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_sram_init); */
+EXPORT_SYMBOL_GPL(bcom_sram_init);
 
 void bcom_sram_cleanup(void)
 {
@@ -143,7 +143,7 @@ void bcom_sram_cleanup(void)
 		bcom_sram = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_sram_cleanup); */
+EXPORT_SYMBOL_GPL(bcom_sram_cleanup);
 
 void* bcom_sram_alloc(int size, int align, phys_addr_t *phys)
 {
@@ -159,7 +159,7 @@ void* bcom_sram_alloc(int size, int align, phys_addr_t *phys)
 	*phys = bcom_sram->base_phys + offset;
 	return bcom_sram->base_virt + offset;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_sram_alloc); */
+EXPORT_SYMBOL_GPL(bcom_sram_alloc);
 
 void bcom_sram_free(void *ptr)
 {
@@ -174,5 +174,5 @@ void bcom_sram_free(void *ptr)
 	rh_free(bcom_sram->rh, offset);
 	spin_unlock(&bcom_sram->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcom_sram_free); */
+EXPORT_SYMBOL_GPL(bcom_sram_free);
 

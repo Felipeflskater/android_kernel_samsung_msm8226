@@ -40,4 +40,4 @@ void ipv6_proxy_select_ident(struct net *net, struct sk_buff *skb)
 		skb_shinfo(skb)->ip6_frag_id = htonl(id);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ipv6_proxy_select_ident); */
+EXPORT_SYMBOL_GPL(ipv6_proxy_select_ident);

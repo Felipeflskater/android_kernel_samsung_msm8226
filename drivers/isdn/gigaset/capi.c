@@ -413,7 +413,7 @@ void gigaset_skb_sent(struct bc_state *bcs, struct sk_buff *dskb)
 				  CapiFlagsNotSupportedByProtocol :
 				  CAPI_NOERROR);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_sent); */
+EXPORT_SYMBOL_GPL(gigaset_skb_sent);
 
 /**
  * gigaset_skb_rcvd() - pass received skb to LL
@@ -471,7 +471,7 @@ void gigaset_skb_rcvd(struct bc_state *bcs, struct sk_buff *skb)
 	dump_rawmsg(DEBUG_MCMD, __func__, skb->data);
 	capi_ctr_handle_message(&iif->ctr, ap->id, skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_skb_rcvd); */
+EXPORT_SYMBOL_GPL(gigaset_skb_rcvd);
 
 /**
  * gigaset_isdn_rcv_err() - signal receive error
@@ -493,7 +493,7 @@ void gigaset_isdn_rcv_err(struct bc_state *bcs)
 
 	/* ToDo: signal error -> LL */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err); */
+EXPORT_SYMBOL_GPL(gigaset_isdn_rcv_err);
 
 /**
  * gigaset_isdn_icall() - signal incoming call

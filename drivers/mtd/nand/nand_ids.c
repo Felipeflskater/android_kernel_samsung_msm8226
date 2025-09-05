@@ -182,8 +182,8 @@ struct nand_manufacturers nand_manuf_ids[] = {
 	{0x0, "Unknown"}
 };
 
-/* DISABLED: EXPORT_SYMBOL(nand_manuf_ids); */
-/* DISABLED: EXPORT_SYMBOL(nand_flash_ids); */
+EXPORT_SYMBOL(nand_manuf_ids);
+EXPORT_SYMBOL(nand_flash_ids);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Thomas Gleixner <tglx@linutronix.de>");

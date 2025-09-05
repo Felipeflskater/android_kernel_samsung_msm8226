@@ -49,7 +49,7 @@
 unsigned int irda_debug = IRDA_DEBUG_LEVEL;
 module_param_named(debug, irda_debug, uint, 0);
 MODULE_PARM_DESC(debug, "IRDA debugging level");
-/* DISABLED: EXPORT_SYMBOL(irda_debug); */
+EXPORT_SYMBOL(irda_debug);
 #endif
 
 /* Packet type handler.
@@ -78,7 +78,7 @@ void irda_notify_init(notify_t *notify)
 	notify->instance = NULL;
 	strlcpy(notify->name, "Unknown", sizeof(notify->name));
 }
-/* DISABLED: EXPORT_SYMBOL(irda_notify_init); */
+EXPORT_SYMBOL(irda_notify_init);
 
 /*
  * Function irda_init (void)

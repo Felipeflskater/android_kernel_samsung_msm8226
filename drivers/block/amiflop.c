@@ -1889,7 +1889,7 @@ static int __init amiga_floppy_setup (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("floppy=", amiga_floppy_setup); */ */
+__setup("floppy=", amiga_floppy_setup);
 #endif
 
 MODULE_ALIAS("platform:amiga-floppy");

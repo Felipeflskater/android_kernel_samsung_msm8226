@@ -29,14 +29,14 @@
 		cmp	\tmp, #0x1e000000
 
 		@ Original memory map
-		moveq	\rp, @ DEBUG_LL_UART_OFFSET
-		orreq	\rv, \rp, @ DEBUG_LL_VIRT_BASE
-		orreq	\rp, \rp, @ DEBUG_LL_PHYS_BASE
+		moveq	\rp, #DEBUG_LL_UART_OFFSET
+		orreq	\rv, \rp, #DEBUG_LL_VIRT_BASE
+		orreq	\rp, \rp, #DEBUG_LL_PHYS_BASE
 
 		@ RS1 memory map
-		movne	\rp, @ DEBUG_LL_UART_OFFSET_RS1
-		orrne	\rv, \rp, @ DEBUG_LL_VIRT_BASE
-		orrne	\rp, \rp, @ DEBUG_LL_PHYS_BASE_RS1
+		movne	\rp, #DEBUG_LL_UART_OFFSET_RS1
+		orrne	\rv, \rp, #DEBUG_LL_VIRT_BASE
+		orrne	\rp, \rp, #DEBUG_LL_PHYS_BASE_RS1
 
 		.endm
 

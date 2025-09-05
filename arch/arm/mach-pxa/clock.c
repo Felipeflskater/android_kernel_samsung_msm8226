@@ -26,7 +26,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
@@ -39,7 +39,7 @@ void clk_disable(struct clk *clk)
 		clk->ops->disable(clk);
 	spin_unlock_irqrestore(&clocks_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -51,7 +51,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -66,7 +66,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 void clk_dummy_enable(struct clk *clk)
 {

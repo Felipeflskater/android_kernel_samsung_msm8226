@@ -123,7 +123,7 @@ static unsigned int pcpu_high_unit_cpu __read_mostly;
 
 /* the address of the first chunk which starts with the kernel static area */
 void *pcpu_base_addr __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(pcpu_base_addr); */
+EXPORT_SYMBOL_GPL(pcpu_base_addr);
 
 static const int *pcpu_unit_map __read_mostly;		/* cpu -> unit */
 const unsigned long *pcpu_unit_offsets __read_mostly;	/* cpu -> unit offset */
@@ -840,7 +840,7 @@ void __percpu *__alloc_percpu(size_t size, size_t align)
 {
 	return pcpu_alloc(size, align, false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__alloc_percpu); */
+EXPORT_SYMBOL_GPL(__alloc_percpu);
 
 /**
  * __alloc_reserved_percpu - allocate reserved percpu area
@@ -944,7 +944,7 @@ void free_percpu(void __percpu *ptr)
 
 	spin_unlock_irqrestore(&pcpu_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(free_percpu); */
+EXPORT_SYMBOL_GPL(free_percpu);
 
 /**
  * is_kernel_percpu_address - test whether address is from static percpu area
@@ -1839,7 +1839,7 @@ out_free_ar:
  * mappings on applicable archs.
  */
 unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(__per_cpu_offset); */
+EXPORT_SYMBOL(__per_cpu_offset);
 
 static void * __init pcpu_dfl_fc_alloc(unsigned int cpu, size_t size,
 				       size_t align)

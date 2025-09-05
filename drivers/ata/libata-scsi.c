@@ -153,7 +153,7 @@ static ssize_t ata_scsi_lpm_show(struct device *dev,
 }
 DEVICE_ATTR(link_power_management_policy, S_IRUGO | S_IWUSR,
 	    ata_scsi_lpm_show, ata_scsi_lpm_store);
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_link_power_management_policy); */
+EXPORT_SYMBOL_GPL(dev_attr_link_power_management_policy);
 
 static ssize_t ata_scsi_park_show(struct device *device,
 				  struct device_attribute *attr, char *buf)
@@ -253,7 +253,7 @@ unlock:
 }
 DEVICE_ATTR(unload_heads, S_IRUGO | S_IWUSR,
 	    ata_scsi_park_show, ata_scsi_park_store);
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_unload_heads); */
+EXPORT_SYMBOL_GPL(dev_attr_unload_heads);
 
 static void ata_scsi_set_sense(struct scsi_cmnd *cmd, u8 sk, u8 asc, u8 ascq)
 {
@@ -286,7 +286,7 @@ ata_scsi_em_message_show(struct device *dev, struct device_attribute *attr,
 }
 DEVICE_ATTR(em_message, S_IRUGO | S_IWUSR,
 		ata_scsi_em_message_show, ata_scsi_em_message_store);
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_em_message); */
+EXPORT_SYMBOL_GPL(dev_attr_em_message);
 
 static ssize_t
 ata_scsi_em_message_type_show(struct device *dev, struct device_attribute *attr,
@@ -299,7 +299,7 @@ ata_scsi_em_message_type_show(struct device *dev, struct device_attribute *attr,
 }
 DEVICE_ATTR(em_message_type, S_IRUGO,
 		  ata_scsi_em_message_type_show, NULL);
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_em_message_type); */
+EXPORT_SYMBOL_GPL(dev_attr_em_message_type);
 
 static ssize_t
 ata_scsi_activity_show(struct device *dev, struct device_attribute *attr,
@@ -341,13 +341,13 @@ ata_scsi_activity_store(struct device *dev, struct device_attribute *attr,
 }
 DEVICE_ATTR(sw_activity, S_IWUSR | S_IRUGO, ata_scsi_activity_show,
 			ata_scsi_activity_store);
-/* DISABLED: EXPORT_SYMBOL_GPL(dev_attr_sw_activity); */
+EXPORT_SYMBOL_GPL(dev_attr_sw_activity);
 
 struct device_attribute *ata_common_sdev_attrs[] = {
 	&dev_attr_unload_heads,
 	NULL
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_common_sdev_attrs); */
+EXPORT_SYMBOL_GPL(ata_common_sdev_attrs);
 
 static void ata_scsi_invalid_field(struct scsi_cmnd *cmd)
 {
@@ -708,14 +708,14 @@ int ata_sas_scsi_ioctl(struct ata_port *ap, struct scsi_device *scsidev,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_scsi_ioctl); */
+EXPORT_SYMBOL_GPL(ata_sas_scsi_ioctl);
 
 int ata_scsi_ioctl(struct scsi_device *scsidev, int cmd, void __user *arg)
 {
 	return ata_sas_scsi_ioctl(ata_shost_to_port(scsidev->host),
 				scsidev, cmd, arg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_ioctl); */
+EXPORT_SYMBOL_GPL(ata_scsi_ioctl);
 
 /**
  *	ata_scsi_qc_new - acquire new ata_queued_cmd reference
@@ -3801,7 +3801,7 @@ struct ata_port *ata_sas_port_alloc(struct ata_host *host,
 
 	return ap;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_port_alloc); */
+EXPORT_SYMBOL_GPL(ata_sas_port_alloc);
 
 /**
  *	ata_sas_port_start - Set port up for dma.
@@ -3825,7 +3825,7 @@ int ata_sas_port_start(struct ata_port *ap)
 		ap->pflags &= ~ATA_PFLAG_FROZEN;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_port_start); */
+EXPORT_SYMBOL_GPL(ata_sas_port_start);
 
 /**
  *	ata_port_stop - Undo ata_sas_port_start()
@@ -3840,7 +3840,7 @@ int ata_sas_port_start(struct ata_port *ap)
 void ata_sas_port_stop(struct ata_port *ap)
 {
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_port_stop); */
+EXPORT_SYMBOL_GPL(ata_sas_port_stop);
 
 /**
  * ata_sas_async_probe - simply schedule probing and return
@@ -3853,13 +3853,13 @@ void ata_sas_async_probe(struct ata_port *ap)
 {
 	__ata_port_probe(ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_async_probe); */
+EXPORT_SYMBOL_GPL(ata_sas_async_probe);
 
 int ata_sas_sync_probe(struct ata_port *ap)
 {
 	return ata_port_probe(ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_sync_probe); */
+EXPORT_SYMBOL_GPL(ata_sas_sync_probe);
 
 
 /**
@@ -3882,7 +3882,7 @@ int ata_sas_port_init(struct ata_port *ap)
 	ap->print_id = atomic_inc_return(&ata_print_id);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_port_init); */
+EXPORT_SYMBOL_GPL(ata_sas_port_init);
 
 /**
  *	ata_sas_port_destroy - Destroy a SATA port allocated by ata_sas_port_alloc
@@ -3896,7 +3896,7 @@ void ata_sas_port_destroy(struct ata_port *ap)
 		ap->ops->port_stop(ap);
 	kfree(ap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_port_destroy); */
+EXPORT_SYMBOL_GPL(ata_sas_port_destroy);
 
 /**
  *	ata_sas_slave_configure - Default slave_config routine for libata devices
@@ -3913,7 +3913,7 @@ int ata_sas_slave_configure(struct scsi_device *sdev, struct ata_port *ap)
 	ata_scsi_dev_config(sdev, ap->link.device);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_slave_configure); */
+EXPORT_SYMBOL_GPL(ata_sas_slave_configure);
 
 /**
  *	ata_sas_queuecmd - Issue SCSI cdb to libata-managed device
@@ -3939,4 +3939,4 @@ int ata_sas_queuecmd(struct scsi_cmnd *cmd, struct ata_port *ap)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sas_queuecmd); */
+EXPORT_SYMBOL_GPL(ata_sas_queuecmd);

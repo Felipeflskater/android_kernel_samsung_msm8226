@@ -204,7 +204,7 @@ void drm_vblank_cleanup(struct drm_device *dev)
 
 	dev->num_crtcs = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_cleanup); */
+EXPORT_SYMBOL(drm_vblank_cleanup);
 
 int drm_vblank_init(struct drm_device *dev, int num_crtcs)
 {
@@ -274,7 +274,7 @@ err:
 	drm_vblank_cleanup(dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_init); */
+EXPORT_SYMBOL(drm_vblank_init);
 
 static void drm_irq_vgaarb_nokms(void *cookie, bool state)
 {
@@ -378,7 +378,7 @@ int drm_irq_install(struct drm_device *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_irq_install); */
+EXPORT_SYMBOL(drm_irq_install);
 
 /**
  * Uninstall the IRQ handler.
@@ -429,7 +429,7 @@ int drm_irq_uninstall(struct drm_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_irq_uninstall); */
+EXPORT_SYMBOL(drm_irq_uninstall);
 
 /**
  * IRQ control ioctl.
@@ -524,7 +524,7 @@ void drm_calc_timestamping_constants(struct drm_crtc *crtc)
 		  crtc->base.id, (int) dotclock/1000, (int) framedur_ns,
 		  (int) linedur_ns, (int) pixeldur_ns);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_calc_timestamping_constants); */
+EXPORT_SYMBOL(drm_calc_timestamping_constants);
 
 /**
  * drm_calc_vbltimestamp_from_scanoutpos - helper routine for kms
@@ -706,7 +706,7 @@ int drm_calc_vbltimestamp_from_scanoutpos(struct drm_device *dev, int crtc,
 
 	return vbl_status;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_calc_vbltimestamp_from_scanoutpos); */
+EXPORT_SYMBOL(drm_calc_vbltimestamp_from_scanoutpos);
 
 /**
  * drm_get_last_vbltimestamp - retrieve raw timestamp for the most recent
@@ -751,7 +751,7 @@ u32 drm_get_last_vbltimestamp(struct drm_device *dev, int crtc,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_last_vbltimestamp); */
+EXPORT_SYMBOL(drm_get_last_vbltimestamp);
 
 /**
  * drm_vblank_count - retrieve "cooked" vblank counter value
@@ -766,7 +766,7 @@ u32 drm_vblank_count(struct drm_device *dev, int crtc)
 {
 	return atomic_read(&dev->_vblank_count[crtc]);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_count); */
+EXPORT_SYMBOL(drm_vblank_count);
 
 /**
  * drm_vblank_count_and_time - retrieve "cooked" vblank counter value
@@ -800,7 +800,7 @@ u32 drm_vblank_count_and_time(struct drm_device *dev, int crtc,
 
 	return cur_vblank;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_count_and_time); */
+EXPORT_SYMBOL(drm_vblank_count_and_time);
 
 /**
  * drm_update_vblank_count - update the master vblank counter
@@ -914,7 +914,7 @@ int drm_vblank_get(struct drm_device *dev, int crtc)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_get); */
+EXPORT_SYMBOL(drm_vblank_get);
 
 /**
  * drm_vblank_put - give up ownership of vblank events
@@ -934,7 +934,7 @@ void drm_vblank_put(struct drm_device *dev, int crtc)
 		mod_timer(&dev->vblank_disable_timer,
 			  jiffies + ((drm_vblank_offdelay * DRM_HZ)/1000));
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_put); */
+EXPORT_SYMBOL(drm_vblank_put);
 
 void drm_vblank_off(struct drm_device *dev, int crtc)
 {
@@ -968,7 +968,7 @@ void drm_vblank_off(struct drm_device *dev, int crtc)
 
 	spin_unlock_irqrestore(&dev->vbl_lock, irqflags);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_off); */
+EXPORT_SYMBOL(drm_vblank_off);
 
 /**
  * drm_vblank_pre_modeset - account for vblanks across mode sets
@@ -997,7 +997,7 @@ void drm_vblank_pre_modeset(struct drm_device *dev, int crtc)
 			dev->vblank_inmodeset[crtc] |= 0x2;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_pre_modeset); */
+EXPORT_SYMBOL(drm_vblank_pre_modeset);
 
 void drm_vblank_post_modeset(struct drm_device *dev, int crtc)
 {
@@ -1018,7 +1018,7 @@ void drm_vblank_post_modeset(struct drm_device *dev, int crtc)
 		dev->vblank_inmodeset[crtc] = 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_vblank_post_modeset); */
+EXPORT_SYMBOL(drm_vblank_post_modeset);
 
 /**
  * drm_modeset_ctl - handle vblank event counter changes across mode switch
@@ -1349,4 +1349,4 @@ bool drm_handle_vblank(struct drm_device *dev, int crtc)
 	spin_unlock_irqrestore(&dev->vblank_time_lock, irqflags);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_handle_vblank); */
+EXPORT_SYMBOL(drm_handle_vblank);

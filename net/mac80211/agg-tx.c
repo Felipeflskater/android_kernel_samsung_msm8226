@@ -138,7 +138,7 @@ void ieee80211_send_bar(struct ieee80211_vif *vif, u8 *ra, u16 tid, u16 ssn)
 	IEEE80211_SKB_CB(skb)->flags |= IEEE80211_TX_INTFL_DONT_ENCRYPT;
 	ieee80211_tx_skb_tid(sdata, skb, tid);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_send_bar); */
+EXPORT_SYMBOL(ieee80211_send_bar);
 
 void ieee80211_assign_tid_tx(struct sta_info *sta, int tid,
 			     struct tid_ampdu_tx *tid_tx)
@@ -561,7 +561,7 @@ int ieee80211_start_tx_ba_session(struct ieee80211_sta *pubsta, u16 tid,
 	spin_unlock_bh(&sta->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_start_tx_ba_session); */
+EXPORT_SYMBOL(ieee80211_start_tx_ba_session);
 
 static void ieee80211_agg_tx_operational(struct ieee80211_local *local,
 					 struct sta_info *sta, u16 tid)
@@ -665,7 +665,7 @@ void ieee80211_start_tx_ba_cb_irqsafe(struct ieee80211_vif *vif,
 	skb_queue_tail(&sdata->skb_queue, skb);
 	ieee80211_queue_work(&local->hw, &sdata->work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_start_tx_ba_cb_irqsafe); */
+EXPORT_SYMBOL(ieee80211_start_tx_ba_cb_irqsafe);
 
 int __ieee80211_stop_tx_ba_session(struct sta_info *sta, u16 tid,
 				   enum ieee80211_back_parties initiator,
@@ -719,7 +719,7 @@ int ieee80211_stop_tx_ba_session(struct ieee80211_sta *pubsta, u16 tid)
 	spin_unlock_bh(&sta->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_tx_ba_session); */
+EXPORT_SYMBOL(ieee80211_stop_tx_ba_session);
 
 void ieee80211_stop_tx_ba_cb(struct ieee80211_vif *vif, u8 *ra, u8 tid)
 {
@@ -813,7 +813,7 @@ void ieee80211_stop_tx_ba_cb_irqsafe(struct ieee80211_vif *vif,
 	skb_queue_tail(&sdata->skb_queue, skb);
 	ieee80211_queue_work(&local->hw, &sdata->work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_tx_ba_cb_irqsafe); */
+EXPORT_SYMBOL(ieee80211_stop_tx_ba_cb_irqsafe);
 
 
 void ieee80211_process_addba_resp(struct ieee80211_local *local,

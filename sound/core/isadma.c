@@ -56,7 +56,7 @@ void snd_dma_program(unsigned long dma,
 	release_dma_lock(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_dma_program); */
+EXPORT_SYMBOL(snd_dma_program);
 
 /**
  * snd_dma_disable - stop the ISA DMA transfer
@@ -74,7 +74,7 @@ void snd_dma_disable(unsigned long dma)
 	release_dma_lock(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_dma_disable); */
+EXPORT_SYMBOL(snd_dma_disable);
 
 /**
  * snd_dma_pointer - return the current pointer to DMA transfer buffer in bytes
@@ -114,4 +114,4 @@ unsigned int snd_dma_pointer(unsigned long dma, unsigned int size)
 		return size - result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_dma_pointer); */
+EXPORT_SYMBOL(snd_dma_pointer);

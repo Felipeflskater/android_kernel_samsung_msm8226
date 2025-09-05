@@ -107,7 +107,7 @@ trace_seq_printf(struct trace_seq *s, const char *fmt, ...)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(trace_seq_printf); */
+EXPORT_SYMBOL_GPL(trace_seq_printf);
 
 /**
  * trace_seq_vprintf - sequence printing of trace information
@@ -141,7 +141,7 @@ trace_seq_vprintf(struct trace_seq *s, const char *fmt, va_list args)
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(trace_seq_vprintf); */
+EXPORT_SYMBOL_GPL(trace_seq_vprintf);
 
 int trace_seq_bprintf(struct trace_seq *s, const char *fmt, const u32 *binary)
 {
@@ -206,7 +206,7 @@ int trace_seq_putc(struct trace_seq *s, unsigned char c)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(trace_seq_putc); */
+EXPORT_SYMBOL(trace_seq_putc);
 
 int trace_seq_putmem(struct trace_seq *s, const void *mem, size_t len)
 {
@@ -328,7 +328,7 @@ ftrace_print_flags_seq(struct trace_seq *p, const char *delim,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ftrace_print_flags_seq); */
+EXPORT_SYMBOL(ftrace_print_flags_seq);
 
 const char *
 ftrace_print_symbols_seq(struct trace_seq *p, unsigned long val,
@@ -353,7 +353,7 @@ ftrace_print_symbols_seq(struct trace_seq *p, unsigned long val,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ftrace_print_symbols_seq); */
+EXPORT_SYMBOL(ftrace_print_symbols_seq);
 
 #if BITS_PER_LONG == 32
 const char *
@@ -379,7 +379,7 @@ ftrace_print_symbols_seq_u64(struct trace_seq *p, unsigned long long val,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ftrace_print_symbols_seq_u64); */
+EXPORT_SYMBOL(ftrace_print_symbols_seq_u64);
 #endif
 
 const char *
@@ -395,7 +395,7 @@ ftrace_print_hex_seq(struct trace_seq *p, const unsigned char *buf, int buf_len)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ftrace_print_hex_seq); */
+EXPORT_SYMBOL(ftrace_print_hex_seq);
 
 #ifdef CONFIG_KRETPROBES
 static inline const char *kretprobed(const char *name)
@@ -857,7 +857,7 @@ int register_ftrace_event(struct trace_event *event)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_ftrace_event); */
+EXPORT_SYMBOL_GPL(register_ftrace_event);
 
 /*
  * Used by module code with the trace_event_mutex held for write.
@@ -881,7 +881,7 @@ int unregister_ftrace_event(struct trace_event *event)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_ftrace_event); */
+EXPORT_SYMBOL_GPL(unregister_ftrace_event);
 
 /*
  * Standard events

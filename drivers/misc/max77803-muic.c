@@ -195,7 +195,7 @@ int is_cardock;
 #if defined(CONFIG_MACH_MONTBLANC)
 bool gEarDetected = false;
 #endif
-/* DISABLED: EXPORT_SYMBOL(is_cardock); */
+EXPORT_SYMBOL(is_cardock);
 
 /* func : get_if_pmic_inifo
  * switch_sel value get from bootloader comand line
@@ -212,7 +212,7 @@ static int get_if_pmic_inifo(char *str)
 		__FILE__, __func__, switch_sel, if_pmic_rev);
 	return if_muic_info;
 }
-/* DISABLED: __setup("pmic_info=", get_if_pmic_inifo); */ */
+__setup("pmic_info=", get_if_pmic_inifo);
 
 int get_switch_sel(void)
 {

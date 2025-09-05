@@ -36,7 +36,7 @@ EXPORT_PER_CPU_SYMBOL(this_cpu_off);
 unsigned long __per_cpu_offset[NR_CPUS] __read_mostly = {
 	[0 ... NR_CPUS-1] = BOOT_PERCPU_OFFSET,
 };
-/* DISABLED: EXPORT_SYMBOL(__per_cpu_offset); */
+EXPORT_SYMBOL(__per_cpu_offset);
 
 /*
  * On x86_64 symbols referenced from code should be reachable using

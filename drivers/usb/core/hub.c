@@ -42,9 +42,9 @@
 
 int portno;
 int No_Data_Phase;
-/* DISABLED: EXPORT_SYMBOL(No_Data_Phase); */
+EXPORT_SYMBOL(No_Data_Phase);
 int No_Status_Phase;
-/* DISABLED: EXPORT_SYMBOL(No_Status_Phase); */
+EXPORT_SYMBOL(No_Status_Phase);
 unsigned char hub_tier;
 
 #define PDC_HOST_NOTIFY		0x8001	/*completion from core */
@@ -53,11 +53,11 @@ unsigned char hub_tier;
 #define PDC_POWERMANAGEMENT	0x8097
 
 int Unwanted_SecondReset;
-/* DISABLED: EXPORT_SYMBOL(Unwanted_SecondReset); */
+EXPORT_SYMBOL(Unwanted_SecondReset);
 int HostComplianceTest;
-/* DISABLED: EXPORT_SYMBOL(HostComplianceTest); */
+EXPORT_SYMBOL(HostComplianceTest);
 int HostTest;
-/* DISABLED: EXPORT_SYMBOL(HostTest); */
+EXPORT_SYMBOL(HostTest);
 #endif
 
 
@@ -181,7 +181,7 @@ MODULE_PARM_DESC(use_both_schemes,
  * port reset on some companion controllers.
  */
 DECLARE_RWSEM(ehci_cf_port_reset_rwsem);
-/* DISABLED: EXPORT_SYMBOL_GPL(ehci_cf_port_reset_rwsem); */
+EXPORT_SYMBOL_GPL(ehci_cf_port_reset_rwsem);
 
 #define HUB_DEBOUNCE_TIMEOUT	1500
 #define HUB_DEBOUNCE_STEP	  25
@@ -472,7 +472,7 @@ void usb_wakeup_notification(struct usb_device *hdev,
 		kick_khubd(hub);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_wakeup_notification); */
+EXPORT_SYMBOL_GPL(usb_wakeup_notification);
 
 /* completion function, fires on port status changes and various faults */
 static void hub_irq(struct urb *urb)
@@ -636,7 +636,7 @@ int usb_hub_clear_tt_buffer(struct urb *urb)
 	spin_unlock_irqrestore (&tt->lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hub_clear_tt_buffer); */
+EXPORT_SYMBOL_GPL(usb_hub_clear_tt_buffer);
 
 /* If do_delay is false, return the number of milliseconds the caller
  * needs to delay.
@@ -1718,7 +1718,7 @@ void usb_set_device_state(struct usb_device *udev,
 	if (wakeup >= 0)
 		device_set_wakeup_capable(&udev->dev, wakeup);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_set_device_state); */
+EXPORT_SYMBOL_GPL(usb_set_device_state);
 
 /*
  * Choose a device number.
@@ -3073,7 +3073,7 @@ void usb_root_hub_lost_power(struct usb_device *rhdev)
 	dev_warn(&rhdev->dev, "root hub lost power or was reset\n");
 	rhdev->reset_resume = 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_root_hub_lost_power); */
+EXPORT_SYMBOL_GPL(usb_root_hub_lost_power);
 
 #else	/* CONFIG_PM */
 
@@ -3145,7 +3145,7 @@ void usb_ep0_reinit(struct usb_device *udev)
 	usb_disable_endpoint(udev, 0 + USB_DIR_OUT, true);
 	usb_enable_endpoint(udev, &udev->ep0, true);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_ep0_reinit); */
+EXPORT_SYMBOL_GPL(usb_ep0_reinit);
 
 #define usb_sndaddr0pipe()	(PIPE_CONTROL << 30)
 #define usb_rcvaddr0pipe()	((PIPE_CONTROL << 30) | USB_DIR_IN)
@@ -4789,7 +4789,7 @@ int usb_reset_device(struct usb_device *udev)
 	usb_autosuspend_device(udev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_reset_device); */
+EXPORT_SYMBOL_GPL(usb_reset_device);
 
 
 /**
@@ -4832,4 +4832,4 @@ void usb_queue_reset_device(struct usb_interface *iface)
 {
 	schedule_work(&iface->reset_ws);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_queue_reset_device); */
+EXPORT_SYMBOL_GPL(usb_queue_reset_device);

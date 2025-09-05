@@ -46,9 +46,9 @@
 extern void bootx_init(unsigned long r4, unsigned long phys);
 
 int boot_cpuid = -1;
-/* DISABLED: EXPORT_SYMBOL_GPL(boot_cpuid); */
+EXPORT_SYMBOL_GPL(boot_cpuid);
 int boot_cpuid_phys;
-/* DISABLED: EXPORT_SYMBOL_GPL(boot_cpuid_phys); */
+EXPORT_SYMBOL_GPL(boot_cpuid_phys);
 
 int smp_hw_index[NR_CPUS];
 
@@ -58,7 +58,7 @@ unsigned int DMA_MODE_WRITE;
 
 #ifdef CONFIG_VGA_CONSOLE
 unsigned long vgacon_remap_base;
-/* DISABLED: EXPORT_SYMBOL(vgacon_remap_base); */
+EXPORT_SYMBOL(vgacon_remap_base);
 #endif
 
 /*
@@ -184,7 +184,7 @@ int __init ppc_setup_l2cr(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("l2cr=", ppc_setup_l2cr); */ */
+__setup("l2cr=", ppc_setup_l2cr);
 
 /* Checks "l3cr=xxxx" command-line option */
 int __init ppc_setup_l3cr(char *str)
@@ -196,7 +196,7 @@ int __init ppc_setup_l3cr(char *str)
 	}
 	return 1;
 }
-/* DISABLED: __setup("l3cr=", ppc_setup_l3cr); */ */
+__setup("l3cr=", ppc_setup_l3cr);
 
 #ifdef CONFIG_GENERIC_NVRAM
 
@@ -207,14 +207,14 @@ unsigned char nvram_read_byte(int addr)
 		return ppc_md.nvram_read_val(addr);
 	return 0xff;
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_read_byte); */
+EXPORT_SYMBOL(nvram_read_byte);
 
 void nvram_write_byte(unsigned char val, int addr)
 {
 	if (ppc_md.nvram_write_val)
 		ppc_md.nvram_write_val(addr, val);
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_write_byte); */
+EXPORT_SYMBOL(nvram_write_byte);
 
 ssize_t nvram_get_size(void)
 {
@@ -222,14 +222,14 @@ ssize_t nvram_get_size(void)
 		return ppc_md.nvram_size();
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_get_size); */
+EXPORT_SYMBOL(nvram_get_size);
 
 void nvram_sync(void)
 {
 	if (ppc_md.nvram_sync)
 		ppc_md.nvram_sync();
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_sync); */
+EXPORT_SYMBOL(nvram_sync);
 
 #endif /* CONFIG_NVRAM */
 

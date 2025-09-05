@@ -198,7 +198,7 @@ void i2400m_bm_cmd_prepare(struct i2400m_bootrom_header *cmd)
 		cmd->block_checksum = cpu_to_le32(checksum);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_bm_cmd_prepare); */
+EXPORT_SYMBOL_GPL(i2400m_bm_cmd_prepare);
 
 
 /*
@@ -432,7 +432,7 @@ int i2400m_is_boot_barker(struct i2400m *i2400m,
 	}
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_is_boot_barker); */
+EXPORT_SYMBOL_GPL(i2400m_is_boot_barker);
 
 
 /*
@@ -1598,7 +1598,7 @@ out:
 	d_fnend(5, dev, "(i2400m %p) = %d\n", i2400m, ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_dev_bootstrap); */
+EXPORT_SYMBOL_GPL(i2400m_dev_bootstrap);
 
 
 void i2400m_fw_cache(struct i2400m *i2400m)

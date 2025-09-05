@@ -76,7 +76,7 @@ void sound_timer_syncinterval(unsigned int new_usecs)
 	tmr_ctr = 0;
 	usecs_per_tmr = new_usecs;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_timer_syncinterval); */
+EXPORT_SYMBOL(sound_timer_syncinterval);
 
 static void tmr_reset(void)
 {
@@ -301,7 +301,7 @@ void sound_timer_interrupt(void)
 	}
 	spin_unlock_irqrestore(&lock,flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sound_timer_interrupt); */
+EXPORT_SYMBOL(sound_timer_interrupt);
 
 void  sound_timer_init(struct sound_lowlev_timer *t, char *name)
 {
@@ -323,5 +323,5 @@ void  sound_timer_init(struct sound_lowlev_timer *t, char *name)
 	strlcpy(sound_timer.info.name, name, sizeof(sound_timer.info.name));
 	sound_timer_devs[n] = &sound_timer;
 }
-/* DISABLED: EXPORT_SYMBOL(sound_timer_init); */
+EXPORT_SYMBOL(sound_timer_init);
 

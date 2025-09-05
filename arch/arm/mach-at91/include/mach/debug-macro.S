@@ -26,18 +26,18 @@
 	.endm
 
 	.macro	senduart,rd,rx
-	strb	\rd, [\rx, @ (AT91_DBGU_THR)]		@ Write to Transmitter Holding Register
+	strb	\rd, [\rx, #(AT91_DBGU_THR)]		@ Write to Transmitter Holding Register
 	.endm
 
 	.macro	waituart,rd,rx
-1001:	ldr	\rd, [\rx, @ (AT91_DBGU_SR)]		@ Read Status Register
-	tst	\rd, @ AT91_DBGU_TXRDY			@ DBGU_TXRDY = 1 when ready to transmit
+1001:	ldr	\rd, [\rx, #(AT91_DBGU_SR)]		@ Read Status Register
+	tst	\rd, #AT91_DBGU_TXRDY			@ DBGU_TXRDY = 1 when ready to transmit
 	beq	1001b
 	.endm
 
 	.macro	busyuart,rd,rx
-1001:	ldr	\rd, [\rx, @ (AT91_DBGU_SR)]		@ Read Status Register
-	tst	\rd, @ AT91_DBGU_TXEMPTY			@ DBGU_TXEMPTY = 1 when transmission complete
+1001:	ldr	\rd, [\rx, #(AT91_DBGU_SR)]		@ Read Status Register
+	tst	\rd, #AT91_DBGU_TXEMPTY			@ DBGU_TXEMPTY = 1 when transmission complete
 	beq	1001b
 	.endm
 

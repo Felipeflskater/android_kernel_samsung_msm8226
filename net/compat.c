@@ -483,7 +483,7 @@ int compat_sock_get_timestamp(struct sock *sk, struct timeval __user *userstamp)
 		err = -EFAULT;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(compat_sock_get_timestamp); */
+EXPORT_SYMBOL(compat_sock_get_timestamp);
 
 int compat_sock_get_timestampns(struct sock *sk, struct timespec __user *userstamp)
 {
@@ -511,7 +511,7 @@ int compat_sock_get_timestampns(struct sock *sk, struct timespec __user *usersta
 		err = -EFAULT;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(compat_sock_get_timestampns); */
+EXPORT_SYMBOL(compat_sock_get_timestampns);
 
 asmlinkage long compat_sys_getsockopt(int fd, int level, int optname,
 				char __user *optval, int __user *optlen)
@@ -653,7 +653,7 @@ int compat_mc_setsockopt(struct sock *sock, int level, int optname,
 	}
 	return setsockopt(sock, level, optname, koptval, koptlen);
 }
-/* DISABLED: EXPORT_SYMBOL(compat_mc_setsockopt); */
+EXPORT_SYMBOL(compat_mc_setsockopt);
 
 int compat_mc_getsockopt(struct sock *sock, int level, int optname,
 	char __user *optval, int __user *optlen,
@@ -731,7 +731,7 @@ int compat_mc_getsockopt(struct sock *sock, int level, int optname,
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(compat_mc_getsockopt); */
+EXPORT_SYMBOL(compat_mc_getsockopt);
 
 
 /* Argument list sizes for compat_sys_socketcall */

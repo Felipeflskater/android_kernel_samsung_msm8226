@@ -342,7 +342,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_add_hdr); */
+EXPORT_SYMBOL(ipa_add_hdr);
 
 /**
  * ipa_del_hdr_by_user() - Remove the specified headers
@@ -399,7 +399,7 @@ int ipa_del_hdr(struct ipa_ioc_del_hdr *hdls)
 {
 	return ipa_del_hdr_by_user(hdls, false);
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_del_hdr); */
+EXPORT_SYMBOL(ipa_del_hdr);
 
 /**
  * ipa_dump_hdr() - prints all the headers in the header table in SW
@@ -452,7 +452,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_commit_hdr); */
+EXPORT_SYMBOL(ipa_commit_hdr);
 
 /**
  * ipa_reset_hdr() - reset the current header table in SW (does not commit to
@@ -545,7 +545,7 @@ int ipa_reset_hdr(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_reset_hdr); */
+EXPORT_SYMBOL(ipa_reset_hdr);
 
 static struct ipa_hdr_entry *__ipa_find_hdr(const char *name)
 {
@@ -590,7 +590,7 @@ int ipa_get_hdr(struct ipa_ioc_get_hdr *lookup)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_get_hdr); */
+EXPORT_SYMBOL(ipa_get_hdr);
 
 /**
  * __ipa_release_hdr() - drop reference to header and cause
@@ -653,7 +653,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_put_hdr); */
+EXPORT_SYMBOL(ipa_put_hdr);
 
 /**
  * ipa_copy_hdr() - Lookup the specified header resource and return a copy of it
@@ -687,6 +687,6 @@ int ipa_copy_hdr(struct ipa_ioc_copy_hdr *copy)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_copy_hdr); */
+EXPORT_SYMBOL(ipa_copy_hdr);
 
 

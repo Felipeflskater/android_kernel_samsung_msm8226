@@ -1114,4 +1114,4 @@ void hostap_80211_rx(struct net_device *dev, struct sk_buff *skb,
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(hostap_80211_rx); */
+EXPORT_SYMBOL(hostap_80211_rx);

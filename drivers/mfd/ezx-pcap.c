@@ -91,7 +91,7 @@ int ezx_pcap_write(struct pcap_chip *pcap, u8 reg_num, u32 value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ezx_pcap_write); */
+EXPORT_SYMBOL_GPL(ezx_pcap_write);
 
 int ezx_pcap_read(struct pcap_chip *pcap, u8 reg_num, u32 *value)
 {
@@ -106,7 +106,7 @@ int ezx_pcap_read(struct pcap_chip *pcap, u8 reg_num, u32 *value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ezx_pcap_read); */
+EXPORT_SYMBOL_GPL(ezx_pcap_read);
 
 int ezx_pcap_set_bits(struct pcap_chip *pcap, u8 reg_num, u32 mask, u32 val)
 {
@@ -129,20 +129,20 @@ out_unlock:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ezx_pcap_set_bits); */
+EXPORT_SYMBOL_GPL(ezx_pcap_set_bits);
 
 /* IRQ */
 int irq_to_pcap(struct pcap_chip *pcap, int irq)
 {
 	return irq - pcap->irq_base;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(irq_to_pcap); */
+EXPORT_SYMBOL_GPL(irq_to_pcap);
 
 int pcap_to_irq(struct pcap_chip *pcap, int irq)
 {
 	return pcap->irq_base + irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcap_to_irq); */
+EXPORT_SYMBOL_GPL(pcap_to_irq);
 
 static void pcap_mask_irq(struct irq_data *d)
 {
@@ -226,7 +226,7 @@ void pcap_set_ts_bits(struct pcap_chip *pcap, u32 bits)
 	ezx_pcap_write(pcap, PCAP_REG_ADC, tmp);
 	mutex_unlock(&pcap->adc_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcap_set_ts_bits); */
+EXPORT_SYMBOL_GPL(pcap_set_ts_bits);
 
 static void pcap_disable_adc(struct pcap_chip *pcap)
 {
@@ -334,7 +334,7 @@ int pcap_adc_async(struct pcap_chip *pcap, u8 bank, u32 flags, u8 ch[],
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcap_adc_async); */
+EXPORT_SYMBOL_GPL(pcap_adc_async);
 
 static void pcap_adc_sync_cb(void *param, u16 res[])
 {
@@ -362,7 +362,7 @@ int pcap_adc_sync(struct pcap_chip *pcap, u8 bank, u32 flags, u8 ch[],
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcap_adc_sync); */
+EXPORT_SYMBOL_GPL(pcap_adc_sync);
 
 /* subdevs */
 static int pcap_remove_subdev(struct device *dev, void *unused)

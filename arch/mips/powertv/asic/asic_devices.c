@@ -62,10 +62,10 @@ enum asic_type asic;
 unsigned int platform_features;
 unsigned int platform_family;
 struct register_map _asic_register_map;
-/* DISABLED: EXPORT_SYMBOL(_asic_register_map);		/* Exported for testing */ */
+EXPORT_SYMBOL(_asic_register_map);		/* Exported for testing */
 unsigned long asic_phy_base;
 unsigned long asic_base;
-/* DISABLED: EXPORT_SYMBOL(asic_base);			/* Exported for testing */ */
+EXPORT_SYMBOL(asic_base);			/* Exported for testing */
 struct resource *gp_resources;
 
 /*
@@ -73,7 +73,7 @@ struct resource *gp_resources;
  * Portable code should be using interfaces such as ioremp, dma_map_single, etc.
  */
 unsigned long phys_to_dma_offset;
-/* DISABLED: EXPORT_SYMBOL(phys_to_dma_offset); */
+EXPORT_SYMBOL(phys_to_dma_offset);
 
 /*
  *
@@ -207,7 +207,7 @@ unsigned int platform_get_family(void)
 {
 	return platform_family;
 }
-/* DISABLED: EXPORT_SYMBOL(platform_get_family); */
+EXPORT_SYMBOL(platform_get_family);
 
 /*
  * platform_get_asic - determine the ASIC type.
@@ -219,7 +219,7 @@ enum asic_type platform_get_asic(void)
 {
 	return asic;
 }
-/* DISABLED: EXPORT_SYMBOL(platform_get_asic); */
+EXPORT_SYMBOL(platform_get_asic);
 
 /*
  * set_register_map - set ASIC register configuration
@@ -517,7 +517,7 @@ struct resource *asic_resource_get(const char *name)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(asic_resource_get); */
+EXPORT_SYMBOL(asic_resource_get);
 
 /**
  * platform_release_memory - release pre-allocated memory
@@ -541,7 +541,7 @@ void platform_release_memory(void *ptr, int size)
 		free_page((unsigned long)__va(addr));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(platform_release_memory); */
+EXPORT_SYMBOL(platform_release_memory);
 
 /*
  *

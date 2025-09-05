@@ -91,7 +91,7 @@ int v4l2_event_dequeue(struct v4l2_fh *fh, struct v4l2_event *event,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_dequeue); */
+EXPORT_SYMBOL_GPL(v4l2_event_dequeue);
 
 /* Caller must hold fh->vdev->fh_lock! */
 static struct v4l2_subscribed_event *v4l2_event_subscribed(
@@ -174,7 +174,7 @@ void v4l2_event_queue(struct video_device *vdev, const struct v4l2_event *ev)
 
 	spin_unlock_irqrestore(&vdev->fh_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_queue); */
+EXPORT_SYMBOL_GPL(v4l2_event_queue);
 
 void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev)
 {
@@ -187,13 +187,13 @@ void v4l2_event_queue_fh(struct v4l2_fh *fh, const struct v4l2_event *ev)
 	__v4l2_event_queue_fh(fh, ev, &timestamp);
 	spin_unlock_irqrestore(&fh->vdev->fh_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_queue_fh); */
+EXPORT_SYMBOL_GPL(v4l2_event_queue_fh);
 
 int v4l2_event_pending(struct v4l2_fh *fh)
 {
 	return fh->navailable;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_pending); */
+EXPORT_SYMBOL_GPL(v4l2_event_pending);
 
 static void ctrls_replace(struct v4l2_event *old, const struct v4l2_event *new)
 {
@@ -256,7 +256,7 @@ int v4l2_event_subscribe(struct v4l2_fh *fh,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_subscribe); */
+EXPORT_SYMBOL_GPL(v4l2_event_subscribe);
 
 void v4l2_event_unsubscribe_all(struct v4l2_fh *fh)
 {
@@ -279,7 +279,7 @@ void v4l2_event_unsubscribe_all(struct v4l2_fh *fh)
 			v4l2_event_unsubscribe(fh, &sub);
 	} while (sev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_unsubscribe_all); */
+EXPORT_SYMBOL_GPL(v4l2_event_unsubscribe_all);
 
 int v4l2_event_unsubscribe(struct v4l2_fh *fh,
 			   struct v4l2_event_subscription *sub)
@@ -317,4 +317,4 @@ int v4l2_event_unsubscribe(struct v4l2_fh *fh,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_event_unsubscribe); */
+EXPORT_SYMBOL_GPL(v4l2_event_unsubscribe);

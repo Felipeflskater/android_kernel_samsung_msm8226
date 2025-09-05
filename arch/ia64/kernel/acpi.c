@@ -935,7 +935,7 @@ int __ref acpi_map_lsapic(acpi_handle handle, int *pcpu)
 {
 	return _acpi_map_lsapic(handle, pcpu);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_map_lsapic); */
+EXPORT_SYMBOL(acpi_map_lsapic);
 
 int acpi_unmap_lsapic(int cpu)
 {
@@ -949,7 +949,7 @@ int acpi_unmap_lsapic(int cpu)
 	return (0);
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_unmap_lsapic); */
+EXPORT_SYMBOL(acpi_unmap_lsapic);
 #endif				/* CONFIG_ACPI_HOTPLUG_CPU */
 
 #ifdef CONFIG_ACPI_NUMA
@@ -1030,14 +1030,14 @@ int __ref acpi_register_ioapic(acpi_handle handle, u64 phys_addr, u32 gsi_base)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_register_ioapic); */
+EXPORT_SYMBOL(acpi_register_ioapic);
 
 int acpi_unregister_ioapic(acpi_handle handle, u32 gsi_base)
 {
 	return iosapic_remove(gsi_base);
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_unregister_ioapic); */
+EXPORT_SYMBOL(acpi_unregister_ioapic);
 
 /*
  * acpi_suspend_lowlevel() - save kernel state and suspend.

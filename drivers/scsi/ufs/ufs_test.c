@@ -656,7 +656,7 @@ int __init ufs_test_init(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ufs_test_init); */
+EXPORT_SYMBOL_GPL(ufs_test_init);
 
 static void __exit ufs_test_exit(void)
 {

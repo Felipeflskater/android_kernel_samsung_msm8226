@@ -913,7 +913,7 @@ fail:
 	mxl5007t_release(fe);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mxl5007t_attach); */
+EXPORT_SYMBOL_GPL(mxl5007t_attach);
 MODULE_DESCRIPTION("MaxLinear MxL5007T Silicon IC tuner driver");
 MODULE_AUTHOR("Michael Krufky <mkrufky@linuxtv.org>");
 MODULE_LICENSE("GPL");

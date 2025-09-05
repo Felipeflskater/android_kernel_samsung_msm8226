@@ -52,7 +52,7 @@ void __fat_fs_error(struct super_block *sb, int report, const char *fmt, ...)
 				sb->s_id, MAJOR(bd_dev), MINOR(bd_dev));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__fat_fs_error); */
+EXPORT_SYMBOL_GPL(__fat_fs_error);
 
 /**
  * fat_msg() - print preformated FAT specific messages. Every thing what is
@@ -277,7 +277,7 @@ void fat_time_unix2fat(struct msdos_sb_info *sbi, struct timespec *ts,
 	if (time_cs)
 		*time_cs = (ts->tv_sec & 1) * 100 + ts->tv_nsec / 10000000;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fat_time_unix2fat); */
+EXPORT_SYMBOL_GPL(fat_time_unix2fat);
 
 int fat_sync_bhs(struct buffer_head **bhs, int nr_bhs)
 {

@@ -181,7 +181,7 @@ int dibx000_i2c_set_speed(struct i2c_adapter *i2c_adap, u16 speed)
 	return dibx000_write_word(mst, mst->base_reg + 3, (u16)(60000 / speed));
 
 }
-/* DISABLED: EXPORT_SYMBOL(dibx000_i2c_set_speed); */
+EXPORT_SYMBOL(dibx000_i2c_set_speed);
 
 static u32 dibx000_i2c_func(struct i2c_adapter *adapter)
 {
@@ -398,7 +398,7 @@ struct i2c_adapter *dibx000_get_i2c_adapter(struct dibx000_i2c_master *mst,
 	return i2c;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dibx000_get_i2c_adapter); */
+EXPORT_SYMBOL(dibx000_get_i2c_adapter);
 
 void dibx000_reset_i2c_master(struct dibx000_i2c_master *mst)
 {
@@ -412,7 +412,7 @@ void dibx000_reset_i2c_master(struct dibx000_i2c_master *mst)
 	dibx000_i2c_select_interface(mst, DIBX000_I2C_INTERFACE_TUNER);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dibx000_reset_i2c_master); */
+EXPORT_SYMBOL(dibx000_reset_i2c_master);
 
 static int i2c_adapter_init(struct i2c_adapter *i2c_adap,
 				struct i2c_algorithm *algo, const char *name,
@@ -489,7 +489,7 @@ int dibx000_init_i2c_master(struct dibx000_i2c_master *mst, u16 device_rev,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(dibx000_init_i2c_master); */
+EXPORT_SYMBOL(dibx000_init_i2c_master);
 
 void dibx000_exit_i2c_master(struct dibx000_i2c_master *mst)
 {
@@ -498,7 +498,7 @@ void dibx000_exit_i2c_master(struct dibx000_i2c_master *mst)
 	i2c_del_adapter(&mst->master_i2c_adap_gpio34);
 	i2c_del_adapter(&mst->master_i2c_adap_gpio67);
 }
-/* DISABLED: EXPORT_SYMBOL(dibx000_exit_i2c_master); */
+EXPORT_SYMBOL(dibx000_exit_i2c_master);
 
 
 u32 systime(void)
@@ -508,7 +508,7 @@ u32 systime(void)
 	t = current_kernel_time();
 	return (t.tv_sec * 10000) + (t.tv_nsec / 100000);
 }
-/* DISABLED: EXPORT_SYMBOL(systime); */
+EXPORT_SYMBOL(systime);
 
 MODULE_AUTHOR("Patrick Boettcher <pboettcher@dibcom.fr>");
 MODULE_DESCRIPTION("Common function the DiBcom demodulator family");

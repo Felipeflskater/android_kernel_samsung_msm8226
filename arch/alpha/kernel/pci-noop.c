@@ -186,4 +186,4 @@ struct dma_map_ops alpha_noop_ops = {
 };
 
 struct dma_map_ops *dma_ops = &alpha_noop_ops;
-/* DISABLED: EXPORT_SYMBOL(dma_ops); */
+EXPORT_SYMBOL(dma_ops);

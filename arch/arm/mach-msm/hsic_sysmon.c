@@ -88,7 +88,7 @@ int hsic_sysmon_open(enum hsic_sysmon_device_id id)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hsic_sysmon_open); */
+EXPORT_SYMBOL(hsic_sysmon_open);
 
 /**
  * hsic_sysmon_close() - Closes the system monitor bridge.
@@ -106,7 +106,7 @@ void hsic_sysmon_close(enum hsic_sysmon_device_id id)
 	hs = hsic_sysmon_devices[id];
 	kref_put(&hs->kref, hsic_sysmon_delete);
 }
-/* DISABLED: EXPORT_SYMBOL(hsic_sysmon_close); */
+EXPORT_SYMBOL(hsic_sysmon_close);
 
 /**
  * hsic_sysmon_readwrite() - Common function to send read/write over HSIC
@@ -192,7 +192,7 @@ int hsic_sysmon_read(enum hsic_sysmon_device_id id, char *data, size_t len,
 	return hsic_sysmon_readwrite(id, data, len, actual_len,
 					timeout, HSIC_SYSMON_OP_READ);
 }
-/* DISABLED: EXPORT_SYMBOL(hsic_sysmon_read); */
+EXPORT_SYMBOL(hsic_sysmon_read);
 
 /**
  * hsic_sysmon_write() - Write data to the HSIC sysmon interface.
@@ -220,7 +220,7 @@ int hsic_sysmon_write(enum hsic_sysmon_device_id id, const char *data,
 	return hsic_sysmon_readwrite(id, (void *)data, len, &actual_len,
 					timeout, HSIC_SYSMON_OP_WRITE);
 }
-/* DISABLED: EXPORT_SYMBOL(hsic_sysmon_write); */
+EXPORT_SYMBOL(hsic_sysmon_write);
 
 #if defined(CONFIG_DEBUG_FS)
 #define DEBUG_BUF_SIZE	512

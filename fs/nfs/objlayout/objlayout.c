@@ -301,7 +301,7 @@ objlayout_read_pagelist(struct nfs_read_data *rdata)
 			      &rdata->args.pgbase,
 			      rdata->args.offset, rdata->args.count);
 
-	dprintk("%s: inode(%lx) offset 0x%llx count 0x%zx eof=%d\n",
+	dprintk("%s: inode(%lx) offset 0x%llx count 0x%Zx eof=%d\n",
 		__func__, rdata->inode->i_ino, offset, count, rdata->res.eof);
 
 	err = objio_read_pagelist(rdata);

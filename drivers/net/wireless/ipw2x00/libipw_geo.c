@@ -184,11 +184,11 @@ const struct libipw_channel *libipw_get_channel(struct libipw_device
 	return &ieee->geo.a[index];
 }
 
-/* DISABLED: EXPORT_SYMBOL(libipw_get_channel); */
-/* DISABLED: EXPORT_SYMBOL(libipw_get_channel_flags); */
-/* DISABLED: EXPORT_SYMBOL(libipw_is_valid_channel); */
-/* DISABLED: EXPORT_SYMBOL(libipw_freq_to_channel); */
-/* DISABLED: EXPORT_SYMBOL(libipw_channel_to_freq); */
-/* DISABLED: EXPORT_SYMBOL(libipw_channel_to_index); */
-/* DISABLED: EXPORT_SYMBOL(libipw_set_geo); */
-/* DISABLED: EXPORT_SYMBOL(libipw_get_geo); */
+EXPORT_SYMBOL(libipw_get_channel);
+EXPORT_SYMBOL(libipw_get_channel_flags);
+EXPORT_SYMBOL(libipw_is_valid_channel);
+EXPORT_SYMBOL(libipw_freq_to_channel);
+EXPORT_SYMBOL(libipw_channel_to_freq);
+EXPORT_SYMBOL(libipw_channel_to_index);
+EXPORT_SYMBOL(libipw_set_geo);
+EXPORT_SYMBOL(libipw_get_geo);

@@ -12,7 +12,7 @@
 #include <linux/io.h>
 
 const unsigned long sh_io_port_base __read_mostly = -1;
-/* DISABLED: EXPORT_SYMBOL(sh_io_port_base); */
+EXPORT_SYMBOL(sh_io_port_base);
 
 void __iomem *__ioport_map(unsigned long addr, unsigned int size)
 {
@@ -21,7 +21,7 @@ void __iomem *__ioport_map(unsigned long addr, unsigned int size)
 
 	return (void __iomem *)(addr + sh_io_port_base);
 }
-/* DISABLED: EXPORT_SYMBOL(__ioport_map); */
+EXPORT_SYMBOL(__ioport_map);
 
 void __iomem *ioport_map(unsigned long port, unsigned int nr)
 {
@@ -33,11 +33,11 @@ void __iomem *ioport_map(unsigned long port, unsigned int nr)
 
 	return __ioport_map(port, nr);
 }
-/* DISABLED: EXPORT_SYMBOL(ioport_map); */
+EXPORT_SYMBOL(ioport_map);
 
 void ioport_unmap(void __iomem *addr)
 {
 	if (sh_mv.mv_ioport_unmap)
 		sh_mv.mv_ioport_unmap(addr);
 }
-/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
+EXPORT_SYMBOL(ioport_unmap);

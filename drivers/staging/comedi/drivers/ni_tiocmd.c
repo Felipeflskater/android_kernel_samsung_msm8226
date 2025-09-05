@@ -232,7 +232,7 @@ int ni_tio_cmd(struct ni_gpct *counter, struct comedi_async *async)
 	spin_unlock_irqrestore(&counter->lock, flags);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_cmd); */
+EXPORT_SYMBOL_GPL(ni_tio_cmd);
 
 int ni_tio_cmdtest(struct ni_gpct *counter, struct comedi_cmd *cmd)
 {
@@ -338,7 +338,7 @@ int ni_tio_cmdtest(struct ni_gpct *counter, struct comedi_cmd *cmd)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_cmdtest); */
+EXPORT_SYMBOL_GPL(ni_tio_cmdtest);
 
 int ni_tio_cancel(struct ni_gpct *counter)
 {
@@ -357,7 +357,7 @@ int ni_tio_cancel(struct ni_gpct *counter)
 			0x0);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_cancel); */
+EXPORT_SYMBOL_GPL(ni_tio_cancel);
 
 	/* During buffered input counter operation for e-series, the gate
 	   interrupt is acked automatically by the dma controller, due to the
@@ -459,7 +459,7 @@ void ni_tio_acknowledge_and_confirm(struct ni_gpct *counter, int *gate_error,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_acknowledge_and_confirm); */
+EXPORT_SYMBOL_GPL(ni_tio_acknowledge_and_confirm);
 
 void ni_tio_handle_interrupt(struct ni_gpct *counter,
 			     struct comedi_subdevice *s)
@@ -506,7 +506,7 @@ void ni_tio_handle_interrupt(struct ni_gpct *counter,
 	mite_sync_input_dma(counter->mite_chan, s->async);
 	spin_unlock_irqrestore(&counter->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_handle_interrupt); */
+EXPORT_SYMBOL_GPL(ni_tio_handle_interrupt);
 
 void ni_tio_set_mite_channel(struct ni_gpct *counter,
 			     struct mite_channel *mite_chan)
@@ -517,7 +517,7 @@ void ni_tio_set_mite_channel(struct ni_gpct *counter,
 	counter->mite_chan = mite_chan;
 	spin_unlock_irqrestore(&counter->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ni_tio_set_mite_channel); */
+EXPORT_SYMBOL_GPL(ni_tio_set_mite_channel);
 
 static int __init ni_tiocmd_init_module(void)
 {

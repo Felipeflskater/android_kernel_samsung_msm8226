@@ -456,6 +456,6 @@ int of_spmi_register_devices(struct spmi_controller *ctrl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_spmi_register_devices); */
+EXPORT_SYMBOL(of_spmi_register_devices);
 
 MODULE_LICENSE("GPL v2");

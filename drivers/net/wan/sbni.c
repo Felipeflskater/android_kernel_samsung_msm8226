@@ -1545,7 +1545,7 @@ bad_param:
 	return 0;
 }
 
-/* DISABLED: __setup( "sbni=", sbni_setup ); */ */
+__setup( "sbni=", sbni_setup );
 
 #endif	/* MODULE */
 

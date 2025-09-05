@@ -1239,7 +1239,7 @@ struct dvb_frontend *tda18271c2dd_attach(struct dvb_frontend *fe,
 
 	return fe;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tda18271c2dd_attach); */
+EXPORT_SYMBOL_GPL(tda18271c2dd_attach);
 
 MODULE_DESCRIPTION("TDA18271C2 driver");
 MODULE_AUTHOR("DD");

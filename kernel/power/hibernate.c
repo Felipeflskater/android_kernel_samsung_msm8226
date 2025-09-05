@@ -86,7 +86,7 @@ bool system_entering_hibernation(void)
 {
 	return entering_platform_hibernation;
 }
-/* DISABLED: EXPORT_SYMBOL(system_entering_hibernation); */
+EXPORT_SYMBOL(system_entering_hibernation);
 
 #ifdef CONFIG_PM_DEBUG
 static void hibernation_debug_sleep(void)
@@ -1087,9 +1087,9 @@ static int __init resumedelay_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("noresume", noresume_setup); */ */
-/* DISABLED: __setup("resume_offset=", resume_offset_setup); */ */
-/* DISABLED: __setup("resume=", resume_setup); */ */
-/* DISABLED: __setup("hibernate=", hibernate_setup); */ */
-/* DISABLED: __setup("resumewait", resumewait_setup); */ */
-/* DISABLED: __setup("resumedelay=", resumedelay_setup); */ */
+__setup("noresume", noresume_setup);
+__setup("resume_offset=", resume_offset_setup);
+__setup("resume=", resume_setup);
+__setup("hibernate=", hibernate_setup);
+__setup("resumewait", resumewait_setup);
+__setup("resumedelay=", resumedelay_setup);

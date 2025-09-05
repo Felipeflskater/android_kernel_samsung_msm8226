@@ -21,7 +21,7 @@ static int __init cpuidle_sysfs_setup(char *unused)
 	sysfs_switch = 1;
 	return 1;
 }
-/* DISABLED: __setup("cpuidle_sysfs_switch", cpuidle_sysfs_setup); */ */
+__setup("cpuidle_sysfs_switch", cpuidle_sysfs_setup);
 
 static ssize_t show_available_governors(struct device *dev,
 					struct device_attribute *attr,

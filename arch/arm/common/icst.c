@@ -24,23 +24,23 @@
  */
 const unsigned char icst307_s2div[8] = { 10, 2, 8, 4, 5, 7, 3, 6 };
 const unsigned char icst525_s2div[8] = { 10, 2, 8, 4, 5, 7, 9, 6 };
-/* DISABLED: EXPORT_SYMBOL(icst307_s2div); */
-/* DISABLED: EXPORT_SYMBOL(icst525_s2div); */
+EXPORT_SYMBOL(icst307_s2div);
+EXPORT_SYMBOL(icst525_s2div);
 
 unsigned long icst_hz(const struct icst_params *p, struct icst_vco vco)
 {
 	return p->ref * 2 * (vco.v + 8) / ((vco.r + 2) * p->s2div[vco.s]);
 }
 
-/* DISABLED: EXPORT_SYMBOL(icst_hz); */
+EXPORT_SYMBOL(icst_hz);
 
 /*
  * Ascending divisor S values.
  */
 const unsigned char icst307_idx2s[8] = { 1, 6, 3, 4, 7, 5, 2, 0 };
 const unsigned char icst525_idx2s[8] = { 1, 3, 4, 7, 5, 2, 6, 0 };
-/* DISABLED: EXPORT_SYMBOL(icst307_idx2s); */
-/* DISABLED: EXPORT_SYMBOL(icst525_idx2s); */
+EXPORT_SYMBOL(icst307_idx2s);
+EXPORT_SYMBOL(icst525_idx2s);
 
 struct icst_vco
 icst_hz_to_vco(const struct icst_params *p, unsigned long freq)
@@ -97,4 +97,4 @@ icst_hz_to_vco(const struct icst_params *p, unsigned long freq)
 	return vco;
 }
 
-/* DISABLED: EXPORT_SYMBOL(icst_hz_to_vco); */
+EXPORT_SYMBOL(icst_hz_to_vco);

@@ -150,13 +150,13 @@ ENTRY(arm1020_flush_user_cache_all)
  *	Clean and invalidate the entire cache.
  */
 ENTRY(arm1020_flush_kern_cache_all)
-	mov	r2, @ VM_EXEC
+	mov	r2, #VM_EXEC
 	mov	ip, #0
 __flush_whole_cache:
 #ifndef CONFIG_CPU_DCACHE_DISABLE
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	mov	r1, @ (CACHE_DSEGMENTS - 1) << 5	@ 16 segments
-1:	orr	r3, r1, @ (CACHE_DENTRIES - 1) << 26 @ 64 entries
+	mov	r1, #(CACHE_DSEGMENTS - 1) << 5	@ 16 segments
+1:	orr	r3, r1, #(CACHE_DENTRIES - 1) << 26 @ 64 entries
 2:	mcr	p15, 0, r3, c7, c14, 2		@ clean+invalidate D index
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
 	subs	r3, r3, #1 << 26
@@ -164,7 +164,7 @@ __flush_whole_cache:
 	subs	r1, r1, #1 << 5
 	bcs	1b				@ segments 15 to 0
 #endif
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 #ifndef CONFIG_CPU_ICACHE_DISABLE
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 #endif
@@ -184,18 +184,18 @@ __flush_whole_cache:
 ENTRY(arm1020_flush_user_cache_range)
 	mov	ip, #0
 	sub	r3, r1, r0			@ calculate total size
-	cmp	r3, @ CACHE_DLIMIT
+	cmp	r3, #CACHE_DLIMIT
 	bhs	__flush_whole_cache
 
 #ifndef CONFIG_CPU_DCACHE_DISABLE
 	mcr	p15, 0, ip, c7, c10, 4
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 #endif
-	tst	r2, @ VM_EXEC
+	tst	r2, #VM_EXEC
 #ifndef CONFIG_CPU_ICACHE_DISABLE
 	mcrne	p15, 0, ip, c7, c5, 0		@ invalidate I cache
 #endif
@@ -227,7 +227,7 @@ ENTRY(arm1020_coherent_kern_range)
  */
 ENTRY(arm1020_coherent_user_range)
 	mov	ip, #0
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 	mcr	p15, 0, ip, c7, c10, 4
 1:
 #ifndef CONFIG_CPU_DCACHE_DISABLE
@@ -237,7 +237,7 @@ ENTRY(arm1020_coherent_user_range)
 #ifndef CONFIG_CPU_ICACHE_DISABLE
 	mcr	p15, 0, r0, c7, c5, 1		@ invalidate I entry
 #endif
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
@@ -258,7 +258,7 @@ ENTRY(arm1020_flush_kern_dcache_area)
 	add	r1, r0, r1
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 #endif
@@ -281,17 +281,17 @@ ENTRY(arm1020_flush_kern_dcache_area)
 arm1020_dma_inv_range:
 	mov	ip, #0
 #ifndef CONFIG_CPU_DCACHE_DISABLE
-	tst	r0, @ CACHE_DLINESIZE - 1
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	tst	r0, #CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, ip, c7, c10, 4
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
-	tst	r1, @ CACHE_DLINESIZE - 1
+	tst	r1, #CACHE_DLINESIZE - 1
 	mcrne	p15, 0, ip, c7, c10, 4
 	mcrne	p15, 0, r1, c7, c10, 1		@ clean D entry
 	mcrne	p15, 0, ip, c7, c10, 4		@ drain WB
 1:	mcr	p15, 0, r0, c7, c6, 1		@ invalidate D entry
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 #endif
@@ -311,10 +311,10 @@ arm1020_dma_inv_range:
 arm1020_dma_clean_range:
 	mov	ip, #0
 #ifndef CONFIG_CPU_DCACHE_DISABLE
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 #endif
@@ -332,11 +332,11 @@ arm1020_dma_clean_range:
 ENTRY(arm1020_dma_flush_range)
 	mov	ip, #0
 #ifndef CONFIG_CPU_DCACHE_DISABLE
-	bic	r0, r0, @ CACHE_DLINESIZE - 1
+	bic	r0, r0, #CACHE_DLINESIZE - 1
 	mcr	p15, 0, ip, c7, c10, 4
 1:	mcr	p15, 0, r0, c7, c14, 1		@ clean+invalidate D entry
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	add	r0, r0, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
 	cmp	r0, r1
 	blo	1b
 #endif
@@ -351,7 +351,7 @@ ENTRY(arm1020_dma_flush_range)
  */
 ENTRY(arm1020_dma_map_area)
 	add	r1, r1, r0
-	cmp	r2, @ DMA_TO_DEVICE
+	cmp	r2, #DMA_TO_DEVICE
 	beq	arm1020_dma_clean_range
 	bcs	arm1020_dma_inv_range
 	b	arm1020_dma_flush_range
@@ -379,8 +379,8 @@ ENTRY(cpu_arm1020_dcache_clean_area)
 	mov	ip, #0
 1:	mcr	p15, 0, r0, c7, c10, 1		@ clean D entry
 	mcr	p15, 0, ip, c7, c10, 4		@ drain WB
-	add	r0, r0, @ CACHE_DLINESIZE
-	subs	r1, r1, @ CACHE_DLINESIZE
+	add	r0, r0, #CACHE_DLINESIZE
+	subs	r1, r1, #CACHE_DLINESIZE
 	bhi	1b
 #endif
 	mov	pc, lr
@@ -444,7 +444,7 @@ ENTRY(cpu_arm1020_set_pte_ext)
 
 	__CPUINIT
 
-	.type	__arm1020_setup, @ function
+	.type	__arm1020_setup, #function
 __arm1020_setup:
 	mov	r0, #0
 	mcr	p15, 0, r0, c7, c7		@ invalidate I,D caches on v4
@@ -469,7 +469,7 @@ __arm1020_setup:
 	 * .RVI ZFRS BLDP WCAM
 	 * .011 1001 ..11 0101
 	 */
-	.type	arm1020_crval, @ object
+	.type	arm1020_crval, #object
 arm1020_crval:
 	crval	clear=0x0000593f, mmuset=0x00003935, ucset=0x00001930
 
@@ -483,7 +483,7 @@ arm1020_crval:
 	string	cpu_arch_name, "armv5t"
 	string	cpu_elf_name, "v5"
 
-	.type	cpu_arm1020_name, @ object
+	.type	cpu_arm1020_name, #object
 cpu_arm1020_name:
 	.ascii	"ARM1020"
 #ifndef CONFIG_CPU_ICACHE_DISABLE
@@ -508,9 +508,9 @@ cpu_arm1020_name:
 
 	.align
 
-	.section ".proc.info.init", @ alloc, @ execinstr
+	.section ".proc.info.init", #alloc, #execinstr
 
-	.type	__arm1020_proc_info, @ object
+	.type	__arm1020_proc_info,#object
 __arm1020_proc_info:
 	.long	0x4104a200			@ ARM 1020T (Architecture v5T)
 	.long	0xff0ffff0

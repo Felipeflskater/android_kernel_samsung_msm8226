@@ -1235,14 +1235,14 @@ MODULE_DESCRIPTION(OSM_DESCRIPTION);
 MODULE_VERSION(OSM_VERSION);
 
 #if BITS_PER_LONG == 64
-/* DISABLED: EXPORT_SYMBOL(i2o_cntxt_list_add); */
-/* DISABLED: EXPORT_SYMBOL(i2o_cntxt_list_get); */
-/* DISABLED: EXPORT_SYMBOL(i2o_cntxt_list_remove); */
-/* DISABLED: EXPORT_SYMBOL(i2o_cntxt_list_get_ptr); */
+EXPORT_SYMBOL(i2o_cntxt_list_add);
+EXPORT_SYMBOL(i2o_cntxt_list_get);
+EXPORT_SYMBOL(i2o_cntxt_list_remove);
+EXPORT_SYMBOL(i2o_cntxt_list_get_ptr);
 #endif
-/* DISABLED: EXPORT_SYMBOL(i2o_msg_get_wait); */
-/* DISABLED: EXPORT_SYMBOL(i2o_find_iop); */
-/* DISABLED: EXPORT_SYMBOL(i2o_iop_find_device); */
-/* DISABLED: EXPORT_SYMBOL(i2o_event_register); */
-/* DISABLED: EXPORT_SYMBOL(i2o_status_get); */
-/* DISABLED: EXPORT_SYMBOL(i2o_controllers); */
+EXPORT_SYMBOL(i2o_msg_get_wait);
+EXPORT_SYMBOL(i2o_find_iop);
+EXPORT_SYMBOL(i2o_iop_find_device);
+EXPORT_SYMBOL(i2o_event_register);
+EXPORT_SYMBOL(i2o_status_get);
+EXPORT_SYMBOL(i2o_controllers);

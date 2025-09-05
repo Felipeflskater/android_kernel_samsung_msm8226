@@ -608,7 +608,7 @@ void dpm_resume_start(pm_message_t state)
 	dpm_resume_noirq(state);
 	dpm_resume_early(state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dpm_resume_start); */
+EXPORT_SYMBOL_GPL(dpm_resume_start);
 
 /**
  * device_resume - Execute "resume" callbacks for given device.
@@ -851,7 +851,7 @@ void dpm_resume_end(pm_message_t state)
 	dpm_resume(state);
 	dpm_complete(state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dpm_resume_end); */
+EXPORT_SYMBOL_GPL(dpm_resume_end);
 
 
 /*------------------------- Suspend routines -------------------------*/
@@ -1057,7 +1057,7 @@ int dpm_suspend_end(pm_message_t state)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dpm_suspend_end); */
+EXPORT_SYMBOL_GPL(dpm_suspend_end);
 
 /**
  * legacy_suspend - Execute a legacy (bus or class) suspend callback for device.
@@ -1374,14 +1374,14 @@ int dpm_suspend_start(pm_message_t state)
 		error = dpm_suspend(state);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dpm_suspend_start); */
+EXPORT_SYMBOL_GPL(dpm_suspend_start);
 
 void __suspend_report_result(const char *function, void *fn, int ret)
 {
 	if (ret)
 		printk(KERN_ERR "%s(): %pF returns %d\n", function, fn, ret);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__suspend_report_result); */
+EXPORT_SYMBOL_GPL(__suspend_report_result);
 
 /**
  * device_pm_wait_for_dev - Wait for suspend/resume of a device to complete.
@@ -1393,4 +1393,4 @@ int device_pm_wait_for_dev(struct device *subordinate, struct device *dev)
 	dpm_wait(dev, subordinate->power.async_suspend);
 	return async_error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(device_pm_wait_for_dev); */
+EXPORT_SYMBOL_GPL(device_pm_wait_for_dev);

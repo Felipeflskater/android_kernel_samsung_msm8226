@@ -42,7 +42,7 @@ u32 ucc_slow_get_qe_cr_subblock(int uccs_num)
 	default: return QE_CR_SUBBLOCK_INVALID;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_get_qe_cr_subblock); */
+EXPORT_SYMBOL(ucc_slow_get_qe_cr_subblock);
 
 void ucc_slow_poll_transmitter_now(struct ucc_slow_private * uccs)
 {
@@ -58,7 +58,7 @@ void ucc_slow_graceful_stop_tx(struct ucc_slow_private * uccs)
 	qe_issue_cmd(QE_GRACEFUL_STOP_TX, id,
 			 QE_CR_PROTOCOL_UNSPECIFIED, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_graceful_stop_tx); */
+EXPORT_SYMBOL(ucc_slow_graceful_stop_tx);
 
 void ucc_slow_stop_tx(struct ucc_slow_private * uccs)
 {
@@ -68,7 +68,7 @@ void ucc_slow_stop_tx(struct ucc_slow_private * uccs)
 	id = ucc_slow_get_qe_cr_subblock(us_info->ucc_num);
 	qe_issue_cmd(QE_STOP_TX, id, QE_CR_PROTOCOL_UNSPECIFIED, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_stop_tx); */
+EXPORT_SYMBOL(ucc_slow_stop_tx);
 
 void ucc_slow_restart_tx(struct ucc_slow_private * uccs)
 {
@@ -78,7 +78,7 @@ void ucc_slow_restart_tx(struct ucc_slow_private * uccs)
 	id = ucc_slow_get_qe_cr_subblock(us_info->ucc_num);
 	qe_issue_cmd(QE_RESTART_TX, id, QE_CR_PROTOCOL_UNSPECIFIED, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_restart_tx); */
+EXPORT_SYMBOL(ucc_slow_restart_tx);
 
 void ucc_slow_enable(struct ucc_slow_private * uccs, enum comm_dir mode)
 {
@@ -99,7 +99,7 @@ void ucc_slow_enable(struct ucc_slow_private * uccs, enum comm_dir mode)
 	}
 	out_be32(&us_regs->gumr_l, gumr_l);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_enable); */
+EXPORT_SYMBOL(ucc_slow_enable);
 
 void ucc_slow_disable(struct ucc_slow_private * uccs, enum comm_dir mode)
 {
@@ -120,7 +120,7 @@ void ucc_slow_disable(struct ucc_slow_private * uccs, enum comm_dir mode)
 	}
 	out_be32(&us_regs->gumr_l, gumr_l);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_disable); */
+EXPORT_SYMBOL(ucc_slow_disable);
 
 /* Initialize the UCC for Slow operations
  *
@@ -355,7 +355,7 @@ int ucc_slow_init(struct ucc_slow_info * us_info, struct ucc_slow_private ** ucc
 	*uccs_ret = uccs;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_init); */
+EXPORT_SYMBOL(ucc_slow_init);
 
 void ucc_slow_free(struct ucc_slow_private * uccs)
 {
@@ -376,5 +376,5 @@ void ucc_slow_free(struct ucc_slow_private * uccs)
 
 	kfree(uccs);
 }
-/* DISABLED: EXPORT_SYMBOL(ucc_slow_free); */
+EXPORT_SYMBOL(ucc_slow_free);
 

@@ -42,13 +42,13 @@ unsigned long MAX_DMA_ADDRESS = PAGE_OFFSET + 0x100000000UL;
 
 #ifdef CONFIG_VIRTUAL_MEM_MAP
 unsigned long VMALLOC_END = VMALLOC_END_INIT;
-/* DISABLED: EXPORT_SYMBOL(VMALLOC_END); */
+EXPORT_SYMBOL(VMALLOC_END);
 struct page *vmem_map;
-/* DISABLED: EXPORT_SYMBOL(vmem_map); */
+EXPORT_SYMBOL(vmem_map);
 #endif
 
 struct page *zero_page_memmap_ptr;	/* map entry for zero page */
-/* DISABLED: EXPORT_SYMBOL(zero_page_memmap_ptr); */
+EXPORT_SYMBOL(zero_page_memmap_ptr);
 
 void
 __ia64_sync_icache_dcache (pte_t pte)
@@ -527,7 +527,7 @@ ia64_pfn_valid (unsigned long pfn)
 		&& ((((u64)pg & PAGE_MASK) == (((u64)(pg + 1) - 1) & PAGE_MASK))
 			|| (__get_user(byte, (char __user *) (pg + 1) - 1) == 0));
 }
-/* DISABLED: EXPORT_SYMBOL(ia64_pfn_valid); */
+EXPORT_SYMBOL(ia64_pfn_valid);
 
 int __init find_largest_hole(u64 start, u64 end, void *arg)
 {
@@ -607,7 +607,7 @@ nolwsys_setup (char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("nolwsys", nolwsys_setup); */ */
+__setup("nolwsys", nolwsys_setup);
 
 void __init
 mem_init (void)

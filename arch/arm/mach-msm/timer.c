@@ -1,19 +1,3 @@
-/* PostmarketOS: Timer interrupt definitions - CRITICAL */
-
-#ifndef INT_GP_TIMER_EXP
-#define INT_GP_TIMER_EXP        32
-#endif
-
-#ifndef INT_DEBUG_TIMER_EXP
-#define INT_DEBUG_TIMER_EXP     40
-#endif
-
-/* Remove deprecated IRQF_DISABLED */
-#ifdef IRQF_DISABLED
-#undef IRQF_DISABLED
-#endif
-#define IRQF_DISABLED 0
-
 /*
  * Copyright (C) 2007 Google, Inc.
  * Copyright (c) 2009-2013, The Linux Foundation. All rights reserved.

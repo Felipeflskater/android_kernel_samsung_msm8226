@@ -547,7 +547,7 @@ int arch_add_memory(int nid, u64 start, u64 size)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(arch_add_memory); */
+EXPORT_SYMBOL_GPL(arch_add_memory);
 
 #ifdef CONFIG_NUMA
 int memory_add_physaddr_to_nid(u64 addr)
@@ -555,7 +555,7 @@ int memory_add_physaddr_to_nid(u64 addr)
 	/* Node 0 for now.. */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid); */
+EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid);
 #endif
 
 #endif /* CONFIG_MEMORY_HOTPLUG */

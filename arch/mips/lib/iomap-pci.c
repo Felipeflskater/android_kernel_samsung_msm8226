@@ -45,4 +45,4 @@ void pci_iounmap(struct pci_dev *dev, void __iomem * addr)
 	iounmap(addr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */
+EXPORT_SYMBOL(pci_iounmap);

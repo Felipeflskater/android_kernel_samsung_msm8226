@@ -41,18 +41,18 @@ asmlinkage void asm_do_IRQ(unsigned int irq, struct pt_regs *regs);
 static void __ipipe_no_irqtail(void);
 
 unsigned long __ipipe_irq_tail_hook = (unsigned long)&__ipipe_no_irqtail;
-/* DISABLED: EXPORT_SYMBOL(__ipipe_irq_tail_hook); */
+EXPORT_SYMBOL(__ipipe_irq_tail_hook);
 
 unsigned long __ipipe_core_clock;
-/* DISABLED: EXPORT_SYMBOL(__ipipe_core_clock); */
+EXPORT_SYMBOL(__ipipe_core_clock);
 
 unsigned long __ipipe_freq_scale;
-/* DISABLED: EXPORT_SYMBOL(__ipipe_freq_scale); */
+EXPORT_SYMBOL(__ipipe_freq_scale);
 
 atomic_t __ipipe_irq_lvdepth[IVG15 + 1];
 
 unsigned long __ipipe_irq_lvmask = bfin_no_irqs;
-/* DISABLED: EXPORT_SYMBOL(__ipipe_irq_lvmask); */
+EXPORT_SYMBOL(__ipipe_irq_lvmask);
 
 static void __ipipe_ack_irq(unsigned irq, struct irq_desc *desc)
 {
@@ -173,7 +173,7 @@ void __ipipe_enable_irqdesc(struct ipipe_domain *ipd, unsigned irq)
 	    atomic_inc_return(&__ipipe_irq_lvdepth[prio]) == 1)
 		__set_bit(prio, &__ipipe_irq_lvmask);
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_enable_irqdesc); */
+EXPORT_SYMBOL(__ipipe_enable_irqdesc);
 
 void __ipipe_disable_irqdesc(struct ipipe_domain *ipd, unsigned irq)
 {
@@ -183,7 +183,7 @@ void __ipipe_disable_irqdesc(struct ipipe_domain *ipd, unsigned irq)
 	    atomic_dec_and_test(&__ipipe_irq_lvdepth[prio]))
 		__clear_bit(prio, &__ipipe_irq_lvmask);
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_disable_irqdesc); */
+EXPORT_SYMBOL(__ipipe_disable_irqdesc);
 
 asmlinkage int __ipipe_syscall_root(struct pt_regs *regs)
 {
@@ -343,7 +343,7 @@ void __ipipe_stall_root(void)
 	__set_bit(IPIPE_STALL_FLAG, p);
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_stall_root); */
+EXPORT_SYMBOL(__ipipe_stall_root);
 
 unsigned long __ipipe_test_and_stall_root(void)
 {
@@ -357,7 +357,7 @@ unsigned long __ipipe_test_and_stall_root(void)
 
 	return x;
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_test_and_stall_root); */
+EXPORT_SYMBOL(__ipipe_test_and_stall_root);
 
 unsigned long __ipipe_test_root(void)
 {
@@ -372,7 +372,7 @@ unsigned long __ipipe_test_root(void)
 
 	return x;
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_test_root); */
+EXPORT_SYMBOL(__ipipe_test_root);
 
 void __ipipe_lock_root(void)
 {
@@ -383,7 +383,7 @@ void __ipipe_lock_root(void)
 	__set_bit(IPIPE_SYNCDEFER_FLAG, p);
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_lock_root); */
+EXPORT_SYMBOL(__ipipe_lock_root);
 
 void __ipipe_unlock_root(void)
 {
@@ -394,4 +394,4 @@ void __ipipe_unlock_root(void)
 	__clear_bit(IPIPE_SYNCDEFER_FLAG, p);
 	hard_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(__ipipe_unlock_root); */
+EXPORT_SYMBOL(__ipipe_unlock_root);

@@ -46,14 +46,14 @@ mISDN_FsmNew(struct Fsm *fsm,
 			fsm->jumpmatrix[fsm->state_count * fnlist[i].event +
 					fnlist[i].state] = (FSMFNPTR) fnlist[i].routine;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmNew); */
+EXPORT_SYMBOL(mISDN_FsmNew);
 
 void
 mISDN_FsmFree(struct Fsm *fsm)
 {
 	kfree((void *) fsm->jumpmatrix);
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmFree); */
+EXPORT_SYMBOL(mISDN_FsmFree);
 
 int
 mISDN_FsmEvent(struct FsmInst *fi, int event, void *arg)
@@ -84,7 +84,7 @@ mISDN_FsmEvent(struct FsmInst *fi, int event, void *arg)
 		return 1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmEvent); */
+EXPORT_SYMBOL(mISDN_FsmEvent);
 
 void
 mISDN_FsmChangeState(struct FsmInst *fi, int newstate)
@@ -94,7 +94,7 @@ mISDN_FsmChangeState(struct FsmInst *fi, int newstate)
 		fi->printdebug(fi, "ChangeState %s",
 			       fi->fsm->strState[newstate]);
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmChangeState); */
+EXPORT_SYMBOL(mISDN_FsmChangeState);
 
 static void
 FsmExpireTimer(struct FsmTimer *ft)
@@ -118,7 +118,7 @@ mISDN_FsmInitTimer(struct FsmInst *fi, struct FsmTimer *ft)
 #endif
 	init_timer(&ft->tl);
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmInitTimer); */
+EXPORT_SYMBOL(mISDN_FsmInitTimer);
 
 void
 mISDN_FsmDelTimer(struct FsmTimer *ft, int where)
@@ -130,7 +130,7 @@ mISDN_FsmDelTimer(struct FsmTimer *ft, int where)
 #endif
 	del_timer(&ft->tl);
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmDelTimer); */
+EXPORT_SYMBOL(mISDN_FsmDelTimer);
 
 int
 mISDN_FsmAddTimer(struct FsmTimer *ft,
@@ -159,7 +159,7 @@ mISDN_FsmAddTimer(struct FsmTimer *ft,
 	add_timer(&ft->tl);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmAddTimer); */
+EXPORT_SYMBOL(mISDN_FsmAddTimer);
 
 void
 mISDN_FsmRestartTimer(struct FsmTimer *ft,
@@ -180,4 +180,4 @@ mISDN_FsmRestartTimer(struct FsmTimer *ft,
 	ft->tl.expires = jiffies + (millisec * HZ) / 1000;
 	add_timer(&ft->tl);
 }
-/* DISABLED: EXPORT_SYMBOL(mISDN_FsmRestartTimer); */
+EXPORT_SYMBOL(mISDN_FsmRestartTimer);

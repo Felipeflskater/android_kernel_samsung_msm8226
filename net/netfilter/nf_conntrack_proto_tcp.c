@@ -1579,7 +1579,7 @@ struct nf_conntrack_l4proto nf_conntrack_l4proto_tcp4 __read_mostly =
 #endif
 #endif
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_tcp4); */
+EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_tcp4);
 
 struct nf_conntrack_l4proto nf_conntrack_l4proto_tcp6 __read_mostly =
 {
@@ -1619,4 +1619,4 @@ struct nf_conntrack_l4proto nf_conntrack_l4proto_tcp6 __read_mostly =
 	.ctl_table		= tcp_sysctl_table,
 #endif
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_tcp6); */
+EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_tcp6);

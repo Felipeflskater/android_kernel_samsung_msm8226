@@ -61,7 +61,7 @@ unsigned int get_rtc_time(struct rtc_time *tm)
 
 	return RTC_24H;
 }
-/* DISABLED: EXPORT_SYMBOL(get_rtc_time); */
+EXPORT_SYMBOL(get_rtc_time);
 
 int set_rtc_time(struct rtc_time *tm)
 {
@@ -70,7 +70,7 @@ int set_rtc_time(struct rtc_time *tm)
 	rtc_tm_to_time(tm, &secs);
 	return rtc_sh_set_time(secs);
 }
-/* DISABLED: EXPORT_SYMBOL(set_rtc_time); */
+EXPORT_SYMBOL(set_rtc_time);
 
 static int __init rtc_generic_init(void)
 {

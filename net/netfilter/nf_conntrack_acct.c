@@ -49,7 +49,7 @@ seq_print_acct(struct seq_file *s, const struct nf_conn *ct, int dir)
 			  (unsigned long long)atomic64_read(&acct[dir].packets),
 			  (unsigned long long)atomic64_read(&acct[dir].bytes));
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(seq_print_acct); */
+EXPORT_SYMBOL_GPL(seq_print_acct);
 
 static struct nf_ct_ext_type acct_extend __read_mostly = {
 	.len	= sizeof(struct nf_conn_counter[IP_CT_DIR_MAX]),

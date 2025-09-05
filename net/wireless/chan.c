@@ -76,7 +76,7 @@ int cfg80211_can_beacon_sec_chan(struct wiphy *wiphy,
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_can_beacon_sec_chan); */
+EXPORT_SYMBOL(cfg80211_can_beacon_sec_chan);
 
 int cfg80211_set_freq(struct cfg80211_registered_device *rdev,
 		      struct wireless_dev *wdev, int freq,

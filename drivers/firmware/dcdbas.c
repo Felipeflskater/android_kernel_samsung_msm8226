@@ -340,7 +340,7 @@ out:
 	mutex_unlock(&smi_data_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dcdbas_smi_request); */
+EXPORT_SYMBOL(dcdbas_smi_request);
 
 /**
  * host_control_smi: generate host control SMI

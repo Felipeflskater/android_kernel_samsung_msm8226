@@ -1282,11 +1282,11 @@ void unload_sbmpu(struct address_info *hw_config)
 	unload_uart401(hw_config);
 }
 
-/* DISABLED: EXPORT_SYMBOL(sb_dsp_init); */
-/* DISABLED: EXPORT_SYMBOL(sb_dsp_detect); */
-/* DISABLED: EXPORT_SYMBOL(sb_dsp_unload); */
-/* DISABLED: EXPORT_SYMBOL(sb_be_quiet); */
-/* DISABLED: EXPORT_SYMBOL(probe_sbmpu); */
-/* DISABLED: EXPORT_SYMBOL(unload_sbmpu); */
-/* DISABLED: EXPORT_SYMBOL(smw_free); */
+EXPORT_SYMBOL(sb_dsp_init);
+EXPORT_SYMBOL(sb_dsp_detect);
+EXPORT_SYMBOL(sb_dsp_unload);
+EXPORT_SYMBOL(sb_be_quiet);
+EXPORT_SYMBOL(probe_sbmpu);
+EXPORT_SYMBOL(unload_sbmpu);
+EXPORT_SYMBOL(smw_free);
 MODULE_LICENSE("GPL");

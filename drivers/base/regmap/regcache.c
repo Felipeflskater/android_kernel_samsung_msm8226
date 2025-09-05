@@ -300,7 +300,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regcache_sync); */
+EXPORT_SYMBOL_GPL(regcache_sync);
 
 /**
  * regcache_sync_region: Sync part  of the register cache with the hardware.
@@ -346,7 +346,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regcache_sync_region); */
+EXPORT_SYMBOL_GPL(regcache_sync_region);
 
 /**
  * regcache_cache_only: Put a register map into cache only mode
@@ -368,7 +368,7 @@ void regcache_cache_only(struct regmap *map, bool enable)
 	trace_regmap_cache_only(map->dev, enable);
 	mutex_unlock(&map->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regcache_cache_only); */
+EXPORT_SYMBOL_GPL(regcache_cache_only);
 
 /**
  * regcache_mark_dirty: Mark the register cache as dirty
@@ -385,7 +385,7 @@ void regcache_mark_dirty(struct regmap *map)
 	map->cache_dirty = true;
 	mutex_unlock(&map->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regcache_mark_dirty); */
+EXPORT_SYMBOL_GPL(regcache_mark_dirty);
 
 /**
  * regcache_cache_bypass: Put a register map into cache bypass mode
@@ -406,7 +406,7 @@ void regcache_cache_bypass(struct regmap *map, bool enable)
 	trace_regmap_cache_bypass(map->dev, enable);
 	mutex_unlock(&map->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regcache_cache_bypass); */
+EXPORT_SYMBOL_GPL(regcache_cache_bypass);
 
 bool regcache_set_val(void *base, unsigned int idx,
 		      unsigned int val, unsigned int word_size)

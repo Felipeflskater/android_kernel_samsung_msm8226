@@ -584,7 +584,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_alloc_dma_chan); */
+EXPORT_SYMBOL(sps_alloc_dma_chan);
 
 /**
  * Free a BAM DMA channel
@@ -642,7 +642,7 @@ exit_err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_free_dma_chan); */
+EXPORT_SYMBOL(sps_free_dma_chan);
 
 /**
  * Activate a BAM DMA pipe
@@ -894,7 +894,7 @@ u32 sps_dma_get_bam_handle(void)
 {
 	return (u32) bam_dma_dev[0].bam;
 }
-/* DISABLED: EXPORT_SYMBOL(sps_dma_get_bam_handle); */
+EXPORT_SYMBOL(sps_dma_get_bam_handle);
 
 /**
  * Free the BAM handle for BAM-DMA.
@@ -903,6 +903,6 @@ u32 sps_dma_get_bam_handle(void)
 void sps_dma_free_bam_handle(u32 h)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(sps_dma_free_bam_handle); */
+EXPORT_SYMBOL(sps_dma_free_bam_handle);
 
 #endif /* CONFIG_SPS_SUPPORT_BAMDMA */

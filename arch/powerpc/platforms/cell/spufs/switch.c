@@ -2118,7 +2118,7 @@ int spu_save(struct spu_state *prev, struct spu *spu)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_save); */
+EXPORT_SYMBOL_GPL(spu_save);
 
 /**
  * spu_restore - SPU context restore, with harvest and locking.
@@ -2144,7 +2144,7 @@ int spu_restore(struct spu_state *new, struct spu *spu)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_restore); */
+EXPORT_SYMBOL_GPL(spu_restore);
 
 static void init_prob(struct spu_state *csa)
 {

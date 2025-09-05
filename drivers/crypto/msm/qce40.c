@@ -2301,7 +2301,7 @@ bad:
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_aead_req); */
+EXPORT_SYMBOL(qce_aead_req);
 
 int qce_ablk_cipher_req(void *handle, struct qce_req *c_req)
 {
@@ -2410,7 +2410,7 @@ bad:
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_ablk_cipher_req); */
+EXPORT_SYMBOL(qce_ablk_cipher_req);
 
 int qce_process_sha_req(void *handle, struct qce_sha_req *sreq)
 {
@@ -2462,19 +2462,19 @@ bad:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_process_sha_req); */
+EXPORT_SYMBOL(qce_process_sha_req);
 
 int qce_enable_clk(void *handle)
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_enable_clk); */
+EXPORT_SYMBOL(qce_enable_clk);
 
 int qce_disable_clk(void *handle)
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_disable_clk); */
+EXPORT_SYMBOL(qce_disable_clk);
 
 /* crypto engine open function. */
 void *qce_open(struct platform_device *pdev, int *rc)
@@ -2637,7 +2637,7 @@ err_pce_dev:
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_open); */
+EXPORT_SYMBOL(qce_open);
 
 /* crypto engine close function. */
 int qce_close(void *handle)
@@ -2667,7 +2667,7 @@ int qce_close(void *handle)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_close); */
+EXPORT_SYMBOL(qce_close);
 
 int qce_hw_support(void *handle, struct ce_hw_support *ce_support)
 {
@@ -2688,7 +2688,7 @@ int qce_hw_support(void *handle, struct ce_hw_support *ce_support)
 	ce_support->bam = false;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qce_hw_support); */
+EXPORT_SYMBOL(qce_hw_support);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Crypto Engine driver");

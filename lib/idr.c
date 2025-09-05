@@ -139,7 +139,7 @@ int idr_pre_get(struct idr *idp, gfp_t gfp_mask)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_pre_get); */
+EXPORT_SYMBOL(idr_pre_get);
 
 static int sub_alloc(struct idr *idp, int *starting_id, struct idr_layer **pa)
 {
@@ -323,7 +323,7 @@ int idr_get_new_above(struct idr *idp, void *ptr, int starting_id, int *id)
 	*id = rv;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_get_new_above); */
+EXPORT_SYMBOL(idr_get_new_above);
 
 /**
  * idr_get_new - allocate new idr entry
@@ -353,7 +353,7 @@ int idr_get_new(struct idr *idp, void *ptr, int *id)
 	*id = rv;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_get_new); */
+EXPORT_SYMBOL(idr_get_new);
 
 static void idr_remove_warning(int id)
 {
@@ -439,7 +439,7 @@ void idr_remove(struct idr *idp, int id)
 	}
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_remove); */
+EXPORT_SYMBOL(idr_remove);
 
 /**
  * idr_remove_all - remove all ids from the given idr tree
@@ -487,7 +487,7 @@ void idr_remove_all(struct idr *idp)
 	}
 	idp->layers = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_remove_all); */
+EXPORT_SYMBOL(idr_remove_all);
 
 /**
  * idr_destroy - release all cached layers within an idr tree
@@ -500,7 +500,7 @@ void idr_destroy(struct idr *idp)
 		kmem_cache_free(idr_layer_cache, p);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(idr_destroy); */
+EXPORT_SYMBOL(idr_destroy);
 
 /**
  * idr_find - return pointer for given id
@@ -538,7 +538,7 @@ void *idr_find(struct idr *idp, int id)
 	}
 	return((void *)p);
 }
-/* DISABLED: EXPORT_SYMBOL(idr_find); */
+EXPORT_SYMBOL(idr_find);
 
 /**
  * idr_for_each - iterate through all stored pointers
@@ -593,7 +593,7 @@ int idr_for_each(struct idr *idp,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_for_each); */
+EXPORT_SYMBOL(idr_for_each);
 
 /**
  * idr_get_next - lookup next object of id to given id.
@@ -648,7 +648,7 @@ void *idr_get_next(struct idr *idp, int *nextidp)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_get_next); */
+EXPORT_SYMBOL(idr_get_next);
 
 
 /**
@@ -694,7 +694,7 @@ void *idr_replace(struct idr *idp, void *ptr, int id)
 
 	return old_p;
 }
-/* DISABLED: EXPORT_SYMBOL(idr_replace); */
+EXPORT_SYMBOL(idr_replace);
 
 void __init idr_init_cache(void)
 {
@@ -714,7 +714,7 @@ void idr_init(struct idr *idp)
 	memset(idp, 0, sizeof(struct idr));
 	spin_lock_init(&idp->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(idr_init); */
+EXPORT_SYMBOL(idr_init);
 
 
 /**
@@ -776,7 +776,7 @@ int ida_pre_get(struct ida *ida, gfp_t gfp_mask)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(ida_pre_get); */
+EXPORT_SYMBOL(ida_pre_get);
 
 /**
  * ida_get_new_above - allocate new ID above or equal to a start id
@@ -864,7 +864,7 @@ int ida_get_new_above(struct ida *ida, int starting_id, int *p_id)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ida_get_new_above); */
+EXPORT_SYMBOL(ida_get_new_above);
 
 /**
  * ida_get_new - allocate new ID
@@ -883,7 +883,7 @@ int ida_get_new(struct ida *ida, int *p_id)
 {
 	return ida_get_new_above(ida, 0, p_id);
 }
-/* DISABLED: EXPORT_SYMBOL(ida_get_new); */
+EXPORT_SYMBOL(ida_get_new);
 
 /**
  * ida_remove - remove the given ID
@@ -931,7 +931,7 @@ void ida_remove(struct ida *ida, int id)
 	printk(KERN_WARNING
 	       "ida_remove called for id=%d which is not allocated.\n", id);
 }
-/* DISABLED: EXPORT_SYMBOL(ida_remove); */
+EXPORT_SYMBOL(ida_remove);
 
 /**
  * ida_destroy - release all cached layers within an ida tree
@@ -942,7 +942,7 @@ void ida_destroy(struct ida *ida)
 	idr_destroy(&ida->idr);
 	kfree(ida->free_bitmap);
 }
-/* DISABLED: EXPORT_SYMBOL(ida_destroy); */
+EXPORT_SYMBOL(ida_destroy);
 
 /**
  * ida_simple_get - get a new id.
@@ -994,7 +994,7 @@ again:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ida_simple_get); */
+EXPORT_SYMBOL(ida_simple_get);
 
 /**
  * ida_simple_remove - remove an allocated id.
@@ -1010,7 +1010,7 @@ void ida_simple_remove(struct ida *ida, unsigned int id)
 	ida_remove(ida, id);
 	spin_unlock_irqrestore(&simple_ida_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ida_simple_remove); */
+EXPORT_SYMBOL(ida_simple_remove);
 
 /**
  * ida_init - initialize ida handle
@@ -1025,4 +1025,4 @@ void ida_init(struct ida *ida)
 	idr_init(&ida->idr);
 
 }
-/* DISABLED: EXPORT_SYMBOL(ida_init); */
+EXPORT_SYMBOL(ida_init);

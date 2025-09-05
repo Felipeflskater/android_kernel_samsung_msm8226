@@ -29,7 +29,7 @@
 #include <asm/olpc_ofw.h>
 
 struct olpc_platform_t olpc_platform_info;
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_platform_info); */
+EXPORT_SYMBOL_GPL(olpc_platform_info);
 
 static DEFINE_SPINLOCK(ec_lock);
 
@@ -62,7 +62,7 @@ static int __init olpc_ec_timeout_set(char *str)
 			ec_timeout);
 	return 1;
 }
-/* DISABLED: __setup("olpc_ec_timeout=", olpc_ec_timeout_set); */ */
+__setup("olpc_ec_timeout=", olpc_ec_timeout_set);
 
 /*
  * These {i,o}bf_status functions return whether the buffers are full or not.
@@ -201,19 +201,19 @@ err:
 	spin_unlock_irqrestore(&ec_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_cmd); */
+EXPORT_SYMBOL_GPL(olpc_ec_cmd);
 
 void olpc_ec_wakeup_set(u16 value)
 {
 	ec_wakeup_mask |= value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_wakeup_set); */
+EXPORT_SYMBOL_GPL(olpc_ec_wakeup_set);
 
 void olpc_ec_wakeup_clear(u16 value)
 {
 	ec_wakeup_mask &= ~value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_wakeup_clear); */
+EXPORT_SYMBOL_GPL(olpc_ec_wakeup_clear);
 
 /*
  * Returns true if the compile and runtime configurations allow for EC events
@@ -244,7 +244,7 @@ bool olpc_ec_wakeup_available(void)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_wakeup_available); */
+EXPORT_SYMBOL_GPL(olpc_ec_wakeup_available);
 
 int olpc_ec_mask_write(u16 bits)
 {
@@ -257,7 +257,7 @@ int olpc_ec_mask_write(u16 bits)
 		return olpc_ec_cmd(EC_WRITE_SCI_MASK, &ec_byte, 1, NULL, 0);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_mask_write); */
+EXPORT_SYMBOL_GPL(olpc_ec_mask_write);
 
 int olpc_ec_sci_query(u16 *sci_value)
 {
@@ -278,7 +278,7 @@ int olpc_ec_sci_query(u16 *sci_value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ec_sci_query); */
+EXPORT_SYMBOL_GPL(olpc_ec_sci_query);
 
 static ssize_t ec_debugfs_cmd_write(struct file *file, const char __user *buf,
 				    size_t size, loff_t *ppos)

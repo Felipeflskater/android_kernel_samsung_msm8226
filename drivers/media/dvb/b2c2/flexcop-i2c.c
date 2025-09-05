@@ -169,7 +169,7 @@ int flexcop_i2c_request(struct flexcop_i2c_adapter *i2c,
 	return 0;
 }
 /* exported for PCI i2c */
-/* DISABLED: EXPORT_SYMBOL(flexcop_i2c_request); */
+EXPORT_SYMBOL(flexcop_i2c_request);
 
 /* master xfer callback for demodulator */
 static int flexcop_master_xfer(struct i2c_adapter *i2c_adap,

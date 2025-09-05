@@ -65,7 +65,7 @@ int sysctl_tcp_min_snd_mss __read_mostly = TCP_MIN_SND_MSS;
 int sysctl_tcp_slow_start_after_idle __read_mostly = 1;
 
 int sysctl_tcp_cookie_size __read_mostly = 0; /* TCP_COOKIE_MAX */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysctl_tcp_cookie_size); */
+EXPORT_SYMBOL_GPL(sysctl_tcp_cookie_size);
 
 static int tcp_write_xmit(struct sock *sk, unsigned int mss_now, int nonagle,
 			   int push_one, gfp_t gfp);
@@ -254,7 +254,7 @@ void tcp_select_initial_window(int __space, __u32 mss,
 	/* Set the clamp no higher than max representable value */
 	(*window_clamp) = min(65535U << (*rcv_wscale), *window_clamp);
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_select_initial_window); */
+EXPORT_SYMBOL(tcp_select_initial_window);
 
 /* Chose a new window to advertise, update state in tcp_sock for the
  * socket, and return result with RFC1323 scaling applied.  The return
@@ -874,7 +874,7 @@ void tcp_release_cb(struct sock *sk)
 				       GFP_ATOMIC);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_release_cb); */
+EXPORT_SYMBOL(tcp_release_cb);
 
 void __init tcp_tasklet_init(void)
 {
@@ -1356,7 +1356,7 @@ void tcp_mtup_init(struct sock *sk)
 	icsk->icsk_mtup.search_low = tcp_mss_to_mtu(sk, sysctl_tcp_base_mss);
 	icsk->icsk_mtup.probe_size = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_mtup_init); */
+EXPORT_SYMBOL(tcp_mtup_init);
 
 /* This function synchronize snd mss to current pmtu/exthdr set.
 
@@ -1400,7 +1400,7 @@ unsigned int tcp_sync_mss(struct sock *sk, u32 pmtu)
 
 	return mss_now;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_sync_mss); */
+EXPORT_SYMBOL(tcp_sync_mss);
 
 /* Compute the current effective MSS, taking SACKs and IP options,
  * and even PMTU discovery events into account.
@@ -2744,7 +2744,7 @@ struct sk_buff *tcp_make_synack(struct sock *sk, struct dst_entry *dst,
 
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_make_synack); */
+EXPORT_SYMBOL(tcp_make_synack);
 
 /* Do all connect socket setups that can be done AF independent. */
 static void tcp_connect_init(struct sock *sk)
@@ -2856,7 +2856,7 @@ int tcp_connect(struct sock *sk)
 				  inet_csk(sk)->icsk_rto, TCP_RTO_MAX);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_connect); */
+EXPORT_SYMBOL(tcp_connect);
 
 /* Send out a delayed ack, the caller does the policy checking
  * to see if we should even be here.  See tcp_input.c:tcp_ack_snd_check()

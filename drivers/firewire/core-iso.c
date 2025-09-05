@@ -82,7 +82,7 @@ int fw_iso_buffer_init(struct fw_iso_buffer *buffer, struct fw_card *card,
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_buffer_init); */
+EXPORT_SYMBOL(fw_iso_buffer_init);
 
 int fw_iso_buffer_map(struct fw_iso_buffer *buffer, struct vm_area_struct *vma)
 {
@@ -117,7 +117,7 @@ void fw_iso_buffer_destroy(struct fw_iso_buffer *buffer,
 	kfree(buffer->pages);
 	buffer->pages = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_buffer_destroy); */
+EXPORT_SYMBOL(fw_iso_buffer_destroy);
 
 /* Convert DMA address to offset into virtually contiguous buffer. */
 size_t fw_iso_buffer_lookup(struct fw_iso_buffer *buffer, dma_addr_t completed)
@@ -157,20 +157,20 @@ struct fw_iso_context *fw_iso_context_create(struct fw_card *card,
 
 	return ctx;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_create); */
+EXPORT_SYMBOL(fw_iso_context_create);
 
 void fw_iso_context_destroy(struct fw_iso_context *ctx)
 {
 	ctx->card->driver->free_iso_context(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_destroy); */
+EXPORT_SYMBOL(fw_iso_context_destroy);
 
 int fw_iso_context_start(struct fw_iso_context *ctx,
 			 int cycle, int sync, int tags)
 {
 	return ctx->card->driver->start_iso(ctx, cycle, sync, tags);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_start); */
+EXPORT_SYMBOL(fw_iso_context_start);
 
 int fw_iso_context_set_channels(struct fw_iso_context *ctx, u64 *channels)
 {
@@ -184,25 +184,25 @@ int fw_iso_context_queue(struct fw_iso_context *ctx,
 {
 	return ctx->card->driver->queue_iso(ctx, packet, buffer, payload);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_queue); */
+EXPORT_SYMBOL(fw_iso_context_queue);
 
 void fw_iso_context_queue_flush(struct fw_iso_context *ctx)
 {
 	ctx->card->driver->flush_queue_iso(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_queue_flush); */
+EXPORT_SYMBOL(fw_iso_context_queue_flush);
 
 int fw_iso_context_flush_completions(struct fw_iso_context *ctx)
 {
 	return ctx->card->driver->flush_iso_completions(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_flush_completions); */
+EXPORT_SYMBOL(fw_iso_context_flush_completions);
 
 int fw_iso_context_stop(struct fw_iso_context *ctx)
 {
 	return ctx->card->driver->stop_iso(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_context_stop); */
+EXPORT_SYMBOL(fw_iso_context_stop);
 
 /*
  * Isochronous bus resource management (channels, bandwidth), client side
@@ -376,4 +376,4 @@ void fw_iso_resource_manage(struct fw_card *card, int generation,
 		*channel = ret;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resource_manage); */
+EXPORT_SYMBOL(fw_iso_resource_manage);

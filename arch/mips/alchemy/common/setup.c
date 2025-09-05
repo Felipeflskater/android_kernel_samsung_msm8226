@@ -87,5 +87,5 @@ phys_t __fixup_bigphys_addr(phys_t phys_addr, phys_t size)
 	/* default nop */
 	return phys_addr;
 }
-/* DISABLED: EXPORT_SYMBOL(__fixup_bigphys_addr); */
+EXPORT_SYMBOL(__fixup_bigphys_addr);
 #endif

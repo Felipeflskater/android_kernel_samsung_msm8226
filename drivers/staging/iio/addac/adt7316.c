@@ -2107,7 +2107,7 @@ static int adt7316_enable(struct device *dev)
 }
 
 SIMPLE_DEV_PM_OPS(adt7316_pm_ops, adt7316_disable, adt7316_enable);
-/* DISABLED: EXPORT_SYMBOL_GPL(adt7316_pm_ops); */
+EXPORT_SYMBOL_GPL(adt7316_pm_ops);
 #endif
 
 static const struct iio_info adt7316_info = {
@@ -2214,7 +2214,7 @@ error_free_dev:
 error_ret:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(adt7316_probe); */
+EXPORT_SYMBOL(adt7316_probe);
 
 int __devexit adt7316_remove(struct device *dev)
 {
@@ -2228,7 +2228,7 @@ int __devexit adt7316_remove(struct device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(adt7316_remove); */
+EXPORT_SYMBOL(adt7316_remove);
 
 MODULE_AUTHOR("Sonic Zhang <sonic.zhang@analog.com>");
 MODULE_DESCRIPTION("Analog Devices ADT7316/7/8 and ADT7516/7/9 digital"

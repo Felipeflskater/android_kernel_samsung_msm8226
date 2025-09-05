@@ -26,7 +26,7 @@ const char *perf_pmu_name(void)
 		return "CPU-measurement facilities (CPUMF)";
 	return "pmu";
 }
-/* DISABLED: EXPORT_SYMBOL(perf_pmu_name); */
+EXPORT_SYMBOL(perf_pmu_name);
 
 int perf_num_counters(void)
 {
@@ -37,7 +37,7 @@ int perf_num_counters(void)
 
 	return num;
 }
-/* DISABLED: EXPORT_SYMBOL(perf_num_counters); */
+EXPORT_SYMBOL(perf_num_counters);
 
 void perf_event_print_debug(void)
 {

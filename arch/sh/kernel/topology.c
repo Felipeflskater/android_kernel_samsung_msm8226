@@ -19,7 +19,7 @@
 static DEFINE_PER_CPU(struct cpu, cpu_devices);
 
 cpumask_t cpu_core_map[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL(cpu_core_map); */
+EXPORT_SYMBOL(cpu_core_map);
 
 static cpumask_t cpu_coregroup_map(unsigned int cpu)
 {

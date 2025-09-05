@@ -754,7 +754,7 @@ int omap_mcbsp_st_add_controls(struct snd_soc_pcm_runtime *rtd)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_mcbsp_st_add_controls); */
+EXPORT_SYMBOL_GPL(omap_mcbsp_st_add_controls);
 
 static __devinit int asoc_mcbsp_probe(struct platform_device *pdev)
 {

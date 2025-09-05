@@ -29,7 +29,7 @@
 #include "wm_hubs.h"
 
 const DECLARE_TLV_DB_SCALE(wm_hubs_spkmix_tlv, -300, 300, 0);
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_spkmix_tlv); */
+EXPORT_SYMBOL_GPL(wm_hubs_spkmix_tlv);
 
 static const DECLARE_TLV_DB_SCALE(inpga_tlv, -1650, 150, 0);
 static const DECLARE_TLV_DB_SCALE(inmix_sw_tlv, 0, 3000, 0);
@@ -107,7 +107,7 @@ irqreturn_t wm_hubs_dcs_done(int irq, void *data)
 
 	return IRQ_HANDLED;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_dcs_done); */
+EXPORT_SYMBOL_GPL(wm_hubs_dcs_done);
 
 /*
  * Startup calibration of the DC servo
@@ -942,7 +942,7 @@ int wm_hubs_add_analogue_controls(struct snd_soc_codec *codec)
 				  ARRAY_SIZE(analogue_dapm_widgets));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_add_analogue_controls); */
+EXPORT_SYMBOL_GPL(wm_hubs_add_analogue_controls);
 
 int wm_hubs_add_analogue_routes(struct snd_soc_codec *codec,
 				int lineout1_diff, int lineout2_diff)
@@ -975,7 +975,7 @@ int wm_hubs_add_analogue_routes(struct snd_soc_codec *codec,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_add_analogue_routes); */
+EXPORT_SYMBOL_GPL(wm_hubs_add_analogue_routes);
 
 int wm_hubs_handle_analogue_pdata(struct snd_soc_codec *codec,
 				  int lineout1_diff, int lineout2_diff,
@@ -1020,7 +1020,7 @@ int wm_hubs_handle_analogue_pdata(struct snd_soc_codec *codec,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_handle_analogue_pdata); */
+EXPORT_SYMBOL_GPL(wm_hubs_handle_analogue_pdata);
 
 void wm_hubs_vmid_ena(struct snd_soc_codec *codec)
 {
@@ -1036,7 +1036,7 @@ void wm_hubs_vmid_ena(struct snd_soc_codec *codec)
 	/* Enable the line outputs while we power up */
 	snd_soc_update_bits(codec, WM8993_POWER_MANAGEMENT_3, val, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_vmid_ena); */
+EXPORT_SYMBOL_GPL(wm_hubs_vmid_ena);
 
 void wm_hubs_set_bias_level(struct snd_soc_codec *codec,
 			    enum snd_soc_bias_level level)
@@ -1086,7 +1086,7 @@ void wm_hubs_set_bias_level(struct snd_soc_codec *codec,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm_hubs_set_bias_level); */
+EXPORT_SYMBOL_GPL(wm_hubs_set_bias_level);
 
 MODULE_DESCRIPTION("Shared support for Wolfson hubs products");
 MODULE_AUTHOR("Mark Brown <broonie@opensource.wolfsonmicro.com>");

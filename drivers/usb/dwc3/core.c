@@ -105,7 +105,7 @@ again:
 
 	return id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dwc3_get_device_id); */
+EXPORT_SYMBOL_GPL(dwc3_get_device_id);
 
 void dwc3_put_device_id(int id)
 {
@@ -119,7 +119,7 @@ void dwc3_put_device_id(int id)
 	smp_mb__before_clear_bit();
 	clear_bit(id, dwc3_devs);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dwc3_put_device_id); */
+EXPORT_SYMBOL_GPL(dwc3_put_device_id);
 
 void dwc3_set_mode(struct dwc3 *dwc, u32 mode)
 {
@@ -539,7 +539,7 @@ void dwc3_set_notifier(void (*notify)(struct dwc3 *, unsigned))
 {
 	notify_event = notify;
 }
-/* DISABLED: EXPORT_SYMBOL(dwc3_set_notifier); */
+EXPORT_SYMBOL(dwc3_set_notifier);
 
 int dwc3_notify_event(struct dwc3 *dwc, unsigned event)
 {
@@ -552,7 +552,7 @@ int dwc3_notify_event(struct dwc3 *dwc, unsigned event)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dwc3_notify_event); */
+EXPORT_SYMBOL(dwc3_notify_event);
 
 #define DWC3_ALIGN_MASK		(16 - 1)
 

@@ -280,7 +280,7 @@ void sys_imageblit(struct fb_info *p, const struct fb_image *image)
 		color_imageblit(image, p, dst1, start_index, pitch_index);
 }
 
-/* DISABLED: EXPORT_SYMBOL(sys_imageblit); */
+EXPORT_SYMBOL(sys_imageblit);
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("1-bit/8-bit to 1-32 bit color expansion (sys-to-sys)");

@@ -14,10 +14,10 @@ struct msr *msrs_alloc(void)
 
 	return msrs;
 }
-/* DISABLED: EXPORT_SYMBOL(msrs_alloc); */
+EXPORT_SYMBOL(msrs_alloc);
 
 void msrs_free(struct msr *msrs)
 {
 	free_percpu(msrs);
 }
-/* DISABLED: EXPORT_SYMBOL(msrs_free); */
+EXPORT_SYMBOL(msrs_free);

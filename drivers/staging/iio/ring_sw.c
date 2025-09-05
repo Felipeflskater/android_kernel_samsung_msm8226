@@ -355,13 +355,13 @@ struct iio_buffer *iio_sw_rb_allocate(struct iio_dev *indio_dev)
 
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL(iio_sw_rb_allocate); */
+EXPORT_SYMBOL(iio_sw_rb_allocate);
 
 void iio_sw_rb_free(struct iio_buffer *r)
 {
 	kfree(iio_to_sw_ring(r));
 }
-/* DISABLED: EXPORT_SYMBOL(iio_sw_rb_free); */
+EXPORT_SYMBOL(iio_sw_rb_free);
 
 MODULE_DESCRIPTION("Industrialio I/O software ring buffer");
 MODULE_LICENSE("GPL");

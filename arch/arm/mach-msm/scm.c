@@ -389,7 +389,7 @@ int scm_call(u32 svc_id, u32 cmd_id, const void *cmd_buf, size_t cmd_len,
 	kfree(cmd);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_call); */
+EXPORT_SYMBOL(scm_call);
 
 #define SCM_CLASS_REGISTER	(0x2 << 8)
 #define SCM_MASK_IRQS		BIT(5)
@@ -428,7 +428,7 @@ s32 scm_call_atomic1(u32 svc, u32 cmd, u32 arg1)
 		: "r3");
 	return r0;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_call_atomic1); */
+EXPORT_SYMBOL(scm_call_atomic1);
 
 /**
  * scm_call_atomic2() - Send an atomic SCM command with two arguments
@@ -462,7 +462,7 @@ s32 scm_call_atomic2(u32 svc, u32 cmd, u32 arg1, u32 arg2)
 		: "r" (r0), "r" (r1), "r" (r2), "r" (r3));
 	return r0;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_call_atomic2); */
+EXPORT_SYMBOL(scm_call_atomic2);
 
 /**
  * scm_call_atomic3() - Send an atomic SCM command with three arguments
@@ -499,7 +499,7 @@ s32 scm_call_atomic3(u32 svc, u32 cmd, u32 arg1, u32 arg2, u32 arg3)
 		: "r" (r0), "r" (r1), "r" (r2), "r" (r3), "r" (r4));
 	return r0;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_call_atomic3); */
+EXPORT_SYMBOL(scm_call_atomic3);
 
 s32 scm_call_atomic4_3(u32 svc, u32 cmd, u32 arg1, u32 arg2,
 		u32 arg3, u32 arg4, u32 *ret1, u32 *ret2)
@@ -534,7 +534,7 @@ s32 scm_call_atomic4_3(u32 svc, u32 cmd, u32 arg1, u32 arg2,
 		*ret2 = r2;
 	return r0;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_call_atomic4_3); */
+EXPORT_SYMBOL(scm_call_atomic4_3);
 
 u32 scm_get_version(void)
 {
@@ -570,7 +570,7 @@ u32 scm_get_version(void)
 
 	return version;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_get_version); */
+EXPORT_SYMBOL(scm_get_version);
 
 #define IS_CALL_AVAIL_CMD	1
 int scm_is_call_available(u32 svc_id, u32 cmd_id)
@@ -586,7 +586,7 @@ int scm_is_call_available(u32 svc_id, u32 cmd_id)
 
 	return ret_val;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_is_call_available); */
+EXPORT_SYMBOL(scm_is_call_available);
 
 #define GET_FEAT_VERSION_CMD	3
 int scm_get_feat_version(u32 feat)
@@ -599,5 +599,5 @@ int scm_get_feat_version(u32 feat)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_get_feat_version); */
+EXPORT_SYMBOL(scm_get_feat_version);
 

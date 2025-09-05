@@ -495,7 +495,7 @@ int fail_migrate_page(struct address_space *mapping,
 {
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(fail_migrate_page); */
+EXPORT_SYMBOL(fail_migrate_page);
 
 /*
  * Common logic to directly migrate a single page suitable for
@@ -519,7 +519,7 @@ int migrate_page(struct address_space *mapping,
 	migrate_page_copy(newpage, page);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(migrate_page); */
+EXPORT_SYMBOL(migrate_page);
 
 #ifdef CONFIG_BLOCK
 /*
@@ -578,7 +578,7 @@ int buffer_migrate_page(struct address_space *mapping,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(buffer_migrate_page); */
+EXPORT_SYMBOL(buffer_migrate_page);
 #endif
 
 /*

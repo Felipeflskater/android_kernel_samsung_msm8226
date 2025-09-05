@@ -55,7 +55,7 @@ struct vm_area_struct *vb2_get_vma(struct vm_area_struct *vma)
 
 	return vma_copy;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_get_vma); */
+EXPORT_SYMBOL_GPL(vb2_get_vma);
 
 /**
  * vb2_put_userptr() - release a userspace virtual memory area
@@ -77,7 +77,7 @@ void vb2_put_vma(struct vm_area_struct *vma)
 
 	kfree(vma);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_put_vma); */
+EXPORT_SYMBOL_GPL(vb2_put_vma);
 
 /**
  * vb2_get_contig_userptr() - lock physically contiguous userspace mapped memory
@@ -134,7 +134,7 @@ int vb2_get_contig_userptr(unsigned long vaddr, unsigned long size,
 	*res_pa = pa + offset;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_get_contig_userptr); */
+EXPORT_SYMBOL_GPL(vb2_get_contig_userptr);
 
 /**
  * vb2_mmap_pfn_range() - map physical pages to userspace
@@ -174,7 +174,7 @@ int vb2_mmap_pfn_range(struct vm_area_struct *vma, unsigned long paddr,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_mmap_pfn_range); */
+EXPORT_SYMBOL_GPL(vb2_mmap_pfn_range);
 
 /**
  * vb2_common_vm_open() - increase refcount of the vma
@@ -220,7 +220,7 @@ const struct vm_operations_struct vb2_common_vm_ops = {
 	.open = vb2_common_vm_open,
 	.close = vb2_common_vm_close,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(vb2_common_vm_ops); */
+EXPORT_SYMBOL_GPL(vb2_common_vm_ops);
 
 MODULE_DESCRIPTION("common memory handling routines for videobuf2");
 MODULE_AUTHOR("Pawel Osciak <pawel@osciak.com>");

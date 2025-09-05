@@ -50,7 +50,7 @@ int kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 
 	return do_fork(flags|CLONE_VM|CLONE_UNTRACED, 0, &regs, 0, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 /*
  * Program thread launch.  Often defined as a macro in processor.h,

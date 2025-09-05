@@ -56,7 +56,7 @@ struct proc_dir_entry *acpi_lock_ac_dir(void)
 	mutex_unlock(&cm_sbs_mutex);
 	return acpi_ac_dir;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_lock_ac_dir); */
+EXPORT_SYMBOL(acpi_lock_ac_dir);
 
 void acpi_unlock_ac_dir(struct proc_dir_entry *acpi_ac_dir_param)
 {
@@ -69,7 +69,7 @@ void acpi_unlock_ac_dir(struct proc_dir_entry *acpi_ac_dir_param)
 	}
 	mutex_unlock(&cm_sbs_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_unlock_ac_dir); */
+EXPORT_SYMBOL(acpi_unlock_ac_dir);
 
 struct proc_dir_entry *acpi_lock_battery_dir(void)
 {
@@ -87,7 +87,7 @@ struct proc_dir_entry *acpi_lock_battery_dir(void)
 	mutex_unlock(&cm_sbs_mutex);
 	return acpi_battery_dir;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_lock_battery_dir); */
+EXPORT_SYMBOL(acpi_lock_battery_dir);
 
 void acpi_unlock_battery_dir(struct proc_dir_entry *acpi_battery_dir_param)
 {
@@ -102,4 +102,4 @@ void acpi_unlock_battery_dir(struct proc_dir_entry *acpi_battery_dir_param)
 	mutex_unlock(&cm_sbs_mutex);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_unlock_battery_dir); */
+EXPORT_SYMBOL(acpi_unlock_battery_dir);

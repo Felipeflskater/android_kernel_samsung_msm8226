@@ -120,7 +120,7 @@ acpi_handle acpi_get_child(acpi_handle parent, u64 address)
 	return find.handle;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_get_child); */
+EXPORT_SYMBOL(acpi_get_child);
 
 /* Link ACPI devices with physical devices */
 static void acpi_glue_data_handler(acpi_handle handle,
@@ -141,7 +141,7 @@ struct device *acpi_get_physical_device(acpi_handle handle)
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_get_physical_device); */
+EXPORT_SYMBOL(acpi_get_physical_device);
 
 static int acpi_bind_one(struct device *dev, acpi_handle handle)
 {

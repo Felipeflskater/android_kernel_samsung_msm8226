@@ -51,7 +51,7 @@ const char *memstick_debug_get_tpc_name(int tpc)
 {
 	return tpc_names[tpc-1];
 }
-/* DISABLED: EXPORT_SYMBOL(memstick_debug_get_tpc_name); */
+EXPORT_SYMBOL(memstick_debug_get_tpc_name);
 
 
 /* Read a register*/

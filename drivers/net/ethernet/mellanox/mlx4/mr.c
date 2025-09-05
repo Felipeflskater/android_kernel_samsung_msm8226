@@ -227,7 +227,7 @@ int mlx4_mtt_init(struct mlx4_dev *dev, int npages, int page_shift,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mtt_init); */
+EXPORT_SYMBOL_GPL(mlx4_mtt_init);
 
 void __mlx4_free_mtt_range(struct mlx4_dev *dev, u32 offset, int order)
 {
@@ -270,13 +270,13 @@ void mlx4_mtt_cleanup(struct mlx4_dev *dev, struct mlx4_mtt *mtt)
 
 	mlx4_free_mtt_range(dev, mtt->offset, mtt->order);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mtt_cleanup); */
+EXPORT_SYMBOL_GPL(mlx4_mtt_cleanup);
 
 u64 mlx4_mtt_addr(struct mlx4_dev *dev, struct mlx4_mtt *mtt)
 {
 	return (u64) mtt->offset * dev->caps.mtt_entry_sz;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mtt_addr); */
+EXPORT_SYMBOL_GPL(mlx4_mtt_addr);
 
 static u32 hw_index_to_key(u32 ind)
 {
@@ -431,7 +431,7 @@ int mlx4_mr_alloc(struct mlx4_dev *dev, u32 pd, u64 iova, u64 size, u32 access,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mr_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_mr_alloc);
 
 static void mlx4_mr_free_reserved(struct mlx4_dev *dev, struct mlx4_mr *mr)
 {
@@ -456,7 +456,7 @@ void mlx4_mr_free(struct mlx4_dev *dev, struct mlx4_mr *mr)
 		mlx4_mr_free_icm(dev, key_to_hw_index(mr->key));
 	mlx4_mr_release(dev, key_to_hw_index(mr->key));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mr_free); */
+EXPORT_SYMBOL_GPL(mlx4_mr_free);
 
 int mlx4_mr_enable(struct mlx4_dev *dev, struct mlx4_mr *mr)
 {
@@ -524,7 +524,7 @@ err_table:
 	mlx4_mr_free_icm(dev, key_to_hw_index(mr->key));
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_mr_enable); */
+EXPORT_SYMBOL_GPL(mlx4_mr_enable);
 
 static int mlx4_write_mtt_chunk(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 				int start_index, int npages, u64 *page_list)
@@ -622,7 +622,7 @@ int mlx4_write_mtt(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 
 	return __mlx4_write_mtt(dev, mtt, start_index, npages, page_list);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_write_mtt); */
+EXPORT_SYMBOL_GPL(mlx4_write_mtt);
 
 int mlx4_buf_write_mtt(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 		       struct mlx4_buf *buf)
@@ -646,7 +646,7 @@ int mlx4_buf_write_mtt(struct mlx4_dev *dev, struct mlx4_mtt *mtt,
 	kfree(page_list);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_buf_write_mtt); */
+EXPORT_SYMBOL_GPL(mlx4_buf_write_mtt);
 
 int mlx4_init_mr_table(struct mlx4_dev *dev)
 {
@@ -782,7 +782,7 @@ int mlx4_map_phys_fmr(struct mlx4_dev *dev, struct mlx4_fmr *fmr, u64 *page_list
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_map_phys_fmr); */
+EXPORT_SYMBOL_GPL(mlx4_map_phys_fmr);
 
 int mlx4_fmr_alloc(struct mlx4_dev *dev, u32 pd, u32 access, int max_pages,
 		   int max_maps, u8 page_shift, struct mlx4_fmr *fmr)
@@ -828,7 +828,7 @@ err_free:
 	mlx4_mr_free(dev, &fmr->mr);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_fmr_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_fmr_alloc);
 
 int mlx4_fmr_enable(struct mlx4_dev *dev, struct mlx4_fmr *fmr)
 {
@@ -846,7 +846,7 @@ int mlx4_fmr_enable(struct mlx4_dev *dev, struct mlx4_fmr *fmr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_fmr_enable); */
+EXPORT_SYMBOL_GPL(mlx4_fmr_enable);
 
 void mlx4_fmr_unmap(struct mlx4_dev *dev, struct mlx4_fmr *fmr,
 		    u32 *lkey, u32 *rkey)
@@ -878,7 +878,7 @@ void mlx4_fmr_unmap(struct mlx4_dev *dev, struct mlx4_fmr *fmr,
 	}
 	fmr->mr.enabled = MLX4_MR_EN_SW;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_fmr_unmap); */
+EXPORT_SYMBOL_GPL(mlx4_fmr_unmap);
 
 int mlx4_fmr_free(struct mlx4_dev *dev, struct mlx4_fmr *fmr)
 {
@@ -890,11 +890,11 @@ int mlx4_fmr_free(struct mlx4_dev *dev, struct mlx4_fmr *fmr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_fmr_free); */
+EXPORT_SYMBOL_GPL(mlx4_fmr_free);
 
 int mlx4_SYNC_TPT(struct mlx4_dev *dev)
 {
 	return mlx4_cmd(dev, 0, 0, 0, MLX4_CMD_SYNC_TPT, 1000,
 			MLX4_CMD_WRAPPED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_SYNC_TPT); */
+EXPORT_SYMBOL_GPL(mlx4_SYNC_TPT);

@@ -412,7 +412,7 @@ void uio_event_notify(struct uio_info *info)
 	wake_up_interruptible(&idev->wait);
 	kill_fasync(&idev->async_queue, SIGIO, POLL_IN);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uio_event_notify); */
+EXPORT_SYMBOL_GPL(uio_event_notify);
 
 /**
  * uio_interrupt - hardware interrupt handler
@@ -882,7 +882,7 @@ err_get_minor:
 err_kzalloc:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__uio_register_device); */
+EXPORT_SYMBOL_GPL(__uio_register_device);
 
 /**
  * uio_unregister_device - unregister a industrial IO device
@@ -910,7 +910,7 @@ void uio_unregister_device(struct uio_info *info)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uio_unregister_device); */
+EXPORT_SYMBOL_GPL(uio_unregister_device);
 
 static int __init uio_init(void)
 {

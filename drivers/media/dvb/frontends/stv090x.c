@@ -4709,7 +4709,7 @@ int stv090x_set_gpio(struct dvb_frontend *fe, u8 gpio, u8 dir, u8 value,
 
 	return stv090x_write_reg(state, STV090x_GPIOxCFG(gpio), reg);
 }
-/* DISABLED: EXPORT_SYMBOL(stv090x_set_gpio); */
+EXPORT_SYMBOL(stv090x_set_gpio);
 
 static struct dvb_frontend_ops stv090x_ops = {
 	.delsys = { SYS_DVBS, SYS_DVBS2, SYS_DSS },
@@ -4818,7 +4818,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(stv090x_attach); */
+EXPORT_SYMBOL(stv090x_attach);
 MODULE_PARM_DESC(verbose, "Set Verbosity level");
 MODULE_AUTHOR("Manu Abraham");
 MODULE_DESCRIPTION("STV090x Multi-Std Broadcast frontend");

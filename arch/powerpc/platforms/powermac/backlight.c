@@ -215,6 +215,6 @@ void pmac_backlight_enable()
 	atomic_dec(&kernel_backlight_disabled);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(pmac_backlight); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pmac_backlight_mutex); */
-/* DISABLED: EXPORT_SYMBOL_GPL(pmac_has_backlight_type); */
+EXPORT_SYMBOL_GPL(pmac_backlight);
+EXPORT_SYMBOL_GPL(pmac_backlight_mutex);
+EXPORT_SYMBOL_GPL(pmac_has_backlight_type);

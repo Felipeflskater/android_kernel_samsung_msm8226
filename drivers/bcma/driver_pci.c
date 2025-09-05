@@ -223,4 +223,4 @@ int bcma_core_pci_irq_ctl(struct bcma_drv_pci *pc, struct bcma_device *core,
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcma_core_pci_irq_ctl); */
+EXPORT_SYMBOL_GPL(bcma_core_pci_irq_ctl);

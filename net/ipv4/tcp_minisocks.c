@@ -28,7 +28,7 @@
 #include <net/xfrm.h>
 
 int sysctl_tcp_syncookies __read_mostly = 1;
-/* DISABLED: EXPORT_SYMBOL(sysctl_tcp_syncookies); */
+EXPORT_SYMBOL(sysctl_tcp_syncookies);
 
 int sysctl_tcp_abort_on_overflow __read_mostly;
 
@@ -47,7 +47,7 @@ struct inet_timewait_death_row tcp_death_row = {
 	.twcal_timer	= TIMER_INITIALIZER(inet_twdr_twcal_tick, 0,
 					    (unsigned long)&tcp_death_row),
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(tcp_death_row); */
+EXPORT_SYMBOL_GPL(tcp_death_row);
 
 /* VJ's idea. Save last timestamp seen from this destination
  * and hold it at least for normal timewait interval to use for duplicate
@@ -306,7 +306,7 @@ kill:
 	inet_twsk_put(tw);
 	return TCP_TW_SUCCESS;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_timewait_state_process); */
+EXPORT_SYMBOL(tcp_timewait_state_process);
 
 /*
  * Move a socket to time-wait or dead fin-wait-2 state.
@@ -409,7 +409,7 @@ void tcp_twsk_destructor(struct sock *sk)
 	}
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tcp_twsk_destructor); */
+EXPORT_SYMBOL_GPL(tcp_twsk_destructor);
 
 static inline void TCP_ECN_openreq_child(struct tcp_sock *tp,
 					 struct request_sock *req)
@@ -559,7 +559,7 @@ struct sock *tcp_create_openreq_child(struct sock *sk, struct request_sock *req,
 	}
 	return newsk;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_create_openreq_child); */
+EXPORT_SYMBOL(tcp_create_openreq_child);
 
 /*
  *	Process an incoming packet for SYN_RECV sockets represented
@@ -760,7 +760,7 @@ embryonic_reset:
 	inet_csk_reqsk_queue_drop(sk, req, prev);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_check_req); */
+EXPORT_SYMBOL(tcp_check_req);
 
 /*
  * Queue segment on the new socket if the new socket is active,
@@ -792,4 +792,4 @@ int tcp_child_process(struct sock *parent, struct sock *child,
 	sock_put(child);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(tcp_child_process); */
+EXPORT_SYMBOL(tcp_child_process);

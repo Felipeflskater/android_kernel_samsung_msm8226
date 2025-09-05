@@ -80,7 +80,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 	return pwm;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pwm_request); */
+EXPORT_SYMBOL(pwm_request);
 
 
 void pwm_free(struct pwm_device *pwm)
@@ -96,7 +96,7 @@ void pwm_free(struct pwm_device *pwm)
 	mutex_unlock(&pwm_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pwm_free); */
+EXPORT_SYMBOL(pwm_free);
 
 #define pwm_tcon_start(pwm) (1 << (pwm->tcon_base + 0))
 #define pwm_tcon_invert(pwm) (1 << (pwm->tcon_base + 2))
@@ -120,7 +120,7 @@ int pwm_enable(struct pwm_device *pwm)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
+EXPORT_SYMBOL(pwm_enable);
 
 void pwm_disable(struct pwm_device *pwm)
 {
@@ -138,7 +138,7 @@ void pwm_disable(struct pwm_device *pwm)
 	pwm->running = 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
+EXPORT_SYMBOL(pwm_disable);
 
 static unsigned long pwm_calc_tin(struct pwm_device *pwm, unsigned long freq)
 {
@@ -245,7 +245,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pwm_config); */
+EXPORT_SYMBOL(pwm_config);
 
 static int pwm_register(struct pwm_device *pwm)
 {

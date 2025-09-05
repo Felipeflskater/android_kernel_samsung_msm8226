@@ -45,10 +45,10 @@ cnodeid_t	nasid_to_compact_node[MAX_NASIDS];
 nasid_t		compact_to_nasid_node[MAX_COMPACT_NODES];
 cnodeid_t	cpuid_to_compact_node[MAXCPUS];
 
-/* DISABLED: EXPORT_SYMBOL(nasid_to_compact_node); */
+EXPORT_SYMBOL(nasid_to_compact_node);
 
 struct cpuinfo_ip27 sn_cpu_info[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL_GPL(sn_cpu_info); */
+EXPORT_SYMBOL_GPL(sn_cpu_info);
 
 extern void pcibr_setup(cnodeid_t);
 

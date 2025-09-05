@@ -82,7 +82,7 @@ static int __init setup_smt_snooze_delay(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("smt-snooze-delay=", setup_smt_snooze_delay); */ */
+__setup("smt-snooze-delay=", setup_smt_snooze_delay);
 
 #endif /* CONFIG_PPC64 */
 
@@ -106,7 +106,7 @@ void ppc_enable_pmcs(void)
 	if (ppc_md.enable_pmcs)
 		ppc_md.enable_pmcs();
 }
-/* DISABLED: EXPORT_SYMBOL(ppc_enable_pmcs); */
+EXPORT_SYMBOL(ppc_enable_pmcs);
 
 #define SYSFS_PMCSETUP(NAME, ADDRESS) \
 static void read_##NAME(void *val) \
@@ -192,7 +192,7 @@ static DEVICE_ATTR(purr, 0400, show_purr, store_purr);
 static DEVICE_ATTR(pir, 0400, show_pir, NULL);
 
 unsigned long dscr_default = 0;
-/* DISABLED: EXPORT_SYMBOL(dscr_default); */
+EXPORT_SYMBOL(dscr_default);
 
 static void add_write_permission_dev_attr(struct device_attribute *attr)
 {
@@ -545,7 +545,7 @@ int cpu_add_dev_attr(struct device_attribute *attr)
 	mutex_unlock(&cpu_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_add_dev_attr); */
+EXPORT_SYMBOL_GPL(cpu_add_dev_attr);
 
 int cpu_add_dev_attr_group(struct attribute_group *attrs)
 {
@@ -564,7 +564,7 @@ int cpu_add_dev_attr_group(struct attribute_group *attrs)
 	mutex_unlock(&cpu_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_add_dev_attr_group); */
+EXPORT_SYMBOL_GPL(cpu_add_dev_attr_group);
 
 
 void cpu_remove_dev_attr(struct device_attribute *attr)
@@ -579,7 +579,7 @@ void cpu_remove_dev_attr(struct device_attribute *attr)
 
 	mutex_unlock(&cpu_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_remove_dev_attr); */
+EXPORT_SYMBOL_GPL(cpu_remove_dev_attr);
 
 void cpu_remove_dev_attr_group(struct attribute_group *attrs)
 {
@@ -595,7 +595,7 @@ void cpu_remove_dev_attr_group(struct attribute_group *attrs)
 
 	mutex_unlock(&cpu_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_remove_dev_attr_group); */
+EXPORT_SYMBOL_GPL(cpu_remove_dev_attr_group);
 
 
 /* NUMA stuff */
@@ -615,14 +615,14 @@ int sysfs_add_device_to_node(struct device *dev, int nid)
 	return sysfs_create_link(&node->dev.kobj, &dev->kobj,
 			kobject_name(&dev->kobj));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_add_device_to_node); */
+EXPORT_SYMBOL_GPL(sysfs_add_device_to_node);
 
 void sysfs_remove_device_from_node(struct device *dev, int nid)
 {
 	struct node *node = &node_devices[nid];
 	sysfs_remove_link(&node->dev.kobj, kobject_name(&dev->kobj));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_device_from_node); */
+EXPORT_SYMBOL_GPL(sysfs_remove_device_from_node);
 
 #else
 static void register_nodes(void)

@@ -147,7 +147,7 @@ void kgsl_pwrctrl_buslevel_update(struct kgsl_device *device,
 	msm_bus_scale_client_update_request(pwr->pcl, buslevel);
 	trace_kgsl_pwrlevel(device, pwr->active_pwrlevel, buslevel);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_buslevel_update); */
+EXPORT_SYMBOL(kgsl_pwrctrl_buslevel_update);
 
 void kgsl_pwrctrl_pwrlevel_change(struct kgsl_device *device,
 				unsigned int new_level)
@@ -212,7 +212,7 @@ void kgsl_pwrctrl_pwrlevel_change(struct kgsl_device *device,
 	trace_kgsl_pwrlevel(device, pwr->active_pwrlevel, pwrlevel->gpu_freq);
 }
 
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_pwrlevel_change); */
+EXPORT_SYMBOL(kgsl_pwrctrl_pwrlevel_change);
 
 static int kgsl_pwrctrl_thermal_pwrlevel_store(struct device *dev,
 					 struct device_attribute *attr,
@@ -1037,7 +1037,7 @@ void kgsl_pwrctrl_irq(struct kgsl_device *device, int state)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_irq); */
+EXPORT_SYMBOL(kgsl_pwrctrl_irq);
 
 int kgsl_pwrctrl_init(struct kgsl_device *device)
 {
@@ -1294,7 +1294,7 @@ void kgsl_idle_check(struct work_struct *work)
 
 	kgsl_mutex_unlock(&device->mutex, &device->mutex_owner);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_idle_check); */
+EXPORT_SYMBOL(kgsl_idle_check);
 
 void kgsl_timer(unsigned long data)
 {
@@ -1334,7 +1334,7 @@ void kgsl_pre_hwaccess(struct kgsl_device *device)
 	/* and have the clock on! */
 	BUG_ON(!kgsl_pwrctrl_isenabled(device));
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pre_hwaccess); */
+EXPORT_SYMBOL(kgsl_pre_hwaccess);
 
 static int
 _nap(struct kgsl_device *device)
@@ -1472,7 +1472,7 @@ int kgsl_pwrctrl_sleep(struct kgsl_device *device)
 	}
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_sleep); */
+EXPORT_SYMBOL(kgsl_pwrctrl_sleep);
 
 /**
  * kgsl_pwrctrl_wake() - Power up the GPU from a slumber/sleep state
@@ -1542,7 +1542,7 @@ int kgsl_pwrctrl_wake(struct kgsl_device *device, int priority)
 	}
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_wake); */
+EXPORT_SYMBOL(kgsl_pwrctrl_wake);
 
 void kgsl_pwrctrl_enable(struct kgsl_device *device)
 {
@@ -1556,7 +1556,7 @@ void kgsl_pwrctrl_enable(struct kgsl_device *device)
 	kgsl_pwrctrl_clk(device, KGSL_PWRFLAGS_ON, KGSL_STATE_ACTIVE);
 	kgsl_pwrctrl_axi(device, KGSL_PWRFLAGS_ON);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_enable); */
+EXPORT_SYMBOL(kgsl_pwrctrl_enable);
 
 void kgsl_pwrctrl_disable(struct kgsl_device *device)
 {
@@ -1565,7 +1565,7 @@ void kgsl_pwrctrl_disable(struct kgsl_device *device)
 	kgsl_pwrctrl_clk(device, KGSL_PWRFLAGS_OFF, KGSL_STATE_SLEEP);
 	kgsl_pwrctrl_pwrrail(device, KGSL_PWRFLAGS_OFF);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_disable); */
+EXPORT_SYMBOL(kgsl_pwrctrl_disable);
 
 void kgsl_pwrctrl_set_state(struct kgsl_device *device, unsigned int state)
 {
@@ -1573,7 +1573,7 @@ void kgsl_pwrctrl_set_state(struct kgsl_device *device, unsigned int state)
 	device->state = state;
 	device->requested_state = KGSL_STATE_NONE;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_set_state); */
+EXPORT_SYMBOL(kgsl_pwrctrl_set_state);
 
 void kgsl_pwrctrl_request_state(struct kgsl_device *device, unsigned int state)
 {
@@ -1581,7 +1581,7 @@ void kgsl_pwrctrl_request_state(struct kgsl_device *device, unsigned int state)
 		trace_kgsl_pwr_request_state(device, state);
 	device->requested_state = state;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrctrl_request_state); */
+EXPORT_SYMBOL(kgsl_pwrctrl_request_state);
 
 const char *kgsl_pwrstate_to_str(unsigned int state)
 {
@@ -1605,7 +1605,7 @@ const char *kgsl_pwrstate_to_str(unsigned int state)
 	}
 	return "UNKNOWN";
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_pwrstate_to_str); */
+EXPORT_SYMBOL(kgsl_pwrstate_to_str);
 
 
 /**
@@ -1639,7 +1639,7 @@ int kgsl_active_count_get(struct kgsl_device *device)
 		(unsigned long) __builtin_return_address(0));
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_active_count_get); */
+EXPORT_SYMBOL(kgsl_active_count_get);
 
 /**
  * kgsl_active_count_get_light() - Increase the device active count
@@ -1661,7 +1661,7 @@ int kgsl_active_count_get_light(struct kgsl_device *device)
 		(unsigned long) __builtin_return_address(0));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_active_count_get_light); */
+EXPORT_SYMBOL(kgsl_active_count_get_light);
 
 /**
  * kgsl_active_count_put() - Decrease the device active count
@@ -1696,7 +1696,7 @@ void kgsl_active_count_put(struct kgsl_device *device)
 
 	wake_up(&device->active_cnt_wq);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_active_count_put); */
+EXPORT_SYMBOL(kgsl_active_count_put);
 
 static int _check_active_count(struct kgsl_device *device, int count)
 {
@@ -1733,4 +1733,4 @@ int kgsl_active_count_wait(struct kgsl_device *device, int count)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_active_count_wait); */
+EXPORT_SYMBOL(kgsl_active_count_wait);

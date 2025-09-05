@@ -69,7 +69,7 @@ void samsung_switching_ssp(int flip)
 			flip_status ? "clos":"open");
 }
 }
-/* DISABLED: EXPORT_SYMBOL(samsung_switching_ssp); */
+EXPORT_SYMBOL(samsung_switching_ssp);
 
 int ssp_get_flip_status(void)
 {

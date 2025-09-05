@@ -1277,11 +1277,11 @@ static int __init pci_driver_init(void)
 
 postcore_initcall(pci_driver_init);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_add_dynid); */
-/* DISABLED: EXPORT_SYMBOL(pci_match_id); */
-/* DISABLED: EXPORT_SYMBOL(__pci_register_driver); */
-/* DISABLED: EXPORT_SYMBOL(pci_unregister_driver); */
-/* DISABLED: EXPORT_SYMBOL(pci_dev_driver); */
-/* DISABLED: EXPORT_SYMBOL(pci_bus_type); */
-/* DISABLED: EXPORT_SYMBOL(pci_dev_get); */
-/* DISABLED: EXPORT_SYMBOL(pci_dev_put); */
+EXPORT_SYMBOL_GPL(pci_add_dynid);
+EXPORT_SYMBOL(pci_match_id);
+EXPORT_SYMBOL(__pci_register_driver);
+EXPORT_SYMBOL(pci_unregister_driver);
+EXPORT_SYMBOL(pci_dev_driver);
+EXPORT_SYMBOL(pci_bus_type);
+EXPORT_SYMBOL(pci_dev_get);
+EXPORT_SYMBOL(pci_dev_put);

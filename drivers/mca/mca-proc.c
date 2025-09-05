@@ -246,4 +246,4 @@ void mca_set_adapter_procfn(int slot, MCA_ProcFn procfn, void* proc_dev)
 	mca_dev->procfn = procfn;
 	mca_dev->proc_dev = proc_dev;
 }
-/* DISABLED: EXPORT_SYMBOL(mca_set_adapter_procfn); */
+EXPORT_SYMBOL(mca_set_adapter_procfn);

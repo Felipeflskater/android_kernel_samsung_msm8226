@@ -1642,6 +1642,6 @@ static int __init vendor_class_identifier_setup(char *addrs)
 	return 1;
 }
 
-/* DISABLED: __setup("ip=", ip_auto_config_setup); */ */
-/* DISABLED: __setup("nfsaddrs=", nfsaddrs_config_setup); */ */
-/* DISABLED: __setup("dhcpclass=", vendor_class_identifier_setup); */ */
+__setup("ip=", ip_auto_config_setup);
+__setup("nfsaddrs=", nfsaddrs_config_setup);
+__setup("dhcpclass=", vendor_class_identifier_setup);

@@ -95,7 +95,7 @@ struct mmu_psize_def mmu_psize_defs[MMU_PAGE_COUNT];
 struct hash_pte *htab_address;
 unsigned long htab_size_bytes;
 unsigned long htab_hash_mask;
-/* DISABLED: EXPORT_SYMBOL_GPL(htab_hash_mask); */
+EXPORT_SYMBOL_GPL(htab_hash_mask);
 int mmu_linear_psize = MMU_PAGE_4K;
 int mmu_virtual_psize = MMU_PAGE_4K;
 int mmu_vmalloc_psize = MMU_PAGE_4K;
@@ -106,7 +106,7 @@ int mmu_io_psize = MMU_PAGE_4K;
 int mmu_kernel_ssize = MMU_SEGSIZE_256M;
 int mmu_highuser_ssize = MMU_SEGSIZE_256M;
 u16 mmu_slb_size = 64;
-/* DISABLED: EXPORT_SYMBOL_GPL(mmu_slb_size); */
+EXPORT_SYMBOL_GPL(mmu_slb_size);
 #ifdef CONFIG_PPC_64K_PAGES
 int mmu_ci_restrictions;
 #endif
@@ -1079,7 +1079,7 @@ int hash_page(unsigned long ea, unsigned long access, unsigned long trap)
 	DBG_LOW(" -> rc=%d\n", rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hash_page); */
+EXPORT_SYMBOL_GPL(hash_page);
 
 void hash_preload(struct mm_struct *mm, unsigned long ea,
 		  unsigned long access, unsigned long trap)

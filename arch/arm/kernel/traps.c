@@ -36,9 +36,7 @@
 #include <asm/tls.h>
 #include <asm/system_misc.h>
 
-#ifdef CONFIG_SEC_DEBUG
 #include <mach/sec_debug.h>
-#endif
 
 #include <trace/events/exception.h>
 
@@ -60,7 +58,7 @@ static int __init user_debug_setup(char *str)
 	get_option(&str, &user_debug);
 	return 1;
 }
-/* DISABLED: __setup("user_debug=", user_debug_setup); */ */
+__setup("user_debug=", user_debug_setup);
 #endif
 
 static void dump_mem(const char *, const char *, unsigned long, unsigned long);
@@ -220,7 +218,7 @@ void dump_stack(void)
 	dump_backtrace(NULL, NULL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 void show_stack(struct task_struct *tsk, unsigned long *sp)
 {
@@ -742,7 +740,7 @@ void __bad_xchg(volatile void *ptr, int size)
 		__builtin_return_address(0), ptr, size);
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL(__bad_xchg); */
+EXPORT_SYMBOL(__bad_xchg);
 
 /*
  * A data abort trap was taken, but we did not handle the instruction.
@@ -776,7 +774,7 @@ void __readwrite_bug(const char *fn)
 	printk("%s called, but not implemented\n", fn);
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL(__readwrite_bug); */
+EXPORT_SYMBOL(__readwrite_bug);
 
 void __pte_error(const char *file, int line, pte_t pte)
 {
@@ -799,7 +797,7 @@ asmlinkage void __div0(void)
 	BUG_ON(PANIC_CORRUPTION);
 	dump_stack();
 }
-/* DISABLED: EXPORT_SYMBOL(__div0); */
+EXPORT_SYMBOL(__div0);
 
 void abort(void)
 {
@@ -808,7 +806,7 @@ void abort(void)
 	/* if that doesn't kill us, halt */
 	panic("Oops failed to kill thread");
 }
-/* DISABLED: EXPORT_SYMBOL(abort); */
+EXPORT_SYMBOL(abort);
 
 void __init trap_init(void)
 {

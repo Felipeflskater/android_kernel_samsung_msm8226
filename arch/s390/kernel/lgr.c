@@ -154,7 +154,7 @@ void lgr_info_log(void)
 	}
 	spin_unlock_irqrestore(&lgr_info_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lgr_info_log); */
+EXPORT_SYMBOL_GPL(lgr_info_log);
 
 static void lgr_timer_set(void);
 

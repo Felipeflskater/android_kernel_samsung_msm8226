@@ -129,7 +129,7 @@ fail:
 	drm_debugfs_remove_files(files, count, minor);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_debugfs_create_files); */
+EXPORT_SYMBOL(drm_debugfs_create_files);
 
 /**
  * Initialize the DRI debugfs filesystem for a device
@@ -210,7 +210,7 @@ int drm_debugfs_remove_files(struct drm_info_list *files, int count,
 	mutex_unlock(&minor->debugfs_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_debugfs_remove_files); */
+EXPORT_SYMBOL(drm_debugfs_remove_files);
 
 /**
  * Cleanup the debugfs filesystem resources.

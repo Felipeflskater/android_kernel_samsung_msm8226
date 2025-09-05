@@ -145,8 +145,8 @@ const struct font_desc *get_default_font(int xres, int yres, u32 font_w,
     return g;
 }
 
-/* DISABLED: EXPORT_SYMBOL(find_font); */
-/* DISABLED: EXPORT_SYMBOL(get_default_font); */
+EXPORT_SYMBOL(find_font);
+EXPORT_SYMBOL(get_default_font);
 
 MODULE_AUTHOR("James Simmons <jsimmons@users.sf.net>");
 MODULE_DESCRIPTION("Console Fonts");

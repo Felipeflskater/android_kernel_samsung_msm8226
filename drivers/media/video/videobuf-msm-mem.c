@@ -294,7 +294,7 @@ void videobuf_queue_pmem_contig_init(struct videobuf_queue *q,
 	videobuf_queue_core_init(q, ops, dev, irqlock, type, field, msize,
 							priv, &qops, ext_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_pmem_contig_init); */
+EXPORT_SYMBOL_GPL(videobuf_queue_pmem_contig_init);
 
 int videobuf_to_pmem_contig(struct videobuf_buffer *buf)
 {
@@ -305,7 +305,7 @@ int videobuf_to_pmem_contig(struct videobuf_buffer *buf)
 
 	return mem->phyaddr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_to_pmem_contig); */
+EXPORT_SYMBOL_GPL(videobuf_to_pmem_contig);
 
 int videobuf_pmem_contig_free(struct videobuf_queue *q,
 				struct videobuf_buffer *buf)
@@ -334,7 +334,7 @@ int videobuf_pmem_contig_free(struct videobuf_queue *q,
 		return -EINVAL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_pmem_contig_free); */
+EXPORT_SYMBOL_GPL(videobuf_pmem_contig_free);
 
 MODULE_DESCRIPTION("helper module to manage video4linux PMEM contig buffers");
 MODULE_LICENSE("GPL v2");

@@ -190,11 +190,11 @@ struct sysfs_dirent *sysfs_get(struct sysfs_dirent *sd)
 {
 	return __sysfs_get(sd);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_get); */
+EXPORT_SYMBOL_GPL(sysfs_get);
 
 #undef sysfs_put
 void sysfs_put(struct sysfs_dirent *sd)
 {
 	__sysfs_put(sd);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_put); */
+EXPORT_SYMBOL_GPL(sysfs_put);

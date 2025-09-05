@@ -131,7 +131,7 @@ error_unlock:
 	mutex_unlock(&wusbhc->mmcie_mutex);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_mmcie_set); */
+EXPORT_SYMBOL_GPL(wusbhc_mmcie_set);
 
 /*
  * Remove an MMC IE previously added with wusbhc_mmcie_set()
@@ -159,7 +159,7 @@ found:
 		wusbhc->mmcie[itr] = NULL;
 	mutex_unlock(&wusbhc->mmcie_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_mmcie_rm); */
+EXPORT_SYMBOL_GPL(wusbhc_mmcie_rm);
 
 static int wusbhc_mmc_start(struct wusbhc *wusbhc)
 {
@@ -284,4 +284,4 @@ int wusbhc_chid_set(struct wusbhc *wusbhc, const struct wusb_ckhdid *chid)
 		uwb_radio_stop(&wusbhc->pal);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wusbhc_chid_set); */
+EXPORT_SYMBOL_GPL(wusbhc_chid_set);

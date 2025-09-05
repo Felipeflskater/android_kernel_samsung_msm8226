@@ -48,7 +48,7 @@ out_undo_partial_alloc:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(groups_alloc); */
+EXPORT_SYMBOL(groups_alloc);
 
 void groups_free(struct group_info *group_info)
 {
@@ -60,7 +60,7 @@ void groups_free(struct group_info *group_info)
 	kfree(group_info);
 }
 
-/* DISABLED: EXPORT_SYMBOL(groups_free); */
+EXPORT_SYMBOL(groups_free);
 
 /* export the group_info to a user-space array */
 static int groups_to_user(gid_t __user *grouplist,
@@ -180,7 +180,7 @@ int set_groups(struct cred *new, struct group_info *group_info)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_groups); */
+EXPORT_SYMBOL(set_groups);
 
 /**
  * set_current_groups - Change current's group subscription
@@ -207,7 +207,7 @@ int set_current_groups(struct group_info *group_info)
 	return commit_creds(new);
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_current_groups); */
+EXPORT_SYMBOL(set_current_groups);
 
 SYSCALL_DEFINE2(getgroups, int, gidsetsize, gid_t __user *, grouplist)
 {
@@ -276,7 +276,7 @@ int in_group_p(gid_t grp)
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL(in_group_p); */
+EXPORT_SYMBOL(in_group_p);
 
 int in_egroup_p(gid_t grp)
 {
@@ -288,4 +288,4 @@ int in_egroup_p(gid_t grp)
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL(in_egroup_p); */
+EXPORT_SYMBOL(in_egroup_p);

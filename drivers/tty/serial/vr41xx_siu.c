@@ -91,7 +91,7 @@ void vr41xx_select_siu_interface(siu_interface_t interface)
 
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_select_siu_interface); */
+EXPORT_SYMBOL_GPL(vr41xx_select_siu_interface);
 
 void vr41xx_use_irda(irda_use_t use)
 {
@@ -112,7 +112,7 @@ void vr41xx_use_irda(irda_use_t use)
 
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_use_irda); */
+EXPORT_SYMBOL_GPL(vr41xx_use_irda);
 
 void vr41xx_select_irda_module(irda_module_t module, irda_speed_t speed)
 {
@@ -145,7 +145,7 @@ void vr41xx_select_irda_module(irda_module_t module, irda_speed_t speed)
 
 	spin_unlock_irqrestore(&port->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_select_irda_module); */
+EXPORT_SYMBOL_GPL(vr41xx_select_irda_module);
 
 static inline void siu_clear_fifo(struct uart_port *port)
 {

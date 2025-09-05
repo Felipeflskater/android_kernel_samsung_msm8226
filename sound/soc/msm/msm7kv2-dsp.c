@@ -285,7 +285,7 @@ int alsa_audio_configure(struct msm_audio *prtd)
 	prtd->enabled = 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audio_configure); */
+EXPORT_SYMBOL(alsa_audio_configure);
 
 ssize_t alsa_send_buffer(struct msm_audio *prtd, const char __user *buf,
 			  size_t count, loff_t *pos)
@@ -338,7 +338,7 @@ ssize_t alsa_send_buffer(struct msm_audio *prtd, const char __user *buf,
 		return buf - start;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_send_buffer); */
+EXPORT_SYMBOL(alsa_send_buffer);
 
 int alsa_audio_disable(struct msm_audio *prtd)
 {
@@ -354,7 +354,7 @@ int alsa_audio_disable(struct msm_audio *prtd)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audio_disable); */
+EXPORT_SYMBOL(alsa_audio_disable);
 
 int alsa_audrec_disable(struct msm_audio *prtd)
 {
@@ -368,7 +368,7 @@ int alsa_audrec_disable(struct msm_audio *prtd)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audrec_disable); */
+EXPORT_SYMBOL(alsa_audrec_disable);
 
 static int alsa_in_enc_config(struct msm_audio *prtd, int enable)
 {
@@ -559,7 +559,7 @@ int alsa_buffer_read(struct msm_audio *prtd, void __user *buf,
 	mutex_unlock(&the_locks.read_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_buffer_read); */
+EXPORT_SYMBOL(alsa_buffer_read);
 
 int alsa_dsp_send_buffer(struct msm_audio *prtd,
 					unsigned idx, unsigned len)

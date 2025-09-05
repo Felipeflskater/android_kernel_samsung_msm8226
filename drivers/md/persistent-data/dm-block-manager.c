@@ -334,13 +334,13 @@ dm_block_t dm_block_location(struct dm_block *b)
 {
 	return dm_bufio_get_block_number(to_buffer(b));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_block_location); */
+EXPORT_SYMBOL_GPL(dm_block_location);
 
 void *dm_block_data(struct dm_block *b)
 {
 	return dm_bufio_get_block_data(to_buffer(b));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_block_data); */
+EXPORT_SYMBOL_GPL(dm_block_data);
 
 struct buffer_aux {
 	struct dm_block_validator *validator;
@@ -378,19 +378,19 @@ struct dm_block_manager *dm_block_manager_create(struct block_device *bdev,
 				       dm_block_manager_alloc_callback,
 				       dm_block_manager_write_callback);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_block_manager_create); */
+EXPORT_SYMBOL_GPL(dm_block_manager_create);
 
 void dm_block_manager_destroy(struct dm_block_manager *bm)
 {
 	return dm_bufio_client_destroy(to_bufio(bm));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_block_manager_destroy); */
+EXPORT_SYMBOL_GPL(dm_block_manager_destroy);
 
 unsigned dm_bm_block_size(struct dm_block_manager *bm)
 {
 	return dm_bufio_get_block_size(to_bufio(bm));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bm_block_size); */
+EXPORT_SYMBOL_GPL(dm_bm_block_size);
 
 dm_block_t dm_bm_nr_blocks(struct dm_block_manager *bm)
 {
@@ -453,7 +453,7 @@ int dm_bm_read_lock(struct dm_block_manager *bm, dm_block_t b,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bm_read_lock); */
+EXPORT_SYMBOL_GPL(dm_bm_read_lock);
 
 int dm_bm_write_lock(struct dm_block_manager *bm,
 		     dm_block_t b, struct dm_block_validator *v,
@@ -486,7 +486,7 @@ int dm_bm_write_lock(struct dm_block_manager *bm,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bm_write_lock); */
+EXPORT_SYMBOL_GPL(dm_bm_write_lock);
 
 int dm_bm_read_try_lock(struct dm_block_manager *bm,
 			dm_block_t b, struct dm_block_validator *v,
@@ -563,7 +563,7 @@ int dm_bm_unlock(struct dm_block *b)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bm_unlock); */
+EXPORT_SYMBOL_GPL(dm_bm_unlock);
 
 int dm_bm_unlock_move(struct dm_block *b, dm_block_t n)
 {
@@ -609,7 +609,7 @@ u32 dm_bm_checksum(const void *data, size_t len, u32 init_xor)
 {
 	return crc32c(~(u32) 0, data, len) ^ init_xor;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_bm_checksum); */
+EXPORT_SYMBOL_GPL(dm_bm_checksum);
 
 /*----------------------------------------------------------------*/
 

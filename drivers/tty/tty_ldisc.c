@@ -97,7 +97,7 @@ int tty_register_ldisc(int disc, struct tty_ldisc_ops *new_ldisc)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_register_ldisc); */
+EXPORT_SYMBOL(tty_register_ldisc);
 
 /**
  *	tty_unregister_ldisc	-	unload a line discipline
@@ -128,7 +128,7 @@ int tty_unregister_ldisc(int disc)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_unregister_ldisc); */
+EXPORT_SYMBOL(tty_unregister_ldisc);
 
 static struct tty_ldisc_ops *get_ldops(int disc)
 {
@@ -318,7 +318,7 @@ struct tty_ldisc *tty_ldisc_ref_wait(struct tty_struct *tty)
 	wait_event(tty_ldisc_wait, (ld = tty_ldisc_try(tty)) != NULL);
 	return ld;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_ldisc_ref_wait); */
+EXPORT_SYMBOL_GPL(tty_ldisc_ref_wait);
 
 /**
  *	tty_ldisc_ref		-	get the tty ldisc
@@ -335,7 +335,7 @@ struct tty_ldisc *tty_ldisc_ref(struct tty_struct *tty)
 {
 	return tty_ldisc_try(tty);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_ldisc_ref); */
+EXPORT_SYMBOL_GPL(tty_ldisc_ref);
 
 /**
  *	tty_ldisc_deref		-	free a tty ldisc reference
@@ -351,7 +351,7 @@ void tty_ldisc_deref(struct tty_ldisc *ld)
 {
 	put_ldisc(ld);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_ldisc_deref); */
+EXPORT_SYMBOL_GPL(tty_ldisc_deref);
 
 static inline void tty_ldisc_put(struct tty_ldisc *ld)
 {
@@ -395,7 +395,7 @@ void tty_ldisc_flush(struct tty_struct *tty)
 	}
 	tty_buffer_flush(tty);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_ldisc_flush); */
+EXPORT_SYMBOL_GPL(tty_ldisc_flush);
 
 /**
  *	tty_set_termios_ldisc		-	set ldisc field

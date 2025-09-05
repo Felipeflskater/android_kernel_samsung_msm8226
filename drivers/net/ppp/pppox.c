@@ -64,9 +64,9 @@ void pppox_unbind_sock(struct sock *sk)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(register_pppox_proto); */
-/* DISABLED: EXPORT_SYMBOL(unregister_pppox_proto); */
-/* DISABLED: EXPORT_SYMBOL(pppox_unbind_sock); */
+EXPORT_SYMBOL(register_pppox_proto);
+EXPORT_SYMBOL(unregister_pppox_proto);
+EXPORT_SYMBOL(pppox_unbind_sock);
 
 int pppox_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 {
@@ -101,7 +101,7 @@ int pppox_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
 	return rc;
 }
 
-/* DISABLED: EXPORT_SYMBOL(pppox_ioctl); */
+EXPORT_SYMBOL(pppox_ioctl);
 
 static int pppox_create(struct net *net, struct socket *sock, int protocol,
 			int kern)

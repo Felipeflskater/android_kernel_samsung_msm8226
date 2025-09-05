@@ -115,7 +115,7 @@ exit_free_device:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00soc_probe); */
+EXPORT_SYMBOL_GPL(rt2x00soc_probe);
 
 int rt2x00soc_remove(struct platform_device *pdev)
 {
@@ -131,7 +131,7 @@ int rt2x00soc_remove(struct platform_device *pdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00soc_remove); */
+EXPORT_SYMBOL_GPL(rt2x00soc_remove);
 
 #ifdef CONFIG_PM
 int rt2x00soc_suspend(struct platform_device *pdev, pm_message_t state)
@@ -141,7 +141,7 @@ int rt2x00soc_suspend(struct platform_device *pdev, pm_message_t state)
 
 	return rt2x00lib_suspend(rt2x00dev, state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00soc_suspend); */
+EXPORT_SYMBOL_GPL(rt2x00soc_suspend);
 
 int rt2x00soc_resume(struct platform_device *pdev)
 {
@@ -150,7 +150,7 @@ int rt2x00soc_resume(struct platform_device *pdev)
 
 	return rt2x00lib_resume(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00soc_resume); */
+EXPORT_SYMBOL_GPL(rt2x00soc_resume);
 #endif /* CONFIG_PM */
 
 /*

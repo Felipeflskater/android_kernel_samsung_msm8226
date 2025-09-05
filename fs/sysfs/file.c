@@ -457,7 +457,7 @@ void sysfs_notify_dirent(struct sysfs_dirent *sd)
 
 	spin_unlock_irqrestore(&sysfs_open_dirent_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_notify_dirent); */
+EXPORT_SYMBOL_GPL(sysfs_notify_dirent);
 
 void sysfs_notify(struct kobject *k, const char *dir, const char *attr)
 {
@@ -474,7 +474,7 @@ void sysfs_notify(struct kobject *k, const char *dir, const char *attr)
 
 	mutex_unlock(&sysfs_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_notify); */
+EXPORT_SYMBOL_GPL(sysfs_notify);
 
 const struct file_operations sysfs_file_operations = {
 	.read		= sysfs_read_file,
@@ -614,7 +614,7 @@ int sysfs_add_file_to_group(struct kobject *kobj,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_add_file_to_group); */
+EXPORT_SYMBOL_GPL(sysfs_add_file_to_group);
 
 /**
  * sysfs_chown_file - modify the ownership of the object
@@ -653,7 +653,7 @@ out:
 	mutex_unlock(&sysfs_mutex);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_chown_file); */
+EXPORT_SYMBOL_GPL(sysfs_chown_file);
 
 /**
  * sysfs_chmod_file - update the modified mode value on an object attribute.
@@ -689,7 +689,7 @@ int sysfs_chmod_file(struct kobject *kobj, const struct attribute *attr,
 	mutex_unlock(&sysfs_mutex);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_chmod_file); */
+EXPORT_SYMBOL_GPL(sysfs_chmod_file);
 
 
 /**
@@ -737,7 +737,7 @@ void sysfs_remove_file_from_group(struct kobject *kobj,
 		sysfs_put(dir_sd);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_file_from_group); */
+EXPORT_SYMBOL_GPL(sysfs_remove_file_from_group);
 
 struct sysfs_schedule_callback_struct {
 	struct list_head	workq_list;
@@ -829,10 +829,10 @@ int sysfs_schedule_callback(struct kobject *kobj, void (*func)(void *),
 	queue_work(sysfs_workqueue, &ss->work);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_schedule_callback); */
+EXPORT_SYMBOL_GPL(sysfs_schedule_callback);
 
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_create_file); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_file); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_files); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_create_files); */
+EXPORT_SYMBOL_GPL(sysfs_create_file);
+EXPORT_SYMBOL_GPL(sysfs_remove_file);
+EXPORT_SYMBOL_GPL(sysfs_remove_files);
+EXPORT_SYMBOL_GPL(sysfs_create_files);

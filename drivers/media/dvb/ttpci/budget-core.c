@@ -590,13 +590,13 @@ void ttpci_budget_set_video_port(struct saa7146_dev *dev, int video_port)
 	spin_unlock(&budget->feedlock);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_debiread); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_debiwrite); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_init); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_init_hooks); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_deinit); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_irq10_handler); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ttpci_budget_set_video_port); */
-/* DISABLED: EXPORT_SYMBOL_GPL(budget_debug); */
+EXPORT_SYMBOL_GPL(ttpci_budget_debiread);
+EXPORT_SYMBOL_GPL(ttpci_budget_debiwrite);
+EXPORT_SYMBOL_GPL(ttpci_budget_init);
+EXPORT_SYMBOL_GPL(ttpci_budget_init_hooks);
+EXPORT_SYMBOL_GPL(ttpci_budget_deinit);
+EXPORT_SYMBOL_GPL(ttpci_budget_irq10_handler);
+EXPORT_SYMBOL_GPL(ttpci_budget_set_video_port);
+EXPORT_SYMBOL_GPL(budget_debug);
 
 MODULE_LICENSE("GPL");

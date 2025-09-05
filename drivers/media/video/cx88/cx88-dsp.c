@@ -318,5 +318,5 @@ s32 cx88_dsp_detect_stereo_sap(struct cx88_core *core)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_dsp_detect_stereo_sap); */
+EXPORT_SYMBOL(cx88_dsp_detect_stereo_sap);
 

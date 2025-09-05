@@ -169,7 +169,7 @@ uevent_free:
 		dm_uevent_free(event);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_send_uevents); */
+EXPORT_SYMBOL_GPL(dm_send_uevents);
 
 /**
  * dm_path_uevent - called to create a new path event and queue it
@@ -200,7 +200,7 @@ void dm_path_uevent(enum dm_uevent_type event_type, struct dm_target *ti,
 
 	dm_uevent_add(md, &event->elist);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_path_uevent); */
+EXPORT_SYMBOL_GPL(dm_path_uevent);
 
 int dm_uevent_init(void)
 {

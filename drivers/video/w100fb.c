@@ -183,7 +183,7 @@ unsigned long w100fb_get_hsynclen(struct device *dev)
 	else
 		return par->hsync_len;
 }
-/* DISABLED: EXPORT_SYMBOL(w100fb_get_hsynclen); */
+EXPORT_SYMBOL(w100fb_get_hsynclen);
 
 static void w100fb_clear_screen(struct w100fb_par *par)
 {
@@ -863,8 +863,8 @@ void w100fb_gpio_write(int port, unsigned long value)
 	else
 		writel(value, remapped_regs + mmGPIO_DATA2);
 }
-/* DISABLED: EXPORT_SYMBOL(w100fb_gpio_read); */
-/* DISABLED: EXPORT_SYMBOL(w100fb_gpio_write); */
+EXPORT_SYMBOL(w100fb_gpio_read);
+EXPORT_SYMBOL(w100fb_gpio_write);
 
 /*
  * Initialization of critical w100 hardware

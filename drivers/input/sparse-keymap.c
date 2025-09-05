@@ -73,7 +73,7 @@ struct key_entry *sparse_keymap_entry_from_scancode(struct input_dev *dev,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_entry_from_scancode); */
+EXPORT_SYMBOL(sparse_keymap_entry_from_scancode);
 
 /**
  * sparse_keymap_entry_from_keycode - perform sparse keymap lookup
@@ -94,7 +94,7 @@ struct key_entry *sparse_keymap_entry_from_keycode(struct input_dev *dev,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_entry_from_keycode); */
+EXPORT_SYMBOL(sparse_keymap_entry_from_keycode);
 
 static struct key_entry *sparse_keymap_locate(struct input_dev *dev,
 					const struct input_keymap_entry *ke)
@@ -226,7 +226,7 @@ int sparse_keymap_setup(struct input_dev *dev,
 	kfree(map);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_setup); */
+EXPORT_SYMBOL(sparse_keymap_setup);
 
 /**
  * sparse_keymap_free - free memory allocated for sparse keymap
@@ -256,7 +256,7 @@ void sparse_keymap_free(struct input_dev *dev)
 
 	spin_unlock_irqrestore(&dev->event_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_free); */
+EXPORT_SYMBOL(sparse_keymap_free);
 
 /**
  * sparse_keymap_report_entry - report event corresponding to given key entry
@@ -293,7 +293,7 @@ void sparse_keymap_report_entry(struct input_dev *dev, const struct key_entry *k
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_report_entry); */
+EXPORT_SYMBOL(sparse_keymap_report_entry);
 
 /**
  * sparse_keymap_report_event - report event corresponding to given scancode
@@ -328,5 +328,5 @@ bool sparse_keymap_report_event(struct input_dev *dev, unsigned int code,
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(sparse_keymap_report_event); */
+EXPORT_SYMBOL(sparse_keymap_report_event);
 

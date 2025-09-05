@@ -762,4 +762,4 @@ error:
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dlmlock); */
+EXPORT_SYMBOL_GPL(dlmlock);

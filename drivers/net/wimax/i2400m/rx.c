@@ -1305,7 +1305,7 @@ error_msg_hdr_check:
 		i2400m, skb, skb_len, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_rx); */
+EXPORT_SYMBOL_GPL(i2400m_rx);
 
 
 void i2400m_unknown_barker(struct i2400m *i2400m,
@@ -1327,7 +1327,7 @@ void i2400m_unknown_barker(struct i2400m *i2400m,
 		print_hex_dump(KERN_ERR, prefix, DUMP_PREFIX_OFFSET,
 			       8, 4, buf, size, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(i2400m_unknown_barker); */
+EXPORT_SYMBOL(i2400m_unknown_barker);
 
 
 /*

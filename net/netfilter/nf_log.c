@@ -62,7 +62,7 @@ int nf_log_register(u_int8_t pf, struct nf_logger *logger)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_log_register); */
+EXPORT_SYMBOL(nf_log_register);
 
 void nf_log_unregister(struct nf_logger *logger)
 {
@@ -81,7 +81,7 @@ void nf_log_unregister(struct nf_logger *logger)
 
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL(nf_log_unregister); */
+EXPORT_SYMBOL(nf_log_unregister);
 
 int nf_log_bind_pf(u_int8_t pf, const struct nf_logger *logger)
 {
@@ -96,7 +96,7 @@ int nf_log_bind_pf(u_int8_t pf, const struct nf_logger *logger)
 	mutex_unlock(&nf_log_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_log_bind_pf); */
+EXPORT_SYMBOL(nf_log_bind_pf);
 
 void nf_log_unbind_pf(u_int8_t pf)
 {
@@ -106,7 +106,7 @@ void nf_log_unbind_pf(u_int8_t pf)
 	RCU_INIT_POINTER(nf_loggers[pf], NULL);
 	mutex_unlock(&nf_log_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_log_unbind_pf); */
+EXPORT_SYMBOL(nf_log_unbind_pf);
 
 void nf_log_packet(u_int8_t pf,
 		   unsigned int hooknum,
@@ -130,7 +130,7 @@ void nf_log_packet(u_int8_t pf,
 	}
 	rcu_read_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL(nf_log_packet); */
+EXPORT_SYMBOL(nf_log_packet);
 
 #ifdef CONFIG_PROC_FS
 static void *seq_start(struct seq_file *seq, loff_t *pos)

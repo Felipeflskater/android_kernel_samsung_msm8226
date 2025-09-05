@@ -141,13 +141,13 @@ struct dm_dev *dm_snap_origin(struct dm_snapshot *s)
 {
 	return s->origin;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_snap_origin); */
+EXPORT_SYMBOL(dm_snap_origin);
 
 struct dm_dev *dm_snap_cow(struct dm_snapshot *s)
 {
 	return s->cow;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_snap_cow); */
+EXPORT_SYMBOL(dm_snap_cow);
 
 static sector_t chunk_to_sector(struct dm_exception_store *store,
 				chunk_t chunk)

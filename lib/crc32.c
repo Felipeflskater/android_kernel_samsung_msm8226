@@ -193,8 +193,8 @@ u32 __pure __crc32c_le(u32 crc, unsigned char const *p, size_t len)
 	return crc32_le_generic(crc, p, len, crc32ctable_le, CRC32C_POLY_LE);
 }
 #endif
-/* DISABLED: EXPORT_SYMBOL(crc32_le); */
-/* DISABLED: EXPORT_SYMBOL(__crc32c_le); */
+EXPORT_SYMBOL(crc32_le);
+EXPORT_SYMBOL(__crc32c_le);
 
 /**
  * crc32_be() - Calculate bitwise big-endian Ethernet AUTODIN II CRC32
@@ -254,7 +254,7 @@ u32 __pure crc32_be(u32 crc, unsigned char const *p, size_t len)
 	return crc32_be_generic(crc, p, len, crc32table_be, CRCPOLY_BE);
 }
 #endif
-/* DISABLED: EXPORT_SYMBOL(crc32_be); */
+EXPORT_SYMBOL(crc32_be);
 
 #ifdef CONFIG_CRC32_SELFTEST
 

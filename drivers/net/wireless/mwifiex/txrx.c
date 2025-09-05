@@ -53,7 +53,7 @@ int mwifiex_handle_rx_packet(struct mwifiex_adapter *adapter,
 
 	return mwifiex_process_sta_rx_packet(adapter, skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mwifiex_handle_rx_packet); */
+EXPORT_SYMBOL_GPL(mwifiex_handle_rx_packet);
 
 /*
  * This function sends a packet to device.

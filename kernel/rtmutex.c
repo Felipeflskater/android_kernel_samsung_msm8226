@@ -979,7 +979,7 @@ void __sched rt_mutex_lock(struct rt_mutex *lock)
 
 	rt_mutex_fastlock(lock, TASK_UNINTERRUPTIBLE, 0, rt_mutex_slowlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_lock); */
+EXPORT_SYMBOL_GPL(rt_mutex_lock);
 
 /**
  * rt_mutex_lock_interruptible - lock a rt_mutex interruptible
@@ -1000,7 +1000,7 @@ int __sched rt_mutex_lock_interruptible(struct rt_mutex *lock,
 	return rt_mutex_fastlock(lock, TASK_INTERRUPTIBLE,
 				 detect_deadlock, rt_mutex_slowlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_lock_interruptible); */
+EXPORT_SYMBOL_GPL(rt_mutex_lock_interruptible);
 
 /**
  * rt_mutex_timed_lock - lock a rt_mutex interruptible
@@ -1026,7 +1026,7 @@ rt_mutex_timed_lock(struct rt_mutex *lock, struct hrtimer_sleeper *timeout,
 	return rt_mutex_timed_fastlock(lock, TASK_INTERRUPTIBLE, timeout,
 				       detect_deadlock, rt_mutex_slowlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_timed_lock); */
+EXPORT_SYMBOL_GPL(rt_mutex_timed_lock);
 
 /**
  * rt_mutex_trylock - try to lock a rt_mutex
@@ -1039,7 +1039,7 @@ int __sched rt_mutex_trylock(struct rt_mutex *lock)
 {
 	return rt_mutex_fasttrylock(lock, rt_mutex_slowtrylock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_trylock); */
+EXPORT_SYMBOL_GPL(rt_mutex_trylock);
 
 /**
  * rt_mutex_unlock - unlock a rt_mutex
@@ -1050,7 +1050,7 @@ void __sched rt_mutex_unlock(struct rt_mutex *lock)
 {
 	rt_mutex_fastunlock(lock, rt_mutex_slowunlock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_unlock); */
+EXPORT_SYMBOL_GPL(rt_mutex_unlock);
 
 /**
  * rt_mutex_destroy - mark a mutex unusable
@@ -1068,7 +1068,7 @@ void rt_mutex_destroy(struct rt_mutex *lock)
 #endif
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(rt_mutex_destroy); */
+EXPORT_SYMBOL_GPL(rt_mutex_destroy);
 
 /**
  * __rt_mutex_init - initialize the rt lock
@@ -1087,7 +1087,7 @@ void __rt_mutex_init(struct rt_mutex *lock, const char *name)
 
 	debug_rt_mutex_init(lock, name);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__rt_mutex_init); */
+EXPORT_SYMBOL_GPL(__rt_mutex_init);
 
 /**
  * rt_mutex_init_proxy_locked - initialize and lock a rt_mutex on behalf of a

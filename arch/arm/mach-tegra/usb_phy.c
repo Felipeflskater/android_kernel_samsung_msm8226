@@ -731,7 +731,7 @@ err0:
 	kfree(phy);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_open); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_open);
 
 int tegra_usb_phy_power_on(struct tegra_usb_phy *phy)
 {
@@ -740,7 +740,7 @@ int tegra_usb_phy_power_on(struct tegra_usb_phy *phy)
 	else
 		return utmi_phy_power_on(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_power_on); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_power_on);
 
 void tegra_usb_phy_power_off(struct tegra_usb_phy *phy)
 {
@@ -749,21 +749,21 @@ void tegra_usb_phy_power_off(struct tegra_usb_phy *phy)
 	else
 		utmi_phy_power_off(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_power_off); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_power_off);
 
 void tegra_usb_phy_preresume(struct tegra_usb_phy *phy)
 {
 	if (!phy_is_ulpi(phy))
 		utmi_phy_preresume(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_preresume); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_preresume);
 
 void tegra_usb_phy_postresume(struct tegra_usb_phy *phy)
 {
 	if (!phy_is_ulpi(phy))
 		utmi_phy_postresume(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_postresume); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_postresume);
 
 void tegra_ehci_phy_restore_start(struct tegra_usb_phy *phy,
 				 enum tegra_usb_phy_port_speed port_speed)
@@ -771,28 +771,28 @@ void tegra_ehci_phy_restore_start(struct tegra_usb_phy *phy,
 	if (!phy_is_ulpi(phy))
 		utmi_phy_restore_start(phy, port_speed);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_ehci_phy_restore_start); */
+EXPORT_SYMBOL_GPL(tegra_ehci_phy_restore_start);
 
 void tegra_ehci_phy_restore_end(struct tegra_usb_phy *phy)
 {
 	if (!phy_is_ulpi(phy))
 		utmi_phy_restore_end(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_ehci_phy_restore_end); */
+EXPORT_SYMBOL_GPL(tegra_ehci_phy_restore_end);
 
 void tegra_usb_phy_clk_disable(struct tegra_usb_phy *phy)
 {
 	if (!phy_is_ulpi(phy))
 		utmi_phy_clk_disable(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_clk_disable); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_clk_disable);
 
 void tegra_usb_phy_clk_enable(struct tegra_usb_phy *phy)
 {
 	if (!phy_is_ulpi(phy))
 		utmi_phy_clk_enable(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_clk_enable); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_clk_enable);
 
 void tegra_usb_phy_close(struct tegra_usb_phy *phy)
 {
@@ -804,4 +804,4 @@ void tegra_usb_phy_close(struct tegra_usb_phy *phy)
 	clk_put(phy->pll_u);
 	kfree(phy);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_usb_phy_close); */
+EXPORT_SYMBOL_GPL(tegra_usb_phy_close);

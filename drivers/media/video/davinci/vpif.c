@@ -381,7 +381,7 @@ int vpif_set_video_params(struct vpif_params *vpifparams, u8 channel_id)
 
 	return found;
 }
-/* DISABLED: EXPORT_SYMBOL(vpif_set_video_params); */
+EXPORT_SYMBOL(vpif_set_video_params);
 
 void vpif_set_vbi_display_params(struct vpif_vbi_params *vbiparams,
 				u8 channel_id)
@@ -405,14 +405,14 @@ void vpif_set_vbi_display_params(struct vpif_vbi_params *vbiparams,
 	regw(value, vpifregs[channel_id].vanc1_size);
 
 }
-/* DISABLED: EXPORT_SYMBOL(vpif_set_vbi_display_params); */
+EXPORT_SYMBOL(vpif_set_vbi_display_params);
 
 int vpif_channel_getfid(u8 channel_id)
 {
 	return (regr(vpifregs[channel_id].ch_ctrl) & VPIF_CH_FID_MASK)
 					>> VPIF_CH_FID_SHIFT;
 }
-/* DISABLED: EXPORT_SYMBOL(vpif_channel_getfid); */
+EXPORT_SYMBOL(vpif_channel_getfid);
 
 static int __init vpif_probe(struct platform_device *pdev)
 {

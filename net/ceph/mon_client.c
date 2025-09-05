@@ -272,7 +272,7 @@ int ceph_monc_got_mdsmap(struct ceph_mon_client *monc, u32 got)
 	mutex_unlock(&monc->mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_got_mdsmap); */
+EXPORT_SYMBOL(ceph_monc_got_mdsmap);
 
 int ceph_monc_got_osdmap(struct ceph_mon_client *monc, u32 got)
 {
@@ -308,7 +308,7 @@ int ceph_monc_open_session(struct ceph_mon_client *monc)
 	mutex_unlock(&monc->mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_open_session); */
+EXPORT_SYMBOL(ceph_monc_open_session);
 
 /*
  * We require the fsid and global_id in order to initialize our
@@ -577,7 +577,7 @@ out:
 	kref_put(&req->kref, release_generic_request);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_do_statfs); */
+EXPORT_SYMBOL(ceph_monc_do_statfs);
 
 /*
  * pool ops
@@ -691,7 +691,7 @@ int ceph_monc_create_snapid(struct ceph_mon_client *monc,
 				   pool, 0, (char *)snapid, sizeof(*snapid));
 
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_create_snapid); */
+EXPORT_SYMBOL(ceph_monc_create_snapid);
 
 int ceph_monc_delete_snapid(struct ceph_mon_client *monc,
 			    u32 pool, u64 snapid)
@@ -853,7 +853,7 @@ out_monmap:
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_init); */
+EXPORT_SYMBOL(ceph_monc_init);
 
 void ceph_monc_stop(struct ceph_mon_client *monc)
 {
@@ -882,7 +882,7 @@ void ceph_monc_stop(struct ceph_mon_client *monc)
 
 	kfree(monc->monmap);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_stop); */
+EXPORT_SYMBOL(ceph_monc_stop);
 
 static void handle_auth_reply(struct ceph_mon_client *monc,
 			      struct ceph_msg *msg)
@@ -956,7 +956,7 @@ int ceph_monc_validate_auth(struct ceph_mon_client *monc)
 	mutex_unlock(&monc->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_monc_validate_auth); */
+EXPORT_SYMBOL(ceph_monc_validate_auth);
 
 /*
  * handle incoming message

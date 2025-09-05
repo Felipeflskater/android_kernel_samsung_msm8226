@@ -33,10 +33,10 @@
 
 #include "bttvp.h"
 
-/* DISABLED: EXPORT_SYMBOL(bttv_get_pcidev); */
-/* DISABLED: EXPORT_SYMBOL(bttv_gpio_enable); */
-/* DISABLED: EXPORT_SYMBOL(bttv_read_gpio); */
-/* DISABLED: EXPORT_SYMBOL(bttv_write_gpio); */
+EXPORT_SYMBOL(bttv_get_pcidev);
+EXPORT_SYMBOL(bttv_gpio_enable);
+EXPORT_SYMBOL(bttv_read_gpio);
+EXPORT_SYMBOL(bttv_write_gpio);
 
 /* ----------------------------------------------------------------------- */
 /* Exported functions - for other modules which want to access the         */

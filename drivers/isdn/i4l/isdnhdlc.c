@@ -59,7 +59,7 @@ void isdnhdlc_rcv_init(struct isdnhdlc_vars *hdlc, u32 features)
 	if (features & HDLC_BITREVERSE)
 		hdlc->do_bitreverse = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(isdnhdlc_out_init); */
+EXPORT_SYMBOL(isdnhdlc_out_init);
 
 void isdnhdlc_out_init(struct isdnhdlc_vars *hdlc, u32 features)
 {
@@ -81,7 +81,7 @@ void isdnhdlc_out_init(struct isdnhdlc_vars *hdlc, u32 features)
 	if (features & HDLC_BITREVERSE)
 		hdlc->do_bitreverse = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(isdnhdlc_rcv_init); */
+EXPORT_SYMBOL(isdnhdlc_rcv_init);
 
 static int
 check_frame(struct isdnhdlc_vars *hdlc)
@@ -331,7 +331,7 @@ int isdnhdlc_decode(struct isdnhdlc_vars *hdlc, const u8 *src, int slen,
 	*count -= slen;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(isdnhdlc_decode); */
+EXPORT_SYMBOL(isdnhdlc_decode);
 /*
   isdnhdlc_encode - encodes HDLC frames to a transparent bit stream.
 
@@ -627,4 +627,4 @@ int isdnhdlc_encode(struct isdnhdlc_vars *hdlc, const u8 *src, u16 slen,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(isdnhdlc_encode); */
+EXPORT_SYMBOL(isdnhdlc_encode);

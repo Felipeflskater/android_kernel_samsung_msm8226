@@ -283,5 +283,5 @@ void cris_free_dma(unsigned int dmanr, const char * device_id)
 	local_irq_restore(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cris_request_dma); */
-/* DISABLED: EXPORT_SYMBOL(cris_free_dma); */
+EXPORT_SYMBOL(cris_request_dma);
+EXPORT_SYMBOL(cris_free_dma);

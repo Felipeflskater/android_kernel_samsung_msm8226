@@ -41,7 +41,7 @@
 
 /* See comments in include/asm-parisc/pci.h */
 struct hppa_dma_ops *hppa_dma_ops __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(hppa_dma_ops); */
+EXPORT_SYMBOL(hppa_dma_ops);
 
 static struct device root = {
 	.init_name = "parisc",
@@ -178,7 +178,7 @@ int register_parisc_driver(struct parisc_driver *driver)
 
 	return driver_register(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(register_parisc_driver); */
+EXPORT_SYMBOL(register_parisc_driver);
 
 
 struct match_count {
@@ -228,7 +228,7 @@ int unregister_parisc_driver(struct parisc_driver *driver)
 	driver_unregister(&driver->drv);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_parisc_driver); */
+EXPORT_SYMBOL(unregister_parisc_driver);
 
 struct find_data {
 	unsigned long hpa;
@@ -353,7 +353,7 @@ char *print_pa_hwpath(struct parisc_device *dev, char *output)
 	path.mod = dev->hw_path;
 	return print_hwpath(&path, output);
 }
-/* DISABLED: EXPORT_SYMBOL(print_pa_hwpath); */
+EXPORT_SYMBOL(print_pa_hwpath);
 
 #if defined(CONFIG_PCI) || defined(CONFIG_ISA)
 /**
@@ -369,7 +369,7 @@ void get_pci_node_path(struct pci_dev *pdev, struct hardware_path *path)
 {
 	get_node_path(&pdev->dev, path);
 }
-/* DISABLED: EXPORT_SYMBOL(get_pci_node_path); */
+EXPORT_SYMBOL(get_pci_node_path);
 
 /**
  * print_pci_hwpath - Returns hardware path for PCI devices
@@ -387,7 +387,7 @@ char *print_pci_hwpath(struct pci_dev *dev, char *output)
 	get_pci_node_path(dev, &path);
 	return print_hwpath(&path, output);
 }
-/* DISABLED: EXPORT_SYMBOL(print_pci_hwpath); */
+EXPORT_SYMBOL(print_pci_hwpath);
 
 #endif /* defined(CONFIG_PCI) || defined(CONFIG_ISA) */
 
@@ -758,7 +758,7 @@ struct device *hwpath_to_device(struct hardware_path *modpath)
 	else
 		return parse_tree_node(parent, 6, modpath);
 }
-/* DISABLED: EXPORT_SYMBOL(hwpath_to_device); */
+EXPORT_SYMBOL(hwpath_to_device);
 
 /**
  * device_to_hwpath - Populates the hwpath corresponding to the given device.
@@ -776,7 +776,7 @@ void device_to_hwpath(struct device *dev, struct hardware_path *path)
 		get_node_path(dev, path);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(device_to_hwpath); */
+EXPORT_SYMBOL(device_to_hwpath);
 
 #define BC_PORT_MASK 0x8
 #define BC_LOWER_PORT 0x8

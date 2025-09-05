@@ -61,14 +61,14 @@ phys_addr_t total_memory;
 phys_addr_t total_lowmem;
 
 phys_addr_t memstart_addr = (phys_addr_t)~0ull;
-/* DISABLED: EXPORT_SYMBOL(memstart_addr); */
+EXPORT_SYMBOL(memstart_addr);
 phys_addr_t kernstart_addr;
-/* DISABLED: EXPORT_SYMBOL(kernstart_addr); */
+EXPORT_SYMBOL(kernstart_addr);
 
 #ifdef CONFIG_RELOCATABLE_PPC32
 /* Used in __va()/__pa() */
 long long virt_phys_offset;
-/* DISABLED: EXPORT_SYMBOL(virt_phys_offset); */
+EXPORT_SYMBOL(virt_phys_offset);
 #endif
 
 phys_addr_t lowmem_end_addr;
@@ -76,7 +76,7 @@ phys_addr_t lowmem_end_addr;
 int boot_mapsize;
 #ifdef CONFIG_PPC_PMAC
 unsigned long agp_special_page;
-/* DISABLED: EXPORT_SYMBOL(agp_special_page); */
+EXPORT_SYMBOL(agp_special_page);
 #endif
 
 void MMU_init(void);

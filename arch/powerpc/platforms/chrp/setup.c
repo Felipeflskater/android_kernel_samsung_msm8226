@@ -53,7 +53,7 @@
 void rtas_indicator_progress(char *, unsigned short);
 
 int _chrp_type;
-/* DISABLED: EXPORT_SYMBOL(_chrp_type); */
+EXPORT_SYMBOL(_chrp_type);
 
 static struct mpic *chrp_mpic;
 

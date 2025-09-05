@@ -141,7 +141,7 @@ int nubus_proc_attach_device(struct nubus_dev *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nubus_proc_attach_device); */
+EXPORT_SYMBOL(nubus_proc_attach_device);
 
 /* FIXME: this is certainly broken! */
 int nubus_proc_detach_device(struct nubus_dev *dev)
@@ -156,7 +156,7 @@ int nubus_proc_detach_device(struct nubus_dev *dev)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nubus_proc_detach_device); */
+EXPORT_SYMBOL(nubus_proc_detach_device);
 
 void __init proc_bus_nubus_add_devices(void)
 {

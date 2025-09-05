@@ -262,7 +262,7 @@ sigill:
 	force_sig(SIGBUS, current);
 	return -EFAULT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__compute_return_epc_for_insn); */
+EXPORT_SYMBOL_GPL(__compute_return_epc_for_insn);
 
 int __compute_return_epc(struct pt_regs *regs)
 {

@@ -141,7 +141,7 @@ __be16 hippi_type_trans(struct sk_buff *skb, struct net_device *dev)
 	return hip->snap.ethertype;
 }
 
-/* DISABLED: EXPORT_SYMBOL(hippi_type_trans); */
+EXPORT_SYMBOL(hippi_type_trans);
 
 int hippi_change_mtu(struct net_device *dev, int new_mtu)
 {
@@ -153,7 +153,7 @@ int hippi_change_mtu(struct net_device *dev, int new_mtu)
 	dev->mtu = new_mtu;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hippi_change_mtu); */
+EXPORT_SYMBOL(hippi_change_mtu);
 
 /*
  * For HIPPI we will actually use the lower 4 bytes of the hardware
@@ -167,7 +167,7 @@ int hippi_mac_addr(struct net_device *dev, void *p)
 	memcpy(dev->dev_addr, addr->sa_data, dev->addr_len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hippi_mac_addr); */
+EXPORT_SYMBOL(hippi_mac_addr);
 
 int hippi_neigh_setup_dev(struct net_device *dev, struct neigh_parms *p)
 {
@@ -182,7 +182,7 @@ int hippi_neigh_setup_dev(struct net_device *dev, struct neigh_parms *p)
 		p->ucast_probes = 0;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hippi_neigh_setup_dev); */
+EXPORT_SYMBOL(hippi_neigh_setup_dev);
 
 static const struct header_ops hippi_header_ops = {
 	.create		= hippi_header,
@@ -231,4 +231,4 @@ struct net_device *alloc_hippi_dev(int sizeof_priv)
 	return alloc_netdev(sizeof_priv, "hip%d", hippi_setup);
 }
 
-/* DISABLED: EXPORT_SYMBOL(alloc_hippi_dev); */
+EXPORT_SYMBOL(alloc_hippi_dev);

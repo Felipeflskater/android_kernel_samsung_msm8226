@@ -250,7 +250,7 @@ int __devinit mantis_i2c_init(struct mantis_pci *mantis)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mantis_i2c_init); */
+EXPORT_SYMBOL_GPL(mantis_i2c_init);
 
 int mantis_i2c_exit(struct mantis_pci *mantis)
 {
@@ -263,4 +263,4 @@ int mantis_i2c_exit(struct mantis_pci *mantis)
 	dprintk(MANTIS_DEBUG, 1, "Removing I2C adapter");
 	return i2c_del_adapter(&mantis->adapter);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mantis_i2c_exit); */
+EXPORT_SYMBOL_GPL(mantis_i2c_exit);

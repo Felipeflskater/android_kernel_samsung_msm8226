@@ -340,7 +340,7 @@ struct nlattr *__nla_reserve(struct sk_buff *skb, int attrtype, int attrlen)
 
 	return nla;
 }
-/* DISABLED: EXPORT_SYMBOL(__nla_reserve); */
+EXPORT_SYMBOL(__nla_reserve);
 
 /**
  * __nla_reserve_nohdr - reserve room for attribute without header
@@ -361,7 +361,7 @@ void *__nla_reserve_nohdr(struct sk_buff *skb, int attrlen)
 
 	return start;
 }
-/* DISABLED: EXPORT_SYMBOL(__nla_reserve_nohdr); */
+EXPORT_SYMBOL(__nla_reserve_nohdr);
 
 /**
  * nla_reserve - reserve room for attribute on the skb
@@ -382,7 +382,7 @@ struct nlattr *nla_reserve(struct sk_buff *skb, int attrtype, int attrlen)
 
 	return __nla_reserve(skb, attrtype, attrlen);
 }
-/* DISABLED: EXPORT_SYMBOL(nla_reserve); */
+EXPORT_SYMBOL(nla_reserve);
 
 /**
  * nla_reserve_nohdr - reserve room for attribute without header
@@ -401,7 +401,7 @@ void *nla_reserve_nohdr(struct sk_buff *skb, int attrlen)
 
 	return __nla_reserve_nohdr(skb, attrlen);
 }
-/* DISABLED: EXPORT_SYMBOL(nla_reserve_nohdr); */
+EXPORT_SYMBOL(nla_reserve_nohdr);
 
 /**
  * __nla_put - Add a netlink attribute to a socket buffer
@@ -421,7 +421,7 @@ void __nla_put(struct sk_buff *skb, int attrtype, int attrlen,
 	nla = __nla_reserve(skb, attrtype, attrlen);
 	memcpy(nla_data(nla), data, attrlen);
 }
-/* DISABLED: EXPORT_SYMBOL(__nla_put); */
+EXPORT_SYMBOL(__nla_put);
 
 /**
  * __nla_put_nohdr - Add a netlink attribute without header
@@ -439,7 +439,7 @@ void __nla_put_nohdr(struct sk_buff *skb, int attrlen, const void *data)
 	start = __nla_reserve_nohdr(skb, attrlen);
 	memcpy(start, data, attrlen);
 }
-/* DISABLED: EXPORT_SYMBOL(__nla_put_nohdr); */
+EXPORT_SYMBOL(__nla_put_nohdr);
 
 /**
  * nla_put - Add a netlink attribute to a socket buffer
@@ -459,7 +459,7 @@ int nla_put(struct sk_buff *skb, int attrtype, int attrlen, const void *data)
 	__nla_put(skb, attrtype, attrlen, data);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nla_put); */
+EXPORT_SYMBOL(nla_put);
 
 /**
  * nla_put_nohdr - Add a netlink attribute without header
@@ -478,7 +478,7 @@ int nla_put_nohdr(struct sk_buff *skb, int attrlen, const void *data)
 	__nla_put_nohdr(skb, attrlen, data);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nla_put_nohdr); */
+EXPORT_SYMBOL(nla_put_nohdr);
 
 /**
  * nla_append - Add a netlink attribute without header or padding
@@ -497,14 +497,14 @@ int nla_append(struct sk_buff *skb, int attrlen, const void *data)
 	memcpy(skb_put(skb, attrlen), data, attrlen);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nla_append); */
+EXPORT_SYMBOL(nla_append);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(nla_validate); */
-/* DISABLED: EXPORT_SYMBOL(nla_policy_len); */
-/* DISABLED: EXPORT_SYMBOL(nla_parse); */
-/* DISABLED: EXPORT_SYMBOL(nla_find); */
-/* DISABLED: EXPORT_SYMBOL(nla_strlcpy); */
-/* DISABLED: EXPORT_SYMBOL(nla_memcpy); */
-/* DISABLED: EXPORT_SYMBOL(nla_memcmp); */
-/* DISABLED: EXPORT_SYMBOL(nla_strcmp); */
+EXPORT_SYMBOL(nla_validate);
+EXPORT_SYMBOL(nla_policy_len);
+EXPORT_SYMBOL(nla_parse);
+EXPORT_SYMBOL(nla_find);
+EXPORT_SYMBOL(nla_strlcpy);
+EXPORT_SYMBOL(nla_memcpy);
+EXPORT_SYMBOL(nla_memcmp);
+EXPORT_SYMBOL(nla_strcmp);

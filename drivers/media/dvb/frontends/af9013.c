@@ -1477,7 +1477,7 @@ err:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(af9013_attach); */
+EXPORT_SYMBOL(af9013_attach);
 
 static struct dvb_frontend_ops af9013_ops = {
 	.delsys = { SYS_DVBT },

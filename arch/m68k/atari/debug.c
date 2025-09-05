@@ -23,7 +23,7 @@
 /* Can be set somewhere, if a SCC master reset has already be done and should
  * not be repeated; used by kgdb */
 int atari_SCC_reset_done;
-/* DISABLED: EXPORT_SYMBOL(atari_SCC_reset_done); */
+EXPORT_SYMBOL(atari_SCC_reset_done);
 
 static struct console atari_console_driver = {
 	.name	= "debug",

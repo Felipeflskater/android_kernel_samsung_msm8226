@@ -60,7 +60,7 @@ struct spmi_controller *spmi_busnum_to_ctrl(u32 bus_num)
 
 	return ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_busnum_to_ctrl); */
+EXPORT_SYMBOL_GPL(spmi_busnum_to_ctrl);
 
 /**
  * spmi_add_controller: Controller bring-up.
@@ -104,7 +104,7 @@ retry:
 		status = spmi_register_controller(ctrl);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_add_controller); */
+EXPORT_SYMBOL_GPL(spmi_add_controller);
 
 /* Remove a device associated with a controller */
 static int spmi_ctrl_remove_device(struct device *dev, void *data)
@@ -155,7 +155,7 @@ int spmi_del_controller(struct spmi_controller *ctrl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_del_controller); */
+EXPORT_SYMBOL_GPL(spmi_del_controller);
 
 #define spmi_ctrl_attr_gr NULL
 static void spmi_ctrl_release(struct device *dev)
@@ -220,7 +220,7 @@ struct spmi_device *spmi_alloc_device(struct spmi_controller *ctrl)
 
 	return spmidev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_alloc_device); */
+EXPORT_SYMBOL_GPL(spmi_alloc_device);
 
 /* Validate the SPMI device structure */
 static struct device *get_valid_device(struct spmi_device *spmidev)
@@ -286,7 +286,7 @@ int spmi_add_device(struct spmi_device *spmidev)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_add_device); */
+EXPORT_SYMBOL_GPL(spmi_add_device);
 
 /**
  * spmi_new_device: Instantiates a new SPMI device
@@ -324,7 +324,7 @@ struct spmi_device *spmi_new_device(struct spmi_controller *ctrl,
 
 	return spmidev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_new_device); */
+EXPORT_SYMBOL_GPL(spmi_new_device);
 
 /* spmi_remove_device: Remove the effect of spmi_add_device() */
 void spmi_remove_device(struct spmi_device *spmi_dev)
@@ -332,7 +332,7 @@ void spmi_remove_device(struct spmi_device *spmi_dev)
 	device_unregister(&spmi_dev->dev);
 	ida_simple_remove(&spmi_devid_ida, spmi_dev->id);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_remove_device); */
+EXPORT_SYMBOL_GPL(spmi_remove_device);
 
 static void spmi_match_ctrl_to_boardinfo(struct spmi_controller *ctrl,
 				struct spmi_boardinfo *bi)
@@ -379,7 +379,7 @@ int spmi_register_board_info(int busnum,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_register_board_info); */
+EXPORT_SYMBOL_GPL(spmi_register_board_info);
 
 /* ------------------------------------------------------------------------- */
 
@@ -433,7 +433,7 @@ int spmi_register_read(struct spmi_controller *ctrl, u8 sid, u8 addr, u8 *buf)
 
 	return spmi_read_cmd(ctrl, SPMI_CMD_READ, sid, addr, 0, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_register_read); */
+EXPORT_SYMBOL_GPL(spmi_register_read);
 
 /**
  * spmi_ext_register_read() - extended register read
@@ -455,7 +455,7 @@ int spmi_ext_register_read(struct spmi_controller *ctrl,
 
 	return spmi_read_cmd(ctrl, SPMI_CMD_EXT_READ, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_read); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_read);
 
 /**
  * spmi_ext_register_readl() - extended register read long
@@ -477,7 +477,7 @@ int spmi_ext_register_readl(struct spmi_controller *ctrl,
 
 	return spmi_read_cmd(ctrl, SPMI_CMD_EXT_READL, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_readl); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_readl);
 
 #if (!defined(CONFIG_MACH_CT01) && !defined(CONFIG_MACH_CT01_CHN_CU))
 int spmi_ext_register_readl_extra(u8 sid, u16 addr, u8 *buf, int len)
@@ -489,7 +489,7 @@ int spmi_ext_register_readl_extra(u8 sid, u16 addr, u8 *buf, int len)
 
         return spmi_read_cmd(spmi_ctrl_extra, SPMI_CMD_EXT_READL, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_readl_extra); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_readl_extra);
 #endif
 
 /**
@@ -511,7 +511,7 @@ int spmi_register_write(struct spmi_controller *ctrl, u8 sid, u8 addr, u8 *buf)
 
 	return spmi_write_cmd(ctrl, op, sid, addr, 0, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_register_write); */
+EXPORT_SYMBOL_GPL(spmi_register_write);
 
 /**
  * spmi_register_zero_write() - register zero write
@@ -531,7 +531,7 @@ int spmi_register_zero_write(struct spmi_controller *ctrl, u8 sid, u8 data)
 
 	return spmi_write_cmd(ctrl, op, sid, 0, 0, &data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_register_zero_write); */
+EXPORT_SYMBOL_GPL(spmi_register_zero_write);
 
 /**
  * spmi_ext_register_write() - extended register write
@@ -555,7 +555,7 @@ int spmi_ext_register_write(struct spmi_controller *ctrl,
 
 	return spmi_write_cmd(ctrl, op, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_write); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_write);
 
 /**
  * spmi_ext_register_writel() - extended register write long
@@ -579,7 +579,7 @@ int spmi_ext_register_writel(struct spmi_controller *ctrl,
 
 	return spmi_write_cmd(ctrl, op, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_writel); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_writel);
 
 #if (!defined(CONFIG_MACH_CT01) && !defined(CONFIG_MACH_CT01_CHN_CU))
 int spmi_ext_register_writel_extra(u8 sid, u16 addr, u8 *buf, int len)
@@ -592,7 +592,7 @@ int spmi_ext_register_writel_extra(u8 sid, u16 addr, u8 *buf, int len)
 
         return spmi_write_cmd(spmi_ctrl_extra, op, sid, addr, len - 1, buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_ext_register_writel_extra); */
+EXPORT_SYMBOL_GPL(spmi_ext_register_writel_extra);
 #endif
 
 /**
@@ -616,7 +616,7 @@ int spmi_command_reset(struct spmi_controller *ctrl, u8 sid)
 		return -EINVAL;
 	return spmi_cmd(ctrl, SPMI_CMD_RESET, sid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_command_reset); */
+EXPORT_SYMBOL_GPL(spmi_command_reset);
 
 /**
  * spmi_command_sleep() - sends SLEEP command to the specified slave
@@ -637,7 +637,7 @@ int spmi_command_sleep(struct spmi_controller *ctrl, u8 sid)
 		return -EINVAL;
 	return spmi_cmd(ctrl, SPMI_CMD_SLEEP, sid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_command_sleep); */
+EXPORT_SYMBOL_GPL(spmi_command_sleep);
 
 /**
  * spmi_command_wakeup() - sends WAKEUP command to the specified slave
@@ -659,7 +659,7 @@ int spmi_command_wakeup(struct spmi_controller *ctrl, u8 sid)
 		return -EINVAL;
 	return spmi_cmd(ctrl, SPMI_CMD_WAKEUP, sid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_command_wakeup); */
+EXPORT_SYMBOL_GPL(spmi_command_wakeup);
 
 /**
  * spmi_command_shutdown() - sends SHUTDOWN command to the specified slave
@@ -680,7 +680,7 @@ int spmi_command_shutdown(struct spmi_controller *ctrl, u8 sid)
 		return -EINVAL;
 	return spmi_cmd(ctrl, SPMI_CMD_SHUTDOWN, sid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_command_shutdown); */
+EXPORT_SYMBOL_GPL(spmi_command_shutdown);
 
 /* ------------------------------------------------------------------------- */
 
@@ -791,7 +791,7 @@ struct bus_type spmi_bus_type = {
 	.match		= spmi_device_match,
 	.pm		= &spmi_pm_ops,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_bus_type); */
+EXPORT_SYMBOL_GPL(spmi_bus_type);
 
 struct device spmi_dev = {
 	.init_name = "spmi",
@@ -840,7 +840,7 @@ int spmi_driver_register(struct spmi_driver *drv)
 
 	return driver_register(&drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(spmi_driver_register); */
+EXPORT_SYMBOL_GPL(spmi_driver_register);
 
 static int spmi_register_controller(struct spmi_controller *ctrl)
 {

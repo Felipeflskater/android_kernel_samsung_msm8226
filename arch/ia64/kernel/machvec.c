@@ -10,7 +10,7 @@
 #include <asm/page.h>
 
 struct ia64_machine_vector ia64_mv;
-/* DISABLED: EXPORT_SYMBOL(ia64_mv); */
+EXPORT_SYMBOL(ia64_mv);
 
 static struct ia64_machine_vector * __init
 lookup_machvec (const char *name)
@@ -65,13 +65,13 @@ void
 machvec_setup (char **arg)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(machvec_setup); */
+EXPORT_SYMBOL(machvec_setup);
 
 void
 machvec_timer_interrupt (int irq, void *dev_id)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(machvec_timer_interrupt); */
+EXPORT_SYMBOL(machvec_timer_interrupt);
 
 void
 machvec_dma_sync_single(struct device *hwdev, dma_addr_t dma_handle, size_t size,
@@ -79,7 +79,7 @@ machvec_dma_sync_single(struct device *hwdev, dma_addr_t dma_handle, size_t size
 {
 	mb();
 }
-/* DISABLED: EXPORT_SYMBOL(machvec_dma_sync_single); */
+EXPORT_SYMBOL(machvec_dma_sync_single);
 
 void
 machvec_dma_sync_sg(struct device *hwdev, struct scatterlist *sg, int n,
@@ -87,4 +87,4 @@ machvec_dma_sync_sg(struct device *hwdev, struct scatterlist *sg, int n,
 {
 	mb();
 }
-/* DISABLED: EXPORT_SYMBOL(machvec_dma_sync_sg); */
+EXPORT_SYMBOL(machvec_dma_sync_sg);

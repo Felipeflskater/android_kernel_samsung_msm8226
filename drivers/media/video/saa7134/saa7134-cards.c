@@ -7260,7 +7260,7 @@ int saa7134_tuner_callback(void *priv, int component, int command, int arg)
 	}
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(saa7134_tuner_callback); */
+EXPORT_SYMBOL(saa7134_tuner_callback);
 
 /* ----------------------------------------------------------- */
 

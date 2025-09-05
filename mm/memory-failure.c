@@ -70,11 +70,11 @@ u32 hwpoison_filter_dev_major = ~0U;
 u32 hwpoison_filter_dev_minor = ~0U;
 u64 hwpoison_filter_flags_mask;
 u64 hwpoison_filter_flags_value;
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_enable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_dev_major); */
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_dev_minor); */
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_flags_mask); */
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_flags_value); */
+EXPORT_SYMBOL_GPL(hwpoison_filter_enable);
+EXPORT_SYMBOL_GPL(hwpoison_filter_dev_major);
+EXPORT_SYMBOL_GPL(hwpoison_filter_dev_minor);
+EXPORT_SYMBOL_GPL(hwpoison_filter_flags_mask);
+EXPORT_SYMBOL_GPL(hwpoison_filter_flags_value);
 
 static int hwpoison_filter_dev(struct page *p)
 {
@@ -130,7 +130,7 @@ static int hwpoison_filter_flags(struct page *p)
  */
 #ifdef	CONFIG_MEMCG_SWAP
 u64 hwpoison_filter_memcg;
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter_memcg); */
+EXPORT_SYMBOL_GPL(hwpoison_filter_memcg);
 static int hwpoison_filter_task(struct page *p)
 {
 	struct mem_cgroup *mem;
@@ -184,7 +184,7 @@ int hwpoison_filter(struct page *p)
 }
 #endif
 
-/* DISABLED: EXPORT_SYMBOL_GPL(hwpoison_filter); */
+EXPORT_SYMBOL_GPL(hwpoison_filter);
 
 /*
  * Send all the processes who have the page mapped a signal.
@@ -260,7 +260,7 @@ void shake_page(struct page *p, int access)
 		} while (nr > 10);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(shake_page); */
+EXPORT_SYMBOL_GPL(shake_page);
 
 /*
  * Kill all processes that have a poisoned page mapped and then isolate
@@ -1191,7 +1191,7 @@ out:
 	unlock_page(hpage);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(memory_failure); */
+EXPORT_SYMBOL_GPL(memory_failure);
 
 #define MEMORY_FAILURE_FIFO_ORDER	4
 #define MEMORY_FAILURE_FIFO_SIZE	(1 << MEMORY_FAILURE_FIFO_ORDER)
@@ -1248,7 +1248,7 @@ void memory_failure_queue(unsigned long pfn, int trapno, int flags)
 	spin_unlock_irqrestore(&mf_cpu->lock, proc_flags);
 	put_cpu_var(memory_failure_cpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(memory_failure_queue); */
+EXPORT_SYMBOL_GPL(memory_failure_queue);
 
 static void memory_failure_work_func(struct work_struct *work)
 {
@@ -1355,7 +1355,7 @@ int unpoison_memory(unsigned long pfn)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(unpoison_memory); */
+EXPORT_SYMBOL(unpoison_memory);
 
 static struct page *new_page(struct page *p, unsigned long private, int **x)
 {

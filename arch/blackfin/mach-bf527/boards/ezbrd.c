@@ -885,4 +885,4 @@ int bfin_get_ether_addr(char *addr)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_get_ether_addr); */
+EXPORT_SYMBOL(bfin_get_ether_addr);

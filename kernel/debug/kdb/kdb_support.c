@@ -55,7 +55,7 @@ int kdbgetsymval(const char *symname, kdb_symtab_t *symtab)
 		kdb_printf("kdbgetsymval: returns 0\n");
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kdbgetsymval); */
+EXPORT_SYMBOL(kdbgetsymval);
 
 static char *kdb_name_table[100];	/* arbitrary size */
 

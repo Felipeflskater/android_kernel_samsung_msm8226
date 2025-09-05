@@ -96,4 +96,4 @@ void of_register_spi_devices(struct spi_master *master)
 
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(of_register_spi_devices); */
+EXPORT_SYMBOL(of_register_spi_devices);

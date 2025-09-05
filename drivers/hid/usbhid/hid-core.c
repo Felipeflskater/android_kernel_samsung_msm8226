@@ -649,7 +649,7 @@ void usbhid_submit_report(struct hid_device *hid, struct hid_report *report, uns
 	__usbhid_submit_report(hid, report, dir);
 	spin_unlock_irqrestore(&usbhid->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbhid_submit_report); */
+EXPORT_SYMBOL_GPL(usbhid_submit_report);
 
 /* Workqueue routine to send requests to change LEDs */
 static void hid_led(struct work_struct *work)
@@ -721,7 +721,7 @@ int usbhid_wait_io(struct hid_device *hid)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbhid_wait_io); */
+EXPORT_SYMBOL_GPL(usbhid_wait_io);
 
 static int hid_set_idle(struct usb_device *dev, int ifnum, int report, int idle)
 {
@@ -860,7 +860,7 @@ void usbhid_set_leds(struct hid_device *hid)
 		usbhid_submit_report(hid, field->report, USB_DIR_OUT);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usbhid_set_leds); */
+EXPORT_SYMBOL_GPL(usbhid_set_leds);
 
 /*
  * Traverse the supplied list of reports and find the longest

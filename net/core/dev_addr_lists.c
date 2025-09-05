@@ -126,7 +126,7 @@ unroll:
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_add_multiple); */
+EXPORT_SYMBOL(__hw_addr_add_multiple);
 
 void __hw_addr_del_multiple(struct netdev_hw_addr_list *to_list,
 			    struct netdev_hw_addr_list *from_list,
@@ -140,7 +140,7 @@ void __hw_addr_del_multiple(struct netdev_hw_addr_list *to_list,
 		__hw_addr_del(to_list, ha->addr, addr_len, type);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_del_multiple); */
+EXPORT_SYMBOL(__hw_addr_del_multiple);
 
 int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
 		   struct netdev_hw_addr_list *from_list,
@@ -164,7 +164,7 @@ int __hw_addr_sync(struct netdev_hw_addr_list *to_list,
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_sync); */
+EXPORT_SYMBOL(__hw_addr_sync);
 
 void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
 		      struct netdev_hw_addr_list *from_list,
@@ -182,7 +182,7 @@ void __hw_addr_unsync(struct netdev_hw_addr_list *to_list,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_unsync); */
+EXPORT_SYMBOL(__hw_addr_unsync);
 
 void __hw_addr_flush(struct netdev_hw_addr_list *list)
 {
@@ -194,14 +194,14 @@ void __hw_addr_flush(struct netdev_hw_addr_list *list)
 	}
 	list->count = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_flush); */
+EXPORT_SYMBOL(__hw_addr_flush);
 
 void __hw_addr_init(struct netdev_hw_addr_list *list)
 {
 	INIT_LIST_HEAD(&list->list);
 	list->count = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__hw_addr_init); */
+EXPORT_SYMBOL(__hw_addr_init);
 
 /*
  * Device addresses handling functions
@@ -222,7 +222,7 @@ void dev_addr_flush(struct net_device *dev)
 	__hw_addr_flush(&dev->dev_addrs);
 	dev->dev_addr = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_flush); */
+EXPORT_SYMBOL(dev_addr_flush);
 
 /**
  *	dev_addr_init - Init device address list
@@ -256,7 +256,7 @@ int dev_addr_init(struct net_device *dev)
 	}
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_init); */
+EXPORT_SYMBOL(dev_addr_init);
 
 /**
  *	dev_addr_add - Add a device address
@@ -281,7 +281,7 @@ int dev_addr_add(struct net_device *dev, unsigned char *addr,
 		call_netdevice_notifiers(NETDEV_CHANGEADDR, dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_add); */
+EXPORT_SYMBOL(dev_addr_add);
 
 /**
  *	dev_addr_del - Release a device address.
@@ -318,7 +318,7 @@ int dev_addr_del(struct net_device *dev, unsigned char *addr,
 		call_netdevice_notifiers(NETDEV_CHANGEADDR, dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_del); */
+EXPORT_SYMBOL(dev_addr_del);
 
 /**
  *	dev_addr_add_multiple - Add device addresses from another device
@@ -346,7 +346,7 @@ int dev_addr_add_multiple(struct net_device *to_dev,
 		call_netdevice_notifiers(NETDEV_CHANGEADDR, to_dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_add_multiple); */
+EXPORT_SYMBOL(dev_addr_add_multiple);
 
 /**
  *	dev_addr_del_multiple - Delete device addresses by another device
@@ -371,7 +371,7 @@ int dev_addr_del_multiple(struct net_device *to_dev,
 	call_netdevice_notifiers(NETDEV_CHANGEADDR, to_dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_addr_del_multiple); */
+EXPORT_SYMBOL(dev_addr_del_multiple);
 
 /*
  * Unicast list handling functions
@@ -397,7 +397,7 @@ int dev_uc_add(struct net_device *dev, unsigned char *addr)
 	netif_addr_unlock_bh(dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_add); */
+EXPORT_SYMBOL(dev_uc_add);
 
 /**
  *	dev_uc_del - Release secondary unicast address.
@@ -419,7 +419,7 @@ int dev_uc_del(struct net_device *dev, unsigned char *addr)
 	netif_addr_unlock_bh(dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_del); */
+EXPORT_SYMBOL(dev_uc_del);
 
 /**
  *	dev_uc_sync - Synchronize device's unicast list to another device
@@ -447,7 +447,7 @@ int dev_uc_sync(struct net_device *to, struct net_device *from)
 	netif_addr_unlock(to);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_sync); */
+EXPORT_SYMBOL(dev_uc_sync);
 
 /**
  *	dev_uc_unsync - Remove synchronized addresses from the destination device
@@ -470,7 +470,7 @@ void dev_uc_unsync(struct net_device *to, struct net_device *from)
 	netif_addr_unlock(to);
 	netif_addr_unlock_bh(from);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_unsync); */
+EXPORT_SYMBOL(dev_uc_unsync);
 
 /**
  *	dev_uc_flush - Flush unicast addresses
@@ -484,7 +484,7 @@ void dev_uc_flush(struct net_device *dev)
 	__hw_addr_flush(&dev->uc);
 	netif_addr_unlock_bh(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_flush); */
+EXPORT_SYMBOL(dev_uc_flush);
 
 /**
  *	dev_uc_flush - Init unicast address list
@@ -496,7 +496,7 @@ void dev_uc_init(struct net_device *dev)
 {
 	__hw_addr_init(&dev->uc);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_uc_init); */
+EXPORT_SYMBOL(dev_uc_init);
 
 /*
  * Multicast list handling functions
@@ -531,7 +531,7 @@ int dev_mc_add(struct net_device *dev, unsigned char *addr)
 {
 	return __dev_mc_add(dev, addr, false);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_add); */
+EXPORT_SYMBOL(dev_mc_add);
 
 /**
  *	dev_mc_add_global - Add a global multicast address
@@ -544,7 +544,7 @@ int dev_mc_add_global(struct net_device *dev, unsigned char *addr)
 {
 	return __dev_mc_add(dev, addr, true);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_add_global); */
+EXPORT_SYMBOL(dev_mc_add_global);
 
 static int __dev_mc_del(struct net_device *dev, unsigned char *addr,
 			bool global)
@@ -576,7 +576,7 @@ int dev_mc_del(struct net_device *dev, unsigned char *addr)
 {
 	return __dev_mc_del(dev, addr, false);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_del); */
+EXPORT_SYMBOL(dev_mc_del);
 
 /**
  *	dev_mc_del_global - Delete a global multicast address.
@@ -590,7 +590,7 @@ int dev_mc_del_global(struct net_device *dev, unsigned char *addr)
 {
 	return __dev_mc_del(dev, addr, true);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_del_global); */
+EXPORT_SYMBOL(dev_mc_del_global);
 
 /**
  *	dev_mc_sync - Synchronize device's unicast list to another device
@@ -618,7 +618,7 @@ int dev_mc_sync(struct net_device *to, struct net_device *from)
 	netif_addr_unlock(to);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_sync); */
+EXPORT_SYMBOL(dev_mc_sync);
 
 /**
  *	dev_mc_unsync - Remove synchronized addresses from the destination device
@@ -641,7 +641,7 @@ void dev_mc_unsync(struct net_device *to, struct net_device *from)
 	netif_addr_unlock(to);
 	netif_addr_unlock_bh(from);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_unsync); */
+EXPORT_SYMBOL(dev_mc_unsync);
 
 /**
  *	dev_mc_flush - Flush multicast addresses
@@ -655,7 +655,7 @@ void dev_mc_flush(struct net_device *dev)
 	__hw_addr_flush(&dev->mc);
 	netif_addr_unlock_bh(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_flush); */
+EXPORT_SYMBOL(dev_mc_flush);
 
 /**
  *	dev_mc_flush - Init multicast address list
@@ -667,7 +667,7 @@ void dev_mc_init(struct net_device *dev)
 {
 	__hw_addr_init(&dev->mc);
 }
-/* DISABLED: EXPORT_SYMBOL(dev_mc_init); */
+EXPORT_SYMBOL(dev_mc_init);
 
 #ifdef CONFIG_PROC_FS
 #include <linux/seq_file.h>

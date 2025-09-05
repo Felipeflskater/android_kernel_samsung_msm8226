@@ -40,7 +40,7 @@
  * is mapped on the first 64K of IO space
  */
 unsigned long pci_io_base = ISA_IO_BASE;
-/* DISABLED: EXPORT_SYMBOL(pci_io_base); */
+EXPORT_SYMBOL(pci_io_base);
 
 static int __init pcibios_init(void)
 {
@@ -122,7 +122,7 @@ int pcibios_unmap_io_space(struct pci_bus *bus)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_unmap_io_space); */
+EXPORT_SYMBOL_GPL(pcibios_unmap_io_space);
 
 #endif /* CONFIG_HOTPLUG */
 
@@ -195,7 +195,7 @@ int __devinit pcibios_map_io_space(struct pci_bus *bus)
 
 	return pcibios_map_phb_io_space(pci_bus_to_host(bus));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_map_io_space); */
+EXPORT_SYMBOL_GPL(pcibios_map_io_space);
 
 void __devinit pcibios_setup_phb_io_space(struct pci_controller *hose)
 {
@@ -268,5 +268,5 @@ int pcibus_to_node(struct pci_bus *bus)
 	struct pci_controller *phb = pci_bus_to_host(bus);
 	return phb->node;
 }
-/* DISABLED: EXPORT_SYMBOL(pcibus_to_node); */
+EXPORT_SYMBOL(pcibus_to_node);
 #endif

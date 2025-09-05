@@ -100,4 +100,4 @@ err_logo_close_file:
 	sys_close(fd);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(load_565rle_image); */
+EXPORT_SYMBOL(load_565rle_image);

@@ -161,4 +161,4 @@ void unwind_stack(struct task_struct *task, struct pt_regs *regs,
 
 	curr_unwinder->dump(task, regs, sp, ops, data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unwind_stack); */
+EXPORT_SYMBOL_GPL(unwind_stack);

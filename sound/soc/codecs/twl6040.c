@@ -723,7 +723,7 @@ void twl6040_hs_jack_detect(struct snd_soc_codec *codec,
 
 	twl6040_hs_jack_report(codec, hs_jack->jack, hs_jack->report);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl6040_hs_jack_detect); */
+EXPORT_SYMBOL_GPL(twl6040_hs_jack_detect);
 
 static void twl6040_accessory_work(struct work_struct *work)
 {
@@ -1032,7 +1032,7 @@ int twl6040_get_dl1_gain(struct snd_soc_codec *codec)
 	}
 	return 0; /* 0dB */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl6040_get_dl1_gain); */
+EXPORT_SYMBOL_GPL(twl6040_get_dl1_gain);
 
 int twl6040_get_clk_id(struct snd_soc_codec *codec)
 {
@@ -1040,7 +1040,7 @@ int twl6040_get_clk_id(struct snd_soc_codec *codec)
 
 	return priv->pll_power_mode;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl6040_get_clk_id); */
+EXPORT_SYMBOL_GPL(twl6040_get_clk_id);
 
 int twl6040_get_trim_value(struct snd_soc_codec *codec, enum twl6040_trim trim)
 {
@@ -1049,7 +1049,7 @@ int twl6040_get_trim_value(struct snd_soc_codec *codec, enum twl6040_trim trim)
 
 	return twl6040_read_reg_cache(codec, TWL6040_REG_TRIM1 + trim);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl6040_get_trim_value); */
+EXPORT_SYMBOL_GPL(twl6040_get_trim_value);
 
 int twl6040_get_hs_step_size(struct snd_soc_codec *codec)
 {
@@ -1062,7 +1062,7 @@ int twl6040_get_hs_step_size(struct snd_soc_codec *codec)
 		/* For ES_1.3 HS step is 1 mV */
 		return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl6040_get_hs_step_size); */
+EXPORT_SYMBOL_GPL(twl6040_get_hs_step_size);
 
 static const struct snd_kcontrol_new twl6040_snd_controls[] = {
 	/* Capture gains */

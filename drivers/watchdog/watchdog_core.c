@@ -83,7 +83,7 @@ int watchdog_register_device(struct watchdog_device *wdd)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(watchdog_register_device); */
+EXPORT_SYMBOL_GPL(watchdog_register_device);
 
 /**
  * watchdog_unregister_device() - unregister a watchdog device
@@ -103,7 +103,7 @@ void watchdog_unregister_device(struct watchdog_device *wdd)
 	if (ret)
 		pr_err("error unregistering /dev/watchdog (err=%d)\n", ret);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(watchdog_unregister_device); */
+EXPORT_SYMBOL_GPL(watchdog_unregister_device);
 
 MODULE_AUTHOR("Alan Cox <alan@lxorguk.ukuu.org.uk>");
 MODULE_AUTHOR("Wim Van Sebroeck <wim@iguana.be>");

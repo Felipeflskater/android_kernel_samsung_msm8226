@@ -58,7 +58,7 @@ void *sn_io_addr(unsigned long port)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(sn_io_addr); */
+EXPORT_SYMBOL(sn_io_addr);
 
 /**
  * __sn_mmiowb - I/O space memory barrier
@@ -79,4 +79,4 @@ void __sn_mmiowb(void)
 		cpu_relax();
 }
 
-/* DISABLED: EXPORT_SYMBOL(__sn_mmiowb); */
+EXPORT_SYMBOL(__sn_mmiowb);

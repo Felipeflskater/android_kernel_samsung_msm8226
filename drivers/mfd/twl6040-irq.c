@@ -182,10 +182,10 @@ int twl6040_irq_init(struct twl6040 *twl6040)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(twl6040_irq_init); */
+EXPORT_SYMBOL(twl6040_irq_init);
 
 void twl6040_irq_exit(struct twl6040 *twl6040)
 {
 	free_irq(twl6040->irq, twl6040);
 }
-/* DISABLED: EXPORT_SYMBOL(twl6040_irq_exit); */
+EXPORT_SYMBOL(twl6040_irq_exit);

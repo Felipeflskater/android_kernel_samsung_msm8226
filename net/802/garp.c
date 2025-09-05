@@ -359,7 +359,7 @@ int garp_request_join(const struct net_device *dev,
 	spin_unlock_bh(&app->lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_request_join); */
+EXPORT_SYMBOL_GPL(garp_request_join);
 
 void garp_request_leave(const struct net_device *dev,
 			const struct garp_application *appl,
@@ -378,7 +378,7 @@ void garp_request_leave(const struct net_device *dev,
 	garp_attr_event(app, attr, GARP_EVENT_REQ_LEAVE);
 	spin_unlock_bh(&app->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_request_leave); */
+EXPORT_SYMBOL_GPL(garp_request_leave);
 
 static void garp_gid_event(struct garp_applicant *app, enum garp_event event)
 {
@@ -595,7 +595,7 @@ err2:
 err1:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_init_applicant); */
+EXPORT_SYMBOL_GPL(garp_init_applicant);
 
 void garp_uninit_applicant(struct net_device *dev, struct garp_application *appl)
 {
@@ -617,7 +617,7 @@ void garp_uninit_applicant(struct net_device *dev, struct garp_application *appl
 	kfree_rcu(app, rcu);
 	garp_release_port(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_uninit_applicant); */
+EXPORT_SYMBOL_GPL(garp_uninit_applicant);
 
 int garp_register_application(struct garp_application *appl)
 {
@@ -625,10 +625,10 @@ int garp_register_application(struct garp_application *appl)
 	appl->proto.data = appl;
 	return stp_proto_register(&appl->proto);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_register_application); */
+EXPORT_SYMBOL_GPL(garp_register_application);
 
 void garp_unregister_application(struct garp_application *appl)
 {
 	stp_proto_unregister(&appl->proto);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(garp_unregister_application); */
+EXPORT_SYMBOL_GPL(garp_unregister_application);

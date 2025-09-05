@@ -90,7 +90,7 @@ bool mmc_assume_removable;
 #else
 bool mmc_assume_removable = 1;
 #endif
-/* DISABLED: EXPORT_SYMBOL(mmc_assume_removable); */
+EXPORT_SYMBOL(mmc_assume_removable);
 module_param_named(removable, mmc_assume_removable, bool, 0644);
 MODULE_PARM_DESC(
 	removable,
@@ -290,7 +290,7 @@ void mmc_request_done(struct mmc_host *host, struct mmc_request *mrq)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_request_done); */
+EXPORT_SYMBOL(mmc_request_done);
 
 static void
 mmc_start_request(struct mmc_host *host, struct mmc_request *mrq)
@@ -397,7 +397,7 @@ void mmc_blk_init_bkops_statistics(struct mmc_card *card)
 
 	spin_unlock(&bkops_stats->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_blk_init_bkops_statistics); */
+EXPORT_SYMBOL(mmc_blk_init_bkops_statistics);
 
 /**
  * mmc_start_delayed_bkops() - Start a delayed work to check for
@@ -427,7 +427,7 @@ void mmc_start_delayed_bkops(struct mmc_card *card)
 			   msecs_to_jiffies(
 				   card->bkops_info.delay_ms));
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_start_delayed_bkops); */
+EXPORT_SYMBOL(mmc_start_delayed_bkops);
 
 /**
  *	mmc_start_bkops - start BKOPS for supported cards
@@ -531,7 +531,7 @@ out:
 	mmc_release_host(card->host);
 	mmc_rpm_release(card->host, &card->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_start_bkops); */
+EXPORT_SYMBOL(mmc_start_bkops);
 
 /**
  * mmc_start_idle_time_bkops() - check if a non urgent BKOPS is
@@ -552,7 +552,7 @@ void mmc_start_idle_time_bkops(struct work_struct *work)
 
 	mmc_start_bkops(card, false);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_start_idle_time_bkops); */
+EXPORT_SYMBOL(mmc_start_idle_time_bkops);
 
 /*
  * mmc_wait_data_done() - done callback for data request
@@ -1018,7 +1018,7 @@ exit:
 		*error = err;
 	return data;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_start_req); */
+EXPORT_SYMBOL(mmc_start_req);
 
 /**
  *	mmc_wait_for_req - start a request and wait for completion
@@ -1038,7 +1038,7 @@ void mmc_wait_for_req(struct mmc_host *host, struct mmc_request *mrq)
 	__mmc_start_req(host, mrq);
 	mmc_wait_for_req_done(host, mrq);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_wait_for_req); */
+EXPORT_SYMBOL(mmc_wait_for_req);
 
 bool mmc_card_is_prog_state(struct mmc_card *card)
 {
@@ -1068,7 +1068,7 @@ out:
 	mmc_release_host(card->host);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_card_is_prog_state); */
+EXPORT_SYMBOL(mmc_card_is_prog_state);
 
 /**
  *	mmc_interrupt_hpi - Issue for High priority Interrupt
@@ -1138,7 +1138,7 @@ out:
 	mmc_release_host(card->host);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_interrupt_hpi); */
+EXPORT_SYMBOL(mmc_interrupt_hpi);
 
 /**
  *	mmc_wait_for_cmd - start a command and wait for completion
@@ -1167,7 +1167,7 @@ int mmc_wait_for_cmd(struct mmc_host *host, struct mmc_command *cmd, int retries
 	return cmd->error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_wait_for_cmd); */
+EXPORT_SYMBOL(mmc_wait_for_cmd);
 
 /**
  *	mmc_stop_bkops - stop ongoing BKOPS
@@ -1223,7 +1223,7 @@ int mmc_stop_bkops(struct mmc_card *card)
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_stop_bkops); */
+EXPORT_SYMBOL(mmc_stop_bkops);
 
 int mmc_read_bkops_status(struct mmc_card *card)
 {
@@ -1258,7 +1258,7 @@ out:
 	kfree(ext_csd);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_read_bkops_status); */
+EXPORT_SYMBOL(mmc_read_bkops_status);
 
 /**
  *	mmc_set_data_timeout - set the timeout for a data command
@@ -1370,7 +1370,7 @@ void mmc_set_data_timeout(struct mmc_data *data, const struct mmc_card *card)
 			data->timeout_ns = 4000000000u;	/* 4s */
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_set_data_timeout); */
+EXPORT_SYMBOL(mmc_set_data_timeout);
 
 /**
  *	mmc_align_data_size - pads a transfer size to a more optimal value
@@ -1397,7 +1397,7 @@ unsigned int mmc_align_data_size(struct mmc_card *card, unsigned int sz)
 
 	return sz;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_align_data_size); */
+EXPORT_SYMBOL(mmc_align_data_size);
 
 /**
  *	__mmc_claim_host - exclusively claim a host
@@ -1443,7 +1443,7 @@ int __mmc_claim_host(struct mmc_host *host, atomic_t *abort)
 	return stop;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__mmc_claim_host); */
+EXPORT_SYMBOL(__mmc_claim_host);
 
 /**
  *	mmc_try_claim_host - try exclusively to claim a host
@@ -1468,7 +1468,7 @@ int mmc_try_claim_host(struct mmc_host *host)
 		host->ops->enable(host);
 	return claimed_host;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_try_claim_host); */
+EXPORT_SYMBOL(mmc_try_claim_host);
 
 /**
  *	mmc_release_host - release a host
@@ -1497,7 +1497,7 @@ void mmc_release_host(struct mmc_host *host)
 		wake_up(&host->wq);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_release_host); */
+EXPORT_SYMBOL(mmc_release_host);
 
 /*
  * Internal function that does the actual ios call to the host driver,
@@ -1530,7 +1530,7 @@ void mmc_set_ios(struct mmc_host *host)
 		ios->clk_ts = jiffies;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_set_ios); */
+EXPORT_SYMBOL(mmc_set_ios);
 
 /*
  * Control chip select pin on a host.
@@ -1716,7 +1716,7 @@ u32 mmc_vddrange_to_ocrmask(int vdd_min, int vdd_max)
 
 	return mask;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_vddrange_to_ocrmask); */
+EXPORT_SYMBOL(mmc_vddrange_to_ocrmask);
 
 #ifdef CONFIG_REGULATOR
 
@@ -1753,7 +1753,7 @@ int mmc_regulator_get_ocrmask(struct regulator *supply)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_regulator_get_ocrmask); */
+EXPORT_SYMBOL(mmc_regulator_get_ocrmask);
 
 /**
  * mmc_regulator_set_ocr - set regulator to match host->ios voltage
@@ -1823,7 +1823,7 @@ int mmc_regulator_set_ocr(struct mmc_host *mmc,
 			"could not set regulator OCR (%d)\n", result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_regulator_set_ocr); */
+EXPORT_SYMBOL(mmc_regulator_set_ocr);
 
 #endif /* CONFIG_REGULATOR */
 
@@ -2072,7 +2072,7 @@ int mmc_resume_bus(struct mmc_host *host)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_resume_bus); */
+EXPORT_SYMBOL(mmc_resume_bus);
 
 /*
  * Assign a mmc bus handler to a host. Only one bus handler may control a
@@ -2143,7 +2143,7 @@ void mmc_detect_change(struct mmc_host *host, unsigned long delay)
 	mmc_schedule_delayed_work(&host->detect, delay);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_detect_change); */
+EXPORT_SYMBOL(mmc_detect_change);
 
 void mmc_init_erase(struct mmc_card *card)
 {
@@ -2518,7 +2518,7 @@ int mmc_erase(struct mmc_card *card, unsigned int from, unsigned int nr,
 
 	return mmc_do_erase(card, from, to, arg);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_erase); */
+EXPORT_SYMBOL(mmc_erase);
 
 int mmc_can_erase(struct mmc_card *card)
 {
@@ -2527,7 +2527,7 @@ int mmc_can_erase(struct mmc_card *card)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_erase); */
+EXPORT_SYMBOL(mmc_can_erase);
 
 int mmc_can_trim(struct mmc_card *card)
 {
@@ -2535,7 +2535,7 @@ int mmc_can_trim(struct mmc_card *card)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_trim); */
+EXPORT_SYMBOL(mmc_can_trim);
 
 int mmc_can_discard(struct mmc_card *card)
 {
@@ -2547,7 +2547,7 @@ int mmc_can_discard(struct mmc_card *card)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_discard); */
+EXPORT_SYMBOL(mmc_can_discard);
 
 int mmc_can_sanitize(struct mmc_card *card)
 {
@@ -2558,7 +2558,7 @@ int mmc_can_sanitize(struct mmc_card *card)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_sanitize); */
+EXPORT_SYMBOL(mmc_can_sanitize);
 
 int mmc_can_secure_erase_trim(struct mmc_card *card)
 {
@@ -2566,7 +2566,7 @@ int mmc_can_secure_erase_trim(struct mmc_card *card)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_secure_erase_trim); */
+EXPORT_SYMBOL(mmc_can_secure_erase_trim);
 
 int mmc_erase_group_aligned(struct mmc_card *card, unsigned int from,
 			    unsigned int nr)
@@ -2577,7 +2577,7 @@ int mmc_erase_group_aligned(struct mmc_card *card, unsigned int from,
 		return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_erase_group_aligned); */
+EXPORT_SYMBOL(mmc_erase_group_aligned);
 
 static unsigned int mmc_do_calc_max_discard(struct mmc_card *card,
 					    unsigned int arg)
@@ -2653,7 +2653,7 @@ unsigned int mmc_calc_max_discard(struct mmc_card *card)
 		 mmc_hostname(host), max_discard, host->max_discard_to);
 	return max_discard;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_calc_max_discard); */
+EXPORT_SYMBOL(mmc_calc_max_discard);
 
 int mmc_set_blocklen(struct mmc_card *card, unsigned int blocklen)
 {
@@ -2667,7 +2667,7 @@ int mmc_set_blocklen(struct mmc_card *card, unsigned int blocklen)
 	cmd.flags = MMC_RSP_SPI_R1 | MMC_RSP_R1 | MMC_CMD_AC;
 	return mmc_wait_for_cmd(card->host, &cmd, 5);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_set_blocklen); */
+EXPORT_SYMBOL(mmc_set_blocklen);
 
 int mmc_set_blockcount(struct mmc_card *card, unsigned int blockcount,
 			bool is_rel_write)
@@ -2681,7 +2681,7 @@ int mmc_set_blockcount(struct mmc_card *card, unsigned int blockcount,
 	cmd.flags = MMC_RSP_SPI_R1 | MMC_RSP_R1 | MMC_CMD_AC;
 	return mmc_wait_for_cmd(card->host, &cmd, 5);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_set_blockcount); */
+EXPORT_SYMBOL(mmc_set_blockcount);
 
 static void mmc_hw_reset_for_init(struct mmc_host *host)
 {
@@ -2707,7 +2707,7 @@ int mmc_can_reset(struct mmc_card *card)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_can_reset); */
+EXPORT_SYMBOL(mmc_can_reset);
 
 static int mmc_do_hw_reset(struct mmc_host *host, int check)
 {
@@ -2767,13 +2767,13 @@ int mmc_hw_reset(struct mmc_host *host)
 {
 	return mmc_do_hw_reset(host, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_hw_reset); */
+EXPORT_SYMBOL(mmc_hw_reset);
 
 int mmc_hw_reset_check(struct mmc_host *host)
 {
 	return mmc_do_hw_reset(host, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_hw_reset_check); */
+EXPORT_SYMBOL(mmc_hw_reset_check);
 
 /**
  * mmc_reset_clk_scale_stats() - reset clock scaling statistics
@@ -2784,7 +2784,7 @@ void mmc_reset_clk_scale_stats(struct mmc_host *host)
 	host->clk_scaling.busy_time_us = 0;
 	host->clk_scaling.window_time = jiffies;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_reset_clk_scale_stats); */
+EXPORT_SYMBOL_GPL(mmc_reset_clk_scale_stats);
 
 /**
  * mmc_get_max_frequency() - get max. frequency supported
@@ -2837,7 +2837,7 @@ unsigned long mmc_get_max_frequency(struct mmc_host *host)
 out:
 	return freq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_get_max_frequency); */
+EXPORT_SYMBOL_GPL(mmc_get_max_frequency);
 
 /**
  * mmc_get_min_frequency() - get min. frequency supported
@@ -3093,7 +3093,7 @@ void mmc_disable_clk_scaling(struct mmc_host *host)
 	cancel_delayed_work_sync(&host->clk_scaling.work);
 	host->clk_scaling.enable = false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_disable_clk_scaling); */
+EXPORT_SYMBOL_GPL(mmc_disable_clk_scaling);
 
 /**
  * mmc_can_scale_clk() - Check if clock scaling is initialized
@@ -3103,7 +3103,7 @@ bool mmc_can_scale_clk(struct mmc_host *host)
 {
 	return host->clk_scaling.initialized;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_can_scale_clk); */
+EXPORT_SYMBOL_GPL(mmc_can_scale_clk);
 
 /**
  * mmc_init_clk_scaling() - Initialize clock scaling
@@ -3129,7 +3129,7 @@ void mmc_init_clk_scaling(struct mmc_host *host)
 	host->clk_scaling.initialized = true;
 	pr_debug("%s: clk scaling enabled\n", mmc_hostname(host));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_init_clk_scaling); */
+EXPORT_SYMBOL_GPL(mmc_init_clk_scaling);
 
 /**
  * mmc_exit_clk_scaling() - Disable clock scaling
@@ -3142,7 +3142,7 @@ void mmc_exit_clk_scaling(struct mmc_host *host)
 	cancel_delayed_work_sync(&host->clk_scaling.work);
 	memset(&host->clk_scaling, 0, sizeof(host->clk_scaling));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmc_exit_clk_scaling); */
+EXPORT_SYMBOL_GPL(mmc_exit_clk_scaling);
 
 static int mmc_rescan_try_freq(struct mmc_host *host, unsigned freq)
 {
@@ -3266,7 +3266,7 @@ int mmc_detect_card_removed(struct mmc_host *host)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_detect_card_removed); */
+EXPORT_SYMBOL(mmc_detect_card_removed);
 
 void mmc_rescan(struct work_struct *work)
 {
@@ -3426,7 +3426,7 @@ int mmc_power_save_host(struct mmc_host *host)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_power_save_host); */
+EXPORT_SYMBOL(mmc_power_save_host);
 
 int mmc_power_restore_host(struct mmc_host *host)
 {
@@ -3450,7 +3450,7 @@ int mmc_power_restore_host(struct mmc_host *host)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_power_restore_host); */
+EXPORT_SYMBOL(mmc_power_restore_host);
 
 int mmc_card_awake(struct mmc_host *host)
 {
@@ -3468,7 +3468,7 @@ int mmc_card_awake(struct mmc_host *host)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_card_awake); */
+EXPORT_SYMBOL(mmc_card_awake);
 
 int mmc_card_sleep(struct mmc_host *host)
 {
@@ -3486,7 +3486,7 @@ int mmc_card_sleep(struct mmc_host *host)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_card_sleep); */
+EXPORT_SYMBOL(mmc_card_sleep);
 
 int mmc_card_can_sleep(struct mmc_host *host)
 {
@@ -3496,7 +3496,7 @@ int mmc_card_can_sleep(struct mmc_host *host)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_card_can_sleep); */
+EXPORT_SYMBOL(mmc_card_can_sleep);
 
 /*
  * Flush the cache to the non-volatile storage.
@@ -3531,7 +3531,7 @@ int mmc_flush_cache(struct mmc_card *card)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_flush_cache); */
+EXPORT_SYMBOL(mmc_flush_cache);
 
 /*
  * Turn the cache ON/OFF.
@@ -3582,7 +3582,7 @@ int mmc_cache_ctrl(struct mmc_host *host, u8 enable)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_cache_ctrl); */
+EXPORT_SYMBOL(mmc_cache_ctrl);
 
 #ifdef CONFIG_PM
 
@@ -3660,7 +3660,7 @@ stop_bkops_err:
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_suspend_host); */
+EXPORT_SYMBOL(mmc_suspend_host);
 
 /**
  *	mmc_resume_host - resume a previously suspended host
@@ -3708,7 +3708,7 @@ int mmc_resume_host(struct mmc_host *host)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_resume_host); */
+EXPORT_SYMBOL(mmc_resume_host);
 
 /* Do the card removal on suspend if card is assumed removeable
  * Do that in pm notifier while userspace isn't yet frozen, so we will be able
@@ -3814,7 +3814,7 @@ void mmc_set_embedded_sdio_data(struct mmc_host *host,
 	host->embedded_sdio_data.num_funcs = num_funcs;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_set_embedded_sdio_data); */
+EXPORT_SYMBOL(mmc_set_embedded_sdio_data);
 #endif
 
 #ifdef CONFIG_PM_RUNTIME
@@ -3849,7 +3849,7 @@ void mmc_rpm_hold(struct mmc_host *host, struct device *dev)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_rpm_hold); */
+EXPORT_SYMBOL(mmc_rpm_hold);
 
 void mmc_rpm_release(struct mmc_host *host, struct device *dev)
 {
@@ -3867,13 +3867,13 @@ void mmc_rpm_release(struct mmc_host *host, struct device *dev)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_rpm_release); */
+EXPORT_SYMBOL(mmc_rpm_release);
 #else
 void mmc_rpm_hold(struct mmc_host *host, struct device *dev) {}
-/* DISABLED: EXPORT_SYMBOL(mmc_rpm_hold); */
+EXPORT_SYMBOL(mmc_rpm_hold);
 
 void mmc_rpm_release(struct mmc_host *host, struct device *dev) {}
-/* DISABLED: EXPORT_SYMBOL(mmc_rpm_release); */
+EXPORT_SYMBOL(mmc_rpm_release);
 #endif
 
 /**
@@ -3977,7 +3977,7 @@ bkops_out:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_bkops_enable); */
+EXPORT_SYMBOL(mmc_bkops_enable);
 
 static int __init mmc_init(void)
 {

@@ -21,43 +21,43 @@ struct crypto_ahash *wcnss_wlan_crypto_alloc_ahash(const char *alg_name,
 {
 	return crypto_alloc_ahash(alg_name, type, mask);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_alloc_ahash); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_alloc_ahash);
 
 int wcnss_wlan_crypto_ahash_digest(struct ahash_request *req)
 {
 	return crypto_ahash_digest(req);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_ahash_digest); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_ahash_digest);
 
 void wcnss_wlan_crypto_free_ahash(struct crypto_ahash *tfm)
 {
 	crypto_free_ahash(tfm);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_free_ahash); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_free_ahash);
 
 int wcnss_wlan_crypto_ahash_setkey(struct crypto_ahash *tfm, const u8 *key,
 			unsigned int keylen)
 {
 	return crypto_ahash_setkey(tfm, key, keylen);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_ahash_setkey); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_ahash_setkey);
 
 struct crypto_ablkcipher *
 wcnss_wlan_crypto_alloc_ablkcipher(const char *alg_name, u32 type, u32 mask)
 {
 	return crypto_alloc_ablkcipher(alg_name, type, mask);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_alloc_ablkcipher); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_alloc_ablkcipher);
 
 void wcnss_wlan_ablkcipher_request_free(struct ablkcipher_request *req)
 {
 	ablkcipher_request_free(req);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_ablkcipher_request_free); */
+EXPORT_SYMBOL(wcnss_wlan_ablkcipher_request_free);
 
 void wcnss_wlan_crypto_free_ablkcipher(struct crypto_ablkcipher *tfm)
 {
 	crypto_free_ablkcipher(tfm);
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_crypto_free_ablkcipher); */
+EXPORT_SYMBOL(wcnss_wlan_crypto_free_ablkcipher);
 

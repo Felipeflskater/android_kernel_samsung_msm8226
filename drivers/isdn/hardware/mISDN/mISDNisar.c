@@ -1141,7 +1141,7 @@ mISDNisar_irq(struct isar_hw *isar)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNisar_irq); */
+EXPORT_SYMBOL(mISDNisar_irq);
 
 static void
 ftimer_handler(unsigned long data)
@@ -1712,7 +1712,7 @@ mISDNisar_init(struct isar_hw *isar, void *hw)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mISDNisar_init); */
+EXPORT_SYMBOL(mISDNisar_init);
 
 static int __init isar_mod_init(void)
 {

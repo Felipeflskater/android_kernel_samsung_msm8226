@@ -76,7 +76,7 @@ const char *print_ssid(char *buf, const char *ssid, u8 ssid_len)
 	*d = '\0';
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL(print_ssid); */
+EXPORT_SYMBOL(print_ssid);
 
 int lib80211_crypt_info_init(struct lib80211_crypt_info *info, char *name,
 				spinlock_t *lock)
@@ -92,7 +92,7 @@ int lib80211_crypt_info_init(struct lib80211_crypt_info *info, char *name,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_crypt_info_init); */
+EXPORT_SYMBOL(lib80211_crypt_info_init);
 
 void lib80211_crypt_info_free(struct lib80211_crypt_info *info)
 {
@@ -114,7 +114,7 @@ void lib80211_crypt_info_free(struct lib80211_crypt_info *info)
                 }
         }
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_crypt_info_free); */
+EXPORT_SYMBOL(lib80211_crypt_info_free);
 
 static void lib80211_crypt_deinit_entries(struct lib80211_crypt_info *info,
 					  int force)
@@ -191,7 +191,7 @@ void lib80211_crypt_delayed_deinit(struct lib80211_crypt_info *info,
 	}
 	spin_unlock_irqrestore(info->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_crypt_delayed_deinit); */
+EXPORT_SYMBOL(lib80211_crypt_delayed_deinit);
 
 int lib80211_register_crypto_ops(struct lib80211_crypto_ops *ops)
 {
@@ -213,7 +213,7 @@ int lib80211_register_crypto_ops(struct lib80211_crypto_ops *ops)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_register_crypto_ops); */
+EXPORT_SYMBOL(lib80211_register_crypto_ops);
 
 int lib80211_unregister_crypto_ops(struct lib80211_crypto_ops *ops)
 {
@@ -236,7 +236,7 @@ int lib80211_unregister_crypto_ops(struct lib80211_crypto_ops *ops)
 	kfree(alg);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_unregister_crypto_ops); */
+EXPORT_SYMBOL(lib80211_unregister_crypto_ops);
 
 struct lib80211_crypto_ops *lib80211_get_crypto_ops(const char *name)
 {
@@ -255,7 +255,7 @@ struct lib80211_crypto_ops *lib80211_get_crypto_ops(const char *name)
 	spin_unlock_irqrestore(&lib80211_crypto_lock, flags);
 	return alg->ops;
 }
-/* DISABLED: EXPORT_SYMBOL(lib80211_get_crypto_ops); */
+EXPORT_SYMBOL(lib80211_get_crypto_ops);
 
 static void *lib80211_crypt_null_init(int keyidx)
 {

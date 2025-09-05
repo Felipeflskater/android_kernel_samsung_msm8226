@@ -159,7 +159,7 @@ int ti_ssp_set_mode(struct device *dev, int mode)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_set_mode); */
+EXPORT_SYMBOL(ti_ssp_set_mode);
 
 /* Called to setup iosel2, caller must hold ssp->lock */
 static void __set_iosel2(struct ti_ssp *ssp, u32 mask, u32 val)
@@ -195,7 +195,7 @@ int ti_ssp_set_iosel(struct device *dev, u32 iosel)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_set_iosel); */
+EXPORT_SYMBOL(ti_ssp_set_iosel);
 
 int ti_ssp_load(struct device *dev, int offs, u32* prog, int len)
 {
@@ -224,7 +224,7 @@ int ti_ssp_load(struct device *dev, int offs, u32* prog, int len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_load); */
+EXPORT_SYMBOL(ti_ssp_load);
 
 int ti_ssp_raw_read(struct device *dev)
 {
@@ -234,7 +234,7 @@ int ti_ssp_raw_read(struct device *dev)
 
 	return (ssp_read(ssp, REG_IOSEL_2) >> shift) & 0xf;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_raw_read); */
+EXPORT_SYMBOL(ti_ssp_raw_read);
 
 int ti_ssp_raw_write(struct device *dev, u32 val)
 {
@@ -251,7 +251,7 @@ int ti_ssp_raw_write(struct device *dev, u32 val)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_raw_write); */
+EXPORT_SYMBOL(ti_ssp_raw_write);
 
 static inline int __xfer_done(struct ti_ssp *ssp, int port)
 {
@@ -299,7 +299,7 @@ int ti_ssp_run(struct device *dev, u32 pc, u32 input, u32 *output)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ti_ssp_run); */
+EXPORT_SYMBOL(ti_ssp_run);
 
 static irqreturn_t ti_ssp_interrupt(int irq, void *dev_data)
 {

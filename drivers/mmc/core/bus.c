@@ -291,7 +291,7 @@ int mmc_register_driver(struct mmc_driver *drv)
 	return driver_register(&drv->drv);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_register_driver); */
+EXPORT_SYMBOL(mmc_register_driver);
 
 /**
  *	mmc_unregister_driver - unregister a media driver
@@ -303,7 +303,7 @@ void mmc_unregister_driver(struct mmc_driver *drv)
 	driver_unregister(&drv->drv);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_unregister_driver); */
+EXPORT_SYMBOL(mmc_unregister_driver);
 
 static void mmc_release_card(struct device *dev)
 {

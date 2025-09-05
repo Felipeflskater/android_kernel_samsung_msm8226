@@ -680,7 +680,7 @@ exit:
 		pdata->deinit_hw(data_bus);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(bmp18x_probe); */
+EXPORT_SYMBOL(bmp18x_probe);
 
 int bmp18x_remove(struct device *dev)
 {
@@ -693,7 +693,7 @@ int bmp18x_remove(struct device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bmp18x_remove); */
+EXPORT_SYMBOL(bmp18x_remove);
 
 #ifdef CONFIG_PM
 int bmp18x_disable(struct device *dev)
@@ -707,7 +707,7 @@ int bmp18x_disable(struct device *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(bmp18x_disable); */
+EXPORT_SYMBOL(bmp18x_disable);
 
 int bmp18x_enable(struct device *dev)
 {
@@ -720,7 +720,7 @@ int bmp18x_enable(struct device *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(bmp18x_enable); */
+EXPORT_SYMBOL(bmp18x_enable);
 #endif
 
 #ifdef CONFIG_HAS_EARLYSUSPEND

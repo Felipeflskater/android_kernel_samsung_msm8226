@@ -481,8 +481,8 @@ int restore_vga (struct vgastate *state)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(save_vga); */
-/* DISABLED: EXPORT_SYMBOL(restore_vga); */
+EXPORT_SYMBOL(save_vga);
+EXPORT_SYMBOL(restore_vga);
 
 MODULE_AUTHOR("James Simmons <jsimmons@users.sf.net>");
 MODULE_DESCRIPTION("VGA State Save/Restore");

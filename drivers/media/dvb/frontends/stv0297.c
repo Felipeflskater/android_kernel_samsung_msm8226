@@ -721,4 +721,4 @@ MODULE_DESCRIPTION("ST STV0297 DVB-C Demodulator driver");
 MODULE_AUTHOR("Dennis Noermann and Andrew de Quincey");
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(stv0297_attach); */
+EXPORT_SYMBOL(stv0297_attach);

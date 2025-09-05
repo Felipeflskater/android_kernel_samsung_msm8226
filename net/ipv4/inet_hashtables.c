@@ -102,7 +102,7 @@ void inet_put_port(struct sock *sk)
 	__inet_put_port(sk);
 	local_bh_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(inet_put_port); */
+EXPORT_SYMBOL(inet_put_port);
 
 int __inet_inherit_port(struct sock *sk, struct sock *child)
 {
@@ -141,7 +141,7 @@ int __inet_inherit_port(struct sock *sk, struct sock *child)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__inet_inherit_port); */
+EXPORT_SYMBOL_GPL(__inet_inherit_port);
 
 static inline int compute_score(struct sock *sk, struct net *net,
 				const unsigned short hnum, const __be32 daddr,
@@ -217,7 +217,7 @@ begin:
 	rcu_read_unlock();
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__inet_lookup_listener); */
+EXPORT_SYMBOL_GPL(__inet_lookup_listener);
 
 struct sock * __inet_lookup_established(struct net *net,
 				  struct inet_hashinfo *hashinfo,
@@ -288,7 +288,7 @@ out:
 	rcu_read_unlock();
 	return sk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__inet_lookup_established); */
+EXPORT_SYMBOL_GPL(__inet_lookup_established);
 
 /* called with local bh disabled */
 static int __inet_check_established(struct inet_timewait_death_row *death_row,
@@ -400,7 +400,7 @@ int __inet_hash_nolisten(struct sock *sk, struct inet_timewait_sock *tw)
 	sock_prot_inuse_add(sock_net(sk), sk->sk_prot, 1);
 	return twrefcnt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__inet_hash_nolisten); */
+EXPORT_SYMBOL_GPL(__inet_hash_nolisten);
 
 static void __inet_hash(struct sock *sk)
 {
@@ -429,7 +429,7 @@ void inet_hash(struct sock *sk)
 		local_bh_enable();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_hash); */
+EXPORT_SYMBOL_GPL(inet_hash);
 
 void inet_unhash(struct sock *sk)
 {
@@ -451,7 +451,7 @@ void inet_unhash(struct sock *sk)
 		sock_prot_inuse_add(sock_net(sk), sk->sk_prot, -1);
 	spin_unlock_bh(lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_unhash); */
+EXPORT_SYMBOL_GPL(inet_unhash);
 
 int __inet_hash_connect(struct inet_timewait_death_row *death_row,
 		struct sock *sk, u32 port_offset,
@@ -570,7 +570,7 @@ int inet_hash_connect(struct inet_timewait_death_row *death_row,
 	return __inet_hash_connect(death_row, sk, inet_sk_port_offset(sk),
 			__inet_check_established, __inet_hash_nolisten);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_hash_connect); */
+EXPORT_SYMBOL_GPL(inet_hash_connect);
 
 void inet_hashinfo_init(struct inet_hashinfo *h)
 {
@@ -583,4 +583,4 @@ void inet_hashinfo_init(struct inet_hashinfo *h)
 				      i + LISTENING_NULLS_BASE);
 		}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_hashinfo_init); */
+EXPORT_SYMBOL_GPL(inet_hashinfo_init);

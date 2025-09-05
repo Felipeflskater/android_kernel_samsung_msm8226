@@ -28,7 +28,7 @@
  */
 
 struct dma_channel dma_ch[MAX_DMA_CHANNELS];
-/* DISABLED: EXPORT_SYMBOL(dma_ch); */
+EXPORT_SYMBOL(dma_ch);
 
 static int __init blackfin_dma_init(void)
 {
@@ -145,7 +145,7 @@ int request_dma(unsigned int channel, const char *device_id)
 	pr_debug("request_dma() : END\n");
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(request_dma); */
+EXPORT_SYMBOL(request_dma);
 
 int set_dma_callback(unsigned int channel, irq_handler_t callback, void *data)
 {
@@ -165,7 +165,7 @@ int set_dma_callback(unsigned int channel, irq_handler_t callback, void *data)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(set_dma_callback); */
+EXPORT_SYMBOL(set_dma_callback);
 
 /**
  *	clear_dma_buffer - clear DMA fifos for specified channel
@@ -198,7 +198,7 @@ void free_dma(unsigned int channel)
 
 	pr_debug("freedma() : END\n");
 }
-/* DISABLED: EXPORT_SYMBOL(free_dma); */
+EXPORT_SYMBOL(free_dma);
 
 #ifdef CONFIG_PM
 # ifndef MAX_DMA_SUSPEND_CHANNELS
@@ -476,7 +476,7 @@ void *dma_memcpy(void *pdst, const void *psrc, size_t size)
 
 	return dma_memcpy_nocache(pdst, psrc, size);
 }
-/* DISABLED: EXPORT_SYMBOL(dma_memcpy); */
+EXPORT_SYMBOL(dma_memcpy);
 
 /**
  *	dma_memcpy_nocache - DMA memcpy under mutex lock
@@ -497,7 +497,7 @@ void *dma_memcpy_nocache(void *pdst, const void *psrc, size_t size)
 	_dma_memcpy(pdst + bulk, psrc + bulk, rest);
 	return pdst;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_memcpy_nocache); */
+EXPORT_SYMBOL(dma_memcpy_nocache);
 
 /**
  *	safe_dma_memcpy - DMA memcpy w/argument checking
@@ -512,7 +512,7 @@ void *safe_dma_memcpy(void *dst, const void *src, size_t size)
 		return NULL;
 	return dma_memcpy(dst, src, size);
 }
-/* DISABLED: EXPORT_SYMBOL(safe_dma_memcpy); */
+EXPORT_SYMBOL(safe_dma_memcpy);
 
 static void _dma_out(unsigned long addr, unsigned long buf, unsigned short len,
                      u16 size, u16 dma_size)
@@ -533,7 +533,7 @@ void dma_##io##s##bwl(unsigned long addr, cnst void *buf, unsigned short len) \
 { \
 	_dma_##io(addr, (unsigned long)buf, len, isize, WDSIZE_##dmasize); \
 } \
-/* DISABLED: EXPORT_SYMBOL(dma_##io##s##bwl) */
+EXPORT_SYMBOL(dma_##io##s##bwl)
 MAKE_DMA_IO(out, b, 1,  8, const);
 MAKE_DMA_IO(in,  b, 1,  8, );
 MAKE_DMA_IO(out, w, 2, 16, const);

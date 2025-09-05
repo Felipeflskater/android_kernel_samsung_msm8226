@@ -141,7 +141,7 @@ ide_startstop_t ide_error(ide_drive_t *drive, const char *msg, u8 stat)
 
 	return __ide_error(drive, rq, stat, err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_error); */
+EXPORT_SYMBOL_GPL(ide_error);
 
 static inline void ide_complete_drive_reset(ide_drive_t *drive, int err)
 {
@@ -439,4 +439,4 @@ ide_startstop_t ide_do_reset(ide_drive_t *drive)
 {
 	return do_reset1(drive, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ide_do_reset); */
+EXPORT_SYMBOL(ide_do_reset);

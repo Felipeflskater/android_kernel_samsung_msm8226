@@ -45,7 +45,7 @@ int adie_codec_open(struct adie_codec_dev_profile *profile,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_open); */
+EXPORT_SYMBOL(adie_codec_open);
 
 int adie_codec_close(struct adie_codec_path *path_ptr)
 {
@@ -59,7 +59,7 @@ int adie_codec_close(struct adie_codec_path *path_ptr)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_close); */
+EXPORT_SYMBOL(adie_codec_close);
 
 int adie_codec_set_device_digital_volume(struct adie_codec_path *path_ptr,
 		u32 num_channels, u32 vol_percentage /* in percentage */)
@@ -78,7 +78,7 @@ int adie_codec_set_device_digital_volume(struct adie_codec_path *path_ptr,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_set_device_digital_volume); */
+EXPORT_SYMBOL(adie_codec_set_device_digital_volume);
 
 int adie_codec_set_device_analog_volume(struct adie_codec_path *path_ptr,
 		u32 num_channels, u32 volume /* in percentage */)
@@ -97,7 +97,7 @@ int adie_codec_set_device_analog_volume(struct adie_codec_path *path_ptr,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_set_device_analog_volume); */
+EXPORT_SYMBOL(adie_codec_set_device_analog_volume);
 
 int adie_codec_setpath(struct adie_codec_path *path_ptr, u32 freq_plan, u32 osr)
 {
@@ -114,7 +114,7 @@ int adie_codec_setpath(struct adie_codec_path *path_ptr, u32 freq_plan, u32 osr)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_setpath); */
+EXPORT_SYMBOL(adie_codec_setpath);
 
 u32 adie_codec_freq_supported(struct adie_codec_dev_profile *profile,
 	u32 requested_freq)
@@ -130,7 +130,7 @@ u32 adie_codec_freq_supported(struct adie_codec_dev_profile *profile,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_freq_supported); */
+EXPORT_SYMBOL(adie_codec_freq_supported);
 
 int adie_codec_enable_sidetone(struct adie_codec_path *rx_path_ptr,
 	u32 enable)
@@ -146,7 +146,7 @@ int adie_codec_enable_sidetone(struct adie_codec_path *rx_path_ptr,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_enable_sidetone); */
+EXPORT_SYMBOL(adie_codec_enable_sidetone);
 
 int adie_codec_enable_anc(struct adie_codec_path *rx_path_ptr,
 	u32 enable, struct adie_codec_anc_data *calibration_writes)
@@ -161,7 +161,7 @@ int adie_codec_enable_anc(struct adie_codec_path *rx_path_ptr,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_enable_anc); */
+EXPORT_SYMBOL(adie_codec_enable_anc);
 
 int adie_codec_proceed_stage(struct adie_codec_path *path_ptr, u32 state)
 {
@@ -176,7 +176,7 @@ int adie_codec_proceed_stage(struct adie_codec_path *path_ptr, u32 state)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_proceed_stage); */
+EXPORT_SYMBOL(adie_codec_proceed_stage);
 
 int adie_codec_set_master_mode(struct adie_codec_path *path_ptr, u8 master)
 {
@@ -191,6 +191,6 @@ int adie_codec_set_master_mode(struct adie_codec_path *path_ptr, u8 master)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(adie_codec_set_master_mode); */
+EXPORT_SYMBOL(adie_codec_set_master_mode);
 
 

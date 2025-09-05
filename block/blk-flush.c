@@ -452,4 +452,4 @@ int blkdev_issue_flush(struct block_device *bdev, gfp_t gfp_mask,
 	bio_put(bio);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(blkdev_issue_flush); */
+EXPORT_SYMBOL(blkdev_issue_flush);

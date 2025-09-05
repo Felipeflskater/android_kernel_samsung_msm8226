@@ -1085,7 +1085,7 @@ int msm_charger_notify_event(struct msm_hardware_charger *hw_chg,
 	queue_work(msm_chg.event_wq_thread, &msm_chg.queue_work);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_charger_notify_event); */
+EXPORT_SYMBOL(msm_charger_notify_event);
 
 int msm_charger_register(struct msm_hardware_charger *hw_chg)
 {
@@ -1143,7 +1143,7 @@ out:
 	kfree(priv);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_charger_register); */
+EXPORT_SYMBOL(msm_charger_register);
 
 void msm_battery_gauge_register(struct msm_battery_gauge *batt_gauge)
 {
@@ -1165,13 +1165,13 @@ void msm_battery_gauge_register(struct msm_battery_gauge *batt_gauge)
 		determine_initial_batt_status();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(msm_battery_gauge_register); */
+EXPORT_SYMBOL(msm_battery_gauge_register);
 
 void msm_battery_gauge_unregister(struct msm_battery_gauge *batt_gauge)
 {
 	msm_batt_gauge = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_battery_gauge_unregister); */
+EXPORT_SYMBOL(msm_battery_gauge_unregister);
 
 int msm_charger_unregister(struct msm_hardware_charger *hw_chg)
 {
@@ -1185,7 +1185,7 @@ int msm_charger_unregister(struct msm_hardware_charger *hw_chg)
 	kfree(priv);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_charger_unregister); */
+EXPORT_SYMBOL(msm_charger_unregister);
 
 static int msm_charger_suspend(struct device *dev)
 {

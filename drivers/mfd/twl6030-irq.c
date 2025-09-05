@@ -259,7 +259,7 @@ int twl6030_interrupt_unmask(u8 bit_mask, u8 offset)
 			REG_INT_STS_A + offset); /* unmask INT_MSK_A/B/C */
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(twl6030_interrupt_unmask); */
+EXPORT_SYMBOL(twl6030_interrupt_unmask);
 
 int twl6030_interrupt_mask(u8 bit_mask, u8 offset)
 {
@@ -272,7 +272,7 @@ int twl6030_interrupt_mask(u8 bit_mask, u8 offset)
 			REG_INT_STS_A + offset); /* mask INT_MSK_A/B/C */
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(twl6030_interrupt_mask); */
+EXPORT_SYMBOL(twl6030_interrupt_mask);
 
 int twl6030_mmc_card_detect_config(void)
 {
@@ -320,7 +320,7 @@ int twl6030_mmc_card_detect_config(void)
 
 	return twl6030_irq_base + MMCDETECT_INTR_OFFSET;
 }
-/* DISABLED: EXPORT_SYMBOL(twl6030_mmc_card_detect_config); */
+EXPORT_SYMBOL(twl6030_mmc_card_detect_config);
 
 int twl6030_mmc_card_detect(struct device *dev, int slot)
 {
@@ -345,7 +345,7 @@ int twl6030_mmc_card_detect(struct device *dev, int slot)
 		ret = read_reg & STS_MMC;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(twl6030_mmc_card_detect); */
+EXPORT_SYMBOL(twl6030_mmc_card_detect);
 
 int twl6030_init_irq(struct device *dev, int irq_num)
 {

@@ -412,7 +412,7 @@ void __nand_calculate_ecc(const unsigned char *buf, unsigned int eccsize,
 		    (invparity[rp17] << 1) |
 		    (invparity[rp16] << 0);
 }
-/* DISABLED: EXPORT_SYMBOL(__nand_calculate_ecc); */
+EXPORT_SYMBOL(__nand_calculate_ecc);
 
 /**
  * nand_calculate_ecc - [NAND Interface] Calculate 3-byte ECC for 256/512-byte
@@ -429,7 +429,7 @@ int nand_calculate_ecc(struct mtd_info *mtd, const unsigned char *buf,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nand_calculate_ecc); */
+EXPORT_SYMBOL(nand_calculate_ecc);
 
 /**
  * __nand_correct_data - [NAND Interface] Detect and correct bit error(s)
@@ -510,7 +510,7 @@ int __nand_correct_data(unsigned char *buf,
 	printk(KERN_ERR "uncorrectable error : ");
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(__nand_correct_data); */
+EXPORT_SYMBOL(__nand_correct_data);
 
 /**
  * nand_correct_data - [NAND Interface] Detect and correct bit error(s)
@@ -527,7 +527,7 @@ int nand_correct_data(struct mtd_info *mtd, unsigned char *buf,
 	return __nand_correct_data(buf, read_ecc, calc_ecc,
 				   ((struct nand_chip *)mtd->priv)->ecc.size);
 }
-/* DISABLED: EXPORT_SYMBOL(nand_correct_data); */
+EXPORT_SYMBOL(nand_correct_data);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Frans Meulenbroeks <fransmeulenbroeks@gmail.com>");

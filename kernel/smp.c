@@ -349,7 +349,7 @@ int smp_call_function_single(int cpu, smp_call_func_t func, void *info,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(smp_call_function_single); */
+EXPORT_SYMBOL(smp_call_function_single);
 
 /*
  * smp_call_function_any - Run a function on any of the given cpus
@@ -394,7 +394,7 @@ call:
 	put_cpu();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(smp_call_function_any); */
+EXPORT_SYMBOL_GPL(smp_call_function_any);
 
 /**
  * __smp_call_function_single(): Run a function on a specific CPU
@@ -565,7 +565,7 @@ void smp_call_function_many(const struct cpumask *mask,
 	if (wait)
 		csd_lock_wait(&data->csd);
 }
-/* DISABLED: EXPORT_SYMBOL(smp_call_function_many); */
+EXPORT_SYMBOL(smp_call_function_many);
 
 /**
  * smp_call_function(): Run a function on all other CPUs.
@@ -590,7 +590,7 @@ int smp_call_function(smp_call_func_t func, void *info, int wait)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(smp_call_function); */
+EXPORT_SYMBOL(smp_call_function);
 
 void ipi_call_lock(void)
 {
@@ -615,7 +615,7 @@ void ipi_call_unlock_irq(void)
 
 /* Setup configured maximum number of CPUs to activate */
 unsigned int setup_max_cpus = NR_CPUS;
-/* DISABLED: EXPORT_SYMBOL(setup_max_cpus); */
+EXPORT_SYMBOL(setup_max_cpus);
 
 
 /*
@@ -668,7 +668,7 @@ early_param("maxcpus", maxcpus);
 
 /* Setup number of possible processor ids */
 int nr_cpu_ids __read_mostly = NR_CPUS;
-/* DISABLED: EXPORT_SYMBOL(nr_cpu_ids); */
+EXPORT_SYMBOL(nr_cpu_ids);
 
 /* An arch may set nr_cpu_ids earlier if needed, so this would be redundant */
 void __init setup_nr_cpu_ids(void)
@@ -712,7 +712,7 @@ int on_each_cpu(void (*func) (void *info), void *info, int wait)
 	preempt_enable();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(on_each_cpu); */
+EXPORT_SYMBOL(on_each_cpu);
 
 /**
  * on_each_cpu_mask(): Run a function on processors specified by
@@ -741,7 +741,7 @@ void on_each_cpu_mask(const struct cpumask *mask, smp_call_func_t func,
 	}
 	put_cpu();
 }
-/* DISABLED: EXPORT_SYMBOL(on_each_cpu_mask); */
+EXPORT_SYMBOL(on_each_cpu_mask);
 
 /*
  * on_each_cpu_cond(): Call a function on each processor for which
@@ -802,4 +802,4 @@ void on_each_cpu_cond(bool (*cond_func)(int cpu, void *info),
 		preempt_enable();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(on_each_cpu_cond); */
+EXPORT_SYMBOL(on_each_cpu_cond);

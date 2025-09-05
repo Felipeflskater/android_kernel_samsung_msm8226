@@ -856,7 +856,7 @@ static int __init sm712vga_setup(char *options)
 
 	return -1;
 }
-/* DISABLED: __setup("vga=", sm712vga_setup); */ */
+__setup("vga=", sm712vga_setup);
 
 /* Jason (08/13/2009)
  * Original init function changed to probe method to be used by pci_drv

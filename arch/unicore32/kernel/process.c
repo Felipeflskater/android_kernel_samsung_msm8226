@@ -79,7 +79,7 @@ int __init reboot_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("reboot=", reboot_setup); */ */
+__setup("reboot=", reboot_setup);
 
 void machine_halt(void)
 {
@@ -303,7 +303,7 @@ int dump_fpu(struct pt_regs *regs, elf_fpregset_t *fp)
 #endif
 	return used_math != 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
+EXPORT_SYMBOL(dump_fpu);
 
 /*
  * Shuffle the argument into the correct register before calling the
@@ -339,7 +339,7 @@ pid_t kernel_thread(int (*fn)(void *), void *arg, unsigned long flags)
 
 	return do_fork(flags|CLONE_VM|CLONE_UNTRACED, 0, &regs, 0, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 unsigned long get_wchan(struct task_struct *p)
 {

@@ -88,7 +88,7 @@ int hvcs_free_partner_info(struct list_head *head)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hvcs_free_partner_info); */
+EXPORT_SYMBOL(hvcs_free_partner_info);
 
 /* Helper function for hvcs_get_partner_info */
 static int hvcs_next_partner(uint32_t unit_address,
@@ -199,7 +199,7 @@ int hvcs_get_partner_info(uint32_t unit_address, struct list_head *head,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hvcs_get_partner_info); */
+EXPORT_SYMBOL(hvcs_get_partner_info);
 
 /**
  * hvcs_register_connection - establish a connection between this vty-server and
@@ -230,7 +230,7 @@ int hvcs_register_connection( uint32_t unit_address,
 				p_partition_ID, p_unit_address);
 	return hvcs_convert(retval);
 }
-/* DISABLED: EXPORT_SYMBOL(hvcs_register_connection); */
+EXPORT_SYMBOL(hvcs_register_connection);
 
 /**
  * hvcs_free_connection - free the connection between a vty-server and vty
@@ -248,4 +248,4 @@ int hvcs_free_connection(uint32_t unit_address)
 	retval = plpar_hcall_norets(H_FREE_VTERM, unit_address);
 	return hvcs_convert(retval);
 }
-/* DISABLED: EXPORT_SYMBOL(hvcs_free_connection); */
+EXPORT_SYMBOL(hvcs_free_connection);

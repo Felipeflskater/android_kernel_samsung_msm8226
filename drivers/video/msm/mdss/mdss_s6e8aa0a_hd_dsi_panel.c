@@ -2425,7 +2425,7 @@ int is_lcd_attached(void)
 {
 	return lcd_connected_status;
 }
-/* DISABLED: EXPORT_SYMBOL(is_lcd_attached); */
+EXPORT_SYMBOL(is_lcd_attached);
 
 static int __init lcd_attached_status(char *state)
 {
@@ -2443,7 +2443,7 @@ static int __init lcd_attached_status(char *state)
 				"lcd_attached" : "lcd_detached");
 	return 1;
 }
-/* DISABLED: __setup("lcd_attached=", lcd_attached_status); */ */
+__setup("lcd_attached=", lcd_attached_status);
 
 static int __init detect_lcd_panel_vendor(char* read_id)
 {
@@ -2462,7 +2462,7 @@ static int __init detect_lcd_panel_vendor(char* read_id)
 
 	return 1;
 }
-/* DISABLED: __setup("lcd_id=0x", detect_lcd_panel_vendor); */ */
+__setup("lcd_id=0x", detect_lcd_panel_vendor);
 
 #endif
 

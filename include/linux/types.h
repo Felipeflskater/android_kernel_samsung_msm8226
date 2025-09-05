@@ -35,9 +35,7 @@ typedef __kernel_timer_t	timer_t;
 typedef __kernel_clockid_t	clockid_t;
 typedef __kernel_mqd_t		mqd_t;
 
-#ifndef __cplusplus
-#define bool _Bool
-#endif
+typedef _Bool			bool;
 
 typedef __kernel_uid32_t	uid_t;
 typedef __kernel_gid32_t	gid_t;
@@ -260,14 +258,3 @@ struct rcu_head {
 #endif	/* __KERNEL__ */
 #endif /*  __ASSEMBLY__ */
 #endif /* _LINUX_TYPES_H */
-
-/* Tipos adicionais */
-#ifndef bool
-typedef _Bool bool;
-#define true 1
-#define false 0
-#endif
-
-#ifndef size_t
-typedef unsigned long size_t;
-#endif

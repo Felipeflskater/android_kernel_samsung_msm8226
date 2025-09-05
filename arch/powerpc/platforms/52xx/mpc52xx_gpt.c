@@ -391,7 +391,7 @@ struct mpc52xx_gpt_priv *mpc52xx_gpt_from_irq(int irq)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_gpt_from_irq); */
+EXPORT_SYMBOL(mpc52xx_gpt_from_irq);
 
 static int mpc52xx_gpt_do_start(struct mpc52xx_gpt_priv *gpt, u64 period,
 				int continuous, int as_wdt)
@@ -468,7 +468,7 @@ int mpc52xx_gpt_start_timer(struct mpc52xx_gpt_priv *gpt, u64 period,
 {
 	return mpc52xx_gpt_do_start(gpt, period, continuous, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_gpt_start_timer); */
+EXPORT_SYMBOL(mpc52xx_gpt_start_timer);
 
 /**
  * mpc52xx_gpt_stop_timer - Stop a gpt
@@ -491,7 +491,7 @@ int mpc52xx_gpt_stop_timer(struct mpc52xx_gpt_priv *gpt)
 	spin_unlock_irqrestore(&gpt->lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_gpt_stop_timer); */
+EXPORT_SYMBOL(mpc52xx_gpt_stop_timer);
 
 /**
  * mpc52xx_gpt_timer_period - Read the timer period
@@ -517,7 +517,7 @@ u64 mpc52xx_gpt_timer_period(struct mpc52xx_gpt_priv *gpt)
 	do_div(period, (u64)gpt->ipb_freq);
 	return period;
 }
-/* DISABLED: EXPORT_SYMBOL(mpc52xx_gpt_timer_period); */
+EXPORT_SYMBOL(mpc52xx_gpt_timer_period);
 
 #if defined(CONFIG_MPC5200_WDT)
 /***********************************************************************

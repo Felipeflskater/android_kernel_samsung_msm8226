@@ -41,7 +41,7 @@ int mca_register_driver(struct mca_driver *mca_drv)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mca_register_driver); */
+EXPORT_SYMBOL(mca_register_driver);
 
 int mca_register_driver_integrated(struct mca_driver *mca_driver,
 				   int integrated_id)
@@ -53,11 +53,11 @@ int mca_register_driver_integrated(struct mca_driver *mca_driver,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(mca_register_driver_integrated); */
+EXPORT_SYMBOL(mca_register_driver_integrated);
 
 void mca_unregister_driver(struct mca_driver *mca_drv)
 {
 	if (MCA_bus)
 		driver_unregister(&mca_drv->driver);
 }
-/* DISABLED: EXPORT_SYMBOL(mca_unregister_driver); */
+EXPORT_SYMBOL(mca_unregister_driver);

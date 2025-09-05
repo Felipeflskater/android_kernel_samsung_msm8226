@@ -73,7 +73,7 @@ struct bus_type mca_bus_type = {
 	.name  = "MCA",
 	.match = mca_bus_match,
 };
-/* DISABLED: EXPORT_SYMBOL (mca_bus_type); */
+EXPORT_SYMBOL (mca_bus_type);
 
 static ssize_t mca_show_pos_id(struct device *dev, struct device_attribute *attr, char *buf)
 {

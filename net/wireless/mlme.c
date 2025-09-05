@@ -28,7 +28,7 @@ void cfg80211_send_rx_auth(struct net_device *dev, const u8 *buf, size_t len)
 
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_rx_auth); */
+EXPORT_SYMBOL(cfg80211_send_rx_auth);
 
 void cfg80211_send_rx_assoc(struct net_device *dev, struct cfg80211_bss *bss,
 			    const u8 *buf, size_t len)
@@ -85,7 +85,7 @@ void cfg80211_send_rx_assoc(struct net_device *dev, struct cfg80211_bss *bss,
  out:
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_rx_assoc); */
+EXPORT_SYMBOL(cfg80211_send_rx_assoc);
 
 void __cfg80211_send_deauth(struct net_device *dev,
 				   const u8 *buf, size_t len)
@@ -123,7 +123,7 @@ void __cfg80211_send_deauth(struct net_device *dev,
 					  false, NULL);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__cfg80211_send_deauth); */
+EXPORT_SYMBOL(__cfg80211_send_deauth);
 
 void cfg80211_send_deauth(struct net_device *dev, const u8 *buf, size_t len)
 {
@@ -133,7 +133,7 @@ void cfg80211_send_deauth(struct net_device *dev, const u8 *buf, size_t len)
 	__cfg80211_send_deauth(dev, buf, len);
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_deauth); */
+EXPORT_SYMBOL(cfg80211_send_deauth);
 
 void __cfg80211_send_disassoc(struct net_device *dev,
 				     const u8 *buf, size_t len)
@@ -168,7 +168,7 @@ void __cfg80211_send_disassoc(struct net_device *dev,
 	from_ap = memcmp(mgmt->sa, dev->dev_addr, ETH_ALEN) != 0;
 	__cfg80211_disconnected(dev, NULL, 0, reason_code, from_ap);
 }
-/* DISABLED: EXPORT_SYMBOL(__cfg80211_send_disassoc); */
+EXPORT_SYMBOL(__cfg80211_send_disassoc);
 
 void cfg80211_send_disassoc(struct net_device *dev, const u8 *buf, size_t len)
 {
@@ -178,7 +178,7 @@ void cfg80211_send_disassoc(struct net_device *dev, const u8 *buf, size_t len)
 	__cfg80211_send_disassoc(dev, buf, len);
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_disassoc); */
+EXPORT_SYMBOL(cfg80211_send_disassoc);
 
 void cfg80211_send_unprot_deauth(struct net_device *dev, const u8 *buf,
 				 size_t len)
@@ -189,7 +189,7 @@ void cfg80211_send_unprot_deauth(struct net_device *dev, const u8 *buf,
 
 	nl80211_send_unprot_deauth(rdev, dev, buf, len, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_unprot_deauth); */
+EXPORT_SYMBOL(cfg80211_send_unprot_deauth);
 
 void cfg80211_send_unprot_disassoc(struct net_device *dev, const u8 *buf,
 				   size_t len)
@@ -200,7 +200,7 @@ void cfg80211_send_unprot_disassoc(struct net_device *dev, const u8 *buf,
 
 	nl80211_send_unprot_disassoc(rdev, dev, buf, len, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_unprot_disassoc); */
+EXPORT_SYMBOL(cfg80211_send_unprot_disassoc);
 
 void cfg80211_send_auth_timeout(struct net_device *dev, const u8 *addr)
 {
@@ -218,7 +218,7 @@ void cfg80211_send_auth_timeout(struct net_device *dev, const u8 *addr)
 
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_auth_timeout); */
+EXPORT_SYMBOL(cfg80211_send_auth_timeout);
 
 void cfg80211_send_assoc_timeout(struct net_device *dev, const u8 *addr)
 {
@@ -236,7 +236,7 @@ void cfg80211_send_assoc_timeout(struct net_device *dev, const u8 *addr)
 
 	wdev_unlock(wdev);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_send_assoc_timeout); */
+EXPORT_SYMBOL(cfg80211_send_assoc_timeout);
 
 void cfg80211_michael_mic_failure(struct net_device *dev, const u8 *addr,
 				  enum nl80211_key_type key_type, int key_id,
@@ -262,7 +262,7 @@ void cfg80211_michael_mic_failure(struct net_device *dev, const u8 *addr,
 
 	nl80211_michael_mic_failure(rdev, dev, addr, key_type, key_id, tsc, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_michael_mic_failure); */
+EXPORT_SYMBOL(cfg80211_michael_mic_failure);
 
 /* some MLME handling for userspace SME */
 int __cfg80211_mlme_auth(struct cfg80211_registered_device *rdev,
@@ -561,7 +561,7 @@ void cfg80211_ready_on_channel(struct net_device *dev, u64 cookie,
 	nl80211_send_remain_on_channel(rdev, dev, cookie, chan, channel_type,
 				       duration, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_ready_on_channel); */
+EXPORT_SYMBOL(cfg80211_ready_on_channel);
 
 void cfg80211_remain_on_channel_expired(struct net_device *dev,
 					u64 cookie,
@@ -575,7 +575,7 @@ void cfg80211_remain_on_channel_expired(struct net_device *dev,
 	nl80211_send_remain_on_channel_cancel(rdev, dev, cookie, chan,
 					      channel_type, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_remain_on_channel_expired); */
+EXPORT_SYMBOL(cfg80211_remain_on_channel_expired);
 
 void cfg80211_new_sta(struct net_device *dev, const u8 *mac_addr,
 		      struct station_info *sinfo, gfp_t gfp)
@@ -585,7 +585,7 @@ void cfg80211_new_sta(struct net_device *dev, const u8 *mac_addr,
 
 	nl80211_send_sta_event(rdev, dev, mac_addr, sinfo, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_new_sta); */
+EXPORT_SYMBOL(cfg80211_new_sta);
 
 void cfg80211_del_sta(struct net_device *dev, const u8 *mac_addr, gfp_t gfp)
 {
@@ -594,7 +594,7 @@ void cfg80211_del_sta(struct net_device *dev, const u8 *mac_addr, gfp_t gfp)
 
 	nl80211_send_sta_del_event(rdev, dev, mac_addr, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_del_sta); */
+EXPORT_SYMBOL(cfg80211_del_sta);
 
 struct cfg80211_mgmt_registration {
 	struct list_head list;
@@ -867,7 +867,7 @@ bool cfg80211_rx_mgmt(struct net_device *dev, int freq, int sig_mbm,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_rx_mgmt); */
+EXPORT_SYMBOL(cfg80211_rx_mgmt);
 
 void cfg80211_mgmt_tx_status(struct net_device *dev, u64 cookie,
 			     const u8 *buf, size_t len, bool ack, gfp_t gfp)
@@ -879,7 +879,7 @@ void cfg80211_mgmt_tx_status(struct net_device *dev, u64 cookie,
 	/* Indicate TX status of the Action frame to user space */
 	nl80211_send_mgmt_tx_status(rdev, dev, cookie, buf, len, ack, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_mgmt_tx_status); */
+EXPORT_SYMBOL(cfg80211_mgmt_tx_status);
 
 void cfg80211_cqm_rssi_notify(struct net_device *dev,
 			      enum nl80211_cqm_rssi_threshold_event rssi_event,
@@ -892,7 +892,7 @@ void cfg80211_cqm_rssi_notify(struct net_device *dev,
 	/* Indicate roaming trigger event to user space */
 	nl80211_send_cqm_rssi_notify(rdev, dev, rssi_event, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_cqm_rssi_notify); */
+EXPORT_SYMBOL(cfg80211_cqm_rssi_notify);
 
 void cfg80211_cqm_pktloss_notify(struct net_device *dev,
 				 const u8 *peer, u32 num_packets, gfp_t gfp)
@@ -904,7 +904,7 @@ void cfg80211_cqm_pktloss_notify(struct net_device *dev,
 	/* Indicate roaming trigger event to user space */
 	nl80211_send_cqm_pktloss_notify(rdev, dev, peer, num_packets, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_cqm_pktloss_notify); */
+EXPORT_SYMBOL(cfg80211_cqm_pktloss_notify);
 
 void cfg80211_gtk_rekey_notify(struct net_device *dev, const u8 *bssid,
 			       const u8 *replay_ctr, gfp_t gfp)
@@ -915,7 +915,7 @@ void cfg80211_gtk_rekey_notify(struct net_device *dev, const u8 *bssid,
 
 	nl80211_gtk_rekey_notify(rdev, dev, bssid, replay_ctr, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_gtk_rekey_notify); */
+EXPORT_SYMBOL(cfg80211_gtk_rekey_notify);
 
 void cfg80211_pmksa_candidate_notify(struct net_device *dev, int index,
 				     const u8 *bssid, bool preauth, gfp_t gfp)
@@ -926,7 +926,7 @@ void cfg80211_pmksa_candidate_notify(struct net_device *dev, int index,
 
 	nl80211_pmksa_candidate_notify(rdev, dev, index, bssid, preauth, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_pmksa_candidate_notify); */
+EXPORT_SYMBOL(cfg80211_pmksa_candidate_notify);
 
 bool cfg80211_rx_spurious_frame(struct net_device *dev,
 				const u8 *addr, gfp_t gfp)
@@ -939,7 +939,7 @@ bool cfg80211_rx_spurious_frame(struct net_device *dev,
 
 	return nl80211_unexpected_frame(dev, addr, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_rx_spurious_frame); */
+EXPORT_SYMBOL(cfg80211_rx_spurious_frame);
 
 bool cfg80211_rx_unexpected_4addr_frame(struct net_device *dev,
 					const u8 *addr, gfp_t gfp)
@@ -953,4 +953,4 @@ bool cfg80211_rx_unexpected_4addr_frame(struct net_device *dev,
 
 	return nl80211_unexpected_4addr_frame(dev, addr, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_rx_unexpected_4addr_frame); */
+EXPORT_SYMBOL(cfg80211_rx_unexpected_4addr_frame);

@@ -49,7 +49,7 @@ static int __init mount_param(char *str)
 	mount_dev = simple_strtoul(str, NULL, 0);
 	return 1;
 }
-/* DISABLED: __setup("devtmpfs.mount=", mount_param); */ */
+__setup("devtmpfs.mount=", mount_param);
 
 static struct dentry *dev_mount(struct file_system_type *fs_type, int flags,
 		      const char *dev_name, void *data)

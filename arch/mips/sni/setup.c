@@ -29,7 +29,7 @@
 #include <asm/sni.h>
 
 unsigned int sni_brd_type;
-/* DISABLED: EXPORT_SYMBOL(sni_brd_type); */
+EXPORT_SYMBOL(sni_brd_type);
 
 extern void sni_machine_restart(char *command);
 extern void sni_machine_power_off(void);

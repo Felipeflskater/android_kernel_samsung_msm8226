@@ -54,7 +54,7 @@ void ulist_init(struct ulist *ulist)
 	ulist->nodes = ulist->int_nodes;
 	ulist->nodes_alloced = ULIST_SIZE;
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_init); */
+EXPORT_SYMBOL(ulist_init);
 
 /**
  * ulist_fini - free up additionally allocated memory for the ulist
@@ -73,7 +73,7 @@ void ulist_fini(struct ulist *ulist)
 		kfree(ulist->nodes);
 	ulist->nodes_alloced = 0;	/* in case ulist_fini is called twice */
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_fini); */
+EXPORT_SYMBOL(ulist_fini);
 
 /**
  * ulist_reinit - prepare a ulist for reuse
@@ -87,7 +87,7 @@ void ulist_reinit(struct ulist *ulist)
 	ulist_fini(ulist);
 	ulist_init(ulist);
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_reinit); */
+EXPORT_SYMBOL(ulist_reinit);
 
 /**
  * ulist_alloc - dynamically allocate a ulist
@@ -106,7 +106,7 @@ struct ulist *ulist_alloc(unsigned long gfp_mask)
 
 	return ulist;
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_alloc); */
+EXPORT_SYMBOL(ulist_alloc);
 
 /**
  * ulist_free - free dynamically allocated ulist
@@ -121,7 +121,7 @@ void ulist_free(struct ulist *ulist)
 	ulist_fini(ulist);
 	kfree(ulist);
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_free); */
+EXPORT_SYMBOL(ulist_free);
 
 /**
  * ulist_add - add an element to the ulist
@@ -183,7 +183,7 @@ int ulist_add(struct ulist *ulist, u64 val, unsigned long aux,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_add); */
+EXPORT_SYMBOL(ulist_add);
 
 /**
  * ulist_next - iterate ulist
@@ -217,4 +217,4 @@ struct ulist_node *ulist_next(struct ulist *ulist, struct ulist_node *prev)
 
 	return &ulist->nodes[next];
 }
-/* DISABLED: EXPORT_SYMBOL(ulist_next); */
+EXPORT_SYMBOL(ulist_next);

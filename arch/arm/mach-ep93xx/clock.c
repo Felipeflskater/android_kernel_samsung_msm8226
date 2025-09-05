@@ -268,7 +268,7 @@ int clk_enable(struct clk *clk)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 static void __clk_disable(struct clk *clk)
 {
@@ -300,7 +300,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clk_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 static unsigned long get_uart_rate(struct clk *clk)
 {
@@ -321,7 +321,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return clk->rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 static int set_keytchclk_rate(struct clk *clk, unsigned long rate)
 {
@@ -473,7 +473,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 
 static char fclk_divisors[] = { 1, 2, 4, 8, 16, 1, 1, 1 };

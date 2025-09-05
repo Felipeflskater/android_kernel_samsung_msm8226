@@ -331,7 +331,7 @@ struct pti_masterchannel *pti_request_masterchannel(u8 type,
 	mutex_unlock(&alloclock);
 	return mc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pti_request_masterchannel); */
+EXPORT_SYMBOL_GPL(pti_request_masterchannel);
 
 /**
  * pti_release_masterchannel()- Kernel API function used to release
@@ -367,7 +367,7 @@ void pti_release_masterchannel(struct pti_masterchannel *mc)
 
 	mutex_unlock(&alloclock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pti_release_masterchannel); */
+EXPORT_SYMBOL_GPL(pti_release_masterchannel);
 
 /**
  * pti_writedata()- Kernel API function used to write trace
@@ -391,7 +391,7 @@ void pti_writedata(struct pti_masterchannel *mc, u8 *buf, int count)
 		pti_write_to_aperture(mc, buf, count);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pti_writedata); */
+EXPORT_SYMBOL_GPL(pti_writedata);
 
 /**
  * pti_pci_remove()- Driver exit method to remove PTI from

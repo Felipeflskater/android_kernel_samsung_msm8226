@@ -416,7 +416,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nwpserial_register_port); */
+EXPORT_SYMBOL(nwpserial_register_port);
 
 void nwpserial_unregister_port(int line)
 {
@@ -428,7 +428,7 @@ void nwpserial_unregister_port(int line)
 
 	mutex_unlock(&nwpserial_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(nwpserial_unregister_port); */
+EXPORT_SYMBOL(nwpserial_unregister_port);
 
 #ifdef CONFIG_SERIAL_OF_PLATFORM_NWPSERIAL_CONSOLE
 static int __init nwpserial_console_init(void)

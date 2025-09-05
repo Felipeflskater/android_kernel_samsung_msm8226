@@ -106,7 +106,7 @@ unlock:
 	mutex_unlock(&pinctrl_mutex);
 	return pin;
 }
-/* DISABLED: EXPORT_SYMBOL(pin_config_get); */
+EXPORT_SYMBOL(pin_config_get);
 
 static int pin_config_set_for_pin(struct pinctrl_dev *pctldev, unsigned pin,
 			   unsigned long config)
@@ -164,7 +164,7 @@ unlock:
 	mutex_unlock(&pinctrl_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pin_config_set); */
+EXPORT_SYMBOL(pin_config_set);
 
 int pin_config_group_get(const char *dev_name, const char *pin_group,
 			 unsigned long *config)
@@ -202,7 +202,7 @@ unlock:
 	mutex_unlock(&pinctrl_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pin_config_group_get); */
+EXPORT_SYMBOL(pin_config_group_get);
 
 int pin_config_group_set(const char *dev_name, const char *pin_group,
 			 unsigned long config)
@@ -282,7 +282,7 @@ unlock:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pin_config_group_set); */
+EXPORT_SYMBOL(pin_config_group_set);
 
 int pinconf_map_to_setting(struct pinctrl_map const *map,
 			  struct pinctrl_setting *setting)

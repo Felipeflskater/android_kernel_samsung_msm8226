@@ -159,7 +159,7 @@ int ttm_tt_set_placement_caching(struct ttm_tt *ttm, uint32_t placement)
 
 	return ttm_tt_set_caching(ttm, state);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_tt_set_placement_caching); */
+EXPORT_SYMBOL(ttm_tt_set_placement_caching);
 
 void ttm_tt_destroy(struct ttm_tt *ttm)
 {
@@ -203,14 +203,14 @@ int ttm_tt_init(struct ttm_tt *ttm, struct ttm_bo_device *bdev,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_tt_init); */
+EXPORT_SYMBOL(ttm_tt_init);
 
 void ttm_tt_fini(struct ttm_tt *ttm)
 {
 	drm_free_large(ttm->pages);
 	ttm->pages = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_tt_fini); */
+EXPORT_SYMBOL(ttm_tt_fini);
 
 int ttm_dma_tt_init(struct ttm_dma_tt *ttm_dma, struct ttm_bo_device *bdev,
 		unsigned long size, uint32_t page_flags,
@@ -236,7 +236,7 @@ int ttm_dma_tt_init(struct ttm_dma_tt *ttm_dma, struct ttm_bo_device *bdev,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_dma_tt_init); */
+EXPORT_SYMBOL(ttm_dma_tt_init);
 
 void ttm_dma_tt_fini(struct ttm_dma_tt *ttm_dma)
 {
@@ -247,7 +247,7 @@ void ttm_dma_tt_fini(struct ttm_dma_tt *ttm_dma)
 	drm_free_large(ttm_dma->dma_address);
 	ttm_dma->dma_address = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_dma_tt_fini); */
+EXPORT_SYMBOL(ttm_dma_tt_fini);
 
 void ttm_tt_unbind(struct ttm_tt *ttm)
 {
@@ -282,7 +282,7 @@ int ttm_tt_bind(struct ttm_tt *ttm, struct ttm_mem_reg *bo_mem)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_tt_bind); */
+EXPORT_SYMBOL(ttm_tt_bind);
 
 int ttm_tt_swapin(struct ttm_tt *ttm)
 {

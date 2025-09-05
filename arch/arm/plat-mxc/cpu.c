@@ -4,7 +4,7 @@
 #include <mach/hardware.h>
 
 unsigned int __mxc_cpu_type;
-/* DISABLED: EXPORT_SYMBOL(__mxc_cpu_type); */
+EXPORT_SYMBOL(__mxc_cpu_type);
 
 void mxc_set_cpu_type(unsigned int type)
 {

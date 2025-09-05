@@ -52,7 +52,7 @@ void omap_vout_default_crop(struct v4l2_pix_format *pix,
 	crop->left = ((pix->width - crop->width) >> 1) & ~1;
 	crop->top = ((pix->height - crop->height) >> 1) & ~1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_vout_default_crop); */
+EXPORT_SYMBOL_GPL(omap_vout_default_crop);
 
 /* Given a new render window in new_win, adjust the window to the
  * nearest supported configuration.  The adjusted window parameters are
@@ -98,7 +98,7 @@ int omap_vout_try_window(struct v4l2_framebuffer *fbuf,
 	new_win->field = V4L2_FIELD_ANY;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_vout_try_window); */
+EXPORT_SYMBOL_GPL(omap_vout_try_window);
 
 /* Given a new render window in new_win, adjust the window to the
  * nearest supported configuration.  The image cropping window in crop
@@ -150,7 +150,7 @@ int omap_vout_new_window(struct v4l2_rect *crop,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_vout_new_window); */
+EXPORT_SYMBOL_GPL(omap_vout_new_window);
 
 /* Given a new cropping rectangle in new_crop, adjust the cropping rectangle to
  * the nearest supported configuration.  The image render window in win will
@@ -269,7 +269,7 @@ int omap_vout_new_crop(struct v4l2_pix_format *pix,
 	*crop = try_crop;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_vout_new_crop); */
+EXPORT_SYMBOL_GPL(omap_vout_new_crop);
 
 /* Given a new format in pix and fbuf,  crop and win
  * structures are initialized to default values. crop
@@ -293,7 +293,7 @@ void omap_vout_new_format(struct v4l2_pix_format *pix,
 	win->w.left = ((fbuf->fmt.width - win->w.width) >> 1) & ~1;
 	win->w.top = ((fbuf->fmt.height - win->w.height) >> 1) & ~1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_vout_new_format); */
+EXPORT_SYMBOL_GPL(omap_vout_new_format);
 
 /*
  * Allocate buffers

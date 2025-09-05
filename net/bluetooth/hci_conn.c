@@ -134,7 +134,7 @@ struct hci_conn *hci_le_connect(struct hci_dev *hdev, __u16 pkt_type,
 
 	return le;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_connect); */
+EXPORT_SYMBOL(hci_le_connect);
 
 static void hci_le_connect_cancel(struct hci_conn *conn)
 {
@@ -154,7 +154,7 @@ void hci_le_cancel_create_connect(struct hci_dev *hdev, bdaddr_t *dst)
 		hci_conn_del(le);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_cancel_create_connect); */
+EXPORT_SYMBOL(hci_le_cancel_create_connect);
 
 void hci_le_add_dev_white_list(struct hci_dev *hdev, bdaddr_t *dst)
 {
@@ -180,7 +180,7 @@ void hci_le_add_dev_white_list(struct hci_dev *hdev, bdaddr_t *dst)
 
 	hci_send_cmd(hdev, HCI_OP_LE_ADD_DEV_WHITE_LIST, sizeof(cp), &cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_add_dev_white_list); */
+EXPORT_SYMBOL(hci_le_add_dev_white_list);
 
 void hci_le_remove_dev_white_list(struct hci_dev *hdev, bdaddr_t *dst)
 {
@@ -206,7 +206,7 @@ void hci_le_remove_dev_white_list(struct hci_dev *hdev, bdaddr_t *dst)
 
 	hci_send_cmd(hdev, HCI_OP_LE_REMOVE_DEV_WHITE_LIST, sizeof(cp), &cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_remove_dev_white_list); */
+EXPORT_SYMBOL(hci_le_remove_dev_white_list);
 
 static inline bool is_role_switch_possible(struct hci_dev *hdev)
 {
@@ -395,7 +395,7 @@ void hci_le_conn_update(struct hci_conn *conn, u16 min, u16 max,
 
 	hci_send_cmd(hdev, HCI_OP_LE_CONN_UPDATE, sizeof(cp), &cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_conn_update); */
+EXPORT_SYMBOL(hci_le_conn_update);
 
 void hci_read_rssi(struct hci_conn *conn)
 {
@@ -407,7 +407,7 @@ void hci_read_rssi(struct hci_conn *conn)
 
 	hci_send_cmd(hdev, HCI_OP_READ_RSSI, sizeof(cp), &cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_read_rssi); */
+EXPORT_SYMBOL(hci_read_rssi);
 
 void hci_le_start_enc(struct hci_conn *conn, __le16 ediv, __u8 rand[8],
 							__u8 ltk[16])
@@ -426,7 +426,7 @@ void hci_le_start_enc(struct hci_conn *conn, __le16 ediv, __u8 rand[8],
 
 	hci_send_cmd(hdev, HCI_OP_LE_START_ENC, sizeof(cp), &cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_le_start_enc); */
+EXPORT_SYMBOL(hci_le_start_enc);
 
 void hci_le_ltk_neg_reply(struct hci_conn *conn)
 {
@@ -725,7 +725,7 @@ struct hci_chan *hci_chan_add(struct hci_dev *hdev)
 
 	return chan;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_chan_add); */
+EXPORT_SYMBOL(hci_chan_add);
 
 int hci_chan_del(struct hci_chan *chan)
 {
@@ -765,7 +765,7 @@ int hci_chan_put(struct hci_chan *chan)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_chan_put); */
+EXPORT_SYMBOL(hci_chan_put);
 
 struct hci_dev *hci_get_route(bdaddr_t *dst, bdaddr_t *src)
 {
@@ -807,7 +807,7 @@ struct hci_dev *hci_get_route(bdaddr_t *dst, bdaddr_t *src)
 	read_unlock_bh(&hci_dev_list_lock);
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_get_route); */
+EXPORT_SYMBOL(hci_get_route);
 
 struct hci_dev *hci_dev_get_type(u8 amp_type)
 {
@@ -831,7 +831,7 @@ struct hci_dev *hci_dev_get_type(u8 amp_type)
 	read_unlock_bh(&hci_dev_list_lock);
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_dev_get_type); */
+EXPORT_SYMBOL(hci_dev_get_type);
 
 struct hci_dev *hci_dev_get_amp(bdaddr_t *dst)
 {
@@ -859,7 +859,7 @@ struct hci_dev *hci_dev_get_amp(bdaddr_t *dst)
 	read_unlock_bh(&hci_dev_list_lock);
 	return hdev;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_dev_get_amp); */
+EXPORT_SYMBOL(hci_dev_get_amp);
 
 /* Create SCO, ACL or LE connection.
  * Device _must_ be locked */
@@ -936,7 +936,7 @@ struct hci_conn *hci_connect(struct hci_dev *hdev, int type,
 
 	return sco;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_connect); */
+EXPORT_SYMBOL(hci_connect);
 
 void hci_disconnect(struct hci_conn *conn, __u8 reason)
 {
@@ -944,7 +944,7 @@ void hci_disconnect(struct hci_conn *conn, __u8 reason)
 
 	hci_proto_disconn_cfm(conn, reason, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_disconnect); */
+EXPORT_SYMBOL(hci_disconnect);
 
 void hci_disconnect_amp(struct hci_conn *conn, __u8 reason)
 {
@@ -979,7 +979,7 @@ int hci_conn_check_link_mode(struct hci_conn *conn)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_check_link_mode); */
+EXPORT_SYMBOL(hci_conn_check_link_mode);
 
 /* Authenticate remote device */
 static int hci_conn_auth(struct hci_conn *conn, __u8 sec_level, __u8 auth_type)
@@ -1056,7 +1056,7 @@ int hci_conn_security(struct hci_conn *conn, __u8 sec_level, __u8 auth_type)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_security); */
+EXPORT_SYMBOL(hci_conn_security);
 
 /* Change link key */
 int hci_conn_change_link_key(struct hci_conn *conn)
@@ -1072,7 +1072,7 @@ int hci_conn_change_link_key(struct hci_conn *conn)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_change_link_key); */
+EXPORT_SYMBOL(hci_conn_change_link_key);
 
 /* Switch role */
 int hci_conn_switch_role(struct hci_conn *conn, __u8 role)
@@ -1091,7 +1091,7 @@ int hci_conn_switch_role(struct hci_conn *conn, __u8 role)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_switch_role); */
+EXPORT_SYMBOL(hci_conn_switch_role);
 
 /* Enter active mode */
 void hci_conn_enter_active_mode(struct hci_conn *conn, __u8 force_active)
@@ -1237,7 +1237,7 @@ struct hci_chan *hci_chan_create(struct hci_chan *chan,
 							sizeof(cp), &cp);
 	return chan;
 }
-/* DISABLED: EXPORT_SYMBOL(hci_chan_create); */
+EXPORT_SYMBOL(hci_chan_create);
 
 void hci_chan_modify(struct hci_chan *chan,
 			struct hci_ext_fs *tx_fs, struct hci_ext_fs *rx_fs)
@@ -1263,7 +1263,7 @@ void hci_chan_modify(struct hci_chan *chan,
 	hci_send_cmd(chan->conn->hdev, HCI_OP_FLOW_SPEC_MODIFY, sizeof(cp),
 									&cp);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_chan_modify); */
+EXPORT_SYMBOL(hci_chan_modify);
 
 /* Drop all connection on the device */
 void hci_conn_hash_flush(struct hci_dev *hdev, u8 is_process)
@@ -1307,7 +1307,7 @@ void hci_conn_hold_device(struct hci_conn *conn)
 {
 	atomic_inc(&conn->devref);
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_hold_device); */
+EXPORT_SYMBOL(hci_conn_hold_device);
 
 void hci_conn_put_device(struct hci_conn *conn)
 {
@@ -1316,7 +1316,7 @@ void hci_conn_put_device(struct hci_conn *conn)
 		hci_conn_del_sysfs(conn);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(hci_conn_put_device); */
+EXPORT_SYMBOL(hci_conn_put_device);
 
 int hci_get_conn_list(void __user *arg)
 {

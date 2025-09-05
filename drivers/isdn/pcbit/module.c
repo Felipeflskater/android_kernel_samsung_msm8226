@@ -118,7 +118,7 @@ static int __init pcbit_setup(char *line)
 	}
 	return (1);
 }
-/* DISABLED: __setup("pcbit=", pcbit_setup); */ */
+__setup("pcbit=", pcbit_setup);
 #endif
 
 module_init(pcbit_init);

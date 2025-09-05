@@ -158,7 +158,7 @@ out_free:
 out:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_alloc); */
+EXPORT_SYMBOL_GPL(gmap_alloc);
 
 static int gmap_unlink_segment(struct gmap *gmap, unsigned long *table)
 {
@@ -224,7 +224,7 @@ void gmap_free(struct gmap *gmap)
 	list_del(&gmap->list);
 	kfree(gmap);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_free); */
+EXPORT_SYMBOL_GPL(gmap_free);
 
 /**
  * gmap_enable - switch primary space to the guest address space
@@ -234,7 +234,7 @@ void gmap_enable(struct gmap *gmap)
 {
 	S390_lowcore.gmap = (unsigned long) gmap;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_enable); */
+EXPORT_SYMBOL_GPL(gmap_enable);
 
 /**
  * gmap_disable - switch back to the standard primary address space
@@ -244,7 +244,7 @@ void gmap_disable(struct gmap *gmap)
 {
 	S390_lowcore.gmap = 0UL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_disable); */
+EXPORT_SYMBOL_GPL(gmap_disable);
 
 /*
  * gmap_alloc_table is assumed to be called with mmap_sem held
@@ -321,7 +321,7 @@ out:
 		gmap_flush_tlb(gmap);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_unmap_segment); */
+EXPORT_SYMBOL_GPL(gmap_unmap_segment);
 
 /**
  * gmap_mmap_segment - map a segment to the guest address space
@@ -382,7 +382,7 @@ out_unmap:
 	gmap_unmap_segment(gmap, to, len);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_map_segment); */
+EXPORT_SYMBOL_GPL(gmap_map_segment);
 
 /*
  * this function is assumed to be called with mmap_sem held
@@ -467,7 +467,7 @@ unsigned long gmap_fault(unsigned long address, struct gmap *gmap)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_fault); */
+EXPORT_SYMBOL_GPL(gmap_fault);
 
 void gmap_discard(unsigned long from, unsigned long to, struct gmap *gmap)
 {
@@ -514,7 +514,7 @@ void gmap_discard(unsigned long from, unsigned long to, struct gmap *gmap)
 	}
 	up_read(&gmap->mm->mmap_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gmap_discard); */
+EXPORT_SYMBOL_GPL(gmap_discard);
 
 void gmap_unmap_notifier(struct mm_struct *mm, unsigned long *table)
 {
@@ -852,7 +852,7 @@ int s390_enable_sie(void)
 	mmput(old_mm);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(s390_enable_sie); */
+EXPORT_SYMBOL_GPL(s390_enable_sie);
 
 #if defined(CONFIG_DEBUG_PAGEALLOC) && defined(CONFIG_HIBERNATION)
 bool kernel_page_present(struct page *page)

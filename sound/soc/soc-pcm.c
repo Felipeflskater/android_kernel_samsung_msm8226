@@ -73,7 +73,7 @@ int snd_soc_dpcm_can_be_free_stop(struct snd_soc_pcm_runtime *fe,
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_dpcm_can_be_free_stop); */
+EXPORT_SYMBOL_GPL(snd_soc_dpcm_can_be_free_stop);
 
 /*
  * We can only change hw params a BE DAI if any of it's FE are not prepared,
@@ -1579,7 +1579,7 @@ int dpcm_be_dai_trigger(struct snd_soc_pcm_runtime *fe, int stream, int cmd)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dpcm_be_dai_trigger); */
+EXPORT_SYMBOL_GPL(dpcm_be_dai_trigger);
 
 int soc_dpcm_fe_dai_trigger(struct snd_pcm_substream *substream, int cmd)
 {

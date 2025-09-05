@@ -426,7 +426,7 @@ static int __init pnpbios_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnpbios=", pnpbios_setup); */ */
+__setup("pnpbios=", pnpbios_setup);
 
 /* PnP BIOS signature: "$PnP" */
 #define PNP_SIGNATURE   (('$' << 0) + ('P' << 8) + ('n' << 16) + ('P' << 24))
@@ -594,4 +594,4 @@ static int __init pnpbios_thread_init(void)
 /* Start the kernel thread later: */
 module_init(pnpbios_thread_init);
 
-/* DISABLED: EXPORT_SYMBOL(pnpbios_protocol); */
+EXPORT_SYMBOL(pnpbios_protocol);

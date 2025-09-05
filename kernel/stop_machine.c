@@ -522,7 +522,7 @@ int stop_machine(int (*fn)(void *), void *data, const struct cpumask *cpus)
 	put_online_cpus();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(stop_machine); */
+EXPORT_SYMBOL_GPL(stop_machine);
 
 /**
  * stop_machine_from_inactive_cpu - stop_machine() from inactive CPU

@@ -94,7 +94,7 @@ ENTRY(__raw_readsw)
 #endif
 
 .Linsw_noalign:	stmfd	sp!, {r4, lr}
-		ldrccb	ip, [r1, @ -1]!
+		ldrccb	ip, [r1, #-1]!
 		bcc	1f
 
 		ldrh	ip, [r0]

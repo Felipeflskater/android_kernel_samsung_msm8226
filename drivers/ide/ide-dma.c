@@ -168,7 +168,7 @@ void ide_dma_unmap_sg(ide_drive_t *drive, struct ide_cmd *cmd)
 	dma_unmap_sg(hwif->dev, hwif->sg_table, cmd->orig_sg_nents,
 		     cmd->sg_dma_direction);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_unmap_sg); */
+EXPORT_SYMBOL_GPL(ide_dma_unmap_sg);
 
 /**
  *	ide_dma_off_quietly	-	Generic DMA kill
@@ -184,7 +184,7 @@ void ide_dma_off_quietly(ide_drive_t *drive)
 
 	drive->hwif->dma_ops->dma_host_set(drive, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ide_dma_off_quietly); */
+EXPORT_SYMBOL(ide_dma_off_quietly);
 
 /**
  *	ide_dma_off	-	disable DMA on a device
@@ -199,7 +199,7 @@ void ide_dma_off(ide_drive_t *drive)
 	printk(KERN_INFO "%s: DMA disabled\n", drive->name);
 	ide_dma_off_quietly(drive);
 }
-/* DISABLED: EXPORT_SYMBOL(ide_dma_off); */
+EXPORT_SYMBOL(ide_dma_off);
 
 /**
  *	ide_dma_on		-	Enable DMA on a device
@@ -228,7 +228,7 @@ int __ide_dma_bad_drive(ide_drive_t *drive)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__ide_dma_bad_drive); */
+EXPORT_SYMBOL(__ide_dma_bad_drive);
 
 static const u8 xfer_mode_bases[] = {
 	XFER_UDMA_0,
@@ -438,7 +438,7 @@ void ide_dma_lost_irq(ide_drive_t *drive)
 {
 	printk(KERN_ERR "%s: DMA interrupt recovery\n", drive->name);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_dma_lost_irq); */
+EXPORT_SYMBOL_GPL(ide_dma_lost_irq);
 
 /*
  * un-busy the port etc, and clear any pending DMA status. we want to
@@ -504,7 +504,7 @@ void ide_release_dma_engine(ide_hwif_t *hwif)
 		hwif->dmatable_cpu = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_release_dma_engine); */
+EXPORT_SYMBOL_GPL(ide_release_dma_engine);
 
 int ide_allocate_dma_engine(ide_hwif_t *hwif)
 {
@@ -528,7 +528,7 @@ int ide_allocate_dma_engine(ide_hwif_t *hwif)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_allocate_dma_engine); */
+EXPORT_SYMBOL_GPL(ide_allocate_dma_engine);
 
 int ide_dma_prepare(ide_drive_t *drive, struct ide_cmd *cmd)
 {

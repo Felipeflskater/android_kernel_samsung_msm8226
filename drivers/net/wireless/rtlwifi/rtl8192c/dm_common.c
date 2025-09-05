@@ -533,7 +533,7 @@ void rtl92c_dm_write_dig(struct ieee80211_hw *hw)
 		dm_digtable.pre_igvalue = dm_digtable.cur_igvalue;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_write_dig); */
+EXPORT_SYMBOL(rtl92c_dm_write_dig);
 
 static void rtl92c_dm_pwdb_monitor(struct ieee80211_hw *hw)
 {
@@ -571,7 +571,7 @@ void rtl92c_dm_init_edca_turbo(struct ieee80211_hw *hw)
 	rtlpriv->dm.is_any_nonbepkts = false;
 	rtlpriv->dm.is_cur_rdlstate = false;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_init_edca_turbo); */
+EXPORT_SYMBOL(rtl92c_dm_init_edca_turbo);
 
 static void rtl92c_dm_check_edca_turbo(struct ieee80211_hw *hw)
 {
@@ -1127,7 +1127,7 @@ void rtl92c_dm_check_txpower_tracking(struct ieee80211_hw *hw)
 {
 	rtl92c_dm_check_txpower_tracking_thermal_meter(hw);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_check_txpower_tracking); */
+EXPORT_SYMBOL(rtl92c_dm_check_txpower_tracking);
 
 void rtl92c_dm_init_rate_adaptive_mask(struct ieee80211_hw *hw)
 {
@@ -1143,7 +1143,7 @@ void rtl92c_dm_init_rate_adaptive_mask(struct ieee80211_hw *hw)
 		rtlpriv->dm.useramask = false;
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_init_rate_adaptive_mask); */
+EXPORT_SYMBOL(rtl92c_dm_init_rate_adaptive_mask);
 
 static void rtl92c_dm_refresh_rate_adaptive_mask(struct ieee80211_hw *hw)
 {
@@ -1299,7 +1299,7 @@ void rtl92c_dm_rf_saving(struct ieee80211_hw *hw, u8 bforce_in_normal)
 		dm_pstable.pre_rfstate = dm_pstable.cur_rfstate;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_rf_saving); */
+EXPORT_SYMBOL(rtl92c_dm_rf_saving);
 
 static void rtl92c_dm_dynamic_bb_powersaving(struct ieee80211_hw *hw)
 {
@@ -1354,7 +1354,7 @@ void rtl92c_dm_init(struct ieee80211_hw *hw)
 	rtl92c_dm_initialize_txpower_tracking(hw);
 	rtl92c_dm_init_dynamic_bb_powersaving(hw);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_init); */
+EXPORT_SYMBOL(rtl92c_dm_init);
 
 void rtl92c_dm_dynamic_txpower(struct ieee80211_hw *hw)
 {
@@ -1460,7 +1460,7 @@ void rtl92c_dm_watchdog(struct ieee80211_hw *hw)
 		rtl92c_dm_check_edca_turbo(hw);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_watchdog); */
+EXPORT_SYMBOL(rtl92c_dm_watchdog);
 
 u8 rtl92c_bt_rssi_state_change(struct ieee80211_hw *hw)
 {
@@ -1519,7 +1519,7 @@ u8 rtl92c_bt_rssi_state_change(struct ieee80211_hw *hw)
 		return false;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_bt_rssi_state_change); */
+EXPORT_SYMBOL(rtl92c_bt_rssi_state_change);
 
 static bool rtl92c_bt_state_change(struct ieee80211_hw *hw)
 {
@@ -1770,4 +1770,4 @@ void rtl92c_dm_bt_coexist(struct ieee80211_hw *hw)
 			rtl92c_check_bt_change(hw);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_dm_bt_coexist); */
+EXPORT_SYMBOL(rtl92c_dm_bt_coexist);

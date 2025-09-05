@@ -84,7 +84,7 @@ void notify_control_line_state(u32 value)
 
 	wake_up_interruptible(&modem_wait_q);
 }
-/* DISABLED: EXPORT_SYMBOL(notify_control_line_state); */
+EXPORT_SYMBOL(notify_control_line_state);
 
 
 #define GS_CDC_NOTIFY_SERIAL_STATE	_IOW('S', 1, int)
@@ -145,7 +145,7 @@ int modem_register(void *data)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(modem_register); */
+EXPORT_SYMBOL(modem_register);
 
 static int modem_misc_register(void)
 {
@@ -171,4 +171,4 @@ void modem_unregister(void)
 
 	printk(KERN_INFO "DUN is unregisterd\n");
 }
-/* DISABLED: EXPORT_SYMBOL(modem_unregister); */
+EXPORT_SYMBOL(modem_unregister);

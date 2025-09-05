@@ -24,4 +24,4 @@ word_type __cmpdi2(long long a, long long b)
 	return 1;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__cmpdi2); */
+EXPORT_SYMBOL(__cmpdi2);

@@ -179,13 +179,13 @@ const char *perf_pmu_name(void)
 {
 	return "bfin";
 }
-/* DISABLED: EXPORT_SYMBOL(perf_pmu_name); */
+EXPORT_SYMBOL(perf_pmu_name);
 
 int perf_num_counters(void)
 {
 	return ARRAY_SIZE(event_map);
 }
-/* DISABLED: EXPORT_SYMBOL(perf_num_counters); */
+EXPORT_SYMBOL(perf_num_counters);
 
 static u64 bfin_pfmon_read(int idx)
 {

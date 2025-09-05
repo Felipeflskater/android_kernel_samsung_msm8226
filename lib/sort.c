@@ -82,7 +82,7 @@ void sort(void *base, size_t num, size_t size,
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(sort); */
+EXPORT_SYMBOL(sort);
 
 #if 0
 /* a simple boot-time regression test */

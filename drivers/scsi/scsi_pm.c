@@ -270,13 +270,13 @@ int scsi_autopm_get_device(struct scsi_device *sdev)
 		err = 0;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_autopm_get_device); */
+EXPORT_SYMBOL_GPL(scsi_autopm_get_device);
 
 void scsi_autopm_put_device(struct scsi_device *sdev)
 {
 	pm_runtime_put_sync(&sdev->sdev_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_autopm_put_device); */
+EXPORT_SYMBOL_GPL(scsi_autopm_put_device);
 
 void scsi_autopm_get_target(struct scsi_target *starget)
 {

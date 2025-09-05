@@ -50,7 +50,7 @@ static struct switch_dev switch_dock = {
 	.name = "dock",
 };
 struct device *switch_dev;
-/* DISABLED: EXPORT_SYMBOL(switch_dev); */
+EXPORT_SYMBOL(switch_dev);
 static struct muic_cable support_cable_list[] = {
 #ifndef CONFIG_USB_DWC3
 	{ .cable_type = EXTCON_USB, },

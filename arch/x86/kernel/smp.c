@@ -291,7 +291,7 @@ static int __init nonmi_ipi_setup(char *str)
         return 1;
 }
 
-/* DISABLED: __setup("nonmi_ipi", nonmi_ipi_setup); */ */
+__setup("nonmi_ipi", nonmi_ipi_setup);
 
 struct smp_ops smp_ops = {
 	.smp_prepare_boot_cpu	= native_smp_prepare_boot_cpu,
@@ -309,4 +309,4 @@ struct smp_ops smp_ops = {
 	.send_call_func_ipi	= native_send_call_func_ipi,
 	.send_call_func_single_ipi = native_send_call_func_single_ipi,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(smp_ops); */
+EXPORT_SYMBOL_GPL(smp_ops);

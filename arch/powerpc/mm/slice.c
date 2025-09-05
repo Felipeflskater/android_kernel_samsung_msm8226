@@ -561,7 +561,7 @@ unsigned long slice_get_unmapped_area(unsigned long addr, unsigned long len,
 	return addr;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(slice_get_unmapped_area); */
+EXPORT_SYMBOL_GPL(slice_get_unmapped_area);
 
 unsigned long arch_get_unmapped_area(struct file *filp,
 				     unsigned long addr,
@@ -600,7 +600,7 @@ unsigned int get_slice_psize(struct mm_struct *mm, unsigned long addr)
 
 	return (psizes >> (index * 4)) & 0xf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_slice_psize); */
+EXPORT_SYMBOL_GPL(get_slice_psize);
 
 /*
  * This is called by hash_page when it needs to do a lazy conversion of

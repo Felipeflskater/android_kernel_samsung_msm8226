@@ -23,7 +23,7 @@
 #include <asm/setup.h>
 
 struct cpu_spec* cur_cpu_spec = NULL;
-/* DISABLED: EXPORT_SYMBOL(cur_cpu_spec); */
+EXPORT_SYMBOL(cur_cpu_spec);
 
 /* The platform string corresponding to the real PVR */
 const char *powerpc_base_platform;

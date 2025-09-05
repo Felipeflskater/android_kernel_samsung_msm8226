@@ -281,7 +281,7 @@ int qpnp_pon_system_pwr_off(enum pon_power_off_type type)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_pon_system_pwr_off); */
+EXPORT_SYMBOL(qpnp_pon_system_pwr_off);
 
 /**
  * qpnp_pon_is_warm_reset - Checks if the PMIC went through a warm reset.
@@ -325,7 +325,7 @@ int qpnp_pon_is_warm_reset(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_pon_is_warm_reset); */
+EXPORT_SYMBOL(qpnp_pon_is_warm_reset);
 
 /**
  * qpnp_pon_wd_config - Disable the wd in a warm reset.
@@ -350,7 +350,7 @@ int qpnp_pon_wd_config(bool enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_pon_wd_config); */
+EXPORT_SYMBOL(qpnp_pon_wd_config);
 
 
 /**
@@ -384,7 +384,7 @@ int qpnp_pon_trigger_config(enum pon_trigger_source pon_src, bool enable)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_pon_trigger_config); */
+EXPORT_SYMBOL(qpnp_pon_trigger_config);
 
 static struct qpnp_pon_config *
 qpnp_get_cfg(struct qpnp_pon *pon, u32 pon_type)
@@ -491,7 +491,7 @@ int check_short_pkey(void)
 {
 	return check_pkey_press;
 }
-/* DISABLED: EXPORT_SYMBOL(check_short_pkey); */
+EXPORT_SYMBOL(check_short_pkey);
 #endif
 
 static irqreturn_t qpnp_kpdpwr_irq(int irq, void *_pon)
@@ -1413,7 +1413,7 @@ int qpnp_pon_set_wd_timer(u8 s1_timer, u8 s2_timer, u8 reset_type)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(qpnp_pon_set_wd_timer); */
+EXPORT_SYMBOL(qpnp_pon_set_wd_timer);
 #endif
 
 static int __devinit qpnp_pon_probe(struct spmi_device *spmi)

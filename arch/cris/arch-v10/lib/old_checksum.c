@@ -83,4 +83,4 @@ __wsum csum_partial(const void *p, int len, __wsum __sum)
 	return (__force __wsum)sum;
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+EXPORT_SYMBOL(csum_partial);

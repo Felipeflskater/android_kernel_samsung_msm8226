@@ -25,7 +25,7 @@
 #include <linux/module.h>
 
 struct dma_map_ops *dma_ops;
-/* DISABLED: EXPORT_SYMBOL(dma_ops); */
+EXPORT_SYMBOL(dma_ops);
 
 int bad_dma_address;  /*  globals are automatically initialized to zero  */
 
@@ -36,7 +36,7 @@ int dma_supported(struct device *dev, u64 mask)
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_supported); */
+EXPORT_SYMBOL(dma_supported);
 
 int dma_set_mask(struct device *dev, u64 mask)
 {
@@ -47,7 +47,7 @@ int dma_set_mask(struct device *dev, u64 mask)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_set_mask); */
+EXPORT_SYMBOL(dma_set_mask);
 
 static struct gen_pool *coherent_pool;
 

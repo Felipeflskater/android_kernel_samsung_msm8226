@@ -42,7 +42,7 @@
  *     physnode_map[32- ] = -1;
  */
 s8 physnode_map[MAX_SECTIONS] __read_mostly = { [0 ... (MAX_SECTIONS - 1)] = -1};
-/* DISABLED: EXPORT_SYMBOL(physnode_map); */
+EXPORT_SYMBOL(physnode_map);
 
 void memory_present(int nid, unsigned long start, unsigned long end)
 {

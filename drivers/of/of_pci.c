@@ -39,4 +39,4 @@ struct device_node *of_pci_find_child_device(struct device_node *parent,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_pci_find_child_device); */
+EXPORT_SYMBOL_GPL(of_pci_find_child_device);

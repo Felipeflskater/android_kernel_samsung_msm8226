@@ -33,7 +33,7 @@ bool nf_connlabel_match(const struct nf_conn *ct, u16 bit)
 
 	return bit < label_bits(labels) && test_bit(bit, labels->bits);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_connlabel_match); */
+EXPORT_SYMBOL_GPL(nf_connlabel_match);
 
 int nf_connlabel_set(struct nf_conn *ct, u16 bit)
 {
@@ -50,7 +50,7 @@ int nf_connlabel_set(struct nf_conn *ct, u16 bit)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_connlabel_set); */
+EXPORT_SYMBOL_GPL(nf_connlabel_set);
 
 static struct nf_ct_ext_type labels_extend __read_mostly = {
 	.len    = sizeof(struct nf_conn_labels),

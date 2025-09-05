@@ -40,13 +40,13 @@ union thread_union init_thread_union __init_task_data =	{
  * Initial task structure.
  */
 struct task_struct init_task = INIT_TASK(init_task);
-/* DISABLED: EXPORT_SYMBOL(init_task); */
+EXPORT_SYMBOL(init_task);
 
 /*
  * power off function, if any
  */
 void (*pm_power_off)(void);
-/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
+EXPORT_SYMBOL(pm_power_off);
 
 static void c6x_idle(void)
 {
@@ -148,7 +148,7 @@ int kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 	return do_fork(flags | CLONE_VM | CLONE_UNTRACED, -1, &regs,
 		       0, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 void flush_thread(void)
 {

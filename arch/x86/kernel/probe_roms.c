@@ -159,13 +159,13 @@ void *pci_map_biosrom(struct pci_dev *pdev)
 
 	return ioremap(oprom->start, resource_size(oprom));
 }
-/* DISABLED: EXPORT_SYMBOL(pci_map_biosrom); */
+EXPORT_SYMBOL(pci_map_biosrom);
 
 void pci_unmap_biosrom(void __iomem *image)
 {
 	iounmap(image);
 }
-/* DISABLED: EXPORT_SYMBOL(pci_unmap_biosrom); */
+EXPORT_SYMBOL(pci_unmap_biosrom);
 
 size_t pci_biosrom_size(struct pci_dev *pdev)
 {
@@ -173,7 +173,7 @@ size_t pci_biosrom_size(struct pci_dev *pdev)
 
 	return oprom ? resource_size(oprom) : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pci_biosrom_size); */
+EXPORT_SYMBOL(pci_biosrom_size);
 
 #define ROMSIGNATURE 0xaa55
 

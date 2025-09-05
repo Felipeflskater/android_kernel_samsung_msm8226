@@ -153,7 +153,7 @@ struct header_ops phonet_header_ops = {
 	.create = pn_header_create,
 	.parse = pn_header_parse,
 };
-/* DISABLED: EXPORT_SYMBOL(phonet_header_ops); */
+EXPORT_SYMBOL(phonet_header_ops);
 
 /*
  * Prepends an ISI header and sends a datagram.
@@ -292,7 +292,7 @@ drop:
 		dev_put(dev);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(pn_skb_send); */
+EXPORT_SYMBOL(pn_skb_send);
 
 /* Do not send an error message in response to an error message */
 static inline int can_respond(struct sk_buff *skb)
@@ -485,7 +485,7 @@ int __init_or_module phonet_proto_register(unsigned int protocol,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(phonet_proto_register); */
+EXPORT_SYMBOL(phonet_proto_register);
 
 void phonet_proto_unregister(unsigned int protocol, struct phonet_protocol *pp)
 {
@@ -496,7 +496,7 @@ void phonet_proto_unregister(unsigned int protocol, struct phonet_protocol *pp)
 	synchronize_rcu();
 	proto_unregister(pp->prot);
 }
-/* DISABLED: EXPORT_SYMBOL(phonet_proto_unregister); */
+EXPORT_SYMBOL(phonet_proto_unregister);
 
 /* Module registration */
 static int __init phonet_init(void)

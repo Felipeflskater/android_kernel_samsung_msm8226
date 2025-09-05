@@ -62,7 +62,7 @@ int snd_device_new(struct snd_card *card, snd_device_type_t type,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_device_new); */
+EXPORT_SYMBOL(snd_device_new);
 
 /**
  * snd_device_free - release the device from the card
@@ -104,7 +104,7 @@ int snd_device_free(struct snd_card *card, void *device_data)
 	return -ENXIO;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_device_free); */
+EXPORT_SYMBOL(snd_device_free);
 
 /**
  * snd_device_disconnect - disconnect the device
@@ -177,7 +177,7 @@ int snd_device_register(struct snd_card *card, void *device_data)
 	return -ENXIO;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_device_register); */
+EXPORT_SYMBOL(snd_device_register);
 
 /*
  * register all the devices on the card.

@@ -603,7 +603,7 @@ free_exit:
 	kfree(ndev);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(nci_allocate_device); */
+EXPORT_SYMBOL(nci_allocate_device);
 
 /**
  * nci_free_device - deallocate nci device
@@ -615,7 +615,7 @@ void nci_free_device(struct nci_dev *ndev)
 	nfc_free_device(ndev->nfc_dev);
 	kfree(ndev);
 }
-/* DISABLED: EXPORT_SYMBOL(nci_free_device); */
+EXPORT_SYMBOL(nci_free_device);
 
 /**
  * nci_register_device - register a nci device in the nfc subsystem
@@ -683,7 +683,7 @@ unreg_exit:
 exit:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(nci_register_device); */
+EXPORT_SYMBOL(nci_register_device);
 
 /**
  * nci_unregister_device - unregister a nci device in the nfc subsystem
@@ -700,7 +700,7 @@ void nci_unregister_device(struct nci_dev *ndev)
 
 	nfc_unregister_device(ndev->nfc_dev);
 }
-/* DISABLED: EXPORT_SYMBOL(nci_unregister_device); */
+EXPORT_SYMBOL(nci_unregister_device);
 
 /**
  * nci_recv_frame - receive frame from NCI drivers
@@ -725,7 +725,7 @@ int nci_recv_frame(struct sk_buff *skb)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nci_recv_frame); */
+EXPORT_SYMBOL(nci_recv_frame);
 
 static int nci_send_frame(struct sk_buff *skb)
 {

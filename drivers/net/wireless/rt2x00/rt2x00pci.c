@@ -58,7 +58,7 @@ int rt2x00pci_regbusy_read(struct rt2x00_dev *rt2x00dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_regbusy_read); */
+EXPORT_SYMBOL_GPL(rt2x00pci_regbusy_read);
 
 bool rt2x00pci_rxdone(struct rt2x00_dev *rt2x00dev)
 {
@@ -97,7 +97,7 @@ bool rt2x00pci_rxdone(struct rt2x00_dev *rt2x00dev)
 
 	return !max_rx;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_rxdone); */
+EXPORT_SYMBOL_GPL(rt2x00pci_rxdone);
 
 void rt2x00pci_flush_queue(struct data_queue *queue, bool drop)
 {
@@ -106,7 +106,7 @@ void rt2x00pci_flush_queue(struct data_queue *queue, bool drop)
 	for (i = 0; !rt2x00queue_empty(queue) && i < 10; i++)
 		msleep(10);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_flush_queue); */
+EXPORT_SYMBOL_GPL(rt2x00pci_flush_queue);
 
 /*
  * Device initialization handlers.
@@ -189,7 +189,7 @@ exit:
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_initialize); */
+EXPORT_SYMBOL_GPL(rt2x00pci_initialize);
 
 void rt2x00pci_uninitialize(struct rt2x00_dev *rt2x00dev)
 {
@@ -206,7 +206,7 @@ void rt2x00pci_uninitialize(struct rt2x00_dev *rt2x00dev)
 	queue_for_each(rt2x00dev, queue)
 		rt2x00pci_free_queue_dma(rt2x00dev, queue);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_uninitialize); */
+EXPORT_SYMBOL_GPL(rt2x00pci_uninitialize);
 
 /*
  * PCI driver handlers.
@@ -327,7 +327,7 @@ exit_disable_device:
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_probe); */
+EXPORT_SYMBOL_GPL(rt2x00pci_probe);
 
 void rt2x00pci_remove(struct pci_dev *pci_dev)
 {
@@ -348,7 +348,7 @@ void rt2x00pci_remove(struct pci_dev *pci_dev)
 	pci_disable_device(pci_dev);
 	pci_release_regions(pci_dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_remove); */
+EXPORT_SYMBOL_GPL(rt2x00pci_remove);
 
 #ifdef CONFIG_PM
 int rt2x00pci_suspend(struct pci_dev *pci_dev, pm_message_t state)
@@ -365,7 +365,7 @@ int rt2x00pci_suspend(struct pci_dev *pci_dev, pm_message_t state)
 	pci_disable_device(pci_dev);
 	return pci_set_power_state(pci_dev, pci_choose_state(pci_dev, state));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_suspend); */
+EXPORT_SYMBOL_GPL(rt2x00pci_suspend);
 
 int rt2x00pci_resume(struct pci_dev *pci_dev)
 {
@@ -381,7 +381,7 @@ int rt2x00pci_resume(struct pci_dev *pci_dev)
 	pci_restore_state(pci_dev);
 	return rt2x00lib_resume(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00pci_resume); */
+EXPORT_SYMBOL_GPL(rt2x00pci_resume);
 #endif /* CONFIG_PM */
 
 /*

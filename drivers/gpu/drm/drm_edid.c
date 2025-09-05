@@ -155,7 +155,7 @@ int drm_edid_header_is_valid(const u8 *raw_edid)
 
 	return score;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_edid_header_is_valid); */
+EXPORT_SYMBOL(drm_edid_header_is_valid);
 
 
 /*
@@ -215,7 +215,7 @@ bad:
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_edid_block_valid); */
+EXPORT_SYMBOL(drm_edid_block_valid);
 
 /**
  * drm_edid_is_valid - sanity check EDID data
@@ -237,7 +237,7 @@ bool drm_edid_is_valid(struct edid *edid)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_edid_is_valid); */
+EXPORT_SYMBOL(drm_edid_is_valid);
 
 #define DDC_SEGMENT_ADDR 0x30
 /**
@@ -405,7 +405,7 @@ struct edid *drm_get_edid(struct drm_connector *connector,
 	return edid;
 
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_edid); */
+EXPORT_SYMBOL(drm_get_edid);
 
 /*** EDID parsing ***/
 
@@ -517,7 +517,7 @@ struct drm_display_mode *drm_mode_find_dmt(struct drm_device *dev,
 	}
 	return mode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_find_dmt); */
+EXPORT_SYMBOL(drm_mode_find_dmt);
 
 typedef void detailed_cb(struct detailed_timing *timing, void *closure);
 
@@ -1360,7 +1360,7 @@ u8 *drm_find_cea_extension(struct edid *edid)
 
 	return edid_ext;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_find_cea_extension); */
+EXPORT_SYMBOL(drm_find_cea_extension);
 
 static int
 do_cea_modes (struct drm_connector *connector, u8 *db, u8 len)
@@ -1514,7 +1514,7 @@ void drm_edid_to_eld(struct drm_connector *connector, struct edid *edid)
 
 	DRM_DEBUG_KMS("ELD size %d, SAD count %d\n", (int)eld[2], sad_count);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_edid_to_eld); */
+EXPORT_SYMBOL(drm_edid_to_eld);
 
 /**
  * drm_av_sync_delay - HDMI/DP sink audio-video sync delay in millisecond
@@ -1552,7 +1552,7 @@ int drm_av_sync_delay(struct drm_connector *connector,
 
 	return max(v - a, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_av_sync_delay); */
+EXPORT_SYMBOL(drm_av_sync_delay);
 
 /**
  * drm_select_eld - select one ELD from multiple HDMI/DP sinks
@@ -1574,7 +1574,7 @@ struct drm_connector *drm_select_eld(struct drm_encoder *encoder,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_select_eld); */
+EXPORT_SYMBOL(drm_select_eld);
 
 /**
  * drm_detect_hdmi_monitor - detect whether monitor is hdmi.
@@ -1619,7 +1619,7 @@ bool drm_detect_hdmi_monitor(struct edid *edid)
 end:
 	return is_hdmi;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_detect_hdmi_monitor); */
+EXPORT_SYMBOL(drm_detect_hdmi_monitor);
 
 /**
  * drm_detect_monitor_audio - check monitor audio capability
@@ -1666,7 +1666,7 @@ bool drm_detect_monitor_audio(struct edid *edid)
 end:
 	return has_audio;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_detect_monitor_audio); */
+EXPORT_SYMBOL(drm_detect_monitor_audio);
 
 /**
  * drm_add_display_info - pull display info out if present
@@ -1792,7 +1792,7 @@ int drm_add_edid_modes(struct drm_connector *connector, struct edid *edid)
 
 	return num_modes;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_add_edid_modes); */
+EXPORT_SYMBOL(drm_add_edid_modes);
 
 /**
  * drm_add_modes_noedid - add modes for the connectors without EDID
@@ -1840,4 +1840,4 @@ int drm_add_modes_noedid(struct drm_connector *connector,
 	}
 	return num_modes;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_add_modes_noedid); */
+EXPORT_SYMBOL(drm_add_modes_noedid);

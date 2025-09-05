@@ -35,7 +35,7 @@ int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
 {
 	return apic_has_pending_timer(vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL(kvm_cpu_has_pending_timer); */
+EXPORT_SYMBOL(kvm_cpu_has_pending_timer);
 
 /*
  * check if there is pending interrupt without
@@ -57,7 +57,7 @@ int kvm_cpu_has_interrupt(struct kvm_vcpu *v)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_cpu_has_interrupt); */
+EXPORT_SYMBOL_GPL(kvm_cpu_has_interrupt);
 
 /*
  * Read pending interrupt vector and intack.
@@ -80,14 +80,14 @@ int kvm_cpu_get_interrupt(struct kvm_vcpu *v)
 	}
 	return vector;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_cpu_get_interrupt); */
+EXPORT_SYMBOL_GPL(kvm_cpu_get_interrupt);
 
 void kvm_inject_pending_timer_irqs(struct kvm_vcpu *vcpu)
 {
 	kvm_inject_apic_timer_irqs(vcpu);
 	/* TODO: PIT, RTC etc. */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_inject_pending_timer_irqs); */
+EXPORT_SYMBOL_GPL(kvm_inject_pending_timer_irqs);
 
 void __kvm_migrate_timers(struct kvm_vcpu *vcpu)
 {

@@ -15,7 +15,7 @@
 
 		.macro	addruart, rp, rv, tmp
 		mov	\rp, #0x00000a00
-		orr	\rv, \rp, @ io_p2v(0x00100000)	@ virtual
+		orr	\rv, \rp, #io_p2v(0x00100000)	@ virtual
 		orr	\rp, \rp, #0x00100000		@ physical
 		.endm
 
@@ -25,12 +25,12 @@
 
 		.macro	busyuart,rd,rx
 1002:		ldr	\rd, [\rx, #0x18]
-		tst	\rd, @ (1 << 3)
+		tst	\rd, #(1 << 3)
 		bne	1002b
 		.endm
 
 		.macro	waituart,rd,rx
 1001:		ldr	\rd, [\rx, #0x18]
-		tst	\rd, @ (1 << 3)
+		tst	\rd, #(1 << 3)
 		bne	1001b
 		.endm

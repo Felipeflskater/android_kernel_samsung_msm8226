@@ -522,7 +522,7 @@ int i2400m_pre_reset(struct i2400m *i2400m)
 	d_fnend(3, dev, "(i2400m %p) = %d\n", i2400m, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_pre_reset); */
+EXPORT_SYMBOL_GPL(i2400m_pre_reset);
 
 
 /*
@@ -571,7 +571,7 @@ error_bus_setup:
 	d_fnend(3, dev, "(i2400m %p) = %d\n", i2400m, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_post_reset); */
+EXPORT_SYMBOL_GPL(i2400m_post_reset);
 
 
 /*
@@ -701,7 +701,7 @@ int i2400m_dev_reset_handle(struct i2400m *i2400m, const char *reason)
 	i2400m->reset_reason = reason;
 	return schedule_work(&i2400m->reset_ws);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_dev_reset_handle); */
+EXPORT_SYMBOL_GPL(i2400m_dev_reset_handle);
 
 
  /*
@@ -749,7 +749,7 @@ void i2400m_error_recovery(struct i2400m *i2400m)
 	else
 		atomic_dec(&i2400m->error_recovery);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_error_recovery); */
+EXPORT_SYMBOL_GPL(i2400m_error_recovery);
 
 /*
  * Alloc the command and ack buffers for boot mode
@@ -829,7 +829,7 @@ void i2400m_init(struct i2400m *i2400m)
 	 * are not yet ready to take any error recovery */
 	atomic_set(&i2400m->error_recovery, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_init); */
+EXPORT_SYMBOL_GPL(i2400m_init);
 
 
 int i2400m_reset(struct i2400m *i2400m, enum i2400m_reset_type rt)
@@ -847,7 +847,7 @@ int i2400m_reset(struct i2400m *i2400m, enum i2400m_reset_type rt)
 	}
 	return i2400m->bus_reset(i2400m, rt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_reset); */
+EXPORT_SYMBOL_GPL(i2400m_reset);
 
 
 /**
@@ -958,7 +958,7 @@ error_bm_buf_alloc:
 	d_fnend(3, dev, "(i2400m %p) = %d\n", i2400m, result);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_setup); */
+EXPORT_SYMBOL_GPL(i2400m_setup);
 
 
 /**
@@ -989,7 +989,7 @@ void i2400m_release(struct i2400m *i2400m)
 	i2400m_bm_buf_free(i2400m);
 	d_fnend(3, dev, "(i2400m %p) = void\n", i2400m);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2400m_release); */
+EXPORT_SYMBOL_GPL(i2400m_release);
 
 
 /*

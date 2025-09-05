@@ -211,7 +211,7 @@ int em28xx_write_reg(struct em28xx *dev, u16 reg, u8 val)
 {
 	return em28xx_write_regs(dev, reg, &val, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_write_reg); */
+EXPORT_SYMBOL_GPL(em28xx_write_reg);
 
 /*
  * em28xx_write_reg_bits()
@@ -287,7 +287,7 @@ int em28xx_read_ac97(struct em28xx *dev, u8 reg)
 		return ret;
 	return le16_to_cpu(val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_read_ac97); */
+EXPORT_SYMBOL_GPL(em28xx_read_ac97);
 
 /*
  * em28xx_write_ac97()
@@ -315,7 +315,7 @@ int em28xx_write_ac97(struct em28xx *dev, u8 reg, u16 val)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_write_ac97); */
+EXPORT_SYMBOL_GPL(em28xx_write_ac97);
 
 struct em28xx_vol_itable {
 	enum em28xx_amux mux;
@@ -490,7 +490,7 @@ int em28xx_audio_analog_set(struct em28xx *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_audio_analog_set); */
+EXPORT_SYMBOL_GPL(em28xx_audio_analog_set);
 
 int em28xx_audio_setup(struct em28xx *dev)
 {
@@ -595,7 +595,7 @@ init_audio:
 
 	return em28xx_audio_analog_set(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_audio_setup); */
+EXPORT_SYMBOL_GPL(em28xx_audio_setup);
 
 int em28xx_colorlevels_set_default(struct em28xx *dev)
 {
@@ -666,7 +666,7 @@ int em28xx_capture_start(struct em28xx *dev, int start)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_capture_start); */
+EXPORT_SYMBOL_GPL(em28xx_capture_start);
 
 int em28xx_vbi_supported(struct em28xx *dev)
 {
@@ -891,7 +891,7 @@ int em28xx_gpio_set(struct em28xx *dev, struct em28xx_reg_seq *gpio)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_gpio_set); */
+EXPORT_SYMBOL_GPL(em28xx_gpio_set);
 
 int em28xx_set_mode(struct em28xx *dev, enum em28xx_mode set_mode)
 {
@@ -913,7 +913,7 @@ int em28xx_set_mode(struct em28xx *dev, enum em28xx_mode set_mode)
 	else
 		return em28xx_gpio_set(dev, INPUT(dev->ctl_input)->gpio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_set_mode); */
+EXPORT_SYMBOL_GPL(em28xx_set_mode);
 
 /* ------------------------------------------------------------------
 	URB control
@@ -1005,7 +1005,7 @@ void em28xx_uninit_isoc(struct em28xx *dev, enum em28xx_mode mode)
 
 	em28xx_capture_start(dev, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_uninit_isoc); */
+EXPORT_SYMBOL_GPL(em28xx_uninit_isoc);
 
 /*
  * Allocate URBs
@@ -1100,7 +1100,7 @@ int em28xx_alloc_isoc(struct em28xx *dev, enum em28xx_mode mode,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_alloc_isoc); */
+EXPORT_SYMBOL_GPL(em28xx_alloc_isoc);
 
 /*
  * Allocate URBs and start IRQ
@@ -1154,7 +1154,7 @@ int em28xx_init_isoc(struct em28xx *dev, enum em28xx_mode mode,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(em28xx_init_isoc); */
+EXPORT_SYMBOL_GPL(em28xx_init_isoc);
 
 /*
  * em28xx_wake_i2c()
@@ -1194,7 +1194,7 @@ int em28xx_register_extension(struct em28xx_ops *ops)
 	printk(KERN_INFO "Em28xx: Initialized (%s) extension\n", ops->name);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(em28xx_register_extension); */
+EXPORT_SYMBOL(em28xx_register_extension);
 
 void em28xx_unregister_extension(struct em28xx_ops *ops)
 {
@@ -1208,7 +1208,7 @@ void em28xx_unregister_extension(struct em28xx_ops *ops)
 	mutex_unlock(&em28xx_devlist_mutex);
 	printk(KERN_INFO "Em28xx: Removed (%s) extension\n", ops->name);
 }
-/* DISABLED: EXPORT_SYMBOL(em28xx_unregister_extension); */
+EXPORT_SYMBOL(em28xx_unregister_extension);
 
 void em28xx_init_extension(struct em28xx *dev)
 {

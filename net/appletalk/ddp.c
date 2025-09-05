@@ -1667,7 +1667,7 @@ static int atalk_sendmsg(struct kiocb *iocb, struct socket *sock, struct msghdr 
 	ddp->deh_dport = usat->sat_port;
 	ddp->deh_sport = at->src_port;
 
-	SOCK_DEBUG(sk, "SK %p: Copy user data (%zd bytes).\n", sk, len);
+	SOCK_DEBUG(sk, "SK %p: Copy user data (%Zd bytes).\n", sk, len);
 
 	err = memcpy_fromiovec(skb_put(skb, len), msg->msg_iov, len);
 	if (err) {
@@ -1731,7 +1731,7 @@ static int atalk_sendmsg(struct kiocb *iocb, struct socket *sock, struct msghdr 
 		 */
 		aarp_send_ddp(dev, skb, &usat->sat_addr, NULL);
 	}
-	SOCK_DEBUG(sk, "SK %p: Done write (%zd).\n", sk, len);
+	SOCK_DEBUG(sk, "SK %p: Done write (%Zd).\n", sk, len);
 
 out:
 	release_sock(sk);
@@ -1914,8 +1914,8 @@ static struct packet_type ppptalk_packet_type __read_mostly = {
 static unsigned char ddp_snap_id[] = { 0x08, 0x00, 0x07, 0x80, 0x9B };
 
 /* Export symbols for use by drivers when AppleTalk is a module */
-/* DISABLED: EXPORT_SYMBOL(atrtr_get_dev); */
-/* DISABLED: EXPORT_SYMBOL(atalk_find_dev_addr); */
+EXPORT_SYMBOL(atrtr_get_dev);
+EXPORT_SYMBOL(atalk_find_dev_addr);
 
 static const char atalk_err_snap[] __initconst =
 	KERN_CRIT "Unable to register DDP with SNAP.\n";

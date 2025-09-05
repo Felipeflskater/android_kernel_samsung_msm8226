@@ -27,12 +27,12 @@
  * (due to slow/fast restore user regs).
  */
 #if S_R0 != 0
-@ warning "Fixed for postmarketOS build"
+#error "Please fix"
 #endif
 
 	.macro	zero_fp
 #ifdef CONFIG_FRAME_POINTER
-	mov	fp, @ 0
+	mov	fp, #0
 #endif
 	.endm
 
@@ -51,25 +51,25 @@
 	@
 	.macro	store_user_sp_lr, rd, rtemp, offset = 0
 	mrs	\rtemp, cpsr
-	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch to the SYS mode
 
-	str	sp, [\rd, @ \offset]		@ save sp_usr
-	str	lr, [\rd, @ \offset + 4]		@ save lr_usr
+	str	sp, [\rd, #\offset]		@ save sp_usr
+	str	lr, [\rd, #\offset + 4]		@ save lr_usr
 
-	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch back to the SVC mode
 	.endm
 
 	.macro	load_user_sp_lr, rd, rtemp, offset = 0
 	mrs	\rtemp, cpsr
-	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch to the SYS mode
 
-	ldr	sp, [\rd, @ \offset]		@ load sp_usr
-	ldr	lr, [\rd, @ \offset + 4]		@ load lr_usr
+	ldr	sp, [\rd, #\offset]		@ load sp_usr
+	ldr	lr, [\rd, #\offset + 4]		@ load lr_usr
 
-	eor	\rtemp, \rtemp, @ (SVC_MODE ^ SYSTEM_MODE)
+	eor	\rtemp, \rtemp, #(SVC_MODE ^ SYSTEM_MODE)
 	msr	cpsr_c, \rtemp			@ switch back to the SVC mode
 	.endm
 
@@ -77,19 +77,19 @@
 	.macro	svc_exit, rpsr
 	msr	spsr_cxsf, \rpsr
 #if defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_32v6K)
-	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
-	sub	r0, sp, @ 4			@ uninhabited address
+	@ We must avoid clrex due to Cortex-A15 erratum #830321
+	sub	r0, sp, #4			@ uninhabited address
 	strex	r1, r2, [r0]			@ clear the exclusive monitor
 #endif
 	ldmia	sp, {r0 - pc}^			@ load r0 - pc, cpsr
 	.endm
 
 	.macro	restore_user_regs, fast = 0, offset = 0
-	ldr	r1, [sp, @ \offset + S_PSR]	@ get calling cpsr
-	ldr	lr, [sp, @ \offset + S_PC]!	@ get pc
+	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
+	ldr	lr, [sp, #\offset + S_PC]!	@ get pc
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 #if defined(CONFIG_CPU_V6) || defined(CONFIG_CPU_32v6K)
-	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
+	@ We must avoid clrex due to Cortex-A15 erratum #830321
 	strex	r1, r2, [sp]			@ clear the exclusive monitor
 #endif
 	.if	\fast
@@ -99,13 +99,13 @@
 	.endif
 	mov	r0, r0				@ ARMv5T and earlier require a nop
 						@ after ldm {}^
-	add	sp, sp, @ S_FRAME_SIZE - S_PC
+	add	sp, sp, #S_FRAME_SIZE - S_PC
 	movs	pc, lr				@ return & move spsr_svc into cpsr
 	.endm
 
 	.macro	get_thread_info, rd
-	mov	\rd, sp, lsr @ 13
-	mov	\rd, \rd, lsl @ 13
+	mov	\rd, sp, lsr #13
+	mov	\rd, \rd, lsl #13
 	.endm
 
 	@
@@ -116,28 +116,28 @@
 	.endm
 #else	/* CONFIG_THUMB2_KERNEL */
 	.macro	svc_exit, rpsr
-	ldr	lr, [sp, @ S_SP]			@ top of the stack
-	ldrd	r0, r1, [sp, @ S_LR]		@ calling lr and pc
+	ldr	lr, [sp, #S_SP]			@ top of the stack
+	ldrd	r0, r1, [sp, #S_LR]		@ calling lr and pc
 
-	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
-	strex	r2, r1, [sp, @ S_LR]		@ clear the exclusive monitor
+	@ We must avoid clrex due to Cortex-A15 erratum #830321
+	strex	r2, r1, [sp, #S_LR]		@ clear the exclusive monitor
 
 	stmdb	lr!, {r0, r1, \rpsr}		@ calling lr and rfe context
 	ldmia	sp, {r0 - r12}
 	mov	sp, lr
-	ldr	lr, [sp], @ 4
+	ldr	lr, [sp], #4
 	rfeia	sp!
 	.endm
 
 	.macro	restore_user_regs, fast = 0, offset = 0
 	mov	r2, sp
 	load_user_sp_lr r2, r3, \offset + S_SP	@ calling sp, lr
-	ldr	r1, [sp, @ \offset + S_PSR]	@ get calling cpsr
-	ldr	lr, [sp, @ \offset + S_PC]	@ get pc
-	add	sp, sp, @ \offset + S_SP
+	ldr	r1, [sp, #\offset + S_PSR]	@ get calling cpsr
+	ldr	lr, [sp, #\offset + S_PC]	@ get pc
+	add	sp, sp, #\offset + S_SP
 	msr	spsr_cxsf, r1			@ save in spsr_svc
 
-	@ We must avoid clrex due to Cortex-A15 erratum @ 830321
+	@ We must avoid clrex due to Cortex-A15 erratum #830321
 	strex	r1, r2, [sp]			@ clear the exclusive monitor
 
 	.if	\fast
@@ -145,14 +145,14 @@
 	.else
 	ldmdb	sp, {r0 - r12}			@ get calling r0 - r12
 	.endif
-	add	sp, sp, @ S_FRAME_SIZE - S_SP
+	add	sp, sp, #S_FRAME_SIZE - S_SP
 	movs	pc, lr				@ return & move spsr_svc into cpsr
 	.endm
 
 	.macro	get_thread_info, rd
 	mov	\rd, sp
-	lsr	\rd, \rd, @ 13
-	mov	\rd, \rd, lsl @ 13
+	lsr	\rd, \rd, #13
+	mov	\rd, \rd, lsl #13
 	.endm
 
 	@

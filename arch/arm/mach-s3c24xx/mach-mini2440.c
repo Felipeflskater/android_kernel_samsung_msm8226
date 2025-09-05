@@ -558,7 +558,7 @@ static int __init mini2440_features_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("mini2440=", mini2440_features_setup); */ */
+__setup("mini2440=", mini2440_features_setup);
 
 #define FEATURE_SCREEN (1 << 0)
 #define FEATURE_BACKLIGHT (1 << 1)

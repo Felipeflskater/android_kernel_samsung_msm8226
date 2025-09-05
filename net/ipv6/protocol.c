@@ -34,7 +34,7 @@ int inet6_add_protocol(const struct inet6_protocol *prot, unsigned char protocol
 	return !cmpxchg((const struct inet6_protocol **)&inet6_protos[hash],
 			NULL, prot) ? 0 : -1;
 }
-/* DISABLED: EXPORT_SYMBOL(inet6_add_protocol); */
+EXPORT_SYMBOL(inet6_add_protocol);
 
 /*
  *	Remove a protocol from the hash tables.
@@ -51,4 +51,4 @@ int inet6_del_protocol(const struct inet6_protocol *prot, unsigned char protocol
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(inet6_del_protocol); */
+EXPORT_SYMBOL(inet6_del_protocol);

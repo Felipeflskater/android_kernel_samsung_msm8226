@@ -306,7 +306,7 @@ int extcon_update_state(struct extcon_dev *edev, u32 mask, u32 state)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_update_state); */
+EXPORT_SYMBOL_GPL(extcon_update_state);
 
 /**
  * extcon_set_state() - Set the cable attach states of the extcon device.
@@ -320,7 +320,7 @@ int extcon_set_state(struct extcon_dev *edev, u32 state)
 {
 	return extcon_update_state(edev, 0xffffffff, state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_set_state); */
+EXPORT_SYMBOL_GPL(extcon_set_state);
 
 /**
  * extcon_find_cable_index() - Get the cable index based on the cable name.
@@ -346,7 +346,7 @@ int extcon_find_cable_index(struct extcon_dev *edev, const char *cable_name)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_find_cable_index); */
+EXPORT_SYMBOL_GPL(extcon_find_cable_index);
 
 /**
  * extcon_get_cable_state_() - Get the status of a specific cable.
@@ -360,7 +360,7 @@ int extcon_get_cable_state_(struct extcon_dev *edev, int index)
 
 	return !!(edev->state & (1 << index));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_get_cable_state_); */
+EXPORT_SYMBOL_GPL(extcon_get_cable_state_);
 
 /**
  * extcon_get_cable_state() - Get the status of a specific cable.
@@ -374,7 +374,7 @@ int extcon_get_cable_state(struct extcon_dev *edev, const char *cable_name)
 	return extcon_get_cable_state_(edev, extcon_find_cable_index
 						(edev, cable_name));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_get_cable_state); */
+EXPORT_SYMBOL_GPL(extcon_get_cable_state);
 
 /**
  * extcon_get_cable_state_() - Set the status of a specific cable.
@@ -395,7 +395,7 @@ int extcon_set_cable_state_(struct extcon_dev *edev,
 	state = cable_state ? (1 << index) : 0;
 	return extcon_update_state(edev, 1 << index, state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_set_cable_state_); */
+EXPORT_SYMBOL_GPL(extcon_set_cable_state_);
 
 /**
  * extcon_get_cable_state() - Set the status of a specific cable.
@@ -414,7 +414,7 @@ int extcon_set_cable_state(struct extcon_dev *edev,
 	return extcon_set_cable_state_(edev, extcon_find_cable_index
 					(edev, cable_name), cable_state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_set_cable_state); */
+EXPORT_SYMBOL_GPL(extcon_set_cable_state);
 
 /**
  * extcon_get_extcon_dev() - Get the extcon device instance from the name
@@ -434,7 +434,7 @@ out:
 	mutex_unlock(&extcon_dev_list_lock);
 	return sd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_get_extcon_dev); */
+EXPORT_SYMBOL_GPL(extcon_get_extcon_dev);
 
 static int _call_per_cable(struct notifier_block *nb, unsigned long val,
 			   void *ptr)
@@ -559,7 +559,7 @@ int extcon_register_notifier(struct extcon_dev *edev,
 {
 	return raw_notifier_chain_register(&edev->nh, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_register_notifier); */
+EXPORT_SYMBOL_GPL(extcon_register_notifier);
 
 /**
  * extcon_unregister_notifier() - Unregister a notifiee from the extcon device.
@@ -571,7 +571,7 @@ int extcon_unregister_notifier(struct extcon_dev *edev,
 {
 	return raw_notifier_chain_unregister(&edev->nh, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_unregister_notifier); */
+EXPORT_SYMBOL_GPL(extcon_unregister_notifier);
 
 static struct device_attribute extcon_attrs[] = {
 	__ATTR(state, S_IRUGO | S_IWUSR, state_show, state_store),
@@ -838,7 +838,7 @@ err_sysfs_alloc:
 	kfree(edev->dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_dev_register); */
+EXPORT_SYMBOL_GPL(extcon_dev_register);
 
 /**
  * extcon_dev_unregister() - Unregister the extcon device.
@@ -851,7 +851,7 @@ void extcon_dev_unregister(struct extcon_dev *edev)
 {
 	extcon_cleanup(edev, false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(extcon_dev_unregister); */
+EXPORT_SYMBOL_GPL(extcon_dev_unregister);
 
 static int __init extcon_class_init(void)
 {

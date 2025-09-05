@@ -61,7 +61,7 @@ long strncpy_from_user(char *dst, const char __user *src, long count)
 
 } /* end strncpy_from_user() */
 
-/* DISABLED: EXPORT_SYMBOL(strncpy_from_user); */
+EXPORT_SYMBOL(strncpy_from_user);
 
 /*****************************************************************************/
 /*
@@ -97,4 +97,4 @@ long strnlen_user(const char __user *src, long count)
 
 } /* end strnlen_user() */
 
-/* DISABLED: EXPORT_SYMBOL(strnlen_user); */
+EXPORT_SYMBOL(strnlen_user);

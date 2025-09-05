@@ -40,7 +40,7 @@ void * __iomem __iop13xx_io(unsigned long io_addr)
 
 	return io_virt;
 }
-/* DISABLED: EXPORT_SYMBOL(__iop13xx_io); */
+EXPORT_SYMBOL(__iop13xx_io);
 
 static void __iomem *__iop13xx_ioremap_caller(unsigned long cookie,
 	size_t size, unsigned int mtype, void *caller)

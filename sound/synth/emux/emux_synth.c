@@ -443,7 +443,7 @@ snd_emux_terminate_all(struct snd_emux *emu)
 	spin_unlock_irqrestore(&emu->voice_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_emux_terminate_all); */
+EXPORT_SYMBOL(snd_emux_terminate_all);
 
 /*
  * Terminate all voices associated with the given port
@@ -963,7 +963,7 @@ void snd_emux_lock_voice(struct snd_emux *emu, int voice)
 	spin_unlock_irqrestore(&emu->voice_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_emux_lock_voice); */
+EXPORT_SYMBOL(snd_emux_lock_voice);
 
 /*
  */
@@ -981,4 +981,4 @@ void snd_emux_unlock_voice(struct snd_emux *emu, int voice)
 	spin_unlock_irqrestore(&emu->voice_lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_emux_unlock_voice); */
+EXPORT_SYMBOL(snd_emux_unlock_voice);

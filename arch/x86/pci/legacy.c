@@ -54,7 +54,7 @@ void __devinit pcibios_scan_specific_bus(int busn)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pcibios_scan_specific_bus); */
+EXPORT_SYMBOL_GPL(pcibios_scan_specific_bus);
 
 int __init pci_subsys_init(void)
 {

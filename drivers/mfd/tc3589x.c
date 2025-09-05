@@ -33,7 +33,7 @@ int tc3589x_reg_read(struct tc3589x *tc3589x, u8 reg)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tc3589x_reg_read); */
+EXPORT_SYMBOL_GPL(tc3589x_reg_read);
 
 /**
  * tc3589x_reg_read() - write a single TC3589x register
@@ -52,7 +52,7 @@ int tc3589x_reg_write(struct tc3589x *tc3589x, u8 reg, u8 data)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tc3589x_reg_write); */
+EXPORT_SYMBOL_GPL(tc3589x_reg_write);
 
 /**
  * tc3589x_block_read() - read multiple TC3589x registers
@@ -72,7 +72,7 @@ int tc3589x_block_read(struct tc3589x *tc3589x, u8 reg, u8 length, u8 *values)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tc3589x_block_read); */
+EXPORT_SYMBOL_GPL(tc3589x_block_read);
 
 /**
  * tc3589x_block_write() - write multiple TC3589x registers
@@ -94,7 +94,7 @@ int tc3589x_block_write(struct tc3589x *tc3589x, u8 reg, u8 length,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tc3589x_block_write); */
+EXPORT_SYMBOL_GPL(tc3589x_block_write);
 
 /**
  * tc3589x_set_bits() - set the value of a bitfield in a TC3589x register
@@ -122,7 +122,7 @@ out:
 	mutex_unlock(&tc3589x->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tc3589x_set_bits); */
+EXPORT_SYMBOL_GPL(tc3589x_set_bits);
 
 static struct resource gpio_resources[] = {
 	{

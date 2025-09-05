@@ -38,7 +38,7 @@
 DEFINE_SPINLOCK(rtc_lock);
 
 #ifdef CONFIG_RTC_DRV_CMOS_MODULE
-/* DISABLED: EXPORT_SYMBOL(rtc_lock); */
+EXPORT_SYMBOL(rtc_lock);
 #endif
 #endif  /* pc-style 'CMOS' RTC support */
 

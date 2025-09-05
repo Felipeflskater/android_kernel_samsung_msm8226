@@ -118,7 +118,7 @@ int crypto_hash_walk_done(struct crypto_hash_walk *walk, int err)
 
 	return hash_walk_new_entry(walk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_hash_walk_done); */
+EXPORT_SYMBOL_GPL(crypto_hash_walk_done);
 
 int crypto_hash_walk_first(struct ahash_request *req,
 			   struct crypto_hash_walk *walk)
@@ -139,7 +139,7 @@ int crypto_hash_walk_first(struct ahash_request *req,
 
 	return hash_walk_new_entry(walk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_hash_walk_first); */
+EXPORT_SYMBOL_GPL(crypto_hash_walk_first);
 
 int crypto_hash_walk_first_compat(struct hash_desc *hdesc,
 				  struct crypto_hash_walk *walk,
@@ -192,7 +192,7 @@ int crypto_ahash_setkey(struct crypto_ahash *tfm, const u8 *key,
 
 	return tfm->setkey(tfm, key, keylen);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ahash_setkey); */
+EXPORT_SYMBOL_GPL(crypto_ahash_setkey);
 
 static int ahash_nosetkey(struct crypto_ahash *tfm, const u8 *key,
 			  unsigned int keylen)
@@ -327,19 +327,19 @@ int crypto_ahash_final(struct ahash_request *req)
 {
 	return crypto_ahash_op(req, crypto_ahash_reqtfm(req)->final);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ahash_final); */
+EXPORT_SYMBOL_GPL(crypto_ahash_final);
 
 int crypto_ahash_finup(struct ahash_request *req)
 {
 	return crypto_ahash_op(req, crypto_ahash_reqtfm(req)->finup);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ahash_finup); */
+EXPORT_SYMBOL_GPL(crypto_ahash_finup);
 
 int crypto_ahash_digest(struct ahash_request *req)
 {
 	return crypto_ahash_op(req, crypto_ahash_reqtfm(req)->digest);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ahash_digest); */
+EXPORT_SYMBOL_GPL(crypto_ahash_digest);
 
 static void ahash_def_finup_done2(struct crypto_async_request *req, int err)
 {
@@ -507,14 +507,14 @@ const struct crypto_type crypto_ahash_type = {
 	.type = CRYPTO_ALG_TYPE_AHASH,
 	.tfmsize = offsetof(struct crypto_ahash, base),
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_ahash_type); */
+EXPORT_SYMBOL_GPL(crypto_ahash_type);
 
 struct crypto_ahash *crypto_alloc_ahash(const char *alg_name, u32 type,
 					u32 mask)
 {
 	return crypto_alloc_tfm(alg_name, &crypto_ahash_type, type, mask);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_ahash); */
+EXPORT_SYMBOL_GPL(crypto_alloc_ahash);
 
 static int ahash_prepare_alg(struct ahash_alg *alg)
 {
@@ -543,13 +543,13 @@ int crypto_register_ahash(struct ahash_alg *alg)
 
 	return crypto_register_alg(base);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_ahash); */
+EXPORT_SYMBOL_GPL(crypto_register_ahash);
 
 int crypto_unregister_ahash(struct ahash_alg *alg)
 {
 	return crypto_unregister_alg(&alg->halg.base);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_ahash); */
+EXPORT_SYMBOL_GPL(crypto_unregister_ahash);
 
 int ahash_register_instance(struct crypto_template *tmpl,
 			    struct ahash_instance *inst)
@@ -567,14 +567,14 @@ int ahash_register_instance(struct crypto_template *tmpl,
 
 	return crypto_register_instance(tmpl, ahash_crypto_instance(inst));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahash_register_instance); */
+EXPORT_SYMBOL_GPL(ahash_register_instance);
 
 void ahash_free_instance(struct crypto_instance *inst)
 {
 	crypto_drop_spawn(crypto_instance_ctx(inst));
 	kfree(ahash_instance(inst));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahash_free_instance); */
+EXPORT_SYMBOL_GPL(ahash_free_instance);
 
 int crypto_init_ahash_spawn(struct crypto_ahash_spawn *spawn,
 			    struct hash_alg_common *alg,
@@ -583,7 +583,7 @@ int crypto_init_ahash_spawn(struct crypto_ahash_spawn *spawn,
 	return crypto_init_spawn2(&spawn->base, &alg->base, inst,
 				  &crypto_ahash_type);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_init_ahash_spawn); */
+EXPORT_SYMBOL_GPL(crypto_init_ahash_spawn);
 
 struct hash_alg_common *ahash_attr_alg(struct rtattr *rta, u32 type, u32 mask)
 {
@@ -592,7 +592,7 @@ struct hash_alg_common *ahash_attr_alg(struct rtattr *rta, u32 type, u32 mask)
 	alg = crypto_attr_alg2(rta, &crypto_ahash_type, type, mask);
 	return IS_ERR(alg) ? ERR_CAST(alg) : __crypto_hash_alg_common(alg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ahash_attr_alg); */
+EXPORT_SYMBOL_GPL(ahash_attr_alg);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Asynchronous cryptographic hash type");

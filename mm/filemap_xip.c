@@ -152,7 +152,7 @@ xip_file_read(struct file *filp, char __user *buf, size_t len, loff_t *ppos)
 	return do_xip_mapping_read(filp->f_mapping, &filp->f_ra, filp,
 			    buf, len, ppos);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xip_file_read); */
+EXPORT_SYMBOL_GPL(xip_file_read);
 
 /*
  * __xip_unmap is invoked from xip_unmap and
@@ -316,7 +316,7 @@ int xip_file_mmap(struct file * file, struct vm_area_struct * vma)
 	vma->vm_flags |= VM_MIXEDMAP;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xip_file_mmap); */
+EXPORT_SYMBOL_GPL(xip_file_mmap);
 
 static ssize_t
 __xip_file_write(struct file *filp, const char __user *buf,
@@ -439,7 +439,7 @@ xip_file_write(struct file *filp, const char __user *buf, size_t len,
 	mutex_unlock(&inode->i_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xip_file_write); */
+EXPORT_SYMBOL_GPL(xip_file_write);
 
 /*
  * truncate a page used for execute in place
@@ -480,4 +480,4 @@ xip_truncate_page(struct address_space *mapping, loff_t from)
 	memset(xip_mem + offset, 0, length);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xip_truncate_page); */
+EXPORT_SYMBOL_GPL(xip_truncate_page);

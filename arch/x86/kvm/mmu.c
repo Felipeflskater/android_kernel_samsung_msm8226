@@ -192,7 +192,7 @@ void kvm_mmu_set_mmio_spte_mask(u64 mmio_mask)
 {
 	shadow_mmio_mask = mmio_mask;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_set_mmio_spte_mask); */
+EXPORT_SYMBOL_GPL(kvm_mmu_set_mmio_spte_mask);
 
 static void mark_mmio_spte(u64 *sptep, u64 gfn, unsigned access)
 {
@@ -241,7 +241,7 @@ void kvm_mmu_set_mask_ptes(u64 user_mask, u64 accessed_mask,
 	shadow_nx_mask = nx_mask;
 	shadow_x_mask = x_mask;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_set_mask_ptes); */
+EXPORT_SYMBOL_GPL(kvm_mmu_set_mask_ptes);
 
 static int is_cpuid_PSE36(void)
 {
@@ -2028,7 +2028,7 @@ int kvm_mmu_unprotect_page(struct kvm *kvm, gfn_t gfn)
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_unprotect_page); */
+EXPORT_SYMBOL_GPL(kvm_mmu_unprotect_page);
 
 static void page_header_update_slot(struct kvm *kvm, void *pte, gfn_t gfn)
 {
@@ -2141,7 +2141,7 @@ u8 kvm_get_guest_memory_type(struct kvm_vcpu *vcpu, gfn_t gfn)
 		mtrr = MTRR_TYPE_WRBACK;
 	return mtrr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_guest_memory_type); */
+EXPORT_SYMBOL_GPL(kvm_get_guest_memory_type);
 
 static void __kvm_unsync_page(struct kvm_vcpu *vcpu, struct kvm_mmu_page *sp)
 {
@@ -2963,7 +2963,7 @@ int handle_mmio_page_fault_common(struct kvm_vcpu *vcpu, u64 addr, bool direct)
 	 */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(handle_mmio_page_fault_common); */
+EXPORT_SYMBOL_GPL(handle_mmio_page_fault_common);
 
 static int handle_mmio_page_fault(struct kvm_vcpu *vcpu, u64 addr,
 				  u32 error_code, bool direct)
@@ -3370,7 +3370,7 @@ int kvm_init_shadow_mmu(struct kvm_vcpu *vcpu, struct kvm_mmu *context)
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_init_shadow_mmu); */
+EXPORT_SYMBOL_GPL(kvm_init_shadow_mmu);
 
 static int init_kvm_softmmu(struct kvm_vcpu *vcpu)
 {
@@ -3445,7 +3445,7 @@ int kvm_mmu_reset_context(struct kvm_vcpu *vcpu)
 	destroy_kvm_mmu(vcpu);
 	return init_kvm_mmu(vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_reset_context); */
+EXPORT_SYMBOL_GPL(kvm_mmu_reset_context);
 
 int kvm_mmu_load(struct kvm_vcpu *vcpu)
 {
@@ -3465,13 +3465,13 @@ int kvm_mmu_load(struct kvm_vcpu *vcpu)
 out:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_load); */
+EXPORT_SYMBOL_GPL(kvm_mmu_load);
 
 void kvm_mmu_unload(struct kvm_vcpu *vcpu)
 {
 	mmu_free_roots(vcpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_unload); */
+EXPORT_SYMBOL_GPL(kvm_mmu_unload);
 
 static void mmu_pte_write_new_pte(struct kvm_vcpu *vcpu,
 				  struct kvm_mmu_page *sp, u64 *spte,
@@ -3705,7 +3705,7 @@ int kvm_mmu_unprotect_page_virt(struct kvm_vcpu *vcpu, gva_t gva)
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_unprotect_page_virt); */
+EXPORT_SYMBOL_GPL(kvm_mmu_unprotect_page_virt);
 
 void __kvm_mmu_free_some_pages(struct kvm_vcpu *vcpu)
 {
@@ -3765,7 +3765,7 @@ int kvm_mmu_page_fault(struct kvm_vcpu *vcpu, gva_t cr2, u32 error_code,
 out:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_page_fault); */
+EXPORT_SYMBOL_GPL(kvm_mmu_page_fault);
 
 void kvm_mmu_invlpg(struct kvm_vcpu *vcpu, gva_t gva)
 {
@@ -3773,19 +3773,19 @@ void kvm_mmu_invlpg(struct kvm_vcpu *vcpu, gva_t gva)
 	kvm_mmu_flush_tlb(vcpu);
 	++vcpu->stat.invlpg;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_invlpg); */
+EXPORT_SYMBOL_GPL(kvm_mmu_invlpg);
 
 void kvm_enable_tdp(void)
 {
 	tdp_enabled = true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_enable_tdp); */
+EXPORT_SYMBOL_GPL(kvm_enable_tdp);
 
 void kvm_disable_tdp(void)
 {
 	tdp_enabled = false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_disable_tdp); */
+EXPORT_SYMBOL_GPL(kvm_disable_tdp);
 
 static void free_mmu_pages(struct kvm_vcpu *vcpu)
 {
@@ -4010,7 +4010,7 @@ int kvm_mmu_get_spte_hierarchy(struct kvm_vcpu *vcpu, u64 addr, u64 sptes[4])
 
 	return nr_sptes;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_mmu_get_spte_hierarchy); */
+EXPORT_SYMBOL_GPL(kvm_mmu_get_spte_hierarchy);
 
 void kvm_mmu_destroy(struct kvm_vcpu *vcpu)
 {

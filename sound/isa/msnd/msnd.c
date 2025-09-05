@@ -60,7 +60,7 @@ void snd_msnd_init_queue(void *base, int start, int size)
 	writew(0, base + JQS_wHead);
 	writew(0, base + JQS_wTail);
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_init_queue); */
+EXPORT_SYMBOL(snd_msnd_init_queue);
 
 static int snd_msnd_wait_TXDE(struct snd_msnd *dev)
 {
@@ -102,7 +102,7 @@ int snd_msnd_send_dsp_cmd(struct snd_msnd *dev, u8 cmd)
 
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_send_dsp_cmd); */
+EXPORT_SYMBOL(snd_msnd_send_dsp_cmd);
 
 int snd_msnd_send_word(struct snd_msnd *dev, unsigned char high,
 		   unsigned char mid, unsigned char low)
@@ -120,7 +120,7 @@ int snd_msnd_send_word(struct snd_msnd *dev, unsigned char high,
 
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_send_word); */
+EXPORT_SYMBOL(snd_msnd_send_word);
 
 int snd_msnd_upload_host(struct snd_msnd *dev, const u8 *bin, int len)
 {
@@ -141,7 +141,7 @@ int snd_msnd_upload_host(struct snd_msnd *dev, const u8 *bin, int len)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_upload_host); */
+EXPORT_SYMBOL(snd_msnd_upload_host);
 
 int snd_msnd_enable_irq(struct snd_msnd *dev)
 {
@@ -172,7 +172,7 @@ int snd_msnd_enable_irq(struct snd_msnd *dev)
 
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_enable_irq); */
+EXPORT_SYMBOL(snd_msnd_enable_irq);
 
 int snd_msnd_disable_irq(struct snd_msnd *dev)
 {
@@ -202,7 +202,7 @@ int snd_msnd_disable_irq(struct snd_msnd *dev)
 
 	return -EIO;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_disable_irq); */
+EXPORT_SYMBOL(snd_msnd_disable_irq);
 
 static inline long get_play_delay_jiffies(struct snd_msnd *chip, long size)
 {
@@ -252,7 +252,7 @@ void snd_msnd_dsp_halt(struct snd_msnd *chip, struct file *file)
 		clear_bit(F_AUDIO_WRITE_INUSE, &chip->flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_dsp_halt); */
+EXPORT_SYMBOL(snd_msnd_dsp_halt);
 
 
 int snd_msnd_DARQ(struct snd_msnd *chip, int bank)
@@ -302,7 +302,7 @@ int snd_msnd_DARQ(struct snd_msnd *chip, int bank)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_DARQ); */
+EXPORT_SYMBOL(snd_msnd_DARQ);
 
 int snd_msnd_DAPQ(struct snd_msnd *chip, int start)
 {
@@ -362,7 +362,7 @@ int snd_msnd_DAPQ(struct snd_msnd *chip, int start)
 	/* spin_unlock_irqrestore(&chip->lock, flags); not necessary */
 	return nbanks;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_DAPQ); */
+EXPORT_SYMBOL(snd_msnd_DAPQ);
 
 static void snd_msnd_play_reset_queue(struct snd_msnd *chip,
 				      unsigned int pcm_periods,
@@ -701,7 +701,7 @@ int snd_msnd_pcm(struct snd_card *card, int device,
 		*rpcm = pcm;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_msnd_pcm); */
+EXPORT_SYMBOL(snd_msnd_pcm);
 
 MODULE_DESCRIPTION("Common routines for Turtle Beach Multisound drivers");
 MODULE_LICENSE("GPL");

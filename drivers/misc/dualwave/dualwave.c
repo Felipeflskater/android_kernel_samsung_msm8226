@@ -298,7 +298,7 @@ int checkDualWaveStatus(void)
 {
 	return g_iEnableUpdateSoundTime;
 }
-/* DISABLED: EXPORT_SYMBOL(checkDualWaveStatus); */
+EXPORT_SYMBOL(checkDualWaveStatus);
 
 #if 0
 void setDualWaveFunction(int bEnable)
@@ -312,7 +312,7 @@ void setDualWaveFunction(int bEnable)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(setDualWaveFunction); */
+EXPORT_SYMBOL(setDualWaveFunction);
 #endif
 
 /**
@@ -370,7 +370,7 @@ int send_uevent_wh_timeinfo(const char *szName, struct timespec *ptTime)
 
 	return 0 ;
 }
-/* DISABLED: EXPORT_SYMBOL(send_uevent_wh_timeinfo); */
+EXPORT_SYMBOL(send_uevent_wh_timeinfo);
 
 
 int send_uevent_wh_ble_info(char *prEnvInfoLists[3])
@@ -400,7 +400,7 @@ int send_uevent_wh_ble_info(char *prEnvInfoLists[3])
 
         return 0 ;
 }
-/* DISABLED: EXPORT_SYMBOL(send_uevent_wh_ble_info); */
+EXPORT_SYMBOL(send_uevent_wh_ble_info);
 
 
 
@@ -434,7 +434,7 @@ int send_uevent_snd_avail(int state)
 		kfree(prBuf);
         return 0 ;
 }
-/* DISABLED: EXPORT_SYMBOL(send_uevent_snd_avail); */
+EXPORT_SYMBOL(send_uevent_snd_avail);
 
 
 /**

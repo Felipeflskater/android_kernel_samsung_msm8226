@@ -534,7 +534,7 @@ void uwb_rc_neh_grok(struct uwb_rc *rc, void *buf, size_t buf_size)
 		size -= real_size;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_neh_grok); */
+EXPORT_SYMBOL_GPL(uwb_rc_neh_grok);
 
 
 /**
@@ -564,7 +564,7 @@ void uwb_rc_neh_error(struct uwb_rc *rc, int error)
 		uwb_rc_neh_cb(neh, NULL, error);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_neh_error); */
+EXPORT_SYMBOL_GPL(uwb_rc_neh_error);
 
 
 static void uwb_rc_neh_timer(unsigned long arg)

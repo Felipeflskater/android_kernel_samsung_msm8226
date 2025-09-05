@@ -704,7 +704,7 @@ static int __devinit vrc4171_card_setup(char *options)
 	return 1;
 }
 
-/* DISABLED: __setup("vrc4171_card=", vrc4171_card_setup); */ */
+__setup("vrc4171_card=", vrc4171_card_setup);
 
 static struct platform_driver vrc4171_card_driver = {
 	.driver = {

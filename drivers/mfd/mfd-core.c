@@ -38,7 +38,7 @@ int mfd_cell_enable(struct platform_device *pdev)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mfd_cell_enable); */
+EXPORT_SYMBOL(mfd_cell_enable);
 
 int mfd_cell_disable(struct platform_device *pdev)
 {
@@ -58,7 +58,7 @@ int mfd_cell_disable(struct platform_device *pdev)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(mfd_cell_disable); */
+EXPORT_SYMBOL(mfd_cell_disable);
 
 static int mfd_platform_add_cell(struct platform_device *pdev,
 				 const struct mfd_cell *cell)
@@ -184,7 +184,7 @@ int mfd_add_devices(struct device *parent, int id,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mfd_add_devices); */
+EXPORT_SYMBOL(mfd_add_devices);
 
 static int mfd_remove_devices_fn(struct device *dev, void *c)
 {
@@ -213,7 +213,7 @@ void mfd_remove_devices(struct device *parent)
 	device_for_each_child(parent, &cnts, mfd_remove_devices_fn);
 	kfree(cnts);
 }
-/* DISABLED: EXPORT_SYMBOL(mfd_remove_devices); */
+EXPORT_SYMBOL(mfd_remove_devices);
 
 int mfd_clone_cell(const char *cell, const char **clones, size_t n_clones)
 {
@@ -243,7 +243,7 @@ int mfd_clone_cell(const char *cell, const char **clones, size_t n_clones)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mfd_clone_cell); */
+EXPORT_SYMBOL(mfd_clone_cell);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Ian Molton, Dmitry Baryshkov");

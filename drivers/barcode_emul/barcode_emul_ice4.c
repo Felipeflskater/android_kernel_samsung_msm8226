@@ -1133,7 +1133,7 @@ int ice_gpiox_get(int num)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(ice_gpiox_get); */
+EXPORT_SYMBOL(ice_gpiox_get);
 
 int ice_gpiox_set(int num, int val)
 {
@@ -1174,7 +1174,7 @@ int ice_gpiox_set(int num, int val)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ice_gpiox_set); */
+EXPORT_SYMBOL(ice_gpiox_set);
 
 static void fw_work(struct work_struct *work)
 {

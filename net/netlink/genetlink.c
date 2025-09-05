@@ -25,20 +25,20 @@ void genl_lock(void)
 {
 	mutex_lock(&genl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(genl_lock); */
+EXPORT_SYMBOL(genl_lock);
 
 void genl_unlock(void)
 {
 	mutex_unlock(&genl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(genl_unlock); */
+EXPORT_SYMBOL(genl_unlock);
 
 #ifdef CONFIG_PROVE_LOCKING
 int lockdep_genl_is_held(void)
 {
 	return lockdep_is_held(&genl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(lockdep_genl_is_held); */
+EXPORT_SYMBOL(lockdep_genl_is_held);
 #endif
 
 #define GENL_FAM_TAB_SIZE	16
@@ -216,7 +216,7 @@ int genl_register_mc_group(struct genl_family *family,
 	genl_unlock();
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_register_mc_group); */
+EXPORT_SYMBOL(genl_register_mc_group);
 
 static void __genl_unregister_mc_group(struct genl_family *family,
 				       struct genl_multicast_group *grp)
@@ -259,7 +259,7 @@ void genl_unregister_mc_group(struct genl_family *family,
 	__genl_unregister_mc_group(family, grp);
 	genl_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL(genl_unregister_mc_group); */
+EXPORT_SYMBOL(genl_unregister_mc_group);
 
 static void genl_unregister_mc_groups(struct genl_family *family)
 {
@@ -312,7 +312,7 @@ int genl_register_ops(struct genl_family *family, struct genl_ops *ops)
 errout:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_register_ops); */
+EXPORT_SYMBOL(genl_register_ops);
 
 /**
  * genl_unregister_ops - unregister generic netlink operations
@@ -347,7 +347,7 @@ int genl_unregister_ops(struct genl_family *family, struct genl_ops *ops)
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_unregister_ops); */
+EXPORT_SYMBOL(genl_unregister_ops);
 
 /**
  * genl_register_family - register a generic netlink family
@@ -416,7 +416,7 @@ errout_locked:
 errout:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_register_family); */
+EXPORT_SYMBOL(genl_register_family);
 
 /**
  * genl_register_family_with_ops - register a generic netlink family
@@ -462,7 +462,7 @@ err_out:
 	genl_unregister_family(family);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_register_family_with_ops); */
+EXPORT_SYMBOL(genl_register_family_with_ops);
 
 /**
  * genl_unregister_family - unregister generic netlink family
@@ -497,7 +497,7 @@ int genl_unregister_family(struct genl_family *family)
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(genl_unregister_family); */
+EXPORT_SYMBOL(genl_unregister_family);
 
 /**
  * genlmsg_put - Add generic netlink header to netlink message
@@ -528,7 +528,7 @@ void *genlmsg_put(struct sk_buff *skb, u32 pid, u32 seq,
 
 	return (char *) hdr + GENL_HDRLEN;
 }
-/* DISABLED: EXPORT_SYMBOL(genlmsg_put); */
+EXPORT_SYMBOL(genlmsg_put);
 
 static int genl_rcv_msg(struct sk_buff *skb, struct nlmsghdr *nlh)
 {
@@ -999,7 +999,7 @@ int genlmsg_multicast_allns(struct sk_buff *skb, u32 pid, unsigned int group,
 {
 	return genlmsg_mcast(skb, pid, group, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(genlmsg_multicast_allns); */
+EXPORT_SYMBOL(genlmsg_multicast_allns);
 
 void genl_notify(struct sk_buff *skb, struct net *net, u32 pid, u32 group,
 		 struct nlmsghdr *nlh, gfp_t flags)
@@ -1012,4 +1012,4 @@ void genl_notify(struct sk_buff *skb, struct net *net, u32 pid, u32 group,
 
 	nlmsg_notify(sk, skb, pid, group, report, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(genl_notify); */
+EXPORT_SYMBOL(genl_notify);

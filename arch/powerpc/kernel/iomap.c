@@ -34,11 +34,11 @@ unsigned int ioread32be(void __iomem *addr)
 {
 	return in_be32(addr);
 }
-/* DISABLED: EXPORT_SYMBOL(ioread8); */
-/* DISABLED: EXPORT_SYMBOL(ioread16); */
-/* DISABLED: EXPORT_SYMBOL(ioread16be); */
-/* DISABLED: EXPORT_SYMBOL(ioread32); */
-/* DISABLED: EXPORT_SYMBOL(ioread32be); */
+EXPORT_SYMBOL(ioread8);
+EXPORT_SYMBOL(ioread16);
+EXPORT_SYMBOL(ioread16be);
+EXPORT_SYMBOL(ioread32);
+EXPORT_SYMBOL(ioread32be);
 
 void iowrite8(u8 val, void __iomem *addr)
 {
@@ -60,11 +60,11 @@ void iowrite32be(u32 val, void __iomem *addr)
 {
 	out_be32(addr, val);
 }
-/* DISABLED: EXPORT_SYMBOL(iowrite8); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16be); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32be); */
+EXPORT_SYMBOL(iowrite8);
+EXPORT_SYMBOL(iowrite16);
+EXPORT_SYMBOL(iowrite16be);
+EXPORT_SYMBOL(iowrite32);
+EXPORT_SYMBOL(iowrite32be);
 
 /*
  * These are the "repeat read/write" functions. Note the
@@ -86,9 +86,9 @@ void ioread32_rep(void __iomem *addr, void *dst, unsigned long count)
 {
 	_insl_ns((u32 __iomem *) addr, dst, count);
 }
-/* DISABLED: EXPORT_SYMBOL(ioread8_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread16_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread32_rep); */
+EXPORT_SYMBOL(ioread8_rep);
+EXPORT_SYMBOL(ioread16_rep);
+EXPORT_SYMBOL(ioread32_rep);
 
 void iowrite8_rep(void __iomem *addr, const void *src, unsigned long count)
 {
@@ -102,9 +102,9 @@ void iowrite32_rep(void __iomem *addr, const void *src, unsigned long count)
 {
 	_outsl_ns((u32 __iomem *) addr, src, count);
 }
-/* DISABLED: EXPORT_SYMBOL(iowrite8_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32_rep); */
+EXPORT_SYMBOL(iowrite8_rep);
+EXPORT_SYMBOL(iowrite16_rep);
+EXPORT_SYMBOL(iowrite32_rep);
 
 void __iomem *ioport_map(unsigned long port, unsigned int len)
 {
@@ -115,8 +115,8 @@ void ioport_unmap(void __iomem *addr)
 {
 	/* Nothing to do */
 }
-/* DISABLED: EXPORT_SYMBOL(ioport_map); */
-/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
+EXPORT_SYMBOL(ioport_map);
+EXPORT_SYMBOL(ioport_unmap);
 
 #ifdef CONFIG_PCI
 void pci_iounmap(struct pci_dev *dev, void __iomem *addr)
@@ -128,5 +128,5 @@ void pci_iounmap(struct pci_dev *dev, void __iomem *addr)
 	iounmap(addr);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */
+EXPORT_SYMBOL(pci_iounmap);
 #endif /* CONFIG_PCI */

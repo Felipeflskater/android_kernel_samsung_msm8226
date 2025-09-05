@@ -40,7 +40,7 @@ struct umc_dev *umc_device_create(struct device *parent, int n)
 	}
 	return umc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(umc_device_create); */
+EXPORT_SYMBOL_GPL(umc_device_create);
 
 /**
  * umc_device_register - register a UMC device
@@ -70,7 +70,7 @@ error_device_register:
 error_request_resource:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(umc_device_register); */
+EXPORT_SYMBOL_GPL(umc_device_register);
 
 /**
  * umc_device_unregister - unregister a UMC device
@@ -91,4 +91,4 @@ void umc_device_unregister(struct umc_dev *umc)
 	release_resource(&umc->resource);
 	put_device(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(umc_device_unregister); */
+EXPORT_SYMBOL_GPL(umc_device_unregister);

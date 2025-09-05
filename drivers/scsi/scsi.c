@@ -87,7 +87,7 @@ static void scsi_done(struct scsi_cmnd *cmd);
  */
 unsigned int scsi_logging_level;
 #if defined(CONFIG_SCSI_LOGGING)
-/* DISABLED: EXPORT_SYMBOL(scsi_logging_level); */
+EXPORT_SYMBOL(scsi_logging_level);
 #endif
 
 /* NB: These are exposed through /proc/scsi/scsi and form part of the ABI.
@@ -132,7 +132,7 @@ const char * scsi_device_type(unsigned type)
 	return scsi_device_types[type];
 }
 
-/* DISABLED: EXPORT_SYMBOL(scsi_device_type); */
+EXPORT_SYMBOL(scsi_device_type);
 
 struct scsi_host_cmd_pool {
 	struct kmem_cache	*cmd_slab;
@@ -272,7 +272,7 @@ struct scsi_cmnd *__scsi_get_command(struct Scsi_Host *shost, gfp_t gfp_mask)
 
 	return cmd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__scsi_get_command); */
+EXPORT_SYMBOL_GPL(__scsi_get_command);
 
 /**
  * scsi_get_command - Allocate and setup a scsi command block
@@ -305,7 +305,7 @@ struct scsi_cmnd *scsi_get_command(struct scsi_device *dev, gfp_t gfp_mask)
 
 	return cmd;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_get_command); */
+EXPORT_SYMBOL(scsi_get_command);
 
 /**
  * __scsi_put_command - Free a struct scsi_cmnd
@@ -331,7 +331,7 @@ void __scsi_put_command(struct Scsi_Host *shost, struct scsi_cmnd *cmd,
 
 	put_device(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_put_command); */
+EXPORT_SYMBOL(__scsi_put_command);
 
 /**
  * scsi_put_command - Free a scsi command block
@@ -354,7 +354,7 @@ void scsi_put_command(struct scsi_cmnd *cmd)
 
 	__scsi_put_command(cmd->device->host, cmd, &sdev->sdev_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_put_command); */
+EXPORT_SYMBOL(scsi_put_command);
 
 static struct scsi_host_cmd_pool *scsi_get_host_cmd_pool(gfp_t gfp_mask)
 {
@@ -432,7 +432,7 @@ struct scsi_cmnd *scsi_allocate_command(gfp_t gfp_mask)
 
 	return scsi_pool_alloc_command(pool, gfp_mask);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_allocate_command); */
+EXPORT_SYMBOL(scsi_allocate_command);
 
 /**
  * scsi_free_command - free a command allocated by scsi_allocate_command
@@ -464,7 +464,7 @@ void scsi_free_command(gfp_t gfp_mask, struct scsi_cmnd *cmd)
 	scsi_put_host_cmd_pool(gfp_mask);
 	scsi_put_host_cmd_pool(gfp_mask);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_free_command); */
+EXPORT_SYMBOL(scsi_free_command);
 
 /**
  * scsi_setup_command_freelist - Setup the command freelist for a scsi host.
@@ -640,7 +640,7 @@ void scsi_cmd_get_serial(struct Scsi_Host *host, struct scsi_cmnd *cmd)
 	if (cmd->serial_number == 0) 
 		cmd->serial_number = host->cmd_serial_number++;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_cmd_get_serial); */
+EXPORT_SYMBOL(scsi_cmd_get_serial);
 
 /**
  * scsi_dispatch_command - Dispatch a command to the low-level driver.
@@ -840,7 +840,7 @@ void scsi_finish_command(struct scsi_cmnd *cmd)
 	}
 	scsi_io_completion(cmd, good_bytes);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_finish_command); */
+EXPORT_SYMBOL(scsi_finish_command);
 
 /**
  * scsi_adjust_queue_depth - Let low level drivers change a device's queue depth
@@ -909,7 +909,7 @@ void scsi_adjust_queue_depth(struct scsi_device *sdev, int tagged, int tags)
  out:
 	spin_unlock_irqrestore(sdev->request_queue->queue_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_adjust_queue_depth); */
+EXPORT_SYMBOL(scsi_adjust_queue_depth);
 
 /**
  * scsi_track_queue_full - track QUEUE_FULL events to adjust queue depth
@@ -963,7 +963,7 @@ int scsi_track_queue_full(struct scsi_device *sdev, int depth)
 		scsi_adjust_queue_depth(sdev, MSG_SIMPLE_TAG, depth);
 	return depth;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_track_queue_full); */
+EXPORT_SYMBOL(scsi_track_queue_full);
 
 /**
  * scsi_vpd_inquiry - Request a device provide us with a VPD page
@@ -1057,7 +1057,7 @@ int scsi_get_vpd_page(struct scsi_device *sdev, u8 page, unsigned char *buf,
  fail:
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scsi_get_vpd_page); */
+EXPORT_SYMBOL_GPL(scsi_get_vpd_page);
 
 /**
  * scsi_device_get  -  get an additional reference to a scsi_device
@@ -1079,7 +1079,7 @@ int scsi_device_get(struct scsi_device *sdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_get); */
+EXPORT_SYMBOL(scsi_device_get);
 
 /**
  * scsi_device_put  -  release a reference to a scsi_device
@@ -1101,7 +1101,7 @@ void scsi_device_put(struct scsi_device *sdev)
 #endif
 	put_device(&sdev->sdev_gendev);
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_put); */
+EXPORT_SYMBOL(scsi_device_put);
 
 /* helper for shost_for_each_device, see that for documentation */
 struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *shost,
@@ -1126,7 +1126,7 @@ struct scsi_device *__scsi_iterate_devices(struct Scsi_Host *shost,
 		scsi_device_put(prev);
 	return next;
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_iterate_devices); */
+EXPORT_SYMBOL(__scsi_iterate_devices);
 
 /**
  * starget_for_each_device  -  helper to walk all devices of a target
@@ -1150,7 +1150,7 @@ void starget_for_each_device(struct scsi_target *starget, void *data,
 			fn(sdev, data);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(starget_for_each_device); */
+EXPORT_SYMBOL(starget_for_each_device);
 
 /**
  * __starget_for_each_device - helper to walk all devices of a target (UNLOCKED)
@@ -1178,7 +1178,7 @@ void __starget_for_each_device(struct scsi_target *starget, void *data,
 			fn(sdev, data);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__starget_for_each_device); */
+EXPORT_SYMBOL(__starget_for_each_device);
 
 /**
  * __scsi_device_lookup_by_target - find a device given the target (UNLOCKED)
@@ -1209,7 +1209,7 @@ struct scsi_device *__scsi_device_lookup_by_target(struct scsi_target *starget,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_device_lookup_by_target); */
+EXPORT_SYMBOL(__scsi_device_lookup_by_target);
 
 /**
  * scsi_device_lookup_by_target - find a device given the target
@@ -1235,7 +1235,7 @@ struct scsi_device *scsi_device_lookup_by_target(struct scsi_target *starget,
 
 	return sdev;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_lookup_by_target); */
+EXPORT_SYMBOL(scsi_device_lookup_by_target);
 
 /**
  * __scsi_device_lookup - find a device given the host (UNLOCKED)
@@ -1266,7 +1266,7 @@ struct scsi_device *__scsi_device_lookup(struct Scsi_Host *shost,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(__scsi_device_lookup); */
+EXPORT_SYMBOL(__scsi_device_lookup);
 
 /**
  * scsi_device_lookup - find a device given the host
@@ -1293,7 +1293,7 @@ struct scsi_device *scsi_device_lookup(struct Scsi_Host *shost,
 
 	return sdev;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_device_lookup); */
+EXPORT_SYMBOL(scsi_device_lookup);
 
 MODULE_DESCRIPTION("SCSI core");
 MODULE_LICENSE("GPL");

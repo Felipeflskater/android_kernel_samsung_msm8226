@@ -148,13 +148,13 @@ void rfbi_bus_lock(void)
 {
 	down(&rfbi.bus_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(rfbi_bus_lock); */
+EXPORT_SYMBOL(rfbi_bus_lock);
 
 void rfbi_bus_unlock(void)
 {
 	up(&rfbi.bus_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(rfbi_bus_unlock); */
+EXPORT_SYMBOL(rfbi_bus_unlock);
 
 void omap_rfbi_write_command(const void *buf, u32 len)
 {
@@ -182,7 +182,7 @@ void omap_rfbi_write_command(const void *buf, u32 len)
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_write_command); */
+EXPORT_SYMBOL(omap_rfbi_write_command);
 
 void omap_rfbi_read_data(void *buf, u32 len)
 {
@@ -214,7 +214,7 @@ void omap_rfbi_read_data(void *buf, u32 len)
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_read_data); */
+EXPORT_SYMBOL(omap_rfbi_read_data);
 
 void omap_rfbi_write_data(const void *buf, u32 len)
 {
@@ -243,7 +243,7 @@ void omap_rfbi_write_data(const void *buf, u32 len)
 
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_write_data); */
+EXPORT_SYMBOL(omap_rfbi_write_data);
 
 void omap_rfbi_write_pixels(const void __iomem *buf, int scr_width,
 		u16 x, u16 y,
@@ -298,7 +298,7 @@ void omap_rfbi_write_pixels(const void __iomem *buf, int scr_width,
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_write_pixels); */
+EXPORT_SYMBOL(omap_rfbi_write_pixels);
 
 static void rfbi_transfer_area(struct omap_dss_device *dssdev, u16 width,
 		u16 height, void (*callback)(void *data), void *data)
@@ -598,7 +598,7 @@ int omap_rfbi_setup_te(enum omap_rfbi_te_mode mode,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_setup_te); */
+EXPORT_SYMBOL(omap_rfbi_setup_te);
 
 /* xxx FIX module selection missing */
 int omap_rfbi_enable_te(bool enable, unsigned line)
@@ -621,7 +621,7 @@ int omap_rfbi_enable_te(bool enable, unsigned line)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_enable_te); */
+EXPORT_SYMBOL(omap_rfbi_enable_te);
 
 static int rfbi_configure(int rfbi_module, int bpp, int lines)
 {
@@ -760,7 +760,7 @@ int omap_rfbi_configure(struct omap_dss_device *dssdev, int pixel_size,
 {
 	return rfbi_configure(dssdev->phy.rfbi.channel, pixel_size, data_lines);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_configure); */
+EXPORT_SYMBOL(omap_rfbi_configure);
 
 int omap_rfbi_prepare_update(struct omap_dss_device *dssdev,
 		u16 *x, u16 *y, u16 *w, u16 *h)
@@ -788,7 +788,7 @@ int omap_rfbi_prepare_update(struct omap_dss_device *dssdev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_prepare_update); */
+EXPORT_SYMBOL(omap_rfbi_prepare_update);
 
 int omap_rfbi_update(struct omap_dss_device *dssdev,
 		u16 x, u16 y, u16 w, u16 h,
@@ -797,7 +797,7 @@ int omap_rfbi_update(struct omap_dss_device *dssdev,
 	rfbi_transfer_area(dssdev, w, h, callback, data);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_rfbi_update); */
+EXPORT_SYMBOL(omap_rfbi_update);
 
 void rfbi_dump_regs(struct seq_file *s)
 {
@@ -888,7 +888,7 @@ err0:
 	rfbi_runtime_put();
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_rfbi_display_enable); */
+EXPORT_SYMBOL(omapdss_rfbi_display_enable);
 
 void omapdss_rfbi_display_disable(struct omap_dss_device *dssdev)
 {
@@ -898,7 +898,7 @@ void omapdss_rfbi_display_disable(struct omap_dss_device *dssdev)
 
 	rfbi_runtime_put();
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_rfbi_display_disable); */
+EXPORT_SYMBOL(omapdss_rfbi_display_disable);
 
 int rfbi_init_display(struct omap_dss_device *dssdev)
 {

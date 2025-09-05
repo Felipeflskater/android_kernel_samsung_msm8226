@@ -64,4 +64,4 @@ char *strchr(const char *s, int c)
 	 */
 	return (g <= z) ? ((char *)p) + (g >> 3) : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(strchr); */
+EXPORT_SYMBOL(strchr);

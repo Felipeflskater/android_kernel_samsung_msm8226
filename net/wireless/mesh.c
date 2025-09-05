@@ -132,7 +132,7 @@ void cfg80211_notify_new_peer_candidate(struct net_device *dev,
 	nl80211_send_new_peer_candidate(wiphy_to_dev(wdev->wiphy), dev,
 			macaddr, ie, ie_len, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_notify_new_peer_candidate); */
+EXPORT_SYMBOL(cfg80211_notify_new_peer_candidate);
 
 static int __cfg80211_leave_mesh(struct cfg80211_registered_device *rdev,
 				 struct net_device *dev)

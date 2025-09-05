@@ -49,7 +49,7 @@ phandle prom_getchild(phandle node)
 
 	return cnode;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getchild); */
+EXPORT_SYMBOL(prom_getchild);
 
 /* Internal version of prom_getsibling that does not alter return values. */
 static phandle __prom_getsibling(phandle node)
@@ -81,7 +81,7 @@ phandle prom_getsibling(phandle node)
 
 	return sibnode;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getsibling); */
+EXPORT_SYMBOL(prom_getsibling);
 
 /* Return the length in bytes of property 'prop' at node 'node'.
  * Return -1 on error.
@@ -100,7 +100,7 @@ int prom_getproplen(phandle node, const char *prop)
 	spin_unlock_irqrestore(&prom_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getproplen); */
+EXPORT_SYMBOL(prom_getproplen);
 
 /* Acquire a property 'prop' at node 'node' and place it in
  * 'buffer' which has a size of 'bufsize'.  If the acquisition
@@ -121,7 +121,7 @@ int prom_getproperty(phandle node, const char *prop, char *buffer, int bufsize)
 	spin_unlock_irqrestore(&prom_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getproperty); */
+EXPORT_SYMBOL(prom_getproperty);
 
 /* Acquire an integer property and return its value.  Returns -1
  * on failure.
@@ -135,7 +135,7 @@ int prom_getint(phandle node, char *prop)
 
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getint); */
+EXPORT_SYMBOL(prom_getint);
 
 /* Acquire an integer property, upon error return the passed default
  * integer.
@@ -149,7 +149,7 @@ int prom_getintdefault(phandle node, char *property, int deflt)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getintdefault); */
+EXPORT_SYMBOL(prom_getintdefault);
 
 /* Acquire a boolean property, 1=TRUE 0=FALSE. */
 int prom_getbool(phandle node, char *prop)
@@ -160,7 +160,7 @@ int prom_getbool(phandle node, char *prop)
 	if(retval == -1) return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getbool); */
+EXPORT_SYMBOL(prom_getbool);
 
 /* Acquire a property whose value is a string, returns a null
  * string on error.  The char pointer is the user supplied string
@@ -174,7 +174,7 @@ void prom_getstring(phandle node, char *prop, char *user_buf, int ubuf_size)
 	if(len != -1) return;
 	user_buf[0] = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getstring); */
+EXPORT_SYMBOL(prom_getstring);
 
 
 /* Search siblings at 'node_start' for a node with name
@@ -197,7 +197,7 @@ phandle prom_searchsiblings(phandle node_start, char *nodename)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_searchsiblings); */
+EXPORT_SYMBOL(prom_searchsiblings);
 
 /* Interal version of nextprop that does not alter return values. */
 static char *__prom_nextprop(phandle node, char * oprop)
@@ -224,7 +224,7 @@ char *prom_nextprop(phandle node, char *oprop, char *buffer)
 
 	return __prom_nextprop(node, oprop);
 }
-/* DISABLED: EXPORT_SYMBOL(prom_nextprop); */
+EXPORT_SYMBOL(prom_nextprop);
 
 phandle prom_finddevice(char *name)
 {
@@ -272,7 +272,7 @@ phandle prom_finddevice(char *name)
 	}
 	return node;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_finddevice); */
+EXPORT_SYMBOL(prom_finddevice);
 
 /* Set property 'pname' at node 'node' to value 'value' which has a length
  * of 'size' bytes.  Return the number of bytes the prom accepted.
@@ -292,7 +292,7 @@ int prom_setprop(phandle node, const char *pname, char *value, int size)
 	spin_unlock_irqrestore(&prom_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_setprop); */
+EXPORT_SYMBOL(prom_setprop);
 
 phandle prom_inst2pkg(int inst)
 {

@@ -305,7 +305,7 @@ void cfb_imageblit(struct fb_info *p, const struct fb_image *image)
 		color_imageblit(image, p, dst1, start_index, pitch_index);
 }
 
-/* DISABLED: EXPORT_SYMBOL(cfb_imageblit); */
+EXPORT_SYMBOL(cfb_imageblit);
 
 MODULE_AUTHOR("James Simmons <jsimmons@users.sf.net>");
 MODULE_DESCRIPTION("Generic software accelerated imaging drawing");

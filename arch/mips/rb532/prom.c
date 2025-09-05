@@ -38,7 +38,7 @@
 #include <asm/mach-rc32434/prom.h>
 
 unsigned int idt_cpu_freq = 132000000;
-/* DISABLED: EXPORT_SYMBOL(idt_cpu_freq); */
+EXPORT_SYMBOL(idt_cpu_freq);
 
 static struct resource ddr_reg[] = {
 	{

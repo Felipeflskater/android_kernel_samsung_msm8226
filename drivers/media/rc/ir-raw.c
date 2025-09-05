@@ -97,7 +97,7 @@ int ir_raw_event_store(struct rc_dev *dev, struct ir_raw_event *ev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ir_raw_event_store); */
+EXPORT_SYMBOL_GPL(ir_raw_event_store);
 
 /**
  * ir_raw_event_store_edge() - notify raw ir decoders of the start of a pulse/space
@@ -149,7 +149,7 @@ int ir_raw_event_store_edge(struct rc_dev *dev, enum raw_event_type type)
 	dev->raw->last_type = type;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ir_raw_event_store_edge); */
+EXPORT_SYMBOL_GPL(ir_raw_event_store_edge);
 
 /**
  * ir_raw_event_store_with_filter() - pass next pulse/space to decoders with some processing
@@ -188,7 +188,7 @@ int ir_raw_event_store_with_filter(struct rc_dev *dev, struct ir_raw_event *ev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ir_raw_event_store_with_filter); */
+EXPORT_SYMBOL_GPL(ir_raw_event_store_with_filter);
 
 /**
  * ir_raw_event_set_idle() - provide hint to rc-core when the device is idle or not
@@ -213,7 +213,7 @@ void ir_raw_event_set_idle(struct rc_dev *dev, bool idle)
 
 	dev->idle = idle;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ir_raw_event_set_idle); */
+EXPORT_SYMBOL_GPL(ir_raw_event_set_idle);
 
 /**
  * ir_raw_event_handle() - schedules the decoding of stored ir data
@@ -232,7 +232,7 @@ void ir_raw_event_handle(struct rc_dev *dev)
 	wake_up_process(dev->raw->thread);
 	spin_unlock_irqrestore(&dev->raw->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ir_raw_event_handle); */
+EXPORT_SYMBOL_GPL(ir_raw_event_handle);
 
 /* used internally by the sysfs interface */
 u64
@@ -331,7 +331,7 @@ int ir_raw_handler_register(struct ir_raw_handler *ir_raw_handler)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ir_raw_handler_register); */
+EXPORT_SYMBOL(ir_raw_handler_register);
 
 void ir_raw_handler_unregister(struct ir_raw_handler *ir_raw_handler)
 {
@@ -345,7 +345,7 @@ void ir_raw_handler_unregister(struct ir_raw_handler *ir_raw_handler)
 	available_protocols &= ~ir_raw_handler->protocols;
 	mutex_unlock(&ir_raw_handler_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(ir_raw_handler_unregister); */
+EXPORT_SYMBOL(ir_raw_handler_unregister);
 
 #ifdef MODULE
 static void init_decoders(struct work_struct *work)

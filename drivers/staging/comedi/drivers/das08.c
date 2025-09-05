@@ -970,7 +970,7 @@ int das08_common_attach(struct comedi_device *dev, unsigned long iobase)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(das08_common_attach); */
+EXPORT_SYMBOL_GPL(das08_common_attach);
 
 static int das08_attach(struct comedi_device *dev, struct comedi_devconfig *it)
 {
@@ -1075,7 +1075,7 @@ int das08_common_detach(struct comedi_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(das08_common_detach); */
+EXPORT_SYMBOL_GPL(das08_common_detach);
 
 #ifdef CONFIG_COMEDI_PCI
 static int __devinit driver_das08_pci_probe(struct pci_dev *dev,
@@ -1131,7 +1131,7 @@ module_exit(driver_das08_cleanup_module);
 #endif
 
 #ifdef CONFIG_COMEDI_PCMCIA
-/* DISABLED: EXPORT_SYMBOL_GPL(das08_cs_boards); */
+EXPORT_SYMBOL_GPL(das08_cs_boards);
 #endif
 
 MODULE_AUTHOR("Comedi http://www.comedi.org");

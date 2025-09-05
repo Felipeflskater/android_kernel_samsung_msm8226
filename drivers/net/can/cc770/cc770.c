@@ -811,13 +811,13 @@ struct net_device *alloc_cc770dev(int sizeof_priv)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(alloc_cc770dev); */
+EXPORT_SYMBOL_GPL(alloc_cc770dev);
 
 void free_cc770dev(struct net_device *dev)
 {
 	free_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(free_cc770dev); */
+EXPORT_SYMBOL_GPL(free_cc770dev);
 
 static const struct net_device_ops cc770_netdev_ops = {
 	.ndo_open = cc770_open,
@@ -853,14 +853,14 @@ int register_cc770dev(struct net_device *dev)
 
 	return register_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_cc770dev); */
+EXPORT_SYMBOL_GPL(register_cc770dev);
 
 void unregister_cc770dev(struct net_device *dev)
 {
 	set_reset_mode(dev);
 	unregister_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_cc770dev); */
+EXPORT_SYMBOL_GPL(unregister_cc770dev);
 
 static __init int cc770_init(void)
 {

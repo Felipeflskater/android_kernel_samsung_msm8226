@@ -59,7 +59,7 @@ MODULE_VERSION(GSPCA_VERSION);
 
 #ifdef GSPCA_DEBUG
 int gspca_debug = D_ERR | D_PROBE;
-/* DISABLED: EXPORT_SYMBOL(gspca_debug); */
+EXPORT_SYMBOL(gspca_debug);
 
 static void PDEBUG_MODE(char *txt, __u32 pixfmt, int w, int h)
 {
@@ -495,7 +495,7 @@ void gspca_frame_add(struct gspca_dev *gspca_dev,
 		gspca_dev->image_len = 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_frame_add); */
+EXPORT_SYMBOL(gspca_frame_add);
 
 static int frame_alloc(struct gspca_dev *gspca_dev, struct file *file,
 			enum v4l2_memory memory, unsigned int count)
@@ -2397,7 +2397,7 @@ out:
 	kfree(gspca_dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_dev_probe2); */
+EXPORT_SYMBOL(gspca_dev_probe2);
 
 /* same function as the previous one, but check the interface */
 int gspca_dev_probe(struct usb_interface *intf,
@@ -2422,7 +2422,7 @@ int gspca_dev_probe(struct usb_interface *intf,
 
 	return gspca_dev_probe2(intf, id, sd_desc, dev_size, module);
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_dev_probe); */
+EXPORT_SYMBOL(gspca_dev_probe);
 
 /*
  * USB disconnection
@@ -2467,7 +2467,7 @@ void gspca_disconnect(struct usb_interface *intf)
 
 /*	PDEBUG(D_PROBE, "disconnect complete"); */
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_disconnect); */
+EXPORT_SYMBOL(gspca_disconnect);
 
 #ifdef CONFIG_PM
 int gspca_suspend(struct usb_interface *intf, pm_message_t message)
@@ -2486,7 +2486,7 @@ int gspca_suspend(struct usb_interface *intf, pm_message_t message)
 		gspca_dev->sd_desc->stop0(gspca_dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_suspend); */
+EXPORT_SYMBOL(gspca_suspend);
 
 int gspca_resume(struct usb_interface *intf)
 {
@@ -2499,7 +2499,7 @@ int gspca_resume(struct usb_interface *intf)
 		return gspca_init_transfer(gspca_dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_resume); */
+EXPORT_SYMBOL(gspca_resume);
 #endif
 /* -- cam driver utility functions -- */
 
@@ -2589,7 +2589,7 @@ int gspca_auto_gain_n_exposure(struct gspca_dev *gspca_dev, int avg_lum,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(gspca_auto_gain_n_exposure); */
+EXPORT_SYMBOL(gspca_auto_gain_n_exposure);
 
 /* -- module insert / remove -- */
 static int __init gspca_init(void)

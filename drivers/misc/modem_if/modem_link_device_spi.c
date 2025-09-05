@@ -1962,7 +1962,7 @@ void if_spi_thread_restart(void)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(if_spi_thread_restart); */
+EXPORT_SYMBOL(if_spi_thread_restart);
 
 struct link_device *spi_create_link_device(struct platform_device *pdev)
 {

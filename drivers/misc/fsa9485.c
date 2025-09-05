@@ -41,10 +41,10 @@ extern int poweroff_charging;
 extern void fsa9485_set_mhl_cable(bool attached);
 
 int uart_connecting;
-/* DISABLED: EXPORT_SYMBOL(uart_connecting); */
+EXPORT_SYMBOL(uart_connecting);
 
 int detached_status;
-/* DISABLED: EXPORT_SYMBOL(detached_status); */
+EXPORT_SYMBOL(detached_status);
 
 static int mmdock_connect;
 static int mmdock_flag;
@@ -99,7 +99,7 @@ int mhl_connection_state(void)
 {
 	return	isMhlAttached;
 }
-/* DISABLED: EXPORT_SYMBOL(mhl_connection_state); */
+EXPORT_SYMBOL(mhl_connection_state);
 #endif
 
 #if defined(CONFIG_VIDEO_MHL_V1) || defined(CONFIG_VIDEO_MHL_V2)
@@ -580,7 +580,7 @@ void fsa9485_otg_detach(void)
 	} else
 		dev_info(&client->dev, "%s: not real device\n", __func__);
 }
-/* DISABLED: EXPORT_SYMBOL(fsa9485_otg_detach); */
+EXPORT_SYMBOL(fsa9485_otg_detach);
 
 
 void fsa9485_manual_switching(int path)
@@ -661,13 +661,13 @@ void fsa9485_manual_switching(int path)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(fsa9485_manual_switching); */
+EXPORT_SYMBOL(fsa9485_manual_switching);
 
 int check_jig_state(void)
 {
 	return jig_state;
 }
-/* DISABLED: EXPORT_SYMBOL(check_jig_state); */
+EXPORT_SYMBOL(check_jig_state);
 
 #ifdef CONFIG_MUIC_FSA9485_SUPPORT_LANHUB
 static int fsa9485_detect_lanhub(struct fsa9485_usbsw *usbsw) {
@@ -842,12 +842,12 @@ void fsa9485_mmdock_vbus_check(bool vbus_status)
 			fsa9485_mmdock_detach();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fsa9485_mmdock_vbus_check); */
+EXPORT_SYMBOL(fsa9485_mmdock_vbus_check);
 
 int check_mmdock_connect(void){
 	return mmdock_connect;
 }
-/* DISABLED: EXPORT_SYMBOL(check_mmdock_connect); */
+EXPORT_SYMBOL(check_mmdock_connect);
 
 static int fsa9485_detect_dev(struct fsa9485_usbsw *usbsw)
 {

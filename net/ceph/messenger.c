@@ -158,7 +158,7 @@ const char *ceph_pr_addr(const struct sockaddr_storage *ss)
 
 	return s;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_pr_addr); */
+EXPORT_SYMBOL(ceph_pr_addr);
 
 static void encode_my_addr(struct ceph_messenger *msgr)
 {
@@ -199,7 +199,7 @@ int ceph_msgr_init(void)
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msgr_init); */
+EXPORT_SYMBOL(ceph_msgr_init);
 
 void ceph_msgr_exit(void)
 {
@@ -207,13 +207,13 @@ void ceph_msgr_exit(void)
 
 	_ceph_msgr_exit();
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msgr_exit); */
+EXPORT_SYMBOL(ceph_msgr_exit);
 
 void ceph_msgr_flush(void)
 {
 	flush_workqueue(ceph_msgr_wq);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msgr_flush); */
+EXPORT_SYMBOL(ceph_msgr_flush);
 
 /* Connection socket state transition functions */
 
@@ -550,7 +550,7 @@ void ceph_con_close(struct ceph_connection *con)
 	con_close_socket(con);
 	mutex_unlock(&con->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_con_close); */
+EXPORT_SYMBOL(ceph_con_close);
 
 /*
  * Reopen a closed connection, with a new peer address.
@@ -573,7 +573,7 @@ void ceph_con_open(struct ceph_connection *con,
 	mutex_unlock(&con->mutex);
 	queue_con(con);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_con_open); */
+EXPORT_SYMBOL(ceph_con_open);
 
 /*
  * return true if this connection ever successfully opened
@@ -605,7 +605,7 @@ void ceph_con_init(struct ceph_connection *con, void *private,
 
 	con->state = CON_STATE_CLOSED;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_con_init); */
+EXPORT_SYMBOL(ceph_con_init);
 
 
 /*
@@ -1455,7 +1455,7 @@ bad:
 	pr_err("parse_ips bad ip '%.*s'\n", (int)(end - c), c);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_parse_ips); */
+EXPORT_SYMBOL(ceph_parse_ips);
 
 static int process_banner(struct ceph_connection *con)
 {
@@ -2463,7 +2463,7 @@ void ceph_messenger_init(struct ceph_messenger *msgr,
 
 	dout("%s %p\n", __func__, msgr);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_messenger_init); */
+EXPORT_SYMBOL(ceph_messenger_init);
 
 static void clear_standby(struct ceph_connection *con)
 {
@@ -2517,7 +2517,7 @@ void ceph_con_send(struct ceph_connection *con, struct ceph_msg *msg)
 	if (test_and_set_bit(CON_FLAG_WRITE_PENDING, &con->flags) == 0)
 		queue_con(con);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_con_send); */
+EXPORT_SYMBOL(ceph_con_send);
 
 /*
  * Revoke a message that was previously queued for send
@@ -2607,7 +2607,7 @@ void ceph_con_keepalive(struct ceph_connection *con)
 	    test_and_set_bit(CON_FLAG_WRITE_PENDING, &con->flags) == 0)
 		queue_con(con);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_con_keepalive); */
+EXPORT_SYMBOL(ceph_con_keepalive);
 
 
 /*
@@ -2694,7 +2694,7 @@ out:
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msg_new); */
+EXPORT_SYMBOL(ceph_msg_new);
 
 /*
  * Allocate "middle" portion of a message, if it is needed and wasn't
@@ -2839,7 +2839,7 @@ void ceph_msg_last_put(struct kref *kref)
 	else
 		ceph_msg_kfree(m);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msg_last_put); */
+EXPORT_SYMBOL(ceph_msg_last_put);
 
 void ceph_msg_dump(struct ceph_msg *msg)
 {
@@ -2860,4 +2860,4 @@ void ceph_msg_dump(struct ceph_msg *msg)
 		       DUMP_PREFIX_OFFSET, 16, 1,
 		       &msg->footer, sizeof(msg->footer), true);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_msg_dump); */
+EXPORT_SYMBOL(ceph_msg_dump);

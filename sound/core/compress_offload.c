@@ -925,7 +925,7 @@ int snd_compress_new(struct snd_card *card, int device,
 	compr->direction = dirn;
 	return snd_device_new(card, SNDRV_DEV_COMPRESS, compr, &ops);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_compress_new); */
+EXPORT_SYMBOL_GPL(snd_compress_new);
 
 /*
  * snd_compress_free: free compress device
@@ -936,7 +936,7 @@ void snd_compress_free(struct snd_card *card, struct snd_compr *compr)
 {
 	snd_device_free(card, compr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_compress_free); */
+EXPORT_SYMBOL_GPL(snd_compress_free);
 
 static int snd_compress_add_device(struct snd_compr *device)
 {
@@ -992,7 +992,7 @@ int snd_compress_register(struct snd_compr *device)
 	mutex_unlock(&device_mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_compress_register); */
+EXPORT_SYMBOL_GPL(snd_compress_register);
 
 int snd_compress_deregister(struct snd_compr *device)
 {
@@ -1002,7 +1002,7 @@ int snd_compress_deregister(struct snd_compr *device)
 	mutex_unlock(&device_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_compress_deregister); */
+EXPORT_SYMBOL_GPL(snd_compress_deregister);
 
 static int __init snd_compress_init(void)
 {

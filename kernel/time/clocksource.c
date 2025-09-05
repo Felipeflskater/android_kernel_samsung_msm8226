@@ -39,7 +39,7 @@ void timecounter_init(struct timecounter *tc,
 	tc->cycle_last = cc->read(cc);
 	tc->nsec = start_tstamp;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(timecounter_init); */
+EXPORT_SYMBOL_GPL(timecounter_init);
 
 /**
  * timecounter_read_delta - get nanoseconds since last call of this function
@@ -83,7 +83,7 @@ u64 timecounter_read(struct timecounter *tc)
 
 	return nsec;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(timecounter_read); */
+EXPORT_SYMBOL_GPL(timecounter_read);
 
 u64 timecounter_cyc2time(struct timecounter *tc,
 			 cycle_t cycle_tstamp)
@@ -105,7 +105,7 @@ u64 timecounter_cyc2time(struct timecounter *tc,
 
 	return nsec;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(timecounter_cyc2time); */
+EXPORT_SYMBOL_GPL(timecounter_cyc2time);
 
 /**
  * clocks_calc_mult_shift - calculate mult/shift factors for scaled math of clocks
@@ -710,7 +710,7 @@ void __clocksource_updatefreq_scale(struct clocksource *cs, u32 scale, u32 freq)
 
 	cs->max_idle_ns = clocksource_max_deferment(cs);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__clocksource_updatefreq_scale); */
+EXPORT_SYMBOL_GPL(__clocksource_updatefreq_scale);
 
 /**
  * __clocksource_register_scale - Used to install new clocksources
@@ -737,7 +737,7 @@ int __clocksource_register_scale(struct clocksource *cs, u32 scale, u32 freq)
 	mutex_unlock(&clocksource_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__clocksource_register_scale); */
+EXPORT_SYMBOL_GPL(__clocksource_register_scale);
 
 
 /**
@@ -764,7 +764,7 @@ int clocksource_register(struct clocksource *cs)
 	mutex_unlock(&clocksource_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clocksource_register); */
+EXPORT_SYMBOL(clocksource_register);
 
 static void __clocksource_change_rating(struct clocksource *cs, int rating)
 {
@@ -785,7 +785,7 @@ void clocksource_change_rating(struct clocksource *cs, int rating)
 	__clocksource_change_rating(cs, rating);
 	mutex_unlock(&clocksource_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(clocksource_change_rating); */
+EXPORT_SYMBOL(clocksource_change_rating);
 
 /**
  * clocksource_unregister - remove a registered clocksource
@@ -799,7 +799,7 @@ void clocksource_unregister(struct clocksource *cs)
 	clocksource_select();
 	mutex_unlock(&clocksource_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(clocksource_unregister); */
+EXPORT_SYMBOL(clocksource_unregister);
 
 #ifdef CONFIG_SYSFS
 /**
@@ -950,7 +950,7 @@ static int __init boot_override_clocksource(char* str)
 	return 1;
 }
 
-/* DISABLED: __setup("clocksource=", boot_override_clocksource); */ */
+__setup("clocksource=", boot_override_clocksource);
 
 /**
  * boot_override_clock - Compatibility layer for deprecated boot option
@@ -971,4 +971,4 @@ static int __init boot_override_clock(char* str)
 	return boot_override_clocksource(str);
 }
 
-/* DISABLED: __setup("clock=", boot_override_clock); */ */
+__setup("clock=", boot_override_clock);

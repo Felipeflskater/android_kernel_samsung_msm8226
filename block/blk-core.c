@@ -127,7 +127,7 @@ struct backing_dev_info *blk_get_backing_dev_info(struct block_device *bdev)
 		ret = &q->backing_dev_info;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_get_backing_dev_info); */
+EXPORT_SYMBOL(blk_get_backing_dev_info);
 
 void blk_rq_init(struct request_queue *q, struct request *rq)
 {
@@ -148,7 +148,7 @@ void blk_rq_init(struct request_queue *q, struct request *rq)
 	set_start_time_ns(rq);
 	rq->part = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_rq_init); */
+EXPORT_SYMBOL(blk_rq_init);
 
 static void req_bio_endio(struct request *rq, struct bio *bio,
 			  unsigned int nbytes, int error)
@@ -199,7 +199,7 @@ void blk_dump_rq_flags(struct request *rq, char *msg)
 		printk("\n");
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(blk_dump_rq_flags); */
+EXPORT_SYMBOL(blk_dump_rq_flags);
 
 static void blk_delay_work(struct work_struct *work)
 {
@@ -226,7 +226,7 @@ void blk_delay_queue(struct request_queue *q, unsigned long msecs)
 	queue_delayed_work(kblockd_workqueue, &q->delay_work,
 				msecs_to_jiffies(msecs));
 }
-/* DISABLED: EXPORT_SYMBOL(blk_delay_queue); */
+EXPORT_SYMBOL(blk_delay_queue);
 
 /**
  * blk_start_queue - restart a previously stopped queue
@@ -244,7 +244,7 @@ void blk_start_queue(struct request_queue *q)
 	queue_flag_clear(QUEUE_FLAG_STOPPED, q);
 	__blk_run_queue(q);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_start_queue); */
+EXPORT_SYMBOL(blk_start_queue);
 
 /**
  * blk_stop_queue - stop a queue
@@ -265,7 +265,7 @@ void blk_stop_queue(struct request_queue *q)
 	__cancel_delayed_work(&q->delay_work);
 	queue_flag_set(QUEUE_FLAG_STOPPED, q);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_stop_queue); */
+EXPORT_SYMBOL(blk_stop_queue);
 
 /**
  * blk_sync_queue - cancel any pending callbacks on a queue
@@ -290,7 +290,7 @@ void blk_sync_queue(struct request_queue *q)
 	del_timer_sync(&q->timeout);
 	cancel_delayed_work_sync(&q->delay_work);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_sync_queue); */
+EXPORT_SYMBOL(blk_sync_queue);
 
 /**
  * __blk_run_queue - run a single device queue
@@ -321,7 +321,7 @@ void __blk_run_queue(struct request_queue *q)
 	} else
 		q->request_fn(q);
 }
-/* DISABLED: EXPORT_SYMBOL(__blk_run_queue); */
+EXPORT_SYMBOL(__blk_run_queue);
 
 /**
  * blk_run_queue_async - run a single device queue in workqueue context
@@ -338,7 +338,7 @@ void blk_run_queue_async(struct request_queue *q)
 		queue_delayed_work(kblockd_workqueue, &q->delay_work, 0);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(blk_run_queue_async); */
+EXPORT_SYMBOL(blk_run_queue_async);
 
 /**
  * blk_run_queue - run a single device queue
@@ -356,13 +356,13 @@ void blk_run_queue(struct request_queue *q)
 	__blk_run_queue(q);
 	spin_unlock_irqrestore(q->queue_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_run_queue); */
+EXPORT_SYMBOL(blk_run_queue);
 
 void blk_put_queue(struct request_queue *q)
 {
 	kobject_put(&q->kobj);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_put_queue); */
+EXPORT_SYMBOL(blk_put_queue);
 
 /**
  * blk_drain_queue - drain requests from request_queue
@@ -459,7 +459,7 @@ void blk_cleanup_queue(struct request_queue *q)
 	/* @q is and will stay empty, shutdown and put */
 	blk_put_queue(q);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_cleanup_queue); */
+EXPORT_SYMBOL(blk_cleanup_queue);
 
 static int blk_init_free_list(struct request_queue *q)
 {
@@ -487,7 +487,7 @@ struct request_queue *blk_alloc_queue(gfp_t gfp_mask)
 {
 	return blk_alloc_queue_node(gfp_mask, -1);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_alloc_queue); */
+EXPORT_SYMBOL(blk_alloc_queue);
 
 struct request_queue *blk_alloc_queue_node(gfp_t gfp_mask, int node_id)
 {
@@ -548,7 +548,7 @@ fail_q:
 	kmem_cache_free(blk_requestq_cachep, q);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_alloc_queue_node); */
+EXPORT_SYMBOL(blk_alloc_queue_node);
 
 /**
  * blk_init_queue  - prepare a request queue for use with a block device
@@ -587,7 +587,7 @@ struct request_queue *blk_init_queue(request_fn_proc *rfn, spinlock_t *lock)
 {
 	return blk_init_queue_node(rfn, lock, -1);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_init_queue); */
+EXPORT_SYMBOL(blk_init_queue);
 
 struct request_queue *
 blk_init_queue_node(request_fn_proc *rfn, spinlock_t *lock, int node_id)
@@ -604,7 +604,7 @@ blk_init_queue_node(request_fn_proc *rfn, spinlock_t *lock, int node_id)
 
 	return q;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_init_queue_node); */
+EXPORT_SYMBOL(blk_init_queue_node);
 
 struct request_queue *
 blk_init_allocated_queue(struct request_queue *q, request_fn_proc *rfn,
@@ -642,7 +642,7 @@ blk_init_allocated_queue(struct request_queue *q, request_fn_proc *rfn,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_init_allocated_queue); */
+EXPORT_SYMBOL(blk_init_allocated_queue);
 
 bool blk_get_queue(struct request_queue *q)
 {
@@ -653,7 +653,7 @@ bool blk_get_queue(struct request_queue *q)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_get_queue); */
+EXPORT_SYMBOL(blk_get_queue);
 
 static inline void blk_free_request(struct request_queue *q, struct request *rq)
 {
@@ -1006,7 +1006,7 @@ struct request *blk_get_request(struct request_queue *q, int rw, gfp_t gfp_mask)
 
 	return rq;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_get_request); */
+EXPORT_SYMBOL(blk_get_request);
 
 /**
  * blk_make_request - given a bio, allocate a corresponding struct request.
@@ -1063,7 +1063,7 @@ struct request *blk_make_request(struct request_queue *q, struct bio *bio,
 
 	return rq;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_make_request); */
+EXPORT_SYMBOL(blk_make_request);
 
 /**
  * blk_rq_set_block_pc - initialize a requeest to type BLOCK_PC
@@ -1079,7 +1079,7 @@ void blk_rq_set_block_pc(struct request *rq)
 	memset(rq->__cmd, 0, sizeof(rq->__cmd));
 	rq->cmd = rq->__cmd;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_rq_set_block_pc); */
+EXPORT_SYMBOL(blk_rq_set_block_pc);
 
 /**
  * blk_requeue_request - put a request back on queue
@@ -1114,7 +1114,7 @@ void blk_requeue_request(struct request_queue *q, struct request *rq)
 	}
 	elv_requeue_request(q, rq);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_requeue_request); */
+EXPORT_SYMBOL(blk_requeue_request);
 
 /**
  * blk_reinsert_request() - Insert a request back to the scheduler
@@ -1152,7 +1152,7 @@ int blk_reinsert_request(struct request_queue *q, struct request *rq)
 
 	return elv_reinsert_request(q, rq);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_reinsert_request); */
+EXPORT_SYMBOL(blk_reinsert_request);
 
 /**
  * blk_reinsert_req_sup() - check whether the scheduler supports
@@ -1168,7 +1168,7 @@ bool blk_reinsert_req_sup(struct request_queue *q)
 		return false;
 	return q->elevator->type->ops.elevator_reinsert_req_fn ? true : false;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_reinsert_req_sup); */
+EXPORT_SYMBOL(blk_reinsert_req_sup);
 
 static void add_acct_request(struct request_queue *q, struct request *rq,
 			     int where)
@@ -1215,7 +1215,7 @@ void part_round_stats(int cpu, struct hd_struct *part)
 		part_round_stats_single(cpu, &part_to_disk(part)->part0, now);
 	part_round_stats_single(cpu, part, now);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(part_round_stats); */
+EXPORT_SYMBOL_GPL(part_round_stats);
 
 #ifdef CONFIG_PM_RUNTIME
 static void blk_pm_put_request(struct request *rq)
@@ -1259,7 +1259,7 @@ void __blk_put_request(struct request_queue *q, struct request *req)
 		freed_request(q, flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__blk_put_request); */
+EXPORT_SYMBOL_GPL(__blk_put_request);
 
 void blk_put_request(struct request *req)
 {
@@ -1270,7 +1270,7 @@ void blk_put_request(struct request *req)
 	__blk_put_request(q, req);
 	spin_unlock_irqrestore(q->queue_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_put_request); */
+EXPORT_SYMBOL(blk_put_request);
 
 /**
  * blk_add_request_payload - add a payload to a request
@@ -1302,7 +1302,7 @@ void blk_add_request_payload(struct request *rq, struct page *page,
 	rq->nr_phys_segments = 1;
 	rq->buffer = bio_data(bio);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_add_request_payload); */
+EXPORT_SYMBOL_GPL(blk_add_request_payload);
 
 static bool bio_attempt_back_merge(struct request_queue *q, struct request *req,
 				   struct bio *bio)
@@ -1422,7 +1422,7 @@ void init_request_from_bio(struct request *req, struct bio *bio)
 	req->ioprio = bio_prio(bio);
 	blk_rq_bio_prep(req->q, req, bio);
 }
-/* DISABLED: EXPORT_SYMBOL(init_request_from_bio); */
+EXPORT_SYMBOL(init_request_from_bio);
 
 void blk_queue_bio(struct request_queue *q, struct bio *bio)
 {
@@ -1535,7 +1535,7 @@ out_unlock:
 		spin_unlock_irq(q->queue_lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_queue_bio);	/* for device mapper only */ */
+EXPORT_SYMBOL_GPL(blk_queue_bio);	/* for device mapper only */
 
 /*
  * If bio->bi_dev is a partition, remap the location
@@ -1578,7 +1578,7 @@ static int __init setup_fail_make_request(char *str)
 {
 	return setup_fault_attr(&fail_make_request, str);
 }
-/* DISABLED: __setup("fail_make_request=", setup_fail_make_request); */ */
+__setup("fail_make_request=", setup_fail_make_request);
 
 static bool should_fail_request(struct hd_struct *part, unsigned int bytes)
 {
@@ -1797,7 +1797,7 @@ void generic_make_request(struct bio *bio)
 	} while (bio);
 	current->bio_list = NULL; /* deactivate */
 }
-/* DISABLED: EXPORT_SYMBOL(generic_make_request); */
+EXPORT_SYMBOL(generic_make_request);
 
 /**
  * submit_bio - submit a bio to the block device layer for I/O
@@ -1841,7 +1841,7 @@ void submit_bio(int rw, struct bio *bio)
 
 	generic_make_request(bio);
 }
-/* DISABLED: EXPORT_SYMBOL(submit_bio); */
+EXPORT_SYMBOL(submit_bio);
 
 /**
  * blk_rq_check_limits - Helper function to check a request for the queue limit
@@ -1889,7 +1889,7 @@ int blk_rq_check_limits(struct request_queue *q, struct request *rq)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_rq_check_limits); */
+EXPORT_SYMBOL_GPL(blk_rq_check_limits);
 
 /**
  * blk_insert_cloned_request - Helper for stacking drivers to submit a request
@@ -1930,7 +1930,7 @@ int blk_insert_cloned_request(struct request_queue *q, struct request *rq)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_insert_cloned_request); */
+EXPORT_SYMBOL_GPL(blk_insert_cloned_request);
 
 /**
  * blk_rq_err_bytes - determine number of bytes till the next failure boundary
@@ -1974,7 +1974,7 @@ unsigned int blk_rq_err_bytes(const struct request *rq)
 	BUG_ON(blk_rq_bytes(rq) && !bytes);
 	return bytes;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_rq_err_bytes); */
+EXPORT_SYMBOL_GPL(blk_rq_err_bytes);
 
 static void blk_account_io_completion(struct request *req, unsigned int bytes)
 {
@@ -2145,7 +2145,7 @@ struct request *blk_peek_request(struct request_queue *q)
 
 	return rq;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_peek_request); */
+EXPORT_SYMBOL(blk_peek_request);
 
 void blk_dequeue_request(struct request *rq)
 {
@@ -2196,7 +2196,7 @@ void blk_start_request(struct request *req)
 	BUG_ON(test_bit(REQ_ATOM_COMPLETE, &req->atomic_flags));
 	blk_add_timer(req);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_start_request); */
+EXPORT_SYMBOL(blk_start_request);
 
 /**
  * blk_fetch_request - fetch a request from a request queue
@@ -2222,7 +2222,7 @@ struct request *blk_fetch_request(struct request_queue *q)
 		blk_start_request(rq);
 	return rq;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_fetch_request); */
+EXPORT_SYMBOL(blk_fetch_request);
 
 /**
  * blk_update_request - Special helper function for request stacking drivers
@@ -2406,7 +2406,7 @@ bool blk_update_request(struct request *req, int error, unsigned int nr_bytes)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_update_request); */
+EXPORT_SYMBOL_GPL(blk_update_request);
 
 static bool blk_update_bidi_request(struct request *rq, int error,
 				    unsigned int nr_bytes,
@@ -2444,7 +2444,7 @@ void blk_unprep_request(struct request *req)
 	if (q->unprep_rq_fn)
 		q->unprep_rq_fn(q, req);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_unprep_request); */
+EXPORT_SYMBOL_GPL(blk_unprep_request);
 
 /*
  * queue lock must be held
@@ -2554,7 +2554,7 @@ bool blk_end_request(struct request *rq, int error, unsigned int nr_bytes)
 {
 	return blk_end_bidi_request(rq, error, nr_bytes, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_end_request); */
+EXPORT_SYMBOL(blk_end_request);
 
 /**
  * blk_end_request_all - Helper function for drives to finish the request.
@@ -2575,7 +2575,7 @@ void blk_end_request_all(struct request *rq, int error)
 	pending = blk_end_bidi_request(rq, error, blk_rq_bytes(rq), bidi_bytes);
 	BUG_ON(pending);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_end_request_all); */
+EXPORT_SYMBOL(blk_end_request_all);
 
 /**
  * blk_end_request_cur - Helper function to finish the current request chunk.
@@ -2593,7 +2593,7 @@ bool blk_end_request_cur(struct request *rq, int error)
 {
 	return blk_end_request(rq, error, blk_rq_cur_bytes(rq));
 }
-/* DISABLED: EXPORT_SYMBOL(blk_end_request_cur); */
+EXPORT_SYMBOL(blk_end_request_cur);
 
 /**
  * blk_end_request_err - Finish a request till the next failure boundary.
@@ -2612,7 +2612,7 @@ bool blk_end_request_err(struct request *rq, int error)
 	WARN_ON(error >= 0);
 	return blk_end_request(rq, error, blk_rq_err_bytes(rq));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_end_request_err); */
+EXPORT_SYMBOL_GPL(blk_end_request_err);
 
 /**
  * __blk_end_request - Helper function for drivers to complete the request.
@@ -2631,7 +2631,7 @@ bool __blk_end_request(struct request *rq, int error, unsigned int nr_bytes)
 {
 	return __blk_end_bidi_request(rq, error, nr_bytes, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(__blk_end_request); */
+EXPORT_SYMBOL(__blk_end_request);
 
 /**
  * __blk_end_request_all - Helper function for drives to finish the request.
@@ -2652,7 +2652,7 @@ void __blk_end_request_all(struct request *rq, int error)
 	pending = __blk_end_bidi_request(rq, error, blk_rq_bytes(rq), bidi_bytes);
 	BUG_ON(pending);
 }
-/* DISABLED: EXPORT_SYMBOL(__blk_end_request_all); */
+EXPORT_SYMBOL(__blk_end_request_all);
 
 /**
  * __blk_end_request_cur - Helper function to finish the current request chunk.
@@ -2671,7 +2671,7 @@ bool __blk_end_request_cur(struct request *rq, int error)
 {
 	return __blk_end_request(rq, error, blk_rq_cur_bytes(rq));
 }
-/* DISABLED: EXPORT_SYMBOL(__blk_end_request_cur); */
+EXPORT_SYMBOL(__blk_end_request_cur);
 
 /**
  * __blk_end_request_err - Finish a request till the next failure boundary.
@@ -2691,7 +2691,7 @@ bool __blk_end_request_err(struct request *rq, int error)
 	WARN_ON(error >= 0);
 	return __blk_end_request(rq, error, blk_rq_err_bytes(rq));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__blk_end_request_err); */
+EXPORT_SYMBOL_GPL(__blk_end_request_err);
 
 void blk_rq_bio_prep(struct request_queue *q, struct request *rq,
 		     struct bio *bio)
@@ -2726,7 +2726,7 @@ void rq_flush_dcache_pages(struct request *rq)
 	rq_for_each_segment(bvec, rq, iter)
 		flush_dcache_page(bvec->bv_page);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rq_flush_dcache_pages); */
+EXPORT_SYMBOL_GPL(rq_flush_dcache_pages);
 #endif
 
 /**
@@ -2755,7 +2755,7 @@ int blk_lld_busy(struct request_queue *q)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_lld_busy); */
+EXPORT_SYMBOL_GPL(blk_lld_busy);
 
 /**
  * blk_rq_unprep_clone - Helper function to free all bios in a cloned request
@@ -2774,7 +2774,7 @@ void blk_rq_unprep_clone(struct request *rq)
 		bio_put(bio);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_rq_unprep_clone); */
+EXPORT_SYMBOL_GPL(blk_rq_unprep_clone);
 
 /*
  * Copy attributes of the original request to the clone request.
@@ -2855,20 +2855,20 @@ free_and_out:
 
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_rq_prep_clone); */
+EXPORT_SYMBOL_GPL(blk_rq_prep_clone);
 
 int kblockd_schedule_work(struct request_queue *q, struct work_struct *work)
 {
 	return queue_work(kblockd_workqueue, work);
 }
-/* DISABLED: EXPORT_SYMBOL(kblockd_schedule_work); */
+EXPORT_SYMBOL(kblockd_schedule_work);
 
 int kblockd_schedule_delayed_work(struct request_queue *q,
 			struct delayed_work *dwork, unsigned long delay)
 {
 	return queue_delayed_work(kblockd_workqueue, dwork, delay);
 }
-/* DISABLED: EXPORT_SYMBOL(kblockd_schedule_delayed_work); */
+EXPORT_SYMBOL(kblockd_schedule_delayed_work);
 
 #define PLUG_MAGIC	0x91827364
 
@@ -2907,7 +2907,7 @@ void blk_start_plug(struct blk_plug *plug)
 		tsk->plug = plug;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(blk_start_plug); */
+EXPORT_SYMBOL(blk_start_plug);
 
 static int plug_rq_cmp(void *priv, struct list_head *a, struct list_head *b)
 {
@@ -3049,7 +3049,7 @@ void blk_finish_plug(struct blk_plug *plug)
 	if (plug == current->plug)
 		current->plug = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_finish_plug); */
+EXPORT_SYMBOL(blk_finish_plug);
 
 #ifdef CONFIG_PM_RUNTIME
 /**
@@ -3080,7 +3080,7 @@ void blk_pm_runtime_init(struct request_queue *q, struct device *dev)
 	pm_runtime_set_autosuspend_delay(q->dev, -1);
 	pm_runtime_use_autosuspend(q->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_pm_runtime_init); */
+EXPORT_SYMBOL(blk_pm_runtime_init);
 
 /**
  * blk_pre_runtime_suspend - Pre runtime suspend check
@@ -3117,7 +3117,7 @@ int blk_pre_runtime_suspend(struct request_queue *q)
 	spin_unlock_irq(q->queue_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(blk_pre_runtime_suspend); */
+EXPORT_SYMBOL(blk_pre_runtime_suspend);
 
 /**
  * blk_post_runtime_suspend - Post runtime suspend processing
@@ -3143,7 +3143,7 @@ void blk_post_runtime_suspend(struct request_queue *q, int err)
 	}
 	spin_unlock_irq(q->queue_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_post_runtime_suspend); */
+EXPORT_SYMBOL(blk_post_runtime_suspend);
 
 /**
  * blk_pre_runtime_resume - Pre runtime resume processing
@@ -3162,7 +3162,7 @@ void blk_pre_runtime_resume(struct request_queue *q)
 	q->rpm_status = RPM_RESUMING;
 	spin_unlock_irq(q->queue_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_pre_runtime_resume); */
+EXPORT_SYMBOL(blk_pre_runtime_resume);
 
 /**
  * blk_post_runtime_resume - Post runtime resume processing
@@ -3191,7 +3191,7 @@ void blk_post_runtime_resume(struct request_queue *q, int err)
 	}
 	spin_unlock_irq(q->queue_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_post_runtime_resume); */
+EXPORT_SYMBOL(blk_post_runtime_resume);
 #endif
 
 int __init blk_dev_init(void)

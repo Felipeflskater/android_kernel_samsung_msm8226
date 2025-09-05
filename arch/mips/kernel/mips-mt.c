@@ -28,7 +28,7 @@ static int __init maxvpes(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("maxvpes=", maxvpes); */ */
+__setup("maxvpes=", maxvpes);
 
 int tclimit;
 
@@ -39,7 +39,7 @@ static int __init maxtcs(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("maxtcs=", maxtcs); */ */
+__setup("maxtcs=", maxtcs);
 
 /*
  * Dump new MIPS MT state for the core. Does not leave TCs halted.
@@ -135,21 +135,21 @@ static int __init rps_disable(char *s)
 	mt_opt_norps = 1;
 	return 1;
 }
-/* DISABLED: __setup("norps", rps_disable); */ */
+__setup("norps", rps_disable);
 
 static int __init rpsctl_set(char *str)
 {
 	get_option(&str, &mt_opt_rpsctl);
 	return 1;
 }
-/* DISABLED: __setup("rpsctl=", rpsctl_set); */ */
+__setup("rpsctl=", rpsctl_set);
 
 static int __init nblsu_set(char *str)
 {
 	get_option(&str, &mt_opt_nblsu);
 	return 1;
 }
-/* DISABLED: __setup("nblsu=", nblsu_set); */ */
+__setup("nblsu=", nblsu_set);
 
 static int __init config7_set(char *str)
 {
@@ -157,7 +157,7 @@ static int __init config7_set(char *str)
 	mt_opt_forceconfig7 = 1;
 	return 1;
 }
-/* DISABLED: __setup("config7=", config7_set); */ */
+__setup("config7=", config7_set);
 
 /* Experimental cache flush control parameters that should go away some day */
 int mt_protiflush;
@@ -170,28 +170,28 @@ static int __init set_protiflush(char *s)
 	mt_protiflush = 1;
 	return 1;
 }
-/* DISABLED: __setup("protiflush", set_protiflush); */ */
+__setup("protiflush", set_protiflush);
 
 static int __init set_protdflush(char *s)
 {
 	mt_protdflush = 1;
 	return 1;
 }
-/* DISABLED: __setup("protdflush", set_protdflush); */ */
+__setup("protdflush", set_protdflush);
 
 static int __init niflush(char *s)
 {
 	get_option(&s, &mt_n_iflushes);
 	return 1;
 }
-/* DISABLED: __setup("niflush=", niflush); */ */
+__setup("niflush=", niflush);
 
 static int __init ndflush(char *s)
 {
 	get_option(&s, &mt_n_dflushes);
 	return 1;
 }
-/* DISABLED: __setup("ndflush=", ndflush); */ */
+__setup("ndflush=", ndflush);
 
 static unsigned int itc_base;
 
@@ -201,7 +201,7 @@ static int __init set_itc_base(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("itcbase=", set_itc_base); */ */
+__setup("itcbase=", set_itc_base);
 
 void mips_mt_set_cpuoptions(void)
 {

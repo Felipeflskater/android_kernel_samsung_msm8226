@@ -60,7 +60,7 @@ cpumask_t cpu_core_map[NR_CPUS] __read_mostly =
 	{ [0 ... NR_CPUS-1] = CPU_MASK_NONE };
 
 EXPORT_PER_CPU_SYMBOL(cpu_sibling_map);
-/* DISABLED: EXPORT_SYMBOL(cpu_core_map); */
+EXPORT_SYMBOL(cpu_core_map);
 
 static cpumask_t smp_commenced_mask;
 

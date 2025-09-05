@@ -88,7 +88,7 @@ int sas_drain_work(struct sas_ha_struct *ha)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_drain_work); */
+EXPORT_SYMBOL_GPL(sas_drain_work);
 
 void sas_disable_revalidation(struct sas_ha_struct *ha)
 {

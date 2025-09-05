@@ -30,7 +30,7 @@
    accessile to the board support files.
 */
 struct scoop_pcmcia_config *platform_scoop_config;
-/* DISABLED: EXPORT_SYMBOL(platform_scoop_config); */
+EXPORT_SYMBOL(platform_scoop_config);
 
 struct  scoop_dev {
 	void __iomem *base;
@@ -137,9 +137,9 @@ void write_scoop_reg(struct device *dev, unsigned short reg, unsigned short data
 	iowrite16(data, sdev->base + reg);
 }
 
-/* DISABLED: EXPORT_SYMBOL(reset_scoop); */
-/* DISABLED: EXPORT_SYMBOL(read_scoop_reg); */
-/* DISABLED: EXPORT_SYMBOL(write_scoop_reg); */
+EXPORT_SYMBOL(reset_scoop);
+EXPORT_SYMBOL(read_scoop_reg);
+EXPORT_SYMBOL(write_scoop_reg);
 
 #ifdef CONFIG_PM
 static void check_scoop_reg(struct scoop_dev *sdev)

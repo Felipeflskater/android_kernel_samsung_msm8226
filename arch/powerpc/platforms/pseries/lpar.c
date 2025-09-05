@@ -48,9 +48,9 @@
 
 
 /* in hvCall.S */
-/* DISABLED: EXPORT_SYMBOL(plpar_hcall); */
-/* DISABLED: EXPORT_SYMBOL(plpar_hcall9); */
-/* DISABLED: EXPORT_SYMBOL(plpar_hcall_norets); */
+EXPORT_SYMBOL(plpar_hcall);
+EXPORT_SYMBOL(plpar_hcall9);
+EXPORT_SYMBOL(plpar_hcall_norets);
 
 extern void pSeries_find_serial_port(void);
 
@@ -449,7 +449,7 @@ static int __init disable_bulk_remove(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("bulk_remove=", disable_bulk_remove); */ */
+__setup("bulk_remove=", disable_bulk_remove);
 
 void __init hpte_init_lpar(void)
 {
@@ -487,7 +487,7 @@ static int __init cmo_free_hint(char *str)
 	return 0;
 }
 
-/* DISABLED: __setup("cmo_free_hint=", cmo_free_hint); */ */
+__setup("cmo_free_hint=", cmo_free_hint);
 
 static void pSeries_set_page_state(struct page *page, int order,
 				   unsigned long state)
@@ -511,7 +511,7 @@ void arch_free_page(struct page *page, int order)
 
 	pSeries_set_page_state(page, order, H_PAGE_SET_UNUSED);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_free_page); */
+EXPORT_SYMBOL(arch_free_page);
 
 #endif
 
@@ -623,7 +623,7 @@ int h_get_mpp(struct hvcall_mpp_data *mpp_data)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(h_get_mpp); */
+EXPORT_SYMBOL(h_get_mpp);
 
 int h_get_mpp_x(struct hvcall_mpp_x_data *mpp_x_data)
 {

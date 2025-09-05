@@ -189,4 +189,4 @@ void pci_configure_slot(struct pci_dev *dev)
 			pci_configure_slot(cdev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_configure_slot); */
+EXPORT_SYMBOL_GPL(pci_configure_slot);

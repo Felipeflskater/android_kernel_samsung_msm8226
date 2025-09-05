@@ -35,7 +35,7 @@ void flush_icache_page(struct vm_area_struct *vma, struct page *page)
 	smp_cache_call(SMP_IDCACHE_INV_FLUSH_RANGE, start, start + PAGE_SIZE);
 	smp_unlock_cache(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_icache_page); */
+EXPORT_SYMBOL(flush_icache_page);
 
 /**
  * flush_icache_page_range - Flush dcache and invalidate icache for part of a
@@ -152,4 +152,4 @@ void flush_icache_range(unsigned long start, unsigned long end)
 done:
 	smp_unlock_cache(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_icache_range); */
+EXPORT_SYMBOL(flush_icache_range);

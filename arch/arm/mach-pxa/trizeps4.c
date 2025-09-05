@@ -303,7 +303,7 @@ void board_pcmcia_power(int power)
 	pr_debug("%s: o%s 0x%x\n", __func__, power ? "n" : "ff",
 			trizeps_conxs_bcr);
 }
-/* DISABLED: EXPORT_SYMBOL(board_pcmcia_power); */
+EXPORT_SYMBOL(board_pcmcia_power);
 
 /* backlight power switching for LCD panel */
 static void board_backlight_power(int on)

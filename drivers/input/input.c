@@ -359,7 +359,7 @@ void input_event(struct input_dev *dev,
 		spin_unlock_irqrestore(&dev->event_lock, flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(input_event); */
+EXPORT_SYMBOL(input_event);
 
 /**
  * input_inject_event() - send input event from input handler
@@ -391,7 +391,7 @@ void input_inject_event(struct input_handle *handle,
 		spin_unlock_irqrestore(&dev->event_lock, flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(input_inject_event); */
+EXPORT_SYMBOL(input_inject_event);
 
 /**
  * input_alloc_absinfo - allocates array of input_absinfo structs
@@ -408,7 +408,7 @@ void input_alloc_absinfo(struct input_dev *dev)
 
 	WARN(!dev->absinfo, "%s(): kcalloc() failed?\n", __func__);
 }
-/* DISABLED: EXPORT_SYMBOL(input_alloc_absinfo); */
+EXPORT_SYMBOL(input_alloc_absinfo);
 
 void input_set_abs_params(struct input_dev *dev, unsigned int axis,
 			  int min, int max, int fuzz, int flat)
@@ -427,7 +427,7 @@ void input_set_abs_params(struct input_dev *dev, unsigned int axis,
 
 	dev->absbit[BIT_WORD(axis)] |= BIT_MASK(axis);
 }
-/* DISABLED: EXPORT_SYMBOL(input_set_abs_params); */
+EXPORT_SYMBOL(input_set_abs_params);
 
 
 /**
@@ -458,7 +458,7 @@ int input_grab_device(struct input_handle *handle)
 	mutex_unlock(&dev->mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_grab_device); */
+EXPORT_SYMBOL(input_grab_device);
 
 static void __input_release_device(struct input_handle *handle)
 {
@@ -492,7 +492,7 @@ void input_release_device(struct input_handle *handle)
 	__input_release_device(handle);
 	mutex_unlock(&dev->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(input_release_device); */
+EXPORT_SYMBOL(input_release_device);
 
 /**
  * input_open_device - open input device
@@ -538,7 +538,7 @@ int input_open_device(struct input_handle *handle)
 	mutex_unlock(&dev->mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_open_device); */
+EXPORT_SYMBOL(input_open_device);
 
 int input_flush_device(struct input_handle *handle, struct file *file)
 {
@@ -555,7 +555,7 @@ int input_flush_device(struct input_handle *handle, struct file *file)
 	mutex_unlock(&dev->mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_flush_device); */
+EXPORT_SYMBOL(input_flush_device);
 
 /**
  * input_close_device - close input device
@@ -587,7 +587,7 @@ void input_close_device(struct input_handle *handle)
 
 	mutex_unlock(&dev->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(input_close_device); */
+EXPORT_SYMBOL(input_close_device);
 
 static int input_enable_device(struct input_dev *dev)
 {
@@ -716,7 +716,7 @@ int input_scancode_to_scalar(const struct input_keymap_entry *ke,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(input_scancode_to_scalar); */
+EXPORT_SYMBOL(input_scancode_to_scalar);
 
 /*
  * Those routines handle the default case where no [gs]etkeycode() is
@@ -847,7 +847,7 @@ int input_get_keycode(struct input_dev *dev, struct input_keymap_entry *ke)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_get_keycode); */
+EXPORT_SYMBOL(input_get_keycode);
 
 /**
  * input_set_keycode - attribute a keycode to a given scancode
@@ -898,7 +898,7 @@ int input_set_keycode(struct input_dev *dev,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_set_keycode); */
+EXPORT_SYMBOL(input_set_keycode);
 
 #define MATCH_BIT(bit, max) \
 		for (i = 0; i < BITS_TO_LONGS(max); i++) \
@@ -1673,7 +1673,7 @@ void input_reset_device(struct input_dev *dev)
 
 	mutex_unlock(&dev->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(input_reset_device); */
+EXPORT_SYMBOL(input_reset_device);
 
 #ifdef CONFIG_PM
 static int input_dev_suspend(struct device *dev)
@@ -1725,7 +1725,7 @@ struct class input_class = {
 	.name		= "input",
 	.devnode	= input_devnode,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(input_class); */
+EXPORT_SYMBOL_GPL(input_class);
 
 /**
  * input_allocate_device - allocate memory for new input device
@@ -1755,7 +1755,7 @@ struct input_dev *input_allocate_device(void)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(input_allocate_device); */
+EXPORT_SYMBOL(input_allocate_device);
 
 /**
  * input_free_device - free memory occupied by input_dev structure
@@ -1776,7 +1776,7 @@ void input_free_device(struct input_dev *dev)
 	if (dev)
 		input_put_device(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(input_free_device); */
+EXPORT_SYMBOL(input_free_device);
 
 /**
  * input_set_capability - mark device as capable of a certain event
@@ -1839,7 +1839,7 @@ void input_set_capability(struct input_dev *dev, unsigned int type, unsigned int
 
 	__set_bit(type, dev->evbit);
 }
-/* DISABLED: EXPORT_SYMBOL(input_set_capability); */
+EXPORT_SYMBOL(input_set_capability);
 
 static unsigned int input_estimate_events_per_packet(struct input_dev *dev)
 {
@@ -1976,7 +1976,7 @@ int input_register_device(struct input_dev *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(input_register_device); */
+EXPORT_SYMBOL(input_register_device);
 
 /**
  * input_unregister_device - unregister previously registered device
@@ -2006,7 +2006,7 @@ void input_unregister_device(struct input_dev *dev)
 
 	device_unregister(&dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(input_unregister_device); */
+EXPORT_SYMBOL(input_unregister_device);
 
 /**
  * input_register_handler - register a new input handler
@@ -2046,7 +2046,7 @@ int input_register_handler(struct input_handler *handler)
 	mutex_unlock(&input_mutex);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_register_handler); */
+EXPORT_SYMBOL(input_register_handler);
 
 /**
  * input_unregister_handler - unregisters an input handler
@@ -2074,7 +2074,7 @@ void input_unregister_handler(struct input_handler *handler)
 
 	mutex_unlock(&input_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(input_unregister_handler); */
+EXPORT_SYMBOL(input_unregister_handler);
 
 /**
  * input_handler_for_each_handle - handle iterator
@@ -2106,7 +2106,7 @@ int input_handler_for_each_handle(struct input_handler *handler, void *data,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(input_handler_for_each_handle); */
+EXPORT_SYMBOL(input_handler_for_each_handle);
 
 /**
  * input_register_handle - register a new input handle
@@ -2157,7 +2157,7 @@ int input_register_handle(struct input_handle *handle)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(input_register_handle); */
+EXPORT_SYMBOL(input_register_handle);
 
 /**
  * input_unregister_handle - unregister an input handle
@@ -2184,7 +2184,7 @@ void input_unregister_handle(struct input_handle *handle)
 
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL(input_unregister_handle); */
+EXPORT_SYMBOL(input_unregister_handle);
 
 static int input_open_file(struct inode *inode, struct file *file)
 {

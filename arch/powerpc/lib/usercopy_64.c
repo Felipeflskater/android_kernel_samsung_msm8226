@@ -35,7 +35,7 @@ unsigned long copy_in_user(void __user *to, const void __user *from,
 	return n;
 }
 
-/* DISABLED: EXPORT_SYMBOL(copy_from_user); */
-/* DISABLED: EXPORT_SYMBOL(copy_to_user); */
-/* DISABLED: EXPORT_SYMBOL(copy_in_user); */
+EXPORT_SYMBOL(copy_from_user);
+EXPORT_SYMBOL(copy_to_user);
+EXPORT_SYMBOL(copy_in_user);
 

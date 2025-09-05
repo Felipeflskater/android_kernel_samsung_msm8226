@@ -113,20 +113,20 @@ struct video_device *video_device_alloc(void)
 {
 	return kzalloc(sizeof(struct video_device), GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL(video_device_alloc); */
+EXPORT_SYMBOL(video_device_alloc);
 
 void video_device_release(struct video_device *vdev)
 {
 	kfree(vdev);
 }
-/* DISABLED: EXPORT_SYMBOL(video_device_release); */
+EXPORT_SYMBOL(video_device_release);
 
 void video_device_release_empty(struct video_device *vdev)
 {
 	/* Do nothing */
 	/* Only valid when the video_device struct is a static. */
 }
-/* DISABLED: EXPORT_SYMBOL(video_device_release_empty); */
+EXPORT_SYMBOL(video_device_release_empty);
 
 static inline void video_get(struct video_device *vdev)
 {
@@ -200,7 +200,7 @@ struct video_device *video_devdata(struct file *file)
 {
 	return video_device[iminor(file->f_path.dentry->d_inode)];
 }
-/* DISABLED: EXPORT_SYMBOL(video_devdata); */
+EXPORT_SYMBOL(video_devdata);
 
 
 /* Priority handling */
@@ -216,7 +216,7 @@ void v4l2_prio_init(struct v4l2_prio_state *global)
 {
 	memset(global, 0, sizeof(*global));
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_init); */
+EXPORT_SYMBOL(v4l2_prio_init);
 
 int v4l2_prio_change(struct v4l2_prio_state *global, enum v4l2_priority *local,
 		     enum v4l2_priority new)
@@ -232,20 +232,20 @@ int v4l2_prio_change(struct v4l2_prio_state *global, enum v4l2_priority *local,
 	*local = new;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_change); */
+EXPORT_SYMBOL(v4l2_prio_change);
 
 void v4l2_prio_open(struct v4l2_prio_state *global, enum v4l2_priority *local)
 {
 	v4l2_prio_change(global, local, V4L2_PRIORITY_DEFAULT);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_open); */
+EXPORT_SYMBOL(v4l2_prio_open);
 
 void v4l2_prio_close(struct v4l2_prio_state *global, enum v4l2_priority local)
 {
 	if (prio_is_valid(local))
 		atomic_dec(&global->prios[local]);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_close); */
+EXPORT_SYMBOL(v4l2_prio_close);
 
 enum v4l2_priority v4l2_prio_max(struct v4l2_prio_state *global)
 {
@@ -257,13 +257,13 @@ enum v4l2_priority v4l2_prio_max(struct v4l2_prio_state *global)
 		return V4L2_PRIORITY_BACKGROUND;
 	return V4L2_PRIORITY_UNSET;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_max); */
+EXPORT_SYMBOL(v4l2_prio_max);
 
 int v4l2_prio_check(struct v4l2_prio_state *global, enum v4l2_priority local)
 {
 	return (local < v4l2_prio_max(global)) ? -EBUSY : 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_prio_check); */
+EXPORT_SYMBOL(v4l2_prio_check);
 
 
 static ssize_t v4l2_read(struct file *filp, char __user *buf,
@@ -728,7 +728,7 @@ cleanup:
 	vdev->minor = -1;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__video_register_device); */
+EXPORT_SYMBOL(__video_register_device);
 
 /**
  *	video_unregister_device - unregister a video4linux device
@@ -751,7 +751,7 @@ void video_unregister_device(struct video_device *vdev)
 	mutex_unlock(&videodev_lock);
 	device_unregister(&vdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(video_unregister_device); */
+EXPORT_SYMBOL(video_unregister_device);
 
 /*
  *	Initialise video for linux

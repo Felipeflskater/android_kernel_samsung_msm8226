@@ -146,7 +146,7 @@ mips_hpt_frequency = 33000000 * 3 * 5;
 
 unsigned long ocd_base;
 
-/* DISABLED: EXPORT_SYMBOL(ocd_base); */
+EXPORT_SYMBOL(ocd_base);
 
 /*
  * Common setup before any secondaries are started

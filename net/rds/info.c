@@ -81,7 +81,7 @@ void rds_info_register_func(int optname, rds_info_func func)
 	rds_info_funcs[offset] = func;
 	spin_unlock(&rds_info_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rds_info_register_func); */
+EXPORT_SYMBOL_GPL(rds_info_register_func);
 
 void rds_info_deregister_func(int optname, rds_info_func func)
 {
@@ -94,7 +94,7 @@ void rds_info_deregister_func(int optname, rds_info_func func)
 	rds_info_funcs[offset] = NULL;
 	spin_unlock(&rds_info_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rds_info_deregister_func); */
+EXPORT_SYMBOL_GPL(rds_info_deregister_func);
 
 /*
  * Typically we hold an atomic kmap across multiple rds_info_copy() calls
@@ -141,7 +141,7 @@ void rds_info_copy(struct rds_info_iterator *iter, void *data,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rds_info_copy); */
+EXPORT_SYMBOL_GPL(rds_info_copy);
 
 /*
  * @optval points to the userspace buffer that the information snapshot

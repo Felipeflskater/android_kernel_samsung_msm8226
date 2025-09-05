@@ -85,10 +85,10 @@ u64 get_jiffies_64(void)
 	} while (read_seqretry(&xtime_lock, seq));
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(get_jiffies_64); */
+EXPORT_SYMBOL(get_jiffies_64);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(jiffies); */
+EXPORT_SYMBOL(jiffies);
 
 static int __init init_jiffies_clocksource(void)
 {

@@ -265,7 +265,7 @@ phys_addr_t smem_virt_to_phys(void *smem_address)
 
 	return phys_addr;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_virt_to_phys); */
+EXPORT_SYMBOL(smem_virt_to_phys);
 
 /* smem_alloc returns the pointer to smem item if it is already allocated.
  * Otherwise, it returns NULL.
@@ -274,7 +274,7 @@ void *smem_alloc(unsigned id, unsigned size)
 {
 	return smem_find(id, size);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_alloc); */
+EXPORT_SYMBOL(smem_alloc);
 
 /**
  * smem_alloc_to_proc - Find existing item with security support
@@ -290,7 +290,7 @@ void *smem_alloc_to_proc(unsigned id, unsigned size, unsigned to_proc,
 {
 	return smem_find_to_proc(id, size, to_proc, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_alloc_to_proc); */
+EXPORT_SYMBOL(smem_alloc_to_proc);
 
 /**
  * __smem_get_entry - Get pointer and size of existing SMEM item
@@ -525,7 +525,7 @@ void *smem_find(unsigned id, unsigned size_in)
 {
 	return __smem_find(id, size_in, false);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_find); */
+EXPORT_SYMBOL(smem_find);
 
 /**
  * smem_find_to_proc - Find existing item with security support
@@ -558,7 +558,7 @@ void *smem_find_to_proc(unsigned id, unsigned size_in, unsigned to_proc,
 
 	return ptr;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_find_to_proc); */
+EXPORT_SYMBOL(smem_find_to_proc);
 
 /**
  * alloc_item_nonsecure - Allocate an SMEM item in the nonsecure partition
@@ -775,7 +775,7 @@ void *smem_alloc2(unsigned id, unsigned size_in)
 	remote_spin_unlock_irqrestore(&remote_spinlock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_alloc2); */
+EXPORT_SYMBOL(smem_alloc2);
 
 /**
  * smem_alloc2_to_proc - Find an existing item, otherwise allocate it with
@@ -856,13 +856,13 @@ void *smem_alloc2_to_proc(unsigned id, unsigned size_in, unsigned to_proc,
 	remote_spin_unlock_irqrestore(&remote_spinlock, lflags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_alloc2_to_proc); */
+EXPORT_SYMBOL(smem_alloc2_to_proc);
 
 void *smem_get_entry(unsigned id, unsigned *size)
 {
 	return __smem_get_entry(id, size, false, true);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_get_entry); */
+EXPORT_SYMBOL(smem_get_entry);
 
 /**
  * smem_get_entry_to_proc - Get existing item with security support
@@ -880,7 +880,7 @@ void *smem_get_entry_to_proc(unsigned id, unsigned *size, unsigned to_proc,
 
 	return __smem_get_entry_to_proc(id, size, to_proc, flags, false, true);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_get_entry_to_proc); */
+EXPORT_SYMBOL(smem_get_entry_to_proc);
 
 /**
  * smem_get_entry_no_rlock - Get existing item without using remote spinlock
@@ -897,7 +897,7 @@ void *smem_get_entry_no_rlock(unsigned id, unsigned *size_out)
 {
 	return __smem_get_entry(id, size_out, false, false);
 }
-/* DISABLED: EXPORT_SYMBOL(smem_get_entry_no_rlock); */
+EXPORT_SYMBOL(smem_get_entry_no_rlock);
 
 /**
  * smem_get_remote_spinlock - Remote spinlock pointer for unit testing.
@@ -910,7 +910,7 @@ remote_spinlock_t *smem_get_remote_spinlock(void)
 		init_smem_remote_spinlock();
 	return &remote_spinlock;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_get_remote_spinlock); */
+EXPORT_SYMBOL(smem_get_remote_spinlock);
 
 /**
  * smem_get_free_space() - Get the available allocation free space for a
@@ -970,7 +970,7 @@ unsigned smem_get_free_space(unsigned to_proc)
 
 	return heap_remaining;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_get_free_space); */
+EXPORT_SYMBOL(smem_get_free_space);
 
 /**
  * init_smem_remote_spinlock - Reentrant remote spinlock initialization
@@ -1065,7 +1065,7 @@ failed:
 								__func__);
 	return is_inited;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_initialized_check); */
+EXPORT_SYMBOL(smem_initialized_check);
 
 static int restart_notifier_cb(struct notifier_block *this,
 				unsigned long code,
@@ -1140,7 +1140,7 @@ int smem_module_init_notifier_register(struct notifier_block *nb)
 	mutex_unlock(&smem_module_init_notifier_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_module_init_notifier_register); */
+EXPORT_SYMBOL(smem_module_init_notifier_register);
 
 int smem_module_init_notifier_unregister(struct notifier_block *nb)
 {
@@ -1153,7 +1153,7 @@ int smem_module_init_notifier_unregister(struct notifier_block *nb)
 	mutex_unlock(&smem_module_init_notifier_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(smem_module_init_notifier_unregister); */
+EXPORT_SYMBOL(smem_module_init_notifier_unregister);
 
 static void smem_module_init_notify(uint32_t state, void *data)
 {

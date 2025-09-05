@@ -184,7 +184,7 @@ struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu)
 {
 	return __cpufreq_cpu_get(cpu, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_cpu_get); */
+EXPORT_SYMBOL_GPL(cpufreq_cpu_get);
 
 static struct cpufreq_policy *cpufreq_cpu_get_sysfs(unsigned int cpu)
 {
@@ -202,7 +202,7 @@ void cpufreq_cpu_put(struct cpufreq_policy *data)
 {
 	__cpufreq_cpu_put(data, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_cpu_put); */
+EXPORT_SYMBOL_GPL(cpufreq_cpu_put);
 
 static void cpufreq_cpu_put_sysfs(struct cpufreq_policy *data)
 {
@@ -307,7 +307,7 @@ void cpufreq_notify_transition(struct cpufreq_freqs *freqs, unsigned int state)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_notify_transition); */
+EXPORT_SYMBOL_GPL(cpufreq_notify_transition);
 /**
  * cpufreq_notify_utilization - notify CPU userspace about CPU utilization
  * change
@@ -697,7 +697,7 @@ static struct attribute *default_attrs[] = {
 };
 
 struct kobject *cpufreq_global_kobject;
-/* DISABLED: EXPORT_SYMBOL(cpufreq_global_kobject); */
+EXPORT_SYMBOL(cpufreq_global_kobject);
 
 #define to_policy(k) container_of(k, struct cpufreq_policy, kobj)
 #define to_attr(a) container_of(a, struct freq_attr, attr)
@@ -1317,7 +1317,7 @@ unsigned int cpufreq_quick_get(unsigned int cpu)
 
 	return ret_freq;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_quick_get); */
+EXPORT_SYMBOL(cpufreq_quick_get);
 
 /**
  * cpufreq_quick_get_max - get the max reported CPU frequency for this CPU
@@ -1337,7 +1337,7 @@ unsigned int cpufreq_quick_get_max(unsigned int cpu)
 
 	return ret_freq;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_quick_get_max); */
+EXPORT_SYMBOL(cpufreq_quick_get_max);
 
 
 static unsigned int __cpufreq_get(unsigned int cpu)
@@ -1389,7 +1389,7 @@ out_policy:
 out:
 	return ret_freq;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_get); */
+EXPORT_SYMBOL(cpufreq_get);
 
 static struct subsys_interface cpufreq_interface = {
 	.name		= "cpufreq",
@@ -1516,7 +1516,7 @@ int cpufreq_register_notifier(struct notifier_block *nb, unsigned int list)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_register_notifier); */
+EXPORT_SYMBOL(cpufreq_register_notifier);
 
 
 /**
@@ -1548,7 +1548,7 @@ int cpufreq_unregister_notifier(struct notifier_block *nb, unsigned int list)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_unregister_notifier); */
+EXPORT_SYMBOL(cpufreq_unregister_notifier);
 
 
 /*********************************************************************
@@ -1572,7 +1572,7 @@ int __cpufreq_driver_target(struct cpufreq_policy *policy,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__cpufreq_driver_target); */
+EXPORT_SYMBOL_GPL(__cpufreq_driver_target);
 
 int cpufreq_driver_target(struct cpufreq_policy *policy,
 			  unsigned int target_freq,
@@ -1596,7 +1596,7 @@ fail:
 no_policy:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_driver_target); */
+EXPORT_SYMBOL_GPL(cpufreq_driver_target);
 
 int __cpufreq_driver_getavg(struct cpufreq_policy *policy, unsigned int cpu)
 {
@@ -1612,7 +1612,7 @@ int __cpufreq_driver_getavg(struct cpufreq_policy *policy, unsigned int cpu)
 	cpufreq_cpu_put(policy);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__cpufreq_driver_getavg); */
+EXPORT_SYMBOL_GPL(__cpufreq_driver_getavg);
 
 /*
  * when "event" is CPUFREQ_GOV_LIMITS
@@ -1687,7 +1687,7 @@ int cpufreq_register_governor(struct cpufreq_governor *governor)
 	mutex_unlock(&cpufreq_governor_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_register_governor); */
+EXPORT_SYMBOL_GPL(cpufreq_register_governor);
 
 
 void cpufreq_unregister_governor(struct cpufreq_governor *governor)
@@ -1719,7 +1719,7 @@ void cpufreq_unregister_governor(struct cpufreq_governor *governor)
 	mutex_unlock(&cpufreq_governor_mutex);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_unregister_governor); */
+EXPORT_SYMBOL_GPL(cpufreq_unregister_governor);
 
 
 
@@ -1749,7 +1749,7 @@ int cpufreq_get_policy(struct cpufreq_policy *policy, unsigned int cpu)
 	cpufreq_cpu_put(cpu_policy);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_get_policy); */
+EXPORT_SYMBOL(cpufreq_get_policy);
 
 
 /*
@@ -1897,7 +1897,7 @@ fail:
 no_policy:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cpufreq_update_policy); */
+EXPORT_SYMBOL(cpufreq_update_policy);
 
 static int __cpuinit cpufreq_cpu_callback(struct notifier_block *nfb,
 					unsigned long action, void *hcpu)
@@ -2006,7 +2006,7 @@ err_null_driver:
 	spin_unlock_irqrestore(&cpufreq_driver_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_register_driver); */
+EXPORT_SYMBOL_GPL(cpufreq_register_driver);
 
 
 /**
@@ -2035,7 +2035,7 @@ int cpufreq_unregister_driver(struct cpufreq_driver *driver)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_unregister_driver); */
+EXPORT_SYMBOL_GPL(cpufreq_unregister_driver);
 
 static int __init cpufreq_core_init(void)
 {

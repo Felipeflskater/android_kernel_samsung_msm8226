@@ -1104,7 +1104,7 @@ unsigned int sa1111_pll_clock(struct sa1111_dev *sadev)
 
 	return __sa1111_pll_clock(sachip);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_pll_clock); */
+EXPORT_SYMBOL(sa1111_pll_clock);
 
 /**
  *	sa1111_select_audio_mode - select I2S or AC link mode
@@ -1132,7 +1132,7 @@ void sa1111_select_audio_mode(struct sa1111_dev *sadev, int mode)
 
 	spin_unlock_irqrestore(&sachip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_select_audio_mode); */
+EXPORT_SYMBOL(sa1111_select_audio_mode);
 
 /**
  *	sa1111_set_audio_rate - set the audio sample rate
@@ -1157,7 +1157,7 @@ int sa1111_set_audio_rate(struct sa1111_dev *sadev, int rate)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_set_audio_rate); */
+EXPORT_SYMBOL(sa1111_set_audio_rate);
 
 /**
  *	sa1111_get_audio_rate - get the audio sample rate
@@ -1175,7 +1175,7 @@ int sa1111_get_audio_rate(struct sa1111_dev *sadev)
 
 	return __sa1111_pll_clock(sachip) / (256 * div);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_get_audio_rate); */
+EXPORT_SYMBOL(sa1111_get_audio_rate);
 
 void sa1111_set_io_dir(struct sa1111_dev *sadev,
 		       unsigned int bits, unsigned int dir,
@@ -1204,7 +1204,7 @@ void sa1111_set_io_dir(struct sa1111_dev *sadev,
 	MODIFY_BITS(gpio + SA1111_GPIO_PCSDR, (bits >> 16) & 255, sleep_dir >> 16);
 	spin_unlock_irqrestore(&sachip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_set_io_dir); */
+EXPORT_SYMBOL(sa1111_set_io_dir);
 
 void sa1111_set_io(struct sa1111_dev *sadev, unsigned int bits, unsigned int v)
 {
@@ -1219,7 +1219,7 @@ void sa1111_set_io(struct sa1111_dev *sadev, unsigned int bits, unsigned int v)
 	MODIFY_BITS(gpio + SA1111_GPIO_PCDWR, (bits >> 16) & 255, v >> 16);
 	spin_unlock_irqrestore(&sachip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_set_io); */
+EXPORT_SYMBOL(sa1111_set_io);
 
 void sa1111_set_sleep_io(struct sa1111_dev *sadev, unsigned int bits, unsigned int v)
 {
@@ -1234,7 +1234,7 @@ void sa1111_set_sleep_io(struct sa1111_dev *sadev, unsigned int bits, unsigned i
 	MODIFY_BITS(gpio + SA1111_GPIO_PCSSR, (bits >> 16) & 255, v >> 16);
 	spin_unlock_irqrestore(&sachip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_set_sleep_io); */
+EXPORT_SYMBOL(sa1111_set_sleep_io);
 
 /*
  * Individual device operations.
@@ -1262,7 +1262,7 @@ int sa1111_enable_device(struct sa1111_dev *sadev)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_enable_device); */
+EXPORT_SYMBOL(sa1111_enable_device);
 
 /**
  *	sa1111_disable_device - disable an on-chip SA1111 function block
@@ -1282,7 +1282,7 @@ void sa1111_disable_device(struct sa1111_dev *sadev)
 	if (sachip->pdata && sachip->pdata->disable)
 		sachip->pdata->disable(sachip->pdata->data, sadev->devid);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_disable_device); */
+EXPORT_SYMBOL(sa1111_disable_device);
 
 /*
  *	SA1111 "Register Access Bus."
@@ -1359,20 +1359,20 @@ struct bus_type sa1111_bus_type = {
 	.resume		= sa1111_bus_resume,
 	.shutdown	= sa1111_bus_shutdown,
 };
-/* DISABLED: EXPORT_SYMBOL(sa1111_bus_type); */
+EXPORT_SYMBOL(sa1111_bus_type);
 
 int sa1111_driver_register(struct sa1111_driver *driver)
 {
 	driver->drv.bus = &sa1111_bus_type;
 	return driver_register(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_driver_register); */
+EXPORT_SYMBOL(sa1111_driver_register);
 
 void sa1111_driver_unregister(struct sa1111_driver *driver)
 {
 	driver_unregister(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(sa1111_driver_unregister); */
+EXPORT_SYMBOL(sa1111_driver_unregister);
 
 #ifdef CONFIG_DMABOUNCE
 /*

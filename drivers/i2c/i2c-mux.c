@@ -143,7 +143,7 @@ struct i2c_adapter *i2c_add_mux_adapter(struct i2c_adapter *parent,
 
 	return &priv->adap;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2c_add_mux_adapter); */
+EXPORT_SYMBOL_GPL(i2c_add_mux_adapter);
 
 int i2c_del_mux_adapter(struct i2c_adapter *adap)
 {
@@ -157,7 +157,7 @@ int i2c_del_mux_adapter(struct i2c_adapter *adap)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(i2c_del_mux_adapter); */
+EXPORT_SYMBOL_GPL(i2c_del_mux_adapter);
 
 MODULE_AUTHOR("Rodolfo Giometti <giometti@linux.it>");
 MODULE_DESCRIPTION("I2C driver for multiplexed I2C busses");

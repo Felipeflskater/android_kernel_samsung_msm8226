@@ -53,7 +53,7 @@
 
 #ifndef __ARCH_IRQ_STAT
 irq_cpustat_t irq_stat[NR_CPUS] ____cacheline_aligned;
-/* DISABLED: EXPORT_SYMBOL(irq_stat); */
+EXPORT_SYMBOL(irq_stat);
 #endif
 
 static struct softirq_action softirq_vec[NR_SOFTIRQS] __cacheline_aligned_in_smp;
@@ -134,7 +134,7 @@ void local_bh_disable(void)
 				SOFTIRQ_DISABLE_OFFSET);
 }
 
-/* DISABLED: EXPORT_SYMBOL(local_bh_disable); */
+EXPORT_SYMBOL(local_bh_disable);
 
 static void __local_bh_enable(unsigned int cnt)
 {
@@ -156,7 +156,7 @@ void _local_bh_enable(void)
 	__local_bh_enable(SOFTIRQ_DISABLE_OFFSET);
 }
 
-/* DISABLED: EXPORT_SYMBOL(_local_bh_enable); */
+EXPORT_SYMBOL(_local_bh_enable);
 
 static inline void _local_bh_enable_ip(unsigned long ip)
 {
@@ -189,13 +189,13 @@ void local_bh_enable(void)
 {
 	_local_bh_enable_ip((unsigned long)__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(local_bh_enable); */
+EXPORT_SYMBOL(local_bh_enable);
 
 void local_bh_enable_ip(unsigned long ip)
 {
 	_local_bh_enable_ip(ip);
 }
-/* DISABLED: EXPORT_SYMBOL(local_bh_enable_ip); */
+EXPORT_SYMBOL(local_bh_enable_ip);
 
 /*
  * We restart softirq processing for at most MAX_SOFTIRQ_RESTART times,
@@ -432,7 +432,7 @@ void __tasklet_schedule(struct tasklet_struct *t)
 	local_irq_restore(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__tasklet_schedule); */
+EXPORT_SYMBOL(__tasklet_schedule);
 
 void __tasklet_hi_schedule(struct tasklet_struct *t)
 {
@@ -446,7 +446,7 @@ void __tasklet_hi_schedule(struct tasklet_struct *t)
 	local_irq_restore(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__tasklet_hi_schedule); */
+EXPORT_SYMBOL(__tasklet_hi_schedule);
 
 void __tasklet_hi_schedule_first(struct tasklet_struct *t)
 {
@@ -457,7 +457,7 @@ void __tasklet_hi_schedule_first(struct tasklet_struct *t)
 	__raise_softirq_irqoff(HI_SOFTIRQ);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__tasklet_hi_schedule_first); */
+EXPORT_SYMBOL(__tasklet_hi_schedule_first);
 
 static void tasklet_action(struct softirq_action *a)
 {
@@ -546,7 +546,7 @@ void tasklet_init(struct tasklet_struct *t,
 	t->data = data;
 }
 
-/* DISABLED: EXPORT_SYMBOL(tasklet_init); */
+EXPORT_SYMBOL(tasklet_init);
 
 void tasklet_kill(struct tasklet_struct *t)
 {
@@ -562,7 +562,7 @@ void tasklet_kill(struct tasklet_struct *t)
 	clear_bit(TASKLET_STATE_SCHED, &t->state);
 }
 
-/* DISABLED: EXPORT_SYMBOL(tasklet_kill); */
+EXPORT_SYMBOL(tasklet_kill);
 
 /*
  * tasklet_hrtimer
@@ -613,7 +613,7 @@ void tasklet_hrtimer_init(struct tasklet_hrtimer *ttimer,
 		     (unsigned long)ttimer);
 	ttimer->function = function;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tasklet_hrtimer_init); */
+EXPORT_SYMBOL_GPL(tasklet_hrtimer_init);
 
 /*
  * Remote softirq bits
@@ -684,7 +684,7 @@ void __send_remote_softirq(struct call_single_data *cp, int cpu, int this_cpu, i
 	if (cpu == this_cpu || __try_remote_softirq(cp, cpu, softirq))
 		__local_trigger(cp, softirq);
 }
-/* DISABLED: EXPORT_SYMBOL(__send_remote_softirq); */
+EXPORT_SYMBOL(__send_remote_softirq);
 
 /**
  * send_remote_softirq - try to schedule softirq work on a remote cpu
@@ -705,7 +705,7 @@ void send_remote_softirq(struct call_single_data *cp, int cpu, int softirq)
 	__send_remote_softirq(cp, cpu, this_cpu, softirq);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(send_remote_softirq); */
+EXPORT_SYMBOL(send_remote_softirq);
 
 static int __cpuinit remote_softirq_cpu_notify(struct notifier_block *self,
 					       unsigned long action, void *hcpu)

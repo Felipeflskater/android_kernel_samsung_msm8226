@@ -222,7 +222,7 @@ int imx_audmux_v1_configure_port(unsigned int port, unsigned int pcr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(imx_audmux_v1_configure_port); */
+EXPORT_SYMBOL_GPL(imx_audmux_v1_configure_port);
 
 int imx_audmux_v2_configure_port(unsigned int port, unsigned int ptcr,
 		unsigned int pdcr)
@@ -244,7 +244,7 @@ int imx_audmux_v2_configure_port(unsigned int port, unsigned int ptcr,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(imx_audmux_v2_configure_port); */
+EXPORT_SYMBOL_GPL(imx_audmux_v2_configure_port);
 
 static int __devinit imx_audmux_probe(struct platform_device *pdev)
 {

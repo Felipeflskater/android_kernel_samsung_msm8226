@@ -58,4 +58,4 @@ enum pci_lost_interrupt_reason pci_lost_interrupt(struct pci_dev *pdev)
 	pci_note_irq_problem(pdev, "unknown cause (not MSI or ACPI)");
 	return PCI_LOST_IRQ_NO_INFORMATION;
 }
-/* DISABLED: EXPORT_SYMBOL(pci_lost_interrupt); */
+EXPORT_SYMBOL(pci_lost_interrupt);

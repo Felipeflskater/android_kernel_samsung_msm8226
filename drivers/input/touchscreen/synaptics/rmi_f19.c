@@ -136,7 +136,7 @@ void FN_19_inthandler(struct rmi_function_info *rmifninfo,
 
 	input_sync(function_device->input); /* sync after groups of events */
 }
-/* DISABLED: EXPORT_SYMBOL(FN_19_inthandler); */
+EXPORT_SYMBOL(FN_19_inthandler);
 
 int FN_19_config(struct rmi_function_info *rmifninfo)
 {
@@ -149,7 +149,7 @@ int FN_19_config(struct rmi_function_info *rmifninfo)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_19_config); */
+EXPORT_SYMBOL(FN_19_config);
 
 /* Initialize any F19 specific params and settings - input
  * settings, device settings, etc.
@@ -198,7 +198,7 @@ int FN_19_init(struct rmi_function_device *function_device)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_19_init); */
+EXPORT_SYMBOL(FN_19_init);
 
 static int getControlRegisters(struct rmi_function_info *rmifninfo,
 	struct rmi_function_descriptor *fndescr)
@@ -406,7 +406,7 @@ int FN_19_detect(struct rmi_function_info *rmifninfo,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(FN_19_detect); */
+EXPORT_SYMBOL(FN_19_detect);
 
 static ssize_t rmi_f19_buttonCount_show(struct device *dev,
 				struct device_attribute *attr, char *buf)

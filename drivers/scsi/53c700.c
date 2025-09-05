@@ -2148,9 +2148,9 @@ STATIC struct device_attribute *NCR_700_dev_attrs[] = {
 	NULL,
 };
 
-/* DISABLED: EXPORT_SYMBOL(NCR_700_detect); */
-/* DISABLED: EXPORT_SYMBOL(NCR_700_release); */
-/* DISABLED: EXPORT_SYMBOL(NCR_700_intr); */
+EXPORT_SYMBOL(NCR_700_detect);
+EXPORT_SYMBOL(NCR_700_release);
+EXPORT_SYMBOL(NCR_700_intr);
 
 static struct spi_function_template NCR_700_transport_functions =  {
 	.set_period	= NCR_700_set_period,

@@ -59,7 +59,7 @@ bool rtl_ps_enable_nic(struct ieee80211_hw *hw)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_ps_enable_nic); */
+EXPORT_SYMBOL(rtl_ps_enable_nic);
 
 bool rtl_ps_disable_nic(struct ieee80211_hw *hw)
 {
@@ -77,7 +77,7 @@ bool rtl_ps_disable_nic(struct ieee80211_hw *hw)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_ps_disable_nic); */
+EXPORT_SYMBOL(rtl_ps_disable_nic);
 
 bool rtl_ps_set_rf_state(struct ieee80211_hw *hw,
 			 enum rf_pwrstate state_toset,
@@ -129,7 +129,7 @@ bool rtl_ps_set_rf_state(struct ieee80211_hw *hw,
 
 	return actionallowed;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl_ps_set_rf_state); */
+EXPORT_SYMBOL(rtl_ps_set_rf_state);
 
 static void _rtl_ps_inactive_ps(struct ieee80211_hw *hw)
 {

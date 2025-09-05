@@ -191,7 +191,7 @@ int wcnss_get_iris_name(char *iris_name)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_get_iris_name); */
+EXPORT_SYMBOL(wcnss_get_iris_name);
 
 int validate_iris_chip_id(u32 reg)
 {
@@ -653,7 +653,7 @@ fail_wcnss_on:
 	up(&wcnss_power_on_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_wlan_power); */
+EXPORT_SYMBOL(wcnss_wlan_power);
 
 /*
  * During SSR WCNSS should not be 'powered on' until all the host drivers
@@ -685,7 +685,7 @@ int wcnss_req_power_on_lock(char *driver_name)
 err:
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_req_power_on_lock); */
+EXPORT_SYMBOL(wcnss_req_power_on_lock);
 
 int wcnss_free_power_on_lock(char *driver_name)
 {
@@ -708,4 +708,4 @@ int wcnss_free_power_on_lock(char *driver_name)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(wcnss_free_power_on_lock); */
+EXPORT_SYMBOL(wcnss_free_power_on_lock);

@@ -66,7 +66,7 @@ int snd_oss_info_register(int dev, int num, char *string)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_oss_info_register); */
+EXPORT_SYMBOL(snd_oss_info_register);
 
 static int snd_sndstat_show_strings(struct snd_info_buffer *buf, char *id, int dev)
 {

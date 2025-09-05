@@ -2029,7 +2029,7 @@ void tkey_led_enables(int level)
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(tkey_led_enables); */
+EXPORT_SYMBOL(tkey_led_enables);
 
 static int __devinit qpnp_led_set_max_brightness(struct qpnp_led_data *led)
 {

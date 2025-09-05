@@ -96,7 +96,7 @@ void viafb_irq_enable(u32 mask)
 	viafb_enabled_ints |= mask;
 	viafb_mmio_write(VDE_INTERRUPT, viafb_enabled_ints | VDE_I_ENABLE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_irq_enable); */
+EXPORT_SYMBOL_GPL(viafb_irq_enable);
 
 void viafb_irq_disable(u32 mask)
 {
@@ -107,7 +107,7 @@ void viafb_irq_disable(u32 mask)
 		viafb_mmio_write(VDE_INTERRUPT,
 				viafb_enabled_ints | VDE_I_ENABLE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_irq_disable); */
+EXPORT_SYMBOL_GPL(viafb_irq_disable);
 
 /* ---------------------------------------------------------------------- */
 /*
@@ -207,7 +207,7 @@ int viafb_request_dma(void)
 	mutex_unlock(&viafb_dma_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_request_dma); */
+EXPORT_SYMBOL_GPL(viafb_request_dma);
 
 void viafb_release_dma(void)
 {
@@ -219,7 +219,7 @@ void viafb_release_dma(void)
 	}
 	mutex_unlock(&viafb_dma_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_release_dma); */
+EXPORT_SYMBOL_GPL(viafb_release_dma);
 
 
 #if 0
@@ -261,7 +261,7 @@ void viafb_dma_copy_out(unsigned int offset, dma_addr_t paddr, int len)
 	viafb_mmio_write(VDMA_MR0, 0); /* Reset int enable */
 	mutex_unlock(&viafb_dma_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_dma_copy_out); */
+EXPORT_SYMBOL_GPL(viafb_dma_copy_out);
 #endif
 
 /*
@@ -344,7 +344,7 @@ int viafb_dma_copy_out_sg(unsigned int offset, struct scatterlist *sg, int nsg)
 			descr_handle);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_dma_copy_out_sg); */
+EXPORT_SYMBOL_GPL(viafb_dma_copy_out_sg);
 #endif /* CONFIG_VIDEO_VIA_CAMERA */
 
 /* ---------------------------------------------------------------------- */
@@ -613,7 +613,7 @@ void viafb_pm_register(struct viafb_pm_hooks *hooks)
 	list_add_tail(&hooks->list, &viafb_pm_hooks);
 	mutex_unlock(&viafb_pm_hooks_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_pm_register); */
+EXPORT_SYMBOL_GPL(viafb_pm_register);
 
 void viafb_pm_unregister(struct viafb_pm_hooks *hooks)
 {
@@ -621,7 +621,7 @@ void viafb_pm_unregister(struct viafb_pm_hooks *hooks)
 	list_del(&hooks->list);
 	mutex_unlock(&viafb_pm_hooks_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_pm_unregister); */
+EXPORT_SYMBOL_GPL(viafb_pm_unregister);
 
 static int via_suspend(struct pci_dev *pdev, pm_message_t state)
 {

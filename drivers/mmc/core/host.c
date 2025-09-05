@@ -471,7 +471,7 @@ free:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_alloc_host); */
+EXPORT_SYMBOL(mmc_alloc_host);
 
 static ssize_t show_enable(struct device *dev,
 		struct device_attribute *attr, char *buf)
@@ -751,7 +751,7 @@ int mmc_add_host(struct mmc_host *host)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_add_host); */
+EXPORT_SYMBOL(mmc_add_host);
 
 /**
  *	mmc_remove_host - remove host hardware
@@ -781,7 +781,7 @@ void mmc_remove_host(struct mmc_host *host)
 	mmc_host_clk_exit(host);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_remove_host); */
+EXPORT_SYMBOL(mmc_remove_host);
 
 /**
  *	mmc_free_host - free the host structure
@@ -799,4 +799,4 @@ void mmc_free_host(struct mmc_host *host)
 	put_device(&host->class_dev);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mmc_free_host); */
+EXPORT_SYMBOL(mmc_free_host);

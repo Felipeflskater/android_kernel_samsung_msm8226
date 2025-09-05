@@ -101,7 +101,7 @@ static struct rcu_state *rcu_state;
  * positives from lockdep-RCU error checking.
  */
 int rcu_scheduler_active __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_scheduler_active); */
+EXPORT_SYMBOL_GPL(rcu_scheduler_active);
 
 /*
  * The rcu_scheduler_fully_active variable transitions from zero to one
@@ -204,7 +204,7 @@ void rcu_note_context_switch(int cpu)
 	rcu_preempt_note_context_switch(cpu);
 	trace_rcu_utilization("End context switch");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_note_context_switch); */
+EXPORT_SYMBOL_GPL(rcu_note_context_switch);
 
 DEFINE_PER_CPU(struct rcu_dynticks, rcu_dynticks) = {
 	.dynticks_nesting = DYNTICK_TASK_EXIT_IDLE,
@@ -235,7 +235,7 @@ long rcu_batches_completed_sched(void)
 {
 	return rcu_sched_state.completed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_batches_completed_sched); */
+EXPORT_SYMBOL_GPL(rcu_batches_completed_sched);
 
 /*
  * Return the number of RCU BH batches processed thus far for debug & stats.
@@ -244,7 +244,7 @@ long rcu_batches_completed_bh(void)
 {
 	return rcu_bh_state.completed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_batches_completed_bh); */
+EXPORT_SYMBOL_GPL(rcu_batches_completed_bh);
 
 /*
  * Force a quiescent state for RCU BH.
@@ -253,7 +253,7 @@ void rcu_bh_force_quiescent_state(void)
 {
 	force_quiescent_state(&rcu_bh_state, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_bh_force_quiescent_state); */
+EXPORT_SYMBOL_GPL(rcu_bh_force_quiescent_state);
 
 /*
  * Record the number of times rcutorture tests have been initiated and
@@ -267,7 +267,7 @@ void rcutorture_record_test_transition(void)
 	rcutorture_testseq++;
 	rcutorture_vernum = 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcutorture_record_test_transition); */
+EXPORT_SYMBOL_GPL(rcutorture_record_test_transition);
 
 /*
  * Record the number of writer passes through the current rcutorture test.
@@ -278,7 +278,7 @@ void rcutorture_record_progress(unsigned long vernum)
 {
 	rcutorture_vernum++;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcutorture_record_progress); */
+EXPORT_SYMBOL_GPL(rcutorture_record_progress);
 
 /*
  * Force a quiescent state for RCU-sched.
@@ -287,7 +287,7 @@ void rcu_sched_force_quiescent_state(void)
 {
 	force_quiescent_state(&rcu_sched_state, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_sched_force_quiescent_state); */
+EXPORT_SYMBOL_GPL(rcu_sched_force_quiescent_state);
 
 /*
  * Does the CPU have callbacks ready to be invoked?
@@ -413,7 +413,7 @@ void rcu_idle_enter(void)
 	rcu_idle_enter_common(rdtp, oldval);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_idle_enter); */
+EXPORT_SYMBOL_GPL(rcu_idle_enter);
 
 /**
  * rcu_irq_exit - inform RCU that current CPU is exiting irq towards idle
@@ -505,7 +505,7 @@ void rcu_idle_exit(void)
 	rcu_idle_exit_common(rdtp, oldval);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_idle_exit); */
+EXPORT_SYMBOL_GPL(rcu_idle_exit);
 
 /**
  * rcu_irq_enter - inform RCU that current CPU is entering irq away from idle
@@ -604,7 +604,7 @@ int rcu_is_cpu_idle(void)
 	preempt_enable();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rcu_is_cpu_idle); */
+EXPORT_SYMBOL(rcu_is_cpu_idle);
 
 #ifdef CONFIG_HOTPLUG_CPU
 
@@ -645,7 +645,7 @@ bool rcu_lockdep_current_cpu_online(void)
 	preempt_enable();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_lockdep_current_cpu_online); */
+EXPORT_SYMBOL_GPL(rcu_lockdep_current_cpu_online);
 
 #endif /* #ifdef CONFIG_HOTPLUG_CPU */
 
@@ -1944,7 +1944,7 @@ void call_rcu_sched(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
 {
 	__call_rcu(head, func, &rcu_sched_state, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(call_rcu_sched); */
+EXPORT_SYMBOL_GPL(call_rcu_sched);
 
 /*
  * Queue an RCU callback for invocation after a quicker grace period.
@@ -1953,7 +1953,7 @@ void call_rcu_bh(struct rcu_head *head, void (*func)(struct rcu_head *rcu))
 {
 	__call_rcu(head, func, &rcu_bh_state, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(call_rcu_bh); */
+EXPORT_SYMBOL_GPL(call_rcu_bh);
 
 /**
  * synchronize_sched - wait until an rcu-sched grace period has elapsed.
@@ -1991,7 +1991,7 @@ void synchronize_sched(void)
 	else
 		wait_rcu_gp(call_rcu_sched);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_sched); */
+EXPORT_SYMBOL_GPL(synchronize_sched);
 
 /**
  * synchronize_rcu_bh - wait until an rcu_bh grace period has elapsed.
@@ -2015,7 +2015,7 @@ void synchronize_rcu_bh(void)
 	else
 		wait_rcu_gp(call_rcu_bh);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_rcu_bh); */
+EXPORT_SYMBOL_GPL(synchronize_rcu_bh);
 
 static atomic_t sync_sched_expedited_started = ATOMIC_INIT(0);
 static atomic_t sync_sched_expedited_done = ATOMIC_INIT(0);
@@ -2136,7 +2136,7 @@ void synchronize_sched_expedited(void)
 
 	put_online_cpus();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(synchronize_sched_expedited); */
+EXPORT_SYMBOL_GPL(synchronize_sched_expedited);
 
 /*
  * Check to see if there is any immediate RCU-related work to be done
@@ -2364,7 +2364,7 @@ void rcu_barrier_bh(void)
 {
 	_rcu_barrier(&rcu_bh_state, call_rcu_bh);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_barrier_bh); */
+EXPORT_SYMBOL_GPL(rcu_barrier_bh);
 
 /**
  * rcu_barrier_sched - Wait for in-flight call_rcu_sched() callbacks.
@@ -2373,7 +2373,7 @@ void rcu_barrier_sched(void)
 {
 	_rcu_barrier(&rcu_sched_state, call_rcu_sched);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rcu_barrier_sched); */
+EXPORT_SYMBOL_GPL(rcu_barrier_sched);
 
 /*
  * Do boot-time initialization of a CPU's per-CPU RCU data.

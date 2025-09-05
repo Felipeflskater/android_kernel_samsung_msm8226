@@ -3068,7 +3068,7 @@ void pci_fixup_device(enum pci_fixup_pass pass, struct pci_dev *dev)
 	}
 	pci_do_fixups(dev, start, end);
 }
-/* DISABLED: EXPORT_SYMBOL(pci_fixup_device); */
+EXPORT_SYMBOL(pci_fixup_device);
 
 static int __init pci_apply_final_quirks(void)
 {

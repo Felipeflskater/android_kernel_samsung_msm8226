@@ -57,7 +57,7 @@ static irq_handler_t tick_handler;
 
 
 unsigned short mvme16x_config;
-/* DISABLED: EXPORT_SYMBOL(mvme16x_config); */
+EXPORT_SYMBOL(mvme16x_config);
 
 
 int mvme16x_parse_bootinfo(const struct bi_record *bi)

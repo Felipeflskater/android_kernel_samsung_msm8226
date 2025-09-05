@@ -130,7 +130,7 @@
 static __cacheline_aligned_in_smp DEFINE_SPINLOCK(dq_list_lock);
 static __cacheline_aligned_in_smp DEFINE_SPINLOCK(dq_state_lock);
 __cacheline_aligned_in_smp DEFINE_SPINLOCK(dq_data_lock);
-/* DISABLED: EXPORT_SYMBOL(dq_data_lock); */
+EXPORT_SYMBOL(dq_data_lock);
 
 void __quota_error(struct super_block *sb, const char *func,
 		   const char *fmt, ...)
@@ -150,7 +150,7 @@ void __quota_error(struct super_block *sb, const char *func,
 		va_end(args);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__quota_error); */
+EXPORT_SYMBOL(__quota_error);
 
 #if defined(CONFIG_QUOTA_DEBUG) || defined(CONFIG_PRINT_QUOTA_WARNING)
 static char *quotatypes[] = INITQFNAMES;
@@ -169,7 +169,7 @@ int register_quota_format(struct quota_format_type *fmt)
 	spin_unlock(&dq_list_lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(register_quota_format); */
+EXPORT_SYMBOL(register_quota_format);
 
 void unregister_quota_format(struct quota_format_type *fmt)
 {
@@ -183,7 +183,7 @@ void unregister_quota_format(struct quota_format_type *fmt)
 		*actqf = (*actqf)->qf_next;
 	spin_unlock(&dq_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_quota_format); */
+EXPORT_SYMBOL(unregister_quota_format);
 
 static struct quota_format_type *find_quota_format(int id)
 {
@@ -247,7 +247,7 @@ static unsigned int dq_hash_bits, dq_hash_mask;
 static struct hlist_head *dquot_hash;
 
 struct dqstats dqstats;
-/* DISABLED: EXPORT_SYMBOL(dqstats); */
+EXPORT_SYMBOL(dqstats);
 
 static qsize_t inode_get_rsv_space(struct inode *inode);
 static void __dquot_initialize(struct inode *inode, int type);
@@ -357,7 +357,7 @@ int dquot_mark_dquot_dirty(struct dquot *dquot)
 	spin_unlock(&dq_list_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_mark_dquot_dirty); */
+EXPORT_SYMBOL(dquot_mark_dquot_dirty);
 
 /* Dirtify all the dquots - this can block when journalling */
 static inline int mark_all_dquot_dirty(struct dquot * const *dquot)
@@ -396,7 +396,7 @@ void mark_info_dirty(struct super_block *sb, int type)
 {
 	set_bit(DQF_INFO_DIRTY_B, &sb_dqopt(sb)->info[type].dqi_flags);
 }
-/* DISABLED: EXPORT_SYMBOL(mark_info_dirty); */
+EXPORT_SYMBOL(mark_info_dirty);
 
 /*
  *	Read dquot from disk and alloc space for it
@@ -435,7 +435,7 @@ out_iolock:
 	mutex_unlock(&dquot->dq_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_acquire); */
+EXPORT_SYMBOL(dquot_acquire);
 
 /*
  *	Write dquot to disk
@@ -462,7 +462,7 @@ out_sem:
 	mutex_unlock(&dqopt->dqio_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_commit); */
+EXPORT_SYMBOL(dquot_commit);
 
 /*
  *	Release dquot
@@ -493,13 +493,13 @@ out_dqlock:
 	mutex_unlock(&dquot->dq_lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_release); */
+EXPORT_SYMBOL(dquot_release);
 
 void dquot_destroy(struct dquot *dquot)
 {
 	kmem_cache_free(dquot_cachep, dquot);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_destroy); */
+EXPORT_SYMBOL(dquot_destroy);
 
 static inline void do_destroy_dquot(struct dquot *dquot)
 {
@@ -601,7 +601,7 @@ out:
 	mutex_unlock(&sb_dqopt(sb)->dqonoff_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_scan_active); */
+EXPORT_SYMBOL(dquot_scan_active);
 
 int dquot_quota_sync(struct super_block *sb, int type, int wait)
 {
@@ -675,7 +675,7 @@ int dquot_quota_sync(struct super_block *sb, int type, int wait)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_quota_sync); */
+EXPORT_SYMBOL(dquot_quota_sync);
 
 /* Free unused dquots from cache */
 static void prune_dqcache(int count)
@@ -783,13 +783,13 @@ we_slept:
 	put_dquot_last(dquot);
 	spin_unlock(&dq_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(dqput); */
+EXPORT_SYMBOL(dqput);
 
 struct dquot *dquot_alloc(struct super_block *sb, int type)
 {
 	return kmem_cache_zalloc(dquot_cachep, GFP_NOFS);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_alloc); */
+EXPORT_SYMBOL(dquot_alloc);
 
 static struct dquot *get_empty_dquot(struct super_block *sb, int type)
 {
@@ -882,7 +882,7 @@ out:
 
 	return dquot;
 }
-/* DISABLED: EXPORT_SYMBOL(dqget); */
+EXPORT_SYMBOL(dqget);
 
 static int dqinit_needed(struct inode *inode, int type)
 {
@@ -1442,7 +1442,7 @@ void dquot_initialize(struct inode *inode)
 {
 	__dquot_initialize(inode, -1);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_initialize); */
+EXPORT_SYMBOL(dquot_initialize);
 
 /*
  * 	Release all quotas referenced by inode
@@ -1483,7 +1483,7 @@ void dquot_drop(struct inode *inode)
 	if (cnt < MAXQUOTAS)
 		__dquot_drop(inode);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_drop); */
+EXPORT_SYMBOL(dquot_drop);
 
 /*
  * inode_reserved_space is managed internally by quota, and protected by
@@ -1503,7 +1503,7 @@ void inode_add_rsv_space(struct inode *inode, qsize_t number)
 	*inode_reserved_space(inode) += number;
 	spin_unlock(&inode->i_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_add_rsv_space); */
+EXPORT_SYMBOL(inode_add_rsv_space);
 
 void inode_claim_rsv_space(struct inode *inode, qsize_t number)
 {
@@ -1512,7 +1512,7 @@ void inode_claim_rsv_space(struct inode *inode, qsize_t number)
 	__inode_add_bytes(inode, number);
 	spin_unlock(&inode->i_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_claim_rsv_space); */
+EXPORT_SYMBOL(inode_claim_rsv_space);
 
 void inode_sub_rsv_space(struct inode *inode, qsize_t number)
 {
@@ -1520,7 +1520,7 @@ void inode_sub_rsv_space(struct inode *inode, qsize_t number)
 	*inode_reserved_space(inode) -= number;
 	spin_unlock(&inode->i_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_sub_rsv_space); */
+EXPORT_SYMBOL(inode_sub_rsv_space);
 
 static qsize_t inode_get_rsv_space(struct inode *inode)
 {
@@ -1615,7 +1615,7 @@ out_flush_warn:
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__dquot_alloc_space); */
+EXPORT_SYMBOL(__dquot_alloc_space);
 
 /*
  * This operation can block, but only after everything is updated
@@ -1656,7 +1656,7 @@ warn_put_all:
 	flush_warnings(warn);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_alloc_inode); */
+EXPORT_SYMBOL(dquot_alloc_inode);
 
 /*
  * Convert in-memory reserved quotas to real consumed quotas
@@ -1685,7 +1685,7 @@ int dquot_claim_space_nodirty(struct inode *inode, qsize_t number)
 	up_read(&sb_dqopt(inode->i_sb)->dqptr_sem);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_claim_space_nodirty); */
+EXPORT_SYMBOL(dquot_claim_space_nodirty);
 
 /*
  * This operation can block, but only after everything is updated
@@ -1730,7 +1730,7 @@ out_unlock:
 	up_read(&sb_dqopt(inode->i_sb)->dqptr_sem);
 	flush_warnings(warn);
 }
-/* DISABLED: EXPORT_SYMBOL(__dquot_free_space); */
+EXPORT_SYMBOL(__dquot_free_space);
 
 /*
  * This operation can block, but only after everything is updated
@@ -1764,7 +1764,7 @@ void dquot_free_inode(const struct inode *inode)
 	up_read(&sb_dqopt(inode->i_sb)->dqptr_sem);
 	flush_warnings(warn);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_free_inode); */
+EXPORT_SYMBOL(dquot_free_inode);
 
 /*
  * Transfer the number of inode and blocks from one diskquota to an other.
@@ -1874,7 +1874,7 @@ over_quota:
 	flush_warnings(warn_to);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__dquot_transfer); */
+EXPORT_SYMBOL(__dquot_transfer);
 
 /* Wrapper for transferring ownership of an inode for uid/gid only
  * Called from FSXXX_setattr()
@@ -1897,7 +1897,7 @@ int dquot_transfer(struct inode *inode, struct iattr *iattr)
 	dqput_all(transfer_to);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_transfer); */
+EXPORT_SYMBOL(dquot_transfer);
 
 /*
  * Write info of quota file to disk
@@ -1912,7 +1912,7 @@ int dquot_commit_info(struct super_block *sb, int type)
 	mutex_unlock(&dqopt->dqio_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_commit_info); */
+EXPORT_SYMBOL(dquot_commit_info);
 
 /*
  * Definitions of diskquota operations.
@@ -1926,7 +1926,7 @@ const struct dquot_operations dquot_operations = {
 	.alloc_dquot	= dquot_alloc,
 	.destroy_dquot	= dquot_destroy,
 };
-/* DISABLED: EXPORT_SYMBOL(dquot_operations); */
+EXPORT_SYMBOL(dquot_operations);
 
 /*
  * Generic helper for ->open on filesystems supporting disk quotas.
@@ -1940,7 +1940,7 @@ int dquot_file_open(struct inode *inode, struct file *file)
 		dquot_initialize(inode);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_file_open); */
+EXPORT_SYMBOL(dquot_file_open);
 
 /*
  * Turn quota off on a device. type == -1 ==> quotaoff for all types (umount)
@@ -2075,14 +2075,14 @@ put_inodes:
 		}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_disable); */
+EXPORT_SYMBOL(dquot_disable);
 
 int dquot_quota_off(struct super_block *sb, int type)
 {
 	return dquot_disable(sb, type,
 			     DQUOT_USAGE_ENABLED | DQUOT_LIMITS_ENABLED);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_quota_off); */
+EXPORT_SYMBOL(dquot_quota_off);
 
 /*
  *	Turn quotas on on a device
@@ -2237,7 +2237,7 @@ int dquot_resume(struct super_block *sb, int type)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_resume); */
+EXPORT_SYMBOL(dquot_resume);
 
 int dquot_quota_on(struct super_block *sb, int type, int format_id,
 		   struct path *path)
@@ -2254,7 +2254,7 @@ int dquot_quota_on(struct super_block *sb, int type, int format_id,
 					     DQUOT_LIMITS_ENABLED);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_quota_on); */
+EXPORT_SYMBOL(dquot_quota_on);
 
 /*
  * More powerful function for turning on quotas allowing setting
@@ -2301,7 +2301,7 @@ out_lock:
 load_quota:
 	return vfs_load_quota_inode(inode, type, format_id, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_enable); */
+EXPORT_SYMBOL(dquot_enable);
 
 /*
  * This function is used when filesystem needs to initialize quotas
@@ -2333,7 +2333,7 @@ out:
 	dput(dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_quota_on_mount); */
+EXPORT_SYMBOL(dquot_quota_on_mount);
 
 static inline qsize_t qbtos(qsize_t blocks)
 {
@@ -2381,7 +2381,7 @@ int dquot_get_dqblk(struct super_block *sb, int type, qid_t id,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_get_dqblk); */
+EXPORT_SYMBOL(dquot_get_dqblk);
 
 #define VFS_FS_DQ_MASK \
 	(FS_DQ_BCOUNT | FS_DQ_BSOFT | FS_DQ_BHARD | \
@@ -2496,7 +2496,7 @@ int dquot_set_dqblk(struct super_block *sb, int type, qid_t id,
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_set_dqblk); */
+EXPORT_SYMBOL(dquot_set_dqblk);
 
 /* Generic routine for getting common part of quota file information */
 int dquot_get_dqinfo(struct super_block *sb, int type, struct if_dqinfo *ii)
@@ -2518,7 +2518,7 @@ int dquot_get_dqinfo(struct super_block *sb, int type, struct if_dqinfo *ii)
 	mutex_unlock(&sb_dqopt(sb)->dqonoff_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_get_dqinfo); */
+EXPORT_SYMBOL(dquot_get_dqinfo);
 
 /* Generic routine for setting common part of quota file information */
 int dquot_set_dqinfo(struct super_block *sb, int type, struct if_dqinfo *ii)
@@ -2548,7 +2548,7 @@ out:
 	mutex_unlock(&sb_dqopt(sb)->dqonoff_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(dquot_set_dqinfo); */
+EXPORT_SYMBOL(dquot_set_dqinfo);
 
 const struct quotactl_ops dquot_quotactl_ops = {
 	.quota_on	= dquot_quota_on,
@@ -2559,7 +2559,7 @@ const struct quotactl_ops dquot_quotactl_ops = {
 	.get_dqblk	= dquot_get_dqblk,
 	.set_dqblk	= dquot_set_dqblk
 };
-/* DISABLED: EXPORT_SYMBOL(dquot_quotactl_ops); */
+EXPORT_SYMBOL(dquot_quotactl_ops);
 
 static int do_proc_dqstats(struct ctl_table *table, int write,
 		     void __user *buffer, size_t *lenp, loff_t *ppos)

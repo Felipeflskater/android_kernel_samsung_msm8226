@@ -213,7 +213,7 @@ void *au1xxx_ddma_get_nextptr_virt(au1x_ddma_desc_t *dp)
 {
 	return phys_to_virt(DSCR_GET_NXTPTR(dp->dscr_nxtptr));
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_ddma_get_nextptr_virt); */
+EXPORT_SYMBOL(au1xxx_ddma_get_nextptr_virt);
 
 u32 au1xxx_ddma_add_device(dbdev_tab_t *dev)
 {
@@ -235,7 +235,7 @@ u32 au1xxx_ddma_add_device(dbdev_tab_t *dev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_ddma_add_device); */
+EXPORT_SYMBOL(au1xxx_ddma_add_device);
 
 void au1xxx_ddma_del_device(u32 devid)
 {
@@ -246,7 +246,7 @@ void au1xxx_ddma_del_device(u32 devid)
 		p->dev_id = ~0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_ddma_del_device); */
+EXPORT_SYMBOL(au1xxx_ddma_del_device);
 
 /* Allocate a channel and return a non-zero descriptor if successful. */
 u32 au1xxx_dbdma_chan_alloc(u32 srcid, u32 destid,
@@ -356,7 +356,7 @@ u32 au1xxx_dbdma_chan_alloc(u32 srcid, u32 destid,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_chan_alloc); */
+EXPORT_SYMBOL(au1xxx_dbdma_chan_alloc);
 
 /*
  * Set the device width if source or destination is a FIFO.
@@ -384,7 +384,7 @@ u32 au1xxx_dbdma_set_devwidth(u32 chanid, int bits)
 
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_set_devwidth); */
+EXPORT_SYMBOL(au1xxx_dbdma_set_devwidth);
 
 /* Allocate a descriptor ring, initializing as much as possible. */
 u32 au1xxx_dbdma_ring_alloc(u32 chanid, int entries)
@@ -581,7 +581,7 @@ u32 au1xxx_dbdma_ring_alloc(u32 chanid, int entries)
 
 	return (u32)ctp->chan_desc_base;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_ring_alloc); */
+EXPORT_SYMBOL(au1xxx_dbdma_ring_alloc);
 
 /*
  * Put a source buffer into the DMA ring.
@@ -641,7 +641,7 @@ u32 au1xxx_dbdma_put_source(u32 chanid, dma_addr_t buf, int nbytes, u32 flags)
 	/* Return something non-zero. */
 	return nbytes;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_put_source); */
+EXPORT_SYMBOL(au1xxx_dbdma_put_source);
 
 /* Put a destination buffer into the DMA ring.
  * This updates the destination pointer and byte count.  Normally used
@@ -703,7 +703,7 @@ u32 au1xxx_dbdma_put_dest(u32 chanid, dma_addr_t buf, int nbytes, u32 flags)
 	/* Return something non-zero. */
 	return nbytes;
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_put_dest); */
+EXPORT_SYMBOL(au1xxx_dbdma_put_dest);
 
 /*
  * Get a destination buffer into the DMA ring.
@@ -748,7 +748,7 @@ u32 au1xxx_dbdma_get_dest(u32 chanid, void **buf, int *nbytes)
 	/* Return something non-zero. */
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1xxx_dbdma_get_dest); */
+EXPORT_SYMBOL_GPL(au1xxx_dbdma_get_dest);
 
 void au1xxx_dbdma_stop(u32 chanid)
 {
@@ -773,7 +773,7 @@ void au1xxx_dbdma_stop(u32 chanid)
 	cp->ddma_stat |= (DDMA_STAT_DB | DDMA_STAT_V);
 	au_sync();
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_stop); */
+EXPORT_SYMBOL(au1xxx_dbdma_stop);
 
 /*
  * Start using the current descriptor pointer.  If the DBDMA encounters
@@ -793,7 +793,7 @@ void au1xxx_dbdma_start(u32 chanid)
 	cp->ddma_dbell = 0;
 	au_sync();
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_start); */
+EXPORT_SYMBOL(au1xxx_dbdma_start);
 
 void au1xxx_dbdma_reset(u32 chanid)
 {
@@ -819,7 +819,7 @@ void au1xxx_dbdma_reset(u32 chanid)
 		dp = phys_to_virt(DSCR_GET_NXTPTR(dp->dscr_nxtptr));
 	} while (dp != ctp->chan_desc_base);
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_reset); */
+EXPORT_SYMBOL(au1xxx_dbdma_reset);
 
 u32 au1xxx_get_dma_residue(u32 chanid)
 {
@@ -836,7 +836,7 @@ u32 au1xxx_get_dma_residue(u32 chanid)
 
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1xxx_get_dma_residue); */
+EXPORT_SYMBOL_GPL(au1xxx_get_dma_residue);
 
 void au1xxx_dbdma_chan_free(u32 chanid)
 {
@@ -857,7 +857,7 @@ void au1xxx_dbdma_chan_free(u32 chanid)
 
 	kfree(ctp);
 }
-/* DISABLED: EXPORT_SYMBOL(au1xxx_dbdma_chan_free); */
+EXPORT_SYMBOL(au1xxx_dbdma_chan_free);
 
 static irqreturn_t dbdma_interrupt(int irq, void *dev_id)
 {

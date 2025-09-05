@@ -173,7 +173,7 @@ void inode_dio_wait(struct inode *inode)
 	if (atomic_read(&inode->i_dio_count))
 		__inode_dio_wait(inode);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_dio_wait); */
+EXPORT_SYMBOL(inode_dio_wait);
 
 /*
  * inode_dio_done - signal finish of a direct I/O requests
@@ -187,7 +187,7 @@ void inode_dio_done(struct inode *inode)
 	if (atomic_dec_and_test(&inode->i_dio_count))
 		wake_up_bit(&inode->i_state, __I_DIO_WAKEUP);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_dio_done); */
+EXPORT_SYMBOL(inode_dio_done);
 
 /*
  * How many pages are in the queue?
@@ -376,7 +376,7 @@ void dio_end_io(struct bio *bio, int error)
 	else
 		dio_bio_end_io(bio, error);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dio_end_io); */
+EXPORT_SYMBOL_GPL(dio_end_io);
 
 static inline void
 dio_bio_alloc(struct dio *dio, struct dio_submit *sdio,
@@ -447,7 +447,7 @@ struct inode *dio_bio_get_inode(struct bio *bio)
 
 	return inode;
 }
-/* DISABLED: EXPORT_SYMBOL(dio_bio_get_inode); */
+EXPORT_SYMBOL(dio_bio_get_inode);
 
 /*
  * Release any resources in case of a failure
@@ -1356,7 +1356,7 @@ __blockdev_direct_IO(int rw, struct kiocb *iocb, struct inode *inode,
 				     submit_io, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__blockdev_direct_IO); */
+EXPORT_SYMBOL(__blockdev_direct_IO);
 
 static __init int dio_init(void)
 {

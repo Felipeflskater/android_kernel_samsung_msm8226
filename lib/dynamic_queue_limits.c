@@ -110,7 +110,7 @@ void dql_completed(struct dql *dql, unsigned int count)
 	dql->num_completed = completed;
 	dql->prev_num_queued = num_queued;
 }
-/* DISABLED: EXPORT_SYMBOL(dql_completed); */
+EXPORT_SYMBOL(dql_completed);
 
 void dql_reset(struct dql *dql)
 {
@@ -125,7 +125,7 @@ void dql_reset(struct dql *dql)
 	dql->lowest_slack = UINT_MAX;
 	dql->slack_start_time = jiffies;
 }
-/* DISABLED: EXPORT_SYMBOL(dql_reset); */
+EXPORT_SYMBOL(dql_reset);
 
 int dql_init(struct dql *dql, unsigned hold_time)
 {
@@ -135,4 +135,4 @@ int dql_init(struct dql *dql, unsigned hold_time)
 	dql_reset(dql);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dql_init); */
+EXPORT_SYMBOL(dql_init);

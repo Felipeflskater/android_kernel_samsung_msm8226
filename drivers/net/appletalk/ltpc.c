@@ -1222,7 +1222,7 @@ static int __init ltpc_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ltpc=", ltpc_setup); */ */
+__setup("ltpc=", ltpc_setup);
 #endif /* MODULE */
 
 static struct net_device *dev_ltpc;

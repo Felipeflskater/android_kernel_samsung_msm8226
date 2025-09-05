@@ -402,4 +402,4 @@ static void __exit NCR_D700_exit(void)
 module_init(NCR_D700_init);
 module_exit(NCR_D700_exit);
 
-/* DISABLED: __setup("NCR_D700=", param_setup); */ */
+__setup("NCR_D700=", param_setup);

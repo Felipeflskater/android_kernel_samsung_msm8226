@@ -49,7 +49,7 @@ static int pci_bus_count;
  * to both 32-bit and 64-bit.
  */
 struct pci_dev *isa_bridge_pcidev;
-/* DISABLED: EXPORT_SYMBOL_GPL(isa_bridge_pcidev); */
+EXPORT_SYMBOL_GPL(isa_bridge_pcidev);
 
 static void
 fixup_cpc710_pci64(struct pci_dev* dev)
@@ -188,7 +188,7 @@ int pci_device_from_OF_node(struct device_node *node, u8 *bus, u8 *devfn)
 
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(pci_device_from_OF_node); */
+EXPORT_SYMBOL(pci_device_from_OF_node);
 
 /* We create the "pci-OF-bus-map" property now so it appears in the
  * /proc device tree

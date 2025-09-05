@@ -180,7 +180,7 @@ int check_usb_block_type(void)
 {
 	return ninfo.block_type;
 }
-/* DISABLED: EXPORT_SYMBOL(check_usb_block_type); */
+EXPORT_SYMBOL(check_usb_block_type);
 
 int sec_otg_notify(int event)
 {
@@ -263,7 +263,7 @@ int sec_otg_notify(int event)
 #endif
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_otg_notify); */
+EXPORT_SYMBOL(sec_otg_notify);
 
 int sec_otg_register_booster(struct booster_data *booster)
 {
@@ -282,7 +282,7 @@ int sec_otg_register_booster(struct booster_data *booster)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_otg_register_booster); */
+EXPORT_SYMBOL(sec_otg_register_booster);
 
 int sec_get_notification(int ndata)
 {
@@ -299,7 +299,7 @@ int sec_get_notification(int ndata)
 	pr_info("ndata %d : %d\n", ndata, ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_get_notification); */
+EXPORT_SYMBOL(sec_get_notification);
 
 static const char *block_string(enum otg_notify_block_type type)
 {

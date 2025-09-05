@@ -114,7 +114,7 @@ struct flex_array *flex_array_alloc(int element_size, unsigned int total,
 						FLEX_ARRAY_BASE_BYTES_LEFT);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_alloc); */
+EXPORT_SYMBOL(flex_array_alloc);
 
 static int fa_element_to_part_nr(struct flex_array *fa,
 					unsigned int element_nr)
@@ -138,14 +138,14 @@ void flex_array_free_parts(struct flex_array *fa)
 	for (part_nr = 0; part_nr < FLEX_ARRAY_NR_BASE_PTRS; part_nr++)
 		kfree(fa->parts[part_nr]);
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_free_parts); */
+EXPORT_SYMBOL(flex_array_free_parts);
 
 void flex_array_free(struct flex_array *fa)
 {
 	flex_array_free_parts(fa);
 	kfree(fa);
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_free); */
+EXPORT_SYMBOL(flex_array_free);
 
 static unsigned int index_inside_part(struct flex_array *fa,
 					unsigned int element_nr,
@@ -213,7 +213,7 @@ int flex_array_put(struct flex_array *fa, unsigned int element_nr, void *src,
 	memcpy(dst, src, fa->element_size);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_put); */
+EXPORT_SYMBOL(flex_array_put);
 
 /**
  * flex_array_clear - clear element in array at @element_nr
@@ -244,7 +244,7 @@ int flex_array_clear(struct flex_array *fa, unsigned int element_nr)
 	memset(dst, FLEX_ARRAY_FREE, fa->element_size);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_clear); */
+EXPORT_SYMBOL(flex_array_clear);
 
 /**
  * flex_array_prealloc - guarantee that array space exists
@@ -293,7 +293,7 @@ int flex_array_prealloc(struct flex_array *fa, unsigned int start,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_prealloc); */
+EXPORT_SYMBOL(flex_array_prealloc);
 
 /**
  * flex_array_get - pull data back out of the array
@@ -326,7 +326,7 @@ void *flex_array_get(struct flex_array *fa, unsigned int element_nr)
 	}
 	return &part->elements[index_inside_part(fa, element_nr, part_nr)];
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_get); */
+EXPORT_SYMBOL(flex_array_get);
 
 /**
  * flex_array_get_ptr - pull a ptr back out of the array
@@ -347,7 +347,7 @@ void *flex_array_get_ptr(struct flex_array *fa, unsigned int element_nr)
 
 	return *tmp;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_get_ptr); */
+EXPORT_SYMBOL(flex_array_get_ptr);
 
 static int part_is_free(struct flex_array_part *part)
 {
@@ -390,4 +390,4 @@ int flex_array_shrink(struct flex_array *fa)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(flex_array_shrink); */
+EXPORT_SYMBOL(flex_array_shrink);

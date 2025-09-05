@@ -17,50 +17,50 @@
  * libgcc functions - used internally by the compiler...
  */
 extern int __c6xabi_divi(int dividend, int divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_divi); */
+EXPORT_SYMBOL(__c6xabi_divi);
 
 extern unsigned __c6xabi_divu(unsigned	dividend, unsigned divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_divu); */
+EXPORT_SYMBOL(__c6xabi_divu);
 
 extern int __c6xabi_remi(int dividend, int divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_remi); */
+EXPORT_SYMBOL(__c6xabi_remi);
 
 extern unsigned __c6xabi_remu(unsigned	dividend, unsigned divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_remu); */
+EXPORT_SYMBOL(__c6xabi_remu);
 
 extern int __c6xabi_divremi(int dividend, int divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_divremi); */
+EXPORT_SYMBOL(__c6xabi_divremi);
 
 extern unsigned __c6xabi_divremu(unsigned  dividend, unsigned divisor);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_divremu); */
+EXPORT_SYMBOL(__c6xabi_divremu);
 
 extern unsigned long long __c6xabi_mpyll(unsigned long long src1,
 					 unsigned long long src2);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_mpyll); */
+EXPORT_SYMBOL(__c6xabi_mpyll);
 
 extern long long __c6xabi_negll(long long src);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_negll); */
+EXPORT_SYMBOL(__c6xabi_negll);
 
 extern unsigned long long __c6xabi_llshl(unsigned long long src1, uint src2);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_llshl); */
+EXPORT_SYMBOL(__c6xabi_llshl);
 
 extern long long __c6xabi_llshr(long long src1, uint src2);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_llshr); */
+EXPORT_SYMBOL(__c6xabi_llshr);
 
 extern unsigned long long __c6xabi_llshru(unsigned long long src1, uint src2);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_llshru); */
+EXPORT_SYMBOL(__c6xabi_llshru);
 
 extern void __c6xabi_strasgi(int *dst, const int *src, unsigned cnt);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_strasgi); */
+EXPORT_SYMBOL(__c6xabi_strasgi);
 
 extern void __c6xabi_push_rts(void);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_push_rts); */
+EXPORT_SYMBOL(__c6xabi_push_rts);
 
 extern void __c6xabi_pop_rts(void);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_pop_rts); */
+EXPORT_SYMBOL(__c6xabi_pop_rts);
 
 extern void __c6xabi_strasgi_64plus(int *dst, const int *src, unsigned cnt);
-/* DISABLED: EXPORT_SYMBOL(__c6xabi_strasgi_64plus); */
+EXPORT_SYMBOL(__c6xabi_strasgi_64plus);
 
 /* lib functions */
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
+EXPORT_SYMBOL(memcpy);

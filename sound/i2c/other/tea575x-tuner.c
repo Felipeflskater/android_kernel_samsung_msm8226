@@ -423,5 +423,5 @@ static void __exit alsa_tea575x_module_exit(void)
 module_init(alsa_tea575x_module_init)
 module_exit(alsa_tea575x_module_exit)
 
-/* DISABLED: EXPORT_SYMBOL(snd_tea575x_init); */
-/* DISABLED: EXPORT_SYMBOL(snd_tea575x_exit); */
+EXPORT_SYMBOL(snd_tea575x_init);
+EXPORT_SYMBOL(snd_tea575x_exit);

@@ -300,13 +300,13 @@ int wallclk_set_sfn(u16 sfn)
 {
 	return set_sfn(&wall_clk, sfn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_set_sfn); */
+EXPORT_SYMBOL_GPL(wallclk_set_sfn);
 
 int wallclk_get_sfn(void)
 {
 	return get_sfn(&wall_clk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_get_sfn); */
+EXPORT_SYMBOL_GPL(wallclk_get_sfn);
 
 int wallclk_set_sfn_ref(u16 sfn)
 {
@@ -332,7 +332,7 @@ int wallclk_set_sfn_ref(u16 sfn)
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_set_sfn_ref); */
+EXPORT_SYMBOL_GPL(wallclk_set_sfn_ref);
 
 int wallclk_get_sfn_ref(void)
 {
@@ -356,7 +356,7 @@ unlock:
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_get_sfn_ref); */
+EXPORT_SYMBOL_GPL(wallclk_get_sfn_ref);
 
 int wallclk_reg_read(u32 offset, u32 *p)
 {
@@ -378,7 +378,7 @@ int wallclk_reg_read(u32 offset, u32 *p)
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_reg_read); */
+EXPORT_SYMBOL_GPL(wallclk_reg_read);
 
 int wallclk_reg_write(u32 offset, u32 val)
 {
@@ -418,7 +418,7 @@ int wallclk_reg_write(u32 offset, u32 val)
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wallclk_reg_write); */
+EXPORT_SYMBOL_GPL(wallclk_reg_write);
 
 static int __init wallclk_init(void)
 {

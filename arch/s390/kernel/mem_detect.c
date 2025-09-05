@@ -61,7 +61,7 @@ void detect_memory_layout(struct mem_chunk chunk[])
 	__ctl_load(cr0, 0, 0);
 	arch_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(detect_memory_layout); */
+EXPORT_SYMBOL(detect_memory_layout);
 
 /*
  * Move memory chunks array from index "from" to index "to"

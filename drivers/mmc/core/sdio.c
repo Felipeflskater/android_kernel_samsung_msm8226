@@ -1333,7 +1333,7 @@ err:
 	return mmc_power_restore_host(card->host);
 #endif /* CONFIG_BCM4339 || CONFIG_BCM4335  || CONFIG_BCM4354 */
 }
-/* DISABLED: EXPORT_SYMBOL(sdio_reset_comm); */
+EXPORT_SYMBOL(sdio_reset_comm);
 
 #if defined(CONFIG_BCM4339) || defined(CONFIG_BCM4335) || defined(CONFIG_BCM4354)
 void sdio_ctrl_power(struct mmc_host *host, bool onoff)
@@ -1347,5 +1347,5 @@ void sdio_ctrl_power(struct mmc_host *host, bool onoff)
 		mmc_delay(1);
 		mmc_release_host(host);
 }
-/* DISABLED: EXPORT_SYMBOL(sdio_ctrl_power); */
+EXPORT_SYMBOL(sdio_ctrl_power);
 #endif /* CONFIG_BCM4339 || CONFIG_BCM4335  || CONFIG_BCM4354 */

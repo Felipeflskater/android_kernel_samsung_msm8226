@@ -52,16 +52,16 @@ ENTRY(cpu_arm7_data_abort)
 /* 1 */	b	do_DataAbort			@ swp
 /* 2 */	b	.data_unknown
 /* 3 */	b	.data_unknown
-/* 4 */	b	.data_arm_lateldrpostconst	@ ldr	rd, [rn], @ m
-/* 5 */	b	.data_arm_lateldrpreconst	@ ldr	rd, [rn, @ m]
+/* 4 */	b	.data_arm_lateldrpostconst	@ ldr	rd, [rn], #m
+/* 5 */	b	.data_arm_lateldrpreconst	@ ldr	rd, [rn, #m]
 /* 6 */	b	.data_arm_lateldrpostreg	@ ldr	rd, [rn], rm
 /* 7 */	b	.data_arm_lateldrprereg		@ ldr	rd, [rn, rm]
 /* 8 */	b	.data_arm_ldmstm		@ ldm*a	rn, <rlist>
 /* 9 */	b	.data_arm_ldmstm		@ ldm*b	rn, <rlist>
 /* a */	b	.data_unknown
 /* b */	b	.data_unknown
-/* c */	b	do_DataAbort			@ ldc	rd, [rn], @ m	@ Same as ldr	rd, [rn], @ m
-/* d */	b	do_DataAbort			@ ldc	rd, [rn, @ m]
+/* c */	b	do_DataAbort			@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
+/* d */	b	do_DataAbort			@ ldc	rd, [rn, #m]
 /* e */	b	.data_unknown
 /* f */
 .data_unknown:	@ Part of jumptable
@@ -138,7 +138,7 @@ ENTRY(cpu_arm6_data_abort)
 	add	pc, pc, r7
 	nop
 
-	mov	r6, r6, lsl r9			@ 0: LSL @ !0
+	mov	r6, r6, lsl r9			@ 0: LSL #!0
 	b	.data_arm_apply_r6_and_rn
 	b	.data_arm_apply_r6_and_rn	@ 1: LSL #0
 	nop
@@ -146,7 +146,7 @@ ENTRY(cpu_arm6_data_abort)
 	nop
 	b	.data_unknown			@ 3: MUL?
 	nop
-	mov	r6, r6, lsr r9			@ 4: LSR @ !0
+	mov	r6, r6, lsr r9			@ 4: LSR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, lsr #32			@ 5: LSR #32
 	b	.data_arm_apply_r6_and_rn
@@ -154,7 +154,7 @@ ENTRY(cpu_arm6_data_abort)
 	nop
 	b	.data_unknown			@ 7: MUL?
 	nop
-	mov	r6, r6, asr r9			@ 8: ASR @ !0
+	mov	r6, r6, asr r9			@ 8: ASR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, asr #32			@ 9: ASR #32
 	b	.data_arm_apply_r6_and_rn
@@ -162,7 +162,7 @@ ENTRY(cpu_arm6_data_abort)
 	nop
 	b	.data_unknown			@ B: MUL?
 	nop
-	mov	r6, r6, ror r9			@ C: ROR @ !0
+	mov	r6, r6, ror r9			@ C: ROR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, rrx			@ D: RRX
 	b	.data_arm_apply_r6_and_rn
@@ -242,7 +242,7 @@ ENDPROC(cpu_arm7_reset)
 
 		__CPUINIT
 
-		.type	__arm6_setup, @ function
+		.type	__arm6_setup, #function
 __arm6_setup:	mov	r0, #0
 		mcr	p15, 0, r0, c7, c0		@ flush caches on v3
 #ifdef CONFIG_MMU
@@ -255,7 +255,7 @@ __arm6_setup:	mov	r0, #0
 		mov	pc, lr
 		.size	__arm6_setup, . - __arm6_setup
 
-		.type	__arm7_setup, @ function
+		.type	__arm7_setup, #function
 __arm7_setup:	mov	r0, #0
 		mcr	p15, 0, r0, c7, c0		@ flush caches on v3
 #ifdef CONFIG_MMU
@@ -286,11 +286,11 @@ __arm7_setup:	mov	r0, #0
 
 		.align
 
-		.section ".proc.info.init", @ alloc, @ execinstr
+		.section ".proc.info.init", #alloc, #execinstr
 
 .macro arm67_proc_info name:req, cpu_val:req, cpu_mask:req, cpu_name:req, \
 	cpu_mm_mmu_flags:req, cpu_flush:req, cpu_proc_funcs:req
-		.type	__\name\()_proc_info, @ object
+		.type	__\name\()_proc_info, #object
 __\name\()_proc_info:
 		.long	\cpu_val
 		.long	\cpu_mask

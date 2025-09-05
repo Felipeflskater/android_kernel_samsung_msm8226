@@ -58,7 +58,7 @@ struct ssp_device *pxa_ssp_request(int port, const char *label)
 
 	return ssp;
 }
-/* DISABLED: EXPORT_SYMBOL(pxa_ssp_request); */
+EXPORT_SYMBOL(pxa_ssp_request);
 
 void pxa_ssp_free(struct ssp_device *ssp)
 {
@@ -70,7 +70,7 @@ void pxa_ssp_free(struct ssp_device *ssp)
 		dev_err(&ssp->pdev->dev, "device already free\n");
 	mutex_unlock(&ssp_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(pxa_ssp_free); */
+EXPORT_SYMBOL(pxa_ssp_free);
 
 static int __devinit pxa_ssp_probe(struct platform_device *pdev)
 {

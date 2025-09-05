@@ -897,7 +897,7 @@ void __ref kmemleak_alloc(const void *ptr, size_t size, int min_count,
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_ALLOC, ptr, size, min_count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemleak_alloc); */
+EXPORT_SYMBOL_GPL(kmemleak_alloc);
 
 /**
  * kmemleak_alloc_percpu - register a newly allocated __percpu object
@@ -925,7 +925,7 @@ void __ref kmemleak_alloc_percpu(const void __percpu *ptr, size_t size)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_ALLOC_PERCPU, ptr, size, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemleak_alloc_percpu); */
+EXPORT_SYMBOL_GPL(kmemleak_alloc_percpu);
 
 /**
  * kmemleak_free - unregister a previously registered object
@@ -943,7 +943,7 @@ void __ref kmemleak_free(const void *ptr)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_FREE, ptr, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemleak_free); */
+EXPORT_SYMBOL_GPL(kmemleak_free);
 
 /**
  * kmemleak_free_part - partially unregister a previously registered object
@@ -963,7 +963,7 @@ void __ref kmemleak_free_part(const void *ptr, size_t size)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_FREE_PART, ptr, size, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemleak_free_part); */
+EXPORT_SYMBOL_GPL(kmemleak_free_part);
 
 /**
  * kmemleak_free_percpu - unregister a previously registered __percpu object
@@ -985,7 +985,7 @@ void __ref kmemleak_free_percpu(const void __percpu *ptr)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_FREE_PERCPU, ptr, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kmemleak_free_percpu); */
+EXPORT_SYMBOL_GPL(kmemleak_free_percpu);
 
 /**
  * kmemleak_not_leak - mark an allocated object as false positive
@@ -1003,7 +1003,7 @@ void __ref kmemleak_not_leak(const void *ptr)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_NOT_LEAK, ptr, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(kmemleak_not_leak); */
+EXPORT_SYMBOL(kmemleak_not_leak);
 
 /**
  * kmemleak_ignore - ignore an allocated object
@@ -1023,7 +1023,7 @@ void __ref kmemleak_ignore(const void *ptr)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_IGNORE, ptr, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(kmemleak_ignore); */
+EXPORT_SYMBOL(kmemleak_ignore);
 
 /**
  * kmemleak_scan_area - limit the range to be scanned in an allocated object
@@ -1045,7 +1045,7 @@ void __ref kmemleak_scan_area(const void *ptr, size_t size, gfp_t gfp)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_SCAN_AREA, ptr, size, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(kmemleak_scan_area); */
+EXPORT_SYMBOL(kmemleak_scan_area);
 
 /**
  * kmemleak_no_scan - do not scan an allocated object
@@ -1065,7 +1065,7 @@ void __ref kmemleak_no_scan(const void *ptr)
 	else if (atomic_read(&kmemleak_early_log))
 		log_early(KMEMLEAK_NO_SCAN, ptr, 0, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(kmemleak_no_scan); */
+EXPORT_SYMBOL(kmemleak_no_scan);
 
 /*
  * Update an object's checksum and return true if it was modified.

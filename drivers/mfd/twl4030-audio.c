@@ -110,7 +110,7 @@ int twl4030_audio_enable_resource(enum twl4030_audio_res id)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl4030_audio_enable_resource); */
+EXPORT_SYMBOL_GPL(twl4030_audio_enable_resource);
 
 /*
  * Disable the resource.
@@ -146,7 +146,7 @@ int twl4030_audio_disable_resource(unsigned id)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl4030_audio_disable_resource); */
+EXPORT_SYMBOL_GPL(twl4030_audio_disable_resource);
 
 unsigned int twl4030_audio_get_mclk(void)
 {
@@ -154,7 +154,7 @@ unsigned int twl4030_audio_get_mclk(void)
 
 	return audio->audio_mclk;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twl4030_audio_get_mclk); */
+EXPORT_SYMBOL_GPL(twl4030_audio_get_mclk);
 
 static int __devinit twl4030_audio_probe(struct platform_device *pdev)
 {

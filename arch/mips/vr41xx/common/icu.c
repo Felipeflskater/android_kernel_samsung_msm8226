@@ -165,7 +165,7 @@ void vr41xx_enable_piuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_piuint); */
+EXPORT_SYMBOL(vr41xx_enable_piuint);
 
 void vr41xx_disable_piuint(uint16_t mask)
 {
@@ -180,7 +180,7 @@ void vr41xx_disable_piuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_piuint); */
+EXPORT_SYMBOL(vr41xx_disable_piuint);
 
 void vr41xx_enable_aiuint(uint16_t mask)
 {
@@ -195,7 +195,7 @@ void vr41xx_enable_aiuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_aiuint); */
+EXPORT_SYMBOL(vr41xx_enable_aiuint);
 
 void vr41xx_disable_aiuint(uint16_t mask)
 {
@@ -210,7 +210,7 @@ void vr41xx_disable_aiuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_aiuint); */
+EXPORT_SYMBOL(vr41xx_disable_aiuint);
 
 void vr41xx_enable_kiuint(uint16_t mask)
 {
@@ -225,7 +225,7 @@ void vr41xx_enable_kiuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_kiuint); */
+EXPORT_SYMBOL(vr41xx_enable_kiuint);
 
 void vr41xx_disable_kiuint(uint16_t mask)
 {
@@ -240,7 +240,7 @@ void vr41xx_disable_kiuint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_kiuint); */
+EXPORT_SYMBOL(vr41xx_disable_kiuint);
 
 void vr41xx_enable_macint(uint16_t mask)
 {
@@ -252,7 +252,7 @@ void vr41xx_enable_macint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_macint); */
+EXPORT_SYMBOL(vr41xx_enable_macint);
 
 void vr41xx_disable_macint(uint16_t mask)
 {
@@ -264,7 +264,7 @@ void vr41xx_disable_macint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_macint); */
+EXPORT_SYMBOL(vr41xx_disable_macint);
 
 void vr41xx_enable_dsiuint(uint16_t mask)
 {
@@ -276,7 +276,7 @@ void vr41xx_enable_dsiuint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_dsiuint); */
+EXPORT_SYMBOL(vr41xx_enable_dsiuint);
 
 void vr41xx_disable_dsiuint(uint16_t mask)
 {
@@ -288,7 +288,7 @@ void vr41xx_disable_dsiuint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_dsiuint); */
+EXPORT_SYMBOL(vr41xx_disable_dsiuint);
 
 void vr41xx_enable_firint(uint16_t mask)
 {
@@ -300,7 +300,7 @@ void vr41xx_enable_firint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_firint); */
+EXPORT_SYMBOL(vr41xx_enable_firint);
 
 void vr41xx_disable_firint(uint16_t mask)
 {
@@ -312,7 +312,7 @@ void vr41xx_disable_firint(uint16_t mask)
 	raw_spin_unlock_irqrestore(&desc->lock, flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_firint); */
+EXPORT_SYMBOL(vr41xx_disable_firint);
 
 void vr41xx_enable_pciint(void)
 {
@@ -328,7 +328,7 @@ void vr41xx_enable_pciint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_pciint); */
+EXPORT_SYMBOL(vr41xx_enable_pciint);
 
 void vr41xx_disable_pciint(void)
 {
@@ -344,7 +344,7 @@ void vr41xx_disable_pciint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_pciint); */
+EXPORT_SYMBOL(vr41xx_disable_pciint);
 
 void vr41xx_enable_scuint(void)
 {
@@ -360,7 +360,7 @@ void vr41xx_enable_scuint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_scuint); */
+EXPORT_SYMBOL(vr41xx_enable_scuint);
 
 void vr41xx_disable_scuint(void)
 {
@@ -376,7 +376,7 @@ void vr41xx_disable_scuint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_scuint); */
+EXPORT_SYMBOL(vr41xx_disable_scuint);
 
 void vr41xx_enable_csiint(uint16_t mask)
 {
@@ -392,7 +392,7 @@ void vr41xx_enable_csiint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_csiint); */
+EXPORT_SYMBOL(vr41xx_enable_csiint);
 
 void vr41xx_disable_csiint(uint16_t mask)
 {
@@ -408,7 +408,7 @@ void vr41xx_disable_csiint(uint16_t mask)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_csiint); */
+EXPORT_SYMBOL(vr41xx_disable_csiint);
 
 void vr41xx_enable_bcuint(void)
 {
@@ -424,7 +424,7 @@ void vr41xx_enable_bcuint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_enable_bcuint); */
+EXPORT_SYMBOL(vr41xx_enable_bcuint);
 
 void vr41xx_disable_bcuint(void)
 {
@@ -440,7 +440,7 @@ void vr41xx_disable_bcuint(void)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_disable_bcuint); */
+EXPORT_SYMBOL(vr41xx_disable_bcuint);
 
 static void disable_sysint1_irq(struct irq_data *d)
 {
@@ -620,7 +620,7 @@ int vr41xx_set_intassign(unsigned int irq, unsigned char intassign)
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL(vr41xx_set_intassign); */
+EXPORT_SYMBOL(vr41xx_set_intassign);
 
 static int icu_get_irq(unsigned int irq)
 {

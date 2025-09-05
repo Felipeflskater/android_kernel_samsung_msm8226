@@ -40,7 +40,7 @@
  * Physical location of iSCSI Boot Format Table.
  */
 struct acpi_table_ibft *ibft_addr;
-/* DISABLED: EXPORT_SYMBOL_GPL(ibft_addr); */
+EXPORT_SYMBOL_GPL(ibft_addr);
 
 static const struct {
 	char *sign;

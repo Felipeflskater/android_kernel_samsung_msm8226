@@ -81,7 +81,7 @@ int utf8_to_utf32(const u8 *s, int inlen, unicode_t *pu)
 	}
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(utf8_to_utf32); */
+EXPORT_SYMBOL(utf8_to_utf32);
 
 int utf32_to_utf8(unicode_t u, u8 *s, int maxout)
 {
@@ -112,7 +112,7 @@ int utf32_to_utf8(unicode_t u, u8 *s, int maxout)
 	}
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(utf32_to_utf8); */
+EXPORT_SYMBOL(utf32_to_utf8);
 
 static inline void put_utf16(wchar_t *s, unsigned c, enum utf16_endian endian)
 {
@@ -169,7 +169,7 @@ int utf8s_to_utf16s(const u8 *s, int inlen, enum utf16_endian endian,
 	}
 	return op - pwcs;
 }
-/* DISABLED: EXPORT_SYMBOL(utf8s_to_utf16s); */
+EXPORT_SYMBOL(utf8s_to_utf16s);
 
 static inline unsigned long get_utf16(unsigned c, enum utf16_endian endian)
 {
@@ -230,7 +230,7 @@ int utf16s_to_utf8s(const wchar_t *pwcs, int inlen, enum utf16_endian endian,
 	}
 	return op - s;
 }
-/* DISABLED: EXPORT_SYMBOL(utf16s_to_utf8s); */
+EXPORT_SYMBOL(utf16s_to_utf8s);
 
 int register_nls(struct nls_table * nls)
 {
@@ -538,10 +538,10 @@ struct nls_table *load_nls_default(void)
 		return &default_table;
 }
 
-/* DISABLED: EXPORT_SYMBOL(register_nls); */
-/* DISABLED: EXPORT_SYMBOL(unregister_nls); */
-/* DISABLED: EXPORT_SYMBOL(unload_nls); */
-/* DISABLED: EXPORT_SYMBOL(load_nls); */
-/* DISABLED: EXPORT_SYMBOL(load_nls_default); */
+EXPORT_SYMBOL(register_nls);
+EXPORT_SYMBOL(unregister_nls);
+EXPORT_SYMBOL(unload_nls);
+EXPORT_SYMBOL(load_nls);
+EXPORT_SYMBOL(load_nls_default);
 
 MODULE_LICENSE("Dual BSD/GPL");

@@ -111,7 +111,7 @@ static struct microcode_ops	*microcode_ops;
 static DEFINE_MUTEX(microcode_mutex);
 
 struct ucode_cpu_info		ucode_cpu_info[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL_GPL(ucode_cpu_info); */
+EXPORT_SYMBOL_GPL(ucode_cpu_info);
 
 /*
  * Operations that are run on a target cpu:

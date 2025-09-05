@@ -41,7 +41,7 @@
 
 /* from BKL pushdown: note that nothing else serializes idr_find() */
 DEFINE_MUTEX(drm_global_mutex);
-/* DISABLED: EXPORT_SYMBOL(drm_global_mutex); */
+EXPORT_SYMBOL(drm_global_mutex);
 
 static int drm_open_helper(struct inode *inode, struct file *filp,
 			   struct drm_device * dev);
@@ -158,7 +158,7 @@ int drm_open(struct inode *inode, struct file *filp)
 
 	return retcode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_open); */
+EXPORT_SYMBOL(drm_open);
 
 /**
  * File \c open operation.
@@ -371,7 +371,7 @@ int drm_fasync(int fd, struct file *filp, int on)
 		  (long)old_encode_dev(priv->minor->device));
 	return fasync_helper(fd, filp, on, &dev->buf_async);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fasync); */
+EXPORT_SYMBOL(drm_fasync);
 
 /*
  * Reclaim locked buffers; note that this may be a bad idea if the current
@@ -602,7 +602,7 @@ int drm_release(struct inode *inode, struct file *filp)
 
 	return retcode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_release); */
+EXPORT_SYMBOL(drm_release);
 
 static bool
 drm_dequeue_event(struct drm_file *file_priv,
@@ -660,7 +660,7 @@ ssize_t drm_read(struct file *filp, char __user *buffer,
 
 	return total;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_read); */
+EXPORT_SYMBOL(drm_read);
 
 unsigned int drm_poll(struct file *filp, struct poll_table_struct *wait)
 {
@@ -674,4 +674,4 @@ unsigned int drm_poll(struct file *filp, struct poll_table_struct *wait)
 
 	return mask;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_poll); */
+EXPORT_SYMBOL(drm_poll);

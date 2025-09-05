@@ -227,7 +227,7 @@ out:
 
 	return ret < 0 ? ERR_PTR(ret) : umem;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_umem_get); */
+EXPORT_SYMBOL(ib_umem_get);
 
 static void ib_umem_account(struct work_struct *work)
 {
@@ -285,7 +285,7 @@ void ib_umem_release(struct ib_umem *umem)
 	mmput(mm);
 	kfree(umem);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_umem_release); */
+EXPORT_SYMBOL(ib_umem_release);
 
 int ib_umem_page_count(struct ib_umem *umem)
 {
@@ -303,4 +303,4 @@ int ib_umem_page_count(struct ib_umem *umem)
 
 	return n;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_umem_page_count); */
+EXPORT_SYMBOL(ib_umem_page_count);

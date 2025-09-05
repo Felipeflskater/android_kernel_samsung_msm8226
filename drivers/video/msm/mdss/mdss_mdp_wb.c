@@ -798,7 +798,7 @@ int msm_fb_writeback_start(struct fb_info *info)
 
 	return mdss_mdp_wb_start(mfd);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_start); */
+EXPORT_SYMBOL(msm_fb_writeback_start);
 
 int msm_fb_writeback_queue_buffer(struct fb_info *info,
 				  struct msmfb_data *data)
@@ -810,7 +810,7 @@ int msm_fb_writeback_queue_buffer(struct fb_info *info,
 
 	return mdss_mdp_wb_queue(mfd, data, true);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_queue_buffer); */
+EXPORT_SYMBOL(msm_fb_writeback_queue_buffer);
 
 int msm_fb_writeback_dequeue_buffer(struct fb_info *info,
 				    struct msmfb_data *data)
@@ -822,7 +822,7 @@ int msm_fb_writeback_dequeue_buffer(struct fb_info *info,
 
 	return mdss_mdp_wb_dequeue(mfd, data);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_dequeue_buffer); */
+EXPORT_SYMBOL(msm_fb_writeback_dequeue_buffer);
 
 int msm_fb_writeback_stop(struct fb_info *info)
 {
@@ -833,7 +833,7 @@ int msm_fb_writeback_stop(struct fb_info *info)
 
 	return mdss_mdp_wb_stop(mfd);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_stop); */
+EXPORT_SYMBOL(msm_fb_writeback_stop);
 
 int msm_fb_writeback_init(struct fb_info *info)
 {
@@ -844,7 +844,7 @@ int msm_fb_writeback_init(struct fb_info *info)
 
 	return mdss_mdp_wb_init(mfd);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_init); */
+EXPORT_SYMBOL(msm_fb_writeback_init);
 
 int msm_fb_writeback_terminate(struct fb_info *info)
 {
@@ -855,7 +855,7 @@ int msm_fb_writeback_terminate(struct fb_info *info)
 
 	return mdss_mdp_wb_terminate(mfd);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_terminate); */
+EXPORT_SYMBOL(msm_fb_writeback_terminate);
 
 int msm_fb_get_iommu_domain(struct fb_info *info, int domain)
 {
@@ -873,7 +873,7 @@ int msm_fb_get_iommu_domain(struct fb_info *info, int domain)
 	}
 	return mdss_get_iommu_domain(mdss_domain);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_get_iommu_domain); */
+EXPORT_SYMBOL(msm_fb_get_iommu_domain);
 
 int msm_fb_writeback_set_secure(struct fb_info *info, int enable)
 {
@@ -884,7 +884,7 @@ int msm_fb_writeback_set_secure(struct fb_info *info, int enable)
 
 	return mdss_mdp_wb_set_secure(mfd, enable);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_set_secure); */
+EXPORT_SYMBOL(msm_fb_writeback_set_secure);
 
 /**
  * msm_fb_writeback_iommu_ref() - Add/Remove vote on MDSS IOMMU being attached.
@@ -909,4 +909,4 @@ int msm_fb_writeback_iommu_ref(struct fb_info *info, int enable)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_writeback_iommu_ref); */
+EXPORT_SYMBOL(msm_fb_writeback_iommu_ref);

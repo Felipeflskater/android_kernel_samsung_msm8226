@@ -255,5 +255,5 @@ module_init(smsg_init);
 module_exit(smsg_exit);
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL(smsg_register_callback); */
-/* DISABLED: EXPORT_SYMBOL(smsg_unregister_callback); */
+EXPORT_SYMBOL(smsg_register_callback);
+EXPORT_SYMBOL(smsg_unregister_callback);

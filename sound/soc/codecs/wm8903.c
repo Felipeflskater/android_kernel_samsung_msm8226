@@ -1634,7 +1634,7 @@ int wm8903_mic_detect(struct snd_soc_codec *codec, struct snd_soc_jack *jack,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8903_mic_detect); */
+EXPORT_SYMBOL_GPL(wm8903_mic_detect);
 
 static irqreturn_t wm8903_irq(int irq, void *data)
 {

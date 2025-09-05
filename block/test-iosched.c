@@ -55,7 +55,7 @@ struct request_queue *test_iosched_get_req_queue(void)
 
 	return ptd->req_q;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_get_req_queue); */
+EXPORT_SYMBOL(test_iosched_get_req_queue);
 
 /**
  * test_iosched_mark_test_completion() - Wakeup the debugfs
@@ -73,7 +73,7 @@ void test_iosched_mark_test_completion(void)
 	ptd->test_state = TEST_COMPLETED;
 	wake_up(&ptd->wait_q);
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_mark_test_completion); */
+EXPORT_SYMBOL(test_iosched_mark_test_completion);
 
 /**
  *  check_test_completion() - Check if all the queued test
@@ -114,7 +114,7 @@ void check_test_completion(void)
 exit:
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(check_test_completion); */
+EXPORT_SYMBOL(check_test_completion);
 
 /*
  * A callback to be called per bio completion.
@@ -240,7 +240,7 @@ int test_iosched_add_unique_test_req(int is_err_expcted,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_add_unique_test_req); */
+EXPORT_SYMBOL(test_iosched_add_unique_test_req);
 
 /*
  * Get a pattern to be filled in the request data buffer.
@@ -384,7 +384,7 @@ err:
 	kfree(test_rq->bios_buffer);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_create_test_req); */
+EXPORT_SYMBOL(test_iosched_create_test_req);
 
 
 /**
@@ -432,7 +432,7 @@ int test_iosched_add_wr_rd_test_req(int is_err_expcted,
 	}
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_add_wr_rd_test_req); */
+EXPORT_SYMBOL(test_iosched_add_wr_rd_test_req);
 
 /* Converts the testcase number into a string */
 static char *get_test_case_str(struct test_data *td)
@@ -830,7 +830,7 @@ error:
 	ptd->test_result = TEST_FAILED;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_start_test); */
+EXPORT_SYMBOL(test_iosched_start_test);
 
 /**
  * test_iosched_register() - register a block device test
@@ -843,7 +843,7 @@ void test_iosched_register(struct blk_dev_test_type *bdt)
 	list_add_tail(&bdt->list, &blk_dev_test_list);
 	spin_unlock(&blk_dev_test_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(test_iosched_register); */
+EXPORT_SYMBOL_GPL(test_iosched_register);
 
 /**
  * test_iosched_unregister() - unregister a block device test
@@ -856,7 +856,7 @@ void test_iosched_unregister(struct blk_dev_test_type *bdt)
 	list_del_init(&bdt->list);
 	spin_unlock(&blk_dev_test_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(test_iosched_unregister); */
+EXPORT_SYMBOL_GPL(test_iosched_unregister);
 
 /**
  * test_iosched_set_test_result() - Set the test
@@ -870,7 +870,7 @@ void test_iosched_set_test_result(int test_result)
 
 	ptd->test_result = test_result;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_set_test_result); */
+EXPORT_SYMBOL(test_iosched_set_test_result);
 
 
 /**
@@ -885,7 +885,7 @@ void test_iosched_set_ignore_round(bool ignore_round)
 
 	ptd->ignore_round = ignore_round;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_set_ignore_round); */
+EXPORT_SYMBOL(test_iosched_set_ignore_round);
 
 /**
  * test_iosched_get_debugfs_tests_root() - returns the root
@@ -898,7 +898,7 @@ struct dentry *test_iosched_get_debugfs_tests_root(void)
 
 	return ptd->debug.debug_tests_root;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_get_debugfs_tests_root); */
+EXPORT_SYMBOL(test_iosched_get_debugfs_tests_root);
 
 /**
  * test_iosched_get_debugfs_utils_root() - returns the root
@@ -911,7 +911,7 @@ struct dentry *test_iosched_get_debugfs_utils_root(void)
 
 	return ptd->debug.debug_utils_root;
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_get_debugfs_utils_root); */
+EXPORT_SYMBOL(test_iosched_get_debugfs_utils_root);
 
 static int test_debugfs_init(struct test_data *td)
 {
@@ -1178,7 +1178,7 @@ struct test_data *test_get_test_data(void)
 {
 	return ptd;
 }
-/* DISABLED: EXPORT_SYMBOL(test_get_test_data); */
+EXPORT_SYMBOL(test_get_test_data);
 
 static bool test_urgent_pending(struct request_queue *q)
 {
@@ -1201,7 +1201,7 @@ void test_iosched_add_urgent_req(struct test_request *test_rq)
 	ptd->urgent_count++;
 	spin_unlock_irq(&ptd->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(test_iosched_add_urgent_req); */
+EXPORT_SYMBOL(test_iosched_add_urgent_req);
 
 /**
  * test_reinsert_req() - Moves the @rq request from

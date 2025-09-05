@@ -21,10 +21,10 @@
 #include <asm/geode.h>
 
 unsigned int __read_mostly cpu_khz;	/* TSC clocks / usec, not used here */
-/* DISABLED: EXPORT_SYMBOL(cpu_khz); */
+EXPORT_SYMBOL(cpu_khz);
 
 unsigned int __read_mostly tsc_khz;
-/* DISABLED: EXPORT_SYMBOL(tsc_khz); */
+EXPORT_SYMBOL(tsc_khz);
 
 /*
  * TSC can be unstable due to cpufreq or due to unsynced TSCs
@@ -80,7 +80,7 @@ int check_tsc_unstable(void)
 {
 	return tsc_unstable;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(check_tsc_unstable); */
+EXPORT_SYMBOL_GPL(check_tsc_unstable);
 
 #ifdef CONFIG_X86_TSC
 int __init notsc_setup(char *str)
@@ -102,7 +102,7 @@ int __init notsc_setup(char *str)
 }
 #endif
 
-/* DISABLED: __setup("notsc", notsc_setup); */ */
+__setup("notsc", notsc_setup);
 
 static int no_sched_irq_time;
 
@@ -115,7 +115,7 @@ static int __init tsc_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("tsc=", tsc_setup); */ */
+__setup("tsc=", tsc_setup);
 
 #define MAX_RETRIES     5
 #define SMI_TRESHOLD    50000
@@ -577,7 +577,7 @@ int recalibrate_cpu_khz(void)
 #endif
 }
 
-/* DISABLED: EXPORT_SYMBOL(recalibrate_cpu_khz); */
+EXPORT_SYMBOL(recalibrate_cpu_khz);
 
 
 /* Accelerators for sched_clock()
@@ -797,7 +797,7 @@ void mark_tsc_unstable(char *reason)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(mark_tsc_unstable); */
+EXPORT_SYMBOL_GPL(mark_tsc_unstable);
 
 static void __init check_system_tsc_reliable(void)
 {

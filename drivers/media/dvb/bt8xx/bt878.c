@@ -62,8 +62,8 @@ MODULE_PARM_DESC(debug, "Turn on/off debugging, default is 0 (off).");
 int bt878_num;
 struct bt878 bt878[BT878_MAX];
 
-/* DISABLED: EXPORT_SYMBOL(bt878_num); */
-/* DISABLED: EXPORT_SYMBOL(bt878); */
+EXPORT_SYMBOL(bt878_num);
+EXPORT_SYMBOL(bt878);
 
 #define btwrite(dat,adr)    bmtwrite((dat), (bt->bt878_mem+(adr)))
 #define btread(adr)         bmtread(bt->bt878_mem+(adr))
@@ -262,8 +262,8 @@ void bt878_stop(struct bt878 *bt)
 		bt->nr, i, stat);
 }
 
-/* DISABLED: EXPORT_SYMBOL(bt878_start); */
-/* DISABLED: EXPORT_SYMBOL(bt878_stop); */
+EXPORT_SYMBOL(bt878_start);
+EXPORT_SYMBOL(bt878_stop);
 
 /*****************************/
 /* Interrupt service routine */
@@ -381,7 +381,7 @@ bt878_device_control(struct bt878 *bt, unsigned int cmd, union dst_gpio_packet *
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bt878_device_control); */
+EXPORT_SYMBOL(bt878_device_control);
 
 #define BROOKTREE_878_DEVICE(vend, dev, name) \
 	{ \

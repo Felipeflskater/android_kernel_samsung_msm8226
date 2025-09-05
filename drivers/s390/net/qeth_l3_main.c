@@ -3670,7 +3670,7 @@ struct ccwgroup_driver qeth_l3_ccwgroup_driver = {
 	.thaw = qeth_l3_pm_resume,
 	.restore = qeth_l3_pm_resume,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(qeth_l3_ccwgroup_driver); */
+EXPORT_SYMBOL_GPL(qeth_l3_ccwgroup_driver);
 
 static int qeth_l3_ip_event(struct notifier_block *this,
 			    unsigned long event, void *ptr)

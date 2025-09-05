@@ -81,7 +81,7 @@ int ip6_local_out(struct sk_buff *skb)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip6_local_out); */
+EXPORT_SYMBOL_GPL(ip6_local_out);
 
 /* dev_loopback_xmit for use with netfilter. */
 static int ip6_dev_loopback_xmit(struct sk_buff *newskb)
@@ -262,7 +262,7 @@ int ip6_xmit(struct sock *sk, struct sk_buff *skb, struct flowi6 *fl6,
 	return -EMSGSIZE;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip6_xmit); */
+EXPORT_SYMBOL(ip6_xmit);
 
 /*
  *	To avoid extra problems ND packets are send through this
@@ -1051,7 +1051,7 @@ int ip6_dst_lookup(struct sock *sk, struct dst_entry **dst, struct flowi6 *fl6)
 	*dst = NULL;
 	return ip6_dst_lookup_tail(sk, dst, fl6);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip6_dst_lookup); */
+EXPORT_SYMBOL_GPL(ip6_dst_lookup);
 
 /**
  *	ip6_dst_lookup_flow - perform route lookup on flow with ipsec
@@ -1082,7 +1082,7 @@ struct dst_entry *ip6_dst_lookup_flow(struct sock *sk, struct flowi6 *fl6,
 
 	return xfrm_lookup(sock_net(sk), dst, flowi6_to_flowi(fl6), sk, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow); */
+EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow);
 
 /**
  *	ip6_sk_dst_lookup_flow - perform socket cached route lookup on flow
@@ -1118,7 +1118,7 @@ struct dst_entry *ip6_sk_dst_lookup_flow(struct sock *sk, struct flowi6 *fl6,
 
 	return xfrm_lookup(sock_net(sk), dst, flowi6_to_flowi(fl6), sk, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip6_sk_dst_lookup_flow); */
+EXPORT_SYMBOL_GPL(ip6_sk_dst_lookup_flow);
 
 static inline int ip6_ufo_append_data(struct sock *sk,
 			int getfrag(void *from, char *to, int offset, int len,

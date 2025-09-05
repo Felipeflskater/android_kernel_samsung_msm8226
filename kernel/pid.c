@@ -80,7 +80,7 @@ struct pid_namespace init_pid_ns = {
 	.child_reaper = &init_task,
 	.proc_inum = PROC_PID_INIT_INO,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(init_pid_ns); */
+EXPORT_SYMBOL_GPL(init_pid_ns);
 
 int is_container_init(struct task_struct *tsk)
 {
@@ -95,7 +95,7 @@ int is_container_init(struct task_struct *tsk)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(is_container_init); */
+EXPORT_SYMBOL(is_container_init);
 
 /*
  * Note: disable interrupts while the pidmap_lock is held as an
@@ -255,7 +255,7 @@ void put_pid(struct pid *pid)
 		put_pid_ns(ns);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(put_pid); */
+EXPORT_SYMBOL_GPL(put_pid);
 
 static void delayed_put_pid(struct rcu_head *rhp)
 {
@@ -341,13 +341,13 @@ struct pid *find_pid_ns(int nr, struct pid_namespace *ns)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(find_pid_ns); */
+EXPORT_SYMBOL_GPL(find_pid_ns);
 
 struct pid *find_vpid(int nr)
 {
 	return find_pid_ns(nr, current->nsproxy->pid_ns);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(find_vpid); */
+EXPORT_SYMBOL_GPL(find_vpid);
 
 /*
  * attach_pid() must be called with the tasklist_lock write-held.
@@ -414,7 +414,7 @@ struct task_struct *pid_task(struct pid *pid, enum pid_type type)
 	}
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(pid_task); */
+EXPORT_SYMBOL(pid_task);
 
 /*
  * Must be called under rcu_read_lock().
@@ -431,7 +431,7 @@ struct task_struct *find_task_by_vpid(pid_t vnr)
 {
 	return find_task_by_pid_ns(vnr, current->nsproxy->pid_ns);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(find_task_by_vpid); */
+EXPORT_SYMBOL_GPL(find_task_by_vpid);
 
 struct pid *get_task_pid(struct task_struct *task, enum pid_type type)
 {
@@ -443,7 +443,7 @@ struct pid *get_task_pid(struct task_struct *task, enum pid_type type)
 	rcu_read_unlock();
 	return pid;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_task_pid); */
+EXPORT_SYMBOL_GPL(get_task_pid);
 
 struct task_struct *get_pid_task(struct pid *pid, enum pid_type type)
 {
@@ -455,7 +455,7 @@ struct task_struct *get_pid_task(struct pid *pid, enum pid_type type)
 	rcu_read_unlock();
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_pid_task); */
+EXPORT_SYMBOL_GPL(get_pid_task);
 
 struct pid *find_get_pid(pid_t nr)
 {
@@ -467,7 +467,7 @@ struct pid *find_get_pid(pid_t nr)
 
 	return pid;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(find_get_pid); */
+EXPORT_SYMBOL_GPL(find_get_pid);
 
 pid_t pid_nr_ns(struct pid *pid, struct pid_namespace *ns)
 {
@@ -486,7 +486,7 @@ pid_t pid_vnr(struct pid *pid)
 {
 	return pid_nr_ns(pid, current->nsproxy->pid_ns);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pid_vnr); */
+EXPORT_SYMBOL_GPL(pid_vnr);
 
 pid_t __task_pid_nr_ns(struct task_struct *task, enum pid_type type,
 			struct pid_namespace *ns)
@@ -508,13 +508,13 @@ pid_t __task_pid_nr_ns(struct task_struct *task, enum pid_type type,
 
 	return nr;
 }
-/* DISABLED: EXPORT_SYMBOL(__task_pid_nr_ns); */
+EXPORT_SYMBOL(__task_pid_nr_ns);
 
 struct pid_namespace *task_active_pid_ns(struct task_struct *tsk)
 {
 	return ns_of_pid(task_pid(tsk));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(task_active_pid_ns); */
+EXPORT_SYMBOL_GPL(task_active_pid_ns);
 
 /*
  * Used by proc to find the first pid that is greater than or equal to nr.

@@ -104,7 +104,7 @@ void virtio_check_driver_offered_feature(const struct virtio_device *vdev,
 			return;
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(virtio_check_driver_offered_feature); */
+EXPORT_SYMBOL_GPL(virtio_check_driver_offered_feature);
 
 static int virtio_dev_probe(struct device *_d)
 {
@@ -177,13 +177,13 @@ int register_virtio_driver(struct virtio_driver *driver)
 	driver->driver.bus = &virtio_bus;
 	return driver_register(&driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_virtio_driver); */
+EXPORT_SYMBOL_GPL(register_virtio_driver);
 
 void unregister_virtio_driver(struct virtio_driver *driver)
 {
 	driver_unregister(&driver->driver);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_virtio_driver); */
+EXPORT_SYMBOL_GPL(unregister_virtio_driver);
 
 int register_virtio_device(struct virtio_device *dev)
 {
@@ -211,13 +211,13 @@ int register_virtio_device(struct virtio_device *dev)
 		add_status(dev, VIRTIO_CONFIG_S_FAILED);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_virtio_device); */
+EXPORT_SYMBOL_GPL(register_virtio_device);
 
 void unregister_virtio_device(struct virtio_device *dev)
 {
 	device_unregister(&dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_virtio_device); */
+EXPORT_SYMBOL_GPL(unregister_virtio_device);
 
 static int virtio_init(void)
 {

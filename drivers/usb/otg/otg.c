@@ -32,7 +32,7 @@ struct usb_phy *usb_get_transceiver(void)
 		get_device(phy->dev);
 	return phy;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_get_transceiver); */
+EXPORT_SYMBOL(usb_get_transceiver);
 
 /**
  * usb_put_transceiver - release the (single) USB transceiver
@@ -47,7 +47,7 @@ void usb_put_transceiver(struct usb_phy *x)
 	if (x)
 		put_device(x->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(usb_put_transceiver); */
+EXPORT_SYMBOL(usb_put_transceiver);
 
 /**
  * usb_set_transceiver - declare the (single) USB transceiver
@@ -64,7 +64,7 @@ int usb_set_transceiver(struct usb_phy *x)
 	phy = x;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(usb_set_transceiver); */
+EXPORT_SYMBOL(usb_set_transceiver);
 
 const char *otg_state_string(enum usb_otg_state state)
 {
@@ -99,7 +99,7 @@ const char *otg_state_string(enum usb_otg_state state)
 		return "UNDEFINED";
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(otg_state_string); */
+EXPORT_SYMBOL(otg_state_string);
 
 int otg_send_event(enum usb_otg_event event)
 {
@@ -114,4 +114,4 @@ int otg_send_event(enum usb_otg_event event)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(otg_send_event); */
+EXPORT_SYMBOL(otg_send_event);

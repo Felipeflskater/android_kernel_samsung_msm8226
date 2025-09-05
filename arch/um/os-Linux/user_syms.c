@@ -20,17 +20,17 @@ extern int printf(const char *, ...);
 
 /* If it's not defined, the export is included in lib/string.c.*/
 #ifdef __HAVE_ARCH_STRSTR
-/* DISABLED: EXPORT_SYMBOL(strstr); */
+EXPORT_SYMBOL(strstr);
 #endif
 
 #ifndef __x86_64__
 extern void *memcpy(void *, const void *, size_t);
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
+EXPORT_SYMBOL(memcpy);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(memmove); */
-/* DISABLED: EXPORT_SYMBOL(memset); */
-/* DISABLED: EXPORT_SYMBOL(printf); */
+EXPORT_SYMBOL(memmove);
+EXPORT_SYMBOL(memset);
+EXPORT_SYMBOL(printf);
 
 /* Here, instead, I can provide a fake prototype. Yes, someone cares: genksyms.
  * However, the modules will use the CRC defined *here*, no matter if it is
@@ -41,80 +41,80 @@ extern void *memcpy(void *, const void *, size_t);
 	EXPORT_SYMBOL(sym);
 
 extern void readdir64(void) __attribute__((weak));
-/* DISABLED: EXPORT_SYMBOL(readdir64); */
+EXPORT_SYMBOL(readdir64);
 extern void truncate64(void) __attribute__((weak));
-/* DISABLED: EXPORT_SYMBOL(truncate64); */
+EXPORT_SYMBOL(truncate64);
 
 #ifdef CONFIG_ARCH_REUSE_HOST_VSYSCALL_AREA
-/* DISABLED: EXPORT_SYMBOL(vsyscall_ehdr); */
-/* DISABLED: EXPORT_SYMBOL(vsyscall_end); */
+EXPORT_SYMBOL(vsyscall_ehdr);
+EXPORT_SYMBOL(vsyscall_end);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(__errno_location); */
+EXPORT_SYMBOL_PROTO(__errno_location);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(access); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(open); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(open64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(close); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(read); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(write); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(dup2); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(__xstat); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(__lxstat); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(__lxstat64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(__fxstat64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(lseek); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(lseek64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(chown); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(fchown); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(truncate); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(ftruncate64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(utime); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(utimes); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(futimes); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(chmod); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(fchmod); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(rename); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(__xmknod); */
+EXPORT_SYMBOL_PROTO(access);
+EXPORT_SYMBOL_PROTO(open);
+EXPORT_SYMBOL_PROTO(open64);
+EXPORT_SYMBOL_PROTO(close);
+EXPORT_SYMBOL_PROTO(read);
+EXPORT_SYMBOL_PROTO(write);
+EXPORT_SYMBOL_PROTO(dup2);
+EXPORT_SYMBOL_PROTO(__xstat);
+EXPORT_SYMBOL_PROTO(__lxstat);
+EXPORT_SYMBOL_PROTO(__lxstat64);
+EXPORT_SYMBOL_PROTO(__fxstat64);
+EXPORT_SYMBOL_PROTO(lseek);
+EXPORT_SYMBOL_PROTO(lseek64);
+EXPORT_SYMBOL_PROTO(chown);
+EXPORT_SYMBOL_PROTO(fchown);
+EXPORT_SYMBOL_PROTO(truncate);
+EXPORT_SYMBOL_PROTO(ftruncate64);
+EXPORT_SYMBOL_PROTO(utime);
+EXPORT_SYMBOL_PROTO(utimes);
+EXPORT_SYMBOL_PROTO(futimes);
+EXPORT_SYMBOL_PROTO(chmod);
+EXPORT_SYMBOL_PROTO(fchmod);
+EXPORT_SYMBOL_PROTO(rename);
+EXPORT_SYMBOL_PROTO(__xmknod);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(symlink); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(link); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(unlink); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(readlink); */
+EXPORT_SYMBOL_PROTO(symlink);
+EXPORT_SYMBOL_PROTO(link);
+EXPORT_SYMBOL_PROTO(unlink);
+EXPORT_SYMBOL_PROTO(readlink);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(mkdir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(rmdir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(opendir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(readdir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(closedir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(seekdir); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(telldir); */
+EXPORT_SYMBOL_PROTO(mkdir);
+EXPORT_SYMBOL_PROTO(rmdir);
+EXPORT_SYMBOL_PROTO(opendir);
+EXPORT_SYMBOL_PROTO(readdir);
+EXPORT_SYMBOL_PROTO(closedir);
+EXPORT_SYMBOL_PROTO(seekdir);
+EXPORT_SYMBOL_PROTO(telldir);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(ioctl); */
+EXPORT_SYMBOL_PROTO(ioctl);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(pread64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(pwrite64); */
+EXPORT_SYMBOL_PROTO(pread64);
+EXPORT_SYMBOL_PROTO(pwrite64);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(statfs); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(statfs64); */
+EXPORT_SYMBOL_PROTO(statfs);
+EXPORT_SYMBOL_PROTO(statfs64);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(getuid); */
+EXPORT_SYMBOL_PROTO(getuid);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(fsync); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(fdatasync); */
+EXPORT_SYMBOL_PROTO(fsync);
+EXPORT_SYMBOL_PROTO(fdatasync);
 
-/* DISABLED: EXPORT_SYMBOL_PROTO(lstat64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(fstat64); */
-/* DISABLED: EXPORT_SYMBOL_PROTO(mknod); */
+EXPORT_SYMBOL_PROTO(lstat64);
+EXPORT_SYMBOL_PROTO(fstat64);
+EXPORT_SYMBOL_PROTO(mknod);
 
 /* Export symbols used by GCC for the stack protector. */
 extern void __stack_smash_handler(void *) __attribute__((weak));
-/* DISABLED: EXPORT_SYMBOL(__stack_smash_handler); */
+EXPORT_SYMBOL(__stack_smash_handler);
 
 extern long __guard __attribute__((weak));
-/* DISABLED: EXPORT_SYMBOL(__guard); */
+EXPORT_SYMBOL(__guard);
 
 #ifdef _FORTIFY_SOURCE
 extern int __sprintf_chk(char *str, int flag, size_t strlen, const char *format);
-/* DISABLED: EXPORT_SYMBOL(__sprintf_chk); */
+EXPORT_SYMBOL(__sprintf_chk);
 #endif

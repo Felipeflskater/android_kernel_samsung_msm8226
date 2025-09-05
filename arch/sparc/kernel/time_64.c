@@ -65,7 +65,7 @@ unsigned long profile_pc(struct pt_regs *regs)
 		return regs->u_regs[UREG_RETPC];
 	return pc;
 }
-/* DISABLED: EXPORT_SYMBOL(profile_pc); */
+EXPORT_SYMBOL(profile_pc);
 #endif
 
 static void tick_disable_protection(void)
@@ -176,7 +176,7 @@ static struct sparc64_tick_ops tick_operations __read_mostly = {
 };
 
 struct sparc64_tick_ops *tick_ops __read_mostly = &tick_operations;
-/* DISABLED: EXPORT_SYMBOL(tick_ops); */
+EXPORT_SYMBOL(tick_ops);
 
 static void stick_disable_irq(void)
 {
@@ -408,7 +408,7 @@ int update_persistent_clock(struct timespec now)
 }
 
 unsigned long cmos_regs;
-/* DISABLED: EXPORT_SYMBOL(cmos_regs); */
+EXPORT_SYMBOL(cmos_regs);
 
 static struct resource rtc_cmos_resource;
 
@@ -643,7 +643,7 @@ unsigned long sparc64_get_clock_tick(unsigned int cpu)
 		return ft->clock_tick_ref;
 	return cpu_data(cpu).clock_tick;
 }
-/* DISABLED: EXPORT_SYMBOL(sparc64_get_clock_tick); */
+EXPORT_SYMBOL(sparc64_get_clock_tick);
 
 #ifdef CONFIG_CPU_FREQ
 
@@ -793,13 +793,13 @@ void __delay(unsigned long loops)
 		now = tick_ops->get_tick();
 	} while ((now-bclock) < loops);
 }
-/* DISABLED: EXPORT_SYMBOL(__delay); */
+EXPORT_SYMBOL(__delay);
 
 void udelay(unsigned long usecs)
 {
 	__delay(tb_ticks_per_usec * usecs);
 }
-/* DISABLED: EXPORT_SYMBOL(udelay); */
+EXPORT_SYMBOL(udelay);
 
 static cycle_t clocksource_tick_read(struct clocksource *cs)
 {

@@ -434,7 +434,7 @@ static int __init lpd270_set_lcd(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("lcd=", lpd270_set_lcd); */ */
+__setup("lcd=", lpd270_set_lcd);
 
 static struct platform_device *platform_devices[] __initdata = {
 	&smc91x_device,

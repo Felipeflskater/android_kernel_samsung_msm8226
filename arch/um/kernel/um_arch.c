@@ -102,7 +102,7 @@ const struct seq_operations cpuinfo_op = {
 
 /* Set in linux_main */
 unsigned long uml_physmem;
-/* DISABLED: EXPORT_SYMBOL(uml_physmem); */
+EXPORT_SYMBOL(uml_physmem);
 
 unsigned long uml_reserved; /* Also modified in mem_init */
 unsigned long start_vm;
@@ -244,13 +244,13 @@ static struct notifier_block panic_exit_notifier = {
 
 /* Set during early boot */
 unsigned long task_size;
-/* DISABLED: EXPORT_SYMBOL(task_size); */
+EXPORT_SYMBOL(task_size);
 
 unsigned long host_task_size;
 
 unsigned long brk_start;
 unsigned long end_iomem;
-/* DISABLED: EXPORT_SYMBOL(end_iomem); */
+EXPORT_SYMBOL(end_iomem);
 
 #define MIN_VMALLOC (32 * 1024 * 1024)
 

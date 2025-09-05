@@ -72,13 +72,13 @@ int __olpc_ofw(const char *name, int nr_args, const void **args, int nr_res,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__olpc_ofw); */
+EXPORT_SYMBOL_GPL(__olpc_ofw);
 
 bool olpc_ofw_present(void)
 {
 	return olpc_ofw_cif != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_ofw_present); */
+EXPORT_SYMBOL_GPL(olpc_ofw_present);
 
 /* OFW cif _should_ be above this address */
 #define OFW_MIN 0xff000000

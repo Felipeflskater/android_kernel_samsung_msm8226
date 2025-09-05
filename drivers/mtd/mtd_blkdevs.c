@@ -126,7 +126,7 @@ int mtd_blktrans_cease_background(struct mtd_blktrans_dev *dev)
 
 	return dev->bg_stop;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mtd_blktrans_cease_background); */
+EXPORT_SYMBOL_GPL(mtd_blktrans_cease_background);
 
 static int mtd_blktrans_thread(void *arg)
 {
@@ -617,10 +617,10 @@ static void __exit mtd_blktrans_exit(void)
 
 module_exit(mtd_blktrans_exit);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(register_mtd_blktrans); */
-/* DISABLED: EXPORT_SYMBOL_GPL(deregister_mtd_blktrans); */
-/* DISABLED: EXPORT_SYMBOL_GPL(add_mtd_blktrans_dev); */
-/* DISABLED: EXPORT_SYMBOL_GPL(del_mtd_blktrans_dev); */
+EXPORT_SYMBOL_GPL(register_mtd_blktrans);
+EXPORT_SYMBOL_GPL(deregister_mtd_blktrans);
+EXPORT_SYMBOL_GPL(add_mtd_blktrans_dev);
+EXPORT_SYMBOL_GPL(del_mtd_blktrans_dev);
 
 MODULE_AUTHOR("David Woodhouse <dwmw2@infradead.org>");
 MODULE_LICENSE("GPL");

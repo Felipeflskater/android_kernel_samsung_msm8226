@@ -206,7 +206,7 @@ not_an_MTD_device:
 	return ERR_PTR(-EINVAL);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(mount_mtd); */
+EXPORT_SYMBOL_GPL(mount_mtd);
 
 /*
  * destroy an MTD-based superblock
@@ -218,4 +218,4 @@ void kill_mtd_super(struct super_block *sb)
 	sb->s_mtd = NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(kill_mtd_super); */
+EXPORT_SYMBOL_GPL(kill_mtd_super);

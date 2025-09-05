@@ -52,7 +52,7 @@ bool llist_add_batch(struct llist_node *new_first, struct llist_node *new_last,
 
 	return old_entry == NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(llist_add_batch); */
+EXPORT_SYMBOL_GPL(llist_add_batch);
 
 /**
  * llist_del_first - delete the first entry of lock-less list
@@ -85,4 +85,4 @@ struct llist_node *llist_del_first(struct llist_head *head)
 
 	return entry;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(llist_del_first); */
+EXPORT_SYMBOL_GPL(llist_del_first);

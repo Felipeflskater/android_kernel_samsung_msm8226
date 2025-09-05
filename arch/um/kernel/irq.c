@@ -258,7 +258,7 @@ void deactivate_fd(int fd, int irqnum)
 
 	ignore_sigio_fd(fd);
 }
-/* DISABLED: EXPORT_SYMBOL(deactivate_fd); */
+EXPORT_SYMBOL(deactivate_fd);
 
 /*
  * Called just before shutdown in order to provide a clean exec
@@ -313,8 +313,8 @@ int um_request_irq(unsigned int irq, int fd, int type,
 	return request_irq(irq, handler, irqflags, devname, dev_id);
 }
 
-/* DISABLED: EXPORT_SYMBOL(um_request_irq); */
-/* DISABLED: EXPORT_SYMBOL(reactivate_fd); */
+EXPORT_SYMBOL(um_request_irq);
+EXPORT_SYMBOL(reactivate_fd);
 
 /*
  * irq_chip must define at least enable/disable and ack when

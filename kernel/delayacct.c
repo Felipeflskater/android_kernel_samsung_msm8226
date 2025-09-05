@@ -22,7 +22,7 @@
 #include <linux/module.h>
 
 int delayacct_on __read_mostly = 1;	/* Delay accounting turned on/off */
-/* DISABLED: EXPORT_SYMBOL_GPL(delayacct_on); */
+EXPORT_SYMBOL_GPL(delayacct_on);
 struct kmem_cache *delayacct_cache;
 
 static int __init delayacct_setup_disable(char *str)
@@ -30,7 +30,7 @@ static int __init delayacct_setup_disable(char *str)
 	delayacct_on = 0;
 	return 1;
 }
-/* DISABLED: __setup("nodelayacct", delayacct_setup_disable); */ */
+__setup("nodelayacct", delayacct_setup_disable);
 
 void delayacct_init(void)
 {

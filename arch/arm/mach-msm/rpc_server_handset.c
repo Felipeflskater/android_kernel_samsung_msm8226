@@ -431,7 +431,7 @@ void report_headset_status(bool connected)
 	if (rc)
 		pr_err("%s: couldn't send rpc client request\n", __func__);
 }
-/* DISABLED: EXPORT_SYMBOL(report_headset_status); */
+EXPORT_SYMBOL(report_headset_status);
 
 static int hs_rpc_pwr_cmd_arg(struct msm_rpc_client *client,
 				    void *buffer, void *data)

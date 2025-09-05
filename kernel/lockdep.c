@@ -320,13 +320,13 @@ void lockdep_off(void)
 {
 	current->lockdep_recursion++;
 }
-/* DISABLED: EXPORT_SYMBOL(lockdep_off); */
+EXPORT_SYMBOL(lockdep_off);
 
 void lockdep_on(void)
 {
 	current->lockdep_recursion--;
 }
-/* DISABLED: EXPORT_SYMBOL(lockdep_on); */
+EXPORT_SYMBOL(lockdep_on);
 
 /*
  * Debugging switches:
@@ -2596,13 +2596,13 @@ void trace_hardirqs_on_caller(unsigned long ip)
 	__trace_hardirqs_on_caller(ip);
 	current->lockdep_recursion = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_on_caller); */
+EXPORT_SYMBOL(trace_hardirqs_on_caller);
 
 void trace_hardirqs_on(void)
 {
 	trace_hardirqs_on_caller(CALLER_ADDR0);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_on); */
+EXPORT_SYMBOL(trace_hardirqs_on);
 
 /*
  * Hardirqs were disabled:
@@ -2634,13 +2634,13 @@ void trace_hardirqs_off_caller(unsigned long ip)
 	} else
 		debug_atomic_inc(redundant_hardirqs_off);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_off_caller); */
+EXPORT_SYMBOL(trace_hardirqs_off_caller);
 
 void trace_hardirqs_off(void)
 {
 	trace_hardirqs_off_caller(CALLER_ADDR0);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_off); */
+EXPORT_SYMBOL(trace_hardirqs_off);
 
 /*
  * Softirqs will be enabled:
@@ -2994,7 +2994,7 @@ void lockdep_init_map(struct lockdep_map *lock, const char *name,
 	if (subclass)
 		register_lock_class(lock, subclass, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lockdep_init_map); */
+EXPORT_SYMBOL_GPL(lockdep_init_map);
 
 struct lock_class_key __lockdep_no_validate__;
 
@@ -3532,7 +3532,7 @@ void lock_set_class(struct lockdep_map *lock, const char *name,
 	current->lockdep_recursion = 0;
 	raw_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_set_class); */
+EXPORT_SYMBOL_GPL(lock_set_class);
 
 /*
  * We are not always called with irqs disabled - do that here,
@@ -3557,7 +3557,7 @@ void lock_acquire(struct lockdep_map *lock, unsigned int subclass,
 	current->lockdep_recursion = 0;
 	raw_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_acquire); */
+EXPORT_SYMBOL_GPL(lock_acquire);
 
 void lock_release(struct lockdep_map *lock, int nested,
 			  unsigned long ip)
@@ -3575,7 +3575,7 @@ void lock_release(struct lockdep_map *lock, int nested,
 	current->lockdep_recursion = 0;
 	raw_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_release); */
+EXPORT_SYMBOL_GPL(lock_release);
 
 int lock_is_held(struct lockdep_map *lock)
 {
@@ -3595,7 +3595,7 @@ int lock_is_held(struct lockdep_map *lock)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_is_held); */
+EXPORT_SYMBOL_GPL(lock_is_held);
 
 void lockdep_set_current_reclaim_state(gfp_t gfp_mask)
 {
@@ -3768,7 +3768,7 @@ void lock_contended(struct lockdep_map *lock, unsigned long ip)
 	current->lockdep_recursion = 0;
 	raw_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_contended); */
+EXPORT_SYMBOL_GPL(lock_contended);
 
 void lock_acquired(struct lockdep_map *lock, unsigned long ip)
 {
@@ -3787,7 +3787,7 @@ void lock_acquired(struct lockdep_map *lock, unsigned long ip)
 	current->lockdep_recursion = 0;
 	raw_local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lock_acquired); */
+EXPORT_SYMBOL_GPL(lock_acquired);
 #endif
 
 /*
@@ -4042,7 +4042,7 @@ void debug_check_no_locks_freed(const void *mem_from, unsigned long mem_len)
 	}
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(debug_check_no_locks_freed); */
+EXPORT_SYMBOL_GPL(debug_check_no_locks_freed);
 
 static void print_held_locks_bug(void)
 {
@@ -4067,7 +4067,7 @@ void debug_check_no_locks_held(void)
 	if (unlikely(current->lockdep_depth > 0))
 		print_held_locks_bug();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(debug_check_no_locks_held); */
+EXPORT_SYMBOL_GPL(debug_check_no_locks_held);
 
 void debug_show_all_locks(void)
 {
@@ -4125,7 +4125,7 @@ retry:
 	if (unlock)
 		read_unlock(&tasklist_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(debug_show_all_locks); */
+EXPORT_SYMBOL_GPL(debug_show_all_locks);
 
 /*
  * Careful: only use this function if you are sure that
@@ -4139,7 +4139,7 @@ void debug_show_held_locks(struct task_struct *task)
 	}
 	lockdep_print_held_locks(task);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(debug_show_held_locks); */
+EXPORT_SYMBOL_GPL(debug_show_held_locks);
 
 void lockdep_sys_exit(void)
 {
@@ -4208,4 +4208,4 @@ void lockdep_rcu_suspicious(const char *file, const int line, const char *s)
 	printk("\nstack backtrace:\n");
 	dump_stack();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lockdep_rcu_suspicious); */
+EXPORT_SYMBOL_GPL(lockdep_rcu_suspicious);

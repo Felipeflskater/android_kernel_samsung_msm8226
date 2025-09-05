@@ -1133,7 +1133,7 @@ struct key_type key_type_trusted = {
 	.read = trusted_read,
 };
 
-/* DISABLED: EXPORT_SYMBOL_GPL(key_type_trusted); */
+EXPORT_SYMBOL_GPL(key_type_trusted);
 
 static void trusted_shash_release(void)
 {

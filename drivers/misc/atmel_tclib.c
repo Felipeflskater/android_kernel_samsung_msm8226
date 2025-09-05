@@ -20,12 +20,12 @@
 #if defined(CONFIG_AVR32)
 /* AVR32 has these divide PBB */
 const u8 atmel_tc_divisors[5] = { 0, 4, 8, 16, 32, };
-/* DISABLED: EXPORT_SYMBOL(atmel_tc_divisors); */
+EXPORT_SYMBOL(atmel_tc_divisors);
 
 #elif defined(CONFIG_ARCH_AT91)
 /* AT91 has these divide MCK */
 const u8 atmel_tc_divisors[5] = { 2, 8, 32, 128, 0, };
-/* DISABLED: EXPORT_SYMBOL(atmel_tc_divisors); */
+EXPORT_SYMBOL(atmel_tc_divisors);
 
 #endif
 
@@ -90,7 +90,7 @@ fail:
 	tc = NULL;
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(atmel_tc_alloc); */
+EXPORT_SYMBOL_GPL(atmel_tc_alloc);
 
 /**
  * atmel_tc_free - release a specified TC block
@@ -111,7 +111,7 @@ void atmel_tc_free(struct atmel_tc *tc)
 	}
 	spin_unlock(&tc_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(atmel_tc_free); */
+EXPORT_SYMBOL_GPL(atmel_tc_free);
 
 #if defined(CONFIG_OF)
 static struct atmel_tcb_config tcb_rm9200_config = {

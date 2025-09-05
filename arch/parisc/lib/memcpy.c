@@ -475,7 +475,7 @@ unsigned long copy_to_user(void __user *dst, const void *src, unsigned long len)
 	return pa_memcpy((void __force *)dst, src, len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__copy_from_user); */
+EXPORT_SYMBOL(__copy_from_user);
 unsigned long __copy_from_user(void *dst, const void __user *src, unsigned long len)
 {
 	mtsp(get_user_space(), 1);
@@ -499,8 +499,8 @@ void * memcpy(void * dst,const void *src, size_t count)
 	return dst;
 }
 
-/* DISABLED: EXPORT_SYMBOL(copy_to_user); */
-/* DISABLED: EXPORT_SYMBOL(copy_from_user); */
-/* DISABLED: EXPORT_SYMBOL(copy_in_user); */
-/* DISABLED: EXPORT_SYMBOL(memcpy); */
+EXPORT_SYMBOL(copy_to_user);
+EXPORT_SYMBOL(copy_from_user);
+EXPORT_SYMBOL(copy_in_user);
+EXPORT_SYMBOL(memcpy);
 #endif

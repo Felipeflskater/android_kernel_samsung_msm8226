@@ -84,7 +84,7 @@ int turn_mic_bias_on(int on)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(turn_mic_bias_on); */
+EXPORT_SYMBOL(turn_mic_bias_on);
 
 int force_headset_speaker_on(int enable)
 {
@@ -103,7 +103,7 @@ int force_headset_speaker_on(int enable)
 		ONCRPC_FORCE_HEADSET_SPEAKER_PROC,
 		&spkr_req, sizeof(spkr_req), 5 * HZ);
 }
-/* DISABLED: EXPORT_SYMBOL(force_headset_speaker_on); */
+EXPORT_SYMBOL(force_headset_speaker_on);
 
 int enable_aux_loopback(uint32_t enable)
 {
@@ -122,7 +122,7 @@ int enable_aux_loopback(uint32_t enable)
 		ONCRPC_ENABLE_AUX_PGA_LOOPBACK_PROC,
 		&aux_req, sizeof(aux_req), 5 * HZ);
 }
-/* DISABLED: EXPORT_SYMBOL(enable_aux_loopback); */
+EXPORT_SYMBOL(enable_aux_loopback);
 
 static int acoustic_mmap(struct file *file, struct vm_area_struct *vma)
 {

@@ -65,7 +65,7 @@ int nand_bch_calculate_ecc(struct mtd_info *mtd, const unsigned char *buf,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nand_bch_calculate_ecc); */
+EXPORT_SYMBOL(nand_bch_calculate_ecc);
 
 /**
  * nand_bch_correct_data - [NAND Interface] Detect and correct bit error(s)
@@ -102,7 +102,7 @@ int nand_bch_correct_data(struct mtd_info *mtd, unsigned char *buf,
 	}
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(nand_bch_correct_data); */
+EXPORT_SYMBOL(nand_bch_correct_data);
 
 /**
  * nand_bch_init - [NAND Interface] Initialize NAND BCH error correction
@@ -221,7 +221,7 @@ fail:
 	nand_bch_free(nbc);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(nand_bch_init); */
+EXPORT_SYMBOL(nand_bch_init);
 
 /**
  * nand_bch_free - [NAND Interface] Release NAND BCH ECC resources
@@ -236,7 +236,7 @@ void nand_bch_free(struct nand_bch_control *nbc)
 		kfree(nbc);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(nand_bch_free); */
+EXPORT_SYMBOL(nand_bch_free);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Ivan Djelic <ivan.djelic@parrot.com>");

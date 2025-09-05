@@ -136,7 +136,7 @@ unsigned long get_iop_tick_rate(void)
 {
 	return iop_tick_rate;
 }
-/* DISABLED: EXPORT_SYMBOL(get_iop_tick_rate); */
+EXPORT_SYMBOL(get_iop_tick_rate);
 
 void __init iop_init_time(unsigned long tick_rate)
 {

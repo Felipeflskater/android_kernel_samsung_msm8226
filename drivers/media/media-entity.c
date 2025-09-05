@@ -76,14 +76,14 @@ media_entity_init(struct media_entity *entity, u16 num_pads,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_init); */
+EXPORT_SYMBOL_GPL(media_entity_init);
 
 void
 media_entity_cleanup(struct media_entity *entity)
 {
 	kfree(entity->links);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_cleanup); */
+EXPORT_SYMBOL_GPL(media_entity_cleanup);
 
 /* -----------------------------------------------------------------------------
  * Graph traversal
@@ -142,7 +142,7 @@ void media_entity_graph_walk_start(struct media_entity_graph *graph,
 	graph->stack[graph->top].entity = NULL;
 	stack_push(graph, entity);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_graph_walk_start); */
+EXPORT_SYMBOL_GPL(media_entity_graph_walk_start);
 
 /**
  * media_entity_graph_walk_next - Get the next entity in the graph
@@ -194,7 +194,7 @@ media_entity_graph_walk_next(struct media_entity_graph *graph)
 
 	return stack_pop(graph);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_graph_walk_next); */
+EXPORT_SYMBOL_GPL(media_entity_graph_walk_next);
 
 /* -----------------------------------------------------------------------------
  * Pipeline management
@@ -232,7 +232,7 @@ void media_entity_pipeline_start(struct media_entity *entity,
 
 	mutex_unlock(&mdev->graph_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_pipeline_start); */
+EXPORT_SYMBOL_GPL(media_entity_pipeline_start);
 
 /**
  * media_entity_pipeline_stop - Mark a pipeline as not streaming
@@ -263,7 +263,7 @@ void media_entity_pipeline_stop(struct media_entity *entity)
 
 	mutex_unlock(&mdev->graph_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_pipeline_stop); */
+EXPORT_SYMBOL_GPL(media_entity_pipeline_stop);
 
 /* -----------------------------------------------------------------------------
  * Module use count
@@ -290,7 +290,7 @@ struct media_entity *media_entity_get(struct media_entity *entity)
 
 	return entity;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_get); */
+EXPORT_SYMBOL_GPL(media_entity_get);
 
 /*
  * media_entity_put - Release the reference to the parent module
@@ -308,7 +308,7 @@ void media_entity_put(struct media_entity *entity)
 	if (entity->parent->dev)
 		module_put(entity->parent->dev->driver->owner);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_put); */
+EXPORT_SYMBOL_GPL(media_entity_put);
 
 /* -----------------------------------------------------------------------------
  * Links management
@@ -374,7 +374,7 @@ media_entity_create_link(struct media_entity *source, u16 source_pad,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_create_link); */
+EXPORT_SYMBOL_GPL(media_entity_create_link);
 
 static int __media_entity_setup_link_notify(struct media_link *link, u32 flags)
 {
@@ -476,7 +476,7 @@ int media_entity_setup_link(struct media_link *link, u32 flags)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_setup_link); */
+EXPORT_SYMBOL_GPL(media_entity_setup_link);
 
 /**
  * media_entity_find_link - Find a link between two pads
@@ -504,7 +504,7 @@ media_entity_find_link(struct media_pad *source, struct media_pad *sink)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_find_link); */
+EXPORT_SYMBOL_GPL(media_entity_find_link);
 
 /**
  * media_entity_remote_source - Find the source pad at the remote end of a link
@@ -537,4 +537,4 @@ struct media_pad *media_entity_remote_source(struct media_pad *pad)
 	return NULL;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(media_entity_remote_source); */
+EXPORT_SYMBOL_GPL(media_entity_remote_source);

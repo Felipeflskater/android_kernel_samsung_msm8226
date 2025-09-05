@@ -169,7 +169,7 @@ int fixed_phy_set_link_update(struct phy_device *phydev,
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fixed_phy_set_link_update); */
+EXPORT_SYMBOL_GPL(fixed_phy_set_link_update);
 
 int fixed_phy_add(unsigned int irq, int phy_id,
 		  struct fixed_phy_status *status)
@@ -201,7 +201,7 @@ err_regs:
 	kfree(fp);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fixed_phy_add); */
+EXPORT_SYMBOL_GPL(fixed_phy_add);
 
 static int __init fixed_mdio_bus_init(void)
 {

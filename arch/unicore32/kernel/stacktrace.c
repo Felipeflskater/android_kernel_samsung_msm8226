@@ -67,7 +67,7 @@ void notrace walk_stackframe(struct stackframe *frame,
 			break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(walk_stackframe); */
+EXPORT_SYMBOL(walk_stackframe);
 
 #ifdef CONFIG_STACKTRACE
 struct stack_trace_data {
@@ -127,5 +127,5 @@ void save_stack_trace(struct stack_trace *trace)
 {
 	save_stack_trace_tsk(current, trace);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(save_stack_trace); */
+EXPORT_SYMBOL_GPL(save_stack_trace);
 #endif

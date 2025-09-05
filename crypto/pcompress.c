@@ -95,7 +95,7 @@ struct crypto_pcomp *crypto_alloc_pcomp(const char *alg_name, u32 type,
 {
 	return crypto_alloc_tfm(alg_name, &crypto_pcomp_type, type, mask);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_alloc_pcomp); */
+EXPORT_SYMBOL_GPL(crypto_alloc_pcomp);
 
 int crypto_register_pcomp(struct pcomp_alg *alg)
 {
@@ -107,13 +107,13 @@ int crypto_register_pcomp(struct pcomp_alg *alg)
 
 	return crypto_register_alg(base);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_register_pcomp); */
+EXPORT_SYMBOL_GPL(crypto_register_pcomp);
 
 int crypto_unregister_pcomp(struct pcomp_alg *alg)
 {
 	return crypto_unregister_alg(&alg->base);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(crypto_unregister_pcomp); */
+EXPORT_SYMBOL_GPL(crypto_unregister_pcomp);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Partial (de)compression type");

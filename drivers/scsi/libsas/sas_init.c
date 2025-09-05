@@ -54,7 +54,7 @@ struct sas_task *sas_alloc_task(gfp_t flags)
 
 	return task;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_alloc_task); */
+EXPORT_SYMBOL_GPL(sas_alloc_task);
 
 void sas_free_task(struct sas_task *task)
 {
@@ -63,7 +63,7 @@ void sas_free_task(struct sas_task *task)
 		kmem_cache_free(sas_task_cache, task);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_free_task); */
+EXPORT_SYMBOL_GPL(sas_free_task);
 
 /*------------ SAS addr hash -----------*/
 void sas_hash_addr(u8 *hashed, const u8 *sas_addr)
@@ -477,14 +477,14 @@ sas_domain_attach_transport(struct sas_domain_function_template *dft)
 
 	return stt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_domain_attach_transport); */
+EXPORT_SYMBOL_GPL(sas_domain_attach_transport);
 
 
 void sas_domain_release_transport(struct scsi_transport_template *stt)
 {
 	sas_release_transport(stt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_domain_release_transport); */
+EXPORT_SYMBOL_GPL(sas_domain_release_transport);
 
 /* ---------- SAS Class register/unregister ---------- */
 
@@ -509,5 +509,5 @@ MODULE_LICENSE("GPL v2");
 module_init(sas_class_init);
 module_exit(sas_class_exit);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_register_ha); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sas_unregister_ha); */
+EXPORT_SYMBOL_GPL(sas_register_ha);
+EXPORT_SYMBOL_GPL(sas_unregister_ha);

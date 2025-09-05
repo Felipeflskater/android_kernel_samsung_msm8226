@@ -43,7 +43,7 @@ udelay(unsigned long usecs)
 	usecs *= (((unsigned long)HZ << 32) / 1000000) * LPJ;
 	__delay((long)usecs >> 32);
 }
-/* DISABLED: EXPORT_SYMBOL(udelay); */
+EXPORT_SYMBOL(udelay);
 
 void
 ndelay(unsigned long nsecs)
@@ -51,4 +51,4 @@ ndelay(unsigned long nsecs)
 	nsecs *= (((unsigned long)HZ << 32) / 1000000000) * LPJ;
 	__delay((long)nsecs >> 32);
 }
-/* DISABLED: EXPORT_SYMBOL(ndelay); */
+EXPORT_SYMBOL(ndelay);

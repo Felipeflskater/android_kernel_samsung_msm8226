@@ -469,7 +469,7 @@ void mmc_cleanup_queue(struct mmc_queue *mq)
 
 	mq->card = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_cleanup_queue); */
+EXPORT_SYMBOL(mmc_cleanup_queue);
 
 /**
  * mmc_queue_suspend - suspend a MMC request queue

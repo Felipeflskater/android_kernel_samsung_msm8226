@@ -40,7 +40,7 @@
 volatile __u8 *via1, *via2;
 int rbv_present;
 int via_alt_mapping;
-/* DISABLED: EXPORT_SYMBOL(via_alt_mapping); */
+EXPORT_SYMBOL(via_alt_mapping);
 static __u8 rbv_clear;
 
 /*
@@ -613,10 +613,10 @@ void via1_set_head(int head)
 	else
 		via1[vBufA] |= VIA1A_vHeadSel;
 }
-/* DISABLED: EXPORT_SYMBOL(via1_set_head); */
+EXPORT_SYMBOL(via1_set_head);
 
 int via2_scsi_drq_pending(void)
 {
 	return via2[gIFR] & (1 << IRQ_IDX(IRQ_MAC_SCSIDRQ));
 }
-/* DISABLED: EXPORT_SYMBOL(via2_scsi_drq_pending); */
+EXPORT_SYMBOL(via2_scsi_drq_pending);

@@ -171,7 +171,7 @@ void rt2x00mac_tx(struct ieee80211_hw *hw, struct sk_buff *skb)
  exit_free_skb:
 	ieee80211_free_txskb(hw, skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_tx); */
+EXPORT_SYMBOL_GPL(rt2x00mac_tx);
 
 int rt2x00mac_start(struct ieee80211_hw *hw)
 {
@@ -182,7 +182,7 @@ int rt2x00mac_start(struct ieee80211_hw *hw)
 
 	return rt2x00lib_start(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_start); */
+EXPORT_SYMBOL_GPL(rt2x00mac_start);
 
 void rt2x00mac_stop(struct ieee80211_hw *hw)
 {
@@ -193,7 +193,7 @@ void rt2x00mac_stop(struct ieee80211_hw *hw)
 
 	rt2x00lib_stop(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_stop); */
+EXPORT_SYMBOL_GPL(rt2x00mac_stop);
 
 int rt2x00mac_add_interface(struct ieee80211_hw *hw,
 			    struct ieee80211_vif *vif)
@@ -301,7 +301,7 @@ int rt2x00mac_add_interface(struct ieee80211_hw *hw,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_add_interface); */
+EXPORT_SYMBOL_GPL(rt2x00mac_add_interface);
 
 void rt2x00mac_remove_interface(struct ieee80211_hw *hw,
 				struct ieee80211_vif *vif)
@@ -337,7 +337,7 @@ void rt2x00mac_remove_interface(struct ieee80211_hw *hw,
 	rt2x00lib_config_intf(rt2x00dev, intf,
 			      NL80211_IFTYPE_UNSPECIFIED, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_remove_interface); */
+EXPORT_SYMBOL_GPL(rt2x00mac_remove_interface);
 
 int rt2x00mac_config(struct ieee80211_hw *hw, u32 changed)
 {
@@ -380,7 +380,7 @@ int rt2x00mac_config(struct ieee80211_hw *hw, u32 changed)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_config); */
+EXPORT_SYMBOL_GPL(rt2x00mac_config);
 
 void rt2x00mac_configure_filter(struct ieee80211_hw *hw,
 				unsigned int changed_flags,
@@ -438,7 +438,7 @@ void rt2x00mac_configure_filter(struct ieee80211_hw *hw,
 
 	rt2x00dev->ops->lib->config_filter(rt2x00dev, *total_flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_configure_filter); */
+EXPORT_SYMBOL_GPL(rt2x00mac_configure_filter);
 
 static void rt2x00mac_set_tim_iter(void *data, u8 *mac,
 				   struct ieee80211_vif *vif)
@@ -470,7 +470,7 @@ int rt2x00mac_set_tim(struct ieee80211_hw *hw, struct ieee80211_sta *sta,
 	ieee80211_queue_work(rt2x00dev->hw, &rt2x00dev->intf_work);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_set_tim); */
+EXPORT_SYMBOL_GPL(rt2x00mac_set_tim);
 
 #ifdef CONFIG_RT2X00_LIB_CRYPTO
 static void memcpy_tkip(struct rt2x00lib_crypto *crypto, u8 *key, u8 key_len)
@@ -562,7 +562,7 @@ int rt2x00mac_set_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
 
 	return set_key(rt2x00dev, &crypto, key);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_set_key); */
+EXPORT_SYMBOL_GPL(rt2x00mac_set_key);
 #endif /* CONFIG_RT2X00_LIB_CRYPTO */
 
 int rt2x00mac_sta_add(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
@@ -580,7 +580,7 @@ int rt2x00mac_sta_add(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_sta_add); */
+EXPORT_SYMBOL_GPL(rt2x00mac_sta_add);
 
 int rt2x00mac_sta_remove(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			 struct ieee80211_sta *sta)
@@ -596,7 +596,7 @@ int rt2x00mac_sta_remove(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 	return rt2x00dev->ops->lib->sta_remove(rt2x00dev, sta_priv->wcid);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_sta_remove); */
+EXPORT_SYMBOL_GPL(rt2x00mac_sta_remove);
 
 void rt2x00mac_sw_scan_start(struct ieee80211_hw *hw)
 {
@@ -604,7 +604,7 @@ void rt2x00mac_sw_scan_start(struct ieee80211_hw *hw)
 	set_bit(DEVICE_STATE_SCANNING, &rt2x00dev->flags);
 	rt2x00link_stop_tuner(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_sw_scan_start); */
+EXPORT_SYMBOL_GPL(rt2x00mac_sw_scan_start);
 
 void rt2x00mac_sw_scan_complete(struct ieee80211_hw *hw)
 {
@@ -612,7 +612,7 @@ void rt2x00mac_sw_scan_complete(struct ieee80211_hw *hw)
 	clear_bit(DEVICE_STATE_SCANNING, &rt2x00dev->flags);
 	rt2x00link_start_tuner(rt2x00dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_sw_scan_complete); */
+EXPORT_SYMBOL_GPL(rt2x00mac_sw_scan_complete);
 
 int rt2x00mac_get_stats(struct ieee80211_hw *hw,
 			struct ieee80211_low_level_stats *stats)
@@ -628,7 +628,7 @@ int rt2x00mac_get_stats(struct ieee80211_hw *hw,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_get_stats); */
+EXPORT_SYMBOL_GPL(rt2x00mac_get_stats);
 
 void rt2x00mac_bss_info_changed(struct ieee80211_hw *hw,
 				struct ieee80211_vif *vif,
@@ -723,7 +723,7 @@ void rt2x00mac_bss_info_changed(struct ieee80211_hw *hw,
 		       BSS_CHANGED_BEACON_INT | BSS_CHANGED_HT))
 		rt2x00lib_config_erp(rt2x00dev, intf, bss_conf, changes);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_bss_info_changed); */
+EXPORT_SYMBOL_GPL(rt2x00mac_bss_info_changed);
 
 int rt2x00mac_conf_tx(struct ieee80211_hw *hw,
 		      struct ieee80211_vif *vif, u16 queue_idx,
@@ -759,7 +759,7 @@ int rt2x00mac_conf_tx(struct ieee80211_hw *hw,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_conf_tx); */
+EXPORT_SYMBOL_GPL(rt2x00mac_conf_tx);
 
 void rt2x00mac_rfkill_poll(struct ieee80211_hw *hw)
 {
@@ -768,7 +768,7 @@ void rt2x00mac_rfkill_poll(struct ieee80211_hw *hw)
 
 	wiphy_rfkill_set_hw_state(hw->wiphy, !active);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_rfkill_poll); */
+EXPORT_SYMBOL_GPL(rt2x00mac_rfkill_poll);
 
 void rt2x00mac_flush(struct ieee80211_hw *hw, bool drop)
 {
@@ -781,7 +781,7 @@ void rt2x00mac_flush(struct ieee80211_hw *hw, bool drop)
 	tx_queue_for_each(rt2x00dev, queue)
 		rt2x00queue_flush_queue(queue, drop);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_flush); */
+EXPORT_SYMBOL_GPL(rt2x00mac_flush);
 
 int rt2x00mac_set_antenna(struct ieee80211_hw *hw, u32 tx_ant, u32 rx_ant)
 {
@@ -824,7 +824,7 @@ int rt2x00mac_set_antenna(struct ieee80211_hw *hw, u32 tx_ant, u32 rx_ant)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_set_antenna); */
+EXPORT_SYMBOL_GPL(rt2x00mac_set_antenna);
 
 int rt2x00mac_get_antenna(struct ieee80211_hw *hw, u32 *tx_ant, u32 *rx_ant)
 {
@@ -846,7 +846,7 @@ int rt2x00mac_get_antenna(struct ieee80211_hw *hw, u32 *tx_ant, u32 *rx_ant)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_get_antenna); */
+EXPORT_SYMBOL_GPL(rt2x00mac_get_antenna);
 
 void rt2x00mac_get_ringparam(struct ieee80211_hw *hw,
 			     u32 *tx, u32 *tx_max, u32 *rx, u32 *rx_max)
@@ -862,7 +862,7 @@ void rt2x00mac_get_ringparam(struct ieee80211_hw *hw,
 	*rx = rt2x00dev->rx->length;
 	*rx_max = rt2x00dev->rx->limit;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_get_ringparam); */
+EXPORT_SYMBOL_GPL(rt2x00mac_get_ringparam);
 
 bool rt2x00mac_tx_frames_pending(struct ieee80211_hw *hw)
 {
@@ -876,4 +876,4 @@ bool rt2x00mac_tx_frames_pending(struct ieee80211_hw *hw)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2x00mac_tx_frames_pending); */
+EXPORT_SYMBOL_GPL(rt2x00mac_tx_frames_pending);

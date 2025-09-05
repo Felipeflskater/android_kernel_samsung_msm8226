@@ -55,7 +55,7 @@
 static unsigned char which_scsi;
 
 int MCA_bus;
-/* DISABLED: EXPORT_SYMBOL(MCA_bus); */
+EXPORT_SYMBOL(MCA_bus);
 
 /*
  * Motherboard register spinlock. Untested on SMP at the moment, but

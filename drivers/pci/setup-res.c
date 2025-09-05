@@ -112,7 +112,7 @@ int pci_claim_resource(struct pci_dev *dev, int resource)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pci_claim_resource); */
+EXPORT_SYMBOL(pci_claim_resource);
 
 void pci_disable_bridge_window(struct pci_dev *dev)
 {

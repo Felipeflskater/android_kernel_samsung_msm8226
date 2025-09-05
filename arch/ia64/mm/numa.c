@@ -87,6 +87,6 @@ int memory_add_physaddr_to_nid(u64 addr)
 	return nid;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid); */
+EXPORT_SYMBOL_GPL(memory_add_physaddr_to_nid);
 #endif
 #endif

@@ -478,7 +478,7 @@ int amd64_get_dram_hole_info(struct mem_ctl_info *mci, u64 *hole_base,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(amd64_get_dram_hole_info); */
+EXPORT_SYMBOL_GPL(amd64_get_dram_hole_info);
 
 /*
  * Return the DramAddr that the SysAddr given by @sys_addr maps to.  It is

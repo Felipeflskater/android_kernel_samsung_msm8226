@@ -49,7 +49,7 @@ u32 vcd_init(struct vcd_init_config *config, s32 *driver_handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_init); */
+EXPORT_SYMBOL(vcd_init);
 
 u32 vcd_term(s32 driver_handle)
 {
@@ -74,7 +74,7 @@ u32 vcd_term(s32 driver_handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_term); */
+EXPORT_SYMBOL(vcd_term);
 
 struct client_security_info {
 	int secure_enc;
@@ -194,7 +194,7 @@ u32 vcd_open(s32 driver_handle, u32 decoding,
 	mutex_unlock(&drv_ctxt->dev_mutex);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_open); */
+EXPORT_SYMBOL(vcd_open);
 
 u32 vcd_close(void *handle)
 {
@@ -229,7 +229,7 @@ u32 vcd_close(void *handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_close); */
+EXPORT_SYMBOL(vcd_close);
 
 u32 vcd_encode_start(void *handle)
 {
@@ -268,7 +268,7 @@ u32 vcd_encode_start(void *handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_encode_start); */
+EXPORT_SYMBOL(vcd_encode_start);
 
 u32 vcd_encode_frame(void *handle, struct vcd_frame_data *input_frame)
 {
@@ -310,7 +310,7 @@ u32 vcd_encode_frame(void *handle, struct vcd_frame_data *input_frame)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_encode_frame); */
+EXPORT_SYMBOL(vcd_encode_frame);
 
 u32 vcd_decode_start(void *handle, struct vcd_sequence_hdr *seq_hdr)
 {
@@ -349,7 +349,7 @@ u32 vcd_decode_start(void *handle, struct vcd_sequence_hdr *seq_hdr)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_decode_start); */
+EXPORT_SYMBOL(vcd_decode_start);
 
 u32 vcd_decode_frame(void *handle, struct vcd_frame_data *input_frame)
 {
@@ -391,7 +391,7 @@ u32 vcd_decode_frame(void *handle, struct vcd_frame_data *input_frame)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_decode_frame); */
+EXPORT_SYMBOL(vcd_decode_frame);
 
 u32 vcd_pause(void *handle)
 {
@@ -427,7 +427,7 @@ u32 vcd_pause(void *handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_pause); */
+EXPORT_SYMBOL(vcd_pause);
 
 u32 vcd_resume(void *handle)
 {
@@ -466,7 +466,7 @@ u32 vcd_resume(void *handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_resume); */
+EXPORT_SYMBOL(vcd_resume);
 
 u32 vcd_flush(void *handle, u32 mode)
 {
@@ -502,7 +502,7 @@ u32 vcd_flush(void *handle, u32 mode)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_flush); */
+EXPORT_SYMBOL(vcd_flush);
 
 u32 vcd_stop(void *handle)
 {
@@ -541,7 +541,7 @@ u32 vcd_stop(void *handle)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_stop); */
+EXPORT_SYMBOL(vcd_stop);
 
 u32 vcd_set_property(void *handle,
      struct vcd_property_hdr *prop_hdr, void *prop_val)
@@ -584,7 +584,7 @@ u32 vcd_set_property(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_set_property); */
+EXPORT_SYMBOL(vcd_set_property);
 
 u32 vcd_get_property(void *handle,
      struct vcd_property_hdr *prop_hdr, void *prop_val)
@@ -627,7 +627,7 @@ u32 vcd_get_property(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_get_property); */
+EXPORT_SYMBOL(vcd_get_property);
 
 u32 vcd_set_buffer_requirements(void *handle,
      enum vcd_buffer_type buffer,
@@ -672,7 +672,7 @@ u32 vcd_set_buffer_requirements(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_set_buffer_requirements); */
+EXPORT_SYMBOL(vcd_set_buffer_requirements);
 
 u32 vcd_get_buffer_requirements(void *handle,
      enum vcd_buffer_type buffer,
@@ -717,7 +717,7 @@ u32 vcd_get_buffer_requirements(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_get_buffer_requirements); */
+EXPORT_SYMBOL(vcd_get_buffer_requirements);
 
 u32 vcd_set_buffer(void *handle,
      enum vcd_buffer_type buffer_type, u8 *buffer, u32 buf_size)
@@ -760,7 +760,7 @@ u32 vcd_set_buffer(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_set_buffer); */
+EXPORT_SYMBOL(vcd_set_buffer);
 
 u32 vcd_allocate_buffer(void *handle,
      enum vcd_buffer_type buffer,
@@ -806,7 +806,7 @@ u32 vcd_allocate_buffer(void *handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_allocate_buffer); */
+EXPORT_SYMBOL(vcd_allocate_buffer);
 
 u32 vcd_free_buffer(void *handle, enum vcd_buffer_type buffer_type, u8 *buffer)
 {
@@ -842,7 +842,7 @@ u32 vcd_free_buffer(void *handle, enum vcd_buffer_type buffer_type, u8 *buffer)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_free_buffer); */
+EXPORT_SYMBOL(vcd_free_buffer);
 
 u32 vcd_fill_output_buffer(void *handle, struct vcd_frame_data *buffer)
 {
@@ -884,7 +884,7 @@ u32 vcd_fill_output_buffer(void *handle, struct vcd_frame_data *buffer)
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_fill_output_buffer); */
+EXPORT_SYMBOL(vcd_fill_output_buffer);
 
 u32 vcd_set_device_power(s32 driver_handle,
 		enum vcd_power_state pwr_state)
@@ -912,7 +912,7 @@ u32 vcd_set_device_power(s32 driver_handle,
 	return rc;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_set_device_power); */
+EXPORT_SYMBOL(vcd_set_device_power);
 
 void vcd_read_and_clear_interrupt(void)
 {
@@ -942,7 +942,7 @@ void vcd_response_handler(void)
 		vcd_continue();
 	mutex_unlock(&drv_ctxt->dev_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_response_handler); */
+EXPORT_SYMBOL(vcd_response_handler);
 
 u8 vcd_get_num_of_clients(void)
 {
@@ -962,19 +962,19 @@ u8 vcd_get_num_of_clients(void)
 	mutex_unlock(&drv_ctxt->dev_mutex);
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_get_num_of_clients); */
+EXPORT_SYMBOL(vcd_get_num_of_clients);
 
 u32 vcd_get_ion_status(void)
 {
 	return res_trk_get_enable_ion();
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_get_ion_status); */
+EXPORT_SYMBOL(vcd_get_ion_status);
 
 struct ion_client *vcd_get_ion_client(void)
 {
 	return res_trk_get_ion_client();
 }
-/* DISABLED: EXPORT_SYMBOL(vcd_get_ion_client); */
+EXPORT_SYMBOL(vcd_get_ion_client);
 
 
 

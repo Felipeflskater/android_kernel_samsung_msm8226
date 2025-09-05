@@ -382,7 +382,7 @@ int scsi_dev_info_list_add_keyed(int compatible, char *vendor, char *model,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_dev_info_list_add_keyed); */
+EXPORT_SYMBOL(scsi_dev_info_list_add_keyed);
 
 /**
  * scsi_dev_info_list_del_keyed - remove one dev_info list entry.
@@ -467,7 +467,7 @@ int scsi_dev_info_list_del_keyed(char *vendor, char *model, int key)
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_dev_info_list_del_keyed); */
+EXPORT_SYMBOL(scsi_dev_info_list_del_keyed);
 
 /**
  * scsi_dev_info_list_add_str - parse dev_list and add to the scsi_dev_info_list.
@@ -628,7 +628,7 @@ int scsi_get_device_flags_keyed(struct scsi_device *sdev,
 
 	return scsi_default_dev_flags;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_get_device_flags_keyed); */
+EXPORT_SYMBOL(scsi_get_device_flags_keyed);
 
 #ifdef CONFIG_SCSI_PROC_FS
 struct double_list {
@@ -814,7 +814,7 @@ int scsi_dev_info_add_list(int key, const char *name)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_dev_info_add_list); */
+EXPORT_SYMBOL(scsi_dev_info_add_list);
 
 /**
  * scsi_dev_info_remove_list - destroy an added devinfo list
@@ -848,7 +848,7 @@ int scsi_dev_info_remove_list(int key)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(scsi_dev_info_remove_list); */
+EXPORT_SYMBOL(scsi_dev_info_remove_list);
 
 /**
  * scsi_init_devinfo - set up the dynamic device list.

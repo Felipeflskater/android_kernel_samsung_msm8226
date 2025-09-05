@@ -271,7 +271,7 @@ int msm_ssbi_read(struct device *dev, u16 addr, u8 *buf, int len)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_ssbi_read); */
+EXPORT_SYMBOL(msm_ssbi_read);
 
 int msm_ssbi_write(struct device *dev, u16 addr, u8 *buf, int len)
 {
@@ -294,7 +294,7 @@ int msm_ssbi_write(struct device *dev, u16 addr, u8 *buf, int len)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_ssbi_write); */
+EXPORT_SYMBOL(msm_ssbi_write);
 
 static int __devinit msm_ssbi_add_slave(struct msm_ssbi *ssbi,
 				const struct msm_ssbi_slave_info *slave)

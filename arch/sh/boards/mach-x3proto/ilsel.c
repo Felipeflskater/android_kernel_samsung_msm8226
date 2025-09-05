@@ -109,7 +109,7 @@ int ilsel_enable(ilsel_source_t set)
 
 	return bit;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ilsel_enable); */
+EXPORT_SYMBOL_GPL(ilsel_enable);
 
 /**
  * ilsel_enable_fixed - Enable an ILSEL set at a fixed interrupt level
@@ -133,7 +133,7 @@ int ilsel_enable_fixed(ilsel_source_t set, unsigned int level)
 
 	return bit;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ilsel_enable_fixed); */
+EXPORT_SYMBOL_GPL(ilsel_enable_fixed);
 
 /**
  * ilsel_disable - Disable an ILSEL set
@@ -156,4 +156,4 @@ void ilsel_disable(unsigned int irq)
 
 	clear_bit(irq, &ilsel_level_map);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ilsel_disable); */
+EXPORT_SYMBOL_GPL(ilsel_disable);

@@ -103,7 +103,7 @@ int msm_audio_volume_update(unsigned id,
 	printk(KERN_INFO "volume: %8x vol_raw: %8x \n", volume, vol_raw);
 	return audpp_set_volume_and_pan(id, vol_raw, pan);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_audio_volume_update); */
+EXPORT_SYMBOL(msm_audio_volume_update);
 
 void alsa_dsp_event(void *data, unsigned id, uint16_t *msg)
 {
@@ -347,7 +347,7 @@ err2:
 err1:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_adsp_configure); */
+EXPORT_SYMBOL(alsa_adsp_configure);
 
 int alsa_audio_configure(struct msm_audio *prtd)
 {
@@ -379,7 +379,7 @@ int alsa_audio_configure(struct msm_audio *prtd)
 	prtd->enabled = 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audio_configure); */
+EXPORT_SYMBOL(alsa_audio_configure);
 
 ssize_t alsa_send_buffer(struct msm_audio *prtd, const char __user *buf,
 			  size_t count, loff_t *pos)
@@ -427,7 +427,7 @@ ssize_t alsa_send_buffer(struct msm_audio *prtd, const char __user *buf,
 		return buf - start;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_send_buffer); */
+EXPORT_SYMBOL(alsa_send_buffer);
 
 int alsa_audio_disable(struct msm_audio *prtd)
 {
@@ -443,7 +443,7 @@ int alsa_audio_disable(struct msm_audio *prtd)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audio_disable); */
+EXPORT_SYMBOL(alsa_audio_disable);
 
 int alsa_audrec_disable(struct msm_audio *prtd)
 {
@@ -461,7 +461,7 @@ int alsa_audrec_disable(struct msm_audio *prtd)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_audrec_disable); */
+EXPORT_SYMBOL(alsa_audrec_disable);
 
 static int audio_dsp_read_buffer(struct msm_audio *prtd, uint32_t read_cnt)
 {
@@ -582,7 +582,7 @@ int alsa_buffer_read(struct msm_audio *prtd, void __user *buf,
 	mutex_unlock(&the_locks.read_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_buffer_read); */
+EXPORT_SYMBOL(alsa_buffer_read);
 
 int alsa_dsp_send_buffer(struct msm_audio *prtd,
 					unsigned idx, unsigned len)
@@ -610,7 +610,7 @@ int alsa_rec_dsp_enable(struct msm_audio *prtd, int enable)
 
 	return audio_send_queue_rec(prtd, &cmd, sizeof(cmd));
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_rec_dsp_enable); */
+EXPORT_SYMBOL(alsa_rec_dsp_enable);
 
 void alsa_get_dsp_frames(struct msm_audio *prtd)
 {
@@ -643,4 +643,4 @@ void alsa_get_dsp_frames(struct msm_audio *prtd)
 		/* TODO AAC not supported yet. */
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(alsa_get_dsp_frames); */
+EXPORT_SYMBOL(alsa_get_dsp_frames);

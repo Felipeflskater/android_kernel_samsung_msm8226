@@ -35,7 +35,7 @@
 #include "generic.h"
 
 void __iomem *at91_pmc_base;
-/* DISABLED: EXPORT_SYMBOL_GPL(at91_pmc_base); */
+EXPORT_SYMBOL_GPL(at91_pmc_base);
 
 /*
  * There's a lot more which can be done with clocks, including cpufreq
@@ -255,7 +255,7 @@ int clk_enable(struct clk *clk)
 	spin_unlock_irqrestore(&clk_lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 static void __clk_disable(struct clk *clk)
 {
@@ -274,7 +274,7 @@ void clk_disable(struct clk *clk)
 	__clk_disable(clk);
 	spin_unlock_irqrestore(&clk_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -291,7 +291,7 @@ unsigned long clk_get_rate(struct clk *clk)
 	spin_unlock_irqrestore(&clk_lock, flags);
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 /*------------------------------------------------------------------------*/
 
@@ -333,7 +333,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 	spin_unlock_irqrestore(&clk_lock, flags);
 	return (prescale < 7) ? actual : -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -375,13 +375,13 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 	spin_unlock_irqrestore(&clk_lock, flags);
 	return (prescale < 7) ? actual : -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 struct clk *clk_get_parent(struct clk *clk)
 {
 	return clk->parent;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
+EXPORT_SYMBOL(clk_get_parent);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -404,7 +404,7 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 	spin_unlock_irqrestore(&clk_lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 /* establish PCK0..PCKN parentage and rate */
 static void __init init_programmable_clock(struct clk *clk)

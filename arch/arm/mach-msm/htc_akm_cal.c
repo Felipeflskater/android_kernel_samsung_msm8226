@@ -34,7 +34,7 @@ char *get_akm_cal_ram(void)
 {
 	return(akm_cal_ram);
 }
-/* DISABLED: EXPORT_SYMBOL(get_akm_cal_ram); */
+EXPORT_SYMBOL(get_akm_cal_ram);
 
 static int __init parse_tag_akm(const struct tag *tag)
 {

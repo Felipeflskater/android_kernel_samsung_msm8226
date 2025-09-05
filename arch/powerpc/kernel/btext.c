@@ -289,7 +289,7 @@ void btext_update_display(unsigned long phys, int width, int height,
 	g_max_loc_X = width / 8;
 	g_max_loc_Y = height / 16;
 }
-/* DISABLED: EXPORT_SYMBOL(btext_update_display); */
+EXPORT_SYMBOL(btext_update_display);
 
 void btext_clearscreen(void)
 {

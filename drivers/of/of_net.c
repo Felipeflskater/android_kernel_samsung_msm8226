@@ -53,7 +53,7 @@ const int of_get_phy_mode(struct device_node *np)
 
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_get_phy_mode); */
+EXPORT_SYMBOL_GPL(of_get_phy_mode);
 
 /**
  * Search the device tree for the best MAC address to use.  'mac-address' is
@@ -91,4 +91,4 @@ const void *of_get_mac_address(struct device_node *np)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_mac_address); */
+EXPORT_SYMBOL(of_get_mac_address);

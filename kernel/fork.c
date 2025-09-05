@@ -99,7 +99,7 @@ int lockdep_tasklist_lock_is_held(void)
 {
 	return lockdep_is_held(&tasklist_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lockdep_tasklist_lock_is_held); */
+EXPORT_SYMBOL_GPL(lockdep_tasklist_lock_is_held);
 #endif /* #ifdef CONFIG_PROVE_RCU */
 
 int nr_processes(void)
@@ -178,7 +178,7 @@ void free_task(struct task_struct *tsk)
 	put_seccomp_filter(tsk);
 	free_task_struct(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL(free_task); */
+EXPORT_SYMBOL(free_task);
 
 static inline void free_signal_struct(struct signal_struct *sig)
 {
@@ -197,13 +197,13 @@ int task_free_register(struct notifier_block *n)
 {
 	return atomic_notifier_chain_register(&task_free_notifier, n);
 }
-/* DISABLED: EXPORT_SYMBOL(task_free_register); */
+EXPORT_SYMBOL(task_free_register);
 
 int task_free_unregister(struct notifier_block *n)
 {
 	return atomic_notifier_chain_unregister(&task_free_notifier, n);
 }
-/* DISABLED: EXPORT_SYMBOL(task_free_unregister); */
+EXPORT_SYMBOL(task_free_unregister);
 
 void __put_task_struct(struct task_struct *tsk)
 {
@@ -220,7 +220,7 @@ void __put_task_struct(struct task_struct *tsk)
 	if (!profile_handoff_task(tsk))
 		free_task(tsk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__put_task_struct); */
+EXPORT_SYMBOL_GPL(__put_task_struct);
 
 /*
  * macro override instead of weak attribute alias, to workaround
@@ -513,7 +513,7 @@ static int __init coredump_filter_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("coredump_filter=", coredump_filter_setup); */ */
+__setup("coredump_filter=", coredump_filter_setup);
 
 #include <linux/init_task.h>
 
@@ -599,7 +599,7 @@ void __mmdrop(struct mm_struct *mm)
 	check_mm(mm);
 	free_mm(mm);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__mmdrop); */
+EXPORT_SYMBOL_GPL(__mmdrop);
 
 /*
  * Decrement the use count and release all resources for an mm.
@@ -627,7 +627,7 @@ int mmput(struct mm_struct *mm)
 	}
 	return mm_freed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mmput); */
+EXPORT_SYMBOL_GPL(mmput);
 
 /*
  * We added or removed a vma mapping the executable. The vmas are only mapped
@@ -714,7 +714,7 @@ struct mm_struct *get_task_mm(struct task_struct *task)
 	task_unlock(task);
 	return mm;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_task_mm); */
+EXPORT_SYMBOL_GPL(get_task_mm);
 
 struct mm_struct *mm_access(struct task_struct *task, unsigned int mode)
 {

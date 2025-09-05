@@ -932,7 +932,7 @@ error3:
 error2:
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ds3000_attach); */
+EXPORT_SYMBOL(ds3000_attach);
 
 static int ds3000_set_carrier_offset(struct dvb_frontend *fe,
 					s32 carrier_offset_khz)

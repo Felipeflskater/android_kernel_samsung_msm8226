@@ -48,7 +48,7 @@ void snd_akm4xxx_write(struct snd_akm4xxx *ak, int chip, unsigned char reg,
 	ak->ops.unlock(ak, chip);
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_akm4xxx_write); */
+EXPORT_SYMBOL(snd_akm4xxx_write);
 
 /* reset procedure for AK4524 and AK4528 */
 static void ak4524_reset(struct snd_akm4xxx *ak, int state)
@@ -129,7 +129,7 @@ void snd_akm4xxx_reset(struct snd_akm4xxx *ak, int state)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_akm4xxx_reset); */
+EXPORT_SYMBOL(snd_akm4xxx_reset);
 
 
 /*
@@ -343,7 +343,7 @@ void snd_akm4xxx_init(struct snd_akm4xxx *ak)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_akm4xxx_init); */
+EXPORT_SYMBOL(snd_akm4xxx_init);
 
 /*
  * Mixer callbacks
@@ -930,7 +930,7 @@ int snd_akm4xxx_build_controls(struct snd_akm4xxx *ak)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_akm4xxx_build_controls); */
+EXPORT_SYMBOL(snd_akm4xxx_build_controls);
 
 static int __init alsa_akm4xxx_module_init(void)
 {

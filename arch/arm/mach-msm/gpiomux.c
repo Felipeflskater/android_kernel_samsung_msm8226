@@ -223,7 +223,7 @@ int msm_gpiomux_write(unsigned gpio, enum msm_gpiomux_setting which,
 	spin_unlock_irqrestore(&gpiomux_lock, irq_flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_write); */
+EXPORT_SYMBOL(msm_gpiomux_write);
 
 int msm_gpiomux_get(unsigned gpio)
 {
@@ -242,7 +242,7 @@ int msm_gpiomux_get(unsigned gpio)
 	spin_unlock_irqrestore(&gpiomux_lock, irq_flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_get); */
+EXPORT_SYMBOL(msm_gpiomux_get);
 
 int msm_gpiomux_put(unsigned gpio)
 {
@@ -262,7 +262,7 @@ int msm_gpiomux_put(unsigned gpio)
 	spin_unlock_irqrestore(&gpiomux_lock, irq_flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_put); */
+EXPORT_SYMBOL(msm_gpiomux_put);
 
 int msm_tlmm_misc_reg_read(enum msm_tlmm_misc_reg misc_reg)
 {
@@ -423,7 +423,7 @@ int msm_gpiomux_init(size_t ngpio)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_init); */
+EXPORT_SYMBOL(msm_gpiomux_init);
 
 void msm_gpiomux_install_nowrite(struct msm_gpiomux_config *configs,
 				unsigned nconfigs)
@@ -456,7 +456,7 @@ void msm_gpiomux_install(struct msm_gpiomux_config *configs, unsigned nconfigs)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_install); */
+EXPORT_SYMBOL(msm_gpiomux_install);
 
 int msm_gpiomux_init_dt(void)
 {
@@ -479,7 +479,7 @@ int msm_gpiomux_init_dt(void)
 
 	return msm_gpiomux_init(ngpio);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_gpiomux_init_dt); */
+EXPORT_SYMBOL(msm_gpiomux_init_dt);
 
 #ifdef CONFIG_SEC_GPIO_DVS
 static struct platform_device secgpio_dvs_device = {

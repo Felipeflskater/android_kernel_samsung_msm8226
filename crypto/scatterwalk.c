@@ -38,14 +38,14 @@ void scatterwalk_start(struct scatter_walk *walk, struct scatterlist *sg)
 
 	walk->offset = sg->offset;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scatterwalk_start); */
+EXPORT_SYMBOL_GPL(scatterwalk_start);
 
 void *scatterwalk_map(struct scatter_walk *walk)
 {
 	return kmap_atomic(scatterwalk_page(walk)) +
 	       offset_in_page(walk->offset);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scatterwalk_map); */
+EXPORT_SYMBOL_GPL(scatterwalk_map);
 
 static void scatterwalk_pagedone(struct scatter_walk *walk, int out,
 				 unsigned int more)
@@ -71,7 +71,7 @@ void scatterwalk_done(struct scatter_walk *walk, int out, int more)
 	if (!(scatterwalk_pagelen(walk) & (PAGE_SIZE - 1)) || !more)
 		scatterwalk_pagedone(walk, out, more);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scatterwalk_done); */
+EXPORT_SYMBOL_GPL(scatterwalk_done);
 
 void scatterwalk_copychunks(void *buf, struct scatter_walk *walk,
 			    size_t nbytes, int out)
@@ -98,7 +98,7 @@ void scatterwalk_copychunks(void *buf, struct scatter_walk *walk,
 		scatterwalk_pagedone(walk, out, 1);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scatterwalk_copychunks); */
+EXPORT_SYMBOL_GPL(scatterwalk_copychunks);
 
 void scatterwalk_map_and_copy(void *buf, struct scatterlist *sg,
 			      unsigned int start, unsigned int nbytes, int out)
@@ -123,4 +123,4 @@ void scatterwalk_map_and_copy(void *buf, struct scatterlist *sg,
 	scatterwalk_copychunks(buf, &walk, nbytes, out);
 	scatterwalk_done(&walk, out, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(scatterwalk_map_and_copy); */
+EXPORT_SYMBOL_GPL(scatterwalk_map_and_copy);

@@ -48,7 +48,7 @@ void fw_csr_iterator_init(struct fw_csr_iterator *ci, const u32 *p)
 	ci->p = p + 1;
 	ci->end = ci->p + (p[0] >> 16);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_csr_iterator_init); */
+EXPORT_SYMBOL(fw_csr_iterator_init);
 
 int fw_csr_iterator_next(struct fw_csr_iterator *ci, int *key, int *value)
 {
@@ -57,7 +57,7 @@ int fw_csr_iterator_next(struct fw_csr_iterator *ci, int *key, int *value)
 
 	return ci->p++ < ci->end;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_csr_iterator_next); */
+EXPORT_SYMBOL(fw_csr_iterator_next);
 
 static const u32 *search_leaf(const u32 *directory, int search_key)
 {
@@ -124,7 +124,7 @@ int fw_csr_string(const u32 *directory, int key, char *buf, size_t size)
 
 	return textual_leaf_to_string(leaf, buf, size);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_csr_string); */
+EXPORT_SYMBOL(fw_csr_string);
 
 static void get_ids(const u32 *directory, int *id)
 {
@@ -213,7 +213,7 @@ struct bus_type fw_bus_type = {
 	.name = "firewire",
 	.match = fw_unit_match,
 };
-/* DISABLED: EXPORT_SYMBOL(fw_bus_type); */
+EXPORT_SYMBOL(fw_bus_type);
 
 int fw_device_enable_phys_dma(struct fw_device *device)
 {
@@ -226,7 +226,7 @@ int fw_device_enable_phys_dma(struct fw_device *device)
 						     device->node_id,
 						     generation);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_device_enable_phys_dma); */
+EXPORT_SYMBOL(fw_device_enable_phys_dma);
 
 struct config_rom_attribute {
 	struct device_attribute attr;
@@ -734,7 +734,7 @@ struct fw_device *fw_device_get_by_devt(dev_t devt)
 }
 
 struct workqueue_struct *fw_workqueue;
-/* DISABLED: EXPORT_SYMBOL(fw_workqueue); */
+EXPORT_SYMBOL(fw_workqueue);
 
 static void fw_schedule_device_work(struct fw_device *device,
 				    unsigned long delay)

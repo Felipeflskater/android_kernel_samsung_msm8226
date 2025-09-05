@@ -43,7 +43,7 @@
 
 #ifdef CONFIG_MUIC_RESET_PIN_ENABLE
 int muic_reset_pin = 0;
-/* DISABLED: EXPORT_SYMBOL_GPL(muic_reset_pin); */
+EXPORT_SYMBOL_GPL(muic_reset_pin);
 #endif
 
 static struct mfd_cell max77888_devs[] = {
@@ -69,7 +69,7 @@ int max77888_read_reg(struct i2c_client *i2c, u8 reg, u8 *dest)
 	*dest = ret;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77888_read_reg); */
+EXPORT_SYMBOL_GPL(max77888_read_reg);
 
 int max77888_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -84,7 +84,7 @@ int max77888_bulk_read(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77888_bulk_read); */
+EXPORT_SYMBOL_GPL(max77888_bulk_read);
 
 int max77888_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 {
@@ -96,7 +96,7 @@ int max77888_write_reg(struct i2c_client *i2c, u8 reg, u8 value)
 	mutex_unlock(&max77888->iolock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77888_write_reg); */
+EXPORT_SYMBOL_GPL(max77888_write_reg);
 
 int max77888_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 {
@@ -111,7 +111,7 @@ int max77888_bulk_write(struct i2c_client *i2c, u8 reg, int count, u8 *buf)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77888_bulk_write); */
+EXPORT_SYMBOL_GPL(max77888_bulk_write);
 
 static int max77888_read_word(struct i2c_client *i2c, u8 reg)
 {
@@ -140,7 +140,7 @@ int max77888_update_reg(struct i2c_client *i2c, u8 reg, u8 val, u8 mask)
 	mutex_unlock(&max77888->iolock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max77888_update_reg); */
+EXPORT_SYMBOL_GPL(max77888_update_reg);
 
 static int of_max77888_dt(struct device *dev, struct max77888_platform_data *pdata)
 {

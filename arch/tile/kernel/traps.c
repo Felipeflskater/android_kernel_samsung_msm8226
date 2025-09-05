@@ -51,7 +51,7 @@ static int __init setup_unaligned_fixup(char *str)
 	       "completely disabled");
 	return 1;
 }
-/* DISABLED: __setup("unaligned_fixup=", setup_unaligned_fixup); */ */
+__setup("unaligned_fixup=", setup_unaligned_fixup);
 
 #if CHIP_HAS_TILE_DMA()
 
@@ -63,7 +63,7 @@ static int __init nodma(char *str)
 	dma_disabled = 1;
 	return 1;
 }
-/* DISABLED: __setup("nodma", nodma); */ */
+__setup("nodma", nodma);
 
 /* How to decode SPR_GPV_REASON */
 #define IRET_ERROR (1U << 31)

@@ -16,7 +16,7 @@
 #include <linux/sched.h>
 
 unsigned long shm_align_mask = PAGE_SIZE - 1;	/* Sane caches */
-/* DISABLED: EXPORT_SYMBOL(shm_align_mask); */
+EXPORT_SYMBOL(shm_align_mask);
 
 /* gap between mmap and stack */
 #define MIN_GAP (128*1024*1024UL)

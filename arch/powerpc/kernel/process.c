@@ -98,7 +98,7 @@ void flush_fp_to_thread(struct task_struct *tsk)
 		preempt_enable();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(flush_fp_to_thread); */
+EXPORT_SYMBOL_GPL(flush_fp_to_thread);
 
 void enable_kernel_fp(void)
 {
@@ -113,7 +113,7 @@ void enable_kernel_fp(void)
 	giveup_fpu(last_task_used_math);
 #endif /* CONFIG_SMP */
 }
-/* DISABLED: EXPORT_SYMBOL(enable_kernel_fp); */
+EXPORT_SYMBOL(enable_kernel_fp);
 
 #ifdef CONFIG_ALTIVEC
 void enable_kernel_altivec(void)
@@ -129,7 +129,7 @@ void enable_kernel_altivec(void)
 	giveup_altivec(last_task_used_altivec);
 #endif /* CONFIG_SMP */
 }
-/* DISABLED: EXPORT_SYMBOL(enable_kernel_altivec); */
+EXPORT_SYMBOL(enable_kernel_altivec);
 
 /*
  * Make sure the VMX/Altivec register state in the
@@ -148,7 +148,7 @@ void flush_altivec_to_thread(struct task_struct *tsk)
 		preempt_enable();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(flush_altivec_to_thread); */
+EXPORT_SYMBOL_GPL(flush_altivec_to_thread);
 #endif /* CONFIG_ALTIVEC */
 
 #ifdef CONFIG_VSX
@@ -167,7 +167,7 @@ void enable_kernel_vsx(void)
 	giveup_vsx(last_task_used_vsx);
 #endif /* CONFIG_SMP */
 }
-/* DISABLED: EXPORT_SYMBOL(enable_kernel_vsx); */
+EXPORT_SYMBOL(enable_kernel_vsx);
 #endif
 
 void giveup_vsx(struct task_struct *tsk)
@@ -190,7 +190,7 @@ void flush_vsx_to_thread(struct task_struct *tsk)
 		preempt_enable();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(flush_vsx_to_thread); */
+EXPORT_SYMBOL_GPL(flush_vsx_to_thread);
 #endif /* CONFIG_VSX */
 
 #ifdef CONFIG_SPE
@@ -208,7 +208,7 @@ void enable_kernel_spe(void)
 	giveup_spe(last_task_used_spe);
 #endif /* __SMP __ */
 }
-/* DISABLED: EXPORT_SYMBOL(enable_kernel_spe); */
+EXPORT_SYMBOL(enable_kernel_spe);
 
 void flush_spe_to_thread(struct task_struct *tsk)
 {
@@ -1119,7 +1119,7 @@ int validate_sp(unsigned long sp, struct task_struct *p,
 	return valid_irq_stack(sp, p, nbytes);
 }
 
-/* DISABLED: EXPORT_SYMBOL(validate_sp); */
+EXPORT_SYMBOL(validate_sp);
 
 unsigned long get_wchan(struct task_struct *p)
 {
@@ -1222,7 +1222,7 @@ void dump_stack(void)
 {
 	show_stack(current, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 #ifdef CONFIG_PPC64
 /* Called with hard IRQs off */

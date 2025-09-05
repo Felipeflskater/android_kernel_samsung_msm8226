@@ -28,7 +28,7 @@ static int __init ima_audit_setup(char *str)
 		ima_audit = audit ? 1 : 0;
 	return 1;
 }
-/* DISABLED: __setup("ima_audit=", ima_audit_setup); */ */
+__setup("ima_audit=", ima_audit_setup);
 #endif
 
 void integrity_audit_msg(int audit_msgno, struct inode *inode,

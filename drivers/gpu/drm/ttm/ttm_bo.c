@@ -168,7 +168,7 @@ int ttm_bo_wait_unreserved(struct ttm_buffer_object *bo, bool interruptible)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_wait_unreserved); */
+EXPORT_SYMBOL(ttm_bo_wait_unreserved);
 
 void ttm_bo_add_to_lru(struct ttm_buffer_object *bo)
 {
@@ -266,7 +266,7 @@ int ttm_bo_reserve_locked(struct ttm_buffer_object *bo,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_reserve); */
+EXPORT_SYMBOL(ttm_bo_reserve);
 
 static void ttm_bo_ref_bug(struct kref *list_kref)
 {
@@ -315,7 +315,7 @@ void ttm_bo_unreserve(struct ttm_buffer_object *bo)
 	ttm_bo_unreserve_locked(bo);
 	spin_unlock(&glob->lru_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_unreserve); */
+EXPORT_SYMBOL(ttm_bo_unreserve);
 
 /*
  * Call bo->mutex locked.
@@ -706,13 +706,13 @@ void ttm_bo_unref(struct ttm_buffer_object **p_bo)
 	kref_put(&bo->kref, ttm_bo_release);
 	write_unlock(&bdev->vm_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_unref); */
+EXPORT_SYMBOL(ttm_bo_unref);
 
 int ttm_bo_lock_delayed_workqueue(struct ttm_bo_device *bdev)
 {
 	return cancel_delayed_work_sync(&bdev->wq);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_lock_delayed_workqueue); */
+EXPORT_SYMBOL(ttm_bo_lock_delayed_workqueue);
 
 void ttm_bo_unlock_delayed_workqueue(struct ttm_bo_device *bdev, int resched)
 {
@@ -720,7 +720,7 @@ void ttm_bo_unlock_delayed_workqueue(struct ttm_bo_device *bdev, int resched)
 		schedule_delayed_work(&bdev->wq,
 				      ((HZ / 100) < 1) ? 1 : HZ / 100);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_unlock_delayed_workqueue); */
+EXPORT_SYMBOL(ttm_bo_unlock_delayed_workqueue);
 
 static int ttm_bo_evict(struct ttm_buffer_object *bo, bool interruptible,
 			bool no_wait_reserve, bool no_wait_gpu)
@@ -848,7 +848,7 @@ void ttm_bo_mem_put(struct ttm_buffer_object *bo, struct ttm_mem_reg *mem)
 	if (mem->mm_node)
 		(*man->func->put_node)(man, mem);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_mem_put); */
+EXPORT_SYMBOL(ttm_bo_mem_put);
 
 /**
  * Repeatedly evict memory from the LRU for @mem_type until we create enough
@@ -1040,7 +1040,7 @@ int ttm_bo_mem_space(struct ttm_buffer_object *bo,
 	ret = (has_erestartsys) ? -ERESTARTSYS : -ENOMEM;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_mem_space); */
+EXPORT_SYMBOL(ttm_bo_mem_space);
 
 int ttm_bo_wait_cpu(struct ttm_buffer_object *bo, bool no_wait)
 {
@@ -1050,7 +1050,7 @@ int ttm_bo_wait_cpu(struct ttm_buffer_object *bo, bool no_wait)
 	return wait_event_interruptible(bo->event_queue,
 					atomic_read(&bo->cpu_writers) == 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_wait_cpu); */
+EXPORT_SYMBOL(ttm_bo_wait_cpu);
 
 int ttm_bo_move_buffer(struct ttm_buffer_object *bo,
 			struct ttm_placement *placement,
@@ -1158,7 +1158,7 @@ int ttm_bo_validate(struct ttm_buffer_object *bo,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_validate); */
+EXPORT_SYMBOL(ttm_bo_validate);
 
 int ttm_bo_check_placement(struct ttm_buffer_object *bo,
 				struct ttm_placement *placement)
@@ -1263,7 +1263,7 @@ out_err:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_init); */
+EXPORT_SYMBOL(ttm_bo_init);
 
 size_t ttm_bo_acc_size(struct ttm_bo_device *bdev,
 		       unsigned long bo_size,
@@ -1277,7 +1277,7 @@ size_t ttm_bo_acc_size(struct ttm_bo_device *bdev,
 	size += ttm_round_pot(sizeof(struct ttm_tt));
 	return size;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_acc_size); */
+EXPORT_SYMBOL(ttm_bo_acc_size);
 
 size_t ttm_bo_dma_acc_size(struct ttm_bo_device *bdev,
 			   unsigned long bo_size,
@@ -1292,7 +1292,7 @@ size_t ttm_bo_dma_acc_size(struct ttm_bo_device *bdev,
 	size += ttm_round_pot(sizeof(struct ttm_dma_tt));
 	return size;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_dma_acc_size); */
+EXPORT_SYMBOL(ttm_bo_dma_acc_size);
 
 int ttm_bo_create(struct ttm_bo_device *bdev,
 			unsigned long size,
@@ -1321,7 +1321,7 @@ int ttm_bo_create(struct ttm_bo_device *bdev,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_create); */
+EXPORT_SYMBOL(ttm_bo_create);
 
 static int ttm_bo_force_list_clean(struct ttm_bo_device *bdev,
 					unsigned mem_type, bool allow_errors)
@@ -1380,7 +1380,7 @@ int ttm_bo_clean_mm(struct ttm_bo_device *bdev, unsigned mem_type)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_clean_mm); */
+EXPORT_SYMBOL(ttm_bo_clean_mm);
 
 int ttm_bo_evict_mm(struct ttm_bo_device *bdev, unsigned mem_type)
 {
@@ -1398,7 +1398,7 @@ int ttm_bo_evict_mm(struct ttm_bo_device *bdev, unsigned mem_type)
 
 	return ttm_bo_force_list_clean(bdev, mem_type, true);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_evict_mm); */
+EXPORT_SYMBOL(ttm_bo_evict_mm);
 
 int ttm_bo_init_mm(struct ttm_bo_device *bdev, unsigned type,
 			unsigned long p_size)
@@ -1433,7 +1433,7 @@ int ttm_bo_init_mm(struct ttm_bo_device *bdev, unsigned type,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_init_mm); */
+EXPORT_SYMBOL(ttm_bo_init_mm);
 
 static void ttm_bo_global_kobj_release(struct kobject *kobj)
 {
@@ -1452,7 +1452,7 @@ void ttm_bo_global_release(struct drm_global_reference *ref)
 	kobject_del(&glob->kobj);
 	kobject_put(&glob->kobj);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_global_release); */
+EXPORT_SYMBOL(ttm_bo_global_release);
 
 int ttm_bo_global_init(struct drm_global_reference *ref)
 {
@@ -1494,7 +1494,7 @@ out_no_drp:
 	kfree(glob);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_global_init); */
+EXPORT_SYMBOL(ttm_bo_global_init);
 
 
 int ttm_bo_device_release(struct ttm_bo_device *bdev)
@@ -1541,7 +1541,7 @@ int ttm_bo_device_release(struct ttm_bo_device *bdev)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_device_release); */
+EXPORT_SYMBOL(ttm_bo_device_release);
 
 int ttm_bo_device_init(struct ttm_bo_device *bdev,
 		       struct ttm_bo_global *glob,
@@ -1587,7 +1587,7 @@ out_no_addr_mm:
 out_no_sys:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_device_init); */
+EXPORT_SYMBOL(ttm_bo_device_init);
 
 /*
  * buffer object vm functions.
@@ -1633,7 +1633,7 @@ void ttm_bo_unmap_virtual(struct ttm_buffer_object *bo)
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_unmap_virtual); */
+EXPORT_SYMBOL(ttm_bo_unmap_virtual);
 
 static void ttm_bo_vm_insert_rb(struct ttm_buffer_object *bo)
 {
@@ -1764,7 +1764,7 @@ int ttm_bo_wait(struct ttm_buffer_object *bo,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_wait); */
+EXPORT_SYMBOL(ttm_bo_wait);
 
 int ttm_bo_synccpu_write_grab(struct ttm_buffer_object *bo, bool no_wait)
 {
@@ -1786,14 +1786,14 @@ int ttm_bo_synccpu_write_grab(struct ttm_buffer_object *bo, bool no_wait)
 	ttm_bo_unreserve(bo);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_synccpu_write_grab); */
+EXPORT_SYMBOL(ttm_bo_synccpu_write_grab);
 
 void ttm_bo_synccpu_write_release(struct ttm_buffer_object *bo)
 {
 	if (atomic_dec_and_test(&bo->cpu_writers))
 		wake_up_all(&bo->event_queue);
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_synccpu_write_release); */
+EXPORT_SYMBOL(ttm_bo_synccpu_write_release);
 
 /**
  * A buffer object shrink method that tries to swap out the first
@@ -1904,4 +1904,4 @@ void ttm_bo_swapout_all(struct ttm_bo_device *bdev)
 	while (ttm_bo_swapout(&bdev->glob->shrink) == 0)
 		;
 }
-/* DISABLED: EXPORT_SYMBOL(ttm_bo_swapout_all); */
+EXPORT_SYMBOL(ttm_bo_swapout_all);

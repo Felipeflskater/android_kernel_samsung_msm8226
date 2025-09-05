@@ -238,14 +238,14 @@ free_ep:
 	kfree(ep);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_create_endpoint); */
+EXPORT_SYMBOL_GPL(iscsi_create_endpoint);
 
 void iscsi_destroy_endpoint(struct iscsi_endpoint *ep)
 {
 	sysfs_remove_group(&ep->dev.kobj, &iscsi_endpoint_group);
 	device_unregister(&ep->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_destroy_endpoint); */
+EXPORT_SYMBOL_GPL(iscsi_destroy_endpoint);
 
 struct iscsi_endpoint *iscsi_lookup_endpoint(u64 handle)
 {
@@ -265,7 +265,7 @@ struct iscsi_endpoint *iscsi_lookup_endpoint(u64 handle)
 	put_device(dev);
 	return ep;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_lookup_endpoint); */
+EXPORT_SYMBOL_GPL(iscsi_lookup_endpoint);
 
 /*
  * Interface to display network param to sysfs
@@ -450,14 +450,14 @@ free_iface:
 	kfree(iface);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_create_iface); */
+EXPORT_SYMBOL_GPL(iscsi_create_iface);
 
 void iscsi_destroy_iface(struct iscsi_iface *iface)
 {
 	sysfs_remove_group(&iface->dev.kobj, &iscsi_iface_group);
 	device_unregister(&iface->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_destroy_iface); */
+EXPORT_SYMBOL_GPL(iscsi_destroy_iface);
 
 /*
  * BSG support
@@ -701,7 +701,7 @@ int iscsi_session_chkready(struct iscsi_cls_session *session)
 	spin_unlock_irqrestore(&session->lock, flags);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_chkready); */
+EXPORT_SYMBOL_GPL(iscsi_session_chkready);
 
 int iscsi_is_session_online(struct iscsi_cls_session *session)
 {
@@ -714,7 +714,7 @@ int iscsi_is_session_online(struct iscsi_cls_session *session)
 	spin_unlock_irqrestore(&session->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_is_session_online); */
+EXPORT_SYMBOL_GPL(iscsi_is_session_online);
 
 static void iscsi_session_release(struct device *dev)
 {
@@ -731,7 +731,7 @@ int iscsi_is_session_dev(const struct device *dev)
 {
 	return dev->release == iscsi_session_release;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_is_session_dev); */
+EXPORT_SYMBOL_GPL(iscsi_is_session_dev);
 
 static int iscsi_iter_session_fn(struct device *dev, void *data)
 {
@@ -749,7 +749,7 @@ void iscsi_host_for_each_session(struct Scsi_Host *shost,
 	device_for_each_child(&shost->shost_gendev, fn,
 			      iscsi_iter_session_fn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_for_each_session); */
+EXPORT_SYMBOL_GPL(iscsi_host_for_each_session);
 
 /**
  * iscsi_scan_finished - helper to report when running scans are done
@@ -768,7 +768,7 @@ int iscsi_scan_finished(struct Scsi_Host *shost, unsigned long time)
 	 */
 	return !atomic_read(&ihost->nr_scans);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_scan_finished); */
+EXPORT_SYMBOL_GPL(iscsi_scan_finished);
 
 struct iscsi_scan_data {
 	unsigned int channel;
@@ -877,7 +877,7 @@ int iscsi_block_scsi_eh(struct scsi_cmnd *cmd)
 	spin_unlock_irqrestore(&session->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_block_scsi_eh); */
+EXPORT_SYMBOL_GPL(iscsi_block_scsi_eh);
 
 static void session_recovery_timedout(struct work_struct *work)
 {
@@ -958,7 +958,7 @@ void iscsi_unblock_session(struct iscsi_cls_session *session)
 	 */
 	flush_workqueue(iscsi_eh_timer_workq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_unblock_session); */
+EXPORT_SYMBOL_GPL(iscsi_unblock_session);
 
 static void __iscsi_block_session(struct work_struct *work)
 {
@@ -983,7 +983,7 @@ void iscsi_block_session(struct iscsi_cls_session *session)
 {
 	queue_work(iscsi_eh_timer_workq, &session->block_work);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_block_session); */
+EXPORT_SYMBOL_GPL(iscsi_block_session);
 
 static void __iscsi_unbind_session(struct work_struct *work)
 {
@@ -1053,7 +1053,7 @@ iscsi_alloc_session(struct Scsi_Host *shost, struct iscsi_transport *transport,
 	ISCSI_DBG_TRANS_SESSION(session, "Completed session allocation\n");
 	return session;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_alloc_session); */
+EXPORT_SYMBOL_GPL(iscsi_alloc_session);
 
 int iscsi_add_session(struct iscsi_cls_session *session, unsigned int target_id)
 {
@@ -1102,7 +1102,7 @@ release_ida:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_add_session); */
+EXPORT_SYMBOL_GPL(iscsi_add_session);
 
 /**
  * iscsi_create_session - create iscsi class session
@@ -1129,7 +1129,7 @@ iscsi_create_session(struct Scsi_Host *shost, struct iscsi_transport *transport,
 	}
 	return session;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_create_session); */
+EXPORT_SYMBOL_GPL(iscsi_create_session);
 
 static void iscsi_conn_release(struct device *dev)
 {
@@ -1198,7 +1198,7 @@ void iscsi_remove_session(struct iscsi_cls_session *session)
 	ISCSI_DBG_TRANS_SESSION(session, "Completing session removal\n");
 	device_del(&session->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_remove_session); */
+EXPORT_SYMBOL_GPL(iscsi_remove_session);
 
 void iscsi_free_session(struct iscsi_cls_session *session)
 {
@@ -1206,7 +1206,7 @@ void iscsi_free_session(struct iscsi_cls_session *session)
 	iscsi_session_event(session, ISCSI_KEVENT_DESTROY_SESSION);
 	put_device(&session->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_free_session); */
+EXPORT_SYMBOL_GPL(iscsi_free_session);
 
 /**
  * iscsi_destroy_session - destroy iscsi session
@@ -1222,7 +1222,7 @@ int iscsi_destroy_session(struct iscsi_cls_session *session)
 	iscsi_free_session(session);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_destroy_session); */
+EXPORT_SYMBOL_GPL(iscsi_destroy_session);
 
 /**
  * iscsi_create_conn - create iscsi class connection
@@ -1287,7 +1287,7 @@ free_conn:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_create_conn); */
+EXPORT_SYMBOL_GPL(iscsi_create_conn);
 
 /**
  * iscsi_destroy_conn - destroy iscsi class connection
@@ -1308,7 +1308,7 @@ int iscsi_destroy_conn(struct iscsi_cls_conn *conn)
 	device_unregister(&conn->dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_destroy_conn); */
+EXPORT_SYMBOL_GPL(iscsi_destroy_conn);
 
 /*
  * iscsi interface functions
@@ -1372,7 +1372,7 @@ int iscsi_recv_pdu(struct iscsi_cls_conn *conn, struct iscsi_hdr *hdr,
 
 	return iscsi_multicast_skb(skb, ISCSI_NL_GRP_ISCSID, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_recv_pdu); */
+EXPORT_SYMBOL_GPL(iscsi_recv_pdu);
 
 int iscsi_offload_mesg(struct Scsi_Host *shost,
 		       struct iscsi_transport *transport, uint32_t type,
@@ -1407,7 +1407,7 @@ int iscsi_offload_mesg(struct Scsi_Host *shost,
 
 	return iscsi_multicast_skb(skb, ISCSI_NL_GRP_UIP, GFP_ATOMIC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_offload_mesg); */
+EXPORT_SYMBOL_GPL(iscsi_offload_mesg);
 
 void iscsi_conn_error_event(struct iscsi_cls_conn *conn, enum iscsi_err error)
 {
@@ -1441,7 +1441,7 @@ void iscsi_conn_error_event(struct iscsi_cls_conn *conn, enum iscsi_err error)
 	iscsi_cls_conn_printk(KERN_INFO, conn, "detected conn error (%d)\n",
 			      error);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_error_event); */
+EXPORT_SYMBOL_GPL(iscsi_conn_error_event);
 
 void iscsi_conn_login_event(struct iscsi_cls_conn *conn,
 			    enum iscsi_conn_state state)
@@ -1475,7 +1475,7 @@ void iscsi_conn_login_event(struct iscsi_cls_conn *conn,
 	iscsi_cls_conn_printk(KERN_INFO, conn, "detected conn login (%d)\n",
 			      state);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_login_event); */
+EXPORT_SYMBOL_GPL(iscsi_conn_login_event);
 
 void iscsi_post_host_event(uint32_t host_no, struct iscsi_transport *transport,
 			   enum iscsi_host_event_code code, uint32_t data_size,
@@ -1506,7 +1506,7 @@ void iscsi_post_host_event(uint32_t host_no, struct iscsi_transport *transport,
 
 	iscsi_multicast_skb(skb, ISCSI_NL_GRP_ISCSID, GFP_NOIO);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_post_host_event); */
+EXPORT_SYMBOL_GPL(iscsi_post_host_event);
 
 void iscsi_ping_comp_event(uint32_t host_no, struct iscsi_transport *transport,
 			   uint32_t status, uint32_t pid, uint32_t data_size,
@@ -1535,7 +1535,7 @@ void iscsi_ping_comp_event(uint32_t host_no, struct iscsi_transport *transport,
 
 	iscsi_multicast_skb(skb, ISCSI_NL_GRP_ISCSID, GFP_NOIO);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_ping_comp_event); */
+EXPORT_SYMBOL_GPL(iscsi_ping_comp_event);
 
 static int
 iscsi_if_send_reply(uint32_t group, int seq, int type, int done, int multi,
@@ -1692,7 +1692,7 @@ int iscsi_session_event(struct iscsi_cls_session *session,
 				event, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_event); */
+EXPORT_SYMBOL_GPL(iscsi_session_event);
 
 static int
 iscsi_if_create_session(struct iscsi_internal *priv, struct iscsi_endpoint *ep,
@@ -2746,7 +2746,7 @@ char *iscsi_get_port_speed_name(struct Scsi_Host *shost)
 	}
 	return speed;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_get_port_speed_name); */
+EXPORT_SYMBOL_GPL(iscsi_get_port_speed_name);
 
 /* convert iscsi_port_state values to ascii string name */
 static const struct {
@@ -2772,7 +2772,7 @@ char *iscsi_get_port_state_name(struct Scsi_Host *shost)
 	}
 	return state;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_get_port_state_name); */
+EXPORT_SYMBOL_GPL(iscsi_get_port_state_name);
 
 static int iscsi_session_match(struct attribute_container *cont,
 			   struct device *dev)
@@ -2903,7 +2903,7 @@ free_priv:
 	kfree(priv);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_register_transport); */
+EXPORT_SYMBOL_GPL(iscsi_register_transport);
 
 int iscsi_unregister_transport(struct iscsi_transport *tt)
 {
@@ -2931,7 +2931,7 @@ int iscsi_unregister_transport(struct iscsi_transport *tt)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_unregister_transport); */
+EXPORT_SYMBOL_GPL(iscsi_unregister_transport);
 
 static __init int iscsi_transport_init(void)
 {

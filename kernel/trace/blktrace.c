@@ -155,7 +155,7 @@ void __trace_note_message(struct blk_trace *bt, const char *fmt, ...)
 	trace_note(bt, 0, BLK_TN_MESSAGE, buf, n);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__trace_note_message); */
+EXPORT_SYMBOL_GPL(__trace_note_message);
 
 static int act_log_check(struct blk_trace *bt, u32 what, sector_t sector,
 			 pid_t pid)
@@ -309,7 +309,7 @@ int blk_trace_remove(struct request_queue *q)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_trace_remove); */
+EXPORT_SYMBOL_GPL(blk_trace_remove);
 
 static ssize_t blk_dropped_read(struct file *filp, char __user *buffer,
 				size_t count, loff_t *ppos)
@@ -545,7 +545,7 @@ int blk_trace_setup(struct request_queue *q, char *name, dev_t dev,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_trace_setup); */
+EXPORT_SYMBOL_GPL(blk_trace_setup);
 
 #if defined(CONFIG_COMPAT) && defined(CONFIG_X86_64)
 static int compat_blk_trace_setup(struct request_queue *q, char *name,
@@ -615,7 +615,7 @@ int blk_trace_startstop(struct request_queue *q, int start)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_trace_startstop); */
+EXPORT_SYMBOL_GPL(blk_trace_startstop);
 
 /**
  * blk_trace_ioctl: - handle the ioctls associated with tracing
@@ -966,7 +966,7 @@ void blk_add_driver_data(struct request_queue *q,
 		__blk_add_trace(bt, blk_rq_pos(rq), blk_rq_bytes(rq), 0,
 				BLK_TA_DRV_DATA, rq->errors, len, data);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blk_add_driver_data); */
+EXPORT_SYMBOL_GPL(blk_add_driver_data);
 
 static void blk_register_tracepoints(void)
 {

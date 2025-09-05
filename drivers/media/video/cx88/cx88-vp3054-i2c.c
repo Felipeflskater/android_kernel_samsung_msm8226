@@ -155,5 +155,5 @@ void vp3054_i2c_remove(struct cx8802_dev *dev)
 	kfree(vp3054_i2c);
 }
 
-/* DISABLED: EXPORT_SYMBOL(vp3054_i2c_probe); */
-/* DISABLED: EXPORT_SYMBOL(vp3054_i2c_remove); */
+EXPORT_SYMBOL(vp3054_i2c_probe);
+EXPORT_SYMBOL(vp3054_i2c_remove);

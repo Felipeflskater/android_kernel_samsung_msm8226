@@ -229,10 +229,10 @@ static void __exit superhyway_bus_exit(void)
 core_initcall(superhyway_bus_init);
 module_exit(superhyway_bus_exit);
 
-/* DISABLED: EXPORT_SYMBOL(superhyway_bus_type); */
-/* DISABLED: EXPORT_SYMBOL(superhyway_add_device); */
-/* DISABLED: EXPORT_SYMBOL(superhyway_add_devices); */
-/* DISABLED: EXPORT_SYMBOL(superhyway_register_driver); */
-/* DISABLED: EXPORT_SYMBOL(superhyway_unregister_driver); */
+EXPORT_SYMBOL(superhyway_bus_type);
+EXPORT_SYMBOL(superhyway_add_device);
+EXPORT_SYMBOL(superhyway_add_devices);
+EXPORT_SYMBOL(superhyway_register_driver);
+EXPORT_SYMBOL(superhyway_unregister_driver);
 
 MODULE_LICENSE("GPL");

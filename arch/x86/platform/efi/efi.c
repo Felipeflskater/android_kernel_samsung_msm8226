@@ -68,7 +68,7 @@ struct efi __read_mostly efi = {
 	.uga        = EFI_INVALID_TABLE_ADDR,
 	.uv_systab  = EFI_INVALID_TABLE_ADDR,
 };
-/* DISABLED: EXPORT_SYMBOL(efi); */
+EXPORT_SYMBOL(efi);
 
 struct efi_memory_map memmap;
 
@@ -86,7 +86,7 @@ static int __init setup_noefi(char *arg)
 early_param("noefi", setup_noefi);
 
 int add_efi_memmap;
-/* DISABLED: EXPORT_SYMBOL(add_efi_memmap); */
+EXPORT_SYMBOL(add_efi_memmap);
 
 static int __init setup_add_efi_memmap(char *arg)
 {
@@ -1038,4 +1038,4 @@ efi_status_t efi_query_variable_store(u32 attributes, unsigned long size)
 
 	return EFI_SUCCESS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(efi_query_variable_store); */
+EXPORT_SYMBOL_GPL(efi_query_variable_store);

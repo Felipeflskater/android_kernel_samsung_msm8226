@@ -1950,7 +1950,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(stv0900_attach); */
+EXPORT_SYMBOL(stv0900_attach);
 
 MODULE_PARM_DESC(debug, "Set debug");
 

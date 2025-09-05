@@ -16,7 +16,7 @@
 #include <asm/auxio.h>
 
 void __iomem *auxio_register = NULL;
-/* DISABLED: EXPORT_SYMBOL(auxio_register); */
+EXPORT_SYMBOL(auxio_register);
 
 enum auxio_type {
 	AUXIO_TYPE_NODEV,
@@ -72,7 +72,7 @@ void auxio_set_led(int on)
 	bit = (ebus ? AUXIO_PCIO_LED : AUXIO_AUX1_LED);
 	__auxio_set_bit(bit, on, ebus);
 }
-/* DISABLED: EXPORT_SYMBOL(auxio_set_led); */
+EXPORT_SYMBOL(auxio_set_led);
 
 static void __auxio_sbus_set_lte(int on)
 {
@@ -91,7 +91,7 @@ void auxio_set_lte(int on)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(auxio_set_lte); */
+EXPORT_SYMBOL(auxio_set_lte);
 
 static const struct of_device_id auxio_match[] = {
 	{

@@ -21,7 +21,7 @@
 
 /* allocated in paging_init, zeroed in mem_init, and unchanged thereafter */
 unsigned long *empty_zero_page = NULL;
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 /* allocated in paging_init and unchanged thereafter */
 static unsigned long *empty_bad_page = NULL;
 

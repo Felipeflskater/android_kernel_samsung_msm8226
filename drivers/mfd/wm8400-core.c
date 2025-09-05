@@ -175,7 +175,7 @@ u16 wm8400_reg_read(struct wm8400 *wm8400, u8 reg)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8400_reg_read); */
+EXPORT_SYMBOL_GPL(wm8400_reg_read);
 
 int wm8400_block_read(struct wm8400 *wm8400, u8 reg, int count, u16 *data)
 {
@@ -189,7 +189,7 @@ int wm8400_block_read(struct wm8400 *wm8400, u8 reg, int count, u16 *data)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8400_block_read); */
+EXPORT_SYMBOL_GPL(wm8400_block_read);
 
 /**
  * wm8400_set_bits - Bitmask write
@@ -215,7 +215,7 @@ int wm8400_set_bits(struct wm8400 *wm8400, u8 reg, u16 mask, u16 val)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8400_set_bits); */
+EXPORT_SYMBOL_GPL(wm8400_set_bits);
 
 /**
  * wm8400_reset_codec_reg_cache - Reset cached codec registers to
@@ -234,7 +234,7 @@ void wm8400_reset_codec_reg_cache(struct wm8400 *wm8400)
 
 	mutex_unlock(&wm8400->io_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8400_reset_codec_reg_cache); */
+EXPORT_SYMBOL_GPL(wm8400_reset_codec_reg_cache);
 
 static int wm8400_register_codec(struct wm8400 *wm8400)
 {

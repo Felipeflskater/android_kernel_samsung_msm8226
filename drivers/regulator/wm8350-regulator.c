@@ -357,7 +357,7 @@ int wm8350_isink_set_flash(struct wm8350 *wm8350, int isink, u16 mode,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_isink_set_flash); */
+EXPORT_SYMBOL_GPL(wm8350_isink_set_flash);
 
 static int wm8350_dcdc_set_voltage(struct regulator_dev *rdev, int min_uV,
 				   int max_uV, unsigned *selector)
@@ -885,7 +885,7 @@ int wm8350_dcdc_set_slot(struct wm8350 *wm8350, int dcdc, u16 start,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_dcdc_set_slot); */
+EXPORT_SYMBOL_GPL(wm8350_dcdc_set_slot);
 
 int wm8350_ldo_set_slot(struct wm8350 *wm8350, int ldo, u16 start, u16 stop)
 {
@@ -920,7 +920,7 @@ int wm8350_ldo_set_slot(struct wm8350 *wm8350, int ldo, u16 start, u16 stop)
 	wm8350_reg_write(wm8350, slot_reg, val | ((start << 10) | (stop << 6)));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_ldo_set_slot); */
+EXPORT_SYMBOL_GPL(wm8350_ldo_set_slot);
 
 int wm8350_dcdc25_set_mode(struct wm8350 *wm8350, int dcdc, u16 mode,
 			   u16 ilim, u16 ramp, u16 feedback)
@@ -957,7 +957,7 @@ int wm8350_dcdc25_set_mode(struct wm8350 *wm8350, int dcdc, u16 mode,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_dcdc25_set_mode); */
+EXPORT_SYMBOL_GPL(wm8350_dcdc25_set_mode);
 
 static int wm8350_dcdc_enable(struct regulator_dev *rdev)
 {
@@ -1501,7 +1501,7 @@ int wm8350_register_regulator(struct wm8350 *wm8350, int reg,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_register_regulator); */
+EXPORT_SYMBOL_GPL(wm8350_register_regulator);
 
 /**
  * wm8350_register_led - Register a WM8350 LED output
@@ -1594,7 +1594,7 @@ int wm8350_register_led(struct wm8350 *wm8350, int lednum, int dcdc, int isink,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_register_led); */
+EXPORT_SYMBOL_GPL(wm8350_register_led);
 
 static struct platform_driver wm8350_regulator_driver = {
 	.probe = wm8350_regulator_probe,

@@ -306,11 +306,11 @@ static void cfag12864b_update(struct work_struct *work)
  * cfag12864b Exported Symbols
  */
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_buffer); */
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_getrate); */
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_enable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_disable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_isenabled); */
+EXPORT_SYMBOL_GPL(cfag12864b_buffer);
+EXPORT_SYMBOL_GPL(cfag12864b_getrate);
+EXPORT_SYMBOL_GPL(cfag12864b_enable);
+EXPORT_SYMBOL_GPL(cfag12864b_disable);
+EXPORT_SYMBOL_GPL(cfag12864b_isenabled);
 
 /*
  * Is the module inited?
@@ -321,7 +321,7 @@ unsigned char cfag12864b_isinited(void)
 {
 	return cfag12864b_inited;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cfag12864b_isinited); */
+EXPORT_SYMBOL_GPL(cfag12864b_isinited);
 
 /*
  * Module Init & Exit

@@ -230,7 +230,7 @@ void pxa2xx_configure_sockets(struct device *dev)
 
 	__raw_writel(mecr, MECR);
 }
-/* DISABLED: EXPORT_SYMBOL(pxa2xx_configure_sockets); */
+EXPORT_SYMBOL(pxa2xx_configure_sockets);
 
 static const char *skt_names[] = {
 	"PCMCIA socket 0",
@@ -264,7 +264,7 @@ int pxa2xx_drv_pcmcia_add_one(struct soc_pcmcia_socket *skt)
 
 	return soc_pcmcia_add_one(skt);
 }
-/* DISABLED: EXPORT_SYMBOL(pxa2xx_drv_pcmcia_add_one); */
+EXPORT_SYMBOL(pxa2xx_drv_pcmcia_add_one);
 
 void pxa2xx_drv_pcmcia_ops(struct pcmcia_low_level *ops)
 {
@@ -274,7 +274,7 @@ void pxa2xx_drv_pcmcia_ops(struct pcmcia_low_level *ops)
 	ops->frequency_change = pxa2xx_pcmcia_frequency_change;
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(pxa2xx_drv_pcmcia_ops); */
+EXPORT_SYMBOL(pxa2xx_drv_pcmcia_ops);
 
 static int pxa2xx_drv_pcmcia_probe(struct platform_device *dev)
 {

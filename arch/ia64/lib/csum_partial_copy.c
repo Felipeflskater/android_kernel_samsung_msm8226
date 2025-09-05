@@ -128,7 +128,7 @@ csum_partial_copy_from_user(const void __user *src, void *dst,
 	return (__force __wsum)result;
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
+EXPORT_SYMBOL(csum_partial_copy_from_user);
 
 __wsum
 csum_partial_copy_nocheck(const void *src, void *dst, int len, __wsum sum)
@@ -137,4 +137,4 @@ csum_partial_copy_nocheck(const void *src, void *dst, int len, __wsum sum)
 					   dst, len, sum, NULL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+EXPORT_SYMBOL(csum_partial_copy_nocheck);

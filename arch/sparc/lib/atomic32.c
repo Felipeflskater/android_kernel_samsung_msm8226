@@ -38,7 +38,7 @@ int __atomic_add_return(int i, atomic_t *v)
 	spin_unlock_irqrestore(ATOMIC_HASH(v), flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__atomic_add_return); */
+EXPORT_SYMBOL(__atomic_add_return);
 
 int atomic_cmpxchg(atomic_t *v, int old, int new)
 {
@@ -53,7 +53,7 @@ int atomic_cmpxchg(atomic_t *v, int old, int new)
 	spin_unlock_irqrestore(ATOMIC_HASH(v), flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic_cmpxchg); */
+EXPORT_SYMBOL(atomic_cmpxchg);
 
 int __atomic_add_unless(atomic_t *v, int a, int u)
 {
@@ -67,7 +67,7 @@ int __atomic_add_unless(atomic_t *v, int a, int u)
 	spin_unlock_irqrestore(ATOMIC_HASH(v), flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__atomic_add_unless); */
+EXPORT_SYMBOL(__atomic_add_unless);
 
 /* Atomic operations are already serializing */
 void atomic_set(atomic_t *v, int i)
@@ -78,7 +78,7 @@ void atomic_set(atomic_t *v, int i)
 	v->counter = i;
 	spin_unlock_irqrestore(ATOMIC_HASH(v), flags);
 }
-/* DISABLED: EXPORT_SYMBOL(atomic_set); */
+EXPORT_SYMBOL(atomic_set);
 
 unsigned long ___set_bit(unsigned long *addr, unsigned long mask)
 {
@@ -91,7 +91,7 @@ unsigned long ___set_bit(unsigned long *addr, unsigned long mask)
 
 	return old & mask;
 }
-/* DISABLED: EXPORT_SYMBOL(___set_bit); */
+EXPORT_SYMBOL(___set_bit);
 
 unsigned long ___clear_bit(unsigned long *addr, unsigned long mask)
 {
@@ -104,7 +104,7 @@ unsigned long ___clear_bit(unsigned long *addr, unsigned long mask)
 
 	return old & mask;
 }
-/* DISABLED: EXPORT_SYMBOL(___clear_bit); */
+EXPORT_SYMBOL(___clear_bit);
 
 unsigned long ___change_bit(unsigned long *addr, unsigned long mask)
 {
@@ -117,7 +117,7 @@ unsigned long ___change_bit(unsigned long *addr, unsigned long mask)
 
 	return old & mask;
 }
-/* DISABLED: EXPORT_SYMBOL(___change_bit); */
+EXPORT_SYMBOL(___change_bit);
 
 unsigned long __cmpxchg_u32(volatile u32 *ptr, u32 old, u32 new)
 {
@@ -131,4 +131,4 @@ unsigned long __cmpxchg_u32(volatile u32 *ptr, u32 old, u32 new)
 
 	return (unsigned long)prev;
 }
-/* DISABLED: EXPORT_SYMBOL(__cmpxchg_u32); */
+EXPORT_SYMBOL(__cmpxchg_u32);

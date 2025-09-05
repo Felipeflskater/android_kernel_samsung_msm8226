@@ -2508,7 +2508,7 @@ out1:
 		platform_device_unregister(pdev);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(parport_pc_probe_port); */
+EXPORT_SYMBOL(parport_pc_probe_port);
 
 void parport_pc_unregister_port(struct parport *p)
 {
@@ -2540,7 +2540,7 @@ void parport_pc_unregister_port(struct parport *p)
 	parport_put_port(p);
 	kfree(ops); /* hope no-one cached it */
 }
-/* DISABLED: EXPORT_SYMBOL(parport_pc_unregister_port); */
+EXPORT_SYMBOL(parport_pc_unregister_port);
 
 #ifdef CONFIG_PCI
 
@@ -3537,7 +3537,7 @@ static int __init parse_parport_params(void)
 	return io[0] == PARPORT_DISABLE;
 }
 
-/* DISABLED: __setup("parport=", parport_setup); */ */
+__setup("parport=", parport_setup);
 
 /*
  * Acceptable parameters:
@@ -3545,7 +3545,7 @@ static int __init parse_parport_params(void)
  * parport_init_mode=[spp|ps2|epp|ecp|ecpepp]
  */
 #ifdef CONFIG_PCI
-/* DISABLED: __setup("parport_init_mode=", parport_init_mode_setup); */ */
+__setup("parport_init_mode=", parport_init_mode_setup);
 #endif
 #endif
 

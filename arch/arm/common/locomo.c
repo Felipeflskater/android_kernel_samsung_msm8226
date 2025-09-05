@@ -564,7 +564,7 @@ void locomo_gpio_set_dir(struct device *dev, unsigned int bits, unsigned int dir
 
 	spin_unlock_irqrestore(&lchip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_gpio_set_dir); */
+EXPORT_SYMBOL(locomo_gpio_set_dir);
 
 int locomo_gpio_read_level(struct device *dev, unsigned int bits)
 {
@@ -582,7 +582,7 @@ int locomo_gpio_read_level(struct device *dev, unsigned int bits)
 	ret &= bits;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_gpio_read_level); */
+EXPORT_SYMBOL(locomo_gpio_read_level);
 
 int locomo_gpio_read_output(struct device *dev, unsigned int bits)
 {
@@ -600,7 +600,7 @@ int locomo_gpio_read_output(struct device *dev, unsigned int bits)
 	ret &= bits;
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_gpio_read_output); */
+EXPORT_SYMBOL(locomo_gpio_read_output);
 
 void locomo_gpio_write(struct device *dev, unsigned int bits, unsigned int set)
 {
@@ -622,7 +622,7 @@ void locomo_gpio_write(struct device *dev, unsigned int bits, unsigned int set)
 
 	spin_unlock_irqrestore(&lchip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_gpio_write); */
+EXPORT_SYMBOL(locomo_gpio_write);
 
 static void locomo_m62332_sendbit(void *mapbase, int bit)
 {
@@ -787,7 +787,7 @@ out:
 
 	spin_unlock_irqrestore(&lchip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_m62332_senddata); */
+EXPORT_SYMBOL(locomo_m62332_senddata);
 
 /*
  *	Frontlight control
@@ -810,7 +810,7 @@ void locomo_frontlight_set(struct locomo_dev *dev, int duty, int vr, int bpwf)
 	locomo_writel(bpwf | LOCOMO_ALC_EN, lchip->base + LOCOMO_FRONTLIGHT + LOCOMO_ALS);
 	spin_unlock_irqrestore(&lchip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_frontlight_set); */
+EXPORT_SYMBOL(locomo_frontlight_set);
 
 /*
  *	LoCoMo "Register Access Bus."
@@ -884,13 +884,13 @@ int locomo_driver_register(struct locomo_driver *driver)
 	driver->drv.bus = &locomo_bus_type;
 	return driver_register(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_driver_register); */
+EXPORT_SYMBOL(locomo_driver_register);
 
 void locomo_driver_unregister(struct locomo_driver *driver)
 {
 	driver_unregister(&driver->drv);
 }
-/* DISABLED: EXPORT_SYMBOL(locomo_driver_unregister); */
+EXPORT_SYMBOL(locomo_driver_unregister);
 
 static int __init locomo_init(void)
 {

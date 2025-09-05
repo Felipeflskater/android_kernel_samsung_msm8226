@@ -127,7 +127,7 @@ static int __init setup_tick_nohz(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("nohz=", setup_tick_nohz); */ */
+__setup("nohz=", setup_tick_nohz);
 
 /**
  * tick_nohz_update_jiffies - update jiffies when idle was interrupted
@@ -235,7 +235,7 @@ u64 get_cpu_idle_time_us(int cpu, u64 *last_update_time)
 	return ktime_to_us(idle);
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_cpu_idle_time_us); */
+EXPORT_SYMBOL_GPL(get_cpu_idle_time_us);
 
 /**
  * get_cpu_iowait_time_us - get the total iowait time of a cpu
@@ -275,7 +275,7 @@ u64 get_cpu_iowait_time_us(int cpu, u64 *last_update_time)
 
 	return ktime_to_us(iowait);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_cpu_iowait_time_us); */
+EXPORT_SYMBOL_GPL(get_cpu_iowait_time_us);
 
 static void tick_nohz_stop_sched_tick(struct tick_sched *ts)
 {

@@ -75,7 +75,7 @@ matrix_keyboard_of_fill_keymap(struct device_node *np,
 
 	return kd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(matrix_keyboard_of_fill_keymap); */
+EXPORT_SYMBOL_GPL(matrix_keyboard_of_fill_keymap);
 
 void matrix_keyboard_of_free_keymap(const struct matrix_keymap_data *kd)
 {
@@ -84,4 +84,4 @@ void matrix_keyboard_of_free_keymap(const struct matrix_keymap_data *kd)
 		kfree(kd);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(matrix_keyboard_of_free_keymap); */
+EXPORT_SYMBOL_GPL(matrix_keyboard_of_free_keymap);

@@ -42,7 +42,7 @@ struct device_node *spu_devnode(struct spu *spu)
 	return spu->devnode;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(spu_devnode); */
+EXPORT_SYMBOL_GPL(spu_devnode);
 
 static u64 __init find_spu_unit_number(struct device_node *spe)
 {

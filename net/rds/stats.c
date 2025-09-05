@@ -92,7 +92,7 @@ void rds_stats_info_copy(struct rds_info_iterator *iter,
 		rds_info_copy(iter, &ctr, sizeof(ctr));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rds_stats_info_copy); */
+EXPORT_SYMBOL_GPL(rds_stats_info_copy);
 
 /*
  * This gives global counters across all the transports.  The strings

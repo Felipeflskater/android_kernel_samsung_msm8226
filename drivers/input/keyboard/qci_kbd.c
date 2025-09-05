@@ -711,7 +711,7 @@ struct input_dev *nkbc_keypad_get_input_dev(void)
 {
 	return g_qci_keyboard_dev;
 }
-/* DISABLED: EXPORT_SYMBOL(nkbc_keypad_get_input_dev); */
+EXPORT_SYMBOL(nkbc_keypad_get_input_dev);
 module_init(qcikbd_init);
 module_exit(qcikbd_exit);
 

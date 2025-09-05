@@ -88,7 +88,7 @@ void clear_page_cpu(void *page) __attribute__((alias("clear_page_array")));
 void clear_page(void *page) __attribute__((alias("clear_page_array")));
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(clear_page); */
+EXPORT_SYMBOL(clear_page);
 
 /*
  * Maximum sizes:
@@ -107,7 +107,7 @@ copy_page_cpu(void *to, void *from) __attribute__((alias("copy_page_array")));
 void copy_page(void *to, void *from) __attribute__((alias("copy_page_array")));
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(copy_page); */
+EXPORT_SYMBOL(copy_page);
 
 
 static int pref_bias_clear_store __cpuinitdata;

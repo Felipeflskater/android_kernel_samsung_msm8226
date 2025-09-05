@@ -26,10 +26,10 @@ get_char_func kdb_poll_funcs[] = {
 	NULL,
 	NULL,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_poll_funcs); */
+EXPORT_SYMBOL_GPL(kdb_poll_funcs);
 
 int kdb_poll_idx = 1;
-/* DISABLED: EXPORT_SYMBOL_GPL(kdb_poll_idx); */
+EXPORT_SYMBOL_GPL(kdb_poll_idx);
 
 static struct kgdb_state *kdb_ks;
 

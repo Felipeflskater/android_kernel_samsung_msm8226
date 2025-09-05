@@ -570,7 +570,7 @@ void mark_rodata_ro(void)
 				     & ~(VM_MAP_OFFSET-1)))
 
 void *parisc_vmalloc_start __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(parisc_vmalloc_start); */
+EXPORT_SYMBOL(parisc_vmalloc_start);
 
 #ifdef CONFIG_PA11
 unsigned long pcxl_dma_start __read_mostly;
@@ -676,7 +676,7 @@ void __init mem_init(void)
 }
 
 unsigned long *empty_zero_page __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 
 void show_mem(unsigned int filter)
 {
@@ -878,7 +878,7 @@ map_hpux_gateway_page(struct task_struct *tsk, struct mm_struct *mm)
 	pg_table = (pte_t *) __va(pg_table) + start_pte;
 	set_pte(pg_table, __mk_pte(address, PAGE_GATEWAY));
 }
-/* DISABLED: EXPORT_SYMBOL(map_hpux_gateway_page); */
+EXPORT_SYMBOL(map_hpux_gateway_page);
 #endif
 
 void __init paging_init(void)

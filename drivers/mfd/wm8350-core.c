@@ -208,7 +208,7 @@ out:
 	mutex_unlock(&io_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_clear_bits); */
+EXPORT_SYMBOL_GPL(wm8350_clear_bits);
 
 int wm8350_set_bits(struct wm8350 *wm8350, u16 reg, u16 mask)
 {
@@ -230,7 +230,7 @@ out:
 	mutex_unlock(&io_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_set_bits); */
+EXPORT_SYMBOL_GPL(wm8350_set_bits);
 
 u16 wm8350_reg_read(struct wm8350 *wm8350, int reg)
 {
@@ -245,7 +245,7 @@ u16 wm8350_reg_read(struct wm8350 *wm8350, int reg)
 	mutex_unlock(&io_mutex);
 	return data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_reg_read); */
+EXPORT_SYMBOL_GPL(wm8350_reg_read);
 
 int wm8350_reg_write(struct wm8350 *wm8350, int reg, u16 val)
 {
@@ -259,7 +259,7 @@ int wm8350_reg_write(struct wm8350 *wm8350, int reg, u16 val)
 	mutex_unlock(&io_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_reg_write); */
+EXPORT_SYMBOL_GPL(wm8350_reg_write);
 
 int wm8350_block_read(struct wm8350 *wm8350, int start_reg, int regs,
 		      u16 *dest)
@@ -274,7 +274,7 @@ int wm8350_block_read(struct wm8350 *wm8350, int start_reg, int regs,
 	mutex_unlock(&io_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_block_read); */
+EXPORT_SYMBOL_GPL(wm8350_block_read);
 
 int wm8350_block_write(struct wm8350 *wm8350, int start_reg, int regs,
 		       u16 *src)
@@ -289,7 +289,7 @@ int wm8350_block_write(struct wm8350 *wm8350, int start_reg, int regs,
 	mutex_unlock(&io_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_block_write); */
+EXPORT_SYMBOL_GPL(wm8350_block_write);
 
 /**
  * wm8350_reg_lock()
@@ -311,7 +311,7 @@ int wm8350_reg_lock(struct wm8350 *wm8350)
 	mutex_unlock(&io_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_reg_lock); */
+EXPORT_SYMBOL_GPL(wm8350_reg_lock);
 
 /**
  * wm8350_reg_unlock()
@@ -335,7 +335,7 @@ int wm8350_reg_unlock(struct wm8350 *wm8350)
 	mutex_unlock(&io_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_reg_unlock); */
+EXPORT_SYMBOL_GPL(wm8350_reg_unlock);
 
 int wm8350_read_auxadc(struct wm8350 *wm8350, int channel, int scale, int vref)
 {
@@ -388,7 +388,7 @@ int wm8350_read_auxadc(struct wm8350 *wm8350, int channel, int scale, int vref)
 
 	return result & WM8350_AUXADC_DATA1_MASK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_read_auxadc); */
+EXPORT_SYMBOL_GPL(wm8350_read_auxadc);
 
 static irqreturn_t wm8350_auxadc_irq(int irq, void *irq_data)
 {
@@ -746,7 +746,7 @@ err_free:
 err:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_device_init); */
+EXPORT_SYMBOL_GPL(wm8350_device_init);
 
 void wm8350_device_exit(struct wm8350 *wm8350)
 {
@@ -772,7 +772,7 @@ void wm8350_device_exit(struct wm8350 *wm8350)
 
 	kfree(wm8350->reg_cache);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8350_device_exit); */
+EXPORT_SYMBOL_GPL(wm8350_device_exit);
 
 MODULE_DESCRIPTION("WM8350 AudioPlus PMIC core driver");
 MODULE_LICENSE("GPL");

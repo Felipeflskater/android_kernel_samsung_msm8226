@@ -3214,24 +3214,24 @@ void notify_wx_assoc_event(struct ieee80211_device *ieee)
 	wireless_send_event(ieee->dev, SIOCGIWAP, &wrqu, NULL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ieee80211_get_beacon); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wake_queue); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_queue); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_reset_queue); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_softmac_stop_protocol); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_softmac_start_protocol); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_is_shortslot); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_is_54g); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_wpa_supplicant_ioctl); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_ps_tx_ack); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_softmac_xmit); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_send_beacons); */
-/* DISABLED: EXPORT_SYMBOL(notify_wx_assoc_event); */
-/* DISABLED: EXPORT_SYMBOL(SendDisassociation); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_disassociate); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_start_send_beacons); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_stop_scan); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_send_probe_requests); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_softmac_scan_syncro); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_start_scan_syncro); */
+EXPORT_SYMBOL(ieee80211_get_beacon);
+EXPORT_SYMBOL(ieee80211_wake_queue);
+EXPORT_SYMBOL(ieee80211_stop_queue);
+EXPORT_SYMBOL(ieee80211_reset_queue);
+EXPORT_SYMBOL(ieee80211_softmac_stop_protocol);
+EXPORT_SYMBOL(ieee80211_softmac_start_protocol);
+EXPORT_SYMBOL(ieee80211_is_shortslot);
+EXPORT_SYMBOL(ieee80211_is_54g);
+EXPORT_SYMBOL(ieee80211_wpa_supplicant_ioctl);
+EXPORT_SYMBOL(ieee80211_ps_tx_ack);
+EXPORT_SYMBOL(ieee80211_softmac_xmit);
+EXPORT_SYMBOL(ieee80211_stop_send_beacons);
+EXPORT_SYMBOL(notify_wx_assoc_event);
+EXPORT_SYMBOL(SendDisassociation);
+EXPORT_SYMBOL(ieee80211_disassociate);
+EXPORT_SYMBOL(ieee80211_start_send_beacons);
+EXPORT_SYMBOL(ieee80211_stop_scan);
+EXPORT_SYMBOL(ieee80211_send_probe_requests);
+EXPORT_SYMBOL(ieee80211_softmac_scan_syncro);
+EXPORT_SYMBOL(ieee80211_start_scan_syncro);
 //EXPORT_SYMBOL(ieee80211_sta_ps_send_null_frame);

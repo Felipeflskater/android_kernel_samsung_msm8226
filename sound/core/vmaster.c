@@ -278,7 +278,7 @@ int _snd_ctl_add_slave(struct snd_kcontrol *master, struct snd_kcontrol *slave,
 	list_add_tail(&srec->list, &master_link->slaves);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(_snd_ctl_add_slave); */
+EXPORT_SYMBOL(_snd_ctl_add_slave);
 
 /*
  * ctl callbacks for master controls
@@ -416,7 +416,7 @@ struct snd_kcontrol *snd_ctl_make_virtual_master(char *name,
 
 	return kctl;
 }
-/* DISABLED: EXPORT_SYMBOL(snd_ctl_make_virtual_master); */
+EXPORT_SYMBOL(snd_ctl_make_virtual_master);
 
 /**
  * snd_ctl_add_vmaster_hook - Add a hook to a vmaster control
@@ -436,7 +436,7 @@ int snd_ctl_add_vmaster_hook(struct snd_kcontrol *kcontrol,
 	master->hook_private_data = private_data;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_ctl_add_vmaster_hook); */
+EXPORT_SYMBOL_GPL(snd_ctl_add_vmaster_hook);
 
 /**
  * snd_ctl_sync_vmaster_hook - Sync the vmaster hook
@@ -455,4 +455,4 @@ void snd_ctl_sync_vmaster_hook(struct snd_kcontrol *kcontrol)
 	if (master->hook)
 		master->hook(master->hook_private_data, master->val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_ctl_sync_vmaster_hook); */
+EXPORT_SYMBOL_GPL(snd_ctl_sync_vmaster_hook);

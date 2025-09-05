@@ -53,7 +53,7 @@ int tty_chars_in_buffer(struct tty_struct *tty)
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_chars_in_buffer); */
+EXPORT_SYMBOL(tty_chars_in_buffer);
 
 /**
  *	tty_write_room		-	write queue space
@@ -72,7 +72,7 @@ int tty_write_room(struct tty_struct *tty)
 		return tty->ops->write_room(tty);
 	return 2048;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_write_room); */
+EXPORT_SYMBOL(tty_write_room);
 
 /**
  *	tty_driver_flush_buffer	-	discard internal buffer
@@ -87,7 +87,7 @@ void tty_driver_flush_buffer(struct tty_struct *tty)
 	if (tty->ops->flush_buffer)
 		tty->ops->flush_buffer(tty);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_driver_flush_buffer); */
+EXPORT_SYMBOL(tty_driver_flush_buffer);
 
 /**
  *	tty_throttle		-	flow control
@@ -108,7 +108,7 @@ void tty_throttle(struct tty_struct *tty)
 		tty->ops->throttle(tty);
 	mutex_unlock(&tty->termios_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_throttle); */
+EXPORT_SYMBOL(tty_throttle);
 
 /**
  *	tty_unthrottle		-	flow control
@@ -131,7 +131,7 @@ void tty_unthrottle(struct tty_struct *tty)
 		tty->ops->unthrottle(tty);
 	mutex_unlock(&tty->termios_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_unthrottle); */
+EXPORT_SYMBOL(tty_unthrottle);
 
 /**
  *	tty_wait_until_sent	-	wait for I/O to finish
@@ -165,7 +165,7 @@ void tty_wait_until_sent(struct tty_struct *tty, long timeout)
 	if (tty->ops->wait_until_sent)
 		tty->ops->wait_until_sent(tty, timeout);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_wait_until_sent); */
+EXPORT_SYMBOL(tty_wait_until_sent);
 
 
 /*
@@ -265,7 +265,7 @@ speed_t tty_termios_baud_rate(struct ktermios *termios)
 	}
 	return baud_table[cbaud];
 }
-/* DISABLED: EXPORT_SYMBOL(tty_termios_baud_rate); */
+EXPORT_SYMBOL(tty_termios_baud_rate);
 
 /**
  *	tty_termios_input_baud_rate
@@ -304,7 +304,7 @@ speed_t tty_termios_input_baud_rate(struct ktermios *termios)
 	return tty_termios_baud_rate(termios);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(tty_termios_input_baud_rate); */
+EXPORT_SYMBOL(tty_termios_input_baud_rate);
 
 /**
  *	tty_termios_encode_baud_rate
@@ -402,7 +402,7 @@ void tty_termios_encode_baud_rate(struct ktermios *termios,
 	}
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_termios_encode_baud_rate); */
+EXPORT_SYMBOL_GPL(tty_termios_encode_baud_rate);
 
 /**
  *	tty_encode_baud_rate		-	set baud rate of the tty
@@ -418,7 +418,7 @@ void tty_encode_baud_rate(struct tty_struct *tty, speed_t ibaud, speed_t obaud)
 {
 	tty_termios_encode_baud_rate(tty->termios, ibaud, obaud);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_encode_baud_rate); */
+EXPORT_SYMBOL_GPL(tty_encode_baud_rate);
 
 /**
  *	tty_get_baud_rate	-	get tty bit rates
@@ -446,7 +446,7 @@ speed_t tty_get_baud_rate(struct tty_struct *tty)
 
 	return baud;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_get_baud_rate); */
+EXPORT_SYMBOL(tty_get_baud_rate);
 
 /**
  *	tty_termios_copy_hw	-	copy hardware settings
@@ -468,7 +468,7 @@ void tty_termios_copy_hw(struct ktermios *new, struct ktermios *old)
 	new->c_ispeed = old->c_ispeed;
 	new->c_ospeed = old->c_ospeed;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_termios_copy_hw); */
+EXPORT_SYMBOL(tty_termios_copy_hw);
 
 /**
  *	tty_termios_hw_change	-	check for setting change
@@ -487,7 +487,7 @@ int tty_termios_hw_change(struct ktermios *a, struct ktermios *b)
 		return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tty_termios_hw_change); */
+EXPORT_SYMBOL(tty_termios_hw_change);
 
 /**
  *	tty_set_termios		-	update termios values
@@ -559,7 +559,7 @@ int tty_set_termios(struct tty_struct *tty, struct ktermios *new_termios)
 	mutex_unlock(&tty->termios_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_set_termios); */
+EXPORT_SYMBOL_GPL(tty_set_termios);
 
 /**
  *	set_termios		-	set termios values for a tty
@@ -1090,7 +1090,7 @@ int tty_mode_ioctl(struct tty_struct *tty, struct file *file,
 		return -ENOIOCTLCMD;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_mode_ioctl); */
+EXPORT_SYMBOL_GPL(tty_mode_ioctl);
 
 int tty_perform_flush(struct tty_struct *tty, unsigned long arg)
 {
@@ -1119,7 +1119,7 @@ int tty_perform_flush(struct tty_struct *tty, unsigned long arg)
 	tty_ldisc_deref(ld);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tty_perform_flush); */
+EXPORT_SYMBOL_GPL(tty_perform_flush);
 
 int n_tty_ioctl_helper(struct tty_struct *tty, struct file *file,
 		       unsigned int cmd, unsigned long arg)
@@ -1184,7 +1184,7 @@ int n_tty_ioctl_helper(struct tty_struct *tty, struct file *file,
 		return tty_mode_ioctl(tty, file, cmd, arg);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(n_tty_ioctl_helper); */
+EXPORT_SYMBOL(n_tty_ioctl_helper);
 
 #ifdef CONFIG_COMPAT
 long n_tty_compat_ioctl_helper(struct tty_struct *tty, struct file *file,
@@ -1198,6 +1198,6 @@ long n_tty_compat_ioctl_helper(struct tty_struct *tty, struct file *file,
 		return -ENOIOCTLCMD;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(n_tty_compat_ioctl_helper); */
+EXPORT_SYMBOL(n_tty_compat_ioctl_helper);
 #endif
 

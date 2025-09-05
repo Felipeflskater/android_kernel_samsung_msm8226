@@ -214,7 +214,7 @@ static int if_pmic_rev;
 
 int is_cardock;
 static bool is_lpm_mode;
-/* DISABLED: EXPORT_SYMBOL(is_cardock); */
+EXPORT_SYMBOL(is_cardock);
 
 void max77804k_update_jig_state(struct max77804k_muic_info *info);
 
@@ -233,7 +233,7 @@ static int get_if_pmic_inifo(char *str)
 		__FILE__, __func__, switch_sel, if_pmic_rev);
 	return if_muic_info;
 }
-/* DISABLED: __setup("pmic_info=", get_if_pmic_inifo); */ */
+__setup("pmic_info=", get_if_pmic_inifo);
 
 int get_switch_sel(void)
 {
@@ -2195,7 +2195,7 @@ static int __init get_lpm_mode(char *str)
 	}
 	return 0;
 }
-/* DISABLED: __setup("androidboot.baseband=", get_lpm_mode); */ */
+__setup("androidboot.baseband=", get_lpm_mode);
 
 static int __devinit max77804k_muic_probe(struct platform_device *pdev)
 {

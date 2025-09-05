@@ -28,10 +28,10 @@
 DEFINE_MUTEX(event_mutex);
 
 DEFINE_MUTEX(event_storage_mutex);
-/* DISABLED: EXPORT_SYMBOL_GPL(event_storage_mutex); */
+EXPORT_SYMBOL_GPL(event_storage_mutex);
 
 char event_storage[EVENT_STORAGE_SIZE];
-/* DISABLED: EXPORT_SYMBOL_GPL(event_storage); */
+EXPORT_SYMBOL_GPL(event_storage);
 
 LIST_HEAD(ftrace_events);
 LIST_HEAD(ftrace_common_fields);
@@ -96,7 +96,7 @@ int trace_define_field(struct ftrace_event_call *call, const char *type,
 	return __trace_define_field(head, type, name, offset, size,
 				    is_signed, filter_type);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(trace_define_field); */
+EXPORT_SYMBOL_GPL(trace_define_field);
 
 #define __common_field(type, item)					\
 	ret = __trace_define_field(&ftrace_common_fields, #type,	\
@@ -145,7 +145,7 @@ int trace_event_raw_init(struct ftrace_event_call *call)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(trace_event_raw_init); */
+EXPORT_SYMBOL_GPL(trace_event_raw_init);
 
 int ftrace_event_reg(struct ftrace_event_call *call,
 		     enum trace_reg type, void *data)
@@ -180,7 +180,7 @@ int ftrace_event_reg(struct ftrace_event_call *call,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ftrace_event_reg); */
+EXPORT_SYMBOL_GPL(ftrace_event_reg);
 
 void trace_event_enable_cmd_record(bool enable)
 {
@@ -364,7 +364,7 @@ int trace_set_clr_event(const char *system, const char *event, int set)
 {
 	return __ftrace_set_clr_event(NULL, system, event, set);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(trace_set_clr_event); */
+EXPORT_SYMBOL_GPL(trace_set_clr_event);
 
 /* 128 should be much more than enough */
 #define EVENT_BUF_SIZE		127
@@ -1458,7 +1458,7 @@ static __init int setup_trace_event(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("trace_event=", setup_trace_event); */ */
+__setup("trace_event=", setup_trace_event);
 
 static __init int event_trace_init(void)
 {

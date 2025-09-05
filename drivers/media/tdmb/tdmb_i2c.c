@@ -88,7 +88,7 @@ unsigned long tdmb_get_if_handle(void)
 	DPRINTK("%s : i2c_dmb 0x%p\n", __func__, i2c_dmb);
 	return (unsigned long)i2c_dmb;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_get_if_handle); */
+EXPORT_SYMBOL_GPL(tdmb_get_if_handle);
 
 module_init(tdmb_i2c_init);
 module_exit(tdmb_i2c_exit);

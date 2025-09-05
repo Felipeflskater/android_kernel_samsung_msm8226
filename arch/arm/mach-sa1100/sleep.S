@@ -35,7 +35,7 @@ ENTRY(sa1100_finish_suspend)
 
 	ldr	r6, =MDREFR
 	ldr	r4, [r6]
-	orr     r4, r4, @ MDREFR_K1DB2
+	orr     r4, r4, #MDREFR_K1DB2
 	ldr	r5, =PPCR
 
 	@ Pre-load __loop_udelay into the I-cache
@@ -83,33 +83,33 @@ ENTRY(sa1100_finish_suspend)
 	ldr	r2, =MSC2
 
 	ldr	r3, [r0]
-	bic	r3, r3, @ FMsk(MSC_RT)
-	bic	r3, r3, @ FMsk(MSC_RT)<<16
+	bic	r3, r3, #FMsk(MSC_RT)
+	bic	r3, r3, #FMsk(MSC_RT)<<16
 
 	ldr	r4, [r1]
-	bic	r4, r4, @ FMsk(MSC_RT)
-	bic	r4, r4, @ FMsk(MSC_RT)<<16
+	bic	r4, r4, #FMsk(MSC_RT)
+	bic	r4, r4, #FMsk(MSC_RT)<<16
 
 	ldr	r5, [r2]
-	bic	r5, r5, @ FMsk(MSC_RT)
-	bic	r5, r5, @ FMsk(MSC_RT)<<16
+	bic	r5, r5, #FMsk(MSC_RT)
+	bic	r5, r5, #FMsk(MSC_RT)<<16
 
 	ldr	r7, [r6]
 	bic	r7, r7, #0x0000FF00
 	bic	r7, r7, #0x000000F0
-	orr	r8, r7, @ MDREFR_SLFRSH
+	orr	r8, r7, #MDREFR_SLFRSH
 
 	ldr	r9, =MDCNFG
 	ldr	r10, [r9]
-	bic	r10, r10, @ (MDCNFG_DE0+MDCNFG_DE1)
-	bic	r10, r10, @ (MDCNFG_DE2+MDCNFG_DE3)
+	bic	r10, r10, #(MDCNFG_DE0+MDCNFG_DE1)
+	bic	r10, r10, #(MDCNFG_DE2+MDCNFG_DE3)
 
-	bic	r11, r8, @ MDREFR_SLFRSH
-	bic	r11, r11, @ MDREFR_E1PIN
+	bic	r11, r8, #MDREFR_SLFRSH
+	bic	r11, r11, #MDREFR_E1PIN
 
 	ldr	r12, =PMCR
 
-	mov	r13, @ PMCR_SF
+	mov	r13, #PMCR_SF
 
 	b	sa1110_sdram_controller_fix
 

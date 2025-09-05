@@ -35,4 +35,4 @@ size_t strlen(const char *s)
 
 	return ((const char *)p) + (__insn_ctz(bits) >> 3) - s;
 }
-/* DISABLED: EXPORT_SYMBOL(strlen); */
+EXPORT_SYMBOL(strlen);

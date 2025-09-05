@@ -38,4 +38,4 @@ again:
 	}
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(iommu_area_alloc); */
+EXPORT_SYMBOL(iommu_area_alloc);

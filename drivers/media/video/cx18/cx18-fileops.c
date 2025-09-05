@@ -96,7 +96,7 @@ int cx18_claim_stream(struct cx18_open_id *id, int type)
 	set_bit(CX18_F_S_INTERNAL_USE, &s_assoc->s_flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cx18_claim_stream); */
+EXPORT_SYMBOL(cx18_claim_stream);
 
 /* This function releases a previously claimed stream. It will take into
    account associated VBI streams. */
@@ -155,7 +155,7 @@ void cx18_release_stream(struct cx18_stream *s)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(cx18_release_stream); */
+EXPORT_SYMBOL(cx18_release_stream);
 
 static void cx18_dualwatch(struct cx18 *cx)
 {

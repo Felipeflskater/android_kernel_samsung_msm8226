@@ -52,60 +52,60 @@ omap_uart_lsr:	.word	0
 		/* Select the UART to use based on the UART1 scratchpad value */
 		cmp	\rp, #0			@ no port configured?
 		beq	21f			@ if none, try to use UART1
-		cmp	\rp, @ OMAP2UART1	@ OMAP2/3/4UART1
+		cmp	\rp, #OMAP2UART1	@ OMAP2/3/4UART1
 		beq	21f			@ configure OMAP2/3/4UART1
-		cmp	\rp, @ OMAP2UART2	@ OMAP2/3/4UART2
+		cmp	\rp, #OMAP2UART2	@ OMAP2/3/4UART2
 		beq	22f			@ configure OMAP2/3/4UART2
-		cmp	\rp, @ OMAP2UART3	@ only on 24xx
+		cmp	\rp, #OMAP2UART3	@ only on 24xx
 		beq	23f			@ configure OMAP2UART3
-		cmp	\rp, @ OMAP3UART3	@ only on 34xx
+		cmp	\rp, #OMAP3UART3	@ only on 34xx
 		beq	33f			@ configure OMAP3UART3
-		cmp	\rp, @ OMAP4UART3	@ only on 44xx
+		cmp	\rp, #OMAP4UART3	@ only on 44xx
 		beq	43f			@ configure OMAP4UART3
-		cmp	\rp, @ OMAP3UART4	@ only on 36xx
+		cmp	\rp, #OMAP3UART4	@ only on 36xx
 		beq	34f			@ configure OMAP3UART4
-		cmp	\rp, @ OMAP4UART4	@ only on 44xx
+		cmp	\rp, #OMAP4UART4	@ only on 44xx
 		beq	44f			@ configure OMAP4UART4
-		cmp	\rp, @ TI81XXUART1	@ ti81Xx UART offsets different
+		cmp	\rp, #TI81XXUART1	@ ti81Xx UART offsets different
 		beq	81f			@ configure UART1
-		cmp	\rp, @ TI81XXUART2	@ ti81Xx UART offsets different
+		cmp	\rp, #TI81XXUART2	@ ti81Xx UART offsets different
 		beq	82f			@ configure UART2
-		cmp	\rp, @ TI81XXUART3	@ ti81Xx UART offsets different
+		cmp	\rp, #TI81XXUART3	@ ti81Xx UART offsets different
 		beq	83f			@ configure UART3
-		cmp	\rp, @ ZOOM_UART		@ only on zoom2/3
+		cmp	\rp, #ZOOM_UART		@ only on zoom2/3
 		beq	95f			@ configure ZOOM_UART
 
 		/* Configure the UART offset from the phys/virt base */
-21:		mov	\rp, @ UART_OFFSET(OMAP2_UART1_BASE)	@ omap2/3/4
+21:		mov	\rp, #UART_OFFSET(OMAP2_UART1_BASE)	@ omap2/3/4
 		b	98f
-22:		mov	\rp, @ UART_OFFSET(OMAP2_UART2_BASE)	@ omap2/3/4
+22:		mov	\rp, #UART_OFFSET(OMAP2_UART2_BASE)	@ omap2/3/4
 		b	98f
-23:		mov	\rp, @ UART_OFFSET(OMAP2_UART3_BASE)
+23:		mov	\rp, #UART_OFFSET(OMAP2_UART3_BASE)
 		b	98f
-33:		mov	\rp, @ UART_OFFSET(OMAP3_UART1_BASE)
+33:		mov	\rp, #UART_OFFSET(OMAP3_UART1_BASE)
 		add	\rp, \rp, #0x00fb0000
 		add	\rp, \rp, #0x00006000		@ OMAP3_UART3_BASE
 		b	98f
-34:		mov	\rp, @ UART_OFFSET(OMAP3_UART1_BASE)
+34:		mov	\rp, #UART_OFFSET(OMAP3_UART1_BASE)
 		add	\rp, \rp, #0x00fb0000
 		add	\rp, \rp, #0x00028000		@ OMAP3_UART4_BASE
 		b	98f
-43:		mov	\rp, @ UART_OFFSET(OMAP4_UART3_BASE)
+43:		mov	\rp, #UART_OFFSET(OMAP4_UART3_BASE)
 		b	98f
-44:		mov	\rp, @ UART_OFFSET(OMAP4_UART4_BASE)
+44:		mov	\rp, #UART_OFFSET(OMAP4_UART4_BASE)
 		b	98f
-81:		mov	\rp, @ UART_OFFSET(TI81XX_UART1_BASE)
+81:		mov	\rp, #UART_OFFSET(TI81XX_UART1_BASE)
 		b	98f
-82:		mov	\rp, @ UART_OFFSET(TI81XX_UART2_BASE)
+82:		mov	\rp, #UART_OFFSET(TI81XX_UART2_BASE)
 		b	98f
-83:		mov	\rp, @ UART_OFFSET(TI81XX_UART3_BASE)
+83:		mov	\rp, #UART_OFFSET(TI81XX_UART3_BASE)
 		b	98f
 
 95:		ldr	\rp, =ZOOM_UART_BASE
 		str	\rp, [\tmp, #0]		@ omap_uart_phys
 		ldr	\rp, =ZOOM_UART_VIRT
 		str	\rp, [\tmp, #4]		@ omap_uart_virt
-		mov	\rp, @ (UART_LSR << ZOOM_PORT_SHIFT)
+		mov	\rp, #(UART_LSR << ZOOM_PORT_SHIFT)
 		str	\rp, [\tmp, #8]		@ omap_uart_lsr
 		b	10b
 
@@ -115,7 +115,7 @@ omap_uart_lsr:	.word	0
 		sub	\rp, \rp, #0x48000000	@ phys base
 		add	\rp, \rp, #0xfa000000	@ virt base
 		str	\rp, [\tmp, #4]		@ omap_uart_virt
-		mov	\rp, @ (UART_LSR << OMAP_PORT_SHIFT)
+		mov	\rp, #(UART_LSR << OMAP_PORT_SHIFT)
 		str	\rp, [\tmp, #8]		@ omap_uart_lsr
 
 		b	10b
@@ -136,13 +136,13 @@ omap_uart_lsr:	.word	0
 		bic	\rx, \rx, #0xff		@ get base (THR) reg address
 		strb	\rd, [\rx]		@ send lower byte of rd
 		orr	\rx, \rx, \rd, lsr #24	@ restore original rx (LSR)
-		bic	\rd, \rd, @ (0xff << 24)	@ restore original rd
+		bic	\rd, \rd, #(0xff << 24)	@ restore original rd
 		.endm
 
 		.macro	busyuart,rd,rx
 1001:		ldrb	\rd, [\rx]		@ rx contains UART_LSR address
-		and	\rd, \rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
-		teq	\rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
+		and	\rd, \rd, #(UART_LSR_TEMT | UART_LSR_THRE)
+		teq	\rd, #(UART_LSR_TEMT | UART_LSR_THRE)
 		bne	1001b
 		.endm
 

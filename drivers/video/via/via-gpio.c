@@ -207,7 +207,7 @@ int viafb_gpio_lookup(const char *name)
 			return viafb_gpio_config.gpio_chip.base + i;
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(viafb_gpio_lookup); */
+EXPORT_SYMBOL_GPL(viafb_gpio_lookup);
 
 /*
  * Platform device stuff.

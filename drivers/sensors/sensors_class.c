@@ -215,7 +215,7 @@ int sensors_classdev_register(struct device *parent,
 			sensors_cdev->name);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sensors_classdev_register); */
+EXPORT_SYMBOL(sensors_classdev_register);
 
 /**
  * sensors_classdev_unregister - unregister a object of sensors class.
@@ -229,7 +229,7 @@ void sensors_classdev_unregister(struct sensors_classdev *sensors_cdev)
 	list_del(&sensors_cdev->node);
 	up_write(&sensors_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(sensors_classdev_unregister); */
+EXPORT_SYMBOL(sensors_classdev_unregister);
 
 static int __init sensors_init(void)
 {

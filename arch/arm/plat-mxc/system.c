@@ -30,7 +30,7 @@
 #include <asm/mach-types.h>
 
 void __iomem *(*imx_ioremap)(unsigned long, size_t, unsigned int) = NULL;
-/* DISABLED: EXPORT_SYMBOL_GPL(imx_ioremap); */
+EXPORT_SYMBOL_GPL(imx_ioremap);
 
 static void __iomem *wdog_base;
 

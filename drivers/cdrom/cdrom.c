@@ -1427,7 +1427,7 @@ unsigned int cdrom_check_events(struct cdrom_device_info *cdi,
 	cdi->vfs_events = 0;
 	return events;
 }
-/* DISABLED: EXPORT_SYMBOL(cdrom_check_events); */
+EXPORT_SYMBOL(cdrom_check_events);
 
 /* We want to make media_changed accessible to the user through an
  * ioctl. The main problem now is that we must double-buffer the
@@ -3389,18 +3389,18 @@ use_last_written:
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(cdrom_get_last_written); */
-/* DISABLED: EXPORT_SYMBOL(register_cdrom); */
-/* DISABLED: EXPORT_SYMBOL(unregister_cdrom); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_open); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_release); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_ioctl); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_media_changed); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_number_of_slots); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_mode_select); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_mode_sense); */
-/* DISABLED: EXPORT_SYMBOL(init_cdrom_command); */
-/* DISABLED: EXPORT_SYMBOL(cdrom_get_media_event); */
+EXPORT_SYMBOL(cdrom_get_last_written);
+EXPORT_SYMBOL(register_cdrom);
+EXPORT_SYMBOL(unregister_cdrom);
+EXPORT_SYMBOL(cdrom_open);
+EXPORT_SYMBOL(cdrom_release);
+EXPORT_SYMBOL(cdrom_ioctl);
+EXPORT_SYMBOL(cdrom_media_changed);
+EXPORT_SYMBOL(cdrom_number_of_slots);
+EXPORT_SYMBOL(cdrom_mode_select);
+EXPORT_SYMBOL(cdrom_mode_sense);
+EXPORT_SYMBOL(init_cdrom_command);
+EXPORT_SYMBOL(cdrom_get_media_event);
 
 #ifdef CONFIG_SYSCTL
 

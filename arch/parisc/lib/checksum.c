@@ -109,7 +109,7 @@ __wsum csum_partial(const void *buff, int len, __wsum sum)
 	return (__force __wsum)from32to16(result);
 }
 
-/* DISABLED: EXPORT_SYMBOL(csum_partial); */
+EXPORT_SYMBOL(csum_partial);
 
 /*
  * copy while checksumming, otherwise like csum_partial
@@ -126,7 +126,7 @@ __wsum csum_partial_copy_nocheck(const void *src, void *dst,
 
 	return sum;
 }
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_nocheck); */
+EXPORT_SYMBOL(csum_partial_copy_nocheck);
 
 /*
  * Copy from userspace and compute checksum.  If we catch an exception
@@ -146,4 +146,4 @@ __wsum csum_partial_copy_from_user(const void __user *src,
 		
 	return csum_partial(dst, len, sum);
 }
-/* DISABLED: EXPORT_SYMBOL(csum_partial_copy_from_user); */
+EXPORT_SYMBOL(csum_partial_copy_from_user);

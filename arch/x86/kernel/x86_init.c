@@ -112,7 +112,7 @@ struct x86_platform_ops x86_platform = {
 	.restore_sched_clock_state 	= tsc_restore_sched_clock_state,
 };
 
-/* DISABLED: EXPORT_SYMBOL_GPL(x86_platform); */
+EXPORT_SYMBOL_GPL(x86_platform);
 struct x86_msi_ops x86_msi = {
 	.setup_msi_irqs = native_setup_msi_irqs,
 	.teardown_msi_irq = native_teardown_msi_irq,

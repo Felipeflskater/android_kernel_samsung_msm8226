@@ -1184,7 +1184,7 @@ struct ad714x_chip *ad714x_probe(struct device *dev, u16 bus_type, int irq,
  err_out:
 	return ERR_PTR(error);
 }
-/* DISABLED: EXPORT_SYMBOL(ad714x_probe); */
+EXPORT_SYMBOL(ad714x_probe);
 
 void ad714x_remove(struct ad714x_chip *ad714x)
 {
@@ -1210,7 +1210,7 @@ void ad714x_remove(struct ad714x_chip *ad714x)
 
 	kfree(ad714x);
 }
-/* DISABLED: EXPORT_SYMBOL(ad714x_remove); */
+EXPORT_SYMBOL(ad714x_remove);
 
 #ifdef CONFIG_PM
 int ad714x_disable(struct ad714x_chip *ad714x)
@@ -1228,7 +1228,7 @@ int ad714x_disable(struct ad714x_chip *ad714x)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ad714x_disable); */
+EXPORT_SYMBOL(ad714x_disable);
 
 int ad714x_enable(struct ad714x_chip *ad714x)
 {
@@ -1251,7 +1251,7 @@ int ad714x_enable(struct ad714x_chip *ad714x)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ad714x_enable); */
+EXPORT_SYMBOL(ad714x_enable);
 #endif
 
 MODULE_DESCRIPTION("Analog Devices AD714X Capacitance Touch Sensor Driver");

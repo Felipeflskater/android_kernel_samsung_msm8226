@@ -414,25 +414,25 @@ INT32 FsRemoveEntry(struct inode *inode, FILE_ID_T *fid)
 
 
 
-/* DISABLED: EXPORT_SYMBOL(FsMountVol); */
-/* DISABLED: EXPORT_SYMBOL(FsUmountVol); */
-/* DISABLED: EXPORT_SYMBOL(FsGetVolInfo); */
-/* DISABLED: EXPORT_SYMBOL(FsSyncVol); */
-/* DISABLED: EXPORT_SYMBOL(FsLookupFile); */
-/* DISABLED: EXPORT_SYMBOL(FsCreateFile); */
-/* DISABLED: EXPORT_SYMBOL(FsReadFile); */
-/* DISABLED: EXPORT_SYMBOL(FsWriteFile); */
-/* DISABLED: EXPORT_SYMBOL(FsTruncateFile); */
-/* DISABLED: EXPORT_SYMBOL(FsMoveFile); */
-/* DISABLED: EXPORT_SYMBOL(FsRemoveFile); */
-/* DISABLED: EXPORT_SYMBOL(FsSetAttr); */
-/* DISABLED: EXPORT_SYMBOL(FsReadStat); */
-/* DISABLED: EXPORT_SYMBOL(FsWriteStat); */
-/* DISABLED: EXPORT_SYMBOL(FsMapCluster); */
-/* DISABLED: EXPORT_SYMBOL(FsCreateDir); */
-/* DISABLED: EXPORT_SYMBOL(FsReadDir); */
-/* DISABLED: EXPORT_SYMBOL(FsRemoveDir); */
-/* DISABLED: EXPORT_SYMBOL(FsRemoveEntry); */
+EXPORT_SYMBOL(FsMountVol);
+EXPORT_SYMBOL(FsUmountVol);
+EXPORT_SYMBOL(FsGetVolInfo);
+EXPORT_SYMBOL(FsSyncVol);
+EXPORT_SYMBOL(FsLookupFile);
+EXPORT_SYMBOL(FsCreateFile);
+EXPORT_SYMBOL(FsReadFile);
+EXPORT_SYMBOL(FsWriteFile);
+EXPORT_SYMBOL(FsTruncateFile);
+EXPORT_SYMBOL(FsMoveFile);
+EXPORT_SYMBOL(FsRemoveFile);
+EXPORT_SYMBOL(FsSetAttr);
+EXPORT_SYMBOL(FsReadStat);
+EXPORT_SYMBOL(FsWriteStat);
+EXPORT_SYMBOL(FsMapCluster);
+EXPORT_SYMBOL(FsCreateDir);
+EXPORT_SYMBOL(FsReadDir);
+EXPORT_SYMBOL(FsRemoveDir);
+EXPORT_SYMBOL(FsRemoveEntry);
 
 #if EXFAT_CONFIG_KERNEL_DEBUG
 INT32 FsReleaseCache(struct super_block *sb)
@@ -449,7 +449,7 @@ INT32 FsReleaseCache(struct super_block *sb)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(FsReleaseCache); */
+EXPORT_SYMBOL(FsReleaseCache);
 #endif
 
 static int __init init_exfat_core(void)

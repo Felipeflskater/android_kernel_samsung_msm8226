@@ -64,7 +64,7 @@ pte_t pg0[PT_INITIAL * PTRS_PER_PTE] __attribute__ ((__section__ (".data..vm0.pt
  *
  * All other task structs will be allocated on slabs in fork.c
  */
-/* DISABLED: EXPORT_SYMBOL(init_task); */
+EXPORT_SYMBOL(init_task);
 
 __asm__(".data");
 struct task_struct init_task = INIT_TASK(init_task);

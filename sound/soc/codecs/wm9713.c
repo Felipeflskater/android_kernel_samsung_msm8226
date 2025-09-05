@@ -1108,7 +1108,7 @@ int wm9713_reset(struct snd_soc_codec *codec, int try_warm)
 		return -EIO;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm9713_reset); */
+EXPORT_SYMBOL_GPL(wm9713_reset);
 
 static int wm9713_set_bias_level(struct snd_soc_codec *codec,
 				 enum snd_soc_bias_level level)

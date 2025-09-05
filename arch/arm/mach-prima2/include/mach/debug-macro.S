@@ -15,15 +15,15 @@
 	.endm
 
 	.macro	senduart,rd,rx
-	str	\rd, [\rx, @ SIRFSOC_UART_TXFIFO_DATA]
+	str	\rd, [\rx, #SIRFSOC_UART_TXFIFO_DATA]
 	.endm
 
 	.macro	busyuart,rd,rx
 	.endm
 
 	.macro	waituart,rd,rx
-1001:	ldr	\rd, [\rx, @ SIRFSOC_UART_TXFIFO_STATUS]
-	tst	\rd, @ SIRFSOC_UART1_TXFIFO_EMPTY
+1001:	ldr	\rd, [\rx, #SIRFSOC_UART_TXFIFO_STATUS]
+	tst	\rd, #SIRFSOC_UART1_TXFIFO_EMPTY
 	beq	1001b
 	.endm
 

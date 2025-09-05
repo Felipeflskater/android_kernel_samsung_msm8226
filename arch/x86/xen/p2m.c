@@ -411,7 +411,7 @@ unsigned long get_phys_to_machine(unsigned long pfn)
 
 	return p2m_top[topidx][mididx][idx];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(get_phys_to_machine); */
+EXPORT_SYMBOL_GPL(get_phys_to_machine);
 
 static void *alloc_p2m_page(void)
 {
@@ -723,7 +723,7 @@ int m2p_add_override(unsigned long mfn, struct page *page,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(m2p_add_override); */
+EXPORT_SYMBOL_GPL(m2p_add_override);
 int m2p_remove_override(struct page *page, bool clear_pte)
 {
 	unsigned long flags;
@@ -803,7 +803,7 @@ int m2p_remove_override(struct page *page, bool clear_pte)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(m2p_remove_override); */
+EXPORT_SYMBOL_GPL(m2p_remove_override);
 
 struct page *m2p_find_override(unsigned long mfn)
 {
@@ -837,7 +837,7 @@ unsigned long m2p_find_override_pfn(unsigned long mfn, unsigned long pfn)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(m2p_find_override_pfn); */
+EXPORT_SYMBOL_GPL(m2p_find_override_pfn);
 
 #ifdef CONFIG_XEN_DEBUG_FS
 #include <linux/debugfs.h>

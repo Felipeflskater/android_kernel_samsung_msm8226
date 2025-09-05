@@ -464,7 +464,7 @@ void ps3_vuart_clear_rx_bytes(struct ps3_system_bus_device *dev,
 
 	priv->stats.bytes_read -= bytes_waiting;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_clear_rx_bytes); */
+EXPORT_SYMBOL_GPL(ps3_vuart_clear_rx_bytes);
 
 /**
  * struct list_buffer - An element for a port device fifo buffer list.
@@ -547,7 +547,7 @@ int ps3_vuart_write(struct ps3_system_bus_device *dev, const void *buf,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_write); */
+EXPORT_SYMBOL_GPL(ps3_vuart_write);
 
 /**
  * ps3_vuart_queue_rx_bytes - Queue waiting bytes into the buffer list.
@@ -669,7 +669,7 @@ int ps3_vuart_read(struct ps3_system_bus_device *dev, void *buf,
 	spin_unlock_irqrestore(&priv->rx_list.lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_read); */
+EXPORT_SYMBOL_GPL(ps3_vuart_read);
 
 /**
  * ps3_vuart_work - Asynchronous read handler.
@@ -718,13 +718,13 @@ int ps3_vuart_read_async(struct ps3_system_bus_device *dev, unsigned int bytes)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_read_async); */
+EXPORT_SYMBOL_GPL(ps3_vuart_read_async);
 
 void ps3_vuart_cancel_async(struct ps3_system_bus_device *dev)
 {
 	to_port_priv(dev)->rx_list.work.trigger = 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_cancel_async); */
+EXPORT_SYMBOL_GPL(ps3_vuart_cancel_async);
 
 /**
  * ps3_vuart_handle_interrupt_tx - third stage transmit interrupt handler
@@ -1257,7 +1257,7 @@ int ps3_vuart_port_driver_register(struct ps3_vuart_port_driver *drv)
 	result = ps3_system_bus_driver_register(&drv->core);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_port_driver_register); */
+EXPORT_SYMBOL_GPL(ps3_vuart_port_driver_register);
 
 /**
  * ps3_vuart_port_driver_unregister - Remove a vuart port device driver.
@@ -1268,4 +1268,4 @@ void ps3_vuart_port_driver_unregister(struct ps3_vuart_port_driver *drv)
 	pr_debug("%s:%d: (%s)\n", __func__, __LINE__, drv->core.core.name);
 	ps3_system_bus_driver_unregister(&drv->core);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ps3_vuart_port_driver_unregister); */
+EXPORT_SYMBOL_GPL(ps3_vuart_port_driver_unregister);

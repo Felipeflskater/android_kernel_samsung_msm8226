@@ -219,7 +219,7 @@ int acpi_processor_get_bios_limit(int cpu, unsigned int *limit)
 		core_frequency * 1000;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_processor_get_bios_limit); */
+EXPORT_SYMBOL(acpi_processor_get_bios_limit);
 
 void acpi_processor_ppc_init(void)
 {
@@ -512,7 +512,7 @@ int acpi_processor_notify_smm(struct module *calling_module)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_processor_notify_smm); */
+EXPORT_SYMBOL(acpi_processor_notify_smm);
 
 static int acpi_processor_get_psd(struct acpi_processor	*pr)
 {
@@ -730,7 +730,7 @@ err_out:
 	free_cpumask_var(covered_cpus);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_processor_preregister_performance); */
+EXPORT_SYMBOL(acpi_processor_preregister_performance);
 
 int
 acpi_processor_register_performance(struct acpi_processor_performance
@@ -768,7 +768,7 @@ acpi_processor_register_performance(struct acpi_processor_performance
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_processor_register_performance); */
+EXPORT_SYMBOL(acpi_processor_register_performance);
 
 void
 acpi_processor_unregister_performance(struct acpi_processor_performance
@@ -793,4 +793,4 @@ acpi_processor_unregister_performance(struct acpi_processor_performance
 	return;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_processor_unregister_performance); */
+EXPORT_SYMBOL(acpi_processor_unregister_performance);

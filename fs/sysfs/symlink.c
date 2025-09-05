@@ -302,6 +302,6 @@ const struct inode_operations sysfs_symlink_inode_operations = {
 };
 
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_create_link); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_remove_link); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sysfs_rename_link); */
+EXPORT_SYMBOL_GPL(sysfs_create_link);
+EXPORT_SYMBOL_GPL(sysfs_remove_link);
+EXPORT_SYMBOL_GPL(sysfs_rename_link);

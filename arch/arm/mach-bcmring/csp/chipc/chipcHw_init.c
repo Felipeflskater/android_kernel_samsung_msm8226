@@ -140,7 +140,7 @@ void chipcHw_pll2Enable(uint32_t vcoFreqHz)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(chipcHw_pll2Enable); */
+EXPORT_SYMBOL(chipcHw_pll2Enable);
 
 /****************************************************************************/
 /**
@@ -237,7 +237,7 @@ void chipcHw_pll1Enable(uint32_t vcoFreqHz, chipcHw_SPREAD_SPECTRUM_e ssSupport)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(chipcHw_pll1Enable); */
+EXPORT_SYMBOL(chipcHw_pll1Enable);
 
 /****************************************************************************/
 /**

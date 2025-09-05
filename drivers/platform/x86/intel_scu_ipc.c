@@ -221,7 +221,7 @@ int intel_scu_ipc_ioread8(u16 addr, u8 *data)
 {
 	return pwr_reg_rdwr(&addr, data, 1, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_R);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_ioread8); */
+EXPORT_SYMBOL(intel_scu_ipc_ioread8);
 
 /**
  *	intel_scu_ipc_ioread16		-	read a word via the SCU
@@ -238,7 +238,7 @@ int intel_scu_ipc_ioread16(u16 addr, u16 *data)
 	u16 x[2] = {addr, addr + 1 };
 	return pwr_reg_rdwr(x, (u8 *)data, 2, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_R);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_ioread16); */
+EXPORT_SYMBOL(intel_scu_ipc_ioread16);
 
 /**
  *	intel_scu_ipc_ioread32		-	read a dword via the SCU
@@ -255,7 +255,7 @@ int intel_scu_ipc_ioread32(u16 addr, u32 *data)
 	u16 x[4] = {addr, addr + 1, addr + 2, addr + 3};
 	return pwr_reg_rdwr(x, (u8 *)data, 4, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_R);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_ioread32); */
+EXPORT_SYMBOL(intel_scu_ipc_ioread32);
 
 /**
  *	intel_scu_ipc_iowrite8		-	write a byte via the SCU
@@ -271,7 +271,7 @@ int intel_scu_ipc_iowrite8(u16 addr, u8 data)
 {
 	return pwr_reg_rdwr(&addr, &data, 1, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_W);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_iowrite8); */
+EXPORT_SYMBOL(intel_scu_ipc_iowrite8);
 
 /**
  *	intel_scu_ipc_iowrite16		-	write a word via the SCU
@@ -288,7 +288,7 @@ int intel_scu_ipc_iowrite16(u16 addr, u16 data)
 	u16 x[2] = {addr, addr + 1 };
 	return pwr_reg_rdwr(x, (u8 *)&data, 2, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_W);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_iowrite16); */
+EXPORT_SYMBOL(intel_scu_ipc_iowrite16);
 
 /**
  *	intel_scu_ipc_iowrite32		-	write a dword via the SCU
@@ -305,7 +305,7 @@ int intel_scu_ipc_iowrite32(u16 addr, u32 data)
 	u16 x[4] = {addr, addr + 1, addr + 2, addr + 3};
 	return pwr_reg_rdwr(x, (u8 *)&data, 4, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_W);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_iowrite32); */
+EXPORT_SYMBOL(intel_scu_ipc_iowrite32);
 
 /**
  *	intel_scu_ipc_readvv		-	read a set of registers
@@ -324,7 +324,7 @@ int intel_scu_ipc_readv(u16 *addr, u8 *data, int len)
 {
 	return pwr_reg_rdwr(addr, data, len, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_R);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_readv); */
+EXPORT_SYMBOL(intel_scu_ipc_readv);
 
 /**
  *	intel_scu_ipc_writev		-	write a set of registers
@@ -344,7 +344,7 @@ int intel_scu_ipc_writev(u16 *addr, u8 *data, int len)
 {
 	return pwr_reg_rdwr(addr, data, len, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_W);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_writev); */
+EXPORT_SYMBOL(intel_scu_ipc_writev);
 
 
 /**
@@ -367,7 +367,7 @@ int intel_scu_ipc_update_register(u16 addr, u8 bits, u8 mask)
 	u8 data[2] = { bits, mask };
 	return pwr_reg_rdwr(&addr, data, 1, IPCMSG_PCNTRL, IPC_CMD_PCNTRL_M);
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_update_register); */
+EXPORT_SYMBOL(intel_scu_ipc_update_register);
 
 /**
  *	intel_scu_ipc_simple_command	-	send a simple command
@@ -395,7 +395,7 @@ int intel_scu_ipc_simple_command(int cmd, int sub)
 	mutex_unlock(&ipclock);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_simple_command); */
+EXPORT_SYMBOL(intel_scu_ipc_simple_command);
 
 /**
  *	intel_scu_ipc_command	-	command with data
@@ -433,7 +433,7 @@ int intel_scu_ipc_command(int cmd, int sub, u32 *in, int inlen,
 	mutex_unlock(&ipclock);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_command); */
+EXPORT_SYMBOL(intel_scu_ipc_command);
 
 /*I2C commands */
 #define IPC_I2C_WRITE 1 /* I2C Write command */
@@ -480,7 +480,7 @@ int intel_scu_ipc_i2c_cntrl(u32 addr, u32 *data)
 	mutex_unlock(&ipclock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(intel_scu_ipc_i2c_cntrl); */
+EXPORT_SYMBOL(intel_scu_ipc_i2c_cntrl);
 
 /*
  * Interrupt handler gets called when ioc bit of IPC_COMMAND_REG set to 1

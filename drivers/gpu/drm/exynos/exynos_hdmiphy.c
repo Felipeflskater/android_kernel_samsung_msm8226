@@ -55,4 +55,4 @@ struct i2c_driver hdmiphy_driver = {
 	.remove		= __devexit_p(hdmiphy_remove),
 	.command		= NULL,
 };
-/* DISABLED: EXPORT_SYMBOL(hdmiphy_driver); */
+EXPORT_SYMBOL(hdmiphy_driver);

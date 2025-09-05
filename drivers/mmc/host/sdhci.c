@@ -3127,7 +3127,7 @@ int sdhci_suspend_host(struct sdhci_host *host)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_suspend_host); */
+EXPORT_SYMBOL_GPL(sdhci_suspend_host);
 
 int sdhci_resume_host(struct sdhci_host *host)
 {
@@ -3169,7 +3169,7 @@ int sdhci_resume_host(struct sdhci_host *host)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_resume_host); */
+EXPORT_SYMBOL_GPL(sdhci_resume_host);
 
 void sdhci_enable_irq_wakeups(struct sdhci_host *host)
 {
@@ -3179,7 +3179,7 @@ void sdhci_enable_irq_wakeups(struct sdhci_host *host)
 	sdhci_writeb(host, val, SDHCI_WAKE_UP_CONTROL);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_enable_irq_wakeups); */
+EXPORT_SYMBOL_GPL(sdhci_enable_irq_wakeups);
 
 #endif /* CONFIG_PM */
 
@@ -3227,7 +3227,7 @@ int sdhci_runtime_suspend_host(struct sdhci_host *host)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_runtime_suspend_host); */
+EXPORT_SYMBOL_GPL(sdhci_runtime_suspend_host);
 
 int sdhci_runtime_resume_host(struct sdhci_host *host)
 {
@@ -3270,7 +3270,7 @@ int sdhci_runtime_resume_host(struct sdhci_host *host)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_runtime_resume_host); */
+EXPORT_SYMBOL_GPL(sdhci_runtime_resume_host);
 
 #endif
 
@@ -3302,7 +3302,7 @@ struct sdhci_host *sdhci_alloc_host(struct device *dev,
 	return host;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_alloc_host); */
+EXPORT_SYMBOL_GPL(sdhci_alloc_host);
 
 int sdhci_add_host(struct sdhci_host *host)
 {
@@ -3824,7 +3824,7 @@ untasklet:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_add_host); */
+EXPORT_SYMBOL_GPL(sdhci_add_host);
 
 void sdhci_remove_host(struct sdhci_host *host, int dead)
 {
@@ -3878,14 +3878,14 @@ void sdhci_remove_host(struct sdhci_host *host, int dead)
 	host->align_buffer = NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_remove_host); */
+EXPORT_SYMBOL_GPL(sdhci_remove_host);
 
 void sdhci_free_host(struct sdhci_host *host)
 {
 	mmc_free_host(host->mmc);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_free_host); */
+EXPORT_SYMBOL_GPL(sdhci_free_host);
 
 /*****************************************************************************\
  *                                                                           *

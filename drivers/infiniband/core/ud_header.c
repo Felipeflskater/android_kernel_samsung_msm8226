@@ -276,7 +276,7 @@ void ib_ud_header_init(int     		    payload_bytes,
 	header->grh_present = grh_present;
 	header->immediate_present = immediate_present;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_ud_header_init); */
+EXPORT_SYMBOL(ib_ud_header_init);
 
 /**
  * ib_ud_header_pack - Pack UD header struct into wire format
@@ -327,7 +327,7 @@ int ib_ud_header_pack(struct ib_ud_header *header,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_ud_header_pack); */
+EXPORT_SYMBOL(ib_ud_header_pack);
 
 /**
  * ib_ud_header_unpack - Unpack UD header struct from wire format
@@ -411,4 +411,4 @@ int ib_ud_header_unpack(void                *buf,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_ud_header_unpack); */
+EXPORT_SYMBOL(ib_ud_header_unpack);

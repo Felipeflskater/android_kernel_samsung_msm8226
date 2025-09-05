@@ -56,9 +56,9 @@ struct agp_bridge_data *(*agp_find_bridge)(struct pci_dev *) =
 
 struct agp_bridge_data *agp_bridge;
 LIST_HEAD(agp_bridges);
-/* DISABLED: EXPORT_SYMBOL(agp_bridge); */
-/* DISABLED: EXPORT_SYMBOL(agp_bridges); */
-/* DISABLED: EXPORT_SYMBOL(agp_find_bridge); */
+EXPORT_SYMBOL(agp_bridge);
+EXPORT_SYMBOL(agp_bridges);
+EXPORT_SYMBOL(agp_find_bridge);
 
 /**
  *	agp_backend_acquire  -  attempt to acquire an agp backend.
@@ -78,7 +78,7 @@ struct agp_bridge_data *agp_backend_acquire(struct pci_dev *pdev)
 	atomic_inc(&bridge->agp_in_use);
 	return bridge;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_backend_acquire); */
+EXPORT_SYMBOL(agp_backend_acquire);
 
 
 /**
@@ -95,7 +95,7 @@ void agp_backend_release(struct agp_bridge_data *bridge)
 	if (bridge)
 		atomic_dec(&bridge->agp_in_use);
 }
-/* DISABLED: EXPORT_SYMBOL(agp_backend_release); */
+EXPORT_SYMBOL(agp_backend_release);
 
 
 static const struct { int mem, agp; } maxes_table[] = {
@@ -248,7 +248,7 @@ struct agp_bridge_data *agp_alloc_bridge(void)
 
 	return bridge;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_alloc_bridge); */
+EXPORT_SYMBOL(agp_alloc_bridge);
 
 
 void agp_put_bridge(struct agp_bridge_data *bridge)
@@ -258,7 +258,7 @@ void agp_put_bridge(struct agp_bridge_data *bridge)
         if (list_empty(&agp_bridges))
                 agp_bridge = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(agp_put_bridge); */
+EXPORT_SYMBOL(agp_put_bridge);
 
 
 int agp_add_bridge(struct agp_bridge_data *bridge)
@@ -314,7 +314,7 @@ err_put_bridge:
 	agp_put_bridge(bridge);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(agp_add_bridge); */
+EXPORT_SYMBOL_GPL(agp_add_bridge);
 
 
 void agp_remove_bridge(struct agp_bridge_data *bridge)
@@ -325,12 +325,12 @@ void agp_remove_bridge(struct agp_bridge_data *bridge)
 		agp_frontend_cleanup();
 	module_put(bridge->driver->owner);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(agp_remove_bridge); */
+EXPORT_SYMBOL_GPL(agp_remove_bridge);
 
 int agp_off;
 int agp_try_unsupported_boot;
-/* DISABLED: EXPORT_SYMBOL(agp_off); */
-/* DISABLED: EXPORT_SYMBOL(agp_try_unsupported_boot); */
+EXPORT_SYMBOL(agp_off);
+EXPORT_SYMBOL(agp_try_unsupported_boot);
 
 static int __init agp_init(void)
 {
@@ -353,7 +353,7 @@ static __init int agp_setup(char *s)
 		agp_try_unsupported_boot = 1;
 	return 1;
 }
-/* DISABLED: __setup("agp=", agp_setup); */ */
+__setup("agp=", agp_setup);
 #endif
 
 MODULE_AUTHOR("Dave Jones <davej@redhat.com>");

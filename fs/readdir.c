@@ -45,7 +45,7 @@ out:
 	return res;
 }
 
-/* DISABLED: EXPORT_SYMBOL(vfs_readdir); */
+EXPORT_SYMBOL(vfs_readdir);
 
 static bool hide_name(const char *name, int namlen)
 {

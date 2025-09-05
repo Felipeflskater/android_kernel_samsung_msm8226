@@ -253,7 +253,7 @@ err_reg_enable:
 err_start_dev:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_dpi_display_enable); */
+EXPORT_SYMBOL(omapdss_dpi_display_enable);
 
 void omapdss_dpi_display_disable(struct omap_dss_device *dssdev)
 {
@@ -273,7 +273,7 @@ void omapdss_dpi_display_disable(struct omap_dss_device *dssdev)
 
 	omap_dss_stop_device(dssdev);
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_dpi_display_disable); */
+EXPORT_SYMBOL(omapdss_dpi_display_disable);
 
 void dpi_set_timings(struct omap_dss_device *dssdev,
 			struct omap_video_timings *timings)
@@ -300,7 +300,7 @@ void dpi_set_timings(struct omap_dss_device *dssdev,
 		dss_runtime_put();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dpi_set_timings); */
+EXPORT_SYMBOL(dpi_set_timings);
 
 int dpi_check_timings(struct omap_dss_device *dssdev,
 			struct omap_video_timings *timings)
@@ -350,7 +350,7 @@ int dpi_check_timings(struct omap_dss_device *dssdev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dpi_check_timings); */
+EXPORT_SYMBOL(dpi_check_timings);
 
 int dpi_init_display(struct omap_dss_device *dssdev)
 {

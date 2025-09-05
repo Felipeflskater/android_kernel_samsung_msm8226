@@ -141,7 +141,7 @@ struct ab8500_gpadc *ab8500_gpadc_get(char *name)
 
 	return ERR_PTR(-ENOENT);
 }
-/* DISABLED: EXPORT_SYMBOL(ab8500_gpadc_get); */
+EXPORT_SYMBOL(ab8500_gpadc_get);
 
 /**
  * ab8500_gpadc_ad_to_voltage() - Convert a raw ADC value to a voltage
@@ -235,7 +235,7 @@ int ab8500_gpadc_ad_to_voltage(struct ab8500_gpadc *gpadc, u8 channel,
 	}
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(ab8500_gpadc_ad_to_voltage); */
+EXPORT_SYMBOL(ab8500_gpadc_ad_to_voltage);
 
 /**
  * ab8500_gpadc_convert() - gpadc conversion
@@ -263,7 +263,7 @@ int ab8500_gpadc_convert(struct ab8500_gpadc *gpadc, u8 channel)
 
 	return voltage;
 }
-/* DISABLED: EXPORT_SYMBOL(ab8500_gpadc_convert); */
+EXPORT_SYMBOL(ab8500_gpadc_convert);
 
 /**
  * ab8500_gpadc_read_raw() - gpadc read
@@ -418,7 +418,7 @@ out:
 		"gpadc_conversion: Failed to AD convert channel %d\n", channel);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ab8500_gpadc_read_raw); */
+EXPORT_SYMBOL(ab8500_gpadc_read_raw);
 
 /**
  * ab8500_bm_gpswadcconvend_handler() - isr for s/w gpadc conversion completion

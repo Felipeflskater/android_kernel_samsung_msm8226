@@ -39,9 +39,9 @@ int __clk_get(struct clk *clk)
 {
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(__clk_get); */
+EXPORT_SYMBOL(__clk_get);
 
 void __clk_put(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(__clk_put); */
+EXPORT_SYMBOL(__clk_put);

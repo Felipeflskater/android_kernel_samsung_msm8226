@@ -170,7 +170,7 @@ void blk_complete_request(struct request *req)
 	if (!blk_mark_rq_complete(req))
 		__blk_complete_request(req);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_complete_request); */
+EXPORT_SYMBOL(blk_complete_request);
 
 static __init int blk_softirq_init(void)
 {

@@ -39,9 +39,9 @@ const ax25_address ax25_defaddr =
 const ax25_address null_ax25_address =
 	{{' ' << 1, ' ' << 1, ' ' << 1, ' ' << 1, ' ' << 1, ' ' << 1, 0 << 1}};
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ax25_bcast); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ax25_defaddr); */
-/* DISABLED: EXPORT_SYMBOL(null_ax25_address); */
+EXPORT_SYMBOL_GPL(ax25_bcast);
+EXPORT_SYMBOL_GPL(ax25_defaddr);
+EXPORT_SYMBOL(null_ax25_address);
 
 /*
  *	ax25 -> ascii conversion
@@ -74,7 +74,7 @@ char *ax2asc(char *buf, const ax25_address *a)
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(ax2asc); */
+EXPORT_SYMBOL(ax2asc);
 
 /*
  *	ascii -> ax25 conversion
@@ -109,7 +109,7 @@ void asc2ax(ax25_address *addr, const char *callsign)
 	addr->ax25_call[6] &= 0x1E;
 }
 
-/* DISABLED: EXPORT_SYMBOL(asc2ax); */
+EXPORT_SYMBOL(asc2ax);
 
 /*
  *	Compare two ax.25 addresses
@@ -130,7 +130,7 @@ int ax25cmp(const ax25_address *a, const ax25_address *b)
 	return 2;			/* Partial match */
 }
 
-/* DISABLED: EXPORT_SYMBOL(ax25cmp); */
+EXPORT_SYMBOL(ax25cmp);
 
 /*
  *	Compare two AX.25 digipeater paths.

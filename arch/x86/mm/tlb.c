@@ -67,7 +67,7 @@ void leave_mm(int cpu)
 			  mm_cpumask(percpu_read(cpu_tlbstate.active_mm)));
 	load_cr3(swapper_pg_dir);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(leave_mm); */
+EXPORT_SYMBOL_GPL(leave_mm);
 
 /*
  *

@@ -249,10 +249,10 @@ void free_xc(struct xc *x)
 	mutex_unlock(&xc_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(free_xc); */
-/* DISABLED: EXPORT_SYMBOL(request_xc); */
-/* DISABLED: EXPORT_SYMBOL(xc_request_firmware); */
-/* DISABLED: EXPORT_SYMBOL(xc_reset); */
-/* DISABLED: EXPORT_SYMBOL(xc_running); */
-/* DISABLED: EXPORT_SYMBOL(xc_start); */
-/* DISABLED: EXPORT_SYMBOL(xc_stop); */
+EXPORT_SYMBOL(free_xc);
+EXPORT_SYMBOL(request_xc);
+EXPORT_SYMBOL(xc_request_firmware);
+EXPORT_SYMBOL(xc_reset);
+EXPORT_SYMBOL(xc_running);
+EXPORT_SYMBOL(xc_start);
+EXPORT_SYMBOL(xc_stop);

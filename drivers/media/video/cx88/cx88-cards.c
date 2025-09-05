@@ -3255,7 +3255,7 @@ int cx88_tuner_callback(void *priv, int component, int command, int arg)
 		   core->board.tuner_type);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(cx88_tuner_callback); */
+EXPORT_SYMBOL(cx88_tuner_callback);
 
 /* ----------------------------------------------------------------------- */
 
@@ -3404,7 +3404,7 @@ void cx88_setup_xc3028(struct cx88_core *core, struct xc2028_ctrl *ctl)
 		ctl->mts = 1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cx88_setup_xc3028); */
+EXPORT_SYMBOL_GPL(cx88_setup_xc3028);
 
 static void cx88_card_setup(struct cx88_core *core)
 {

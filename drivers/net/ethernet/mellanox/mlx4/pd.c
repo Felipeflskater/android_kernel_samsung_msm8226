@@ -55,13 +55,13 @@ int mlx4_pd_alloc(struct mlx4_dev *dev, u32 *pdn)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_pd_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_pd_alloc);
 
 void mlx4_pd_free(struct mlx4_dev *dev, u32 pdn)
 {
 	mlx4_bitmap_free(&mlx4_priv(dev)->pd_bitmap, pdn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_pd_free); */
+EXPORT_SYMBOL_GPL(mlx4_pd_free);
 
 int mlx4_xrcd_alloc(struct mlx4_dev *dev, u32 *xrcdn)
 {
@@ -73,13 +73,13 @@ int mlx4_xrcd_alloc(struct mlx4_dev *dev, u32 *xrcdn)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_xrcd_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_xrcd_alloc);
 
 void mlx4_xrcd_free(struct mlx4_dev *dev, u32 xrcdn)
 {
 	mlx4_bitmap_free(&mlx4_priv(dev)->xrcd_bitmap, xrcdn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_xrcd_free); */
+EXPORT_SYMBOL_GPL(mlx4_xrcd_free);
 
 int mlx4_init_pd_table(struct mlx4_dev *dev)
 {
@@ -125,13 +125,13 @@ int mlx4_uar_alloc(struct mlx4_dev *dev, struct mlx4_uar *uar)
 	uar->map = NULL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_uar_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_uar_alloc);
 
 void mlx4_uar_free(struct mlx4_dev *dev, struct mlx4_uar *uar)
 {
 	mlx4_bitmap_free(&mlx4_priv(dev)->uar_table.bitmap, uar->index);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_uar_free); */
+EXPORT_SYMBOL_GPL(mlx4_uar_free);
 
 int mlx4_bf_alloc(struct mlx4_dev *dev, struct mlx4_bf *bf)
 {
@@ -201,7 +201,7 @@ out:
 	mutex_unlock(&priv->bf_mutex);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_bf_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_bf_alloc);
 
 void mlx4_bf_free(struct mlx4_dev *dev, struct mlx4_bf *bf)
 {
@@ -227,7 +227,7 @@ void mlx4_bf_free(struct mlx4_dev *dev, struct mlx4_bf *bf)
 
 	mutex_unlock(&priv->bf_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_bf_free); */
+EXPORT_SYMBOL_GPL(mlx4_bf_free);
 
 int mlx4_init_uar_table(struct mlx4_dev *dev)
 {

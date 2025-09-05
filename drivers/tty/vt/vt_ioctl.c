@@ -1464,4 +1464,4 @@ void pm_set_vt_switch(int do_switch)
 	disable_vt_switch = !do_switch;
 	console_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL(pm_set_vt_switch); */
+EXPORT_SYMBOL(pm_set_vt_switch);

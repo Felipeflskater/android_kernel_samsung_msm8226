@@ -301,7 +301,7 @@ exit:
 	fe->sec_priv = NULL;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(isl6423_attach); */
+EXPORT_SYMBOL(isl6423_attach);
 
 MODULE_DESCRIPTION("ISL6423 SEC");
 MODULE_AUTHOR("Manu Abraham");

@@ -300,7 +300,7 @@ struct tty_ldisc_ops v253_ops = {
 	.receive_buf = v253_receive,
 	.write_wakeup = v253_wakeup,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(v253_ops); */
+EXPORT_SYMBOL_GPL(v253_ops);
 
 
 /*

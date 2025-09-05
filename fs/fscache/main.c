@@ -205,7 +205,7 @@ int fscache_wait_bit(void *flags)
 	schedule();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_wait_bit); */
+EXPORT_SYMBOL(fscache_wait_bit);
 
 /*
  * wait_on_bit() sleep function for interruptible waiting
@@ -215,4 +215,4 @@ int fscache_wait_bit_interruptible(void *flags)
 	schedule();
 	return signal_pending(current);
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_wait_bit_interruptible); */
+EXPORT_SYMBOL(fscache_wait_bit_interruptible);

@@ -579,7 +579,7 @@ void msm_jtag_save_state(void)
 	if (etm.save_restore_enabled[cpu])
 		etm_save_state(etm.cpu_ctx[cpu]);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_jtag_save_state); */
+EXPORT_SYMBOL(msm_jtag_save_state);
 
 void msm_jtag_restore_state(void)
 {
@@ -610,7 +610,7 @@ void msm_jtag_restore_state(void)
 	if (etm.save_restore_enabled[cpu])
 		etm_restore_state(etm.cpu_ctx[cpu]);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_jtag_restore_state); */
+EXPORT_SYMBOL(msm_jtag_restore_state);
 
 static inline bool etm_arch_supported(uint8_t arch)
 {

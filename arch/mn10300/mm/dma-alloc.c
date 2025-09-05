@@ -60,7 +60,7 @@ done:
 	printk("dma_alloc_coherent() = %p [%x]\n", ret, *dma_handle);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
+EXPORT_SYMBOL(dma_alloc_coherent);
 
 void dma_free_coherent(struct device *dev, size_t size, void *vaddr,
 		       dma_addr_t dma_handle)
@@ -72,4 +72,4 @@ void dma_free_coherent(struct device *dev, size_t size, void *vaddr,
 
 	free_pages(addr, get_order(size));
 }
-/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
+EXPORT_SYMBOL(dma_free_coherent);

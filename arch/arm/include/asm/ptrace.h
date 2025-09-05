@@ -68,11 +68,6 @@
 #define PSR_x		0x0000ff00	/* Extension		*/
 #define PSR_c		0x000000ff	/* Control		*/
 
-/* Assembly definitions */
-#ifndef S_PC
-#define S_PC		60
-#endif
-
 /*
  * ARMv7 groups of PSR bits
  */
@@ -260,5 +255,3 @@ static inline unsigned long kernel_stack_pointer(struct pt_regs *regs)
 
 #endif
 
-
-#endif /* __ARM_PTRACE_H */

@@ -64,7 +64,7 @@ int puv3_pm_enter(suspend_state_t state)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(puv3_pm_enter); */
+EXPORT_SYMBOL_GPL(puv3_pm_enter);
 
 unsigned long sleep_phys_sp(void *sp)
 {

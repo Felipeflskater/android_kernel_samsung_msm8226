@@ -632,8 +632,8 @@ void matroxfb_g450_shutdown(struct matrox_fb_info *minfo)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(matroxfb_g450_connect); */
-/* DISABLED: EXPORT_SYMBOL(matroxfb_g450_shutdown); */
+EXPORT_SYMBOL(matroxfb_g450_connect);
+EXPORT_SYMBOL(matroxfb_g450_shutdown);
 
 MODULE_AUTHOR("(c) 2000-2002 Petr Vandrovec <vandrove@vc.cvut.cz>");
 MODULE_DESCRIPTION("Matrox G450/G550 output driver");

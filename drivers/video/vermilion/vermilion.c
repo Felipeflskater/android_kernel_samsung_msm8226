@@ -1152,7 +1152,7 @@ int vmlfb_register_subsys(struct vml_sys *sys)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vmlfb_register_subsys); */
+EXPORT_SYMBOL_GPL(vmlfb_register_subsys);
 
 void vmlfb_unregister_subsys(struct vml_sys *sys)
 {
@@ -1174,7 +1174,7 @@ void vmlfb_unregister_subsys(struct vml_sys *sys)
 	mutex_unlock(&vml_mutex);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vmlfb_unregister_subsys); */
+EXPORT_SYMBOL_GPL(vmlfb_unregister_subsys);
 
 module_init(vmlfb_init);
 module_exit(vmlfb_cleanup);

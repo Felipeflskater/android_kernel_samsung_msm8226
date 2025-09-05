@@ -661,13 +661,13 @@ __initcall(appldata_init);
 
 /**************************** init / exit <END> ******************************/
 
-/* DISABLED: EXPORT_SYMBOL_GPL(appldata_register_ops); */
-/* DISABLED: EXPORT_SYMBOL_GPL(appldata_unregister_ops); */
-/* DISABLED: EXPORT_SYMBOL_GPL(appldata_diag); */
+EXPORT_SYMBOL_GPL(appldata_register_ops);
+EXPORT_SYMBOL_GPL(appldata_unregister_ops);
+EXPORT_SYMBOL_GPL(appldata_diag);
 
 #ifdef CONFIG_SWAP
-/* DISABLED: EXPORT_SYMBOL_GPL(si_swapinfo); */
+EXPORT_SYMBOL_GPL(si_swapinfo);
 #endif
-/* DISABLED: EXPORT_SYMBOL_GPL(nr_threads); */
-/* DISABLED: EXPORT_SYMBOL_GPL(nr_running); */
-/* DISABLED: EXPORT_SYMBOL_GPL(nr_iowait); */
+EXPORT_SYMBOL_GPL(nr_threads);
+EXPORT_SYMBOL_GPL(nr_running);
+EXPORT_SYMBOL_GPL(nr_iowait);

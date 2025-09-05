@@ -516,7 +516,7 @@ int s3c24xx_set_fiq(unsigned int irq, bool on)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(s3c24xx_set_fiq); */
+EXPORT_SYMBOL_GPL(s3c24xx_set_fiq);
 #endif
 
 

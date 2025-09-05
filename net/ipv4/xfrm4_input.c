@@ -44,7 +44,7 @@ int xfrm4_rcv_encap(struct sk_buff *skb, int nexthdr, __be32 spi,
 	XFRM_SPI_SKB_CB(skb)->daddroff = offsetof(struct iphdr, daddr);
 	return xfrm_input(skb, nexthdr, spi, encap_type);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm4_rcv_encap); */
+EXPORT_SYMBOL(xfrm4_rcv_encap);
 
 int xfrm4_transport_finish(struct sk_buff *skb, int async)
 {
@@ -163,4 +163,4 @@ int xfrm4_rcv(struct sk_buff *skb)
 {
 	return xfrm4_rcv_spi(skb, ip_hdr(skb)->protocol, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm4_rcv); */
+EXPORT_SYMBOL(xfrm4_rcv);

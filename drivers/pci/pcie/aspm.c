@@ -789,13 +789,13 @@ void pci_disable_link_state_locked(struct pci_dev *pdev, int state)
 {
 	__pci_disable_link_state(pdev, state, false, false);
 }
-/* DISABLED: EXPORT_SYMBOL(pci_disable_link_state_locked); */
+EXPORT_SYMBOL(pci_disable_link_state_locked);
 
 void pci_disable_link_state(struct pci_dev *pdev, int state)
 {
 	__pci_disable_link_state(pdev, state, true, false);
 }
-/* DISABLED: EXPORT_SYMBOL(pci_disable_link_state); */
+EXPORT_SYMBOL(pci_disable_link_state);
 
 void pcie_clear_aspm(struct pci_bus *bus)
 {
@@ -983,7 +983,7 @@ static int __init pcie_aspm_disable(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pcie_aspm=", pcie_aspm_disable); */ */
+__setup("pcie_aspm=", pcie_aspm_disable);
 
 void pcie_no_aspm(void)
 {
@@ -1009,10 +1009,10 @@ int pcie_aspm_enabled(void)
 {
        return !aspm_disabled;
 }
-/* DISABLED: EXPORT_SYMBOL(pcie_aspm_enabled); */
+EXPORT_SYMBOL(pcie_aspm_enabled);
 
 bool pcie_aspm_support_enabled(void)
 {
 	return aspm_support_enabled;
 }
-/* DISABLED: EXPORT_SYMBOL(pcie_aspm_support_enabled); */
+EXPORT_SYMBOL(pcie_aspm_support_enabled);

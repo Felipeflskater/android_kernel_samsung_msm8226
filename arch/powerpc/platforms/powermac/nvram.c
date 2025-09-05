@@ -647,6 +647,6 @@ void pmac_xpram_write(int xpaddr, u8 data)
 	ppc_md.nvram_write_val(xpaddr + offset, data);
 }
 
-/* DISABLED: EXPORT_SYMBOL(pmac_get_partition); */
-/* DISABLED: EXPORT_SYMBOL(pmac_xpram_read); */
-/* DISABLED: EXPORT_SYMBOL(pmac_xpram_write); */
+EXPORT_SYMBOL(pmac_get_partition);
+EXPORT_SYMBOL(pmac_xpram_read);
+EXPORT_SYMBOL(pmac_xpram_write);

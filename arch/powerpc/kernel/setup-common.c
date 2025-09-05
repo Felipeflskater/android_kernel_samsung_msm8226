@@ -74,9 +74,9 @@
 /* The main machine-dep calls structure
  */
 struct machdep_calls ppc_md;
-/* DISABLED: EXPORT_SYMBOL(ppc_md); */
+EXPORT_SYMBOL(ppc_md);
 struct machdep_calls *machine_id;
-/* DISABLED: EXPORT_SYMBOL(machine_id); */
+EXPORT_SYMBOL(machine_id);
 
 unsigned long klimit = (unsigned long) _end;
 
@@ -96,14 +96,14 @@ struct screen_info screen_info = {
 
 /* Variables required to store legacy IO irq routing */
 int of_i8042_kbd_irq;
-/* DISABLED: EXPORT_SYMBOL_GPL(of_i8042_kbd_irq); */
+EXPORT_SYMBOL_GPL(of_i8042_kbd_irq);
 int of_i8042_aux_irq;
-/* DISABLED: EXPORT_SYMBOL_GPL(of_i8042_aux_irq); */
+EXPORT_SYMBOL_GPL(of_i8042_aux_irq);
 
 #ifdef __DO_IRQ_CANON
 /* XXX should go elsewhere eventually */
 int ppc_do_canonicalize_irqs;
-/* DISABLED: EXPORT_SYMBOL(ppc_do_canonicalize_irqs); */
+EXPORT_SYMBOL(ppc_do_canonicalize_irqs);
 #endif
 
 /* also used by kexec */
@@ -147,10 +147,10 @@ void machine_power_off(void)
 	while (1) ;
 }
 /* Used by the G5 thermal driver */
-/* DISABLED: EXPORT_SYMBOL_GPL(machine_power_off); */
+EXPORT_SYMBOL_GPL(machine_power_off);
 
 void (*pm_power_off)(void) = machine_power_off;
-/* DISABLED: EXPORT_SYMBOL_GPL(pm_power_off); */
+EXPORT_SYMBOL_GPL(pm_power_off);
 
 void machine_halt(void)
 {
@@ -383,9 +383,9 @@ void __init check_for_initrd(void)
 
 int threads_per_core, threads_shift;
 cpumask_t threads_core_mask;
-/* DISABLED: EXPORT_SYMBOL_GPL(threads_per_core); */
-/* DISABLED: EXPORT_SYMBOL_GPL(threads_shift); */
-/* DISABLED: EXPORT_SYMBOL_GPL(threads_core_mask); */
+EXPORT_SYMBOL_GPL(threads_per_core);
+EXPORT_SYMBOL_GPL(threads_shift);
+EXPORT_SYMBOL_GPL(threads_core_mask);
 
 static void __init cpu_init_thread_core_maps(int tpc)
 {
@@ -642,7 +642,7 @@ int check_legacy_ioport(unsigned long base_port)
 	of_node_put(np);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(check_legacy_ioport); */
+EXPORT_SYMBOL(check_legacy_ioport);
 
 static int ppc_panic_event(struct notifier_block *this,
                              unsigned long event, void *ptr)
@@ -709,7 +709,7 @@ late_initcall(check_cache_coherency);
 
 #ifdef CONFIG_DEBUG_FS
 struct dentry *powerpc_debugfs_root;
-/* DISABLED: EXPORT_SYMBOL(powerpc_debugfs_root); */
+EXPORT_SYMBOL(powerpc_debugfs_root);
 
 static int powerpc_debugfs_init(void)
 {

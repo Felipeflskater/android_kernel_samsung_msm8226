@@ -313,21 +313,21 @@ err:
 	rcu_read_unlock();
 	return acct;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfnl_acct_find_get); */
+EXPORT_SYMBOL_GPL(nfnl_acct_find_get);
 
 void nfnl_acct_put(struct nf_acct *acct)
 {
 	atomic_dec(&acct->refcnt);
 	module_put(THIS_MODULE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfnl_acct_put); */
+EXPORT_SYMBOL_GPL(nfnl_acct_put);
 
 void nfnl_acct_update(const struct sk_buff *skb, struct nf_acct *nfacct)
 {
 	atomic64_inc(&nfacct->pkts);
 	atomic64_add(skb->len, &nfacct->bytes);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfnl_acct_update); */
+EXPORT_SYMBOL_GPL(nfnl_acct_update);
 
 static int __init nfnl_acct_init(void)
 {

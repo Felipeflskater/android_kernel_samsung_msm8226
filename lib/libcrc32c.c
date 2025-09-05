@@ -57,7 +57,7 @@ u32 crc32c(u32 crc, const void *address, unsigned int length)
 	return *(u32 *)desc.ctx;
 }
 
-/* DISABLED: EXPORT_SYMBOL(crc32c); */
+EXPORT_SYMBOL(crc32c);
 
 static int __init libcrc32c_mod_init(void)
 {

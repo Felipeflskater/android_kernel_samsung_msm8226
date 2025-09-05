@@ -93,7 +93,7 @@ void ath9k_hw_init_btcoex_hw(struct ath_hw *ah, int qnum)
 		ah->hw_gen_timers.gen_timer_index[idx] = i;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_init_btcoex_hw); */
+EXPORT_SYMBOL(ath9k_hw_init_btcoex_hw);
 
 void ath9k_hw_btcoex_init_scheme(struct ath_hw *ah)
 {
@@ -127,7 +127,7 @@ void ath9k_hw_btcoex_init_scheme(struct ath_hw *ah)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_init_scheme); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_init_scheme);
 
 void ath9k_hw_btcoex_init_2wire(struct ath_hw *ah)
 {
@@ -149,7 +149,7 @@ void ath9k_hw_btcoex_init_2wire(struct ath_hw *ah)
 	/* Configure the desired gpio port for input */
 	ath9k_hw_cfg_gpio_input(ah, btcoex_hw->btactive_gpio);
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_init_2wire); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_init_2wire);
 
 void ath9k_hw_btcoex_init_3wire(struct ath_hw *ah)
 {
@@ -175,7 +175,7 @@ void ath9k_hw_btcoex_init_3wire(struct ath_hw *ah)
 	ath9k_hw_cfg_gpio_input(ah, btcoex_hw->btactive_gpio);
 	ath9k_hw_cfg_gpio_input(ah, btcoex_hw->btpriority_gpio);
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_init_3wire); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_init_3wire);
 
 void ath9k_hw_btcoex_init_mci(struct ath_hw *ah)
 {
@@ -199,7 +199,7 @@ void ath9k_hw_btcoex_init_mci(struct ath_hw *ah)
 	ah->btcoex_hw.mci.wlan_cal_done = 0;
 	ah->btcoex_hw.mci.config = 0x2201;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_init_mci); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_init_mci);
 
 static void ath9k_hw_btcoex_enable_2wire(struct ath_hw *ah)
 {
@@ -219,7 +219,7 @@ void ath9k_hw_btcoex_set_weight(struct ath_hw *ah,
 	btcoex_hw->bt_coex_weights = SM(bt_weight, AR_BTCOEX_BT_WGHT) |
 				     SM(wlan_weight, AR_BTCOEX_WL_WGHT);
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_set_weight); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_set_weight);
 
 
 static void ath9k_hw_btcoex_enable_3wire(struct ath_hw *ah)
@@ -297,7 +297,7 @@ void ath9k_hw_btcoex_enable(struct ath_hw *ah)
 
 	ah->btcoex_hw.enabled = true;
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_enable); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_enable);
 
 void ath9k_hw_btcoex_disable(struct ath_hw *ah)
 {
@@ -330,7 +330,7 @@ void ath9k_hw_btcoex_disable(struct ath_hw *ah)
 
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_disable); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_disable);
 
 static void ar9003_btcoex_bt_stomp(struct ath_hw *ah,
 			 enum ath_stomp_type stomp_type)
@@ -375,4 +375,4 @@ void ath9k_hw_btcoex_bt_stomp(struct ath_hw *ah,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath9k_hw_btcoex_bt_stomp); */
+EXPORT_SYMBOL(ath9k_hw_btcoex_bt_stomp);

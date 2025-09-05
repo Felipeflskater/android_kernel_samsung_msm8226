@@ -95,7 +95,7 @@ unsigned int bcma_core_mips_irq(struct bcma_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bcma_core_mips_irq); */
+EXPORT_SYMBOL(bcma_core_mips_irq);
 
 static void bcma_core_mips_set_irq(struct bcma_device *dev, unsigned int irq)
 {
@@ -176,7 +176,7 @@ u32 bcma_cpu_clock(struct bcma_drv_mips *mcore)
 	pr_err("No PMU available, need this to get the cpu clock\n");
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(bcma_cpu_clock); */
+EXPORT_SYMBOL(bcma_cpu_clock);
 
 static void bcma_core_mips_flash_detect(struct bcma_drv_mips *mcore)
 {

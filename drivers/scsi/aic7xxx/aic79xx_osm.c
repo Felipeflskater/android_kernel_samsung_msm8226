@@ -1215,7 +1215,7 @@ aic79xx_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("aic79xx=", aic79xx_setup); */ */
+__setup("aic79xx=", aic79xx_setup);
 
 uint32_t aic79xx_verbose;
 

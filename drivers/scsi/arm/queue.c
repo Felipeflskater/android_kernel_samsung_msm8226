@@ -302,15 +302,15 @@ int queue_remove_cmd(Queue_t *queue, struct scsi_cmnd *SCpnt)
 	return found;
 }
 
-/* DISABLED: EXPORT_SYMBOL(queue_initialise); */
-/* DISABLED: EXPORT_SYMBOL(queue_free); */
-/* DISABLED: EXPORT_SYMBOL(__queue_add); */
-/* DISABLED: EXPORT_SYMBOL(queue_remove); */
-/* DISABLED: EXPORT_SYMBOL(queue_remove_exclude); */
-/* DISABLED: EXPORT_SYMBOL(queue_remove_tgtluntag); */
-/* DISABLED: EXPORT_SYMBOL(queue_remove_cmd); */
-/* DISABLED: EXPORT_SYMBOL(queue_remove_all_target); */
-/* DISABLED: EXPORT_SYMBOL(queue_probetgtlun); */
+EXPORT_SYMBOL(queue_initialise);
+EXPORT_SYMBOL(queue_free);
+EXPORT_SYMBOL(__queue_add);
+EXPORT_SYMBOL(queue_remove);
+EXPORT_SYMBOL(queue_remove_exclude);
+EXPORT_SYMBOL(queue_remove_tgtluntag);
+EXPORT_SYMBOL(queue_remove_cmd);
+EXPORT_SYMBOL(queue_remove_all_target);
+EXPORT_SYMBOL(queue_probetgtlun);
 
 MODULE_AUTHOR("Russell King");
 MODULE_DESCRIPTION("SCSI command queueing");

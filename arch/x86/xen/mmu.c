@@ -149,7 +149,7 @@ xmaddr_t arbitrary_virt_to_machine(void *vaddr)
 	offset = address & ~PAGE_MASK;
 	return XMADDR(((phys_addr_t)pte_mfn(*pte) << PAGE_SHIFT) + offset);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(arbitrary_virt_to_machine); */
+EXPORT_SYMBOL_GPL(arbitrary_virt_to_machine);
 
 void make_lowmem_page_readonly(void *vaddr)
 {
@@ -209,7 +209,7 @@ void xen_set_domain_pte(pte_t *ptep, pte_t pteval, unsigned domid)
 
 	xen_mc_issue(PARAVIRT_LAZY_MMU);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_set_domain_pte); */
+EXPORT_SYMBOL_GPL(xen_set_domain_pte);
 
 static void xen_extend_mmu_update(const struct mmu_update *update)
 {
@@ -2231,7 +2231,7 @@ int xen_create_contiguous_region(unsigned long vstart, unsigned int order,
 
 	return success ? 0 : -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_create_contiguous_region); */
+EXPORT_SYMBOL_GPL(xen_create_contiguous_region);
 
 void xen_destroy_contiguous_region(unsigned long vstart, unsigned int order)
 {
@@ -2267,7 +2267,7 @@ void xen_destroy_contiguous_region(unsigned long vstart, unsigned int order)
 
 	spin_unlock_irqrestore(&xen_reservation_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_destroy_contiguous_region); */
+EXPORT_SYMBOL_GPL(xen_destroy_contiguous_region);
 
 #ifdef CONFIG_XEN_PVHVM
 static void xen_hvm_exit_mmap(struct mm_struct *mm)
@@ -2368,4 +2368,4 @@ out:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_remap_domain_mfn_range); */
+EXPORT_SYMBOL_GPL(xen_remap_domain_mfn_range);

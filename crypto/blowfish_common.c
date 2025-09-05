@@ -396,7 +396,7 @@ int blowfish_setkey(struct crypto_tfm *tfm, const u8 *key, unsigned int keylen)
 	/* Bruce says not to bother with the weak key check. */
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(blowfish_setkey); */
+EXPORT_SYMBOL_GPL(blowfish_setkey);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Blowfish Cipher common functions");

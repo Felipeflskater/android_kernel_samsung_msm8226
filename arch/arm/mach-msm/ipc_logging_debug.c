@@ -159,7 +159,7 @@ void check_and_create_debugfs(void)
 	}
 	mutex_unlock(&ipc_log_debugfs_init_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(check_and_create_debugfs); */
+EXPORT_SYMBOL(check_and_create_debugfs);
 
 void create_ctx_debugfs(struct ipc_log_context *ctxt,
 			const char *mod_name)
@@ -179,4 +179,4 @@ void create_ctx_debugfs(struct ipc_log_context *ctxt,
 	add_deserialization_func((void *)ctxt,
 				 TSV_TYPE_STRING, dfunc_string);
 }
-/* DISABLED: EXPORT_SYMBOL(create_ctx_debugfs); */
+EXPORT_SYMBOL(create_ctx_debugfs);

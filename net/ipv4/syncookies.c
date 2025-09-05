@@ -26,7 +26,7 @@
 extern int sysctl_tcp_syncookies;
 
 __u32 syncookie_secret[2][16-4+SHA_DIGEST_WORDS];
-/* DISABLED: EXPORT_SYMBOL(syncookie_secret); */
+EXPORT_SYMBOL(syncookie_secret);
 
 static __init int init_syncookies(void)
 {
@@ -260,7 +260,7 @@ bool cookie_check_timestamp(struct tcp_options_received *tcp_opt, bool *ecn_ok)
 	tcp_opt->snd_wscale = options & 0xf;
 	return sysctl_tcp_window_scaling != 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cookie_check_timestamp); */
+EXPORT_SYMBOL(cookie_check_timestamp);
 
 struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb,
 			     struct ip_options *opt)

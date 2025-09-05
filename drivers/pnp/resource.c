@@ -489,7 +489,7 @@ struct resource *pnp_get_resource(struct pnp_dev *dev,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(pnp_get_resource); */
+EXPORT_SYMBOL(pnp_get_resource);
 
 static struct pnp_resource *pnp_new_resource(struct pnp_dev *dev)
 {
@@ -661,7 +661,7 @@ int pnp_possible_config(struct pnp_dev *dev, int type, resource_size_t start,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pnp_possible_config); */
+EXPORT_SYMBOL(pnp_possible_config);
 
 int pnp_range_reserved(resource_size_t start, resource_size_t end)
 {
@@ -679,7 +679,7 @@ int pnp_range_reserved(resource_size_t start, resource_size_t end)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pnp_range_reserved); */
+EXPORT_SYMBOL(pnp_range_reserved);
 
 /* format is: pnp_reserve_irq=irq1[,irq2] .... */
 static int __init pnp_setup_reserve_irq(char *str)
@@ -692,7 +692,7 @@ static int __init pnp_setup_reserve_irq(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnp_reserve_irq=", pnp_setup_reserve_irq); */ */
+__setup("pnp_reserve_irq=", pnp_setup_reserve_irq);
 
 /* format is: pnp_reserve_dma=dma1[,dma2] .... */
 static int __init pnp_setup_reserve_dma(char *str)
@@ -705,7 +705,7 @@ static int __init pnp_setup_reserve_dma(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnp_reserve_dma=", pnp_setup_reserve_dma); */ */
+__setup("pnp_reserve_dma=", pnp_setup_reserve_dma);
 
 /* format is: pnp_reserve_io=io1,size1[,io2,size2] .... */
 static int __init pnp_setup_reserve_io(char *str)
@@ -718,7 +718,7 @@ static int __init pnp_setup_reserve_io(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnp_reserve_io=", pnp_setup_reserve_io); */ */
+__setup("pnp_reserve_io=", pnp_setup_reserve_io);
 
 /* format is: pnp_reserve_mem=mem1,size1[,mem2,size2] .... */
 static int __init pnp_setup_reserve_mem(char *str)
@@ -731,4 +731,4 @@ static int __init pnp_setup_reserve_mem(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("pnp_reserve_mem=", pnp_setup_reserve_mem); */ */
+__setup("pnp_reserve_mem=", pnp_setup_reserve_mem);

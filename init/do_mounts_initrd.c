@@ -21,7 +21,7 @@ static int __init no_initrd(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("noinitrd", no_initrd); */ */
+__setup("noinitrd", no_initrd);
 
 static int __init do_linuxrc(void *_shell)
 {

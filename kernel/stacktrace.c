@@ -23,7 +23,7 @@ void print_stack_trace(struct stack_trace *trace, int spaces)
 		print_ip_sym(trace->entries[i]);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(print_stack_trace); */
+EXPORT_SYMBOL_GPL(print_stack_trace);
 
 /*
  * Architectures that do not implement save_stack_trace_tsk or

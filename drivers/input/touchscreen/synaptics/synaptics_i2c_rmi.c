@@ -240,7 +240,7 @@ static int __init synaptics_read_lcd_id(char *mode)
 
 	return 0;
 }
-/* DISABLED: __setup("lcd_id=0x", synaptics_read_lcd_id); */ */
+__setup("lcd_id=0x", synaptics_read_lcd_id);
 #endif
 
 #ifdef CONFIG_OF
@@ -3308,7 +3308,7 @@ int synaptics_proximity_no_sleep_set(struct synaptics_rmi4_data *rmi4_data, bool
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_proximity_no_sleep_set); */
+EXPORT_SYMBOL(synaptics_proximity_no_sleep_set);
 
 static int synaptics_rmi4_f51_set_enables(struct synaptics_rmi4_data *rmi4_data)
 {
@@ -3579,7 +3579,7 @@ int synaptics_rmi4_proximity_enables(struct synaptics_rmi4_data *rmi4_data, unsi
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_proximity_enables); */
+EXPORT_SYMBOL(synaptics_rmi4_proximity_enables);
 #endif
 
 static int synaptics_rmi4_check_status(struct synaptics_rmi4_data *rmi4_data)

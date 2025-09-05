@@ -299,7 +299,7 @@ int register_service_level(struct service_level *slr)
 	up_write(&service_level_sem);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(register_service_level); */
+EXPORT_SYMBOL(register_service_level);
 
 int unregister_service_level(struct service_level *slr)
 {
@@ -317,7 +317,7 @@ int unregister_service_level(struct service_level *slr)
 	up_write(&service_level_sem);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_service_level); */
+EXPORT_SYMBOL(unregister_service_level);
 
 static void *service_level_start(struct seq_file *m, loff_t *pos)
 {

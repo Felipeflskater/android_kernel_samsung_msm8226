@@ -840,7 +840,7 @@ static int __init acpi_irq_isa(char *str)
 	return acpi_irq_penalty_update(str, 1);
 }
 
-/* DISABLED: __setup("acpi_irq_isa=", acpi_irq_isa); */ */
+__setup("acpi_irq_isa=", acpi_irq_isa);
 
 /*
  * Over-ride default table to free additional IRQs for use by PCI
@@ -852,7 +852,7 @@ static int __init acpi_irq_pci(char *str)
 	return acpi_irq_penalty_update(str, 0);
 }
 
-/* DISABLED: __setup("acpi_irq_pci=", acpi_irq_pci); */ */
+__setup("acpi_irq_pci=", acpi_irq_pci);
 
 static int __init acpi_irq_nobalance_set(char *str)
 {
@@ -860,7 +860,7 @@ static int __init acpi_irq_nobalance_set(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_irq_nobalance", acpi_irq_nobalance_set); */ */
+__setup("acpi_irq_nobalance", acpi_irq_nobalance_set);
 
 static int __init acpi_irq_balance_set(char *str)
 {
@@ -868,7 +868,7 @@ static int __init acpi_irq_balance_set(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_irq_balance", acpi_irq_balance_set); */ */
+__setup("acpi_irq_balance", acpi_irq_balance_set);
 
 static struct syscore_ops irqrouter_syscore_ops = {
 	.resume = irqrouter_resume,

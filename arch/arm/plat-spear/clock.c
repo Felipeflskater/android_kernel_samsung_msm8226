@@ -188,7 +188,7 @@ int clk_enable(struct clk *clk)
 	spin_unlock_irqrestore(&clocks_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 /*
  * clk_disable - inform the system when the clock source is no longer required.
@@ -210,7 +210,7 @@ void clk_disable(struct clk *clk)
 	do_clk_disable(clk);
 	spin_unlock_irqrestore(&clocks_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 /**
  * clk_get_rate - obtain the current clock rate (in Hz) for a clock source.
@@ -227,7 +227,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 /**
  * clk_set_parent - set the parent clock source for this clock
@@ -273,7 +273,7 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 	propagate_rate(clk, 0);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 /**
  * clk_set_rate - set the clock rate for a clock source
@@ -304,7 +304,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 /* registers clock in platform clock framework */
 void clk_register(struct clk_lookup *cl)
@@ -472,7 +472,7 @@ long clk_round_rate(struct clk *clk, unsigned long drate)
 	else
 		return index;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 /*All below functions are called with lock held */
 

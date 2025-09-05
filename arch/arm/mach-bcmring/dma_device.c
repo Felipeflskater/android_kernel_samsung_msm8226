@@ -590,4 +590,4 @@ DMA_DeviceAttribute_t DMA_gDeviceAttribute[DMA_NUM_DEVICE_ENTRIES] = {
 		    },
 	 },
 };
-/* DISABLED: EXPORT_SYMBOL(DMA_gDeviceAttribute);	/* primarily for dma-test.c */ */
+EXPORT_SYMBOL(DMA_gDeviceAttribute);	/* primarily for dma-test.c */

@@ -55,13 +55,13 @@ int register_pm_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&pm_chain_head, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_pm_notifier); */
+EXPORT_SYMBOL_GPL(register_pm_notifier);
 
 int unregister_pm_notifier(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&pm_chain_head, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_pm_notifier); */
+EXPORT_SYMBOL_GPL(unregister_pm_notifier);
 
 int pm_notifier_call_chain(unsigned long val)
 {
@@ -1160,7 +1160,7 @@ static struct attribute_group attr_group = {
 
 #ifdef CONFIG_PM_RUNTIME
 struct workqueue_struct *pm_wq;
-/* DISABLED: EXPORT_SYMBOL_GPL(pm_wq); */
+EXPORT_SYMBOL_GPL(pm_wq);
 
 static int __init pm_start_workqueue(void)
 {

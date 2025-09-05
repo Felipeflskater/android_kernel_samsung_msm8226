@@ -330,6 +330,6 @@ void mb862xxfb_init_accel(struct fb_info *info, int xres)
 	    FBINFO_HWACCEL_IMAGEBLIT;
 	info->fix.accel = 0xff;	/*FIXME: add right define */
 }
-/* DISABLED: EXPORT_SYMBOL(mb862xxfb_init_accel); */
+EXPORT_SYMBOL(mb862xxfb_init_accel);
 
 MODULE_LICENSE("GPL v2");

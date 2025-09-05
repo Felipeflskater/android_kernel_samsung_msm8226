@@ -33,7 +33,7 @@ MODULE_PARM_DESC(ports, "Port numbers of TFTP servers");
 unsigned int (*nf_nat_tftp_hook)(struct sk_buff *skb,
 				 enum ip_conntrack_info ctinfo,
 				 struct nf_conntrack_expect *exp) __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_tftp_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_tftp_hook);
 
 static int tftp_help(struct sk_buff *skb,
 		     unsigned int protoff,

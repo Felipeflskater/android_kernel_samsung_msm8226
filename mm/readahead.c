@@ -28,7 +28,7 @@ file_ra_state_init(struct file_ra_state *ra, struct address_space *mapping)
 	ra->ra_pages = mapping->backing_dev_info->ra_pages;
 	ra->prev_pos = -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(file_ra_state_init); */
+EXPORT_SYMBOL_GPL(file_ra_state_init);
 
 #define list_to_page(head) (list_entry((head)->prev, struct page, lru))
 
@@ -104,7 +104,7 @@ int read_cache_pages(struct address_space *mapping, struct list_head *pages,
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(read_cache_pages); */
+EXPORT_SYMBOL(read_cache_pages);
 
 static int read_pages(struct address_space *mapping, struct file *filp,
 		struct list_head *pages, unsigned nr_pages)
@@ -535,7 +535,7 @@ void page_cache_sync_readahead(struct address_space *mapping,
 	/* do read-ahead */
 	ondemand_readahead(mapping, ra, filp, false, offset, req_size);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(page_cache_sync_readahead); */
+EXPORT_SYMBOL_GPL(page_cache_sync_readahead);
 
 /**
  * page_cache_async_readahead - file readahead for marked pages
@@ -579,4 +579,4 @@ page_cache_async_readahead(struct address_space *mapping,
 	/* do read-ahead */
 	ondemand_readahead(mapping, ra, filp, true, offset, req_size);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(page_cache_async_readahead); */
+EXPORT_SYMBOL_GPL(page_cache_async_readahead);

@@ -1261,7 +1261,7 @@ unsigned int msm_hs_tx_empty(struct uart_port *uport)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_tx_empty); */
+EXPORT_SYMBOL(msm_hs_tx_empty);
 
 /*
  *  Standard API, Stop transmitter.
@@ -1866,7 +1866,7 @@ void msm_hs_set_mctrl(struct uart_port *uport,
 	spin_unlock_irqrestore(&uport->lock, flags);
 	msm_hs_clock_unvote(msm_uport);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_set_mctrl); */
+EXPORT_SYMBOL(msm_hs_set_mctrl);
 
 /* Standard API, Enable modem status (CTS) interrupt  */
 static void msm_hs_enable_ms_locked(struct uart_port *uport)
@@ -2181,7 +2181,7 @@ struct uart_port *msm_hs_get_uart_port(int port_index)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_get_uart_port); */
+EXPORT_SYMBOL(msm_hs_get_uart_port);
 
 static struct msm_hs_port *msm_hs_get_hs_port(int port_index)
 {
@@ -2221,7 +2221,7 @@ void msm_hs_request_clock_off(struct uart_port *uport) {
 	}
 	spin_unlock_irqrestore(&uport->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_request_clock_off); */
+EXPORT_SYMBOL(msm_hs_request_clock_off);
 
 void msm_hs_request_clock_on(struct uart_port *uport)
 {
@@ -2325,7 +2325,7 @@ void msm_hs_request_clock_on(struct uart_port *uport)
 	spin_unlock_irqrestore(&uport->lock, flags);
 	mutex_unlock(&msm_uport->clk_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_request_clock_on); */
+EXPORT_SYMBOL(msm_hs_request_clock_on);
 
 int msm_hs_get_clock_state(struct uart_port *uport)
 {
@@ -2333,7 +2333,7 @@ int msm_hs_get_clock_state(struct uart_port *uport)
 
 	return (int)msm_uport->clk_state;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_hs_get_clock_state); */
+EXPORT_SYMBOL(msm_hs_get_clock_state);
 
 
 static irqreturn_t msm_hs_wakeup_isr(int irq, void *dev)

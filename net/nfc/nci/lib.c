@@ -82,4 +82,4 @@ int nci_to_errno(__u8 code)
 		return -ENOSYS;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(nci_to_errno); */
+EXPORT_SYMBOL(nci_to_errno);

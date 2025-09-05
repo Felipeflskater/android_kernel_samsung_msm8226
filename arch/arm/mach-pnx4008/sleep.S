@@ -31,57 +31,57 @@ ENTRY(pnx4008_cpu_suspend)
 
 	@ setup Power Manager base address in r4
 	@ and put it's value in r5
-	mov	r4, @ (PWRMAN_VA_BASE & 0xff000000)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x00ff0000)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x0000ff00)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x000000ff)
-	ldr	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	mov	r4, #(PWRMAN_VA_BASE & 0xff000000)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x00ff0000)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x0000ff00)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x000000ff)
+	ldr	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ setup SDRAM controller base address in r2
 	@ and put it's value in r3
-	mov	r2, @ (SDRAM_CFG_VA_BASE & 0xff000000)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x00ff0000)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x0000ff00)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x000000ff)
-	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS] @extra read - HW bug workaround
+	mov	r2, #(SDRAM_CFG_VA_BASE & 0xff000000)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x00ff0000)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x0000ff00)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x000000ff)
+	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS] @extra read - HW bug workaround
 
 	@ clear SDRAM self-refresh bit latch
-	and	r5, r5, @ (~(1 << 8))
+	and	r5, r5, #(~(1 << 8))
 	@ clear SDRAM self-refresh bit
-	and	r5, r5, @ (~(1 << 9))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 9))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ do save current bit settings in r1
 	mov	r1, r5
 
 	@ set SDRAM self-refresh bit
-	orr	r5, r5, @ (1 << 9)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 9)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ set SDRAM self-refresh bit latch
-	orr	r5, r5, @ (1 << 8)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 8)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ clear SDRAM self-refresh bit latch
-	and	r5, r5, @ (~(1 << 8))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 8))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ clear SDRAM self-refresh bit
-	and	r5, r5, @ (~(1 << 9))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 9))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ wait for SDRAM to get into self-refresh mode
-2:	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS]
-	tst	r3, @ (1 << 2)
+2:	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS]
+	tst	r3, #(1 << 2)
 	beq	2b
 
 	@ to prepare SDRAM to get out of self-refresh mode after wakeup
-	orr	r5, r5, @ (1 << 7)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 7)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ do enter stop mode
-	orr	r5, r5, @ (1 << 0)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 0)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 	nop
 	nop
 	nop
@@ -96,10 +96,10 @@ ENTRY(pnx4008_cpu_suspend)
 
 	@ coming out of STOP mode into Direct Run mode
 	@ clear STOP mode and SDRAM self-refresh bits
-	str	r1, [r4, @ PWR_CTRL_REG_OFFS]
+	str	r1, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ wait for SDRAM to get out self-refresh mode
-3:	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS]
+3:	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS]
 	tst	r3, #5
 	bne	3b
 
@@ -115,66 +115,66 @@ ENTRY(pnx4008_cpu_standby)
 
 	@ setup Power Manager base address in r4
 	@ and put it's value in r5
-	mov	r4, @ (PWRMAN_VA_BASE & 0xff000000)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x00ff0000)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x0000ff00)
-	orr	r4, r4, @ (PWRMAN_VA_BASE & 0x000000ff)
-	ldr	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	mov	r4, #(PWRMAN_VA_BASE & 0xff000000)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x00ff0000)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x0000ff00)
+	orr	r4, r4, #(PWRMAN_VA_BASE & 0x000000ff)
+	ldr	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ setup SDRAM controller base address in r2
 	@ and put it's value in r3
-	mov	r2, @ (SDRAM_CFG_VA_BASE & 0xff000000)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x00ff0000)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x0000ff00)
-	orr	r2, r2, @ (SDRAM_CFG_VA_BASE & 0x000000ff)
-	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS] @extra read - HW bug workaround
+	mov	r2, #(SDRAM_CFG_VA_BASE & 0xff000000)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x00ff0000)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x0000ff00)
+	orr	r2, r2, #(SDRAM_CFG_VA_BASE & 0x000000ff)
+	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS] @extra read - HW bug workaround
 
 	@ clear SDRAM self-refresh bit latch
-	and	r5, r5, @ (~(1 << 8))
+	and	r5, r5, #(~(1 << 8))
 	@ clear SDRAM self-refresh bit
-	and	r5, r5, @ (~(1 << 9))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 9))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ do save current bit settings in r1
 	mov	r1, r5
 
 	@ set SDRAM self-refresh bit
-	orr	r5, r5, @ (1 << 9)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 9)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ set SDRAM self-refresh bit latch
-	orr	r5, r5, @ (1 << 8)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 8)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ clear SDRAM self-refresh bit latch
-	and	r5, r5, @ (~(1 << 8))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 8))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ clear SDRAM self-refresh bit
-	and	r5, r5, @ (~(1 << 9))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 9))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ wait for SDRAM to get into self-refresh mode
-2:	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS]
-	tst	r3, @ (1 << 2)
+2:	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS]
+	tst	r3, #(1 << 2)
 	beq	2b
 
 	@ set 'get out of self-refresh mode after wakeup' bit
-	orr	r5, r5, @ (1 << 7)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 7)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	mcr     p15, 0, r0, c7, c0, 4	@ kinda sleeping now...
 
 	@ set SDRAM self-refresh bit latch
-	orr	r5, r5, @ (1 << 8)
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	orr	r5, r5, #(1 << 8)
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ clear SDRAM self-refresh bit latch
-	and	r5, r5, @ (~(1 << 8))
-	str	r5, [r4, @ PWR_CTRL_REG_OFFS]
+	and	r5, r5, #(~(1 << 8))
+	str	r5, [r4, #PWR_CTRL_REG_OFFS]
 
 	@ wait for SDRAM to get out self-refresh mode
-3:	ldr	r3, [r2, @ MPMC_STATUS_REG_OFFS]
+3:	ldr	r3, [r2, #MPMC_STATUS_REG_OFFS]
 	tst	r3, #5
 	bne	3b
 

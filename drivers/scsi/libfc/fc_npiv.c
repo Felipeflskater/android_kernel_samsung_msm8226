@@ -49,7 +49,7 @@ struct fc_lport *libfc_vport_create(struct fc_vport *vport, int privsize)
 
 	return vn_port;
 }
-/* DISABLED: EXPORT_SYMBOL(libfc_vport_create); */
+EXPORT_SYMBOL(libfc_vport_create);
 
 /**
  * fc_vport_id_lookup() - find NPIV lport that matches a given fabric ID
@@ -80,7 +80,7 @@ struct fc_lport *fc_vport_id_lookup(struct fc_lport *n_port, u32 port_id)
 
 	return lport;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_vport_id_lookup); */
+EXPORT_SYMBOL(fc_vport_id_lookup);
 
 /*
  * When setting the link state of vports during an lport state change, it's
@@ -138,7 +138,7 @@ void fc_vport_setlink(struct fc_lport *vn_port)
 	mutex_unlock(&vn_port->lp_mutex);
 	mutex_unlock(&n_port->lp_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(fc_vport_setlink); */
+EXPORT_SYMBOL(fc_vport_setlink);
 
 /**
  * fc_vports_linkchange() - change the link state of all vports

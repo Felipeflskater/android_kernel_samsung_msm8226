@@ -55,11 +55,11 @@ MODULE_PARM_DESC(sip_direct_media, "Expect Media streams between signalling "
 unsigned int (*nf_nat_sip_hook)(struct sk_buff *skb, unsigned int protoff,
 				unsigned int dataoff, const char **dptr,
 				unsigned int *datalen) __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sip_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sip_hook);
 
 void (*nf_nat_sip_seq_adjust_hook)(struct sk_buff *skb, unsigned int protoff,
 				   s16 off) __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sip_seq_adjust_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sip_seq_adjust_hook);
 
 unsigned int (*nf_nat_sip_expect_hook)(struct sk_buff *skb,
 				       unsigned int protoff,
@@ -69,7 +69,7 @@ unsigned int (*nf_nat_sip_expect_hook)(struct sk_buff *skb,
 				       struct nf_conntrack_expect *exp,
 				       unsigned int matchoff,
 				       unsigned int matchlen) __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sip_expect_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sip_expect_hook);
 
 unsigned int (*nf_nat_sdp_addr_hook)(struct sk_buff *skb, unsigned int protoff,
 				     unsigned int dataoff,
@@ -80,7 +80,7 @@ unsigned int (*nf_nat_sdp_addr_hook)(struct sk_buff *skb, unsigned int protoff,
 				     enum sdp_header_types term,
 				     const union nf_inet_addr *addr)
 				     __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sdp_addr_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sdp_addr_hook);
 
 unsigned int (*nf_nat_sdp_port_hook)(struct sk_buff *skb, unsigned int protoff,
 				     unsigned int dataoff,
@@ -89,7 +89,7 @@ unsigned int (*nf_nat_sdp_port_hook)(struct sk_buff *skb, unsigned int protoff,
 				     unsigned int matchoff,
 				     unsigned int matchlen,
 				     u_int16_t port) __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sdp_port_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sdp_port_hook);
 
 unsigned int (*nf_nat_sdp_session_hook)(struct sk_buff *skb,
 					unsigned int protoff,
@@ -99,7 +99,7 @@ unsigned int (*nf_nat_sdp_session_hook)(struct sk_buff *skb,
 					unsigned int sdpoff,
 					const union nf_inet_addr *addr)
 					__read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sdp_session_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sdp_session_hook);
 
 unsigned int (*nf_nat_sdp_media_hook)(struct sk_buff *skb, unsigned int protoff,
 				      unsigned int dataoff,
@@ -111,7 +111,7 @@ unsigned int (*nf_nat_sdp_media_hook)(struct sk_buff *skb, unsigned int protoff,
 				      unsigned int medialen,
 				      union nf_inet_addr *rtp_addr)
 				      __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_sdp_media_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_sdp_media_hook);
 
 static int string_len(const struct nf_conn *ct, const char *dptr,
 		      const char *limit, int *shift)
@@ -331,7 +331,7 @@ int ct_sip_parse_request(const struct nf_conn *ct,
 	*matchlen = end - dptr;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_parse_request); */
+EXPORT_SYMBOL_GPL(ct_sip_parse_request);
 
 /* SIP header parsing: SIP headers are located at the beginning of a line, but
  * may span several lines, in which case the continuation lines begin with a
@@ -479,7 +479,7 @@ int ct_sip_get_header(const struct nf_conn *ct, const char *dptr,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_get_header); */
+EXPORT_SYMBOL_GPL(ct_sip_get_header);
 
 /* Get next header field in a list of comma separated values */
 static int ct_sip_next_header(const struct nf_conn *ct, const char *dptr,
@@ -583,7 +583,7 @@ int ct_sip_parse_header_uri(const struct nf_conn *ct, const char *dptr,
 		*dataoff = c - dptr;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_parse_header_uri); */
+EXPORT_SYMBOL_GPL(ct_sip_parse_header_uri);
 
 static int ct_sip_parse_param(const struct nf_conn *ct, const char *dptr,
 			      unsigned int dataoff, unsigned int datalen,
@@ -637,7 +637,7 @@ int ct_sip_parse_address_param(const struct nf_conn *ct, const char *dptr,
 	*matchlen = end - start;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_parse_address_param); */
+EXPORT_SYMBOL_GPL(ct_sip_parse_address_param);
 
 /* Parse numerical header parameter and return value, offset and length */
 int ct_sip_parse_numerical_param(const struct nf_conn *ct, const char *dptr,
@@ -668,7 +668,7 @@ int ct_sip_parse_numerical_param(const struct nf_conn *ct, const char *dptr,
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_parse_numerical_param); */
+EXPORT_SYMBOL_GPL(ct_sip_parse_numerical_param);
 
 static int ct_sip_parse_transport(struct nf_conn *ct, const char *dptr,
 				  unsigned int dataoff, unsigned int datalen,
@@ -826,7 +826,7 @@ int ct_sip_get_sdp_header(const struct nf_conn *ct, const char *dptr,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ct_sip_get_sdp_header); */
+EXPORT_SYMBOL_GPL(ct_sip_get_sdp_header);
 
 static int ct_sip_parse_sdp_addr(const struct nf_conn *ct, const char *dptr,
 				 unsigned int dataoff, unsigned int datalen,

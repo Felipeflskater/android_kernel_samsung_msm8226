@@ -383,7 +383,7 @@ static int __init set_ntlb(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ntlb=", set_ntlb); */ */
+__setup("ntlb=", set_ntlb);
 
 void __cpuinit tlb_init(void)
 {

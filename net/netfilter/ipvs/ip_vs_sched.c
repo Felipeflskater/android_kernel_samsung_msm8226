@@ -29,7 +29,7 @@
 
 #include <net/ip_vs.h>
 
-/* DISABLED: EXPORT_SYMBOL(ip_vs_scheduler_err); */
+EXPORT_SYMBOL(ip_vs_scheduler_err);
 /*
  *  IPVS scheduler list
  */

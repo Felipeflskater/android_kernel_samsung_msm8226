@@ -277,7 +277,7 @@ void omapdss_default_get_resolution(struct omap_dss_device *dssdev,
 	*xres = dssdev->panel.timings.x_res;
 	*yres = dssdev->panel.timings.y_res;
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_default_get_resolution); */
+EXPORT_SYMBOL(omapdss_default_get_resolution);
 
 int omapdss_default_get_recommended_bpp(struct omap_dss_device *dssdev)
 {
@@ -306,7 +306,7 @@ int omapdss_default_get_recommended_bpp(struct omap_dss_device *dssdev)
 		BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(omapdss_default_get_recommended_bpp); */
+EXPORT_SYMBOL(omapdss_default_get_recommended_bpp);
 
 /* Checks if replication logic should be used. Only use for active matrix,
  * when overlay is in RGB12U or RGB16 mode, and LCD interface is
@@ -506,13 +506,13 @@ void omap_dss_get_device(struct omap_dss_device *dssdev)
 {
 	get_device(&dssdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_get_device); */
+EXPORT_SYMBOL(omap_dss_get_device);
 
 void omap_dss_put_device(struct omap_dss_device *dssdev)
 {
 	put_device(&dssdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_put_device); */
+EXPORT_SYMBOL(omap_dss_put_device);
 
 /* ref count of the found device is incremented. ref count
  * of from-device is decremented. */
@@ -537,7 +537,7 @@ struct omap_dss_device *omap_dss_get_next_device(struct omap_dss_device *from)
 
 	return dssdev;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_get_next_device); */
+EXPORT_SYMBOL(omap_dss_get_next_device);
 
 struct omap_dss_device *omap_dss_find_device(void *data,
 		int (*match)(struct omap_dss_device *dssdev, void *data))
@@ -551,7 +551,7 @@ struct omap_dss_device *omap_dss_find_device(void *data,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_find_device); */
+EXPORT_SYMBOL(omap_dss_find_device);
 
 int omap_dss_start_device(struct omap_dss_device *dssdev)
 {
@@ -566,11 +566,11 @@ int omap_dss_start_device(struct omap_dss_device *dssdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_start_device); */
+EXPORT_SYMBOL(omap_dss_start_device);
 
 void omap_dss_stop_device(struct omap_dss_device *dssdev)
 {
 	module_put(dssdev->dev.driver->owner);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_dss_stop_device); */
+EXPORT_SYMBOL(omap_dss_stop_device);
 

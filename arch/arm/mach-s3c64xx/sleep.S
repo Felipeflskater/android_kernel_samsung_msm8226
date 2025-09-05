@@ -40,7 +40,7 @@
 	*/
 
 ENTRY(s3c_cpu_resume)
-	msr	cpsr_c, @ PSR_I_BIT | PSR_F_BIT | SVC_MODE
+	msr	cpsr_c, #PSR_I_BIT | PSR_F_BIT | SVC_MODE
 	ldr	r2, =LL_UART		/* for debug */
 
 #ifdef CONFIG_S3C_PM_DEBUG_LED_SMDK
@@ -57,16 +57,16 @@ ENTRY(s3c_cpu_resume)
 	*/
 
 	ldr	r3, =S3C64XX_PA_GPIO
-	ldr	r0, [ r3, @ S3C64XX_GPNCON ]
-	bic	r0, r0, @ (S3C64XX_GPN_CONMASK(12) | S3C64XX_GPN_CONMASK(13) | \
+	ldr	r0, [ r3, #S3C64XX_GPNCON ]
+	bic	r0, r0, #(S3C64XX_GPN_CONMASK(12) | S3C64XX_GPN_CONMASK(13) | \
 			  S3C64XX_GPN_CONMASK(14) | S3C64XX_GPN_CONMASK(15))
-	orr	r0, r0, @ (S3C64XX_GPN_OUTPUT(12) | S3C64XX_GPN_OUTPUT(13) | \
+	orr	r0, r0, #(S3C64XX_GPN_OUTPUT(12) | S3C64XX_GPN_OUTPUT(13) | \
 			  S3C64XX_GPN_OUTPUT(14) | S3C64XX_GPN_OUTPUT(15))
-	str	r0, [ r3, @ S3C64XX_GPNCON ]
+	str	r0, [ r3, #S3C64XX_GPNCON ]
 
-	ldr	r0, [ r3, @ S3C64XX_GPNDAT ]
+	ldr	r0, [ r3, #S3C64XX_GPNDAT ]
 	bic	r0, r0, #0xf << 12			@ GPN12..15
 	orr	r0, r0, #1 << 15			@ GPN15
-	str	r0, [ r3, @ S3C64XX_GPNDAT ]
+	str	r0, [ r3, #S3C64XX_GPNDAT ]
 #endif
 	b	cpu_resume

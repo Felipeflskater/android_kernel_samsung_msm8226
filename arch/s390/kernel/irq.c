@@ -184,7 +184,7 @@ int register_external_interrupt(u16 code, ext_int_handler_t handler)
 	spin_unlock_irqrestore(&ext_int_hash_lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(register_external_interrupt); */
+EXPORT_SYMBOL(register_external_interrupt);
 
 int unregister_external_interrupt(u16 code, ext_int_handler_t handler)
 {
@@ -202,7 +202,7 @@ int unregister_external_interrupt(u16 code, ext_int_handler_t handler)
 	spin_unlock_irqrestore(&ext_int_hash_lock, flags);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_external_interrupt); */
+EXPORT_SYMBOL(unregister_external_interrupt);
 
 void __irq_entry do_extint(struct pt_regs *regs, struct ext_code ext_code,
 			   unsigned int param32, unsigned long param64)
@@ -247,7 +247,7 @@ void service_subclass_irq_register(void)
 	sc_irq_refcount++;
 	spin_unlock(&sc_irq_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(service_subclass_irq_register); */
+EXPORT_SYMBOL(service_subclass_irq_register);
 
 void service_subclass_irq_unregister(void)
 {
@@ -257,7 +257,7 @@ void service_subclass_irq_unregister(void)
 		ctl_clear_bit(0, 9);
 	spin_unlock(&sc_irq_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(service_subclass_irq_unregister); */
+EXPORT_SYMBOL(service_subclass_irq_unregister);
 
 static DEFINE_SPINLOCK(ma_subclass_lock);
 static int ma_subclass_refcount;
@@ -270,7 +270,7 @@ void measurement_alert_subclass_register(void)
 	ma_subclass_refcount++;
 	spin_unlock(&ma_subclass_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(measurement_alert_subclass_register); */
+EXPORT_SYMBOL(measurement_alert_subclass_register);
 
 void measurement_alert_subclass_unregister(void)
 {
@@ -280,4 +280,4 @@ void measurement_alert_subclass_unregister(void)
 		ctl_clear_bit(0, 5);
 	spin_unlock(&ma_subclass_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(measurement_alert_subclass_unregister); */
+EXPORT_SYMBOL(measurement_alert_subclass_unregister);

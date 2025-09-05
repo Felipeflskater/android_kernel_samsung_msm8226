@@ -43,7 +43,7 @@ u8 ide_read_error(ide_drive_t *drive)
 
 	return tf.error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_read_error); */
+EXPORT_SYMBOL_GPL(ide_read_error);
 
 void ide_fix_driveid(u16 *id)
 {
@@ -89,7 +89,7 @@ void ide_fixstring(u8 *s, const int bytecount, const int byteswap)
 	while (p != end)
 		*p++ = '\0';
 }
-/* DISABLED: EXPORT_SYMBOL(ide_fixstring); */
+EXPORT_SYMBOL(ide_fixstring);
 
 /*
  * This routine busy-waits for the drive status to be not "busy".
@@ -182,7 +182,7 @@ int ide_wait_stat(ide_startstop_t *startstop, ide_drive_t *drive, u8 good,
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ide_wait_stat); */
+EXPORT_SYMBOL(ide_wait_stat);
 
 /**
  *	ide_in_drive_list	-	look for drive in black/white list
@@ -202,7 +202,7 @@ int ide_in_drive_list(u16 *id, const struct drive_list_entry *table)
 			return 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_in_drive_list); */
+EXPORT_SYMBOL_GPL(ide_in_drive_list);
 
 /*
  * Early UDMA66 devices don't set bit14 to 1, only bit13 is valid.
@@ -463,7 +463,7 @@ void ide_set_handler(ide_drive_t *drive, ide_handler_t *handler,
 	__ide_set_handler(drive, handler, timeout);
 	spin_unlock_irqrestore(&hwif->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ide_set_handler); */
+EXPORT_SYMBOL(ide_set_handler);
 
 /**
  *	ide_execute_command	-	execute an IDE command

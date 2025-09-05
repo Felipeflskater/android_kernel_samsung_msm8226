@@ -118,7 +118,7 @@ int snd_seq_dump_var_event(const struct snd_seq_event *event,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_seq_dump_var_event); */
+EXPORT_SYMBOL(snd_seq_dump_var_event);
 
 
 /*
@@ -169,7 +169,7 @@ int snd_seq_expand_var_event(const struct snd_seq_event *event, int count, char 
 	return err < 0 ? err : newlen;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_seq_expand_var_event); */
+EXPORT_SYMBOL(snd_seq_expand_var_event);
 
 /*
  * release this cell, free extended data if available

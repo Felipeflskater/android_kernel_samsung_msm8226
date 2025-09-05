@@ -453,7 +453,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmf_sdio_probe); */
+EXPORT_SYMBOL(brcmf_sdio_probe);
 
 int brcmf_sdio_remove(struct brcmf_sdio_dev *sdiodev)
 {
@@ -468,7 +468,7 @@ int brcmf_sdio_remove(struct brcmf_sdio_dev *sdiodev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(brcmf_sdio_remove); */
+EXPORT_SYMBOL(brcmf_sdio_remove);
 
 void brcmf_sdio_wdtmr_enable(struct brcmf_sdio_dev *sdiodev, bool enable)
 {

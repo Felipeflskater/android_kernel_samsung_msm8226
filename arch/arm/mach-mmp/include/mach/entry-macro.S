@@ -20,5 +20,5 @@
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
 	ldr	\tmp, [\base, #0]
 	and	\irqnr, \tmp, #0x3f
-	tst	\tmp, @ (1 << 6)
+	tst	\tmp, #(1 << 6)
 	.endm

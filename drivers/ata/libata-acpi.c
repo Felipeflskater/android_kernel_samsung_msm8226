@@ -358,7 +358,7 @@ int ata_acpi_gtm(struct ata_port *ap, struct ata_acpi_gtm *gtm)
 	return rc;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_acpi_gtm); */
+EXPORT_SYMBOL_GPL(ata_acpi_gtm);
 
 /**
  * ata_acpi_stm - execute _STM
@@ -406,7 +406,7 @@ int ata_acpi_stm(struct ata_port *ap, const struct ata_acpi_gtm *stm)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_acpi_stm); */
+EXPORT_SYMBOL_GPL(ata_acpi_stm);
 
 /**
  * ata_dev_get_GTF - get the drive bootup default taskfile settings
@@ -546,7 +546,7 @@ unsigned long ata_acpi_gtm_xfermask(struct ata_device *dev,
 
 	return xfer_mask;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_acpi_gtm_xfermask); */
+EXPORT_SYMBOL_GPL(ata_acpi_gtm_xfermask);
 
 /**
  * ata_acpi_cbl_80wire		-	Check for 80 wire cable
@@ -571,7 +571,7 @@ int ata_acpi_cbl_80wire(struct ata_port *ap, const struct ata_acpi_gtm *gtm)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_acpi_cbl_80wire); */
+EXPORT_SYMBOL_GPL(ata_acpi_cbl_80wire);
 
 static void ata_acpi_gtf_to_tf(struct ata_device *dev,
 			       const struct ata_acpi_gtf *gtf,

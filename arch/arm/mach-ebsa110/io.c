@@ -98,9 +98,9 @@ u32 __readl(const volatile void __iomem *addr)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__readb); */
-/* DISABLED: EXPORT_SYMBOL(__readw); */
-/* DISABLED: EXPORT_SYMBOL(__readl); */
+EXPORT_SYMBOL(__readb);
+EXPORT_SYMBOL(__readw);
+EXPORT_SYMBOL(__readl);
 
 void readsw(const void __iomem *addr, void *data, int len)
 {
@@ -110,7 +110,7 @@ void readsw(const void __iomem *addr, void *data, int len)
 
 	__raw_readsw(a, data, len);
 }
-/* DISABLED: EXPORT_SYMBOL(readsw); */
+EXPORT_SYMBOL(readsw);
 
 void readsl(const void __iomem *addr, void *data, int len)
 {
@@ -120,7 +120,7 @@ void readsl(const void __iomem *addr, void *data, int len)
 
 	__raw_readsl(a, data, len);
 }
-/* DISABLED: EXPORT_SYMBOL(readsl); */
+EXPORT_SYMBOL(readsl);
 
 void __writeb(u8 val, void __iomem *addr)
 {
@@ -153,9 +153,9 @@ void __writel(u32 val, void __iomem *addr)
 	__raw_writew(val >> 16, a + 4);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__writeb); */
-/* DISABLED: EXPORT_SYMBOL(__writew); */
-/* DISABLED: EXPORT_SYMBOL(__writel); */
+EXPORT_SYMBOL(__writeb);
+EXPORT_SYMBOL(__writew);
+EXPORT_SYMBOL(__writel);
 
 void writesw(void __iomem *addr, const void *data, int len)
 {
@@ -165,7 +165,7 @@ void writesw(void __iomem *addr, const void *data, int len)
 
 	__raw_writesw(a, data, len);
 }
-/* DISABLED: EXPORT_SYMBOL(writesw); */
+EXPORT_SYMBOL(writesw);
 
 void writesl(void __iomem *addr, const void *data, int len)
 {
@@ -175,7 +175,7 @@ void writesl(void __iomem *addr, const void *data, int len)
 
 	__raw_writesl(a, data, len);
 }
-/* DISABLED: EXPORT_SYMBOL(writesl); */
+EXPORT_SYMBOL(writesl);
 
 /*
  * The EBSA110 has a weird "ISA IO" region:
@@ -279,10 +279,10 @@ u32 __inl(unsigned int port)
 	return __raw_readw(a) | __raw_readw(a + 4) << 16;
 }
 
-/* DISABLED: EXPORT_SYMBOL(__inb8); */
-/* DISABLED: EXPORT_SYMBOL(__inb16); */
-/* DISABLED: EXPORT_SYMBOL(__inw); */
-/* DISABLED: EXPORT_SYMBOL(__inl); */
+EXPORT_SYMBOL(__inb8);
+EXPORT_SYMBOL(__inb16);
+EXPORT_SYMBOL(__inw);
+EXPORT_SYMBOL(__inl);
 
 void __outb8(u8 val, unsigned int port)
 {
@@ -340,10 +340,10 @@ void __outl(u32 val, unsigned int port)
 	BUG();
 }
 
-/* DISABLED: EXPORT_SYMBOL(__outb8); */
-/* DISABLED: EXPORT_SYMBOL(__outb16); */
-/* DISABLED: EXPORT_SYMBOL(__outw); */
-/* DISABLED: EXPORT_SYMBOL(__outl); */
+EXPORT_SYMBOL(__outb8);
+EXPORT_SYMBOL(__outb16);
+EXPORT_SYMBOL(__outw);
+EXPORT_SYMBOL(__outl);
 
 void outsb(unsigned int port, const void *from, int len)
 {
@@ -375,8 +375,8 @@ void insb(unsigned int port, void *from, int len)
 	__raw_readsb((void __iomem *)ISAIO_BASE + off, from, len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(outsb); */
-/* DISABLED: EXPORT_SYMBOL(insb); */
+EXPORT_SYMBOL(outsb);
+EXPORT_SYMBOL(insb);
 
 void outsw(unsigned int port, const void *from, int len)
 {
@@ -408,8 +408,8 @@ void insw(unsigned int port, void *from, int len)
 	__raw_readsw((void __iomem *)ISAIO_BASE + off, from, len);
 }
 
-/* DISABLED: EXPORT_SYMBOL(outsw); */
-/* DISABLED: EXPORT_SYMBOL(insw); */
+EXPORT_SYMBOL(outsw);
+EXPORT_SYMBOL(insw);
 
 /*
  * We implement these as 16-bit insw/outsw, mainly for
@@ -435,5 +435,5 @@ void insl(unsigned int port, void *from, int len)
 	__raw_readsw((void __iomem *)ISAIO_BASE + off, from, len << 1);
 }
 
-/* DISABLED: EXPORT_SYMBOL(outsl); */
-/* DISABLED: EXPORT_SYMBOL(insl); */
+EXPORT_SYMBOL(outsl);
+EXPORT_SYMBOL(insl);

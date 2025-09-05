@@ -109,7 +109,7 @@ ax25_cb *ax25_send_frame(struct sk_buff *skb, int paclen, ax25_address *src, ax2
 	return ax25;			/* We had to create it */
 }
 
-/* DISABLED: EXPORT_SYMBOL(ax25_send_frame); */
+EXPORT_SYMBOL(ax25_send_frame);
 
 /*
  *	All outgoing AX.25 I frames pass via this routine. Therefore this is

@@ -585,7 +585,7 @@ int32_t pm8xxx_adc_scale_default(int32_t adc_code,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_default); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_default);
 
 static int64_t pm8xxx_adc_scale_ratiometric_calib(int32_t adc_code,
 		const struct pm8xxx_adc_properties *adc_properties,
@@ -629,7 +629,7 @@ int32_t pm8xxx_adc_scale_batt_therm(int32_t adc_code,
 			bat_voltage,
 			&adc_chan_result->physical);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_batt_therm); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_batt_therm);
 
 int32_t pm8xxx_adc_scale_pa_therm(int32_t adc_code,
 		const struct pm8xxx_adc_properties *adc_properties,
@@ -647,7 +647,7 @@ int32_t pm8xxx_adc_scale_pa_therm(int32_t adc_code,
 			pa_voltage,
 			&adc_chan_result->physical);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_pa_therm); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_pa_therm);
 
 int32_t pm8xxx_adc_scale_batt_id(int32_t adc_code,
 		const struct pm8xxx_adc_properties *adc_properties,
@@ -663,7 +663,7 @@ int32_t pm8xxx_adc_scale_batt_id(int32_t adc_code,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_batt_id); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_batt_id);
 
 int32_t pm8xxx_adc_scale_pmic_therm(int32_t adc_code,
 		const struct pm8xxx_adc_properties *adc_properties,
@@ -707,7 +707,7 @@ int32_t pm8xxx_adc_scale_pmic_therm(int32_t adc_code,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_pmic_therm); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_scale_pmic_therm);
 
 /* Scales the ADC code to 0.001 degrees C using the map
  * table for the XO thermistor.
@@ -748,7 +748,7 @@ int32_t pm8xxx_adc_tdkntcg_therm(int32_t adc_code,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_tdkntcg_therm); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_tdkntcg_therm);
 
 int32_t pm8xxx_adc_batt_scaler(struct pm8xxx_adc_arb_btm_param *btm_param,
 		const struct pm8xxx_adc_properties *adc_properties,
@@ -787,4 +787,4 @@ int32_t pm8xxx_adc_batt_scaler(struct pm8xxx_adc_arb_btm_param *btm_param,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_adc_batt_scaler); */
+EXPORT_SYMBOL_GPL(pm8xxx_adc_batt_scaler);

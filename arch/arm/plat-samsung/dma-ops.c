@@ -130,4 +130,4 @@ void *samsung_dmadev_get_ops(void)
 {
 	return &dmadev_ops;
 }
-/* DISABLED: EXPORT_SYMBOL(samsung_dmadev_get_ops); */
+EXPORT_SYMBOL(samsung_dmadev_get_ops);

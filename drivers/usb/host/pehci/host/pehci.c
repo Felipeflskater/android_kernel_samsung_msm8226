@@ -120,9 +120,9 @@ pehci_hcd_urb_complete(phci_hcd * hcd, struct ehci_qh *qh, struct urb *urb,
 
 int hcdpowerdown = 0;
 int portchange=0; //for remotewakeup
-/* DISABLED: EXPORT_SYMBOL(hcdpowerdown); */
+EXPORT_SYMBOL(hcdpowerdown);
 unsigned char otg_se0_enable;
-/* DISABLED: EXPORT_SYMBOL(otg_se0_enable); */
+EXPORT_SYMBOL(otg_se0_enable);
 
 
 /*Enable all other interrupt.*/

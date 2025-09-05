@@ -234,9 +234,9 @@ static void voiceblue_restart(char mode, const char *cmd)
 	while (1) ;
 }
 
-/* DISABLED: EXPORT_SYMBOL(voiceblue_wdt_enable); */
-/* DISABLED: EXPORT_SYMBOL(voiceblue_wdt_disable); */
-/* DISABLED: EXPORT_SYMBOL(voiceblue_wdt_ping); */
+EXPORT_SYMBOL(voiceblue_wdt_enable);
+EXPORT_SYMBOL(voiceblue_wdt_disable);
+EXPORT_SYMBOL(voiceblue_wdt_ping);
 
 static void __init voiceblue_init(void)
 {

@@ -69,13 +69,13 @@ struct cfpkt *cfpkt_fromnative(enum caif_direction dir, void *nativepkt)
 	cfpkt_priv(pkt)->erronous = false;
 	return pkt;
 }
-/* DISABLED: EXPORT_SYMBOL(cfpkt_fromnative); */
+EXPORT_SYMBOL(cfpkt_fromnative);
 
 void *cfpkt_tonative(struct cfpkt *pkt)
 {
 	return (void *) pkt;
 }
-/* DISABLED: EXPORT_SYMBOL(cfpkt_tonative); */
+EXPORT_SYMBOL(cfpkt_tonative);
 
 static struct cfpkt *cfpkt_create_pfx(u16 len, u16 pfx)
 {
@@ -145,7 +145,7 @@ int cfpkt_extr_head(struct cfpkt *pkt, void *data, u16 len)
 		memcpy(data, from, len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cfpkt_extr_head); */
+EXPORT_SYMBOL(cfpkt_extr_head);
 
 int cfpkt_extr_trail(struct cfpkt *pkt, void *dta, u16 len)
 {
@@ -252,7 +252,7 @@ int cfpkt_add_head(struct cfpkt *pkt, const void *data2, u16 len)
 	memcpy(to, data, len);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cfpkt_add_head); */
+EXPORT_SYMBOL(cfpkt_add_head);
 
 inline int cfpkt_add_trail(struct cfpkt *pkt, const void *data, u16 len)
 {
@@ -393,4 +393,4 @@ struct caif_payload_info *cfpkt_info(struct cfpkt *pkt)
 {
 	return (struct caif_payload_info *)&pkt_to_skb(pkt)->cb;
 }
-/* DISABLED: EXPORT_SYMBOL(cfpkt_info); */
+EXPORT_SYMBOL(cfpkt_info);

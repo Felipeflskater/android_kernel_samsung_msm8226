@@ -8,10 +8,10 @@
 
 #include "aes_glue.h"
 
-/* DISABLED: EXPORT_SYMBOL(AES_encrypt); */
-/* DISABLED: EXPORT_SYMBOL(AES_decrypt); */
-/* DISABLED: EXPORT_SYMBOL(private_AES_set_encrypt_key); */
-/* DISABLED: EXPORT_SYMBOL(private_AES_set_decrypt_key); */
+EXPORT_SYMBOL(AES_encrypt);
+EXPORT_SYMBOL(AES_decrypt);
+EXPORT_SYMBOL(private_AES_set_encrypt_key);
+EXPORT_SYMBOL(private_AES_set_decrypt_key);
 
 static void aes_encrypt(struct crypto_tfm *tfm, u8 *dst, const u8 *src)
 {

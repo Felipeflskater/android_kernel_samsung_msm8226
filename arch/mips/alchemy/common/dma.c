@@ -71,7 +71,7 @@ struct dma_chan au1000_dma_table[NUM_AU1000_DMA_CHANNELS] = {
       {.dev_id = -1,},
       {.dev_id = -1,}
 };
-/* DISABLED: EXPORT_SYMBOL(au1000_dma_table); */
+EXPORT_SYMBOL(au1000_dma_table);
 
 /* Device FIFO addresses and default DMA modes */
 static const struct dma_dev {
@@ -215,7 +215,7 @@ int request_au1000_dma(int dev_id, const char *dev_str,
 
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(request_au1000_dma); */
+EXPORT_SYMBOL(request_au1000_dma);
 
 void free_au1000_dma(unsigned int dmanr)
 {
@@ -233,7 +233,7 @@ void free_au1000_dma(unsigned int dmanr)
 	chan->irq_dev = NULL;
 	chan->dev_id = -1;
 }
-/* DISABLED: EXPORT_SYMBOL(free_au1000_dma); */
+EXPORT_SYMBOL(free_au1000_dma);
 
 static int __init au1000_dma_init(void)
 {

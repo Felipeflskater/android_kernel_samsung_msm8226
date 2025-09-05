@@ -68,7 +68,7 @@
 int bt_is_running=0;
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(bt_is_running); */
+EXPORT_SYMBOL(bt_is_running);
 
 #define FPGA_GPIO_BT_EN 4
 #define FPGA_GPIO_BT_WAKE 5

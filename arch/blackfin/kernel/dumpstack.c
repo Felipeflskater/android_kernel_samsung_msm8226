@@ -158,7 +158,7 @@ void show_stack(struct task_struct *task, unsigned long *stack)
 	}
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(show_stack); */
+EXPORT_SYMBOL(show_stack);
 
 void dump_stack(void)
 {
@@ -171,4 +171,4 @@ void dump_stack(void)
 	show_stack(current, &stack);
 	trace_buffer_restore(tflags);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);

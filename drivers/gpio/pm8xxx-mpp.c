@@ -197,7 +197,7 @@ int pm8xxx_mpp_config(unsigned mpp, struct pm8xxx_mpp_config_data *config)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_mpp_config); */
+EXPORT_SYMBOL_GPL(pm8xxx_mpp_config);
 
 static int __devinit pm8xxx_mpp_reg_init(struct pm8xxx_mpp_chip *mpp_chip)
 {

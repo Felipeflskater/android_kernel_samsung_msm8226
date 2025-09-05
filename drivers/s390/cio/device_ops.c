@@ -106,7 +106,7 @@ int ccw_device_is_pathgroup(struct ccw_device *cdev)
 {
 	return cdev->private->flags.pgroup;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_is_pathgroup); */
+EXPORT_SYMBOL(ccw_device_is_pathgroup);
 
 /**
  * ccw_device_is_multipath - determine if device is operating in multipath mode
@@ -118,7 +118,7 @@ int ccw_device_is_multipath(struct ccw_device *cdev)
 {
 	return cdev->private->flags.mpath;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_is_multipath); */
+EXPORT_SYMBOL(ccw_device_is_multipath);
 
 /**
  * ccw_device_clear() - terminate I/O request processing
@@ -583,7 +583,7 @@ void ccw_device_get_id(struct ccw_device *cdev, struct ccw_dev_id *dev_id)
 {
 	*dev_id = cdev->private->dev_id;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_get_id); */
+EXPORT_SYMBOL(ccw_device_get_id);
 
 /**
  * ccw_device_tm_start_key - perform start function
@@ -628,7 +628,7 @@ int ccw_device_tm_start_key(struct ccw_device *cdev, struct tcw *tcw,
 		cdev->private->intparm = intparm;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_tm_start_key); */
+EXPORT_SYMBOL(ccw_device_tm_start_key);
 
 /**
  * ccw_device_tm_start_timeout_key - perform start function
@@ -654,7 +654,7 @@ int ccw_device_tm_start_timeout_key(struct ccw_device *cdev, struct tcw *tcw,
 		ccw_device_set_timeout(cdev, 0);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_tm_start_timeout_key); */
+EXPORT_SYMBOL(ccw_device_tm_start_timeout_key);
 
 /**
  * ccw_device_tm_start - perform start function
@@ -672,7 +672,7 @@ int ccw_device_tm_start(struct ccw_device *cdev, struct tcw *tcw,
 	return ccw_device_tm_start_key(cdev, tcw, intparm, lpm,
 				       PAGE_DEFAULT_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_tm_start); */
+EXPORT_SYMBOL(ccw_device_tm_start);
 
 /**
  * ccw_device_tm_start_timeout - perform start function
@@ -691,7 +691,7 @@ int ccw_device_tm_start_timeout(struct ccw_device *cdev, struct tcw *tcw,
 	return ccw_device_tm_start_timeout_key(cdev, tcw, intparm, lpm,
 					       PAGE_DEFAULT_KEY, expires);
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_tm_start_timeout); */
+EXPORT_SYMBOL(ccw_device_tm_start_timeout);
 
 /**
  * ccw_device_get_mdc - accumulate max data count
@@ -731,7 +731,7 @@ int ccw_device_get_mdc(struct ccw_device *cdev, u8 mask)
 
 	return mdc;
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_get_mdc); */
+EXPORT_SYMBOL(ccw_device_get_mdc);
 
 /**
  * ccw_device_tm_intrg - perform interrogate function
@@ -753,7 +753,7 @@ int ccw_device_tm_intrg(struct ccw_device *cdev)
 		return -EINVAL;
 	return cio_tm_intrg(sch);
 }
-/* DISABLED: EXPORT_SYMBOL(ccw_device_tm_intrg); */
+EXPORT_SYMBOL(ccw_device_tm_intrg);
 
 // FIXME: these have to go:
 
@@ -765,17 +765,17 @@ _ccw_device_get_subchannel_number(struct ccw_device *cdev)
 
 
 MODULE_LICENSE("GPL");
-/* DISABLED: EXPORT_SYMBOL(ccw_device_set_options_mask); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_set_options); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_clear_options); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_clear); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_halt); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_resume); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_start_timeout); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_start); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_start_timeout_key); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_start_key); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_get_ciw); */
-/* DISABLED: EXPORT_SYMBOL(ccw_device_get_path_mask); */
-/* DISABLED: EXPORT_SYMBOL(_ccw_device_get_subchannel_number); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ccw_device_get_chp_desc); */
+EXPORT_SYMBOL(ccw_device_set_options_mask);
+EXPORT_SYMBOL(ccw_device_set_options);
+EXPORT_SYMBOL(ccw_device_clear_options);
+EXPORT_SYMBOL(ccw_device_clear);
+EXPORT_SYMBOL(ccw_device_halt);
+EXPORT_SYMBOL(ccw_device_resume);
+EXPORT_SYMBOL(ccw_device_start_timeout);
+EXPORT_SYMBOL(ccw_device_start);
+EXPORT_SYMBOL(ccw_device_start_timeout_key);
+EXPORT_SYMBOL(ccw_device_start_key);
+EXPORT_SYMBOL(ccw_device_get_ciw);
+EXPORT_SYMBOL(ccw_device_get_path_mask);
+EXPORT_SYMBOL(_ccw_device_get_subchannel_number);
+EXPORT_SYMBOL_GPL(ccw_device_get_chp_desc);

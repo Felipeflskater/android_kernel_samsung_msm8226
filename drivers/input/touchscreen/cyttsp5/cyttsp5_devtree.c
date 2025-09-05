@@ -720,7 +720,7 @@ int cyttsp5_devtree_create_and_get_pdata(struct device *adap_dev)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp5_devtree_create_and_get_pdata); */
+EXPORT_SYMBOL_GPL(cyttsp5_devtree_create_and_get_pdata);
 
 int cyttsp5_devtree_clean_pdata(struct device *adap_dev)
 {
@@ -748,7 +748,7 @@ int cyttsp5_devtree_clean_pdata(struct device *adap_dev)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp5_devtree_clean_pdata); */
+EXPORT_SYMBOL_GPL(cyttsp5_devtree_clean_pdata);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Cypress TrueTouch(R) Standard Product DeviceTree Driver");

@@ -222,7 +222,7 @@ err_icm:
 	mlx4_srq_free_icm(dev, srq->srqn);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_srq_alloc); */
+EXPORT_SYMBOL_GPL(mlx4_srq_alloc);
 
 void mlx4_srq_free(struct mlx4_dev *dev, struct mlx4_srq *srq)
 {
@@ -243,13 +243,13 @@ void mlx4_srq_free(struct mlx4_dev *dev, struct mlx4_srq *srq)
 
 	mlx4_srq_free_icm(dev, srq->srqn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_srq_free); */
+EXPORT_SYMBOL_GPL(mlx4_srq_free);
 
 int mlx4_srq_arm(struct mlx4_dev *dev, struct mlx4_srq *srq, int limit_watermark)
 {
 	return mlx4_ARM_SRQ(dev, srq->srqn, limit_watermark);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_srq_arm); */
+EXPORT_SYMBOL_GPL(mlx4_srq_arm);
 
 int mlx4_srq_query(struct mlx4_dev *dev, struct mlx4_srq *srq, int *limit_watermark)
 {
@@ -272,7 +272,7 @@ err_out:
 	mlx4_free_cmd_mailbox(dev, mailbox);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_srq_query); */
+EXPORT_SYMBOL_GPL(mlx4_srq_query);
 
 int mlx4_init_srq_table(struct mlx4_dev *dev)
 {

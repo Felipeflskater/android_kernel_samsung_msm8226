@@ -145,7 +145,7 @@ void __sdfat_fs_error(struct super_block *sb, int report, const char *fmt, ...)
 		sdfat_uevent_ro_remount(sb);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__sdfat_fs_error); */
+EXPORT_SYMBOL(__sdfat_fs_error);
 
 /**
  * __sdfat_msg() - print preformated SDFAT specific messages.
@@ -173,7 +173,7 @@ void __sdfat_msg(struct super_block *sb, const char *level, int st, const char *
 #endif
 	va_end(args);
 }
-/* DISABLED: EXPORT_SYMBOL(__sdfat_msg); */
+EXPORT_SYMBOL(__sdfat_msg);
 
 void sdfat_log_version(void)
 {
@@ -182,7 +182,7 @@ void sdfat_log_version(void)
 	ST_LOG("[SDFAT] Filesystem version %s\n", SDFAT_VERSION);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(sdfat_log_version); */
+EXPORT_SYMBOL(sdfat_log_version);
 
 /* <linux/time.h> externs sys_tz
  * extern struct timezone sys_tz;

@@ -33,7 +33,7 @@
 #define TLBSIZE 32
 
 unsigned long asid_cache = ASID_FIRST_VERSION;
-/* DISABLED: EXPORT_SYMBOL(asid_cache); */
+EXPORT_SYMBOL(asid_cache);
 
 void local_flush_tlb_all(void)
 {

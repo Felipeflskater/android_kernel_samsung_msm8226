@@ -362,7 +362,7 @@ void svga_get_caps(struct fb_info *info, struct fb_blit_caps *caps,
 		caps->len = ~(u32)0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(svga_get_caps); */
+EXPORT_SYMBOL(svga_get_caps);
 
 /* ------------------------------------------------------------------------- */
 
@@ -646,26 +646,26 @@ int svga_match_format(const struct svga_fb_format *frm,
 }
 
 
-/* DISABLED: EXPORT_SYMBOL(svga_wcrt_multi); */
-/* DISABLED: EXPORT_SYMBOL(svga_wseq_multi); */
+EXPORT_SYMBOL(svga_wcrt_multi);
+EXPORT_SYMBOL(svga_wseq_multi);
 
-/* DISABLED: EXPORT_SYMBOL(svga_set_default_gfx_regs); */
-/* DISABLED: EXPORT_SYMBOL(svga_set_default_atc_regs); */
-/* DISABLED: EXPORT_SYMBOL(svga_set_default_seq_regs); */
-/* DISABLED: EXPORT_SYMBOL(svga_set_default_crt_regs); */
-/* DISABLED: EXPORT_SYMBOL(svga_set_textmode_vga_regs); */
+EXPORT_SYMBOL(svga_set_default_gfx_regs);
+EXPORT_SYMBOL(svga_set_default_atc_regs);
+EXPORT_SYMBOL(svga_set_default_seq_regs);
+EXPORT_SYMBOL(svga_set_default_crt_regs);
+EXPORT_SYMBOL(svga_set_textmode_vga_regs);
 
-/* DISABLED: EXPORT_SYMBOL(svga_settile); */
-/* DISABLED: EXPORT_SYMBOL(svga_tilecopy); */
-/* DISABLED: EXPORT_SYMBOL(svga_tilefill); */
-/* DISABLED: EXPORT_SYMBOL(svga_tileblit); */
-/* DISABLED: EXPORT_SYMBOL(svga_tilecursor); */
-/* DISABLED: EXPORT_SYMBOL(svga_get_tilemax); */
+EXPORT_SYMBOL(svga_settile);
+EXPORT_SYMBOL(svga_tilecopy);
+EXPORT_SYMBOL(svga_tilefill);
+EXPORT_SYMBOL(svga_tileblit);
+EXPORT_SYMBOL(svga_tilecursor);
+EXPORT_SYMBOL(svga_get_tilemax);
 
-/* DISABLED: EXPORT_SYMBOL(svga_compute_pll); */
-/* DISABLED: EXPORT_SYMBOL(svga_check_timings); */
-/* DISABLED: EXPORT_SYMBOL(svga_set_timings); */
-/* DISABLED: EXPORT_SYMBOL(svga_match_format); */
+EXPORT_SYMBOL(svga_compute_pll);
+EXPORT_SYMBOL(svga_check_timings);
+EXPORT_SYMBOL(svga_set_timings);
+EXPORT_SYMBOL(svga_match_format);
 
 MODULE_AUTHOR("Ondrej Zajicek <santiago@crfreenet.org>");
 MODULE_DESCRIPTION("Common utility functions for VGA-based graphics cards");

@@ -26,7 +26,7 @@ struct mem_section *mem_section[NR_SECTION_ROOTS]
 struct mem_section mem_section[NR_SECTION_ROOTS][SECTIONS_PER_ROOT]
 	____cacheline_internodealigned_in_smp;
 #endif
-/* DISABLED: EXPORT_SYMBOL(mem_section); */
+EXPORT_SYMBOL(mem_section);
 
 #ifdef NODE_NOT_IN_PAGE_FLAGS
 /*
@@ -44,7 +44,7 @@ int page_to_nid(const struct page *page)
 {
 	return section_to_node_table[page_to_section(page)];
 }
-/* DISABLED: EXPORT_SYMBOL(page_to_nid); */
+EXPORT_SYMBOL(page_to_nid);
 
 static void set_section_nid(unsigned long section_nr, int nid)
 {

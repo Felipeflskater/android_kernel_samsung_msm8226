@@ -82,11 +82,11 @@
 
 /* Keep track of which host controller drivers are loaded */
 unsigned long usb_hcds_loaded;
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcds_loaded); */
+EXPORT_SYMBOL_GPL(usb_hcds_loaded);
 
 /* host controllers we manage */
 LIST_HEAD (usb_bus_list);
-/* DISABLED: EXPORT_SYMBOL_GPL (usb_bus_list); */
+EXPORT_SYMBOL_GPL (usb_bus_list);
 
 /* used when allocating bus numbers */
 #define USB_MAXBUS		64
@@ -97,7 +97,7 @@ static struct usb_busmap busmap;
 
 /* used when updating list of hcds */
 DEFINE_MUTEX(usb_bus_list_lock);	/* exported only for usbfs */
-/* DISABLED: EXPORT_SYMBOL_GPL (usb_bus_list_lock); */
+EXPORT_SYMBOL_GPL (usb_bus_list_lock);
 
 /* used for controlling access to virtual root hubs */
 static DEFINE_SPINLOCK(hcd_root_hub_lock);
@@ -730,7 +730,7 @@ void usb_hcd_poll_rh_status(struct usb_hcd *hcd)
 			(length == 0 && hcd->status_urb != NULL))
 		mod_timer (&hcd->rh_timer, (jiffies/(HZ/4) + 1) * (HZ/4));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_poll_rh_status); */
+EXPORT_SYMBOL_GPL(usb_hcd_poll_rh_status);
 
 /* timer callback */
 static void rh_timer_func (unsigned long _hcd)
@@ -1071,7 +1071,7 @@ long usb_calc_bus_time (int speed, int is_input, int isoc, int bytecount)
 		return -1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_calc_bus_time); */
+EXPORT_SYMBOL_GPL(usb_calc_bus_time);
 
 
 /*-------------------------------------------------------------------------*/
@@ -1134,7 +1134,7 @@ int usb_hcd_link_urb_to_ep(struct usb_hcd *hcd, struct urb *urb)
 	spin_unlock(&hcd_urb_list_lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_link_urb_to_ep); */
+EXPORT_SYMBOL_GPL(usb_hcd_link_urb_to_ep);
 
 /**
  * usb_hcd_check_unlink_urb - check whether an URB may be unlinked
@@ -1176,7 +1176,7 @@ int usb_hcd_check_unlink_urb(struct usb_hcd *hcd, struct urb *urb,
 	urb->unlinked = status;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_check_unlink_urb); */
+EXPORT_SYMBOL_GPL(usb_hcd_check_unlink_urb);
 
 /**
  * usb_hcd_unlink_urb_from_ep - remove an URB from its endpoint queue
@@ -1195,7 +1195,7 @@ void usb_hcd_unlink_urb_from_ep(struct usb_hcd *hcd, struct urb *urb)
 	list_del_init(&urb->urb_list);
 	spin_unlock(&hcd_urb_list_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_unlink_urb_from_ep); */
+EXPORT_SYMBOL_GPL(usb_hcd_unlink_urb_from_ep);
 
 /*
  * Some usb host controllers can only perform dma using a small SRAM area.
@@ -1298,7 +1298,7 @@ void usb_hcd_unmap_urb_setup_for_dma(struct usb_hcd *hcd, struct urb *urb)
 	/* Make it safe to call this routine more than once */
 	urb->transfer_flags &= ~(URB_SETUP_MAP_SINGLE | URB_SETUP_MAP_LOCAL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_unmap_urb_setup_for_dma); */
+EXPORT_SYMBOL_GPL(usb_hcd_unmap_urb_setup_for_dma);
 
 static void unmap_urb_for_dma(struct usb_hcd *hcd, struct urb *urb)
 {
@@ -1341,7 +1341,7 @@ void usb_hcd_unmap_urb_for_dma(struct usb_hcd *hcd, struct urb *urb)
 	urb->transfer_flags &= ~(URB_DMA_MAP_SG | URB_DMA_MAP_PAGE |
 			URB_DMA_MAP_SINGLE | URB_MAP_LOCAL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_unmap_urb_for_dma); */
+EXPORT_SYMBOL_GPL(usb_hcd_unmap_urb_for_dma);
 
 static int map_urb_for_dma(struct usb_hcd *hcd, struct urb *urb,
 			   gfp_t mem_flags)
@@ -1449,7 +1449,7 @@ int usb_hcd_map_urb_for_dma(struct usb_hcd *hcd, struct urb *urb,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_map_urb_for_dma); */
+EXPORT_SYMBOL_GPL(usb_hcd_map_urb_for_dma);
 
 /*-------------------------------------------------------------------------*/
 
@@ -1611,7 +1611,7 @@ void usb_hcd_giveback_urb(struct usb_hcd *hcd, struct urb *urb, int status)
 		wake_up (&usb_kill_urb_queue);
 	usb_put_urb (urb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_giveback_urb); */
+EXPORT_SYMBOL_GPL(usb_hcd_giveback_urb);
 
 /*-------------------------------------------------------------------------*/
 
@@ -1907,7 +1907,7 @@ int usb_alloc_streams(struct usb_interface *interface,
 	return hcd->driver->alloc_streams(hcd, dev, eps, num_eps,
 			num_streams, mem_flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_alloc_streams); */
+EXPORT_SYMBOL_GPL(usb_alloc_streams);
 
 /**
  * usb_free_streams - free bulk endpoint stream IDs.
@@ -1939,7 +1939,7 @@ void usb_free_streams(struct usb_interface *interface,
 
 	hcd->driver->free_streams(hcd, dev, eps, num_eps, mem_flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_free_streams); */
+EXPORT_SYMBOL_GPL(usb_free_streams);
 
 /* Protect against drivers that try to unlink URBs after the device
  * is gone, by waiting until all unlinks for @udev are finished.
@@ -2094,7 +2094,7 @@ void usb_hcd_resume_root_hub (struct usb_hcd *hcd)
 	}
 	spin_unlock_irqrestore (&hcd_root_hub_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_resume_root_hub); */
+EXPORT_SYMBOL_GPL(usb_hcd_resume_root_hub);
 
 #endif	/* CONFIG_USB_SUSPEND */
 
@@ -2133,7 +2133,7 @@ int usb_bus_start_enum(struct usb_bus *bus, unsigned port_num)
 		mod_timer(&hcd->rh_timer, jiffies + msecs_to_jiffies(10));
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_bus_start_enum); */
+EXPORT_SYMBOL_GPL(usb_bus_start_enum);
 
 #endif
 
@@ -2169,7 +2169,7 @@ irqreturn_t usb_hcd_irq (int irq, void *__hcd)
 	local_irq_restore(flags);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_irq); */
+EXPORT_SYMBOL_GPL(usb_hcd_irq);
 
 /*-------------------------------------------------------------------------*/
 
@@ -2214,7 +2214,7 @@ void usb_hc_died (struct usb_hcd *hcd)
 	spin_unlock_irqrestore (&hcd_root_hub_lock, flags);
 	/* Make sure that the other roothub is also deallocated. */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL (usb_hc_died); */
+EXPORT_SYMBOL_GPL (usb_hc_died);
 
 /*-------------------------------------------------------------------------*/
 
@@ -2282,7 +2282,7 @@ struct usb_hcd *usb_create_shared_hcd(const struct hc_driver *driver,
 			"USB Host Controller";
 	return hcd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_create_shared_hcd); */
+EXPORT_SYMBOL_GPL(usb_create_shared_hcd);
 
 /**
  * usb_create_hcd - create and initialize an HCD structure
@@ -2302,7 +2302,7 @@ struct usb_hcd *usb_create_hcd(const struct hc_driver *driver,
 {
 	return usb_create_shared_hcd(driver, dev, bus_name, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_create_hcd); */
+EXPORT_SYMBOL_GPL(usb_create_hcd);
 
 /*
  * Roothubs that share one PCI device must also share the bandwidth mutex.
@@ -2331,14 +2331,14 @@ struct usb_hcd *usb_get_hcd (struct usb_hcd *hcd)
 		kref_get (&hcd->kref);
 	return hcd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_hcd); */
+EXPORT_SYMBOL_GPL(usb_get_hcd);
 
 void usb_put_hcd (struct usb_hcd *hcd)
 {
 	if (hcd)
 		kref_put (&hcd->kref, hcd_release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_put_hcd); */
+EXPORT_SYMBOL_GPL(usb_put_hcd);
 
 int usb_hcd_is_primary_hcd(struct usb_hcd *hcd)
 {
@@ -2346,7 +2346,7 @@ int usb_hcd_is_primary_hcd(struct usb_hcd *hcd)
 		return 1;
 	return hcd == hcd->primary_hcd;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_is_primary_hcd); */
+EXPORT_SYMBOL_GPL(usb_hcd_is_primary_hcd);
 
 static int usb_hcd_request_irqs(struct usb_hcd *hcd,
 		unsigned int irqnum, unsigned long irqflags)
@@ -2546,7 +2546,7 @@ err_register_bus:
 	hcd_buffer_destroy(hcd);
 	return retval;
 } 
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_add_hcd); */
+EXPORT_SYMBOL_GPL(usb_add_hcd);
 
 /**
  * usb_remove_hcd - shutdown processing for generic HCDs
@@ -2607,7 +2607,7 @@ void usb_remove_hcd(struct usb_hcd *hcd)
 	usb_deregister_bus(&hcd->self);
 	hcd_buffer_destroy(hcd);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_remove_hcd); */
+EXPORT_SYMBOL_GPL(usb_remove_hcd);
 
 void
 usb_hcd_platform_shutdown(struct platform_device* dev)
@@ -2617,7 +2617,7 @@ usb_hcd_platform_shutdown(struct platform_device* dev)
 	if (hcd->driver->shutdown)
 		hcd->driver->shutdown(hcd);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_hcd_platform_shutdown); */
+EXPORT_SYMBOL_GPL(usb_hcd_platform_shutdown);
 
 /*-------------------------------------------------------------------------*/
 
@@ -2643,7 +2643,7 @@ int usb_mon_register (struct usb_mon_operations *ops)
 	mb();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL (usb_mon_register); */
+EXPORT_SYMBOL_GPL (usb_mon_register);
 
 void usb_mon_deregister (void)
 {
@@ -2655,6 +2655,6 @@ void usb_mon_deregister (void)
 	mon_ops = NULL;
 	mb();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL (usb_mon_deregister); */
+EXPORT_SYMBOL_GPL (usb_mon_deregister);
 
 #endif /* CONFIG_USB_MON || CONFIG_USB_MON_MODULE */

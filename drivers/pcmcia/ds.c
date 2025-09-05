@@ -197,7 +197,7 @@ int pcmcia_register_driver(struct pcmcia_driver *driver)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_register_driver); */
+EXPORT_SYMBOL(pcmcia_register_driver);
 
 /**
  * pcmcia_unregister_driver - unregister a PCMCIA driver with the bus core
@@ -210,7 +210,7 @@ void pcmcia_unregister_driver(struct pcmcia_driver *driver)
 	driver_unregister(&driver->drv);
 	pcmcia_free_dynids(driver);
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_unregister_driver); */
+EXPORT_SYMBOL(pcmcia_unregister_driver);
 
 
 /* pcmcia_device handling */
@@ -1315,7 +1315,7 @@ struct pcmcia_device *pcmcia_dev_present(struct pcmcia_device *_p_dev)
 	pcmcia_put_dev(p_dev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_dev_present); */
+EXPORT_SYMBOL(pcmcia_dev_present);
 
 
 static struct pcmcia_callback pcmcia_bus_callback = {

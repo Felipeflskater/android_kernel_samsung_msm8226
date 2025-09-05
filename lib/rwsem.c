@@ -26,7 +26,7 @@ void __init_rwsem(struct rw_semaphore *sem, const char *name,
 	INIT_LIST_HEAD(&sem->wait_list);
 }
 
-/* DISABLED: EXPORT_SYMBOL(__init_rwsem); */
+EXPORT_SYMBOL(__init_rwsem);
 
 struct rwsem_waiter {
 	struct list_head list;
@@ -276,7 +276,7 @@ struct rw_semaphore *rwsem_downgrade_wake(struct rw_semaphore *sem)
 	return sem;
 }
 
-/* DISABLED: EXPORT_SYMBOL(rwsem_down_read_failed); */
-/* DISABLED: EXPORT_SYMBOL(rwsem_down_write_failed); */
-/* DISABLED: EXPORT_SYMBOL(rwsem_wake); */
-/* DISABLED: EXPORT_SYMBOL(rwsem_downgrade_wake); */
+EXPORT_SYMBOL(rwsem_down_read_failed);
+EXPORT_SYMBOL(rwsem_down_write_failed);
+EXPORT_SYMBOL(rwsem_wake);
+EXPORT_SYMBOL(rwsem_downgrade_wake);

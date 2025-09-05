@@ -32,5 +32,5 @@ inline int get_timer_page_address(void)
 	else
 		return ARM_USER_ACCESSIBLE_TIMERS_INVALID_PAGE;
 }
-/* DISABLED: EXPORT_SYMBOL(get_timer_page_address); */
+EXPORT_SYMBOL(get_timer_page_address);
 

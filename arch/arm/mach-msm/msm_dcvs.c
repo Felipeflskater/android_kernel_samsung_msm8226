@@ -1111,7 +1111,7 @@ bail:
 	core->dcvs_core_id = -1;
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_dcvs_register_core); */
+EXPORT_SYMBOL(msm_dcvs_register_core);
 
 void msm_dcvs_update_limits(int dcvs_core_id)
 {
@@ -1182,7 +1182,7 @@ int msm_dcvs_freq_sink_start(int dcvs_core_id)
 	core->idle_enable(core->type_core_num, MSM_DCVS_ENABLE_IDLE_PULSE);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_dcvs_freq_sink_start); */
+EXPORT_SYMBOL(msm_dcvs_freq_sink_start);
 
 int msm_dcvs_freq_sink_stop(int dcvs_core_id)
 {
@@ -1229,7 +1229,7 @@ int msm_dcvs_freq_sink_stop(int dcvs_core_id)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_dcvs_freq_sink_stop); */
+EXPORT_SYMBOL(msm_dcvs_freq_sink_stop);
 
 int msm_dcvs_idle(int dcvs_core_id, enum msm_core_idle_state state,
 						uint32_t iowaited)
@@ -1273,7 +1273,7 @@ int msm_dcvs_idle(int dcvs_core_id, enum msm_core_idle_state state,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_dcvs_idle); */
+EXPORT_SYMBOL(msm_dcvs_idle);
 
 static int __init msm_dcvs_late_init(void)
 {

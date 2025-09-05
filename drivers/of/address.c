@@ -203,7 +203,7 @@ const __be32 *of_get_pci_address(struct device_node *dev, int bar_no, u64 *size,
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_pci_address); */
+EXPORT_SYMBOL(of_get_pci_address);
 
 int of_pci_address_to_resource(struct device_node *dev, int bar,
 			       struct resource *r)
@@ -217,7 +217,7 @@ int of_pci_address_to_resource(struct device_node *dev, int bar,
 		return -EINVAL;
 	return __of_address_to_resource(dev, addrp, size, flags, NULL, r);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_pci_address_to_resource); */
+EXPORT_SYMBOL_GPL(of_pci_address_to_resource);
 #endif /* CONFIG_PCI */
 
 /*
@@ -494,13 +494,13 @@ u64 of_translate_address(struct device_node *dev, const __be32 *in_addr)
 {
 	return __of_translate_address(dev, in_addr, "ranges");
 }
-/* DISABLED: EXPORT_SYMBOL(of_translate_address); */
+EXPORT_SYMBOL(of_translate_address);
 
 u64 of_translate_dma_address(struct device_node *dev, const __be32 *in_addr)
 {
 	return __of_translate_address(dev, in_addr, "dma-ranges");
 }
-/* DISABLED: EXPORT_SYMBOL(of_translate_dma_address); */
+EXPORT_SYMBOL(of_translate_dma_address);
 
 bool of_can_translate_address(struct device_node *dev)
 {
@@ -519,7 +519,7 @@ bool of_can_translate_address(struct device_node *dev)
 
 	return OF_CHECK_COUNTS(na, ns);
 }
-/* DISABLED: EXPORT_SYMBOL(of_can_translate_address); */
+EXPORT_SYMBOL(of_can_translate_address);
 
 const __be32 *of_get_address(struct device_node *dev, int index, u64 *size,
 		    unsigned int *flags)
@@ -557,7 +557,7 @@ const __be32 *of_get_address(struct device_node *dev, int index, u64 *size,
 		}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_get_address); */
+EXPORT_SYMBOL(of_get_address);
 
 static int __of_address_to_resource(struct device_node *dev,
 		const __be32 *addrp, u64 size, unsigned int flags,
@@ -613,7 +613,7 @@ int of_address_to_resource(struct device_node *dev, int index,
 
 	return __of_address_to_resource(dev, addrp, size, flags, name, r);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_address_to_resource); */
+EXPORT_SYMBOL_GPL(of_address_to_resource);
 
 struct device_node *of_find_matching_node_by_address(struct device_node *from,
 					const struct of_device_id *matches,
@@ -650,4 +650,4 @@ void __iomem *of_iomap(struct device_node *np, int index)
 
 	return ioremap(res.start, resource_size(&res));
 }
-/* DISABLED: EXPORT_SYMBOL(of_iomap); */
+EXPORT_SYMBOL(of_iomap);

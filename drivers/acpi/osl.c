@@ -72,7 +72,7 @@ struct acpi_os_dpc {
 
 /* stuff for debugger support */
 int acpi_in_debugger;
-/* DISABLED: EXPORT_SYMBOL(acpi_in_debugger); */
+EXPORT_SYMBOL(acpi_in_debugger);
 
 extern char line_buf[80];
 #endif				/*ENABLE_DEBUGGER */
@@ -86,7 +86,7 @@ static struct workqueue_struct *kacpid_wq;
 static struct workqueue_struct *kacpi_notify_wq;
 struct workqueue_struct *kacpi_hotplug_wq;
 unsigned int acpi_sci_irq = INVALID_ACPI_IRQ;
-/* DISABLED: EXPORT_SYMBOL(kacpi_hotplug_wq); */
+EXPORT_SYMBOL(kacpi_hotplug_wq);
 
 /*
  * This list of permanent mappings is for memory that may be accessed from
@@ -310,7 +310,7 @@ void __iomem *acpi_os_get_iomem(acpi_physical_address phys, unsigned int size)
 	mutex_unlock(&acpi_ioremap_lock);
 	return virt;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_os_get_iomem); */
+EXPORT_SYMBOL_GPL(acpi_os_get_iomem);
 
 /* Must be called with 'acpi_ioremap_lock' or RCU read lock held. */
 static struct acpi_ioremap *
@@ -408,7 +408,7 @@ acpi_os_map_memory(acpi_physical_address phys, acpi_size size)
 	mutex_unlock(&acpi_ioremap_lock);
 	return map->virt + (phys - map->phys);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_os_map_memory); */
+EXPORT_SYMBOL_GPL(acpi_os_map_memory);
 
 static void acpi_os_drop_map_ref(struct acpi_ioremap *map)
 {
@@ -446,7 +446,7 @@ void __ref acpi_os_unmap_memory(void __iomem *virt, acpi_size size)
 
 	acpi_os_map_cleanup(map);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_os_unmap_memory); */
+EXPORT_SYMBOL_GPL(acpi_os_unmap_memory);
 
 void __init early_acpi_os_unmap_memory(void __iomem *virt, acpi_size size)
 {
@@ -473,7 +473,7 @@ int acpi_os_map_generic_address(struct acpi_generic_address *gas)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_os_map_generic_address); */
+EXPORT_SYMBOL(acpi_os_map_generic_address);
 
 void acpi_os_unmap_generic_address(struct acpi_generic_address *gas)
 {
@@ -499,7 +499,7 @@ void acpi_os_unmap_generic_address(struct acpi_generic_address *gas)
 
 	acpi_os_map_cleanup(map);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_os_unmap_generic_address); */
+EXPORT_SYMBOL(acpi_os_unmap_generic_address);
 
 #ifdef ACPI_FUTURE_USAGE
 acpi_status
@@ -695,7 +695,7 @@ acpi_status acpi_os_read_port(acpi_io_address port, u32 * value, u32 width)
 	return AE_OK;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_os_read_port); */
+EXPORT_SYMBOL(acpi_os_read_port);
 
 acpi_status acpi_os_write_port(acpi_io_address port, u32 value, u32 width)
 {
@@ -712,7 +712,7 @@ acpi_status acpi_os_write_port(acpi_io_address port, u32 value, u32 width)
 	return AE_OK;
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_os_write_port); */
+EXPORT_SYMBOL(acpi_os_write_port);
 
 #ifdef readq
 static inline u64 read64(const volatile void __iomem *addr)
@@ -982,7 +982,7 @@ acpi_status acpi_os_execute(acpi_execute_type type,
 {
 	return __acpi_os_execute(type, function, context, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_os_execute); */
+EXPORT_SYMBOL(acpi_os_execute);
 
 acpi_status acpi_os_hotplug_execute(acpi_osd_exec_callback function,
 	void *context)
@@ -996,7 +996,7 @@ void acpi_os_wait_events_complete(void *context)
 	flush_workqueue(kacpi_notify_wq);
 }
 
-/* DISABLED: EXPORT_SYMBOL(acpi_os_wait_events_complete); */
+EXPORT_SYMBOL(acpi_os_wait_events_complete);
 
 acpi_status
 acpi_os_create_semaphore(u32 max_units, u32 initial_units, acpi_handle * handle)
@@ -1169,7 +1169,7 @@ static int __init acpi_os_name_setup(char *str)
 
 }
 
-/* DISABLED: __setup("acpi_os_name=", acpi_os_name_setup); */ */
+__setup("acpi_os_name=", acpi_os_name_setup);
 
 #define	OSI_STRING_LENGTH_MAX 64	/* arbitrary */
 #define	OSI_STRING_ENTRIES_MAX 16	/* arbitrary */
@@ -1301,7 +1301,7 @@ static int __init osi_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_osi=", osi_setup); */ */
+__setup("acpi_osi=", osi_setup);
 
 /* enable serialization to combat AE_ALREADY_EXISTS errors */
 static int __init acpi_serialize_setup(char *str)
@@ -1313,7 +1313,7 @@ static int __init acpi_serialize_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_serialize", acpi_serialize_setup); */ */
+__setup("acpi_serialize", acpi_serialize_setup);
 
 /* Check of resource interference between native drivers and ACPI
  * OperationRegions (SystemIO and System Memory only).
@@ -1352,7 +1352,7 @@ static int __init acpi_enforce_resources_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("acpi_enforce_resources=", acpi_enforce_resources_setup); */ */
+__setup("acpi_enforce_resources=", acpi_enforce_resources_setup);
 
 /* Check for resource conflicts between ACPI OperationRegions and native
  * drivers */
@@ -1393,7 +1393,7 @@ int acpi_check_resource_conflict(const struct resource *res)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_check_resource_conflict); */
+EXPORT_SYMBOL(acpi_check_resource_conflict);
 
 int acpi_check_region(resource_size_t start, resource_size_t n,
 		      const char *name)
@@ -1407,7 +1407,7 @@ int acpi_check_region(resource_size_t start, resource_size_t n,
 
 	return acpi_check_resource_conflict(&res);
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_check_region); */
+EXPORT_SYMBOL(acpi_check_region);
 
 /*
  * Let drivers know whether the resource checks are effective
@@ -1416,7 +1416,7 @@ int acpi_resources_are_enforced(void)
 {
 	return acpi_enforce_resources == ENFORCE_RESOURCES_STRICT;
 }
-/* DISABLED: EXPORT_SYMBOL(acpi_resources_are_enforced); */
+EXPORT_SYMBOL(acpi_resources_are_enforced);
 
 /*
  * Deallocate the memory for a spinlock.

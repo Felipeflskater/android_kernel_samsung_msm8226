@@ -552,4 +552,4 @@ int input_ff_create_memless(struct input_dev *dev, void *data,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(input_ff_create_memless); */
+EXPORT_SYMBOL_GPL(input_ff_create_memless);

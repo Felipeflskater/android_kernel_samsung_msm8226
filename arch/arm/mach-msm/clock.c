@@ -345,7 +345,7 @@ err_prepare_depends:
 	clk_unprepare(parent);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_prepare); */
+EXPORT_SYMBOL(clk_prepare);
 
 /*
  * Standard clock functions defined in include/linux/clk.h
@@ -394,7 +394,7 @@ err_enable_parent:
 	spin_unlock_irqrestore(&clk->lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
@@ -423,7 +423,7 @@ void clk_disable(struct clk *clk)
 out:
 	spin_unlock_irqrestore(&clk->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 void clk_unprepare(struct clk *clk)
 {
@@ -452,7 +452,7 @@ void clk_unprepare(struct clk *clk)
 out:
 	mutex_unlock(&clk->prepare_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_unprepare); */
+EXPORT_SYMBOL(clk_unprepare);
 
 int clk_reset(struct clk *clk, enum clk_reset_action action)
 {
@@ -464,7 +464,7 @@ int clk_reset(struct clk *clk, enum clk_reset_action action)
 
 	return clk->ops->reset(clk, action);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_reset); */
+EXPORT_SYMBOL(clk_reset);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
@@ -476,7 +476,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return clk->ops->get_rate(clk);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -540,7 +540,7 @@ err_vote_vdd:
 		clk->ops->post_set_rate(clk, rate);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_rate); */
+EXPORT_SYMBOL(clk_set_rate);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -565,7 +565,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 		return -EINVAL;
 	return rrate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_round_rate); */
+EXPORT_SYMBOL(clk_round_rate);
 
 int clk_set_max_rate(struct clk *clk, unsigned long rate)
 {
@@ -577,7 +577,7 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
 
 	return clk->ops->set_max_rate(clk, rate);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_max_rate); */
+EXPORT_SYMBOL(clk_set_max_rate);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -598,7 +598,7 @@ out:
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_parent); */
+EXPORT_SYMBOL(clk_set_parent);
 
 struct clk *clk_get_parent(struct clk *clk)
 {
@@ -607,7 +607,7 @@ struct clk *clk_get_parent(struct clk *clk)
 
 	return clk->parent;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_parent); */
+EXPORT_SYMBOL(clk_get_parent);
 
 int clk_set_flags(struct clk *clk, unsigned long flags)
 {
@@ -618,7 +618,7 @@ int clk_set_flags(struct clk *clk, unsigned long flags)
 
 	return clk->ops->set_flags(clk, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_set_flags); */
+EXPORT_SYMBOL(clk_set_flags);
 
 static LIST_HEAD(initdata_list);
 
@@ -782,7 +782,7 @@ int msm_clock_register(struct clk_lookup *table, size_t size)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_clock_register); */
+EXPORT_SYMBOL(msm_clock_register);
 
 /**
  * msm_clock_init() - Register and initialize a clock driver

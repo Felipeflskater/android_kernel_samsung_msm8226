@@ -8,18 +8,18 @@
 #include "flowctrl.h"
 #include "reset.h"
 
-#define APB_MISC_GP_HIDREV0x804
-#define PMC_SCRATCH410x140
+#define APB_MISC_GP_HIDREV	0x804
+#define PMC_SCRATCH41	0x140
 
-#define RESET_DATA(x)((TEGRA_RESET_##x)*4)
+#define RESET_DATA(x)	((TEGRA_RESET_##x)*4)
 
-.macro mov32, reg, val
-movw\reg, @ :lower16:\val
-movt\reg, @ :upper16:\val
-.endm
+	.macro mov32, reg, val
+	movw	\reg, #:lower16:\val
+	movt	\reg, #:upper16:\val
+	.endm
 
         .section ".text.head", "ax"
-__CPUINIT
+	__CPUINIT
 
 /*
  * Tegra specific entry point for secondary CPUs.
@@ -67,13 +67,13 @@ ENDPROC(v7_invalidate_l1)
 
 ENTRY(tegra_secondary_startup)
         bl      v7_invalidate_l1
-/* Enable coresight */
-mov32r0, 0xC5ACCE55
-mcrp14, 0, r0, c7, c12, 6
+	/* Enable coresight */
+	mov32	r0, 0xC5ACCE55
+	mcr	p14, 0, r0, c7, c12, 6
         b       secondary_startup
 ENDPROC(tegra_secondary_startup)
 
-.align L1_CACHE_SHIFT
+	.align L1_CACHE_SHIFT
 ENTRY(__tegra_cpu_reset_handler_start)
 
 /*
@@ -94,49 +94,49 @@ ENTRY(__tegra_cpu_reset_handler_start)
  *       must be position-independent.
  */
 
-.align L1_CACHE_SHIFT
+	.align L1_CACHE_SHIFT
 ENTRY(__tegra_cpu_reset_handler)
 
-cpsidaif, 0x13@ SVC mode, interrupts disabled
-mrcp15, 0, r10, c0, c0, 5@ MPIDR
-andr10, r10, #0x3@ R10 = CPU number
-movr11, #1
-movr11, r11, lsl r10  @ R11 = CPU mask
-adrr12, __tegra_cpu_reset_handler_data
+	cpsid	aif, 0x13			@ SVC mode, interrupts disabled
+	mrc	p15, 0, r10, c0, c0, 5		@ MPIDR
+	and	r10, r10, #0x3			@ R10 = CPU number
+	mov	r11, #1
+	mov	r11, r11, lsl r10  		@ R11 = CPU mask
+	adr	r12, __tegra_cpu_reset_handler_data
 
 #ifdef CONFIG_SMP
-/* Does the OS know about this CPU? */
-ldrr7, [r12, @ RESET_DATA(MASK_PRESENT)]
-tstr7, r11 @ if !present
-bleq__die@ CPU not present (to OS)
+	/* Does the OS know about this CPU? */
+	ldr	r7, [r12, #RESET_DATA(MASK_PRESENT)]
+	tst	r7, r11 			@ if !present
+	bleq	__die				@ CPU not present (to OS)
 #endif
 
 #ifdef CONFIG_ARCH_TEGRA_2x_SOC
-/* Are we on Tegra20? */
-mov32r6, TEGRA_APB_MISC_BASE
-ldrr0, [r6, @ APB_MISC_GP_HIDREV]
-andr0, r0, #0xff00
-cmpr0, @ (0x20 << 8)
-bne1f
-/* If not CPU0, don't let CPU0 reset CPU1 now that CPU1 is coming up. */
-mov32r6, TEGRA_PMC_BASE
-movr0, #0
-cmpr10, #0
-strner0, [r6, @ PMC_SCRATCH41]
+	/* Are we on Tegra20? */
+	mov32	r6, TEGRA_APB_MISC_BASE
+	ldr	r0, [r6, #APB_MISC_GP_HIDREV]
+	and	r0, r0, #0xff00
+	cmp	r0, #(0x20 << 8)
+	bne	1f
+	/* If not CPU0, don't let CPU0 reset CPU1 now that CPU1 is coming up. */
+	mov32	r6, TEGRA_PMC_BASE
+	mov	r0, #0
+	cmp	r10, #0
+	strne	r0, [r6, #PMC_SCRATCH41]
 1:
 #endif
 
 #ifdef CONFIG_SMP
-/*
- * Can only be secondary boot (initial or hotplug) but CPU 0
- * cannot be here.
- */
-cmpr10, #0
-bleq__die@ CPU0 cannot be here
-ldrlr, [r12, @ RESET_DATA(STARTUP_SECONDARY)]
-cmplr, #0
-bleq__die@ no secondary startup handler
-bxlr
+	/*
+	 * Can only be secondary boot (initial or hotplug) but CPU 0
+	 * cannot be here.
+	 */
+	cmp	r10, #0
+	bleq	__die				@ CPU0 cannot be here
+	ldr	lr, [r12, #RESET_DATA(STARTUP_SECONDARY)]
+	cmp	lr, #0
+	bleq	__die				@ no secondary startup handler
+	bx	lr
 #endif
 
 /*
@@ -145,68 +145,68 @@ bxlr
  */
 
 __die:
-sublr, lr, #4
-mov32r7, TEGRA_PMC_BASE
-strlr, [r7, @ PMC_SCRATCH41]
+	sub	lr, lr, #4
+	mov32	r7, TEGRA_PMC_BASE
+	str	lr, [r7, #PMC_SCRATCH41]
 
-mov32r7, TEGRA_CLK_RESET_BASE
+	mov32	r7, TEGRA_CLK_RESET_BASE
 
-/* Are we on Tegra20? */
-mov32r6, TEGRA_APB_MISC_BASE
-ldrr0, [r6, @ APB_MISC_GP_HIDREV]
-andr0, r0, #0xff00
-cmpr0, @ (0x20 << 8)
-bne1f
+	/* Are we on Tegra20? */
+	mov32	r6, TEGRA_APB_MISC_BASE
+	ldr	r0, [r6, #APB_MISC_GP_HIDREV]
+	and	r0, r0, #0xff00
+	cmp	r0, #(0x20 << 8)
+	bne	1f
 
 #ifdef CONFIG_ARCH_TEGRA_2x_SOC
-mov32r0, 0x1111
-movr1, r0, lsl r10
-strr1, [r7, #0x340]@ CLK_RST_CPU_CMPLX_SET
+	mov32	r0, 0x1111
+	mov	r1, r0, lsl r10
+	str	r1, [r7, #0x340]		@ CLK_RST_CPU_CMPLX_SET
 #endif
 1:
 #ifdef CONFIG_ARCH_TEGRA_3x_SOC
-mov32r6, TEGRA_FLOW_CTRL_BASE
+	mov32	r6, TEGRA_FLOW_CTRL_BASE
 
-cmpr10, #0
-moveqr1, @ FLOW_CTRL_HALT_CPU0_EVENTS
-moveqr2, @ FLOW_CTRL_CPU0_CSR
-movner1, r10, lsl #3
-addner2, r1, @ (FLOW_CTRL_CPU1_CSR-8)
-addner1, r1, @ (FLOW_CTRL_HALT_CPU1_EVENTS-8)
+	cmp	r10, #0
+	moveq	r1, #FLOW_CTRL_HALT_CPU0_EVENTS
+	moveq	r2, #FLOW_CTRL_CPU0_CSR
+	movne	r1, r10, lsl #3
+	addne	r2, r1, #(FLOW_CTRL_CPU1_CSR-8)
+	addne	r1, r1, #(FLOW_CTRL_HALT_CPU1_EVENTS-8)
 
-/* Clear CPU "event" and "interrupt" flags and power gate
-   it when halting but not before it is in the "WFI" state. */
-ldrr0, [r6, +r2]
-orrr0, r0, @ FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
-orrr0, r0, @ FLOW_CTRL_CSR_ENABLE
-strr0, [r6, +r2]
+	/* Clear CPU "event" and "interrupt" flags and power gate
+	   it when halting but not before it is in the "WFI" state. */
+	ldr	r0, [r6, +r2]
+	orr	r0, r0, #FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
+	orr	r0, r0, #FLOW_CTRL_CSR_ENABLE
+	str	r0, [r6, +r2]
 
-/* Unconditionally halt this CPU */
-movr0, @ FLOW_CTRL_WAITEVENT
-strr0, [r6, +r1]
-ldrr0, [r6, +r1]@ memory barrier
+	/* Unconditionally halt this CPU */
+	mov	r0, #FLOW_CTRL_WAITEVENT
+	str	r0, [r6, +r1]
+	ldr	r0, [r6, +r1]			@ memory barrier
 
-dsb
-isb
-wfi@ CPU should be power gated here
+	dsb
+	isb
+	wfi					@ CPU should be power gated here
 
-/* If the CPU didn't power gate above just kill it's clock. */
+	/* If the CPU didn't power gate above just kill it's clock. */
 
-movr0, r11, lsl #8
-strr0, [r7, #348]@ CLK_CPU_CMPLX_SET
+	mov	r0, r11, lsl #8
+	str	r0, [r7, #348]			@ CLK_CPU_CMPLX_SET
 #endif
 
-/* If the CPU still isn't dead, just spin here. */
-b.
+	/* If the CPU still isn't dead, just spin here. */
+	b	.
 ENDPROC(__tegra_cpu_reset_handler)
 
-.align L1_CACHE_SHIFT
-.type__tegra_cpu_reset_handler_data, %object
-.globl__tegra_cpu_reset_handler_data
+	.align L1_CACHE_SHIFT
+	.type	__tegra_cpu_reset_handler_data, %object
+	.globl	__tegra_cpu_reset_handler_data
 __tegra_cpu_reset_handler_data:
-.reptTEGRA_RESET_DATA_SIZE
-.long0
-.endr
-.align L1_CACHE_SHIFT
+	.rept	TEGRA_RESET_DATA_SIZE
+	.long	0
+	.endr
+	.align L1_CACHE_SHIFT
 
 ENTRY(__tegra_cpu_reset_handler_end)

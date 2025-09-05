@@ -30,7 +30,7 @@ int dibusb_streaming_ctrl(struct dvb_usb_adapter *adap, int onoff)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_streaming_ctrl); */
+EXPORT_SYMBOL(dibusb_streaming_ctrl);
 
 int dibusb_pid_filter(struct dvb_usb_adapter *adap, int index, u16 pid, int onoff)
 {
@@ -42,7 +42,7 @@ int dibusb_pid_filter(struct dvb_usb_adapter *adap, int index, u16 pid, int onof
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_pid_filter); */
+EXPORT_SYMBOL(dibusb_pid_filter);
 
 int dibusb_pid_filter_ctrl(struct dvb_usb_adapter *adap, int onoff)
 {
@@ -54,7 +54,7 @@ int dibusb_pid_filter_ctrl(struct dvb_usb_adapter *adap, int onoff)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_pid_filter_ctrl); */
+EXPORT_SYMBOL(dibusb_pid_filter_ctrl);
 
 int dibusb_power_ctrl(struct dvb_usb_device *d, int onoff)
 {
@@ -67,7 +67,7 @@ int dibusb_power_ctrl(struct dvb_usb_device *d, int onoff)
 	msleep(10);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_power_ctrl); */
+EXPORT_SYMBOL(dibusb_power_ctrl);
 
 int dibusb2_0_streaming_ctrl(struct dvb_usb_adapter *adap, int onoff)
 {
@@ -88,7 +88,7 @@ int dibusb2_0_streaming_ctrl(struct dvb_usb_adapter *adap, int onoff)
 	b[1] = onoff ? DIBUSB_IOCTL_CMD_ENABLE_STREAM : DIBUSB_IOCTL_CMD_DISABLE_STREAM;
 	return dvb_usb_generic_write(adap->dev,b,3);
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb2_0_streaming_ctrl); */
+EXPORT_SYMBOL(dibusb2_0_streaming_ctrl);
 
 int dibusb2_0_power_ctrl(struct dvb_usb_device *d, int onoff)
 {
@@ -98,7 +98,7 @@ int dibusb2_0_power_ctrl(struct dvb_usb_device *d, int onoff)
 	} else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb2_0_power_ctrl); */
+EXPORT_SYMBOL(dibusb2_0_power_ctrl);
 
 static int dibusb_i2c_msg(struct dvb_usb_device *d, u8 addr,
 			  u8 *wbuf, u16 wlen, u8 *rbuf, u16 rlen)
@@ -165,14 +165,14 @@ struct i2c_algorithm dibusb_i2c_algo = {
 	.master_xfer   = dibusb_i2c_xfer,
 	.functionality = dibusb_i2c_func,
 };
-/* DISABLED: EXPORT_SYMBOL(dibusb_i2c_algo); */
+EXPORT_SYMBOL(dibusb_i2c_algo);
 
 int dibusb_read_eeprom_byte(struct dvb_usb_device *d, u8 offs, u8 *val)
 {
 	u8 wbuf[1] = { offs };
 	return dibusb_i2c_msg(d, 0x50, wbuf, 1, val, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_read_eeprom_byte); */
+EXPORT_SYMBOL(dibusb_read_eeprom_byte);
 
 /* 3000MC/P stuff */
 // Config Adjacent channels  Perf -cal22
@@ -274,7 +274,7 @@ int dibusb_dib3000mc_frontend_attach(struct dvb_usb_adapter *adap)
 	}
 	return -ENODEV;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_dib3000mc_frontend_attach); */
+EXPORT_SYMBOL(dibusb_dib3000mc_frontend_attach);
 
 static struct mt2060_config stk3000p_mt2060_config = {
 	0x60
@@ -330,7 +330,7 @@ int dibusb_dib3000mc_tuner_attach(struct dvb_usb_adapter *adap)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_dib3000mc_tuner_attach); */
+EXPORT_SYMBOL(dibusb_dib3000mc_tuner_attach);
 #endif
 
 /*
@@ -465,7 +465,7 @@ struct rc_map_table rc_map_dibusb_table[] = {
 	{ 0x804e, KEY_ENTER },
 	{ 0x804f, KEY_VOLUMEDOWN },
 };
-/* DISABLED: EXPORT_SYMBOL(rc_map_dibusb_table); */
+EXPORT_SYMBOL(rc_map_dibusb_table);
 
 int dibusb_rc_query(struct dvb_usb_device *d, u32 *event, int *state)
 {
@@ -476,4 +476,4 @@ int dibusb_rc_query(struct dvb_usb_device *d, u32 *event, int *state)
 		deb_info("key: %x %x %x %x %x\n",key[0],key[1],key[2],key[3],key[4]);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dibusb_rc_query); */
+EXPORT_SYMBOL(dibusb_rc_query);

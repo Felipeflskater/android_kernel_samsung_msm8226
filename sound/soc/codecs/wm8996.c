@@ -2461,7 +2461,7 @@ int wm8996_detect(struct snd_soc_codec *codec, struct snd_soc_jack *jack,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wm8996_detect); */
+EXPORT_SYMBOL_GPL(wm8996_detect);
 
 static void wm8996_hpdet_irq(struct snd_soc_codec *codec)
 {

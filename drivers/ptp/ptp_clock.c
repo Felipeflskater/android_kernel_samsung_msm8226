@@ -264,7 +264,7 @@ no_slot:
 	mutex_unlock(&ptp_clocks_mutex);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(ptp_clock_register); */
+EXPORT_SYMBOL(ptp_clock_register);
 
 int ptp_clock_unregister(struct ptp_clock *ptp)
 {
@@ -280,7 +280,7 @@ int ptp_clock_unregister(struct ptp_clock *ptp)
 	posix_clock_unregister(&ptp->clock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ptp_clock_unregister); */
+EXPORT_SYMBOL(ptp_clock_unregister);
 
 void ptp_clock_event(struct ptp_clock *ptp, struct ptp_clock_event *event)
 {
@@ -302,7 +302,7 @@ void ptp_clock_event(struct ptp_clock *ptp, struct ptp_clock_event *event)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ptp_clock_event); */
+EXPORT_SYMBOL(ptp_clock_event);
 
 /* module operations */
 

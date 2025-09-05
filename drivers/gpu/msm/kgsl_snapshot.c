@@ -336,7 +336,7 @@ int kgsl_snapshot_have_object(struct kgsl_device *device, phys_addr_t ptbase,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_snapshot_have_object); */
+EXPORT_SYMBOL(kgsl_snapshot_have_object);
 
 /* kgsl_snapshot_get_object - Mark a GPU buffer to be frozen
  * @device - the device that is being snapshotted
@@ -453,7 +453,7 @@ err_put:
 	kgsl_mem_entry_put(entry);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_snapshot_get_object); */
+EXPORT_SYMBOL(kgsl_snapshot_get_object);
 
 /*
  * kgsl_snapshot_dump_regs - helper function to dump device registers
@@ -517,7 +517,7 @@ int kgsl_snapshot_dump_regs(struct kgsl_device *device, void *snapshot,
 	/* Return the size of the section */
 	return (count * 8) + sizeof(*header);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_snapshot_dump_regs); */
+EXPORT_SYMBOL(kgsl_snapshot_dump_regs);
 
 void *kgsl_snapshot_indexed_registers(struct kgsl_device *device,
 		void *snapshot, int *remain,
@@ -534,7 +534,7 @@ void *kgsl_snapshot_indexed_registers(struct kgsl_device *device,
 		 KGSL_SNAPSHOT_SECTION_INDEXED_REGS, snapshot,
 		 remain, kgsl_snapshot_dump_indexed_regs, &iregs);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_snapshot_indexed_registers); */
+EXPORT_SYMBOL(kgsl_snapshot_indexed_registers);
 
 /*
  * kgsl_snapshot - construct a device snapshot
@@ -630,7 +630,7 @@ done:
 	kgsl_active_count_put(device);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_device_snapshot); */
+EXPORT_SYMBOL(kgsl_device_snapshot);
 
 /* An attribute for showing snapshot details */
 struct kgsl_snapshot_attribute {
@@ -855,7 +855,7 @@ int kgsl_device_snapshot_init(struct kgsl_device *device)
 done:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_device_snapshot_init); */
+EXPORT_SYMBOL(kgsl_device_snapshot_init);
 
 /* kgsl_device_snapshot_close - Take down snapshot memory for a device
  * @device - Pointer to the kgsl_device
@@ -879,5 +879,5 @@ void kgsl_device_snapshot_close(struct kgsl_device *device)
 	device->snapshot_timestamp = 0;
 	device->snapshot_faultcount = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_device_snapshot_close); */
+EXPORT_SYMBOL(kgsl_device_snapshot_close);
 

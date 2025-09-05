@@ -88,7 +88,7 @@ int ceph_calc_raw_layout(struct ceph_osd_client *osdc,
 	     *bno, objoff, objlen, req->r_num_pages);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_calc_raw_layout); */
+EXPORT_SYMBOL(ceph_calc_raw_layout);
 
 /*
  * Implement client access to distributed object storage cluster.
@@ -172,7 +172,7 @@ void ceph_osdc_release_request(struct kref *kref)
 	else
 		kfree(req);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_release_request); */
+EXPORT_SYMBOL(ceph_osdc_release_request);
 
 static int get_num_ops(struct ceph_osd_req_op *ops, int *needs_trail)
 {
@@ -278,7 +278,7 @@ struct ceph_osd_request *ceph_osdc_alloc_request(struct ceph_osd_client *osdc,
 
 	return req;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_alloc_request); */
+EXPORT_SYMBOL(ceph_osdc_alloc_request);
 
 static void osd_req_encode_op(struct ceph_osd_request *req,
 			      struct ceph_osd_op *dst,
@@ -434,7 +434,7 @@ void ceph_osdc_build_request(struct ceph_osd_request *req,
 	msg->hdr.front_len = cpu_to_le32(msg_size);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_build_request); */
+EXPORT_SYMBOL(ceph_osdc_build_request);
 
 /*
  * build new request AND message, calculate layout, and adjust file
@@ -501,7 +501,7 @@ struct ceph_osd_request *ceph_osdc_new_request(struct ceph_osd_client *osdc,
 
 	return req;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_new_request); */
+EXPORT_SYMBOL(ceph_osdc_new_request);
 
 /*
  * We keep osd requests in an rbtree, sorted by ->r_tid.
@@ -928,7 +928,7 @@ void ceph_osdc_unregister_linger_request(struct ceph_osd_client *osdc,
 	}
 	mutex_unlock(&osdc->request_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_unregister_linger_request); */
+EXPORT_SYMBOL(ceph_osdc_unregister_linger_request);
 
 void ceph_osdc_set_request_linger(struct ceph_osd_client *osdc,
 				  struct ceph_osd_request *req)
@@ -943,7 +943,7 @@ void ceph_osdc_set_request_linger(struct ceph_osd_client *osdc,
 		ceph_osdc_get_request(req);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_set_request_linger); */
+EXPORT_SYMBOL(ceph_osdc_set_request_linger);
 
 /*
  * Pick an osd (the first 'up' osd in the pg), allocate the osd struct
@@ -1510,7 +1510,7 @@ void ceph_osdc_put_event(struct ceph_osd_event *event)
 {
 	kref_put(&event->kref, __release_event);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_put_event); */
+EXPORT_SYMBOL(ceph_osdc_put_event);
 
 static void __insert_event(struct ceph_osd_client *osdc,
 			     struct ceph_osd_event *new)
@@ -1597,7 +1597,7 @@ int ceph_osdc_create_event(struct ceph_osd_client *osdc,
 	*pevent = event;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_create_event); */
+EXPORT_SYMBOL(ceph_osdc_create_event);
 
 void ceph_osdc_cancel_event(struct ceph_osd_event *event)
 {
@@ -1609,7 +1609,7 @@ void ceph_osdc_cancel_event(struct ceph_osd_event *event)
 	spin_unlock(&osdc->event_lock);
 	ceph_osdc_put_event(event); /* caller's */
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_cancel_event); */
+EXPORT_SYMBOL(ceph_osdc_cancel_event);
 
 
 static void do_event_work(struct work_struct *work)
@@ -1703,7 +1703,7 @@ int ceph_osdc_wait_event(struct ceph_osd_event *event, unsigned long timeout)
 	dout("wait_event %p returns %d\n", event, err);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_wait_event); */
+EXPORT_SYMBOL(ceph_osdc_wait_event);
 
 /*
  * Register request, send initial attempt.
@@ -1756,7 +1756,7 @@ out_unlock:
 	up_read(&osdc->map_sem);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_start_request); */
+EXPORT_SYMBOL(ceph_osdc_start_request);
 
 /*
  * wait for a request to complete
@@ -1780,7 +1780,7 @@ int ceph_osdc_wait_request(struct ceph_osd_client *osdc,
 	dout("wait_request tid %llu result %d\n", req->r_tid, req->r_result);
 	return req->r_result;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_wait_request); */
+EXPORT_SYMBOL(ceph_osdc_wait_request);
 
 /*
  * sync - wait for all in-flight requests to flush.  avoid starvation.
@@ -1814,7 +1814,7 @@ void ceph_osdc_sync(struct ceph_osd_client *osdc)
 	mutex_unlock(&osdc->request_mutex);
 	dout("sync done (thru tid %llu)\n", last_tid);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_sync); */
+EXPORT_SYMBOL(ceph_osdc_sync);
 
 /*
  * init, shutdown
@@ -1880,7 +1880,7 @@ out_mempool:
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_init); */
+EXPORT_SYMBOL(ceph_osdc_init);
 
 void ceph_osdc_stop(struct ceph_osd_client *osdc)
 {
@@ -1897,7 +1897,7 @@ void ceph_osdc_stop(struct ceph_osd_client *osdc)
 	ceph_msgpool_destroy(&osdc->msgpool_op);
 	ceph_msgpool_destroy(&osdc->msgpool_op_reply);
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_stop); */
+EXPORT_SYMBOL(ceph_osdc_stop);
 
 /*
  * Read some contiguous pages.  If we cross a stripe boundary, shorten
@@ -1935,7 +1935,7 @@ int ceph_osdc_readpages(struct ceph_osd_client *osdc,
 	dout("readpages result %d\n", rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_readpages); */
+EXPORT_SYMBOL(ceph_osdc_readpages);
 
 /*
  * do a synchronous write on N pages
@@ -1979,7 +1979,7 @@ int ceph_osdc_writepages(struct ceph_osd_client *osdc, struct ceph_vino vino,
 	dout("writepages result %d\n", rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(ceph_osdc_writepages); */
+EXPORT_SYMBOL(ceph_osdc_writepages);
 
 /*
  * handle incoming message

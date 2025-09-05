@@ -744,7 +744,7 @@ int pmf_register_driver(struct device_node *np,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_register_driver); */
+EXPORT_SYMBOL_GPL(pmf_register_driver);
 
 struct pmf_function *pmf_get_function(struct pmf_function *func)
 {
@@ -753,7 +753,7 @@ struct pmf_function *pmf_get_function(struct pmf_function *func)
 	kref_get(&func->ref);
 	return func;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_get_function); */
+EXPORT_SYMBOL_GPL(pmf_get_function);
 
 static void pmf_release_function(struct kref *kref)
 {
@@ -775,7 +775,7 @@ void pmf_put_function(struct pmf_function *func)
 	module_put(func->dev->handlers->owner);
 	__pmf_put_function(func);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_put_function); */
+EXPORT_SYMBOL_GPL(pmf_put_function);
 
 void pmf_unregister_driver(struct device_node *np)
 {
@@ -803,7 +803,7 @@ void pmf_unregister_driver(struct device_node *np)
 	pmf_put_device(dev);
 	spin_unlock_irqrestore(&pmf_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_unregister_driver); */
+EXPORT_SYMBOL_GPL(pmf_unregister_driver);
 
 struct pmf_function *__pmf_find_function(struct device_node *target,
 					 const char *name, u32 flags)
@@ -889,7 +889,7 @@ int pmf_register_irq_client(struct device_node *target,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_register_irq_client); */
+EXPORT_SYMBOL_GPL(pmf_register_irq_client);
 
 void pmf_unregister_irq_client(struct pmf_irq_client *client)
 {
@@ -912,7 +912,7 @@ void pmf_unregister_irq_client(struct pmf_irq_client *client)
 	mutex_unlock(&pmf_irq_mutex);
 	pmf_put_function(func);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_unregister_irq_client); */
+EXPORT_SYMBOL_GPL(pmf_unregister_irq_client);
 
 
 void pmf_do_irq(struct pmf_function *func)
@@ -932,7 +932,7 @@ void pmf_do_irq(struct pmf_function *func)
 	}
 	spin_unlock_irqrestore(&pmf_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_do_irq); */
+EXPORT_SYMBOL_GPL(pmf_do_irq);
 
 
 int pmf_call_one(struct pmf_function *func, struct pmf_args *args)
@@ -951,7 +951,7 @@ int pmf_call_one(struct pmf_function *func, struct pmf_args *args)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_call_one); */
+EXPORT_SYMBOL_GPL(pmf_call_one);
 
 int pmf_do_functions(struct device_node *np, const char *name,
 		     u32 phandle, u32 fflags, struct pmf_args *args)
@@ -987,7 +987,7 @@ int pmf_do_functions(struct device_node *np, const char *name,
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_do_functions); */
+EXPORT_SYMBOL_GPL(pmf_do_functions);
 
 
 struct pmf_function *pmf_find_function(struct device_node *target,
@@ -1003,7 +1003,7 @@ struct pmf_function *pmf_find_function(struct device_node *target,
 	spin_unlock_irqrestore(&pmf_lock, flags);
 	return func;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_find_function); */
+EXPORT_SYMBOL_GPL(pmf_find_function);
 
 int pmf_call_function(struct device_node *target, const char *name,
 		      struct pmf_args *args)
@@ -1018,5 +1018,5 @@ int pmf_call_function(struct device_node *target, const char *name,
 	pmf_put_function(func);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pmf_call_function); */
+EXPORT_SYMBOL_GPL(pmf_call_function);
 

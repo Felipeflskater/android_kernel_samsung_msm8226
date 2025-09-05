@@ -94,14 +94,14 @@ void asic3_write_register(struct asic3 *asic, unsigned int reg, u32 value)
 	iowrite16(value, asic->mapping +
 		  (reg >> asic->bus_shift));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(asic3_write_register); */
+EXPORT_SYMBOL_GPL(asic3_write_register);
 
 u32 asic3_read_register(struct asic3 *asic, unsigned int reg)
 {
 	return ioread16(asic->mapping +
 			(reg >> asic->bus_shift));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(asic3_read_register); */
+EXPORT_SYMBOL_GPL(asic3_read_register);
 
 static void asic3_set_register(struct asic3 *asic, u32 reg, u32 bits, bool set)
 {

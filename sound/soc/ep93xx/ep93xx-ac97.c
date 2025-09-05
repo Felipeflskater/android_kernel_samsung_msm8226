@@ -245,7 +245,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.reset		= ep93xx_ac97_cold_reset,
 	.warm_reset	= ep93xx_ac97_warm_reset,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
+EXPORT_SYMBOL_GPL(soc_ac97_ops);
 
 static int ep93xx_ac97_trigger(struct snd_pcm_substream *substream,
 			       int cmd, struct snd_soc_dai *dai)

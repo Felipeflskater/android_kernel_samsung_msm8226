@@ -204,7 +204,7 @@ int uwb_rc_mac_addr_get(struct uwb_rc *rc,
 			struct uwb_mac_addr *addr) {
 	return uwb_rc_addr_get(rc, addr, UWB_ADDR_MAC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_mac_addr_get); */
+EXPORT_SYMBOL_GPL(uwb_rc_mac_addr_get);
 
 
 /** Get @rc's device address to @addr */
@@ -212,7 +212,7 @@ int uwb_rc_dev_addr_get(struct uwb_rc *rc,
 			struct uwb_dev_addr *addr) {
 	return uwb_rc_addr_get(rc, addr, UWB_ADDR_DEV);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_dev_addr_get); */
+EXPORT_SYMBOL_GPL(uwb_rc_dev_addr_get);
 
 
 /** Set @rc's address to @addr */
@@ -369,4 +369,4 @@ size_t __uwb_addr_print(char *buf, size_t buf_size, const unsigned char *addr,
 				  addr[1], addr[0]);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__uwb_addr_print); */
+EXPORT_SYMBOL_GPL(__uwb_addr_print);

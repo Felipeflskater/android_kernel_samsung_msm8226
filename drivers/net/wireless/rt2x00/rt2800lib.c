@@ -253,7 +253,7 @@ void rt2800_mcu_request(struct rt2x00_dev *rt2x00dev,
 
 	mutex_unlock(&rt2x00dev->csr_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_mcu_request); */
+EXPORT_SYMBOL_GPL(rt2800_mcu_request);
 
 int rt2800_wait_csr_ready(struct rt2x00_dev *rt2x00dev)
 {
@@ -270,7 +270,7 @@ int rt2800_wait_csr_ready(struct rt2x00_dev *rt2x00dev)
 	ERROR(rt2x00dev, "Unstable hardware.\n");
 	return -EBUSY;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_wait_csr_ready); */
+EXPORT_SYMBOL_GPL(rt2800_wait_csr_ready);
 
 int rt2800_wait_wpdma_ready(struct rt2x00_dev *rt2x00dev)
 {
@@ -293,7 +293,7 @@ int rt2800_wait_wpdma_ready(struct rt2x00_dev *rt2x00dev)
 	ERROR(rt2x00dev, "WPDMA TX/RX busy, aborting.\n");
 	return -EACCES;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_wait_wpdma_ready); */
+EXPORT_SYMBOL_GPL(rt2800_wait_wpdma_ready);
 
 static bool rt2800_check_firmware_crc(const u8 *data, const size_t len)
 {
@@ -380,7 +380,7 @@ int rt2800_check_firmware(struct rt2x00_dev *rt2x00dev,
 
 	return FW_OK;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_check_firmware); */
+EXPORT_SYMBOL_GPL(rt2800_check_firmware);
 
 int rt2800_load_firmware(struct rt2x00_dev *rt2x00dev,
 			 const u8 *data, const size_t len)
@@ -452,7 +452,7 @@ int rt2800_load_firmware(struct rt2x00_dev *rt2x00dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_load_firmware); */
+EXPORT_SYMBOL_GPL(rt2800_load_firmware);
 
 void rt2800_write_tx_data(struct queue_entry *entry,
 			  struct txentry_desc *txdesc)
@@ -510,7 +510,7 @@ void rt2800_write_tx_data(struct queue_entry *entry,
 	_rt2x00_desc_write(txwi, 2, 0 /* skbdesc->iv[0] */);
 	_rt2x00_desc_write(txwi, 3, 0 /* skbdesc->iv[1] */);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_write_tx_data); */
+EXPORT_SYMBOL_GPL(rt2800_write_tx_data);
 
 static int rt2800_agc_to_rssi(struct rt2x00_dev *rt2x00dev, u32 rxwi_w2)
 {
@@ -599,7 +599,7 @@ void rt2800_process_rxwi(struct queue_entry *entry,
 	 */
 	skb_pull(entry->skb, RXWI_DESC_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_process_rxwi); */
+EXPORT_SYMBOL_GPL(rt2800_process_rxwi);
 
 void rt2800_txdone_entry(struct queue_entry *entry, u32 status, __le32 *txwi)
 {
@@ -679,7 +679,7 @@ void rt2800_txdone_entry(struct queue_entry *entry, u32 status, __le32 *txwi)
 
 	rt2x00lib_txdone(entry, &txdesc);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_txdone_entry); */
+EXPORT_SYMBOL_GPL(rt2800_txdone_entry);
 
 void rt2800_write_beacon(struct queue_entry *entry, struct txentry_desc *txdesc)
 {
@@ -748,7 +748,7 @@ void rt2800_write_beacon(struct queue_entry *entry, struct txentry_desc *txdesc)
 	dev_kfree_skb_any(entry->skb);
 	entry->skb = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_write_beacon); */
+EXPORT_SYMBOL_GPL(rt2800_write_beacon);
 
 static inline void rt2800_clear_beacon_register(struct rt2x00_dev *rt2x00dev,
 						unsigned int beacon_base)
@@ -789,7 +789,7 @@ void rt2800_clear_beacon(struct queue_entry *entry)
 	rt2x00_set_field32(&reg, BCN_TIME_CFG_BEACON_GEN, 1);
 	rt2800_register_write(rt2x00dev, BCN_TIME_CFG, reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_clear_beacon); */
+EXPORT_SYMBOL_GPL(rt2800_clear_beacon);
 
 #ifdef CONFIG_RT2X00_LIB_DEBUGFS
 const struct rt2x00debug rt2800_rt2x00debug = {
@@ -824,7 +824,7 @@ const struct rt2x00debug rt2800_rt2x00debug = {
 		.word_count	= RF_SIZE / sizeof(u32),
 	},
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_rt2x00debug); */
+EXPORT_SYMBOL_GPL(rt2800_rt2x00debug);
 #endif /* CONFIG_RT2X00_LIB_DEBUGFS */
 
 int rt2800_rfkill_poll(struct rt2x00_dev *rt2x00dev)
@@ -834,7 +834,7 @@ int rt2800_rfkill_poll(struct rt2x00_dev *rt2x00dev)
 	rt2800_register_read(rt2x00dev, GPIO_CTRL_CFG, &reg);
 	return rt2x00_get_field32(reg, GPIO_CTRL_CFG_BIT2);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_rfkill_poll); */
+EXPORT_SYMBOL_GPL(rt2800_rfkill_poll);
 
 #ifdef CONFIG_RT2X00_LIB_LEDS
 static void rt2800_brightness_set(struct led_classdev *led_cdev,
@@ -1049,7 +1049,7 @@ int rt2800_config_shared_key(struct rt2x00_dev *rt2x00dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_shared_key); */
+EXPORT_SYMBOL_GPL(rt2800_config_shared_key);
 
 static inline int rt2800_find_wcid(struct rt2x00_dev *rt2x00dev)
 {
@@ -1118,7 +1118,7 @@ int rt2800_config_pairwise_key(struct rt2x00_dev *rt2x00dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_pairwise_key); */
+EXPORT_SYMBOL_GPL(rt2800_config_pairwise_key);
 
 int rt2800_sta_add(struct rt2x00_dev *rt2x00dev, struct ieee80211_vif *vif,
 		   struct ieee80211_sta *sta)
@@ -1153,7 +1153,7 @@ int rt2800_sta_add(struct rt2x00_dev *rt2x00dev, struct ieee80211_vif *vif,
 				       rt2x00lib_get_bssidx(rt2x00dev, vif));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_sta_add); */
+EXPORT_SYMBOL_GPL(rt2800_sta_add);
 
 int rt2800_sta_remove(struct rt2x00_dev *rt2x00dev, int wcid)
 {
@@ -1165,7 +1165,7 @@ int rt2800_sta_remove(struct rt2x00_dev *rt2x00dev, int wcid)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_sta_remove); */
+EXPORT_SYMBOL_GPL(rt2800_sta_remove);
 
 void rt2800_config_filter(struct rt2x00_dev *rt2x00dev,
 			  const unsigned int filter_flags)
@@ -1211,7 +1211,7 @@ void rt2800_config_filter(struct rt2x00_dev *rt2x00dev,
 			   !(filter_flags & FIF_CONTROL));
 	rt2800_register_write(rt2x00dev, RX_FILTER_CFG, reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_filter); */
+EXPORT_SYMBOL_GPL(rt2800_config_filter);
 
 void rt2800_config_intf(struct rt2x00_dev *rt2x00dev, struct rt2x00_intf *intf,
 			struct rt2x00intf_conf *conf, const unsigned int flags)
@@ -1280,7 +1280,7 @@ void rt2800_config_intf(struct rt2x00_dev *rt2x00dev, struct rt2x00_intf *intf,
 					      conf->bssid, sizeof(conf->bssid));
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_intf); */
+EXPORT_SYMBOL_GPL(rt2800_config_intf);
 
 static void rt2800_config_ht_opmode(struct rt2x00_dev *rt2x00dev,
 				    struct rt2x00lib_erp *erp)
@@ -1426,7 +1426,7 @@ void rt2800_config_erp(struct rt2x00_dev *rt2x00dev, struct rt2x00lib_erp *erp,
 	if (changed & BSS_CHANGED_HT)
 		rt2800_config_ht_opmode(rt2x00dev, erp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_erp); */
+EXPORT_SYMBOL_GPL(rt2800_config_erp);
 
 static void rt2800_config_3572bt_ant(struct rt2x00_dev *rt2x00dev)
 {
@@ -1551,7 +1551,7 @@ void rt2800_config_ant(struct rt2x00_dev *rt2x00dev, struct antenna_setup *ant)
 	rt2800_bbp_write(rt2x00dev, 3, r3);
 	rt2800_bbp_write(rt2x00dev, 1, r1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config_ant); */
+EXPORT_SYMBOL_GPL(rt2800_config_ant);
 
 static void rt2800_config_lna_gain(struct rt2x00_dev *rt2x00dev,
 				   struct rt2x00lib_conf *libconf)
@@ -2506,7 +2506,7 @@ void rt2800_gain_calibration(struct rt2x00_dev *rt2x00dev)
 	rt2800_config_txpower(rt2x00dev, rt2x00dev->curr_band,
 			      rt2x00dev->tx_power);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_gain_calibration); */
+EXPORT_SYMBOL_GPL(rt2800_gain_calibration);
 
 void rt2800_vco_calibration(struct rt2x00_dev *rt2x00dev)
 {
@@ -2580,7 +2580,7 @@ void rt2800_vco_calibration(struct rt2x00_dev *rt2x00dev)
 	rt2800_register_write(rt2x00dev, TX_PIN_CFG, tx_pin);
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_vco_calibration); */
+EXPORT_SYMBOL_GPL(rt2800_vco_calibration);
 
 static void rt2800_config_retry_limit(struct rt2x00_dev *rt2x00dev,
 				      struct rt2x00lib_conf *libconf)
@@ -2646,7 +2646,7 @@ void rt2800_config(struct rt2x00_dev *rt2x00dev,
 	if (flags & IEEE80211_CONF_CHANGE_PS)
 		rt2800_config_ps(rt2x00dev, libconf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_config); */
+EXPORT_SYMBOL_GPL(rt2800_config);
 
 /*
  * Link tuning
@@ -2661,7 +2661,7 @@ void rt2800_link_stats(struct rt2x00_dev *rt2x00dev, struct link_qual *qual)
 	rt2800_register_read(rt2x00dev, RX_STA_CNT0, &reg);
 	qual->rx_failed = rt2x00_get_field32(reg, RX_STA_CNT0_CRC_ERR);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_link_stats); */
+EXPORT_SYMBOL_GPL(rt2800_link_stats);
 
 static u8 rt2800_get_default_vgc(struct rt2x00_dev *rt2x00dev)
 {
@@ -2697,7 +2697,7 @@ void rt2800_reset_tuner(struct rt2x00_dev *rt2x00dev, struct link_qual *qual)
 {
 	rt2800_set_vgc(rt2x00dev, qual, rt2800_get_default_vgc(rt2x00dev));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_reset_tuner); */
+EXPORT_SYMBOL_GPL(rt2800_reset_tuner);
 
 void rt2800_link_tuner(struct rt2x00_dev *rt2x00dev, struct link_qual *qual,
 		       const u32 count)
@@ -2712,7 +2712,7 @@ void rt2800_link_tuner(struct rt2x00_dev *rt2x00dev, struct link_qual *qual,
 		       rt2800_get_default_vgc(rt2x00dev) +
 		       ((qual->rssi > -80) * 0x10));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_link_tuner); */
+EXPORT_SYMBOL_GPL(rt2800_link_tuner);
 
 /*
  * Initialization functions.
@@ -3998,7 +3998,7 @@ int rt2800_enable_radio(struct rt2x00_dev *rt2x00dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_enable_radio); */
+EXPORT_SYMBOL_GPL(rt2800_enable_radio);
 
 void rt2800_disable_radio(struct rt2x00_dev *rt2x00dev)
 {
@@ -4017,7 +4017,7 @@ void rt2800_disable_radio(struct rt2x00_dev *rt2x00dev)
 	rt2x00_set_field32(&reg, MAC_SYS_CTRL_ENABLE_RX, 0);
 	rt2800_register_write(rt2x00dev, MAC_SYS_CTRL, reg);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_disable_radio); */
+EXPORT_SYMBOL_GPL(rt2800_disable_radio);
 
 int rt2800_efuse_detect(struct rt2x00_dev *rt2x00dev)
 {
@@ -4027,7 +4027,7 @@ int rt2800_efuse_detect(struct rt2x00_dev *rt2x00dev)
 
 	return rt2x00_get_field32(reg, EFUSE_CTRL_PRESENT);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_efuse_detect); */
+EXPORT_SYMBOL_GPL(rt2800_efuse_detect);
 
 static void rt2800_efuse_read(struct rt2x00_dev *rt2x00dev, unsigned int i)
 {
@@ -4065,7 +4065,7 @@ void rt2800_read_eeprom_efuse(struct rt2x00_dev *rt2x00dev)
 	for (i = 0; i < EEPROM_SIZE / sizeof(u16); i += 8)
 		rt2800_efuse_read(rt2x00dev, i);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_read_eeprom_efuse); */
+EXPORT_SYMBOL_GPL(rt2800_read_eeprom_efuse);
 
 int rt2800_validate_eeprom(struct rt2x00_dev *rt2x00dev)
 {
@@ -4196,7 +4196,7 @@ int rt2800_validate_eeprom(struct rt2x00_dev *rt2x00dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_validate_eeprom); */
+EXPORT_SYMBOL_GPL(rt2800_validate_eeprom);
 
 int rt2800_init_eeprom(struct rt2x00_dev *rt2x00dev)
 {
@@ -4342,7 +4342,7 @@ int rt2800_init_eeprom(struct rt2x00_dev *rt2x00dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_init_eeprom); */
+EXPORT_SYMBOL_GPL(rt2800_init_eeprom);
 
 /*
  * RF value list for rt28xx
@@ -4655,7 +4655,7 @@ int rt2800_probe_hw_mode(struct rt2x00_dev *rt2x00dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_probe_hw_mode); */
+EXPORT_SYMBOL_GPL(rt2800_probe_hw_mode);
 
 /*
  * IEEE80211 stack callback functions.
@@ -4674,7 +4674,7 @@ void rt2800_get_tkip_seq(struct ieee80211_hw *hw, u8 hw_key_idx, u32 *iv32,
 	memcpy(iv16, &iveiv_entry.iv[0], sizeof(*iv16));
 	memcpy(iv32, &iveiv_entry.iv[4], sizeof(*iv32));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_get_tkip_seq); */
+EXPORT_SYMBOL_GPL(rt2800_get_tkip_seq);
 
 int rt2800_set_rts_threshold(struct ieee80211_hw *hw, u32 value)
 {
@@ -4712,7 +4712,7 @@ int rt2800_set_rts_threshold(struct ieee80211_hw *hw, u32 value)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_set_rts_threshold); */
+EXPORT_SYMBOL_GPL(rt2800_set_rts_threshold);
 
 int rt2800_conf_tx(struct ieee80211_hw *hw,
 		   struct ieee80211_vif *vif, u16 queue_idx,
@@ -4781,7 +4781,7 @@ int rt2800_conf_tx(struct ieee80211_hw *hw,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_conf_tx); */
+EXPORT_SYMBOL_GPL(rt2800_conf_tx);
 
 u64 rt2800_get_tsf(struct ieee80211_hw *hw, struct ieee80211_vif *vif)
 {
@@ -4796,7 +4796,7 @@ u64 rt2800_get_tsf(struct ieee80211_hw *hw, struct ieee80211_vif *vif)
 
 	return tsf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_get_tsf); */
+EXPORT_SYMBOL_GPL(rt2800_get_tsf);
 
 int rt2800_ampdu_action(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			enum ieee80211_ampdu_mlme_action action,
@@ -4840,7 +4840,7 @@ int rt2800_ampdu_action(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_ampdu_action); */
+EXPORT_SYMBOL_GPL(rt2800_ampdu_action);
 
 int rt2800_get_survey(struct ieee80211_hw *hw, int idx,
 		      struct survey_info *survey)
@@ -4874,7 +4874,7 @@ int rt2800_get_survey(struct ieee80211_hw *hw, int idx,
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rt2800_get_survey); */
+EXPORT_SYMBOL_GPL(rt2800_get_survey);
 
 MODULE_AUTHOR(DRV_PROJECT ", Bartlomiej Zolnierkiewicz");
 MODULE_VERSION(DRV_VERSION);

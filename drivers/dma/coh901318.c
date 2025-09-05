@@ -578,7 +578,7 @@ bool coh901318_filter_id(struct dma_chan *chan, void *chan_id)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(coh901318_filter_id); */
+EXPORT_SYMBOL(coh901318_filter_id);
 
 /*
  * DMA channel allocation

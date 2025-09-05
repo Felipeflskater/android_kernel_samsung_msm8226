@@ -59,7 +59,7 @@
  */
 
 ATOMIC_NOTIFIER_HEAD(pseries_ioei_notifier_list);
-/* DISABLED: EXPORT_SYMBOL_GPL(pseries_ioei_notifier_list); */
+EXPORT_SYMBOL_GPL(pseries_ioei_notifier_list);
 
 static int ioei_check_exception_token;
 

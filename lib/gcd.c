@@ -18,4 +18,4 @@ unsigned long gcd(unsigned long a, unsigned long b)
 	}
 	return b;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gcd); */
+EXPORT_SYMBOL_GPL(gcd);

@@ -415,7 +415,7 @@ struct wiphy *wiphy_new(const struct cfg80211_ops *ops, int sizeof_priv)
 
 	return &rdev->wiphy;
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_new); */
+EXPORT_SYMBOL(wiphy_new);
 
 static int wiphy_verify_combinations(struct wiphy *wiphy)
 {
@@ -633,7 +633,7 @@ out_rm_dev:
 	device_del(&rdev->wiphy.dev);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_register); */
+EXPORT_SYMBOL(wiphy_register);
 
 void wiphy_rfkill_start_polling(struct wiphy *wiphy)
 {
@@ -644,7 +644,7 @@ void wiphy_rfkill_start_polling(struct wiphy *wiphy)
 	rdev->rfkill_ops.poll = cfg80211_rfkill_poll;
 	rfkill_resume_polling(rdev->rfkill);
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_rfkill_start_polling); */
+EXPORT_SYMBOL(wiphy_rfkill_start_polling);
 
 void wiphy_rfkill_stop_polling(struct wiphy *wiphy)
 {
@@ -652,7 +652,7 @@ void wiphy_rfkill_stop_polling(struct wiphy *wiphy)
 
 	rfkill_pause_polling(rdev->rfkill);
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_rfkill_stop_polling); */
+EXPORT_SYMBOL(wiphy_rfkill_stop_polling);
 
 void wiphy_unregister(struct wiphy *wiphy)
 {
@@ -713,7 +713,7 @@ void wiphy_unregister(struct wiphy *wiphy)
 	cancel_work_sync(&rdev->conn_work);
 	flush_work(&rdev->event_work);
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_unregister); */
+EXPORT_SYMBOL(wiphy_unregister);
 
 void cfg80211_dev_free(struct cfg80211_registered_device *rdev)
 {
@@ -732,7 +732,7 @@ void wiphy_free(struct wiphy *wiphy)
 {
 	put_device(&wiphy->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_free); */
+EXPORT_SYMBOL(wiphy_free);
 
 void wiphy_rfkill_set_hw_state(struct wiphy *wiphy, bool blocked)
 {
@@ -741,7 +741,7 @@ void wiphy_rfkill_set_hw_state(struct wiphy *wiphy, bool blocked)
 	if (rfkill_set_hw_state(rdev->rfkill, blocked))
 		schedule_work(&rdev->rfkill_sync);
 }
-/* DISABLED: EXPORT_SYMBOL(wiphy_rfkill_set_hw_state); */
+EXPORT_SYMBOL(wiphy_rfkill_set_hw_state);
 
 static void wdev_cleanup_work(struct work_struct *work)
 {

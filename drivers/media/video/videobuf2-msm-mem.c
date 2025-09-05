@@ -158,7 +158,7 @@ int videobuf2_pmem_contig_mmap_get(struct videobuf2_contig_pmem *mem,
 	mem->path = path;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_mmap_get); */
+EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_mmap_get);
 
 /**
  * videobuf_pmem_contig_user_get() - setup user space memory pointer
@@ -208,7 +208,7 @@ int videobuf2_pmem_contig_user_get(struct videobuf2_contig_pmem *mem,
 	mem->addr_offset = addr_offset;
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_user_get); */
+EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_user_get);
 
 void videobuf2_pmem_contig_user_put(struct videobuf2_contig_pmem *mem,
 				struct ion_client *client, int domain_num)
@@ -225,7 +225,7 @@ void videobuf2_pmem_contig_user_put(struct videobuf2_contig_pmem *mem,
 	mem->size = 0;
 	mem->mapped_phyaddr = 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_user_put); */
+EXPORT_SYMBOL_GPL(videobuf2_pmem_contig_user_put);
 
 static void *msm_vb2_mem_ops_get_userptr(void *alloc_ctx, unsigned long vaddr,
 					unsigned long size, int write)
@@ -323,7 +323,7 @@ void videobuf2_queue_pmem_contig_init(struct vb2_queue *q,
 	q->buf_struct_size = size;
 	vb2_queue_init(q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf2_queue_pmem_contig_init); */
+EXPORT_SYMBOL_GPL(videobuf2_queue_pmem_contig_init);
 
 unsigned long videobuf2_to_pmem_contig(struct vb2_buffer *vb,
 				unsigned int plane_no)
@@ -334,7 +334,7 @@ unsigned long videobuf2_to_pmem_contig(struct vb2_buffer *vb,
 	MAGIC_CHECK(mem->magic, MAGIC_PMEM);
 	return mem->mapped_phyaddr;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf2_to_pmem_contig); */
+EXPORT_SYMBOL_GPL(videobuf2_to_pmem_contig);
 
 MODULE_DESCRIPTION("helper module to manage video4linux PMEM contig buffers");
 MODULE_LICENSE("GPL v2");

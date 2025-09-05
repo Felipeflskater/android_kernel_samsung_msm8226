@@ -624,7 +624,7 @@ err:
 #endif
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_scale_register_client); */
+EXPORT_SYMBOL(msm_bus_scale_register_client);
 
 #ifdef DEBUG_MSM_BUS_ARB_REQ
 static struct log_Ab_Ib{
@@ -770,7 +770,7 @@ err:
 #endif
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_scale_client_update_request); */
+EXPORT_SYMBOL(msm_bus_scale_client_update_request);
 
 int reset_pnodes(int curr, int pnode)
 {
@@ -922,5 +922,5 @@ void msm_bus_scale_unregister_client(uint32_t cl)
 	kfree(client->src_pnode);
 	kfree(client);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bus_scale_unregister_client); */
+EXPORT_SYMBOL(msm_bus_scale_unregister_client);
 

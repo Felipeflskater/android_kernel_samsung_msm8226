@@ -41,7 +41,7 @@ static int __init pcie_pme_setup(char *str)
 
 	return 1;
 }
-/* DISABLED: __setup("pcie_pme=", pcie_pme_setup); */ */
+__setup("pcie_pme=", pcie_pme_setup);
 
 struct pcie_pme_service_data {
 	spinlock_t lock;

@@ -582,7 +582,7 @@ void dasd_reload_device(struct dasd_device *device)
 	/* queue call to dasd_reload_device to the kernel event daemon. */
 	schedule_work(&device->reload_device);
 }
-/* DISABLED: EXPORT_SYMBOL(dasd_reload_device); */
+EXPORT_SYMBOL(dasd_reload_device);
 
 /*
  * dasd_restore_device will schedule a call do do_restore_device to the kernel
@@ -1727,7 +1727,7 @@ enum uc_todo dasd_generic_uc_handler(struct ccw_device *cdev, struct irb *irb)
 out:
 	return UC_TODO_RETRY;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_uc_handler); */
+EXPORT_SYMBOL_GPL(dasd_generic_uc_handler);
 
 /*
  * If we have an error on a dasd_block layer request then we cancel
@@ -2013,7 +2013,7 @@ void dasd_device_set_stop_bits(struct dasd_device *device, int bits)
 {
 	device->stopped |= bits;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_device_set_stop_bits); */
+EXPORT_SYMBOL_GPL(dasd_device_set_stop_bits);
 
 void dasd_device_remove_stop_bits(struct dasd_device *device, int bits)
 {
@@ -2021,7 +2021,7 @@ void dasd_device_remove_stop_bits(struct dasd_device *device, int bits)
 	if (!device->stopped)
 		wake_up(&generic_waitq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_device_remove_stop_bits); */
+EXPORT_SYMBOL_GPL(dasd_device_remove_stop_bits);
 
 /*
  * Queue a request to the head of the device ccw_queue.
@@ -2069,7 +2069,7 @@ void dasd_wakeup_cb(struct dasd_ccw_req *cqr, void *data)
 	spin_unlock_irq(get_ccwdev_lock(cqr->startdev->cdev));
 	wake_up(&generic_waitq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_wakeup_cb); */
+EXPORT_SYMBOL_GPL(dasd_wakeup_cb);
 
 static inline int _wait_for_wakeup(struct dasd_ccw_req *cqr)
 {
@@ -2966,7 +2966,7 @@ int dasd_device_is_ro(struct dasd_device *device)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_device_is_ro); */
+EXPORT_SYMBOL_GPL(dasd_device_is_ro);
 
 static void dasd_generic_auto_online(void *data, async_cookie_t cookie)
 {
@@ -3191,7 +3191,7 @@ int dasd_generic_last_path_gone(struct dasd_device *device)
 	dasd_schedule_device_bh(device);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_last_path_gone); */
+EXPORT_SYMBOL_GPL(dasd_generic_last_path_gone);
 
 int dasd_generic_path_operational(struct dasd_device *device)
 {
@@ -3209,7 +3209,7 @@ int dasd_generic_path_operational(struct dasd_device *device)
 		dasd_schedule_block_bh(device->block);
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_path_operational); */
+EXPORT_SYMBOL_GPL(dasd_generic_path_operational);
 
 int dasd_generic_notify(struct ccw_device *cdev, int event)
 {
@@ -3274,7 +3274,7 @@ void dasd_generic_path_event(struct ccw_device *cdev, int *path_event)
 	}
 	dasd_put_device(device);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_path_event); */
+EXPORT_SYMBOL_GPL(dasd_generic_path_event);
 
 int dasd_generic_verify_path(struct dasd_device *device, __u8 lpm)
 {
@@ -3285,7 +3285,7 @@ int dasd_generic_verify_path(struct dasd_device *device, __u8 lpm)
 		device->path_data.opm |= lpm;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_verify_path); */
+EXPORT_SYMBOL_GPL(dasd_generic_verify_path);
 
 
 int dasd_generic_pm_freeze(struct ccw_device *cdev)
@@ -3343,7 +3343,7 @@ int dasd_generic_pm_freeze(struct ccw_device *cdev)
 	dasd_put_device(device);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_pm_freeze); */
+EXPORT_SYMBOL_GPL(dasd_generic_pm_freeze);
 
 int dasd_generic_restore_device(struct ccw_device *cdev)
 {
@@ -3379,7 +3379,7 @@ int dasd_generic_restore_device(struct ccw_device *cdev)
 	dasd_put_device(device);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_restore_device); */
+EXPORT_SYMBOL_GPL(dasd_generic_restore_device);
 
 static struct dasd_ccw_req *dasd_generic_build_rdc(struct dasd_device *device,
 						   void *rdc_buffer,
@@ -3438,7 +3438,7 @@ int dasd_generic_read_dev_chars(struct dasd_device *device, int magic,
 	dasd_sfree_request(cqr, cqr->memdev);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_read_dev_chars); */
+EXPORT_SYMBOL_GPL(dasd_generic_read_dev_chars);
 
 /*
  *   In command mode and transport mode we need to look for sense
@@ -3472,7 +3472,7 @@ char *dasd_get_sense(struct irb *irb)
 	}
 	return sense;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_get_sense); */
+EXPORT_SYMBOL_GPL(dasd_get_sense);
 
 static int __init dasd_init(void)
 {
@@ -3525,38 +3525,38 @@ failed:
 module_init(dasd_init);
 module_exit(dasd_exit);
 
-/* DISABLED: EXPORT_SYMBOL(dasd_debug_area); */
-/* DISABLED: EXPORT_SYMBOL(dasd_diag_discipline_pointer); */
+EXPORT_SYMBOL(dasd_debug_area);
+EXPORT_SYMBOL(dasd_diag_discipline_pointer);
 
-/* DISABLED: EXPORT_SYMBOL(dasd_add_request_head); */
-/* DISABLED: EXPORT_SYMBOL(dasd_add_request_tail); */
-/* DISABLED: EXPORT_SYMBOL(dasd_cancel_req); */
-/* DISABLED: EXPORT_SYMBOL(dasd_device_clear_timer); */
-/* DISABLED: EXPORT_SYMBOL(dasd_block_clear_timer); */
-/* DISABLED: EXPORT_SYMBOL(dasd_enable_device); */
-/* DISABLED: EXPORT_SYMBOL(dasd_int_handler); */
-/* DISABLED: EXPORT_SYMBOL(dasd_kfree_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_kick_device); */
-/* DISABLED: EXPORT_SYMBOL(dasd_kmalloc_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_schedule_device_bh); */
-/* DISABLED: EXPORT_SYMBOL(dasd_schedule_block_bh); */
-/* DISABLED: EXPORT_SYMBOL(dasd_set_target_state); */
-/* DISABLED: EXPORT_SYMBOL(dasd_device_set_timer); */
-/* DISABLED: EXPORT_SYMBOL(dasd_block_set_timer); */
-/* DISABLED: EXPORT_SYMBOL(dasd_sfree_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_sleep_on); */
-/* DISABLED: EXPORT_SYMBOL(dasd_sleep_on_immediatly); */
-/* DISABLED: EXPORT_SYMBOL(dasd_sleep_on_interruptible); */
-/* DISABLED: EXPORT_SYMBOL(dasd_smalloc_request); */
-/* DISABLED: EXPORT_SYMBOL(dasd_start_IO); */
-/* DISABLED: EXPORT_SYMBOL(dasd_term_IO); */
+EXPORT_SYMBOL(dasd_add_request_head);
+EXPORT_SYMBOL(dasd_add_request_tail);
+EXPORT_SYMBOL(dasd_cancel_req);
+EXPORT_SYMBOL(dasd_device_clear_timer);
+EXPORT_SYMBOL(dasd_block_clear_timer);
+EXPORT_SYMBOL(dasd_enable_device);
+EXPORT_SYMBOL(dasd_int_handler);
+EXPORT_SYMBOL(dasd_kfree_request);
+EXPORT_SYMBOL(dasd_kick_device);
+EXPORT_SYMBOL(dasd_kmalloc_request);
+EXPORT_SYMBOL(dasd_schedule_device_bh);
+EXPORT_SYMBOL(dasd_schedule_block_bh);
+EXPORT_SYMBOL(dasd_set_target_state);
+EXPORT_SYMBOL(dasd_device_set_timer);
+EXPORT_SYMBOL(dasd_block_set_timer);
+EXPORT_SYMBOL(dasd_sfree_request);
+EXPORT_SYMBOL(dasd_sleep_on);
+EXPORT_SYMBOL(dasd_sleep_on_immediatly);
+EXPORT_SYMBOL(dasd_sleep_on_interruptible);
+EXPORT_SYMBOL(dasd_smalloc_request);
+EXPORT_SYMBOL(dasd_start_IO);
+EXPORT_SYMBOL(dasd_term_IO);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_probe); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_remove); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_notify); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_set_online); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_set_offline); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_generic_handle_state_change); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_flush_device_queue); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_alloc_block); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dasd_free_block); */
+EXPORT_SYMBOL_GPL(dasd_generic_probe);
+EXPORT_SYMBOL_GPL(dasd_generic_remove);
+EXPORT_SYMBOL_GPL(dasd_generic_notify);
+EXPORT_SYMBOL_GPL(dasd_generic_set_online);
+EXPORT_SYMBOL_GPL(dasd_generic_set_offline);
+EXPORT_SYMBOL_GPL(dasd_generic_handle_state_change);
+EXPORT_SYMBOL_GPL(dasd_flush_device_queue);
+EXPORT_SYMBOL_GPL(dasd_alloc_block);
+EXPORT_SYMBOL_GPL(dasd_free_block);

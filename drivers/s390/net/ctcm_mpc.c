@@ -400,7 +400,7 @@ int ctc_mpc_alloc_channel(int port_num, void (*callback)(int, int))
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ctc_mpc_alloc_channel); */
+EXPORT_SYMBOL(ctc_mpc_alloc_channel);
 
 /*
  * ctc_mpc_establish_connectivity
@@ -520,7 +520,7 @@ done:
 	CTCM_PR_DEBUG("Exit %s()\n", __func__);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(ctc_mpc_establish_connectivity); */
+EXPORT_SYMBOL(ctc_mpc_establish_connectivity);
 
 /*
  * ctc_mpc_dealloc_ch
@@ -554,7 +554,7 @@ void ctc_mpc_dealloc_ch(int port_num)
 	ctcm_close(dev);
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(ctc_mpc_dealloc_ch); */
+EXPORT_SYMBOL(ctc_mpc_dealloc_ch);
 
 /*
  * ctc_mpc_flow_control
@@ -609,7 +609,7 @@ void ctc_mpc_flow_control(int port_num, int flowc)
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL(ctc_mpc_flow_control); */
+EXPORT_SYMBOL(ctc_mpc_flow_control);
 
 static int mpc_send_qllc_discontact(struct net_device *);
 

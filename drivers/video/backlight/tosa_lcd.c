@@ -65,7 +65,7 @@ int tosa_bl_enable(struct spi_device *spi, int enable)
 	/* bl_enable GP04=1 otherwise GP04=0*/
 	return tosa_tg_send(spi, TG_GPODR2, enable? 0x01 : 0x00);
 }
-/* DISABLED: EXPORT_SYMBOL(tosa_bl_enable); */
+EXPORT_SYMBOL(tosa_bl_enable);
 
 static void tosa_lcd_tg_init(struct tosa_lcd_data *data)
 {

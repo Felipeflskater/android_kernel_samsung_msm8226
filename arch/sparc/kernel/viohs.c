@@ -27,7 +27,7 @@ int vio_ldc_send(struct vio_driver_state *vio, void *data, int len)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_ldc_send); */
+EXPORT_SYMBOL(vio_ldc_send);
 
 static int send_ctrl(struct vio_driver_state *vio,
 		     struct vio_msg_tag *tag, int len)
@@ -128,7 +128,7 @@ void vio_link_state_change(struct vio_driver_state *vio, int event)
 		ldc_disconnect(vio->lp);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(vio_link_state_change); */
+EXPORT_SYMBOL(vio_link_state_change);
 
 static int handshake_failure(struct vio_driver_state *vio)
 {
@@ -643,12 +643,12 @@ int vio_control_pkt_engine(struct vio_driver_state *vio, void *pkt)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_control_pkt_engine); */
+EXPORT_SYMBOL(vio_control_pkt_engine);
 
 void vio_conn_reset(struct vio_driver_state *vio)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(vio_conn_reset); */
+EXPORT_SYMBOL(vio_conn_reset);
 
 /* The issue is that the Solaris virtual disk server just mirrors the
  * SID values it gets from the client peer.  So we work around that
@@ -687,7 +687,7 @@ int vio_validate_sid(struct vio_driver_state *vio, struct vio_msg_tag *tp)
 	       tp->sid, vio->_peer_sid, vio->_local_sid);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_validate_sid); */
+EXPORT_SYMBOL(vio_validate_sid);
 
 u32 vio_send_sid(struct vio_driver_state *vio)
 {
@@ -702,7 +702,7 @@ u32 vio_send_sid(struct vio_driver_state *vio)
 		return vio->_peer_sid;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(vio_send_sid); */
+EXPORT_SYMBOL(vio_send_sid);
 
 int vio_ldc_alloc(struct vio_driver_state *vio,
 			 struct ldc_channel_config *base_cfg,
@@ -722,7 +722,7 @@ int vio_ldc_alloc(struct vio_driver_state *vio,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_ldc_alloc); */
+EXPORT_SYMBOL(vio_ldc_alloc);
 
 void vio_ldc_free(struct vio_driver_state *vio)
 {
@@ -733,7 +733,7 @@ void vio_ldc_free(struct vio_driver_state *vio)
 	vio->desc_buf = NULL;
 	vio->desc_buf_len = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_ldc_free); */
+EXPORT_SYMBOL(vio_ldc_free);
 
 void vio_port_up(struct vio_driver_state *vio)
 {
@@ -769,7 +769,7 @@ void vio_port_up(struct vio_driver_state *vio)
 
 	spin_unlock_irqrestore(&vio->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(vio_port_up); */
+EXPORT_SYMBOL(vio_port_up);
 
 static void vio_port_timer(unsigned long _arg)
 {
@@ -821,4 +821,4 @@ int vio_driver_init(struct vio_driver_state *vio, struct vio_dev *vdev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vio_driver_init); */
+EXPORT_SYMBOL(vio_driver_init);

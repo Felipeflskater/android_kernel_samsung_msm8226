@@ -103,7 +103,7 @@ int drm_gem_prime_handle_to_fd(struct drm_device *dev,
 	mutex_unlock(&file_priv->prime.lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_gem_prime_handle_to_fd); */
+EXPORT_SYMBOL(drm_gem_prime_handle_to_fd);
 
 int drm_gem_prime_fd_to_handle(struct drm_device *dev,
 		struct drm_file *file_priv, int prime_fd, uint32_t *handle)
@@ -155,7 +155,7 @@ out_put:
 	mutex_unlock(&file_priv->prime.lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_gem_prime_fd_to_handle); */
+EXPORT_SYMBOL(drm_gem_prime_fd_to_handle);
 
 int drm_prime_handle_to_fd_ioctl(struct drm_device *dev, void *data,
 				 struct drm_file *file_priv)
@@ -225,7 +225,7 @@ out:
 	kfree(sg);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_pages_to_sg); */
+EXPORT_SYMBOL(drm_prime_pages_to_sg);
 
 /* helper function to cleanup a GEM/prime object */
 void drm_prime_gem_destroy(struct drm_gem_object *obj, struct sg_table *sg)
@@ -240,14 +240,14 @@ void drm_prime_gem_destroy(struct drm_gem_object *obj, struct sg_table *sg)
 	/* remove the reference */
 	dma_buf_put(dma_buf);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_gem_destroy); */
+EXPORT_SYMBOL(drm_prime_gem_destroy);
 
 void drm_prime_init_file_private(struct drm_prime_file_private *prime_fpriv)
 {
 	INIT_LIST_HEAD(&prime_fpriv->head);
 	mutex_init(&prime_fpriv->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_init_file_private); */
+EXPORT_SYMBOL(drm_prime_init_file_private);
 
 void drm_prime_destroy_file_private(struct drm_prime_file_private *prime_fpriv)
 {
@@ -257,7 +257,7 @@ void drm_prime_destroy_file_private(struct drm_prime_file_private *prime_fpriv)
 		kfree(member);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_destroy_file_private); */
+EXPORT_SYMBOL(drm_prime_destroy_file_private);
 
 int drm_prime_add_imported_buf_handle(struct drm_prime_file_private *prime_fpriv, struct dma_buf *dma_buf, uint32_t handle)
 {
@@ -272,7 +272,7 @@ int drm_prime_add_imported_buf_handle(struct drm_prime_file_private *prime_fpriv
 	list_add(&member->entry, &prime_fpriv->head);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_add_imported_buf_handle); */
+EXPORT_SYMBOL(drm_prime_add_imported_buf_handle);
 
 int drm_prime_lookup_imported_buf_handle(struct drm_prime_file_private *prime_fpriv, struct dma_buf *dma_buf, uint32_t *handle)
 {
@@ -286,7 +286,7 @@ int drm_prime_lookup_imported_buf_handle(struct drm_prime_file_private *prime_fp
 	}
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_lookup_imported_buf_handle); */
+EXPORT_SYMBOL(drm_prime_lookup_imported_buf_handle);
 
 void drm_prime_remove_imported_buf_handle(struct drm_prime_file_private *prime_fpriv, struct dma_buf *dma_buf)
 {
@@ -301,4 +301,4 @@ void drm_prime_remove_imported_buf_handle(struct drm_prime_file_private *prime_f
 	}
 	mutex_unlock(&prime_fpriv->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_prime_remove_imported_buf_handle); */
+EXPORT_SYMBOL(drm_prime_remove_imported_buf_handle);

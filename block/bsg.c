@@ -599,7 +599,7 @@ bsg_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
 	int ret;
 	ssize_t bytes_read;
 
-	dprintk("%s: read %zd bytes\n", bd->name, count);
+	dprintk("%s: read %Zd bytes\n", bd->name, count);
 
 	bsg_set_block(bd, file);
 
@@ -674,7 +674,7 @@ bsg_write(struct file *file, const char __user *buf, size_t count, loff_t *ppos)
 	ssize_t bytes_written;
 	int ret;
 
-	dprintk("%s: write %zd bytes\n", bd->name, count);
+	dprintk("%s: write %Zd bytes\n", bd->name, count);
 
 	if (unlikely(segment_eq(get_fs(), KERNEL_DS)))
 		return -EINVAL;
@@ -693,7 +693,7 @@ bsg_write(struct file *file, const char __user *buf, size_t count, loff_t *ppos)
 	if (!bytes_written || err_block_err(ret))
 		bytes_written = ret;
 
-	dprintk("%s: returning %zd\n", bd->name, bytes_written);
+	dprintk("%s: returning %Zd\n", bd->name, bytes_written);
 	return bytes_written;
 }
 
@@ -994,7 +994,7 @@ void bsg_unregister_queue(struct request_queue *q)
 	kref_put(&bcd->ref, bsg_kref_release_function);
 	mutex_unlock(&bsg_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bsg_unregister_queue); */
+EXPORT_SYMBOL_GPL(bsg_unregister_queue);
 
 int bsg_register_queue(struct request_queue *q, struct device *parent,
 		       const char *name, void (*release)(struct device *))
@@ -1069,7 +1069,7 @@ unlock:
 	mutex_unlock(&bsg_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bsg_register_queue); */
+EXPORT_SYMBOL_GPL(bsg_register_queue);
 
 static struct cdev bsg_cdev;
 

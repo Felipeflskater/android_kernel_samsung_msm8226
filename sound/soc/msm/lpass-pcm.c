@@ -352,7 +352,7 @@ struct snd_soc_platform msm8660_soc_platform = {
 	.pcm_new	= msm_pcm_new,
 	.pcm_free	= msm_pcm_free_buffers,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(msm8660_soc_platform); */
+EXPORT_SYMBOL_GPL(msm8660_soc_platform);
 
 static int __init msm_soc_platform_init(void)
 {

@@ -42,7 +42,7 @@ void start_thread(struct pt_regs *regs, unsigned long eip, unsigned long esp)
 	PT_REGS_IP(regs) = eip;
 	PT_REGS_SP(regs) = esp;
 }
-/* DISABLED: EXPORT_SYMBOL(start_thread); */
+EXPORT_SYMBOL(start_thread);
 
 static long execve1(const char *file,
 		    const char __user *const __user *argv,

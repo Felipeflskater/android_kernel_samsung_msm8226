@@ -31,10 +31,7 @@ static inline int tlb_ops_need_broadcast(void)
 	return ((read_cpuid_ext(CPUID_EXT_MMFR3) >> 12) & 0xf) < 2;
 }
 
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if !defined(CONFIG_SMP) || __LINUX_ARM_ARCH__ >= 7
-#endif
 #define cache_ops_need_broadcast()	0
 #else
 static inline int cache_ops_need_broadcast(void)

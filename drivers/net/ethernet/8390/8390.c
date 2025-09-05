@@ -9,50 +9,50 @@ int ei_open(struct net_device *dev)
 {
 	return __ei_open(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_open); */
+EXPORT_SYMBOL(ei_open);
 
 int ei_close(struct net_device *dev)
 {
 	return __ei_close(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_close); */
+EXPORT_SYMBOL(ei_close);
 
 netdev_tx_t ei_start_xmit(struct sk_buff *skb, struct net_device *dev)
 {
 	return __ei_start_xmit(skb, dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_start_xmit); */
+EXPORT_SYMBOL(ei_start_xmit);
 
 struct net_device_stats *ei_get_stats(struct net_device *dev)
 {
 	return __ei_get_stats(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_get_stats); */
+EXPORT_SYMBOL(ei_get_stats);
 
 void ei_set_multicast_list(struct net_device *dev)
 {
 	__ei_set_multicast_list(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_set_multicast_list); */
+EXPORT_SYMBOL(ei_set_multicast_list);
 
 void ei_tx_timeout(struct net_device *dev)
 {
 	__ei_tx_timeout(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_tx_timeout); */
+EXPORT_SYMBOL(ei_tx_timeout);
 
 irqreturn_t ei_interrupt(int irq, void *dev_id)
 {
 	return __ei_interrupt(irq, dev_id);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_interrupt); */
+EXPORT_SYMBOL(ei_interrupt);
 
 #ifdef CONFIG_NET_POLL_CONTROLLER
 void ei_poll(struct net_device *dev)
 {
 	__ei_poll(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(ei_poll); */
+EXPORT_SYMBOL(ei_poll);
 #endif
 
 const struct net_device_ops ei_netdev_ops = {
@@ -69,7 +69,7 @@ const struct net_device_ops ei_netdev_ops = {
 	.ndo_poll_controller	= ei_poll,
 #endif
 };
-/* DISABLED: EXPORT_SYMBOL(ei_netdev_ops); */
+EXPORT_SYMBOL(ei_netdev_ops);
 
 struct net_device *__alloc_ei_netdev(int size)
 {
@@ -78,13 +78,13 @@ struct net_device *__alloc_ei_netdev(int size)
 		dev->netdev_ops = &ei_netdev_ops;
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(__alloc_ei_netdev); */
+EXPORT_SYMBOL(__alloc_ei_netdev);
 
 void NS8390_init(struct net_device *dev, int startp)
 {
 	__NS8390_init(dev, startp);
 }
-/* DISABLED: EXPORT_SYMBOL(NS8390_init); */
+EXPORT_SYMBOL(NS8390_init);
 
 #if defined(MODULE)
 

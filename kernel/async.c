@@ -215,7 +215,7 @@ async_cookie_t async_schedule(async_func_ptr *ptr, void *data)
 {
 	return __async_schedule(ptr, data, &async_running);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_schedule); */
+EXPORT_SYMBOL_GPL(async_schedule);
 
 /**
  * async_schedule_domain - schedule a function for asynchronous execution within a certain domain
@@ -234,7 +234,7 @@ async_cookie_t async_schedule_domain(async_func_ptr *ptr, void *data,
 {
 	return __async_schedule(ptr, data, running);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_schedule_domain); */
+EXPORT_SYMBOL_GPL(async_schedule_domain);
 
 /**
  * async_synchronize_full - synchronize all asynchronous function calls
@@ -245,7 +245,7 @@ void async_synchronize_full(void)
 {
 	async_synchronize_cookie_domain(next_cookie, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_synchronize_full); */
+EXPORT_SYMBOL_GPL(async_synchronize_full);
 
 /**
  * async_synchronize_full_domain - synchronize all asynchronous function within a certain domain
@@ -258,7 +258,7 @@ void async_synchronize_full_domain(struct list_head *list)
 {
 	async_synchronize_cookie_domain(next_cookie, list);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_synchronize_full_domain); */
+EXPORT_SYMBOL_GPL(async_synchronize_full_domain);
 
 /**
  * async_synchronize_cookie_domain - synchronize asynchronous function calls within a certain domain with cookie checkpointing
@@ -290,7 +290,7 @@ void async_synchronize_cookie_domain(async_cookie_t cookie,
 			(long long)ktime_to_ns(delta) >> 10);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_synchronize_cookie_domain); */
+EXPORT_SYMBOL_GPL(async_synchronize_cookie_domain);
 
 /**
  * async_synchronize_cookie - synchronize asynchronous function calls with cookie checkpointing
@@ -303,4 +303,4 @@ void async_synchronize_cookie(async_cookie_t cookie)
 {
 	async_synchronize_cookie_domain(cookie, &async_running);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(async_synchronize_cookie); */
+EXPORT_SYMBOL_GPL(async_synchronize_cookie);

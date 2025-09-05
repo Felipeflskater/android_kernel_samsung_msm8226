@@ -105,7 +105,7 @@ static inline int str2eaddr(unsigned char *ea, unsigned char *str)
 	} else
 		return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(str2eaddr); */
+EXPORT_SYMBOL(str2eaddr);
 
 static inline unsigned long str2hex(unsigned char *str)
 {
@@ -164,7 +164,7 @@ int get_ethernet_addr(char *ethaddr_name, char *ethernet_addr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(get_ethernet_addr); */
+EXPORT_SYMBOL(get_ethernet_addr);
 
 static char *get_features(void)
 {
@@ -205,7 +205,7 @@ char identify_pci(void)
 {
 	return test_feature(PCI_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_pci); */
+EXPORT_SYMBOL(identify_pci);
 
 char identify_pcimux(void)
 {
@@ -216,25 +216,25 @@ char identify_sec(void)
 {
 	return test_feature(SEC_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_sec); */
+EXPORT_SYMBOL(identify_sec);
 
 char identify_spad(void)
 {
 	return test_feature(SPAD_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_spad); */
+EXPORT_SYMBOL(identify_spad);
 
 char identify_tdm(void)
 {
 	return test_feature(TDM_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_tdm); */
+EXPORT_SYMBOL(identify_tdm);
 
 char identify_zsp(void)
 {
 	return test_feature(ZSP_KEY);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_zsp); */
+EXPORT_SYMBOL(identify_zsp);
 
 static char identify_enetfeature(char key, unsigned long interface_num)
 {
@@ -253,13 +253,13 @@ char identify_enet(unsigned long interface_num)
 {
 	return identify_enetfeature(ENET_KEY, interface_num);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_enet); */
+EXPORT_SYMBOL(identify_enet);
 
 char identify_enetTxD(unsigned long interface_num)
 {
 	return identify_enetfeature(ENETTXD_KEY, interface_num);
 }
-/* DISABLED: EXPORT_SYMBOL(identify_enetTxD); */
+EXPORT_SYMBOL(identify_enetTxD);
 
 unsigned long identify_family(void)
 {
@@ -269,7 +269,7 @@ unsigned long identify_family(void)
 
 	return deviceid & CPU_DEVID_FAMILY;
 }
-/* DISABLED: EXPORT_SYMBOL(identify_family); */
+EXPORT_SYMBOL(identify_family);
 
 unsigned long identify_revision(void)
 {
@@ -279,7 +279,7 @@ unsigned long identify_revision(void)
 
 	return deviceid & CPU_DEVID_REVISION;
 }
-/* DISABLED: EXPORT_SYMBOL(identify_revision); */
+EXPORT_SYMBOL(identify_revision);
 
 /* PROM environment functions */
 char *prom_getenv(char *env_name)

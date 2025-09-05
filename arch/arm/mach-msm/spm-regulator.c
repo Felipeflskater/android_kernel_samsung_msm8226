@@ -530,7 +530,7 @@ int __init spm_regulator_init(void)
 
 	return spmi_driver_register(&spm_regulator_driver);
 }
-/* DISABLED: EXPORT_SYMBOL(spm_regulator_init); */
+EXPORT_SYMBOL(spm_regulator_init);
 
 static void __exit spm_regulator_exit(void)
 {

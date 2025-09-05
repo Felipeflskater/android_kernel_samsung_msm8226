@@ -201,7 +201,7 @@ unlock:
 	ip_set_type_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_type_register); */
+EXPORT_SYMBOL_GPL(ip_set_type_register);
 
 /* Unregister a set type. There's a small race with ip_set_create */
 void
@@ -222,7 +222,7 @@ unlock:
 
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_type_unregister); */
+EXPORT_SYMBOL_GPL(ip_set_type_unregister);
 
 /* Utility functions */
 void *
@@ -245,7 +245,7 @@ ip_set_alloc(size_t size)
 
 	return members;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_alloc); */
+EXPORT_SYMBOL_GPL(ip_set_alloc);
 
 void
 ip_set_free(void *members)
@@ -257,7 +257,7 @@ ip_set_free(void *members)
 	else
 		kfree(members);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_free); */
+EXPORT_SYMBOL_GPL(ip_set_free);
 
 static inline bool
 flag_nested(const struct nlattr *nla)
@@ -286,7 +286,7 @@ ip_set_get_ipaddr4(struct nlattr *nla,  __be32 *ipaddr)
 	*ipaddr = nla_get_be32(tb[IPSET_ATTR_IPADDR_IPV4]);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_ipaddr4); */
+EXPORT_SYMBOL_GPL(ip_set_get_ipaddr4);
 
 int
 ip_set_get_ipaddr6(struct nlattr *nla, union nf_inet_addr *ipaddr)
@@ -305,7 +305,7 @@ ip_set_get_ipaddr6(struct nlattr *nla, union nf_inet_addr *ipaddr)
 		sizeof(struct in6_addr));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_ipaddr6); */
+EXPORT_SYMBOL_GPL(ip_set_get_ipaddr6);
 
 /*
  * Creating/destroying/renaming/swapping affect the existence and
@@ -373,7 +373,7 @@ ip_set_test(ip_set_id_t index, const struct sk_buff *skb,
 	/* Convert error codes to nomatch */
 	return (ret < 0 ? 0 : ret);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_test); */
+EXPORT_SYMBOL_GPL(ip_set_test);
 
 int
 ip_set_add(ip_set_id_t index, const struct sk_buff *skb,
@@ -396,7 +396,7 @@ ip_set_add(ip_set_id_t index, const struct sk_buff *skb,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_add); */
+EXPORT_SYMBOL_GPL(ip_set_add);
 
 int
 ip_set_del(ip_set_id_t index, const struct sk_buff *skb,
@@ -419,7 +419,7 @@ ip_set_del(ip_set_id_t index, const struct sk_buff *skb,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_del); */
+EXPORT_SYMBOL_GPL(ip_set_del);
 
 /*
  * Find set by name, reference it once. The reference makes sure the
@@ -443,7 +443,7 @@ ip_set_get_byname(const char *name, struct ip_set **set)
 
 	return index;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_get_byname); */
+EXPORT_SYMBOL_GPL(ip_set_get_byname);
 
 /*
  * If the given set pointer points to a valid set, decrement
@@ -457,7 +457,7 @@ ip_set_put_byindex(ip_set_id_t index)
 	if (ip_set_list[index] != NULL)
 		__ip_set_put(index);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_put_byindex); */
+EXPORT_SYMBOL_GPL(ip_set_put_byindex);
 
 /*
  * Get the name of a set behind a set index.
@@ -477,7 +477,7 @@ ip_set_name_byindex(ip_set_id_t index)
 	/* Referenced, so it's safe */
 	return set->name;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_name_byindex); */
+EXPORT_SYMBOL_GPL(ip_set_name_byindex);
 
 /*
  * Routines to call by external subsystems, which do not
@@ -502,7 +502,7 @@ ip_set_nfnl_get(const char *name)
 
 	return index;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_nfnl_get); */
+EXPORT_SYMBOL_GPL(ip_set_nfnl_get);
 
 /*
  * Find set by index, reference it once. The reference makes sure the
@@ -525,7 +525,7 @@ ip_set_nfnl_get_byindex(ip_set_id_t index)
 
 	return index;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_nfnl_get_byindex); */
+EXPORT_SYMBOL_GPL(ip_set_nfnl_get_byindex);
 
 /*
  * If the given set pointer points to a valid set, decrement
@@ -541,7 +541,7 @@ ip_set_nfnl_put(ip_set_id_t index)
 	ip_set_put_byindex(index);
 	nfnl_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ip_set_nfnl_put); */
+EXPORT_SYMBOL_GPL(ip_set_nfnl_put);
 
 /*
  * Communication protocol with userspace over netlink.

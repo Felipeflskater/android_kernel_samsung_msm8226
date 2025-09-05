@@ -136,5 +136,5 @@ void __w1_family_get(struct w1_family *f)
 	smp_mb__after_atomic_inc();
 }
 
-/* DISABLED: EXPORT_SYMBOL(w1_unregister_family); */
-/* DISABLED: EXPORT_SYMBOL(w1_register_family); */
+EXPORT_SYMBOL(w1_unregister_family);
+EXPORT_SYMBOL(w1_register_family);

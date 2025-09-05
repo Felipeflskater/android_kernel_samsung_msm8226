@@ -97,7 +97,7 @@ int kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 
 	return pid;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 void start_thread(struct pt_regs *regs, unsigned long new_pc,
 		  unsigned long new_sp)
@@ -109,7 +109,7 @@ void start_thread(struct pt_regs *regs, unsigned long new_pc,
 
 	free_thread_xstate(current);
 }
-/* DISABLED: EXPORT_SYMBOL(start_thread); */
+EXPORT_SYMBOL(start_thread);
 
 /*
  * Free current thread data structures etc..
@@ -153,7 +153,7 @@ int dump_fpu(struct pt_regs *regs, elf_fpregset_t *fpu)
 
 	return fpvalid;
 }
-/* DISABLED: EXPORT_SYMBOL(dump_fpu); */
+EXPORT_SYMBOL(dump_fpu);
 
 /*
  * This gets called before we allocate a new thread and copy

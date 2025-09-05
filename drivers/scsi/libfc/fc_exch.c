@@ -36,7 +36,7 @@
 #include "fc_libfc.h"
 
 u16	fc_cpu_mask;		/* cpu mask for possible cpus */
-/* DISABLED: EXPORT_SYMBOL(fc_cpu_mask); */
+EXPORT_SYMBOL(fc_cpu_mask);
 static u16	fc_cpu_order;	/* 2's power to represent total possible cpus */
 static struct kmem_cache *fc_em_cachep;	       /* cache for exchanges */
 static struct workqueue_struct *fc_exch_workqueue;
@@ -1824,7 +1824,7 @@ void fc_exch_mgr_reset(struct fc_lport *lport, u32 sid, u32 did)
 					   sid, did);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_reset); */
+EXPORT_SYMBOL(fc_exch_mgr_reset);
 
 /**
  * fc_exch_lookup() - find an exchange
@@ -2178,7 +2178,7 @@ struct fc_exch_mgr_anchor *fc_exch_mgr_add(struct fc_lport *lport,
 	kref_get(&mp->kref);
 	return ema;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_add); */
+EXPORT_SYMBOL(fc_exch_mgr_add);
 
 /**
  * fc_exch_mgr_destroy() - Destroy an exchange manager
@@ -2204,7 +2204,7 @@ void fc_exch_mgr_del(struct fc_exch_mgr_anchor *ema)
 	kref_put(&ema->mp->kref, fc_exch_mgr_destroy);
 	kfree(ema);
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_del); */
+EXPORT_SYMBOL(fc_exch_mgr_del);
 
 /**
  * fc_exch_mgr_list_clone() - Share all exchange manager objects
@@ -2225,7 +2225,7 @@ err:
 		fc_exch_mgr_del(ema);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_list_clone); */
+EXPORT_SYMBOL(fc_exch_mgr_list_clone);
 
 /**
  * fc_exch_mgr_alloc() - Allocate an exchange manager
@@ -2323,7 +2323,7 @@ free_mp:
 	kfree(mp);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_alloc); */
+EXPORT_SYMBOL(fc_exch_mgr_alloc);
 
 /**
  * fc_exch_mgr_free() - Free all exchange managers on a local port
@@ -2337,7 +2337,7 @@ void fc_exch_mgr_free(struct fc_lport *lport)
 	list_for_each_entry_safe(ema, next, &lport->ema_list, ema_list)
 		fc_exch_mgr_del(ema);
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_mgr_free); */
+EXPORT_SYMBOL(fc_exch_mgr_free);
 
 /**
  * fc_find_ema() - Lookup and return appropriate Exchange Manager Anchor depending
@@ -2426,7 +2426,7 @@ void fc_exch_recv(struct fc_lport *lport, struct fc_frame *fp)
 		fc_frame_free(fp);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_recv); */
+EXPORT_SYMBOL(fc_exch_recv);
 
 /**
  * fc_exch_init() - Initialize the exchange layer for a local port
@@ -2466,7 +2466,7 @@ int fc_exch_init(struct fc_lport *lport)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_exch_init); */
+EXPORT_SYMBOL(fc_exch_init);
 
 /**
  * fc_setup_exch_mgr() - Setup an exchange manager

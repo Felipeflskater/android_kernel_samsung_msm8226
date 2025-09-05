@@ -586,7 +586,7 @@ static int cnic_register_device(struct cnic_dev *dev, int ulp_type,
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(cnic_register_driver); */
+EXPORT_SYMBOL(cnic_register_driver);
 
 static int cnic_unregister_device(struct cnic_dev *dev, int ulp_type)
 {
@@ -626,7 +626,7 @@ static int cnic_unregister_device(struct cnic_dev *dev, int ulp_type)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cnic_unregister_driver); */
+EXPORT_SYMBOL(cnic_unregister_driver);
 
 static int cnic_init_id_tbl(struct cnic_id_tbl *id_tbl, u32 size, u32 start_id,
 			    u32 next)

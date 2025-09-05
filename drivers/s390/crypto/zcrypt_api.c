@@ -171,13 +171,13 @@ void zcrypt_device_get(struct zcrypt_device *zdev)
 {
 	kref_get(&zdev->refcount);
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_get); */
+EXPORT_SYMBOL(zcrypt_device_get);
 
 int zcrypt_device_put(struct zcrypt_device *zdev)
 {
 	return kref_put(&zdev->refcount, zcrypt_device_release);
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_put); */
+EXPORT_SYMBOL(zcrypt_device_put);
 
 struct zcrypt_device *zcrypt_device_alloc(size_t max_response_size)
 {
@@ -198,14 +198,14 @@ out_free:
 	kfree(zdev);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_alloc); */
+EXPORT_SYMBOL(zcrypt_device_alloc);
 
 void zcrypt_device_free(struct zcrypt_device *zdev)
 {
 	kfree(zdev->reply.message);
 	kfree(zdev);
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_free); */
+EXPORT_SYMBOL(zcrypt_device_free);
 
 /**
  * zcrypt_device_register() - Register a crypto device.
@@ -248,7 +248,7 @@ out_unregister:
 out:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_register); */
+EXPORT_SYMBOL(zcrypt_device_register);
 
 /**
  * zcrypt_device_unregister(): Unregister a crypto device.
@@ -269,7 +269,7 @@ void zcrypt_device_unregister(struct zcrypt_device *zdev)
 	put_device(&zdev->ap_dev->device);
 	zcrypt_device_put(zdev);
 }
-/* DISABLED: EXPORT_SYMBOL(zcrypt_device_unregister); */
+EXPORT_SYMBOL(zcrypt_device_unregister);
 
 /**
  * zcrypt_read (): Not supported beyond zcrypt 1.3.1.

@@ -5537,7 +5537,7 @@ struct sk_buff *__cfg80211_alloc_event_skb(struct wiphy *wiphy,
 	return __cfg80211_alloc_vendor_skb(rdev, approxlen, 0, 0,
 					   cmd, attr, info, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(__cfg80211_alloc_event_skb); */
+EXPORT_SYMBOL(__cfg80211_alloc_event_skb);
 
 void __cfg80211_send_event_skb(struct sk_buff *skb, gfp_t gfp)
 {
@@ -5558,7 +5558,7 @@ void __cfg80211_send_event_skb(struct sk_buff *skb, gfp_t gfp)
 		genlmsg_multicast_netns(wiphy_net(&rdev->wiphy), skb, 0,
 			nl80211_testmode_mcgrp.id, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(__cfg80211_send_event_skb); */
+EXPORT_SYMBOL(__cfg80211_send_event_skb);
 
 static int nl80211_connect(struct sk_buff *skb, struct genl_info *info)
 {
@@ -6872,7 +6872,7 @@ struct sk_buff *__cfg80211_alloc_reply_skb(struct wiphy *wiphy,
 					   0,
 					   cmd, attr, NULL, GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL(__cfg80211_alloc_reply_skb); */
+EXPORT_SYMBOL(__cfg80211_alloc_reply_skb);
 
 int cfg80211_vendor_cmd_reply(struct sk_buff *skb)
 {
@@ -6889,7 +6889,7 @@ int cfg80211_vendor_cmd_reply(struct sk_buff *skb)
 	genlmsg_end(skb, hdr);
 	return genlmsg_reply(skb, rdev->cur_cmd_info);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_vendor_cmd_reply); */
+EXPORT_SYMBOL(cfg80211_vendor_cmd_reply);
 
 static int nl80211_set_qos_map(struct sk_buff *skb,
 			       struct genl_info *info)
@@ -8684,7 +8684,7 @@ void cfg80211_probe_status(struct net_device *dev, const u8 *addr,
 	genlmsg_cancel(msg, hdr);
 	nlmsg_free(msg);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_probe_status); */
+EXPORT_SYMBOL(cfg80211_probe_status);
 
 void cfg80211_report_obss_beacon(struct wiphy *wiphy,
 				 const u8 *frame, size_t len,
@@ -8724,7 +8724,7 @@ void cfg80211_report_obss_beacon(struct wiphy *wiphy,
 	genlmsg_cancel(msg, hdr);
 	nlmsg_free(msg);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_report_obss_beacon); */
+EXPORT_SYMBOL(cfg80211_report_obss_beacon);
 
 void cfg80211_tdls_oper_request(struct net_device *dev, const u8 *peer,
 				enum nl80211_tdls_operation oper,
@@ -8768,7 +8768,7 @@ void cfg80211_tdls_oper_request(struct net_device *dev, const u8 *peer,
 	genlmsg_cancel(msg, hdr);
 	nlmsg_free(msg);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_tdls_oper_request); */
+EXPORT_SYMBOL(cfg80211_tdls_oper_request);
 
 static int nl80211_netlink_notify(struct notifier_block * nb,
 				  unsigned long state,
@@ -8839,7 +8839,7 @@ void cfg80211_ft_event(struct net_device *netdev,
 	genlmsg_multicast_netns(wiphy_net(&rdev->wiphy), msg, 0,
 				nl80211_mlme_mcgrp.id, GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_ft_event); */
+EXPORT_SYMBOL(cfg80211_ft_event);
 
 
 void cfg80211_ap_stopped(struct net_device *netdev, gfp_t gfp)
@@ -8850,7 +8850,7 @@ void cfg80211_ap_stopped(struct net_device *netdev, gfp_t gfp)
 	nl80211_send_mlme_event(rdev, netdev, NULL, 0,
 				NL80211_CMD_STOP_AP, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(cfg80211_ap_stopped); */
+EXPORT_SYMBOL(cfg80211_ap_stopped);
 
 
 /* initialisation/exit functions */

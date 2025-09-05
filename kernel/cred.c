@@ -174,7 +174,7 @@ void __put_cred(struct cred *cred)
 
 	call_rcu(&cred->rcu, put_cred_rcu);
 }
-/* DISABLED: EXPORT_SYMBOL(__put_cred); */
+EXPORT_SYMBOL(__put_cred);
 
 /*
  * Clean up a task's credentials when it exits
@@ -323,7 +323,7 @@ error:
 	abort_creds(new);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(prepare_creds); */
+EXPORT_SYMBOL(prepare_creds);
 
 /*
  * Prepare credentials for current to perform an execve()
@@ -541,7 +541,7 @@ int commit_creds(struct cred *new)
 	put_cred(old);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(commit_creds); */
+EXPORT_SYMBOL(commit_creds);
 
 /**
  * abort_creds - Discard a set of credentials and unlock the current task
@@ -562,7 +562,7 @@ void abort_creds(struct cred *new)
 	BUG_ON(atomic_read(&new->usage) < 1);
 	put_cred(new);
 }
-/* DISABLED: EXPORT_SYMBOL(abort_creds); */
+EXPORT_SYMBOL(abort_creds);
 
 /**
  * override_creds - Override the current process's subjective credentials
@@ -591,7 +591,7 @@ const struct cred *override_creds(const struct cred *new)
 	       read_cred_subscribers(old));
 	return old;
 }
-/* DISABLED: EXPORT_SYMBOL(override_creds); */
+EXPORT_SYMBOL(override_creds);
 
 /**
  * revert_creds - Revert a temporary subjective credentials override
@@ -615,7 +615,7 @@ void revert_creds(const struct cred *old)
 	alter_cred_subscribers(override, -1);
 	put_cred(override);
 }
-/* DISABLED: EXPORT_SYMBOL(revert_creds); */
+EXPORT_SYMBOL(revert_creds);
 
 /*
  * initialise the credentials stuff
@@ -706,7 +706,7 @@ error:
 	put_cred(old);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(prepare_kernel_cred); */
+EXPORT_SYMBOL(prepare_kernel_cred);
 
 /**
  * set_security_override - Set the security ID in a set of credentials
@@ -720,7 +720,7 @@ int set_security_override(struct cred *new, u32 secid)
 {
 	return security_kernel_act_as(new, secid);
 }
-/* DISABLED: EXPORT_SYMBOL(set_security_override); */
+EXPORT_SYMBOL(set_security_override);
 
 /**
  * set_security_override_from_ctx - Set the security ID in a set of credentials
@@ -743,7 +743,7 @@ int set_security_override_from_ctx(struct cred *new, const char *secctx)
 
 	return set_security_override(new, secid);
 }
-/* DISABLED: EXPORT_SYMBOL(set_security_override_from_ctx); */
+EXPORT_SYMBOL(set_security_override_from_ctx);
 
 /**
  * set_create_files_as - Set the LSM file create context in a set of credentials
@@ -760,7 +760,7 @@ int set_create_files_as(struct cred *new, struct inode *inode)
 	new->fsgid = inode->i_gid;
 	return security_kernel_create_files_as(new, inode);
 }
-/* DISABLED: EXPORT_SYMBOL(set_create_files_as); */
+EXPORT_SYMBOL(set_create_files_as);
 
 #ifdef CONFIG_DEBUG_CREDENTIALS
 
@@ -783,7 +783,7 @@ bool creds_are_invalid(const struct cred *cred)
 #endif
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(creds_are_invalid); */
+EXPORT_SYMBOL(creds_are_invalid);
 
 /*
  * dump invalid credentials
@@ -826,7 +826,7 @@ void __invalid_creds(const struct cred *cred, const char *file, unsigned line)
 	dump_invalid_creds(cred, "Specified", current);
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL(__invalid_creds); */
+EXPORT_SYMBOL(__invalid_creds);
 
 /*
  * check the credentials on a process
@@ -858,7 +858,7 @@ invalid_creds:
 		printk(KERN_ERR "CRED: Effective creds == Real creds\n");
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL(__validate_process_creds); */
+EXPORT_SYMBOL(__validate_process_creds);
 
 /*
  * check creds for do_exit()

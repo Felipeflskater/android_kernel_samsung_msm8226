@@ -558,7 +558,7 @@ struct kgsl_memdesc_ops kgsl_page_alloc_ops = {
 	.map_kernel = kgsl_page_alloc_map_kernel,
 	.unmap_kernel = kgsl_page_alloc_unmap_kernel,
 };
-/* DISABLED: EXPORT_SYMBOL(kgsl_page_alloc_ops); */
+EXPORT_SYMBOL(kgsl_page_alloc_ops);
 
 static struct kgsl_memdesc_ops kgsl_ebimem_ops = {
 	.free = kgsl_ebimem_free,
@@ -599,7 +599,7 @@ void kgsl_cache_range_op(struct kgsl_memdesc *memdesc, int op)
 	}
 	outer_cache_range_op_sg(memdesc->sg, memdesc->sglen, op);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_cache_range_op); */
+EXPORT_SYMBOL(kgsl_cache_range_op);
 
 static int
 _kgsl_sharedmem_page_alloc(struct kgsl_memdesc *memdesc,
@@ -807,7 +807,7 @@ kgsl_sharedmem_page_alloc(struct kgsl_memdesc *memdesc,
 		kgsl_sharedmem_free(memdesc);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_page_alloc); */
+EXPORT_SYMBOL(kgsl_sharedmem_page_alloc);
 
 int
 kgsl_sharedmem_page_alloc_user(struct kgsl_memdesc *memdesc,
@@ -820,7 +820,7 @@ kgsl_sharedmem_page_alloc_user(struct kgsl_memdesc *memdesc,
 
 	return _kgsl_sharedmem_page_alloc(memdesc, pagetable, size);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_page_alloc_user); */
+EXPORT_SYMBOL(kgsl_sharedmem_page_alloc_user);
 
 int
 kgsl_sharedmem_alloc_coherent(struct kgsl_memdesc *memdesc, size_t size)
@@ -857,7 +857,7 @@ err:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_alloc_coherent); */
+EXPORT_SYMBOL(kgsl_sharedmem_alloc_coherent);
 
 void kgsl_sharedmem_free(struct kgsl_memdesc *memdesc)
 {
@@ -876,7 +876,7 @@ void kgsl_sharedmem_free(struct kgsl_memdesc *memdesc)
 
 	memset(memdesc, 0, sizeof(*memdesc));
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_free); */
+EXPORT_SYMBOL(kgsl_sharedmem_free);
 
 static int
 _kgsl_sharedmem_ebimem(struct kgsl_memdesc *memdesc,
@@ -921,7 +921,7 @@ kgsl_sharedmem_ebimem_user(struct kgsl_memdesc *memdesc,
 
 	return _kgsl_sharedmem_ebimem(memdesc, pagetable, size);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_ebimem_user); */
+EXPORT_SYMBOL(kgsl_sharedmem_ebimem_user);
 
 int
 kgsl_sharedmem_ebimem(struct kgsl_memdesc *memdesc,
@@ -947,7 +947,7 @@ kgsl_sharedmem_ebimem(struct kgsl_memdesc *memdesc,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_ebimem); */
+EXPORT_SYMBOL(kgsl_sharedmem_ebimem);
 
 int
 kgsl_sharedmem_readl(const struct kgsl_memdesc *memdesc,
@@ -969,7 +969,7 @@ kgsl_sharedmem_readl(const struct kgsl_memdesc *memdesc,
 	*dst = *src;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_readl); */
+EXPORT_SYMBOL(kgsl_sharedmem_readl);
 
 int
 kgsl_sharedmem_writel(struct kgsl_device *device,
@@ -996,7 +996,7 @@ kgsl_sharedmem_writel(struct kgsl_device *device,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_writel); */
+EXPORT_SYMBOL(kgsl_sharedmem_writel);
 
 int
 kgsl_sharedmem_set(struct kgsl_device *device,
@@ -1012,7 +1012,7 @@ kgsl_sharedmem_set(struct kgsl_device *device,
 	memset(memdesc->hostptr + offsetbytes, value, sizebytes);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_set); */
+EXPORT_SYMBOL(kgsl_sharedmem_set);
 
 /*
  * kgsl_sharedmem_map_vma - Map a user vma to physical memory
@@ -1042,7 +1042,7 @@ kgsl_sharedmem_map_vma(struct vm_area_struct *vma,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_sharedmem_map_vma); */
+EXPORT_SYMBOL(kgsl_sharedmem_map_vma);
 
 static const char * const memtype_str[] = {
 	[KGSL_MEMTYPE_OBJECTANY] = "any(0)",
@@ -1081,4 +1081,4 @@ void kgsl_get_memory_usage(char *name, size_t name_size, unsigned int memflags)
 	else
 		snprintf(name, name_size, "unknown(%3d)", type);
 }
-/* DISABLED: EXPORT_SYMBOL(kgsl_get_memory_usage); */
+EXPORT_SYMBOL(kgsl_get_memory_usage);

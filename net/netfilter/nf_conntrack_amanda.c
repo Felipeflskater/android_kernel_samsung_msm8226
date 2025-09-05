@@ -45,7 +45,7 @@ unsigned int (*nf_nat_amanda_hook)(struct sk_buff *skb,
 				   unsigned int matchlen,
 				   struct nf_conntrack_expect *exp)
 				   __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_amanda_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_amanda_hook);
 
 enum amanda_strings {
 	SEARCH_CONNECT,

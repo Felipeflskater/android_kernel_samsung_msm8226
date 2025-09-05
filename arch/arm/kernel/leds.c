@@ -142,4 +142,4 @@ static int __init leds_init(void)
 
 device_initcall(leds_init);
 
-/* DISABLED: EXPORT_SYMBOL(leds_event); */
+EXPORT_SYMBOL(leds_event);

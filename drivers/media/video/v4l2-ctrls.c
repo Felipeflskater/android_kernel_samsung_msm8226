@@ -455,7 +455,7 @@ const char * const *v4l2_ctrl_get_menu(u32 id)
 		return NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_get_menu); */
+EXPORT_SYMBOL(v4l2_ctrl_get_menu);
 
 /* Return the control name. */
 const char *v4l2_ctrl_get_name(u32 id)
@@ -674,7 +674,7 @@ const char *v4l2_ctrl_get_name(u32 id)
 		return NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_get_name); */
+EXPORT_SYMBOL(v4l2_ctrl_get_name);
 
 void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
 		    s32 *min, s32 *max, s32 *step, s32 *def, u32 *flags)
@@ -871,7 +871,7 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_fill); */
+EXPORT_SYMBOL(v4l2_ctrl_fill);
 
 /* Helper function to determine whether the control type is compatible with
    VIDIOC_G/S_CTRL. */
@@ -1210,7 +1210,7 @@ int v4l2_ctrl_handler_init(struct v4l2_ctrl_handler *hdl,
 	hdl->error = hdl->buckets ? 0 : -ENOMEM;
 	return hdl->error;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_handler_init); */
+EXPORT_SYMBOL(v4l2_ctrl_handler_init);
 
 /* Free all controls and control refs */
 void v4l2_ctrl_handler_free(struct v4l2_ctrl_handler *hdl)
@@ -1241,7 +1241,7 @@ void v4l2_ctrl_handler_free(struct v4l2_ctrl_handler *hdl)
 	hdl->error = 0;
 	mutex_unlock(&hdl->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_handler_free); */
+EXPORT_SYMBOL(v4l2_ctrl_handler_free);
 
 /* For backwards compatibility: V4L2_CID_PRIVATE_BASE should no longer
    be used except in G_CTRL, S_CTRL, QUERYCTRL and QUERYMENU when dealing
@@ -1318,7 +1318,7 @@ struct v4l2_ctrl *v4l2_ctrl_find(struct v4l2_ctrl_handler *hdl, u32 id)
 
 	return ref ? ref->ctrl : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_find); */
+EXPORT_SYMBOL(v4l2_ctrl_find);
 
 /* Allocate a new v4l2_ctrl_ref and hook it into the handler. */
 static int handler_new_ref(struct v4l2_ctrl_handler *hdl,
@@ -1503,7 +1503,7 @@ struct v4l2_ctrl *v4l2_ctrl_new_custom(struct v4l2_ctrl_handler *hdl,
 		ctrl->is_private = cfg->is_private;
 	return ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_new_custom); */
+EXPORT_SYMBOL(v4l2_ctrl_new_custom);
 
 /* Helper function for standard non-menu controls */
 struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *hdl,
@@ -1522,7 +1522,7 @@ struct v4l2_ctrl *v4l2_ctrl_new_std(struct v4l2_ctrl_handler *hdl,
 	return v4l2_ctrl_new(hdl, ops, id, name, type,
 				    min, max, step, def, flags, NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_new_std); */
+EXPORT_SYMBOL(v4l2_ctrl_new_std);
 
 /* Helper function for standard menu controls */
 struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *hdl,
@@ -1544,7 +1544,7 @@ struct v4l2_ctrl *v4l2_ctrl_new_std_menu(struct v4l2_ctrl_handler *hdl,
 	return v4l2_ctrl_new(hdl, ops, id, name, type,
 				    0, max, mask, def, flags, qmenu, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_new_std_menu); */
+EXPORT_SYMBOL(v4l2_ctrl_new_std_menu);
 
 /* Add a control from another handler to this handler */
 struct v4l2_ctrl *v4l2_ctrl_add_ctrl(struct v4l2_ctrl_handler *hdl,
@@ -1560,7 +1560,7 @@ struct v4l2_ctrl *v4l2_ctrl_add_ctrl(struct v4l2_ctrl_handler *hdl,
 		return ctrl;
 	return handler_new_ref(hdl, ctrl) ? NULL : ctrl;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_add_ctrl); */
+EXPORT_SYMBOL(v4l2_ctrl_add_ctrl);
 
 /* Add the controls from another handler to our own. */
 int v4l2_ctrl_add_handler(struct v4l2_ctrl_handler *hdl,
@@ -1591,7 +1591,7 @@ int v4l2_ctrl_add_handler(struct v4l2_ctrl_handler *hdl,
 	mutex_unlock(&add->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_add_handler); */
+EXPORT_SYMBOL(v4l2_ctrl_add_handler);
 
 /* Cluster controls */
 void v4l2_ctrl_cluster(unsigned ncontrols, struct v4l2_ctrl **controls)
@@ -1612,7 +1612,7 @@ void v4l2_ctrl_cluster(unsigned ncontrols, struct v4l2_ctrl **controls)
 	}
 	controls[0]->has_volatiles = has_volatiles;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_cluster); */
+EXPORT_SYMBOL(v4l2_ctrl_cluster);
 
 void v4l2_ctrl_auto_cluster(unsigned ncontrols, struct v4l2_ctrl **controls,
 			    u8 manual_val, bool set_volatile)
@@ -1638,7 +1638,7 @@ void v4l2_ctrl_auto_cluster(unsigned ncontrols, struct v4l2_ctrl **controls,
 		if (controls[i])
 			controls[i]->flags |= flag;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_auto_cluster); */
+EXPORT_SYMBOL(v4l2_ctrl_auto_cluster);
 
 /* Activate/deactivate a control. */
 void v4l2_ctrl_activate(struct v4l2_ctrl *ctrl, bool active)
@@ -1659,7 +1659,7 @@ void v4l2_ctrl_activate(struct v4l2_ctrl *ctrl, bool active)
 	if (old != inactive)
 		send_event(NULL, ctrl, V4L2_EVENT_CTRL_CH_FLAGS);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_activate); */
+EXPORT_SYMBOL(v4l2_ctrl_activate);
 
 /* Grab/ungrab a control.
    Typically used when streaming starts and you want to grab controls,
@@ -1685,7 +1685,7 @@ void v4l2_ctrl_grab(struct v4l2_ctrl *ctrl, bool grabbed)
 		send_event(NULL, ctrl, V4L2_EVENT_CTRL_CH_FLAGS);
 	v4l2_ctrl_unlock(ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_grab); */
+EXPORT_SYMBOL(v4l2_ctrl_grab);
 
 /* Log the control name and value */
 static void log_ctrl(const struct v4l2_ctrl *ctrl,
@@ -1755,7 +1755,7 @@ void v4l2_ctrl_handler_log_status(struct v4l2_ctrl_handler *hdl,
 			log_ctrl(ctrl, prefix, colon);
 	mutex_unlock(&hdl->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_handler_log_status); */
+EXPORT_SYMBOL(v4l2_ctrl_handler_log_status);
 
 /* Call s_ctrl for all controls owned by the handler */
 int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *hdl)
@@ -1793,7 +1793,7 @@ int v4l2_ctrl_handler_setup(struct v4l2_ctrl_handler *hdl)
 	mutex_unlock(&hdl->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_handler_setup); */
+EXPORT_SYMBOL(v4l2_ctrl_handler_setup);
 
 /* Implement VIDIOC_QUERYCTRL */
 int v4l2_queryctrl(struct v4l2_ctrl_handler *hdl, struct v4l2_queryctrl *qc)
@@ -1852,7 +1852,7 @@ int v4l2_queryctrl(struct v4l2_ctrl_handler *hdl, struct v4l2_queryctrl *qc)
 	qc->type = ctrl->type;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_queryctrl); */
+EXPORT_SYMBOL(v4l2_queryctrl);
 
 int v4l2_subdev_queryctrl(struct v4l2_subdev *sd, struct v4l2_queryctrl *qc)
 {
@@ -1860,7 +1860,7 @@ int v4l2_subdev_queryctrl(struct v4l2_subdev *sd, struct v4l2_queryctrl *qc)
 		return -EINVAL;
 	return v4l2_queryctrl(sd->ctrl_handler, qc);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_queryctrl); */
+EXPORT_SYMBOL(v4l2_subdev_queryctrl);
 
 /* Implement VIDIOC_QUERYMENU */
 int v4l2_querymenu(struct v4l2_ctrl_handler *hdl, struct v4l2_querymenu *qm)
@@ -1886,13 +1886,13 @@ int v4l2_querymenu(struct v4l2_ctrl_handler *hdl, struct v4l2_querymenu *qm)
 	strlcpy(qm->name, ctrl->qmenu[i], sizeof(qm->name));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_querymenu); */
+EXPORT_SYMBOL(v4l2_querymenu);
 
 int v4l2_subdev_querymenu(struct v4l2_subdev *sd, struct v4l2_querymenu *qm)
 {
 	return v4l2_querymenu(sd->ctrl_handler, qm);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_querymenu); */
+EXPORT_SYMBOL(v4l2_subdev_querymenu);
 
 
 
@@ -2097,13 +2097,13 @@ int v4l2_g_ext_ctrls(struct v4l2_ctrl_handler *hdl, struct v4l2_ext_controls *cs
 		kfree(helpers);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_g_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_g_ext_ctrls);
 
 int v4l2_subdev_g_ext_ctrls(struct v4l2_subdev *sd, struct v4l2_ext_controls *cs)
 {
 	return v4l2_g_ext_ctrls(sd->ctrl_handler, cs);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_g_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_subdev_g_ext_ctrls);
 
 /* Helper function to get a single control */
 static int get_ctrl(struct v4l2_ctrl *ctrl, s32 *val)
@@ -2137,13 +2137,13 @@ int v4l2_g_ctrl(struct v4l2_ctrl_handler *hdl, struct v4l2_control *control)
 		return -EINVAL;
 	return get_ctrl(ctrl, &control->value);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_g_ctrl); */
+EXPORT_SYMBOL(v4l2_g_ctrl);
 
 int v4l2_subdev_g_ctrl(struct v4l2_subdev *sd, struct v4l2_control *control)
 {
 	return v4l2_g_ctrl(sd->ctrl_handler, control);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_g_ctrl); */
+EXPORT_SYMBOL(v4l2_subdev_g_ctrl);
 
 s32 v4l2_ctrl_g_ctrl(struct v4l2_ctrl *ctrl)
 {
@@ -2154,7 +2154,7 @@ s32 v4l2_ctrl_g_ctrl(struct v4l2_ctrl *ctrl)
 	get_ctrl(ctrl, &val);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_g_ctrl); */
+EXPORT_SYMBOL(v4l2_ctrl_g_ctrl);
 
 
 /* Core function that calls try/s_ctrl and ensures that the new value is
@@ -2348,26 +2348,26 @@ int v4l2_try_ext_ctrls(struct v4l2_ctrl_handler *hdl, struct v4l2_ext_controls *
 {
 	return try_set_ext_ctrls(NULL, hdl, cs, false);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_try_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_try_ext_ctrls);
 
 int v4l2_s_ext_ctrls(struct v4l2_fh *fh, struct v4l2_ctrl_handler *hdl,
 					struct v4l2_ext_controls *cs)
 {
 	return try_set_ext_ctrls(fh, hdl, cs, true);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_s_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_s_ext_ctrls);
 
 int v4l2_subdev_try_ext_ctrls(struct v4l2_subdev *sd, struct v4l2_ext_controls *cs)
 {
 	return try_set_ext_ctrls(NULL, sd->ctrl_handler, cs, false);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_try_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_subdev_try_ext_ctrls);
 
 int v4l2_subdev_s_ext_ctrls(struct v4l2_subdev *sd, struct v4l2_ext_controls *cs)
 {
 	return try_set_ext_ctrls(NULL, sd->ctrl_handler, cs, true);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_s_ext_ctrls); */
+EXPORT_SYMBOL(v4l2_subdev_s_ext_ctrls);
 
 /* Helper function for VIDIOC_S_CTRL compatibility */
 static int set_ctrl(struct v4l2_fh *fh, struct v4l2_ctrl *ctrl, s32 *val)
@@ -2414,13 +2414,13 @@ int v4l2_s_ctrl(struct v4l2_fh *fh, struct v4l2_ctrl_handler *hdl,
 
 	return set_ctrl(fh, ctrl, &control->value);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_s_ctrl); */
+EXPORT_SYMBOL(v4l2_s_ctrl);
 
 int v4l2_subdev_s_ctrl(struct v4l2_subdev *sd, struct v4l2_control *control)
 {
 	return v4l2_s_ctrl(NULL, sd->ctrl_handler, control);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_subdev_s_ctrl); */
+EXPORT_SYMBOL(v4l2_subdev_s_ctrl);
 
 int v4l2_ctrl_s_ctrl(struct v4l2_ctrl *ctrl, s32 val)
 {
@@ -2428,7 +2428,7 @@ int v4l2_ctrl_s_ctrl(struct v4l2_ctrl *ctrl, s32 val)
 	WARN_ON(!type_is_int(ctrl));
 	return set_ctrl(NULL, ctrl, &val);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_s_ctrl); */
+EXPORT_SYMBOL(v4l2_ctrl_s_ctrl);
 
 void v4l2_ctrl_add_event(struct v4l2_ctrl *ctrl,
 				struct v4l2_subscribed_event *sev)
@@ -2447,7 +2447,7 @@ void v4l2_ctrl_add_event(struct v4l2_ctrl *ctrl,
 	}
 	v4l2_ctrl_unlock(ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_add_event); */
+EXPORT_SYMBOL(v4l2_ctrl_add_event);
 
 void v4l2_ctrl_del_event(struct v4l2_ctrl *ctrl,
 				struct v4l2_subscribed_event *sev)
@@ -2456,7 +2456,7 @@ void v4l2_ctrl_del_event(struct v4l2_ctrl *ctrl,
 	list_del(&sev->node);
 	v4l2_ctrl_unlock(ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_del_event); */
+EXPORT_SYMBOL(v4l2_ctrl_del_event);
 
 int v4l2_ctrl_log_status(struct file *file, void *fh)
 {
@@ -2468,7 +2468,7 @@ int v4l2_ctrl_log_status(struct file *file, void *fh)
 			vfd->v4l2_dev->name);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_log_status); */
+EXPORT_SYMBOL(v4l2_ctrl_log_status);
 
 int v4l2_ctrl_subscribe_event(struct v4l2_fh *fh,
 				struct v4l2_event_subscription *sub)
@@ -2477,7 +2477,7 @@ int v4l2_ctrl_subscribe_event(struct v4l2_fh *fh,
 		return v4l2_event_subscribe(fh, sub, 0);
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_subscribe_event); */
+EXPORT_SYMBOL(v4l2_ctrl_subscribe_event);
 
 unsigned int v4l2_ctrl_poll(struct file *file, struct poll_table_struct *wait)
 {
@@ -2488,4 +2488,4 @@ unsigned int v4l2_ctrl_poll(struct file *file, struct poll_table_struct *wait)
 	poll_wait(file, &fh->wait, wait);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_ctrl_poll); */
+EXPORT_SYMBOL(v4l2_ctrl_poll);

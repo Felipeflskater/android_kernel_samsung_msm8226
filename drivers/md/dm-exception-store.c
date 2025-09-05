@@ -120,7 +120,7 @@ int dm_exception_store_type_register(struct dm_exception_store_type *type)
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_exception_store_type_register); */
+EXPORT_SYMBOL(dm_exception_store_type_register);
 
 int dm_exception_store_type_unregister(struct dm_exception_store_type *type)
 {
@@ -137,7 +137,7 @@ int dm_exception_store_type_unregister(struct dm_exception_store_type *type)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_exception_store_type_unregister); */
+EXPORT_SYMBOL(dm_exception_store_type_unregister);
 
 static int set_chunk_size(struct dm_exception_store *store,
 			  const char *chunk_size_arg, char **error)
@@ -254,7 +254,7 @@ bad_type:
 	kfree(tmp_store);
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(dm_exception_store_create); */
+EXPORT_SYMBOL(dm_exception_store_create);
 
 void dm_exception_store_destroy(struct dm_exception_store *store)
 {
@@ -262,7 +262,7 @@ void dm_exception_store_destroy(struct dm_exception_store *store)
 	put_type(store->type);
 	kfree(store);
 }
-/* DISABLED: EXPORT_SYMBOL(dm_exception_store_destroy); */
+EXPORT_SYMBOL(dm_exception_store_destroy);
 
 int dm_exception_store_init(void)
 {

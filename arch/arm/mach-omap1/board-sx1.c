@@ -158,12 +158,12 @@ int sx1_setusbpower(u8 onoff)
 	return sx1_i2c_write_byte(SOFIA_I2C_ADDR, SOFIA_POWER1_REG, dat);
 }
 
-/* DISABLED: EXPORT_SYMBOL(sx1_setkeylight); */
-/* DISABLED: EXPORT_SYMBOL(sx1_getkeylight); */
-/* DISABLED: EXPORT_SYMBOL(sx1_setbacklight); */
-/* DISABLED: EXPORT_SYMBOL(sx1_getbacklight); */
-/* DISABLED: EXPORT_SYMBOL(sx1_setmmipower); */
-/* DISABLED: EXPORT_SYMBOL(sx1_setusbpower); */
+EXPORT_SYMBOL(sx1_setkeylight);
+EXPORT_SYMBOL(sx1_getkeylight);
+EXPORT_SYMBOL(sx1_setbacklight);
+EXPORT_SYMBOL(sx1_getbacklight);
+EXPORT_SYMBOL(sx1_setmmipower);
+EXPORT_SYMBOL(sx1_setusbpower);
 
 /*----------- Keypad -------------------------*/
 

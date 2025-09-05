@@ -51,9 +51,9 @@ struct snd_msm {
 int copy_count;
 
 struct audio_locks the_locks;
-/* DISABLED: EXPORT_SYMBOL(the_locks); */
+EXPORT_SYMBOL(the_locks);
 struct msm_volume msm_vol_ctl;
-/* DISABLED: EXPORT_SYMBOL(msm_vol_ctl); */
+EXPORT_SYMBOL(msm_vol_ctl);
 
 
 static unsigned convert_dsp_samp_index(unsigned index)
@@ -660,7 +660,7 @@ struct snd_soc_platform_driver msm_soc_platform = {
 	.pcm_new	= msm_pcm_new,
 	.pcm_free	= msm_pcm_free_dma_buffers,
 };
-/* DISABLED: EXPORT_SYMBOL(msm_soc_platform); */
+EXPORT_SYMBOL(msm_soc_platform);
 
 static __devinit int msm_pcm_probe(struct platform_device *pdev)
 {

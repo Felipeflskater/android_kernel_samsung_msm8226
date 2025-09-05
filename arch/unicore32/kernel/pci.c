@@ -259,7 +259,7 @@ void __devinit pcibios_fixup_bus(struct pci_bus *bus)
 		bus->number, (features & PCI_COMMAND_FAST_BACK) ? "en" : "dis");
 }
 #ifdef CONFIG_HOTPLUG
-/* DISABLED: EXPORT_SYMBOL(pcibios_fixup_bus); */
+EXPORT_SYMBOL(pcibios_fixup_bus);
 #endif
 
 static int __init pci_common_init(void)

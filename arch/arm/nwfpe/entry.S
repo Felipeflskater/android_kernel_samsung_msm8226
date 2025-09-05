@@ -32,8 +32,8 @@ It is called from the kernel with code similar to this:
 
 	get_current_task r10
 	mov	r8, #1
-	strb	r8, [r10, @ TSK_USED_MATH]	@ set current->used_math
-	add	r10, r10, @ TSS_FPESAVE		@ r10 = workspace
+	strb	r8, [r10, #TSK_USED_MATH]	@ set current->used_math
+	add	r10, r10, #TSS_FPESAVE		@ r10 = workspace
 	ldr	r4, .LC2
 	ldr	pc, [r4]			@ Call FP emulator entry point
 
@@ -79,12 +79,12 @@ nwfpe_enter:
 	mov	r4, lr			@ save the failure-return addresses
 	mov	sl, sp			@ we access the registers via 'sl'
 
-	ldr	r5, [sp, @ S_PC]		@ get contents of PC;
+	ldr	r5, [sp, #S_PC]		@ get contents of PC;
 	mov	r6, r0			@ save the opcode
 emulate:
-	ldr	r1, [sp, @ S_PSR]	@ fetch the PSR
+	ldr	r1, [sp, #S_PSR]	@ fetch the PSR
 	bl	arm_check_condition	@ check the condition
-	cmp	r0, @ ARM_OPCODE_CONDTEST_PASS	@ condition passed?
+	cmp	r0, #ARM_OPCODE_CONDTEST_PASS	@ condition passed?
 
 	@ if condition code failed to match, next insn
 	bne	next			@ get the next instruction;
@@ -104,7 +104,7 @@ next:
 	teqne	r2, #0x0E000000
 	movne	pc, r9			@ return ok if not a fp insn
 
-	str	r5, [sp, @ S_PC]		@ update PC copy in regs
+	str	r5, [sp, #S_PC]		@ update PC copy in regs
 
 	mov	r0, r6			@ save a copy
 	b	emulate			@ check condition and emulate

@@ -28,7 +28,7 @@ void sbusfb_fill_var(struct fb_var_screeninfo *var, struct device_node *dp,
 	var->bits_per_pixel = bpp;
 }
 
-/* DISABLED: EXPORT_SYMBOL(sbusfb_fill_var); */
+EXPORT_SYMBOL(sbusfb_fill_var);
 
 static unsigned long sbusfb_mmapsize(long size, unsigned long fbsize)
 {
@@ -95,7 +95,7 @@ int sbusfb_mmap_helper(struct sbus_mmap_map *map,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sbusfb_mmap_helper); */
+EXPORT_SYMBOL(sbusfb_mmap_helper);
 
 int sbusfb_ioctl_helper(unsigned long cmd, unsigned long arg,
 			struct fb_info *info,
@@ -189,7 +189,7 @@ int sbusfb_ioctl_helper(unsigned long cmd, unsigned long arg,
 		return -EINVAL;
 	};
 }
-/* DISABLED: EXPORT_SYMBOL(sbusfb_ioctl_helper); */
+EXPORT_SYMBOL(sbusfb_ioctl_helper);
 
 #ifdef CONFIG_COMPAT
 static int fbiogetputcmap(struct fb_info *info, unsigned int cmd, unsigned long arg)
@@ -264,5 +264,5 @@ int sbusfb_compat_ioctl(struct fb_info *info, unsigned int cmd, unsigned long ar
 		return -ENOIOCTLCMD;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(sbusfb_compat_ioctl); */
+EXPORT_SYMBOL(sbusfb_compat_ioctl);
 #endif

@@ -57,7 +57,7 @@ long long atomic64_read(const atomic64_t *v)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_read); */
+EXPORT_SYMBOL(atomic64_read);
 
 void atomic64_set(atomic64_t *v, long long i)
 {
@@ -68,7 +68,7 @@ void atomic64_set(atomic64_t *v, long long i)
 	v->counter = i;
 	raw_spin_unlock_irqrestore(lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_set); */
+EXPORT_SYMBOL(atomic64_set);
 
 void atomic64_add(long long a, atomic64_t *v)
 {
@@ -79,7 +79,7 @@ void atomic64_add(long long a, atomic64_t *v)
 	v->counter += a;
 	raw_spin_unlock_irqrestore(lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_add); */
+EXPORT_SYMBOL(atomic64_add);
 
 long long atomic64_add_return(long long a, atomic64_t *v)
 {
@@ -92,7 +92,7 @@ long long atomic64_add_return(long long a, atomic64_t *v)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_add_return); */
+EXPORT_SYMBOL(atomic64_add_return);
 
 void atomic64_sub(long long a, atomic64_t *v)
 {
@@ -103,7 +103,7 @@ void atomic64_sub(long long a, atomic64_t *v)
 	v->counter -= a;
 	raw_spin_unlock_irqrestore(lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_sub); */
+EXPORT_SYMBOL(atomic64_sub);
 
 long long atomic64_sub_return(long long a, atomic64_t *v)
 {
@@ -116,7 +116,7 @@ long long atomic64_sub_return(long long a, atomic64_t *v)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_sub_return); */
+EXPORT_SYMBOL(atomic64_sub_return);
 
 long long atomic64_dec_if_positive(atomic64_t *v)
 {
@@ -131,7 +131,7 @@ long long atomic64_dec_if_positive(atomic64_t *v)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_dec_if_positive); */
+EXPORT_SYMBOL(atomic64_dec_if_positive);
 
 long long atomic64_cmpxchg(atomic64_t *v, long long o, long long n)
 {
@@ -146,7 +146,7 @@ long long atomic64_cmpxchg(atomic64_t *v, long long o, long long n)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_cmpxchg); */
+EXPORT_SYMBOL(atomic64_cmpxchg);
 
 long long atomic64_xchg(atomic64_t *v, long long new)
 {
@@ -160,7 +160,7 @@ long long atomic64_xchg(atomic64_t *v, long long new)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_xchg); */
+EXPORT_SYMBOL(atomic64_xchg);
 
 int atomic64_add_unless(atomic64_t *v, long long a, long long u)
 {
@@ -176,4 +176,4 @@ int atomic64_add_unless(atomic64_t *v, long long a, long long u)
 	raw_spin_unlock_irqrestore(lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(atomic64_add_unless); */
+EXPORT_SYMBOL(atomic64_add_unless);

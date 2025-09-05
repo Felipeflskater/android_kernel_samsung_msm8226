@@ -99,7 +99,7 @@ void cs5535_gpio_set(unsigned offset, unsigned int reg)
 	__cs5535_gpio_set(chip, offset, reg);
 	spin_unlock_irqrestore(&chip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_gpio_set); */
+EXPORT_SYMBOL_GPL(cs5535_gpio_set);
 
 static void __cs5535_gpio_clear(struct cs5535_gpio_chip *chip, unsigned offset,
 		unsigned int reg)
@@ -121,7 +121,7 @@ void cs5535_gpio_clear(unsigned offset, unsigned int reg)
 	__cs5535_gpio_clear(chip, offset, reg);
 	spin_unlock_irqrestore(&chip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_gpio_clear); */
+EXPORT_SYMBOL_GPL(cs5535_gpio_clear);
 
 int cs5535_gpio_isset(unsigned offset, unsigned int reg)
 {
@@ -142,7 +142,7 @@ int cs5535_gpio_isset(unsigned offset, unsigned int reg)
 
 	return (val & (1 << offset)) ? 1 : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_gpio_isset); */
+EXPORT_SYMBOL_GPL(cs5535_gpio_isset);
 
 int cs5535_gpio_set_irq(unsigned group, unsigned irq)
 {
@@ -159,7 +159,7 @@ int cs5535_gpio_set_irq(unsigned group, unsigned irq)
 	wrmsr(MSR_PIC_ZSEL_HIGH, lo, hi);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_gpio_set_irq); */
+EXPORT_SYMBOL_GPL(cs5535_gpio_set_irq);
 
 void cs5535_gpio_setup_event(unsigned offset, int pair, int pme)
 {
@@ -193,7 +193,7 @@ void cs5535_gpio_setup_event(unsigned offset, int pair, int pme)
 	outl(val, chip->base + offset);
 	spin_unlock_irqrestore(&chip->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cs5535_gpio_setup_event); */
+EXPORT_SYMBOL_GPL(cs5535_gpio_setup_event);
 
 /*
  * Generic gpio_chip API support.

@@ -443,22 +443,22 @@ void pci_iounmap(struct pci_dev *dev, void __iomem * addr)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(ioread8); */
-/* DISABLED: EXPORT_SYMBOL(ioread16); */
-/* DISABLED: EXPORT_SYMBOL(ioread16be); */
-/* DISABLED: EXPORT_SYMBOL(ioread32); */
-/* DISABLED: EXPORT_SYMBOL(ioread32be); */
-/* DISABLED: EXPORT_SYMBOL(iowrite8); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16be); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32be); */
-/* DISABLED: EXPORT_SYMBOL(ioread8_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread16_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread32_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite8_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioport_map); */
-/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
-/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */
+EXPORT_SYMBOL(ioread8);
+EXPORT_SYMBOL(ioread16);
+EXPORT_SYMBOL(ioread16be);
+EXPORT_SYMBOL(ioread32);
+EXPORT_SYMBOL(ioread32be);
+EXPORT_SYMBOL(iowrite8);
+EXPORT_SYMBOL(iowrite16);
+EXPORT_SYMBOL(iowrite16be);
+EXPORT_SYMBOL(iowrite32);
+EXPORT_SYMBOL(iowrite32be);
+EXPORT_SYMBOL(ioread8_rep);
+EXPORT_SYMBOL(ioread16_rep);
+EXPORT_SYMBOL(ioread32_rep);
+EXPORT_SYMBOL(iowrite8_rep);
+EXPORT_SYMBOL(iowrite16_rep);
+EXPORT_SYMBOL(iowrite32_rep);
+EXPORT_SYMBOL(ioport_map);
+EXPORT_SYMBOL(ioport_unmap);
+EXPORT_SYMBOL(pci_iounmap);

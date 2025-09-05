@@ -124,7 +124,7 @@ il_update_stats(struct il_priv *il, bool is_tx, __le16 fc, u16 len)
 		stats->data_bytes += len;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(il_update_stats); */
+EXPORT_SYMBOL(il_update_stats);
 
 /* create and remove of files */
 #define DEBUGFS_ADD_FILE(name, parent, mode) do {			\
@@ -1412,7 +1412,7 @@ err:
 	il_dbgfs_unregister(il);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(il_dbgfs_register); */
+EXPORT_SYMBOL(il_dbgfs_register);
 
 /**
  * Remove the debugfs files and directories
@@ -1427,4 +1427,4 @@ il_dbgfs_unregister(struct il_priv *il)
 	debugfs_remove_recursive(il->debugfs_dir);
 	il->debugfs_dir = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(il_dbgfs_unregister); */
+EXPORT_SYMBOL(il_dbgfs_unregister);

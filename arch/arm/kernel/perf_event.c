@@ -64,7 +64,7 @@ armpmu_get_pmu_id(void)
 
 	return id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(armpmu_get_pmu_id); */
+EXPORT_SYMBOL_GPL(armpmu_get_pmu_id);
 
 int perf_num_counters(void)
 {
@@ -75,7 +75,7 @@ int perf_num_counters(void)
 
 	return max_events;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(perf_num_counters); */
+EXPORT_SYMBOL_GPL(perf_num_counters);
 
 #define HW_OP_UNSUPPORTED		0xFFFF
 

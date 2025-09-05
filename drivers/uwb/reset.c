@@ -112,7 +112,7 @@ out:
 		kfree(cmd);
 	return result < 0 ? result : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_cmd_async); */
+EXPORT_SYMBOL_GPL(uwb_rc_cmd_async);
 
 struct uwb_rc_cmd_done_params {
 	struct completion completion;
@@ -242,7 +242,7 @@ ssize_t uwb_rc_cmd(struct uwb_rc *rc, const char *cmd_name,
 	}
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_cmd); */
+EXPORT_SYMBOL_GPL(uwb_rc_cmd);
 
 
 /**
@@ -274,7 +274,7 @@ ssize_t uwb_rc_vcmd(struct uwb_rc *rc, const char *cmd_name,
 	return __uwb_rc_cmd(rc, cmd_name, cmd, cmd_size, NULL, 0,
 			    expected_type, expected_event, preply);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_vcmd); */
+EXPORT_SYMBOL_GPL(uwb_rc_vcmd);
 
 
 /**
@@ -361,7 +361,7 @@ void uwb_rc_reset_all(struct uwb_rc *rc)
 
 	uwbd_event_queue(evt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_reset_all); */
+EXPORT_SYMBOL_GPL(uwb_rc_reset_all);
 
 void uwb_rc_pre_reset(struct uwb_rc *rc)
 {
@@ -371,7 +371,7 @@ void uwb_rc_pre_reset(struct uwb_rc *rc)
 	uwb_radio_reset_state(rc);
 	uwb_rsv_remove_all(rc);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_pre_reset); */
+EXPORT_SYMBOL_GPL(uwb_rc_pre_reset);
 
 int uwb_rc_post_reset(struct uwb_rc *rc)
 {
@@ -389,4 +389,4 @@ int uwb_rc_post_reset(struct uwb_rc *rc)
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(uwb_rc_post_reset); */
+EXPORT_SYMBOL_GPL(uwb_rc_post_reset);

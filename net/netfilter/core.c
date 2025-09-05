@@ -28,7 +28,7 @@
 static DEFINE_MUTEX(afinfo_mutex);
 
 const struct nf_afinfo __rcu *nf_afinfo[NFPROTO_NUMPROTO] __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(nf_afinfo); */
+EXPORT_SYMBOL(nf_afinfo);
 
 int nf_register_afinfo(const struct nf_afinfo *afinfo)
 {
@@ -41,7 +41,7 @@ int nf_register_afinfo(const struct nf_afinfo *afinfo)
 	mutex_unlock(&afinfo_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_register_afinfo); */
+EXPORT_SYMBOL_GPL(nf_register_afinfo);
 
 void nf_unregister_afinfo(const struct nf_afinfo *afinfo)
 {
@@ -50,14 +50,14 @@ void nf_unregister_afinfo(const struct nf_afinfo *afinfo)
 	mutex_unlock(&afinfo_mutex);
 	synchronize_rcu();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_unregister_afinfo); */
+EXPORT_SYMBOL_GPL(nf_unregister_afinfo);
 
 struct list_head nf_hooks[NFPROTO_NUMPROTO][NF_MAX_HOOKS] __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(nf_hooks); */
+EXPORT_SYMBOL(nf_hooks);
 
 #if defined(CONFIG_JUMP_LABEL)
 struct static_key nf_hooks_needed[NFPROTO_NUMPROTO][NF_MAX_HOOKS];
-/* DISABLED: EXPORT_SYMBOL(nf_hooks_needed); */
+EXPORT_SYMBOL(nf_hooks_needed);
 #endif
 
 static DEFINE_MUTEX(nf_hook_mutex);
@@ -81,7 +81,7 @@ int nf_register_hook(struct nf_hook_ops *reg)
 #endif
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_register_hook); */
+EXPORT_SYMBOL(nf_register_hook);
 
 void nf_unregister_hook(struct nf_hook_ops *reg)
 {
@@ -93,7 +93,7 @@ void nf_unregister_hook(struct nf_hook_ops *reg)
 #endif
 	synchronize_net();
 }
-/* DISABLED: EXPORT_SYMBOL(nf_unregister_hook); */
+EXPORT_SYMBOL(nf_unregister_hook);
 
 int nf_register_hooks(struct nf_hook_ops *reg, unsigned int n)
 {
@@ -112,14 +112,14 @@ err:
 		nf_unregister_hooks(reg, i);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_register_hooks); */
+EXPORT_SYMBOL(nf_register_hooks);
 
 void nf_unregister_hooks(struct nf_hook_ops *reg, unsigned int n)
 {
 	while (n-- > 0)
 		nf_unregister_hook(&reg[n]);
 }
-/* DISABLED: EXPORT_SYMBOL(nf_unregister_hooks); */
+EXPORT_SYMBOL(nf_unregister_hooks);
 
 unsigned int nf_iterate(struct list_head *head,
 			struct sk_buff *skb,
@@ -205,7 +205,7 @@ next_hook:
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(nf_hook_slow); */
+EXPORT_SYMBOL(nf_hook_slow);
 
 
 int skb_make_writable(struct sk_buff *skb, unsigned int writable_len)
@@ -227,14 +227,14 @@ int skb_make_writable(struct sk_buff *skb, unsigned int writable_len)
 
 	return !!__pskb_pull_tail(skb, writable_len);
 }
-/* DISABLED: EXPORT_SYMBOL(skb_make_writable); */
+EXPORT_SYMBOL(skb_make_writable);
 
 #if IS_ENABLED(CONFIG_NF_CONNTRACK)
 /* This does not belong here, but locally generated errors need it if connection
    tracking in use: without this, connection may not be in hash table, and hence
    manufactured ICMP or RST packets will not be associated with it. */
 void (*ip_ct_attach)(struct sk_buff *, struct sk_buff *) __rcu __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(ip_ct_attach); */
+EXPORT_SYMBOL(ip_ct_attach);
 
 void nf_ct_attach(struct sk_buff *new, struct sk_buff *skb)
 {
@@ -248,10 +248,10 @@ void nf_ct_attach(struct sk_buff *new, struct sk_buff *skb)
 		rcu_read_unlock();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(nf_ct_attach); */
+EXPORT_SYMBOL(nf_ct_attach);
 
 void (*nf_ct_destroy)(struct nf_conntrack *) __rcu __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(nf_ct_destroy); */
+EXPORT_SYMBOL(nf_ct_destroy);
 
 void nf_conntrack_destroy(struct nf_conntrack *nfct)
 {
@@ -263,24 +263,24 @@ void nf_conntrack_destroy(struct nf_conntrack *nfct)
 	destroy(nfct);
 	rcu_read_unlock();
 }
-/* DISABLED: EXPORT_SYMBOL(nf_conntrack_destroy); */
+EXPORT_SYMBOL(nf_conntrack_destroy);
 
 struct nfq_ct_hook __rcu *nfq_ct_hook __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nfq_ct_hook); */
+EXPORT_SYMBOL_GPL(nfq_ct_hook);
 
 struct nfq_ct_nat_hook __rcu *nfq_ct_nat_hook __read_mostly;
-/* DISABLED: EXPORT_SYMBOL_GPL(nfq_ct_nat_hook); */
+EXPORT_SYMBOL_GPL(nfq_ct_nat_hook);
 
 #endif /* CONFIG_NF_CONNTRACK */
 
 #ifdef CONFIG_NF_NAT_NEEDED
 void (*nf_nat_decode_session_hook)(struct sk_buff *, struct flowi *);
-/* DISABLED: EXPORT_SYMBOL(nf_nat_decode_session_hook); */
+EXPORT_SYMBOL(nf_nat_decode_session_hook);
 #endif
 
 #ifdef CONFIG_PROC_FS
 struct proc_dir_entry *proc_net_netfilter;
-/* DISABLED: EXPORT_SYMBOL(proc_net_netfilter); */
+EXPORT_SYMBOL(proc_net_netfilter);
 #endif
 
 void __init netfilter_init(void)
@@ -309,5 +309,5 @@ struct ctl_path nf_net_netfilter_sysctl_path[] = {
 	{ .procname = "netfilter", },
 	{ }
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_net_netfilter_sysctl_path); */
+EXPORT_SYMBOL_GPL(nf_net_netfilter_sysctl_path);
 #endif /* CONFIG_SYSCTL */

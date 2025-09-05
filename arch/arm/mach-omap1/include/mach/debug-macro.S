@@ -48,11 +48,11 @@ omap_uart_virt:	.word	0x0
 		/* Select the UART to use based on the UART1 scratchpad value */
 10:		cmp	\rp, #0			@ no port configured?
 		beq	11f			@ if none, try to use UART1
-		cmp	\rp, @ OMAP1UART1
+		cmp	\rp, #OMAP1UART1
 		beq	11f			@ configure OMAP1UART1
-		cmp	\rp, @ OMAP1UART2
+		cmp	\rp, #OMAP1UART2
 		beq	12f			@ configure OMAP1UART2
-		cmp	\rp, @ OMAP1UART3
+		cmp	\rp, #OMAP1UART3
 		beq	13f			@ configure OMAP2UART3
 
 		/* Configure the UART offset from the phys/virt base */
@@ -86,13 +86,13 @@ omap_uart_virt:	.word	0x0
 		.endm
 
 		.macro	busyuart,rd,rx
-1001:		ldrb	\rd, [\rx, @ (UART_LSR << OMAP_PORT_SHIFT)]
-		and	\rd, \rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
-		teq	\rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
+1001:		ldrb	\rd, [\rx, #(UART_LSR << OMAP_PORT_SHIFT)]
+		and	\rd, \rd, #(UART_LSR_TEMT | UART_LSR_THRE)
+		teq	\rd, #(UART_LSR_TEMT | UART_LSR_THRE)
 		beq	1002f
-		ldrb	\rd, [\rx, @ (UART_LSR << OMAP7XX_PORT_SHIFT)]
-		and	\rd, \rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
-		teq	\rd, @ (UART_LSR_TEMT | UART_LSR_THRE)
+		ldrb	\rd, [\rx, #(UART_LSR << OMAP7XX_PORT_SHIFT)]
+		and	\rd, \rd, #(UART_LSR_TEMT | UART_LSR_THRE)
+		teq	\rd, #(UART_LSR_TEMT | UART_LSR_THRE)
 		bne	1001b
 1002:
 		.endm

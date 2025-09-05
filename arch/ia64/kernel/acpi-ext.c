@@ -101,4 +101,4 @@ acpi_status hp_acpi_csr_space(acpi_handle obj, u64 *csr_base, u64 *csr_length)
 
 	return hp_crs_locate(obj, csr_base, csr_length);
 }
-/* DISABLED: EXPORT_SYMBOL(hp_acpi_csr_space); */
+EXPORT_SYMBOL(hp_acpi_csr_space);

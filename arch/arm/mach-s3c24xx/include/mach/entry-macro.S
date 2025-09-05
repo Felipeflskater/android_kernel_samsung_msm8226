@@ -27,14 +27,14 @@
 
 	.macro	get_irqnr_and_base, irqnr, irqstat, base, tmp
 
-		mov	\base, @ S3C24XX_VA_IRQ
+		mov	\base, #S3C24XX_VA_IRQ
 
 		@@ try the interrupt offset register, since it is there
 
-		ldr	\irqstat, [\base, @ INTPND ]
+		ldr	\irqstat, [\base, #INTPND ]
 		teq	\irqstat, #0
 		beq	1002f
-		ldr	\irqnr, [\base, @ INTOFFSET ]
+		ldr	\irqnr, [\base, #INTOFFSET ]
 		mov	\tmp, #1
 		tst	\irqstat, \tmp, lsl \irqnr
 		bne	1001f
@@ -63,7 +63,7 @@
 
 		@@ we have the value
 1001:
-		adds	\irqnr, \irqnr, @ IRQ_EINT0
+		adds	\irqnr, \irqnr, #IRQ_EINT0
 1002:
 		@@ exit here, Z flag unset if IRQ
 

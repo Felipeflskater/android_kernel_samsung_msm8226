@@ -191,7 +191,7 @@ int check_short_key(void)
 	ret = !(!check_key_press);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(check_short_key); */
+EXPORT_SYMBOL(check_short_key);
 #endif
 
 static irqreturn_t matrix_keypad_interrupt(int irq, void *id)

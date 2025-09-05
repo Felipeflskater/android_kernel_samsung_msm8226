@@ -1314,7 +1314,7 @@ error_no_pdata:
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_loader_probe); */
+EXPORT_SYMBOL(cyttsp5_loader_probe);
 
 int cyttsp5_loader_release(struct device *dev)
 {
@@ -1339,5 +1339,5 @@ int cyttsp5_loader_release(struct device *dev)
 	kfree(ld);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_loader_release); */
+EXPORT_SYMBOL(cyttsp5_loader_release);
 

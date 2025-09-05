@@ -111,7 +111,7 @@ int try_test_sas_gpio_gp_bit(unsigned int od, u8 *data, u8 index, u8 count)
 
 	return (*byte >> bit) & 1;
 }
-/* DISABLED: EXPORT_SYMBOL(try_test_sas_gpio_gp_bit); */
+EXPORT_SYMBOL(try_test_sas_gpio_gp_bit);
 
 static int sas_host_smp_write_gpio(struct sas_ha_struct *sas_ha, u8 *resp_data,
 				   u8 reg_type, u8 reg_index, u8 reg_count,

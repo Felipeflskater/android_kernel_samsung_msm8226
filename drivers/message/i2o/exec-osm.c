@@ -608,5 +608,5 @@ void i2o_exec_exit(void)
 	i2o_driver_unregister(&i2o_exec_driver);
 };
 
-/* DISABLED: EXPORT_SYMBOL(i2o_msg_post_wait_mem); */
-/* DISABLED: EXPORT_SYMBOL(i2o_exec_lct_get); */
+EXPORT_SYMBOL(i2o_msg_post_wait_mem);
+EXPORT_SYMBOL(i2o_exec_lct_get);

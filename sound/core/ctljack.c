@@ -43,7 +43,7 @@ snd_kctl_jack_new(const char *name, int idx, void *private_data)
 	kctl->private_value = 0;
 	return kctl;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_kctl_jack_new); */
+EXPORT_SYMBOL_GPL(snd_kctl_jack_new);
 
 void snd_kctl_jack_report(struct snd_card *card,
 			  struct snd_kcontrol *kctl, bool status)
@@ -53,4 +53,4 @@ void snd_kctl_jack_report(struct snd_card *card,
 	kctl->private_value = status;
 	snd_ctl_notify(card, SNDRV_CTL_EVENT_MASK_VALUE, &kctl->id);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_kctl_jack_report); */
+EXPORT_SYMBOL_GPL(snd_kctl_jack_report);

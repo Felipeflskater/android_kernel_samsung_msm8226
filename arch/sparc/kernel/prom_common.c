@@ -28,13 +28,13 @@
 #include "prom.h"
 
 struct device_node *of_console_device;
-/* DISABLED: EXPORT_SYMBOL(of_console_device); */
+EXPORT_SYMBOL(of_console_device);
 
 char *of_console_path;
-/* DISABLED: EXPORT_SYMBOL(of_console_path); */
+EXPORT_SYMBOL(of_console_path);
 
 char *of_console_options;
-/* DISABLED: EXPORT_SYMBOL(of_console_options); */
+EXPORT_SYMBOL(of_console_options);
 
 int of_getintprop_default(struct device_node *np, const char *name, int def)
 {
@@ -47,10 +47,10 @@ int of_getintprop_default(struct device_node *np, const char *name, int def)
 
 	return *(int *) prop->value;
 }
-/* DISABLED: EXPORT_SYMBOL(of_getintprop_default); */
+EXPORT_SYMBOL(of_getintprop_default);
 
 DEFINE_MUTEX(of_set_property_mutex);
-/* DISABLED: EXPORT_SYMBOL(of_set_property_mutex); */
+EXPORT_SYMBOL(of_set_property_mutex);
 
 int of_set_property(struct device_node *dp, const char *name, void *val, int len)
 {
@@ -99,7 +99,7 @@ int of_set_property(struct device_node *dp, const char *name, void *val, int len
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(of_set_property); */
+EXPORT_SYMBOL(of_set_property);
 
 int of_find_in_proplist(const char *list, const char *match, int len)
 {
@@ -114,7 +114,7 @@ int of_find_in_proplist(const char *list, const char *match, int len)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_find_in_proplist); */
+EXPORT_SYMBOL(of_find_in_proplist);
 
 /*
  * SPARC32 and SPARC64's prom_nextprop() do things differently

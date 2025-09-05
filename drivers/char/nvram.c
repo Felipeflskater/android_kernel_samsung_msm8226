@@ -142,7 +142,7 @@ unsigned char __nvram_read_byte(int i)
 {
 	return CMOS_READ(NVRAM_FIRST_BYTE + i);
 }
-/* DISABLED: EXPORT_SYMBOL(__nvram_read_byte); */
+EXPORT_SYMBOL(__nvram_read_byte);
 
 unsigned char nvram_read_byte(int i)
 {
@@ -154,14 +154,14 @@ unsigned char nvram_read_byte(int i)
 	spin_unlock_irqrestore(&rtc_lock, flags);
 	return c;
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_read_byte); */
+EXPORT_SYMBOL(nvram_read_byte);
 
 /* This races nicely with trying to read with checksum checking (nvram_read) */
 void __nvram_write_byte(unsigned char c, int i)
 {
 	CMOS_WRITE(c, NVRAM_FIRST_BYTE + i);
 }
-/* DISABLED: EXPORT_SYMBOL(__nvram_write_byte); */
+EXPORT_SYMBOL(__nvram_write_byte);
 
 void nvram_write_byte(unsigned char c, int i)
 {
@@ -171,13 +171,13 @@ void nvram_write_byte(unsigned char c, int i)
 	__nvram_write_byte(c, i);
 	spin_unlock_irqrestore(&rtc_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_write_byte); */
+EXPORT_SYMBOL(nvram_write_byte);
 
 int __nvram_check_checksum(void)
 {
 	return mach_check_checksum();
 }
-/* DISABLED: EXPORT_SYMBOL(__nvram_check_checksum); */
+EXPORT_SYMBOL(__nvram_check_checksum);
 
 int nvram_check_checksum(void)
 {
@@ -189,7 +189,7 @@ int nvram_check_checksum(void)
 	spin_unlock_irqrestore(&rtc_lock, flags);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL(nvram_check_checksum); */
+EXPORT_SYMBOL(nvram_check_checksum);
 
 static void __nvram_set_checksum(void)
 {

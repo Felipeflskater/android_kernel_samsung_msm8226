@@ -245,7 +245,7 @@ struct ip6_flowlabel * fl6_sock_lookup(struct sock *sk, __be32 label)
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(fl6_sock_lookup); */
+EXPORT_SYMBOL_GPL(fl6_sock_lookup);
 
 void fl6_free_socklist(struct sock *sk)
 {

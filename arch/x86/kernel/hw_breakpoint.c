@@ -379,7 +379,7 @@ void aout_dump_debugregs(struct user *dump)
 
 	dump->u_debugreg[7] = dr7;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(aout_dump_debugregs); */
+EXPORT_SYMBOL_GPL(aout_dump_debugregs);
 
 /*
  * Release the user breakpoints used by ptrace
@@ -404,7 +404,7 @@ void hw_breakpoint_restore(void)
 	set_debugreg(current->thread.debugreg6, 6);
 	set_debugreg(__this_cpu_read(cpu_dr7), 7);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hw_breakpoint_restore); */
+EXPORT_SYMBOL_GPL(hw_breakpoint_restore);
 
 /*
  * Handle debug exception notifications.

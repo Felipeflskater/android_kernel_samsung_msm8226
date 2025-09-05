@@ -143,14 +143,14 @@ struct videobuf_dmabuf *videobuf_to_dma(struct videobuf_buffer *buf)
 
 	return &mem->dma;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_to_dma); */
+EXPORT_SYMBOL_GPL(videobuf_to_dma);
 
 void videobuf_dma_init(struct videobuf_dmabuf *dma)
 {
 	memset(dma, 0, sizeof(*dma));
 	dma->magic = MAGIC_DMABUF;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_init); */
+EXPORT_SYMBOL_GPL(videobuf_dma_init);
 
 static int videobuf_dma_init_user_locked(struct videobuf_dmabuf *dma,
 			int direction, unsigned long data, unsigned long size)
@@ -206,7 +206,7 @@ int videobuf_dma_init_user(struct videobuf_dmabuf *dma, int direction,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_init_user); */
+EXPORT_SYMBOL_GPL(videobuf_dma_init_user);
 
 int videobuf_dma_init_kernel(struct videobuf_dmabuf *dma, int direction,
 			     int nr_pages)
@@ -229,7 +229,7 @@ int videobuf_dma_init_kernel(struct videobuf_dmabuf *dma, int direction,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_init_kernel); */
+EXPORT_SYMBOL_GPL(videobuf_dma_init_kernel);
 
 int videobuf_dma_init_overlay(struct videobuf_dmabuf *dma, int direction,
 			      dma_addr_t addr, int nr_pages)
@@ -246,7 +246,7 @@ int videobuf_dma_init_overlay(struct videobuf_dmabuf *dma, int direction,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_init_overlay); */
+EXPORT_SYMBOL_GPL(videobuf_dma_init_overlay);
 
 int videobuf_dma_map(struct device *dev, struct videobuf_dmabuf *dma)
 {
@@ -290,7 +290,7 @@ int videobuf_dma_map(struct device *dev, struct videobuf_dmabuf *dma)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_map); */
+EXPORT_SYMBOL_GPL(videobuf_dma_map);
 
 int videobuf_dma_unmap(struct device *dev, struct videobuf_dmabuf *dma)
 {
@@ -307,7 +307,7 @@ int videobuf_dma_unmap(struct device *dev, struct videobuf_dmabuf *dma)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_unmap); */
+EXPORT_SYMBOL_GPL(videobuf_dma_unmap);
 
 int videobuf_dma_free(struct videobuf_dmabuf *dma)
 {
@@ -331,7 +331,7 @@ int videobuf_dma_free(struct videobuf_dmabuf *dma)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_dma_free); */
+EXPORT_SYMBOL_GPL(videobuf_dma_free);
 
 /* --------------------------------------------------------------------- */
 
@@ -614,7 +614,7 @@ void *videobuf_sg_alloc(size_t size)
 
 	return videobuf_alloc_vb(&q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_sg_alloc); */
+EXPORT_SYMBOL_GPL(videobuf_sg_alloc);
 
 void videobuf_queue_sg_init(struct videobuf_queue *q,
 			 const struct videobuf_queue_ops *ops,
@@ -629,5 +629,5 @@ void videobuf_queue_sg_init(struct videobuf_queue *q,
 	videobuf_queue_core_init(q, ops, dev, irqlock, type, field, msize,
 				 priv, &sg_ops, ext_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(videobuf_queue_sg_init); */
+EXPORT_SYMBOL_GPL(videobuf_queue_sg_init);
 

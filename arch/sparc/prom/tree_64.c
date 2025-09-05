@@ -50,7 +50,7 @@ inline phandle prom_getchild(phandle node)
 		return 0;
 	return cnode;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getchild); */
+EXPORT_SYMBOL(prom_getchild);
 
 inline phandle prom_getparent(phandle node)
 {
@@ -84,7 +84,7 @@ inline phandle prom_getsibling(phandle node)
 
 	return sibnode;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getsibling); */
+EXPORT_SYMBOL(prom_getsibling);
 
 /* Return the length in bytes of property 'prop' at node 'node'.
  * Return -1 on error.
@@ -107,7 +107,7 @@ inline int prom_getproplen(phandle node, const char *prop)
 
 	return (int) args[5];
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getproplen); */
+EXPORT_SYMBOL(prom_getproplen);
 
 /* Acquire a property 'prop' at node 'node' and place it in
  * 'buffer' which has a size of 'bufsize'.  If the acquisition
@@ -136,7 +136,7 @@ inline int prom_getproperty(phandle node, const char *prop,
 
 	return (int) args[7];
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getproperty); */
+EXPORT_SYMBOL(prom_getproperty);
 
 /* Acquire an integer property and return its value.  Returns -1
  * on failure.
@@ -150,7 +150,7 @@ inline int prom_getint(phandle node, const char *prop)
 
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getint); */
+EXPORT_SYMBOL(prom_getint);
 
 /* Acquire an integer property, upon error return the passed default
  * integer.
@@ -166,7 +166,7 @@ int prom_getintdefault(phandle node, const char *property, int deflt)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getintdefault); */
+EXPORT_SYMBOL(prom_getintdefault);
 
 /* Acquire a boolean property, 1=TRUE 0=FALSE. */
 int prom_getbool(phandle node, const char *prop)
@@ -178,7 +178,7 @@ int prom_getbool(phandle node, const char *prop)
 		return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getbool); */
+EXPORT_SYMBOL(prom_getbool);
 
 /* Acquire a property whose value is a string, returns a null
  * string on error.  The char pointer is the user supplied string
@@ -194,7 +194,7 @@ void prom_getstring(phandle node, const char *prop, char *user_buf,
 		return;
 	user_buf[0] = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_getstring); */
+EXPORT_SYMBOL(prom_getstring);
 
 /* Does the device at node 'node' have name 'name'?
  * YES = 1   NO = 0
@@ -228,7 +228,7 @@ phandle prom_searchsiblings(phandle node_start, const char *nodename)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_searchsiblings); */
+EXPORT_SYMBOL(prom_searchsiblings);
 
 static const char *prom_nextprop_name = "nextprop";
 
@@ -255,7 +255,7 @@ inline char *prom_firstprop(phandle node, char *buffer)
 
 	return buffer;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_firstprop); */
+EXPORT_SYMBOL(prom_firstprop);
 
 /* Return the property type string after property type 'oprop'
  * at node 'node' .  Returns NULL string if no more
@@ -287,7 +287,7 @@ inline char *prom_nextprop(phandle node, const char *oprop, char *buffer)
 
 	return buffer;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_nextprop); */
+EXPORT_SYMBOL(prom_nextprop);
 
 phandle prom_finddevice(const char *name)
 {
@@ -305,7 +305,7 @@ phandle prom_finddevice(const char *name)
 
 	return (int) args[4];
 }
-/* DISABLED: EXPORT_SYMBOL(prom_finddevice); */
+EXPORT_SYMBOL(prom_finddevice);
 
 int prom_node_has_property(phandle node, const char *prop)
 {
@@ -319,7 +319,7 @@ int prom_node_has_property(phandle node, const char *prop)
 	} while (*buf);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(prom_node_has_property); */
+EXPORT_SYMBOL(prom_node_has_property);
 
 /* Set property 'pname' at node 'node' to value 'value' which has a length
  * of 'size' bytes.  Return the number of bytes the prom accepted.
@@ -353,7 +353,7 @@ prom_setprop(phandle node, const char *pname, char *value, int size)
 
 	return (int) args[7];
 }
-/* DISABLED: EXPORT_SYMBOL(prom_setprop); */
+EXPORT_SYMBOL(prom_setprop);
 
 inline phandle prom_inst2pkg(int inst)
 {

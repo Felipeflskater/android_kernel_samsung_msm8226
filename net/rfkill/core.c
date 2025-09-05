@@ -474,7 +474,7 @@ bool rfkill_set_hw_state(struct rfkill *rfkill, bool blocked)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_set_hw_state); */
+EXPORT_SYMBOL(rfkill_set_hw_state);
 
 static void __rfkill_set_sw_state(struct rfkill *rfkill, bool blocked)
 {
@@ -514,7 +514,7 @@ bool rfkill_set_sw_state(struct rfkill *rfkill, bool blocked)
 
 	return blocked;
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_set_sw_state); */
+EXPORT_SYMBOL(rfkill_set_sw_state);
 
 void rfkill_init_sw_state(struct rfkill *rfkill, bool blocked)
 {
@@ -528,7 +528,7 @@ void rfkill_init_sw_state(struct rfkill *rfkill, bool blocked)
 	rfkill->persistent = true;
 	spin_unlock_irqrestore(&rfkill->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_init_sw_state); */
+EXPORT_SYMBOL(rfkill_init_sw_state);
 
 void rfkill_set_states(struct rfkill *rfkill, bool sw, bool hw)
 {
@@ -562,7 +562,7 @@ void rfkill_set_states(struct rfkill *rfkill, bool sw, bool hw)
 		rfkill_led_trigger_event(rfkill);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_set_states); */
+EXPORT_SYMBOL(rfkill_set_states);
 
 static ssize_t rfkill_name_show(struct device *dev,
 				struct device_attribute *attr,
@@ -776,7 +776,7 @@ void rfkill_pause_polling(struct rfkill *rfkill)
 
 	cancel_delayed_work_sync(&rfkill->poll_work);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_pause_polling); */
+EXPORT_SYMBOL(rfkill_pause_polling);
 
 #ifdef CONFIG_RFKILL_PM
 void rfkill_resume_polling(struct rfkill *rfkill)
@@ -788,7 +788,7 @@ void rfkill_resume_polling(struct rfkill *rfkill)
 
 	schedule_work(&rfkill->poll_work.work);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_resume_polling); */
+EXPORT_SYMBOL(rfkill_resume_polling);
 
 static int rfkill_suspend(struct device *dev, pm_message_t state)
 {
@@ -837,7 +837,7 @@ bool rfkill_blocked(struct rfkill *rfkill)
 
 	return !!(state & RFKILL_BLOCK_ANY);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_blocked); */
+EXPORT_SYMBOL(rfkill_blocked);
 
 
 struct rfkill * __must_check rfkill_alloc(const char *name,
@@ -879,7 +879,7 @@ struct rfkill * __must_check rfkill_alloc(const char *name,
 
 	return rfkill;
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_alloc); */
+EXPORT_SYMBOL(rfkill_alloc);
 
 static void rfkill_poll(struct work_struct *work)
 {
@@ -985,7 +985,7 @@ int __must_check rfkill_register(struct rfkill *rfkill)
 	mutex_unlock(&rfkill_global_mutex);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_register); */
+EXPORT_SYMBOL(rfkill_register);
 
 void rfkill_unregister(struct rfkill *rfkill)
 {
@@ -1008,14 +1008,14 @@ void rfkill_unregister(struct rfkill *rfkill)
 
 	rfkill_led_trigger_unregister(rfkill);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_unregister); */
+EXPORT_SYMBOL(rfkill_unregister);
 
 void rfkill_destroy(struct rfkill *rfkill)
 {
 	if (rfkill)
 		put_device(&rfkill->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(rfkill_destroy); */
+EXPORT_SYMBOL(rfkill_destroy);
 
 static int rfkill_fop_open(struct inode *inode, struct file *file)
 {

@@ -125,7 +125,7 @@ const char *v4l2_norm_to_name(v4l2_std_id id)
 			break;
 	return standards[i].descr;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_norm_to_name); */
+EXPORT_SYMBOL(v4l2_norm_to_name);
 
 /* Returns frame period for the given standard */
 void v4l2_video_std_frame_period(int id, struct v4l2_fract *frameperiod)
@@ -138,7 +138,7 @@ void v4l2_video_std_frame_period(int id, struct v4l2_fract *frameperiod)
 		frameperiod->denominator = 25;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_video_std_frame_period); */
+EXPORT_SYMBOL(v4l2_video_std_frame_period);
 
 /* Fill in the fields of a v4l2_standard structure according to the
    'id' and 'transmission' parameters.  Returns negative on error.  */
@@ -151,7 +151,7 @@ int v4l2_video_std_construct(struct v4l2_standard *vs,
 	strlcpy(vs->name, name, sizeof(vs->name));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(v4l2_video_std_construct); */
+EXPORT_SYMBOL(v4l2_video_std_construct);
 
 /* ----------------------------------------------------------------- */
 /* some arrays for pretty-printing debug messages of enum types      */
@@ -168,7 +168,7 @@ const char *v4l2_field_names[] = {
 	[V4L2_FIELD_INTERLACED_TB] = "interlaced-tb",
 	[V4L2_FIELD_INTERLACED_BT] = "interlaced-bt",
 };
-/* DISABLED: EXPORT_SYMBOL(v4l2_field_names); */
+EXPORT_SYMBOL(v4l2_field_names);
 
 const char *v4l2_type_names[] = {
 	[V4L2_BUF_TYPE_VIDEO_CAPTURE]      = "vid-cap",
@@ -182,7 +182,7 @@ const char *v4l2_type_names[] = {
 	[V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE] = "vid-cap-mplane",
 	[V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE] = "vid-out-mplane",
 };
-/* DISABLED: EXPORT_SYMBOL(v4l2_type_names); */
+EXPORT_SYMBOL(v4l2_type_names);
 
 static const char *v4l2_memory_names[] = {
 	[V4L2_MEMORY_MMAP]    = "mmap",
@@ -313,7 +313,7 @@ void v4l_printk_ioctl(unsigned int cmd)
 	printk("%s ioctl '%c', dir=%s, #%d (0x%08x)",
 		type, _IOC_TYPE(cmd), dir, _IOC_NR(cmd), cmd);
 }
-/* DISABLED: EXPORT_SYMBOL(v4l_printk_ioctl); */
+EXPORT_SYMBOL(v4l_printk_ioctl);
 
 static void dbgbuf(unsigned int cmd, struct video_device *vfd,
 					struct v4l2_buffer *p)
@@ -2481,11 +2481,11 @@ out:
 	kfree(mbuf);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(video_usercopy); */
+EXPORT_SYMBOL(video_usercopy);
 
 long video_ioctl2(struct file *file,
 	       unsigned int cmd, unsigned long arg)
 {
 	return video_usercopy(file, cmd, arg, __video_do_ioctl);
 }
-/* DISABLED: EXPORT_SYMBOL(video_ioctl2); */
+EXPORT_SYMBOL(video_ioctl2);

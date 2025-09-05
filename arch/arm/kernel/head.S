@@ -52,7 +52,7 @@
 	.equ	swapper_pg_dir, KERNEL_RAM_VADDR - PG_DIR_SIZE
 
 	.macro	pgtbl, rd, phys
-	add	\rd, \phys, @ TEXT_OFFSET - PG_DIR_SIZE
+	add	\rd, \phys, #TEXT_OFFSET - PG_DIR_SIZE
 	.endm
 
 #ifdef CONFIG_XIP_KERNEL
@@ -140,8 +140,8 @@ ENTRY(stext)
 						@ mmu has been enabled
 	adr	lr, BSYM(1f)			@ return (PIC) address
 	mov	r8, r4				@ set TTBR1 to swapper_pg_dir
- ARM(	add	pc, r10, @ PROCINFO_INITFUNC	)
- THUMB(	add	r12, r10, @ PROCINFO_INITFUNC	)
+ ARM(	add	pc, r10, #PROCINFO_INITFUNC	)
+ THUMB(	add	r12, r10, #PROCINFO_INITFUNC	)
  THUMB(	mov	pc, r12				)
 1:	b	__enable_mmu
 ENDPROC(stext)
@@ -170,7 +170,7 @@ __create_page_tables:
 	 */
 	mov	r0, r4
 	mov	r3, #0
-	add	r6, r0, @ PG_DIR_SIZE
+	add	r6, r0, #PG_DIR_SIZE
 1:	str	r3, [r0], #4
 	str	r3, [r0], #4
 	str	r3, [r0], #4
@@ -197,7 +197,7 @@ __create_page_tables:
 	add	r4, r4, #0x1000			@ point to the PMD tables
 #endif
 
-	ldr	r7, [r10, @ PROCINFO_MM_MMUFLAGS] @ mm_mmuflags
+	ldr	r7, [r10, #PROCINFO_MM_MMUFLAGS] @ mm_mmuflags
 
 	/*
 	 * Create identity mapping to cater for __enable_mmu.
@@ -208,11 +208,11 @@ __create_page_tables:
 	sub	r0, r0, r3			@ virt->phys offset
 	add	r5, r5, r0			@ phys __turn_mmu_on
 	add	r6, r6, r0			@ phys __turn_mmu_on_end
-	mov	r5, r5, lsr @ SECTION_SHIFT
-	mov	r6, r6, lsr @ SECTION_SHIFT
+	mov	r5, r5, lsr #SECTION_SHIFT
+	mov	r6, r6, lsr #SECTION_SHIFT
 
-1:	orr	r3, r7, r5, lsl @ SECTION_SHIFT	@ flags + kernel base
-	str	r3, [r4, r5, lsl @ PMD_ORDER]	@ identity mapping
+1:	orr	r3, r7, r5, lsl #SECTION_SHIFT	@ flags + kernel base
+	str	r3, [r4, r5, lsl #PMD_ORDER]	@ identity mapping
 	cmp	r5, r6
 	addlo	r5, r5, #1			@ next section
 	blo	1b
@@ -222,13 +222,13 @@ __create_page_tables:
 	 * mapped region.
 	 */
 	mov	r3, pc
-	mov	r3, r3, lsr @ SECTION_SHIFT
-	orr	r3, r7, r3, lsl @ SECTION_SHIFT
-	add	r0, r4, @ (KERNEL_START & 0xff000000) >> (SECTION_SHIFT - PMD_ORDER)
-	str	r3, [r0, @ ((KERNEL_START & 0x00f00000) >> SECTION_SHIFT) << PMD_ORDER]!
+	mov	r3, r3, lsr #SECTION_SHIFT
+	orr	r3, r7, r3, lsl #SECTION_SHIFT
+	add	r0, r4,  #(KERNEL_START & 0xff000000) >> (SECTION_SHIFT - PMD_ORDER)
+	str	r3, [r0, #((KERNEL_START & 0x00f00000) >> SECTION_SHIFT) << PMD_ORDER]!
 	ldr	r6, =(KERNEL_END - 1)
 	add	r0, r0, #1 << PMD_ORDER
-	add	r6, r4, r6, lsr @ (SECTION_SHIFT - PMD_ORDER)
+	add	r6, r4, r6, lsr #(SECTION_SHIFT - PMD_ORDER)
 1:	cmp	r0, r6
 	add	r3, r3, #1 << SECTION_SHIFT
 	strls	r3, [r0], #1 << PMD_ORDER
@@ -238,13 +238,13 @@ __create_page_tables:
 	/*
 	 * Map some ram to cover our .data and .bss areas.
 	 */
-	add	r3, r8, @ TEXT_OFFSET
+	add	r3, r8, #TEXT_OFFSET
 	orr	r3, r3, r7
-	add	r0, r4, @ (KERNEL_RAM_VADDR & 0xff000000) >> (SECTION_SHIFT - PMD_ORDER)
-	str	r3, [r0, @ (KERNEL_RAM_VADDR & 0x00f00000) >> (SECTION_SHIFT - PMD_ORDER)]!
+	add	r0, r4,  #(KERNEL_RAM_VADDR & 0xff000000) >> (SECTION_SHIFT - PMD_ORDER)
+	str	r3, [r0, #(KERNEL_RAM_VADDR & 0x00f00000) >> (SECTION_SHIFT - PMD_ORDER)]!
 	ldr	r6, =(_end - 1)
 	add	r0, r0, #4
-	add	r6, r4, r6, lsr @ (SECTION_SHIFT - PMD_ORDER)
+	add	r6, r4, r6, lsr #(SECTION_SHIFT - PMD_ORDER)
 1:	cmp	r0, r6
 	add	r3, r3, #1 << 20
 	strls	r3, [r0], #4
@@ -256,12 +256,12 @@ __create_page_tables:
 	 * of ram if boot params address is not specified.
 	 * We map 2 sections in case the ATAGs/DTB crosses a section boundary.
 	 */
-	mov	r0, r2, lsr @ SECTION_SHIFT
-	movs	r0, r0, lsl @ SECTION_SHIFT
+	mov	r0, r2, lsr #SECTION_SHIFT
+	movs	r0, r0, lsl #SECTION_SHIFT
 	moveq	r0, r8
 	sub	r3, r0, r8
-	add	r3, r3, @ PAGE_OFFSET
-	add	r3, r4, r3, lsr @ (SECTION_SHIFT - PMD_ORDER)
+	add	r3, r3, #PAGE_OFFSET
+	add	r3, r4, r3, lsr #(SECTION_SHIFT - PMD_ORDER)
 	orr	r6, r7, r0
 	str	r6, [r3], #1 << PMD_ORDER
 	add	r6, r6, #1 << SECTION_SHIFT
@@ -276,21 +276,21 @@ __create_page_tables:
 	 */
 	addruart r7, r3, r0
 
-	mov	r3, r3, lsr @ SECTION_SHIFT
-	mov	r3, r3, lsl @ PMD_ORDER
+	mov	r3, r3, lsr #SECTION_SHIFT
+	mov	r3, r3, lsl #PMD_ORDER
 
 	add	r0, r4, r3
 	rsb	r3, r3, #0x4000			@ PTRS_PER_PGD*sizeof(long)
 	cmp	r3, #0x0800			@ limit to 512MB
 	movhi	r3, #0x0800
 	add	r6, r0, r3
-	mov	r3, r7, lsr @ SECTION_SHIFT
-	ldr	r7, [r10, @ PROCINFO_IO_MMUFLAGS] @ io_mmuflags
-	orr	r3, r7, r3, lsl @ SECTION_SHIFT
+	mov	r3, r7, lsr #SECTION_SHIFT
+	ldr	r7, [r10, #PROCINFO_IO_MMUFLAGS] @ io_mmuflags
+	orr	r3, r7, r3, lsl #SECTION_SHIFT
 #ifdef CONFIG_ARM_LPAE
 	mov	r7, #1 << (54 - 32)		@ XN
 #else
-	orr	r3, r3, @ PMD_SECT_XN
+	orr	r3, r3, #PMD_SECT_XN
 #endif
 1:	str	r3, [r0], #4
 #ifdef CONFIG_ARM_LPAE
@@ -302,7 +302,7 @@ __create_page_tables:
 
 #else /* CONFIG_DEBUG_ICEDCC || CONFIG_DEBUG_SEMIHOSTING */
 	/* we don't need any serial debugging mappings */
-	ldr	r7, [r10, @ PROCINFO_IO_MMUFLAGS] @ io_mmuflags
+	ldr	r7, [r10, #PROCINFO_IO_MMUFLAGS] @ io_mmuflags
 #endif
 
 #if defined(CONFIG_ARCH_NETWINDER) || defined(CONFIG_ARCH_CATS)
@@ -353,7 +353,7 @@ ENTRY(secondary_startup)
 	mrc	p15, 0, r9, c0, c0		@ get processor id
 	bl	__lookup_processor_type
 	movs	r10, r5				@ invalid processor?
-	moveq	r0, @ 'p'			@ yes, error 'p'
+	moveq	r0, #'p'			@ yes, error 'p'
  THUMB( it	eq )		@ force fixup-able long branch encoding
 	beq	__error_p
 
@@ -368,9 +368,9 @@ ENTRY(secondary_startup)
 	ldr	r8, [r7, lr]			@ get secondary_data.swapper_pg_dir
 	adr	lr, BSYM(__enable_mmu)		@ return address
 	mov	r13, r12			@ __secondary_switched address
- ARM(	add	pc, r10, @ PROCINFO_INITFUNC	) @ initialise processor
+ ARM(	add	pc, r10, #PROCINFO_INITFUNC	) @ initialise processor
 						  @ (return control reg)
- THUMB(	add	r12, r10, @ PROCINFO_INITFUNC	)
+ THUMB(	add	r12, r10, #PROCINFO_INITFUNC	)
  THUMB(	mov	pc, r12				)
 ENDPROC(secondary_startup)
 
@@ -408,24 +408,24 @@ __secondary_data:
  */
 __enable_mmu:
 #if defined(CONFIG_ALIGNMENT_TRAP) && __LINUX_ARM_ARCH__ < 6
-	orr	r0, r0, @ CR_A
+	orr	r0, r0, #CR_A
 #else
-	bic	r0, r0, @ CR_A
+	bic	r0, r0, #CR_A
 #endif
 #ifdef CONFIG_CPU_DCACHE_DISABLE
-	bic	r0, r0, @ CR_C
+	bic	r0, r0, #CR_C
 #endif
 #ifdef CONFIG_CPU_BPREDICT_DISABLE
-	bic	r0, r0, @ CR_Z
+	bic	r0, r0, #CR_Z
 #endif
 #ifdef CONFIG_CPU_ICACHE_DISABLE
-	bic	r0, r0, @ CR_I
+	bic	r0, r0, #CR_I
 #endif
 #ifdef CONFIG_ARM_LPAE
 	mov	r5, #0
 	mcrr	p15, 0, r4, r5, c2		@ load TTBR0
 #else
-	mov	r5, @ (domain_val(DOMAIN_USER, DOMAIN_MANAGER) | \
+	mov	r5, #(domain_val(DOMAIN_USER, DOMAIN_MANAGER) | \
 		      domain_val(DOMAIN_KERNEL, DOMAIN_MANAGER) | \
 		      domain_val(DOMAIN_TABLE, DOMAIN_MANAGER) | \
 		      domain_val(DOMAIN_IO, DOMAIN_CLIENT))
@@ -566,7 +566,7 @@ ENDPROC(fixup_smp)
 /* __fixup_pv_table - patch the stub instructions with the delta between
  * PHYS_OFFSET and PAGE_OFFSET, which is assumed to be 16MiB aligned and
  * can be expressed by an immediate shifter operand. The stub instruction
- * has a form of '(add|sub) rd, rn, @ imm'.
+ * has a form of '(add|sub) rd, rn, #imm'.
  */
 	__HEAD
 __fixup_pv_table:

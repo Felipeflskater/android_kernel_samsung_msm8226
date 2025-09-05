@@ -77,7 +77,7 @@ ssize_t usb_store_new_id(struct usb_dynids *dynids,
 		return retval;
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_store_new_id); */
+EXPORT_SYMBOL_GPL(usb_store_new_id);
 
 static ssize_t store_new_id(struct device_driver *driver,
 			    const char *buf, size_t count)
@@ -449,7 +449,7 @@ int usb_driver_claim_interface(struct usb_driver *driver,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_driver_claim_interface); */
+EXPORT_SYMBOL_GPL(usb_driver_claim_interface);
 
 /**
  * usb_driver_release_interface - unbind a driver from an interface
@@ -491,7 +491,7 @@ void usb_driver_release_interface(struct usb_driver *driver,
 		device_unlock(dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_driver_release_interface); */
+EXPORT_SYMBOL_GPL(usb_driver_release_interface);
 
 /* returns 0 if no match, 1 if match */
 int usb_match_device(struct usb_device *dev, const struct usb_device_id *id)
@@ -583,7 +583,7 @@ int usb_match_one_id(struct usb_interface *interface,
 
 	return usb_match_one_id_intf(dev, intf, id);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_match_one_id); */
+EXPORT_SYMBOL_GPL(usb_match_one_id);
 
 /**
  * usb_match_id - find first usb_device_id matching device or interface
@@ -676,7 +676,7 @@ const struct usb_device_id *usb_match_id(struct usb_interface *interface,
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_match_id); */
+EXPORT_SYMBOL_GPL(usb_match_id);
 
 static int usb_device_match(struct device *dev, struct device_driver *drv)
 {
@@ -813,7 +813,7 @@ int usb_register_device_driver(struct usb_device_driver *new_udriver,
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_register_device_driver); */
+EXPORT_SYMBOL_GPL(usb_register_device_driver);
 
 /**
  * usb_deregister_device_driver - unregister a USB device (not interface) driver
@@ -830,7 +830,7 @@ void usb_deregister_device_driver(struct usb_device_driver *udriver)
 	driver_unregister(&udriver->drvwrap.driver);
 	usbfs_update_special();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_deregister_device_driver); */
+EXPORT_SYMBOL_GPL(usb_deregister_device_driver);
 
 /**
  * usb_register_driver - register a USB interface driver
@@ -889,7 +889,7 @@ out_newid:
 			usbcore_name, retval, new_driver->name);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_register_driver); */
+EXPORT_SYMBOL_GPL(usb_register_driver);
 
 /**
  * usb_deregister - unregister a USB interface driver
@@ -913,7 +913,7 @@ void usb_deregister(struct usb_driver *driver)
 
 	usbfs_update_special();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_deregister); */
+EXPORT_SYMBOL_GPL(usb_deregister);
 
 /* Forced unbinding of a USB interface driver, either because
  * it doesn't support pre_reset/post_reset/reset_resume or
@@ -1476,7 +1476,7 @@ void usb_enable_autosuspend(struct usb_device *udev)
 {
 	pm_runtime_allow(&udev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_enable_autosuspend); */
+EXPORT_SYMBOL_GPL(usb_enable_autosuspend);
 
 /**
  * usb_disable_autosuspend - prevent a USB device from being autosuspended
@@ -1491,7 +1491,7 @@ void usb_disable_autosuspend(struct usb_device *udev)
 {
 	pm_runtime_forbid(&udev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_disable_autosuspend); */
+EXPORT_SYMBOL_GPL(usb_disable_autosuspend);
 
 /**
  * usb_autosuspend_device - delayed autosuspend of a USB device and its interfaces
@@ -1580,7 +1580,7 @@ void usb_autopm_put_interface(struct usb_interface *intf)
 			__func__, atomic_read(&intf->dev.power.usage_count),
 			status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_put_interface); */
+EXPORT_SYMBOL_GPL(usb_autopm_put_interface);
 
 /**
  * usb_autopm_put_interface_async - decrement a USB interface's PM-usage counter
@@ -1609,7 +1609,7 @@ void usb_autopm_put_interface_async(struct usb_interface *intf)
 			__func__, atomic_read(&intf->dev.power.usage_count),
 			status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_put_interface_async); */
+EXPORT_SYMBOL_GPL(usb_autopm_put_interface_async);
 
 /**
  * usb_autopm_put_interface_no_suspend - decrement a USB interface's PM-usage counter
@@ -1628,7 +1628,7 @@ void usb_autopm_put_interface_no_suspend(struct usb_interface *intf)
 	atomic_dec(&intf->pm_usage_cnt);
 	pm_runtime_put_noidle(&intf->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_put_interface_no_suspend); */
+EXPORT_SYMBOL_GPL(usb_autopm_put_interface_no_suspend);
 
 /**
  * usb_autopm_get_interface - increment a USB interface's PM-usage counter
@@ -1663,7 +1663,7 @@ int usb_autopm_get_interface(struct usb_interface *intf)
 		status = 0;
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_get_interface); */
+EXPORT_SYMBOL_GPL(usb_autopm_get_interface);
 
 /**
  * usb_autopm_get_interface_async - increment a USB interface's PM-usage counter
@@ -1696,7 +1696,7 @@ int usb_autopm_get_interface_async(struct usb_interface *intf)
 		status = 0;
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_get_interface_async); */
+EXPORT_SYMBOL_GPL(usb_autopm_get_interface_async);
 
 /**
  * usb_autopm_get_interface_no_resume - increment a USB interface's PM-usage counter
@@ -1715,7 +1715,7 @@ void usb_autopm_get_interface_no_resume(struct usb_interface *intf)
 	atomic_inc(&intf->pm_usage_cnt);
 	pm_runtime_get_noresume(&intf->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_autopm_get_interface_no_resume); */
+EXPORT_SYMBOL_GPL(usb_autopm_get_interface_no_resume);
 
 /* Internal routine to check whether we may autosuspend a device. */
 static int autosuspend_check(struct usb_device *udev)

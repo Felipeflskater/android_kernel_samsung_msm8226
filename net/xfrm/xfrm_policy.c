@@ -35,7 +35,7 @@
 #include "xfrm_hash.h"
 
 DEFINE_MUTEX(xfrm_cfg_mutex);
-/* DISABLED: EXPORT_SYMBOL(xfrm_cfg_mutex); */
+EXPORT_SYMBOL(xfrm_cfg_mutex);
 
 static DEFINE_SPINLOCK(xfrm_policy_sk_bundle_lock);
 static struct dst_entry *xfrm_policy_sk_bundles;
@@ -275,7 +275,7 @@ struct xfrm_policy *xfrm_policy_alloc(struct net *net, gfp_t gfp)
 	}
 	return policy;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_alloc); */
+EXPORT_SYMBOL(xfrm_policy_alloc);
 
 /* Destroy xfrm_policy: descendant resources must be released to this moment. */
 
@@ -289,7 +289,7 @@ void xfrm_policy_destroy(struct xfrm_policy *policy)
 	security_xfrm_policy_free(policy->security);
 	kfree(policy);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_destroy); */
+EXPORT_SYMBOL(xfrm_policy_destroy);
 
 /* Rule must be locked. Release descentant resources, announce
  * entry dead. The rule must be unlinked from lists to the moment.
@@ -478,7 +478,7 @@ void xfrm_spd_getinfo(struct net *net, struct xfrmk_spdinfo *si)
 	si->spdhmcnt = xfrm_policy_hashmax;
 	read_unlock_bh(&xfrm_policy_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_spd_getinfo); */
+EXPORT_SYMBOL(xfrm_spd_getinfo);
 
 static DEFINE_MUTEX(hash_resize_mutex);
 static void xfrm_hash_resize(struct work_struct *work)
@@ -602,7 +602,7 @@ int xfrm_policy_insert(int dir, struct xfrm_policy *policy, int excl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_insert); */
+EXPORT_SYMBOL(xfrm_policy_insert);
 
 struct xfrm_policy *xfrm_policy_bysel_ctx(struct net *net, u32 mark, u8 type,
 					  int dir, struct xfrm_selector *sel,
@@ -642,7 +642,7 @@ struct xfrm_policy *xfrm_policy_bysel_ctx(struct net *net, u32 mark, u8 type,
 		xfrm_policy_kill(ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_bysel_ctx); */
+EXPORT_SYMBOL(xfrm_policy_bysel_ctx);
 
 struct xfrm_policy *xfrm_policy_byid(struct net *net, u32 mark, u8 type,
 				     int dir, u32 id, int delete, int *err)
@@ -682,7 +682,7 @@ struct xfrm_policy *xfrm_policy_byid(struct net *net, u32 mark, u8 type,
 		xfrm_policy_kill(ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_byid); */
+EXPORT_SYMBOL(xfrm_policy_byid);
 
 #ifdef CONFIG_SECURITY_NETWORK_XFRM
 static inline int
@@ -799,7 +799,7 @@ out:
 	write_unlock_bh(&xfrm_policy_lock);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_flush); */
+EXPORT_SYMBOL(xfrm_policy_flush);
 
 int xfrm_policy_walk(struct net *net, struct xfrm_policy_walk *walk,
 		     int (*func)(struct xfrm_policy *, int, int, void*),
@@ -845,7 +845,7 @@ out:
 	write_unlock_bh(&xfrm_policy_lock);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_walk); */
+EXPORT_SYMBOL(xfrm_policy_walk);
 
 void xfrm_policy_walk_init(struct xfrm_policy_walk *walk, u8 type)
 {
@@ -854,7 +854,7 @@ void xfrm_policy_walk_init(struct xfrm_policy_walk *walk, u8 type)
 	walk->type = type;
 	walk->seq = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_walk_init); */
+EXPORT_SYMBOL(xfrm_policy_walk_init);
 
 void xfrm_policy_walk_done(struct xfrm_policy_walk *walk)
 {
@@ -865,7 +865,7 @@ void xfrm_policy_walk_done(struct xfrm_policy_walk *walk)
 	list_del(&walk->walk.all);
 	write_unlock_bh(&xfrm_policy_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_walk_done); */
+EXPORT_SYMBOL(xfrm_policy_walk_done);
 
 /*
  * Find policy to apply to this flow.
@@ -1075,7 +1075,7 @@ int xfrm_policy_delete(struct xfrm_policy *pol, int dir)
 	}
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_delete); */
+EXPORT_SYMBOL(xfrm_policy_delete);
 
 int xfrm_sk_policy_insert(struct sock *sk, int dir, struct xfrm_policy *pol)
 {
@@ -1937,7 +1937,7 @@ dropdst:
 	xfrm_pols_put(pols, drop_pols);
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_lookup); */
+EXPORT_SYMBOL(xfrm_lookup);
 
 static inline int
 xfrm_secpath_reject(int idx, struct sk_buff *skb, const struct flowi *fl)
@@ -2018,7 +2018,7 @@ int __xfrm_decode_session(struct sk_buff *skb, struct flowi *fl,
 	xfrm_policy_put_afinfo(afinfo);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__xfrm_decode_session); */
+EXPORT_SYMBOL(__xfrm_decode_session);
 
 static inline int secpath_has_nontransport(const struct sec_path *sp, int k, int *idxp)
 {
@@ -2188,7 +2188,7 @@ reject_error:
 	xfrm_pols_put(pols, npols);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(__xfrm_policy_check); */
+EXPORT_SYMBOL(__xfrm_policy_check);
 
 int __xfrm_route_forward(struct sk_buff *skb, unsigned short family)
 {
@@ -2212,7 +2212,7 @@ int __xfrm_route_forward(struct sk_buff *skb, unsigned short family)
 	skb_dst_set(skb, dst);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(__xfrm_route_forward); */
+EXPORT_SYMBOL(__xfrm_route_forward);
 
 /* Optimize later using cookies and generation ids. */
 
@@ -2257,7 +2257,7 @@ void xfrm_dst_ifdown(struct dst_entry *dst, struct net_device *dev)
 		dev_put(dev);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_dst_ifdown); */
+EXPORT_SYMBOL(xfrm_dst_ifdown);
 
 static void xfrm_link_failure(struct sk_buff *skb)
 {
@@ -2462,7 +2462,7 @@ int xfrm_policy_register_afinfo(struct xfrm_policy_afinfo *afinfo)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_register_afinfo); */
+EXPORT_SYMBOL(xfrm_policy_register_afinfo);
 
 int xfrm_policy_unregister_afinfo(struct xfrm_policy_afinfo *afinfo)
 {
@@ -2488,7 +2488,7 @@ int xfrm_policy_unregister_afinfo(struct xfrm_policy_afinfo *afinfo)
 	write_unlock_bh(&xfrm_policy_afinfo_lock);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_policy_unregister_afinfo); */
+EXPORT_SYMBOL(xfrm_policy_unregister_afinfo);
 
 static void __net_init xfrm_dst_ops_init(struct net *net)
 {
@@ -2751,7 +2751,7 @@ void xfrm_audit_policy_add(struct xfrm_policy *xp, int result,
 	xfrm_audit_common_policyinfo(xp, audit_buf);
 	audit_log_end(audit_buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_policy_add); */
+EXPORT_SYMBOL_GPL(xfrm_audit_policy_add);
 
 void xfrm_audit_policy_delete(struct xfrm_policy *xp, int result,
 			      uid_t auid, u32 sessionid, u32 secid)
@@ -2766,7 +2766,7 @@ void xfrm_audit_policy_delete(struct xfrm_policy *xp, int result,
 	xfrm_audit_common_policyinfo(xp, audit_buf);
 	audit_log_end(audit_buf);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xfrm_audit_policy_delete); */
+EXPORT_SYMBOL_GPL(xfrm_audit_policy_delete);
 #endif
 
 #ifdef CONFIG_XFRM_MIGRATE
@@ -3001,5 +3001,5 @@ restore_state:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(xfrm_migrate); */
+EXPORT_SYMBOL(xfrm_migrate);
 #endif

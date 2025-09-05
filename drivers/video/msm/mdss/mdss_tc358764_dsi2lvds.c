@@ -1360,7 +1360,7 @@ int get_samsung_lcd_attached(void)
 {
 	return lcd_attached;
 }
-/* DISABLED: EXPORT_SYMBOL(get_samsung_lcd_attached); */
+EXPORT_SYMBOL(get_samsung_lcd_attached);
 
 static int __init get_lcd_id_cmdline(char *mode)
 {
@@ -1391,7 +1391,7 @@ static int __init get_lcd_id_cmdline(char *mode)
 	return 0;
 }
 
-/* DISABLED: __setup( "lcd_id=0x", get_lcd_id_cmdline ); */ */
+__setup( "lcd_id=0x", get_lcd_id_cmdline );
 
 
 int mdss_dsi_panel_init(struct device_node *node,

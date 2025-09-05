@@ -721,7 +721,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_bind_pasid); */
+EXPORT_SYMBOL(amd_iommu_bind_pasid);
 
 void amd_iommu_unbind_pasid(struct pci_dev *pdev, int pasid)
 {
@@ -746,7 +746,7 @@ void amd_iommu_unbind_pasid(struct pci_dev *pdev, int pasid)
 out:
 	put_device_state(dev_state);
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_unbind_pasid); */
+EXPORT_SYMBOL(amd_iommu_unbind_pasid);
 
 int amd_iommu_init_device(struct pci_dev *pdev, int pasids)
 {
@@ -824,7 +824,7 @@ out_free_dev_state:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_init_device); */
+EXPORT_SYMBOL(amd_iommu_init_device);
 
 void amd_iommu_free_device(struct pci_dev *pdev)
 {
@@ -854,7 +854,7 @@ void amd_iommu_free_device(struct pci_dev *pdev)
 
 	put_device_state_wait(dev_state);
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_free_device); */
+EXPORT_SYMBOL(amd_iommu_free_device);
 
 int amd_iommu_set_invalid_ppr_cb(struct pci_dev *pdev,
 				 amd_iommu_invalid_ppr_cb cb)
@@ -885,7 +885,7 @@ out_unlock:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_set_invalid_ppr_cb); */
+EXPORT_SYMBOL(amd_iommu_set_invalid_ppr_cb);
 
 int amd_iommu_set_invalidate_ctx_cb(struct pci_dev *pdev,
 				    amd_iommu_invalidate_ctx cb)
@@ -916,7 +916,7 @@ out_unlock:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_set_invalidate_ctx_cb); */
+EXPORT_SYMBOL(amd_iommu_set_invalidate_ctx_cb);
 
 static int __init amd_iommu_v2_init(void)
 {

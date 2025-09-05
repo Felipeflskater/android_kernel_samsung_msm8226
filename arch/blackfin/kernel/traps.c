@@ -48,7 +48,7 @@
 #if defined(CONFIG_DEBUG_MMRS) || defined(CONFIG_DEBUG_MMRS_MODULE)
 u32 last_seqstat;
 #ifdef CONFIG_DEBUG_MMRS_MODULE
-/* DISABLED: EXPORT_SYMBOL(last_seqstat); */
+EXPORT_SYMBOL(last_seqstat);
 #endif
 #endif
 

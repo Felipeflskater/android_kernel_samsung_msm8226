@@ -267,7 +267,7 @@ void register_shrinker(struct shrinker *shrinker)
 	list_add_tail(&shrinker->list, &shrinker_list);
 	up_write(&shrinker_rwsem);
 }
-/* DISABLED: EXPORT_SYMBOL(register_shrinker); */
+EXPORT_SYMBOL(register_shrinker);
 
 static int __init add_shrinker_debug(void)
 {
@@ -287,7 +287,7 @@ void unregister_shrinker(struct shrinker *shrinker)
 	list_del(&shrinker->list);
 	up_write(&shrinker_rwsem);
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_shrinker); */
+EXPORT_SYMBOL(unregister_shrinker);
 
 static inline int do_shrinker_shrink(struct shrinker *shrinker,
 				     struct shrink_control *sc,

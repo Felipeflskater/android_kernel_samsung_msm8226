@@ -20,7 +20,7 @@ int scons_pwroff = 1;
  * reference in kernel/sys.c
  */
 void (*pm_power_off)(void) = machine_power_off;
-/* DISABLED: EXPORT_SYMBOL(pm_power_off); */
+EXPORT_SYMBOL(pm_power_off);
 
 void machine_power_off(void)
 {

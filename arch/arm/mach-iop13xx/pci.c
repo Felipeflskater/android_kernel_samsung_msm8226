@@ -41,10 +41,10 @@ u32 iop13xx_atux_mem_base;
 size_t iop13xx_atue_mem_size;
 size_t iop13xx_atux_mem_size;
 
-/* DISABLED: EXPORT_SYMBOL(iop13xx_atue_mem_base); */
-/* DISABLED: EXPORT_SYMBOL(iop13xx_atux_mem_base); */
-/* DISABLED: EXPORT_SYMBOL(iop13xx_atue_mem_size); */
-/* DISABLED: EXPORT_SYMBOL(iop13xx_atux_mem_size); */
+EXPORT_SYMBOL(iop13xx_atue_mem_base);
+EXPORT_SYMBOL(iop13xx_atux_mem_base);
+EXPORT_SYMBOL(iop13xx_atue_mem_size);
+EXPORT_SYMBOL(iop13xx_atux_mem_size);
 
 int init_atu = 0; /* Flag to select which ATU(s) to initialize / disable */
 static unsigned long atux_trhfa_timeout = 0; /* Trhfa = RST# high to first
@@ -1129,4 +1129,4 @@ static int __init iop13xx_init_atu_setup(char *str)
         return 1;
 }
 
-/* DISABLED: __setup("iop13xx_init_atu", iop13xx_init_atu_setup); */ */
+__setup("iop13xx_init_atu", iop13xx_init_atu_setup);

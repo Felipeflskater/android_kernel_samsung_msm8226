@@ -30,8 +30,8 @@
 
 MODULE_LICENSE("GPL");
 
-/* DISABLED: EXPORT_SYMBOL_GPL(nfsacl_encode); */
-/* DISABLED: EXPORT_SYMBOL_GPL(nfsacl_decode); */
+EXPORT_SYMBOL_GPL(nfsacl_encode);
+EXPORT_SYMBOL_GPL(nfsacl_decode);
 
 struct nfsacl_encode_desc {
 	struct xdr_array2_desc desc;

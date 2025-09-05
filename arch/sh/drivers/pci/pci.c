@@ -325,11 +325,11 @@ void pci_iounmap(struct pci_dev *dev, void __iomem *addr)
 {
 	iounmap(addr);
 }
-/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */
+EXPORT_SYMBOL(pci_iounmap);
 
 #endif /* CONFIG_GENERIC_IOMAP */
 
 #ifdef CONFIG_HOTPLUG
-/* DISABLED: EXPORT_SYMBOL(PCIBIOS_MIN_IO); */
-/* DISABLED: EXPORT_SYMBOL(PCIBIOS_MIN_MEM); */
+EXPORT_SYMBOL(PCIBIOS_MIN_IO);
+EXPORT_SYMBOL(PCIBIOS_MIN_MEM);
 #endif

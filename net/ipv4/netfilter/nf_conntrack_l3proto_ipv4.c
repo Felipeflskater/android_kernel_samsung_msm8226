@@ -488,4 +488,4 @@ void need_ipv4_conntrack(void)
 {
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(need_ipv4_conntrack); */
+EXPORT_SYMBOL_GPL(need_ipv4_conntrack);

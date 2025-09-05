@@ -2694,7 +2694,7 @@ int synaptics_proximity_no_sleep_set(bool enables)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_proximity_no_sleep_set); */
+EXPORT_SYMBOL(synaptics_proximity_no_sleep_set);
 
 static int synaptics_rmi4_f51_set_enables(struct synaptics_rmi4_data *rmi4_data)
 {
@@ -2851,7 +2851,7 @@ int synaptics_rmi4_proximity_enables(unsigned char enables)
 #endif
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_rmi4_proximity_enables); */
+EXPORT_SYMBOL(synaptics_rmi4_proximity_enables);
 #endif
 
 static int synaptics_rmi4_check_status(struct synaptics_rmi4_data *rmi4_data)
@@ -3971,7 +3971,7 @@ static int __init sec_tsp_mode(char *mode)
  
 	return 1;
 }
-/* DISABLED: __setup("lcd_id=0x", sec_tsp_mode); */ */
+__setup("lcd_id=0x", sec_tsp_mode);
 
 #ifdef CONFIG_SEC_TSP_FACTORY
  unsigned int bootmode;

@@ -194,7 +194,7 @@ struct pci_dev *of_create_pci_dev(struct device_node *node,
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(of_create_pci_dev); */
+EXPORT_SYMBOL(of_create_pci_dev);
 
 /**
  * of_scan_pci_bridge - Set up a PCI bridge and scan for child nodes
@@ -292,7 +292,7 @@ void __devinit of_scan_pci_bridge(struct pci_dev *dev)
 	else if (mode == PCI_PROBE_NORMAL)
 		pci_scan_child_bus(bus);
 }
-/* DISABLED: EXPORT_SYMBOL(of_scan_pci_bridge); */
+EXPORT_SYMBOL(of_scan_pci_bridge);
 
 /**
  * __of_scan_bus - given a PCI bus node, setup bus and scan for child devices
@@ -354,7 +354,7 @@ void __devinit of_scan_bus(struct device_node *node,
 {
 	__of_scan_bus(node, bus, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_scan_bus); */
+EXPORT_SYMBOL_GPL(of_scan_bus);
 
 /**
  * of_rescan_bus - given a PCI bus node, scan for child devices
@@ -369,5 +369,5 @@ void __devinit of_rescan_bus(struct device_node *node,
 {
 	__of_scan_bus(node, bus, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_rescan_bus); */
+EXPORT_SYMBOL_GPL(of_rescan_bus);
 

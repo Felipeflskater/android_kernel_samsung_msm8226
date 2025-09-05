@@ -303,7 +303,7 @@ error:
 	kfree(state);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(ec100_attach); */
+EXPORT_SYMBOL(ec100_attach);
 
 static struct dvb_frontend_ops ec100_ops = {
 	.delsys = { SYS_DVBT },

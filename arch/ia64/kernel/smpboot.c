@@ -130,7 +130,7 @@ struct task_struct *task_for_booting_cpu;
 DEFINE_PER_CPU(int, cpu_state);
 
 cpumask_t cpu_core_map[NR_CPUS] __cacheline_aligned;
-/* DISABLED: EXPORT_SYMBOL(cpu_core_map); */
+EXPORT_SYMBOL(cpu_core_map);
 DEFINE_PER_CPU_SHARED_ALIGNED(cpumask_t, cpu_sibling_map);
 EXPORT_PER_CPU_SYMBOL(cpu_sibling_map);
 
@@ -138,7 +138,7 @@ int smp_num_siblings = 1;
 
 /* which logical CPU number maps to which CPU (physical APIC ID) */
 volatile int ia64_cpu_to_sapicid[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL(ia64_cpu_to_sapicid); */
+EXPORT_SYMBOL(ia64_cpu_to_sapicid);
 
 static volatile cpumask_t cpu_callin_map;
 
@@ -169,7 +169,7 @@ cmdl_force_cpei(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("force_cpei=", cmdl_force_cpei); */ */
+__setup("force_cpei=", cmdl_force_cpei);
 
 static int __init
 nointroute (char *str)
@@ -179,7 +179,7 @@ nointroute (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("nointroute", nointroute); */ */
+__setup("nointroute", nointroute);
 
 static void fix_b0_for_bsp(void)
 {
@@ -561,7 +561,7 @@ decay (char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("decay=", decay); */ */
+__setup("decay=", decay);
 
 /*
  * Initialize the logical CPU number to SAPICID mapping
@@ -920,4 +920,4 @@ int is_multithreading_enabled(void)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_multithreading_enabled); */
+EXPORT_SYMBOL_GPL(is_multithreading_enabled);

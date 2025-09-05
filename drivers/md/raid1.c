@@ -687,7 +687,7 @@ int md_raid1_congested(struct mddev *mddev, int bits)
 	rcu_read_unlock();
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(md_raid1_congested); */
+EXPORT_SYMBOL_GPL(md_raid1_congested);
 
 static int raid1_congested(void *data, int bits)
 {

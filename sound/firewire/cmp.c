@@ -130,7 +130,7 @@ int cmp_connection_init(struct cmp_connection *c,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cmp_connection_init); */
+EXPORT_SYMBOL(cmp_connection_init);
 
 /**
  * cmp_connection_destroy - free connection manager resources
@@ -142,7 +142,7 @@ void cmp_connection_destroy(struct cmp_connection *c)
 	mutex_destroy(&c->mutex);
 	fw_iso_resources_destroy(&c->resources);
 }
-/* DISABLED: EXPORT_SYMBOL(cmp_connection_destroy); */
+EXPORT_SYMBOL(cmp_connection_destroy);
 
 
 static __be32 ipcr_set_modify(struct cmp_connection *c, __be32 ipcr)
@@ -223,7 +223,7 @@ err_mutex:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(cmp_connection_establish); */
+EXPORT_SYMBOL(cmp_connection_establish);
 
 /**
  * cmp_connection_update - update the connection after a bus reset
@@ -267,7 +267,7 @@ err_unconnect:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(cmp_connection_update); */
+EXPORT_SYMBOL(cmp_connection_update);
 
 
 static __be32 ipcr_break_modify(struct cmp_connection *c, __be32 ipcr)
@@ -304,4 +304,4 @@ void cmp_connection_break(struct cmp_connection *c)
 
 	mutex_unlock(&c->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(cmp_connection_break); */
+EXPORT_SYMBOL(cmp_connection_break);

@@ -15,7 +15,7 @@
 #include "blk.h"
 
 int blk_iopoll_enabled = 1;
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_enabled); */
+EXPORT_SYMBOL(blk_iopoll_enabled);
 
 static unsigned int blk_iopoll_budget __read_mostly = 256;
 
@@ -39,7 +39,7 @@ void blk_iopoll_sched(struct blk_iopoll *iop)
 	__raise_softirq_irqoff(BLOCK_IOPOLL_SOFTIRQ);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_sched); */
+EXPORT_SYMBOL(blk_iopoll_sched);
 
 /**
  * __blk_iopoll_complete - Mark this @iop as un-polled again
@@ -55,7 +55,7 @@ void __blk_iopoll_complete(struct blk_iopoll *iop)
 	smp_mb__before_clear_bit();
 	clear_bit_unlock(IOPOLL_F_SCHED, &iop->state);
 }
-/* DISABLED: EXPORT_SYMBOL(__blk_iopoll_complete); */
+EXPORT_SYMBOL(__blk_iopoll_complete);
 
 /**
  * blk_iopoll_complete - Mark this @iop as un-polled again
@@ -75,7 +75,7 @@ void blk_iopoll_complete(struct blk_iopoll *iopoll)
 	__blk_iopoll_complete(iopoll);
 	local_irq_restore(flags);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_complete); */
+EXPORT_SYMBOL(blk_iopoll_complete);
 
 static void blk_iopoll_softirq(struct softirq_action *h)
 {
@@ -151,7 +151,7 @@ void blk_iopoll_disable(struct blk_iopoll *iop)
 		msleep(1);
 	clear_bit(IOPOLL_F_DISABLE, &iop->state);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_disable); */
+EXPORT_SYMBOL(blk_iopoll_disable);
 
 /**
  * blk_iopoll_enable - Enable iopoll on this @iop
@@ -167,7 +167,7 @@ void blk_iopoll_enable(struct blk_iopoll *iop)
 	smp_mb__before_clear_bit();
 	clear_bit_unlock(IOPOLL_F_SCHED, &iop->state);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_enable); */
+EXPORT_SYMBOL(blk_iopoll_enable);
 
 /**
  * blk_iopoll_init - Initialize this @iop
@@ -187,7 +187,7 @@ void blk_iopoll_init(struct blk_iopoll *iop, int weight, blk_iopoll_fn *poll_fn)
 	iop->poll = poll_fn;
 	set_bit(IOPOLL_F_SCHED, &iop->state);
 }
-/* DISABLED: EXPORT_SYMBOL(blk_iopoll_init); */
+EXPORT_SYMBOL(blk_iopoll_init);
 
 static int __cpuinit blk_iopoll_cpu_notify(struct notifier_block *self,
 					  unsigned long action, void *hcpu)

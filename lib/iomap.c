@@ -93,11 +93,11 @@ unsigned int ioread32be(void __iomem *addr)
 	IO_COND(addr, return pio_read32be(port), return mmio_read32be(addr));
 	return 0xffffffff;
 }
-/* DISABLED: EXPORT_SYMBOL(ioread8); */
-/* DISABLED: EXPORT_SYMBOL(ioread16); */
-/* DISABLED: EXPORT_SYMBOL(ioread16be); */
-/* DISABLED: EXPORT_SYMBOL(ioread32); */
-/* DISABLED: EXPORT_SYMBOL(ioread32be); */
+EXPORT_SYMBOL(ioread8);
+EXPORT_SYMBOL(ioread16);
+EXPORT_SYMBOL(ioread16be);
+EXPORT_SYMBOL(ioread32);
+EXPORT_SYMBOL(ioread32be);
 
 #ifndef pio_write16be
 #define pio_write16be(val,port) outw(swab16(val),port)
@@ -129,11 +129,11 @@ void iowrite32be(u32 val, void __iomem *addr)
 {
 	IO_COND(addr, pio_write32be(val,port), mmio_write32be(val, addr));
 }
-/* DISABLED: EXPORT_SYMBOL(iowrite8); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16be); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32be); */
+EXPORT_SYMBOL(iowrite8);
+EXPORT_SYMBOL(iowrite16);
+EXPORT_SYMBOL(iowrite16be);
+EXPORT_SYMBOL(iowrite32);
+EXPORT_SYMBOL(iowrite32be);
 
 /*
  * These are the "repeat MMIO read/write" functions.
@@ -204,9 +204,9 @@ void ioread32_rep(void __iomem *addr, void *dst, unsigned long count)
 {
 	IO_COND(addr, insl(port,dst,count), mmio_insl(addr, dst, count));
 }
-/* DISABLED: EXPORT_SYMBOL(ioread8_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread16_rep); */
-/* DISABLED: EXPORT_SYMBOL(ioread32_rep); */
+EXPORT_SYMBOL(ioread8_rep);
+EXPORT_SYMBOL(ioread16_rep);
+EXPORT_SYMBOL(ioread32_rep);
 
 void iowrite8_rep(void __iomem *addr, const void *src, unsigned long count)
 {
@@ -220,9 +220,9 @@ void iowrite32_rep(void __iomem *addr, const void *src, unsigned long count)
 {
 	IO_COND(addr, outsl(port, src,count), mmio_outsl(addr, src, count));
 }
-/* DISABLED: EXPORT_SYMBOL(iowrite8_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite16_rep); */
-/* DISABLED: EXPORT_SYMBOL(iowrite32_rep); */
+EXPORT_SYMBOL(iowrite8_rep);
+EXPORT_SYMBOL(iowrite16_rep);
+EXPORT_SYMBOL(iowrite32_rep);
 
 #ifdef CONFIG_HAS_IOPORT
 /* Create a virtual mapping cookie for an IO port range */
@@ -237,8 +237,8 @@ void ioport_unmap(void __iomem *addr)
 {
 	/* Nothing to do */
 }
-/* DISABLED: EXPORT_SYMBOL(ioport_map); */
-/* DISABLED: EXPORT_SYMBOL(ioport_unmap); */
+EXPORT_SYMBOL(ioport_map);
+EXPORT_SYMBOL(ioport_unmap);
 #endif /* CONFIG_HAS_IOPORT */
 
 #ifdef CONFIG_PCI
@@ -248,5 +248,5 @@ void pci_iounmap(struct pci_dev *dev, void __iomem * addr)
 {
 	IO_COND(addr, /* nothing */, iounmap(addr));
 }
-/* DISABLED: EXPORT_SYMBOL(pci_iounmap); */
+EXPORT_SYMBOL(pci_iounmap);
 #endif /* CONFIG_PCI */

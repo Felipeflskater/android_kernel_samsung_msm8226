@@ -20,7 +20,7 @@
 
 struct sgimc_regs *sgimc;
 
-/* DISABLED: EXPORT_SYMBOL(sgimc); */
+EXPORT_SYMBOL(sgimc);
 
 static inline unsigned long get_bank_addr(unsigned int memconfig)
 {

@@ -340,6 +340,6 @@ void dcookie_unregister(struct dcookie_user * user)
 	mutex_unlock(&dcookie_mutex);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dcookie_register); */
-/* DISABLED: EXPORT_SYMBOL_GPL(dcookie_unregister); */
-/* DISABLED: EXPORT_SYMBOL_GPL(get_dcookie); */
+EXPORT_SYMBOL_GPL(dcookie_register);
+EXPORT_SYMBOL_GPL(dcookie_unregister);
+EXPORT_SYMBOL_GPL(get_dcookie);

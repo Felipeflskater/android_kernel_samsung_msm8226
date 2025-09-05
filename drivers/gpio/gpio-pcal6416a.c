@@ -314,7 +314,7 @@ int expander_gpio_config(unsigned config, unsigned disable)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(expander_gpio_config); */
+EXPORT_SYMBOL(expander_gpio_config);
 
 static int __devinit pcal6416a_gpio_setup(struct pcal6416a_chip *dev)
 {

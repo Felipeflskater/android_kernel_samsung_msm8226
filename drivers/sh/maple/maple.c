@@ -77,7 +77,7 @@ int maple_driver_register(struct maple_driver *drv)
 
 	return driver_register(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maple_driver_register); */
+EXPORT_SYMBOL_GPL(maple_driver_register);
 
 /**
  * maple_driver_unregister - unregister a maple driver.
@@ -90,7 +90,7 @@ void maple_driver_unregister(struct maple_driver *drv)
 {
 	driver_unregister(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maple_driver_unregister); */
+EXPORT_SYMBOL_GPL(maple_driver_unregister);
 
 /* set hardware registers to enable next round of dma */
 static void maple_dma_reset(void)
@@ -127,7 +127,7 @@ void maple_getcond_callback(struct maple_device *dev,
 	dev->function = cpu_to_be32(function);
 	dev->when = jiffies;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maple_getcond_callback); */
+EXPORT_SYMBOL_GPL(maple_getcond_callback);
 
 static int maple_dma_done(void)
 {
@@ -181,7 +181,7 @@ int maple_add_packet(struct maple_device *mdev, u32 function, u32 command,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(maple_add_packet); */
+EXPORT_SYMBOL_GPL(maple_add_packet);
 
 static struct mapleq *maple_allocq(struct maple_device *mdev)
 {
@@ -785,7 +785,7 @@ struct bus_type maple_bus_type = {
 	.match = maple_match_bus_driver,
 	.uevent = maple_bus_uevent,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(maple_bus_type); */
+EXPORT_SYMBOL_GPL(maple_bus_type);
 
 static struct device maple_bus = {
 	.init_name = "maple",

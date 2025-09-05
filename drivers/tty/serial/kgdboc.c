@@ -141,7 +141,7 @@ static int kgdboc_option_setup(char *opt)
 	return 0;
 }
 
-/* DISABLED: __setup("kgdboc=", kgdboc_option_setup); */ */
+__setup("kgdboc=", kgdboc_option_setup);
 
 static void cleanup_kgdboc(void)
 {

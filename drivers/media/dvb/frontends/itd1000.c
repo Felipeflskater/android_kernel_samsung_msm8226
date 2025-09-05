@@ -392,7 +392,7 @@ struct dvb_frontend *itd1000_attach(struct dvb_frontend *fe, struct i2c_adapter 
 
 	return fe;
 }
-/* DISABLED: EXPORT_SYMBOL(itd1000_attach); */
+EXPORT_SYMBOL(itd1000_attach);
 
 MODULE_AUTHOR("Patrick Boettcher <pb@linuxtv.org>");
 MODULE_DESCRIPTION("Integrant ITD1000 driver");

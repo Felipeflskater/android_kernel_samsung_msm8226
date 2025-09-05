@@ -59,4 +59,4 @@ int s3c2412_gpio_set_sleepcfg(unsigned int pin, unsigned int state)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(s3c2412_gpio_set_sleepcfg); */
+EXPORT_SYMBOL(s3c2412_gpio_set_sleepcfg);

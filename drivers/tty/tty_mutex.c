@@ -23,10 +23,10 @@ void __lockfunc tty_lock(void)
 {
 	mutex_lock(&big_tty_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_lock); */
+EXPORT_SYMBOL(tty_lock);
 
 void __lockfunc tty_unlock(void)
 {
 	mutex_unlock(&big_tty_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(tty_unlock); */
+EXPORT_SYMBOL(tty_unlock);

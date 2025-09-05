@@ -70,7 +70,7 @@ struct cvmx_sysinfo *cvmx_sysinfo_get(void)
 {
 	return &(state.sysinfo);
 }
-/* DISABLED: EXPORT_SYMBOL(cvmx_sysinfo_get); */
+EXPORT_SYMBOL(cvmx_sysinfo_get);
 
 /**
  * This function is used in non-simple executive environments (such as

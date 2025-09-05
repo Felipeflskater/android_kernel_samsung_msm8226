@@ -324,7 +324,7 @@ fail_tsadc_conf:
 fail_tsadc_startup:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(marimba_tsadc_start); */
+EXPORT_SYMBOL(marimba_tsadc_start);
 
 struct marimba_tsadc_client *
 marimba_tsadc_register(struct platform_device *pdev, unsigned int is_ts)
@@ -356,7 +356,7 @@ marimba_tsadc_register(struct platform_device *pdev, unsigned int is_ts)
 
 	return client;
 }
-/* DISABLED: EXPORT_SYMBOL(marimba_tsadc_register); */
+EXPORT_SYMBOL(marimba_tsadc_register);
 
 void marimba_tsadc_unregister(struct marimba_tsadc_client *client)
 {
@@ -364,7 +364,7 @@ void marimba_tsadc_unregister(struct marimba_tsadc_client *client)
 		marimba_tsadc_shutdown(tsadc_dev);
 	kfree(client);
 }
-/* DISABLED: EXPORT_SYMBOL(marimba_tsadc_unregister); */
+EXPORT_SYMBOL(marimba_tsadc_unregister);
 
 static struct resource resources_tssc[] = {
 	{

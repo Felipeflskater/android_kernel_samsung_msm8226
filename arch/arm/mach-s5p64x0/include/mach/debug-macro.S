@@ -25,8 +25,8 @@
 		movne	\rp, #0xEC000000	@@ S5P6440
 		ldrne	\rv, = S3C_VA_UART
 #if CONFIG_DEBUG_S3C_UART != 0
-		add	\rp, \rp, @ (0x400 * CONFIG_DEBUG_S3C_UART)
-		add	\rv, \rv, @ (0x400 * CONFIG_DEBUG_S3C_UART)
+		add	\rp, \rp, #(0x400 * CONFIG_DEBUG_S3C_UART)
+		add	\rv, \rv, #(0x400 * CONFIG_DEBUG_S3C_UART)
 #endif
 	.endm
 

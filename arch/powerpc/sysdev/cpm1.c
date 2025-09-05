@@ -259,7 +259,7 @@ out:
 	spin_unlock_irqrestore(&cmd_lock, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(cpm_command); */
+EXPORT_SYMBOL(cpm_command);
 
 /* Set a baud rate generator.  This needs lots of work.  There are
  * four BRGs, any of which can be wired to any channel.

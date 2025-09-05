@@ -604,7 +604,7 @@ void msm_mpm_suspend_prepare(void)
 		msm_mpm_gpio_irqs_detectable(false);
 	msm_mpm_sys_low_power_modes(allow);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_mpm_suspend_prepare); */
+EXPORT_SYMBOL(msm_mpm_suspend_prepare);
 
 void msm_mpm_suspend_wake(void)
 {
@@ -612,7 +612,7 @@ void msm_mpm_suspend_wake(void)
 		msm_mpm_gpio_irqs_detectable(true);
 	msm_mpm_sys_low_power_modes(allow);
 }
-/* DISABLED: EXPORT_SYMBOL(msm_mpm_suspend_wake); */
+EXPORT_SYMBOL(msm_mpm_suspend_wake);
 
 static void msm_mpm_work_fn(struct work_struct *work)
 {

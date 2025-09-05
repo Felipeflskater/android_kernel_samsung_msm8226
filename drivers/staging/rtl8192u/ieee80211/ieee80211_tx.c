@@ -908,4 +908,4 @@ int ieee80211_xmit(struct sk_buff *skb, struct net_device *dev)
 
 }
 
-/* DISABLED: EXPORT_SYMBOL(ieee80211_txb_free); */
+EXPORT_SYMBOL(ieee80211_txb_free);

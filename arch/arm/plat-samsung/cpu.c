@@ -26,7 +26,7 @@ unsigned int samsung_rev(void)
 {
 	return samsung_cpu_rev;
 }
-/* DISABLED: EXPORT_SYMBOL(samsung_rev); */
+EXPORT_SYMBOL(samsung_rev);
 
 void __init s3c24xx_init_cpu(void)
 {

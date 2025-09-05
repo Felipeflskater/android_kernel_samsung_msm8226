@@ -46,7 +46,7 @@ bool in_fips_err()
 {
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(in_fips_err); */
+EXPORT_SYMBOL_GPL(in_fips_err);
 #endif
 
 #else
@@ -3130,4 +3130,4 @@ int testmgr_crypto_proc_init(void)
 
 #endif /* CONFIG_CRYPTO_MANAGER_DISABLE_TESTS */
 
-/* DISABLED: EXPORT_SYMBOL_GPL(alg_test); */
+EXPORT_SYMBOL_GPL(alg_test);

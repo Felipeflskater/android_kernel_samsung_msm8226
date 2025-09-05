@@ -362,7 +362,7 @@ int ab3100_event_register(struct ab3100 *ab3100,
 	return blocking_notifier_chain_register(&ab3100->event_subscribers,
 					       nb);
 }
-/* DISABLED: EXPORT_SYMBOL(ab3100_event_register); */
+EXPORT_SYMBOL(ab3100_event_register);
 
 /*
  * Remove a previously registered callback.
@@ -373,7 +373,7 @@ int ab3100_event_unregister(struct ab3100 *ab3100,
   return blocking_notifier_chain_unregister(&ab3100->event_subscribers,
 					    nb);
 }
-/* DISABLED: EXPORT_SYMBOL(ab3100_event_unregister); */
+EXPORT_SYMBOL(ab3100_event_unregister);
 
 
 static int ab3100_event_registers_startup_state_get(struct device *dev,

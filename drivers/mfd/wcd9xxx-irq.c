@@ -169,7 +169,7 @@ bool wcd9xxx_lock_sleep(
 	wake_up_all(&wcd9xxx_res->pm_wq);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(wcd9xxx_lock_sleep); */
+EXPORT_SYMBOL(wcd9xxx_lock_sleep);
 
 void wcd9xxx_unlock_sleep(
 	struct wcd9xxx_core_resource *wcd9xxx_res)
@@ -190,7 +190,7 @@ void wcd9xxx_unlock_sleep(
 	mutex_unlock(&wcd9xxx_res->pm_lock);
 	wake_up_all(&wcd9xxx_res->pm_wq);
 }
-/* DISABLED: EXPORT_SYMBOL(wcd9xxx_unlock_sleep); */
+EXPORT_SYMBOL(wcd9xxx_unlock_sleep);
 
 void wcd9xxx_nested_irq_lock(struct wcd9xxx_core_resource *wcd9xxx_res)
 {

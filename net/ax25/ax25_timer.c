@@ -118,7 +118,7 @@ unsigned long ax25_display_timer(struct timer_list *timer)
 	return timer->expires - jiffies;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ax25_display_timer); */
+EXPORT_SYMBOL(ax25_display_timer);
 
 static void ax25_heartbeat_expiry(unsigned long param)
 {

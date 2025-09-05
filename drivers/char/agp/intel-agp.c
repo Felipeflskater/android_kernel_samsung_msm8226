@@ -14,7 +14,7 @@
 #include "intel-agp.h"
 
 int intel_agp_enabled;
-/* DISABLED: EXPORT_SYMBOL(intel_agp_enabled); */
+EXPORT_SYMBOL(intel_agp_enabled);
 
 static int intel_fetch_size(void)
 {

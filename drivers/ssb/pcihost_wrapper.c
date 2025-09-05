@@ -120,4 +120,4 @@ int __devinit ssb_pcihost_register(struct pci_driver *driver)
 
 	return pci_register_driver(driver);
 }
-/* DISABLED: EXPORT_SYMBOL(ssb_pcihost_register); */
+EXPORT_SYMBOL(ssb_pcihost_register);

@@ -32,14 +32,14 @@ unsigned long arch_local_save_flags(void)
 {
 	return mfspr(SPR_SR) & (SPR_SR_IEE|SPR_SR_TEE);
 }
-/* DISABLED: EXPORT_SYMBOL(arch_local_save_flags); */
+EXPORT_SYMBOL(arch_local_save_flags);
 
 /* set interrupt enabled status */
 void arch_local_irq_restore(unsigned long flags)
 {
 	mtspr(SPR_SR, ((mfspr(SPR_SR) & ~(SPR_SR_IEE|SPR_SR_TEE)) | flags));
 }
-/* DISABLED: EXPORT_SYMBOL(arch_local_irq_restore); */
+EXPORT_SYMBOL(arch_local_irq_restore);
 
 
 /* OR1K PIC implementation */
@@ -170,4 +170,4 @@ unsigned int irq_create_of_mapping(struct device_node *controller,
 {
 	return intspec[0];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(irq_create_of_mapping); */
+EXPORT_SYMBOL_GPL(irq_create_of_mapping);

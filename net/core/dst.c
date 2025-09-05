@@ -147,7 +147,7 @@ int dst_discard(struct sk_buff *skb)
 	kfree_skb(skb);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dst_discard); */
+EXPORT_SYMBOL(dst_discard);
 
 const u32 dst_default_metrics[RTAX_MAX];
 
@@ -193,7 +193,7 @@ void *dst_alloc(struct dst_ops *ops, struct net_device *dev,
 		dst_entries_add(ops, 1);
 	return dst;
 }
-/* DISABLED: EXPORT_SYMBOL(dst_alloc); */
+EXPORT_SYMBOL(dst_alloc);
 
 static void ___dst_free(struct dst_entry *dst)
 {
@@ -219,7 +219,7 @@ void __dst_free(struct dst_entry *dst)
 	}
 	spin_unlock_bh(&dst_garbage.lock);
 }
-/* DISABLED: EXPORT_SYMBOL(__dst_free); */
+EXPORT_SYMBOL(__dst_free);
 
 struct dst_entry *dst_destroy(struct dst_entry * dst)
 {
@@ -263,7 +263,7 @@ again:
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(dst_destroy); */
+EXPORT_SYMBOL(dst_destroy);
 
 void dst_release(struct dst_entry *dst)
 {
@@ -280,7 +280,7 @@ void dst_release(struct dst_entry *dst)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dst_release); */
+EXPORT_SYMBOL(dst_release);
 
 u32 *dst_cow_metrics_generic(struct dst_entry *dst, unsigned long old)
 {
@@ -304,7 +304,7 @@ u32 *dst_cow_metrics_generic(struct dst_entry *dst, unsigned long old)
 	}
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(dst_cow_metrics_generic); */
+EXPORT_SYMBOL(dst_cow_metrics_generic);
 
 /* Caller asserts that dst_metrics_read_only(dst) is false.  */
 void __dst_destroy_metrics_generic(struct dst_entry *dst, unsigned long old)
@@ -316,7 +316,7 @@ void __dst_destroy_metrics_generic(struct dst_entry *dst, unsigned long old)
 	if (prev == old)
 		kfree(__DST_METRICS_PTR(old));
 }
-/* DISABLED: EXPORT_SYMBOL(__dst_destroy_metrics_generic); */
+EXPORT_SYMBOL(__dst_destroy_metrics_generic);
 
 /**
  * skb_dst_set_noref - sets skb dst, without a reference
@@ -339,7 +339,7 @@ void skb_dst_set_noref(struct sk_buff *skb, struct dst_entry *dst)
 		skb->_skb_refdst = (unsigned long)dst | SKB_DST_NOREF;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(skb_dst_set_noref); */
+EXPORT_SYMBOL(skb_dst_set_noref);
 
 /* Dirty hack. We did it in 2.2 (in __dst_free),
  * we have _very_ good reasons not to repeat

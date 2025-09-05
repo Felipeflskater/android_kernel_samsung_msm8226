@@ -53,17 +53,17 @@
 void __aeabi_unwind_cpp_pr0(void)
 {
 };
-/* DISABLED: EXPORT_SYMBOL(__aeabi_unwind_cpp_pr0); */
+EXPORT_SYMBOL(__aeabi_unwind_cpp_pr0);
 
 void __aeabi_unwind_cpp_pr1(void)
 {
 };
-/* DISABLED: EXPORT_SYMBOL(__aeabi_unwind_cpp_pr1); */
+EXPORT_SYMBOL(__aeabi_unwind_cpp_pr1);
 
 void __aeabi_unwind_cpp_pr2(void)
 {
 };
-/* DISABLED: EXPORT_SYMBOL(__aeabi_unwind_cpp_pr2); */
+EXPORT_SYMBOL(__aeabi_unwind_cpp_pr2);
 
 struct unwind_ctrl_block {
 	unsigned long vrs[16];		/* virtual register set */

@@ -1223,7 +1223,7 @@ int mlx4_INIT_PORT(struct mlx4_dev *dev, int port)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_INIT_PORT); */
+EXPORT_SYMBOL_GPL(mlx4_INIT_PORT);
 
 int mlx4_CLOSE_PORT_wrapper(struct mlx4_dev *dev, int slave,
 			    struct mlx4_vhcr *vhcr,
@@ -1257,7 +1257,7 @@ int mlx4_CLOSE_PORT(struct mlx4_dev *dev, int port)
 	return mlx4_cmd(dev, 0, port, 0, MLX4_CMD_CLOSE_PORT, 1000,
 			MLX4_CMD_WRAPPED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_CLOSE_PORT); */
+EXPORT_SYMBOL_GPL(mlx4_CLOSE_PORT);
 
 int mlx4_CLOSE_HCA(struct mlx4_dev *dev, int panic)
 {
@@ -1298,7 +1298,7 @@ int mlx4_wol_read(struct mlx4_dev *dev, u64 *config, int port)
 			    MLX4_CMD_MOD_STAT_CFG, MLX4_CMD_TIME_CLASS_A,
 			    MLX4_CMD_NATIVE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_wol_read); */
+EXPORT_SYMBOL_GPL(mlx4_wol_read);
 
 int mlx4_wol_write(struct mlx4_dev *dev, u64 config, int port)
 {
@@ -1307,4 +1307,4 @@ int mlx4_wol_write(struct mlx4_dev *dev, u64 config, int port)
 	return mlx4_cmd(dev, config, in_mod, 0x1, MLX4_CMD_MOD_STAT_CFG,
 			MLX4_CMD_TIME_CLASS_A, MLX4_CMD_NATIVE);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(mlx4_wol_write); */
+EXPORT_SYMBOL_GPL(mlx4_wol_write);

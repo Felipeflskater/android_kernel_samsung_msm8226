@@ -63,7 +63,7 @@ struct p9_idpool *p9_idpool_create(void)
 
 	return p;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_idpool_create); */
+EXPORT_SYMBOL(p9_idpool_create);
 
 /**
  * p9_idpool_destroy - create a new per-connection id pool
@@ -75,7 +75,7 @@ void p9_idpool_destroy(struct p9_idpool *p)
 	idr_destroy(&p->pool);
 	kfree(p);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_idpool_destroy); */
+EXPORT_SYMBOL(p9_idpool_destroy);
 
 /**
  * p9_idpool_get - allocate numeric id from pool
@@ -109,7 +109,7 @@ retry:
 	p9_debug(P9_DEBUG_MUX, " id %d pool %p\n", i, p);
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_idpool_get); */
+EXPORT_SYMBOL(p9_idpool_get);
 
 /**
  * p9_idpool_put - release numeric id from pool
@@ -130,7 +130,7 @@ void p9_idpool_put(int id, struct p9_idpool *p)
 	idr_remove(&p->pool, id);
 	spin_unlock_irqrestore(&p->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(p9_idpool_put); */
+EXPORT_SYMBOL(p9_idpool_put);
 
 /**
  * p9_idpool_check - check if the specified id is available
@@ -142,5 +142,5 @@ int p9_idpool_check(int id, struct p9_idpool *p)
 {
 	return idr_find(&p->pool, id) != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(p9_idpool_check); */
+EXPORT_SYMBOL(p9_idpool_check);
 

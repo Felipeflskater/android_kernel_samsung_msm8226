@@ -1711,7 +1711,7 @@ struct socket *tun_get_socket(struct file *file)
 	tun_put(tun);
 	return &tun->socket;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tun_get_socket); */
+EXPORT_SYMBOL_GPL(tun_get_socket);
 
 module_init(tun_init);
 module_exit(tun_cleanup);

@@ -52,7 +52,7 @@ void rtllib_crypt_deinit_entries(struct lib80211_crypt_info *info,
 		kfree(entry);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_crypt_deinit_entries); */
+EXPORT_SYMBOL(rtllib_crypt_deinit_entries);
 
 void rtllib_crypt_deinit_handler(unsigned long data)
 {
@@ -70,7 +70,7 @@ void rtllib_crypt_deinit_handler(unsigned long data)
 	spin_unlock_irqrestore(info->lock, flags);
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_crypt_deinit_handler); */
+EXPORT_SYMBOL(rtllib_crypt_deinit_handler);
 
 void rtllib_crypt_delayed_deinit(struct lib80211_crypt_info *info,
 				 struct lib80211_crypt_data **crypt)
@@ -96,7 +96,7 @@ void rtllib_crypt_delayed_deinit(struct lib80211_crypt_info *info,
 	}
 	spin_unlock_irqrestore(info->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_crypt_delayed_deinit); */
+EXPORT_SYMBOL(rtllib_crypt_delayed_deinit);
 
 int rtllib_register_crypto_ops(struct lib80211_crypto_ops *ops)
 {
@@ -121,7 +121,7 @@ int rtllib_register_crypto_ops(struct lib80211_crypto_ops *ops)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_register_crypto_ops); */
+EXPORT_SYMBOL(rtllib_register_crypto_ops);
 
 int rtllib_unregister_crypto_ops(struct lib80211_crypto_ops *ops)
 {
@@ -152,7 +152,7 @@ int rtllib_unregister_crypto_ops(struct lib80211_crypto_ops *ops)
 
 	return del_alg ? 0 : -1;
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_unregister_crypto_ops); */
+EXPORT_SYMBOL(rtllib_unregister_crypto_ops);
 
 
 struct lib80211_crypto_ops *rtllib_get_crypto_ops(const char *name)
@@ -180,7 +180,7 @@ struct lib80211_crypto_ops *rtllib_get_crypto_ops(const char *name)
 	else
 		return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(rtllib_get_crypto_ops); */
+EXPORT_SYMBOL(rtllib_get_crypto_ops);
 
 
 static void * rtllib_crypt_null_init(int keyidx) { return (void *) 1; }

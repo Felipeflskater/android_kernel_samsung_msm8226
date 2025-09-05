@@ -208,5 +208,5 @@ void *memmove(void *v_dst, const void *v_src, __kernel_size_t c)
 	return v_dst;
 }
 #endif /* CONFIG_OPT_LIB_FUNCTION */
-/* DISABLED: EXPORT_SYMBOL(memmove); */
+EXPORT_SYMBOL(memmove);
 #endif /* __HAVE_ARCH_MEMMOVE */

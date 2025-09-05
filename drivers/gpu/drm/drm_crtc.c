@@ -180,7 +180,7 @@ char *drm_get_encoder_name(struct drm_encoder *encoder)
 		 encoder->base.id);
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_encoder_name); */
+EXPORT_SYMBOL(drm_get_encoder_name);
 
 char *drm_get_connector_name(struct drm_connector *connector)
 {
@@ -191,7 +191,7 @@ char *drm_get_connector_name(struct drm_connector *connector)
 		 connector->connector_type_id);
 	return buf;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_connector_name); */
+EXPORT_SYMBOL(drm_get_connector_name);
 
 char *drm_get_connector_status_name(enum drm_connector_status status)
 {
@@ -272,7 +272,7 @@ struct drm_mode_object *drm_mode_object_find(struct drm_device *dev,
 
 	return obj;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_object_find); */
+EXPORT_SYMBOL(drm_mode_object_find);
 
 /**
  * drm_framebuffer_init - initialize a framebuffer
@@ -303,7 +303,7 @@ int drm_framebuffer_init(struct drm_device *dev, struct drm_framebuffer *fb,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_framebuffer_init); */
+EXPORT_SYMBOL(drm_framebuffer_init);
 
 /**
  * drm_framebuffer_cleanup - remove a framebuffer object
@@ -352,7 +352,7 @@ void drm_framebuffer_cleanup(struct drm_framebuffer *fb)
 	list_del(&fb->head);
 	dev->mode_config.num_fb--;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_framebuffer_cleanup); */
+EXPORT_SYMBOL(drm_framebuffer_cleanup);
 
 /**
  * drm_crtc_init - Initialise a new CRTC object
@@ -390,7 +390,7 @@ int drm_crtc_init(struct drm_device *dev, struct drm_crtc *crtc,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_crtc_init); */
+EXPORT_SYMBOL(drm_crtc_init);
 
 /**
  * drm_crtc_cleanup - Cleans up the core crtc usage.
@@ -415,7 +415,7 @@ void drm_crtc_cleanup(struct drm_crtc *crtc)
 	list_del(&crtc->head);
 	dev->mode_config.num_crtc--;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_crtc_cleanup); */
+EXPORT_SYMBOL(drm_crtc_cleanup);
 
 /**
  * drm_mode_probed_add - add a mode to a connector's probed mode list
@@ -432,7 +432,7 @@ void drm_mode_probed_add(struct drm_connector *connector,
 {
 	list_add(&mode->head, &connector->probed_modes);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_probed_add); */
+EXPORT_SYMBOL(drm_mode_probed_add);
 
 /**
  * drm_mode_remove - remove and free a mode
@@ -450,7 +450,7 @@ void drm_mode_remove(struct drm_connector *connector,
 	list_del(&mode->head);
 	drm_mode_destroy(connector->dev, mode);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_remove); */
+EXPORT_SYMBOL(drm_mode_remove);
 
 /**
  * drm_connector_init - Init a preallocated connector
@@ -507,7 +507,7 @@ int drm_connector_init(struct drm_device *dev,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_init); */
+EXPORT_SYMBOL(drm_connector_init);
 
 /**
  * drm_connector_cleanup - cleans up an initialised connector
@@ -538,7 +538,7 @@ void drm_connector_cleanup(struct drm_connector *connector)
 	dev->mode_config.num_connector--;
 	mutex_unlock(&dev->mode_config.mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_cleanup); */
+EXPORT_SYMBOL(drm_connector_cleanup);
 
 void drm_connector_unplug_all(struct drm_device *dev)
 {
@@ -549,7 +549,7 @@ void drm_connector_unplug_all(struct drm_device *dev)
 		drm_sysfs_connector_remove(connector);
 
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_unplug_all); */
+EXPORT_SYMBOL(drm_connector_unplug_all);
 
 int drm_encoder_init(struct drm_device *dev,
 		      struct drm_encoder *encoder,
@@ -576,7 +576,7 @@ int drm_encoder_init(struct drm_device *dev,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_encoder_init); */
+EXPORT_SYMBOL(drm_encoder_init);
 
 void drm_encoder_cleanup(struct drm_encoder *encoder)
 {
@@ -587,7 +587,7 @@ void drm_encoder_cleanup(struct drm_encoder *encoder)
 	dev->mode_config.num_encoder--;
 	mutex_unlock(&dev->mode_config.mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_encoder_cleanup); */
+EXPORT_SYMBOL(drm_encoder_cleanup);
 
 int drm_plane_init(struct drm_device *dev, struct drm_plane *plane,
 		   unsigned long possible_crtcs,
@@ -634,7 +634,7 @@ int drm_plane_init(struct drm_device *dev, struct drm_plane *plane,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_plane_init); */
+EXPORT_SYMBOL(drm_plane_init);
 
 void drm_plane_cleanup(struct drm_plane *plane)
 {
@@ -650,7 +650,7 @@ void drm_plane_cleanup(struct drm_plane *plane)
 	}
 	mutex_unlock(&dev->mode_config.mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_plane_cleanup); */
+EXPORT_SYMBOL(drm_plane_cleanup);
 
 /**
  * drm_mode_create - create a new display mode
@@ -679,7 +679,7 @@ struct drm_display_mode *drm_mode_create(struct drm_device *dev)
 
 	return nmode;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create); */
+EXPORT_SYMBOL(drm_mode_create);
 
 /**
  * drm_mode_destroy - remove a mode
@@ -700,7 +700,7 @@ void drm_mode_destroy(struct drm_device *dev, struct drm_display_mode *mode)
 
 	kfree(mode);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_destroy); */
+EXPORT_SYMBOL(drm_mode_destroy);
 
 static int drm_mode_create_standard_connector_properties(struct drm_device *dev)
 {
@@ -752,7 +752,7 @@ int drm_mode_create_dvi_i_properties(struct drm_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_dvi_i_properties); */
+EXPORT_SYMBOL(drm_mode_create_dvi_i_properties);
 
 /**
  * drm_create_tv_properties - create TV specific connector properties
@@ -833,7 +833,7 @@ int drm_mode_create_tv_properties(struct drm_device *dev, int num_modes,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_tv_properties); */
+EXPORT_SYMBOL(drm_mode_create_tv_properties);
 
 /**
  * drm_mode_create_scaling_mode_property - create scaling mode property
@@ -858,7 +858,7 @@ int drm_mode_create_scaling_mode_property(struct drm_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_scaling_mode_property); */
+EXPORT_SYMBOL(drm_mode_create_scaling_mode_property);
 
 /**
  * drm_mode_create_dithering_property - create dithering property
@@ -882,7 +882,7 @@ int drm_mode_create_dithering_property(struct drm_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_dithering_property); */
+EXPORT_SYMBOL(drm_mode_create_dithering_property);
 
 /**
  * drm_mode_create_dirty_property - create dirty property
@@ -907,7 +907,7 @@ int drm_mode_create_dirty_info_property(struct drm_device *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_create_dirty_info_property); */
+EXPORT_SYMBOL(drm_mode_create_dirty_info_property);
 
 /**
  * drm_mode_config_init - initialize DRM mode_configuration structure
@@ -942,7 +942,7 @@ void drm_mode_config_init(struct drm_device *dev)
 	dev->mode_config.num_crtc = 0;
 	dev->mode_config.num_encoder = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_config_init); */
+EXPORT_SYMBOL(drm_mode_config_init);
 
 int drm_mode_group_init(struct drm_device *dev, struct drm_mode_group *group)
 {
@@ -986,7 +986,7 @@ int drm_mode_group_init_legacy_group(struct drm_device *dev,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_group_init_legacy_group); */
+EXPORT_SYMBOL(drm_mode_group_init_legacy_group);
 
 /**
  * drm_mode_config_cleanup - free up DRM mode_config info
@@ -1040,7 +1040,7 @@ void drm_mode_config_cleanup(struct drm_device *dev)
 	idr_remove_all(&dev->mode_config.crtc_idr);
 	idr_destroy(&dev->mode_config.crtc_idr);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_config_cleanup); */
+EXPORT_SYMBOL(drm_mode_config_cleanup);
 
 /**
  * drm_crtc_convert_to_umode - convert a drm_display_mode into a modeinfo
@@ -2053,7 +2053,7 @@ uint32_t drm_mode_legacy_fb_format(uint32_t bpp, uint32_t depth)
 
 	return fmt;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_legacy_fb_format); */
+EXPORT_SYMBOL(drm_mode_legacy_fb_format);
 
 /**
  * drm_mode_addfb - add an FB to the graphics configuration
@@ -2510,7 +2510,7 @@ int drm_mode_attachmode_crtc(struct drm_device *dev, struct drm_crtc *crtc,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_attachmode_crtc); */
+EXPORT_SYMBOL(drm_mode_attachmode_crtc);
 
 static int drm_mode_detachmode(struct drm_device *dev,
 			       struct drm_connector *connector,
@@ -2544,7 +2544,7 @@ int drm_mode_detachmode_crtc(struct drm_device *dev, struct drm_display_mode *mo
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_detachmode_crtc); */
+EXPORT_SYMBOL(drm_mode_detachmode_crtc);
 
 /**
  * drm_fb_attachmode - Attach a user mode to an connector
@@ -2683,7 +2683,7 @@ fail:
 	kfree(property);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_property_create); */
+EXPORT_SYMBOL(drm_property_create);
 
 struct drm_property *drm_property_create_enum(struct drm_device *dev, int flags,
 					 const char *name,
@@ -2711,7 +2711,7 @@ struct drm_property *drm_property_create_enum(struct drm_device *dev, int flags,
 
 	return property;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_property_create_enum); */
+EXPORT_SYMBOL(drm_property_create_enum);
 
 struct drm_property *drm_property_create_range(struct drm_device *dev, int flags,
 					 const char *name,
@@ -2730,7 +2730,7 @@ struct drm_property *drm_property_create_range(struct drm_device *dev, int flags
 
 	return property;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_property_create_range); */
+EXPORT_SYMBOL(drm_property_create_range);
 
 int drm_property_add_enum(struct drm_property *property, int index,
 			  uint64_t value, const char *name)
@@ -2762,7 +2762,7 @@ int drm_property_add_enum(struct drm_property *property, int index,
 	list_add_tail(&prop_enum->head, &property->enum_blob_list);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_property_add_enum); */
+EXPORT_SYMBOL(drm_property_add_enum);
 
 void drm_property_destroy(struct drm_device *dev, struct drm_property *property)
 {
@@ -2779,7 +2779,7 @@ void drm_property_destroy(struct drm_device *dev, struct drm_property *property)
 	list_del(&property->head);
 	kfree(property);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_property_destroy); */
+EXPORT_SYMBOL(drm_property_destroy);
 
 int drm_connector_attach_property(struct drm_connector *connector,
 			       struct drm_property *property, uint64_t init_val)
@@ -2798,7 +2798,7 @@ int drm_connector_attach_property(struct drm_connector *connector,
 		return -EINVAL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_attach_property); */
+EXPORT_SYMBOL(drm_connector_attach_property);
 
 int drm_connector_property_set_value(struct drm_connector *connector,
 				  struct drm_property *property, uint64_t value)
@@ -2816,7 +2816,7 @@ int drm_connector_property_set_value(struct drm_connector *connector,
 		return -EINVAL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_property_set_value); */
+EXPORT_SYMBOL(drm_connector_property_set_value);
 
 int drm_connector_property_get_value(struct drm_connector *connector,
 				  struct drm_property *property, uint64_t *val)
@@ -2834,7 +2834,7 @@ int drm_connector_property_get_value(struct drm_connector *connector,
 		return -EINVAL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_connector_property_get_value); */
+EXPORT_SYMBOL(drm_connector_property_get_value);
 
 int drm_mode_getproperty_ioctl(struct drm_device *dev,
 			       void *data, struct drm_file *file_priv)
@@ -3034,7 +3034,7 @@ int drm_mode_connector_update_edid_property(struct drm_connector *connector,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_connector_update_edid_property); */
+EXPORT_SYMBOL(drm_mode_connector_update_edid_property);
 
 int drm_mode_connector_property_set_ioctl(struct drm_device *dev,
 				       void *data, struct drm_file *file_priv)
@@ -3123,7 +3123,7 @@ int drm_mode_connector_attach_encoder(struct drm_connector *connector,
 	}
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_connector_attach_encoder); */
+EXPORT_SYMBOL(drm_mode_connector_attach_encoder);
 
 void drm_mode_connector_detach_encoder(struct drm_connector *connector,
 				    struct drm_encoder *encoder)
@@ -3138,7 +3138,7 @@ void drm_mode_connector_detach_encoder(struct drm_connector *connector,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_connector_detach_encoder); */
+EXPORT_SYMBOL(drm_mode_connector_detach_encoder);
 
 int drm_mode_crtc_set_gamma_size(struct drm_crtc *crtc,
 				  int gamma_size)
@@ -3153,7 +3153,7 @@ int drm_mode_crtc_set_gamma_size(struct drm_crtc *crtc,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_crtc_set_gamma_size); */
+EXPORT_SYMBOL(drm_mode_crtc_set_gamma_size);
 
 int drm_mode_gamma_set_ioctl(struct drm_device *dev,
 			     void *data, struct drm_file *file_priv)
@@ -3369,7 +3369,7 @@ void drm_mode_config_reset(struct drm_device *dev)
 		if (connector->funcs->reset)
 			connector->funcs->reset(connector);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_mode_config_reset); */
+EXPORT_SYMBOL(drm_mode_config_reset);
 
 int drm_mode_create_dumb_ioctl(struct drm_device *dev,
 			       void *data, struct drm_file *file_priv)
@@ -3471,4 +3471,4 @@ void drm_fb_get_bpp_depth(uint32_t format, unsigned int *depth,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_fb_get_bpp_depth); */
+EXPORT_SYMBOL(drm_fb_get_bpp_depth);

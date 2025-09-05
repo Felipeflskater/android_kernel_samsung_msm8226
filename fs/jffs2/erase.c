@@ -354,7 +354,7 @@ static int jffs2_block_check_erase(struct jffs2_sb_info *c, struct jffs2_erasebl
 		}
 		if (retlen < c->sector_size) {
 			/* Don't muck about if it won't let us point to the whole erase sector */
-			jffs2_dbg(1, "MTD point returned len too short: 0x%x\n",
+			jffs2_dbg(1, "MTD point returned len too short: 0x%zx\n",
 				  retlen);
 			mtd_unpoint(c->mtd, jeb->offset, retlen);
 			goto do_flash_read;
@@ -399,7 +399,7 @@ static int jffs2_block_check_erase(struct jffs2_sb_info *c, struct jffs2_erasebl
 			goto fail;
 		}
 		if (retlen != readlen) {
-			pr_warn("Short read from newly-erased block at 0x%08x. Wanted %d, got %u\n",
+			pr_warn("Short read from newly-erased block at 0x%08x. Wanted %d, got %zd\n",
 				ofs, readlen, retlen);
 			ret = -EIO;
 			goto fail;
@@ -468,7 +468,7 @@ static void jffs2_mark_erased_block(struct jffs2_sb_info *c, struct jffs2_eraseb
 				pr_warn("Write clean marker to block at 0x%08x failed: %d\n",
 				       jeb->offset, ret);
 			else
-				pr_warn("Short write to newly-erased block at 0x%08x: Wanted %u, got %u\n",
+				pr_warn("Short write to newly-erased block at 0x%08x: Wanted %zd, got %zd\n",
 				       jeb->offset, sizeof(marker), retlen);
 
 			goto filebad;

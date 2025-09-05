@@ -701,7 +701,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_add_rt_rule); */
+EXPORT_SYMBOL(ipa_add_rt_rule);
 
 int __ipa_del_rt_rule(u32 rule_hdl)
 {
@@ -779,7 +779,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_del_rt_rule); */
+EXPORT_SYMBOL(ipa_del_rt_rule);
 
 /**
  * ipa_commit_rt_rule() - Commit the current SW routing table of specified type
@@ -817,7 +817,7 @@ bail:
 	mutex_unlock(&ipa_ctx->lock);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_commit_rt); */
+EXPORT_SYMBOL(ipa_commit_rt);
 
 /**
  * ipa_reset_rt() - reset the current SW routing table of specified type
@@ -941,7 +941,7 @@ int ipa_reset_rt(enum ipa_ip_type ip)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_reset_rt); */
+EXPORT_SYMBOL(ipa_reset_rt);
 
 /**
  * ipa_get_rt_tbl() - lookup the specified routing table and return handle if it
@@ -984,7 +984,7 @@ ret:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_get_rt_tbl); */
+EXPORT_SYMBOL(ipa_get_rt_tbl);
 
 /**
  * ipa_put_rt_tbl() - Release the specified routing table handle
@@ -1042,4 +1042,4 @@ ret:
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_put_rt_tbl); */
+EXPORT_SYMBOL(ipa_put_rt_tbl);

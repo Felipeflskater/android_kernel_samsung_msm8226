@@ -25,7 +25,7 @@
 #include "netns.h"
 
 int sunrpc_net_id;
-/* DISABLED: EXPORT_SYMBOL_GPL(sunrpc_net_id); */
+EXPORT_SYMBOL_GPL(sunrpc_net_id);
 
 static __net_init int sunrpc_init_net(struct net *net)
 {

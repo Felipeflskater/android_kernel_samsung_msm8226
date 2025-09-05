@@ -253,7 +253,7 @@ void deactivate_locked_super(struct super_block *s)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(deactivate_locked_super); */
+EXPORT_SYMBOL(deactivate_locked_super);
 
 /**
  *	deactivate_super	-	drop an active reference to superblock
@@ -271,7 +271,7 @@ void deactivate_super(struct super_block *s)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(deactivate_super); */
+EXPORT_SYMBOL(deactivate_super);
 
 /**
  *	grab_super - acquire an active reference
@@ -346,8 +346,8 @@ void unlock_super(struct super_block * sb)
 	mutex_unlock(&sb->s_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(lock_super); */
-/* DISABLED: EXPORT_SYMBOL(unlock_super); */
+EXPORT_SYMBOL(lock_super);
+EXPORT_SYMBOL(unlock_super);
 
 /**
  *	generic_shutdown_super	-	common helper for ->kill_sb()
@@ -392,7 +392,7 @@ void generic_shutdown_super(struct super_block *sb)
 	up_write(&sb->s_umount);
 }
 
-/* DISABLED: EXPORT_SYMBOL(generic_shutdown_super); */
+EXPORT_SYMBOL(generic_shutdown_super);
 
 /**
  *	sget	-	find or create a superblock
@@ -452,7 +452,7 @@ retry:
 	return s;
 }
 
-/* DISABLED: EXPORT_SYMBOL(sget); */
+EXPORT_SYMBOL(sget);
 
 void drop_super(struct super_block *sb)
 {
@@ -460,7 +460,7 @@ void drop_super(struct super_block *sb)
 	put_super(sb);
 }
 
-/* DISABLED: EXPORT_SYMBOL(drop_super); */
+EXPORT_SYMBOL(drop_super);
 
 /**
  * sync_supers - helper for periodic superblock writeback
@@ -571,7 +571,7 @@ void iterate_supers_type(struct file_system_type *type,
 	spin_unlock(&sb_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL(iterate_supers_type); */
+EXPORT_SYMBOL(iterate_supers_type);
 
 /**
  *	get_super - get the superblock of a device
@@ -611,7 +611,7 @@ rescan:
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_super); */
+EXPORT_SYMBOL(get_super);
 
 /**
  *	get_super_thawed - get thawed superblock of a device
@@ -633,7 +633,7 @@ struct super_block *get_super_thawed(struct block_device *bdev)
 		put_super(s);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(get_super_thawed); */
+EXPORT_SYMBOL(get_super_thawed);
 
 /**
  * get_active_super - get an active reference to the superblock of a device
@@ -863,7 +863,7 @@ int get_anon_bdev(dev_t *p)
 	*p = MKDEV(0, dev & MINORMASK);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(get_anon_bdev); */
+EXPORT_SYMBOL(get_anon_bdev);
 
 void free_anon_bdev(dev_t dev)
 {
@@ -874,7 +874,7 @@ void free_anon_bdev(dev_t dev)
 		unnamed_dev_start = slot;
 	spin_unlock(&unnamed_dev_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(free_anon_bdev); */
+EXPORT_SYMBOL(free_anon_bdev);
 
 int set_anon_super(struct super_block *s, void *data)
 {
@@ -884,7 +884,7 @@ int set_anon_super(struct super_block *s, void *data)
 	return error;
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_anon_super); */
+EXPORT_SYMBOL(set_anon_super);
 
 void kill_anon_super(struct super_block *sb)
 {
@@ -893,7 +893,7 @@ void kill_anon_super(struct super_block *sb)
 	free_anon_bdev(dev);
 }
 
-/* DISABLED: EXPORT_SYMBOL(kill_anon_super); */
+EXPORT_SYMBOL(kill_anon_super);
 
 void kill_litter_super(struct super_block *sb)
 {
@@ -902,7 +902,7 @@ void kill_litter_super(struct super_block *sb)
 	kill_anon_super(sb);
 }
 
-/* DISABLED: EXPORT_SYMBOL(kill_litter_super); */
+EXPORT_SYMBOL(kill_litter_super);
 
 static int ns_test_super(struct super_block *sb, void *data)
 {
@@ -939,7 +939,7 @@ struct dentry *mount_ns(struct file_system_type *fs_type, int flags,
 	return dget(sb->s_root);
 }
 
-/* DISABLED: EXPORT_SYMBOL(mount_ns); */
+EXPORT_SYMBOL(mount_ns);
 
 #ifdef CONFIG_BLOCK
 static int set_bdev_super(struct super_block *s, void *data)
@@ -1035,7 +1035,7 @@ error_bdev:
 error:
 	return ERR_PTR(error);
 }
-/* DISABLED: EXPORT_SYMBOL(mount_bdev); */
+EXPORT_SYMBOL(mount_bdev);
 
 void kill_block_super(struct super_block *sb)
 {
@@ -1049,7 +1049,7 @@ void kill_block_super(struct super_block *sb)
 	blkdev_put(bdev, mode | FMODE_EXCL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(kill_block_super); */
+EXPORT_SYMBOL(kill_block_super);
 #endif
 
 struct dentry *mount_nodev(struct file_system_type *fs_type,
@@ -1072,7 +1072,7 @@ struct dentry *mount_nodev(struct file_system_type *fs_type,
 	s->s_flags |= MS_ACTIVE;
 	return dget(s->s_root);
 }
-/* DISABLED: EXPORT_SYMBOL(mount_nodev); */
+EXPORT_SYMBOL(mount_nodev);
 
 static int compare_single(struct super_block *s, void *p)
 {
@@ -1102,7 +1102,7 @@ struct dentry *mount_single(struct file_system_type *fs_type,
 	}
 	return dget(s->s_root);
 }
-/* DISABLED: EXPORT_SYMBOL(mount_single); */
+EXPORT_SYMBOL(mount_single);
 
 struct dentry *
 mount_fs(struct file_system_type *type, int flags, const char *name, struct vfsmount *mnt, void *data)
@@ -1216,7 +1216,7 @@ int freeze_super(struct super_block *sb)
 	up_write(&sb->s_umount);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(freeze_super); */
+EXPORT_SYMBOL(freeze_super);
 
 /**
  * thaw_super -- unlock filesystem
@@ -1256,4 +1256,4 @@ out:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(thaw_super); */
+EXPORT_SYMBOL(thaw_super);

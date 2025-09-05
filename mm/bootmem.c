@@ -27,7 +27,7 @@
 struct pglist_data __refdata contig_page_data = {
 	.bdata = &bootmem_node_data[0]
 };
-/* DISABLED: EXPORT_SYMBOL(contig_page_data); */
+EXPORT_SYMBOL(contig_page_data);
 #endif
 
 unsigned long max_low_pfn;

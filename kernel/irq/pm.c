@@ -38,7 +38,7 @@ void suspend_device_irqs(void)
 		if (desc->istate & IRQS_SUSPENDED)
 			synchronize_irq(irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(suspend_device_irqs); */
+EXPORT_SYMBOL_GPL(suspend_device_irqs);
 
 static void resume_irqs(bool want_early)
 {
@@ -92,7 +92,7 @@ void resume_device_irqs(void)
 {
 	resume_irqs(false);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(resume_device_irqs); */
+EXPORT_SYMBOL_GPL(resume_device_irqs);
 
 /**
  * check_wakeup_irqs - check if any wake-up interrupts are pending

@@ -5,4 +5,4 @@ void copy_from_user_overflow(void)
 {
 	WARN(1, "Buffer overflow detected!\n");
 }
-/* DISABLED: EXPORT_SYMBOL(copy_from_user_overflow); */
+EXPORT_SYMBOL(copy_from_user_overflow);

@@ -563,13 +563,13 @@ void __init chrdev_init(void)
 
 
 /* Let modules do char dev stuff */
-/* DISABLED: EXPORT_SYMBOL(register_chrdev_region); */
-/* DISABLED: EXPORT_SYMBOL(unregister_chrdev_region); */
-/* DISABLED: EXPORT_SYMBOL(alloc_chrdev_region); */
-/* DISABLED: EXPORT_SYMBOL(cdev_init); */
-/* DISABLED: EXPORT_SYMBOL(cdev_alloc); */
-/* DISABLED: EXPORT_SYMBOL(cdev_del); */
-/* DISABLED: EXPORT_SYMBOL(cdev_add); */
-/* DISABLED: EXPORT_SYMBOL(__register_chrdev); */
-/* DISABLED: EXPORT_SYMBOL(__unregister_chrdev); */
-/* DISABLED: EXPORT_SYMBOL(directly_mappable_cdev_bdi); */
+EXPORT_SYMBOL(register_chrdev_region);
+EXPORT_SYMBOL(unregister_chrdev_region);
+EXPORT_SYMBOL(alloc_chrdev_region);
+EXPORT_SYMBOL(cdev_init);
+EXPORT_SYMBOL(cdev_alloc);
+EXPORT_SYMBOL(cdev_del);
+EXPORT_SYMBOL(cdev_add);
+EXPORT_SYMBOL(__register_chrdev);
+EXPORT_SYMBOL(__unregister_chrdev);
+EXPORT_SYMBOL(directly_mappable_cdev_bdi);

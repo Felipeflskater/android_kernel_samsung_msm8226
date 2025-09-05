@@ -172,7 +172,7 @@ void putname(const char *name)
 	else
 		__putname(name);
 }
-/* DISABLED: EXPORT_SYMBOL(putname); */
+EXPORT_SYMBOL(putname);
 #endif
 
 static int check_acl(struct inode *inode, int mask)
@@ -354,13 +354,13 @@ int inode_permission2(struct vfsmount *mnt, struct inode *inode, int mask)
 
 	return security_inode_permission(inode, mask);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_permission2); */
+EXPORT_SYMBOL(inode_permission2);
 
 int inode_permission(struct inode *inode, int mask)
 {
 	return inode_permission2(NULL, inode, mask);
 }
-/* DISABLED: EXPORT_SYMBOL(inode_permission); */
+EXPORT_SYMBOL(inode_permission);
 
 /**
  * path_get - get a reference to a path
@@ -373,7 +373,7 @@ void path_get(struct path *path)
 	mntget(path->mnt);
 	dget(path->dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(path_get); */
+EXPORT_SYMBOL(path_get);
 
 /**
  * path_put - put a reference to a path
@@ -386,7 +386,7 @@ void path_put(struct path *path)
 	dput(path->dentry);
 	mntput(path->mnt);
 }
-/* DISABLED: EXPORT_SYMBOL(path_put); */
+EXPORT_SYMBOL(path_put);
 
 /**
  * path_connected - Verify that a path->dentry is below path->mnt.mnt_root
@@ -1472,7 +1472,7 @@ unsigned int full_name_hash(const unsigned char *name, unsigned int len)
 done:
 	return fold_hash(hash);
 }
-/* DISABLED: EXPORT_SYMBOL(full_name_hash); */
+EXPORT_SYMBOL(full_name_hash);
 
 /*
  * Calculate the length and hash of the path component, and
@@ -1510,7 +1510,7 @@ unsigned int full_name_hash(const unsigned char *name, unsigned int len)
 		hash = partial_name_hash(*name++, hash);
 	return end_name_hash(hash);
 }
-/* DISABLED: EXPORT_SYMBOL(full_name_hash); */
+EXPORT_SYMBOL(full_name_hash);
 
 /*
  * We know there's a real path component here of at least
@@ -1942,13 +1942,13 @@ struct dentry *lookup_one_len2(const char *name, struct vfsmount *mnt, struct de
 
 	return __lookup_hash(&this, base, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(lookup_one_len2); */
+EXPORT_SYMBOL(lookup_one_len2);
 
 struct dentry *lookup_one_len(const char *name, struct dentry *base, int len)
 {
 	return lookup_one_len2(name, NULL, base, len);
 }
-/* DISABLED: EXPORT_SYMBOL(lookup_one_len); */
+EXPORT_SYMBOL(lookup_one_len);
 
 int user_path_at_empty(int dfd, const char __user *name, unsigned flags,
 		 struct path *path, int *empty)
@@ -2150,14 +2150,14 @@ int vfs_create2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry,
 		fsnotify_create(dir, dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_create2); */
+EXPORT_SYMBOL(vfs_create2);
 
 int vfs_create(struct inode *dir, struct dentry *dentry, umode_t mode,
 		struct nameidata *nd)
 {
 	return vfs_create2(NULL, dir, dentry, mode, nd);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_create); */
+EXPORT_SYMBOL(vfs_create);
 
 static int may_open(struct path *path, int acc_mode, int flag)
 {
@@ -2593,7 +2593,7 @@ out:
 	path_put(&nd.path);
 	return dentry;
 }
-/* DISABLED: EXPORT_SYMBOL(kern_path_create); */
+EXPORT_SYMBOL(kern_path_create);
 
 struct dentry *user_path_create(int dfd, const char __user *pathname, struct path *path, int is_dir)
 {
@@ -2605,7 +2605,7 @@ struct dentry *user_path_create(int dfd, const char __user *pathname, struct pat
 	putname(tmp);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(user_path_create); */
+EXPORT_SYMBOL(user_path_create);
 
 int vfs_mknod2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry, umode_t mode, dev_t dev)
 {
@@ -2641,13 +2641,13 @@ int vfs_mknod2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry, u
 		fsnotify_create(dir, dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_mknod2); */
+EXPORT_SYMBOL(vfs_mknod2);
 
 int vfs_mknod(struct inode *dir, struct dentry *dentry, umode_t mode, dev_t dev)
 {
 	return vfs_mknod2(NULL, dir, dentry, mode, dev);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_mknod); */
+EXPORT_SYMBOL(vfs_mknod);
 
 static int may_mknod(umode_t mode)
 {
@@ -2742,13 +2742,13 @@ int vfs_mkdir2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry, u
 		fsnotify_mkdir(dir, dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_mkdir2); */
+EXPORT_SYMBOL(vfs_mkdir2);
 
 int vfs_mkdir(struct inode *dir, struct dentry *dentry, umode_t mode)
 {
 	return vfs_mkdir2(NULL, dir, dentry, mode);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_mkdir); */
+EXPORT_SYMBOL(vfs_mkdir);
 
 SYSCALL_DEFINE3(mkdirat, int, dfd, const char __user *, pathname, umode_t, mode)
 {
@@ -2843,13 +2843,13 @@ out:
 		d_delete(dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_rmdir2); */
+EXPORT_SYMBOL(vfs_rmdir2);
 
 int vfs_rmdir(struct inode *dir, struct dentry *dentry)
 {
 	return vfs_rmdir2(NULL, dir, dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_rmdir); */
+EXPORT_SYMBOL(vfs_rmdir);
 
 static long do_rmdir(int dfd, const char __user *pathname)
 {
@@ -2954,13 +2954,13 @@ int vfs_unlink2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_unlink2); */
+EXPORT_SYMBOL(vfs_unlink2);
 
 int vfs_unlink(struct inode *dir, struct dentry *dentry)
 {
 	return vfs_unlink2(NULL, dir, dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_unlink); */
+EXPORT_SYMBOL(vfs_unlink);
 
 /*
  * Make sure that the actual truncation of the file will occur outside its
@@ -3058,13 +3058,13 @@ int vfs_symlink2(struct vfsmount *mnt, struct inode *dir, struct dentry *dentry,
 		fsnotify_create(dir, dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_symlink2); */
+EXPORT_SYMBOL(vfs_symlink2);
 
 int vfs_symlink(struct inode *dir, struct dentry *dentry, const char *oldname)
 {
 	return vfs_symlink2(NULL, dir, dentry, oldname);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_symlink); */
+EXPORT_SYMBOL(vfs_symlink);
 
 SYSCALL_DEFINE3(symlinkat, const char __user *, oldname,
 		int, newdfd, const char __user *, newname)
@@ -3149,13 +3149,13 @@ int vfs_link2(struct vfsmount *mnt, struct dentry *old_dentry, struct inode *dir
 		fsnotify_link(dir, inode, new_dentry);
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_link2); */
+EXPORT_SYMBOL(vfs_link2);
 
 int vfs_link(struct dentry *old_dentry, struct inode *dir, struct dentry *new_dentry)
 {
 	return vfs_link2(NULL, old_dentry, dir, new_dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_link); */
+EXPORT_SYMBOL(vfs_link);
 
 /*
  * Hardlinks are often used in delicate situations.  We avoid
@@ -3379,14 +3379,14 @@ int vfs_rename2(struct vfsmount *mnt,
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_rename2); */
+EXPORT_SYMBOL(vfs_rename2);
 
 int vfs_rename(struct inode *old_dir, struct dentry *old_dentry,
 	       struct inode *new_dir, struct dentry *new_dentry)
 {
 	return vfs_rename2(NULL, old_dir, old_dentry, new_dir, new_dentry);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_rename); */
+EXPORT_SYMBOL(vfs_rename);
 
 SYSCALL_DEFINE4(renameat, int, olddfd, const char __user *, oldname,
 		int, newdfd, const char __user *, newname)
@@ -3624,24 +3624,24 @@ const struct inode_operations page_symlink_inode_operations = {
 	.put_link	= page_put_link,
 };
 
-/* DISABLED: EXPORT_SYMBOL(user_path_at); */
-/* DISABLED: EXPORT_SYMBOL(follow_down_one); */
-/* DISABLED: EXPORT_SYMBOL(follow_down); */
-/* DISABLED: EXPORT_SYMBOL(follow_up); */
-/* DISABLED: EXPORT_SYMBOL(get_write_access); /* binfmt_aout */ */
-/* DISABLED: EXPORT_SYMBOL(getname); */
-/* DISABLED: EXPORT_SYMBOL(lock_rename); */
-/* DISABLED: EXPORT_SYMBOL(page_follow_link_light); */
-/* DISABLED: EXPORT_SYMBOL(page_put_link); */
-/* DISABLED: EXPORT_SYMBOL(page_readlink); */
-/* DISABLED: EXPORT_SYMBOL(__page_symlink); */
-/* DISABLED: EXPORT_SYMBOL(page_symlink); */
-/* DISABLED: EXPORT_SYMBOL(page_symlink_inode_operations); */
-/* DISABLED: EXPORT_SYMBOL(kern_path); */
-/* DISABLED: EXPORT_SYMBOL(vfs_path_lookup); */
-/* DISABLED: EXPORT_SYMBOL(unlock_rename); */
-/* DISABLED: EXPORT_SYMBOL(vfs_follow_link); */
-/* DISABLED: EXPORT_SYMBOL(generic_permission); */
-/* DISABLED: EXPORT_SYMBOL(vfs_readlink); */
-/* DISABLED: EXPORT_SYMBOL(dentry_unhash); */
-/* DISABLED: EXPORT_SYMBOL(generic_readlink); */
+EXPORT_SYMBOL(user_path_at);
+EXPORT_SYMBOL(follow_down_one);
+EXPORT_SYMBOL(follow_down);
+EXPORT_SYMBOL(follow_up);
+EXPORT_SYMBOL(get_write_access); /* binfmt_aout */
+EXPORT_SYMBOL(getname);
+EXPORT_SYMBOL(lock_rename);
+EXPORT_SYMBOL(page_follow_link_light);
+EXPORT_SYMBOL(page_put_link);
+EXPORT_SYMBOL(page_readlink);
+EXPORT_SYMBOL(__page_symlink);
+EXPORT_SYMBOL(page_symlink);
+EXPORT_SYMBOL(page_symlink_inode_operations);
+EXPORT_SYMBOL(kern_path);
+EXPORT_SYMBOL(vfs_path_lookup);
+EXPORT_SYMBOL(unlock_rename);
+EXPORT_SYMBOL(vfs_follow_link);
+EXPORT_SYMBOL(generic_permission);
+EXPORT_SYMBOL(vfs_readlink);
+EXPORT_SYMBOL(dentry_unhash);
+EXPORT_SYMBOL(generic_readlink);

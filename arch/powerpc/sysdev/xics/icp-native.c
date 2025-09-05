@@ -145,7 +145,7 @@ void xics_wake_cpu(int cpu)
 {
 	icp_native_set_qirr(cpu, IPI_PRIORITY);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xics_wake_cpu); */
+EXPORT_SYMBOL_GPL(xics_wake_cpu);
 
 static irqreturn_t icp_native_ipi_action(int irq, void *dev_id)
 {

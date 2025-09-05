@@ -688,7 +688,7 @@ int ipa_cfg_ep(u32 clnt_hdl, const struct ipa_ep_cfg *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep); */
+EXPORT_SYMBOL(ipa_cfg_ep);
 
 /**
  * ipa_cfg_ep_nat() - IPA end-point NAT configuration
@@ -731,7 +731,7 @@ int ipa_cfg_ep_nat(u32 clnt_hdl, const struct ipa_ep_cfg_nat *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_nat); */
+EXPORT_SYMBOL(ipa_cfg_ep_nat);
 
 /**
  * ipa_cfg_ep_hdr() -  IPA end-point header configuration
@@ -791,7 +791,7 @@ int ipa_cfg_ep_hdr(u32 clnt_hdl, const struct ipa_ep_cfg_hdr *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_hdr); */
+EXPORT_SYMBOL(ipa_cfg_ep_hdr);
 
 /**
  * ipa_cfg_ep_mode() - IPA end-point mode configuration
@@ -847,7 +847,7 @@ int ipa_cfg_ep_mode(u32 clnt_hdl, const struct ipa_ep_cfg_mode *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_mode); */
+EXPORT_SYMBOL(ipa_cfg_ep_mode);
 
 /**
  * ipa_cfg_ep_aggr() - IPA end-point aggregation configuration
@@ -894,7 +894,7 @@ int ipa_cfg_ep_aggr(u32 clnt_hdl, const struct ipa_ep_cfg_aggr *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_aggr); */
+EXPORT_SYMBOL(ipa_cfg_ep_aggr);
 
 /**
  * ipa_cfg_ep_route() - IPA end-point routing configuration
@@ -951,7 +951,7 @@ int ipa_cfg_ep_route(u32 clnt_hdl, const struct ipa_ep_cfg_route *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_route); */
+EXPORT_SYMBOL(ipa_cfg_ep_route);
 
 /**
  * ipa_cfg_ep_holb() - IPA end-point holb configuration
@@ -1000,7 +1000,7 @@ int ipa_cfg_ep_holb(u32 clnt_hdl, const struct ipa_ep_cfg_holb *ipa_ep_cfg)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_holb); */
+EXPORT_SYMBOL(ipa_cfg_ep_holb);
 
 /**
  * ipa_cfg_ep_holb_by_client() - IPA end-point holb configuration
@@ -1020,7 +1020,7 @@ int ipa_cfg_ep_holb_by_client(enum ipa_client_type client,
 	return ipa_cfg_ep_holb(ipa_get_ep_mapping(ipa_ctx->mode, client),
 			       ipa_ep_cfg);
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_cfg_ep_holb_by_client); */
+EXPORT_SYMBOL(ipa_cfg_ep_holb_by_client);
 
 /**
  * ipa_dump_buff_internal() - dumps buffer for debug purposes
@@ -1265,7 +1265,7 @@ int ipa_set_aggr_mode(enum ipa_aggr_mode mode)
 	ipa_dec_client_disable_clks();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_set_aggr_mode); */
+EXPORT_SYMBOL(ipa_set_aggr_mode);
 
 /**
  * ipa_set_qcncm_ndp_sig() - Set the NDP signature used for QCNCM aggregation
@@ -1305,7 +1305,7 @@ int ipa_set_qcncm_ndp_sig(char sig[3])
 	ipa_dec_client_disable_clks();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_set_qcncm_ndp_sig); */
+EXPORT_SYMBOL(ipa_set_qcncm_ndp_sig);
 
 /**
  * ipa_set_single_ndp_per_mbim() - Enable/disable single NDP per MBIM frame
@@ -1334,7 +1334,7 @@ int ipa_set_single_ndp_per_mbim(bool enable)
 	ipa_dec_client_disable_clks();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_set_single_ndp_per_mbim); */
+EXPORT_SYMBOL(ipa_set_single_ndp_per_mbim);
 
 /**
  * ipa_set_hw_timer_fix_for_mbim_aggr() - Enable/disable HW timer fix
@@ -1354,7 +1354,7 @@ int ipa_set_hw_timer_fix_for_mbim_aggr(bool enable)
 	ipa_dec_client_disable_clks();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_set_hw_timer_fix_for_mbim_aggr); */
+EXPORT_SYMBOL(ipa_set_hw_timer_fix_for_mbim_aggr);
 
 /**
  * ipa_straddle_boundary() - Checks whether a memory buffer straddles a boundary
@@ -1401,5 +1401,5 @@ void ipa_bam_reg_dump(void)
 		ipa_dec_client_disable_clks();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_bam_reg_dump); */
+EXPORT_SYMBOL(ipa_bam_reg_dump);
 

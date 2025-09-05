@@ -441,7 +441,7 @@ void gigaset_m10x_input(struct inbuf_t *inbuf)
 		gig_dbg(DEBUG_INTR, "head set to %u", inbuf->head);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_m10x_input); */
+EXPORT_SYMBOL_GPL(gigaset_m10x_input);
 
 
 /* == data output ========================================================== */
@@ -606,4 +606,4 @@ int gigaset_m10x_send_skb(struct bc_state *bcs, struct sk_buff *skb)
 
 	return len;	/* ok so far */
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gigaset_m10x_send_skb); */
+EXPORT_SYMBOL_GPL(gigaset_m10x_send_skb);

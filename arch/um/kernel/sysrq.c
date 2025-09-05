@@ -45,7 +45,7 @@ void dump_stack(void)
 
 	show_trace(current, &stack);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 /*Stolen from arch/i386/kernel/traps.c */
 static const int kstack_depth_to_print = 24;

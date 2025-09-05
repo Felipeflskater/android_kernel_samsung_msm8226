@@ -181,7 +181,7 @@ void fsl_pq_mdio_bus_name(char *name, struct device_node *np)
 	snprintf(name, MII_BUS_ID_SIZE, "%s@%llx", np->name,
 		(unsigned long long)taddr);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fsl_pq_mdio_bus_name); */
+EXPORT_SYMBOL_GPL(fsl_pq_mdio_bus_name);
 
 
 static u32 __iomem *get_gfar_tbipa(struct fsl_pq_mdio __iomem *regs, struct device_node *np)

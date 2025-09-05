@@ -2534,4 +2534,4 @@ free_key:
 out:
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(altera_init); */
+EXPORT_SYMBOL(altera_init);

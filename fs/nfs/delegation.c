@@ -472,7 +472,7 @@ void nfs_remove_bad_delegation(struct inode *inode)
 		nfs_free_delegation(delegation);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nfs_remove_bad_delegation); */
+EXPORT_SYMBOL_GPL(nfs_remove_bad_delegation);
 
 /**
  * nfs_expire_all_delegation_types

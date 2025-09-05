@@ -193,7 +193,7 @@ void css_sch_device_unregister(struct subchannel *sch)
 		device_unregister(&sch->dev);
 	mutex_unlock(&sch->reg_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(css_sch_device_unregister); */
+EXPORT_SYMBOL_GPL(css_sch_device_unregister);
 
 static void ssd_from_pmcw(struct chsc_ssd_info *ssd, struct pmcw *pmcw)
 {
@@ -367,7 +367,7 @@ int css_sch_is_valid(struct schib *schib)
 		return 0;
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(css_sch_is_valid); */
+EXPORT_SYMBOL_GPL(css_sch_is_valid);
 
 static int css_evaluate_new_subchannel(struct subchannel_id schid, int slow)
 {
@@ -625,7 +625,7 @@ void css_schedule_reprobe(void)
 {
 	css_schedule_eval_all_unreg();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(css_schedule_reprobe); */
+EXPORT_SYMBOL_GPL(css_schedule_reprobe);
 
 /*
  * Called from the machine check handler for subchannel report words.
@@ -1251,7 +1251,7 @@ int css_driver_register(struct css_driver *cdrv)
 	cdrv->drv.bus = &css_bus_type;
 	return driver_register(&cdrv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(css_driver_register); */
+EXPORT_SYMBOL_GPL(css_driver_register);
 
 /**
  * css_driver_unregister - unregister a css driver
@@ -1263,6 +1263,6 @@ void css_driver_unregister(struct css_driver *cdrv)
 {
 	driver_unregister(&cdrv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(css_driver_unregister); */
+EXPORT_SYMBOL_GPL(css_driver_unregister);
 
 MODULE_LICENSE("GPL");

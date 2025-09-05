@@ -31,7 +31,7 @@ int mem_init_done;
 
 #ifndef CONFIG_MMU
 unsigned int __page_offset;
-/* DISABLED: EXPORT_SYMBOL(__page_offset); */
+EXPORT_SYMBOL(__page_offset);
 
 #else
 static int init_bootmem_done;
@@ -44,16 +44,16 @@ char *klimit = _end;
  * have available.
  */
 unsigned long memory_start;
-/* DISABLED: EXPORT_SYMBOL(memory_start); */
+EXPORT_SYMBOL(memory_start);
 unsigned long memory_size;
-/* DISABLED: EXPORT_SYMBOL(memory_size); */
+EXPORT_SYMBOL(memory_size);
 unsigned long lowmem_size;
 
 #ifdef CONFIG_HIGHMEM
 pte_t *kmap_pte;
-/* DISABLED: EXPORT_SYMBOL(kmap_pte); */
+EXPORT_SYMBOL(kmap_pte);
 pgprot_t kmap_prot;
-/* DISABLED: EXPORT_SYMBOL(kmap_prot); */
+EXPORT_SYMBOL(kmap_prot);
 
 static inline pte_t *virt_to_kpte(unsigned long vaddr)
 {

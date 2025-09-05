@@ -638,7 +638,7 @@ struct regmap_config da9052_regmap_config = {
 	.writeable_reg = da9052_reg_writeable,
 	.volatile_reg = da9052_reg_volatile,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(da9052_regmap_config); */
+EXPORT_SYMBOL_GPL(da9052_regmap_config);
 
 int __devinit da9052_device_init(struct da9052 *da9052, u8 chip_id)
 {

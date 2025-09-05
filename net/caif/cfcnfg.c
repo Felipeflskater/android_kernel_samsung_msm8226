@@ -200,7 +200,7 @@ int caif_disconnect_client(struct net *net, struct cflayer *adap_layer)
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(caif_disconnect_client); */
+EXPORT_SYMBOL(caif_disconnect_client);
 
 static void cfcnfg_linkdestroy_rsp(struct cflayer *layer, u8 channel_id)
 {
@@ -361,7 +361,7 @@ unlock:
 	rcu_read_unlock();
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(caif_connect_client); */
+EXPORT_SYMBOL(caif_connect_client);
 
 static void cfcnfg_reject_rsp(struct cflayer *layer, u8 channel_id,
 			     struct cflayer *adapt_layer)
@@ -523,7 +523,7 @@ out_err:
 	kfree(phyinfo);
 	mutex_unlock(&cnfg->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(cfcnfg_add_phy_layer); */
+EXPORT_SYMBOL(cfcnfg_add_phy_layer);
 
 int cfcnfg_set_phy_state(struct cfcnfg *cnfg, struct cflayer *phy_layer,
 		bool up)
@@ -555,7 +555,7 @@ int cfcnfg_set_phy_state(struct cfcnfg *cnfg, struct cflayer *phy_layer,
 	rcu_read_unlock();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cfcnfg_set_phy_state); */
+EXPORT_SYMBOL(cfcnfg_set_phy_state);
 
 int cfcnfg_del_phy_layer(struct cfcnfg *cnfg, struct cflayer *phy_layer)
 {
@@ -609,4 +609,4 @@ int cfcnfg_del_phy_layer(struct cfcnfg *cnfg, struct cflayer *phy_layer)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cfcnfg_del_phy_layer); */
+EXPORT_SYMBOL(cfcnfg_del_phy_layer);

@@ -390,7 +390,7 @@ int dvb_filter_get_ac3info(u8 *mbuf, int count, struct dvb_audio_info *ai, int p
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_filter_get_ac3info); */
+EXPORT_SYMBOL(dvb_filter_get_ac3info);
 
 
 #if 0
@@ -565,7 +565,7 @@ void dvb_filter_pes2ts_init(struct dvb_filter_pes2ts *p2ts, unsigned short pid,
 	p2ts->cb=cb;
 	p2ts->priv=priv;
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_filter_pes2ts_init); */
+EXPORT_SYMBOL(dvb_filter_pes2ts_init);
 
 int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts, unsigned char *pes,
 		      int len, int payload_start)
@@ -600,4 +600,4 @@ int dvb_filter_pes2ts(struct dvb_filter_pes2ts *p2ts, unsigned char *pes,
 	memcpy(buf+5+rest, pes, len);
 	return p2ts->cb(p2ts->priv, buf);
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_filter_pes2ts); */
+EXPORT_SYMBOL(dvb_filter_pes2ts);

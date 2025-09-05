@@ -417,7 +417,7 @@ void fbcon_rotate_ccw(struct fbcon_ops *ops)
 	ops->cursor = ccw_cursor;
 	ops->update_start = ccw_update_start;
 }
-/* DISABLED: EXPORT_SYMBOL(fbcon_rotate_ccw); */
+EXPORT_SYMBOL(fbcon_rotate_ccw);
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Console Rotation (270 degrees) Support");

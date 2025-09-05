@@ -11,7 +11,7 @@
 
 	.macro get_irqnr_preamble, base, tmp
 	mrc	p15, 0, \tmp, c15, c1, 0
-	orr	\tmp, \tmp, @ (1 << 6)
+	orr	\tmp, \tmp, #(1 << 6)
 	mcr	p15, 0, \tmp, c15, c1, 0	@ Enable cp6 access
 	mrc	p15, 0, \tmp, c15, c1, 0
 	mov	\tmp, \tmp
@@ -28,7 +28,7 @@
 
 	.macro arch_ret_to_user, tmp1, tmp2
 	mrc	p15, 0, \tmp1, c15, c1, 0
-	ands	\tmp2, \tmp1, @ (1 << 6)
-	bicne	\tmp1, \tmp1, @ (1 << 6)
+	ands	\tmp2, \tmp1, #(1 << 6)
+	bicne	\tmp1, \tmp1, #(1 << 6)
 	mcrne	p15, 0, \tmp1, c15, c1, 0	@ Disable cp6 access
 	.endm

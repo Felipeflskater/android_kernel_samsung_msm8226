@@ -63,7 +63,7 @@ error_xfer_result_alloc:
 error_rpipes_create:
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wa_create); */
+EXPORT_SYMBOL_GPL(wa_create);
 
 
 void __wa_destroy(struct wahc *wa)
@@ -78,7 +78,7 @@ void __wa_destroy(struct wahc *wa)
 	wa_nep_destroy(wa);
 	wa_rpipes_destroy(wa);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__wa_destroy); */
+EXPORT_SYMBOL_GPL(__wa_destroy);
 
 /**
  * wa_reset_all - reset the WA device

@@ -1488,7 +1488,7 @@ static int dmasound_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("dmasound=", dmasound_setup); */ */
+__setup("dmasound=", dmasound_setup);
 
 #endif /* !MODULE */
 
@@ -1576,14 +1576,14 @@ char dmasound_alaw2dma8[] = {
      *  Visible symbols for modules
      */
 
-/* DISABLED: EXPORT_SYMBOL(dmasound); */
-/* DISABLED: EXPORT_SYMBOL(dmasound_init); */
+EXPORT_SYMBOL(dmasound);
+EXPORT_SYMBOL(dmasound_init);
 #ifdef MODULE
-/* DISABLED: EXPORT_SYMBOL(dmasound_deinit); */
+EXPORT_SYMBOL(dmasound_deinit);
 #endif
-/* DISABLED: EXPORT_SYMBOL(dmasound_write_sq); */
-/* DISABLED: EXPORT_SYMBOL(dmasound_catchRadius); */
+EXPORT_SYMBOL(dmasound_write_sq);
+EXPORT_SYMBOL(dmasound_catchRadius);
 #ifdef HAS_8BIT_TABLES
-/* DISABLED: EXPORT_SYMBOL(dmasound_ulaw2dma8); */
-/* DISABLED: EXPORT_SYMBOL(dmasound_alaw2dma8); */
+EXPORT_SYMBOL(dmasound_ulaw2dma8);
+EXPORT_SYMBOL(dmasound_alaw2dma8);
 #endif

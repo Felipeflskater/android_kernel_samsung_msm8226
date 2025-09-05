@@ -1379,7 +1379,7 @@ void prcmu_configure_auto_pm(struct prcmu_auto_pm_config *sleep,
 
 	spin_unlock_irqrestore(&mb2_transfer.auto_pm_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(prcmu_configure_auto_pm); */
+EXPORT_SYMBOL(prcmu_configure_auto_pm);
 
 bool prcmu_is_auto_pm_enabled(void)
 {

@@ -83,4 +83,4 @@ void flexcop_dump_reg(struct flexcop_device *fc,
 	}
 	deb_rdump("\n");
 }
-/* DISABLED: EXPORT_SYMBOL(flexcop_dump_reg); */
+EXPORT_SYMBOL(flexcop_dump_reg);

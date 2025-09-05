@@ -53,7 +53,7 @@ int mx51_revision(void)
 
 	return mx5_cpu_rev;
 }
-/* DISABLED: EXPORT_SYMBOL(mx51_revision); */
+EXPORT_SYMBOL(mx51_revision);
 
 #ifdef CONFIG_NEON
 
@@ -110,7 +110,7 @@ int mx53_revision(void)
 
 	return mx5_cpu_rev;
 }
-/* DISABLED: EXPORT_SYMBOL(mx53_revision); */
+EXPORT_SYMBOL(mx53_revision);
 
 static int get_mx50_srev(void)
 {
@@ -148,4 +148,4 @@ int mx50_revision(void)
 
 	return mx5_cpu_rev;
 }
-/* DISABLED: EXPORT_SYMBOL(mx50_revision); */
+EXPORT_SYMBOL(mx50_revision);

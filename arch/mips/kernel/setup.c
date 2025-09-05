@@ -35,7 +35,7 @@
 
 struct cpuinfo_mips cpu_data[NR_CPUS] __read_mostly;
 
-/* DISABLED: EXPORT_SYMBOL(cpu_data); */
+EXPORT_SYMBOL(cpu_data);
 
 #ifdef CONFIG_VT
 struct screen_info screen_info;
@@ -46,7 +46,7 @@ struct screen_info screen_info;
  */
 unsigned int PCI_DMA_BUS_IS_PHYS;
 
-/* DISABLED: EXPORT_SYMBOL(PCI_DMA_BUS_IS_PHYS); */
+EXPORT_SYMBOL(PCI_DMA_BUS_IS_PHYS);
 
 /*
  * Setup information
@@ -55,7 +55,7 @@ unsigned int PCI_DMA_BUS_IS_PHYS;
  */
 unsigned long mips_machtype __read_mostly = MACH_UNKNOWN;
 
-/* DISABLED: EXPORT_SYMBOL(mips_machtype); */
+EXPORT_SYMBOL(mips_machtype);
 
 struct boot_mem_map boot_mem_map;
 
@@ -71,7 +71,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
  * I/O ports are mapped.
  */
 const unsigned long mips_io_port_base = -1;
-/* DISABLED: EXPORT_SYMBOL(mips_io_port_base); */
+EXPORT_SYMBOL(mips_io_port_base);
 
 static struct resource code_resource = { .name = "Kernel code", };
 static struct resource data_resource = { .name = "Kernel data", };

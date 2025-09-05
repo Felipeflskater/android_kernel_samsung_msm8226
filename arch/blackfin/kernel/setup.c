@@ -33,25 +33,25 @@
 #include <asm/pda.h>
 
 u16 _bfin_swrst;
-/* DISABLED: EXPORT_SYMBOL(_bfin_swrst); */
+EXPORT_SYMBOL(_bfin_swrst);
 
 unsigned long memory_start, memory_end, physical_mem_end;
 unsigned long _rambase, _ramstart, _ramend;
 unsigned long reserved_mem_dcache_on;
 unsigned long reserved_mem_icache_on;
-/* DISABLED: EXPORT_SYMBOL(memory_start); */
-/* DISABLED: EXPORT_SYMBOL(memory_end); */
-/* DISABLED: EXPORT_SYMBOL(physical_mem_end); */
-/* DISABLED: EXPORT_SYMBOL(_ramend); */
-/* DISABLED: EXPORT_SYMBOL(reserved_mem_dcache_on); */
+EXPORT_SYMBOL(memory_start);
+EXPORT_SYMBOL(memory_end);
+EXPORT_SYMBOL(physical_mem_end);
+EXPORT_SYMBOL(_ramend);
+EXPORT_SYMBOL(reserved_mem_dcache_on);
 
 #ifdef CONFIG_MTD_UCLINUX
 extern struct map_info uclinux_ram_map;
 unsigned long memory_mtd_end, memory_mtd_start, mtd_size;
 unsigned long _ebss;
-/* DISABLED: EXPORT_SYMBOL(memory_mtd_end); */
-/* DISABLED: EXPORT_SYMBOL(memory_mtd_start); */
-/* DISABLED: EXPORT_SYMBOL(mtd_size); */
+EXPORT_SYMBOL(memory_mtd_end);
+EXPORT_SYMBOL(memory_mtd_start);
+EXPORT_SYMBOL(mtd_size);
 #endif
 
 char __initdata command_line[COMMAND_LINE_SIZE];
@@ -1121,7 +1121,7 @@ u_long get_cclk(void)
 		cached_cclk = get_vco() >> csel;
 	return cached_cclk;
 }
-/* DISABLED: EXPORT_SYMBOL(get_cclk); */
+EXPORT_SYMBOL(get_cclk);
 
 /* Get the System clock */
 u_long get_sclk(void)
@@ -1147,7 +1147,7 @@ u_long get_sclk(void)
 	cached_sclk = get_vco() / ssel;
 	return cached_sclk;
 }
-/* DISABLED: EXPORT_SYMBOL(get_sclk); */
+EXPORT_SYMBOL(get_sclk);
 
 unsigned long sclk_to_usecs(unsigned long sclk)
 {
@@ -1155,7 +1155,7 @@ unsigned long sclk_to_usecs(unsigned long sclk)
 	do_div(tmp, get_sclk());
 	return tmp;
 }
-/* DISABLED: EXPORT_SYMBOL(sclk_to_usecs); */
+EXPORT_SYMBOL(sclk_to_usecs);
 
 unsigned long usecs_to_sclk(unsigned long usecs)
 {
@@ -1163,7 +1163,7 @@ unsigned long usecs_to_sclk(unsigned long usecs)
 	do_div(tmp, USEC_PER_SEC);
 	return tmp;
 }
-/* DISABLED: EXPORT_SYMBOL(usecs_to_sclk); */
+EXPORT_SYMBOL(usecs_to_sclk);
 
 /*
  *	Get CPU information for use by the procfs.

@@ -91,7 +91,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_config); */
+EXPORT_SYMBOL(pwm_config);
 
 int pwm_enable(struct pwm_device *pwm)
 {
@@ -99,14 +99,14 @@ int pwm_enable(struct pwm_device *pwm)
 	writel(5, pwm->regbase + (pwm->pwm_id << 4));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
+EXPORT_SYMBOL(pwm_enable);
 
 void pwm_disable(struct pwm_device *pwm)
 {
 	pwm_busy_wait(pwm->regbase + 0x40 + pwm->pwm_id, (1 << 0));
 	writel(0, pwm->regbase + (pwm->pwm_id << 4));
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
+EXPORT_SYMBOL(pwm_disable);
 
 struct pwm_device *pwm_request(int pwm_id, const char *label)
 {
@@ -136,7 +136,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 	mutex_unlock(&pwm_lock);
 	return pwm;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_request); */
+EXPORT_SYMBOL(pwm_request);
 
 void pwm_free(struct pwm_device *pwm)
 {
@@ -151,7 +151,7 @@ void pwm_free(struct pwm_device *pwm)
 
 	mutex_unlock(&pwm_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_free); */
+EXPORT_SYMBOL(pwm_free);
 
 static inline void __add_pwm(struct pwm_device *pwm)
 {

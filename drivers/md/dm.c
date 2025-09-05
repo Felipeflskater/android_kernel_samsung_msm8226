@@ -31,7 +31,7 @@
 DEFINE_RATELIMIT_STATE(dm_ratelimit_state,
 		       DEFAULT_RATELIMIT_INTERVAL,
 		       DEFAULT_RATELIMIT_BURST);
-/* DISABLED: EXPORT_SYMBOL(dm_ratelimit_state); */
+EXPORT_SYMBOL(dm_ratelimit_state);
 #endif
 
 /*
@@ -107,7 +107,7 @@ union map_info *dm_get_rq_mapinfo(struct request *rq)
 		return &((struct dm_rq_target_io *)rq->end_io_data)->info;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_get_rq_mapinfo); */
+EXPORT_SYMBOL_GPL(dm_get_rq_mapinfo);
 
 #define MINOR_ALLOCED ((void *)-1)
 
@@ -836,7 +836,7 @@ void dm_requeue_unmapped_request(struct request *clone)
 
 	rq_completed(md, rw, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_requeue_unmapped_request); */
+EXPORT_SYMBOL_GPL(dm_requeue_unmapped_request);
 
 static void __stop_queue(struct request_queue *q)
 {
@@ -938,7 +938,7 @@ void dm_kill_unmapped_request(struct request *clone, int error)
 	rq->cmd_flags |= REQ_FAILED;
 	dm_complete_request(clone, error);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_kill_unmapped_request); */
+EXPORT_SYMBOL_GPL(dm_kill_unmapped_request);
 
 /*
  * Called with the queue lock held
@@ -1466,7 +1466,7 @@ void dm_dispatch_request(struct request *rq)
 	if (r)
 		dm_complete_request(rq, r);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_dispatch_request); */
+EXPORT_SYMBOL_GPL(dm_dispatch_request);
 
 static void dm_rq_bio_destructor(struct bio *bio)
 {
@@ -1696,7 +1696,7 @@ int dm_underlying_device_busy(struct request_queue *q)
 {
 	return blk_lld_busy(q);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_underlying_device_busy); */
+EXPORT_SYMBOL_GPL(dm_underlying_device_busy);
 
 static int dm_lld_busy(struct request_queue *q)
 {
@@ -2259,7 +2259,7 @@ out:
 
 	return md;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_get_md); */
+EXPORT_SYMBOL_GPL(dm_get_md);
 
 void *dm_get_mdptr(struct mapped_device *md)
 {
@@ -2281,7 +2281,7 @@ const char *dm_device_name(struct mapped_device *md)
 {
 	return md->name;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_device_name); */
+EXPORT_SYMBOL_GPL(dm_device_name);
 
 static void __dm_destroy(struct mapped_device *md, bool wait)
 {
@@ -2339,7 +2339,7 @@ void dm_put(struct mapped_device *md)
 {
 	atomic_dec(&md->holders);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_put); */
+EXPORT_SYMBOL_GPL(dm_put);
 
 static int dm_wait_for_completion(struct mapped_device *md, int interruptible)
 {
@@ -2708,13 +2708,13 @@ int dm_suspended(struct dm_target *ti)
 {
 	return dm_suspended_md(dm_table_get_md(ti->table));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_suspended); */
+EXPORT_SYMBOL_GPL(dm_suspended);
 
 int dm_noflush_suspending(struct dm_target *ti)
 {
 	return __noflush_suspending(dm_table_get_md(ti->table));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(dm_noflush_suspending); */
+EXPORT_SYMBOL_GPL(dm_noflush_suspending);
 
 struct dm_md_mempools *dm_alloc_md_mempools(unsigned type, unsigned integrity)
 {
@@ -2785,7 +2785,7 @@ static const struct block_device_operations dm_blk_dops = {
 	.owner = THIS_MODULE
 };
 
-/* DISABLED: EXPORT_SYMBOL(dm_get_mapinfo); */
+EXPORT_SYMBOL(dm_get_mapinfo);
 
 /*
  * module hooks

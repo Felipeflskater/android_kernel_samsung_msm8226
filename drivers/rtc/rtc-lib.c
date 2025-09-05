@@ -34,7 +34,7 @@ int rtc_month_days(unsigned int month, unsigned int year)
 {
 	return rtc_days_in_month[month] + (is_leap_year(year) && month == 1);
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_month_days); */
+EXPORT_SYMBOL(rtc_month_days);
 
 /*
  * The number of days since January 1. (0 to 365)
@@ -43,7 +43,7 @@ int rtc_year_days(unsigned int day, unsigned int month, unsigned int year)
 {
 	return rtc_ydays[is_leap_year(year)][month] + day-1;
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_year_days); */
+EXPORT_SYMBOL(rtc_year_days);
 
 /*
  * Convert seconds since 01-01-1970 00:00:00 to Gregorian date.
@@ -88,7 +88,7 @@ void rtc_time_to_tm(unsigned long time, struct rtc_time *tm)
 
 	tm->tm_isdst = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_time_to_tm); */
+EXPORT_SYMBOL(rtc_time_to_tm);
 
 /*
  * Does the rtc_time represent a valid date/time?
@@ -106,7 +106,7 @@ int rtc_valid_tm(struct rtc_time *tm)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_valid_tm); */
+EXPORT_SYMBOL(rtc_valid_tm);
 
 /*
  * Convert Gregorian date to seconds since 01-01-1970 00:00:00.
@@ -117,7 +117,7 @@ int rtc_tm_to_time(struct rtc_time *tm, unsigned long *time)
 			tm->tm_hour, tm->tm_min, tm->tm_sec);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(rtc_tm_to_time); */
+EXPORT_SYMBOL(rtc_tm_to_time);
 
 /*
  * Convert rtc_time to ktime
@@ -128,7 +128,7 @@ ktime_t rtc_tm_to_ktime(struct rtc_time tm)
 	rtc_tm_to_time(&tm, &time);
 	return ktime_set(time, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rtc_tm_to_ktime); */
+EXPORT_SYMBOL_GPL(rtc_tm_to_ktime);
 
 /*
  * Convert ktime to rtc_time
@@ -145,6 +145,6 @@ struct rtc_time rtc_ktime_to_tm(ktime_t kt)
 	rtc_time_to_tm(ts.tv_sec, &ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rtc_ktime_to_tm); */
+EXPORT_SYMBOL_GPL(rtc_ktime_to_tm);
 
 MODULE_LICENSE("GPL");

@@ -26,7 +26,7 @@
  * call that checks a non-global.
  */
 int cleancache_enabled __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(cleancache_enabled); */
+EXPORT_SYMBOL(cleancache_enabled);
 
 /*
  * cleancache_ops is set by cleancache_ops_register to contain the pointers
@@ -56,14 +56,14 @@ struct cleancache_ops cleancache_register_ops(struct cleancache_ops *ops)
 	cleancache_enabled = 1;
 	return old;
 }
-/* DISABLED: EXPORT_SYMBOL(cleancache_register_ops); */
+EXPORT_SYMBOL(cleancache_register_ops);
 
 /* Called by a cleancache-enabled filesystem at time of mount */
 void __cleancache_init_fs(struct super_block *sb)
 {
 	sb->cleancache_poolid = (*cleancache_ops.init_fs)(PAGE_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_init_fs); */
+EXPORT_SYMBOL(__cleancache_init_fs);
 
 /* Called by a cleancache-enabled clustered filesystem at time of mount */
 void __cleancache_init_shared_fs(char *uuid, struct super_block *sb)
@@ -71,7 +71,7 @@ void __cleancache_init_shared_fs(char *uuid, struct super_block *sb)
 	sb->cleancache_poolid =
 		(*cleancache_ops.init_shared_fs)(uuid, PAGE_SIZE);
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_init_shared_fs); */
+EXPORT_SYMBOL(__cleancache_init_shared_fs);
 
 /*
  * If the filesystem uses exportable filehandles, use the filehandle as
@@ -129,7 +129,7 @@ int __cleancache_get_page(struct page *page)
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_get_page); */
+EXPORT_SYMBOL(__cleancache_get_page);
 
 /*
  * "Put" data from a page to cleancache and associate it with the
@@ -150,7 +150,7 @@ void __cleancache_put_page(struct page *page)
 		cleancache_puts++;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_put_page); */
+EXPORT_SYMBOL(__cleancache_put_page);
 
 /*
  * Invalidate any data from cleancache associated with the poolid and the
@@ -172,7 +172,7 @@ void __cleancache_invalidate_page(struct address_space *mapping,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_invalidate_page); */
+EXPORT_SYMBOL(__cleancache_invalidate_page);
 
 /*
  * Invalidate all data from cleancache associated with the poolid and the
@@ -187,7 +187,7 @@ void __cleancache_invalidate_inode(struct address_space *mapping)
 	if (pool_id >= 0 && cleancache_get_key(mapping->host, &key) >= 0)
 		(*cleancache_ops.invalidate_inode)(pool_id, key);
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_invalidate_inode); */
+EXPORT_SYMBOL(__cleancache_invalidate_inode);
 
 /*
  * Called by any cleancache-enabled filesystem at time of unmount;
@@ -202,7 +202,7 @@ void __cleancache_invalidate_fs(struct super_block *sb)
 		(*cleancache_ops.invalidate_fs)(old_poolid);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__cleancache_invalidate_fs); */
+EXPORT_SYMBOL(__cleancache_invalidate_fs);
 
 static int __init init_cleancache(void)
 {

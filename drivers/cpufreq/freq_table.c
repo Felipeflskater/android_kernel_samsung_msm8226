@@ -48,7 +48,7 @@ int cpufreq_frequency_table_cpuinfo(struct cpufreq_policy *policy,
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_table_cpuinfo); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_table_cpuinfo);
 
 
 int cpufreq_frequency_table_verify(struct cpufreq_policy *policy,
@@ -88,7 +88,7 @@ int cpufreq_frequency_table_verify(struct cpufreq_policy *policy,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_table_verify); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_table_verify);
 
 
 int cpufreq_frequency_table_target(struct cpufreq_policy *policy,
@@ -169,7 +169,7 @@ int cpufreq_frequency_table_target(struct cpufreq_policy *policy,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_table_target); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_table_target);
 
 static DEFINE_PER_CPU(struct cpufreq_frequency_table *, cpufreq_show_table);
 /**
@@ -204,7 +204,7 @@ struct freq_attr cpufreq_freq_attr_scaling_available_freqs = {
 		},
 	.show = show_available_freqs,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_freq_attr_scaling_available_freqs); */
+EXPORT_SYMBOL_GPL(cpufreq_freq_attr_scaling_available_freqs);
 
 /*
  * if you use these, you must assure that the frequency table is valid
@@ -216,20 +216,20 @@ void cpufreq_frequency_table_get_attr(struct cpufreq_frequency_table *table,
 	pr_debug("setting show_table for cpu %u to %p\n", cpu, table);
 	per_cpu(cpufreq_show_table, cpu) = table;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_table_get_attr); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_table_get_attr);
 
 void cpufreq_frequency_table_put_attr(unsigned int cpu)
 {
 	pr_debug("clearing show_table for cpu %u\n", cpu);
 	per_cpu(cpufreq_show_table, cpu) = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_table_put_attr); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_table_put_attr);
 
 struct cpufreq_frequency_table *cpufreq_frequency_get_table(unsigned int cpu)
 {
 	return per_cpu(cpufreq_show_table, cpu);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cpufreq_frequency_get_table); */
+EXPORT_SYMBOL_GPL(cpufreq_frequency_get_table);
 
 MODULE_AUTHOR("Dominik Brodowski <linux@brodo.de>");
 MODULE_DESCRIPTION("CPUfreq frequency table helpers");

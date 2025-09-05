@@ -13,7 +13,7 @@
 #include "pci.h"
 
 struct kset *pci_slots_kset;
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_slots_kset); */
+EXPORT_SYMBOL_GPL(pci_slots_kset);
 
 static ssize_t pci_slot_attr_show(struct kobject *kobj,
 					struct attribute *attr, char *buf)
@@ -317,7 +317,7 @@ err:
 	slot = ERR_PTR(err);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_create_slot); */
+EXPORT_SYMBOL_GPL(pci_create_slot);
 
 /**
  * pci_renumber_slot - update %struct pci_slot -> number
@@ -343,7 +343,7 @@ void pci_renumber_slot(struct pci_slot *slot, int slot_nr)
 out:
 	up_write(&pci_bus_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_renumber_slot); */
+EXPORT_SYMBOL_GPL(pci_renumber_slot);
 
 /**
  * pci_destroy_slot - decrement refcount for physical PCI slot
@@ -362,7 +362,7 @@ void pci_destroy_slot(struct pci_slot *slot)
 	kobject_put(&slot->kobj);
 	up_write(&pci_bus_sem);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_destroy_slot); */
+EXPORT_SYMBOL_GPL(pci_destroy_slot);
 
 #if defined(CONFIG_HOTPLUG_PCI) || defined(CONFIG_HOTPLUG_PCI_MODULE)
 #include <linux/pci_hotplug.h>
@@ -387,7 +387,7 @@ void pci_hp_create_module_link(struct pci_slot *pci_slot)
 	no_warn = sysfs_create_link(&pci_slot->kobj, kobj, "module");
 	kobject_put(kobj);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_hp_create_module_link); */
+EXPORT_SYMBOL_GPL(pci_hp_create_module_link);
 
 /**
  * pci_hp_remove_link - remove symbolic link to the hotplug driver module.
@@ -400,7 +400,7 @@ void pci_hp_remove_module_link(struct pci_slot *pci_slot)
 {
 	sysfs_remove_link(&pci_slot->kobj, "module");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_hp_remove_module_link); */
+EXPORT_SYMBOL_GPL(pci_hp_remove_module_link);
 #endif
 
 static int pci_slot_init(void)

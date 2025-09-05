@@ -3216,7 +3216,7 @@ struct fb_info *msm_fb_get_writeback_fb(void)
 
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_fb_get_writeback_fb); */
+EXPORT_SYMBOL(msm_fb_get_writeback_fb);
 
 static int mdss_fb_register_extra_panel(struct platform_device *pdev,
 	struct mdss_panel_data *pdata)
@@ -3292,7 +3292,7 @@ mdss_notfound:
 	of_node_put(node);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(mdss_register_panel); */
+EXPORT_SYMBOL(mdss_register_panel);
 
 int mdss_panel_force_update(struct mdss_panel_data *pdata)
 {
@@ -3316,7 +3316,7 @@ int mdss_panel_force_update(struct mdss_panel_data *pdata)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mdss_panel_force_update); */
+EXPORT_SYMBOL(mdss_panel_force_update);
 
 int mdss_fb_register_mdp_instance(struct msm_mdp_interface *mdp)
 {
@@ -3328,13 +3328,13 @@ int mdss_fb_register_mdp_instance(struct msm_mdp_interface *mdp)
 	mdp_instance = mdp;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mdss_fb_register_mdp_instance); */
+EXPORT_SYMBOL(mdss_fb_register_mdp_instance);
 
 int mdss_fb_get_first_cmt_flag(void)
 {
 	return fist_commit_flag;
 }
-/* DISABLED: EXPORT_SYMBOL(mdss_fb_get_first_cmt_flag); */
+EXPORT_SYMBOL(mdss_fb_get_first_cmt_flag);
 
 int mdss_fb_get_phys_info(unsigned long *start, unsigned long *len, int fb_num)
 {
@@ -3360,7 +3360,7 @@ int mdss_fb_get_phys_info(unsigned long *start, unsigned long *len, int fb_num)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mdss_fb_get_phys_info); */
+EXPORT_SYMBOL(mdss_fb_get_phys_info);
 
 int __init mdss_fb_init(void)
 {

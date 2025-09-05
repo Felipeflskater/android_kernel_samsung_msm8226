@@ -24,18 +24,18 @@
 
 		@ see if Ser3 is active
 		add	\rp, \rp, #0x00050000
-		ldr	\rv, [\rp, @ UTCR3]
-		tst	\rv, @ UTCR3_TXE
+		ldr	\rv, [\rp, #UTCR3]
+		tst	\rv, #UTCR3_TXE
 
 		@ if Ser3 is inactive, then try Ser1
-		addeq	\rp, \rp, @ (0x00010000 - 0x00050000)
-		ldreq	\rv, [\rp, @ UTCR3]
-		tsteq	\rv, @ UTCR3_TXE
+		addeq	\rp, \rp, #(0x00010000 - 0x00050000)
+		ldreq	\rv, [\rp, #UTCR3]
+		tsteq	\rv, #UTCR3_TXE
 
 		@ if Ser1 is inactive, then try Ser2
-		addeq	\rp, \rp, @ (0x00030000 - 0x00010000)
-		ldreq	\rv, [\rp, @ UTCR3]
-		tsteq	\rv, @ UTCR3_TXE
+		addeq	\rp, \rp, #(0x00030000 - 0x00010000)
+		ldreq	\rv, [\rp, #UTCR3]
+		tsteq	\rv, #UTCR3_TXE
 
 		@ clear top bits, and generate both phys and virt addresses
 		lsl	\rp, \rp, #8
@@ -46,17 +46,17 @@
 		.endm
 
 		.macro	senduart,rd,rx
-		str	\rd, [\rx, @ UTDR]
+		str	\rd, [\rx, #UTDR]
 		.endm
 
 		.macro	waituart,rd,rx
-1001:		ldr	\rd, [\rx, @ UTSR1]
-		tst	\rd, @ UTSR1_TNF
+1001:		ldr	\rd, [\rx, #UTSR1]
+		tst	\rd, #UTSR1_TNF
 		beq	1001b
 		.endm
 
 		.macro	busyuart,rd,rx
-1001:		ldr	\rd, [\rx, @ UTSR1]
-		tst	\rd, @ UTSR1_TBY
+1001:		ldr	\rd, [\rx, #UTSR1]
+		tst	\rd, #UTSR1_TBY
 		bne	1001b
 		.endm

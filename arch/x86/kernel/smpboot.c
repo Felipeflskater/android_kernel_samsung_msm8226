@@ -115,7 +115,7 @@ static struct task_struct *idle_thread_array[NR_CPUS] __cpuinitdata ;
 
 /* Number of siblings per CPU package */
 int smp_num_siblings = 1;
-/* DISABLED: EXPORT_SYMBOL(smp_num_siblings); */
+EXPORT_SYMBOL(smp_num_siblings);
 
 /* Last level cache ID of each logical CPU */
 DEFINE_PER_CPU(u16, cpu_llc_id) = BAD_APICID;

@@ -1889,7 +1889,7 @@ int __init qup_i2c_init_driver(void)
 
 	return platform_driver_register(&qup_i2c_driver);
 }
-/* DISABLED: EXPORT_SYMBOL(qup_i2c_init_driver); */
+EXPORT_SYMBOL(qup_i2c_init_driver);
 arch_initcall(qup_i2c_init_driver);
 
 static void __exit qup_i2c_exit_driver(void)

@@ -16,7 +16,7 @@
 
 /* all access to the ebu must be locked */
 DEFINE_SPINLOCK(ebu_lock);
-/* DISABLED: EXPORT_SYMBOL_GPL(ebu_lock); */
+EXPORT_SYMBOL_GPL(ebu_lock);
 
 static struct resource ltq_ebu_resource = {
 	.name	= "ebu",

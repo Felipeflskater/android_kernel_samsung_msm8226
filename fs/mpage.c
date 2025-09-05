@@ -394,7 +394,7 @@ mpage_readpages(struct address_space *mapping, struct list_head *pages,
 		mpage_bio_submit(READ, bio);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpage_readpages); */
+EXPORT_SYMBOL(mpage_readpages);
 
 /*
  * This isn't called much at all
@@ -414,7 +414,7 @@ int mpage_readpage(struct page *page, get_block_t get_block)
 		mpage_bio_submit(READ, bio);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpage_readpage); */
+EXPORT_SYMBOL(mpage_readpage);
 
 /*
  * Writing is not so simple.
@@ -695,7 +695,7 @@ mpage_writepages(struct address_space *mapping,
 	blk_finish_plug(&plug);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpage_writepages); */
+EXPORT_SYMBOL(mpage_writepages);
 
 int mpage_writepage(struct page *page, get_block_t get_block,
 	struct writeback_control *wbc)
@@ -711,4 +711,4 @@ int mpage_writepage(struct page *page, get_block_t get_block,
 		mpage_bio_submit(WRITE, mpd.bio);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(mpage_writepage); */
+EXPORT_SYMBOL(mpage_writepage);

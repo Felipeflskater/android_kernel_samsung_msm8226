@@ -416,7 +416,7 @@ int sock_map_fd(struct socket *sock, int flags)
 
 	return fd;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_map_fd); */
+EXPORT_SYMBOL(sock_map_fd);
 
 static struct socket *sock_from_file(struct file *file, int *err)
 {
@@ -456,7 +456,7 @@ struct socket *sockfd_lookup(int fd, int *err)
 		fput(file);
 	return sock;
 }
-/* DISABLED: EXPORT_SYMBOL(sockfd_lookup); */
+EXPORT_SYMBOL(sockfd_lookup);
 
 static struct socket *sockfd_lookup_light(int fd, int *err, int *fput_needed)
 {
@@ -629,7 +629,7 @@ void sock_release(struct socket *sock)
 	}
 	sock->file = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_release); */
+EXPORT_SYMBOL(sock_release);
 
 void sock_tx_timestamp(struct sock *sk, __u8 *tx_flags)
 {
@@ -641,7 +641,7 @@ void sock_tx_timestamp(struct sock *sk, __u8 *tx_flags)
 	if (sock_flag(sk, SOCK_WIFI_STATUS))
 		*tx_flags |= SKBTX_WIFI_STATUS;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_tx_timestamp); */
+EXPORT_SYMBOL(sock_tx_timestamp);
 
 static inline int __sock_sendmsg_nosec(struct kiocb *iocb, struct socket *sock,
 				       struct msghdr *msg, size_t size)
@@ -681,7 +681,7 @@ int sock_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
 		ret = wait_on_sync_kiocb(&iocb);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_sendmsg); */
+EXPORT_SYMBOL(sock_sendmsg);
 
 static int sock_sendmsg_nosec(struct socket *sock, struct msghdr *msg, size_t size)
 {
@@ -714,7 +714,7 @@ int kernel_sendmsg(struct socket *sock, struct msghdr *msg,
 	set_fs(oldfs);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_sendmsg); */
+EXPORT_SYMBOL(kernel_sendmsg);
 
 static int ktime2ts(ktime_t kt, struct timespec *ts)
 {
@@ -775,7 +775,7 @@ void __sock_recv_timestamp(struct msghdr *msg, struct sock *sk,
 		put_cmsg(msg, SOL_SOCKET,
 			 SCM_TIMESTAMPING, sizeof(ts), &ts);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__sock_recv_timestamp); */
+EXPORT_SYMBOL_GPL(__sock_recv_timestamp);
 
 void __sock_recv_wifi_status(struct msghdr *msg, struct sock *sk,
 	struct sk_buff *skb)
@@ -791,7 +791,7 @@ void __sock_recv_wifi_status(struct msghdr *msg, struct sock *sk,
 
 	put_cmsg(msg, SOL_SOCKET, SCM_WIFI_STATUS, sizeof(ack), &ack);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__sock_recv_wifi_status); */
+EXPORT_SYMBOL_GPL(__sock_recv_wifi_status);
 
 static inline void sock_recv_drops(struct msghdr *msg, struct sock *sk,
 				   struct sk_buff *skb)
@@ -807,7 +807,7 @@ void __sock_recv_ts_and_drops(struct msghdr *msg, struct sock *sk,
 	sock_recv_timestamp(msg, sk, skb);
 	sock_recv_drops(msg, sk, skb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__sock_recv_ts_and_drops); */
+EXPORT_SYMBOL_GPL(__sock_recv_ts_and_drops);
 
 static inline int __sock_recvmsg_nosec(struct kiocb *iocb, struct socket *sock,
 				       struct msghdr *msg, size_t size, int flags)
@@ -847,7 +847,7 @@ int sock_recvmsg(struct socket *sock, struct msghdr *msg,
 		ret = wait_on_sync_kiocb(&iocb);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_recvmsg); */
+EXPORT_SYMBOL(sock_recvmsg);
 
 static int sock_recvmsg_nosec(struct socket *sock, struct msghdr *msg,
 			      size_t size, int flags)
@@ -895,7 +895,7 @@ int kernel_recvmsg(struct socket *sock, struct msghdr *msg,
 	set_fs(oldfs);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_recvmsg); */
+EXPORT_SYMBOL(kernel_recvmsg);
 
 static void sock_aio_dtor(struct kiocb *iocb)
 {
@@ -1039,7 +1039,7 @@ void brioctl_set(int (*hook) (struct net *, unsigned int, void __user *))
 	br_ioctl_hook = hook;
 	mutex_unlock(&br_ioctl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(brioctl_set); */
+EXPORT_SYMBOL(brioctl_set);
 
 static DEFINE_MUTEX(vlan_ioctl_mutex);
 static int (*vlan_ioctl_hook) (struct net *, void __user *arg);
@@ -1050,7 +1050,7 @@ void vlan_ioctl_set(int (*hook) (struct net *, void __user *))
 	vlan_ioctl_hook = hook;
 	mutex_unlock(&vlan_ioctl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(vlan_ioctl_set); */
+EXPORT_SYMBOL(vlan_ioctl_set);
 
 static DEFINE_MUTEX(dlci_ioctl_mutex);
 static int (*dlci_ioctl_hook) (unsigned int, void __user *);
@@ -1061,7 +1061,7 @@ void dlci_ioctl_set(int (*hook) (unsigned int, void __user *))
 	dlci_ioctl_hook = hook;
 	mutex_unlock(&dlci_ioctl_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(dlci_ioctl_set); */
+EXPORT_SYMBOL(dlci_ioctl_set);
 
 static long sock_do_ioctl(struct net *net, struct socket *sock,
 				 unsigned int cmd, unsigned long arg)
@@ -1188,7 +1188,7 @@ out_release:
 	sock = NULL;
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_create_lite); */
+EXPORT_SYMBOL(sock_create_lite);
 
 /* No kernel lock held - perfect */
 static unsigned int sock_poll(struct file *file, poll_table *wait)
@@ -1290,7 +1290,7 @@ call_kill:
 	rcu_read_unlock();
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_wake_async); */
+EXPORT_SYMBOL(sock_wake_async);
 
 int __sock_create(struct net *net, int family, int type, int protocol,
 			 struct socket **res, int kern)
@@ -1404,19 +1404,19 @@ out_release:
 	rcu_read_unlock();
 	goto out_sock_release;
 }
-/* DISABLED: EXPORT_SYMBOL(__sock_create); */
+EXPORT_SYMBOL(__sock_create);
 
 int sock_create(int family, int type, int protocol, struct socket **res)
 {
 	return __sock_create(current->nsproxy->net_ns, family, type, protocol, res, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(sock_create); */
+EXPORT_SYMBOL(sock_create);
 
 int sock_create_kern(int family, int type, int protocol, struct socket **res)
 {
 	return __sock_create(&init_net, family, type, protocol, res, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(sock_create_kern); */
+EXPORT_SYMBOL(sock_create_kern);
 
 SYSCALL_DEFINE3(socket, int, family, int, type, int, protocol)
 {
@@ -2652,7 +2652,7 @@ int sock_register(const struct net_proto_family *ops)
 	printk(KERN_INFO "NET: Registered protocol family %d\n", ops->family);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(sock_register); */
+EXPORT_SYMBOL(sock_register);
 
 /**
  *	sock_unregister - remove a protocol handler
@@ -2679,7 +2679,7 @@ void sock_unregister(int family)
 
 	printk(KERN_INFO "NET: Unregistered protocol family %d\n", family);
 }
-/* DISABLED: EXPORT_SYMBOL(sock_unregister); */
+EXPORT_SYMBOL(sock_unregister);
 
 static int __init sock_init(void)
 {
@@ -3413,13 +3413,13 @@ int kernel_bind(struct socket *sock, struct sockaddr *addr, int addrlen)
 {
 	return sock->ops->bind(sock, addr, addrlen);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_bind); */
+EXPORT_SYMBOL(kernel_bind);
 
 int kernel_listen(struct socket *sock, int backlog)
 {
 	return sock->ops->listen(sock, backlog);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_listen); */
+EXPORT_SYMBOL(kernel_listen);
 
 int kernel_accept(struct socket *sock, struct socket **newsock, int flags)
 {
@@ -3444,28 +3444,28 @@ int kernel_accept(struct socket *sock, struct socket **newsock, int flags)
 done:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_accept); */
+EXPORT_SYMBOL(kernel_accept);
 
 int kernel_connect(struct socket *sock, struct sockaddr *addr, int addrlen,
 		   int flags)
 {
 	return sock->ops->connect(sock, addr, addrlen, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_connect); */
+EXPORT_SYMBOL(kernel_connect);
 
 int kernel_getsockname(struct socket *sock, struct sockaddr *addr,
 			 int *addrlen)
 {
 	return sock->ops->getname(sock, addr, addrlen, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_getsockname); */
+EXPORT_SYMBOL(kernel_getsockname);
 
 int kernel_getpeername(struct socket *sock, struct sockaddr *addr,
 			 int *addrlen)
 {
 	return sock->ops->getname(sock, addr, addrlen, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_getpeername); */
+EXPORT_SYMBOL(kernel_getpeername);
 
 int kernel_getsockopt(struct socket *sock, int level, int optname,
 			char *optval, int *optlen)
@@ -3487,7 +3487,7 @@ int kernel_getsockopt(struct socket *sock, int level, int optname,
 	set_fs(oldfs);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_getsockopt); */
+EXPORT_SYMBOL(kernel_getsockopt);
 
 int kernel_setsockopt(struct socket *sock, int level, int optname,
 			char *optval, unsigned int optlen)
@@ -3507,7 +3507,7 @@ int kernel_setsockopt(struct socket *sock, int level, int optname,
 	set_fs(oldfs);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_setsockopt); */
+EXPORT_SYMBOL(kernel_setsockopt);
 
 int kernel_sendpage(struct socket *sock, struct page *page, int offset,
 		    size_t size, int flags)
@@ -3519,7 +3519,7 @@ int kernel_sendpage(struct socket *sock, struct page *page, int offset,
 
 	return sock_no_sendpage(sock, page, offset, size, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_sendpage); */
+EXPORT_SYMBOL(kernel_sendpage);
 
 int kernel_sock_ioctl(struct socket *sock, int cmd, unsigned long arg)
 {
@@ -3532,22 +3532,22 @@ int kernel_sock_ioctl(struct socket *sock, int cmd, unsigned long arg)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_sock_ioctl); */
+EXPORT_SYMBOL(kernel_sock_ioctl);
 
 int kernel_sock_shutdown(struct socket *sock, enum sock_shutdown_cmd how)
 {
 	return sock->ops->shutdown(sock, how);
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_sock_shutdown); */
+EXPORT_SYMBOL(kernel_sock_shutdown);
 
 int sockev_register_notify(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_register(&sockev_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL(sockev_register_notify); */
+EXPORT_SYMBOL(sockev_register_notify);
 
 int sockev_unregister_notify(struct notifier_block *nb)
 {
 	return blocking_notifier_chain_unregister(&sockev_notifier_list, nb);
 }
-/* DISABLED: EXPORT_SYMBOL(sockev_unregister_notify); */
+EXPORT_SYMBOL(sockev_unregister_notify);

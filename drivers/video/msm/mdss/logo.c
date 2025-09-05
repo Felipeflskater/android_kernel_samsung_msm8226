@@ -166,7 +166,7 @@ err_logo_close_file:
 	sys_close(fd);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(load_565rle_image); */
+EXPORT_SYMBOL(load_565rle_image);
 
 #if 0
 static int samsung_copy_bootloader_screen(void *virt)
@@ -333,7 +333,7 @@ int load_samsung_boot_logo(void)
 	pr_info("%s:-\n",__func__);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(load_samsung_boot_logo); */
+EXPORT_SYMBOL(load_samsung_boot_logo);
 
 #if defined(ENABLE_BOOTLOGO)
 static void bootlogo_work(struct work_struct *work)

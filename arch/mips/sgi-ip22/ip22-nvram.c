@@ -98,7 +98,7 @@ unsigned short ip22_eeprom_read(unsigned int *ctrl, int reg)
 	return res;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip22_eeprom_read); */
+EXPORT_SYMBOL(ip22_eeprom_read);
 
 /*
  * Read specified register from main NVRAM
@@ -118,4 +118,4 @@ unsigned short ip22_nvram_read(int reg)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(ip22_nvram_read); */
+EXPORT_SYMBOL(ip22_nvram_read);

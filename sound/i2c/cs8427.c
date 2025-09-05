@@ -73,7 +73,7 @@ int snd_cs8427_reg_write(struct snd_i2c_device *device, unsigned char reg,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_cs8427_reg_write); */
+EXPORT_SYMBOL(snd_cs8427_reg_write);
 
 static int snd_cs8427_reg_read(struct snd_i2c_device *device, unsigned char reg)
 {
@@ -291,7 +291,7 @@ int snd_cs8427_create(struct snd_i2c_bus *bus,
       	return err < 0 ? err : -EIO;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_cs8427_create); */
+EXPORT_SYMBOL(snd_cs8427_create);
 
 /*
  * Reset the chip using run bit, also lock PLL using ILRCK and
@@ -540,7 +540,7 @@ int snd_cs8427_iec958_build(struct snd_i2c_device *cs8427,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_cs8427_iec958_build); */
+EXPORT_SYMBOL(snd_cs8427_iec958_build);
 
 int snd_cs8427_iec958_active(struct snd_i2c_device *cs8427, int active)
 {
@@ -559,7 +559,7 @@ int snd_cs8427_iec958_active(struct snd_i2c_device *cs8427, int active)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_cs8427_iec958_active); */
+EXPORT_SYMBOL(snd_cs8427_iec958_active);
 
 int snd_cs8427_iec958_pcm(struct snd_i2c_device *cs8427, unsigned int rate)
 {
@@ -601,7 +601,7 @@ int snd_cs8427_iec958_pcm(struct snd_i2c_device *cs8427, unsigned int rate)
 	return err < 0 ? err : 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL(snd_cs8427_iec958_pcm); */
+EXPORT_SYMBOL(snd_cs8427_iec958_pcm);
 
 static int __init alsa_cs8427_module_init(void)
 {

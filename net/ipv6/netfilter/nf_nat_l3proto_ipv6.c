@@ -254,7 +254,7 @@ int nf_nat_icmpv6_reply_translation(struct sk_buff *skb,
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_icmpv6_reply_translation); */
+EXPORT_SYMBOL_GPL(nf_nat_icmpv6_reply_translation);
 
 static int __init nf_nat_l3proto_ipv6_init(void)
 {

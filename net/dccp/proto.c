@@ -39,13 +39,13 @@
 
 DEFINE_SNMP_STAT(struct dccp_mib, dccp_statistics) __read_mostly;
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_statistics); */
+EXPORT_SYMBOL_GPL(dccp_statistics);
 
 struct percpu_counter dccp_orphan_count;
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_orphan_count); */
+EXPORT_SYMBOL_GPL(dccp_orphan_count);
 
 struct inet_hashinfo dccp_hashinfo;
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_hashinfo); */
+EXPORT_SYMBOL_GPL(dccp_hashinfo);
 
 /* the maximum queue length for tx in packets. 0 is no limit */
 int sysctl_dccp_tx_qlen __read_mostly = 5;
@@ -112,7 +112,7 @@ void dccp_set_state(struct sock *sk, const int state)
 	sk->sk_state = state;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_set_state); */
+EXPORT_SYMBOL_GPL(dccp_set_state);
 
 static void dccp_finish_passive_close(struct sock *sk)
 {
@@ -145,7 +145,7 @@ void dccp_done(struct sock *sk)
 		inet_csk_destroy_sock(sk);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_done); */
+EXPORT_SYMBOL_GPL(dccp_done);
 
 const char *dccp_packet_name(const int type)
 {
@@ -168,7 +168,7 @@ const char *dccp_packet_name(const int type)
 		return dccp_packet_names[type];
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_packet_name); */
+EXPORT_SYMBOL_GPL(dccp_packet_name);
 
 int dccp_init_sock(struct sock *sk, const __u8 ctl_sock_initialized)
 {
@@ -195,7 +195,7 @@ int dccp_init_sock(struct sock *sk, const __u8 ctl_sock_initialized)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_init_sock); */
+EXPORT_SYMBOL_GPL(dccp_init_sock);
 
 void dccp_destroy_sock(struct sock *sk)
 {
@@ -229,7 +229,7 @@ void dccp_destroy_sock(struct sock *sk)
 	dccp_feat_list_purge(&dp->dccps_featneg);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_destroy_sock); */
+EXPORT_SYMBOL_GPL(dccp_destroy_sock);
 
 static inline int dccp_listen_start(struct sock *sk, int backlog)
 {
@@ -297,7 +297,7 @@ int dccp_disconnect(struct sock *sk, int flags)
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_disconnect); */
+EXPORT_SYMBOL_GPL(dccp_disconnect);
 
 /*
  *	Wait for a DCCP event.
@@ -355,7 +355,7 @@ unsigned int dccp_poll(struct file *file, struct socket *sock,
 	return mask;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_poll); */
+EXPORT_SYMBOL_GPL(dccp_poll);
 
 int dccp_ioctl(struct sock *sk, int cmd, unsigned long arg)
 {
@@ -391,7 +391,7 @@ out:
 	return rc;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_ioctl); */
+EXPORT_SYMBOL_GPL(dccp_ioctl);
 
 static int dccp_setsockopt_service(struct sock *sk, const __be32 service,
 				   char __user *optval, unsigned int optlen)
@@ -565,7 +565,7 @@ int dccp_setsockopt(struct sock *sk, int level, int optname,
 	return do_dccp_setsockopt(sk, level, optname, optval, optlen);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_setsockopt); */
+EXPORT_SYMBOL_GPL(dccp_setsockopt);
 
 #ifdef CONFIG_COMPAT
 int compat_dccp_setsockopt(struct sock *sk, int level, int optname,
@@ -577,7 +577,7 @@ int compat_dccp_setsockopt(struct sock *sk, int level, int optname,
 	return do_dccp_setsockopt(sk, level, optname, optval, optlen);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(compat_dccp_setsockopt); */
+EXPORT_SYMBOL_GPL(compat_dccp_setsockopt);
 #endif
 
 static int dccp_getsockopt_service(struct sock *sk, int len,
@@ -686,7 +686,7 @@ int dccp_getsockopt(struct sock *sk, int level, int optname,
 	return do_dccp_getsockopt(sk, level, optname, optval, optlen);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_getsockopt); */
+EXPORT_SYMBOL_GPL(dccp_getsockopt);
 
 #ifdef CONFIG_COMPAT
 int compat_dccp_getsockopt(struct sock *sk, int level, int optname,
@@ -698,7 +698,7 @@ int compat_dccp_getsockopt(struct sock *sk, int level, int optname,
 	return do_dccp_getsockopt(sk, level, optname, optval, optlen);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(compat_dccp_getsockopt); */
+EXPORT_SYMBOL_GPL(compat_dccp_getsockopt);
 #endif
 
 static int dccp_msghdr_parse(struct msghdr *msg, struct sk_buff *skb)
@@ -805,7 +805,7 @@ out_discard:
 	goto out_release;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_sendmsg); */
+EXPORT_SYMBOL_GPL(dccp_sendmsg);
 
 int dccp_recvmsg(struct kiocb *iocb, struct sock *sk, struct msghdr *msg,
 		 size_t len, int nonblock, int flags, int *addr_len)
@@ -913,7 +913,7 @@ out:
 	return len;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_recvmsg); */
+EXPORT_SYMBOL_GPL(dccp_recvmsg);
 
 int inet_dccp_listen(struct socket *sock, int backlog)
 {
@@ -951,7 +951,7 @@ out:
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(inet_dccp_listen); */
+EXPORT_SYMBOL_GPL(inet_dccp_listen);
 
 static void dccp_terminate_connection(struct sock *sk)
 {
@@ -1073,14 +1073,14 @@ out:
 	sock_put(sk);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_close); */
+EXPORT_SYMBOL_GPL(dccp_close);
 
 void dccp_shutdown(struct sock *sk, int how)
 {
 	dccp_pr_debug("called shutdown(%x)\n", how);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_shutdown); */
+EXPORT_SYMBOL_GPL(dccp_shutdown);
 
 static inline int dccp_mib_init(void)
 {
@@ -1103,7 +1103,7 @@ bool dccp_debug;
 module_param(dccp_debug, bool, 0644);
 MODULE_PARM_DESC(dccp_debug, "Enable debug messages");
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_debug); */
+EXPORT_SYMBOL_GPL(dccp_debug);
 #endif
 
 static int __init dccp_init(void)

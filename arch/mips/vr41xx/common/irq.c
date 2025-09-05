@@ -57,7 +57,7 @@ int cascade_irq(unsigned int irq, int (*get_irq)(unsigned int))
 	return retval;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cascade_irq); */
+EXPORT_SYMBOL_GPL(cascade_irq);
 
 static void irq_dispatch(unsigned int irq)
 {

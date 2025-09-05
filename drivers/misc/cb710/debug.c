@@ -114,5 +114,5 @@ void cb710_dump_regs(struct cb710_chip *chip, unsigned select)
 	if (select & CB710_DUMP_ACCESS_8)
 		cb710_read_and_dump_regs_8(chip, select);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cb710_dump_regs); */
+EXPORT_SYMBOL_GPL(cb710_dump_regs);
 

@@ -208,9 +208,9 @@ extern int system_rev;
 #define ADC_CHARGING_CABLE		0x14
 
 int uart_sm5502_connecting;
-/* DISABLED: EXPORT_SYMBOL(uart_sm5502_connecting); */
+EXPORT_SYMBOL(uart_sm5502_connecting);
 int detached_sm5502_status;
-/* DISABLED: EXPORT_SYMBOL(detached_sm5502_status); */
+EXPORT_SYMBOL(detached_sm5502_status);
 static int jig_state;
 
 //function added for enabling torch through AT command
@@ -781,14 +781,14 @@ int dock_det(void)
 {
 	return local_usbsw->dock_attached;
 }
-/* DISABLED: EXPORT_SYMBOL(dock_det); */
+EXPORT_SYMBOL(dock_det);
 #endif
 
 int check_sm5502_jig_state(void)
 {
 	return jig_state;
 }
-/* DISABLED: EXPORT_SYMBOL(check_sm5502_jig_state); */
+EXPORT_SYMBOL(check_sm5502_jig_state);
 
 #if defined(CONFIG_TOUCHSCREEN_MMS144)
 extern void tsp_charger_infom(bool en);
@@ -966,7 +966,7 @@ int factory_uart_connected()
         printk(KERN_INFO "%s: jig_state_factory = %d\n", __func__, jig_state_factory);
         return jig_state_factory;
 }
-/* DISABLED: EXPORT_SYMBOL(factory_uart_connected); */
+EXPORT_SYMBOL(factory_uart_connected);
 #endif
 
 #if defined(CONFIG_MUIC_SUPPORT_RUSTPROOF)

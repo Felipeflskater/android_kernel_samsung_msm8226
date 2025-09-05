@@ -92,4 +92,4 @@ void md5_transform(__u32 *hash, __u32 const *in)
 	hash[2] += c;
 	hash[3] += d;
 }
-/* DISABLED: EXPORT_SYMBOL(md5_transform); */
+EXPORT_SYMBOL(md5_transform);

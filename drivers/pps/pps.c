@@ -391,7 +391,7 @@ struct pps_device *pps_lookup_dev(void const *cookie)
 	rcu_read_unlock();
 	return pps;
 }
-/* DISABLED: EXPORT_SYMBOL(pps_lookup_dev); */
+EXPORT_SYMBOL(pps_lookup_dev);
 
 /*
  * Module stuff

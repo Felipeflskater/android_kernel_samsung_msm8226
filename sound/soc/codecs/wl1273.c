@@ -438,7 +438,7 @@ int wl1273_get_format(struct snd_soc_codec *codec, unsigned int *fmt)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wl1273_get_format); */
+EXPORT_SYMBOL_GPL(wl1273_get_format);
 
 static int wl1273_probe(struct snd_soc_codec *codec)
 {

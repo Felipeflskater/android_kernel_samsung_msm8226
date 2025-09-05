@@ -56,7 +56,7 @@ int v4l2_device_register(struct device *dev, struct v4l2_device *v4l2_dev)
 		dev_set_drvdata(dev, v4l2_dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_register); */
+EXPORT_SYMBOL_GPL(v4l2_device_register);
 
 static void v4l2_device_release(struct kref *ref)
 {
@@ -71,7 +71,7 @@ int v4l2_device_put(struct v4l2_device *v4l2_dev)
 {
 	return kref_put(&v4l2_dev->ref, v4l2_device_release);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_put); */
+EXPORT_SYMBOL_GPL(v4l2_device_put);
 
 int v4l2_device_set_name(struct v4l2_device *v4l2_dev, const char *basename,
 						atomic_t *instance)
@@ -87,7 +87,7 @@ int v4l2_device_set_name(struct v4l2_device *v4l2_dev, const char *basename,
 				"%s%d", basename, num);
 	return num;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_set_name); */
+EXPORT_SYMBOL_GPL(v4l2_device_set_name);
 
 void v4l2_device_disconnect(struct v4l2_device *v4l2_dev)
 {
@@ -99,7 +99,7 @@ void v4l2_device_disconnect(struct v4l2_device *v4l2_dev)
 	put_device(v4l2_dev->dev);
 	v4l2_dev->dev = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_disconnect); */
+EXPORT_SYMBOL_GPL(v4l2_device_disconnect);
 
 void v4l2_device_unregister(struct v4l2_device *v4l2_dev)
 {
@@ -136,7 +136,7 @@ void v4l2_device_unregister(struct v4l2_device *v4l2_dev)
 #endif
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_unregister); */
+EXPORT_SYMBOL_GPL(v4l2_device_unregister);
 
 int v4l2_device_register_subdev(struct v4l2_device *v4l2_dev,
 				struct v4l2_subdev *sd)
@@ -191,7 +191,7 @@ error_module:
 	sd->v4l2_dev = NULL;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_register_subdev); */
+EXPORT_SYMBOL_GPL(v4l2_device_register_subdev);
 
 static void v4l2_device_release_subdev_node(struct video_device *vdev)
 {
@@ -248,7 +248,7 @@ clean_up:
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_register_subdev_nodes); */
+EXPORT_SYMBOL_GPL(v4l2_device_register_subdev_nodes);
 
 void v4l2_device_unregister_subdev(struct v4l2_subdev *sd)
 {
@@ -275,4 +275,4 @@ void v4l2_device_unregister_subdev(struct v4l2_subdev *sd)
 	video_unregister_device(sd->devnode);
 	module_put(sd->owner);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(v4l2_device_unregister_subdev); */
+EXPORT_SYMBOL_GPL(v4l2_device_unregister_subdev);

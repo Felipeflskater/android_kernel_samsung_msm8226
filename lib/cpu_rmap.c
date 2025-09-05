@@ -61,7 +61,7 @@ struct cpu_rmap *alloc_cpu_rmap(unsigned int size, gfp_t flags)
 	rmap->size = size;
 	return rmap;
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_cpu_rmap); */
+EXPORT_SYMBOL(alloc_cpu_rmap);
 
 /* Reevaluate nearest object for given CPU, comparing with the given
  * neighbours at the given distance.
@@ -119,7 +119,7 @@ int cpu_rmap_add(struct cpu_rmap *rmap, void *obj)
 	rmap->obj[index] = obj;
 	return index;
 }
-/* DISABLED: EXPORT_SYMBOL(cpu_rmap_add); */
+EXPORT_SYMBOL(cpu_rmap_add);
 
 /**
  * cpu_rmap_update - update CPU rmap following a change of object affinity
@@ -181,7 +181,7 @@ int cpu_rmap_update(struct cpu_rmap *rmap, u16 index,
 	free_cpumask_var(update_mask);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cpu_rmap_update); */
+EXPORT_SYMBOL(cpu_rmap_update);
 
 #ifdef CONFIG_GENERIC_HARDIRQS
 
@@ -216,7 +216,7 @@ void free_irq_cpu_rmap(struct cpu_rmap *rmap)
 
 	kfree(rmap);
 }
-/* DISABLED: EXPORT_SYMBOL(free_irq_cpu_rmap); */
+EXPORT_SYMBOL(free_irq_cpu_rmap);
 
 static void
 irq_cpu_rmap_notify(struct irq_affinity_notify *notify, const cpumask_t *mask)
@@ -264,6 +264,6 @@ int irq_cpu_rmap_add(struct cpu_rmap *rmap, int irq)
 		kfree(glue);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(irq_cpu_rmap_add); */
+EXPORT_SYMBOL(irq_cpu_rmap_add);
 
 #endif /* CONFIG_GENERIC_HARDIRQS */

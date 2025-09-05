@@ -80,7 +80,7 @@ unsigned long tdmb_get_if_handle(void)
 	DPRINTK("%s : spi_dmb 0x%p\n", __func__, spi_dmb);
 	return (unsigned long)spi_dmb;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tdmb_get_if_handle); */
+EXPORT_SYMBOL_GPL(tdmb_get_if_handle);
 
 late_initcall(tdmb_spi_init);
 module_exit(tdmb_spi_exit);

@@ -21,7 +21,7 @@
 
 /* exported for the APM Power driver, APM emulation */
 struct class *power_supply_class;
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_class); */
+EXPORT_SYMBOL_GPL(power_supply_class);
 
 static struct device_type power_supply_dev_type;
 
@@ -44,7 +44,7 @@ int power_supply_set_voltage_limit(struct power_supply *psy, int limit)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL(power_supply_set_voltage_limit); */
+EXPORT_SYMBOL(power_supply_set_voltage_limit);
 
 
 /**
@@ -66,7 +66,7 @@ int power_supply_set_current_limit(struct power_supply *psy, int limit)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_current_limit); */
+EXPORT_SYMBOL_GPL(power_supply_set_current_limit);
 
 /**
  * power_supply_set_charging_enabled - enable or disable charging
@@ -84,7 +84,7 @@ int power_supply_set_charging_enabled(struct power_supply *psy, bool enable)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_charging_enabled); */
+EXPORT_SYMBOL_GPL(power_supply_set_charging_enabled);
 
 /**
  * power_supply_set_present - set present state of the power supply
@@ -101,7 +101,7 @@ int power_supply_set_present(struct power_supply *psy, bool enable)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_present); */
+EXPORT_SYMBOL_GPL(power_supply_set_present);
 
 /**
  * power_supply_set_online - set online state of the power supply
@@ -118,7 +118,7 @@ int power_supply_set_online(struct power_supply *psy, bool enable)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_online); */
+EXPORT_SYMBOL_GPL(power_supply_set_online);
 
 
 /** power_supply_set_health_state - set health state of the power supply
@@ -134,7 +134,7 @@ int power_supply_set_health_state(struct power_supply *psy, int health)
 		&ret);
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL(power_supply_set_health_state); */
+EXPORT_SYMBOL(power_supply_set_health_state);
 
 
 /**
@@ -152,7 +152,7 @@ int power_supply_set_scope(struct power_supply *psy, int scope)
 								&ret);
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_scope); */
+EXPORT_SYMBOL_GPL(power_supply_set_scope);
 
 /**
  * power_supply_set_supply_type - set type of the power supply
@@ -170,7 +170,7 @@ int power_supply_set_supply_type(struct power_supply *psy,
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_supply_type); */
+EXPORT_SYMBOL_GPL(power_supply_set_supply_type);
 
 /**
  * power_supply_set_charge_type - set charge type of the power supply
@@ -187,7 +187,7 @@ int power_supply_set_charge_type(struct power_supply *psy, int charge_type)
 
 	return -ENXIO;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_charge_type); */
+EXPORT_SYMBOL_GPL(power_supply_set_charge_type);
 
 static int __power_supply_changed_work(struct device *dev, void *data)
 {
@@ -241,7 +241,7 @@ void power_supply_changed(struct power_supply *psy)
 	spin_unlock_irqrestore(&psy->changed_lock, flags);
 	schedule_work(&psy->changed_work);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_changed); */
+EXPORT_SYMBOL_GPL(power_supply_changed);
 
 static int __power_supply_am_i_supplied(struct device *dev, void *data)
 {
@@ -273,7 +273,7 @@ int power_supply_am_i_supplied(struct power_supply *psy)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_am_i_supplied); */
+EXPORT_SYMBOL_GPL(power_supply_am_i_supplied);
 
 static int __power_supply_is_system_supplied(struct device *dev, void *data)
 {
@@ -308,7 +308,7 @@ int power_supply_is_system_supplied(void)
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_is_system_supplied); */
+EXPORT_SYMBOL_GPL(power_supply_is_system_supplied);
 
 int power_supply_set_battery_charged(struct power_supply *psy)
 {
@@ -319,7 +319,7 @@ int power_supply_set_battery_charged(struct power_supply *psy)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_set_battery_charged); */
+EXPORT_SYMBOL_GPL(power_supply_set_battery_charged);
 
 static int power_supply_match_device_by_name(struct device *dev, void *data)
 {
@@ -336,13 +336,13 @@ struct power_supply *power_supply_get_by_name(char *name)
 
 	return dev ? dev_get_drvdata(dev) : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_get_by_name); */
+EXPORT_SYMBOL_GPL(power_supply_get_by_name);
 
 int power_supply_powers(struct power_supply *psy, struct device *dev)
 {
 	return sysfs_create_link(&psy->dev->kobj, &dev->kobj, "powers");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_powers); */
+EXPORT_SYMBOL_GPL(power_supply_powers);
 
 static void power_supply_dev_release(struct device *dev)
 {
@@ -400,7 +400,7 @@ device_add_failed:
 success:
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_register); */
+EXPORT_SYMBOL_GPL(power_supply_register);
 
 void power_supply_unregister(struct power_supply *psy)
 {
@@ -409,7 +409,7 @@ void power_supply_unregister(struct power_supply *psy)
 	power_supply_remove_triggers(psy);
 	device_unregister(psy->dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(power_supply_unregister); */
+EXPORT_SYMBOL_GPL(power_supply_unregister);
 
 static int __init power_supply_class_init(void)
 {

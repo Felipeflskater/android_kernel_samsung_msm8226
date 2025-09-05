@@ -44,7 +44,7 @@ int ioremap_page(unsigned long virt, unsigned long phys,
 	return ioremap_page_range(virt, virt + PAGE_SIZE, phys,
 				  __pgprot(mtype->prot_pte));
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_page); */
+EXPORT_SYMBOL(ioremap_page);
 
 int ioremap_pages(unsigned long virt, unsigned long phys, unsigned long size,
 		 const struct mem_type *mtype)
@@ -52,7 +52,7 @@ int ioremap_pages(unsigned long virt, unsigned long phys, unsigned long size,
 	return ioremap_page_range(virt, virt + size, phys,
 				  __pgprot(mtype->prot_pte));
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_pages); */
+EXPORT_SYMBOL(ioremap_pages);
 
 void __check_kvm_seq(struct mm_struct *mm)
 {
@@ -314,7 +314,7 @@ __arm_ioremap_pfn(unsigned long pfn, unsigned long offset, size_t size,
 	return __arm_ioremap_pfn_caller(pfn, offset, size, mtype,
 			__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_ioremap_pfn); */
+EXPORT_SYMBOL(__arm_ioremap_pfn);
 
 void __iomem * (*arch_ioremap_caller)(phys_addr_t, size_t,
 				      unsigned int, void *) =
@@ -326,7 +326,7 @@ __arm_ioremap(phys_addr_t phys_addr, size_t size, unsigned int mtype)
 	return arch_ioremap_caller(phys_addr, size, mtype,
 		__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_ioremap); */
+EXPORT_SYMBOL(__arm_ioremap);
 
 /*
  * Remap an arbitrary physical address space into the kernel virtual
@@ -390,4 +390,4 @@ void __arm_iounmap(volatile void __iomem *io_addr)
 {
 	arch_iounmap(io_addr);
 }
-/* DISABLED: EXPORT_SYMBOL(__arm_iounmap); */
+EXPORT_SYMBOL(__arm_iounmap);

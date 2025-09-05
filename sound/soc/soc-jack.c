@@ -63,7 +63,7 @@ int snd_soc_jack_new(struct snd_soc_codec *codec, const char *id, int type,
 
 	return snd_jack_new(codec->card->snd_card, id, type, &jack->jack);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_new); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_new);
 
 /**
  * snd_soc_jack_report - Report the current status for a jack
@@ -131,7 +131,7 @@ void snd_soc_jack_report(struct snd_soc_jack *jack, int status, int mask)
 out:
 	mutex_unlock(&jack->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_report); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_report);
 
 /**
  * snd_soc_jack_report_no_dapm - Report the current status for a jack
@@ -157,7 +157,7 @@ void snd_soc_jack_report_no_dapm(struct snd_soc_jack *jack, int status,
 
 	snd_jack_report(jack->jack, jack->status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_report_no_dapm); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_report_no_dapm);
 
 /**
  * snd_soc_jack_add_zones - Associate voltage zones with jack
@@ -180,7 +180,7 @@ int snd_soc_jack_add_zones(struct snd_soc_jack *jack, int count,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_add_zones); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_add_zones);
 
 /**
  * snd_soc_jack_get_type - Based on the mic bias value, this function returns
@@ -202,7 +202,7 @@ int snd_soc_jack_get_type(struct snd_soc_jack *jack, int micbias_voltage)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_get_type); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_get_type);
 
 /**
  * snd_soc_jack_add_pins - Associate DAPM pins with an ASoC jack
@@ -245,7 +245,7 @@ int snd_soc_jack_add_pins(struct snd_soc_jack *jack, int count,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_add_pins); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_add_pins);
 
 /**
  * snd_soc_jack_notifier_register - Register a notifier for jack status
@@ -264,7 +264,7 @@ void snd_soc_jack_notifier_register(struct snd_soc_jack *jack,
 {
 	blocking_notifier_chain_register(&jack->notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_notifier_register); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_notifier_register);
 
 /**
  * snd_soc_jack_notifier_unregister - Unregister a notifier for jack status
@@ -279,7 +279,7 @@ void snd_soc_jack_notifier_unregister(struct snd_soc_jack *jack,
 {
 	blocking_notifier_chain_unregister(&jack->notifier, nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_notifier_unregister); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_notifier_unregister);
 
 #ifdef CONFIG_GPIOLIB
 /* gpio detect */
@@ -403,7 +403,7 @@ undo:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_add_gpios); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_add_gpios);
 
 /**
  * snd_soc_jack_free_gpios - Release GPIO pins' resources of an ASoC jack
@@ -427,5 +427,5 @@ void snd_soc_jack_free_gpios(struct snd_soc_jack *jack, int count,
 		gpios[i].jack = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_jack_free_gpios); */
+EXPORT_SYMBOL_GPL(snd_soc_jack_free_gpios);
 #endif	/* CONFIG_GPIOLIB */

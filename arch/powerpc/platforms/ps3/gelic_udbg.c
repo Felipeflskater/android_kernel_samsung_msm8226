@@ -270,4 +270,4 @@ void udbg_shutdown_ps3gelic(void)
 	udbg_putc = NULL;
 	gelic_debug_shutdown();
 }
-/* DISABLED: EXPORT_SYMBOL(udbg_shutdown_ps3gelic); */
+EXPORT_SYMBOL(udbg_shutdown_ps3gelic);

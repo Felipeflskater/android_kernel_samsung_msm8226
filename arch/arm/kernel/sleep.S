@@ -17,7 +17,7 @@ ENTRY(__cpu_suspend)
 	stmfd	sp!, {r4 - r11, lr}
 #ifdef MULTI_CPU
 	ldr	r10, =processor
-	ldr	r4, [r10, @ CPU_SLEEP_SIZE] @ size of CPU sleep state
+	ldr	r4, [r10, #CPU_SLEEP_SIZE] @ size of CPU sleep state
 #else
 	ldr	r4, =cpu_suspend_size
 #endif

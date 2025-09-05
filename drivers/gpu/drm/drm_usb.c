@@ -69,7 +69,7 @@ err_g1:
 	return ret;
 
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_usb_dev); */
+EXPORT_SYMBOL(drm_get_usb_dev);
 
 static int drm_usb_get_irq(struct drm_device *dev)
 {
@@ -106,14 +106,14 @@ int drm_usb_init(struct drm_driver *driver, struct usb_driver *udriver)
 	res = usb_register(udriver);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_usb_init); */
+EXPORT_SYMBOL(drm_usb_init);
 
 void drm_usb_exit(struct drm_driver *driver,
 		  struct usb_driver *udriver)
 {
 	usb_deregister(udriver);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_usb_exit); */
+EXPORT_SYMBOL(drm_usb_exit);
 
 MODULE_AUTHOR("David Airlie");
 MODULE_DESCRIPTION("USB DRM support");

@@ -108,7 +108,7 @@ err_g1:
 	mutex_unlock(&drm_global_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_get_platform_dev); */
+EXPORT_SYMBOL(drm_get_platform_dev);
 
 static int drm_platform_get_irq(struct drm_device *dev)
 {
@@ -192,7 +192,7 @@ int drm_platform_init(struct drm_driver *driver, struct platform_device *platfor
 	INIT_LIST_HEAD(&driver->device_list);
 	return drm_get_platform_dev(platform_device, driver);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_platform_init); */
+EXPORT_SYMBOL(drm_platform_init);
 
 void drm_platform_exit(struct drm_driver *driver, struct platform_device *platform_device)
 {
@@ -203,4 +203,4 @@ void drm_platform_exit(struct drm_driver *driver, struct platform_device *platfo
 		drm_put_dev(dev);
 	DRM_INFO("Module unloaded\n");
 }
-/* DISABLED: EXPORT_SYMBOL(drm_platform_exit); */
+EXPORT_SYMBOL(drm_platform_exit);

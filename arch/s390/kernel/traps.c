@@ -176,7 +176,7 @@ void dump_stack(void)
 	       (void *) current->thread.ksp);
 	show_stack(NULL, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 static inline int mask_bits(struct pt_regs *regs, unsigned long bits)
 {

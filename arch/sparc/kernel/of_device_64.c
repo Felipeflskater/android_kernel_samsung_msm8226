@@ -27,7 +27,7 @@ void __iomem *of_ioremap(struct resource *res, unsigned long offset, unsigned lo
 
 	return (void __iomem *) ret;
 }
-/* DISABLED: EXPORT_SYMBOL(of_ioremap); */
+EXPORT_SYMBOL(of_ioremap);
 
 void of_iounmap(struct resource *res, void __iomem *base, unsigned long size)
 {
@@ -36,7 +36,7 @@ void of_iounmap(struct resource *res, void __iomem *base, unsigned long size)
 	else
 		release_region((unsigned long) base, size);
 }
-/* DISABLED: EXPORT_SYMBOL(of_iounmap); */
+EXPORT_SYMBOL(of_iounmap);
 
 /*
  * PCI bus specific translator
@@ -723,4 +723,4 @@ static int __init of_debug(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("of_debug=", of_debug); */ */
+__setup("of_debug=", of_debug);

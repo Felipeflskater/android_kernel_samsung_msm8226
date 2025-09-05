@@ -14,7 +14,7 @@ void lg_lock_init(struct lglock *lg, char *name)
 {
 	LOCKDEP_INIT_MAP(&lg->lock_dep_map, name, &lg->lock_key, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(lg_lock_init); */
+EXPORT_SYMBOL(lg_lock_init);
 
 void lg_local_lock(struct lglock *lg)
 {
@@ -25,7 +25,7 @@ void lg_local_lock(struct lglock *lg)
 	lock = this_cpu_ptr(lg->lock);
 	arch_spin_lock(lock);
 }
-/* DISABLED: EXPORT_SYMBOL(lg_local_lock); */
+EXPORT_SYMBOL(lg_local_lock);
 
 void lg_local_unlock(struct lglock *lg)
 {
@@ -36,7 +36,7 @@ void lg_local_unlock(struct lglock *lg)
 	arch_spin_unlock(lock);
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(lg_local_unlock); */
+EXPORT_SYMBOL(lg_local_unlock);
 
 void lg_local_lock_cpu(struct lglock *lg, int cpu)
 {
@@ -47,7 +47,7 @@ void lg_local_lock_cpu(struct lglock *lg, int cpu)
 	lock = per_cpu_ptr(lg->lock, cpu);
 	arch_spin_lock(lock);
 }
-/* DISABLED: EXPORT_SYMBOL(lg_local_lock_cpu); */
+EXPORT_SYMBOL(lg_local_lock_cpu);
 
 void lg_local_unlock_cpu(struct lglock *lg, int cpu)
 {
@@ -58,7 +58,7 @@ void lg_local_unlock_cpu(struct lglock *lg, int cpu)
 	arch_spin_unlock(lock);
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(lg_local_unlock_cpu); */
+EXPORT_SYMBOL(lg_local_unlock_cpu);
 
 void lg_global_lock(struct lglock *lg)
 {
@@ -72,7 +72,7 @@ void lg_global_lock(struct lglock *lg)
 		arch_spin_lock(lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(lg_global_lock); */
+EXPORT_SYMBOL(lg_global_lock);
 
 void lg_global_unlock(struct lglock *lg)
 {
@@ -86,4 +86,4 @@ void lg_global_unlock(struct lglock *lg)
 	}
 	preempt_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(lg_global_unlock); */
+EXPORT_SYMBOL(lg_global_unlock);

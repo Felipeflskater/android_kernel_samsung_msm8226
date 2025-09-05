@@ -248,4 +248,4 @@ void __udelay(unsigned long usecs)
 	while ((__vmgettime() - start) < finish)
 		cpu_relax(); /*  not sure how this improves readability  */
 }
-/* DISABLED: EXPORT_SYMBOL(__udelay); */
+EXPORT_SYMBOL(__udelay);

@@ -61,7 +61,7 @@ int tegra_das_connect_dap_to_dac(int dap, int dac)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_das_connect_dap_to_dac); */
+EXPORT_SYMBOL_GPL(tegra_das_connect_dap_to_dac);
 
 int tegra_das_connect_dap_to_dap(int dap, int otherdap, int master,
 					int sdata1rx, int sdata2rx)
@@ -83,7 +83,7 @@ int tegra_das_connect_dap_to_dap(int dap, int otherdap, int master,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_das_connect_dap_to_dap); */
+EXPORT_SYMBOL_GPL(tegra_das_connect_dap_to_dap);
 
 int tegra_das_connect_dac_to_dap(int dac, int dap)
 {
@@ -103,7 +103,7 @@ int tegra_das_connect_dac_to_dap(int dac, int dap)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tegra_das_connect_dac_to_dap); */
+EXPORT_SYMBOL_GPL(tegra_das_connect_dac_to_dap);
 
 #ifdef CONFIG_DEBUG_FS
 static int tegra_das_show(struct seq_file *s, void *unused)

@@ -725,7 +725,7 @@ int tps65010_set_vbus_draw(unsigned mA)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_set_vbus_draw); */
+EXPORT_SYMBOL(tps65010_set_vbus_draw);
 
 /*-------------------------------------------------------------------------*/
 /* tps65010_set_gpio_out_value parameter:
@@ -770,7 +770,7 @@ int tps65010_set_gpio_out_value(unsigned gpio, unsigned value)
 	mutex_unlock(&the_tps->lock);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_set_gpio_out_value); */
+EXPORT_SYMBOL(tps65010_set_gpio_out_value);
 
 /*-------------------------------------------------------------------------*/
 /* tps65010_set_led parameter:
@@ -853,7 +853,7 @@ int tps65010_set_led(unsigned led, unsigned mode)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_set_led); */
+EXPORT_SYMBOL(tps65010_set_led);
 
 /*-------------------------------------------------------------------------*/
 /* tps65010_set_vib parameter:
@@ -881,7 +881,7 @@ int tps65010_set_vib(unsigned value)
 	mutex_unlock(&the_tps->lock);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_set_vib); */
+EXPORT_SYMBOL(tps65010_set_vib);
 
 /*-------------------------------------------------------------------------*/
 /* tps65010_set_low_pwr parameter:
@@ -927,7 +927,7 @@ int tps65010_set_low_pwr(unsigned mode)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_set_low_pwr); */
+EXPORT_SYMBOL(tps65010_set_low_pwr);
 
 /*-------------------------------------------------------------------------*/
 /* tps65010_config_vregs1 parameter:
@@ -960,7 +960,7 @@ int tps65010_config_vregs1(unsigned value)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_config_vregs1); */
+EXPORT_SYMBOL(tps65010_config_vregs1);
 
 int tps65010_config_vdcdc2(unsigned value)
 {
@@ -988,7 +988,7 @@ int tps65010_config_vdcdc2(unsigned value)
 	mutex_unlock(&the_tps->lock);
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65010_config_vdcdc2); */
+EXPORT_SYMBOL(tps65010_config_vdcdc2);
 
 /*-------------------------------------------------------------------------*/
 /* tps65013_set_low_pwr parameter:
@@ -1056,7 +1056,7 @@ int tps65013_set_low_pwr(unsigned mode)
 
 	return status;
 }
-/* DISABLED: EXPORT_SYMBOL(tps65013_set_low_pwr); */
+EXPORT_SYMBOL(tps65013_set_low_pwr);
 
 /*-------------------------------------------------------------------------*/
 

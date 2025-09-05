@@ -167,7 +167,7 @@ prune:
 
 	return count;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_probe_single_connector_modes); */
+EXPORT_SYMBOL(drm_helper_probe_single_connector_modes);
 
 /**
  * drm_helper_encoder_in_use - check if a given encoder is in use
@@ -190,7 +190,7 @@ bool drm_helper_encoder_in_use(struct drm_encoder *encoder)
 			return true;
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_encoder_in_use); */
+EXPORT_SYMBOL(drm_helper_encoder_in_use);
 
 /**
  * drm_helper_crtc_in_use - check if a given CRTC is in a mode_config
@@ -214,7 +214,7 @@ bool drm_helper_crtc_in_use(struct drm_crtc *crtc)
 			return true;
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_crtc_in_use); */
+EXPORT_SYMBOL(drm_helper_crtc_in_use);
 
 static void
 drm_encoder_disable(struct drm_encoder *encoder)
@@ -270,7 +270,7 @@ void drm_helper_disable_unused_functions(struct drm_device *dev)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_disable_unused_functions); */
+EXPORT_SYMBOL(drm_helper_disable_unused_functions);
 
 /**
  * drm_encoder_crtc_ok - can a given crtc drive a given encoder?
@@ -462,7 +462,7 @@ done:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_crtc_helper_set_mode); */
+EXPORT_SYMBOL(drm_crtc_helper_set_mode);
 
 
 static int
@@ -771,7 +771,7 @@ fail:
 	kfree(save_crtcs);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_crtc_helper_set_config); */
+EXPORT_SYMBOL(drm_crtc_helper_set_config);
 
 static int drm_helper_choose_encoder_dpms(struct drm_encoder *encoder)
 {
@@ -853,7 +853,7 @@ void drm_helper_connector_dpms(struct drm_connector *connector, int mode)
 
 	return;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_connector_dpms); */
+EXPORT_SYMBOL(drm_helper_connector_dpms);
 
 int drm_helper_mode_fill_fb_struct(struct drm_framebuffer *fb,
 				   struct drm_mode_fb_cmd2 *mode_cmd)
@@ -872,7 +872,7 @@ int drm_helper_mode_fill_fb_struct(struct drm_framebuffer *fb,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_mode_fill_fb_struct); */
+EXPORT_SYMBOL(drm_helper_mode_fill_fb_struct);
 
 int drm_helper_resume_force_mode(struct drm_device *dev)
 {
@@ -916,7 +916,7 @@ int drm_helper_resume_force_mode(struct drm_device *dev)
 	drm_helper_disable_unused_functions(dev);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_resume_force_mode); */
+EXPORT_SYMBOL(drm_helper_resume_force_mode);
 
 #define DRM_OUTPUT_POLL_PERIOD (10*HZ)
 static void output_poll_execute(struct work_struct *work)
@@ -977,7 +977,7 @@ void drm_kms_helper_poll_disable(struct drm_device *dev)
 		return;
 	cancel_delayed_work_sync(&dev->mode_config.output_poll_work);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_kms_helper_poll_disable); */
+EXPORT_SYMBOL(drm_kms_helper_poll_disable);
 
 void drm_kms_helper_poll_enable(struct drm_device *dev)
 {
@@ -995,7 +995,7 @@ void drm_kms_helper_poll_enable(struct drm_device *dev)
 	if (poll)
 		queue_delayed_work(system_nrt_wq, &dev->mode_config.output_poll_work, DRM_OUTPUT_POLL_PERIOD);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_kms_helper_poll_enable); */
+EXPORT_SYMBOL(drm_kms_helper_poll_enable);
 
 void drm_kms_helper_poll_init(struct drm_device *dev)
 {
@@ -1004,13 +1004,13 @@ void drm_kms_helper_poll_init(struct drm_device *dev)
 
 	drm_kms_helper_poll_enable(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_kms_helper_poll_init); */
+EXPORT_SYMBOL(drm_kms_helper_poll_init);
 
 void drm_kms_helper_poll_fini(struct drm_device *dev)
 {
 	drm_kms_helper_poll_disable(dev);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_kms_helper_poll_fini); */
+EXPORT_SYMBOL(drm_kms_helper_poll_fini);
 
 void drm_helper_hpd_irq_event(struct drm_device *dev)
 {
@@ -1022,7 +1022,7 @@ void drm_helper_hpd_irq_event(struct drm_device *dev)
 	if (drm_kms_helper_poll)
 		queue_delayed_work(system_nrt_wq, &dev->mode_config.output_poll_work, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(drm_helper_hpd_irq_event); */
+EXPORT_SYMBOL(drm_helper_hpd_irq_event);
 
 
 /**
@@ -1055,4 +1055,4 @@ int drm_format_num_planes(uint32_t format)
 		return 1;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(drm_format_num_planes); */
+EXPORT_SYMBOL(drm_format_num_planes);

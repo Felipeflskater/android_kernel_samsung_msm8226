@@ -20,8 +20,8 @@
 #else
 		mov	\rp, #0x1000	@ UART2
 #endif
-		orr	\rv, \rp, @ CLPS7111_VIRT_BASE
-		orr	\rp, \rp, @ CLPS7111_PHYS_BASE
+		orr	\rv, \rp, #CLPS7111_VIRT_BASE
+		orr	\rp, \rp, #CLPS7111_PHYS_BASE
 		.endm
 
 		.macro	senduart,rd,rx

@@ -2187,7 +2187,7 @@ static int sba_dma_mapping_error(struct device *dev, dma_addr_t dma_addr)
 	return 0;
 }
 
-/* DISABLED: __setup("nosbagart", nosbagart); */ */
+__setup("nosbagart", nosbagart);
 
 static int __init
 sba_page_override(char *str)
@@ -2210,7 +2210,7 @@ sba_page_override(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("sbapagesize=",sba_page_override); */ */
+__setup("sbapagesize=",sba_page_override);
 
 struct dma_map_ops sba_dma_ops = {
 	.alloc			= sba_alloc_coherent,

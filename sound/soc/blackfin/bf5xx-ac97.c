@@ -78,7 +78,7 @@ void bf5xx_pcm_to_ac97(struct ac97_frame *dst, const __u16 *src,
 		dst++;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(bf5xx_pcm_to_ac97); */
+EXPORT_SYMBOL(bf5xx_pcm_to_ac97);
 
 void bf5xx_ac97_to_pcm(const struct ac97_frame *src, __u16 *dst,
 		size_t count)
@@ -89,7 +89,7 @@ void bf5xx_ac97_to_pcm(const struct ac97_frame *src, __u16 *dst,
 		src++;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(bf5xx_ac97_to_pcm); */
+EXPORT_SYMBOL(bf5xx_ac97_to_pcm);
 
 static unsigned int sport_tx_curr_frag(struct sport_device *sport)
 {
@@ -204,7 +204,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.warm_reset	= bf5xx_ac97_warm_reset,
 	.reset	= bf5xx_ac97_cold_reset,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops); */
+EXPORT_SYMBOL_GPL(soc_ac97_ops);
 
 #ifdef CONFIG_PM
 static int bf5xx_ac97_suspend(struct snd_soc_dai *dai)

@@ -91,4 +91,4 @@ HYPERVISOR_grant_table_op(unsigned int cmd, void *uop, unsigned int count)
 	return xencomm_hypercall_grant_table_op(cmd, uop, count);
 }
 
-/* DISABLED: EXPORT_SYMBOL(HYPERVISOR_grant_table_op); */
+EXPORT_SYMBOL(HYPERVISOR_grant_table_op);

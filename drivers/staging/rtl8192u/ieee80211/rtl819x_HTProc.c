@@ -1459,4 +1459,4 @@ void HTSetConnectBwModeCallback(struct ieee80211_device* ieee)
 	pHTInfo->bSwBwInProgress = false;
 }
 
-/* DISABLED: EXPORT_SYMBOL(HTUpdateSelfAndPeerSetting); */
+EXPORT_SYMBOL(HTUpdateSelfAndPeerSetting);

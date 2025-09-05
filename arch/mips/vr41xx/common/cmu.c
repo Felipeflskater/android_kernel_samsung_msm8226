@@ -135,7 +135,7 @@ void vr41xx_supply_clock(vr41xx_clock_t clock)
 	spin_unlock_irq(&cmu_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_supply_clock); */
+EXPORT_SYMBOL_GPL(vr41xx_supply_clock);
 
 void vr41xx_mask_clock(vr41xx_clock_t clock)
 {
@@ -210,7 +210,7 @@ void vr41xx_mask_clock(vr41xx_clock_t clock)
 	spin_unlock_irq(&cmu_lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(vr41xx_mask_clock); */
+EXPORT_SYMBOL_GPL(vr41xx_mask_clock);
 
 static int __init vr41xx_cmu_init(void)
 {

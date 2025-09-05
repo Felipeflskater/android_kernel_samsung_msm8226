@@ -45,7 +45,7 @@ static unsigned long clk_divider_recalc_rate(struct clk_hw *hw,
 
 	return parent_rate / div;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_divider_recalc_rate); */
+EXPORT_SYMBOL_GPL(clk_divider_recalc_rate);
 
 /*
  * The reverse of DIV_ROUND_UP: The maximum number which
@@ -117,7 +117,7 @@ static long clk_divider_round_rate(struct clk_hw *hw, unsigned long rate,
 		return r / div;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_divider_round_rate); */
+EXPORT_SYMBOL_GPL(clk_divider_round_rate);
 
 static int clk_divider_set_rate(struct clk_hw *hw, unsigned long rate)
 {
@@ -147,14 +147,14 @@ static int clk_divider_set_rate(struct clk_hw *hw, unsigned long rate)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_divider_set_rate); */
+EXPORT_SYMBOL_GPL(clk_divider_set_rate);
 
 struct clk_ops clk_divider_ops = {
 	.recalc_rate = clk_divider_recalc_rate,
 	.round_rate = clk_divider_round_rate,
 	.set_rate = clk_divider_set_rate,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_divider_ops); */
+EXPORT_SYMBOL_GPL(clk_divider_ops);
 
 struct clk *clk_register_divider(struct device *dev, const char *name,
 		const char *parent_name, unsigned long flags,

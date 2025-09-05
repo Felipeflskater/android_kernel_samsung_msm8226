@@ -88,7 +88,7 @@ u32 cbe_read_phys_ctr(u32 cpu, u32 phys_ctr)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_read_phys_ctr); */
+EXPORT_SYMBOL_GPL(cbe_read_phys_ctr);
 
 void cbe_write_phys_ctr(u32 cpu, u32 phys_ctr, u32 val)
 {
@@ -115,7 +115,7 @@ void cbe_write_phys_ctr(u32 cpu, u32 phys_ctr, u32 val)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_write_phys_ctr); */
+EXPORT_SYMBOL_GPL(cbe_write_phys_ctr);
 
 /*
  * "Logical" counter registers.
@@ -135,7 +135,7 @@ u32 cbe_read_ctr(u32 cpu, u32 ctr)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_read_ctr); */
+EXPORT_SYMBOL_GPL(cbe_read_ctr);
 
 void cbe_write_ctr(u32 cpu, u32 ctr, u32 val)
 {
@@ -155,7 +155,7 @@ void cbe_write_ctr(u32 cpu, u32 ctr, u32 val)
 
 	cbe_write_phys_ctr(cpu, phys_ctr, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_write_ctr); */
+EXPORT_SYMBOL_GPL(cbe_write_ctr);
 
 /*
  * Counter-control registers.
@@ -171,14 +171,14 @@ u32 cbe_read_pm07_control(u32 cpu, u32 ctr)
 
 	return pm07_control;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_read_pm07_control); */
+EXPORT_SYMBOL_GPL(cbe_read_pm07_control);
 
 void cbe_write_pm07_control(u32 cpu, u32 ctr, u32 val)
 {
 	if (ctr < NR_CTRS)
 		WRITE_WO_MMIO(pm07_control[ctr], val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_write_pm07_control); */
+EXPORT_SYMBOL_GPL(cbe_write_pm07_control);
 
 /*
  * Other PMU control registers. Most of these are write-only.
@@ -224,7 +224,7 @@ u32 cbe_read_pm(u32 cpu, enum pm_reg_name reg)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_read_pm); */
+EXPORT_SYMBOL_GPL(cbe_read_pm);
 
 void cbe_write_pm(u32 cpu, enum pm_reg_name reg, u32 val)
 {
@@ -262,7 +262,7 @@ void cbe_write_pm(u32 cpu, enum pm_reg_name reg, u32 val)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_write_pm); */
+EXPORT_SYMBOL_GPL(cbe_write_pm);
 
 /*
  * Get/set the size of a physical counter to either 16 or 32 bits.
@@ -279,7 +279,7 @@ u32 cbe_get_ctr_size(u32 cpu, u32 phys_ctr)
 
 	return size;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_ctr_size); */
+EXPORT_SYMBOL_GPL(cbe_get_ctr_size);
 
 void cbe_set_ctr_size(u32 cpu, u32 phys_ctr, u32 ctr_size)
 {
@@ -299,7 +299,7 @@ void cbe_set_ctr_size(u32 cpu, u32 phys_ctr, u32 ctr_size)
 		cbe_write_pm(cpu, pm_control, pm_ctrl);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_set_ctr_size); */
+EXPORT_SYMBOL_GPL(cbe_set_ctr_size);
 
 /*
  * Enable/disable the entire performance monitoring unit.
@@ -317,7 +317,7 @@ void cbe_enable_pm(u32 cpu)
 	pm_ctrl = cbe_read_pm(cpu, pm_control) | CBE_PM_ENABLE_PERF_MON;
 	cbe_write_pm(cpu, pm_control, pm_ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_enable_pm); */
+EXPORT_SYMBOL_GPL(cbe_enable_pm);
 
 void cbe_disable_pm(u32 cpu)
 {
@@ -325,7 +325,7 @@ void cbe_disable_pm(u32 cpu)
 	pm_ctrl = cbe_read_pm(cpu, pm_control) & ~CBE_PM_ENABLE_PERF_MON;
 	cbe_write_pm(cpu, pm_control, pm_ctrl);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_disable_pm); */
+EXPORT_SYMBOL_GPL(cbe_disable_pm);
 
 /*
  * Reading from the trace_buffer.
@@ -340,7 +340,7 @@ void cbe_read_trace_buffer(u32 cpu, u64 *buf)
 	*buf++ = in_be64(&pmd_regs->trace_buffer_0_63);
 	*buf++ = in_be64(&pmd_regs->trace_buffer_64_127);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_read_trace_buffer); */
+EXPORT_SYMBOL_GPL(cbe_read_trace_buffer);
 
 /*
  * Enabling/disabling interrupts for the entire performance monitoring unit.
@@ -351,7 +351,7 @@ u32 cbe_get_and_clear_pm_interrupts(u32 cpu)
 	/* Reading pm_status clears the interrupt bits. */
 	return cbe_read_pm(cpu, pm_status);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_get_and_clear_pm_interrupts); */
+EXPORT_SYMBOL_GPL(cbe_get_and_clear_pm_interrupts);
 
 void cbe_enable_pm_interrupts(u32 cpu, u32 thread, u32 mask)
 {
@@ -362,14 +362,14 @@ void cbe_enable_pm_interrupts(u32 cpu, u32 thread, u32 mask)
 	if (mask)
 		cbe_write_pm(cpu, pm_status, mask);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_enable_pm_interrupts); */
+EXPORT_SYMBOL_GPL(cbe_enable_pm_interrupts);
 
 void cbe_disable_pm_interrupts(u32 cpu)
 {
 	cbe_get_and_clear_pm_interrupts(cpu);
 	cbe_write_pm(cpu, pm_status, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_disable_pm_interrupts); */
+EXPORT_SYMBOL_GPL(cbe_disable_pm_interrupts);
 
 static irqreturn_t cbe_pm_irq(int irq, void *dev_id)
 {
@@ -420,5 +420,5 @@ void cbe_sync_irq(int node)
 
 	synchronize_irq(irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cbe_sync_irq); */
+EXPORT_SYMBOL_GPL(cbe_sync_irq);
 

@@ -93,7 +93,7 @@ inline void iscsi_conn_queue_work(struct iscsi_conn *conn)
 	if (ihost->workq)
 		queue_work(ihost->workq, &conn->xmitwork);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_queue_work); */
+EXPORT_SYMBOL_GPL(iscsi_conn_queue_work);
 
 static void __iscsi_update_cmdsn(struct iscsi_session *session,
 				 uint32_t exp_cmdsn, uint32_t max_cmdsn)
@@ -127,7 +127,7 @@ void iscsi_update_cmdsn(struct iscsi_session *session, struct iscsi_nopin *hdr)
 	__iscsi_update_cmdsn(session, be32_to_cpu(hdr->exp_cmdsn),
 			     be32_to_cpu(hdr->max_cmdsn));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_update_cmdsn); */
+EXPORT_SYMBOL_GPL(iscsi_update_cmdsn);
 
 /**
  * iscsi_prep_data_out_pdu - initialize Data-Out
@@ -169,7 +169,7 @@ void iscsi_prep_data_out_pdu(struct iscsi_task *task, struct iscsi_r2t_info *r2t
 	}
 	conn->dataout_pdus_cnt++;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_prep_data_out_pdu); */
+EXPORT_SYMBOL_GPL(iscsi_prep_data_out_pdu);
 
 static int iscsi_add_hdr(struct iscsi_task *task, unsigned len)
 {
@@ -523,14 +523,14 @@ void __iscsi_get_task(struct iscsi_task *task)
 {
 	atomic_inc(&task->refcount);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__iscsi_get_task); */
+EXPORT_SYMBOL_GPL(__iscsi_get_task);
 
 void __iscsi_put_task(struct iscsi_task *task)
 {
 	if (atomic_dec_and_test(&task->refcount))
 		iscsi_free_task(task);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__iscsi_put_task); */
+EXPORT_SYMBOL_GPL(__iscsi_put_task);
 
 void iscsi_put_task(struct iscsi_task *task)
 {
@@ -540,7 +540,7 @@ void iscsi_put_task(struct iscsi_task *task)
 	__iscsi_put_task(task);
 	spin_unlock_bh(&session->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_put_task); */
+EXPORT_SYMBOL_GPL(iscsi_put_task);
 
 /**
  * iscsi_complete_task - finish a task
@@ -599,7 +599,7 @@ void iscsi_complete_scsi_task(struct iscsi_task *task,
 	__iscsi_update_cmdsn(conn->session, exp_cmdsn, max_cmdsn);
 	iscsi_complete_task(task, ISCSI_TASK_COMPLETED);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_complete_scsi_task); */
+EXPORT_SYMBOL_GPL(iscsi_complete_scsi_task);
 
 
 /*
@@ -808,7 +808,7 @@ int iscsi_conn_send_pdu(struct iscsi_cls_conn *cls_conn, struct iscsi_hdr *hdr,
 	spin_unlock_bh(&session->lock);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_send_pdu); */
+EXPORT_SYMBOL_GPL(iscsi_conn_send_pdu);
 
 /**
  * iscsi_cmd_rsp - SCSI Command Response processing
@@ -1104,7 +1104,7 @@ struct iscsi_task *iscsi_itt_to_task(struct iscsi_conn *conn, itt_t itt)
 
 	return session->cmds[i];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_itt_to_task); */
+EXPORT_SYMBOL_GPL(iscsi_itt_to_task);
 
 /**
  * __iscsi_complete_pdu - complete pdu
@@ -1251,7 +1251,7 @@ recv_pdu:
 	iscsi_complete_task(task, ISCSI_TASK_COMPLETED);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__iscsi_complete_pdu); */
+EXPORT_SYMBOL_GPL(__iscsi_complete_pdu);
 
 int iscsi_complete_pdu(struct iscsi_conn *conn, struct iscsi_hdr *hdr,
 		       char *data, int datalen)
@@ -1263,7 +1263,7 @@ int iscsi_complete_pdu(struct iscsi_conn *conn, struct iscsi_hdr *hdr,
 	spin_unlock(&conn->session->lock);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_complete_pdu); */
+EXPORT_SYMBOL_GPL(iscsi_complete_pdu);
 
 int iscsi_verify_itt(struct iscsi_conn *conn, itt_t itt)
 {
@@ -1295,7 +1295,7 @@ int iscsi_verify_itt(struct iscsi_conn *conn, itt_t itt)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_verify_itt); */
+EXPORT_SYMBOL_GPL(iscsi_verify_itt);
 
 /**
  * iscsi_itt_to_ctask - look up ctask by itt
@@ -1326,7 +1326,7 @@ struct iscsi_task *iscsi_itt_to_ctask(struct iscsi_conn *conn, itt_t itt)
 
 	return task;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_itt_to_ctask); */
+EXPORT_SYMBOL_GPL(iscsi_itt_to_ctask);
 
 void iscsi_session_failure(struct iscsi_session *session,
 			   enum iscsi_err err)
@@ -1356,7 +1356,7 @@ void iscsi_session_failure(struct iscsi_session *session,
 		iscsi_conn_failure(conn, err);
 	put_device(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_failure); */
+EXPORT_SYMBOL_GPL(iscsi_session_failure);
 
 void iscsi_conn_failure(struct iscsi_conn *conn, enum iscsi_err err)
 {
@@ -1376,7 +1376,7 @@ void iscsi_conn_failure(struct iscsi_conn *conn, enum iscsi_err err)
 	set_bit(ISCSI_SUSPEND_BIT, &conn->suspend_rx);
 	iscsi_conn_error_event(conn->cls_conn, err);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_failure); */
+EXPORT_SYMBOL_GPL(iscsi_conn_failure);
 
 static int iscsi_check_cmdsn_window_closed(struct iscsi_conn *conn)
 {
@@ -1436,7 +1436,7 @@ void iscsi_requeue_task(struct iscsi_task *task)
 		list_add_tail(&task->running, &conn->requeue);
 	iscsi_conn_queue_work(conn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_requeue_task); */
+EXPORT_SYMBOL_GPL(iscsi_requeue_task);
 
 /**
  * iscsi_data_xmit - xmit any command into the scheduled connection
@@ -1723,7 +1723,7 @@ fault:
 	sc->scsi_done(sc);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_queuecommand); */
+EXPORT_SYMBOL_GPL(iscsi_queuecommand);
 
 int iscsi_change_queue_depth(struct scsi_device *sdev, int depth, int reason)
 {
@@ -1742,7 +1742,7 @@ int iscsi_change_queue_depth(struct scsi_device *sdev, int depth, int reason)
 	}
 	return sdev->queue_depth;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_change_queue_depth); */
+EXPORT_SYMBOL_GPL(iscsi_change_queue_depth);
 
 int iscsi_target_alloc(struct scsi_target *starget)
 {
@@ -1752,7 +1752,7 @@ int iscsi_target_alloc(struct scsi_target *starget)
 	starget->can_queue = session->scsi_cmds_max;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_target_alloc); */
+EXPORT_SYMBOL_GPL(iscsi_target_alloc);
 
 static void iscsi_tmf_timedout(unsigned long data)
 {
@@ -1861,7 +1861,7 @@ void iscsi_suspend_queue(struct iscsi_conn *conn)
 	set_bit(ISCSI_SUSPEND_BIT, &conn->suspend_tx);
 	spin_unlock_bh(&conn->session->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_suspend_queue); */
+EXPORT_SYMBOL_GPL(iscsi_suspend_queue);
 
 /**
  * iscsi_suspend_tx - suspend iscsi_data_xmit
@@ -1880,7 +1880,7 @@ void iscsi_suspend_tx(struct iscsi_conn *conn)
 	if (ihost->workq)
 		flush_workqueue(ihost->workq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_suspend_tx); */
+EXPORT_SYMBOL_GPL(iscsi_suspend_tx);
 
 static void iscsi_start_tx(struct iscsi_conn *conn)
 {
@@ -2220,7 +2220,7 @@ failed_unlocked:
 	mutex_unlock(&session->eh_mutex);
 	return FAILED;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_eh_abort); */
+EXPORT_SYMBOL_GPL(iscsi_eh_abort);
 
 static void iscsi_prep_lun_reset_pdu(struct scsi_cmnd *sc, struct iscsi_tm *hdr)
 {
@@ -2303,7 +2303,7 @@ done:
 	mutex_unlock(&session->eh_mutex);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_eh_device_reset); */
+EXPORT_SYMBOL_GPL(iscsi_eh_device_reset);
 
 void iscsi_session_recovery_timedout(struct iscsi_cls_session *cls_session)
 {
@@ -2317,7 +2317,7 @@ void iscsi_session_recovery_timedout(struct iscsi_cls_session *cls_session)
 	}
 	spin_unlock_bh(&session->lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_recovery_timedout); */
+EXPORT_SYMBOL_GPL(iscsi_session_recovery_timedout);
 
 /**
  * iscsi_eh_session_reset - drop session and attempt relogin
@@ -2377,7 +2377,7 @@ failed:
 	mutex_unlock(&session->eh_mutex);
 	return SUCCESS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_eh_session_reset); */
+EXPORT_SYMBOL_GPL(iscsi_eh_session_reset);
 
 static void iscsi_prep_tgt_reset_pdu(struct scsi_cmnd *sc, struct iscsi_tm *hdr)
 {
@@ -2466,7 +2466,7 @@ done:
 	mutex_unlock(&session->eh_mutex);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_eh_target_reset); */
+EXPORT_SYMBOL_GPL(iscsi_eh_target_reset);
 
 /**
  * iscsi_eh_recover_target - reset target and possibly the session
@@ -2484,7 +2484,7 @@ int iscsi_eh_recover_target(struct scsi_cmnd *sc)
 		rc = iscsi_eh_session_reset(sc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_eh_recover_target); */
+EXPORT_SYMBOL_GPL(iscsi_eh_recover_target);
 
 /*
  * Pre-allocate a pool of @max items of @item_size. By default, the pool
@@ -2531,7 +2531,7 @@ enomem:
 	iscsi_pool_free(q);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_pool_init); */
+EXPORT_SYMBOL_GPL(iscsi_pool_init);
 
 void iscsi_pool_free(struct iscsi_pool *q)
 {
@@ -2541,7 +2541,7 @@ void iscsi_pool_free(struct iscsi_pool *q)
 		kfree(q->pool[i]);
 	kfree(q->pool);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_pool_free); */
+EXPORT_SYMBOL_GPL(iscsi_pool_free);
 
 /**
  * iscsi_host_add - add host to system
@@ -2563,7 +2563,7 @@ int iscsi_host_add(struct Scsi_Host *shost, struct device *pdev)
 		shost->transportt->eh_timed_out = iscsi_eh_cmd_timed_out;
 	return scsi_add_host(shost, pdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_add); */
+EXPORT_SYMBOL_GPL(iscsi_host_add);
 
 /**
  * iscsi_host_alloc - allocate a host and driver data
@@ -2603,7 +2603,7 @@ free_host:
 	scsi_host_put(shost);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_alloc); */
+EXPORT_SYMBOL_GPL(iscsi_host_alloc);
 
 static void iscsi_notify_host_removed(struct iscsi_cls_session *cls_session)
 {
@@ -2636,7 +2636,7 @@ void iscsi_host_remove(struct Scsi_Host *shost)
 	if (ihost->workq)
 		destroy_workqueue(ihost->workq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_remove); */
+EXPORT_SYMBOL_GPL(iscsi_host_remove);
 
 void iscsi_host_free(struct Scsi_Host *shost)
 {
@@ -2647,7 +2647,7 @@ void iscsi_host_free(struct Scsi_Host *shost)
 	kfree(ihost->initiatorname);
 	scsi_host_put(shost);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_free); */
+EXPORT_SYMBOL_GPL(iscsi_host_free);
 
 static void iscsi_host_dec_session_cnt(struct Scsi_Host *shost)
 {
@@ -2795,7 +2795,7 @@ dec_session_count:
 	iscsi_host_dec_session_cnt(shost);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_setup); */
+EXPORT_SYMBOL_GPL(iscsi_session_setup);
 
 /**
  * iscsi_session_teardown - destroy session, host, and cls_session
@@ -2825,7 +2825,7 @@ void iscsi_session_teardown(struct iscsi_cls_session *cls_session)
 	iscsi_host_dec_session_cnt(shost);
 	module_put(owner);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_teardown); */
+EXPORT_SYMBOL_GPL(iscsi_session_teardown);
 
 /**
  * iscsi_conn_setup - create iscsi_cls_conn and iscsi_conn
@@ -2894,7 +2894,7 @@ login_task_alloc_fail:
 	iscsi_destroy_conn(cls_conn);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_setup); */
+EXPORT_SYMBOL_GPL(iscsi_conn_setup);
 
 /**
  * iscsi_conn_teardown - teardown iscsi connection
@@ -2938,7 +2938,7 @@ void iscsi_conn_teardown(struct iscsi_cls_conn *cls_conn)
 
 	iscsi_destroy_conn(cls_conn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_teardown); */
+EXPORT_SYMBOL_GPL(iscsi_conn_teardown);
 
 int iscsi_conn_start(struct iscsi_cls_conn *cls_conn)
 {
@@ -3006,7 +3006,7 @@ int iscsi_conn_start(struct iscsi_cls_conn *cls_conn)
 	wake_up(&conn->ehwait);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_start); */
+EXPORT_SYMBOL_GPL(iscsi_conn_start);
 
 static void
 fail_mgmt_tasks(struct iscsi_session *session, struct iscsi_conn *conn)
@@ -3109,7 +3109,7 @@ void iscsi_conn_stop(struct iscsi_cls_conn *cls_conn, int flag)
 				  "invalid stop flag %d\n", flag);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_stop); */
+EXPORT_SYMBOL_GPL(iscsi_conn_stop);
 
 int iscsi_conn_bind(struct iscsi_cls_session *cls_session,
 		    struct iscsi_cls_conn *cls_conn, int is_leading)
@@ -3129,7 +3129,7 @@ int iscsi_conn_bind(struct iscsi_cls_session *cls_session,
 	clear_bit(ISCSI_SUSPEND_BIT, &conn->suspend_tx);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_bind); */
+EXPORT_SYMBOL_GPL(iscsi_conn_bind);
 
 static int iscsi_switch_str_param(char **param, char *new_val_buf)
 {
@@ -3243,7 +3243,7 @@ int iscsi_set_param(struct iscsi_cls_conn *cls_conn,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_set_param); */
+EXPORT_SYMBOL_GPL(iscsi_set_param);
 
 int iscsi_session_get_param(struct iscsi_cls_session *cls_session,
 			    enum iscsi_param param, char *buf)
@@ -3321,7 +3321,7 @@ int iscsi_session_get_param(struct iscsi_cls_session *cls_session,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_session_get_param); */
+EXPORT_SYMBOL_GPL(iscsi_session_get_param);
 
 int iscsi_conn_get_addr_param(struct sockaddr_storage *addr,
 			      enum iscsi_param param, char *buf)
@@ -3362,7 +3362,7 @@ int iscsi_conn_get_addr_param(struct sockaddr_storage *addr,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_get_addr_param); */
+EXPORT_SYMBOL_GPL(iscsi_conn_get_addr_param);
 
 int iscsi_conn_get_param(struct iscsi_cls_conn *cls_conn,
 			 enum iscsi_param param, char *buf)
@@ -3410,7 +3410,7 @@ int iscsi_conn_get_param(struct iscsi_cls_conn *cls_conn,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_conn_get_param); */
+EXPORT_SYMBOL_GPL(iscsi_conn_get_param);
 
 int iscsi_host_get_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 			 char *buf)
@@ -3434,7 +3434,7 @@ int iscsi_host_get_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_get_param); */
+EXPORT_SYMBOL_GPL(iscsi_host_get_param);
 
 int iscsi_host_set_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 			 char *buf, int buflen)
@@ -3454,7 +3454,7 @@ int iscsi_host_set_param(struct Scsi_Host *shost, enum iscsi_host_param param,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(iscsi_host_set_param); */
+EXPORT_SYMBOL_GPL(iscsi_host_set_param);
 
 MODULE_AUTHOR("Mike Christie");
 MODULE_DESCRIPTION("iSCSI library functions");

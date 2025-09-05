@@ -185,7 +185,7 @@ struct snd_ac97_bus_ops soc_ac97_ops = {
 	.reset		= au1xac97c_ac97_cold_reset,
 	.warm_reset	= au1xac97c_ac97_warm_reset,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(soc_ac97_ops);	/* globals be gone! */ */
+EXPORT_SYMBOL_GPL(soc_ac97_ops);	/* globals be gone! */
 
 static int alchemy_ac97c_startup(struct snd_pcm_substream *substream,
 				 struct snd_soc_dai *dai)

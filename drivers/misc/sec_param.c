@@ -199,7 +199,7 @@ bool sec_get_param(enum sec_param_index index, void *value)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_get_param); */
+EXPORT_SYMBOL(sec_get_param);
 
 bool sec_set_param(enum sec_param_index index, void *value)
 {
@@ -272,7 +272,7 @@ bool sec_set_param(enum sec_param_index index, void *value)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(sec_set_param); */
+EXPORT_SYMBOL(sec_set_param);
 
 /* ##########################################################
  * #

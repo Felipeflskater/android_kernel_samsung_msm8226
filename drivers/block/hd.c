@@ -809,6 +809,6 @@ static int __init parse_hd_setup(char *line)
 
 	return 1;
 }
-/* DISABLED: __setup("hd=", parse_hd_setup); */ */
+__setup("hd=", parse_hd_setup);
 
 late_initcall(hd_init);

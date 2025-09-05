@@ -28,7 +28,7 @@ u32 avs_get_avscsr(void)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(avs_get_avscsr); */
+EXPORT_SYMBOL(avs_get_avscsr);
 
 void avs_set_avscsr(u32 avscsr)
 {
@@ -38,7 +38,7 @@ void avs_set_avscsr(u32 avscsr)
 			: [avscsr]"r" (avscsr)
 	);
 }
-/* DISABLED: EXPORT_SYMBOL(avs_set_avscsr); */
+EXPORT_SYMBOL(avs_set_avscsr);
 
 u32 avs_get_avsdscr(void)
 {
@@ -50,7 +50,7 @@ u32 avs_get_avsdscr(void)
 
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(avs_get_avsdscr); */
+EXPORT_SYMBOL(avs_get_avsdscr);
 
 void avs_set_avsdscr(u32 avsdscr)
 {
@@ -60,7 +60,7 @@ void avs_set_avsdscr(u32 avsdscr)
 			: [avsdscr]"r" (avsdscr)
 	);
 }
-/* DISABLED: EXPORT_SYMBOL(avs_set_avsdscr); */
+EXPORT_SYMBOL(avs_set_avsdscr);
 
 static void avs_enable_local(void *data)
 {
@@ -87,7 +87,7 @@ void avs_enable(int cpu, u32 avsdscr)
 			(void *)avsdscr, true);
 	WARN_ON(ret);
 }
-/* DISABLED: EXPORT_SYMBOL(avs_enable); */
+EXPORT_SYMBOL(avs_enable);
 
 void avs_disable(int cpu)
 {
@@ -97,4 +97,4 @@ void avs_disable(int cpu)
 			(void *) 0, true);
 	WARN_ON(ret);
 }
-/* DISABLED: EXPORT_SYMBOL(avs_disable); */
+EXPORT_SYMBOL(avs_disable);

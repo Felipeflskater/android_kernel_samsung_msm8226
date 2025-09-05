@@ -792,7 +792,7 @@ void ieee80211_chswitch_done(struct ieee80211_vif *vif, bool success)
 
 	ieee80211_queue_work(&sdata->local->hw, &ifmgd->chswitch_work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_chswitch_done); */
+EXPORT_SYMBOL(ieee80211_chswitch_done);
 
 static void ieee80211_chswitch_timer(unsigned long data)
 {
@@ -905,7 +905,7 @@ void ieee80211_enable_dyn_ps(struct ieee80211_vif *vif)
 	local->disable_dynamic_ps = false;
 	conf->dynamic_ps_timeout = local->dynamic_ps_user_timeout;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_enable_dyn_ps); */
+EXPORT_SYMBOL(ieee80211_enable_dyn_ps);
 
 void ieee80211_disable_dyn_ps(struct ieee80211_vif *vif)
 {
@@ -923,7 +923,7 @@ void ieee80211_disable_dyn_ps(struct ieee80211_vif *vif)
 	ieee80211_queue_work(&local->hw,
 			     &local->dynamic_ps_enable_work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_disable_dyn_ps); */
+EXPORT_SYMBOL(ieee80211_disable_dyn_ps);
 
 /* powersave */
 static void ieee80211_enable_ps(struct ieee80211_local *local,
@@ -1683,7 +1683,7 @@ struct sk_buff *ieee80211_ap_probereq_get(struct ieee80211_hw *hw,
 
 	return skb;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_ap_probereq_get); */
+EXPORT_SYMBOL(ieee80211_ap_probereq_get);
 
 static void __ieee80211_connection_loss(struct ieee80211_sub_if_data *sdata)
 {
@@ -1751,7 +1751,7 @@ void ieee80211_beacon_loss(struct ieee80211_vif *vif)
 	WARN_ON(hw->flags & IEEE80211_HW_CONNECTION_MONITOR);
 	ieee80211_queue_work(hw, &sdata->u.mgd.beacon_connection_loss_work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_beacon_loss); */
+EXPORT_SYMBOL(ieee80211_beacon_loss);
 
 void ieee80211_connection_loss(struct ieee80211_vif *vif)
 {
@@ -1763,7 +1763,7 @@ void ieee80211_connection_loss(struct ieee80211_vif *vif)
 	WARN_ON(!(hw->flags & IEEE80211_HW_CONNECTION_MONITOR));
 	ieee80211_queue_work(hw, &sdata->u.mgd.beacon_connection_loss_work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_connection_loss); */
+EXPORT_SYMBOL(ieee80211_connection_loss);
 
 
 static void ieee80211_destroy_auth_data(struct ieee80211_sub_if_data *sdata,
@@ -3562,11 +3562,11 @@ void ieee80211_cqm_rssi_notify(struct ieee80211_vif *vif,
 
 	cfg80211_cqm_rssi_notify(sdata->dev, rssi_event, gfp);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_cqm_rssi_notify); */
+EXPORT_SYMBOL(ieee80211_cqm_rssi_notify);
 
 unsigned char ieee80211_get_operstate(struct ieee80211_vif *vif)
 {
 	struct ieee80211_sub_if_data *sdata = vif_to_sdata(vif);
 	return sdata->dev->operstate;
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_get_operstate); */
+EXPORT_SYMBOL(ieee80211_get_operstate);

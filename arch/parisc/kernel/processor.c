@@ -43,7 +43,7 @@
 #include <asm/parisc-device.h>
 
 struct system_cpuinfo_parisc boot_cpu_data __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(boot_cpu_data); */
+EXPORT_SYMBOL(boot_cpu_data);
 
 DEFINE_PER_CPU(struct cpuinfo_parisc, cpu_data);
 

@@ -81,4 +81,4 @@ void au1300_vss_block_control(int block, int enable)
 		__disable_block(block);
 	spin_unlock_irqrestore(&au1300_vss_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(au1300_vss_block_control); */
+EXPORT_SYMBOL_GPL(au1300_vss_block_control);

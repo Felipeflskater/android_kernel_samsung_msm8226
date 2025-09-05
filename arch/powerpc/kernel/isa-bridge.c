@@ -31,12 +31,12 @@
 #include <asm/ppc-pci.h>
 
 unsigned long isa_io_base;	/* NULL if no ISA bus */
-/* DISABLED: EXPORT_SYMBOL(isa_io_base); */
+EXPORT_SYMBOL(isa_io_base);
 
 /* Cached ISA bridge dev. */
 static struct device_node *isa_bridge_devnode;
 struct pci_dev *isa_bridge_pcidev;
-/* DISABLED: EXPORT_SYMBOL_GPL(isa_bridge_pcidev); */
+EXPORT_SYMBOL_GPL(isa_bridge_pcidev);
 
 #define ISA_SPACE_MASK 0x1
 #define ISA_SPACE_IO 0x1

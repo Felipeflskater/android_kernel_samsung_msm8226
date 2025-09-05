@@ -330,7 +330,7 @@ int tc6393xb_lcd_set_power(struct platform_device *fb, bool on)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tc6393xb_lcd_set_power); */
+EXPORT_SYMBOL(tc6393xb_lcd_set_power);
 
 int tc6393xb_lcd_mode(struct platform_device *fb,
 					const struct fb_videomode *mode) {
@@ -347,7 +347,7 @@ int tc6393xb_lcd_mode(struct platform_device *fb,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tc6393xb_lcd_mode); */
+EXPORT_SYMBOL(tc6393xb_lcd_mode);
 
 static int tc6393xb_mmc_enable(struct platform_device *mmc)
 {

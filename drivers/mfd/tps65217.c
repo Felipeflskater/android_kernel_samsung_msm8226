@@ -40,7 +40,7 @@ int tps65217_reg_read(struct tps65217 *tps, unsigned int reg,
 {
 	return regmap_read(tps->regmap, reg, val);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tps65217_reg_read); */
+EXPORT_SYMBOL_GPL(tps65217_reg_read);
 
 /**
  * tps65217_reg_write: Write a single tps65217 register.
@@ -85,7 +85,7 @@ int tps65217_reg_write(struct tps65217 *tps, unsigned int reg,
 		return -EINVAL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tps65217_reg_write); */
+EXPORT_SYMBOL_GPL(tps65217_reg_write);
 
 /**
  * tps65217_update_bits: Modify bits w.r.t mask, val and level.
@@ -123,14 +123,14 @@ int tps65217_set_bits(struct tps65217 *tps, unsigned int reg,
 {
 	return tps65217_update_bits(tps, reg, mask, val, level);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tps65217_set_bits); */
+EXPORT_SYMBOL_GPL(tps65217_set_bits);
 
 int tps65217_clear_bits(struct tps65217 *tps, unsigned int reg,
 		unsigned int mask, unsigned int level)
 {
 	return tps65217_update_bits(tps, reg, mask, 0, level);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tps65217_clear_bits); */
+EXPORT_SYMBOL_GPL(tps65217_clear_bits);
 
 static struct regmap_config tps65217_regmap_config = {
 	.reg_bits = 8,

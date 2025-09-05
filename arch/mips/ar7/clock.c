@@ -421,18 +421,18 @@ int clk_enable(struct clk *clk)
 {
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_enable); */
+EXPORT_SYMBOL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(clk_disable); */
+EXPORT_SYMBOL(clk_disable);
 
 unsigned long clk_get_rate(struct clk *clk)
 {
 	return clk->rate;
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get_rate); */
+EXPORT_SYMBOL(clk_get_rate);
 
 struct clk *clk_get(struct device *dev, const char *id)
 {
@@ -449,12 +449,12 @@ struct clk *clk_get(struct device *dev, const char *id)
 		return &vbus_clk;
 	return ERR_PTR(-ENOENT);
 }
-/* DISABLED: EXPORT_SYMBOL(clk_get); */
+EXPORT_SYMBOL(clk_get);
 
 void clk_put(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(clk_put); */
+EXPORT_SYMBOL(clk_put);
 
 void __init ar7_init_clocks(void)
 {

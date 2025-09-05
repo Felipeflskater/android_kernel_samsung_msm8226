@@ -117,7 +117,7 @@ void omap_vrfb_adjust_size(u16 *width, u16 *height,
 	*width = ALIGN(*width * bytespp, VRFB_PAGE_WIDTH) / bytespp;
 	*height = ALIGN(*height, VRFB_PAGE_HEIGHT);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_adjust_size); */
+EXPORT_SYMBOL(omap_vrfb_adjust_size);
 
 u32 omap_vrfb_min_phys_size(u16 width, u16 height, u8 bytespp)
 {
@@ -130,7 +130,7 @@ u32 omap_vrfb_min_phys_size(u16 width, u16 height, u8 bytespp)
 	return (width * height * bytespp) + get_extra_physical_size(
 		image_width_roundup, bytespp);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_min_phys_size); */
+EXPORT_SYMBOL(omap_vrfb_min_phys_size);
 
 u16 omap_vrfb_max_height(u32 phys_size, u16 width, u8 bytespp)
 {
@@ -152,7 +152,7 @@ u16 omap_vrfb_max_height(u32 phys_size, u16 width, u8 bytespp)
 	/* Virtual views provided by VRFB are limited to 2048x2048. */
 	return min_t(unsigned long, height, 2048);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_max_height); */
+EXPORT_SYMBOL(omap_vrfb_max_height);
 
 void omap_vrfb_setup(struct vrfb *vrfb, unsigned long paddr,
 		u16 width, u16 height,
@@ -212,7 +212,7 @@ void omap_vrfb_setup(struct vrfb *vrfb, unsigned long paddr,
 	vrfb->bytespp = bytespp;
 	vrfb->yuv_mode = yuv_mode;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_setup); */
+EXPORT_SYMBOL(omap_vrfb_setup);
 
 int omap_vrfb_map_angle(struct vrfb *vrfb, u16 height, u8 rot)
 {
@@ -230,7 +230,7 @@ int omap_vrfb_map_angle(struct vrfb *vrfb, u16 height, u8 rot)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_map_angle); */
+EXPORT_SYMBOL(omap_vrfb_map_angle);
 
 void omap_vrfb_release_ctx(struct vrfb *vrfb)
 {
@@ -259,7 +259,7 @@ void omap_vrfb_release_ctx(struct vrfb *vrfb)
 
 	mutex_unlock(&ctx_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_release_ctx); */
+EXPORT_SYMBOL(omap_vrfb_release_ctx);
 
 int omap_vrfb_request_ctx(struct vrfb *vrfb)
 {
@@ -311,4 +311,4 @@ out:
 	mutex_unlock(&ctx_lock);
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(omap_vrfb_request_ctx); */
+EXPORT_SYMBOL(omap_vrfb_request_ctx);

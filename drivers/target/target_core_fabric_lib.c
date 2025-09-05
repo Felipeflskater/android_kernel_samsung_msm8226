@@ -51,7 +51,7 @@ u8 sas_get_fabric_proto_ident(struct se_portal_group *se_tpg)
 	 */
 	return 0x6;
 }
-/* DISABLED: EXPORT_SYMBOL(sas_get_fabric_proto_ident); */
+EXPORT_SYMBOL(sas_get_fabric_proto_ident);
 
 u32 sas_get_pr_transport_id(
 	struct se_portal_group *se_tpg,
@@ -82,7 +82,7 @@ u32 sas_get_pr_transport_id(
 	 */
 	return 24;
 }
-/* DISABLED: EXPORT_SYMBOL(sas_get_pr_transport_id); */
+EXPORT_SYMBOL(sas_get_pr_transport_id);
 
 u32 sas_get_pr_transport_id_len(
 	struct se_portal_group *se_tpg,
@@ -99,7 +99,7 @@ u32 sas_get_pr_transport_id_len(
 	 */
 	return 24;
 }
-/* DISABLED: EXPORT_SYMBOL(sas_get_pr_transport_id_len); */
+EXPORT_SYMBOL(sas_get_pr_transport_id_len);
 
 /*
  * Used for handling SCSI fabric dependent TransportIDs in SPC-3 and above
@@ -124,7 +124,7 @@ char *sas_parse_pr_out_transport_id(
 
 	return (char *)&buf[4];
 }
-/* DISABLED: EXPORT_SYMBOL(sas_parse_pr_out_transport_id); */
+EXPORT_SYMBOL(sas_parse_pr_out_transport_id);
 
 /*
  * Handlers for Fibre Channel Protocol (FCP)
@@ -133,7 +133,7 @@ u8 fc_get_fabric_proto_ident(struct se_portal_group *se_tpg)
 {
 	return 0x0;	/* 0 = fcp-2 per SPC4 section 7.5.1 */
 }
-/* DISABLED: EXPORT_SYMBOL(fc_get_fabric_proto_ident); */
+EXPORT_SYMBOL(fc_get_fabric_proto_ident);
 
 u32 fc_get_pr_transport_id_len(
 	struct se_portal_group *se_tpg,
@@ -147,7 +147,7 @@ u32 fc_get_pr_transport_id_len(
 	 */
 	return 24;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_get_pr_transport_id_len); */
+EXPORT_SYMBOL(fc_get_pr_transport_id_len);
 
 u32 fc_get_pr_transport_id(
 	struct se_portal_group *se_tpg,
@@ -186,7 +186,7 @@ u32 fc_get_pr_transport_id(
 	 */
 	return 24;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_get_pr_transport_id); */
+EXPORT_SYMBOL(fc_get_pr_transport_id);
 
 char *fc_parse_pr_out_transport_id(
 	struct se_portal_group *se_tpg,
@@ -204,7 +204,7 @@ char *fc_parse_pr_out_transport_id(
 
 	 return (char *)&buf[8];
 }
-/* DISABLED: EXPORT_SYMBOL(fc_parse_pr_out_transport_id); */
+EXPORT_SYMBOL(fc_parse_pr_out_transport_id);
 
 /*
  * Handlers for Internet Small Computer Systems Interface (iSCSI)
@@ -218,7 +218,7 @@ u8 iscsi_get_fabric_proto_ident(struct se_portal_group *se_tpg)
 	 */
 	return 0x5;
 }
-/* DISABLED: EXPORT_SYMBOL(iscsi_get_fabric_proto_ident); */
+EXPORT_SYMBOL(iscsi_get_fabric_proto_ident);
 
 u32 iscsi_get_pr_transport_id(
 	struct se_portal_group *se_tpg,
@@ -314,7 +314,7 @@ u32 iscsi_get_pr_transport_id(
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(iscsi_get_pr_transport_id); */
+EXPORT_SYMBOL(iscsi_get_pr_transport_id);
 
 u32 iscsi_get_pr_transport_id_len(
 	struct se_portal_group *se_tpg,
@@ -360,7 +360,7 @@ u32 iscsi_get_pr_transport_id_len(
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(iscsi_get_pr_transport_id_len); */
+EXPORT_SYMBOL(iscsi_get_pr_transport_id_len);
 
 char *iscsi_parse_pr_out_transport_id(
 	struct se_portal_group *se_tpg,
@@ -449,4 +449,4 @@ char *iscsi_parse_pr_out_transport_id(
 
 	return (char *)&buf[4];
 }
-/* DISABLED: EXPORT_SYMBOL(iscsi_parse_pr_out_transport_id); */
+EXPORT_SYMBOL(iscsi_parse_pr_out_transport_id);

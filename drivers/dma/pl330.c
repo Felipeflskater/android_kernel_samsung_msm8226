@@ -2380,7 +2380,7 @@ bool pl330_filter(struct dma_chan *chan, void *param)
 	peri_id = chan->private;
 	return *peri_id == (unsigned)param;
 }
-/* DISABLED: EXPORT_SYMBOL(pl330_filter); */
+EXPORT_SYMBOL(pl330_filter);
 
 static int pl330_alloc_chan_resources(struct dma_chan *chan)
 {

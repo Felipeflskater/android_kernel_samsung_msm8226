@@ -14,7 +14,7 @@
 static struct class *bt_class;
 
 struct dentry *bt_debugfs;
-/* DISABLED: EXPORT_SYMBOL_GPL(bt_debugfs); */
+EXPORT_SYMBOL_GPL(bt_debugfs);
 
 static inline char *link_typetostr(int type)
 {

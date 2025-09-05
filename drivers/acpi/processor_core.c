@@ -212,7 +212,7 @@ int acpi_get_cpuid(acpi_handle handle, int type, u32 acpi_id)
 #endif
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_get_cpuid); */
+EXPORT_SYMBOL_GPL(acpi_get_cpuid);
 
 static bool __init processor_physically_present(acpi_handle handle)
 {

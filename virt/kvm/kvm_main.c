@@ -79,7 +79,7 @@ static int kvm_usage_count = 0;
 static atomic_t hardware_enable_failed;
 
 struct kmem_cache *kvm_vcpu_cache;
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_vcpu_cache); */
+EXPORT_SYMBOL_GPL(kvm_vcpu_cache);
 
 static __read_mostly struct preempt_ops kvm_preempt_ops;
 
@@ -97,7 +97,7 @@ static void hardware_disable_all(void);
 static void kvm_io_bus_destroy(struct kvm_io_bus *bus);
 
 bool kvm_rebooting;
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_rebooting); */
+EXPORT_SYMBOL_GPL(kvm_rebooting);
 
 static bool largepages_enabled = true;
 
@@ -247,7 +247,7 @@ fail_free_run:
 fail:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_vcpu_init); */
+EXPORT_SYMBOL_GPL(kvm_vcpu_init);
 
 void kvm_vcpu_uninit(struct kvm_vcpu *vcpu)
 {
@@ -255,7 +255,7 @@ void kvm_vcpu_uninit(struct kvm_vcpu *vcpu)
 	kvm_arch_vcpu_uninit(vcpu);
 	free_page((unsigned long)vcpu->run);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_vcpu_uninit); */
+EXPORT_SYMBOL_GPL(kvm_vcpu_uninit);
 
 #if defined(CONFIG_MMU_NOTIFIER) && defined(KVM_ARCH_WANT_MMU_NOTIFIER)
 static inline struct kvm *mmu_notifier_to_kvm(struct mmu_notifier *mn)
@@ -590,14 +590,14 @@ void kvm_get_kvm(struct kvm *kvm)
 {
 	atomic_inc(&kvm->users_count);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_kvm); */
+EXPORT_SYMBOL_GPL(kvm_get_kvm);
 
 void kvm_put_kvm(struct kvm *kvm)
 {
 	if (atomic_dec_and_test(&kvm->users_count))
 		kvm_destroy_vm(kvm);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_put_kvm); */
+EXPORT_SYMBOL_GPL(kvm_put_kvm);
 
 
 static int kvm_vm_release(struct inode *inode, struct file *filp)
@@ -855,7 +855,7 @@ out:
 	return r;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__kvm_set_memory_region); */
+EXPORT_SYMBOL_GPL(__kvm_set_memory_region);
 
 int kvm_set_memory_region(struct kvm *kvm,
 			  struct kvm_userspace_memory_region *mem,
@@ -868,7 +868,7 @@ int kvm_set_memory_region(struct kvm *kvm,
 	mutex_unlock(&kvm->slots_lock);
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_memory_region); */
+EXPORT_SYMBOL_GPL(kvm_set_memory_region);
 
 int kvm_vm_ioctl_set_memory_region(struct kvm *kvm,
 				   struct
@@ -923,43 +923,43 @@ void kvm_disable_largepages(void)
 {
 	largepages_enabled = false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_disable_largepages); */
+EXPORT_SYMBOL_GPL(kvm_disable_largepages);
 
 int is_error_page(struct page *page)
 {
 	return page == bad_page || page == hwpoison_page || page == fault_page;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_error_page); */
+EXPORT_SYMBOL_GPL(is_error_page);
 
 int is_error_pfn(pfn_t pfn)
 {
 	return pfn == bad_pfn || pfn == hwpoison_pfn || pfn == fault_pfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_error_pfn); */
+EXPORT_SYMBOL_GPL(is_error_pfn);
 
 int is_hwpoison_pfn(pfn_t pfn)
 {
 	return pfn == hwpoison_pfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_hwpoison_pfn); */
+EXPORT_SYMBOL_GPL(is_hwpoison_pfn);
 
 int is_fault_pfn(pfn_t pfn)
 {
 	return pfn == fault_pfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_fault_pfn); */
+EXPORT_SYMBOL_GPL(is_fault_pfn);
 
 int is_noslot_pfn(pfn_t pfn)
 {
 	return pfn == bad_pfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_noslot_pfn); */
+EXPORT_SYMBOL_GPL(is_noslot_pfn);
 
 int is_invalid_pfn(pfn_t pfn)
 {
 	return pfn == hwpoison_pfn || pfn == fault_pfn;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(is_invalid_pfn); */
+EXPORT_SYMBOL_GPL(is_invalid_pfn);
 
 static inline unsigned long bad_hva(void)
 {
@@ -970,13 +970,13 @@ int kvm_is_error_hva(unsigned long addr)
 {
 	return addr == bad_hva();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_is_error_hva); */
+EXPORT_SYMBOL_GPL(kvm_is_error_hva);
 
 struct kvm_memory_slot *gfn_to_memslot(struct kvm *kvm, gfn_t gfn)
 {
 	return __gfn_to_memslot(kvm_memslots(kvm), gfn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_memslot); */
+EXPORT_SYMBOL_GPL(gfn_to_memslot);
 
 int kvm_is_visible_gfn(struct kvm *kvm, gfn_t gfn)
 {
@@ -988,7 +988,7 @@ int kvm_is_visible_gfn(struct kvm *kvm, gfn_t gfn)
 
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_is_visible_gfn); */
+EXPORT_SYMBOL_GPL(kvm_is_visible_gfn);
 
 unsigned long kvm_host_page_size(struct kvm *kvm, gfn_t gfn)
 {
@@ -1030,7 +1030,7 @@ unsigned long gfn_to_hva(struct kvm *kvm, gfn_t gfn)
 {
 	return gfn_to_hva_many(gfn_to_memslot(kvm, gfn), gfn, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_hva); */
+EXPORT_SYMBOL_GPL(gfn_to_hva);
 
 static pfn_t get_fault_pfn(void)
 {
@@ -1143,7 +1143,7 @@ pfn_t hva_to_pfn_atomic(struct kvm *kvm, unsigned long addr)
 {
 	return hva_to_pfn(kvm, addr, true, NULL, true, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(hva_to_pfn_atomic); */
+EXPORT_SYMBOL_GPL(hva_to_pfn_atomic);
 
 static pfn_t __gfn_to_pfn(struct kvm *kvm, gfn_t gfn, bool atomic, bool *async,
 			  bool write_fault, bool *writable)
@@ -1166,27 +1166,27 @@ pfn_t gfn_to_pfn_atomic(struct kvm *kvm, gfn_t gfn)
 {
 	return __gfn_to_pfn(kvm, gfn, true, NULL, true, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_pfn_atomic); */
+EXPORT_SYMBOL_GPL(gfn_to_pfn_atomic);
 
 pfn_t gfn_to_pfn_async(struct kvm *kvm, gfn_t gfn, bool *async,
 		       bool write_fault, bool *writable)
 {
 	return __gfn_to_pfn(kvm, gfn, false, async, write_fault, writable);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_pfn_async); */
+EXPORT_SYMBOL_GPL(gfn_to_pfn_async);
 
 pfn_t gfn_to_pfn(struct kvm *kvm, gfn_t gfn)
 {
 	return __gfn_to_pfn(kvm, gfn, false, NULL, true, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_pfn); */
+EXPORT_SYMBOL_GPL(gfn_to_pfn);
 
 pfn_t gfn_to_pfn_prot(struct kvm *kvm, gfn_t gfn, bool write_fault,
 		      bool *writable)
 {
 	return __gfn_to_pfn(kvm, gfn, false, NULL, write_fault, writable);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_pfn_prot); */
+EXPORT_SYMBOL_GPL(gfn_to_pfn_prot);
 
 pfn_t gfn_to_pfn_memslot(struct kvm *kvm,
 			 struct kvm_memory_slot *slot, gfn_t gfn)
@@ -1210,7 +1210,7 @@ int gfn_to_page_many_atomic(struct kvm *kvm, gfn_t gfn, struct page **pages,
 
 	return __get_user_pages_fast(addr, nr_pages, 1, pages);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_page_many_atomic); */
+EXPORT_SYMBOL_GPL(gfn_to_page_many_atomic);
 
 struct page *gfn_to_page(struct kvm *kvm, gfn_t gfn)
 {
@@ -1226,39 +1226,39 @@ struct page *gfn_to_page(struct kvm *kvm, gfn_t gfn)
 	return bad_page;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(gfn_to_page); */
+EXPORT_SYMBOL_GPL(gfn_to_page);
 
 void kvm_release_page_clean(struct page *page)
 {
 	kvm_release_pfn_clean(page_to_pfn(page));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_page_clean); */
+EXPORT_SYMBOL_GPL(kvm_release_page_clean);
 
 void kvm_release_pfn_clean(pfn_t pfn)
 {
 	if (!kvm_is_mmio_pfn(pfn))
 		put_page(pfn_to_page(pfn));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_pfn_clean); */
+EXPORT_SYMBOL_GPL(kvm_release_pfn_clean);
 
 void kvm_release_page_dirty(struct page *page)
 {
 	kvm_release_pfn_dirty(page_to_pfn(page));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_page_dirty); */
+EXPORT_SYMBOL_GPL(kvm_release_page_dirty);
 
 void kvm_release_pfn_dirty(pfn_t pfn)
 {
 	kvm_set_pfn_dirty(pfn);
 	kvm_release_pfn_clean(pfn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_release_pfn_dirty); */
+EXPORT_SYMBOL_GPL(kvm_release_pfn_dirty);
 
 void kvm_set_page_dirty(struct page *page)
 {
 	kvm_set_pfn_dirty(page_to_pfn(page));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_page_dirty); */
+EXPORT_SYMBOL_GPL(kvm_set_page_dirty);
 
 void kvm_set_pfn_dirty(pfn_t pfn)
 {
@@ -1268,21 +1268,21 @@ void kvm_set_pfn_dirty(pfn_t pfn)
 			SetPageDirty(page);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_pfn_dirty); */
+EXPORT_SYMBOL_GPL(kvm_set_pfn_dirty);
 
 void kvm_set_pfn_accessed(pfn_t pfn)
 {
 	if (!kvm_is_mmio_pfn(pfn))
 		mark_page_accessed(pfn_to_page(pfn));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_set_pfn_accessed); */
+EXPORT_SYMBOL_GPL(kvm_set_pfn_accessed);
 
 void kvm_get_pfn(pfn_t pfn)
 {
 	if (!kvm_is_mmio_pfn(pfn))
 		get_page(pfn_to_page(pfn));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_get_pfn); */
+EXPORT_SYMBOL_GPL(kvm_get_pfn);
 
 static int next_segment(unsigned long len, int offset)
 {
@@ -1306,7 +1306,7 @@ int kvm_read_guest_page(struct kvm *kvm, gfn_t gfn, void *data, int offset,
 		return -EFAULT;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_guest_page); */
+EXPORT_SYMBOL_GPL(kvm_read_guest_page);
 
 int kvm_read_guest(struct kvm *kvm, gpa_t gpa, void *data, unsigned long len)
 {
@@ -1326,7 +1326,7 @@ int kvm_read_guest(struct kvm *kvm, gpa_t gpa, void *data, unsigned long len)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_guest); */
+EXPORT_SYMBOL_GPL(kvm_read_guest);
 
 int kvm_read_guest_atomic(struct kvm *kvm, gpa_t gpa, void *data,
 			  unsigned long len)
@@ -1346,7 +1346,7 @@ int kvm_read_guest_atomic(struct kvm *kvm, gpa_t gpa, void *data,
 		return -EFAULT;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kvm_read_guest_atomic); */
+EXPORT_SYMBOL(kvm_read_guest_atomic);
 
 int kvm_write_guest_page(struct kvm *kvm, gfn_t gfn, const void *data,
 			 int offset, int len)
@@ -1363,7 +1363,7 @@ int kvm_write_guest_page(struct kvm *kvm, gfn_t gfn, const void *data,
 	mark_page_dirty(kvm, gfn);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_write_guest_page); */
+EXPORT_SYMBOL_GPL(kvm_write_guest_page);
 
 int kvm_write_guest(struct kvm *kvm, gpa_t gpa, const void *data,
 		    unsigned long len)
@@ -1420,7 +1420,7 @@ int kvm_gfn_to_hva_cache_init(struct kvm *kvm, struct gfn_to_hva_cache *ghc,
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_gfn_to_hva_cache_init); */
+EXPORT_SYMBOL_GPL(kvm_gfn_to_hva_cache_init);
 
 int kvm_write_guest_cached(struct kvm *kvm, struct gfn_to_hva_cache *ghc,
 			   void *data, unsigned long len)
@@ -1446,7 +1446,7 @@ int kvm_write_guest_cached(struct kvm *kvm, struct gfn_to_hva_cache *ghc,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_write_guest_cached); */
+EXPORT_SYMBOL_GPL(kvm_write_guest_cached);
 
 int kvm_read_guest_cached(struct kvm *kvm, struct gfn_to_hva_cache *ghc,
 			   void *data, unsigned long len)
@@ -1471,14 +1471,14 @@ int kvm_read_guest_cached(struct kvm *kvm, struct gfn_to_hva_cache *ghc,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_read_guest_cached); */
+EXPORT_SYMBOL_GPL(kvm_read_guest_cached);
 
 int kvm_clear_guest_page(struct kvm *kvm, gfn_t gfn, int offset, int len)
 {
 	return kvm_write_guest_page(kvm, gfn, (const void *) empty_zero_page,
 				    offset, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_clear_guest_page); */
+EXPORT_SYMBOL_GPL(kvm_clear_guest_page);
 
 int kvm_clear_guest(struct kvm *kvm, gpa_t gpa, unsigned long len)
 {
@@ -1497,7 +1497,7 @@ int kvm_clear_guest(struct kvm *kvm, gpa_t gpa, unsigned long len)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_clear_guest); */
+EXPORT_SYMBOL_GPL(kvm_clear_guest);
 
 void mark_page_dirty_in_slot(struct kvm *kvm, struct kvm_memory_slot *memslot,
 			     gfn_t gfn)
@@ -1549,7 +1549,7 @@ void kvm_resched(struct kvm_vcpu *vcpu)
 		return;
 	cond_resched();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_resched); */
+EXPORT_SYMBOL_GPL(kvm_resched);
 
 void kvm_vcpu_on_spin(struct kvm_vcpu *me)
 {
@@ -1601,7 +1601,7 @@ void kvm_vcpu_on_spin(struct kvm_vcpu *me)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_vcpu_on_spin); */
+EXPORT_SYMBOL_GPL(kvm_vcpu_on_spin);
 
 static int kvm_vcpu_fault(struct vm_area_struct *vma, struct vm_fault *vmf)
 {
@@ -2379,7 +2379,7 @@ asmlinkage void kvm_spurious_fault(void)
 	/* Fault while not rebooting.  We want the trace. */
 	BUG();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_spurious_fault); */
+EXPORT_SYMBOL_GPL(kvm_spurious_fault);
 
 static int kvm_reboot(struct notifier_block *notifier, unsigned long val,
 		      void *v)
@@ -2822,7 +2822,7 @@ out:
 out_fail:
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_init); */
+EXPORT_SYMBOL_GPL(kvm_init);
 
 void kvm_exit(void)
 {
@@ -2840,4 +2840,4 @@ void kvm_exit(void)
 	__free_page(hwpoison_page);
 	__free_page(bad_page);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kvm_exit); */
+EXPORT_SYMBOL_GPL(kvm_exit);

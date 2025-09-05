@@ -354,7 +354,7 @@ void ieee80211_scan_completed(struct ieee80211_hw *hw, bool aborted)
 		set_bit(SCAN_ABORTED, &local->scanning);
 	ieee80211_queue_delayed_work(&local->hw, &local->scan_work, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_scan_completed); */
+EXPORT_SYMBOL(ieee80211_scan_completed);
 
 static int ieee80211_start_sw_scan(struct ieee80211_local *local)
 {
@@ -965,7 +965,7 @@ void ieee80211_sched_scan_results(struct ieee80211_hw *hw)
 
 	cfg80211_sched_scan_results(hw->wiphy);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_sched_scan_results); */
+EXPORT_SYMBOL(ieee80211_sched_scan_results);
 
 void ieee80211_sched_scan_stopped_work(struct work_struct *work)
 {
@@ -999,4 +999,4 @@ void ieee80211_sched_scan_stopped(struct ieee80211_hw *hw)
 
 	ieee80211_queue_work(&local->hw, &local->sched_scan_stopped_work);
 }
-/* DISABLED: EXPORT_SYMBOL(ieee80211_sched_scan_stopped); */
+EXPORT_SYMBOL(ieee80211_sched_scan_stopped);

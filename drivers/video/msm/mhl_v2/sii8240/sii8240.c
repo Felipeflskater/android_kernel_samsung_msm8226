@@ -77,7 +77,7 @@ static struct hdcp_auth_status g_monitor_cmd;
 #endif
 
 struct class *sec_mhl;
-/* DISABLED: EXPORT_SYMBOL(sec_mhl); */
+EXPORT_SYMBOL(sec_mhl);
 
 #ifdef SII8240_CHECK_MONITOR
 static int sii8240_scm_call(struct sii8240_data *sii8240, u32 svc_id, u32 cmd_id,

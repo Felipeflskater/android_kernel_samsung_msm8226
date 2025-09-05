@@ -369,14 +369,14 @@ module_exit(qmgr_remove);
 MODULE_LICENSE("GPL v2");
 MODULE_AUTHOR("Krzysztof Halasa");
 
-/* DISABLED: EXPORT_SYMBOL(qmgr_regs); */
-/* DISABLED: EXPORT_SYMBOL(qmgr_set_irq); */
-/* DISABLED: EXPORT_SYMBOL(qmgr_enable_irq); */
-/* DISABLED: EXPORT_SYMBOL(qmgr_disable_irq); */
+EXPORT_SYMBOL(qmgr_regs);
+EXPORT_SYMBOL(qmgr_set_irq);
+EXPORT_SYMBOL(qmgr_enable_irq);
+EXPORT_SYMBOL(qmgr_disable_irq);
 #if DEBUG_QMGR
-/* DISABLED: EXPORT_SYMBOL(qmgr_queue_descs); */
-/* DISABLED: EXPORT_SYMBOL(qmgr_request_queue); */
+EXPORT_SYMBOL(qmgr_queue_descs);
+EXPORT_SYMBOL(qmgr_request_queue);
 #else
-/* DISABLED: EXPORT_SYMBOL(__qmgr_request_queue); */
+EXPORT_SYMBOL(__qmgr_request_queue);
 #endif
-/* DISABLED: EXPORT_SYMBOL(qmgr_release_queue); */
+EXPORT_SYMBOL(qmgr_release_queue);

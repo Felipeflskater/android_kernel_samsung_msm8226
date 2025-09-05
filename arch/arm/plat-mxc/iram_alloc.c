@@ -44,7 +44,7 @@ void __iomem *iram_alloc(unsigned int size, unsigned long *dma_addr)
 		return NULL;
 	return iram_phys_to_virt(*dma_addr);
 }
-/* DISABLED: EXPORT_SYMBOL(iram_alloc); */
+EXPORT_SYMBOL(iram_alloc);
 
 void iram_free(unsigned long addr, unsigned int size)
 {
@@ -53,7 +53,7 @@ void iram_free(unsigned long addr, unsigned int size)
 
 	gen_pool_free(iram_pool, addr, size);
 }
-/* DISABLED: EXPORT_SYMBOL(iram_free); */
+EXPORT_SYMBOL(iram_free);
 
 int __init iram_init(unsigned long base, unsigned long size)
 {

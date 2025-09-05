@@ -26,7 +26,7 @@ int tmio_core_mmc_enable(void __iomem *cnf, int shift, unsigned long base)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tmio_core_mmc_enable); */
+EXPORT_SYMBOL(tmio_core_mmc_enable);
 
 int tmio_core_mmc_resume(void __iomem *cnf, int shift, unsigned long base)
 {
@@ -37,17 +37,17 @@ int tmio_core_mmc_resume(void __iomem *cnf, int shift, unsigned long base)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tmio_core_mmc_resume); */
+EXPORT_SYMBOL(tmio_core_mmc_resume);
 
 void tmio_core_mmc_pwr(void __iomem *cnf, int shift, int state)
 {
 	sd_config_write8(cnf, shift, CNF_PWR_CTL_2, state ? 0x02 : 0x00);
 }
-/* DISABLED: EXPORT_SYMBOL(tmio_core_mmc_pwr); */
+EXPORT_SYMBOL(tmio_core_mmc_pwr);
 
 void tmio_core_mmc_clk_div(void __iomem *cnf, int shift, int state)
 {
 	sd_config_write8(cnf, shift, CNF_SD_CLK_MODE, state ? 1 : 0);
 }
-/* DISABLED: EXPORT_SYMBOL(tmio_core_mmc_clk_div); */
+EXPORT_SYMBOL(tmio_core_mmc_clk_div);
 

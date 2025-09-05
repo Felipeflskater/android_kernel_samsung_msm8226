@@ -1366,7 +1366,7 @@ int wl1251_init_ieee80211(struct wl1251 *wl)
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wl1251_init_ieee80211); */
+EXPORT_SYMBOL_GPL(wl1251_init_ieee80211);
 
 struct ieee80211_hw *wl1251_alloc_hw(void)
 {
@@ -1442,7 +1442,7 @@ struct ieee80211_hw *wl1251_alloc_hw(void)
 
 	return hw;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wl1251_alloc_hw); */
+EXPORT_SYMBOL_GPL(wl1251_alloc_hw);
 
 int wl1251_free_hw(struct wl1251 *wl)
 {
@@ -1464,7 +1464,7 @@ int wl1251_free_hw(struct wl1251 *wl)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wl1251_free_hw); */
+EXPORT_SYMBOL_GPL(wl1251_free_hw);
 
 MODULE_DESCRIPTION("TI wl1251 Wireles LAN Driver Core");
 MODULE_LICENSE("GPL");

@@ -30,7 +30,7 @@ static struct workqueue_struct *tape_3590_wq;
  * Pointer to debug area.
  */
 debug_info_t *TAPE_DBF_AREA = NULL;
-/* DISABLED: EXPORT_SYMBOL(TAPE_DBF_AREA); */
+EXPORT_SYMBOL(TAPE_DBF_AREA);
 
 /*******************************************************************
  * Error Recovery functions:

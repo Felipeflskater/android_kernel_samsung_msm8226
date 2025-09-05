@@ -44,7 +44,7 @@ unsigned int irq_of_parse_and_map(struct device_node *dev, int index)
 	return irq_create_of_mapping(oirq.controller, oirq.specifier,
 				     oirq.size);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(irq_of_parse_and_map); */
+EXPORT_SYMBOL_GPL(irq_of_parse_and_map);
 
 /**
  * of_irq_find_parent - Given a device node, find its interrupt parent node
@@ -267,7 +267,7 @@ int of_irq_map_raw(struct device_node *parent, const __be32 *intspec,
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_irq_map_raw); */
+EXPORT_SYMBOL_GPL(of_irq_map_raw);
 
 /**
  * of_irq_map_one - Resolve an interrupt for a device
@@ -326,7 +326,7 @@ int of_irq_map_one(struct device_node *device, int index, struct of_irq *out_irq
 	of_node_put(p);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_irq_map_one); */
+EXPORT_SYMBOL_GPL(of_irq_map_one);
 
 /**
  * of_irq_to_resource - Decode a node's IRQ and return it as a resource
@@ -357,7 +357,7 @@ int of_irq_to_resource(struct device_node *dev, int index, struct resource *r)
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_irq_to_resource); */
+EXPORT_SYMBOL_GPL(of_irq_to_resource);
 
 /**
  * of_irq_count - Count the number of IRQs a node uses

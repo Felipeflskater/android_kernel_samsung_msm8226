@@ -639,7 +639,7 @@ error:
 	kfree(priv);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(cxd2820r_attach); */
+EXPORT_SYMBOL(cxd2820r_attach);
 
 MODULE_AUTHOR("Antti Palosaari <crope@iki.fi>");
 MODULE_DESCRIPTION("Sony CXD2820R demodulator driver");

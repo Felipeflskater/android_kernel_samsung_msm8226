@@ -41,13 +41,13 @@ imx_ssi_fiq_start:
 		ldr r11, imx_ssi_fiq_tx_buffer
 
 		/* shall we send? */
-		ldr r13, [r12, @ SSI_SIER]
-		tst r13, @ SSI_SIER_TFE0_EN
+		ldr r13, [r12, #SSI_SIER]
+		tst r13, #SSI_SIER_TFE0_EN
 		beq 1f
 
 		/* TX FIFO empty? */
-		ldr r13, [r12, @ SSI_SISR]
-		tst r13, @ SSI_SISR_TFE0
+		ldr r13, [r12, #SSI_SISR]
+		tst r13, #SSI_SISR_TFE0
 		beq 1f
 
 		mov r10, #0x10000
@@ -57,16 +57,16 @@ imx_ssi_fiq_start:
 		add r11, r11, r10
 
 		ldrh r13, [r11]
-		strh r13, [r12, @ SSI_STX0]
+		strh r13, [r12, #SSI_STX0]
 
 		ldrh r13, [r11, #2]
-		strh r13, [r12, @ SSI_STX0]
+		strh r13, [r12, #SSI_STX0]
 
 		ldrh r13, [r11, #4]
-		strh r13, [r12, @ SSI_STX0]
+		strh r13, [r12, #SSI_STX0]
 
 		ldrh r13, [r11, #6]
-		strh r13, [r12, @ SSI_STX0]
+		strh r13, [r12, #SSI_STX0]
 
 		add r10, #8
 		lsr r13, r8, #16	/* r13: buffer size */
@@ -77,13 +77,13 @@ imx_ssi_fiq_start:
 		/* RX */
 
 		/* shall we receive? */
-		ldr r13, [r12, @ SSI_SIER]
-		tst r13, @ SSI_SIER_RFF0_EN
+		ldr r13, [r12, #SSI_SIER]
+		tst r13, #SSI_SIER_RFF0_EN
 		beq 1f
 
 		/* RX FIFO full? */
-		ldr r13, [r12, @ SSI_SISR]
-		tst r13, @ SSI_SISR_RFF0
+		ldr r13, [r12, #SSI_SISR]
+		tst r13, #SSI_SISR_RFF0
 		beq 1f
 
 		ldr r11, imx_ssi_fiq_rx_buffer
@@ -94,26 +94,26 @@ imx_ssi_fiq_start:
 
 		add r11, r11, r10
 
-		ldr r13, [r12, @ SSI_SACNT]
-		tst r13, @ SSI_SACNT_AC97EN
+		ldr r13, [r12, #SSI_SACNT]
+		tst r13, #SSI_SACNT_AC97EN
 
-		ldr r13, [r12, @ SSI_SRX0]
+		ldr r13, [r12, #SSI_SRX0]
 		strh r13, [r11]
 
-		ldr r13, [r12, @ SSI_SRX0]
+		ldr r13, [r12, #SSI_SRX0]
 		strh r13, [r11, #2]
 
 		/* dummy read to skip slot 12 */
-		ldrne r13, [r12, @ SSI_SRX0]
+		ldrne r13, [r12, #SSI_SRX0]
 
-		ldr r13, [r12, @ SSI_SRX0]
+		ldr r13, [r12, #SSI_SRX0]
 		strh r13, [r11, #4]
 
-		ldr r13, [r12, @ SSI_SRX0]
+		ldr r13, [r12, #SSI_SRX0]
 		strh r13, [r11, #6]
 
 		/* dummy read to skip slot 12 */
-		ldrne r13, [r12, @ SSI_SRX0]
+		ldrne r13, [r12, #SSI_SRX0]
 
 		add r10, #8
 		lsr r13, r9, #16	/* r13: buffer size */

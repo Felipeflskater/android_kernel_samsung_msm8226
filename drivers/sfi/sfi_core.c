@@ -78,7 +78,7 @@
 				ON_SAME_PAGE(page, table + size))
 
 int sfi_disabled __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(sfi_disabled); */
+EXPORT_SYMBOL(sfi_disabled);
 
 static u64 syst_pa __read_mostly;
 static struct sfi_table_simple *syst_va __read_mostly;
@@ -300,7 +300,7 @@ int sfi_table_parse(char *signature, char *oem_id, char *oem_table_id,
 exit:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sfi_table_parse); */
+EXPORT_SYMBOL_GPL(sfi_table_parse);
 
 /*
  * sfi_parse_syst()

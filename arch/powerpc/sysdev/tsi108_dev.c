@@ -60,8 +60,8 @@ u32 get_vir_csrbase(void)
 	return (u32) (ioremap(get_csrbase(), 0x10000));
 }
 
-/* DISABLED: EXPORT_SYMBOL(get_csrbase); */
-/* DISABLED: EXPORT_SYMBOL(get_vir_csrbase); */
+EXPORT_SYMBOL(get_csrbase);
+EXPORT_SYMBOL(get_vir_csrbase);
 
 static int __init tsi108_eth_of_init(void)
 {

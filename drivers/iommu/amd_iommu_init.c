@@ -1761,8 +1761,8 @@ static int __init parse_amd_iommu_options(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("amd_iommu_dump", parse_amd_iommu_dump); */ */
-/* DISABLED: __setup("amd_iommu=", parse_amd_iommu_options); */ */
+__setup("amd_iommu_dump", parse_amd_iommu_dump);
+__setup("amd_iommu=", parse_amd_iommu_options);
 
 IOMMU_INIT_FINISH(amd_iommu_detect,
 		  gart_iommu_hole_init,
@@ -1773,4 +1773,4 @@ bool amd_iommu_v2_supported(void)
 {
 	return amd_iommu_v2_present;
 }
-/* DISABLED: EXPORT_SYMBOL(amd_iommu_v2_supported); */
+EXPORT_SYMBOL(amd_iommu_v2_supported);

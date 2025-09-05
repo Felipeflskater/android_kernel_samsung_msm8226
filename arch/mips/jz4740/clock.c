@@ -732,14 +732,14 @@ int clk_enable(struct clk *clk)
 
 	return clk->ops->enable(clk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_enable); */
+EXPORT_SYMBOL_GPL(clk_enable);
 
 void clk_disable(struct clk *clk)
 {
 	if (clk->ops->disable)
 		clk->ops->disable(clk);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_disable); */
+EXPORT_SYMBOL_GPL(clk_disable);
 
 int clk_is_enabled(struct clk *clk)
 {
@@ -758,7 +758,7 @@ unsigned long clk_get_rate(struct clk *clk)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_get_rate); */
+EXPORT_SYMBOL_GPL(clk_get_rate);
 
 int clk_set_rate(struct clk *clk, unsigned long rate)
 {
@@ -766,7 +766,7 @@ int clk_set_rate(struct clk *clk, unsigned long rate)
 		return -EINVAL;
 	return clk->ops->set_rate(clk, rate);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_rate); */
+EXPORT_SYMBOL_GPL(clk_set_rate);
 
 long clk_round_rate(struct clk *clk, unsigned long rate)
 {
@@ -775,7 +775,7 @@ long clk_round_rate(struct clk *clk, unsigned long rate)
 
 	return -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_round_rate); */
+EXPORT_SYMBOL_GPL(clk_round_rate);
 
 int clk_set_parent(struct clk *clk, struct clk *parent)
 {
@@ -796,7 +796,7 @@ int clk_set_parent(struct clk *clk, struct clk *parent)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_set_parent); */
+EXPORT_SYMBOL_GPL(clk_set_parent);
 
 struct clk *clk_get(struct device *dev, const char *name)
 {
@@ -808,12 +808,12 @@ struct clk *clk_get(struct device *dev, const char *name)
 	}
 	return ERR_PTR(-ENXIO);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_get); */
+EXPORT_SYMBOL_GPL(clk_get);
 
 void clk_put(struct clk *clk)
 {
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(clk_put); */
+EXPORT_SYMBOL_GPL(clk_put);
 
 static inline void clk_add(struct clk *clk)
 {
@@ -859,13 +859,13 @@ void jz4740_clock_udc_disable_auto_suspend(void)
 {
 	jz_clk_reg_clear_bits(JZ_REG_CLOCK_GATE, JZ_CLOCK_GATE_UDC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_clock_udc_disable_auto_suspend); */
+EXPORT_SYMBOL_GPL(jz4740_clock_udc_disable_auto_suspend);
 
 void jz4740_clock_udc_enable_auto_suspend(void)
 {
 	jz_clk_reg_set_bits(JZ_REG_CLOCK_GATE, JZ_CLOCK_GATE_UDC);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_clock_udc_enable_auto_suspend); */
+EXPORT_SYMBOL_GPL(jz4740_clock_udc_enable_auto_suspend);
 
 void jz4740_clock_suspend(void)
 {

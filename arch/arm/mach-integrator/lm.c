@@ -95,5 +95,5 @@ int lm_device_register(struct lm_device *dev)
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL(lm_driver_register); */
-/* DISABLED: EXPORT_SYMBOL(lm_driver_unregister); */
+EXPORT_SYMBOL(lm_driver_register);
+EXPORT_SYMBOL(lm_driver_unregister);

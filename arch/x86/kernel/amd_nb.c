@@ -18,7 +18,7 @@ const struct pci_device_id amd_nb_misc_ids[] = {
 	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_15H_NB_F3) },
 	{}
 };
-/* DISABLED: EXPORT_SYMBOL(amd_nb_misc_ids); */
+EXPORT_SYMBOL(amd_nb_misc_ids);
 
 static struct pci_device_id amd_nb_link_ids[] = {
 	{ PCI_DEVICE(PCI_VENDOR_ID_AMD, PCI_DEVICE_ID_AMD_15H_NB_F4) },
@@ -33,7 +33,7 @@ const struct amd_nb_bus_dev_range amd_nb_bus_dev_ranges[] __initconst = {
 };
 
 struct amd_northbridge_info amd_northbridges;
-/* DISABLED: EXPORT_SYMBOL(amd_northbridges); */
+EXPORT_SYMBOL(amd_northbridges);
 
 static struct pci_dev *next_northbridge(struct pci_dev *dev,
 					const struct pci_device_id *ids)
@@ -101,7 +101,7 @@ int amd_cache_northbridges(void)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(amd_cache_northbridges); */
+EXPORT_SYMBOL_GPL(amd_cache_northbridges);
 
 /*
  * Ignores subdevice/subvendor but as far as I can figure out
@@ -260,7 +260,7 @@ void amd_flush_garts(void)
 	if (!flushed)
 		printk("nothing to flush?\n");
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(amd_flush_garts); */
+EXPORT_SYMBOL_GPL(amd_flush_garts);
 
 static __init int init_amd_nbs(void)
 {

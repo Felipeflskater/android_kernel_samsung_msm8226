@@ -32,7 +32,7 @@ long __probe_kernel_read(void *dst, const void *src, size_t size)
 
 	return ret ? -EFAULT : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(probe_kernel_read); */
+EXPORT_SYMBOL_GPL(probe_kernel_read);
 
 /**
  * probe_kernel_write(): safely attempt to write to a location
@@ -59,4 +59,4 @@ long __probe_kernel_write(void *dst, const void *src, size_t size)
 
 	return ret ? -EFAULT : 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(probe_kernel_write); */
+EXPORT_SYMBOL_GPL(probe_kernel_write);

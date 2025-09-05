@@ -101,7 +101,7 @@ void *dma_alloc_coherent(struct device *dev, size_t size,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_alloc_coherent); */
+EXPORT_SYMBOL(dma_alloc_coherent);
 
 void
 dma_free_coherent(struct device *dev, size_t size, void *vaddr,
@@ -109,7 +109,7 @@ dma_free_coherent(struct device *dev, size_t size, void *vaddr,
 {
 	__free_dma_pages((unsigned long)vaddr, get_pages(size));
 }
-/* DISABLED: EXPORT_SYMBOL(dma_free_coherent); */
+EXPORT_SYMBOL(dma_free_coherent);
 
 /*
  * Streaming DMA mappings
@@ -119,7 +119,7 @@ void __dma_sync(dma_addr_t addr, size_t size,
 {
 	__dma_sync_inline(addr, size, dir);
 }
-/* DISABLED: EXPORT_SYMBOL(__dma_sync); */
+EXPORT_SYMBOL(__dma_sync);
 
 int
 dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
@@ -134,7 +134,7 @@ dma_map_sg(struct device *dev, struct scatterlist *sg, int nents,
 
 	return nents;
 }
-/* DISABLED: EXPORT_SYMBOL(dma_map_sg); */
+EXPORT_SYMBOL(dma_map_sg);
 
 void dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg,
 			    int nelems, enum dma_data_direction direction)
@@ -146,4 +146,4 @@ void dma_sync_sg_for_device(struct device *dev, struct scatterlist *sg,
 		__dma_sync(sg_dma_address(sg), sg_dma_len(sg), direction);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(dma_sync_sg_for_device); */
+EXPORT_SYMBOL(dma_sync_sg_for_device);

@@ -6874,10 +6874,10 @@ MODULE_PARM_DESC(videoram,
 #endif 	   /*  /MODULE  */
 
 /* _GPL only for new symbols. */
-/* DISABLED: EXPORT_SYMBOL(sis_malloc); */
-/* DISABLED: EXPORT_SYMBOL(sis_free); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sis_malloc_new); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sis_free_new); */
+EXPORT_SYMBOL(sis_malloc);
+EXPORT_SYMBOL(sis_free);
+EXPORT_SYMBOL_GPL(sis_malloc_new);
+EXPORT_SYMBOL_GPL(sis_free_new);
 
 
 

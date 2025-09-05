@@ -256,7 +256,7 @@ int max9877_add_controls(struct snd_soc_codec *codec)
 	return snd_soc_add_codec_controls(codec, max9877_controls,
 			ARRAY_SIZE(max9877_controls));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(max9877_add_controls); */
+EXPORT_SYMBOL_GPL(max9877_add_controls);
 
 static int __devinit max9877_i2c_probe(struct i2c_client *client,
 		const struct i2c_device_id *id)

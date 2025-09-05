@@ -87,7 +87,7 @@ void sdhci_get_of_property(struct platform_device *pdev)
 #else
 void sdhci_get_of_property(struct platform_device *pdev) {}
 #endif /* CONFIG_OF */
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_get_of_property); */
+EXPORT_SYMBOL_GPL(sdhci_get_of_property);
 
 struct sdhci_host *sdhci_pltfm_init(struct platform_device *pdev,
 				    struct sdhci_pltfm_data *pdata)
@@ -155,7 +155,7 @@ err:
 	dev_err(&pdev->dev, "%s failed %d\n", __func__, ret);
 	return ERR_PTR(ret);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_pltfm_init); */
+EXPORT_SYMBOL_GPL(sdhci_pltfm_init);
 
 void sdhci_pltfm_free(struct platform_device *pdev)
 {
@@ -167,7 +167,7 @@ void sdhci_pltfm_free(struct platform_device *pdev)
 	sdhci_free_host(host);
 	platform_set_drvdata(pdev, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_pltfm_free); */
+EXPORT_SYMBOL_GPL(sdhci_pltfm_free);
 
 int sdhci_pltfm_register(struct platform_device *pdev,
 			 struct sdhci_pltfm_data *pdata)
@@ -187,7 +187,7 @@ int sdhci_pltfm_register(struct platform_device *pdev,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_pltfm_register); */
+EXPORT_SYMBOL_GPL(sdhci_pltfm_register);
 
 int sdhci_pltfm_unregister(struct platform_device *pdev)
 {
@@ -199,7 +199,7 @@ int sdhci_pltfm_unregister(struct platform_device *pdev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_pltfm_unregister); */
+EXPORT_SYMBOL_GPL(sdhci_pltfm_unregister);
 
 #ifdef CONFIG_PM
 static int sdhci_pltfm_suspend(struct device *dev)
@@ -220,7 +220,7 @@ const struct dev_pm_ops sdhci_pltfm_pmops = {
 	.suspend	= sdhci_pltfm_suspend,
 	.resume		= sdhci_pltfm_resume,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(sdhci_pltfm_pmops); */
+EXPORT_SYMBOL_GPL(sdhci_pltfm_pmops);
 #endif	/* CONFIG_PM */
 
 static int __init sdhci_pltfm_drv_init(void)

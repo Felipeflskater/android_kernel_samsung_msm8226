@@ -339,7 +339,7 @@ int amd_get_nb_id(int cpu)
 #endif
 	return id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(amd_get_nb_id); */
+EXPORT_SYMBOL_GPL(amd_get_nb_id);
 
 static void __cpuinit srat_detect_node(struct cpuinfo_x86 *c)
 {
@@ -761,11 +761,11 @@ cpu_dev_register(amd_cpu_dev);
 const int amd_erratum_400[] =
 	AMD_OSVW_ERRATUM(1, AMD_MODEL_RANGE(0xf, 0x41, 0x2, 0xff, 0xf),
 			    AMD_MODEL_RANGE(0x10, 0x2, 0x1, 0xff, 0xf));
-/* DISABLED: EXPORT_SYMBOL_GPL(amd_erratum_400); */
+EXPORT_SYMBOL_GPL(amd_erratum_400);
 
 const int amd_erratum_383[] =
 	AMD_OSVW_ERRATUM(3, AMD_MODEL_RANGE(0x10, 0, 0, 0xff, 0xf));
-/* DISABLED: EXPORT_SYMBOL_GPL(amd_erratum_383); */
+EXPORT_SYMBOL_GPL(amd_erratum_383);
 
 bool cpu_has_amd_erratum(const int *erratum)
 {
@@ -809,4 +809,4 @@ bool cpu_has_amd_erratum(const int *erratum)
 	return false;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(cpu_has_amd_erratum); */
+EXPORT_SYMBOL_GPL(cpu_has_amd_erratum);

@@ -45,7 +45,7 @@ const u8 crc7_syndrome_table[256] = {
 	0x0e, 0x07, 0x1c, 0x15, 0x2a, 0x23, 0x38, 0x31,
 	0x46, 0x4f, 0x54, 0x5d, 0x62, 0x6b, 0x70, 0x79
 };
-/* DISABLED: EXPORT_SYMBOL(crc7_syndrome_table); */
+EXPORT_SYMBOL(crc7_syndrome_table);
 
 /**
  * crc7 - update the CRC7 for the data buffer
@@ -62,7 +62,7 @@ u8 crc7(u8 crc, const u8 *buffer, size_t len)
 		crc = crc7_byte(crc, *buffer++);
 	return crc;
 }
-/* DISABLED: EXPORT_SYMBOL(crc7); */
+EXPORT_SYMBOL(crc7);
 
 MODULE_DESCRIPTION("CRC7 calculations");
 MODULE_LICENSE("GPL");

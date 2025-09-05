@@ -71,7 +71,7 @@ struct bcma_device *bcma_find_core(struct bcma_bus *bus, u16 coreid)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcma_find_core); */
+EXPORT_SYMBOL_GPL(bcma_find_core);
 
 static void bcma_release_core_dev(struct device *dev)
 {
@@ -298,13 +298,13 @@ int __bcma_driver_register(struct bcma_driver *drv, struct module *owner)
 
 	return driver_register(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__bcma_driver_register); */
+EXPORT_SYMBOL_GPL(__bcma_driver_register);
 
 void bcma_driver_unregister(struct bcma_driver *drv)
 {
 	driver_unregister(&drv->drv);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcma_driver_unregister); */
+EXPORT_SYMBOL_GPL(bcma_driver_unregister);
 
 static int bcma_bus_match(struct device *dev, struct device_driver *drv)
 {

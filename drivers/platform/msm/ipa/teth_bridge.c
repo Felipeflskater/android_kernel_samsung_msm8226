@@ -1378,7 +1378,7 @@ bail:
 	TETH_DBG_FUNC_EXIT();
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(teth_bridge_init); */
+EXPORT_SYMBOL(teth_bridge_init);
 
 /**
  * initialize_context() - Initialize the ipa_ctx struct
@@ -1531,7 +1531,7 @@ bail:
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(teth_bridge_disconnect); */
+EXPORT_SYMBOL(teth_bridge_disconnect);
 
 /**
 * teth_bridge_connect() - Connect bridge for a tethered Rmnet / MBIM call
@@ -1621,7 +1621,7 @@ bail:
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(teth_bridge_connect); */
+EXPORT_SYMBOL(teth_bridge_connect);
 
 static void set_aggr_default_params(struct teth_aggr_params_link *params)
 {
@@ -1704,7 +1704,7 @@ int teth_bridge_set_aggr_params(struct teth_aggr_params *aggr_params)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(teth_bridge_set_aggr_params); */
+EXPORT_SYMBOL(teth_bridge_set_aggr_params);
 
 static long teth_bridge_ioctl(struct file *filp,
 			      unsigned int cmd,
@@ -2276,7 +2276,7 @@ fail_alloc_aggr_caps:
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(teth_bridge_driver_init); */
+EXPORT_SYMBOL(teth_bridge_driver_init);
 
 MODULE_LICENSE("GPL v2");
 MODULE_DESCRIPTION("Tethering bridge driver");

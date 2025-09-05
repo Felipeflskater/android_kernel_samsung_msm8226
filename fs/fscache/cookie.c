@@ -136,7 +136,7 @@ struct fscache_cookie *__fscache_acquire_cookie(
 	_leave(" = %p", cookie);
 	return cookie;
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_acquire_cookie); */
+EXPORT_SYMBOL(__fscache_acquire_cookie);
 
 /*
  * acquire a non-index cookie
@@ -400,7 +400,7 @@ void __fscache_update_cookie(struct fscache_cookie *cookie)
 	spin_unlock(&cookie->lock);
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_update_cookie); */
+EXPORT_SYMBOL(__fscache_update_cookie);
 
 /*
  * release a cookie back to the cache
@@ -484,7 +484,7 @@ void __fscache_relinquish_cookie(struct fscache_cookie *cookie, int retire)
 
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(__fscache_relinquish_cookie); */
+EXPORT_SYMBOL(__fscache_relinquish_cookie);
 
 /*
  * destroy a cookie

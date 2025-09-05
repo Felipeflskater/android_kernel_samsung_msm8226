@@ -426,7 +426,7 @@ struct irq_routing_table * pcibios_get_irq_routing_table(void)
 	free_page(page);
 	return rt;
 }
-/* DISABLED: EXPORT_SYMBOL(pcibios_get_irq_routing_table); */
+EXPORT_SYMBOL(pcibios_get_irq_routing_table);
 
 int pcibios_set_irq_routing(struct pci_dev *dev, int pin, int irq)
 {
@@ -443,7 +443,7 @@ int pcibios_set_irq_routing(struct pci_dev *dev, int pin, int irq)
 		  "S" (&pci_indirect));
 	return !(ret & 0xff00);
 }
-/* DISABLED: EXPORT_SYMBOL(pcibios_set_irq_routing); */
+EXPORT_SYMBOL(pcibios_set_irq_routing);
 
 void __init pci_pcbios_init(void)
 {

@@ -508,7 +508,7 @@ static char *qla1280;
 /* insmod qla1280 options=verbose" */
 module_param(qla1280, charp, 0);
 #else
-/* DISABLED: __setup("qla1280=", qla1280_setup); */ */
+__setup("qla1280=", qla1280_setup);
 #endif
 
 

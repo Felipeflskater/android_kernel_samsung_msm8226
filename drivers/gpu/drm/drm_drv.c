@@ -495,7 +495,7 @@ long drm_ioctl(struct file *filp,
 	return retcode;
 }
 
-/* DISABLED: EXPORT_SYMBOL(drm_ioctl); */
+EXPORT_SYMBOL(drm_ioctl);
 
 struct drm_local_map *drm_getsarea(struct drm_device *dev)
 {
@@ -509,4 +509,4 @@ struct drm_local_map *drm_getsarea(struct drm_device *dev)
 	}
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(drm_getsarea); */
+EXPORT_SYMBOL(drm_getsarea);

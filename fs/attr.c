@@ -76,7 +76,7 @@ int inode_change_ok(const struct inode *inode, struct iattr *attr)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_change_ok); */
+EXPORT_SYMBOL(inode_change_ok);
 
 /**
  * inode_newsize_ok - may this inode be truncated to a given size
@@ -119,7 +119,7 @@ out_sig:
 out_big:
 	return -EFBIG;
 }
-/* DISABLED: EXPORT_SYMBOL(inode_newsize_ok); */
+EXPORT_SYMBOL(inode_newsize_ok);
 
 /**
  * setattr_copy - copy simple metadata updates into the generic inode
@@ -161,7 +161,7 @@ void setattr_copy(struct inode *inode, const struct iattr *attr)
 		inode->i_mode = mode;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(setattr_copy); */
+EXPORT_SYMBOL(setattr_copy);
 
 int notify_change2(struct vfsmount *mnt, struct dentry * dentry, struct iattr * attr)
 {
@@ -252,10 +252,10 @@ int notify_change2(struct vfsmount *mnt, struct dentry * dentry, struct iattr * 
 
 	return error;
 }
-/* DISABLED: EXPORT_SYMBOL(notify_change2); */
+EXPORT_SYMBOL(notify_change2);
 
 int notify_change(struct dentry * dentry, struct iattr * attr)
 {
 	return notify_change2(NULL, dentry, attr);
 }
-/* DISABLED: EXPORT_SYMBOL(notify_change); */
+EXPORT_SYMBOL(notify_change);

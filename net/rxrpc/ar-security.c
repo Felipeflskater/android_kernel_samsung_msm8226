@@ -96,7 +96,7 @@ out:
 	return ret;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(rxrpc_register_security); */
+EXPORT_SYMBOL_GPL(rxrpc_register_security);
 
 /**
  * rxrpc_unregister_security - unregister an RxRPC security handler
@@ -116,7 +116,7 @@ void rxrpc_unregister_security(struct rxrpc_security *sec)
 	       sec->security_index, sec->name);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(rxrpc_unregister_security); */
+EXPORT_SYMBOL_GPL(rxrpc_unregister_security);
 
 /*
  * initialise the security on a client connection

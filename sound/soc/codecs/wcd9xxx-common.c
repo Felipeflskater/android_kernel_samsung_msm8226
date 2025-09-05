@@ -640,7 +640,7 @@ int wcd9xxx_soc_update_bits_push(struct snd_soc_codec *codec,
 		usleep_range(delay, delay + USLEEP_RANGE_MARGIN_US);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(wcd9xxx_soc_update_bits_push); */
+EXPORT_SYMBOL(wcd9xxx_soc_update_bits_push);
 
 void wcd9xxx_restore_registers(struct snd_soc_codec *codec,
 			       struct list_head *lh)
@@ -653,7 +653,7 @@ void wcd9xxx_restore_registers(struct snd_soc_codec *codec,
 		kfree(node);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(wcd9xxx_restore_registers); */
+EXPORT_SYMBOL(wcd9xxx_restore_registers);
 
 static void wcd9xxx_dynamic_bypass_buck_ctrl_lo(struct snd_soc_codec *cdc,
 						bool enable)
@@ -1398,7 +1398,7 @@ void wcd9xxx_clsh_fsm(struct snd_soc_codec *codec,
 	}
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wcd9xxx_clsh_fsm); */
+EXPORT_SYMBOL_GPL(wcd9xxx_clsh_fsm);
 
 void wcd9xxx_clsh_init(struct wcd9xxx_clsh_cdc_data *clsh,
 		       struct wcd9xxx_resmgr *resmgr)
@@ -1437,7 +1437,7 @@ void wcd9xxx_clsh_init(struct wcd9xxx_clsh_cdc_data *clsh,
 						wcd9xxx_clsh_state_hph_ear_lo;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(wcd9xxx_clsh_init); */
+EXPORT_SYMBOL_GPL(wcd9xxx_clsh_init);
 
 MODULE_DESCRIPTION("WCD9XXX Common");
 MODULE_LICENSE("GPL v2");

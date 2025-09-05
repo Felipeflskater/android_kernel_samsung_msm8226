@@ -97,7 +97,7 @@ void msm_slim_es325_write_flag_set(int flag)
 		pr_info("%s():es325_slim_write_flag = %d\n", __func__, es325_slim_write_flag);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(msm_slim_es325_write_flag_set); */
+EXPORT_SYMBOL(msm_slim_es325_write_flag_set);
 #endif
 
 static irqreturn_t ngd_slim_interrupt(int irq, void *d)

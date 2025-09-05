@@ -20,7 +20,7 @@ unsigned int irq_of_parse_and_map(struct device_node *node, int index)
 
 	return op->archdata.irqs[index];
 }
-/* DISABLED: EXPORT_SYMBOL(irq_of_parse_and_map); */
+EXPORT_SYMBOL(irq_of_parse_and_map);
 
 int of_address_to_resource(struct device_node *node, int index,
 			   struct resource *r)
@@ -33,7 +33,7 @@ int of_address_to_resource(struct device_node *node, int index,
 	memcpy(r, &op->archdata.resource[index], sizeof(*r));
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(of_address_to_resource); */
+EXPORT_SYMBOL_GPL(of_address_to_resource);
 
 void __iomem *of_iomap(struct device_node *node, int index)
 {
@@ -47,7 +47,7 @@ void __iomem *of_iomap(struct device_node *node, int index)
 
 	return of_ioremap(r, 0, resource_size(r), (char *) r->name);
 }
-/* DISABLED: EXPORT_SYMBOL(of_iomap); */
+EXPORT_SYMBOL(of_iomap);
 
 /* Take the archdata values for IOMMU, STC, and HOSTDATA found in
  * BUS and propagate to all child platform_device objects.

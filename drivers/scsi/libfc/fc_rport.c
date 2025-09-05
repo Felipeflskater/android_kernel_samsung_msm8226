@@ -191,7 +191,7 @@ void fc_set_rport_loss_tmo(struct fc_rport *rport, u32 timeout)
 	else
 		rport->dev_loss_tmo = 1;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_set_rport_loss_tmo); */
+EXPORT_SYMBOL(fc_set_rport_loss_tmo);
 
 /**
  * fc_plogi_get_maxframe() - Get the maximum payload from the common service
@@ -1933,7 +1933,7 @@ int fc_rport_init(struct fc_lport *lport)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fc_rport_init); */
+EXPORT_SYMBOL(fc_rport_init);
 
 /**
  * fc_rport_fcp_prli() - Handle incoming PRLI for the FCP initiator.
@@ -2039,4 +2039,4 @@ void fc_rport_terminate_io(struct fc_rport *rport)
 	lport->tt.exch_mgr_reset(lport, 0, rport->port_id);
 	lport->tt.exch_mgr_reset(lport, rport->port_id, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(fc_rport_terminate_io); */
+EXPORT_SYMBOL(fc_rport_terminate_io);

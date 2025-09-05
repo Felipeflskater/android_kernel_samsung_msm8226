@@ -154,7 +154,7 @@ int usb_control_msg(struct usb_device *dev, unsigned int pipe, __u8 request,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_control_msg); */
+EXPORT_SYMBOL_GPL(usb_control_msg);
 
 /**
  * usb_interrupt_msg - Builds an interrupt urb, sends it off and waits for completion
@@ -187,7 +187,7 @@ int usb_interrupt_msg(struct usb_device *usb_dev, unsigned int pipe,
 {
 	return usb_bulk_msg(usb_dev, pipe, data, len, actual_length, timeout);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_interrupt_msg); */
+EXPORT_SYMBOL_GPL(usb_interrupt_msg);
 
 /**
  * usb_bulk_msg - Builds a bulk urb, sends it off and waits for completion
@@ -246,7 +246,7 @@ int usb_bulk_msg(struct usb_device *usb_dev, unsigned int pipe,
 
 	return usb_start_wait_urb(urb, timeout, actual_length);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_bulk_msg); */
+EXPORT_SYMBOL_GPL(usb_bulk_msg);
 
 /*-------------------------------------------------------------------*/
 
@@ -457,7 +457,7 @@ nomem:
 	sg_clean(io);
 	return -ENOMEM;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_sg_init); */
+EXPORT_SYMBOL_GPL(usb_sg_init);
 
 /**
  * usb_sg_wait - synchronously execute scatter/gather request
@@ -562,7 +562,7 @@ void usb_sg_wait(struct usb_sg_request *io)
 
 	sg_clean(io);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_sg_wait); */
+EXPORT_SYMBOL_GPL(usb_sg_wait);
 
 /**
  * usb_sg_cancel - stop scatter/gather i/o issued by usb_sg_wait()
@@ -605,7 +605,7 @@ void usb_sg_cancel(struct usb_sg_request *io)
 		complete(&io->complete);
 	spin_unlock_irqrestore(&io->lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_sg_cancel); */
+EXPORT_SYMBOL_GPL(usb_sg_cancel);
 
 /*-------------------------------------------------------------------*/
 
@@ -655,7 +655,7 @@ int usb_get_descriptor(struct usb_device *dev, unsigned char type,
 	}
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_descriptor); */
+EXPORT_SYMBOL_GPL(usb_get_descriptor);
 
 /**
  * usb_get_string - gets a string descriptor
@@ -850,7 +850,7 @@ int usb_string(struct usb_device *dev, int index, char *buf, size_t size)
 	kfree(tbuf);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_string); */
+EXPORT_SYMBOL_GPL(usb_string);
 
 /* one UTF-8-encoded 16-bit character has at most three bytes */
 #define MAX_USB_STRING_SIZE (127 * 3 + 1)
@@ -960,7 +960,7 @@ int usb_get_status(struct usb_device *dev, int type, int target, void *data)
 	kfree(status);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_get_status); */
+EXPORT_SYMBOL_GPL(usb_get_status);
 
 /**
  * usb_clear_halt - tells device to clear endpoint halt/stall condition
@@ -1018,7 +1018,7 @@ int usb_clear_halt(struct usb_device *dev, int pipe)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_clear_halt); */
+EXPORT_SYMBOL_GPL(usb_clear_halt);
 
 static int create_intf_ep_devs(struct usb_interface *intf)
 {
@@ -1107,7 +1107,7 @@ void usb_reset_endpoint(struct usb_device *dev, unsigned int epaddr)
 	if (ep)
 		usb_hcd_reset_endpoint(dev, ep);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_reset_endpoint); */
+EXPORT_SYMBOL_GPL(usb_reset_endpoint);
 
 
 /**
@@ -1396,7 +1396,7 @@ int usb_set_interface(struct usb_device *dev, int interface, int alternate)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_set_interface); */
+EXPORT_SYMBOL_GPL(usb_set_interface);
 
 /**
  * usb_reset_configuration - lightweight device reset
@@ -1509,7 +1509,7 @@ reset_old_alts:
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_reset_configuration); */
+EXPORT_SYMBOL_GPL(usb_reset_configuration);
 
 static void usb_release_interface(struct device *dev)
 {
@@ -1966,4 +1966,4 @@ int usb_driver_set_configuration(struct usb_device *udev, int config)
 	schedule_work(&req->work);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(usb_driver_set_configuration); */
+EXPORT_SYMBOL_GPL(usb_driver_set_configuration);

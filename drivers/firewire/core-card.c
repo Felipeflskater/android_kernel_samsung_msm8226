@@ -212,7 +212,7 @@ int fw_core_add_descriptor(struct fw_descriptor *desc)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_core_add_descriptor); */
+EXPORT_SYMBOL(fw_core_add_descriptor);
 
 void fw_core_remove_descriptor(struct fw_descriptor *desc)
 {
@@ -227,7 +227,7 @@ void fw_core_remove_descriptor(struct fw_descriptor *desc)
 
 	mutex_unlock(&card_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_core_remove_descriptor); */
+EXPORT_SYMBOL(fw_core_remove_descriptor);
 
 static int reset_bus(struct fw_card *card, bool short_reset)
 {
@@ -248,7 +248,7 @@ void fw_schedule_bus_reset(struct fw_card *card, bool delayed, bool short_reset)
 				delayed ? DIV_ROUND_UP(HZ, 100) : 0))
 		fw_card_put(card);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_schedule_bus_reset); */
+EXPORT_SYMBOL(fw_schedule_bus_reset);
 
 static void br_work(struct work_struct *work)
 {
@@ -554,7 +554,7 @@ void fw_card_initialize(struct fw_card *card,
 	INIT_DELAYED_WORK(&card->br_work, br_work);
 	INIT_DELAYED_WORK(&card->bm_work, bm_work);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_card_initialize); */
+EXPORT_SYMBOL(fw_card_initialize);
 
 int fw_card_add(struct fw_card *card,
 		u32 max_receive, u32 link_speed, u64 guid)
@@ -576,7 +576,7 @@ int fw_card_add(struct fw_card *card,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_card_add); */
+EXPORT_SYMBOL(fw_card_add);
 
 /*
  * The next few functions implement a dummy driver that is used once a card
@@ -702,4 +702,4 @@ void fw_core_remove_card(struct fw_card *card)
 
 	WARN_ON(!list_empty(&card->transaction_list));
 }
-/* DISABLED: EXPORT_SYMBOL(fw_core_remove_card); */
+EXPORT_SYMBOL(fw_core_remove_card);

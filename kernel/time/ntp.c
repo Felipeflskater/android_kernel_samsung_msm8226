@@ -991,7 +991,7 @@ void hardpps(const struct timespec *phase_ts, const struct timespec *raw_ts)
 
 	spin_unlock_irqrestore(&ntp_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(hardpps); */
+EXPORT_SYMBOL(hardpps);
 
 #endif	/* CONFIG_NTP_PPS */
 
@@ -1003,7 +1003,7 @@ static int __init ntp_tick_adj_setup(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("ntp_tick_adj=", ntp_tick_adj_setup); */ */
+__setup("ntp_tick_adj=", ntp_tick_adj_setup);
 
 void __init ntp_init(void)
 {

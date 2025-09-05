@@ -68,8 +68,8 @@ phys_addr_t memory_limit;
 pte_t *kmap_pte;
 pgprot_t kmap_prot;
 
-/* DISABLED: EXPORT_SYMBOL(kmap_prot); */
-/* DISABLED: EXPORT_SYMBOL(kmap_pte); */
+EXPORT_SYMBOL(kmap_prot);
+EXPORT_SYMBOL(kmap_pte);
 
 static inline pte_t *virt_to_kpte(unsigned long vaddr)
 {
@@ -104,7 +104,7 @@ pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
 
 	return vma_prot;
 }
-/* DISABLED: EXPORT_SYMBOL(phys_mem_access_prot); */
+EXPORT_SYMBOL(phys_mem_access_prot);
 
 #ifdef CONFIG_MEMORY_HOTPLUG
 
@@ -161,7 +161,7 @@ walk_system_ram_range(unsigned long start_pfn, unsigned long nr_pages,
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(walk_system_ram_range); */
+EXPORT_SYMBOL_GPL(walk_system_ram_range);
 
 /*
  * Initialize the bootmem system and give it all the memory we
@@ -446,7 +446,7 @@ void flush_dcache_page(struct page *page)
 	if (test_bit(PG_arch_1, &page->flags))
 		clear_bit(PG_arch_1, &page->flags);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_dcache_page); */
+EXPORT_SYMBOL(flush_dcache_page);
 
 void flush_dcache_icache_page(struct page *page)
 {
@@ -481,7 +481,7 @@ void clear_user_page(void *page, unsigned long vaddr, struct page *pg)
 	 */
 	flush_dcache_page(pg);
 }
-/* DISABLED: EXPORT_SYMBOL(clear_user_page); */
+EXPORT_SYMBOL(clear_user_page);
 
 void copy_user_page(void *vto, void *vfrom, unsigned long vaddr,
 		    struct page *pg)
@@ -515,7 +515,7 @@ void flush_icache_user_range(struct vm_area_struct *vma, struct page *page,
 	flush_icache_range(maddr, maddr + len);
 	kunmap(page);
 }
-/* DISABLED: EXPORT_SYMBOL(flush_icache_user_range); */
+EXPORT_SYMBOL(flush_icache_user_range);
 
 /*
  * This is called at the end of handling a user page fault, when the

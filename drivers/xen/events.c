@@ -219,7 +219,7 @@ unsigned irq_from_evtchn(unsigned int evtchn)
 {
 	return evtchn_to_irq[evtchn];
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(irq_from_evtchn); */
+EXPORT_SYMBOL_GPL(irq_from_evtchn);
 
 static enum ipi_vector ipi_from_irq(unsigned irq)
 {
@@ -361,7 +361,7 @@ void notify_remote_via_irq(int irq)
 	if (VALID_EVTCHN(evtchn))
 		notify_remote_via_evtchn(evtchn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(notify_remote_via_irq); */
+EXPORT_SYMBOL_GPL(notify_remote_via_irq);
 
 static void mask_evtchn(int port)
 {
@@ -625,7 +625,7 @@ int xen_irq_from_gsi(unsigned gsi)
 
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_irq_from_gsi); */
+EXPORT_SYMBOL_GPL(xen_irq_from_gsi);
 
 /*
  * Do not make any assumptions regarding the relationship between the
@@ -809,7 +809,7 @@ int xen_pirq_from_irq(unsigned irq)
 {
 	return pirq_from_irq(irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_pirq_from_irq); */
+EXPORT_SYMBOL_GPL(xen_pirq_from_irq);
 int bind_evtchn_to_irq(unsigned int evtchn)
 {
 	int irq;
@@ -834,7 +834,7 @@ out:
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bind_evtchn_to_irq); */
+EXPORT_SYMBOL_GPL(bind_evtchn_to_irq);
 
 static int bind_ipi_to_irq(unsigned int ipi, unsigned int cpu)
 {
@@ -1015,7 +1015,7 @@ int bind_evtchn_to_irqhandler(unsigned int evtchn,
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bind_evtchn_to_irqhandler); */
+EXPORT_SYMBOL_GPL(bind_evtchn_to_irqhandler);
 
 int bind_interdomain_evtchn_to_irqhandler(unsigned int remote_domain,
 					  unsigned int remote_port,
@@ -1038,7 +1038,7 @@ int bind_interdomain_evtchn_to_irqhandler(unsigned int remote_domain,
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bind_interdomain_evtchn_to_irqhandler); */
+EXPORT_SYMBOL_GPL(bind_interdomain_evtchn_to_irqhandler);
 
 int bind_virq_to_irqhandler(unsigned int virq, unsigned int cpu,
 			    irq_handler_t handler,
@@ -1057,7 +1057,7 @@ int bind_virq_to_irqhandler(unsigned int virq, unsigned int cpu,
 
 	return irq;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bind_virq_to_irqhandler); */
+EXPORT_SYMBOL_GPL(bind_virq_to_irqhandler);
 
 int bind_ipi_to_irqhandler(enum ipi_vector ipi,
 			   unsigned int cpu,
@@ -1087,7 +1087,7 @@ void unbind_from_irqhandler(unsigned int irq, void *dev_id)
 	free_irq(irq, dev_id);
 	unbind_from_irq(irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unbind_from_irqhandler); */
+EXPORT_SYMBOL_GPL(unbind_from_irqhandler);
 
 int evtchn_make_refcounted(unsigned int evtchn)
 {
@@ -1108,7 +1108,7 @@ int evtchn_make_refcounted(unsigned int evtchn)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(evtchn_make_refcounted); */
+EXPORT_SYMBOL_GPL(evtchn_make_refcounted);
 
 int evtchn_get(unsigned int evtchn)
 {
@@ -1141,7 +1141,7 @@ int evtchn_get(unsigned int evtchn)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(evtchn_get); */
+EXPORT_SYMBOL_GPL(evtchn_get);
 
 void evtchn_put(unsigned int evtchn)
 {
@@ -1150,7 +1150,7 @@ void evtchn_put(unsigned int evtchn)
 		return;
 	unbind_from_irq(irq);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(evtchn_put); */
+EXPORT_SYMBOL_GPL(evtchn_put);
 
 void xen_send_IPI_one(unsigned int cpu, enum ipi_vector vector)
 {
@@ -1393,7 +1393,7 @@ void xen_hvm_evtchn_do_upcall(void)
 {
 	__xen_evtchn_do_upcall();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_hvm_evtchn_do_upcall); */
+EXPORT_SYMBOL_GPL(xen_hvm_evtchn_do_upcall);
 
 /* Rebind a new event channel to an existing irq. */
 void rebind_evtchn_irq(int evtchn, int irq)
@@ -1635,7 +1635,7 @@ void xen_clear_irq_pending(int irq)
 	if (VALID_EVTCHN(evtchn))
 		clear_evtchn(evtchn);
 }
-/* DISABLED: EXPORT_SYMBOL(xen_clear_irq_pending); */
+EXPORT_SYMBOL(xen_clear_irq_pending);
 void xen_set_irq_pending(int irq)
 {
 	int evtchn = evtchn_from_irq(irq);
@@ -1672,7 +1672,7 @@ void xen_poll_irq_timeout(int irq, u64 timeout)
 			BUG();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(xen_poll_irq_timeout); */
+EXPORT_SYMBOL(xen_poll_irq_timeout);
 /* Poll waiting for an irq to become pending.  In the usual case, the
  * irq will be disabled so it won't deliver an interrupt. */
 void xen_poll_irq(int irq)
@@ -1690,7 +1690,7 @@ int xen_test_irq_shared(int irq)
 		return 0;
 	return !(irq_status.flags & XENIRQSTAT_shared);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_test_irq_shared); */
+EXPORT_SYMBOL_GPL(xen_test_irq_shared);
 
 void xen_irq_resume(void)
 {
@@ -1770,7 +1770,7 @@ int xen_set_callback_via(uint64_t via)
 	a.value = via;
 	return HYPERVISOR_hvm_op(HVMOP_set_param, &a);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xen_set_callback_via); */
+EXPORT_SYMBOL_GPL(xen_set_callback_via);
 
 #ifdef CONFIG_XEN_PVHVM
 /* Vector callbacks are better than PCI interrupts to receive event

@@ -54,7 +54,7 @@ unsigned short bcsr_read(enum bcsr_id reg)
 	spin_unlock_irqrestore(&bcsr_regs[reg].lock, flags);
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcsr_read); */
+EXPORT_SYMBOL_GPL(bcsr_read);
 
 void bcsr_write(enum bcsr_id reg, unsigned short val)
 {
@@ -65,7 +65,7 @@ void bcsr_write(enum bcsr_id reg, unsigned short val)
 	wmb();
 	spin_unlock_irqrestore(&bcsr_regs[reg].lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcsr_write); */
+EXPORT_SYMBOL_GPL(bcsr_write);
 
 void bcsr_mod(enum bcsr_id reg, unsigned short clr, unsigned short set)
 {
@@ -80,7 +80,7 @@ void bcsr_mod(enum bcsr_id reg, unsigned short clr, unsigned short set)
 	wmb();
 	spin_unlock_irqrestore(&bcsr_regs[reg].lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bcsr_mod); */
+EXPORT_SYMBOL_GPL(bcsr_mod);
 
 /*
  * DB1200/PB1200 CPLD IRQ muxer

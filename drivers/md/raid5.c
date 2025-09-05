@@ -3664,7 +3664,7 @@ int md_raid5_congested(struct mddev *mddev, int bits)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(md_raid5_congested); */
+EXPORT_SYMBOL_GPL(md_raid5_congested);
 
 static int raid5_congested(void *data, int bits)
 {
@@ -4580,7 +4580,7 @@ raid5_set_cache_size(struct mddev *mddev, int size)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(raid5_set_cache_size); */
+EXPORT_SYMBOL(raid5_set_cache_size);
 
 static ssize_t
 raid5_store_stripe_cache_size(struct mddev *mddev, const char *page, size_t len)

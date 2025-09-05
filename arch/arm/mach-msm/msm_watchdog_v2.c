@@ -251,7 +251,7 @@ void emerg_pet_watchdog(void)
 		last_emerg_pet = sched_clock();
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(emerg_pet_watchdog); */
+EXPORT_SYMBOL(emerg_pet_watchdog);
 #endif
 
 static void pet_watchdog(struct msm_watchdog_data *wdog_dd)

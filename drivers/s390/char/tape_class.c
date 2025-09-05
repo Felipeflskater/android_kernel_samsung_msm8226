@@ -102,7 +102,7 @@ fail_with_tcd:
 
 	return ERR_PTR(rc);
 }
-/* DISABLED: EXPORT_SYMBOL(register_tape_dev); */
+EXPORT_SYMBOL(register_tape_dev);
 
 void unregister_tape_dev(struct device *device, struct tape_class_device *tcd)
 {
@@ -113,7 +113,7 @@ void unregister_tape_dev(struct device *device, struct tape_class_device *tcd)
 		kfree(tcd);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(unregister_tape_dev); */
+EXPORT_SYMBOL(unregister_tape_dev);
 
 
 static int __init tape_init(void)

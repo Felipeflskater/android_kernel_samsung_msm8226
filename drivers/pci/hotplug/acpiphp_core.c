@@ -65,8 +65,8 @@ MODULE_PARM_DESC(debug, "Debugging mode enabled or not");
 module_param(debug, bool, 0644);
 
 /* export the attention callback registration methods */
-/* DISABLED: EXPORT_SYMBOL_GPL(acpiphp_register_attention); */
-/* DISABLED: EXPORT_SYMBOL_GPL(acpiphp_unregister_attention); */
+EXPORT_SYMBOL_GPL(acpiphp_register_attention);
+EXPORT_SYMBOL_GPL(acpiphp_unregister_attention);
 
 static int enable_slot		(struct hotplug_slot *slot);
 static int disable_slot		(struct hotplug_slot *slot);

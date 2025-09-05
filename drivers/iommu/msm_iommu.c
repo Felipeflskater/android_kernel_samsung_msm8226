@@ -39,7 +39,7 @@ struct iommu_access_ops *msm_get_iommu_access_ops()
 	BUG_ON(iommu_access_ops == NULL);
 	return iommu_access_ops;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_get_iommu_access_ops); */
+EXPORT_SYMBOL(msm_get_iommu_access_ops);
 
 void msm_iommu_add_drv(struct msm_iommu_drvdata *drv)
 {
@@ -93,5 +93,5 @@ struct device *msm_iommu_get_ctx(const char *ctx_name)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_iommu_get_ctx); */
+EXPORT_SYMBOL(msm_iommu_get_ctx);
 

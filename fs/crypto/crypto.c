@@ -78,7 +78,7 @@ void fscrypt_release_ctx(struct fscrypt_ctx *ctx)
 		spin_unlock_irqrestore(&fscrypt_ctx_lock, flags);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_release_ctx); */
+EXPORT_SYMBOL(fscrypt_release_ctx);
 
 /**
  * fscrypt_get_ctx() - Gets an encryption context
@@ -126,7 +126,7 @@ struct fscrypt_ctx *fscrypt_get_ctx(struct inode *inode, gfp_t gfp_flags)
 	ctx->flags &= ~FS_WRITE_PATH_FL;
 	return ctx;
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_get_ctx); */
+EXPORT_SYMBOL(fscrypt_get_ctx);
 
 /**
  * fscrypt_complete() - The completion callback for page encryption
@@ -263,7 +263,7 @@ errout:
 	fscrypt_release_ctx(ctx);
 	return ciphertext_page;
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_encrypt_page); */
+EXPORT_SYMBOL(fscrypt_encrypt_page);
 
 /**
  * f2crypt_decrypt_page() - Decrypts a page in-place
@@ -282,7 +282,7 @@ int fscrypt_decrypt_page(struct page *page)
 	return do_page_crypto(page->mapping->host,
 			FS_DECRYPT, page->index, page, page, GFP_NOFS);
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_decrypt_page); */
+EXPORT_SYMBOL(fscrypt_decrypt_page);
 
 int fscrypt_zeroout_range(struct inode *inode, pgoff_t lblk,
 				sector_t pblk, unsigned int len)
@@ -340,7 +340,7 @@ errout:
 	fscrypt_release_ctx(ctx);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_zeroout_range); */
+EXPORT_SYMBOL(fscrypt_zeroout_range);
 
 /*
  * Validate dentries for encrypted directories to make sure we aren't
@@ -388,7 +388,7 @@ static int fscrypt_d_revalidate(struct dentry *dentry, unsigned int flags)
 const struct dentry_operations fscrypt_d_ops = {
 	.d_revalidate = fscrypt_d_revalidate,
 };
-/* DISABLED: EXPORT_SYMBOL(fscrypt_d_ops); */
+EXPORT_SYMBOL(fscrypt_d_ops);
 
 /*
  * Call fscrypt_decrypt_page on every single page, reusing the encryption
@@ -424,7 +424,7 @@ void fscrypt_decrypt_bio_pages(struct fscrypt_ctx *ctx, struct bio *bio)
 	ctx->r.bio = bio;
 	queue_work(fscrypt_read_workqueue, &ctx->r.work);
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_decrypt_bio_pages); */
+EXPORT_SYMBOL(fscrypt_decrypt_bio_pages);
 
 void fscrypt_pullback_bio_page(struct page **page, bool restore)
 {
@@ -445,7 +445,7 @@ void fscrypt_pullback_bio_page(struct page **page, bool restore)
 	if (restore)
 		fscrypt_restore_control_page(bounce_page);
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_pullback_bio_page); */
+EXPORT_SYMBOL(fscrypt_pullback_bio_page);
 
 void fscrypt_restore_control_page(struct page *page)
 {
@@ -457,7 +457,7 @@ void fscrypt_restore_control_page(struct page *page)
 	unlock_page(page);
 	fscrypt_release_ctx(ctx);
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_restore_control_page); */
+EXPORT_SYMBOL(fscrypt_restore_control_page);
 
 static void fscrypt_destroy(void)
 {
@@ -511,7 +511,7 @@ fail:
 	mutex_unlock(&fscrypt_init_mutex);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(fscrypt_initialize); */
+EXPORT_SYMBOL(fscrypt_initialize);
 
 /**
  * fscrypt_init() - Set up for fs encryption.

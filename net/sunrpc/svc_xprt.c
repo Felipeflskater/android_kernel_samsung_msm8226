@@ -86,7 +86,7 @@ out:
 	spin_unlock(&svc_xprt_class_lock);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_reg_xprt_class); */
+EXPORT_SYMBOL_GPL(svc_reg_xprt_class);
 
 void svc_unreg_xprt_class(struct svc_xprt_class *xcl)
 {
@@ -95,7 +95,7 @@ void svc_unreg_xprt_class(struct svc_xprt_class *xcl)
 	list_del_init(&xcl->xcl_list);
 	spin_unlock(&svc_xprt_class_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_unreg_xprt_class); */
+EXPORT_SYMBOL_GPL(svc_unreg_xprt_class);
 
 /*
  * Format the transport list for printing
@@ -142,7 +142,7 @@ void svc_xprt_put(struct svc_xprt *xprt)
 {
 	kref_put(&xprt->xpt_ref, svc_xprt_free);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_put); */
+EXPORT_SYMBOL_GPL(svc_xprt_put);
 
 /*
  * Called by transport drivers to initialize the transport independent
@@ -166,7 +166,7 @@ void svc_xprt_init(struct net *net, struct svc_xprt_class *xcl,
 	rpc_init_wait_queue(&xprt->xpt_bc_pending, "xpt_bc_pending");
 	xprt->xpt_net = get_net(net);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_init); */
+EXPORT_SYMBOL_GPL(svc_xprt_init);
 
 static struct svc_xprt *__svc_xpo_create(struct svc_xprt_class *xcl,
 					 struct svc_serv *serv,
@@ -249,7 +249,7 @@ int svc_create_xprt(struct svc_serv *serv, const char *xprt_name,
 	 * perror msg for a bad transport. */
 	return -EPROTONOSUPPORT;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_create_xprt); */
+EXPORT_SYMBOL_GPL(svc_create_xprt);
 
 /*
  * Copy the local and remote xprt addresses to the rqstp structure
@@ -266,7 +266,7 @@ void svc_xprt_copy_addrs(struct svc_rqst *rqstp, struct svc_xprt *xprt)
 	memcpy(&rqstp->rq_daddr, &xprt->xpt_local, xprt->xpt_locallen);
 	rqstp->rq_daddrlen = xprt->xpt_locallen;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_copy_addrs); */
+EXPORT_SYMBOL_GPL(svc_xprt_copy_addrs);
 
 /**
  * svc_print_addr - Format rq_addr field for printing
@@ -279,7 +279,7 @@ char *svc_print_addr(struct svc_rqst *rqstp, char *buf, size_t len)
 {
 	return __svc_print_addr(svc_addr(rqstp), buf, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_print_addr); */
+EXPORT_SYMBOL_GPL(svc_print_addr);
 
 /*
  * Queue up an idle server thread.  Must have pool->sp_lock held.
@@ -372,7 +372,7 @@ void svc_xprt_enqueue(struct svc_xprt *xprt)
 out_unlock:
 	spin_unlock_bh(&pool->sp_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_enqueue); */
+EXPORT_SYMBOL_GPL(svc_xprt_enqueue);
 
 /*
  * Dequeue the first transport.  Must be called with the pool->sp_lock held.
@@ -413,7 +413,7 @@ void svc_xprt_received(struct svc_xprt *xprt)
 	svc_xprt_enqueue(xprt);
 	svc_xprt_put(xprt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_received); */
+EXPORT_SYMBOL_GPL(svc_xprt_received);
 
 /**
  * svc_reserve - change the space reserved for the reply to a request.
@@ -437,7 +437,7 @@ void svc_reserve(struct svc_rqst *rqstp, int space)
 		svc_xprt_enqueue(xprt);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_reserve); */
+EXPORT_SYMBOL_GPL(svc_reserve);
 
 static void svc_xprt_release(struct svc_rqst *rqstp)
 {
@@ -498,7 +498,7 @@ void svc_wake_up(struct svc_serv *serv)
 		spin_unlock_bh(&pool->sp_lock);
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_wake_up); */
+EXPORT_SYMBOL_GPL(svc_wake_up);
 
 int svc_port_is_privileged(struct sockaddr *sin)
 {
@@ -758,7 +758,7 @@ out:
 	svc_xprt_release(rqstp);
 	return -EAGAIN;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_recv); */
+EXPORT_SYMBOL_GPL(svc_recv);
 
 /*
  * Drop request
@@ -768,7 +768,7 @@ void svc_drop(struct svc_rqst *rqstp)
 	dprintk("svc: xprt %p dropped request\n", rqstp->rq_xprt);
 	svc_xprt_release(rqstp);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_drop); */
+EXPORT_SYMBOL_GPL(svc_drop);
 
 /*
  * Return reply to client.
@@ -907,7 +907,7 @@ void svc_close_xprt(struct svc_xprt *xprt)
 	 */
 	svc_delete_xprt(xprt);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_close_xprt); */
+EXPORT_SYMBOL_GPL(svc_close_xprt);
 
 static void svc_close_list(struct list_head *xprt_list, struct net *net)
 {
@@ -1133,7 +1133,7 @@ struct svc_xprt *svc_find_xprt(struct svc_serv *serv, const char *xcl_name,
 	spin_unlock_bh(&serv->sv_lock);
 	return found;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_find_xprt); */
+EXPORT_SYMBOL_GPL(svc_find_xprt);
 
 static int svc_one_xprt_name(const struct svc_xprt *xprt,
 			     char *pos, int remaining)
@@ -1190,7 +1190,7 @@ int svc_xprt_names(struct svc_serv *serv, char *buf, const int buflen)
 	spin_unlock_bh(&serv->sv_lock);
 	return totlen;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_xprt_names); */
+EXPORT_SYMBOL_GPL(svc_xprt_names);
 
 
 /*----------------------------------------------------------------------------*/
@@ -1266,6 +1266,6 @@ int svc_pool_stats_open(struct svc_serv *serv, struct file *file)
 		((struct seq_file *) file->private_data)->private = serv;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(svc_pool_stats_open); */
+EXPORT_SYMBOL(svc_pool_stats_open);
 
 /*----------------------------------------------------------------------------*/

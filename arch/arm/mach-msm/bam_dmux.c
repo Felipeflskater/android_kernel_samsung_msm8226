@@ -2402,7 +2402,7 @@ void msm_bam_dmux_set_bam_ops(struct bam_ops_if *ops)
 	else
 		bam_ops = &bam_default_ops;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bam_dmux_set_bam_ops); */
+EXPORT_SYMBOL(msm_bam_dmux_set_bam_ops);
 
 /**
  * msm_bam_dmux_deinit() - puts bam dmux into a deinited state
@@ -2417,7 +2417,7 @@ void msm_bam_dmux_deinit(void)
 	restart_notifier_cb(NULL, SUBSYS_AFTER_POWERUP, NULL);
 	in_global_reset = 0;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bam_dmux_deinit); */
+EXPORT_SYMBOL(msm_bam_dmux_deinit);
 
 /**
  * msm_bam_dmux_reinit() - reinitializes bam dmux
@@ -2433,7 +2433,7 @@ void msm_bam_dmux_reinit(void)
 	bam_mux_initialized = 0;
 	bam_init();
 }
-/* DISABLED: EXPORT_SYMBOL(msm_bam_dmux_reinit); */
+EXPORT_SYMBOL(msm_bam_dmux_reinit);
 
 static int bam_dmux_probe(struct platform_device *pdev)
 {

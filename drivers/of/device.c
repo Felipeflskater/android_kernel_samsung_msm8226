@@ -25,7 +25,7 @@ const struct of_device_id *of_match_device(const struct of_device_id *matches,
 		return NULL;
 	return of_match_node(matches, dev->of_node);
 }
-/* DISABLED: EXPORT_SYMBOL(of_match_device); */
+EXPORT_SYMBOL(of_match_device);
 
 struct platform_device *of_dev_get(struct platform_device *dev)
 {
@@ -39,14 +39,14 @@ struct platform_device *of_dev_get(struct platform_device *dev)
 	else
 		return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_dev_get); */
+EXPORT_SYMBOL(of_dev_get);
 
 void of_dev_put(struct platform_device *dev)
 {
 	if (dev)
 		put_device(&dev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(of_dev_put); */
+EXPORT_SYMBOL(of_dev_put);
 
 int of_device_add(struct platform_device *ofdev)
 {
@@ -71,13 +71,13 @@ int of_device_register(struct platform_device *pdev)
 	device_initialize(&pdev->dev);
 	return of_device_add(pdev);
 }
-/* DISABLED: EXPORT_SYMBOL(of_device_register); */
+EXPORT_SYMBOL(of_device_register);
 
 void of_device_unregister(struct platform_device *ofdev)
 {
 	device_unregister(&ofdev->dev);
 }
-/* DISABLED: EXPORT_SYMBOL(of_device_unregister); */
+EXPORT_SYMBOL(of_device_unregister);
 
 ssize_t of_device_get_modalias(struct device *dev, char *str, ssize_t len)
 {

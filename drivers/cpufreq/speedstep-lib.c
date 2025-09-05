@@ -242,7 +242,7 @@ unsigned int speedstep_get_frequency(enum speedstep_processor processor)
 	};
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(speedstep_get_frequency); */
+EXPORT_SYMBOL_GPL(speedstep_get_frequency);
 
 
 /*********************************************************************
@@ -370,7 +370,7 @@ unsigned int speedstep_detect_processor(void)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(speedstep_detect_processor); */
+EXPORT_SYMBOL_GPL(speedstep_detect_processor);
 
 
 /*********************************************************************
@@ -469,7 +469,7 @@ out:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(speedstep_get_freqs); */
+EXPORT_SYMBOL_GPL(speedstep_get_freqs);
 
 #ifdef CONFIG_X86_SPEEDSTEP_RELAXED_CAP_CHECK
 module_param(relaxed_check, int, 0444);

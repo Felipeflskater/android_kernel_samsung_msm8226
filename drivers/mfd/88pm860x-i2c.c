@@ -31,7 +31,7 @@ int pm860x_reg_read(struct i2c_client *i2c, int reg)
 	else
 		return (int)data;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_reg_read); */
+EXPORT_SYMBOL(pm860x_reg_read);
 
 int pm860x_reg_write(struct i2c_client *i2c, int reg,
 		     unsigned char data)
@@ -44,7 +44,7 @@ int pm860x_reg_write(struct i2c_client *i2c, int reg,
 	ret = regmap_write(map, reg, data);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_reg_write); */
+EXPORT_SYMBOL(pm860x_reg_write);
 
 int pm860x_bulk_read(struct i2c_client *i2c, int reg,
 		     int count, unsigned char *buf)
@@ -57,7 +57,7 @@ int pm860x_bulk_read(struct i2c_client *i2c, int reg,
 	ret = regmap_raw_read(map, reg, buf, count);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_bulk_read); */
+EXPORT_SYMBOL(pm860x_bulk_read);
 
 int pm860x_bulk_write(struct i2c_client *i2c, int reg,
 		      int count, unsigned char *buf)
@@ -70,7 +70,7 @@ int pm860x_bulk_write(struct i2c_client *i2c, int reg,
 	ret = regmap_raw_write(map, reg, buf, count);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_bulk_write); */
+EXPORT_SYMBOL(pm860x_bulk_write);
 
 int pm860x_set_bits(struct i2c_client *i2c, int reg,
 		    unsigned char mask, unsigned char data)
@@ -83,7 +83,7 @@ int pm860x_set_bits(struct i2c_client *i2c, int reg,
 	ret = regmap_update_bits(map, reg, mask, data);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_set_bits); */
+EXPORT_SYMBOL(pm860x_set_bits);
 
 static int read_device(struct i2c_client *i2c, int reg,
 		       int bytes, void *dest)
@@ -150,7 +150,7 @@ int pm860x_page_reg_read(struct i2c_client *i2c, int reg)
 	i2c_unlock_adapter(i2c->adapter);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_page_reg_read); */
+EXPORT_SYMBOL(pm860x_page_reg_read);
 
 int pm860x_page_reg_write(struct i2c_client *i2c, int reg,
 			  unsigned char data)
@@ -168,7 +168,7 @@ int pm860x_page_reg_write(struct i2c_client *i2c, int reg,
 	i2c_unlock_adapter(i2c->adapter);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_page_reg_write); */
+EXPORT_SYMBOL(pm860x_page_reg_write);
 
 int pm860x_page_bulk_read(struct i2c_client *i2c, int reg,
 			  int count, unsigned char *buf)
@@ -186,7 +186,7 @@ int pm860x_page_bulk_read(struct i2c_client *i2c, int reg,
 	i2c_unlock_adapter(i2c->adapter);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_page_bulk_read); */
+EXPORT_SYMBOL(pm860x_page_bulk_read);
 
 int pm860x_page_bulk_write(struct i2c_client *i2c, int reg,
 			   int count, unsigned char *buf)
@@ -205,7 +205,7 @@ int pm860x_page_bulk_write(struct i2c_client *i2c, int reg,
 	i2c_unlock_adapter(i2c->adapter);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_page_bulk_write); */
+EXPORT_SYMBOL(pm860x_page_bulk_write);
 
 int pm860x_page_set_bits(struct i2c_client *i2c, int reg,
 			 unsigned char mask, unsigned char data)
@@ -230,7 +230,7 @@ out:
 	i2c_unlock_adapter(i2c->adapter);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pm860x_page_set_bits); */
+EXPORT_SYMBOL(pm860x_page_set_bits);
 
 static const struct i2c_device_id pm860x_id_table[] = {
 	{ "88PM860x", 0 },

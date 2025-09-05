@@ -224,7 +224,7 @@ void ftrace_likely_update(struct ftrace_branch_data *f, int val, int expect)
 	else
 		f->incorrect++;
 }
-/* DISABLED: EXPORT_SYMBOL(ftrace_likely_update); */
+EXPORT_SYMBOL(ftrace_likely_update);
 
 extern unsigned long __start_annotated_branch_profile[];
 extern unsigned long __stop_annotated_branch_profile[];

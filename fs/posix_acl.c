@@ -21,11 +21,11 @@
 #include <linux/export.h>
 #include <linux/user_namespace.h>
 
-/* DISABLED: EXPORT_SYMBOL(posix_acl_init); */
-/* DISABLED: EXPORT_SYMBOL(posix_acl_alloc); */
-/* DISABLED: EXPORT_SYMBOL(posix_acl_valid); */
-/* DISABLED: EXPORT_SYMBOL(posix_acl_equiv_mode); */
-/* DISABLED: EXPORT_SYMBOL(posix_acl_from_mode); */
+EXPORT_SYMBOL(posix_acl_init);
+EXPORT_SYMBOL(posix_acl_alloc);
+EXPORT_SYMBOL(posix_acl_valid);
+EXPORT_SYMBOL(posix_acl_equiv_mode);
+EXPORT_SYMBOL(posix_acl_from_mode);
 
 struct posix_acl *get_acl(struct inode *inode, int type)
 {
@@ -52,7 +52,7 @@ struct posix_acl *get_acl(struct inode *inode, int type)
 	}
 	return inode->i_op->get_acl(inode, type);
 }
-/* DISABLED: EXPORT_SYMBOL(get_acl); */
+EXPORT_SYMBOL(get_acl);
 
 /*
  * Init a fresh posix_acl
@@ -386,7 +386,7 @@ int posix_acl_update_mode(struct inode *inode, umode_t *mode_p,
 	*mode_p = mode;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(posix_acl_update_mode); */
+EXPORT_SYMBOL(posix_acl_update_mode);
 
 /*
  * Modify the ACL for the chmod syscall.
@@ -452,7 +452,7 @@ __posix_acl_create(struct posix_acl **acl, gfp_t gfp, umode_t *mode_p)
 	*acl = clone;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__posix_acl_create); */
+EXPORT_SYMBOL(__posix_acl_create);
 
 int
 __posix_acl_chmod(struct posix_acl **acl, gfp_t gfp, umode_t mode)
@@ -470,7 +470,7 @@ __posix_acl_chmod(struct posix_acl **acl, gfp_t gfp, umode_t mode)
 	*acl = clone;
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__posix_acl_chmod); */
+EXPORT_SYMBOL(__posix_acl_chmod);
 
 int
 posix_acl_chmod(struct inode *inode, umode_t mode)
@@ -497,7 +497,7 @@ posix_acl_chmod(struct inode *inode, umode_t mode)
 	posix_acl_release(acl);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(posix_acl_chmod); */
+EXPORT_SYMBOL(posix_acl_chmod);
 
 int
 posix_acl_create(struct inode *dir, umode_t *mode,
@@ -549,7 +549,7 @@ no_acl:
 	*acl = NULL;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(posix_acl_create); */
+EXPORT_SYMBOL_GPL(posix_acl_create);
 
 /*
  * Fix up the uids and gids in posix acl extended attributes in place.
@@ -676,7 +676,7 @@ fail:
 	posix_acl_release(acl);
 	return ERR_PTR(-EINVAL);
 }
-/* DISABLED: EXPORT_SYMBOL (posix_acl_from_xattr); */
+EXPORT_SYMBOL (posix_acl_from_xattr);
 
 /*
  * Convert from in-memory to extended attribute representation.
@@ -718,7 +718,7 @@ posix_acl_to_xattr(struct user_namespace *user_ns, const struct posix_acl *acl,
 	}
 	return real_size;
 }
-/* DISABLED: EXPORT_SYMBOL (posix_acl_to_xattr); */
+EXPORT_SYMBOL (posix_acl_to_xattr);
 
 static int
 posix_acl_xattr_get(struct dentry *dentry, const char *name,
@@ -810,7 +810,7 @@ const struct xattr_handler posix_acl_access_xattr_handler = {
 	.get = posix_acl_xattr_get,
 	.set = posix_acl_xattr_set,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(posix_acl_access_xattr_handler); */
+EXPORT_SYMBOL_GPL(posix_acl_access_xattr_handler);
 
 const struct xattr_handler posix_acl_default_xattr_handler = {
 	.prefix = POSIX_ACL_XATTR_DEFAULT,
@@ -819,7 +819,7 @@ const struct xattr_handler posix_acl_default_xattr_handler = {
 	.get = posix_acl_xattr_get,
 	.set = posix_acl_xattr_set,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(posix_acl_default_xattr_handler); */
+EXPORT_SYMBOL_GPL(posix_acl_default_xattr_handler);
 
 int simple_set_acl(struct inode *inode, struct posix_acl *acl, int type)
 {

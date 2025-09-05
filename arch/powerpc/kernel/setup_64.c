@@ -88,7 +88,7 @@ struct ppc64_caches ppc64_caches = {
 	.iline_size = 0x40,
 	.log_iline_size = 6
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(ppc64_caches); */
+EXPORT_SYMBOL_GPL(ppc64_caches);
 
 /*
  * These are used in binfmt_elf.c to put aux entries on the stack
@@ -650,7 +650,7 @@ static int pcpu_cpu_distance(unsigned int from, unsigned int to)
 }
 
 unsigned long __per_cpu_offset[NR_CPUS] __read_mostly;
-/* DISABLED: EXPORT_SYMBOL(__per_cpu_offset); */
+EXPORT_SYMBOL(__per_cpu_offset);
 
 void __init setup_per_cpu_areas(void)
 {
@@ -686,6 +686,6 @@ void __init setup_per_cpu_areas(void)
 
 #ifdef CONFIG_PPC_INDIRECT_IO
 struct ppc_pci_io ppc_pci_io;
-/* DISABLED: EXPORT_SYMBOL(ppc_pci_io); */
+EXPORT_SYMBOL(ppc_pci_io);
 #endif /* CONFIG_PPC_INDIRECT_IO */
 

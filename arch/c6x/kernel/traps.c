@@ -73,7 +73,7 @@ void dump_stack(void)
 
 	show_stack(current, &stack);
 }
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 
 void die(char *str, struct pt_regs *fp, int nr)

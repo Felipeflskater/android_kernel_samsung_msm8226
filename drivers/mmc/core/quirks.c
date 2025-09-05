@@ -144,4 +144,4 @@ void mmc_fixup_device(struct mmc_card *card, const struct mmc_fixup *table)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(mmc_fixup_device); */
+EXPORT_SYMBOL(mmc_fixup_device);

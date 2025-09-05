@@ -118,7 +118,7 @@ unsigned int intlog2(u32 value)
 	/* now we return the result */
 	return ((msb << 24) + (logtable[logentry] << 8) + interpolation);
 }
-/* DISABLED: EXPORT_SYMBOL(intlog2); */
+EXPORT_SYMBOL(intlog2);
 
 unsigned int intlog10(u32 value)
 {
@@ -142,4 +142,4 @@ unsigned int intlog10(u32 value)
 
 	return (log * 646456993) >> 31;
 }
-/* DISABLED: EXPORT_SYMBOL(intlog10); */
+EXPORT_SYMBOL(intlog10);

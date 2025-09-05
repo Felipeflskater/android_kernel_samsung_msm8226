@@ -69,7 +69,7 @@ void inet_frags_init(struct inet_frags *f)
 	f->secret_timer.expires = jiffies + f->secret_interval;
 	add_timer(&f->secret_timer);
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frags_init); */
+EXPORT_SYMBOL(inet_frags_init);
 
 void inet_frags_init_net(struct netns_frags *nf)
 {
@@ -77,13 +77,13 @@ void inet_frags_init_net(struct netns_frags *nf)
 	atomic_set(&nf->mem, 0);
 	INIT_LIST_HEAD(&nf->lru_list);
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frags_init_net); */
+EXPORT_SYMBOL(inet_frags_init_net);
 
 void inet_frags_fini(struct inet_frags *f)
 {
 	del_timer(&f->secret_timer);
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frags_fini); */
+EXPORT_SYMBOL(inet_frags_fini);
 
 void inet_frags_exit_net(struct netns_frags *nf, struct inet_frags *f)
 {
@@ -93,7 +93,7 @@ void inet_frags_exit_net(struct netns_frags *nf, struct inet_frags *f)
 	inet_frag_evictor(nf, f);
 	local_bh_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frags_exit_net); */
+EXPORT_SYMBOL(inet_frags_exit_net);
 
 static inline void fq_unlink(struct inet_frag_queue *fq, struct inet_frags *f)
 {
@@ -115,7 +115,7 @@ void inet_frag_kill(struct inet_frag_queue *fq, struct inet_frags *f)
 		fq->last_in |= INET_FRAG_COMPLETE;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frag_kill); */
+EXPORT_SYMBOL(inet_frag_kill);
 
 static inline void frag_kfree_skb(struct netns_frags *nf, struct inet_frags *f,
 		struct sk_buff *skb, int *work)
@@ -157,7 +157,7 @@ void inet_frag_destroy(struct inet_frag_queue *q, struct inet_frags *f,
 	kfree(q);
 
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frag_destroy); */
+EXPORT_SYMBOL(inet_frag_destroy);
 
 int inet_frag_evictor(struct netns_frags *nf, struct inet_frags *f)
 {
@@ -189,7 +189,7 @@ int inet_frag_evictor(struct netns_frags *nf, struct inet_frags *f)
 
 	return evicted;
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frag_evictor); */
+EXPORT_SYMBOL(inet_frag_evictor);
 
 static struct inet_frag_queue *inet_frag_intern(struct netns_frags *nf,
 		struct inet_frag_queue *qp_in, struct inet_frags *f,
@@ -289,7 +289,7 @@ struct inet_frag_queue *inet_frag_find(struct netns_frags *nf,
 	else
 		return ERR_PTR(-ENOBUFS);
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frag_find); */
+EXPORT_SYMBOL(inet_frag_find);
 
 void inet_frag_maybe_warn_overflow(struct inet_frag_queue *q,
 				   const char *prefix)
@@ -301,4 +301,4 @@ void inet_frag_maybe_warn_overflow(struct inet_frag_queue *q,
 	if (PTR_ERR(q) == -ENOBUFS)
 		LIMIT_NETDEBUG(KERN_WARNING "%s%s", prefix, msg);
 }
-/* DISABLED: EXPORT_SYMBOL(inet_frag_maybe_warn_overflow); */
+EXPORT_SYMBOL(inet_frag_maybe_warn_overflow);

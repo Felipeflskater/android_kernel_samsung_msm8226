@@ -50,14 +50,14 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 	kfree(pwm);
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_request); */
+EXPORT_SYMBOL(pwm_request);
 
 void pwm_free(struct pwm_device *pwm)
 {
 	peripheral_free(pwm->pin);
 	kfree(pwm);
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_free); */
+EXPORT_SYMBOL(pwm_free);
 
 int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 {
@@ -84,17 +84,17 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_config); */
+EXPORT_SYMBOL(pwm_config);
 
 int pwm_enable(struct pwm_device *pwm)
 {
 	enable_gptimer(pwm->id);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
+EXPORT_SYMBOL(pwm_enable);
 
 void pwm_disable(struct pwm_device *pwm)
 {
 	disable_gptimer(pwm->id);
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
+EXPORT_SYMBOL(pwm_disable);

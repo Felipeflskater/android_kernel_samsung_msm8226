@@ -1,5 +1,3 @@
-#include <sys/types.h>
-#include <stdint.h>
 /* Postprocess module symbol versions
  *
  * Copyright 2003       Kai Germaschewski

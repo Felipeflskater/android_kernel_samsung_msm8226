@@ -127,7 +127,7 @@ void cyttsp5_pr_buf(struct device *dev, u8 *pr_buf, u8 *dptr, int size,
 	else
 		dev_vdbg(dev, "%s:  %s[]\n", __func__, data_name);
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_pr_buf); */
+EXPORT_SYMBOL(cyttsp5_pr_buf);
 #endif
 
 #ifdef TTHE_TUNER_SUPPORT
@@ -4933,7 +4933,7 @@ const struct dev_pm_ops cyttsp5_pm_ops = {
 	SET_RUNTIME_PM_OPS(cyttsp5_core_rt_suspend, cyttsp5_core_rt_resume,
 			NULL)
 };
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_pm_ops); */
+EXPORT_SYMBOL(cyttsp5_pm_ops);
 
 /*
  * Show Firmware version via sysfs
@@ -5441,7 +5441,7 @@ struct cyttsp5_core_commands *cyttsp5_get_commands(void)
 {
 	return &_cyttsp5_core_commands;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_get_commands); */
+EXPORT_SYMBOL(cyttsp5_get_commands);
 
 #ifdef SAMSUNG_TSP_INFO
 struct cyttsp5_samsung_tsp_info_dev *cyttsp5_get_samsung_tsp_info(struct device *dev)
@@ -5449,7 +5449,7 @@ struct cyttsp5_samsung_tsp_info_dev *cyttsp5_get_samsung_tsp_info(struct device 
 	struct cyttsp5_core_data *cd = dev_get_drvdata(dev);
 	return &cd->samsung_tsp_info;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_get_samsung_tsp_info); */
+EXPORT_SYMBOL(cyttsp5_get_samsung_tsp_info);
 #endif
 
 void cyttsp5_set_upgrade_firmware_from_platform(struct device *dev,
@@ -5462,7 +5462,7 @@ void cyttsp5_set_upgrade_firmware_from_platform(struct device *dev,
 
 	cd->upgrade_firmware_from_platform = upgrade_firmware_from_platform;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_set_upgrade_firmware_from_platform); */
+EXPORT_SYMBOL(cyttsp5_set_upgrade_firmware_from_platform);
 
 static LIST_HEAD(core_list);
 static int core_number;
@@ -5475,7 +5475,7 @@ struct cyttsp5_core_data *cyttsp5_get_core_data(char *id)
 			return d;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_get_core_data); */
+EXPORT_SYMBOL(cyttsp5_get_core_data);
 
 static void cyttsp5_add_core(struct device *dev)
 {
@@ -5703,7 +5703,7 @@ error_no_pdata:
 	dev_err(dev, "%s failed.\n", __func__);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_probe); */
+EXPORT_SYMBOL(cyttsp5_probe);
 
 int cyttsp5_release(struct cyttsp5_core_data *cd)
 {
@@ -5748,7 +5748,7 @@ int cyttsp5_release(struct cyttsp5_core_data *cd)
 	kfree(cd);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(cyttsp5_release); */
+EXPORT_SYMBOL(cyttsp5_release);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Cypress TrueTouch(R) Standard Product Core Driver");

@@ -1357,7 +1357,7 @@ int pcmcia_parse_tuple(tuple_t *tuple, cisparse_t *parse)
 		pr_debug("parse_tuple failed %d\n", ret);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(pcmcia_parse_tuple); */
+EXPORT_SYMBOL(pcmcia_parse_tuple);
 
 
 /**

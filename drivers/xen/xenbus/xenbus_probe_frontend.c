@@ -288,7 +288,7 @@ int xenbus_register_frontend(struct xenbus_driver *drv)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(xenbus_register_frontend); */
+EXPORT_SYMBOL_GPL(xenbus_register_frontend);
 
 static DECLARE_WAIT_QUEUE_HEAD(backend_state_wq);
 static int backend_state;

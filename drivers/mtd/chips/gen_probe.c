@@ -53,7 +53,7 @@ struct mtd_info *mtd_do_chip_probe(struct map_info *map, struct chip_probe *cp)
 	map->fldrv_priv = NULL;
 	return NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(mtd_do_chip_probe); */
+EXPORT_SYMBOL(mtd_do_chip_probe);
 
 
 static struct cfi_private *genprobe_ident_chips(struct map_info *map, struct chip_probe *cp)

@@ -179,7 +179,7 @@ void mdm_raise_mdm_errfatal(void)
 	printk(KERN_ERR "%s: Raise MDM forced errfatal\n", __func__);
 	gpio_set_value(115, 1);
 }
-/* DISABLED: EXPORT_SYMBOL(mdm_raise_mdm_errfatal); */
+EXPORT_SYMBOL(mdm_raise_mdm_errfatal);
 
 static void mdm_debug_gpio_show(struct mdm_device *mdev)
 {

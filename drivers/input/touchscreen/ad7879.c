@@ -316,7 +316,7 @@ static int ad7879_resume(struct device *dev)
 #endif
 
 SIMPLE_DEV_PM_OPS(ad7879_pm_ops, ad7879_suspend, ad7879_resume);
-/* DISABLED: EXPORT_SYMBOL(ad7879_pm_ops); */
+EXPORT_SYMBOL(ad7879_pm_ops);
 
 static void ad7879_toggle(struct ad7879 *ts, bool disable)
 {
@@ -632,7 +632,7 @@ err_free_mem:
 err_out:
 	return ERR_PTR(err);
 }
-/* DISABLED: EXPORT_SYMBOL(ad7879_probe); */
+EXPORT_SYMBOL(ad7879_probe);
 
 void ad7879_remove(struct ad7879 *ts)
 {
@@ -642,7 +642,7 @@ void ad7879_remove(struct ad7879 *ts)
 	input_unregister_device(ts->input);
 	kfree(ts);
 }
-/* DISABLED: EXPORT_SYMBOL(ad7879_remove); */
+EXPORT_SYMBOL(ad7879_remove);
 
 MODULE_AUTHOR("Michael Hennerich <hennerich@blackfin.uclinux.org>");
 MODULE_DESCRIPTION("AD7879(-1) touchscreen Driver");

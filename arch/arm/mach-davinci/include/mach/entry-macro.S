@@ -19,7 +19,7 @@
 #if defined(CONFIG_AINTC) && defined(CONFIG_CP_INTC)
 		ldr \tmp, =davinci_intc_type
 		ldr \tmp, [\tmp]
-		cmp \tmp, @ DAVINCI_INTC_TYPE_CP_INTC
+		cmp \tmp, #DAVINCI_INTC_TYPE_CP_INTC
 		beq 1001f
 #endif
 #if defined(CONFIG_AINTC)

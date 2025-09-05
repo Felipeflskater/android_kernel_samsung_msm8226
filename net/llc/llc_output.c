@@ -78,5 +78,5 @@ int llc_build_and_send_ui_pkt(struct llc_sap *sap, struct sk_buff *skb,
 	return rc;
 }
 
-/* DISABLED: EXPORT_SYMBOL(llc_mac_hdr_init); */
-/* DISABLED: EXPORT_SYMBOL(llc_build_and_send_ui_pkt); */
+EXPORT_SYMBOL(llc_mac_hdr_init);
+EXPORT_SYMBOL(llc_build_and_send_ui_pkt);

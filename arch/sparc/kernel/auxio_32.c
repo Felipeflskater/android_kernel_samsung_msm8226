@@ -79,7 +79,7 @@ unsigned char get_auxio(void)
 		return sbus_readb(auxio_register);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(get_auxio); */
+EXPORT_SYMBOL(get_auxio);
 
 void set_auxio(unsigned char bits_on, unsigned char bits_off)
 {
@@ -106,7 +106,7 @@ void set_auxio(unsigned char bits_on, unsigned char bits_off)
 	}
 	spin_unlock_irqrestore(&auxio_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(set_auxio); */
+EXPORT_SYMBOL(set_auxio);
 
 /* sun4m power control register (AUXIO2) */
 

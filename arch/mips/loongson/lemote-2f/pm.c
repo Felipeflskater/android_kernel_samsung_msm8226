@@ -84,7 +84,7 @@ static struct delayed_work lid_task;
 static int initialized;
 /* yeeloong_report_lid_status will be implemented in yeeloong_laptop.c */
 sci_handler yeeloong_report_lid_status;
-/* DISABLED: EXPORT_SYMBOL(yeeloong_report_lid_status); */
+EXPORT_SYMBOL(yeeloong_report_lid_status);
 static void yeeloong_lid_update_task(struct work_struct *work)
 {
 	if (yeeloong_report_lid_status)

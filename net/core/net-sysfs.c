@@ -1373,7 +1373,7 @@ struct kobj_ns_type_operations net_ns_type_operations = {
 	.initial_ns = net_initial_ns,
 	.drop_ns = net_drop_ns,
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(net_ns_type_operations); */
+EXPORT_SYMBOL_GPL(net_ns_type_operations);
 
 #ifdef CONFIG_HOTPLUG
 static int netdev_uevent(struct device *d, struct kobj_uevent_env *env)
@@ -1491,13 +1491,13 @@ int netdev_class_create_file(struct class_attribute *class_attr)
 {
 	return class_create_file(&net_class, class_attr);
 }
-/* DISABLED: EXPORT_SYMBOL(netdev_class_create_file); */
+EXPORT_SYMBOL(netdev_class_create_file);
 
 void netdev_class_remove_file(struct class_attribute *class_attr)
 {
 	class_remove_file(&net_class, class_attr);
 }
-/* DISABLED: EXPORT_SYMBOL(netdev_class_remove_file); */
+EXPORT_SYMBOL(netdev_class_remove_file);
 
 int netdev_kobject_init(void)
 {

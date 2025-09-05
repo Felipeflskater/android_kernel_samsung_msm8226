@@ -55,7 +55,7 @@ u32 rtl92c_phy_query_bb_reg(struct ieee80211_hw *hw, u32 regaddr, u32 bitmask)
 	return returnvalue;
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_query_bb_reg); */
+EXPORT_SYMBOL(rtl92c_phy_query_bb_reg);
 
 void rtl92c_phy_set_bb_reg(struct ieee80211_hw *hw,
 			   u32 regaddr, u32 bitmask, u32 data)
@@ -80,7 +80,7 @@ void rtl92c_phy_set_bb_reg(struct ieee80211_hw *hw,
 		 regaddr, bitmask, data);
 
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_bb_reg); */
+EXPORT_SYMBOL(rtl92c_phy_set_bb_reg);
 
 u32 _rtl92c_phy_fw_rf_serial_read(struct ieee80211_hw *hw,
 				  enum radio_path rfpath, u32 offset)
@@ -89,7 +89,7 @@ u32 _rtl92c_phy_fw_rf_serial_read(struct ieee80211_hw *hw,
 	return 0;
 
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_fw_rf_serial_read); */
+EXPORT_SYMBOL(_rtl92c_phy_fw_rf_serial_read);
 
 void _rtl92c_phy_fw_rf_serial_write(struct ieee80211_hw *hw,
 				    enum radio_path rfpath, u32 offset,
@@ -97,7 +97,7 @@ void _rtl92c_phy_fw_rf_serial_write(struct ieee80211_hw *hw,
 {
 	RT_ASSERT(false, "deprecated!\n");
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_fw_rf_serial_write); */
+EXPORT_SYMBOL(_rtl92c_phy_fw_rf_serial_write);
 
 u32 _rtl92c_phy_rf_serial_read(struct ieee80211_hw *hw,
 			       enum radio_path rfpath, u32 offset)
@@ -147,7 +147,7 @@ u32 _rtl92c_phy_rf_serial_read(struct ieee80211_hw *hw,
 		 rfpath, pphyreg->rflssi_readback, retvalue);
 	return retvalue;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_rf_serial_read); */
+EXPORT_SYMBOL(_rtl92c_phy_rf_serial_read);
 
 void _rtl92c_phy_rf_serial_write(struct ieee80211_hw *hw,
 				 enum radio_path rfpath, u32 offset,
@@ -170,7 +170,7 @@ void _rtl92c_phy_rf_serial_write(struct ieee80211_hw *hw,
 	RT_TRACE(rtlpriv, COMP_RF, DBG_TRACE, "RFW-%d Addr[0x%x]=0x%x\n",
 		 rfpath, pphyreg->rf3wire_offset, data_and_addr);
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_rf_serial_write); */
+EXPORT_SYMBOL(_rtl92c_phy_rf_serial_write);
 
 u32 _rtl92c_phy_calculate_bit_shift(u32 bitmask)
 {
@@ -182,7 +182,7 @@ u32 _rtl92c_phy_calculate_bit_shift(u32 bitmask)
 	}
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_calculate_bit_shift); */
+EXPORT_SYMBOL(_rtl92c_phy_calculate_bit_shift);
 
 static void _rtl92c_phy_bb_config_1t(struct ieee80211_hw *hw)
 {
@@ -204,7 +204,7 @@ bool rtl92c_phy_rf_config(struct ieee80211_hw *hw)
 
 	return rtlpriv->cfg->ops->phy_rf6052_config(hw);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_rf_config); */
+EXPORT_SYMBOL(rtl92c_phy_rf_config);
 
 bool _rtl92c_phy_bb8192c_config_parafile(struct ieee80211_hw *hw)
 {
@@ -245,7 +245,7 @@ bool _rtl92c_phy_bb8192c_config_parafile(struct ieee80211_hw *hw)
 
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_bb8192c_config_parafile); */
+EXPORT_SYMBOL(_rtl92c_phy_bb8192c_config_parafile);
 
 void _rtl92c_store_pwrIndex_diffrate_offset(struct ieee80211_hw *hw,
 					    u32 regaddr, u32 bitmask,
@@ -299,7 +299,7 @@ void _rtl92c_store_pwrIndex_diffrate_offset(struct ieee80211_hw *hw,
 	if (index == 13)
 		rtlphy->pwrgroup_cnt++;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_store_pwrIndex_diffrate_offset); */
+EXPORT_SYMBOL(_rtl92c_store_pwrIndex_diffrate_offset);
 
 void rtl92c_phy_get_hw_reg_originalvalue(struct ieee80211_hw *hw)
 {
@@ -436,7 +436,7 @@ void _rtl92c_phy_init_bb_rf_register_definition(struct ieee80211_hw *hw)
 	    TRANSCEIVEB_HSPI_READBACK;
 
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_init_bb_rf_register_definition); */
+EXPORT_SYMBOL(_rtl92c_phy_init_bb_rf_register_definition);
 
 void rtl92c_phy_get_txpower_level(struct ieee80211_hw *hw, long *powerlevel)
 {
@@ -521,7 +521,7 @@ void rtl92c_phy_set_txpower_level(struct ieee80211_hw *hw, u8 channel)
 	rtlpriv->cfg->ops->phy_rf6052_set_ofdm_txpower(hw, &ofdmpowerlevel[0],
 						       channel);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_txpower_level); */
+EXPORT_SYMBOL(rtl92c_phy_set_txpower_level);
 
 bool rtl92c_phy_update_txpower_dbm(struct ieee80211_hw *hw, long power_indbm)
 {
@@ -555,7 +555,7 @@ bool rtl92c_phy_update_txpower_dbm(struct ieee80211_hw *hw, long power_indbm)
 	rtl92c_phy_set_txpower_level(hw, rtlphy->current_channel);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_update_txpower_dbm); */
+EXPORT_SYMBOL(rtl92c_phy_update_txpower_dbm);
 
 u8 _rtl92c_phy_dbm_to_txpwr_Idx(struct ieee80211_hw *hw,
 				enum wireless_mode wirelessmode,
@@ -587,7 +587,7 @@ u8 _rtl92c_phy_dbm_to_txpwr_Idx(struct ieee80211_hw *hw,
 
 	return txpwridx;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_dbm_to_txpwr_Idx); */
+EXPORT_SYMBOL(_rtl92c_phy_dbm_to_txpwr_Idx);
 
 long _rtl92c_phy_txpwr_idx_to_dbm(struct ieee80211_hw *hw,
 				  enum wireless_mode wirelessmode,
@@ -611,7 +611,7 @@ long _rtl92c_phy_txpwr_idx_to_dbm(struct ieee80211_hw *hw,
 	pwrout_dbm = txpwridx / 2 + offset;
 	return pwrout_dbm;
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_txpwr_idx_to_dbm); */
+EXPORT_SYMBOL(_rtl92c_phy_txpwr_idx_to_dbm);
 
 void rtl92c_phy_scan_operation_backup(struct ieee80211_hw *hw, u8 operation)
 {
@@ -641,7 +641,7 @@ void rtl92c_phy_scan_operation_backup(struct ieee80211_hw *hw, u8 operation)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_scan_operation_backup); */
+EXPORT_SYMBOL(rtl92c_phy_scan_operation_backup);
 
 void rtl92c_phy_set_bw_mode(struct ieee80211_hw *hw,
 			    enum nl80211_channel_type ch_type)
@@ -663,7 +663,7 @@ void rtl92c_phy_set_bw_mode(struct ieee80211_hw *hw,
 		rtlphy->current_chan_bw = tmp_bw;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_bw_mode); */
+EXPORT_SYMBOL(rtl92c_phy_set_bw_mode);
 
 void rtl92c_phy_sw_chnl_callback(struct ieee80211_hw *hw)
 {
@@ -693,7 +693,7 @@ void rtl92c_phy_sw_chnl_callback(struct ieee80211_hw *hw)
 	} while (true);
 	RT_TRACE(rtlpriv, COMP_SCAN, DBG_TRACE, "<==\n");
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_sw_chnl_callback); */
+EXPORT_SYMBOL(rtl92c_phy_sw_chnl_callback);
 
 u8 rtl92c_phy_sw_chnl(struct ieee80211_hw *hw)
 {
@@ -722,7 +722,7 @@ u8 rtl92c_phy_sw_chnl(struct ieee80211_hw *hw)
 	}
 	return 1;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_sw_chnl); */
+EXPORT_SYMBOL(rtl92c_phy_sw_chnl);
 
 static bool _rtl92c_phy_set_sw_chnl_cmdarray(struct swchnlcmd *cmdtable,
 					     u32 cmdtableidx, u32 cmdtablesz,
@@ -857,7 +857,7 @@ bool rtl8192_phy_check_is_legal_rfpath(struct ieee80211_hw *hw, u32 rfpath)
 {
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl8192_phy_check_is_legal_rfpath); */
+EXPORT_SYMBOL(rtl8192_phy_check_is_legal_rfpath);
 
 static u8 _rtl92c_phy_path_a_iqk(struct ieee80211_hw *hw, bool config_pathb)
 {
@@ -1795,7 +1795,7 @@ void rtl92c_phy_iq_calibrate(struct ieee80211_hw *hw, bool recovery)
 	_rtl92c_phy_save_adda_registers(hw, iqk_bb_reg,
 					rtlphy->iqk_bb_backup, 10);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_iq_calibrate); */
+EXPORT_SYMBOL(rtl92c_phy_iq_calibrate);
 
 void rtl92c_phy_lc_calibrate(struct ieee80211_hw *hw)
 {
@@ -1810,7 +1810,7 @@ void rtl92c_phy_lc_calibrate(struct ieee80211_hw *hw)
 	else
 		rtlpriv->cfg->ops->phy_lc_calibrate(hw, false);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_lc_calibrate); */
+EXPORT_SYMBOL(rtl92c_phy_lc_calibrate);
 
 void rtl92c_phy_ap_calibrate(struct ieee80211_hw *hw, char delta)
 {
@@ -1825,7 +1825,7 @@ void rtl92c_phy_ap_calibrate(struct ieee80211_hw *hw, char delta)
 	else
 		_rtl92c_phy_ap_calibrate(hw, delta, false);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_ap_calibrate); */
+EXPORT_SYMBOL(rtl92c_phy_ap_calibrate);
 
 void rtl92c_phy_set_rfpath_switch(struct ieee80211_hw *hw, bool bmain)
 {
@@ -1836,7 +1836,7 @@ void rtl92c_phy_set_rfpath_switch(struct ieee80211_hw *hw, bool bmain)
 	else
 		_rtl92c_phy_set_rfpath_switch(hw, bmain, false);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_rfpath_switch); */
+EXPORT_SYMBOL(rtl92c_phy_set_rfpath_switch);
 
 bool rtl92c_phy_set_io_cmd(struct ieee80211_hw *hw, enum io_type iotype)
 {
@@ -1875,7 +1875,7 @@ bool rtl92c_phy_set_io_cmd(struct ieee80211_hw *hw, enum io_type iotype)
 	RT_TRACE(rtlpriv, COMP_CMD, DBG_TRACE, "<--IO Type(%#x)\n", iotype);
 	return true;
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_io_cmd); */
+EXPORT_SYMBOL(rtl92c_phy_set_io_cmd);
 
 void rtl92c_phy_set_io(struct ieee80211_hw *hw)
 {
@@ -1905,7 +1905,7 @@ void rtl92c_phy_set_io(struct ieee80211_hw *hw)
 	RT_TRACE(rtlpriv, COMP_CMD, DBG_TRACE, "<---(%#x)\n",
 		 rtlphy->current_io_type);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92c_phy_set_io); */
+EXPORT_SYMBOL(rtl92c_phy_set_io);
 
 void rtl92ce_phy_set_rf_on(struct ieee80211_hw *hw)
 {
@@ -1918,7 +1918,7 @@ void rtl92ce_phy_set_rf_on(struct ieee80211_hw *hw)
 	rtl_write_byte(rtlpriv, REG_SYS_FUNC_EN, 0xE3);
 	rtl_write_byte(rtlpriv, REG_TXPAUSE, 0x00);
 }
-/* DISABLED: EXPORT_SYMBOL(rtl92ce_phy_set_rf_on); */
+EXPORT_SYMBOL(rtl92ce_phy_set_rf_on);
 
 void _rtl92c_phy_set_rf_sleep(struct ieee80211_hw *hw)
 {
@@ -1949,4 +1949,4 @@ void _rtl92c_phy_set_rf_sleep(struct ieee80211_hw *hw)
 	rtl_write_byte(rtlpriv, REG_SYS_FUNC_EN, 0xE2);
 	rtl_write_byte(rtlpriv, REG_SPS0_CTRL, 0x22);
 }
-/* DISABLED: EXPORT_SYMBOL(_rtl92c_phy_set_rf_sleep); */
+EXPORT_SYMBOL(_rtl92c_phy_set_rf_sleep);

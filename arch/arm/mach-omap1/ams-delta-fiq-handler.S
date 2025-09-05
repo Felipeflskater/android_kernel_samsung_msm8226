@@ -99,23 +99,23 @@ ENTRY(qwerty_fiqin_start)
 	@ FIQ intrrupt handler
 	ldr r12, omap_ih1_base			@ set pointer to level1 handler
 
-	ldr r11, [r12, @ IRQ_MIR_REG_OFFSET]	@ fetch interrupts mask
+	ldr r11, [r12, #IRQ_MIR_REG_OFFSET]	@ fetch interrupts mask
 
-	ldr r13, [r12, @ IRQ_ITR_REG_OFFSET]	@ fetch interrupts status
+	ldr r13, [r12, #IRQ_ITR_REG_OFFSET]	@ fetch interrupts status
 	bics r13, r13, r11			@ clear masked - any left?
 	beq exit				@ none - spurious FIQ? exit
 
-	ldr r10, [r12, @ IRQ_SIR_FIQ_REG_OFFSET]	@ get requested interrupt number
+	ldr r10, [r12, #IRQ_SIR_FIQ_REG_OFFSET]	@ get requested interrupt number
 
 	mov r8, #2				@ reset FIQ agreement
-	str r8, [r12, @ IRQ_CONTROL_REG_OFFSET]
+	str r8, [r12, #IRQ_CONTROL_REG_OFFSET]
 
-	cmp r10, @ INT_GPIO_BANK1		@ is it GPIO bank interrupt?
+	cmp r10, #INT_GPIO_BANK1		@ is it GPIO bank interrupt?
 	beq gpio				@ yes - process it
 
 	mov r8, #1
 	orr r8, r11, r8, lsl r10		@ mask spurious interrupt
-	str r8, [r12, @ IRQ_MIR_REG_OFFSET]
+	str r8, [r12, #IRQ_MIR_REG_OFFSET]
 exit:
 	subs	pc, lr, #4			@ return from FIQ
 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -125,101 +125,101 @@ exit:
 gpio:	@ GPIO bank interrupt handler
 	ldr r12, omap1510_gpio_base		@ set base pointer to GPIO bank
 
-	ldr r11, [r12, @ OMAP1510_GPIO_INT_MASK]	@ fetch GPIO interrupts mask
+	ldr r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ fetch GPIO interrupts mask
 restart:
-	ldr r13, [r12, @ OMAP1510_GPIO_INT_STATUS]	@ fetch status bits
+	ldr r13, [r12, #OMAP1510_GPIO_INT_STATUS]	@ fetch status bits
 	bics r13, r13, r11			@ clear masked - any left?
 	beq exit				@ no - spurious interrupt? exit
 
 	orr r11, r11, r13			@ mask all requested interrupts
-	str r11, [r12, @ OMAP1510_GPIO_INT_MASK]
+	str r11, [r12, #OMAP1510_GPIO_INT_MASK]
 
-	ands r10, r13, @ KEYBRD_CLK_MASK		@ extract keyboard status - set?
+	ands r10, r13, #KEYBRD_CLK_MASK		@ extract keyboard status - set?
 	beq hksw				@ no - try next source
 
 
 	@@@@@@@@@@@@@@@@@@@@@@
 	@ Keyboard clock FIQ mode interrupt handler
 	@ r10 now contains KEYBRD_CLK_MASK, use it
-	str r10, [r12, @ OMAP1510_GPIO_INT_STATUS]	@ ack the interrupt
+	str r10, [r12, #OMAP1510_GPIO_INT_STATUS]	@ ack the interrupt
 	bic r11, r11, r10				@ unmask it
-	str r11, [r12, @ OMAP1510_GPIO_INT_MASK]
+	str r11, [r12, #OMAP1510_GPIO_INT_MASK]
 
 	@ Process keyboard data
-	ldr r8, [r12, @ OMAP1510_GPIO_DATA_INPUT]	@ fetch GPIO input
+	ldr r8, [r12, #OMAP1510_GPIO_DATA_INPUT]	@ fetch GPIO input
 
-	ldr r10, [r9, @ BUF_STATE]		@ fetch kbd interface state
+	ldr r10, [r9, #BUF_STATE]		@ fetch kbd interface state
 	cmp r10, #0				@ are we expecting start bit?
 	bne data				@ no - go to data processing
 
-	ands r8, r8, @ KEYBRD_DATA_MASK		@ check start bit - detected?
+	ands r8, r8, #KEYBRD_DATA_MASK		@ check start bit - detected?
 	beq hksw				@ no - try next source
 
 	@ r8 contains KEYBRD_DATA_MASK, use it
-	str r8, [r9, @ BUF_STATE]		@ enter data processing state
+	str r8, [r9, #BUF_STATE]		@ enter data processing state
 	@ r10 already contains 0, reuse it
-	str r10, [r9, @ BUF_KEY]			@ clear keycode
+	str r10, [r9, #BUF_KEY]			@ clear keycode
 	mov r10, #2				@ reset input bit mask
-	str r10, [r9, @ BUF_MASK]
+	str r10, [r9, #BUF_MASK]
 
 	@ Mask other GPIO line interrupts till key done
-	str r11, [r9, @ BUF_GPIO_INT_MASK]	@ save mask for later restore
-	mvn r11, @ KEYBRD_CLK_MASK		@ prepare all except kbd mask
-	str r11, [r12, @ OMAP1510_GPIO_INT_MASK]	@ store into the mask register
+	str r11, [r9, #BUF_GPIO_INT_MASK]	@ save mask for later restore
+	mvn r11, #KEYBRD_CLK_MASK		@ prepare all except kbd mask
+	str r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ store into the mask register
 
 	b restart				@ restart
 
-data:	ldr r10, [r9, @ BUF_MASK]		@ fetch current input bit mask
+data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
 
 	@ r8 still contains GPIO input bits
-	ands r8, r8, @ KEYBRD_DATA_MASK		@ is keyboard data line low?
-	ldreq r8, [r9, @ BUF_KEY]		@ yes - fetch collected so far,
+	ands r8, r8, #KEYBRD_DATA_MASK		@ is keyboard data line low?
+	ldreq r8, [r9, #BUF_KEY]		@ yes - fetch collected so far,
 	orreq r8, r8, r10			@ set 1 at current mask position
-	streq r8, [r9, @ BUF_KEY]		@ and save back
+	streq r8, [r9, #BUF_KEY]		@ and save back
 
 	mov r10, r10, lsl #1			@ shift mask left
 	bics r10, r10, #0x800			@ have we got all the bits?
-	strne r10, [r9, @ BUF_MASK]		@ not yet - store the mask
+	strne r10, [r9, #BUF_MASK]		@ not yet - store the mask
 	bne restart				@ and restart
 
 	@ r10 already contains 0, reuse it
-	str r10, [r9, @ BUF_STATE]		@ reset state to start
+	str r10, [r9, #BUF_STATE]		@ reset state to start
 
 	@ Key done - restore interrupt mask
-	ldr r10, [r9, @ BUF_GPIO_INT_MASK]	@ fetch saved mask
+	ldr r10, [r9, #BUF_GPIO_INT_MASK]	@ fetch saved mask
 	and r11, r11, r10			@ unmask all saved as unmasked
-	str r11, [r12, @ OMAP1510_GPIO_INT_MASK]	@ restore into the mask register
+	str r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ restore into the mask register
 
 	@ Try appending the keycode to the circular buffer
-	ldr r10, [r9, @ BUF_KEYS_CNT]		@ get saved keystrokes count
-	ldr r8, [r9, @ BUF_BUF_LEN]		@ get buffer size
+	ldr r10, [r9, #BUF_KEYS_CNT]		@ get saved keystrokes count
+	ldr r8, [r9, #BUF_BUF_LEN]		@ get buffer size
 	cmp r10, r8				@ is buffer full?
 	beq hksw				@ yes - key lost, next source
 
 	add r10, r10, #1			@ incremet keystrokes counter
-	str r10, [r9, @ BUF_KEYS_CNT]
+	str r10, [r9, #BUF_KEYS_CNT]
 
-	ldr r10, [r9, @ BUF_TAIL_OFFSET]		@ get buffer tail offset
+	ldr r10, [r9, #BUF_TAIL_OFFSET]		@ get buffer tail offset
 	@ r8 already contains buffer size
 	cmp r10, r8				@ end of buffer?
 	moveq r10, #0				@ yes - rewind to buffer start
 
-	ldr r12, [r9, @ BUF_BUFFER_START]	@ get buffer start address
+	ldr r12, [r9, #BUF_BUFFER_START]	@ get buffer start address
 	add r12, r12, r10, LSL #2		@ calculate buffer tail address
-	ldr r8, [r9, @ BUF_KEY]			@ get last keycode
+	ldr r8, [r9, #BUF_KEY]			@ get last keycode
 	str r8, [r12]				@ append it to the buffer tail
 
 	add r10, r10, #1			@ increment buffer tail offset
-	str r10, [r9, @ BUF_TAIL_OFFSET]
+	str r10, [r9, #BUF_TAIL_OFFSET]
 
-	ldr r10, [r9, @ BUF_CNT_INT_KEY]		@ increment interrupts counter
+	ldr r10, [r9, #BUF_CNT_INT_KEY]		@ increment interrupts counter
 	add r10, r10, #1
-	str r10, [r9, @ BUF_CNT_INT_KEY]
+	str r10, [r9, #BUF_CNT_INT_KEY]
 	@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 hksw:	@Is hook switch interrupt requested?
-	tst r13, @ HOOK_SWITCH_MASK 		@ is hook switch status bit set?
+	tst r13, #HOOK_SWITCH_MASK 		@ is hook switch status bit set?
 	beq mdm					@ no - try next source
 
 
@@ -229,14 +229,14 @@ hksw:	@Is hook switch interrupt requested?
 	@ Don't toggle active edge, the switch always bounces
 
 	@ Increment hook switch interrupt counter
-	ldr r10, [r9, @ BUF_CNT_INT_HSW]
+	ldr r10, [r9, #BUF_CNT_INT_HSW]
 	add r10, r10, #1
-	str r10, [r9, @ BUF_CNT_INT_HSW]
+	str r10, [r9, #BUF_CNT_INT_HSW]
 	@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 mdm:	@Is it a modem interrupt?
-	tst r13, @ MODEM_IRQ_MASK 		@ is modem status bit set?
+	tst r13, #MODEM_IRQ_MASK 		@ is modem status bit set?
 	beq irq					@ no - check for next interrupt
 
 
@@ -244,16 +244,16 @@ mdm:	@Is it a modem interrupt?
 	@ Modem FIQ mode interrupt handler stub
 
 	@ Increment modem interrupt counter
-	ldr r10, [r9, @ BUF_CNT_INT_MDM]
+	ldr r10, [r9, #BUF_CNT_INT_MDM]
 	add r10, r10, #1
-	str r10, [r9, @ BUF_CNT_INT_MDM]
+	str r10, [r9, #BUF_CNT_INT_MDM]
 	@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 irq:	@ Place deferred_fiq interrupt request
 	ldr r12, deferred_fiq_ih_base		@ set pointer to IRQ handler
-	mov r10, @ DEFERRED_FIQ_MASK		@ set deferred_fiq bit
-	str r10, [r12, @ IRQ_ISR_REG_OFFSET] 	@ place it in the ISR register
+	mov r10, #DEFERRED_FIQ_MASK		@ set deferred_fiq bit
+	str r10, [r12, #IRQ_ISR_REG_OFFSET] 	@ place it in the ISR register
 
 	ldr r12, omap1510_gpio_base		@ set pointer back to GPIO bank
 	b restart				@ check for next GPIO interrupt

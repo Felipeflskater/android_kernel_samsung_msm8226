@@ -39,14 +39,14 @@ void olpc_xo1_pm_wakeup_set(u16 value)
 {
 	wakeup_mask |= value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_xo1_pm_wakeup_set); */
+EXPORT_SYMBOL_GPL(olpc_xo1_pm_wakeup_set);
 
 /* Clear bits in the wakeup mask */
 void olpc_xo1_pm_wakeup_clear(u16 value)
 {
 	wakeup_mask &= ~value;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(olpc_xo1_pm_wakeup_clear); */
+EXPORT_SYMBOL_GPL(olpc_xo1_pm_wakeup_clear);
 
 static int xo1_power_state_enter(suspend_state_t pm_state)
 {

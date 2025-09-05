@@ -27,4 +27,4 @@ void __outsl(unsigned long addr, const void *buffer, int count)
 		buf += 4;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__outsl); */
+EXPORT_SYMBOL(__outsl);

@@ -20,7 +20,7 @@
  * Let the bss do its zero-init magic so we don't have to do it ourselves.
  */
 char empty_zero_page[PAGE_SIZE] __attribute__((aligned(PAGE_SIZE)));
-/* DISABLED: EXPORT_SYMBOL(empty_zero_page); */
+EXPORT_SYMBOL(empty_zero_page);
 
 #ifndef CONFIG_EXCEPTION_L1_SCRATCH
 #if defined CONFIG_SYSCALL_TAB_L1
@@ -30,7 +30,7 @@ static unsigned long exception_stack[NR_CPUS][1024];
 #endif
 
 struct blackfin_pda cpu_pda[NR_CPUS];
-/* DISABLED: EXPORT_SYMBOL(cpu_pda); */
+EXPORT_SYMBOL(cpu_pda);
 
 /*
  * paging_init() continues the virtual memory environment setup which

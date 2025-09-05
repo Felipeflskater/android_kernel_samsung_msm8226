@@ -11,7 +11,7 @@
 static struct signal_struct init_signals = INIT_SIGNALS(init_signals);
 static struct sighand_struct init_sighand = INIT_SIGHAND(init_sighand);
 struct task_struct init_task = INIT_TASK(init_task);
-/* DISABLED: EXPORT_SYMBOL(init_task); */
+EXPORT_SYMBOL(init_task);
 
 /* .text section in head.S is aligned at 8k boundary and this gets linked
  * right after that so that the init_thread_union is aligned properly as well.

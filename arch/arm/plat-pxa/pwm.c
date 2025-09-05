@@ -98,7 +98,7 @@ int pwm_config(struct pwm_device *pwm, int duty_ns, int period_ns)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_config); */
+EXPORT_SYMBOL(pwm_config);
 
 int pwm_enable(struct pwm_device *pwm)
 {
@@ -111,7 +111,7 @@ int pwm_enable(struct pwm_device *pwm)
 	}
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_enable); */
+EXPORT_SYMBOL(pwm_enable);
 
 void pwm_disable(struct pwm_device *pwm)
 {
@@ -120,7 +120,7 @@ void pwm_disable(struct pwm_device *pwm)
 		pwm->clk_enabled = 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_disable); */
+EXPORT_SYMBOL(pwm_disable);
 
 static DEFINE_MUTEX(pwm_lock);
 static LIST_HEAD(pwm_list);
@@ -151,7 +151,7 @@ struct pwm_device *pwm_request(int pwm_id, const char *label)
 	mutex_unlock(&pwm_lock);
 	return pwm;
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_request); */
+EXPORT_SYMBOL(pwm_request);
 
 void pwm_free(struct pwm_device *pwm)
 {
@@ -165,7 +165,7 @@ void pwm_free(struct pwm_device *pwm)
 
 	mutex_unlock(&pwm_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(pwm_free); */
+EXPORT_SYMBOL(pwm_free);
 
 static inline void __add_pwm(struct pwm_device *pwm)
 {

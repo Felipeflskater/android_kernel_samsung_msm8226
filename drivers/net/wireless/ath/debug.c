@@ -44,4 +44,4 @@ const char *ath_opmode_to_string(enum nl80211_iftype opmode)
 		return "UNKNOWN";
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(ath_opmode_to_string); */
+EXPORT_SYMBOL(ath_opmode_to_string);

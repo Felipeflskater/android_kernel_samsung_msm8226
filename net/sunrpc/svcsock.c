@@ -353,7 +353,7 @@ int svc_sock_names(struct svc_serv *serv, char *buf, const size_t buflen,
 		return -ENOENT;
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_sock_names); */
+EXPORT_SYMBOL_GPL(svc_sock_names);
 
 /*
  * Check input queue length
@@ -1388,7 +1388,7 @@ void svc_sock_update_bufs(struct svc_serv *serv)
 		set_bit(XPT_CHNGBUF, &svsk->sk_xprt.xpt_flags);
 	spin_unlock_bh(&serv->sv_lock);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_sock_update_bufs); */
+EXPORT_SYMBOL_GPL(svc_sock_update_bufs);
 
 /*
  * Initialize socket for RPC use and create svc_sock struct
@@ -1460,7 +1460,7 @@ bool svc_alien_sock(struct net *net, int fd)
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_alien_sock); */
+EXPORT_SYMBOL_GPL(svc_alien_sock);
 
 /**
  * svc_addsock - add a listener socket to an RPC service
@@ -1516,7 +1516,7 @@ int svc_addsock(struct svc_serv *serv, const int fd, char *name_return,
 	}
 	return svc_one_sock_name(svsk, name_return, len);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(svc_addsock); */
+EXPORT_SYMBOL_GPL(svc_addsock);
 
 /*
  * Create socket for RPC service.

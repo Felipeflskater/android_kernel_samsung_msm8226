@@ -41,7 +41,7 @@ int roccat_common_receive(struct usb_device *usb_dev, uint report_id,
 	kfree(buf);
 	return ((len < 0) ? len : ((len != size) ? -EIO : 0));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(roccat_common_receive); */
+EXPORT_SYMBOL_GPL(roccat_common_receive);
 
 int roccat_common_send(struct usb_device *usb_dev, uint report_id,
 		void const *data, uint size)
@@ -62,7 +62,7 @@ int roccat_common_send(struct usb_device *usb_dev, uint report_id,
 	kfree(buf);
 	return ((len < 0) ? len : ((len != size) ? -EIO : 0));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(roccat_common_send); */
+EXPORT_SYMBOL_GPL(roccat_common_send);
 
 MODULE_AUTHOR("Stefan Achatz");
 MODULE_DESCRIPTION("USB Roccat common driver");

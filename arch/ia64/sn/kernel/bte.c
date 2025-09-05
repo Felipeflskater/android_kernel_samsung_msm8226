@@ -241,7 +241,7 @@ retry_bteop:
 	return bte_status;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bte_copy); */
+EXPORT_SYMBOL(bte_copy);
 
 /*
  * bte_unaligned_copy(src, dest, len, mode)
@@ -408,7 +408,7 @@ bte_result_t bte_unaligned_copy(u64 src, u64 dest, u64 len, u64 mode)
 	return BTE_SUCCESS;
 }
 
-/* DISABLED: EXPORT_SYMBOL(bte_unaligned_copy); */
+EXPORT_SYMBOL(bte_unaligned_copy);
 
 /************************************************************************
  * Block Transfer Engine initialization functions.

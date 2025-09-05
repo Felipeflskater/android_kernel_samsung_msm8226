@@ -1092,31 +1092,31 @@ void cx88_core_put(struct cx88_core *core, struct pci_dev *pci)
 
 /* ------------------------------------------------------------------ */
 
-/* DISABLED: EXPORT_SYMBOL(cx88_print_irqbits); */
+EXPORT_SYMBOL(cx88_print_irqbits);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_core_irq); */
-/* DISABLED: EXPORT_SYMBOL(cx88_wakeup); */
-/* DISABLED: EXPORT_SYMBOL(cx88_reset); */
-/* DISABLED: EXPORT_SYMBOL(cx88_shutdown); */
+EXPORT_SYMBOL(cx88_core_irq);
+EXPORT_SYMBOL(cx88_wakeup);
+EXPORT_SYMBOL(cx88_reset);
+EXPORT_SYMBOL(cx88_shutdown);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_risc_buffer); */
-/* DISABLED: EXPORT_SYMBOL(cx88_risc_databuffer); */
-/* DISABLED: EXPORT_SYMBOL(cx88_risc_stopper); */
-/* DISABLED: EXPORT_SYMBOL(cx88_free_buffer); */
+EXPORT_SYMBOL(cx88_risc_buffer);
+EXPORT_SYMBOL(cx88_risc_databuffer);
+EXPORT_SYMBOL(cx88_risc_stopper);
+EXPORT_SYMBOL(cx88_free_buffer);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_sram_channels); */
-/* DISABLED: EXPORT_SYMBOL(cx88_sram_channel_setup); */
-/* DISABLED: EXPORT_SYMBOL(cx88_sram_channel_dump); */
+EXPORT_SYMBOL(cx88_sram_channels);
+EXPORT_SYMBOL(cx88_sram_channel_setup);
+EXPORT_SYMBOL(cx88_sram_channel_dump);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_set_tvnorm); */
-/* DISABLED: EXPORT_SYMBOL(cx88_set_scale); */
+EXPORT_SYMBOL(cx88_set_tvnorm);
+EXPORT_SYMBOL(cx88_set_scale);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_vdev_init); */
-/* DISABLED: EXPORT_SYMBOL(cx88_core_get); */
-/* DISABLED: EXPORT_SYMBOL(cx88_core_put); */
+EXPORT_SYMBOL(cx88_vdev_init);
+EXPORT_SYMBOL(cx88_core_get);
+EXPORT_SYMBOL(cx88_core_put);
 
-/* DISABLED: EXPORT_SYMBOL(cx88_ir_start); */
-/* DISABLED: EXPORT_SYMBOL(cx88_ir_stop); */
+EXPORT_SYMBOL(cx88_ir_start);
+EXPORT_SYMBOL(cx88_ir_stop);
 
 /*
  * Local variables:

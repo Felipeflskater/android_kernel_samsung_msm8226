@@ -75,7 +75,7 @@ int sync_filesystem(struct super_block *sb)
 		return ret;
 	return __sync_filesystem(sb, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sync_filesystem); */
+EXPORT_SYMBOL_GPL(sync_filesystem);
 
 static void sync_one_sb(struct super_block *sb, void *arg)
 {
@@ -168,7 +168,7 @@ int vfs_fsync_range(struct file *file, loff_t start, loff_t end, int datasync)
 		return -EINVAL;
 	return file->f_op->fsync(file, start, end, datasync);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_fsync_range); */
+EXPORT_SYMBOL(vfs_fsync_range);
 
 /**
  * vfs_fsync - perform a fsync or fdatasync on a file
@@ -182,7 +182,7 @@ int vfs_fsync(struct file *file, int datasync)
 {
 	return vfs_fsync_range(file, 0, LLONG_MAX, datasync);
 }
-/* DISABLED: EXPORT_SYMBOL(vfs_fsync); */
+EXPORT_SYMBOL(vfs_fsync);
 
 static int do_fsync(unsigned int fd, int datasync)
 {
@@ -222,7 +222,7 @@ int generic_write_sync(struct file *file, loff_t pos, loff_t count)
 	return vfs_fsync_range(file, pos, pos + count - 1,
 			       (file->f_flags & __O_SYNC) ? 0 : 1);
 }
-/* DISABLED: EXPORT_SYMBOL(generic_write_sync); */
+EXPORT_SYMBOL(generic_write_sync);
 
 /*
  * sys_sync_file_range() permits finely controlled syncing over a segment of

@@ -698,14 +698,14 @@ int __twofish_setkey(struct twofish_ctx *ctx, const u8 *key,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(__twofish_setkey); */
+EXPORT_SYMBOL_GPL(__twofish_setkey);
 
 int twofish_setkey(struct crypto_tfm *tfm, const u8 *key, unsigned int key_len)
 {
 	return __twofish_setkey(crypto_tfm_ctx(tfm), key, key_len,
 				&tfm->crt_flags);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(twofish_setkey); */
+EXPORT_SYMBOL_GPL(twofish_setkey);
 
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Twofish cipher common functions");

@@ -225,7 +225,7 @@ void __iomem *ioremap_nocache(resource_size_t phys_addr, unsigned long size)
 	return __ioremap_caller(phys_addr, size, val,
 				__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_nocache); */
+EXPORT_SYMBOL(ioremap_nocache);
 
 /**
  * ioremap_wc	-	map memory into CPU space write combined
@@ -245,14 +245,14 @@ void __iomem *ioremap_wc(resource_size_t phys_addr, unsigned long size)
 	else
 		return ioremap_nocache(phys_addr, size);
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_wc); */
+EXPORT_SYMBOL(ioremap_wc);
 
 void __iomem *ioremap_cache(resource_size_t phys_addr, unsigned long size)
 {
 	return __ioremap_caller(phys_addr, size, _PAGE_CACHE_WB,
 				__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_cache); */
+EXPORT_SYMBOL(ioremap_cache);
 
 void __iomem *ioremap_prot(resource_size_t phys_addr, unsigned long size,
 				unsigned long prot_val)
@@ -260,7 +260,7 @@ void __iomem *ioremap_prot(resource_size_t phys_addr, unsigned long size,
 	return __ioremap_caller(phys_addr, size, (prot_val & _PAGE_CACHE_MASK),
 				__builtin_return_address(0));
 }
-/* DISABLED: EXPORT_SYMBOL(ioremap_prot); */
+EXPORT_SYMBOL(ioremap_prot);
 
 /**
  * iounmap - Free a IO remapping
@@ -314,7 +314,7 @@ void iounmap(volatile void __iomem *addr)
 	BUG_ON(p != o || o == NULL);
 	kfree(p);
 }
-/* DISABLED: EXPORT_SYMBOL(iounmap); */
+EXPORT_SYMBOL(iounmap);
 
 /*
  * Convert a physical pointer to a virtual kernel pointer for /dev/mem

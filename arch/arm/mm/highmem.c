@@ -26,7 +26,7 @@ void *kmap(struct page *page)
 		return page_address(page);
 	return kmap_high(page);
 }
-/* DISABLED: EXPORT_SYMBOL(kmap); */
+EXPORT_SYMBOL(kmap);
 
 void kunmap(struct page *page)
 {
@@ -35,7 +35,7 @@ void kunmap(struct page *page)
 		return;
 	kunmap_high(page);
 }
-/* DISABLED: EXPORT_SYMBOL(kunmap); */
+EXPORT_SYMBOL(kunmap);
 
 void *kmap_atomic(struct page *page)
 {
@@ -81,7 +81,7 @@ void *kmap_atomic(struct page *page)
 
 	return (void *)vaddr;
 }
-/* DISABLED: EXPORT_SYMBOL(kmap_atomic); */
+EXPORT_SYMBOL(kmap_atomic);
 
 void __kunmap_atomic(void *kvaddr)
 {
@@ -107,7 +107,7 @@ void __kunmap_atomic(void *kvaddr)
 	}
 	pagefault_enable();
 }
-/* DISABLED: EXPORT_SYMBOL(__kunmap_atomic); */
+EXPORT_SYMBOL(__kunmap_atomic);
 
 void *kmap_atomic_pfn(unsigned long pfn)
 {

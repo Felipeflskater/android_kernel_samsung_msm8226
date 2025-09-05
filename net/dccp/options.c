@@ -264,7 +264,7 @@ out_featneg_failed:
 	return -1;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_parse_options); */
+EXPORT_SYMBOL_GPL(dccp_parse_options);
 
 void dccp_encode_value_var(const u64 value, u8 *to, const u8 len)
 {
@@ -307,7 +307,7 @@ int dccp_insert_option(struct sk_buff *skb, const unsigned char option,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_insert_option); */
+EXPORT_SYMBOL_GPL(dccp_insert_option);
 
 static int dccp_insert_option_ndp(struct sock *sk, struct sk_buff *skb)
 {
@@ -373,7 +373,7 @@ int dccp_insert_option_elapsed_time(struct sk_buff *skb, u32 elapsed_time)
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(dccp_insert_option_elapsed_time); */
+EXPORT_SYMBOL_GPL(dccp_insert_option_elapsed_time);
 
 static int dccp_insert_option_timestamp(struct sk_buff *skb)
 {

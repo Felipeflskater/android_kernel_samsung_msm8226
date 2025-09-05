@@ -95,7 +95,7 @@ nodemask_t node_states[NR_NODE_STATES] __read_mostly = {
 	[N_CPU] = { { [0] = 1UL } },
 #endif	/* NUMA */
 };
-/* DISABLED: EXPORT_SYMBOL(node_states); */
+EXPORT_SYMBOL(node_states);
 
 unsigned long totalram_pages __read_mostly;
 unsigned long totalreserve_pages __read_mostly;
@@ -192,9 +192,9 @@ int sysctl_lowmem_reserve_ratio[MAX_NR_ZONES-1] = {
 	 96,
 };
 
-/* DISABLED: EXPORT_SYMBOL(totalram_pages); */
+EXPORT_SYMBOL(totalram_pages);
 #ifdef CONFIG_FIX_MOVABLE_ZONE
-/* DISABLED: EXPORT_SYMBOL(total_unmovable_pages); */
+EXPORT_SYMBOL(total_unmovable_pages);
 #endif
 
 static char * const zone_names[MAX_NR_ZONES] = {
@@ -239,14 +239,14 @@ static unsigned long __meminitdata zone_movable_pfn[MAX_NUMNODES];
 
 /* movable_zone is the "real" zone pages in ZONE_MOVABLE are taken from */
 int movable_zone;
-/* DISABLED: EXPORT_SYMBOL(movable_zone); */
+EXPORT_SYMBOL(movable_zone);
 #endif /* CONFIG_HAVE_MEMBLOCK_NODE_MAP */
 
 #if MAX_NUMNODES > 1
 int nr_node_ids __read_mostly = MAX_NUMNODES;
 int nr_online_nodes __read_mostly = 1;
-/* DISABLED: EXPORT_SYMBOL(nr_node_ids); */
-/* DISABLED: EXPORT_SYMBOL(nr_online_nodes); */
+EXPORT_SYMBOL(nr_node_ids);
+EXPORT_SYMBOL(nr_online_nodes);
 #endif
 
 int page_group_by_mobility_disabled __read_mostly;
@@ -445,7 +445,7 @@ static int __init debug_guardpage_minorder_setup(char *buf)
 	printk(KERN_INFO "Setting debug_guardpage_minorder to %lu\n", res);
 	return 0;
 }
-/* DISABLED: __setup("debug_guardpage_minorder=", debug_guardpage_minorder_setup); */ */
+__setup("debug_guardpage_minorder=", debug_guardpage_minorder_setup);
 
 static inline void set_page_guard_flag(struct page *page)
 {
@@ -1650,7 +1650,7 @@ static int __init setup_fail_page_alloc(char *str)
 {
 	return setup_fault_attr(&fail_page_alloc.attr, str);
 }
-/* DISABLED: __setup("fail_page_alloc=", setup_fail_page_alloc); */ */
+__setup("fail_page_alloc=", setup_fail_page_alloc);
 
 static int should_fail_alloc_page(gfp_t gfp_mask, unsigned int order)
 {
@@ -2780,7 +2780,7 @@ out:
 
 	return page;
 }
-/* DISABLED: EXPORT_SYMBOL(__alloc_pages_nodemask); */
+EXPORT_SYMBOL(__alloc_pages_nodemask);
 
 /*
  * Common helper functions.
@@ -2800,13 +2800,13 @@ unsigned long __get_free_pages(gfp_t gfp_mask, unsigned int order)
 		return 0;
 	return (unsigned long) page_address(page);
 }
-/* DISABLED: EXPORT_SYMBOL(__get_free_pages); */
+EXPORT_SYMBOL(__get_free_pages);
 
 unsigned long get_zeroed_page(gfp_t gfp_mask)
 {
 	return __get_free_pages(gfp_mask | __GFP_ZERO, 0);
 }
-/* DISABLED: EXPORT_SYMBOL(get_zeroed_page); */
+EXPORT_SYMBOL(get_zeroed_page);
 
 void __free_pages(struct page *page, unsigned int order)
 {
@@ -2818,7 +2818,7 @@ void __free_pages(struct page *page, unsigned int order)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(__free_pages); */
+EXPORT_SYMBOL(__free_pages);
 
 void free_pages(unsigned long addr, unsigned int order)
 {
@@ -2828,7 +2828,7 @@ void free_pages(unsigned long addr, unsigned int order)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(free_pages); */
+EXPORT_SYMBOL(free_pages);
 
 static void *make_alloc_exact(unsigned long addr, unsigned order, size_t size)
 {
@@ -2866,7 +2866,7 @@ void *alloc_pages_exact(size_t size, gfp_t gfp_mask)
 	addr = __get_free_pages(gfp_mask, order);
 	return make_alloc_exact(addr, order, size);
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_pages_exact); */
+EXPORT_SYMBOL(alloc_pages_exact);
 
 /**
  * alloc_pages_exact_nid - allocate an exact number of physically-contiguous
@@ -2888,7 +2888,7 @@ void *alloc_pages_exact_nid(int nid, size_t size, gfp_t gfp_mask)
 		return NULL;
 	return make_alloc_exact((unsigned long)page_address(p), order, size);
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_pages_exact_nid); */
+EXPORT_SYMBOL(alloc_pages_exact_nid);
 
 /**
  * free_pages_exact - release memory allocated via alloc_pages_exact()
@@ -2907,7 +2907,7 @@ void free_pages_exact(void *virt, size_t size)
 		addr += PAGE_SIZE;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(free_pages_exact); */
+EXPORT_SYMBOL(free_pages_exact);
 
 static unsigned int nr_free_zone_pages(int offset)
 {
@@ -2936,7 +2936,7 @@ unsigned int nr_free_buffer_pages(void)
 {
 	return nr_free_zone_pages(gfp_zone(GFP_USER));
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(nr_free_buffer_pages); */
+EXPORT_SYMBOL_GPL(nr_free_buffer_pages);
 
 /*
  * Amount of free RAM allocatable within all zones
@@ -2993,7 +2993,7 @@ long si_mem_available(void)
 		available = 0;
 	return available;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(si_mem_available); */
+EXPORT_SYMBOL_GPL(si_mem_available);
 
 void si_meminfo(struct sysinfo *val)
 {
@@ -3006,7 +3006,7 @@ void si_meminfo(struct sysinfo *val)
 	val->mem_unit = PAGE_SIZE;
 }
 
-/* DISABLED: EXPORT_SYMBOL(si_meminfo); */
+EXPORT_SYMBOL(si_meminfo);
 
 #ifdef CONFIG_NUMA
 void si_meminfo_node(struct sysinfo *val, int nid)
@@ -5651,7 +5651,7 @@ static int __init set_hashdist(char *str)
 	hashdist = simple_strtoul(str, &str, 0);
 	return 1;
 }
-/* DISABLED: __setup("hashdist=", set_hashdist); */ */
+__setup("hashdist=", set_hashdist);
 #endif
 
 /*

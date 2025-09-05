@@ -186,7 +186,7 @@ int p54_parse_firmware(struct ieee80211_hw *dev, const struct firmware *fw)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(p54_parse_firmware); */
+EXPORT_SYMBOL_GPL(p54_parse_firmware);
 
 static struct sk_buff *p54_alloc_skb(struct p54_common *priv, u16 hdr_flags,
 				     u16 payload_len, u16 type, gfp_t memflags)

@@ -89,11 +89,11 @@ void __iomem * __ioremap(unsigned long phys_addr, unsigned long size, unsigned l
 
 	return (void __iomem *) (offset + (char __iomem *)addr);
 }
-/* DISABLED: EXPORT_SYMBOL(__ioremap); */
+EXPORT_SYMBOL(__ioremap);
 
 void iounmap(const volatile void __iomem *addr)
 {
 	if (addr > high_memory)
 		return vfree((void *) (PAGE_MASK & (unsigned long __force) addr));
 }
-/* DISABLED: EXPORT_SYMBOL(iounmap); */
+EXPORT_SYMBOL(iounmap);

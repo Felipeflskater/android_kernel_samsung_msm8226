@@ -32,7 +32,7 @@ int fw_iso_resources_init(struct fw_iso_resources *r, struct fw_unit *unit)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resources_init); */
+EXPORT_SYMBOL(fw_iso_resources_init);
 
 /**
  * fw_iso_resources_destroy - destroy a resource manager
@@ -44,7 +44,7 @@ void fw_iso_resources_destroy(struct fw_iso_resources *r)
 	mutex_destroy(&r->mutex);
 	fw_unit_put(r->unit);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resources_destroy); */
+EXPORT_SYMBOL(fw_iso_resources_destroy);
 
 static unsigned int packet_bandwidth(unsigned int max_payload_bytes, int speed)
 {
@@ -149,7 +149,7 @@ retry_after_bus_reset:
 
 	return channel;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resources_allocate); */
+EXPORT_SYMBOL(fw_iso_resources_allocate);
 
 /**
  * fw_iso_resources_update - update resource allocations after a bus reset
@@ -201,7 +201,7 @@ int fw_iso_resources_update(struct fw_iso_resources *r)
 
 	return channel;
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resources_update); */
+EXPORT_SYMBOL(fw_iso_resources_update);
 
 /**
  * fw_iso_resources_free - frees allocated resources
@@ -229,4 +229,4 @@ void fw_iso_resources_free(struct fw_iso_resources *r)
 
 	mutex_unlock(&r->mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(fw_iso_resources_free); */
+EXPORT_SYMBOL(fw_iso_resources_free);

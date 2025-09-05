@@ -94,7 +94,7 @@ int  __cpcmd(const char *cmd, char *response, int rlen, int *response_code)
 		*response_code = rc;
 	return rlen;
 }
-/* DISABLED: EXPORT_SYMBOL(__cpcmd); */
+EXPORT_SYMBOL(__cpcmd);
 
 int cpcmd(const char *cmd, char *response, int rlen, int *response_code)
 {
@@ -122,4 +122,4 @@ int cpcmd(const char *cmd, char *response, int rlen, int *response_code)
 	}
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(cpcmd); */
+EXPORT_SYMBOL(cpcmd);

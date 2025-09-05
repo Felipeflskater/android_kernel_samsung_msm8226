@@ -22,7 +22,7 @@ static int __init prompt_ramdisk(char *str)
 	rd_prompt = simple_strtol(str,NULL,0) & 1;
 	return 1;
 }
-/* DISABLED: __setup("prompt_ramdisk=", prompt_ramdisk); */ */
+__setup("prompt_ramdisk=", prompt_ramdisk);
 
 int __initdata rd_image_start;		/* starting block # of image */
 
@@ -31,7 +31,7 @@ static int __init ramdisk_start_setup(char *str)
 	rd_image_start = simple_strtol(str,NULL,0);
 	return 1;
 }
-/* DISABLED: __setup("ramdisk_start=", ramdisk_start_setup); */ */
+__setup("ramdisk_start=", ramdisk_start_setup);
 
 static int __init crd_load(int in_fd, int out_fd, decompress_fn deco);
 

@@ -340,6 +340,6 @@ void cleanup_module(void)
      *  Visible symbols for modules
      */
 
-/* DISABLED: EXPORT_SYMBOL(atafb_iplan2p8_copyarea); */
-/* DISABLED: EXPORT_SYMBOL(atafb_iplan2p8_fillrect); */
-/* DISABLED: EXPORT_SYMBOL(atafb_iplan2p8_linefill); */
+EXPORT_SYMBOL(atafb_iplan2p8_copyarea);
+EXPORT_SYMBOL(atafb_iplan2p8_fillrect);
+EXPORT_SYMBOL(atafb_iplan2p8_linefill);

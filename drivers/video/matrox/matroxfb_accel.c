@@ -196,7 +196,7 @@ void matrox_cfbX_init(struct matrox_fb_info *minfo)
 	minfo->accel.m_pitch = mpitch;
 }
 
-/* DISABLED: EXPORT_SYMBOL(matrox_cfbX_init); */
+EXPORT_SYMBOL(matrox_cfbX_init);
 
 static void matrox_accel_restore_maccess(struct matrox_fb_info *minfo)
 {

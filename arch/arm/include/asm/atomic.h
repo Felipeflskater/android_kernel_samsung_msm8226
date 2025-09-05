@@ -29,10 +29,7 @@
 #define atomic_read(v)	(*(volatile int *)&(v)->counter)
 #define atomic_set(v,i)	(((v)->counter) = (i))
 
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #if __LINUX_ARM_ARCH__ >= 6
-#endif
 
 /*
  * ARMv6 UP and SMP safe atomic ops.  We use load exclusive and
@@ -209,10 +206,7 @@ static inline void atomic_clear_mask(unsigned long mask, unsigned long *addr)
 	raw_local_irq_restore(flags);
 }
 
-#ifndef __LINUX_ARM_ARCH__
-#endif
 #endif /* __LINUX_ARM_ARCH__ */
-#endif
 
 #define atomic_xchg(v, new) (xchg(&((v)->counter), new))
 

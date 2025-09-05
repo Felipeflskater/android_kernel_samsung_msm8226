@@ -31,7 +31,7 @@ const char *fscache_object_states[FSCACHE_OBJECT__NSTATES] = {
 	[FSCACHE_OBJECT_WITHDRAWING]	= "OBJECT_WITHDRAWING",
 	[FSCACHE_OBJECT_DEAD]		= "OBJECT_DEAD",
 };
-/* DISABLED: EXPORT_SYMBOL(fscache_object_states); */
+EXPORT_SYMBOL(fscache_object_states);
 
 const char fscache_object_states_short[FSCACHE_OBJECT__NSTATES][5] = {
 	[FSCACHE_OBJECT_INIT]		= "INIT",
@@ -345,7 +345,7 @@ void fscache_object_work_func(struct work_struct *work)
 	clear_bit(FSCACHE_OBJECT_EV_REQUEUE, &object->events);
 	fscache_put_object(object);
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_object_work_func); */
+EXPORT_SYMBOL(fscache_object_work_func);
 
 /*
  * initialise an object
@@ -518,7 +518,7 @@ void fscache_object_lookup_negative(struct fscache_object *object)
 
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_object_lookup_negative); */
+EXPORT_SYMBOL(fscache_object_lookup_negative);
 
 /**
  * fscache_obtained_object - Note successful object lookup or creation
@@ -568,7 +568,7 @@ void fscache_obtained_object(struct fscache_object *object)
 
 	_leave("");
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_obtained_object); */
+EXPORT_SYMBOL(fscache_obtained_object);
 
 /*
  * handle an object that has just become available
@@ -795,7 +795,7 @@ bool fscache_object_sleep_till_congested(signed long *timeoutp)
 
 	return fscache_object_congested();
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(fscache_object_sleep_till_congested); */
+EXPORT_SYMBOL_GPL(fscache_object_sleep_till_congested);
 
 /*
  * enqueue the dependents of an object for metadata-type processing
@@ -889,4 +889,4 @@ enum fscache_checkaux fscache_check_aux(struct fscache_object *object,
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(fscache_check_aux); */
+EXPORT_SYMBOL(fscache_check_aux);

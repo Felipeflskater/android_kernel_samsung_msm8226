@@ -13,7 +13,7 @@
 #include <linux/export.h>
 
 const char hex_asc[] = "0123456789abcdef";
-/* DISABLED: EXPORT_SYMBOL(hex_asc); */
+EXPORT_SYMBOL(hex_asc);
 
 /**
  * hex_to_bin - convert a hex digit to its real value
@@ -31,7 +31,7 @@ int hex_to_bin(char ch)
 		return ch - 'a' + 10;
 	return -1;
 }
-/* DISABLED: EXPORT_SYMBOL(hex_to_bin); */
+EXPORT_SYMBOL(hex_to_bin);
 
 /**
  * hex2bin - convert an ascii hexadecimal string to its binary representation
@@ -54,7 +54,7 @@ int hex2bin(u8 *dst, const char *src, size_t count)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(hex2bin); */
+EXPORT_SYMBOL(hex2bin);
 
 /**
  * hex_dump_to_buffer - convert a blob of data to "hex ASCII" in memory
@@ -159,7 +159,7 @@ void hex_dump_to_buffer(const void *buf, size_t len, int rowsize,
 nil:
 	linebuf[lx++] = '\0';
 }
-/* DISABLED: EXPORT_SYMBOL(hex_dump_to_buffer); */
+EXPORT_SYMBOL(hex_dump_to_buffer);
 
 #ifdef CONFIG_PRINTK
 /**
@@ -225,7 +225,7 @@ void print_hex_dump(const char *level, const char *prefix_str, int prefix_type,
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(print_hex_dump); */
+EXPORT_SYMBOL(print_hex_dump);
 
 /**
  * print_hex_dump_bytes - shorthand form of print_hex_dump() with default params
@@ -245,5 +245,5 @@ void print_hex_dump_bytes(const char *prefix_str, int prefix_type,
 	print_hex_dump(KERN_DEBUG, prefix_str, prefix_type, 16, 1,
 		       buf, len, true);
 }
-/* DISABLED: EXPORT_SYMBOL(print_hex_dump_bytes); */
+EXPORT_SYMBOL(print_hex_dump_bytes);
 #endif

@@ -114,7 +114,7 @@ int tm6000_set_reg(struct tm6000_core *dev, u8 req, u16 value, u16 index)
 		tm6000_read_write_usb(dev, USB_DIR_OUT | USB_TYPE_VENDOR,
 				      req, value, index, NULL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_set_reg); */
+EXPORT_SYMBOL_GPL(tm6000_set_reg);
 
 int tm6000_get_reg(struct tm6000_core *dev, u8 req, u16 value, u16 index)
 {
@@ -129,7 +129,7 @@ int tm6000_get_reg(struct tm6000_core *dev, u8 req, u16 value, u16 index)
 
 	return *buf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_get_reg); */
+EXPORT_SYMBOL_GPL(tm6000_get_reg);
 
 int tm6000_set_reg_mask(struct tm6000_core *dev, u8 req, u16 value,
 						u16 index, u16 mask)
@@ -152,7 +152,7 @@ int tm6000_set_reg_mask(struct tm6000_core *dev, u8 req, u16 value,
 	return tm6000_read_write_usb(dev, USB_DIR_OUT | USB_TYPE_VENDOR,
 				      req, value, new_index, NULL, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_set_reg_mask); */
+EXPORT_SYMBOL_GPL(tm6000_set_reg_mask);
 
 int tm6000_get_reg16(struct tm6000_core *dev, u8 req, u16 value, u16 index)
 {
@@ -401,7 +401,7 @@ int tm6000_init_digital_mode(struct tm6000_core *dev)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tm6000_init_digital_mode); */
+EXPORT_SYMBOL(tm6000_init_digital_mode);
 
 struct reg_init {
 	u8 req;
@@ -654,7 +654,7 @@ int tm6000_set_audio_bitrate(struct tm6000_core *dev, int bitrate)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(tm6000_set_audio_bitrate); */
+EXPORT_SYMBOL_GPL(tm6000_set_audio_bitrate);
 
 int tm6000_set_audio_rinput(struct tm6000_core *dev)
 {
@@ -890,7 +890,7 @@ int tm6000_register_extension(struct tm6000_ops *ops)
 	mutex_unlock(&tm6000_devlist_mutex);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tm6000_register_extension); */
+EXPORT_SYMBOL(tm6000_register_extension);
 
 void tm6000_unregister_extension(struct tm6000_ops *ops)
 {
@@ -904,7 +904,7 @@ void tm6000_unregister_extension(struct tm6000_ops *ops)
 	list_del(&ops->next);
 	mutex_unlock(&tm6000_devlist_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(tm6000_unregister_extension); */
+EXPORT_SYMBOL(tm6000_unregister_extension);
 
 void tm6000_init_extension(struct tm6000_core *dev)
 {

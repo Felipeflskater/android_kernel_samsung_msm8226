@@ -88,7 +88,7 @@
 struct lis3lv02d lis3_dev = {
 	.misc_wait   = __WAIT_QUEUE_HEAD_INITIALIZER(lis3_dev.misc_wait),
 };
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3_dev); */
+EXPORT_SYMBOL_GPL(lis3_dev);
 
 /* just like param_set_int() but does sanity-check so that it won't point
  * over the axis array size
@@ -379,7 +379,7 @@ void lis3lv02d_poweroff(struct lis3lv02d *lis3)
 	if (lis3->reg_ctrl)
 		lis3->reg_ctrl(lis3, LIS3_REG_OFF);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_poweroff); */
+EXPORT_SYMBOL_GPL(lis3lv02d_poweroff);
 
 int lis3lv02d_poweron(struct lis3lv02d *lis3)
 {
@@ -412,7 +412,7 @@ int lis3lv02d_poweron(struct lis3lv02d *lis3)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_poweron); */
+EXPORT_SYMBOL_GPL(lis3lv02d_poweron);
 
 
 static void lis3lv02d_joystick_poll(struct input_polled_dev *pidev)
@@ -706,7 +706,7 @@ int lis3lv02d_joystick_enable(struct lis3lv02d *lis3)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_joystick_enable); */
+EXPORT_SYMBOL_GPL(lis3lv02d_joystick_enable);
 
 void lis3lv02d_joystick_disable(struct lis3lv02d *lis3)
 {
@@ -724,7 +724,7 @@ void lis3lv02d_joystick_disable(struct lis3lv02d *lis3)
 	input_free_polled_device(lis3->idev);
 	lis3->idev = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_joystick_disable); */
+EXPORT_SYMBOL_GPL(lis3lv02d_joystick_disable);
 
 /* Sysfs stuff */
 static void lis3lv02d_sysfs_poweron(struct lis3lv02d *lis3)
@@ -856,7 +856,7 @@ int lis3lv02d_remove_fs(struct lis3lv02d *lis3)
 	kfree(lis3->reg_cache);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_remove_fs); */
+EXPORT_SYMBOL_GPL(lis3lv02d_remove_fs);
 
 static void lis3lv02d_8b_configure(struct lis3lv02d *lis3,
 				struct lis3lv02d_platform_data *p)
@@ -1047,7 +1047,7 @@ int lis3lv02d_init_device(struct lis3lv02d *lis3)
 out:
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(lis3lv02d_init_device); */
+EXPORT_SYMBOL_GPL(lis3lv02d_init_device);
 
 MODULE_DESCRIPTION("ST LIS3LV02Dx three-axis digital accelerometer driver");
 MODULE_AUTHOR("Yan Burman, Eric Piel, Pavel Machek");

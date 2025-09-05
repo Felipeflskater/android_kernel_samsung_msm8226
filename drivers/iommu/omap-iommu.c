@@ -70,7 +70,7 @@ int omap_install_iommu_arch(const struct iommu_functions *ops)
 	arch_iommu = ops;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_install_iommu_arch); */
+EXPORT_SYMBOL_GPL(omap_install_iommu_arch);
 
 /**
  * omap_uninstall_iommu_arch - Uninstall archtecure specific iommu functions
@@ -85,7 +85,7 @@ void omap_uninstall_iommu_arch(const struct iommu_functions *ops)
 
 	arch_iommu = NULL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_uninstall_iommu_arch); */
+EXPORT_SYMBOL_GPL(omap_uninstall_iommu_arch);
 
 /**
  * omap_iommu_save_ctx - Save registers for pm off-mode support
@@ -97,7 +97,7 @@ void omap_iommu_save_ctx(struct device *dev)
 
 	arch_iommu->save_ctx(obj);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_save_ctx); */
+EXPORT_SYMBOL_GPL(omap_iommu_save_ctx);
 
 /**
  * omap_iommu_restore_ctx - Restore registers for pm off-mode support
@@ -109,7 +109,7 @@ void omap_iommu_restore_ctx(struct device *dev)
 
 	arch_iommu->restore_ctx(obj);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_restore_ctx); */
+EXPORT_SYMBOL_GPL(omap_iommu_restore_ctx);
 
 /**
  * omap_iommu_arch_version - Return running iommu arch version
@@ -118,7 +118,7 @@ u32 omap_iommu_arch_version(void)
 {
 	return arch_iommu->version;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_arch_version); */
+EXPORT_SYMBOL_GPL(omap_iommu_arch_version);
 
 static int iommu_enable(struct omap_iommu *obj)
 {
@@ -159,7 +159,7 @@ void omap_iotlb_cr_to_e(struct cr_regs *cr, struct iotlb_entry *e)
 
 	arch_iommu->cr_to_e(cr, e);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iotlb_cr_to_e); */
+EXPORT_SYMBOL_GPL(omap_iotlb_cr_to_e);
 
 static inline int iotlb_cr_valid(struct cr_regs *cr)
 {
@@ -403,7 +403,7 @@ ssize_t omap_iommu_dump_ctx(struct omap_iommu *obj, char *buf, ssize_t bytes)
 
 	return bytes;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iommu_dump_ctx); */
+EXPORT_SYMBOL_GPL(omap_iommu_dump_ctx);
 
 static int
 __dump_tlb_entries(struct omap_iommu *obj, struct cr_regs *crs, int num)
@@ -453,14 +453,14 @@ size_t omap_dump_tlb_entries(struct omap_iommu *obj, char *buf, ssize_t bytes)
 
 	return p - buf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_dump_tlb_entries); */
+EXPORT_SYMBOL_GPL(omap_dump_tlb_entries);
 
 int omap_foreach_iommu_device(void *data, int (*fn)(struct device *, void *))
 {
 	return driver_for_each_device(&omap_iommu_driver.driver,
 				      NULL, data, fn);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_foreach_iommu_device); */
+EXPORT_SYMBOL_GPL(omap_foreach_iommu_device);
 
 #endif /* CONFIG_OMAP_IOMMU_DEBUG_MODULE */
 
@@ -654,7 +654,7 @@ int omap_iopgtable_store_entry(struct omap_iommu *obj, struct iotlb_entry *e)
 		prefetch_iotlb_entry(obj, e);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(omap_iopgtable_store_entry); */
+EXPORT_SYMBOL_GPL(omap_iopgtable_store_entry);
 
 /**
  * iopgtable_lookup_entry - Lookup an iommu pte entry

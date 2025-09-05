@@ -561,7 +561,7 @@ int filter_match_preds(struct event_filter *filter, void *rec)
 	WARN_ON(ret);
 	return data.match;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(filter_match_preds); */
+EXPORT_SYMBOL_GPL(filter_match_preds);
 
 static void parse_error(struct filter_parse_state *ps, int err, int pos)
 {

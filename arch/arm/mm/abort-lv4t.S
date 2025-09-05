@@ -15,7 +15,7 @@
  * picture.  Unfortunately, this does happen.  We live with it.
  */
 ENTRY(v4t_late_abort)
-	tst	r5, @ PSR_T_BIT			@ check for thumb mode
+	tst	r5, #PSR_T_BIT			@ check for thumb mode
 #ifdef CONFIG_CPU_CP15_MMU
 	mrc	p15, 0, r1, c5, c0, 0		@ get FSR
 	mrc	p15, 0, r0, c6, c0, 0		@ get FAR
@@ -32,20 +32,20 @@ ENTRY(v4t_late_abort)
 	add	pc, pc, r7, lsr #22		@ Now branch to the relevant processing routine
 	nop
 
-/* 0 */	b	.data_arm_lateldrhpost		@ ldrh	rd, [rn], @ m/rm
-/* 1 */	b	.data_arm_lateldrhpre		@ ldrh	rd, [rn, @ m/rm]
+/* 0 */	b	.data_arm_lateldrhpost		@ ldrh	rd, [rn], #m/rm
+/* 1 */	b	.data_arm_lateldrhpre		@ ldrh	rd, [rn, #m/rm]
 /* 2 */	b	.data_unknown
 /* 3 */	b	.data_unknown
-/* 4 */	b	.data_arm_lateldrpostconst	@ ldr	rd, [rn], @ m
-/* 5 */	b	.data_arm_lateldrpreconst	@ ldr	rd, [rn, @ m] 
+/* 4 */	b	.data_arm_lateldrpostconst	@ ldr	rd, [rn], #m
+/* 5 */	b	.data_arm_lateldrpreconst	@ ldr	rd, [rn, #m] 
 /* 6 */	b	.data_arm_lateldrpostreg	@ ldr	rd, [rn], rm
 /* 7 */	b	.data_arm_lateldrprereg		@ ldr	rd, [rn, rm]
 /* 8 */	b	.data_arm_ldmstm		@ ldm*a	rn, <rlist>
 /* 9 */	b	.data_arm_ldmstm		@ ldm*b	rn, <rlist>
 /* a */	b	.data_unknown
 /* b */	b	.data_unknown
-/* c */	b	do_DataAbort			@ ldc	rd, [rn], @ m	@ Same as ldr	rd, [rn], @ m
-/* d */	b	do_DataAbort			@ ldc	rd, [rn, @ m]
+/* c */	b	do_DataAbort			@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
+/* d */	b	do_DataAbort			@ ldc	rd, [rn, #m]
 /* e */	b	.data_unknown
 /* f */
 .data_unknown:	@ Part of jumptable
@@ -121,7 +121,7 @@ ENTRY(v4t_late_abort)
 	add	pc, pc, r7
 	nop
 
-	mov	r6, r6, lsl r9			@ 0: LSL @ !0
+	mov	r6, r6, lsl r9			@ 0: LSL #!0
 	b	.data_arm_apply_r6_and_rn
 	b	.data_arm_apply_r6_and_rn	@ 1: LSL #0
 	nop
@@ -129,7 +129,7 @@ ENTRY(v4t_late_abort)
 	nop
 	b	.data_unknown			@ 3: MUL?
 	nop
-	mov	r6, r6, lsr r9			@ 4: LSR @ !0
+	mov	r6, r6, lsr r9			@ 4: LSR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, lsr #32			@ 5: LSR #32
 	b	.data_arm_apply_r6_and_rn
@@ -137,7 +137,7 @@ ENTRY(v4t_late_abort)
 	nop
 	b	.data_unknown			@ 7: MUL?
 	nop
-	mov	r6, r6, asr r9			@ 8: ASR @ !0
+	mov	r6, r6, asr r9			@ 8: ASR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, asr #32			@ 9: ASR #32
 	b	.data_arm_apply_r6_and_rn
@@ -145,7 +145,7 @@ ENTRY(v4t_late_abort)
 	nop
 	b	.data_unknown			@ B: MUL?
 	nop
-	mov	r6, r6, ror r9			@ C: ROR @ !0
+	mov	r6, r6, ror r9			@ C: ROR #!0
 	b	.data_arm_apply_r6_and_rn
 	mov	r6, r6, rrx			@ D: RRX
 	b	.data_arm_apply_r6_and_rn

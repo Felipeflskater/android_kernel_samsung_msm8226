@@ -317,7 +317,7 @@ exit:
 	kfree(env);
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kobject_uevent_env); */
+EXPORT_SYMBOL_GPL(kobject_uevent_env);
 
 /**
  * kobject_uevent - notify userspace by sending an uevent
@@ -332,7 +332,7 @@ int kobject_uevent(struct kobject *kobj, enum kobject_action action)
 {
 	return kobject_uevent_env(kobj, action, NULL);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(kobject_uevent); */
+EXPORT_SYMBOL_GPL(kobject_uevent);
 
 /**
  * add_uevent_var - add key value string to the environment buffer
@@ -367,7 +367,7 @@ int add_uevent_var(struct kobj_uevent_env *env, const char *format, ...)
 	env->buflen += len + 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(add_uevent_var); */
+EXPORT_SYMBOL_GPL(add_uevent_var);
 
 #if defined(CONFIG_NET)
 static int uevent_net_init(struct net *net)

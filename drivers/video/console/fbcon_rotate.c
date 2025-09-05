@@ -109,7 +109,7 @@ void fbcon_set_rotate(struct fbcon_ops *ops)
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(fbcon_set_rotate); */
+EXPORT_SYMBOL(fbcon_set_rotate);
 
 MODULE_AUTHOR("Antonino Daplas <adaplas@pol.net>");
 MODULE_DESCRIPTION("Console Rotation Support");

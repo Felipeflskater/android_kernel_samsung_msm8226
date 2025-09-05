@@ -242,7 +242,7 @@ ax25_cb *ax25_find_cb(ax25_address *src_addr, ax25_address *dest_addr,
 	return NULL;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ax25_find_cb); */
+EXPORT_SYMBOL(ax25_find_cb);
 
 void ax25_send_to_raw(ax25_address *addr, struct sk_buff *skb, int proto)
 {

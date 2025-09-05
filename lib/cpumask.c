@@ -9,13 +9,13 @@ int __first_cpu(const cpumask_t *srcp)
 {
 	return min_t(int, NR_CPUS, find_first_bit(srcp->bits, NR_CPUS));
 }
-/* DISABLED: EXPORT_SYMBOL(__first_cpu); */
+EXPORT_SYMBOL(__first_cpu);
 
 int __next_cpu(int n, const cpumask_t *srcp)
 {
 	return min_t(int, NR_CPUS, find_next_bit(srcp->bits, NR_CPUS, n+1));
 }
-/* DISABLED: EXPORT_SYMBOL(__next_cpu); */
+EXPORT_SYMBOL(__next_cpu);
 
 #if NR_CPUS > 64
 int __next_cpu_nr(int n, const cpumask_t *srcp)
@@ -23,7 +23,7 @@ int __next_cpu_nr(int n, const cpumask_t *srcp)
 	return min_t(int, nr_cpu_ids,
 				find_next_bit(srcp->bits, nr_cpu_ids, n+1));
 }
-/* DISABLED: EXPORT_SYMBOL(__next_cpu_nr); */
+EXPORT_SYMBOL(__next_cpu_nr);
 #endif
 
 /**
@@ -42,7 +42,7 @@ int cpumask_next_and(int n, const struct cpumask *src1p,
 			break;
 	return n;
 }
-/* DISABLED: EXPORT_SYMBOL(cpumask_next_and); */
+EXPORT_SYMBOL(cpumask_next_and);
 
 /**
  * cpumask_any_but - return a "random" in a cpumask, but not this one.
@@ -99,13 +99,13 @@ bool alloc_cpumask_var_node(cpumask_var_t *mask, gfp_t flags, int node)
 
 	return *mask != NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_cpumask_var_node); */
+EXPORT_SYMBOL(alloc_cpumask_var_node);
 
 bool zalloc_cpumask_var_node(cpumask_var_t *mask, gfp_t flags, int node)
 {
 	return alloc_cpumask_var_node(mask, flags | __GFP_ZERO, node);
 }
-/* DISABLED: EXPORT_SYMBOL(zalloc_cpumask_var_node); */
+EXPORT_SYMBOL(zalloc_cpumask_var_node);
 
 /**
  * alloc_cpumask_var - allocate a struct cpumask
@@ -121,13 +121,13 @@ bool alloc_cpumask_var(cpumask_var_t *mask, gfp_t flags)
 {
 	return alloc_cpumask_var_node(mask, flags, NUMA_NO_NODE);
 }
-/* DISABLED: EXPORT_SYMBOL(alloc_cpumask_var); */
+EXPORT_SYMBOL(alloc_cpumask_var);
 
 bool zalloc_cpumask_var(cpumask_var_t *mask, gfp_t flags)
 {
 	return alloc_cpumask_var(mask, flags | __GFP_ZERO);
 }
-/* DISABLED: EXPORT_SYMBOL(zalloc_cpumask_var); */
+EXPORT_SYMBOL(zalloc_cpumask_var);
 
 /**
  * alloc_bootmem_cpumask_var - allocate a struct cpumask from the bootmem arena.
@@ -153,7 +153,7 @@ void free_cpumask_var(cpumask_var_t mask)
 {
 	kfree(mask);
 }
-/* DISABLED: EXPORT_SYMBOL(free_cpumask_var); */
+EXPORT_SYMBOL(free_cpumask_var);
 
 /**
  * free_bootmem_cpumask_var - frees result of alloc_bootmem_cpumask_var

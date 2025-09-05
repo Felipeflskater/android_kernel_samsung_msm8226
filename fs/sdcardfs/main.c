@@ -243,9 +243,9 @@ static struct dentry *sdcardfs_d_alloc_root(struct super_block *sb)
 #endif
 
 DEFINE_MUTEX(sdcardfs_super_list_lock);
-/* DISABLED: EXPORT_SYMBOL_GPL(sdcardfs_super_list_lock); */
+EXPORT_SYMBOL_GPL(sdcardfs_super_list_lock);
 LIST_HEAD(sdcardfs_super_list);
-/* DISABLED: EXPORT_SYMBOL_GPL(sdcardfs_super_list); */
+EXPORT_SYMBOL_GPL(sdcardfs_super_list);
 
 /*
  * There is no need to lock the sdcardfs_super_info's rwsem as there is no

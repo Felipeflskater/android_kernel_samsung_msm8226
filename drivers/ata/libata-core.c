@@ -6692,7 +6692,7 @@ bool sata_lpm_ignore_phy_events(struct ata_link *link)
 
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_lpm_ignore_phy_events); */
+EXPORT_SYMBOL_GPL(sata_lpm_ignore_phy_events);
 
 /*
  * Dummy port_ops
@@ -6738,7 +6738,7 @@ int ata_port_printk(const struct ata_port *ap, const char *level,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(ata_port_printk); */
+EXPORT_SYMBOL(ata_port_printk);
 
 int ata_link_printk(const struct ata_link *link, const char *level,
 		    const char *fmt, ...)
@@ -6763,7 +6763,7 @@ int ata_link_printk(const struct ata_link *link, const char *level,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(ata_link_printk); */
+EXPORT_SYMBOL(ata_link_printk);
 
 int ata_dev_printk(const struct ata_device *dev, const char *level,
 		    const char *fmt, ...)
@@ -6785,13 +6785,13 @@ int ata_dev_printk(const struct ata_device *dev, const char *level,
 
 	return r;
 }
-/* DISABLED: EXPORT_SYMBOL(ata_dev_printk); */
+EXPORT_SYMBOL(ata_dev_printk);
 
 void ata_print_version(const struct device *dev, const char *version)
 {
 	dev_printk(KERN_DEBUG, dev, "version %s\n", version);
 }
-/* DISABLED: EXPORT_SYMBOL(ata_print_version); */
+EXPORT_SYMBOL(ata_print_version);
 
 /*
  * libata is essentially a library of internal helper functions for
@@ -6799,115 +6799,115 @@ void ata_print_version(const struct device *dev, const char *version)
  * likely to change as new drivers are added and updated.
  * Do not depend on ABI/API stability.
  */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_deb_timing_normal); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_deb_timing_hotplug); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_deb_timing_long); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_base_port_ops); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_port_ops); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dummy_port_ops); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dummy_port_info); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_link_next); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dev_next); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_std_bios_param); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_unlock_native_capacity); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_init); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_alloc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_alloc_pinfo); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_slave_link_init); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_start); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_register); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_activate); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_detach); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_sg_init); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_qc_complete); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_qc_complete_multiple); */
-/* DISABLED: EXPORT_SYMBOL_GPL(atapi_cmd_type); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_tf_to_fis); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_tf_from_fis); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pack_xfermask); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_unpack_xfermask); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_xfer_mask2mode); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_xfer_mode2mask); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_xfer_mode2shift); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_mode_string); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_id_xfermask); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_do_set_mode); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_std_qc_defer); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_noop_qc_prep); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dev_disable); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_set_spd); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_wait_after_reset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_link_debounce); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_link_resume); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_link_scr_lpm); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_std_prereset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_link_hardreset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_std_hardreset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_std_postreset); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dev_classify); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_dev_pair); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_ratelimit); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_msleep); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_wait_register); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_queuecmd); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_slave_config); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_slave_destroy); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_change_queue_depth); */
-/* DISABLED: EXPORT_SYMBOL_GPL(__ata_change_queue_depth); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_scr_valid); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_scr_read); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_scr_write); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_scr_write_flush); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_link_online); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_link_offline); */
+EXPORT_SYMBOL_GPL(sata_deb_timing_normal);
+EXPORT_SYMBOL_GPL(sata_deb_timing_hotplug);
+EXPORT_SYMBOL_GPL(sata_deb_timing_long);
+EXPORT_SYMBOL_GPL(ata_base_port_ops);
+EXPORT_SYMBOL_GPL(sata_port_ops);
+EXPORT_SYMBOL_GPL(ata_dummy_port_ops);
+EXPORT_SYMBOL_GPL(ata_dummy_port_info);
+EXPORT_SYMBOL_GPL(ata_link_next);
+EXPORT_SYMBOL_GPL(ata_dev_next);
+EXPORT_SYMBOL_GPL(ata_std_bios_param);
+EXPORT_SYMBOL_GPL(ata_scsi_unlock_native_capacity);
+EXPORT_SYMBOL_GPL(ata_host_init);
+EXPORT_SYMBOL_GPL(ata_host_alloc);
+EXPORT_SYMBOL_GPL(ata_host_alloc_pinfo);
+EXPORT_SYMBOL_GPL(ata_slave_link_init);
+EXPORT_SYMBOL_GPL(ata_host_start);
+EXPORT_SYMBOL_GPL(ata_host_register);
+EXPORT_SYMBOL_GPL(ata_host_activate);
+EXPORT_SYMBOL_GPL(ata_host_detach);
+EXPORT_SYMBOL_GPL(ata_sg_init);
+EXPORT_SYMBOL_GPL(ata_qc_complete);
+EXPORT_SYMBOL_GPL(ata_qc_complete_multiple);
+EXPORT_SYMBOL_GPL(atapi_cmd_type);
+EXPORT_SYMBOL_GPL(ata_tf_to_fis);
+EXPORT_SYMBOL_GPL(ata_tf_from_fis);
+EXPORT_SYMBOL_GPL(ata_pack_xfermask);
+EXPORT_SYMBOL_GPL(ata_unpack_xfermask);
+EXPORT_SYMBOL_GPL(ata_xfer_mask2mode);
+EXPORT_SYMBOL_GPL(ata_xfer_mode2mask);
+EXPORT_SYMBOL_GPL(ata_xfer_mode2shift);
+EXPORT_SYMBOL_GPL(ata_mode_string);
+EXPORT_SYMBOL_GPL(ata_id_xfermask);
+EXPORT_SYMBOL_GPL(ata_do_set_mode);
+EXPORT_SYMBOL_GPL(ata_std_qc_defer);
+EXPORT_SYMBOL_GPL(ata_noop_qc_prep);
+EXPORT_SYMBOL_GPL(ata_dev_disable);
+EXPORT_SYMBOL_GPL(sata_set_spd);
+EXPORT_SYMBOL_GPL(ata_wait_after_reset);
+EXPORT_SYMBOL_GPL(sata_link_debounce);
+EXPORT_SYMBOL_GPL(sata_link_resume);
+EXPORT_SYMBOL_GPL(sata_link_scr_lpm);
+EXPORT_SYMBOL_GPL(ata_std_prereset);
+EXPORT_SYMBOL_GPL(sata_link_hardreset);
+EXPORT_SYMBOL_GPL(sata_std_hardreset);
+EXPORT_SYMBOL_GPL(ata_std_postreset);
+EXPORT_SYMBOL_GPL(ata_dev_classify);
+EXPORT_SYMBOL_GPL(ata_dev_pair);
+EXPORT_SYMBOL_GPL(ata_ratelimit);
+EXPORT_SYMBOL_GPL(ata_msleep);
+EXPORT_SYMBOL_GPL(ata_wait_register);
+EXPORT_SYMBOL_GPL(ata_scsi_queuecmd);
+EXPORT_SYMBOL_GPL(ata_scsi_slave_config);
+EXPORT_SYMBOL_GPL(ata_scsi_slave_destroy);
+EXPORT_SYMBOL_GPL(ata_scsi_change_queue_depth);
+EXPORT_SYMBOL_GPL(__ata_change_queue_depth);
+EXPORT_SYMBOL_GPL(sata_scr_valid);
+EXPORT_SYMBOL_GPL(sata_scr_read);
+EXPORT_SYMBOL_GPL(sata_scr_write);
+EXPORT_SYMBOL_GPL(sata_scr_write_flush);
+EXPORT_SYMBOL_GPL(ata_link_online);
+EXPORT_SYMBOL_GPL(ata_link_offline);
 #ifdef CONFIG_PM
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_suspend); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_host_resume); */
+EXPORT_SYMBOL_GPL(ata_host_suspend);
+EXPORT_SYMBOL_GPL(ata_host_resume);
 #endif /* CONFIG_PM */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_id_string); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_id_c_string); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_do_dev_read_id); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_scsi_simulate); */
+EXPORT_SYMBOL_GPL(ata_id_string);
+EXPORT_SYMBOL_GPL(ata_id_c_string);
+EXPORT_SYMBOL_GPL(ata_do_dev_read_id);
+EXPORT_SYMBOL_GPL(ata_scsi_simulate);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pio_need_iordy); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_timing_find_mode); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_timing_compute); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_timing_merge); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_timing_cycle2mode); */
+EXPORT_SYMBOL_GPL(ata_pio_need_iordy);
+EXPORT_SYMBOL_GPL(ata_timing_find_mode);
+EXPORT_SYMBOL_GPL(ata_timing_compute);
+EXPORT_SYMBOL_GPL(ata_timing_merge);
+EXPORT_SYMBOL_GPL(ata_timing_cycle2mode);
 
 #ifdef CONFIG_PCI
-/* DISABLED: EXPORT_SYMBOL_GPL(pci_test_config_bits); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_remove_one); */
+EXPORT_SYMBOL_GPL(pci_test_config_bits);
+EXPORT_SYMBOL_GPL(ata_pci_remove_one);
 #ifdef CONFIG_PM
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_device_do_suspend); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_device_do_resume); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_device_suspend); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_pci_device_resume); */
+EXPORT_SYMBOL_GPL(ata_pci_device_do_suspend);
+EXPORT_SYMBOL_GPL(ata_pci_device_do_resume);
+EXPORT_SYMBOL_GPL(ata_pci_device_suspend);
+EXPORT_SYMBOL_GPL(ata_pci_device_resume);
 #endif /* CONFIG_PM */
 #endif /* CONFIG_PCI */
 
-/* DISABLED: EXPORT_SYMBOL_GPL(__ata_ehi_push_desc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_ehi_push_desc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_ehi_clear_desc); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_desc); */
+EXPORT_SYMBOL_GPL(__ata_ehi_push_desc);
+EXPORT_SYMBOL_GPL(ata_ehi_push_desc);
+EXPORT_SYMBOL_GPL(ata_ehi_clear_desc);
+EXPORT_SYMBOL_GPL(ata_port_desc);
 #ifdef CONFIG_PCI
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_pbar_desc); */
+EXPORT_SYMBOL_GPL(ata_port_pbar_desc);
 #endif /* CONFIG_PCI */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_schedule_eh); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_link_abort); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_abort); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_port_freeze); */
-/* DISABLED: EXPORT_SYMBOL_GPL(sata_async_notification); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_eh_freeze_port); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_eh_thaw_port); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_eh_qc_complete); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_eh_qc_retry); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_eh_analyze_ncq_error); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_do_eh); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_std_error_handler); */
+EXPORT_SYMBOL_GPL(ata_port_schedule_eh);
+EXPORT_SYMBOL_GPL(ata_link_abort);
+EXPORT_SYMBOL_GPL(ata_port_abort);
+EXPORT_SYMBOL_GPL(ata_port_freeze);
+EXPORT_SYMBOL_GPL(sata_async_notification);
+EXPORT_SYMBOL_GPL(ata_eh_freeze_port);
+EXPORT_SYMBOL_GPL(ata_eh_thaw_port);
+EXPORT_SYMBOL_GPL(ata_eh_qc_complete);
+EXPORT_SYMBOL_GPL(ata_eh_qc_retry);
+EXPORT_SYMBOL_GPL(ata_eh_analyze_ncq_error);
+EXPORT_SYMBOL_GPL(ata_do_eh);
+EXPORT_SYMBOL_GPL(ata_std_error_handler);
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_cable_40wire); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_cable_80wire); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_cable_unknown); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_cable_ignore); */
-/* DISABLED: EXPORT_SYMBOL_GPL(ata_cable_sata); */
+EXPORT_SYMBOL_GPL(ata_cable_40wire);
+EXPORT_SYMBOL_GPL(ata_cable_80wire);
+EXPORT_SYMBOL_GPL(ata_cable_unknown);
+EXPORT_SYMBOL_GPL(ata_cable_ignore);
+EXPORT_SYMBOL_GPL(ata_cable_sata);

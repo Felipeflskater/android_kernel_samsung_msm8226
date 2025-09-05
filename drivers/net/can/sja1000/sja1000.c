@@ -540,7 +540,7 @@ out:
 
 	return (n) ? IRQ_HANDLED : IRQ_NONE;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(sja1000_interrupt); */
+EXPORT_SYMBOL_GPL(sja1000_interrupt);
 
 static int sja1000_open(struct net_device *dev)
 {
@@ -618,13 +618,13 @@ struct net_device *alloc_sja1000dev(int sizeof_priv)
 
 	return dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(alloc_sja1000dev); */
+EXPORT_SYMBOL_GPL(alloc_sja1000dev);
 
 void free_sja1000dev(struct net_device *dev)
 {
 	free_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(free_sja1000dev); */
+EXPORT_SYMBOL_GPL(free_sja1000dev);
 
 static const struct net_device_ops sja1000_netdev_ops = {
        .ndo_open               = sja1000_open,
@@ -645,14 +645,14 @@ int register_sja1000dev(struct net_device *dev)
 
 	return register_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(register_sja1000dev); */
+EXPORT_SYMBOL_GPL(register_sja1000dev);
 
 void unregister_sja1000dev(struct net_device *dev)
 {
 	set_reset_mode(dev);
 	unregister_candev(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(unregister_sja1000dev); */
+EXPORT_SYMBOL_GPL(unregister_sja1000dev);
 
 static __init int sja1000_init(void)
 {

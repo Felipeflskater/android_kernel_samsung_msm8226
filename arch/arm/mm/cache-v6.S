@@ -131,10 +131,10 @@ ENTRY(v6_coherent_kern_range)
 ENTRY(v6_coherent_user_range)
  UNWIND(.fnstart		)
 #ifdef HARVARD_CACHE
-	bic	r0, r0, @ CACHE_LINE_SIZE - 1
+	bic	r0, r0, #CACHE_LINE_SIZE - 1
 1:
  USER(	mcr	p15, 0, r0, c7, c10, 1	)	@ clean D line
-	add	r0, r0, @ CACHE_LINE_SIZE
+	add	r0, r0, #CACHE_LINE_SIZE
 2:
 	cmp	r0, r1
 	blo	1b
@@ -176,14 +176,14 @@ ENDPROC(v6_coherent_kern_range)
  */
 ENTRY(v6_flush_kern_dcache_area)
 	add	r1, r0, r1
-	bic	r0, r0, @ D_CACHE_LINE_SIZE - 1
+	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
 1:
 #ifdef HARVARD_CACHE
 	mcr	p15, 0, r0, c7, c14, 1		@ clean & invalidate D line
 #else
 	mcr	p15, 0, r0, c7, c15, 1		@ clean & invalidate unified line
 #endif	
-	add	r0, r0, @ D_CACHE_LINE_SIZE
+	add	r0, r0, #D_CACHE_LINE_SIZE
 	cmp	r0, r1
 	blo	1b
 #ifdef HARVARD_CACHE
@@ -208,19 +208,19 @@ v6_dma_inv_range:
 	ldrb	r2, [r0]			@ read for ownership
 	strb	r2, [r0]			@ write for ownership
 #endif
-	tst	r0, @ D_CACHE_LINE_SIZE - 1
-	bic	r0, r0, @ D_CACHE_LINE_SIZE - 1
+	tst	r0, #D_CACHE_LINE_SIZE - 1
+	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
 #ifdef HARVARD_CACHE
 	mcrne	p15, 0, r0, c7, c10, 1		@ clean D line
 #else
 	mcrne	p15, 0, r0, c7, c11, 1		@ clean unified line
 #endif
-	tst	r1, @ D_CACHE_LINE_SIZE - 1
+	tst	r1, #D_CACHE_LINE_SIZE - 1
 #ifdef CONFIG_DMA_CACHE_RWFO
-	ldrneb	r2, [r1, @ -1]			@ read for ownership
-	strneb	r2, [r1, @ -1]			@ write for ownership
+	ldrneb	r2, [r1, #-1]			@ read for ownership
+	strneb	r2, [r1, #-1]			@ write for ownership
 #endif
-	bic	r1, r1, @ D_CACHE_LINE_SIZE - 1
+	bic	r1, r1, #D_CACHE_LINE_SIZE - 1
 #ifdef HARVARD_CACHE
 	mcrne	p15, 0, r1, c7, c14, 1		@ clean & invalidate D line
 #else
@@ -232,7 +232,7 @@ v6_dma_inv_range:
 #else
 	mcr	p15, 0, r0, c7, c7, 1		@ invalidate unified line
 #endif
-	add	r0, r0, @ D_CACHE_LINE_SIZE
+	add	r0, r0, #D_CACHE_LINE_SIZE
 	cmp	r0, r1
 #ifdef CONFIG_DMA_CACHE_RWFO
 	ldrlo	r2, [r0]			@ read for ownership
@@ -249,7 +249,7 @@ v6_dma_inv_range:
  *	- end     - virtual end address of region
  */
 v6_dma_clean_range:
-	bic	r0, r0, @ D_CACHE_LINE_SIZE - 1
+	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
 1:
 #ifdef CONFIG_DMA_CACHE_RWFO
 	ldr	r2, [r0]			@ read for ownership
@@ -259,7 +259,7 @@ v6_dma_clean_range:
 #else
 	mcr	p15, 0, r0, c7, c11, 1		@ clean unified line
 #endif
-	add	r0, r0, @ D_CACHE_LINE_SIZE
+	add	r0, r0, #D_CACHE_LINE_SIZE
 	cmp	r0, r1
 	blo	1b
 	mov	r0, #0
@@ -274,21 +274,21 @@ v6_dma_clean_range:
 ENTRY(v6_dma_flush_range)
 #ifdef CONFIG_CACHE_FLUSH_RANGE_LIMIT
 	sub	r2, r1, r0
-	cmp	r2, @ CONFIG_CACHE_FLUSH_RANGE_LIMIT
+	cmp	r2, #CONFIG_CACHE_FLUSH_RANGE_LIMIT
 	bhi	v6_dma_flush_dcache_all
 #endif
 #ifdef CONFIG_DMA_CACHE_RWFO
 	ldrb	r2, [r0]		@ read for ownership
 	strb	r2, [r0]		@ write for ownership
 #endif
-	bic	r0, r0, @ D_CACHE_LINE_SIZE - 1
+	bic	r0, r0, #D_CACHE_LINE_SIZE - 1
 1:
 #ifdef HARVARD_CACHE
 	mcr	p15, 0, r0, c7, c14, 1		@ clean & invalidate D line
 #else
 	mcr	p15, 0, r0, c7, c15, 1		@ clean & invalidate line
 #endif
-	add	r0, r0, @ D_CACHE_LINE_SIZE
+	add	r0, r0, #D_CACHE_LINE_SIZE
 	cmp	r0, r1
 #ifdef CONFIG_DMA_CACHE_RWFO
 	ldrlob	r2, [r0]			@ read for ownership
@@ -319,12 +319,12 @@ v6_dma_flush_dcache_all:
  */
 ENTRY(v6_dma_map_area)
 	add	r1, r1, r0
-	teq	r2, @ DMA_FROM_DEVICE
+	teq	r2, #DMA_FROM_DEVICE
 	beq	v6_dma_inv_range
 #ifndef CONFIG_DMA_CACHE_RWFO
 	b	v6_dma_clean_range
 #else
-	teq	r2, @ DMA_TO_DEVICE
+	teq	r2, #DMA_TO_DEVICE
 	beq	v6_dma_clean_range
 	b	v6_dma_flush_range
 #endif
@@ -339,7 +339,7 @@ ENDPROC(v6_dma_map_area)
 ENTRY(v6_dma_unmap_area)
 #ifndef CONFIG_DMA_CACHE_RWFO
 	add	r1, r1, r0
-	teq	r2, @ DMA_TO_DEVICE
+	teq	r2, #DMA_TO_DEVICE
 	bne	v6_dma_inv_range
 #endif
 	mov	pc, lr

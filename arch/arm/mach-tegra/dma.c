@@ -147,7 +147,7 @@ static void tegra_dma_stop(struct tegra_dma_channel *ch);
 void tegra_dma_flush(struct tegra_dma_channel *ch)
 {
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_flush); */
+EXPORT_SYMBOL(tegra_dma_flush);
 
 void tegra_dma_dequeue(struct tegra_dma_channel *ch)
 {
@@ -304,7 +304,7 @@ skip_stop_dma:
 	req->complete(req);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_dequeue_req); */
+EXPORT_SYMBOL(tegra_dma_dequeue_req);
 
 bool tegra_dma_is_empty(struct tegra_dma_channel *ch)
 {
@@ -319,7 +319,7 @@ bool tegra_dma_is_empty(struct tegra_dma_channel *ch)
 	spin_unlock_irqrestore(&ch->lock, irq_flags);
 	return is_empty;
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_is_empty); */
+EXPORT_SYMBOL(tegra_dma_is_empty);
 
 bool tegra_dma_is_req_inflight(struct tegra_dma_channel *ch,
 	struct tegra_dma_req *_req)
@@ -337,7 +337,7 @@ bool tegra_dma_is_req_inflight(struct tegra_dma_channel *ch,
 	spin_unlock_irqrestore(&ch->lock, irq_flags);
 	return false;
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_is_req_inflight); */
+EXPORT_SYMBOL(tegra_dma_is_req_inflight);
 
 int tegra_dma_enqueue_req(struct tegra_dma_channel *ch,
 	struct tegra_dma_req *req)
@@ -376,7 +376,7 @@ int tegra_dma_enqueue_req(struct tegra_dma_channel *ch,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_enqueue_req); */
+EXPORT_SYMBOL(tegra_dma_enqueue_req);
 
 struct tegra_dma_channel *tegra_dma_allocate_channel(int mode)
 {
@@ -405,7 +405,7 @@ out:
 	mutex_unlock(&tegra_dma_lock);
 	return ch;
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_allocate_channel); */
+EXPORT_SYMBOL(tegra_dma_allocate_channel);
 
 void tegra_dma_free_channel(struct tegra_dma_channel *ch)
 {
@@ -416,7 +416,7 @@ void tegra_dma_free_channel(struct tegra_dma_channel *ch)
 	__clear_bit(ch->id, channel_usage);
 	mutex_unlock(&tegra_dma_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(tegra_dma_free_channel); */
+EXPORT_SYMBOL(tegra_dma_free_channel);
 
 static void tegra_dma_update_hw_partial(struct tegra_dma_channel *ch,
 	struct tegra_dma_req *req)

@@ -1090,18 +1090,18 @@ static void MGAG100_restore(struct matrox_fb_info *minfo)
 struct matrox_switch matrox_mystique = {
 	MGA1064_preinit, MGA1064_reset, MGA1064_init, MGA1064_restore,
 };
-/* DISABLED: EXPORT_SYMBOL(matrox_mystique); */
+EXPORT_SYMBOL(matrox_mystique);
 #endif
 
 #ifdef CONFIG_FB_MATROX_G
 struct matrox_switch matrox_G100 = {
 	MGAG100_preinit, MGAG100_reset, MGAG100_init, MGAG100_restore,
 };
-/* DISABLED: EXPORT_SYMBOL(matrox_G100); */
+EXPORT_SYMBOL(matrox_G100);
 #endif
 
 #ifdef NEED_DAC1064
-/* DISABLED: EXPORT_SYMBOL(DAC1064_global_init); */
-/* DISABLED: EXPORT_SYMBOL(DAC1064_global_restore); */
+EXPORT_SYMBOL(DAC1064_global_init);
+EXPORT_SYMBOL(DAC1064_global_restore);
 #endif
 MODULE_LICENSE("GPL");

@@ -72,36 +72,36 @@ ENTRY(omap7xx_cpu_suspend)
 	nop
 
 	@ load base address of Traffic Controller
-	mov	r6, @ TCMIF_ASM_BASE & 0xff000000
-	orr	r6, r6, @ TCMIF_ASM_BASE & 0x00ff0000
-	orr	r6, r6, @ TCMIF_ASM_BASE & 0x0000ff00
+	mov	r6, #TCMIF_ASM_BASE & 0xff000000
+	orr	r6, r6, #TCMIF_ASM_BASE & 0x00ff0000
+	orr	r6, r6, #TCMIF_ASM_BASE & 0x0000ff00
 
 	@ prepare to put SDRAM into self-refresh manually
-	ldr	r7, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
-	orr	r9, r7, @ SELF_REFRESH_MODE & 0xff000000
-	orr	r9, r9, @ SELF_REFRESH_MODE & 0x000000ff
-	str	r9, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r7, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	orr	r9, r7, #SELF_REFRESH_MODE & 0xff000000
+	orr	r9, r9, #SELF_REFRESH_MODE & 0x000000ff
+	str	r9, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
 
 	@ prepare to put EMIFS to Sleep
-	ldr	r8, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
-	orr	r9, r8, @ IDLE_EMIFS_REQUEST & 0xff
-	str	r9, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r8, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	orr	r9, r8, #IDLE_EMIFS_REQUEST & 0xff
+	str	r9, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ load base address of ARM_IDLECT1 and ARM_IDLECT2
-	mov	r4, @ CLKGEN_REG_ASM_BASE & 0xff000000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x00ff0000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x0000ff00
+	mov	r4, #CLKGEN_REG_ASM_BASE & 0xff000000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x00ff0000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x0000ff00
 
 	@ turn off clock domains
 	@ do not disable PERCK (0x04)
-	mov	r5, @ OMAP7XX_IDLECT2_SLEEP_VAL & 0xff
-	orr	r5, r5, @ OMAP7XX_IDLECT2_SLEEP_VAL & 0xff00
-	strh	r5, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
+	mov	r5, #OMAP7XX_IDLECT2_SLEEP_VAL & 0xff
+	orr	r5, r5, #OMAP7XX_IDLECT2_SLEEP_VAL & 0xff00
+	strh	r5, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
 
 	@ request ARM idle
-	mov	r3, @ OMAP7XX_IDLECT1_SLEEP_VAL & 0xff
-	orr	r3, r3, @ OMAP7XX_IDLECT1_SLEEP_VAL & 0xff00
-	strh	r3, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	mov	r3, #OMAP7XX_IDLECT1_SLEEP_VAL & 0xff
+	orr	r3, r3, #OMAP7XX_IDLECT1_SLEEP_VAL & 0xff00
+	strh	r3, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
 	@ disable instruction cache
 	mrc	p15, 0, r9, c1, c0, 0
@@ -125,12 +125,12 @@ ENTRY(omap7xx_cpu_suspend)
 	mcr	p15, 0, r9, c1, c0, 0
 
 	@ reset the ARM_IDLECT1 and ARM_IDLECT2.
-	strh	r1, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
-	strh	r0, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	strh	r1, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
+	strh	r0, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
 	@ Restore EMIFF controls
-	str	r7, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
-	str	r8, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	str	r7, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	str	r8, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ restore regs and return
 	ldmfd	sp!, {r0 - r12, pc}
@@ -147,48 +147,48 @@ ENTRY(omap1510_cpu_suspend)
 	stmfd	sp!, {r0 - r12, lr}
 
 	@ load base address of Traffic Controller
-	mov	r4, @ TCMIF_ASM_BASE & 0xff000000
-	orr	r4, r4, @ TCMIF_ASM_BASE & 0x00ff0000
-	orr	r4, r4, @ TCMIF_ASM_BASE & 0x0000ff00
+	mov	r4, #TCMIF_ASM_BASE & 0xff000000
+	orr	r4, r4, #TCMIF_ASM_BASE & 0x00ff0000
+	orr	r4, r4, #TCMIF_ASM_BASE & 0x0000ff00
 
 	@ work around errata of OMAP1510 PDE bit for TC shut down
 	@ clear PDE bit
-	ldr	r5, [r4, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
-	bic	r5, r5, @ PDE_BIT & 0xff
-	str	r5, [r4, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r5, [r4, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	bic	r5, r5, #PDE_BIT & 0xff
+	str	r5, [r4, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ set PWD_EN bit
-	and	r5, r5, @ PWD_EN_BIT & 0xff
-	str	r5, [r4, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	and	r5, r5, #PWD_EN_BIT & 0xff
+	str	r5, [r4, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ prepare to put SDRAM into self-refresh manually
-	ldr	r5, [r4, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
-	orr	r5, r5, @ SELF_REFRESH_MODE & 0xff000000
-	orr	r5, r5, @ SELF_REFRESH_MODE & 0x000000ff
-	str	r5, [r4, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r5, [r4, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	orr	r5, r5, #SELF_REFRESH_MODE & 0xff000000
+	orr	r5, r5, #SELF_REFRESH_MODE & 0x000000ff
+	str	r5, [r4, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
 
 	@ prepare to put EMIFS to Sleep
-	ldr	r5, [r4, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
-	orr	r5, r5, @ IDLE_EMIFS_REQUEST & 0xff
-	str	r5, [r4, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r5, [r4, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	orr	r5, r5, #IDLE_EMIFS_REQUEST & 0xff
+	str	r5, [r4, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ load base address of ARM_IDLECT1 and ARM_IDLECT2
-	mov	r4, @ CLKGEN_REG_ASM_BASE & 0xff000000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x00ff0000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x0000ff00
+	mov	r4, #CLKGEN_REG_ASM_BASE & 0xff000000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x00ff0000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x0000ff00
 
 	@ turn off clock domains
-	mov	r5, @ OMAP1510_IDLE_CLOCK_DOMAINS & 0xff
-	orr	r5, r5, @ OMAP1510_IDLE_CLOCK_DOMAINS & 0xff00
-	strh	r5, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
+	mov	r5, #OMAP1510_IDLE_CLOCK_DOMAINS & 0xff
+	orr	r5, r5, #OMAP1510_IDLE_CLOCK_DOMAINS & 0xff00
+	strh	r5, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
 
 	@ request ARM idle
-	mov	r3, @ OMAP1510_DEEP_SLEEP_REQUEST & 0xff
-	orr	r3, r3, @ OMAP1510_DEEP_SLEEP_REQUEST & 0xff00
-	strh	r3, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	mov	r3, #OMAP1510_DEEP_SLEEP_REQUEST & 0xff
+	orr	r3, r3, #OMAP1510_DEEP_SLEEP_REQUEST & 0xff00
+	strh	r3, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
-	mov	r5, @ IDLE_WAIT_CYCLES & 0xff
-	orr	r5, r5, @ IDLE_WAIT_CYCLES & 0xff00
+	mov	r5, #IDLE_WAIT_CYCLES & 0xff
+	orr	r5, r5, #IDLE_WAIT_CYCLES & 0xff00
 l_1510_2:
 	subs	r5, r5, #1
 	bne	l_1510_2
@@ -204,8 +204,8 @@ l_1510_2:
  * It will just start executing here, so we'll restore stuff from the
  * stack, reset the ARM_IDLECT1 and ARM_IDLECT2.
  */
-	strh	r1, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
-	strh	r0, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	strh	r1, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
+	strh	r0, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
 	@ restore regs and return
 	ldmfd	sp!, {r0 - r12, pc}
@@ -227,36 +227,36 @@ ENTRY(omap1610_cpu_suspend)
 	nop
 
 	@ Load base address of Traffic Controller
-	mov	r6, @ TCMIF_ASM_BASE & 0xff000000
-	orr	r6, r6, @ TCMIF_ASM_BASE & 0x00ff0000
-	orr	r6, r6, @ TCMIF_ASM_BASE & 0x0000ff00
+	mov	r6, #TCMIF_ASM_BASE & 0xff000000
+	orr	r6, r6, #TCMIF_ASM_BASE & 0x00ff0000
+	orr	r6, r6, #TCMIF_ASM_BASE & 0x0000ff00
 
 	@ Prepare to put SDRAM into self-refresh manually
-	ldr	r7, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
-	orr	r9, r7, @ SELF_REFRESH_MODE & 0xff000000
-	orr	r9, r9, @ SELF_REFRESH_MODE & 0x000000ff
-	str	r9, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r7, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	orr	r9, r7, #SELF_REFRESH_MODE & 0xff000000
+	orr	r9, r9, #SELF_REFRESH_MODE & 0x000000ff
+	str	r9, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
 
 	@ Prepare to put EMIFS to Sleep
-	ldr	r8, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
-	orr	r9, r8, @ IDLE_EMIFS_REQUEST & 0xff
-	str	r9, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	ldr	r8, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	orr	r9, r8, #IDLE_EMIFS_REQUEST & 0xff
+	str	r9, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ Load base address of ARM_IDLECT1 and ARM_IDLECT2
-	mov	r4, @ CLKGEN_REG_ASM_BASE & 0xff000000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x00ff0000
-	orr	r4, r4, @ CLKGEN_REG_ASM_BASE & 0x0000ff00
+	mov	r4, #CLKGEN_REG_ASM_BASE & 0xff000000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x00ff0000
+	orr	r4, r4, #CLKGEN_REG_ASM_BASE & 0x0000ff00
 
 	@ Turn off clock domains
 	@ Do not disable PERCK (0x04)
-	mov	r5, @ OMAP1610_IDLECT2_SLEEP_VAL & 0xff
-	orr	r5, r5, @ OMAP1610_IDLECT2_SLEEP_VAL & 0xff00
-	strh	r5, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
+	mov	r5, #OMAP1610_IDLECT2_SLEEP_VAL & 0xff
+	orr	r5, r5, #OMAP1610_IDLECT2_SLEEP_VAL & 0xff00
+	strh	r5, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
 
 	@ Request ARM idle
-	mov	r3, @ OMAP1610_IDLECT1_SLEEP_VAL & 0xff
-	orr	r3, r3, @ OMAP1610_IDLECT1_SLEEP_VAL & 0xff00
-	strh	r3, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	mov	r3, #OMAP1610_IDLECT1_SLEEP_VAL & 0xff
+	orr	r3, r3, #OMAP1610_IDLECT1_SLEEP_VAL & 0xff00
+	strh	r3, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
 /*
  * Let's wait for the next wake up event to wake us up. r0 can't be
@@ -353,12 +353,12 @@ ENTRY(omap1610_cpu_suspend)
  * stack.
  */
 	@ Restore the ARM_IDLECT1 and ARM_IDLECT2.
-	strh	r1, [r4, @ ARM_IDLECT2_ASM_OFFSET & 0xff]
-	strh	r0, [r4, @ ARM_IDLECT1_ASM_OFFSET & 0xff]
+	strh	r1, [r4, #ARM_IDLECT2_ASM_OFFSET & 0xff]
+	strh	r0, [r4, #ARM_IDLECT1_ASM_OFFSET & 0xff]
 
 	@ Restore EMIFF controls
-	str	r7, [r6, @ EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
-	str	r8, [r6, @ EMIFS_CONFIG_ASM_OFFSET & 0xff]
+	str	r7, [r6, #EMIFF_SDRAM_CONFIG_ASM_OFFSET & 0xff]
+	str	r8, [r6, #EMIFS_CONFIG_ASM_OFFSET & 0xff]
 
 	@ Restore regs and return
 	ldmfd	sp!, {r0 - r12, pc}

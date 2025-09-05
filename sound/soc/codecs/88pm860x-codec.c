@@ -1341,7 +1341,7 @@ int pm860x_hs_jack_detect(struct snd_soc_codec *codec,
 	pm860x_codec_handler(0, pm860x);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm860x_hs_jack_detect); */
+EXPORT_SYMBOL_GPL(pm860x_hs_jack_detect);
 
 int pm860x_mic_jack_detect(struct snd_soc_codec *codec,
 			   struct snd_soc_jack *jack, int det)
@@ -1359,7 +1359,7 @@ int pm860x_mic_jack_detect(struct snd_soc_codec *codec,
 	pm860x_codec_handler(0, pm860x);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm860x_mic_jack_detect); */
+EXPORT_SYMBOL_GPL(pm860x_mic_jack_detect);
 
 static int pm860x_probe(struct snd_soc_codec *codec)
 {

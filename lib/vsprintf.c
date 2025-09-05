@@ -55,7 +55,7 @@ unsigned long long simple_strtoull(const char *cp, char **endp, unsigned int bas
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(simple_strtoull); */
+EXPORT_SYMBOL(simple_strtoull);
 
 /**
  * simple_strtoul - convert a string to an unsigned long
@@ -67,7 +67,7 @@ unsigned long simple_strtoul(const char *cp, char **endp, unsigned int base)
 {
 	return simple_strtoull(cp, endp, base);
 }
-/* DISABLED: EXPORT_SYMBOL(simple_strtoul); */
+EXPORT_SYMBOL(simple_strtoul);
 
 /**
  * simple_strtol - convert a string to a signed long
@@ -82,7 +82,7 @@ long simple_strtol(const char *cp, char **endp, unsigned int base)
 
 	return simple_strtoul(cp, endp, base);
 }
-/* DISABLED: EXPORT_SYMBOL(simple_strtol); */
+EXPORT_SYMBOL(simple_strtol);
 
 /**
  * simple_strtoll - convert a string to a signed long long
@@ -97,7 +97,7 @@ long long simple_strtoll(const char *cp, char **endp, unsigned int base)
 
 	return simple_strtoull(cp, endp, base);
 }
-/* DISABLED: EXPORT_SYMBOL(simple_strtoll); */
+EXPORT_SYMBOL(simple_strtoll);
 
 static noinline_for_stack
 int skip_atoi(const char **s)
@@ -1379,7 +1379,7 @@ int vsnprintf(char *buf, size_t size, const char *fmt, va_list args)
 	return str-buf;
 
 }
-/* DISABLED: EXPORT_SYMBOL(vsnprintf); */
+EXPORT_SYMBOL(vsnprintf);
 
 /**
  * vscnprintf - Format a string and place it in a buffer
@@ -1408,7 +1408,7 @@ int vscnprintf(char *buf, size_t size, const char *fmt, va_list args)
 		return size - 1;
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(vscnprintf); */
+EXPORT_SYMBOL(vscnprintf);
 
 /**
  * snprintf - Format a string and place it in a buffer
@@ -1435,7 +1435,7 @@ int snprintf(char *buf, size_t size, const char *fmt, ...)
 
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(snprintf); */
+EXPORT_SYMBOL(snprintf);
 
 /**
  * scnprintf - Format a string and place it in a buffer
@@ -1459,7 +1459,7 @@ int scnprintf(char *buf, size_t size, const char *fmt, ...)
 
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(scnprintf); */
+EXPORT_SYMBOL(scnprintf);
 
 /**
  * vsprintf - Format a string and place it in a buffer
@@ -1479,7 +1479,7 @@ int vsprintf(char *buf, const char *fmt, va_list args)
 {
 	return vsnprintf(buf, INT_MAX, fmt, args);
 }
-/* DISABLED: EXPORT_SYMBOL(vsprintf); */
+EXPORT_SYMBOL(vsprintf);
 
 /**
  * sprintf - Format a string and place it in a buffer
@@ -1504,7 +1504,7 @@ int sprintf(char *buf, const char *fmt, ...)
 
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(sprintf); */
+EXPORT_SYMBOL(sprintf);
 
 #ifdef CONFIG_BINARY_PRINTF
 /*
@@ -1645,7 +1645,7 @@ do {									\
 	return (u32 *)(PTR_ALIGN(str, sizeof(u32))) - bin_buf;
 #undef save_arg
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(vbin_printf); */
+EXPORT_SYMBOL_GPL(vbin_printf);
 
 /**
  * bstr_printf - Format a string from binary arguments and place it in a buffer
@@ -1828,7 +1828,7 @@ int bstr_printf(char *buf, size_t size, const char *fmt, const u32 *bin_buf)
 	/* the trailing null byte doesn't count towards the total */
 	return str - buf;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bstr_printf); */
+EXPORT_SYMBOL_GPL(bstr_printf);
 
 /**
  * bprintf - Parse a format string and place args' binary value in a buffer
@@ -1851,7 +1851,7 @@ int bprintf(u32 *bin_buf, size_t size, const char *fmt, ...)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(bprintf); */
+EXPORT_SYMBOL_GPL(bprintf);
 
 #endif /* CONFIG_BINARY_PRINTF */
 
@@ -2077,7 +2077,7 @@ int vsscanf(const char *buf, const char *fmt, va_list args)
 
 	return num;
 }
-/* DISABLED: EXPORT_SYMBOL(vsscanf); */
+EXPORT_SYMBOL(vsscanf);
 
 /**
  * sscanf - Unformat a buffer into a list of arguments
@@ -2096,4 +2096,4 @@ int sscanf(const char *buf, const char *fmt, ...)
 
 	return i;
 }
-/* DISABLED: EXPORT_SYMBOL(sscanf); */
+EXPORT_SYMBOL(sscanf);

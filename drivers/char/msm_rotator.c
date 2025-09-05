@@ -250,7 +250,7 @@ int msm_rotator_imem_allocate(int requestor)
 
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rotator_imem_allocate); */
+EXPORT_SYMBOL(msm_rotator_imem_allocate);
 
 void msm_rotator_imem_free(int requestor)
 {
@@ -264,7 +264,7 @@ void msm_rotator_imem_free(int requestor)
 		schedule_delayed_work(&msm_rotator_dev->imem_clk_work, HZ);
 #endif
 }
-/* DISABLED: EXPORT_SYMBOL(msm_rotator_imem_free); */
+EXPORT_SYMBOL(msm_rotator_imem_free);
 
 static void msm_rotator_imem_clk_work_f(struct work_struct *work)
 {

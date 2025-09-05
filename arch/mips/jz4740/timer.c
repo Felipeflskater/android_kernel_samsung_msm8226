@@ -27,13 +27,13 @@ void jz4740_timer_enable_watchdog(void)
 {
 	writel(BIT(16), jz4740_timer_base + JZ_REG_TIMER_STOP_CLEAR);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_timer_enable_watchdog); */
+EXPORT_SYMBOL_GPL(jz4740_timer_enable_watchdog);
 
 void jz4740_timer_disable_watchdog(void)
 {
 	writel(BIT(16), jz4740_timer_base + JZ_REG_TIMER_STOP_SET);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(jz4740_timer_disable_watchdog); */
+EXPORT_SYMBOL_GPL(jz4740_timer_disable_watchdog);
 
 void __init jz4740_timer_init(void)
 {

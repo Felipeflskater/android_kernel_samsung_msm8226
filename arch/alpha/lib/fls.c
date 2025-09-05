@@ -35,4 +35,4 @@ const unsigned char __flsm1_tab[256] =
   7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7,
 };
 
-/* DISABLED: EXPORT_SYMBOL(__flsm1_tab); */
+EXPORT_SYMBOL(__flsm1_tab);

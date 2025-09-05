@@ -32,7 +32,7 @@ int (*nf_nat_snmp_hook)(struct sk_buff *skb,
 			unsigned int protoff,
 			struct nf_conn *ct,
 			enum ip_conntrack_info ctinfo);
-/* DISABLED: EXPORT_SYMBOL_GPL(nf_nat_snmp_hook); */
+EXPORT_SYMBOL_GPL(nf_nat_snmp_hook);
 
 static int snmp_conntrack_help(struct sk_buff *skb, unsigned int protoff,
 		struct nf_conn *ct, enum ip_conntrack_info ctinfo)

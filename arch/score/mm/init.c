@@ -39,7 +39,7 @@
 #include <asm/tlb.h>
 
 unsigned long empty_zero_page;
-/* DISABLED: EXPORT_SYMBOL_GPL(empty_zero_page); */
+EXPORT_SYMBOL_GPL(empty_zero_page);
 
 static struct kcore_list kcore_mem, kcore_vmalloc;
 

@@ -46,7 +46,7 @@ u64 ide_get_lba_addr(struct ide_cmd *cmd, int lba48)
 
 	return ((u64)high << 24) | low;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_get_lba_addr); */
+EXPORT_SYMBOL_GPL(ide_get_lba_addr);
 
 static void ide_dump_sector(ide_drive_t *drive)
 {
@@ -168,4 +168,4 @@ u8 ide_dump_status(ide_drive_t *drive, const char *msg, u8 stat)
 
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ide_dump_status); */
+EXPORT_SYMBOL(ide_dump_status);

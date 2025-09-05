@@ -722,29 +722,29 @@ tape_std_process_eov(struct tape_device *device)
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(tape_std_assign); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_unassign); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_display); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_read_block_id); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtload); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtsetblk); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtreset); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtfsf); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtfsr); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtbsr); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtweof); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtbsfm); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtbsf); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtfsfm); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtrew); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtoffl); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtnop); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mteom); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtreten); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mterase); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtunload); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_mtcompression); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_read_block); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_read_backward); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_write_block); */
-/* DISABLED: EXPORT_SYMBOL(tape_std_process_eov); */
+EXPORT_SYMBOL(tape_std_assign);
+EXPORT_SYMBOL(tape_std_unassign);
+EXPORT_SYMBOL(tape_std_display);
+EXPORT_SYMBOL(tape_std_read_block_id);
+EXPORT_SYMBOL(tape_std_mtload);
+EXPORT_SYMBOL(tape_std_mtsetblk);
+EXPORT_SYMBOL(tape_std_mtreset);
+EXPORT_SYMBOL(tape_std_mtfsf);
+EXPORT_SYMBOL(tape_std_mtfsr);
+EXPORT_SYMBOL(tape_std_mtbsr);
+EXPORT_SYMBOL(tape_std_mtweof);
+EXPORT_SYMBOL(tape_std_mtbsfm);
+EXPORT_SYMBOL(tape_std_mtbsf);
+EXPORT_SYMBOL(tape_std_mtfsfm);
+EXPORT_SYMBOL(tape_std_mtrew);
+EXPORT_SYMBOL(tape_std_mtoffl);
+EXPORT_SYMBOL(tape_std_mtnop);
+EXPORT_SYMBOL(tape_std_mteom);
+EXPORT_SYMBOL(tape_std_mtreten);
+EXPORT_SYMBOL(tape_std_mterase);
+EXPORT_SYMBOL(tape_std_mtunload);
+EXPORT_SYMBOL(tape_std_mtcompression);
+EXPORT_SYMBOL(tape_std_read_block);
+EXPORT_SYMBOL(tape_std_read_backward);
+EXPORT_SYMBOL(tape_std_write_block);
+EXPORT_SYMBOL(tape_std_process_eov);

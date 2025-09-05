@@ -86,7 +86,7 @@ int ide_device_get(ide_drive_t *drive)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_device_get); */
+EXPORT_SYMBOL_GPL(ide_device_get);
 
 /**
  * ide_device_put	-	release a reference to a ide_drive_t
@@ -106,7 +106,7 @@ void ide_device_put(ide_drive_t *drive)
 #endif
 	put_device(&drive->gendev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_device_put); */
+EXPORT_SYMBOL_GPL(ide_device_put);
 
 static int ide_bus_match(struct device *dev, struct device_driver *drv)
 {
@@ -163,16 +163,16 @@ struct bus_type ide_bus_type = {
 	.resume		= generic_ide_resume,
 };
 
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_bus_type); */
+EXPORT_SYMBOL_GPL(ide_bus_type);
 
 int ide_vlb_clk;
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_vlb_clk); */
+EXPORT_SYMBOL_GPL(ide_vlb_clk);
 
 module_param_named(vlb_clock, ide_vlb_clk, int, 0);
 MODULE_PARM_DESC(vlb_clock, "VLB clock frequency (in MHz)");
 
 int ide_pci_clk;
-/* DISABLED: EXPORT_SYMBOL_GPL(ide_pci_clk); */
+EXPORT_SYMBOL_GPL(ide_pci_clk);
 
 module_param_named(pci_clock, ide_pci_clk, int, 0);
 MODULE_PARM_DESC(pci_clock, "PCI bus clock frequency (in MHz)");

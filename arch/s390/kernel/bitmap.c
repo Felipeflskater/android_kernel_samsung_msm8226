@@ -10,10 +10,10 @@
 #include <linux/module.h>
 
 const char _oi_bitmap[] = { 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80 };
-/* DISABLED: EXPORT_SYMBOL(_oi_bitmap); */
+EXPORT_SYMBOL(_oi_bitmap);
 
 const char _ni_bitmap[] = { 0xfe, 0xfd, 0xfb, 0xf7, 0xef, 0xdf, 0xbf, 0x7f };
-/* DISABLED: EXPORT_SYMBOL(_ni_bitmap); */
+EXPORT_SYMBOL(_ni_bitmap);
 
 const char _zb_findmap[] = {
 	0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,
@@ -32,7 +32,7 @@ const char _zb_findmap[] = {
 	0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,
 	0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,
 	0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,8 };
-/* DISABLED: EXPORT_SYMBOL(_zb_findmap); */
+EXPORT_SYMBOL(_zb_findmap);
 
 const char _sb_findmap[] = {
 	8,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,
@@ -51,4 +51,4 @@ const char _sb_findmap[] = {
 	4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,
 	5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,
 	4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0 };
-/* DISABLED: EXPORT_SYMBOL(_sb_findmap); */
+EXPORT_SYMBOL(_sb_findmap);

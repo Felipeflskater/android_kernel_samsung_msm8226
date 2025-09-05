@@ -535,7 +535,7 @@ int dmabounce_register_dev(struct device *dev, unsigned long small_buffer_size,
 	kfree(device_info);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dmabounce_register_dev); */
+EXPORT_SYMBOL(dmabounce_register_dev);
 
 void dmabounce_unregister_dev(struct device *dev)
 {
@@ -571,7 +571,7 @@ void dmabounce_unregister_dev(struct device *dev)
 
 	dev_info(dev, "dmabounce: device unregistered\n");
 }
-/* DISABLED: EXPORT_SYMBOL(dmabounce_unregister_dev); */
+EXPORT_SYMBOL(dmabounce_unregister_dev);
 
 MODULE_AUTHOR("Christopher Hoover <ch@hpl.hp.com>, Deepak Saxena <dsaxena@plexity.net>");
 MODULE_DESCRIPTION("Special dma_{map/unmap/dma_sync}_* routines for systems with limited DMA windows");

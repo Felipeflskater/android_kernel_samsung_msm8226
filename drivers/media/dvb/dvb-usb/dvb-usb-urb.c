@@ -58,13 +58,13 @@ int dvb_usb_generic_rw(struct dvb_usb_device *d, u8 *wbuf, u16 wlen, u8 *rbuf,
 	mutex_unlock(&d->usb_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_usb_generic_rw); */
+EXPORT_SYMBOL(dvb_usb_generic_rw);
 
 int dvb_usb_generic_write(struct dvb_usb_device *d, u8 *buf, u16 len)
 {
 	return dvb_usb_generic_rw(d,buf,len,NULL,0,0);
 }
-/* DISABLED: EXPORT_SYMBOL(dvb_usb_generic_write); */
+EXPORT_SYMBOL(dvb_usb_generic_write);
 
 static void dvb_usb_data_complete(struct usb_data_stream *stream, u8 *buffer, size_t length)
 {

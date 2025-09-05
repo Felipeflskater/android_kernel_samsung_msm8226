@@ -28,7 +28,7 @@
 #include <cs5536/cs5536_mfgpt.h>
 
 DEFINE_SPINLOCK(mfgpt_lock);
-/* DISABLED: EXPORT_SYMBOL(mfgpt_lock); */
+EXPORT_SYMBOL(mfgpt_lock);
 
 static u32 mfgpt_base;
 
@@ -43,14 +43,14 @@ void disable_mfgpt0_counter(void)
 {
 	outw(inw(MFGPT0_SETUP) & 0x7fff, MFGPT0_SETUP);
 }
-/* DISABLED: EXPORT_SYMBOL(disable_mfgpt0_counter); */
+EXPORT_SYMBOL(disable_mfgpt0_counter);
 
 /* enable counter, comparator2 to event mode, 14.318MHz clock */
 void enable_mfgpt0_counter(void)
 {
 	outw(0xe310, MFGPT0_SETUP);
 }
-/* DISABLED: EXPORT_SYMBOL(enable_mfgpt0_counter); */
+EXPORT_SYMBOL(enable_mfgpt0_counter);
 
 static void init_mfgpt_timer(enum clock_event_mode mode,
 			     struct clock_event_device *evt)

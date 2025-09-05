@@ -1872,7 +1872,7 @@ exit:
 	pr_debug("%s: rc=%d\n", __func__, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_device_access_read_command); */
+EXPORT_SYMBOL_GPL(cyttsp4_device_access_read_command);
 
 int cyttsp4_device_access_write_command(const char *core_name, int ic_grpnum,
 		int ic_grpoffset, u8 *buf, int length)
@@ -1951,7 +1951,7 @@ exit:
 	pr_debug("%s: rc=%d\n", __func__, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(cyttsp4_device_access_write_command); */
+EXPORT_SYMBOL_GPL(cyttsp4_device_access_write_command);
 #endif
 
 int cyttsp4_device_access_probe(struct device *dev)

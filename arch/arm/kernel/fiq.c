@@ -145,14 +145,14 @@ void fiq_set_type(int fiq, unsigned int type)
 	irq_set_irq_type(fiq + FIQ_START, type);
 }
 
-/* DISABLED: EXPORT_SYMBOL(set_fiq_handler); */
-/* DISABLED: EXPORT_SYMBOL(__set_fiq_regs);	/* defined in fiqasm.S */ */
-/* DISABLED: EXPORT_SYMBOL(__get_fiq_regs);	/* defined in fiqasm.S */ */
-/* DISABLED: EXPORT_SYMBOL(claim_fiq); */
-/* DISABLED: EXPORT_SYMBOL(release_fiq); */
-/* DISABLED: EXPORT_SYMBOL(enable_fiq); */
-/* DISABLED: EXPORT_SYMBOL(disable_fiq); */
-/* DISABLED: EXPORT_SYMBOL(fiq_set_type); */
+EXPORT_SYMBOL(set_fiq_handler);
+EXPORT_SYMBOL(__set_fiq_regs);	/* defined in fiqasm.S */
+EXPORT_SYMBOL(__get_fiq_regs);	/* defined in fiqasm.S */
+EXPORT_SYMBOL(claim_fiq);
+EXPORT_SYMBOL(release_fiq);
+EXPORT_SYMBOL(enable_fiq);
+EXPORT_SYMBOL(disable_fiq);
+EXPORT_SYMBOL(fiq_set_type);
 
 void __init init_FIQ(int start)
 {

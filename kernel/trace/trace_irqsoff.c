@@ -438,14 +438,14 @@ void start_critical_timings(void)
 	if (preempt_trace() || irq_trace())
 		start_critical_timing(CALLER_ADDR0, CALLER_ADDR1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(start_critical_timings); */
+EXPORT_SYMBOL_GPL(start_critical_timings);
 
 void stop_critical_timings(void)
 {
 	if (preempt_trace() || irq_trace())
 		stop_critical_timing(CALLER_ADDR0, CALLER_ADDR1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(stop_critical_timings); */
+EXPORT_SYMBOL_GPL(stop_critical_timings);
 
 #ifdef CONFIG_IRQSOFF_TRACER
 #ifdef CONFIG_PROVE_LOCKING
@@ -487,28 +487,28 @@ void trace_hardirqs_on(void)
 	if (!preempt_trace() && irq_trace())
 		stop_critical_timing(CALLER_ADDR0, CALLER_ADDR1);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_on); */
+EXPORT_SYMBOL(trace_hardirqs_on);
 
 void trace_hardirqs_off(void)
 {
 	if (!preempt_trace() && irq_trace())
 		start_critical_timing(CALLER_ADDR0, CALLER_ADDR1);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_off); */
+EXPORT_SYMBOL(trace_hardirqs_off);
 
 void trace_hardirqs_on_caller(unsigned long caller_addr)
 {
 	if (!preempt_trace() && irq_trace())
 		stop_critical_timing(CALLER_ADDR0, caller_addr);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_on_caller); */
+EXPORT_SYMBOL(trace_hardirqs_on_caller);
 
 void trace_hardirqs_off_caller(unsigned long caller_addr)
 {
 	if (!preempt_trace() && irq_trace())
 		start_critical_timing(CALLER_ADDR0, caller_addr);
 }
-/* DISABLED: EXPORT_SYMBOL(trace_hardirqs_off_caller); */
+EXPORT_SYMBOL(trace_hardirqs_off_caller);
 
 #endif /* CONFIG_PROVE_LOCKING */
 #endif /*  CONFIG_IRQSOFF_TRACER */

@@ -52,7 +52,7 @@ unsigned long bfin_get_addr_from_rp(unsigned long *ptr,
 		val = htonl(val);
 	return val;
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_get_addr_from_rp); */
+EXPORT_SYMBOL(bfin_get_addr_from_rp);
 
 /*
  * Insert the address ADDR into the symbol reference at RP;
@@ -81,4 +81,4 @@ void bfin_put_addr_at_rp(unsigned long *ptr, unsigned long addr,
 		break;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(bfin_put_addr_at_rp); */
+EXPORT_SYMBOL(bfin_put_addr_at_rp);

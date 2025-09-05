@@ -68,7 +68,7 @@ int devm_gpio_request(struct device *dev, unsigned gpio, const char *label)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(devm_gpio_request); */
+EXPORT_SYMBOL(devm_gpio_request);
 
 /**
  *      devm_gpio_free - free an interrupt
@@ -87,4 +87,4 @@ void devm_gpio_free(struct device *dev, unsigned int gpio)
 		&gpio));
 	gpio_free(gpio);
 }
-/* DISABLED: EXPORT_SYMBOL(devm_gpio_free); */
+EXPORT_SYMBOL(devm_gpio_free);

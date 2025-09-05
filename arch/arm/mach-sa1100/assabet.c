@@ -56,7 +56,7 @@
 	 ASSABET_BCR_IRDA_MD0   | ASSABET_BCR_CF_RST)
 
 unsigned long SCR_value = ASSABET_SCR_INIT;
-/* DISABLED: EXPORT_SYMBOL(SCR_value); */
+EXPORT_SYMBOL(SCR_value);
 
 static unsigned long BCR_value = ASSABET_BCR_DB1110;
 
@@ -70,7 +70,7 @@ void ASSABET_BCR_frob(unsigned int mask, unsigned int val)
 	local_irq_restore(flags);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ASSABET_BCR_frob); */
+EXPORT_SYMBOL(ASSABET_BCR_frob);
 
 static void assabet_ucb1x00_reset(enum ucb1x00_reset state)
 {

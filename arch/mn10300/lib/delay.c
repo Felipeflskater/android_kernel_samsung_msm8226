@@ -31,7 +31,7 @@ void __delay(unsigned long loops)
 		: "0" (loops)
 		: "cc");
 }
-/* DISABLED: EXPORT_SYMBOL(__delay); */
+EXPORT_SYMBOL(__delay);
 
 /*
  * handle a delay specified in terms of microseconds
@@ -48,4 +48,4 @@ void __udelay(unsigned long usecs)
 		cnt = start - TMTSCBC;
 	} while (cnt < stop);
 }
-/* DISABLED: EXPORT_SYMBOL(__udelay); */
+EXPORT_SYMBOL(__udelay);

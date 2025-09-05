@@ -78,7 +78,7 @@ int kernel_thread(int (*fn)(void *), void * arg, unsigned long flags)
 		      &current->thread.regs, 0, NULL, NULL);
 	return pid;
 }
-/* DISABLED: EXPORT_SYMBOL(kernel_thread); */
+EXPORT_SYMBOL(kernel_thread);
 
 static inline void set_current(struct task_struct *task)
 {
@@ -285,7 +285,7 @@ char *uml_strdup(const char *string)
 {
 	return kstrdup(string, GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL(uml_strdup); */
+EXPORT_SYMBOL(uml_strdup);
 
 int copy_to_user_proc(void __user *to, void *from, int size)
 {

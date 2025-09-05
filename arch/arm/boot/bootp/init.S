@@ -16,11 +16,11 @@
  *  size immediately following the kernel, we could build this into
  *  a binary blob, and concatenate the zImage using the cat command.
  */
-		.section .start, @ alloc, @ execinstr
-		.type	_start, @ function
+		.section .start,#alloc,#execinstr
+		.type	_start, #function
 		.globl	_start
 
-_start:		add	lr, pc, @ -0x8		@ lr = current load addr
+_start:		add	lr, pc, #-0x8		@ lr = current load addr
 		adr	r13, data
 		ldmia	r13!, {r4-r6}		@ r5 = dest, r6 = length
 		add	r4, r4, lr		@ r4 = initrd_start + load addr
@@ -75,7 +75,7 @@ move:		ldmia	r4!, {r7 - r10}		@ move 32-bytes at a time
 
 		.align
 
-		.type	data, @ object
+		.type	data,#object
 data:		.word	initrd_start		@ source initrd address
 		.word	initrd_phys		@ destination initrd address
 		.word	initrd_size		@ initrd size

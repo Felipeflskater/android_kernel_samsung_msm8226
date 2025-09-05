@@ -84,4 +84,4 @@ out:
 	release_sock(sk);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(ip4_datagram_connect); */
+EXPORT_SYMBOL(ip4_datagram_connect);

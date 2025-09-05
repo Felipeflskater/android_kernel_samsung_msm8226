@@ -2648,5 +2648,5 @@ void ieee80211_rx_mgt(struct ieee80211_device *ieee,
 	}
 }
 
-/* DISABLED: EXPORT_SYMBOL(ieee80211_rx_mgt); */
-/* DISABLED: EXPORT_SYMBOL(ieee80211_rx); */
+EXPORT_SYMBOL(ieee80211_rx_mgt);
+EXPORT_SYMBOL(ieee80211_rx);

@@ -299,7 +299,7 @@ err:
 	videobuf_dvb_unregister_bus(f);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_register_bus); */
+EXPORT_SYMBOL(videobuf_dvb_register_bus);
 
 void videobuf_dvb_unregister_bus(struct videobuf_dvb_frontends *f)
 {
@@ -307,7 +307,7 @@ void videobuf_dvb_unregister_bus(struct videobuf_dvb_frontends *f)
 
 	dvb_unregister_adapter(&f->adapter);
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_unregister_bus); */
+EXPORT_SYMBOL(videobuf_dvb_unregister_bus);
 
 struct videobuf_dvb_frontend *videobuf_dvb_get_frontend(
 	struct videobuf_dvb_frontends *f, int id)
@@ -329,7 +329,7 @@ struct videobuf_dvb_frontend *videobuf_dvb_get_frontend(
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_get_frontend); */
+EXPORT_SYMBOL(videobuf_dvb_get_frontend);
 
 int videobuf_dvb_find_frontend(struct videobuf_dvb_frontends *f,
 	struct dvb_frontend *p)
@@ -352,7 +352,7 @@ int videobuf_dvb_find_frontend(struct videobuf_dvb_frontends *f,
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_find_frontend); */
+EXPORT_SYMBOL(videobuf_dvb_find_frontend);
 
 struct videobuf_dvb_frontend *videobuf_dvb_alloc_frontend(
 	struct videobuf_dvb_frontends *f, int id)
@@ -373,7 +373,7 @@ struct videobuf_dvb_frontend *videobuf_dvb_alloc_frontend(
 fail_alloc:
 	return fe;
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_alloc_frontend); */
+EXPORT_SYMBOL(videobuf_dvb_alloc_frontend);
 
 void videobuf_dvb_dealloc_frontends(struct videobuf_dvb_frontends *f)
 {
@@ -401,4 +401,4 @@ void videobuf_dvb_dealloc_frontends(struct videobuf_dvb_frontends *f)
 	}
 	mutex_unlock(&f->lock);
 }
-/* DISABLED: EXPORT_SYMBOL(videobuf_dvb_dealloc_frontends); */
+EXPORT_SYMBOL(videobuf_dvb_dealloc_frontends);

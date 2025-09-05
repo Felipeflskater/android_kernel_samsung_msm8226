@@ -112,7 +112,7 @@ int ipa_register_intf(const char *name, const struct ipa_tx_intf *tx,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_register_intf); */
+EXPORT_SYMBOL(ipa_register_intf);
 
 /**
  * ipa_deregister_intf() - de-register previously registered logical interface
@@ -149,7 +149,7 @@ int ipa_deregister_intf(const char *name)
 	mutex_unlock(&ipa_ctx->lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_deregister_intf); */
+EXPORT_SYMBOL(ipa_deregister_intf);
 
 /**
  * ipa_query_intf() - query logical interface properties
@@ -320,7 +320,7 @@ int ipa_send_msg(struct ipa_msg_meta *meta, void *buff,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_send_msg); */
+EXPORT_SYMBOL(ipa_send_msg);
 
 /**
  * ipa_register_pull_msg() - register pull message type
@@ -358,7 +358,7 @@ int ipa_register_pull_msg(struct ipa_msg_meta *meta, ipa_msg_pull_fn callback)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_register_pull_msg); */
+EXPORT_SYMBOL(ipa_register_pull_msg);
 
 /**
  * ipa_deregister_pull_msg() - De-register pull message type
@@ -394,7 +394,7 @@ int ipa_deregister_pull_msg(struct ipa_msg_meta *meta)
 	mutex_unlock(&ipa_ctx->msg_lock);
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL(ipa_deregister_pull_msg); */
+EXPORT_SYMBOL(ipa_deregister_pull_msg);
 
 /**
  * ipa_read() - read message from IPA device

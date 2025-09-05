@@ -363,7 +363,7 @@ int posix_timer_event(struct k_itimer *timr, int si_private)
 	/* If we failed to send the signal the timer stops. */
 	return ret > 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(posix_timer_event); */
+EXPORT_SYMBOL_GPL(posix_timer_event);
 
 /*
  * This function gets called when a POSIX.1b interval timer expires.  It
@@ -475,7 +475,7 @@ void posix_timers_register_clock(const clockid_t clock_id,
 
 	posix_clocks[clock_id] = *new_clock;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(posix_timers_register_clock); */
+EXPORT_SYMBOL_GPL(posix_timers_register_clock);
 
 static struct k_itimer * alloc_posix_timer(void)
 {

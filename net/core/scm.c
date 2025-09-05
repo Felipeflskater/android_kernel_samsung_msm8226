@@ -136,7 +136,7 @@ void __scm_destroy(struct scm_cookie *scm)
 		}
 	}
 }
-/* DISABLED: EXPORT_SYMBOL(__scm_destroy); */
+EXPORT_SYMBOL(__scm_destroy);
 
 int __scm_send(struct socket *sock, struct msghdr *msg, struct scm_cookie *p)
 {
@@ -220,7 +220,7 @@ error:
 	scm_destroy(p);
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(__scm_send); */
+EXPORT_SYMBOL(__scm_send);
 
 int put_cmsg(struct msghdr * msg, int level, int type, int len, void *data)
 {
@@ -259,7 +259,7 @@ int put_cmsg(struct msghdr * msg, int level, int type, int len, void *data)
 out:
 	return err;
 }
-/* DISABLED: EXPORT_SYMBOL(put_cmsg); */
+EXPORT_SYMBOL(put_cmsg);
 
 void scm_detach_fds(struct msghdr *msg, struct scm_cookie *scm)
 {
@@ -329,7 +329,7 @@ void scm_detach_fds(struct msghdr *msg, struct scm_cookie *scm)
 	 */
 	__scm_destroy(scm);
 }
-/* DISABLED: EXPORT_SYMBOL(scm_detach_fds); */
+EXPORT_SYMBOL(scm_detach_fds);
 
 struct scm_fp_list *scm_fp_dup(struct scm_fp_list *fpl)
 {
@@ -349,4 +349,4 @@ struct scm_fp_list *scm_fp_dup(struct scm_fp_list *fpl)
 	}
 	return new_fpl;
 }
-/* DISABLED: EXPORT_SYMBOL(scm_fp_dup); */
+EXPORT_SYMBOL(scm_fp_dup);

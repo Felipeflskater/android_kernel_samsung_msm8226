@@ -55,7 +55,7 @@ int mpq_streambuffer_init(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_init); */
+EXPORT_SYMBOL(mpq_streambuffer_init);
 
 void mpq_streambuffer_terminate(struct mpq_streambuffer *sbuff)
 {
@@ -69,7 +69,7 @@ void mpq_streambuffer_terminate(struct mpq_streambuffer *sbuff)
 	wake_up_all(&sbuff->raw_data.queue);
 	wake_up_all(&sbuff->packet_data.queue);
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_terminate); */
+EXPORT_SYMBOL(mpq_streambuffer_terminate);
 
 ssize_t mpq_streambuffer_pkt_next(
 		struct mpq_streambuffer *sbuff,
@@ -90,7 +90,7 @@ ssize_t mpq_streambuffer_pkt_next(
 
 	return packet_idx;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_pkt_next); */
+EXPORT_SYMBOL(mpq_streambuffer_pkt_next);
 
 
 ssize_t mpq_streambuffer_pkt_read(
@@ -145,7 +145,7 @@ ssize_t mpq_streambuffer_pkt_read(
 
 	return read_len;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_pkt_read); */
+EXPORT_SYMBOL(mpq_streambuffer_pkt_read);
 
 
 int mpq_streambuffer_pkt_dispose(
@@ -227,7 +227,7 @@ int mpq_streambuffer_pkt_dispose(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_pkt_dispose); */
+EXPORT_SYMBOL(mpq_streambuffer_pkt_dispose);
 
 int mpq_streambuffer_pkt_write(
 			struct mpq_streambuffer *sbuff,
@@ -289,7 +289,7 @@ int mpq_streambuffer_pkt_write(
 
 	return idx;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_pkt_write); */
+EXPORT_SYMBOL(mpq_streambuffer_pkt_write);
 
 ssize_t mpq_streambuffer_data_write(
 			struct mpq_streambuffer *sbuff,
@@ -359,7 +359,7 @@ ssize_t mpq_streambuffer_data_write(
 	spin_unlock(&sbuff->raw_data.lock);
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_write); */
+EXPORT_SYMBOL(mpq_streambuffer_data_write);
 
 
 int mpq_streambuffer_data_write_deposit(
@@ -405,7 +405,7 @@ int mpq_streambuffer_data_write_deposit(
 	spin_unlock(&sbuff->raw_data.lock);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_write_deposit); */
+EXPORT_SYMBOL(mpq_streambuffer_data_write_deposit);
 
 
 ssize_t mpq_streambuffer_data_read(
@@ -468,7 +468,7 @@ ssize_t mpq_streambuffer_data_read(
 	spin_unlock(&sbuff->raw_data.lock);
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_read); */
+EXPORT_SYMBOL(mpq_streambuffer_data_read);
 
 
 ssize_t mpq_streambuffer_data_read_user(
@@ -523,7 +523,7 @@ ssize_t mpq_streambuffer_data_read_user(
 
 	return len;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_read_user); */
+EXPORT_SYMBOL(mpq_streambuffer_data_read_user);
 
 int mpq_streambuffer_data_read_dispose(
 			struct mpq_streambuffer *sbuff,
@@ -563,7 +563,7 @@ int mpq_streambuffer_data_read_dispose(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_read_dispose); */
+EXPORT_SYMBOL(mpq_streambuffer_data_read_dispose);
 
 
 int mpq_streambuffer_get_buffer_handle(
@@ -600,7 +600,7 @@ int mpq_streambuffer_get_buffer_handle(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_get_buffer_handle); */
+EXPORT_SYMBOL(mpq_streambuffer_get_buffer_handle);
 
 
 int mpq_streambuffer_register_pkt_dispose(
@@ -616,7 +616,7 @@ int mpq_streambuffer_register_pkt_dispose(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_register_pkt_dispose); */
+EXPORT_SYMBOL(mpq_streambuffer_register_pkt_dispose);
 
 
 ssize_t mpq_streambuffer_data_free(
@@ -652,7 +652,7 @@ ssize_t mpq_streambuffer_data_free(
 
 	return desc->size - desc->write_ptr;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_free); */
+EXPORT_SYMBOL(mpq_streambuffer_data_free);
 
 
 ssize_t mpq_streambuffer_data_avail(
@@ -684,7 +684,7 @@ ssize_t mpq_streambuffer_data_avail(
 
 	return desc->write_ptr - desc->read_ptr;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_data_avail); */
+EXPORT_SYMBOL(mpq_streambuffer_data_avail);
 
 int mpq_streambuffer_get_data_rw_offset(
 	struct mpq_streambuffer *sbuff,
@@ -726,4 +726,4 @@ int mpq_streambuffer_get_data_rw_offset(
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(mpq_streambuffer_get_data_rw_offset); */
+EXPORT_SYMBOL(mpq_streambuffer_get_data_rw_offset);

@@ -211,7 +211,7 @@ int snd_soc_cache_read(struct snd_soc_codec *codec,
 	mutex_unlock(&codec->cache_rw_mutex);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_cache_read); */
+EXPORT_SYMBOL_GPL(snd_soc_cache_read);
 
 /**
  * snd_soc_cache_write: Set the value of a given register in the cache.
@@ -236,7 +236,7 @@ int snd_soc_cache_write(struct snd_soc_codec *codec,
 	mutex_unlock(&codec->cache_rw_mutex);
 	return -ENOSYS;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_cache_write); */
+EXPORT_SYMBOL_GPL(snd_soc_cache_write);
 
 /**
  * snd_soc_cache_sync: Sync the register cache with the hardware.
@@ -274,7 +274,7 @@ int snd_soc_cache_sync(struct snd_soc_codec *codec)
 	trace_snd_soc_cache_sync(codec, name, "end");
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_cache_sync); */
+EXPORT_SYMBOL_GPL(snd_soc_cache_sync);
 
 static int snd_soc_get_reg_access_index(struct snd_soc_codec *codec,
 					unsigned int reg)
@@ -309,7 +309,7 @@ int snd_soc_default_volatile_register(struct snd_soc_codec *codec,
 		return 0;
 	return codec->driver->reg_access_default[index].vol;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_default_volatile_register); */
+EXPORT_SYMBOL_GPL(snd_soc_default_volatile_register);
 
 int snd_soc_default_readable_register(struct snd_soc_codec *codec,
 				      unsigned int reg)
@@ -323,7 +323,7 @@ int snd_soc_default_readable_register(struct snd_soc_codec *codec,
 		return 0;
 	return codec->driver->reg_access_default[index].read;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_default_readable_register); */
+EXPORT_SYMBOL_GPL(snd_soc_default_readable_register);
 
 int snd_soc_default_writable_register(struct snd_soc_codec *codec,
 				      unsigned int reg)
@@ -337,4 +337,4 @@ int snd_soc_default_writable_register(struct snd_soc_codec *codec,
 		return 0;
 	return codec->driver->reg_access_default[index].write;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(snd_soc_default_writable_register); */
+EXPORT_SYMBOL_GPL(snd_soc_default_writable_register);

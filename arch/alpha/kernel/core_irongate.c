@@ -406,7 +406,7 @@ irongate_ioremap(unsigned long addr, unsigned long size)
 #endif
 	return (void __iomem *)vaddr;
 }
-/* DISABLED: EXPORT_SYMBOL(irongate_ioremap); */
+EXPORT_SYMBOL(irongate_ioremap);
 
 void
 irongate_iounmap(volatile void __iomem *xaddr)
@@ -417,4 +417,4 @@ irongate_iounmap(volatile void __iomem *xaddr)
 	if (addr)
 		return vfree((void *)(PAGE_MASK & addr)); 
 }
-/* DISABLED: EXPORT_SYMBOL(irongate_iounmap); */
+EXPORT_SYMBOL(irongate_iounmap);

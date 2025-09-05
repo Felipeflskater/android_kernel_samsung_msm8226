@@ -122,7 +122,7 @@ int pm8xxx_spk_mute(bool mute)
 	ret = pm8xxx_spk_write(PM8XXX_SPK_CTL1_REG_OFF, val);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_spk_mute); */
+EXPORT_SYMBOL_GPL(pm8xxx_spk_mute);
 
 int pm8xxx_spk_gain(u8 gain)
 {
@@ -144,7 +144,7 @@ int pm8xxx_spk_gain(u8 gain)
 	}
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_spk_gain); */
+EXPORT_SYMBOL_GPL(pm8xxx_spk_gain);
 
 int pm8xxx_spk_enable(int enable)
 {
@@ -170,7 +170,7 @@ int pm8xxx_spk_enable(int enable)
 		ret = pm8xxx_spk_bank_write(addr, 6, PWM_EN_MASK);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(pm8xxx_spk_enable); */
+EXPORT_SYMBOL_GPL(pm8xxx_spk_enable);
 
 static int pm8xxx_spk_config(void)
 {

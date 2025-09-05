@@ -1208,7 +1208,7 @@ out:
 	return 1;
 }
 
-/* DISABLED: __setup("slub_debug", setup_slub_debug); */ */
+__setup("slub_debug", setup_slub_debug);
 
 static unsigned long kmem_cache_flags(unsigned long objsize,
 	unsigned long flags, const char *name,
@@ -2372,7 +2372,7 @@ void *kmem_cache_alloc(struct kmem_cache *s, gfp_t gfpflags)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc); */
+EXPORT_SYMBOL(kmem_cache_alloc);
 
 #ifdef CONFIG_TRACING
 void *kmem_cache_alloc_trace(struct kmem_cache *s, gfp_t gfpflags, size_t size)
@@ -2381,7 +2381,7 @@ void *kmem_cache_alloc_trace(struct kmem_cache *s, gfp_t gfpflags, size_t size)
 	trace_kmalloc(_RET_IP_, ret, size, s->size, gfpflags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_trace); */
+EXPORT_SYMBOL(kmem_cache_alloc_trace);
 
 void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
 {
@@ -2389,7 +2389,7 @@ void *kmalloc_order_trace(size_t size, gfp_t flags, unsigned int order)
 	trace_kmalloc(_RET_IP_, ret, size, PAGE_SIZE << order, flags);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kmalloc_order_trace); */
+EXPORT_SYMBOL(kmalloc_order_trace);
 #endif
 
 #ifdef CONFIG_NUMA
@@ -2402,7 +2402,7 @@ void *kmem_cache_alloc_node(struct kmem_cache *s, gfp_t gfpflags, int node)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_node); */
+EXPORT_SYMBOL(kmem_cache_alloc_node);
 
 #ifdef CONFIG_TRACING
 void *kmem_cache_alloc_node_trace(struct kmem_cache *s,
@@ -2415,7 +2415,7 @@ void *kmem_cache_alloc_node_trace(struct kmem_cache *s,
 			   size, s->size, gfpflags, node);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_alloc_node_trace); */
+EXPORT_SYMBOL(kmem_cache_alloc_node_trace);
 #endif
 #endif
 
@@ -2601,7 +2601,7 @@ void kmem_cache_free(struct kmem_cache *s, void *x)
 
 	trace_kmem_cache_free(_RET_IP_, x);
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_free); */
+EXPORT_SYMBOL(kmem_cache_free);
 
 /*
  * Object placement in a slab is made very easy because we always start at
@@ -3110,7 +3110,7 @@ unsigned int kmem_cache_size(struct kmem_cache *s)
 {
 	return s->objsize;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_size); */
+EXPORT_SYMBOL(kmem_cache_size);
 
 static void list_slab_objects(struct kmem_cache *s, struct page *page,
 							const char *text)
@@ -3202,14 +3202,14 @@ void kmem_cache_destroy(struct kmem_cache *s)
 	} else
 		up_write(&slub_lock);
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_destroy); */
+EXPORT_SYMBOL(kmem_cache_destroy);
 
 /********************************************************************
  *		Kmalloc subsystem
  *******************************************************************/
 
 struct kmem_cache *kmalloc_caches[SLUB_PAGE_SHIFT];
-/* DISABLED: EXPORT_SYMBOL(kmalloc_caches); */
+EXPORT_SYMBOL(kmalloc_caches);
 
 static struct kmem_cache *kmem_cache;
 
@@ -3224,7 +3224,7 @@ static int __init setup_slub_min_order(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("slub_min_order=", setup_slub_min_order); */ */
+__setup("slub_min_order=", setup_slub_min_order);
 
 static int __init setup_slub_max_order(char *str)
 {
@@ -3234,7 +3234,7 @@ static int __init setup_slub_max_order(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("slub_max_order=", setup_slub_max_order); */ */
+__setup("slub_max_order=", setup_slub_max_order);
 
 static int __init setup_slub_min_objects(char *str)
 {
@@ -3243,7 +3243,7 @@ static int __init setup_slub_min_objects(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("slub_min_objects=", setup_slub_min_objects); */ */
+__setup("slub_min_objects=", setup_slub_min_objects);
 
 static int __init setup_slub_nomerge(char *str)
 {
@@ -3251,7 +3251,7 @@ static int __init setup_slub_nomerge(char *str)
 	return 1;
 }
 
-/* DISABLED: __setup("slub_nomerge", setup_slub_nomerge); */ */
+__setup("slub_nomerge", setup_slub_nomerge);
 
 static struct kmem_cache *__init create_kmalloc_cache(const char *name,
 						int size, unsigned int flags)
@@ -3353,7 +3353,7 @@ void *__kmalloc(size_t size, gfp_t flags)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__kmalloc); */
+EXPORT_SYMBOL(__kmalloc);
 
 #ifdef CONFIG_NUMA
 static void *kmalloc_large_node(size_t size, gfp_t flags, int node)
@@ -3396,7 +3396,7 @@ void *__kmalloc_node(size_t size, gfp_t flags, int node)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(__kmalloc_node); */
+EXPORT_SYMBOL(__kmalloc_node);
 #endif
 
 size_t ksize(const void *object)
@@ -3415,7 +3415,7 @@ size_t ksize(const void *object)
 
 	return slab_ksize(page->slab);
 }
-/* DISABLED: EXPORT_SYMBOL(ksize); */
+EXPORT_SYMBOL(ksize);
 
 #ifdef CONFIG_SLUB_DEBUG
 bool verify_mem_not_deleted(const void *x)
@@ -3450,7 +3450,7 @@ out_unlock:
 	local_irq_restore(flags);
 	return rv;
 }
-/* DISABLED: EXPORT_SYMBOL(verify_mem_not_deleted); */
+EXPORT_SYMBOL(verify_mem_not_deleted);
 #endif
 
 #ifdef CONFIG_SEC_DEBUG_DOUBLE_FREE
@@ -3485,7 +3485,7 @@ void kfree(const void *x)
 	}
 	slab_free(page->slab, page, object, _RET_IP_);
 }
-/* DISABLED: EXPORT_SYMBOL(kfree); */
+EXPORT_SYMBOL(kfree);
 
 /*
  * kmem_cache_shrink removes empty slabs from the partial lists and sorts
@@ -3553,7 +3553,7 @@ int kmem_cache_shrink(struct kmem_cache *s)
 	kfree(slabs_by_inuse);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_shrink); */
+EXPORT_SYMBOL(kmem_cache_shrink);
 
 #if defined(CONFIG_MEMORY_HOTPLUG)
 static int slab_mem_going_offline_callback(void *arg)
@@ -3990,7 +3990,7 @@ err:
 		s = NULL;
 	return s;
 }
-/* DISABLED: EXPORT_SYMBOL(kmem_cache_create); */
+EXPORT_SYMBOL(kmem_cache_create);
 
 #ifdef CONFIG_SMP
 /*

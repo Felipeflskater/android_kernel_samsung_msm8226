@@ -53,7 +53,7 @@ struct ib_client_data {
 };
 
 struct workqueue_struct *ib_wq;
-/* DISABLED: EXPORT_SYMBOL_GPL(ib_wq); */
+EXPORT_SYMBOL_GPL(ib_wq);
 
 static LIST_HEAD(device_list);
 static LIST_HEAD(client_list);
@@ -179,7 +179,7 @@ struct ib_device *ib_alloc_device(size_t size)
 
 	return kzalloc(size, GFP_KERNEL);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_alloc_device); */
+EXPORT_SYMBOL(ib_alloc_device);
 
 /**
  * ib_dealloc_device - free an IB device struct
@@ -198,7 +198,7 @@ void ib_dealloc_device(struct ib_device *device)
 
 	kobject_put(&device->dev.kobj);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_dealloc_device); */
+EXPORT_SYMBOL(ib_dealloc_device);
 
 static int add_client_context(struct ib_device *device, struct ib_client *client)
 {
@@ -326,7 +326,7 @@ int ib_register_device(struct ib_device *device,
 	mutex_unlock(&device_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_register_device); */
+EXPORT_SYMBOL(ib_register_device);
 
 /**
  * ib_unregister_device - Unregister an IB device
@@ -362,7 +362,7 @@ void ib_unregister_device(struct ib_device *device)
 
 	device->reg_state = IB_DEV_UNREGISTERED;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_unregister_device); */
+EXPORT_SYMBOL(ib_unregister_device);
 
 /**
  * ib_register_client - Register an IB client
@@ -392,7 +392,7 @@ int ib_register_client(struct ib_client *client)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_register_client); */
+EXPORT_SYMBOL(ib_register_client);
 
 /**
  * ib_unregister_client - Unregister an IB client
@@ -426,7 +426,7 @@ void ib_unregister_client(struct ib_client *client)
 
 	mutex_unlock(&device_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_unregister_client); */
+EXPORT_SYMBOL(ib_unregister_client);
 
 /**
  * ib_get_client_data - Get IB client context
@@ -452,7 +452,7 @@ void *ib_get_client_data(struct ib_device *device, struct ib_client *client)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_get_client_data); */
+EXPORT_SYMBOL(ib_get_client_data);
 
 /**
  * ib_set_client_data - Set IB client context
@@ -482,7 +482,7 @@ void ib_set_client_data(struct ib_device *device, struct ib_client *client,
 out:
 	spin_unlock_irqrestore(&device->client_data_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_set_client_data); */
+EXPORT_SYMBOL(ib_set_client_data);
 
 /**
  * ib_register_event_handler - Register an IB event handler
@@ -504,7 +504,7 @@ int ib_register_event_handler  (struct ib_event_handler *event_handler)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_register_event_handler); */
+EXPORT_SYMBOL(ib_register_event_handler);
 
 /**
  * ib_unregister_event_handler - Unregister an event handler
@@ -523,7 +523,7 @@ int ib_unregister_event_handler(struct ib_event_handler *event_handler)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_unregister_event_handler); */
+EXPORT_SYMBOL(ib_unregister_event_handler);
 
 /**
  * ib_dispatch_event - Dispatch an asynchronous event
@@ -545,7 +545,7 @@ void ib_dispatch_event(struct ib_event *event)
 
 	spin_unlock_irqrestore(&event->device->event_handler_lock, flags);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_dispatch_event); */
+EXPORT_SYMBOL(ib_dispatch_event);
 
 /**
  * ib_query_device - Query IB device attributes
@@ -560,7 +560,7 @@ int ib_query_device(struct ib_device *device,
 {
 	return device->query_device(device, device_attr);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_query_device); */
+EXPORT_SYMBOL(ib_query_device);
 
 /**
  * ib_query_port - Query IB port attributes
@@ -580,7 +580,7 @@ int ib_query_port(struct ib_device *device,
 
 	return device->query_port(device, port_num, port_attr);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_query_port); */
+EXPORT_SYMBOL(ib_query_port);
 
 /**
  * ib_query_gid - Get GID table entry
@@ -596,7 +596,7 @@ int ib_query_gid(struct ib_device *device,
 {
 	return device->query_gid(device, port_num, index, gid);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_query_gid); */
+EXPORT_SYMBOL(ib_query_gid);
 
 /**
  * ib_query_pkey - Get P_Key table entry
@@ -612,7 +612,7 @@ int ib_query_pkey(struct ib_device *device,
 {
 	return device->query_pkey(device, port_num, index, pkey);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_query_pkey); */
+EXPORT_SYMBOL(ib_query_pkey);
 
 /**
  * ib_modify_device - Change IB device attributes
@@ -633,7 +633,7 @@ int ib_modify_device(struct ib_device *device,
 	return device->modify_device(device, device_modify_mask,
 				     device_modify);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_modify_device); */
+EXPORT_SYMBOL(ib_modify_device);
 
 /**
  * ib_modify_port - Modifies the attributes for the specified port.
@@ -659,7 +659,7 @@ int ib_modify_port(struct ib_device *device,
 	return device->modify_port(device, port_num, port_modify_mask,
 				   port_modify);
 }
-/* DISABLED: EXPORT_SYMBOL(ib_modify_port); */
+EXPORT_SYMBOL(ib_modify_port);
 
 /**
  * ib_find_gid - Returns the port number and GID table index where
@@ -692,7 +692,7 @@ int ib_find_gid(struct ib_device *device, union ib_gid *gid,
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_find_gid); */
+EXPORT_SYMBOL(ib_find_gid);
 
 /**
  * ib_find_pkey - Returns the PKey table index where a specified
@@ -721,7 +721,7 @@ int ib_find_pkey(struct ib_device *device,
 
 	return -ENOENT;
 }
-/* DISABLED: EXPORT_SYMBOL(ib_find_pkey); */
+EXPORT_SYMBOL(ib_find_pkey);
 
 static int __init ib_core_init(void)
 {

@@ -174,7 +174,7 @@ void dump_stack(void)
 	show_stack(NULL, NULL);
 }
 
-/* DISABLED: EXPORT_SYMBOL(dump_stack); */
+EXPORT_SYMBOL(dump_stack);
 
 void
 die_if_kernel(char * str, struct pt_regs *regs, long err, unsigned long *r9_15)

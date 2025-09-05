@@ -103,7 +103,7 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL(of_mdiobus_register); */
+EXPORT_SYMBOL(of_mdiobus_register);
 
 /* Helper function for of_phy_find_device */
 static int of_phy_match(struct device *dev, void *phy_np)
@@ -126,7 +126,7 @@ struct phy_device *of_phy_find_device(struct device_node *phy_np)
 	d = bus_find_device(&mdio_bus_type, NULL, phy_np, of_phy_match);
 	return d ? to_phy_device(d) : NULL;
 }
-/* DISABLED: EXPORT_SYMBOL(of_phy_find_device); */
+EXPORT_SYMBOL(of_phy_find_device);
 
 /**
  * of_phy_connect - Connect to the phy described in the device tree
@@ -149,7 +149,7 @@ struct phy_device *of_phy_connect(struct net_device *dev,
 
 	return phy_connect_direct(dev, phy, hndlr, flags, iface) ? NULL : phy;
 }
-/* DISABLED: EXPORT_SYMBOL(of_phy_connect); */
+EXPORT_SYMBOL(of_phy_connect);
 
 /**
  * of_phy_connect_fixed_link - Parse fixed-link property and return a dummy phy
@@ -187,4 +187,4 @@ struct phy_device *of_phy_connect_fixed_link(struct net_device *dev,
 	phy = phy_connect(dev, bus_id, hndlr, 0, iface);
 	return IS_ERR(phy) ? NULL : phy;
 }
-/* DISABLED: EXPORT_SYMBOL(of_phy_connect_fixed_link); */
+EXPORT_SYMBOL(of_phy_connect_fixed_link);

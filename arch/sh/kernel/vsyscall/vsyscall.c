@@ -24,14 +24,14 @@
  * address down to glibc upon exec()?
  */
 unsigned int __read_mostly vdso_enabled = 1;
-/* DISABLED: EXPORT_SYMBOL_GPL(vdso_enabled); */
+EXPORT_SYMBOL_GPL(vdso_enabled);
 
 static int __init vdso_setup(char *s)
 {
 	vdso_enabled = simple_strtoul(s, NULL, 0);
 	return 1;
 }
-/* DISABLED: __setup("vdso=", vdso_setup); */ */
+__setup("vdso=", vdso_setup);
 
 /*
  * These symbols are defined by vsyscall.o to mark the bounds

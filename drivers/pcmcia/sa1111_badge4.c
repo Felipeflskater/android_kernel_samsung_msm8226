@@ -163,4 +163,4 @@ static int __init pcmv_setup(char *s)
 	return 1;
 }
 
-/* DISABLED: __setup("pcmv=", pcmv_setup); */ */
+__setup("pcmv=", pcmv_setup);

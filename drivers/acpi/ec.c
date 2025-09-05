@@ -118,7 +118,7 @@ struct transaction {
 };
 
 struct acpi_ec *boot_ec, *first_ec;
-/* DISABLED: EXPORT_SYMBOL(first_ec); */
+EXPORT_SYMBOL(first_ec);
 
 static int EC_FLAGS_MSI; /* Out-of-spec MSI controller */
 static int EC_FLAGS_VALIDATE_ECDT; /* ASUStec ECDTs need to be validated */
@@ -390,7 +390,7 @@ int ec_burst_enable(void)
 	return acpi_ec_burst_enable(first_ec);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_burst_enable); */
+EXPORT_SYMBOL(ec_burst_enable);
 
 int ec_burst_disable(void)
 {
@@ -399,7 +399,7 @@ int ec_burst_disable(void)
 	return acpi_ec_burst_disable(first_ec);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_burst_disable); */
+EXPORT_SYMBOL(ec_burst_disable);
 
 int ec_read(u8 addr, u8 * val)
 {
@@ -418,7 +418,7 @@ int ec_read(u8 addr, u8 * val)
 		return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_read); */
+EXPORT_SYMBOL(ec_read);
 
 int ec_write(u8 addr, u8 val)
 {
@@ -432,7 +432,7 @@ int ec_write(u8 addr, u8 val)
 	return err;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_write); */
+EXPORT_SYMBOL(ec_write);
 
 int ec_transaction(u8 command,
 		   const u8 * wdata, unsigned wdata_len,
@@ -447,7 +447,7 @@ int ec_transaction(u8 command,
 	return acpi_ec_transaction(first_ec, &t);
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_transaction); */
+EXPORT_SYMBOL(ec_transaction);
 
 /* Get the handle to the EC device */
 acpi_handle ec_get_handle(void)
@@ -457,7 +457,7 @@ acpi_handle ec_get_handle(void)
 	return first_ec->handle;
 }
 
-/* DISABLED: EXPORT_SYMBOL(ec_get_handle); */
+EXPORT_SYMBOL(ec_get_handle);
 
 void acpi_ec_block_transactions(void)
 {
@@ -540,7 +540,7 @@ int acpi_ec_add_query_handler(struct acpi_ec *ec, u8 query_bit,
 	return 0;
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_ec_add_query_handler); */
+EXPORT_SYMBOL_GPL(acpi_ec_add_query_handler);
 
 void acpi_ec_remove_query_handler(struct acpi_ec *ec, u8 query_bit)
 {
@@ -555,7 +555,7 @@ void acpi_ec_remove_query_handler(struct acpi_ec *ec, u8 query_bit)
 	mutex_unlock(&ec->lock);
 }
 
-/* DISABLED: EXPORT_SYMBOL_GPL(acpi_ec_remove_query_handler); */
+EXPORT_SYMBOL_GPL(acpi_ec_remove_query_handler);
 
 static void acpi_ec_run(void *cxt)
 {

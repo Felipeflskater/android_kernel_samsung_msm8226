@@ -430,43 +430,43 @@ module_param_string(dhd_sdiod_uhsi_ds_override, dhd_sdiod_uhsi_ds_override, 2, 0
 #endif
 
 #ifdef BCMSDH_MODULE
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_attach); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_detach); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_query); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_enable); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_disable); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_reg); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_dereg); */
+EXPORT_SYMBOL(bcmsdh_attach);
+EXPORT_SYMBOL(bcmsdh_detach);
+EXPORT_SYMBOL(bcmsdh_intr_query);
+EXPORT_SYMBOL(bcmsdh_intr_enable);
+EXPORT_SYMBOL(bcmsdh_intr_disable);
+EXPORT_SYMBOL(bcmsdh_intr_reg);
+EXPORT_SYMBOL(bcmsdh_intr_dereg);
 
 #if defined(DHD_DEBUG)
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_intr_pending); */
+EXPORT_SYMBOL(bcmsdh_intr_pending);
 #endif
 
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_devremove_reg); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cfg_read); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cfg_write); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cis_read); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_reg_read); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_reg_write); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_regfail); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_send_buf); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_recv_buf); */
+EXPORT_SYMBOL(bcmsdh_devremove_reg);
+EXPORT_SYMBOL(bcmsdh_cfg_read);
+EXPORT_SYMBOL(bcmsdh_cfg_write);
+EXPORT_SYMBOL(bcmsdh_cis_read);
+EXPORT_SYMBOL(bcmsdh_reg_read);
+EXPORT_SYMBOL(bcmsdh_reg_write);
+EXPORT_SYMBOL(bcmsdh_regfail);
+EXPORT_SYMBOL(bcmsdh_send_buf);
+EXPORT_SYMBOL(bcmsdh_recv_buf);
 
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_rwdata); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_abort); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_query_device); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_query_iofnum); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_iovar_op); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_register); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_unregister); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_chipmatch); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_reset); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_waitlockfree); */
+EXPORT_SYMBOL(bcmsdh_rwdata);
+EXPORT_SYMBOL(bcmsdh_abort);
+EXPORT_SYMBOL(bcmsdh_query_device);
+EXPORT_SYMBOL(bcmsdh_query_iofnum);
+EXPORT_SYMBOL(bcmsdh_iovar_op);
+EXPORT_SYMBOL(bcmsdh_register);
+EXPORT_SYMBOL(bcmsdh_unregister);
+EXPORT_SYMBOL(bcmsdh_chipmatch);
+EXPORT_SYMBOL(bcmsdh_reset);
+EXPORT_SYMBOL(bcmsdh_waitlockfree);
 
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_get_dstatus); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cfg_read_word); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cfg_write_word); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_cur_sbwad); */
-/* DISABLED: EXPORT_SYMBOL(bcmsdh_chipinfo); */
+EXPORT_SYMBOL(bcmsdh_get_dstatus);
+EXPORT_SYMBOL(bcmsdh_cfg_read_word);
+EXPORT_SYMBOL(bcmsdh_cfg_write_word);
+EXPORT_SYMBOL(bcmsdh_cur_sbwad);
+EXPORT_SYMBOL(bcmsdh_chipinfo);
 
 #endif /* BCMSDH_MODULE */

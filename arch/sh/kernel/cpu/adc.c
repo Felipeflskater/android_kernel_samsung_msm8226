@@ -33,4 +33,4 @@ int adc_single(unsigned int channel)
 		__raw_readb(ADDRAL + off)) >> 6);
 }
 
-/* DISABLED: EXPORT_SYMBOL(adc_single); */
+EXPORT_SYMBOL(adc_single);

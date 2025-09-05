@@ -494,7 +494,7 @@ void DoCMilPlus_init(struct mtd_info *mtd)
 		return;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(DoCMilPlus_init); */
+EXPORT_SYMBOL_GPL(DoCMilPlus_init);
 
 #if 0
 static int doc_dumpblk(struct mtd_info *mtd, loff_t from)

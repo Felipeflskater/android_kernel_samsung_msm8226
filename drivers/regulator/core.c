@@ -1338,7 +1338,7 @@ struct regulator *regulator_get(struct device *dev, const char *id)
 {
 	return _regulator_get(dev, id, 0);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get); */
+EXPORT_SYMBOL_GPL(regulator_get);
 
 static void devm_regulator_release(struct device *dev, void *res)
 {
@@ -1372,7 +1372,7 @@ struct regulator *devm_regulator_get(struct device *dev, const char *id)
 
 	return regulator;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(devm_regulator_get); */
+EXPORT_SYMBOL_GPL(devm_regulator_get);
 
 /**
  * regulator_get_exclusive - obtain exclusive access to a regulator.
@@ -1399,7 +1399,7 @@ struct regulator *regulator_get_exclusive(struct device *dev, const char *id)
 {
 	return _regulator_get(dev, id, 1);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_exclusive); */
+EXPORT_SYMBOL_GPL(regulator_get_exclusive);
 
 /**
  * regulator_put - "free" the regulator source
@@ -1439,7 +1439,7 @@ void regulator_put(struct regulator *regulator)
 	module_put(rdev->owner);
 	mutex_unlock(&regulator_list_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_put); */
+EXPORT_SYMBOL_GPL(regulator_put);
 
 static int devm_regulator_match(struct device *dev, void *res, void *data)
 {
@@ -1470,7 +1470,7 @@ void devm_regulator_put(struct regulator *regulator)
 	else
 		WARN_ON(rc);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(devm_regulator_put); */
+EXPORT_SYMBOL_GPL(devm_regulator_put);
 
 static int _regulator_can_change_status(struct regulator_dev *rdev)
 {
@@ -1581,7 +1581,7 @@ int regulator_enable(struct regulator *regulator)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_enable); */
+EXPORT_SYMBOL_GPL(regulator_enable);
 
 /* locks held by regulator_disable() */
 static int _regulator_disable(struct regulator_dev *rdev)
@@ -1655,7 +1655,7 @@ int regulator_disable(struct regulator *regulator)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_disable); */
+EXPORT_SYMBOL_GPL(regulator_disable);
 
 /* locks held by regulator_force_disable() */
 static int _regulator_force_disable(struct regulator_dev *rdev)
@@ -1703,7 +1703,7 @@ int regulator_force_disable(struct regulator *regulator)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_force_disable); */
+EXPORT_SYMBOL_GPL(regulator_force_disable);
 
 static void regulator_disable_work(struct work_struct *work)
 {
@@ -1765,7 +1765,7 @@ int regulator_disable_deferred(struct regulator *regulator, int ms)
 	else
 		return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_disable_deferred); */
+EXPORT_SYMBOL_GPL(regulator_disable_deferred);
 
 static int _regulator_is_enabled(struct regulator_dev *rdev)
 {
@@ -1798,7 +1798,7 @@ int regulator_is_enabled(struct regulator *regulator)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_is_enabled); */
+EXPORT_SYMBOL_GPL(regulator_is_enabled);
 
 /**
  * regulator_count_voltages - count regulator_list_voltage() selectors
@@ -1814,7 +1814,7 @@ int regulator_count_voltages(struct regulator *regulator)
 
 	return rdev->desc->n_voltages ? : -EINVAL;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_count_voltages); */
+EXPORT_SYMBOL_GPL(regulator_count_voltages);
 
 /**
  * regulator_list_voltage - enumerate supported voltages
@@ -1848,7 +1848,7 @@ int regulator_list_voltage(struct regulator *regulator, unsigned selector)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_list_voltage); */
+EXPORT_SYMBOL_GPL(regulator_list_voltage);
 
 /**
  * regulator_is_supported_voltage - check if a voltage range can be supported
@@ -1878,7 +1878,7 @@ int regulator_is_supported_voltage(struct regulator *regulator,
 
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_is_supported_voltage); */
+EXPORT_SYMBOL_GPL(regulator_is_supported_voltage);
 
 static int _regulator_do_set_voltage(struct regulator_dev *rdev,
 				     int min_uV, int max_uV)
@@ -2037,7 +2037,7 @@ out2:
 	mutex_unlock(&rdev->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_voltage); */
+EXPORT_SYMBOL_GPL(regulator_set_voltage);
 
 /**
  * regulator_set_voltage_time - get raise/fall time
@@ -2082,7 +2082,7 @@ int regulator_set_voltage_time(struct regulator *regulator,
 
 	return ops->set_voltage_time_sel(rdev, old_sel, new_sel);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_voltage_time); */
+EXPORT_SYMBOL_GPL(regulator_set_voltage_time);
 
 /**
  * regulator_sync_voltage - re-apply last regulator output voltage
@@ -2129,7 +2129,7 @@ out:
 	mutex_unlock(&rdev->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_sync_voltage); */
+EXPORT_SYMBOL_GPL(regulator_sync_voltage);
 
 static int _regulator_get_voltage(struct regulator_dev *rdev)
 {
@@ -2172,7 +2172,7 @@ int regulator_get_voltage(struct regulator *regulator)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_voltage); */
+EXPORT_SYMBOL_GPL(regulator_get_voltage);
 
 /**
  * regulator_set_current_limit - set regulator output current limit
@@ -2214,7 +2214,7 @@ out:
 	mutex_unlock(&rdev->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_current_limit); */
+EXPORT_SYMBOL_GPL(regulator_set_current_limit);
 
 static int _regulator_get_current_limit(struct regulator_dev *rdev)
 {
@@ -2247,7 +2247,7 @@ int regulator_get_current_limit(struct regulator *regulator)
 {
 	return _regulator_get_current_limit(regulator->rdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_current_limit); */
+EXPORT_SYMBOL_GPL(regulator_get_current_limit);
 
 /**
  * regulator_set_mode - set regulator operating mode
@@ -2293,7 +2293,7 @@ out:
 	mutex_unlock(&rdev->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_mode); */
+EXPORT_SYMBOL_GPL(regulator_set_mode);
 
 static unsigned int _regulator_get_mode(struct regulator_dev *rdev)
 {
@@ -2338,7 +2338,7 @@ unsigned int regulator_get_mode(struct regulator *regulator)
 {
 	return _regulator_get_mode(regulator->rdev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_mode); */
+EXPORT_SYMBOL_GPL(regulator_get_mode);
 
 /**
  * regulator_set_optimum_mode - set regulator optimum operating mode
@@ -2437,7 +2437,7 @@ out:
 	mutex_unlock(&rdev->mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_optimum_mode); */
+EXPORT_SYMBOL_GPL(regulator_set_optimum_mode);
 
 /**
  * regulator_register_notifier - register regulator event notifier
@@ -2452,7 +2452,7 @@ int regulator_register_notifier(struct regulator *regulator,
 	return blocking_notifier_chain_register(&regulator->rdev->notifier,
 						nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_register_notifier); */
+EXPORT_SYMBOL_GPL(regulator_register_notifier);
 
 /**
  * regulator_unregister_notifier - unregister regulator event notifier
@@ -2467,7 +2467,7 @@ int regulator_unregister_notifier(struct regulator *regulator,
 	return blocking_notifier_chain_unregister(&regulator->rdev->notifier,
 						  nb);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_unregister_notifier); */
+EXPORT_SYMBOL_GPL(regulator_unregister_notifier);
 
 /* notify regulator consumers and downstream regulator consumers.
  * Note mutex must be held by caller.
@@ -2522,7 +2522,7 @@ err:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_get); */
+EXPORT_SYMBOL_GPL(regulator_bulk_get);
 
 /**
  * devm_regulator_bulk_get - managed get multiple regulator consumers
@@ -2568,7 +2568,7 @@ err:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(devm_regulator_bulk_get); */
+EXPORT_SYMBOL_GPL(devm_regulator_bulk_get);
 
 static void regulator_bulk_enable_async(void *data, async_cookie_t cookie)
 {
@@ -2619,7 +2619,7 @@ err:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_enable); */
+EXPORT_SYMBOL_GPL(regulator_bulk_enable);
 
 /**
  * regulator_bulk_set_voltage - set voltage for multiple regulator consumers
@@ -2655,7 +2655,7 @@ err:
 	pr_err("Failed to set voltage for %s: %d\n", consumers[i].supply, rc);
 	return rc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_set_voltage); */
+EXPORT_SYMBOL_GPL(regulator_bulk_set_voltage);
 
 /**
  * regulator_bulk_disable - disable multiple regulator consumers
@@ -2690,7 +2690,7 @@ err:
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_disable); */
+EXPORT_SYMBOL_GPL(regulator_bulk_disable);
 
 /**
  * regulator_bulk_force_disable - force disable multiple regulator consumers
@@ -2727,7 +2727,7 @@ int regulator_bulk_force_disable(int num_consumers,
 out:
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_force_disable); */
+EXPORT_SYMBOL_GPL(regulator_bulk_force_disable);
 
 /**
  * regulator_bulk_free - free multiple regulator consumers
@@ -2748,7 +2748,7 @@ void regulator_bulk_free(int num_consumers,
 		consumers[i].consumer = NULL;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_bulk_free); */
+EXPORT_SYMBOL_GPL(regulator_bulk_free);
 
 /**
  * regulator_notifier_call_chain - call regulator event notifier
@@ -2767,7 +2767,7 @@ int regulator_notifier_call_chain(struct regulator_dev *rdev,
 	return NOTIFY_DONE;
 
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_notifier_call_chain); */
+EXPORT_SYMBOL_GPL(regulator_notifier_call_chain);
 
 /**
  * regulator_mode_to_status - convert a regulator mode into a status
@@ -2791,7 +2791,7 @@ int regulator_mode_to_status(unsigned int mode)
 		return 0;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_mode_to_status); */
+EXPORT_SYMBOL_GPL(regulator_mode_to_status);
 
 /*
  * To avoid cluttering sysfs (and memory) with useless state, only
@@ -3477,7 +3477,7 @@ clean:
 	rdev = ERR_PTR(ret);
 	goto out;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_register); */
+EXPORT_SYMBOL_GPL(regulator_register);
 
 /**
  * regulator_unregister - unregister regulator
@@ -3502,7 +3502,7 @@ void regulator_unregister(struct regulator_dev *rdev)
 	device_unregister(&rdev->dev);
 	mutex_unlock(&regulator_list_mutex);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_unregister); */
+EXPORT_SYMBOL_GPL(regulator_unregister);
 
 /**
  * regulator_suspend_prepare - prepare regulators for system wide suspend
@@ -3536,7 +3536,7 @@ out:
 	mutex_unlock(&regulator_list_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_suspend_prepare); */
+EXPORT_SYMBOL_GPL(regulator_suspend_prepare);
 
 /**
  * regulator_suspend_finish - resume regulators from system wide suspend
@@ -3577,7 +3577,7 @@ unlock:
 	mutex_unlock(&regulator_list_mutex);
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_suspend_finish); */
+EXPORT_SYMBOL_GPL(regulator_suspend_finish);
 
 /**
  * regulator_has_full_constraints - the system has fully specified constraints
@@ -3594,7 +3594,7 @@ void regulator_has_full_constraints(void)
 {
 	has_full_constraints = 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_has_full_constraints); */
+EXPORT_SYMBOL_GPL(regulator_has_full_constraints);
 
 /**
  * regulator_use_dummy_regulator - Provide a dummy regulator when none is found
@@ -3610,7 +3610,7 @@ void regulator_use_dummy_regulator(void)
 {
 	board_wants_dummy_regulator = true;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_use_dummy_regulator); */
+EXPORT_SYMBOL_GPL(regulator_use_dummy_regulator);
 
 /**
  * regulator_suppress_info_printing - disable printing of info messages
@@ -3626,7 +3626,7 @@ void regulator_suppress_info_printing(void)
 {
 	suppress_info_printing = 1;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_suppress_info_printing); */
+EXPORT_SYMBOL_GPL(regulator_suppress_info_printing);
 
 /**
  * rdev_get_drvdata - get rdev regulator driver data
@@ -3639,7 +3639,7 @@ void *rdev_get_drvdata(struct regulator_dev *rdev)
 {
 	return rdev->reg_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rdev_get_drvdata); */
+EXPORT_SYMBOL_GPL(rdev_get_drvdata);
 
 /**
  * regulator_get_drvdata - get regulator driver data
@@ -3652,7 +3652,7 @@ void *regulator_get_drvdata(struct regulator *regulator)
 {
 	return regulator->rdev->reg_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_drvdata); */
+EXPORT_SYMBOL_GPL(regulator_get_drvdata);
 
 /**
  * regulator_set_drvdata - set regulator driver data
@@ -3663,7 +3663,7 @@ void regulator_set_drvdata(struct regulator *regulator, void *data)
 {
 	regulator->rdev->reg_data = data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_set_drvdata); */
+EXPORT_SYMBOL_GPL(regulator_set_drvdata);
 
 /**
  * regulator_get_id - get regulator ID
@@ -3673,19 +3673,19 @@ int rdev_get_id(struct regulator_dev *rdev)
 {
 	return rdev->desc->id;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rdev_get_id); */
+EXPORT_SYMBOL_GPL(rdev_get_id);
 
 struct device *rdev_get_dev(struct regulator_dev *rdev)
 {
 	return &rdev->dev;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(rdev_get_dev); */
+EXPORT_SYMBOL_GPL(rdev_get_dev);
 
 void *regulator_get_init_drvdata(struct regulator_init_data *reg_init_data)
 {
 	return reg_init_data->driver_data;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(regulator_get_init_drvdata); */
+EXPORT_SYMBOL_GPL(regulator_get_init_drvdata);
 
 #ifdef CONFIG_DEBUG_FS
 static ssize_t supply_map_read_file(struct file *file, char __user *user_buf,

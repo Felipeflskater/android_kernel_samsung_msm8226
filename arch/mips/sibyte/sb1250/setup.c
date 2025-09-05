@@ -31,10 +31,10 @@
 unsigned int sb1_pass;
 unsigned int soc_pass;
 unsigned int soc_type;
-/* DISABLED: EXPORT_SYMBOL(soc_type); */
+EXPORT_SYMBOL(soc_type);
 unsigned int periph_rev;
 unsigned int zbbus_mhz;
-/* DISABLED: EXPORT_SYMBOL(zbbus_mhz); */
+EXPORT_SYMBOL(zbbus_mhz);
 
 static char *soc_str;
 static char *pass_str;

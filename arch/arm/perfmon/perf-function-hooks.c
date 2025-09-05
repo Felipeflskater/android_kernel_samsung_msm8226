@@ -40,9 +40,9 @@ VPVF pp_interrupt_out_ptr;
 VPVF pp_interrupt_in_ptr;
 VPULF pp_process_remove_ptr;
 unsigned int pp_loaded;
-/* DISABLED: EXPORT_SYMBOL(pp_loaded); */
+EXPORT_SYMBOL(pp_loaded);
 atomic_t pm_op_lock;
-/* DISABLED: EXPORT_SYMBOL(pm_op_lock); */
+EXPORT_SYMBOL(pm_op_lock);
 
 /*
 FUNCTION  VARIOUS
@@ -64,18 +64,18 @@ void perf_mon_interrupt_out(void)
   if (pp_loaded)
 	(*pp_interrupt_out_ptr)();
 }
-/* DISABLED: EXPORT_SYMBOL(pp_interrupt_out_ptr); */
+EXPORT_SYMBOL(pp_interrupt_out_ptr);
 
 void perf_mon_interrupt_in(void)
 {
   if (pp_loaded)
 	(*pp_interrupt_in_ptr)();
 }
-/* DISABLED: EXPORT_SYMBOL(pp_interrupt_in_ptr); */
+EXPORT_SYMBOL(pp_interrupt_in_ptr);
 
 void per_process_remove(unsigned long pid)
 {
   if (pp_loaded)
 		(*pp_process_remove_ptr)(pid);
 }
-/* DISABLED: EXPORT_SYMBOL(pp_process_remove_ptr); */
+EXPORT_SYMBOL(pp_process_remove_ptr);

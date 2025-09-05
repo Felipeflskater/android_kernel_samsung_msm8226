@@ -148,7 +148,7 @@ void w1_write_8(struct w1_master *dev, u8 byte)
 		}
 	w1_post_write(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_write_8); */
+EXPORT_SYMBOL_GPL(w1_write_8);
 
 
 /**
@@ -235,7 +235,7 @@ u8 w1_read_8(struct w1_master *dev)
 
 	return res;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_read_8); */
+EXPORT_SYMBOL_GPL(w1_read_8);
 
 /**
  * Writes a series of bytes.
@@ -257,7 +257,7 @@ void w1_write_block(struct w1_master *dev, const u8 *buf, int len)
 			w1_write_8(dev, buf[i]); /* calls w1_pre_write */
 	w1_post_write(dev);
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_write_block); */
+EXPORT_SYMBOL_GPL(w1_write_block);
 
 /**
  * Touches a series of bytes.
@@ -282,7 +282,7 @@ void w1_touch_block(struct w1_master *dev, u8 *buf, int len)
 		buf[i] = tmp;
 	}
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_touch_block); */
+EXPORT_SYMBOL_GPL(w1_touch_block);
 
 /**
  * Reads a series of bytes.
@@ -307,7 +307,7 @@ u8 w1_read_block(struct w1_master *dev, u8 *buf, int len)
 
 	return ret;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_read_block); */
+EXPORT_SYMBOL_GPL(w1_read_block);
 
 /**
  * Issues a reset bus sequence.
@@ -345,7 +345,7 @@ int w1_reset_bus(struct w1_master *dev)
 
 	return result;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_reset_bus); */
+EXPORT_SYMBOL_GPL(w1_reset_bus);
 
 u8 w1_calc_crc8(u8 * data, int len)
 {
@@ -356,7 +356,7 @@ u8 w1_calc_crc8(u8 * data, int len)
 
 	return crc;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_calc_crc8); */
+EXPORT_SYMBOL_GPL(w1_calc_crc8);
 
 void w1_search_devices(struct w1_master *dev, u8 search_type, w1_slave_found_callback cb)
 {
@@ -385,7 +385,7 @@ int w1_reset_overdrive_select_slave(struct w1_slave *sl)
 	w1_write_8(sl->master, W1_OVSKIP_ROM);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_reset_overdrive_select_slave); */
+EXPORT_SYMBOL_GPL(w1_reset_overdrive_select_slave);
 #endif
 
 /**
@@ -412,7 +412,7 @@ int w1_reset_select_slave(struct w1_slave *sl)
 	}
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_reset_select_slave); */
+EXPORT_SYMBOL_GPL(w1_reset_select_slave);
 
 /**
  * When the workflow with a slave amongst many requires several
@@ -438,7 +438,7 @@ int w1_reset_resume_command(struct w1_master *dev)
 	w1_write_8(dev, W1_RESUME_CMD);
 	return 0;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_reset_resume_command); */
+EXPORT_SYMBOL_GPL(w1_reset_resume_command);
 
 /**
  * Put out a strong pull-up of the specified duration after the next write
@@ -455,4 +455,4 @@ void w1_next_pullup(struct w1_master *dev, int delay)
 {
 	dev->pullup_duration = delay;
 }
-/* DISABLED: EXPORT_SYMBOL_GPL(w1_next_pullup); */
+EXPORT_SYMBOL_GPL(w1_next_pullup);

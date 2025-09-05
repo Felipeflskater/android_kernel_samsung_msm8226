@@ -363,7 +363,7 @@ static int __init mx35_3ds_otg_mode(char *options)
 			"Defaulting to device\n");
 	return 0;
 }
-/* DISABLED: __setup("otg_mode=", mx35_3ds_otg_mode); */ */
+__setup("otg_mode=", mx35_3ds_otg_mode);
 
 static const struct imxi2c_platform_data mx35_3ds_i2c0_data __initconst = {
 	.bitrate = 100000,

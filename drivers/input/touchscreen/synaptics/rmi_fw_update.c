@@ -1779,7 +1779,7 @@ int synaptics_fw_updater(unsigned char *fw_data)
 
 	return retval;
 }
-/* DISABLED: EXPORT_SYMBOL(synaptics_fw_updater); */
+EXPORT_SYMBOL(synaptics_fw_updater);
 
 #if 0
 static void fwu_startup_fw_update_work(struct work_struct *work)
